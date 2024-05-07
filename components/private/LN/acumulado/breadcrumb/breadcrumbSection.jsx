@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
-import { generatePathStructure } from './generatePathStructure';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbSection({ sectionId, host, colorCategory }) {
-    const sections = generatePathStructure(sectionId);
+    const { sections } = useContent({
+        sourceName: 'navigationTreeSource',
+        query: {
+            website: 'la-nacion-ar',
+            sectionId
+        },
+        staticMode: true
+    }) || { sections: [] };
 
     return (
         <>
