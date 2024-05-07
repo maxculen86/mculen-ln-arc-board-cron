@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import { SITE_FOODIT } from 'fusion:environment';
 import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
@@ -39,6 +40,13 @@ const getCardConfig = (config, articleData) => {
         withSection,
         href
     };
+};
+
+export const getArticleHref = (article, href, isFoodit) => {
+    const defaultUrl = get(article, 'website_url', '');
+    return isFoodit
+        ? `${SITE_FOODIT}${href}${defaultUrl}`
+        : `${href}${defaultUrl}`;
 };
 
 export const getTitleAndLeadForHome = (

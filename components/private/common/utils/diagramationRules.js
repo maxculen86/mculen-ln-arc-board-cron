@@ -1,5 +1,3 @@
-import { SITE_FOODIT } from 'fusion:environment';
-
 export const size = {
     XS: 'xs',
     S: 's',
@@ -1419,7 +1417,6 @@ const diagramationRules = diagramation => {
                 cardSize: '2xl',
                 imageConfig: size.T1,
                 isLoadWithPicture: true,
-                href: SITE_FOODIT,
                 hideBadget: true,
                 imagePosition: {
                     mobile: img.top,
@@ -1441,7 +1438,6 @@ const diagramationRules = diagramation => {
                 cardSize: size.ML,
                 imageConfig: size.XS,
                 isLoadWithPicture: true,
-                href: SITE_FOODIT,
                 hideBadget: true
             },
             {
@@ -1456,7 +1452,6 @@ const diagramationRules = diagramation => {
                 cardSize: size.ML,
                 imageConfig: size.XS,
                 isLoadWithPicture: true,
-                href: SITE_FOODIT,
                 hideBadget: true
             },
             {
@@ -1471,7 +1466,6 @@ const diagramationRules = diagramation => {
                 cardSize: size.ML,
                 imageConfig: size.XS,
                 isLoadWithPicture: true,
-                href: SITE_FOODIT,
                 hideBadget: true
             }
         ]

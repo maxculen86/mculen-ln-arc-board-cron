@@ -7,7 +7,6 @@ import getDomain from '../../../common/utils/getDomain';
 import get from '../../../common/utils/get';
 import getTooltip from '../../common/utils/getTooltip';
 import { GlobalContext } from '../../../common/context/globalContext';
-import useSiteServices from '../../../../features/LN-10-global/hooks/useSiteServices';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     if (section) {
@@ -36,7 +35,8 @@ const BreadcrumbArticle = ({
     } = {},
     siteProperties: { title: siteTitle, host }
 }) => {
-    const siteService = useSiteServices() || {};
+    const gc = useContext(GlobalContext);
+    const siteService = get(gc, 'state.siteService', {});
 
     let allSections = [];
     if (primary_section) {

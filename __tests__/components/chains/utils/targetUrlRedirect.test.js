@@ -2,12 +2,7 @@ import { targetUrlRedirect } from '../../../../components/chains/utils/targetUrl
 
 describe('targetUrlRedirect function', () => {
     it('should return "_self" for URLs starting with SITE_LANACION', () => {
-        //el resultado es blank porque se esta probando en PB SANDBOX
-        //el target es _self para el dominio del entorno que se prueba
-        // sandbox: sandbox.lanacion
-        // develop: dev.lanacion
-        // prod: lanacion.com.ar
-        const SITE_LANACION = 'https://lanacion.com.ar';
+        const SITE_LANACION = 'https://google.com.ar';
         const url = `${SITE_LANACION}/campo`;
 
         const result = targetUrlRedirect(url);

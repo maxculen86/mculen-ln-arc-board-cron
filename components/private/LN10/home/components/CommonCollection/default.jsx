@@ -8,11 +8,11 @@ import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig, {
+    getArticleHref,
     getBadge,
     getTitleAndLeadForHome,
     setFinalClassName
 } from './_helper';
-import get from '../../../../common/utils/get';
 
 import {
     getDataAttributesForViewability,
@@ -87,7 +87,7 @@ export default function CommonCollection({
                             marquee={marquee}
                             marqueeImg={marqueeImg}
                             subhead={subhead}
-                            href={getArticleHref(article, href)}
+                            href={getArticleHref(article, href, isFoodit)}
                             mediaData={mediaData}
                             cardSize={isContentLab100 ? '4xl' : cardSize}
                             imagePosition={imagePosition}
@@ -108,8 +108,3 @@ export default function CommonCollection({
         </>
     );
 }
-
-const getArticleHref = (article, href) => {
-    const defaultUrl = get(article, 'website_url', '');
-    return href ? `${href}${defaultUrl}` : defaultUrl;
-};

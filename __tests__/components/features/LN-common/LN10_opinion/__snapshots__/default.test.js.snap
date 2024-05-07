@@ -37,7 +37,6 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
             <div
               class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
               roof-group="right"
-              target="_blank"
             />
           </div>
         </div>

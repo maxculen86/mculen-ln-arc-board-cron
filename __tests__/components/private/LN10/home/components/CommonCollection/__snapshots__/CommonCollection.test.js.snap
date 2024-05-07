@@ -27,13 +27,11 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
       <div
         class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
         roof-group="right"
-        target="_blank"
       />
     </div>
   </div>
   <section
     class="ln-bngrid pb-16 --bn-4-8"
-    target="_blank"
   >
     <div
       class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"

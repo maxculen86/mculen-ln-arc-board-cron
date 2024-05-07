@@ -7,13 +7,6 @@ import { render } from '@testing-library/react';
 import { useHeaderContext } from '../../../../../../../../components/features/LN-10-global/header/context';
 import useTermica from '../../../../../../../../components/private/common/hooks/useTermica';
 import handleCookie from '../../../../../../../../components/private/LN/common/utils/handleCookie';
-import useSiteServices from '../../../../../../../../components/features/LN-10-global/hooks/useSiteServices';
-import siteServicesMock from '../../../../../../../../__mocks__/data/siteServices/siteServices.json';
-
-jest.mock(
-    '../../../../../../../../components/features/LN-10-global/hooks/useSiteServices',
-    () => jest.fn()
-);
 
 jest.mock(
     '../../../../../../../../components/private/common/hooks/useTermica',
@@ -58,10 +51,6 @@ jest.mock('react', () => ({
         }
     }))
 }));
-
-useSiteServices.mockImplementation(() => {
-    return siteServicesMock;
-});
 
 xdescribe('components - features - LN-10-global - header - mainHeader - rightOptions - UpsellingButton', () => {
     afterAll(() => {
