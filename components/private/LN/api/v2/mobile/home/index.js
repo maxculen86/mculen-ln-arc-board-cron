@@ -1,5 +1,6 @@
 import get from '../../../../../common/utils/get';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { generateHashContentVersion } from '../../../common/utils/contentVersionGenerator';
 import { Article as ArticleLN10 } from './article/index';
 import { ExternalArticle } from '../../../v1/mobile/home/externalArticle';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
@@ -186,11 +187,15 @@ const index = (
     }, []);
 
     const resultWithoutEmptyItems = removeEmptyItems(ArticlesbyBox);
+    const hashContentVersion = generateHashContentVersion(
+        resultWithoutEmptyItems
+    );
 
     return [
         {
             metadata: {
-                paginate: false
+                paginate: false,
+                contentVersion: hashContentVersion
             },
             items: resultWithoutEmptyItems
         }
