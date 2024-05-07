@@ -133,7 +133,7 @@ const Opinion = props => {
     ] = cardsOpinionBottom;
 
     return (
-        <Static id={featureId} htmlOnly={false}>
+        <Static id={featureId} htmlOnly>
             <div {...extraOptsDiv}>
                 {setRender({
                     chainId: featureId,
