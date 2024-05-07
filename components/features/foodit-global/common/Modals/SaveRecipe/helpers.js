@@ -1,3 +1,4 @@
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
 import { fillBookmarks } from '../../bookmark/iconHelper';
@@ -35,6 +36,28 @@ export const saveRecipeConfig = {
     }
 };
 
+const addSavedBookmarksToDataLayer = (
+    articlesDetails = [],
+    carouselTitle = ''
+) => {
+    if (articlesDetails.length) {
+        const [firstArticle] = articlesDetails;
+
+        addEventToDataLayer({
+            event: 'e_linkclick',
+            category: 'interaction',
+            action: 'guardar',
+            ...(articlesDetails.length > 1
+                ? { title: carouselTitle }
+                : {
+                      title: get(firstArticle, 'headlines.basic', ''),
+                      label: get(firstArticle, 'variant', ''),
+                      articleId: get(firstArticle, 'content.id', '')
+                  })
+        });
+    }
+};
+
 export const actionButtons = ({
     action,
     close,
@@ -42,7 +65,8 @@ export const actionButtons = ({
     newFolder,
     selectedFolder,
     setIndexStep,
-    articlesDetails
+    articlesDetails,
+    carouselTitle = ''
 }) => {
     const actions = {
         close,
@@ -52,6 +76,8 @@ export const actionButtons = ({
                 articlesDetails.map(({ content = {} }) => content.id)
             );
             close();
+
+            addSavedBookmarksToDataLayer(articlesDetails, carouselTitle);
 
             const addFolder = selectedFolder.value == 'new';
 

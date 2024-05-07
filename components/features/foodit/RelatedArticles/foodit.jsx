@@ -27,7 +27,8 @@ const RelatedArticles = ({
         layout = '',
         filterBy,
         idSectionOrAuthor = '',
-        customMaxArticles = null
+        customMaxArticles = null,
+        customTitle
     } = customFields;
 
     const { _id: primarySectionId = '', name: primarySectionName = '' } = get(
@@ -86,6 +87,12 @@ const RelatedArticles = ({
         }
     };
 
+    const conditionalTitle = customTitle
+        ? customTitle
+        : `Más recetas: ${(titleByFilter[filterBy] &&
+              titleByFilter[filterBy]()) ||
+              ''}`;
+
     const articlesWithSize = articles
         .filter(article => article._id !== idArticle)
         .map(article => {
@@ -105,9 +112,7 @@ const RelatedArticles = ({
         <RenderCollection
             collectionId={featureId}
             rules={rules}
-            title={`Más recetas: ${(titleByFilter[filterBy] &&
-                titleByFilter[filterBy]()) ||
-                ''}`}
+            title={conditionalTitle}
             articles={articlesTransformed}
             layout={layout}
             error={error}

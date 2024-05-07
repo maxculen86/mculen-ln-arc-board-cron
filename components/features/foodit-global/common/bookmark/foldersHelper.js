@@ -1,11 +1,18 @@
 import getBookmarkGroups from './api/getBookmarkGroups';
 import safeJSONParse from '../../../private-global/common/utils/safeJSONParse';
+import { INGREDIENTS_BOOKMARK_GROUP } from '../shoppingList/api/postIngredientsList';
 
 export const loadBookmarkFolders = async () => {
     const { data = [] } = await getBookmarkGroups();
     localStorage.setItem(
         'bookmarkFolders',
-        JSON.stringify(data.filter(({ bookmarkCount }) => bookmarkCount > 0))
+        JSON.stringify(
+            data.filter(
+                ({ bookmarkCount, bookmarkGroup }) =>
+                    bookmarkCount > 0 &&
+                    bookmarkGroup !== INGREDIENTS_BOOKMARK_GROUP
+            )
+        )
     );
 
     return localStorage.getItem('bookmarkFolders');

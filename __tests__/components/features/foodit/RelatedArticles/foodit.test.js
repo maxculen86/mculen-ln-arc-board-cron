@@ -27,7 +27,7 @@ global.IntersectionObserver = jest.fn((callback, options) => {
     };
 });
 
-describe('Tests feature Foodit RelatedArticles', () => {
+describe('Components - features - Foodit - RelatedArticles', () => {
     describe('Tests cases for error', () => {
         test('should show required ID', () => {
             useGetRelatedArticles.mockImplementation(() => []);
@@ -290,6 +290,36 @@ describe('Tests feature Foodit RelatedArticles', () => {
 
             expect(
                 screen.getByText('Más recetas: Maru Botana')
+            ).toBeInTheDocument();
+        });
+
+        test('Should show title by customTitle field', () => {
+            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+
+            const customFields = {
+                customTitle: 'This component has a custom title',
+                idSectionOrAuthor: '/recetas/saladas/pizza',
+                filterBy: 'section',
+                layout: 'carousel'
+            };
+
+            const props = {
+                id: '12345',
+                isAdmin: true,
+                customFields,
+                globalContent: {
+                    taxonomy: {
+                        primary_section: {
+                            _id: 'primary section id',
+                            name: 'Pollo'
+                        }
+                    }
+                }
+            };
+
+            render(<RelatedArticles {...props} />);
+            expect(
+                screen.getByText('This component has a custom title')
             ).toBeInTheDocument();
         });
     });

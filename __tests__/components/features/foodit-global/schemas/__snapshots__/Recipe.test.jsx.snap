@@ -5,12 +5,12 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
   <script
     type="application/ld+json"
   >
-    {"@context":"https://schema.org","@type":"Recipe","cookTime":"PT18M","cookingMethod":"A la cazuela","recipeCategory":"Pollo","recipeCuisine":"Sueca","recipeInstructions":[],"recipeYield":1,"suitableForDiet":["https://schema.org/GlutenFreeDiet"]}
+    {"@context":"https://schema.org","@type":"Recipe","name":"Receta para comer mas rico con ...MILANESAS ","Image":{"@context":"https://schema.org","@type":"ImageObject","url":"https://sandbox.lanacion.com.ar/resizer/v2/acompana-las-patas-de-pollo-con-QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg?auth=3ff6e6c5380b892cfea80e335c062ca52c16b8a5e04a5d4635c54f0ac3e3e915&width=420&height=280&quality=70&smart=true"},"cookTime":"PT18M","cookingMethod":"A la cazuela","recipeCategory":"Pollo","recipeCuisine":"Sueca","recipeYield":1,"suitableForDiet":["https://schema.org/GlutenFreeDiet"]}
   </script>
   <script
     type="application/ld+json"
   >
-    {"@context":"https://schema.org","@type":"HowTo","performTime":"PT3M","totalTime":"PT21M"}
+    {"@context":"https://schema.org","@type":"HowTo","performTime":"PT3M","totalTime":"PT21M","step":[{"@type":"HowToStep","text":"Realizar paso 1","name":"Paso 1"},{"@type":"HowToStep","text":"Realizar paso 2","name":"Paso 2"},{"@type":"HowToStep","text":"Realizar paso 3","name":"Paso 3"},{"@type":"HowToStep","text":"Realizar paso 4","name":"Paso 4"}]}
   </script>
   <script
     type="application/ld+json"

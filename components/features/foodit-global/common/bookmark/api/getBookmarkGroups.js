@@ -1,6 +1,7 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 
 import getToken from '../../../../../private/common/utils/getToken';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const getBookmarkGroups = async () => {
     // TODO: should use useClientLibs
@@ -35,7 +36,7 @@ const getBookmarkGroups = async () => {
 
         return response.json();
     } catch (error) {
-        console.error('Error al realizar la solicitud POST:', error);
+        console.error('Error al realizar la solicitud GET:', error);
         return {};
     }
 };

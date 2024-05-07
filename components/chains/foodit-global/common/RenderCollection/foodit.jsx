@@ -46,6 +46,7 @@ export const RenderCollection = ({
                             e.preventDefault();
                             e.stopPropagation();
                             window.LN.observable.publish('openModal', {
+                                carouselTitle: title,
                                 ids: articles.map(article => article.articleId),
                                 collectionArticles: articles.filter(
                                     article =>

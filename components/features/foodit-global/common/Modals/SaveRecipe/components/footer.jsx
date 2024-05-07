@@ -12,7 +12,8 @@ const FooterSaveRecipe = ({
     selectedFolder,
     setIndexStep,
     ids,
-    collectionArticles = []
+    collectionArticles = [],
+    carouselTitle = ''
 }) => {
     const articles = useGetFooditArticles(
         (!collectionArticles.length && ids) || []
@@ -40,7 +41,8 @@ const FooterSaveRecipe = ({
                         newFolder,
                         selectedFolder,
                         setIndexStep,
-                        articlesDetails
+                        articlesDetails,
+                        carouselTitle
                     })
                 }
                 disabled={

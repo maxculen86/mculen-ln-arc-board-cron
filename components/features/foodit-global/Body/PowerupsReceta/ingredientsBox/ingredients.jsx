@@ -8,6 +8,8 @@ import IconSprite from '../../../../../features/private-global/common/iconSprite
 import { saveIngredientsList } from './_helper';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import get from '../../../../../private/common/utils/get';
+import getToken from '../../../../../private/common/utils/getToken';
+import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
 
 export const Ingredients = ({
     articleId,
@@ -93,20 +95,24 @@ export const Ingredients = ({
                 title="Agregar"
                 size={{ sm: 32, md: 40 }}
                 onClick={() => {
-                    addEventToDataLayer({
-                        event: 'e_linkclick',
-                        category: 'interaction',
-                        label: 'receta',
-                        action: 'agregar a la lista',
-                        title,
-                        articleId
-                    });
+                    if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
+                        addEventToDataLayer({
+                            event: 'e_linkclick',
+                            category: 'interaction',
+                            label: 'receta',
+                            action: 'agregar a la lista',
+                            title,
+                            articleId
+                        });
 
-                    saveIngredientsList({
-                        text: title,
-                        sections: addToShoppingLists,
-                        id: articleId
-                    });
+                        saveIngredientsList({
+                            text: title,
+                            sections: addToShoppingLists,
+                            id: articleId
+                        });
+                    } else {
+                        window.LN.observable.publish('openModal', {});
+                    }
                 }}
             >
                 <Icon size={16}>

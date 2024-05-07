@@ -8,7 +8,8 @@ export default function useIsomorphicPopupHandling() {
     });
 
     const handleData = data => {
-        const { ids = [], collectionArticles = [] } = data || {};
+        const { ids = [], collectionArticles = [], carouselTitle = '' } =
+            data || {};
 
         const idSet = new Set(ids);
         const allArticles = safeJSONParse(
@@ -45,7 +46,9 @@ export default function useIsomorphicPopupHandling() {
                 ...(deleteBookmarks
                     ? { bookmarkedArticles }
                     : { noBookmarkedArticles }),
-                ...((collectionArticles.length && { collectionArticles }) || {})
+                ...((collectionArticles.length && { collectionArticles }) ||
+                    {}),
+                carouselTitle
             }
         });
     };

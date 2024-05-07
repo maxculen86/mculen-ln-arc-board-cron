@@ -33,6 +33,7 @@ const transformSubategorie = (subcategoryList = []) => {
     return subcategoryList.map(({ name, _id, children = [] } = {}) => {
         const subCategorysWithoutUrl = [
             '/recetas/dietas',
+            '/recetas/dieta',
             '/recetas/que-cocinar-hoy'
         ];
         const newElement = {

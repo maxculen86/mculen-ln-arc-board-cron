@@ -2,6 +2,8 @@ import { SITE_FOODIT } from 'fusion:environment';
 import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
 
 export const formatSectionName = (sectionString = '') => {
+    if (sectionString === 'club-la-nacion') return 'Club LA NACION';
+
     const sectionFormated = sectionString.replace(/[\/-]/g, ' ').trim();
 
     return capitalizeFirstLetter(sectionFormated);

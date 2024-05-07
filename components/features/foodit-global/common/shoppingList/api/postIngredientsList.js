@@ -3,6 +3,8 @@ import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import getToken from '../../../../../private/common/utils/getToken';
 import get from '../../../../../private/common/utils/get';
 
+export const INGREDIENTS_BOOKMARK_GROUP = '0c470be489a8782dda8265b77d0dfcd4';
+
 const postIngredientsList = async content => {
     // TODO: should use useClientLibs
     const token = getToken();
@@ -24,8 +26,8 @@ const postIngredientsList = async content => {
                 body: JSON.stringify({
                     bookmarkType: 'ingredientList',
                     bookmarkTypeId: articleId,
-                    bookmarkGroup: 'ingredients',
-                    bookmarkParent: 'ingredients',
+                    bookmarkGroup: INGREDIENTS_BOOKMARK_GROUP,
+                    bookmarkParent: INGREDIENTS_BOOKMARK_GROUP,
                     bookmarkContent: {
                         ...content
                     }

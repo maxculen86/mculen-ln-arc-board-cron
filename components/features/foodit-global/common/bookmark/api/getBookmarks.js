@@ -1,6 +1,7 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 
 import getToken from '../../../../../private/common/utils/getToken';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const getBookmarks = async (bookmarkType = 'article') => {
     // TODO: should use useClientLibs
