@@ -11,13 +11,40 @@ export const CardAnexo = article => {
 
     if (html) {
         const htmlNode = parse(html).firstChild;
-        const srcAtributte = htmlNode.getAttribute('src');
-        if (srcAtributte && validateYoutubeUrl(srcAtributte)) {
+        const structure = parse(html).structure;
+
+        if (structure.includes('iframe')) {
+            const srcAtributte = htmlNode.getAttribute('src');
+            if (srcAtributte && validateYoutubeUrl(srcAtributte)) {
+                return [
+                    {
+                        src: srcAtributte,
+                        url: srcAtributte,
+                        alto: 300
+                    }
+                ];
+            }
+        }
+
+        if (structure.includes('div')) {
+            const root = parse(html);
+            const divElement = root.querySelector('div');
+
+            if (!divElement) {
+                return null;
+            }
+
+            const high = parseInt(divElement.getAttribute('high') || null);
+            const highMobile = parseInt(
+                divElement.getAttribute('high-mobile') || null
+            );
+
+            if (!high && !highMobile) return null;
+
             return [
                 {
-                    src: srcAtributte,
-                    url: srcAtributte,
-                    alto: 300
+                    src: html,
+                    alto: highMobile ?? high
                 }
             ];
         }
