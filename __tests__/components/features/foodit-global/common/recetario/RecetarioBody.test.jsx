@@ -8,8 +8,6 @@ import getBookmarks from '../../../../../../components/features/foodit-global/co
 import useGetUserData, {
     isFooditSuscriptor
 } from '../../../../../../components/features/foodit-global/hooks/useGetUserData';
-import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
-import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
 
 class MockMutationObserver {
     constructor(callback) {
@@ -24,11 +22,6 @@ class MockMutationObserver {
 }
 
 global.MutationObserver = MockMutationObserver;
-
-jest.mock(
-    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
-    () => jest.fn()
-);
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
@@ -46,9 +39,6 @@ jest.mock(
 
 jest.mock('../../../../../../components/private/common/utils/getToken');
 
-useSiteServices.mockImplementation(() => {
-    return siteServicesMock;
-});
 xdescribe('RecetarioBody', () => {
     beforeEach(() => {
         useAppContext.mockImplementation(() => ({

@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import get from '../../../common/utils/get';
 import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import getTooltip from '../../common/utils/getTooltip';
+import { GlobalContext } from '../../../common/context/globalContext';
 import { VIDEO, LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import Badge from '../../../common/badge/Badge';
 import { isOlderThanXHoursAgo } from '../../../common/utils/dateAndTimeUtil';
-import useSiteServices from '../../../../features/LN-10-global/hooks/useSiteServices';
 
 const TitleAndIconArticle = ({
     customFields: { prefix },
@@ -23,14 +23,15 @@ const TitleAndIconArticle = ({
     },
     layout
 }) => {
-    const siteServices = useSiteServices() || {};
+    const gc = useContext(GlobalContext);
+    const siteService = get(gc, 'state.siteService', {});
     const sponsored = get(owner, 'sponsored', false);
     const advertiser = get(label, 'marca_anunciante.text', null);
 
     let keyTooltip = '';
     if (sponsored) keyTooltip = 'Espacio Patrocinado';
     if (advertiser) keyTooltip = 'Content LAB';
-    const tooltip = getTooltip(keyTooltip, siteServices);
+    const tooltip = getTooltip(keyTooltip, siteService);
     const coverageEndTime = !isOlderThanXHoursAgo(displayDate, 12);
     return (
         <>
