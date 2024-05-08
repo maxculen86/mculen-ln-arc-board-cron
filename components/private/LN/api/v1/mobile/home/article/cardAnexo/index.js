@@ -34,12 +34,16 @@ export const CardAnexo = article => {
                 return null;
             }
 
-            const high = parseInt(divElement.getAttribute('high') || null);
-            const highMobile = parseInt(
-                divElement.getAttribute('high-mobile') || null
-            );
+            const highAttribute = divElement.getAttribute('high') ?? null;
+            const highMobileAttribute =
+                divElement.getAttribute('high-mobile') ?? null;
 
-            if (!high && !highMobile) return null;
+            if (!highAttribute && !highMobileAttribute) return null;
+
+            const high = highAttribute ? parseInt(highAttribute) : null;
+            const highMobile = highMobileAttribute
+                ? parseInt(highMobileAttribute)
+                : null;
 
             return [
                 {
