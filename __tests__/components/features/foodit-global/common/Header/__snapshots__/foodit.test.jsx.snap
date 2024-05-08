@@ -61,16 +61,20 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 data-event-data-layer="subscription_start"
                 data-interaction="dataLayerInteraction"
                 data-variant="accent"
-                title="Suscribirse"
+                title="SUSCRIBITE"
               >
                 SUSCRIBITE
               </button>
               <button
-                class="button foodit-button gap-8 roboto-regular text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
                 data-variant="link"
-                title="Iniciar sesión"
+                title="INICIAR SESIÓN"
               >
-                INICIAR SESIÓN
+                <span
+                  class="roboto-regular"
+                >
+                  INICIAR SESIÓN
+                </span>
               </button>
             </div>
             <div
@@ -1222,16 +1226,20 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             data-event-data-layer="subscription_start"
             data-interaction="dataLayerInteraction"
             data-variant="accent"
-            title="Suscribirse"
+            title="SUSCRIBITE"
           >
             SUSCRIBITE
           </button>
           <button
-            class="button foodit-button gap-8 roboto-regular text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
             data-variant="link"
-            title="Iniciar sesión"
+            title="INICIAR SESIÓN"
           >
-            INICIAR SESIÓN
+            <span
+              class="roboto-regular"
+            >
+              INICIAR SESIÓN
+            </span>
           </button>
         </div>
       </div>

@@ -25,6 +25,7 @@ export default {
         FooditAcumulado: 'Foodit-acumulado',
         FooditListadoCompras: 'Foodit-compras',
         FooditAcumuladoChef: 'Foodit-acumulado-chef',
-        FooditChef: 'Foodit-chef'
+        FooditChef: 'Foodit-chef',
+        Foodit404: 'Foodit-404'
     }
 };

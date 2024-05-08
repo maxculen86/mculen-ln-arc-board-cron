@@ -6,12 +6,18 @@ import { Icon } from '@ln/common-ui-icon';
 import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import classNames from 'classnames';
 
 const FooterFoodit = () => {
-    const { contextPath, deployment } = useAppContext();
+    const { contextPath, deployment, layout, siteProperties } = useAppContext();
+    const { layoutsName } = siteProperties || {};
+
+    const wrapperClassNames = classNames('container', {
+        'fixed_md fixed-center-x_md bottom-0': layout === layoutsName.Foodit404
+    });
     return (
         <div className="hidden">
-            <footer className="container">
+            <footer className={wrapperClassNames}>
                 <div className="grid grid-cols-12_md relative w-100 pb-32 pb-0_lg text-center border border-top border-thin border-light-100">
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12">
                         <Text>
@@ -50,33 +56,33 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
-                                href="https://www.tiktok.com/@fooditar?lang=es "
-                                title="Seguinos en TikTok"
+                                href="https://www.facebook.com/profile.php?id=61558653507465"
+                                title="Seguinos en Facebook"
                                 iconOnly
                                 size={32}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
                                 data-dynamic-label={'social'}
-                                data-dynamic-action={'tiktok'}
+                                data-dynamic-action={'facebook'}
                             >
                                 <Icon size={16}>
-                                    <IconSprite name="tiktok" />
+                                    <IconSprite name="facebook" />
                                 </Icon>
                             </Button>
                             <Button
-                                href="https://ar.pinterest.com/foodit_ar/"
-                                title="Seguinos en Pinterest"
+                                href="https://www.youtube.com/channel/UCg3Rc6CdupnBnmcSyWrlMgg"
+                                title="Suscribite a Youtube"
                                 iconOnly
                                 size={32}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
                                 data-dynamic-label={'social'}
-                                data-dynamic-action={'pinterest'}
+                                data-dynamic-action={'youtube'}
                             >
                                 <Icon size={16}>
-                                    <IconSprite name="pinterest" />
+                                    <IconSprite name="youtube" />
                                 </Icon>
                             </Button>
                         </div>
@@ -84,9 +90,9 @@ const FooterFoodit = () => {
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md py-32 border border-top border-thin border-light-100 border-0_md ">
                         <Text> Contenido y curaduría por</Text>
                         <Link
-                            href="/"
+                            href="https://www.lanacion.com.ar/"
                             unstyled
-                            title="Ir a la página principal"
+                            title="Ir a la página principal de LA NACION"
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"

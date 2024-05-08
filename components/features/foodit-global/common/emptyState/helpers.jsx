@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import { Link } from '@ln/foodit-ui-link';
 import {
     SITIO_SEGURO_REGISTRACION,
     FOODIT_LOGIN_URL
@@ -9,7 +10,8 @@ import {
 export const titleByVariant = {
     'barrier-unlogged': '¡Exclusivo suscriptor!',
     'barrier-logged': '¡Exclusivo suscriptor!',
-    'empty-state': '¡Aún no hay nada por acá!'
+    'empty-state': '¡Aún no hay nada por acá!',
+    '404': '¡Uppps! Contenido en preparación'
 };
 
 export const descriptionByVariant = {
@@ -24,6 +26,19 @@ export const descriptionByVariant = {
                 <IconSprite name="bookmark" critical />
             </Icon>{' '}
             para guardar el contenido que te gusta y ¡Listo!
+        </span>
+    ),
+    '404': (
+        <span>
+            Mientras te invitamos a seguir navegando en{' '}
+            <Link
+                href="/"
+                title="Ir a Foodit"
+                className="inline-flex"
+                variant="secondary"
+            >
+                Foodit
+            </Link>
         </span>
     )
 };
@@ -53,16 +68,28 @@ export const buttonPropsByVariant = {
 export const imagePropsByVariant = {
     'barrier-unlogged': {
         asset: 'barrier-state.webp',
-        alt: 'Para realizar esta acción es necesario que inicies sesión.'
+        alt: 'Para realizar esta acción es necesario que inicies sesión.',
+        width: 147,
+        height: 110
     },
     'barrier-logged': {
         asset: 'barrier-state.webp',
         alt:
-            'Para realizar esta acción es necesario que tengas una suscripción.'
+            'Para realizar esta acción es necesario que tengas una suscripción.',
+        width: 147,
+        height: 110
     },
     'empty-state': {
         asset: 'empty-state-recetario.png',
-        alt: '¡Aún no hay nada por acá!'
+        alt: '¡Aún no hay nada por acá!',
+        width: 147,
+        height: 152
+    },
+    '404': {
+        asset: 'logo-404.png',
+        alt: 'Logo Foodit',
+        width: 91,
+        height: 87
     }
 };
 

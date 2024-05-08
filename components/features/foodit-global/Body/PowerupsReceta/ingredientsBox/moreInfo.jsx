@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from '@ln/foodit-ui-link';
 import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
+import { moreInfoElements } from './_helper';
 
-export const ExternalLinks = props => {
-    const { items = [] } = props || {};
-    if (items.legth) return <></>;
+export const MoreInfo = () => {
     return (
         <ul className="flex flex-column gap-16">
-            {items.map(({ text, url }, i) => {
+            {moreInfoElements.map(({ text, url, iconName }) => {
                 return (
                     <li key={text}>
                         <Link
@@ -19,7 +18,7 @@ export const ExternalLinks = props => {
                             title={`Ir a ${text}`}
                         >
                             <Icon size={16}>
-                                <IconSprite name="cart" critical />
+                                <IconSprite name={iconName} />
                             </Icon>
                             {text}
                         </Link>
@@ -29,5 +28,3 @@ export const ExternalLinks = props => {
         </ul>
     );
 };
-
-export default ExternalLinks;

@@ -8,6 +8,7 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
 import useTermica from '../private/common/hooks/useTermica';
 import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
+import { Favicon } from '../features/foodit-global/common/favicon/foodit';
 import { allowCommentsFoodit } from '../private/common/utils/commentsHelper';
 import { GetFonts } from './criticalCss/getFonts';
 
@@ -86,6 +87,7 @@ const Foodit = ({
                     allowComments={allowCommentsValidate}
                     layoutsName={layoutsName}
                 />
+                <Favicon contextPath={contextPath} deployment={deployment} />
             </head>
             <body>
                 <DataLayerIndex

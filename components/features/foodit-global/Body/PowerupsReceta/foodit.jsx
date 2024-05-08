@@ -1,9 +1,9 @@
 import React from 'react';
-import { SITE_FOODIT } from 'fusion:environment';
+
 import Static from 'fusion:static';
 import PropTypes from 'prop-types';
 import Ingredients from './ingredientsBox/ingredients';
-import ExternalLinks from './ingredientsBox/externalLinks';
+import { MoreInfo } from './ingredientsBox/moreInfo';
 import Nutritional from './ingredientsBox/nutritional';
 import Tags from './ingredientsBox/tags';
 import SummaryBox from './summaryBox/foodit';
@@ -37,11 +37,6 @@ export const PowerupsReceta = ({ article = {} }) => {
         })
     );
 
-    const EXCLUDED_TAGS = ['¿Qué cocinar hoy?', 'Recetas', 'Dieta'];
-    const filteredTags = tags.filter(
-        ({ text = '' }) => text && !EXCLUDED_TAGS.includes(text)
-    );
-
     const {
         'custom-nutrition': nutritionLists,
         'foodit-ingredientes': ingredientsLists,
@@ -63,19 +58,6 @@ export const PowerupsReceta = ({ article = {} }) => {
             'custom-ingrediente': []
         }
     );
-
-    const externalLinksMock = {
-        items: [
-            {
-                text: 'Guia de equivalencias',
-                url: `${SITE_FOODIT}/guia-de-cocina/guia-de-equivalencias-nid16042024/`
-            },
-            {
-                text: 'Guía de sustitutos de ingredientes',
-                url: `${SITE_FOODIT}/guia-de-cocina/guia-de-sustituciones-nid16042024/`
-            }
-        ]
-    };
 
     return (
         <>
@@ -104,7 +86,7 @@ export const PowerupsReceta = ({ article = {} }) => {
                 />
                 <Static htmlOnly persistent id={`adintional-info-${_id}`}>
                     <hr />
-                    <ExternalLinks {...externalLinksMock} />
+                    <MoreInfo />
                     <hr />
                     <Nutritional nutritionLists={nutritionLists} />
                     <Tags items={tags} />

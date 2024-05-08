@@ -1122,6 +1122,19 @@ b, strong {
   position: sticky;
 }
 
+@media (min-width: 48rem) {
+  .fixed-center-x_md {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 48rem) {
+  .fixed_md {
+    position: fixed;
+  }
+}
+
 @media (max-width: 767.9px) {
   .sm-none {
     display: none !important;
@@ -1839,6 +1852,14 @@ b, strong {
 }
 
 .viafoura div.vf-comments-trending-articles.vf3-comments.vf-trending-articles {
+  display: none;
+}
+
+.viafoura.viafoura .vf-tray-trigger.vf-tray-trigger,
+.viafoura.viafoura .vf-share-menu__trigger.vf-share-menu__trigger,
+.viafoura.viafoura .vf-dropdown.vf-secondary-actions,
+.viafoura.viafoura .vf-branding-container.vf-branding-container,
+.viafoura.viafoura .vf-tray-trigger--floating.vf-tray-trigger--floating {
   display: none;
 }
 

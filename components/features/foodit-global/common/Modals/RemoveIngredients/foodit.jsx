@@ -12,12 +12,11 @@ export const ModalRemoveIngredient = () => {
     const { close, modalData } = usePopupHandling();
     const showModal = get(modalData, 'show', false);
 
-    const {
-        type = 'recipe',
-        displayName = '',
-        bookmarkId,
-        setShoppingList
-    } = get(modalData, 'data', {});
+    const { type = 'recipe', bookmarkId, setShoppingList } = get(
+        modalData,
+        'data',
+        {}
+    );
 
     return (
         <Animate
@@ -39,8 +38,6 @@ export const ModalRemoveIngredient = () => {
                 <div className="flex ai-center gap-16">
                     <ButtonAccept
                         close={close}
-                        type={type}
-                        displayName={displayName}
                         clickAction={() =>
                             deleteIngredientList(bookmarkId, setShoppingList)
                         }
