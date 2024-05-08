@@ -48,12 +48,14 @@ const index = (
     children,
     paramsFromPage = {
         rootPath:
-            'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
-    },
-    homeFetchDate = null,
-    layoutDate = null,
-    keyCachedCall = null,
-    apiPageHomeSourceFetchDate = null
+            'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json',
+        information: {
+            homeFetchDate: null,
+            layoutDate: null,
+            keyCachedCall: null,
+            apiPageHomeSourceFetchDate: null
+        }
+    }
 ) => {
     const layoutPage =
         get(paramsFromPage, 'information.layoutPage', 'null') + '-V2';
@@ -195,10 +197,11 @@ const index = (
         {
             metadata: {
                 paginate: false,
-                apiPageHomeSourceFetchDate,
-                layoutDate,
-                homeFetchDate,
-                keyCachedCall
+                apiPageHomeSourceFetchDate:
+                    paramsFromPage.information.apiPageHomeSourceFetchDate,
+                layoutDate: paramsFromPage.information.layoutDate,
+                homeFetchDate: paramsFromPage.information.homeFetchDate,
+                keyCachedCall: paramsFromPage.information.keyCachedCall
             },
             items: resultWithoutEmptyItems
         }

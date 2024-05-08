@@ -100,7 +100,12 @@ const fetch = async (query, { cachedCall } = {}) => {
         }
 
         const { information, homeFetchDate } = resultPage;
-        queryParams.information = information;
+        queryParams.information = {
+            ...information,
+            homeFetchDate: homeFetchDate,
+            keyCachedCall: keyCachedCall,
+            apiPageHomeSourceFetchDate: apiPageHomeSourceFetchDate
+        };
         // Para revisar la data transformada que viene del Layout
         // return resultPage;
         if (
@@ -128,11 +133,7 @@ const fetch = async (query, { cachedCall } = {}) => {
 
         const resultHome = configItemPage.transformHome[version](
             resultPageTransform,
-            queryParams,
-            homeFetchDate,
-            information.layoutDate,
-            keyCachedCall,
-            apiPageHomeSourceFetchDate
+            queryParams
         );
 
         return Array.isArray(resultHome) ? resultHome[0] : {};
