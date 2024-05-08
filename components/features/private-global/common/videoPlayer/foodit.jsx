@@ -9,7 +9,7 @@ const VideoPlayer = ({
     className = '',
     isOpening = false
 }) => {
-    const { deployment, contextPath } = useAppContext();
+    const { deployment, contextPath, arcSite } = useAppContext();
 
     const {
         embed: {
@@ -46,6 +46,7 @@ const VideoPlayer = ({
                     data-media-id={mediaid}
                     data-tags-url={''}
                     data-autostart={false}
+                    data-arc-site={arcSite}
                     src={deployment(
                         `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
                     )}
