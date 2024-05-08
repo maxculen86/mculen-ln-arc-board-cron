@@ -100,6 +100,7 @@ export const getBannerConfigFromSiteService = ({
     if (bannersSiteConfig) {
         return {
             ...bannerConfiguration,
+            bidding: setPrebidBanners(bannerConfiguration, section),
             dimensions:
                 getDimsFromSiteService(
                     bannersSiteConfig,
@@ -487,6 +488,20 @@ export const queueGoogletagCommand = bannersToLoad => {
                 }
             });
     });
+};
+
+export const setPrebidBanners = (_bannerConfig, section) => {
+    const bannerConfig = { ..._bannerConfig };
+    if (['propiedades', 'campo', 'bienestar', 'movilidad'].includes(section)) {
+        bannerConfig.bidding = { prebid: { enabled: true } };
+    }
+    return (
+        bannerConfig.bidding || {
+            prebid: {
+                enabled: false
+            }
+        }
+    );
 };
 
 /* export const determineSafeFrame = bannersToLoad => {

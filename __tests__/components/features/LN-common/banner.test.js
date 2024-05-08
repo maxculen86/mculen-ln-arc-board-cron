@@ -10,7 +10,8 @@ import {
     isPrimarySectionInBannerSegments,
     handleCanchallenaException,
     shouldShow,
-    determineSafeFrame
+    determineSafeFrame,
+    setPrebidBanners
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
 import { render, screen } from '@testing-library/react';
@@ -1109,6 +1110,36 @@ describe('getBannerConfiguration =>', () => {
                 { opt_div: 'caja1_dsk', safeFrame: true },
                 { opt_div: 'caja1_amp', safeFrame: false }
             ]);
+        });
+    });
+
+    describe('setPrebidBanners function', () => {
+        const config = {
+            adhesion_dsk: {
+                slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
+                dimensions: [
+                    [728, 90],
+                    [920, 100]
+                ],
+                targeting: defaultTargeting,
+                closeButton: true
+            }
+        };
+
+        test('should return config with prebid enabled using correct section', () => {
+            expect(setPrebidBanners(config, 'propiedades')).toStrictEqual({
+                prebid: {
+                    enabled: true
+                }
+            });
+        });
+
+        test('should return config with prebid disabled', () => {
+            expect(setPrebidBanners(config, 'economia')).toStrictEqual({
+                prebid: {
+                    enabled: false
+                }
+            });
         });
     });
 });
