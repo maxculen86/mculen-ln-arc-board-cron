@@ -87,6 +87,8 @@ const fetch = async (query, { cachedCall } = {}) => {
             cookie
         };
 
+        const apiPageHomeSourceFetchDate = new Date();
+
         const resultPage = await cachedCall(keyCachedCall, pages.fetch, {
             query: queryParams,
             ttl: 120,
@@ -97,7 +99,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             throw new Error('Not found page');
         }
 
-        const { information, homeFetchDate } = resultPage;
+        const { information, homeResponseDate } = resultPage;
         queryParams.information = information;
         // Para revisar la data transformada que viene del Layout
         // return resultPage;
@@ -127,7 +129,10 @@ const fetch = async (query, { cachedCall } = {}) => {
         const resultHome = configItemPage.transformHome[version](
             resultPageTransform,
             queryParams,
-            homeFetchDate
+            homeResponseDate,
+            information.homeDate,
+            keyCachedCall,
+            apiPageHomeSourceFetchDate
         );
 
         return Array.isArray(resultHome) ? resultHome[0] : {};

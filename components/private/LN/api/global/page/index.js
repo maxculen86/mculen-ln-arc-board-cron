@@ -100,7 +100,10 @@ const getPageElements = props => {
             );
         }, []);
 
-    return { information: { layoutPage }, content_elements: elementsPage };
+    return {
+        information: { layoutPage, homeDate: new Date() },
+        content_elements: elementsPage
+    };
 };
 
 export default getPageElements;

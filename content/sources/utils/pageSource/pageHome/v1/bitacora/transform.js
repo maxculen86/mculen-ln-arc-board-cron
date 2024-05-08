@@ -145,7 +145,10 @@ const transform = async (dataPage, query) => {
     const {
         information: { layoutPage },
         content_elements: elementsPage,
-        homeFetchDate: homeFetchDate = null
+        homeResponseDate: homeResponseDate = null,
+        homeDate: homeDate = null,
+        keyCachedCall: keyCachedCall = null,
+        apiPageHomeSourceFetchDate: apiPageHomeSourceFetchDate = null
     } = dataPage;
     try {
         let cajaCount = 1;
@@ -157,7 +160,13 @@ const transform = async (dataPage, query) => {
             cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
         });
 
-        return { cajas, homeFetchDate };
+        return {
+            cajas,
+            apiPageHomeSourceFetchDate,
+            homeDate,
+            homeResponseDate,
+            keyCachedCall
+        };
     } catch (error) {
         // eslint-disable-next-line no-console
 

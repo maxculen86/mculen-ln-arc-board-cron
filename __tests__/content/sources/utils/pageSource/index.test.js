@@ -46,7 +46,7 @@ describe('Test page', () => {
                 'children',
                 'layout',
                 'renderables',
-                'homeFetchDate'
+                'homeResponseDate'
             ].sort()
         );
     });
@@ -64,7 +64,7 @@ describe('Test page', () => {
                 'children',
                 'layout',
                 'renderables',
-                'homeFetchDate'
+                'homeResponseDate'
             ].sort()
         );
     });
@@ -82,7 +82,7 @@ describe('Test page', () => {
                 'children',
                 'layout',
                 'renderables',
-                'homeFetchDate'
+                'homeResponseDate'
             ].sort()
         );
     });
@@ -102,7 +102,7 @@ describe('Test page', () => {
                 'children',
                 'layout',
                 'renderables',
-                'homeFetchDate'
+                'homeResponseDate'
             ].sort()
         );
     });
@@ -122,7 +122,7 @@ describe('Test page', () => {
                 'children',
                 'layout',
                 'renderables',
-                'homeFetchDate'
+                'homeResponseDate'
             ].sort()
         );
     });
