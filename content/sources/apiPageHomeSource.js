@@ -99,7 +99,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             throw new Error('Not found page');
         }
 
-        const { information, homeResponseDate } = resultPage;
+        const { information, homeFetchDate } = resultPage;
         queryParams.information = information;
         // Para revisar la data transformada que viene del Layout
         // return resultPage;
@@ -129,7 +129,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         const resultHome = configItemPage.transformHome[version](
             resultPageTransform,
             queryParams,
-            homeResponseDate,
+            homeFetchDate,
             information.layoutDate,
             keyCachedCall,
             apiPageHomeSourceFetchDate

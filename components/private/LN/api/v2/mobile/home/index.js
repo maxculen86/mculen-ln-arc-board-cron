@@ -50,7 +50,7 @@ const index = (
         rootPath:
             'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
     },
-    homeResponseDate = null,
+    homeFetchDate = null,
     layoutDate = null,
     keyCachedCall = null,
     apiPageHomeSourceFetchDate = null
@@ -197,7 +197,7 @@ const index = (
                 paginate: false,
                 apiPageHomeSourceFetchDate,
                 layoutDate,
-                homeResponseDate,
+                homeFetchDate,
                 keyCachedCall
             },
             items: resultWithoutEmptyItems

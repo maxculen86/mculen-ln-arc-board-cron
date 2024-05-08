@@ -30,7 +30,7 @@ const fetch = async query => {
         .then(response => {
             const data = {
                 ...response,
-                homeResponseDate: new Date()
+                homeFetchDate: new Date()
             };
             return data;
         })
