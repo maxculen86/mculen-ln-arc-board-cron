@@ -244,6 +244,22 @@ class EventsHelper {
             this.addEventListeners(game, payload);
         });
     }
+
+    setEventsFoodit() {
+        const buttonFooditGrid = document.getElementById('btn-foodit-grid');
+        const ACTION = 'caja_foodit';
+        const HOME_LN10 = 'home_ln10';
+        const SUSCRIBE_FOODIT = 'cta_suscribite_a_foodit';
+
+        if (buttonFooditGrid) {
+            const payload = {
+                action: ACTION,
+                label: `${SUSCRIBE_FOODIT}`,
+                category: HOME_LN10
+            };
+            this.addEventListeners(buttonFooditGrid, payload);
+        }
+    }
 }
 
 const handler = {

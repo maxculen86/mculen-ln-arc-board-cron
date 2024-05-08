@@ -21,14 +21,15 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
           roof-container="roof-container"
         >
           <div
-            class="--ln-roof-full flex jc-between pt-24"
+            class="--ln-roof-full pt-24 flex jc-between"
           >
             <div
               class="--ln-roof-left"
             >
               <div
-                class="flex ai-center uppercase"
+                class="flex uppercase ai-center"
                 roof-group="left"
+                target="_blank"
               >
                 <h3
                   class="text ln-text --roof-title --prumo --font-l"
@@ -38,16 +39,16 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               </div>
             </div>
             <div
-              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
               roof-group="right"
             />
           </div>
         </div>
         <section
-          class="ln-bngrid --canal_1_4_grid --bienestar"
+          class="ln-bngrid pb-16 --canal_1_4_grid --bienestar"
         >
           <div
-            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
@@ -344,14 +345,15 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
           roof-container="roof-container"
         >
           <div
-            class="--ln-roof-full flex jc-between pt-24"
+            class="--ln-roof-full pt-24 flex jc-between"
           >
             <div
               class="--ln-roof-left"
             >
               <div
-                class="flex ai-center uppercase"
+                class="flex uppercase ai-center"
                 roof-group="left"
+                target="_blank"
               >
                 <h3
                   class="text ln-text --roof-title --prumo --font-l"
@@ -361,16 +363,16 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               </div>
             </div>
             <div
-              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
               roof-group="right"
             />
           </div>
         </div>
         <section
-          class="ln-bngrid --bn-4-8 --bienestar"
+          class="ln-bngrid pb-16 --bn-4-8 --bienestar"
         >
           <div
-            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
@@ -638,14 +640,15 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
           roof-container="roof-container"
         >
           <div
-            class="--ln-roof-full flex jc-between pt-24"
+            class="--ln-roof-full pt-24 flex jc-between"
           >
             <div
               class="--ln-roof-left"
             >
               <div
-                class="flex ai-center uppercase"
+                class="flex uppercase ai-center"
                 roof-group="left"
+                target="_blank"
               >
                 <h3
                   class="text ln-text --roof-title --prumo --font-l"
@@ -655,16 +658,16 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               </div>
             </div>
             <div
-              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
               roof-group="right"
             />
           </div>
         </div>
         <section
-          class="ln-bngrid --canal_1_3_grid --bienestar"
+          class="ln-bngrid pb-16 --canal_1_3_grid --bienestar"
         >
           <div
-            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
@@ -932,14 +935,15 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
           roof-container="roof-container"
         >
           <div
-            class="--ln-roof-full flex jc-between pt-24"
+            class="--ln-roof-full pt-24 flex jc-between"
           >
             <div
               class="--ln-roof-left"
             >
               <div
-                class="flex ai-center uppercase"
+                class="flex uppercase ai-center"
                 roof-group="left"
+                target="_blank"
               >
                 <h3
                   class="text ln-text --roof-title --prumo --font-l"
@@ -949,16 +953,16 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               </div>
             </div>
             <div
-              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
               roof-group="right"
             />
           </div>
         </div>
         <section
-          class="ln-bngrid --canal_1_2_grid --bienestar"
+          class="ln-bngrid pb-16 --canal_1_2_grid --bienestar"
         >
           <div
-            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
@@ -1175,14 +1179,15 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
           roof-container="roof-container"
         >
           <div
-            class="--ln-roof-full flex jc-between pt-24"
+            class="--ln-roof-full pt-24 flex jc-between"
           >
             <div
               class="--ln-roof-left"
             >
               <div
-                class="flex ai-center uppercase"
+                class="flex uppercase ai-center"
                 roof-group="left"
+                target="_blank"
               >
                 <h3
                   class="text ln-text --roof-title --prumo --font-l"
@@ -1192,16 +1197,16 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               </div>
             </div>
             <div
-              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
               roof-group="right"
             />
           </div>
         </div>
         <section
-          class="ln-bngrid --bn_1_1_grid --bienestar"
+          class="ln-bngrid pb-16 --bn_1_1_grid --bienestar"
         >
           <div
-            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-9 --col-lg-9 --col-xl-9"
@@ -1375,14 +1380,15 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
           roof-container="roof-container"
         >
           <div
-            class="--ln-roof-full flex jc-between pt-24"
+            class="--ln-roof-full pt-24 flex jc-between"
           >
             <div
               class="--ln-roof-left"
             >
               <div
-                class="flex ai-center uppercase"
+                class="flex uppercase ai-center"
                 roof-group="left"
+                target="_blank"
               >
                 <h3
                   class="text ln-text --roof-title --prumo --font-l"
@@ -1392,16 +1398,16 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
               </div>
             </div>
             <div
-              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
               roof-group="right"
             />
           </div>
         </div>
         <section
-          class="ln-bngrid --bn_2_2_grid --bienestar"
+          class="ln-bngrid pb-16 --bn_2_2_grid --bienestar"
         >
           <div
-            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"

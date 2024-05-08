@@ -1,15 +1,35 @@
 export function validateStyle(layout = '', chainStyle = '') {
-    const backgroundOptions = ['yellow', 'white', 'red', 'green', 'lightblue'];
-    const backgroundLayout = 'bnFondo';
+    const typeStylesChainBackground = [
+        'yellow',
+        'white',
+        'red',
+        'green',
+        'lightblue'
+    ];
+    const layoutsBackground = 'bnFondo';
 
-    return (
+    const typeStylesChainFoodit = 'foodit';
+    const layoutsFoodit = ['foodit_3_grid', 'foodit_1_grid'];
+
+    const isValidStyleForLayout1 =
         !(
-            layout === backgroundLayout &&
-            backgroundOptions.includes(chainStyle)
+            layout === layoutsBackground &&
+            typeStylesChainBackground.includes(chainStyle)
         ) &&
         !(
-            layout !== backgroundLayout &&
-            !backgroundOptions.includes(chainStyle)
-        )
-    );
+            layout !== layoutsBackground &&
+            !typeStylesChainBackground.includes(chainStyle)
+        );
+
+    const isStyleValidForFooditLayout =
+        !(
+            layoutsFoodit.includes(layout) &&
+            chainStyle === typeStylesChainFoodit
+        ) &&
+        !(
+            layoutsFoodit.indexOf(layout) === -1 &&
+            chainStyle !== typeStylesChainFoodit
+        );
+
+    return isValidStyleForLayout1 || isStyleValidForFooditLayout;
 }

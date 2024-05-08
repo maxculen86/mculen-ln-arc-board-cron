@@ -1989,10 +1989,6 @@ strong:not(.--font-primary),
   margin-top: 2rem;
 }
 
-.mt-50 {
-  margin-top: 3.125rem;
-}
-
 .ml-4 {
   margin-left: 0.25rem;
 }
@@ -2175,6 +2171,9 @@ strong:not(.--font-primary),
   }
   .mt-0_m {
     margin-top: 0rem;
+  }
+  .mt-24_m {
+    margin-top: 1.5rem;
   }
   .p-0_m {
     padding: 0rem;
@@ -2401,12 +2400,20 @@ strong:not(.--font-primary),
   align-items: center;
 }
 
+.ai-end {
+  align-items: flex-end;
+}
+
 .ai-start {
   align-items: flex-start;
 }
 
 .ai-stretch {
   align-items: stretch;
+}
+
+.js-end {
+  justify-self: flex-end;
 }
 
 @media (min-width: 48rem) {
@@ -2521,6 +2528,10 @@ strong:not(.--font-primary),
   width: 4rem;
 }
 
+.w-90.w-90 {
+  width: 5.625rem;
+}
+
 .w-115.w-115 {
   width: 7.1875rem;
 }
@@ -2539,6 +2550,9 @@ strong:not(.--font-primary),
   }
   .w-40_md.w-40_md {
     width: 2.5rem;
+  }
+  .w-112_md.w-112_md {
+    width: 7rem;
   }
   .w-304_md.w-304_md {
     width: 19rem;
@@ -2571,6 +2585,10 @@ strong:not(.--font-primary),
     width: 23.75rem;
   }
 }
+.max-w-165.max-w-165 {
+  max-width: 10.3125rem;
+}
+
 .max-w-365.max-w-365 {
   max-width: 22.8125rem;
 }
@@ -2624,10 +2642,6 @@ strong:not(.--font-primary),
 
 .h-32.h-32 {
   height: 2rem;
-}
-
-.h-36.h-36 {
-  height: 2.25rem;
 }
 
 .h-40.h-40 {
@@ -2718,8 +2732,16 @@ strong:not(.--font-primary),
     height: 8.75rem;
   }
 }
+.min-h-36.min-h-36 {
+  min-height: 2.25rem;
+}
+
 .min-h-56.min-h-56 {
   min-height: 3.5rem;
+}
+
+.min-h-190.min-h-190 {
+  min-height: 11.875rem;
 }
 
 .shadow-card-games {
@@ -2757,6 +2779,10 @@ strong:not(.--font-primary),
 }
 .uppercase {
   text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
 
 .-order-1 {
@@ -3182,6 +3208,11 @@ strong:not(.--font-primary),
   }
 }
 
+@media (min-width: 48rem) {
+  .absolute_md {
+    position: absolute;
+  }
+}
 @keyframes fade-in-up {
   0% {
     opacity: 0;

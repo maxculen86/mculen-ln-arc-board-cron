@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import { SITE_FOODIT } from 'fusion:environment';
 import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
@@ -12,7 +13,8 @@ const getCardConfig = (config, articleData) => {
         withSubhead,
         withMedia,
         withSection,
-        isLoadWithPicture
+        isLoadWithPicture,
+        href = ''
     } = config || {};
     const promoItems = get(articleData, 'promo_items.basic');
     const containsImage =
@@ -35,8 +37,16 @@ const getCardConfig = (config, articleData) => {
         }),
         imagePosition: get(config, 'imagePosition'),
         className: get(config, 'className'),
-        withSection
+        withSection,
+        href
     };
+};
+
+export const getArticleHref = (article, href, isFoodit) => {
+    const defaultUrl = get(article, 'website_url', '');
+    return isFoodit
+        ? `${SITE_FOODIT}${href}${defaultUrl}`
+        : `${href}${defaultUrl}`;
 };
 
 export const getTitleAndLeadForHome = (
@@ -75,16 +85,29 @@ export const setFinalClassName = (
         : className;
 };
 
-export const getBadge = ({ article, isExclusiveSub }) => {
+export const getBadge = ({ article, isExclusiveSub, isFoodit }) => {
     if (
         get(article, 'content_restrictions.content_code') === 'cerrada' &&
-        !isExclusiveSub
+        !isExclusiveSub &&
+        !isFoodit
     ) {
         return {
             badgeStyle: 'exclusive-ln',
             badgeText: 'Exclusivo suscriptores'
         };
     }
+
+    if (
+        get(article, 'content_restrictions.content_code') === 'cerrada' &&
+        isFoodit &&
+        !isExclusiveSub
+    ) {
+        return {
+            badgeStyle: 'none',
+            badgeText: ''
+        };
+    }
+
     if (get(article, 'subtype') === LIVEBLOG) {
         return {
             badgeStyle: 'live',
