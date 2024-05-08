@@ -31,6 +31,8 @@ export const RenderCollection = ({
         classNameChildren = '',
         classNameRoof = ''
     } = rules;
+    const tooltipText = 'Guardar todo';
+
     const options = {
         [CAROUSEL]: (
             <div className="carousel-container">
@@ -40,7 +42,8 @@ export const RenderCollection = ({
                     className={classNameRoof}
                     linkProps={{ href: link, text: title }}
                     buttonProps={{
-                        text: 'Guardar todo',
+                        text: tooltipText,
+                        title: tooltipText,
                         'data-collectionid': collectionId,
                         onClick: e => {
                             e.preventDefault();

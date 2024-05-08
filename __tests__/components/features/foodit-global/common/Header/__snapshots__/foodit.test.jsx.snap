@@ -1141,7 +1141,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       data-event-data-layer="e_linkclick"
                       data-interaction="dataLayerInteraction"
                       data-variant="primary"
-                      href="/recetario"
+                      href="/recetario/"
                       target="_self"
                       title="Ir a mis recetas"
                     >
@@ -1165,7 +1165,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       data-event-data-layer="e_linkclick"
                       data-interaction="dataLayerInteraction"
                       data-variant="primary"
-                      href="/lista-de-compras"
+                      href="/lista-de-compras/"
                       target="_self"
                       title="Ir a lista de compras"
                     >

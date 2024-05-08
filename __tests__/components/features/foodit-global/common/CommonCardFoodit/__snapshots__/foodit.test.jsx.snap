@@ -49,11 +49,11 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
           <div
             class="flex flex-column gap-4"
           >
-            <span
+            <h2
               class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
             >
               Prueba nota recetas nuevo
-            </span>
+            </h2>
           </div>
         </div>
         <div

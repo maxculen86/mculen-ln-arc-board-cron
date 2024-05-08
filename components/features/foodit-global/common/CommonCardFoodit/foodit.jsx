@@ -43,7 +43,7 @@ const CommonCardFoodit = ({
             </Card.Top>
             <Card.Main
                 title={title}
-                titleTag={variant === 'day-recipe' ? 'h1' : undefined}
+                titleTag={variant === 'day-recipe' ? 'h1' : 'h2'}
                 subtitle={subtitle}
                 titleEllipsis={titleEllipsis}
             >

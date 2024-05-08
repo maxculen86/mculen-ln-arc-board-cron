@@ -5,12 +5,13 @@ import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { Text } from '@ln/common-ui-text';
 import { formatSectionName } from '../../features/foodit-global/common/breadcrumb/_helpers';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
+import get from '../../private/common/utils/get';
 
 const pageBuilderSections = ['Apertura', 'Notas'];
 
 const AcumuladoFoodit = props => {
     const { globalContent, children } = props;
-    const { _id: id = '' } = globalContent;
+    const { _id: id = '', name = '' } = globalContent;
 
     const sectionsArray = id.split('/').filter(Boolean);
     const sectionsTransformed =
@@ -32,7 +33,7 @@ const AcumuladoFoodit = props => {
                         as="h1"
                         className="prumo prumo-semibold text-28 text-40_md text-48_lg"
                     >
-                        {title}
+                        {get(globalContent, 'site.site_title') || name || title}
                     </Text>
                 </section>
                 {/* TODO: Descomentar si un acumulado lleva apertura */}

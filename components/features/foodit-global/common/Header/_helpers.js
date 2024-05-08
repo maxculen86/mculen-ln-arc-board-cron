@@ -5,7 +5,7 @@ import { SITE_FOODIT } from 'fusion:environment';
 const listDescubrir = [
     '/restaurantes',
     '/nutricion',
-    '/Beneficios-Club-LA-NACION'
+    '/novedades-y-tendencias'
 ];
 
 const iconList = [

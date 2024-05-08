@@ -147,11 +147,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Ficha nota FOODIT
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -263,11 +263,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta para comer mas rico con ...POLLITO 2
-              </span>
+              </h2>
             </div>
           </div>
           <div
