@@ -61,7 +61,7 @@ export const allowCommentsFoodit = ({ globalContent }) => {
     return (
         get(globalContent, 'type', '') === 'story' &&
         get(globalContent, '_id', '') &&
-        get(globalContent, 'comments.display_comments', false)
+        get(globalContent, 'comments.display_comments', true)
     );
 };
 export const shouldLoadViafoura = inputDate => {

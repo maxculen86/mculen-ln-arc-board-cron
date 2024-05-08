@@ -4,6 +4,7 @@ import Consumer from 'fusion:consumer';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import AuthorBiography from '../../features/foodit-global/common/authorBiography/foodit';
 import { Text } from '@ln/common-ui-text';
+import transformSocial from '../../features/private-global/common/utils/transformSocial';
 
 const pageBuilderSections = ['Notas'];
 
@@ -24,30 +25,16 @@ const ChefFoodit = props => {
     const authorBiography = {
         name: byline,
         imageProps: {
-            src: imageUrl
+            src: imageUrl,
+            alt: byline,
+            title: byline
         },
         description: longBio,
         socialNetworks: [
-            {
-                icon: 'instagram',
-                name: instagram,
-                href: `https://www.instagram.com/${instagram.replace('@', '')}/`
-            },
-            {
-                icon: 'youtube',
-                name: youtube,
-                href: `https://www.youtube.com/${youtube}`
-            },
-            {
-                icon: 'pinterest',
-                name: pinterest,
-                href: `https://www.pinterest.com/${pinterest.replace('@', '')}`
-            },
-            {
-                icon: 'twitter',
-                name: twitter,
-                href: `https://twitter.com/${twitter.replace('@', '')}`
-            }
+            transformSocial('instagram', instagram),
+            transformSocial('youtube', youtube),
+            transformSocial('pinterest', pinterest),
+            transformSocial('twitter', twitter)
         ].filter(social => Boolean(social.name))
     };
 

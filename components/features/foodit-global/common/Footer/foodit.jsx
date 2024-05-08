@@ -30,6 +30,7 @@ const FooterFoodit = () => {
                                 title="Seguinos en Instagram"
                                 iconOnly
                                 size={32}
+                                target="_blank"
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
@@ -45,6 +46,7 @@ const FooterFoodit = () => {
                                 title="Seguinos en X"
                                 iconOnly
                                 size={32}
+                                target="_blank"
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
@@ -60,6 +62,7 @@ const FooterFoodit = () => {
                                 title="Seguinos en Facebook"
                                 iconOnly
                                 size={32}
+                                target="_blank"
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
@@ -75,6 +78,7 @@ const FooterFoodit = () => {
                                 title="Suscribite a Youtube"
                                 iconOnly
                                 size={32}
+                                target="_blank"
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
