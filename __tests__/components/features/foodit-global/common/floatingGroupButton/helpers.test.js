@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom';
 import {
+    customFloatingButtonConfig,
     floatingButtonConfig,
-    getConfigByLayout
+    getConfigByLayout,
+    getCustomConfigByLayout
 } from '../../../../../../components/features/foodit-global/common/floatingGroupButton/helpers';
 
 describe('FloatingGroupButton getConfigByLayout helper', () => {
@@ -22,9 +24,36 @@ describe('FloatingGroupButton getConfigByLayout helper', () => {
         expect(config.buttons).toBeInstanceOf(Array);
     });
 
-    it('should return undefined if the layout is not set in the config', () => {
+    it('should return empty object if the layout is not set in the config', () => {
         const layout = 'Layout desconocido';
 
-        expect(getConfigByLayout(layout)).toBeUndefined();
+        expect(getConfigByLayout(layout)).toEqual({});
+    });
+});
+
+describe('FloatingGroupButton getCustomConfigByLayout helper', () => {
+    it('config should have the expected structure', () => {
+        const layout = 'Foodit-compras';
+        const config = customFloatingButtonConfig[layout]();
+
+        expect(config).toHaveProperty('observerSelector');
+        expect(config).toHaveProperty('className');
+        expect(config).toHaveProperty('buttons');
+        expect(config.buttons).toBeInstanceOf(Array);
+
+        const [{ onClick, title, children }] = config.buttons;
+
+        expect(onClick).toBeInstanceOf(Function);
+        expect(title).toBe('Copiar todo');
+        expect(children).toHaveProperty(
+            '$$typeof',
+            Symbol.for('react.element')
+        );
+    });
+
+    it('should return empty object if the layout is not set in the config', () => {
+        const layout = 'Layout desconocido';
+
+        expect(getConfigByLayout(layout)).toEqual({});
     });
 });

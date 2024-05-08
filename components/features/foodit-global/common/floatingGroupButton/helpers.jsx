@@ -54,24 +54,6 @@ export const floatingButtonConfig = {
             }
         ]
     },
-    [layoutsName.FooditListadoCompras]: {
-        observerSelector: '.floating-button-sentinel',
-        className: defaultClassName,
-        buttons: [
-            {
-                title: 'Copiar todo',
-                children: (
-                    <>
-                        <Icon size={16}>
-                            <IconSprite name="copy" />
-                        </Icon>
-                        Copiar todo
-                    </>
-                )
-                // TODO: agregar callback para el botón
-            }
-        ]
-    },
     [layoutsName.FooditAcumuladoChef]: {
         observerSelector: '.floating-button-sentinel',
         className: defaultClassName,
@@ -84,4 +66,34 @@ export const floatingButtonConfig = {
     }
 };
 
-export const getConfigByLayout = layout => floatingButtonConfig[layout];
+export const getConfigByLayout = layout => floatingButtonConfig[layout] || {};
+
+export const customFloatingButtonConfig = {
+    [layoutsName.FooditListadoCompras]: (callbacks = []) => {
+        const [copyAction = () => null] = callbacks;
+
+        return {
+            observerSelector: '.floating-button-sentinel',
+            className: defaultClassName,
+            buttons: [
+                {
+                    title: 'Copiar todo',
+                    children: (
+                        <>
+                            <Icon size={16}>
+                                <IconSprite name="copy" />
+                            </Icon>
+                            Copiar todo
+                        </>
+                    ),
+                    onClick: () => copyAction()
+                }
+            ]
+        };
+    }
+};
+
+export const getCustomConfigByLayout = (layout, callbacks) =>
+    (customFloatingButtonConfig[layout] &&
+        customFloatingButtonConfig[layout](callbacks)) ||
+    {};

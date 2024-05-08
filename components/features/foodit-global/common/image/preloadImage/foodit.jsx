@@ -1,6 +1,7 @@
 import React from 'react';
 import PreloadImages from '../../../../private-global/common/preloadImage/preloadImages';
 import { getHomeOpeningImages, getPromoItemsImages } from './_helper';
+import { PreloadAcuFirstImage } from './components/preloadAcuFirstImage';
 
 const PreloadFooditImages = ({
     layout = '',
@@ -8,6 +9,17 @@ const PreloadFooditImages = ({
     globalContent = {},
     isAdmin
 }) => {
+    const componentRequiredLayouts = {
+        'Foodit-acumulado': () => {
+            const { _id: id = '' } = globalContent;
+
+            return <PreloadAcuFirstImage id={id} layout={layout} />;
+        }
+    };
+
+    if (componentRequiredLayouts[layout])
+        return componentRequiredLayouts[layout]();
+
     const imagesToPreload = {
         'Foodit-home': () => {
             return getHomeOpeningImages(renderables, isAdmin);

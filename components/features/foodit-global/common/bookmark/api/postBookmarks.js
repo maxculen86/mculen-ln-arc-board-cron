@@ -15,9 +15,9 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
 
     const results = await Promise.all(
         articlesDetails.map(async ({ content = {}, primarySection = '' }) => {
-            const { id } = content;
+            const { id, canonical_url } = content;
 
-            if (!id || !primarySection || !folderName) {
+            if (!id || !canonical_url || !primarySection || !folderName) {
                 console.error(
                     `No se pudo guardar, HTTP error! status: 401, datos requeridos insuficientes`
                 );

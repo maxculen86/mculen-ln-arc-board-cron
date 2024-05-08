@@ -1,5 +1,8 @@
 import React from 'react';
 import Static from 'fusion:static';
+import { useAppContext } from 'fusion:context';
+import { getConfigByLayout } from '../floatingGroupButton/helpers';
+
 import Header from '../Header/foodit';
 import Footer from '../Footer/foodit';
 import Modal from '../Modals/SaveRecipe/foodit';
@@ -11,6 +14,8 @@ import FooditEventsHelper from '../dataLayer/FooditEventsHelper';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 
 const BaseLayout = ({ children }) => {
+    const { layout } = useAppContext();
+
     return (
         <AuthProvider>
             <div className="wrapper overflow-x-clip roboto">
@@ -27,7 +32,7 @@ const BaseLayout = ({ children }) => {
                 <DataLayerInteractions />
                 <Modal />
                 <Toasts />
-                <FloatingGroupButton />
+                <FloatingGroupButton {...getConfigByLayout(layout)} />
             </div>
         </AuthProvider>
     );

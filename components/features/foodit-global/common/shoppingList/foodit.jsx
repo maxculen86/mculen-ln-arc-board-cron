@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
+import { useAppContext } from 'fusion:context';
+
+import { getCustomConfigByLayout } from '../floatingGroupButton/helpers';
+import useGetUserData from '../../hooks/useGetUserData';
 import { useShoppingList } from './hooks/useShoppingList';
+import { copyListToClipboard } from './_helpers';
+import { getVariantBarrier } from '../emptyState/helpers';
+
 import EmptyState from '../emptyState/foodit';
 import CollectionBox from '../collectionBox/foodit';
 import { IngredientsList } from '../ingredientsList/foodit';
@@ -8,11 +15,11 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Spinner } from '@ln/foodit-ui-spinner';
-import { copyListToClipboard } from './_helpers';
-import { getVariantBarrier } from '../emptyState/helpers';
-import useGetUserData from '../../hooks/useGetUserData';
+import FloatingGroupButton from '../floatingGroupButton/foodit';
 
 const ShoppingList = () => {
+    const { layout } = useAppContext();
+
     const {
         loading,
         isMobile,
@@ -85,6 +92,11 @@ const ShoppingList = () => {
                 setShoppingList={setShoppingList}
             />
             <ModalRemoveIngredient />
+            <FloatingGroupButton
+                {...getCustomConfigByLayout(layout, [
+                    () => copyListToClipboard(shoppingList)
+                ])}
+            />
         </div>
     );
 };
