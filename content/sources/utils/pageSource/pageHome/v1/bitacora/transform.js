@@ -146,7 +146,7 @@ const transform = async (dataPage, query) => {
         information: { layoutPage },
         content_elements: elementsPage,
         homeResponseDate: homeResponseDate = null,
-        homeDate: homeDate = null,
+        layoutDate: layoutDate = null,
         keyCachedCall: keyCachedCall = null,
         apiPageHomeSourceFetchDate: apiPageHomeSourceFetchDate = null
     } = dataPage;
@@ -163,7 +163,7 @@ const transform = async (dataPage, query) => {
         return {
             cajas,
             apiPageHomeSourceFetchDate,
-            homeDate,
+            layoutDate,
             homeResponseDate,
             keyCachedCall
         };

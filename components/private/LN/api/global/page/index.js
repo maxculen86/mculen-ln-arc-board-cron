@@ -101,7 +101,7 @@ const getPageElements = props => {
         }, []);
 
     return {
-        information: { layoutPage, homeDate: new Date() },
+        information: { layoutPage, layoutDate: new Date() },
         content_elements: elementsPage
     };
 };

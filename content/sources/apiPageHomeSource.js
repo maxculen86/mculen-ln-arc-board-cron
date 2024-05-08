@@ -130,7 +130,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             resultPageTransform,
             queryParams,
             homeResponseDate,
-            information.homeDate,
+            information.layoutDate,
             keyCachedCall,
             apiPageHomeSourceFetchDate
         );

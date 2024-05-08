@@ -51,7 +51,7 @@ const index = (
             'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
     },
     homeResponseDate = null,
-    homeDate = null,
+    layoutDate = null,
     keyCachedCall = null,
     apiPageHomeSourceFetchDate = null
 ) => {
@@ -196,7 +196,7 @@ const index = (
             metadata: {
                 paginate: false,
                 apiPageHomeSourceFetchDate,
-                homeDate,
+                layoutDate,
                 homeResponseDate,
                 keyCachedCall
             },
