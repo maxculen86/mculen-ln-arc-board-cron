@@ -30,7 +30,8 @@ export default {
             trackResources: true,
             trackLongTasks: true,
             trackUserInteractions: true,
-            trackSessionAcrossSubdomains: false
+            trackSessionAcrossSubdomains: false,
+            defaultPrivacyLevel: 'mask-user-input'
         },
         'la-nacion-ar': {
             clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
@@ -46,7 +47,8 @@ export default {
             trackResources: true,
             trackLongTasks: true,
             trackUserInteractions: true,
-            trackSessionAcrossSubdomains: false
+            trackSessionAcrossSubdomains: false,
+            defaultPrivacyLevel: 'mask-user-input'
         },
         foodit: {
             clientTokenLogs: 'pub540b3115d2684163d47c67bcb76097a8',
@@ -62,7 +64,8 @@ export default {
             trackResources: true,
             trackLongTasks: true,
             trackUserInteractions: true,
-            trackSessionAcrossSubdomains: false
+            trackSessionAcrossSubdomains: false,
+            defaultPrivacyLevel: 'mask-user-input'
         }
     },
     ARC_STATIC: 'https://sandbox.lanacion.com.ar',
