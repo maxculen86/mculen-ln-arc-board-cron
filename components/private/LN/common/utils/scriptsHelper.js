@@ -2,6 +2,7 @@ import ScriptManager from '../../../common/scriptManager';
 import AmazonPublisherServices from '../../../common/scriptManager/amazonPublisherServices';
 import Blockthrough from '../../../common/scriptManager/blockthrough';
 import Comscore from '../../../common/scriptManager/comscore';
+import ComscoreFoodit from '../../../common/scriptManager/comscoreFoodit';
 import ComscoreVideo from '../../../common/scriptManager/comscoreVideo';
 import Datadog from '../../../common/scriptManager/dataDog';
 import GooglePublisherTag from '../../../common/scriptManager/googlePublisherTag';
@@ -45,6 +46,10 @@ const scriptList = [
     },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
+    {
+        component: { name: 'ComscoreFoodit', function: ComscoreFoodit },
+        feature: 'none'
+    },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
     {
         component: { name: 'PostBid', function: PostBid },
