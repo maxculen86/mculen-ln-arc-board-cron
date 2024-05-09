@@ -24,8 +24,7 @@ export const validateChain = ({
 }) => {
     const articlesLength = get(articles, 'length');
     const minimum = setQuantityByLayout({ layout });
-    const aFondoValidation = validateStyle(layout, chainStyle);
-
+    const validateStyleBox = validateStyle(layout, chainStyle);
     const rules = [
         {
             validation: !layout,
@@ -36,7 +35,7 @@ export const validateChain = ({
             message: 'Se requiere el id de la colección'
         },
         {
-            validation: aFondoValidation,
+            validation: validateStyleBox,
             message:
                 'El estilo de caja seleccionado no corresponde para esta diagramación'
         },

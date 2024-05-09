@@ -96,7 +96,8 @@ export const getMarkupForDatalayer = (
     position,
     sectionName,
     positionInsideSection,
-    isExclusiveSub
+    isExclusiveSub,
+    isFoodit
 ) => {
     const extraOptsdefault = {
         'data-diagramacion-id': '0',
@@ -200,6 +201,9 @@ export const getMarkupForDatalayer = (
                 id: `tema_${position}`,
                 ...(isExclusiveSub && {
                     'data-is-subscriptor': true
+                }),
+                ...(isFoodit && {
+                    'data-is-foodit': true
                 })
             };
 

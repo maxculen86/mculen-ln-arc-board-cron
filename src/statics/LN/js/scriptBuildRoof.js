@@ -14,6 +14,14 @@ export const handleScriptBtnSuscription = () => {
 
         button && button.classList.add('none');
     }
+
+    if (productsPremium && productsPremium.includes('22')) {
+        const buttonFooditRoof = document.getElementById('btn-foodit-roof');
+        const buttonFooditGrid = document.getElementById('btn-foodit-grid');
+
+        buttonFooditRoof && buttonFooditRoof.classList.add('none');
+        buttonFooditGrid && buttonFooditGrid.classList.add('none');
+    }
 };
 
 handleScriptBtnSuscription();

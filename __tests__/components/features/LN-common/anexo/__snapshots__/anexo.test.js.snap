@@ -10,19 +10,21 @@ Array [
       roof-container="roof-container"
     >
       <div
-        class="--ln-roof-full flex jc-between pt-24"
+        class="--ln-roof-full pt-24 flex jc-between"
       >
         <div
           class="--ln-roof-left"
         >
           <div
-            class="flex ai-center uppercase"
+            class="flex uppercase ai-center"
             roof-group="left"
+            target="_blank"
           />
         </div>
         <div
-          class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+          class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
           roof-group="right"
+          target="_blank"
         />
       </div>
     </div>

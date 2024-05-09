@@ -8,6 +8,7 @@ import setRender from '../setRender';
 import hasDataRoof from './_helper/hasDataRoof';
 import { CHAIN_STYLE, VERTICALS } from '../common/_helpers-WebApi';
 import { getAssetsLeft, getAssetsRight } from './_helper/assets';
+import { targetUrlRedirect } from '../targetUrlRedirect';
 
 export default function BuildRoof(props) {
     const {
@@ -26,11 +27,16 @@ export default function BuildRoof(props) {
         isAdmin,
         isAFondo
     } = props;
-
     const { contextPath, deployment } = useAppContext();
 
     const chainStyle =
         !VERTICALS.includes(chainStyleUncheked) && chainStyleUncheked;
+
+    const isSubExclusive = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
+
+    const isFoodit = chainStyle === CHAIN_STYLE.FOODIT;
+    const targetUrlSite = targetUrlRedirect(titleLink);
+    const targetUrlLinkButton = targetUrlRedirect(linkButton);
 
     const error = validateRoof({
         chainStyle,
@@ -46,10 +52,10 @@ export default function BuildRoof(props) {
 
     const roofType =
         isAFondo || !chainStyle ? 'generic' : chainStyle.toLowerCase();
-
     const propsLeft = hasDataRoof({ chainStyle }) && {
         logo,
         href: titleLink,
+        target: targetUrlSite,
         text: !logo && title,
         title,
         'roof-group': 'left',
@@ -57,15 +63,20 @@ export default function BuildRoof(props) {
     };
 
     const propsRight = hasDataRoof({ chainStyle }) && {
-        navData: links,
-        buttonLogo,
+        navData: links
+            ? links.map(item => ({
+                  ...item,
+                  target: targetUrlRedirect(item.href)
+              }))
+            : [],
+        buttonLogo: isFoodit ? '' : buttonLogo,
         buttonType: buttonStyle || 'generico',
         textButton: buttonText,
         hrefButton: linkButton,
+        targetButton: targetUrlLinkButton,
         'roof-group': 'right',
         assets: getAssetsRight
     };
-    const isSubExclusive = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
 
     const scriptBtnSuscription = isSubExclusive ? (
         <script

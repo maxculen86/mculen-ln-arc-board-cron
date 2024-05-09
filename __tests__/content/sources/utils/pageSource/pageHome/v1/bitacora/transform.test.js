@@ -2,6 +2,15 @@ import 'regenerator-runtime/runtime';
 import transform from '../../../../../../../../content/sources/utils/pageSource/pageHome/v1/bitacora/transform';
 import firstTransformation from '../../../../../../../../__mocks__/data/bitacora/firstTransformationHome.json';
 
+const queryParams = {
+    information: {
+        layoutPage: 'LN10-Home_Main',
+        apiPageHomeSourceFetchDate: '2024-05-08T18:17:18.298Z',
+        layoutDate: '2024-05-08T18:16:33.533Z',
+        homeFetchDate: '2024-05-08T18:17:18.401Z',
+        keyCachedCall: 'ApiPageHomehome_08'
+    }
+};
 describe('Transform bitacora v1 test', () => {
     test('Test transformacion bitacora', async () => {
         let result = await transform(
@@ -11,13 +20,14 @@ describe('Transform bitacora v1 test', () => {
                 },
                 content_elements: []
             },
-            'http://172.17.0.1/api/mobile/v1/bitacora/10/?_website=la-nacion-ar&outputType=json'
+            queryParams
+            // 'http://172.17.0.1/api/mobile/v1/bitacora/10/?_website=la-nacion-ar&outputType=json'
         );
         expect(result).not.toBeNull();
     });
 
     test('Bitacora should return right data', async () => {
-        let result = await transform(firstTransformation);
+        let result = await transform(firstTransformation, queryParams);
         expect(result.cajas.length).toBe(28);
         expect(result.cajas[4]).toEqual({
             id_caja: '04',
@@ -54,7 +64,7 @@ describe('Transform bitacora v1 test', () => {
     });
 
     test('Bitacora should not return status 500 if a box has no articles', async () => {
-        let result = await transform(firstTransformation);
+        let result = await transform(firstTransformation, queryParams);
         expect(result.cajas.length).toBe(28);
         expect(result.cajas[4]).toEqual({
             id_caja: '04',
