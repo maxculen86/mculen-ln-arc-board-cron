@@ -5,8 +5,8 @@ const setActionBar = (element, callback) => {
 }
 
 const scriptSearch = document.getElementById('scriptBuscadorQuerylyFoodit');
-const deployment = scriptSearch.getAttribute('data-deployment');
-const contextPath = scriptSearch.getAttribute('data-context-path')
+const emptyStateIcon = scriptSearch.getAttribute('data-empty-state');
+const timerIcon = scriptSearch.getAttribute('data-timer-icon');
 
 var searchPage = {
     batchSize: 24,
@@ -44,7 +44,7 @@ var searchPage = {
         }
 
         if (searchPage.query == null || searchPage.query.trim() == '') {
-            searchPage.query = 'SALADAS ';
+            searchPage.query = ' ';
         }
         searchPage.query = decodeURI(searchPage.query);
 
@@ -55,8 +55,15 @@ var searchPage = {
         }
         else {
             searchPage.renderStyle();
-            var html = '<div class="search-bar-area" style="padding-bottom: 26px;position: relative;display: none;"><form class="search-bar"><input style="border-radius:60px;" class="queryly_searchbox" name="query" type="text"  value="" placeholder="" onkeydown="searchPage.processEnterKey(event);"><button class="search-button" type="submit">Search</button></form></div>';
-            html = html + '<div style="margin: 20px;margin:auto;font-size: 24px;color: #444;">No result is found. Please try a different keyword.</div>';
+            document.getElementById('btn-toggle-filter').classList.add('none');
+            document.getElementById('container-faceteddata').style.display = 'none';
+            document.getElementById('resultdata').classList.replace('col-span-12_lg', 'col-span-16_lg');
+
+            const emptyState = `<img class="image flex --cover" decoding="async" fetchpriority="low" loading="lazy" src="${emptyStateIcon}" alt="¡Aún no hay nada por acá!">`
+
+            var html = '<div class="search-bar-area flex flex-column ai-center" style="padding-bottom: 26px;position: relative;display: none;"><form class="search-bar"><input style="border-radius:60px;" class="queryly_searchbox" name="query" type="text"  value="" placeholder="" onkeydown="searchPage.processEnterKey(event);"><button class="search-button" type="submit">Search</button></form></div>';
+            html = html + '<div class="search-bar-area flex flex-column ai-center" style="position: relative;"><div class="search-bar none" ></div><div class="empty-state-svg mb-32">'+ emptyState +'</div><div class="prumo prumo-semibold text-24 text-28_md text-32_lg text-center mb-8">Nada por acá</div><div class="roboto text-24 text-center">No se encontraron resultados</div></div>';
+            
             document.querySelector("#resultdata").innerHTML = html;
             return;
         }
@@ -89,7 +96,7 @@ var searchPage = {
                                     <div class="opacity-1">
                                         <i class="icon --icon-12 --inherit">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                <use href="${contextPath}/resources/images/foodit-sprite-default.svg${deployment}#timer"></use>
+                                                <use href="${timerIcon}"></use>
                                             </svg>
                                         </i>
                                         <span class="text text-12 roboto-light"><%=queryly.data.counter_time%> min</span>
@@ -361,7 +368,7 @@ var searchPage = {
         //retrieve metadata
         var total = results.metadata.total;
         searchPage.endIndex = results.metadata.endindex;
-        const emptyState = `<img class="image flex --cover" decoding="async" fetchpriority="low" loading="lazy" src="${contextPath}/resources/images/empty-state-recetario.png?d=${deployment}" alt="¡Aún no hay nada por acá!">`
+        const emptyState = `<img class="image flex --cover" decoding="async" fetchpriority="low" loading="lazy" src="${emptyStateIcon}" alt="¡Aún no hay nada por acá!">`
         
         if (total == 0) {
             document.getElementById('btn-toggle-filter').classList.add('none');

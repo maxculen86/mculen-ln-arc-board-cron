@@ -14,7 +14,7 @@ export const MetaFoodit = ({
     metaValue
 }) => {
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const imagePath = `${contextPath}/resources/images/placeholderLN.jpg`;
+    const imagePath = `${contextPath}/resources/foodit/assets/images/placeholderFoodit.jpg`;
     const image = `${ARC_STATIC}${deployment(imagePath)}`;
     const titleMeta = metaValue('title') || 'Foodit';
     const descriptionMeta = metaValue('description') || 'Foodit';
@@ -51,7 +51,7 @@ export const MetaFoodit = ({
         },
         {
             property: 'og:image',
-            content: image || ''
+            content: get(globalContent, 'promo_items.basic.url') || image
         },
         {
             property: 'og:image:width',

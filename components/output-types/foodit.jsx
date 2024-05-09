@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_FOODIT } from 'fusion:environment';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
@@ -11,6 +12,7 @@ import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura
 import { Favicon } from '../features/foodit-global/common/favicon/foodit';
 import { allowCommentsFoodit } from '../private/common/utils/commentsHelper';
 import { GetFonts } from './criticalCss/getFonts';
+import LinkCanonical from '../private/common/linkCanonical';
 
 const Foodit = ({
     children,
@@ -24,14 +26,16 @@ const Foodit = ({
     contextPath,
     deployment,
     metaValue,
-    isAdmin
+    isAdmin,
+    template
 } = {}) => {
     const {
         node_type: nodeType,
         type,
         _id,
         canonical_url: canonicalUrl = '',
-        headlines: { mobile, basic } = {}
+        headlines: { mobile, basic } = {},
+        site = {}
     } = globalContent;
     const { layoutsName = {} } = siteProperties || {};
 
@@ -70,6 +74,14 @@ const Foodit = ({
                     contextPath={contextPath}
                     siteProperties={siteProperties}
                     deployment={deployment}
+                />
+                <LinkCanonical
+                    _id={_id}
+                    canonicalUrl={canonicalUrl}
+                    host={SITE_FOODIT}
+                    nodeType={_nodeType}
+                    site={site}
+                    template={template}
                 />
                 <GetFonts
                     contextPath={contextPath}

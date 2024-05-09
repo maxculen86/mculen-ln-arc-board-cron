@@ -100,8 +100,12 @@ export default function FooditSearch() {
 
                 <script
                     id="scriptBuscadorQuerylyFoodit"
-                    data-deployment={deployment('')}
-                    data-context-path={contextPath}
+                    data-empty-state={deployment(
+                        `${contextPath}/resources/images/empty-state-recetario.png`
+                    )}
+                    data-timer-icon={deployment(
+                        `${contextPath}/resources/images/foodit-sprite-default.svg#timer`
+                    )}
                     type="text/javascript"
                     src={deployment(
                         `${contextPath}/resources/js/FOODIT/fooditScriptBuscadorQueryly.js`
