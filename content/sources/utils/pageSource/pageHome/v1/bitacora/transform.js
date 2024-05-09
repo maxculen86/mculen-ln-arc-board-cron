@@ -144,20 +144,25 @@ const getFeature = sectionAliasMobile => {
 const transform = async (dataPage, query) => {
     const {
         information: { layoutPage },
-        content_elements: elementsPage,
-        homeFetchDate: homeFetchDate = null
+        content_elements: elementsPage
     } = dataPage;
     try {
         let cajaCount = 1;
         const cajas = [];
-
         elementsPage.forEach((elem, i) => {
             if (elem.type !== 0 && elem.type !== 7 && elem.type !== 11) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
             cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
         });
 
-        return { cajas, homeFetchDate };
+        return {
+            cajas,
+            apiPageHomeSourceFetchDate:
+                query.information.apiPageHomeSourceFetchDate,
+            layoutDate: query.information.layoutDate,
+            homeFetchDate: query.information.homeFetchDate,
+            keyCachedCall: query.information.keyCachedCall
+        };
     } catch (error) {
         // eslint-disable-next-line no-console
 
