@@ -76,7 +76,12 @@ export default {
         isInApertura: 'bool',
         checkExclusiveAccess: 'bool',
         isAdmin: 'bool',
-        uri: 'text'
+        uri: 'text',
+        utm_source: 'text',
+        utm_campaign: 'text',
+        utm_medium: 'text',
+        utm_content: 'text',
+        utm_term: 'text'
     },
     filter,
     ttl: 120

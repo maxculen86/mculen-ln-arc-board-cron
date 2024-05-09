@@ -11,11 +11,47 @@ export const addRandomParam = url => {
     return uri.toString();
 };
 
-export const setCallback = (host, path) =>
-    Buffer.from(addRandomParam(`${host}${path}`)).toString('base64');
+export const setCallback = (
+    host,
+    path,
+    utmMedium,
+    utmSource,
+    utmCampaign,
+    utmContent,
+    utmTerm
+) => {
+    const urlWithParams = addRandomParam(`${host}${path}`);
+    const uri = new URL(urlWithParams);
+
+    const params = {
+        utm_medium: utmMedium,
+        utm_source: utmSource,
+        utm_campaign: utmCampaign,
+        utm_content: utmContent,
+        utm_term: utmTerm
+    };
+
+    Object.entries(params).forEach(([key, value]) => {
+        if (value) {
+            uri.searchParams.append(key, value);
+        }
+    });
+
+    return Buffer.from(uri.toString()).toString('base64');
+};
 
 const checkPaywall = ({ queryData, urlBase, responseData }) => {
-    const { paywallEnabled, meteringVariant, paywallUrl, url } = queryData;
+    const {
+        paywallEnabled,
+        meteringVariant,
+        paywallUrl,
+        url,
+        utm_medium,
+        utm_source,
+        utm_campaign,
+        utm_content,
+        utm_term
+    } = queryData;
     if (
         (paywallEnabled === '1' || paywallEnabled === 'true') &&
         meteringVariant === 'D' &&
@@ -23,7 +59,15 @@ const checkPaywall = ({ queryData, urlBase, responseData }) => {
         (!responseData.content_restrictions ||
             responseData.content_restrictions.content_code !== 'abierta')
     ) {
-        const callback = setCallback(urlBase, url);
+        const callback = setCallback(
+            urlBase,
+            url,
+            utm_medium,
+            utm_source,
+            utm_campaign,
+            utm_content,
+            utm_term
+        );
         const finalUrl = paywallUrl.replace('{{callback}}', callback);
         throw new Redirect(finalUrl, 302);
     }
