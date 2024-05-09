@@ -5,6 +5,7 @@ import { Breadcrumb } from '@ln/common-ui-breadcrumb';
 import classNames from 'classnames';
 import { Link } from '@ln/foodit-ui-link';
 import capitalizeFirstLetter from '../../../../../../private/common/utils/capitalizeFirstLetter';
+import { BreadcrumbSchema } from '../../../../schemas/Breadcrumb';
 
 export default function BreadcrumbCustomFoodit({
     sectionsCustom = [],
@@ -20,6 +21,7 @@ export default function BreadcrumbCustomFoodit({
 
     return (
         <Static htmlOnly persistent id="breadcrumb-foodit-custom">
+            <BreadcrumbSchema sections={sections} />
             <div className={classNames('flex ai-center gap-8', className)}>
                 <Breadcrumb gap={8} className="text-14">
                     {sections.map(({ name, url } = {}, index) => (

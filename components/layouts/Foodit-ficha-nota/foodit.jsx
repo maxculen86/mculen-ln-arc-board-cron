@@ -14,6 +14,7 @@ import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import { getFooditAuthor } from '../../features/foodit-global/common/utils/notaFooditHelper';
+import { StorytellingSchema } from '../../features/foodit-global/schemas/Note';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -27,6 +28,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
 
     return (
         <BaseLayout>
+            <StorytellingSchema article={globalContent} />
             <UserBookmarks />
             <div className="flex flex-column">
                 <div

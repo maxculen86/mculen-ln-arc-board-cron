@@ -14,3 +14,13 @@ export const getSuitableForDietUrls = sections => {
         return acc;
     }, []);
 };
+
+export const fooditSchemaLogo = (deployment, contextPath) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    url: deployment(
+        `${contextPath}/resources/foodit/assets/images/placeholderFoodit.jpg`
+    ),
+    height: 112,
+    width: 112
+});

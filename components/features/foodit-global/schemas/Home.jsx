@@ -1,7 +1,10 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
+import { fooditSchemaLogo } from './_helpers';
 
 export const HomeSchema = () => {
-    // TODO: cambiar URL del logo
+    const { contextPath, deployment } = useAppContext();
+
     return (
         <>
             <script type="application/ld+json">
@@ -19,13 +22,7 @@ export const HomeSchema = () => {
                         "publishingPrinciples": "https://www.lanacion.com.ar/sociedad/los-veinte-20-principios-del-periodismo-la-nid2390521/",
                         "verificationFactCheckingPolicy": "https://www.lanacion.com.ar/sociedad/verificacion-chequeo-datos-nid2406825/",
                         "foundingDate": "2024-05-01",
-                        "logo": {
-                        "@context": "https://schema.org",
-                        "@type": "ImageObject",
-                        "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-112_amp.jpg?d=1478",
-                        "height": 112,
-                        "width": 112
-                        },
+                        "logo": ${fooditSchemaLogo(deployment, contextPath)},
                         "sameAs": [
                         "https://www.tiktok.com/@fooditar?lang=es",
                         "https://www.instagram.com/foodit_ar/",
