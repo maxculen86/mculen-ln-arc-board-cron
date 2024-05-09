@@ -4611,6 +4611,7 @@ a {
   --trivias: #69c7c3;
   --cruciexpress: #ff8ea9;
   --palabra-oculta: #97c7ff;
+  --diferencias: #ED933F;
   --line-100: 100%;
   --line-110: 110%;
   --line-116: 116%;
@@ -5032,6 +5033,10 @@ a {
   background: var(--palabra-oculta);
 }
 
+.bg-diferencias {
+  background: var(--diferencias);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -5090,6 +5095,10 @@ a {
 
 .bg-palabra-oculta__hover:hover {
   background-color: var(--palabra-oculta);
+}
+
+.bg-diferencias__hover:hover {
+  background-color: var(--diferencias);
 }
 
 .cardGames__hover:hover .border-neutral-light-700 {
@@ -5355,6 +5364,10 @@ strong:not(.--font-primary),
 
 .mt-32 {
   margin-top: 2rem;
+}
+
+.mt-50 {
+  margin-top: 3.125rem;
 }
 
 .ml-4 {
