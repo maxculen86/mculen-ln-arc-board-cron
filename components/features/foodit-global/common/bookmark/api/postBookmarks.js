@@ -2,6 +2,7 @@ import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 
 import getToken from '../../../../../private/common/utils/getToken';
 import { unfillBookmarks } from '../iconHelper';
+import { addErrorToast, addToast, TOAST } from './_helper';
 import { addStorageFolder } from '../foldersHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
@@ -101,24 +102,19 @@ const saveBookmarks = async (articlesDetails, nameFolder, newFolder) => {
         });
 
         if (successfullResponses.length === articlesDetails.length) {
-            window.LN.observable.publish('addToast', {
-                variant: 'success',
-                title: 'Guardado!',
-                message: `Se guardaron los articulos en la carpeta ${nameFolder}`
+            addToast({
+                variant: TOAST.SUCCESS.VARIANT,
+                title: TOAST.SUCCESS.TITLE,
+                message:
+                    articlesDetails.length > 1
+                        ? TOAST.SUCCESS.MESSAGE.SAVE_COLLECTION
+                        : TOAST.SUCCESS.MESSAGE.SAVE_ARTICLE
             });
         } else {
-            window.LN.observable.publish('addToast', {
-                variant: 'danger',
-                title: 'Error!',
-                message: `Hubo un error al guardar algunos de los artículos en la carpeta ${nameFolder}`
-            });
+            addErrorToast();
         }
     } else {
-        window.LN.observable.publish('addToast', {
-            variant: 'danger',
-            title: 'Error!',
-            message: `No fue posible guardar los articulos en la carpeta ${nameFolder}`
-        });
+        addErrorToast();
     }
 
     if (failureResponses && failureResponses.length) {

@@ -1800,6 +1800,10 @@ b, strong {
   }
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .transition.transition-all {
   transition-property: all;
 }

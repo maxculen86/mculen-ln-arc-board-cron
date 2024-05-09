@@ -55,7 +55,7 @@ describe('copyListToClipboard', () => {
         await copyListToClipboard(shoppingList);
 
         expect(window.LN.observable.publish).toHaveBeenCalledWith('addToast', {
-            message: 'Podes enviar el listado que copiaste',
+            message: 'Podes enviar el listado que copiaste.',
             title: '¡Listo!',
             variant: 'success'
         });
@@ -69,9 +69,9 @@ describe('copyListToClipboard', () => {
         await copyListToClipboard(shoppingList);
 
         expect(window.LN.observable.publish).toHaveBeenCalledWith('addToast', {
-            message: 'No se pude copiar el listado',
-            title: 'Error',
-            variant: 'danger'
+            variant: 'danger',
+            title: '¡Uppps!',
+            message: 'Parece que hubo un problema'
         });
     });
 });

@@ -1,6 +1,7 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-
+import { addToast, TOAST, addErrorToast } from './_helper';
 import getToken from '../../../../../private/common/utils/getToken';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import { fillBookmarks } from '../iconHelper';
 
 const deleteBookmark = async bookmarks => {
@@ -95,24 +96,16 @@ const fetchDeleteBookmark = async (bookmarkedArticles, setUserBookmarks) => {
         }
 
         if (successfullResponses.length === bookmarkedArticles.length) {
-            window.LN.observable.publish('addToast', {
-                variant: 'success',
-                title: 'Eliminado!',
-                message: `Fueron eliminados los articulos guardados`
+            addToast({
+                variant: TOAST.SUCCESS.VARIANT,
+                title: TOAST.SUCCESS.TITLE,
+                message: TOAST.SUCCESS.MESSAGE.DELETE_ARTICLE
             });
         } else {
-            window.LN.observable.publish('addToast', {
-                variant: 'danger',
-                title: 'Error!',
-                message: `Algunos articulos fallaron al ser eliminados, intente nuevamente`
-            });
+            addErrorToast();
         }
     } else {
-        window.LN.observable.publish('addToast', {
-            variant: 'danger',
-            title: 'Error!',
-            message: `No fue posible eliminar los articulos guardados`
-        });
+        addErrorToast();
     }
 
     if (!setUserBookmarks && failureResponses && failureResponses.length) {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
+import { addToast, TOAST } from '../../../bookmark/api/_helper';
 
 export default function useIsomorphicPopupHandling() {
     const [modalData, setModalData] = useState({
@@ -17,10 +18,10 @@ export default function useIsomorphicPopupHandling() {
         );
 
         if (allArticles.length >= 150) {
-            window.LN.observable.publish('addToast', {
-                variant: 'danger',
-                title: 'Error!',
-                message: `Se alcanzo el limite de 150 articulos guardados`
+            addToast({
+                variant: TOAST.ERROR.VARIANT,
+                title: TOAST.ERROR.TITLE,
+                message: TOAST.ERROR.MESSAGE.LIMIT_BOOKMARKS
             });
 
             return;
