@@ -1,5 +1,5 @@
 import PropTypes from 'fusion:prop-types';
-import optionsIcons from '../../../private/LN/services/weather/optionsIcons';
+import optionsIcons from '../../../../private/LN/services/weather/optionsIcons';
 
 export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;
@@ -21,6 +21,8 @@ export const setWeatherData = weatherValue => {
         link: '/clima/'
     };
 };
+
+// TODO: pasar los helpers a la funcionalidad del vivo
 
 export const setTopicsCustomFields = (maxTopics = 7) => {
     const iterator = [...new Array(maxTopics).keys()];

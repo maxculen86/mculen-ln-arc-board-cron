@@ -2,16 +2,6 @@
     "information": { "layoutPage": "LN10-Home_Main" },
     "content_elements": [
         {
-            "type": 9,
-            "sectionAliasMobile": "ln-common/preheader",
-            "information": {
-                "nameFeature": "LN-common/preHeader",
-                "idRender": "f0flcjlG7ypf4Bn"
-            },
-            "configurations": { "arcSite": "la-nacion-ar" },
-            "sectionWeb": "Cabezal"
-        },
-        {
             "type": 0,
             "sectionAliasMobile": "apertura",
             "information": {
