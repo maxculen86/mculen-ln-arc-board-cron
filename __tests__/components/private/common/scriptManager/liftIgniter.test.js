@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import LiftIgniter from '../../../../../components/private/common/scriptManager/Liftigniter';
 
 jest.mock('fusion:context', () => ({
@@ -119,29 +119,19 @@ const globalContentMock = {
     }
 };
 
-xdescribe('Liftigniter', () => {
-    const script = {
-        defer: true,
-        id: 'liftigniter-metadata',
-        type: 'application/json',
-        dangerouslySetInnerHTML: {
-            __html:
-                '{"id":"IIEEJBWQWNCZNDOUTKP47C4L24","title":"Última prueba syndication 3...","titleShort":"ult mob","leadText":"volanta desde composer","published_time":"2021-04-29T14:10:00Z","noShow":true,"noIndex":false,"tematica":"Industria","tags":["pruebaNuevoTag","Crónicas","Reformas del Gobierno"],"autor":"Carlos Pagni"}'
-        }
-    };
-
+describe('Liftigniter', () => {
     it('must return a script', () => {
-        const wrapper = shallow(
+        const { container } = render(
             <LiftIgniter
                 globalContent={globalContentMock}
                 location="body-top"
             />
         );
-        expect(
-            wrapper
-                .find('script')
-                .last()
-                .props()
-        ).toEqual(script);
+        const scriptElement = container.querySelector('script');
+
+        expect(scriptElement).toBeDefined();
+        expect(scriptElement).toHaveAttribute('id', 'liftigniter');
+        expect(scriptElement).toHaveAttribute('type', 'text/javascript');
+        expect(scriptElement).toHaveAttribute('defer');
     });
 });
