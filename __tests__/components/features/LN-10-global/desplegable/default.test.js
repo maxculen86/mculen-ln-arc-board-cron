@@ -13,11 +13,12 @@ jest.mock(
         useHeaderContext: jest.fn(() => {})
     })
 );
+
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
-xdescribe('components - features - LN-10-global - Desplegable', () => {
+describe('components - features - LN-10-global - Desplegable', () => {
     useContent.mockImplementation(() => menuData);
     useHeaderContext.mockImplementation(() => ({
         toggleDesplegable: jest.fn()
@@ -35,22 +36,25 @@ xdescribe('components - features - LN-10-global - Desplegable', () => {
         const [wrapperDropdown] = getAllByRole('button');
         expect(wrapperDropdown).toBeInTheDocument();
     });
+
     test('should render with class "--dd-active" for handle dropdown', () => {
         useHeaderContext.mockImplementation(() => ({
             showMenu: true
         }));
         const { getAllByRole } = render(<Desplegable />);
         const [wrapperDropdown] = getAllByRole('button');
-        expect(wrapperDropdown.classList).toMatch('--dd-active');
+        expect(wrapperDropdown).toHaveClass('--dd-active');
     });
+
     test('should render without class "--dd-active" for handle dropdown', () => {
         useHeaderContext.mockImplementation(() => ({
             showMenu: false
         }));
         const { getAllByRole } = render(<Desplegable />);
         const [wrapperDropdown] = getAllByRole('button');
-        expect(wrapperDropdown.classList).not.toMatch('--dd-active');
+        expect(wrapperDropdown).not.toHaveClass('--dd-active');
     });
+
     test('should match snapshot', () => {
         useHeaderContext.mockImplementation(() => ({
             showMenu: true

@@ -63,7 +63,8 @@ jest.mock('react', () => {
         })
     };
 });
-xdescribe('components - features - LN-10-global - header - mainHeader - rightOptions - MenuUser', () => {
+
+describe('components - features - LN-10-global - header - mainHeader - rightOptions - MenuUser', () => {
     afterAll(() => {
         jest.clearAllMocks();
     });
