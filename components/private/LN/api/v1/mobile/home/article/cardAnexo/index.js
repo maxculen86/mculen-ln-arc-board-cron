@@ -1,3 +1,4 @@
+import { NormalModuleReplacementPlugin } from 'webpack';
 import get from '../../../../../../../common/utils/get';
 import { parse } from 'node-html-parser';
 
@@ -10,20 +11,48 @@ export const CardAnexo = article => {
     const html = get(article[0], 'html', null);
 
     if (html) {
-        const htmlNode = parse(html).firstChild;
         const structure = parse(html).structure;
 
         if (structure.includes('iframe')) {
-            const srcAtributte = htmlNode.getAttribute('src');
-            if (srcAtributte && validateYoutubeUrl(srcAtributte)) {
+            const root = parse(html);
+            const iFrameElement = root.querySelector('iframe');
+            const srcAtributte = iFrameElement.getAttribute('src');
+            const heightAtributte =
+                iFrameElement.getAttribute('height') ?? null;
+            const heightMobileAttribute =
+                iFrameElement.getAttribute('height-mobile') ?? null;
+
+            if (
+                !heightAtributte &&
+                !heightMobileAttribute &&
+                !validateYoutubeUrl(srcAtributte)
+            )
+                return null;
+
+            const height = heightAtributte ? parseInt(heightAtributte) : null;
+            const heightMobile = heightMobileAttribute
+                ? parseInt(heightMobileAttribute)
+                : null;
+
+            if (
+                !heightAtributte &&
+                !heightMobileAttribute &&
+                validateYoutubeUrl(srcAtributte)
+            )
                 return [
                     {
-                        src: srcAtributte,
-                        url: srcAtributte,
+                        src: html,
                         alto: 300
                     }
                 ];
-            }
+
+            if (heightAtributte || heightMobileAttribute)
+                return [
+                    {
+                        src: html,
+                        alto: heightMobile ?? height
+                    }
+                ];
         }
 
         if (structure.includes('div')) {
@@ -34,21 +63,21 @@ export const CardAnexo = article => {
                 return null;
             }
 
-            const highAttribute = divElement.getAttribute('high') ?? null;
-            const highMobileAttribute =
-                divElement.getAttribute('high-mobile') ?? null;
+            const heightAttribute = divElement.getAttribute('height') ?? null;
+            const heightMobileAttribute =
+                divElement.getAttribute('height-mobile') ?? null;
 
-            if (!highAttribute && !highMobileAttribute) return null;
+            if (!heightAttribute && !heightMobileAttribute) return null;
 
-            const high = highAttribute ? parseInt(highAttribute) : null;
-            const highMobile = highMobileAttribute
-                ? parseInt(highMobileAttribute)
+            const height = heightAttribute ? parseInt(heightAttribute) : null;
+            const heightMobile = heightMobileAttribute
+                ? parseInt(heightMobileAttribute)
                 : null;
 
             return [
                 {
                     src: html,
-                    alto: highMobile ?? high
+                    alto: heightMobile ?? height
                 }
             ];
         }
