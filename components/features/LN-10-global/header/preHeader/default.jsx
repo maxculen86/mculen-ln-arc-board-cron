@@ -3,7 +3,9 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
-import { PreHeader } from '@ln/contenidos-ui-preheader';
+import { Brands } from './components/brands';
+import { Weather } from './components/weather';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import filterSubHeader from '../../../../../content/filters/LN/home/subHeaderFilter';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import { setWeatherData, getTopicsFromCustomFields } from './__helper';
@@ -28,53 +30,52 @@ const PreHeaderLN = () => {
 
     const objBrands = [
         {
-            text: 'CLUB LN',
+            title: 'CLUB LN',
             link: '/first-topic',
             dataEvent: 'e_linkclick',
-            dataSection: 'MenuLN'
+            dataSection: 'MenuLN',
+            icon: <IconSprite name="clubLnDefault" critical fill="#333333" />
         },
         {
-            text: 'LN+ EN VIVO',
+            title: 'LN+ EN VIVO',
             link: '/first-topic',
             dataEvent: 'e_linkclick',
-            dataSection: 'MenuLN'
+            dataSection: 'MenuLN',
+            icon: <IconSprite name="lnMas" critical fill="#333333" />
         },
         {
-            text: 'FOODIT',
+            title: 'FOODIT',
             link: '/first-topic',
             dataEvent: 'e_linkclick',
-            dataSection: 'MenuLN'
+            dataSection: 'MenuLN',
+            icon: <IconSprite name="foodit" critical fill="#333333" />
         },
         {
-            text: 'CANCHALLENA',
+            title: 'CANCHALLENA',
             link: '/first-topic',
             dataEvent: 'e_linkclick',
-            dataSection: 'MenuLN'
+            dataSection: 'MenuLN',
+            icon: <IconSprite name="canchallena" critical fill="#333333" />
         },
         {
-            text: 'BONVIVIR',
+            title: 'BONVIVIR',
             link: '/first-topic',
             dataEvent: 'e_linkclick',
-            dataSection: 'MenuLN'
+            dataSection: 'MenuLN',
+            icon: <IconSprite name="bonvivir" critical fill="#333333" />
         }
     ];
 
     return (
         <Static id="clima-Ln10">
-            <PreHeader>
-                <PreHeader.Weather weatherData={weatherData} />
-                {/* {topics.length && <PreHeader.Topics tags={topics} />} */}
-                {objBrands.map((brand, index) => (
-                    <a
-                        key={index}
-                        href={brand.link}
-                        data-event={brand.dataEvent}
-                        data-section={brand.dataSection}
-                    >
-                        {brand.text}
-                    </a>
-                ))}
-            </PreHeader>
+            <div className="ln-pre-header flex ai-center h-48 bg-neutral-light-50 relative --tablet-none">
+                <div className="lay-container">
+                    <div className="flex ai-center">
+                        <Weather weatherData={weatherData} />
+                        {objBrands.length && <Brands brands={objBrands} />}
+                    </div>
+                </div>
+            </div>
             <PreHeaderEventsScript />
         </Static>
     );

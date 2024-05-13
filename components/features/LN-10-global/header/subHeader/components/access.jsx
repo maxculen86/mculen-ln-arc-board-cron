@@ -3,6 +3,7 @@ import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 
 export const Access = ({ data }) => {
+    // TODO: al corregir "lenght" se borran los datos tanto de clima como de dolar... ??
     if (data.leght === 0) return <></>;
     return (
         <div className="access-container --tablet-none ">
