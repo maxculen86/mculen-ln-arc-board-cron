@@ -2,17 +2,36 @@ import React from 'react';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import siteProperties from '../../../../../properties/sites/foodit';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 import { Icon } from '@ln/common-ui-icon';
 
 const { layoutsName = {} } = siteProperties || {};
 
 const defaultClassName = 'lg-none';
 const defaultButtons = [
-    { title: 'Ir a Mis recetas', children: 'Mis recetas', href: '/recetario/' },
+    {
+        title: 'Ir a Mis recetas',
+        children: 'Mis recetas',
+        href: '/recetario/',
+        onClick: () =>
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'perfil',
+                action: 'mis_recetas'
+            })
+    },
     {
         title: 'Ir a Lista de compras',
         children: 'Lista de compras',
-        href: '/lista-de-compras/'
+        href: '/lista-de-compras/',
+        onClick: () =>
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'perfil',
+                action: 'lista_de_compras'
+            })
     }
 ];
 

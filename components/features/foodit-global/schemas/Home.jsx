@@ -22,7 +22,9 @@ export const HomeSchema = () => {
                         "publishingPrinciples": "https://www.lanacion.com.ar/sociedad/los-veinte-20-principios-del-periodismo-la-nid2390521/",
                         "verificationFactCheckingPolicy": "https://www.lanacion.com.ar/sociedad/verificacion-chequeo-datos-nid2406825/",
                         "foundingDate": "2024-05-01",
-                        "logo": ${fooditSchemaLogo(deployment, contextPath)},
+                        "logo": ${JSON.stringify(
+                            fooditSchemaLogo(deployment, contextPath)
+                        )},
                         "sameAs": [
                         "https://www.tiktok.com/@fooditar?lang=es",
                         "https://www.instagram.com/foodit_ar/",
