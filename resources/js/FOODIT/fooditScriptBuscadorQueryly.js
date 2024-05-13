@@ -269,7 +269,7 @@ var searchPage = {
         }
         html = html + '</div></div>';
 
-        html = html + '<div id="cookingtypes_filter" class="queryly_filter"><div class="queryly_filter_title queryly_filter_title_expand" >TIPO DE COCCION <img class="filter_arrow"/></div><div class="filter_item_container flex flex-column pb-16 gap-8">';
+        html = html + '<div id="cookingtypes_filter" class="queryly_filter"><div class="queryly_filter_title queryly_filter_title_expand" >TIPO DE COCCIÓN <img class="filter_arrow"/></div><div class="filter_item_container flex flex-column pb-16 gap-8">';
         var cookingtypes = faceted.cookingtypes;
         for (var i = 0; i < cookingtypes.length; i++) {
             var name = cookingtypes[i].key;
@@ -279,7 +279,8 @@ var searchPage = {
         }
         html = html + '</div></div>';
 
-        html = html + '<div id="regions_filter" class="queryly_filter"><div class="queryly_filter_title queryly_filter_title_expand" >TIPO DE COCCIÓN<img class="filter_arrow"/></div><div class="filter_item_container flex flex-column pb-16 gap-8">';
+
+        html = html + '<div id="regions_filter" class="queryly_filter"><div class="queryly_filter_title queryly_filter_title_expand" >REGIÓN<img class="filter_arrow"/></div><div class="filter_item_container flex flex-column pb-16 gap-8">';
         var regions = faceted.regions;
         for (var i = 0; i < regions.length; i++) {
             var name = regions[i].key;

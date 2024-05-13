@@ -8,6 +8,7 @@ import Nutritional from './ingredientsBox/nutritional';
 import Tags from './ingredientsBox/tags';
 import SummaryBox from './summaryBox/foodit';
 import get from '../../../../private/common/utils/get';
+import getTagList from './_helper';
 
 export const PowerupsReceta = ({ article = {} }) => {
     const {
@@ -28,14 +29,12 @@ export const PowerupsReceta = ({ article = {} }) => {
         regions = []
     } = get(promo_items, 'receta.embed.config', {});
 
-    const sections = get(taxonomy, 'sections', []);
-
-    const tags = [...cookingTypes, ...occasions, ...regions, ...sections].map(
-        item => ({
-            text: (item.name && item.name) || item || '',
-            url: item.path || '#'
-        })
-    );
+    const tags = getTagList({
+        cookingTypes,
+        occasions,
+        taxonomy,
+        regions
+    });
 
     const {
         'custom-nutrition': nutritionLists,
