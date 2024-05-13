@@ -39,7 +39,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
         ticksCache = `${ticksCache}${new Date().getTime()}`;
 
-        const keyCachedCall = `ApiPageHomeUpdated${alias}`.concat(ticksCache);
+        const keyCachedCall = `ApiPageHomeUpdated_${alias}_`.concat(ticksCache);
 
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
@@ -94,7 +94,7 @@ const fetch = async (query, { cachedCall } = {}) => {
                 queryParams
             )} - errorMsj:${error.message}`
         );
-        return { message: error.message };
+        throw error.message;
     }
 };
 
