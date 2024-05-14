@@ -31,7 +31,7 @@ export const BellButton = () => {
                 }),
             isTestEnvironment: API_ENV !== 'prod',
             zone: 'lanacion',
-            showTooltip: showTooltip,
+            showTooltip: false,
             loginHref: LOGIN_URL,
             notificationsRequestSize: 5,
             messagesRequestSize: 5,

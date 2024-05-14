@@ -26,7 +26,7 @@ exports[`components - features - LN-10-global - header - mainHeader - rightOptio
     <div
       class="notification-drawer-tooltip"
       data-position="bottom-right"
-      data-visible="true"
+      data-visible="false"
       role="tooltip"
     >
       <p
