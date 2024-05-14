@@ -119,7 +119,7 @@ const Datadog = ({ location = 'head' }) => {
           trackLongTasks: ${trackLongTasks}, 
           trackUserInteractions: ${trackUserInteractions},
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
-          defaultPrivacyLevel: ${defaultPrivacyLevel},
+          defaultPrivacyLevel: "${defaultPrivacyLevel}",
         });
       
         DD_RUM.startSessionReplayRecording();
