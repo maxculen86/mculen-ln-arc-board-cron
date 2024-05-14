@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime';
 import {
     getPromoItemsAuth,
     signingServiceCachedCall
@@ -14,7 +13,7 @@ jest.mock(
     }
 );
 
-xdescribe('Content - sources - utils - signingServiceSource', () => {
+describe('Content - sources - utils - signingServiceSource', () => {
     describe('getPromoItemsAuth function', () => {
         const cachedCall = jest.fn();
         const dataPromoItems = {
@@ -56,26 +55,25 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
             cachedCall.mockClear();
         });
 
-        test('Should call cachedCall for all promo_item types without auth', async done => {
+        it('Should call cachedCall for all promo_item types without auth', async () => {
             cachedCall
                 .mockReturnValueOnce({ hash: 'MockHashBasic' })
                 .mockReturnValueOnce({ hash: 'MockHashStorytelling' })
                 .mockReturnValueOnce({ hash: 'MockHashStorytellingMobile' })
                 .mockReturnValueOnce({ hash: 'MockVideoHash' });
 
-            getPromoItemsAuth(dataPromoItems, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({
-                        basicHash: 'MockHashBasic',
-                        storytellingHash: 'MockHashStorytelling',
-                        storytellingMobileHash: 'MockHashStorytellingMobile',
-                        videoHash: 'MockVideoHash'
-                    });
-                    expect(cachedCall).toBeCalledTimes(4);
-                })
-                .then(done);
+            const result = await getPromoItemsAuth(dataPromoItems, cachedCall);
+
+            expect(result).toStrictEqual({
+                basicHash: 'MockHashBasic',
+                storytellingHash: 'MockHashStorytelling',
+                storytellingMobileHash: 'MockHashStorytellingMobile',
+                videoHash: 'MockVideoHash'
+            });
+            expect(cachedCall).toBeCalledTimes(4);
         });
-        test('Should call cachedCall for basic promo_item image that does not have auth', async done => {
+
+        it('Should call cachedCall for basic promo_item image that does not have auth', async () => {
             cachedCall.mockReturnValueOnce({ hash: 'MockHashBasic' });
             dataPromoItems.basic.auth = {};
             dataPromoItems.storytelling.promo_items.basic.auth = {
@@ -86,16 +84,15 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
                 ...mockAuth
             };
 
-            getPromoItemsAuth(dataPromoItems, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({
-                        basicHash: 'MockHashBasic'
-                    });
-                    expect(cachedCall).toBeCalledTimes(1);
-                })
-                .then(done);
+            const result = await getPromoItemsAuth(dataPromoItems, cachedCall);
+
+            expect(result).toStrictEqual({
+                basicHash: 'MockHashBasic'
+            });
+            expect(cachedCall).toBeCalledTimes(1);
         });
-        test('Should call cachedCall for storytelling_mobile promo_item that does not have auth', async done => {
+
+        it('Should call cachedCall for storytelling_mobile promo_item that does not have auth', async () => {
             cachedCall.mockReturnValueOnce({
                 hash: 'MockHashStorytellingMobile'
             });
@@ -108,16 +105,15 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
             };
             dataPromoItems.basic.auth = { ...mockAuth };
 
-            getPromoItemsAuth(dataPromoItems, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({
-                        storytellingMobileHash: 'MockHashStorytellingMobile'
-                    });
-                    expect(cachedCall).toBeCalledTimes(1);
-                })
-                .then(done);
+            const result = await getPromoItemsAuth(dataPromoItems, cachedCall);
+
+            expect(result).toStrictEqual({
+                storytellingMobileHash: 'MockHashStorytellingMobile'
+            });
+            expect(cachedCall).toBeCalledTimes(1);
         });
-        test('Should call cachedCall for storytelling promo_item that does not have auth', async done => {
+
+        it('Should call cachedCall for storytelling promo_item that does not have auth', async () => {
             cachedCall.mockReturnValueOnce({
                 hash: 'MockHashStorytelling'
             });
@@ -128,16 +124,15 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
             };
             dataPromoItems.basic.auth = { ...mockAuth };
 
-            getPromoItemsAuth(dataPromoItems, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({
-                        storytellingHash: 'MockHashStorytelling'
-                    });
-                    expect(cachedCall).toBeCalledTimes(1);
-                })
-                .then(done);
+            const result = await getPromoItemsAuth(dataPromoItems, cachedCall);
+
+            expect(result).toStrictEqual({
+                storytellingHash: 'MockHashStorytelling'
+            });
+            expect(cachedCall).toBeCalledTimes(1);
         });
-        test('Should call cachedCall for apertura_multimedia promo_item that does not have auth', async done => {
+
+        it('Should call cachedCall for apertura_multimedia promo_item that does not have auth', async () => {
             cachedCall.mockReturnValueOnce({
                 hash: 'MockHashAperturaMultimedia'
             });
@@ -148,16 +143,15 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
             dataPromoItems.storytelling_mobile.auth = { ...mockAuth };
             dataPromoItems.basic.auth = { ...mockAuth };
 
-            getPromoItemsAuth(dataPromoItems, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({
-                        videoHash: 'MockHashAperturaMultimedia'
-                    });
-                    expect(cachedCall).toBeCalledTimes(1);
-                })
-                .then(done);
+            const result = await getPromoItemsAuth(dataPromoItems, cachedCall);
+
+            expect(result).toStrictEqual({
+                videoHash: 'MockHashAperturaMultimedia'
+            });
+            expect(cachedCall).toBeCalledTimes(1);
         });
-        test('Should not call cachedCall if all provided promo_items have auth', async done => {
+
+        it('Should not call cachedCall if all provided promo_items have auth', async () => {
             dataPromoItems.storytelling.promo_items.basic.auth = {
                 ...mockAuth
             };
@@ -167,14 +161,13 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
             dataPromoItems.storytelling_mobile.auth = { ...mockAuth };
             dataPromoItems.basic.auth = { ...mockAuth };
 
-            getPromoItemsAuth(dataPromoItems, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({});
-                    expect(cachedCall).not.toBeCalled();
-                })
-                .then(done);
+            const result = await getPromoItemsAuth(dataPromoItems, cachedCall);
+
+            expect(result).toStrictEqual({});
+            expect(cachedCall).not.toBeCalled();
         });
-        test('Should call cachedCall for basic promo_item video that does not have auth', async done => {
+
+        it('Should call cachedCall for basic promo_item video that does not have auth', async () => {
             cachedCall.mockReturnValueOnce({ hash: 'MockVideoBasicHash' });
             dataPromoItems.basic = {
                 type: 'video',
@@ -193,14 +186,12 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
                 ...mockAuth
             };
 
-            getPromoItemsAuth(dataPromoItems, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({
-                        videoBasicHash: 'MockVideoBasicHash'
-                    });
-                    expect(cachedCall).toBeCalledTimes(1);
-                })
-                .then(done);
+            const result = await getPromoItemsAuth(dataPromoItems, cachedCall);
+
+            expect(result).toStrictEqual({
+                videoBasicHash: 'MockVideoBasicHash'
+            });
+            expect(cachedCall).toBeCalledTimes(1);
         });
     });
 
@@ -210,62 +201,56 @@ xdescribe('Content - sources - utils - signingServiceSource', () => {
             cachedCall.mockClear();
         });
 
-        test('Should call cachedCall with provided ID to get its hash', async done => {
+        it('Should call cachedCall with provided ID to get its hash', async () => {
             cachedCall.mockReturnValue({ hash: 'MockHash' });
 
-            signingServiceCachedCall('MockId', cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({ hash: 'MockHash' });
-                    expect(cachedCall).toBeCalledTimes(1);
-                    expect(cachedCall).toBeCalledWith(
-                        'signingServiceSource Token',
-                        signingServiceSource.fetch,
-                        {
-                            query: { imageId: 'MockId' },
-                            ttl: 31536000,
-                            independent: true
-                        }
-                    );
-                })
-                .then(done);
+            const result = await signingServiceCachedCall('MockId', cachedCall);
+
+            expect(result).toStrictEqual({ hash: 'MockHash' });
+            expect(cachedCall).toBeCalledTimes(1);
+            expect(cachedCall).toBeCalledWith(
+                'signingServiceSource Token',
+                signingServiceSource.fetch,
+                {
+                    query: { imageId: 'MockId' },
+                    ttl: 31536000,
+                    independent: true
+                }
+            );
         });
 
-        test('Should return null when ID or cachedCall are not provided', async done => {
+        it('Should return null when ID or cachedCall are not provided', async () => {
             cachedCall.mockReturnValue({ hash: 'MockHash' });
 
-            signingServiceCachedCall(undefined, cachedCall)
-                .then(result => {
-                    expect(result).toStrictEqual({});
-                    expect(cachedCall).not.toBeCalled();
-                })
-                .then(done);
-            signingServiceCachedCall('MockId')
-                .then(result => {
-                    expect(result).toStrictEqual({});
-                    expect(cachedCall).not.toBeCalled();
-                })
-                .then(done);
+            const result1 = await signingServiceCachedCall(
+                undefined,
+                cachedCall
+            );
+
+            expect(result1).toStrictEqual({});
+            expect(cachedCall).not.toBeCalled();
+
+            const result2 = await signingServiceCachedCall('MockId');
+
+            expect(result2).toStrictEqual({});
+            expect(cachedCall).not.toBeCalled();
         });
 
-        test('Should catch error properly', async done => {
+        it('Should catch error properly', async () => {
             cachedCall.mockImplementation(() => {
                 throw new Error('Mocked Error');
             });
             const loggerPush = jest.spyOn(logger, 'push');
 
-            signingServiceCachedCall('MockId', cachedCall)
-                .then(() => {
-                    expect(loggerPush).toBeCalledTimes(1);
-                    expect(loggerPush).toBeCalledWith(
-                        new Error('Mocked Error'),
-                        {
-                            source:
-                                'content/source/signingServiceSource/getImagesAuth',
-                            url: 'MockId'
-                        }
-                    );
-                })
-                .then(done);
+            try {
+                await signingServiceCachedCall('MockId', cachedCall);
+            } catch (error) {
+                expect(loggerPush).toBeCalledTimes(1);
+                expect(loggerPush).toBeCalledWith(new Error('Mocked Error'), {
+                    source: 'content/source/signingServiceSource/getImagesAuth',
+                    url: 'MockId'
+                });
+            }
         });
     });
 });
