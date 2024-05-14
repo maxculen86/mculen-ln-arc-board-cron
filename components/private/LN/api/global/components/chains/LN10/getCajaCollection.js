@@ -73,7 +73,10 @@ class GetCajaCollection {
         return {
             id: idCollection && idCollection.trim(),
             size: 20,
-            website: 'la-nacion-ar',
+            website:
+                layout === 'foodit_1_grid' || layout === 'foodit_3_grid'
+                    ? 'foodit'
+                    : 'la-nacion-ar',
             from: Number(initialPosition) - 1,
             idsArticlesToExclude,
             filterRecomendar: true,

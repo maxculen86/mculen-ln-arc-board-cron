@@ -25,4 +25,19 @@ describe('Tests for the validateStyle function', () => {
         const result = validateStyle('bnFondo', 'white');
         expect(result).toBe(false);
     });
+
+    test('When layout is foodit_1_grid and chainStyle is foodit, the function returns false', () => {
+        const result = validateStyle('foodit_1_grid', 'foodit');
+        expect(result).toBe(false);
+    });
+
+    test('When layout is foodit_3_grid and chainStyle is foodit, the function returns false', () => {
+        const result = validateStyle('foodit_3_grid', 'foodit');
+        expect(result).toBe(false);
+    });
+
+    test('When layout is different foodit_3_grid and chainStyle is different foodit, the function returns true', () => {
+        const result = validateStyle('foodit_3_grid', 'white');
+        expect(result).toBe(true);
+    });
 });

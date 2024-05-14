@@ -3,6 +3,7 @@ import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 
 import removeAccents from '../../../../private/common/utils/removeAccents';
+import { DESCUBRIR_SECTIONS } from './_helpers';
 
 const AcusPageView = () => {
     const { contextPath, deployment, requestUri = '' } = useAppContext();
@@ -16,8 +17,9 @@ const AcusPageView = () => {
                 .split('/')
                 .map(section => section.replace(/-/g, '_'))) ||
         [];
-    const isDescubrir =
-        firstSection === 'nutricion' || firstSection === 'restaurantes';
+
+    const isDescubrir = DESCUBRIR_SECTIONS.includes(firstSection);
+
     return (
         firstSection && (
             <script

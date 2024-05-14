@@ -1,5 +1,5 @@
 import React from 'react';
-import config from '../../../../../properties/sites/foodit';
+import { SITE_FOODIT } from 'fusion:environment';
 import {
     popUpCompartirMailTo,
     popUpCompartirNotaFB,
@@ -18,7 +18,7 @@ export const socials = [
             const url = get(article, 'website_url', '');
             const title = get(article, 'headlines.basic', '');
 
-            popUpCompartirNotaFB(url, config.host, title);
+            popUpCompartirNotaFB(url, SITE_FOODIT, title);
         },
         title: 'Compartir por Facebook',
         text: 'Facebook',
@@ -31,7 +31,7 @@ export const socials = [
             const url = get(article, 'website_url', '');
             const title = get(article, 'headlines.basic', '');
 
-            popUpCompartirNotaTW(url, config.host, title);
+            popUpCompartirNotaTW(url, SITE_FOODIT, title);
         },
         title: 'Compartir por Twitter',
         text: 'Twitter',
@@ -44,7 +44,7 @@ export const socials = [
             const url = get(article, 'website_url', '');
             const title = get(article, 'headlines.basic', '');
 
-            shareWhatsAppDesktop(url, config.host, title);
+            shareWhatsAppDesktop(url, SITE_FOODIT, title);
         },
         title: 'Compartir por Whatsapp',
         text: 'Whatsapp',
@@ -55,7 +55,7 @@ export const socials = [
         onClick: ({ article }) => {
             addActionToDataLayer(article, 'compartir');
             const url = get(article, 'website_url', '');
-            popUpCompartirMailTo(url, config.host);
+            popUpCompartirMailTo(url, SITE_FOODIT);
         },
         title: 'Compartir por Email',
         text: 'Email',

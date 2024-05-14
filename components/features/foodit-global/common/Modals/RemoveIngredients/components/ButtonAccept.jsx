@@ -1,31 +1,19 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import { getToastMessages } from '../helpers/messagesConfig';
+import { addErrorToast, addToast, TOAST } from '../../../bookmark/api/_helper';
 
-export const ButtonAccept = ({
-    type,
-    displayName = '',
-    close = () => null,
-    clickAction
-}) => {
-    const { title = '', description = '' } = getToastMessages(type);
-
+export const ButtonAccept = ({ close = () => null, clickAction }) => {
     const handleClick = async () => {
         close();
 
         const { status } = await clickAction();
         if (status === '200')
-            window.LN.observable.publish('addToast', {
-                variant: 'success',
-                title,
-                message: `${displayName} ${description}`
+            addToast({
+                variant: TOAST.SUCCESS.VARIANT,
+                title: TOAST.SUCCESS.TITLE,
+                message: TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS
             });
-        else
-            window.LN.observable.publish('addToast', {
-                variant: 'danger',
-                title,
-                message: `No se ah podido eliminar lista de ingredientes`
-            });
+        else addErrorToast();
     };
 
     return (

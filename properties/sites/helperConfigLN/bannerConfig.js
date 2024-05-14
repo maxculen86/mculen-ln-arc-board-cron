@@ -573,17 +573,32 @@ export default {
             megatop_dsk: {
                 slotName: `la_nacion_desktop/Acumulado/megatop_dsk`,
                 dimensions: [[800, 600]],
-                targeting: targetingAcumulado
+                targeting: targetingAcumulado,
+                bidding: {
+                    prebid: {
+                        enabled: true
+                    }
+                }
             },
             middle_1_dsk: {
                 slotName: 'la_nacion_desktop/Acumulado/middle_1_dsk',
                 dimensions: [[920, 250]],
-                targeting: targetingAcumulado
+                targeting: targetingAcumulado,
+                bidding: {
+                    prebid: {
+                        enabled: true
+                    }
+                }
             },
             '1x1_dsk': {
                 slotName: `la_nacion_desktop/Acumulado/1x1_dsk`,
                 dimensions: [[1, 1]],
-                targeting: targetingAcumulado
+                targeting: targetingAcumulado,
+                bidding: {
+                    prebid: {
+                        enabled: true
+                    }
+                }
             },
             cabezal_dsk: {
                 slotName: `la_nacion_desktop/Acumulado/cabezal_dsk`,
@@ -681,14 +696,24 @@ export default {
                     [800, 600]
                 ],
                 targeting: targetingAcumulado,
-                closeButton: true
+                closeButton: true,
+                bidding: {
+                    prebid: {
+                        enabled: true
+                    }
+                }
             }
         },
         mobile: {
             megatop_mob: {
                 slotName: `la_nacion_mobile/Acumulado/megatop_mob`,
                 dimensions: [[320, 480]],
-                targeting: targetingAcumulado
+                targeting: targetingAcumulado,
+                bidding: {
+                    prebid: {
+                        enabled: true
+                    }
+                }
             },
             sticky1_mob: {
                 slotName: `la_nacion_mobile/Acumulado/sticky1_mob`,
@@ -697,7 +722,12 @@ export default {
                     [320, 50],
                     [320, 100]
                 ],
-                targeting: targetingAcumulado
+                targeting: targetingAcumulado,
+                bidding: {
+                    prebid: {
+                        enabled: true
+                    }
+                }
             },
             sticky2_mob: {
                 slotName: `la_nacion_mobile/Acumulado/sticky2_mob`,
@@ -801,7 +831,12 @@ export default {
                     [320, 480]
                 ],
                 targeting: targetingAcumulado,
-                closeButton: true
+                closeButton: true,
+                bidding: {
+                    prebid: {
+                        enabled: true
+                    }
+                }
             }
         },
         tablet: {

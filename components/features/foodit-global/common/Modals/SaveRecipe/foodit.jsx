@@ -19,7 +19,8 @@ export const Modal = () => {
     const {
         bookmarkedArticles = [],
         noBookmarkedArticles = [],
-        collectionArticles = []
+        collectionArticles = [],
+        carouselTitle = ''
     } = get(modalData, 'data', {});
 
     useEffect(() => {
@@ -69,6 +70,7 @@ export const Modal = () => {
                         close={() => close(restoreIndex)}
                         ids={noBookmarkedArticles}
                         collectionArticles={collectionArticles}
+                        carouselTitle={carouselTitle}
                         indexStep={indexStep}
                         setIndexStep={setIndexStep}
                     />

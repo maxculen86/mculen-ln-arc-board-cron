@@ -16,7 +16,7 @@ export default {
     },
     scripts,
     loggerExcludedErrors: [404, 301, 302],
-    host: 'https://lanacionar-foodit-sandbox.web.arc-cdn.net/',
+    host: 'https://foodit.lanacion.com.ar/',
     layoutsName: {
         FooditHome: 'Foodit-home',
         FooditFichaReceta: 'Foodit-ficha-receta',
@@ -25,6 +25,7 @@ export default {
         FooditAcumulado: 'Foodit-acumulado',
         FooditListadoCompras: 'Foodit-compras',
         FooditAcumuladoChef: 'Foodit-acumulado-chef',
-        FooditChef: 'Foodit-chef'
+        FooditChef: 'Foodit-chef',
+        Foodit404: 'Foodit-404'
     }
 };

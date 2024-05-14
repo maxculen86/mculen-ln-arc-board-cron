@@ -51,7 +51,8 @@ export const getJWScript = (
     hasAutoplay = false,
     idVideo,
     tagsUrl,
-    autostart = true
+    autostart = true,
+    arcSite = ''
 ) => {
     const facadeDiv = document.getElementById(`facade-${idVideo}`);
 
@@ -65,6 +66,7 @@ export const getJWScript = (
                 playlist,
                 autostart,
                 mute: hasAutoplay || false,
+                ...(arcSite === 'foodit' ? { related: null } : {}),
                 ...(player === 'ih0086X3'
                     ? {
                           advertising: {

@@ -1,10 +1,11 @@
 import { SITE_LANACION } from 'fusion:environment';
-import pages from './utils/pageSource/index';
-import get from '../../components/private/common/utils/get';
-import transformBitacorav1 from './utils/pageSource/pageHome/v1/bitacora/transform';
-import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
 import homev1 from '../../components/private/LN/api/v1/mobile/home';
 import homev2 from '../../components/private/LN/api/v2/mobile/home';
+import get from '../../components/private/common/utils/get';
+import pages from './utils/pageSource/index';
+import transformBitacorav1 from './utils/pageSource/pageHome/v1/bitacora/transform';
+import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
+import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
 
 // Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
 const fetch = async (query, { cachedCall } = {}) => {
@@ -86,16 +87,25 @@ const fetch = async (query, { cachedCall } = {}) => {
             cookie
         };
 
+        const apiPageHomeSourceFetchDate = new Date();
+
         const resultPage = await cachedCall(keyCachedCall, pages.fetch, {
             query: queryParams,
-            ttl: 120
+            ttl: 120,
+            independent: true
         });
+
         if (!resultPage) {
             throw new Error('Not found page');
         }
 
-        const { information } = resultPage;
-        queryParams.information = information;
+        const { information, homeFetchDate } = resultPage;
+        queryParams.information = {
+            ...information,
+            homeFetchDate: homeFetchDate,
+            keyCachedCall: keyCachedCall,
+            apiPageHomeSourceFetchDate: apiPageHomeSourceFetchDate
+        };
         // Para revisar la data transformada que viene del Layout
         // return resultPage;
         if (
@@ -125,13 +135,17 @@ const fetch = async (query, { cachedCall } = {}) => {
             resultPageTransform,
             queryParams
         );
+
         return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(
-            `Error content/apiPageHomeSource : ${JSON.stringify(
-                queryParams
-            )} - errorMsj:${error.message}`
+            new BackendLnError(
+                `Error content/apiPageHomeSource : ${JSON.stringify(
+                    queryParams
+                )} - errorMsj:${error.message}`,
+                'apiPegeHomeSourceError'
+            )
         );
         return null;
     }

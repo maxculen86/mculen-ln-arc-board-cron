@@ -31,6 +31,12 @@ const setRelatedArticlesCustomFields = () => {
             label: 'Cantidad de Notas',
             group: customFieldsRules.groupName
         }),
+        customTitle: PropTypes.string.tag({
+            name: 'Título manual',
+            description: 'Ingrese aqui el título manual',
+            defaultValue: '',
+            group: customFieldsRules.groupName
+        }),
         filterBy: PropTypes.oneOf(Object.keys(customFieldsRules.filterBy)).tag({
             label: 'Filtrar por',
             defaultValue: customFieldsRules.defaultFilterBy,

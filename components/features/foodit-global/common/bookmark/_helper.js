@@ -25,13 +25,15 @@ export const transformBookmarkContent = article => {
         image = {},
         time = null,
         title = '',
-        mobileTilte = ''
+        mobileTilte = '',
+        variant = ''
     } = article || {};
 
     const { resized_urls } = image;
     const url = getShortestImage(resized_urls);
 
     return {
+        variant,
         primarySection,
         content: {
             id: articleId,

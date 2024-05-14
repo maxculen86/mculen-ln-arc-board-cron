@@ -6,6 +6,7 @@ import { Link } from '@ln/foodit-ui-link';
 import { Breadcrumb } from '@ln/common-ui-breadcrumb';
 import { setArraySection } from './_helpers';
 import BreadcrumbTooltip from './_childrens/BreadcrumbTooltip/foodit';
+import { BreadcrumbSchema } from '../../schemas/Breadcrumb';
 
 export default function BreadcrumbFoodit({ globalContent, className }) {
     const acuSection = get(globalContent, '_id', '');
@@ -22,6 +23,7 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
 
     return (
         <div className={classNames('flex ai-center gap-8', className)}>
+            <BreadcrumbSchema sections={sections} />
             <Static htmlOnly persistent id="breadcrumb-foodit">
                 <Breadcrumb gap={8} className="text-14">
                     {sections.map(({ name, url, disabled = false } = {}) => (

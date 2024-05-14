@@ -8,7 +8,7 @@ import ScriptManager, {
 import renderables from '../../../../../__mocks__/data/renderables/data1';
 import { getScriptsToLoad } from '../../../../../components/private/LN/common/utils/scriptsHelper';
 
-xdescribe('ScriptManager ...', () => {
+describe('ScriptManager ...', () => {
     it('... es una function', () => {
         expect(typeof ScriptManager).toEqual('function');
     });
@@ -119,6 +119,7 @@ describe('getScriptsToLoad', () => {
             'Permutive',
             'GTM',
             'Comscore',
+            'ComscoreFoodit',
             'Microdata',
             'PostBid',
             'GooglePublisherTag',
@@ -142,6 +143,7 @@ describe('getScriptsToLoad', () => {
             'Permutive',
             'GTM',
             'Comscore',
+            'ComscoreFoodit',
             'Microdata',
             'PostBid',
             'GooglePublisherTag',

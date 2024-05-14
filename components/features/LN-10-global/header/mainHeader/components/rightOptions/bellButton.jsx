@@ -6,30 +6,22 @@ import { toggleBellColor } from './_helper';
 import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { useHeaderContext } from '../../../context';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
-
 export const BellButton = () => {
     const { negative, intersectingSentinel } = useHeaderContext();
-
     const [showTooltip, setShowTooltip] = useState(false);
     const [props, setProps] = useState({});
-
     const { getCookie } = handleCookie();
     const token = getCookie('token');
     const accessToken = getCookie('access-token');
-    const { dataLayer } = window;
-
     useEffect(() => {
         initializeTooltip();
         setProps(buildProps());
     }, [showTooltip, intersectingSentinel]);
-
     const initializeTooltip = () => {
         const toggleTooltip = getInitialState() ? intersectingSentinel : false;
         setShowTooltip(toggleTooltip);
     };
-
     toggleBellColor(negative);
-
     const buildProps = () => {
         return {
             ...(token &&
@@ -62,7 +54,7 @@ export const BellButton = () => {
     const handleBellClick = () => {
         setShowTooltip(false);
         localStorage.setItem('showTooltip', false);
-        dataLayer.push({
+        addEventToDataLayer({
             event: 'trackEvent',
             category: 'campanita',
             action: 'campanita',
@@ -70,7 +62,7 @@ export const BellButton = () => {
         });
     };
     const handleNotificationsClick = notification => {
-        dataLayer.push({
+        addEventToDataLayer({
             event: 'action_notification',
             button: notification.buttonLabel || 'N/A',
             title:
@@ -80,7 +72,7 @@ export const BellButton = () => {
         });
     };
     const handleMessageButtonClick = message => {
-        dataLayer.push({
+        addEventToDataLayer({
             event: 'action_notification',
             button: message.buttonLabel || 'N/A',
             title: (message.title && `mensaje-${message.title}`) || 'N/A',

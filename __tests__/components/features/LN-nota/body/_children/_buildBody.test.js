@@ -9,13 +9,6 @@ import siteProperties from '../../../../../../__mocks__/data/nota/body/sitePrope
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import * as utils from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
-import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
-import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
-
-jest.mock(
-    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
-    () => jest.fn()
-);
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -31,8 +24,18 @@ jest.mock('fusion:consumer', component => {
 
 useContent.mockImplementation(() => {});
 
-useSiteServices.mockImplementation(() => {
-    return siteServicesMock;
+jest.mock('react', () => {
+    const ActualReact = jest.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({
+            state: {
+                siteService: {
+                    adserver: []
+                }
+            }
+        })
+    };
 });
 
 const globalContent = {

@@ -3,6 +3,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { Avatar } from '@ln/foodit-ui-avatar';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 
 export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
     const { email, initials, hasSubscription, restoreContext } = avatarProps;
@@ -27,7 +28,13 @@ export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
                         </Avatar>
                     </div>
                     {!hasSubscription && (
-                        <Button title="Ir a Suscribirse" variant="accent">
+                        <Button
+                            title="Ir a Suscribirse"
+                            variant="accent"
+                            href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?cv=670&fc=825&callback=${window.btoa(
+                                window.location.href
+                            )}`}
+                        >
                             Suscribite
                         </Button>
                     )}

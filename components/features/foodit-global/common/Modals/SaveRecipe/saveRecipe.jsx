@@ -8,7 +8,14 @@ import FooterSaveRecipe from './components/footer';
 import { getConfig, saveRecipeConfig } from './helpers';
 
 const SaveRecipe = props => {
-    const { close, ids, indexStep, setIndexStep, collectionArticles } = props;
+    const {
+        close,
+        ids,
+        indexStep,
+        setIndexStep,
+        collectionArticles,
+        carouselTitle
+    } = props;
     const inputRef = useRef(null);
 
     const {
@@ -57,6 +64,7 @@ const SaveRecipe = props => {
                 setIndexStep={setIndexStep}
                 ids={ids}
                 collectionArticles={collectionArticles}
+                carouselTitle={carouselTitle}
             />
         </>
     );

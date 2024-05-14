@@ -14,8 +14,7 @@ const ChefsPageView = () => {
             type="text/javascript"
             data-url={`${SITE_FOODIT}${requestUri.split('?')[0]}`}
             data-section={'descubrir'}
-            data-sub-section={params.match(/^\/(.*?)\//)[1].replace(/-/g, '_')}
-            data-content-type={'descubrir'}
+            data-content-type={params.match(/^\/(.*?)\//)[1].replace(/-/g, '_')}
             data-title={'N/A'}
             src={deployment(
                 `${contextPath}/resources/js/LN/dataLayerPageView.min.js`

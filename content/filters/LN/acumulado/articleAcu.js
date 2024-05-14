@@ -23,6 +23,13 @@ export default `
             basic {
                 ${image}
             }
+            receta {
+                embed {
+                    config {
+                        counterTime
+                    }
+                }
+            }
         }
         taxonomy {
             tags {

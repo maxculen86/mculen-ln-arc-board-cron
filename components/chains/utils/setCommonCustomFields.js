@@ -3,12 +3,14 @@ import PropTypes from 'fusion:prop-types';
 export const typesButtonStyle = {
     'sub-exclusive': 'Exclusivo Suscriptor',
     generico: 'Genérico',
-    ln: 'LN+'
+    ln: 'LN+',
+    foodit: 'secondary'
 };
 
 const ajustCollection = 'Ajuste Collection';
 
 const typeStylesChain = {
+    foodit: 'Foodit',
     propiedades: 'Propiedades',
     campo: 'Campo',
     bienestar: 'Bienestar',
@@ -43,7 +45,9 @@ const customFieldsRules = {
             bn_1_3_grid: 'BN Focal 1 + 3',
             bn_1_4_grid: 'BN Focal 1 + 4',
             'bn-4-8': 'Grilla 4 Verticales',
-            bnFondo: 'BN A Fondo'
+            bnFondo: 'BN A Fondo',
+            foodit_1_grid: 'Foodit 1 nota',
+            foodit_3_grid: 'Foodit 3 nota'
         },
         defaultLayout: 'bnGrilla4'
     },

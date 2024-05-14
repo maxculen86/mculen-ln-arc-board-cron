@@ -32,7 +32,8 @@ const Datadog = ({ location = 'head' }) => {
         trackResources,
         trackLongTasks,
         trackUserInteractions,
-        trackSessionAcrossSubdomains
+        trackSessionAcrossSubdomains,
+        defaultPrivacyLevel
     } = DATADOG_CONFIG[arcSite] || {};
 
     const scriptLog = `
@@ -118,6 +119,7 @@ const Datadog = ({ location = 'head' }) => {
           trackLongTasks: ${trackLongTasks}, 
           trackUserInteractions: ${trackUserInteractions},
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
+          defaultPrivacyLevel: ${defaultPrivacyLevel},
         });
       
         DD_RUM.startSessionReplayRecording();

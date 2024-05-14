@@ -4,6 +4,10 @@ const setActionBar = (element, callback) => {
     })
 }
 
+const scriptSearch = document.getElementById('scriptBuscadorQuerylyFoodit');
+const emptyStateIcon = scriptSearch.getAttribute('data-empty-state');
+const timerIcon = scriptSearch.getAttribute('data-timer-icon');
+
 var searchPage = {
     batchSize: 24,
     endIndex: 0,
@@ -40,7 +44,7 @@ var searchPage = {
         }
 
         if (searchPage.query == null || searchPage.query.trim() == '') {
-            searchPage.query = 'SALADAS ';
+            searchPage.query = ' ';
         }
         searchPage.query = decodeURI(searchPage.query);
 
@@ -51,8 +55,15 @@ var searchPage = {
         }
         else {
             searchPage.renderStyle();
-            var html = '<div class="search-bar-area" style="padding-bottom: 26px;position: relative;display: none;"><form class="search-bar"><input style="border-radius:60px;" class="queryly_searchbox" name="query" type="text"  value="" placeholder="" onkeydown="searchPage.processEnterKey(event);"><button class="search-button" type="submit">Search</button></form></div>';
-            html = html + '<div style="margin: 20px;margin:auto;font-size: 24px;color: #444;">No result is found. Please try a different keyword.</div>';
+            document.getElementById('btn-toggle-filter').classList.add('none');
+            document.getElementById('container-faceteddata').style.display = 'none';
+            document.getElementById('resultdata').classList.replace('col-span-12_lg', 'col-span-16_lg');
+
+            const emptyState = `<img class="image flex --cover" decoding="async" fetchpriority="low" loading="lazy" src="${emptyStateIcon}" alt="¡Aún no hay nada por acá!">`
+
+            var html = '<div class="search-bar-area flex flex-column ai-center" style="padding-bottom: 26px;position: relative;display: none;"><form class="search-bar"><input style="border-radius:60px;" class="queryly_searchbox" name="query" type="text"  value="" placeholder="" onkeydown="searchPage.processEnterKey(event);"><button class="search-button" type="submit">Search</button></form></div>';
+            html = html + '<div class="search-bar-area flex flex-column ai-center" style="position: relative;"><div class="search-bar none" ></div><div class="empty-state-svg mb-32">'+ emptyState +'</div><div class="prumo prumo-semibold text-24 text-28_md text-32_lg text-center mb-8">Nada por acá</div><div class="roboto text-24 text-center">No se encontraron resultados</div></div>';
+            
             document.querySelector("#resultdata").innerHTML = html;
             return;
         }
@@ -85,7 +96,7 @@ var searchPage = {
                                     <div class="opacity-1">
                                         <i class="icon --icon-12 --inherit">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                <use href="/pf/resources/images/foodit-sprite-default.svg?d=2115#timer"></use>
+                                                <use href="${timerIcon}"></use>
                                             </svg>
                                         </i>
                                         <span class="text text-12 roboto-light"><%=queryly.data.counter_time%> min</span>
@@ -99,9 +110,9 @@ var searchPage = {
             </script>
         `;
 
-        const toggleFilterButtonMobile = document.querySelector("#btn-toggle-filter");
-        const btnDeleteFilter = document.querySelector("#btn-delete-filter");
-        const btnApplyFilter = document.querySelector("#btn-apply-filter");
+        const toggleFilterButtonMobile = document.getElementById("btn-toggle-filter");
+        const btnDeleteFilter = document.getElementById("btn-delete-filter");
+        const btnApplyFilter = document.getElementById("btn-apply-filter");
         setActionBar(toggleFilterButtonMobile, () => searchPage.toggleFilter())
 
         setActionBar(btnDeleteFilter, () => {
@@ -121,10 +132,10 @@ var searchPage = {
     // 2. Queda comentada una porcion de stylehtml para futura implementacion de checkbox custom
     renderStyle: function () {
         var style = document.createElement('style');
-        var stylehtml = '.collapsed::after {content:"Ver más +";color:#846B05;font-size:14px; font-weight: bold;} .collapsed > * {display:none!important;} .expanded {display:flex;flex-direction:column;padding-bottom:16px;gap:8px;} .expanded::after {content:"Ver menos -";color:#846B05;font-size:14px; font-weight: bold;} .expanded > * {display:flex!important;} .search-button {padding: 10px 15px;vertical-align:top;;color: white;border-style: hidden;font-weight: bold;position: absolute;top: 0px;right: 0px;font-size: 16px;cursor: pointer;} .queryly_filter_hide {display:none!important;} .queryly_filter {border-bottom: 1px solid #E6E6E6;margin-bottom:16px; } .queryly_filter_title {cursor:pointer;font-weight:bold;font-size:12px;margin-bottom:16px} .queryly_filter_title img {content:url(https://www.queryly.com/images/chevron_right_black_24dp.svg);float:right;vertical-align:middle;margin-top:3px;} .queryly_filter_title_expand {margin-bottom: 16px;} .queryly_filter_title_expand img {content:url(https://www.queryly.com/images/expand_more_black_24dp.svg)}';
+        var stylehtml = '.collapsed::after {content:"Ver más +";color:#846B05;font-size:14px; font-weight: bold;cursor: pointer;} .collapsed > * {display:none!important;} .expanded {display:flex;flex-direction:column;padding-bottom:16px;gap:8px;} .expanded::after {content:"Ver menos -";color:#846B05;font-size:14px; font-weight: bold;cursor: pointer;} .expanded > * {display:flex!important;} .search-button {padding: 10px 15px;vertical-align:top;;color: white;border-style: hidden;font-weight: bold;position: absolute;top: 0px;right: 0px;font-size: 16px;cursor: pointer;} .queryly_filter_hide {display:none!important;} .queryly_filter {border-bottom: 1px solid #E6E6E6;margin-bottom:16px; } .queryly_filter_title {cursor:pointer;font-weight:bold;font-size:12px;margin-bottom:16px} .queryly_filter_title img {content:url(https://www.queryly.com/images/chevron_right_black_24dp.svg);float:right;vertical-align:middle;margin-top:3px;} .queryly_filter_title_expand {margin-bottom: 16px;} .queryly_filter_title_expand img {content:url(https://www.queryly.com/images/expand_more_black_24dp.svg)}';
         // stylehtml = stylehtml + '.filter_item_label {-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;} .filter_item_label:hover input ~ .checkmark{border-color:#787932; opacity:0.8;} .filter_item_label input:checked ~ .checkmark{border:none; background-color:#787932; opacity:0.8;} .checkmark:after {content:"";position:absolute;display:none;} .filter_item_label input:checked ~ .checkmark:after {display:block;} .filter_item_label .checkmark:after {left:8px;top:3px;width:8px;height:16px;border:solid #F3F0EB;border-width:0 3px 3px 0; border-radius:0px 3px 3px 3px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);} ';
-        stylehtml = stylehtml + '.filter_item_counter {vertical-align: middle;color: var(--neutral-light-600); font-size: 14px;}.hideElement {display:none} .showElement {display:flex}  #queryly_advanced_container {width:100%;} #faceteddata {font-size: 16px;line-height:150%;} .queryly_item_row img {} .queryly_item_row {width:calc(33% - 28px);overflow:hidden;display:inline-block;margin-right:0px;margin-left:20px;margin-bottom:20px;margin-right:0px;;padding-bottom:0px;background:white;vertical-align:top;} .queryly_item_title {overflow: hidden;} .queryly_item_description {color: #5f5f5f; font-size: 14px;font-weight: 400;   overflow: hidden;  } #resultdata {margin-bottom: 60px;} .queryly_advanced_item_imagecontainer {margin-right: 20px; padding-bottom: 0px;  height: 120px;width: 210px; overflow: hidden;  background-size: cover; background-position: 50% 50%; position: relative;}';
-        stylehtml = stylehtml + '.filterbar_item {display:inline-block;margin-right:10px;margin-bottom:10px;padding:8px 12px;border-radius:4px;background:#333333;color:#FEFEFE;font-size: 14px;line-height:100%; font-weight:700; font-family: Roboto} .selectedFilterItem a {font-weight:800} .queryly_item_title {color:red;margin-top:0px;margin-bottom:6px;font-family: FoundersGroteskCond,Arial Narrow,Arial,sans-serif;font-size:24px;line-height:24px;font-weight:600;}; @media (max-width: 780px) { section {width:100%!important;padding:0px!important;} #resultdata{margin-left:0px!important;} .queryly_item_title {font-weight:normal;}  } ';
+        stylehtml = stylehtml + '.filter_item_counter {vertical-align: middle;color: var(--neutral-light-600); font-size: 14px;cursor:pointer;}.hideElement {display:none} .showElement {display:flex}  #queryly_advanced_container {width:100%;} #faceteddata {font-size: 16px;line-height:150%;} .queryly_item_row img {} .queryly_item_row {width:calc(33% - 28px);overflow:hidden;display:inline-block;margin-right:0px;margin-left:20px;margin-bottom:20px;margin-right:0px;;padding-bottom:0px;background:white;vertical-align:top;} .queryly_item_title {overflow: hidden;} .queryly_item_description {color: #5f5f5f; font-size: 14px;font-weight: 400;   overflow: hidden;  } #resultdata {margin-bottom: 60px;} .queryly_advanced_item_imagecontainer {margin-right: 20px; padding-bottom: 0px;  height: 120px;width: 210px; overflow: hidden;  background-size: cover; background-position: 50% 50%; position: relative;}';
+        stylehtml = stylehtml + '.pointer {cursor:pointer;} .filterbar_item {cursor:pointer;display:inline-block;margin-right:10px;margin-bottom:10px;padding:8px 12px;border-radius:4px;background:#333333;color:#FEFEFE;font-size: 14px;line-height:100%; font-weight:700; font-family: Roboto} .selectedFilterItem a {font-weight:800} .queryly_item_title {color:red;margin-top:0px;margin-bottom:6px;font-family: FoundersGroteskCond,Arial Narrow,Arial,sans-serif;font-size:24px;line-height:24px;font-weight:600;}; @media (max-width: 780px) { section {width:100%!important;padding:0px!important;} #resultdata{margin-left:0px!important;} .queryly_item_title {font-weight:normal;}  } ';
         stylehtml = stylehtml + ' @media (max-width: 1279.9px) { #filterbar {display:none;} .queryly_advanced_item_imagecontainer {width: 160px; height: 100px; margin-right: 15px;} .queryly_item_description {display: none;} .queryly_item_title {font-size: 14px!important;font-weight: normal; } .queryly_item_row { min-height: 50px;} .queryly_item_row img { width: 140px; } .faceteddata {display:none;} #faceteddata { display:none;} #resultdata { margin-left: 0px; } }; ';
         style.innerHTML = stylehtml;
         document.getElementById('queryly_advanced_container').parentNode.insertBefore(style, document.getElementById('queryly_advanced_container'));
@@ -169,11 +180,11 @@ var searchPage = {
                 var id = filters[i].key + "_" + filter_vals[j].replace(' ', '_');
                 var filter_str = filter_vals[j];
                 var filteredValue= filter_str[0].toUpperCase() + filter_str.slice(1);
-                filterbar = filterbar + '<div class="filterbar_item" >' + ((filters[i].key == "subtype") ? (filter_vals[j] == "7" ? "Recetas" : "Notas") : filteredValue) + '<label for="' + id + '"><i style ="vertical-align: middle;margin-left: 10px;cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.99987 5.29299L8.12137 3.17149C8.3166 2.97626 8.63314 2.97626 8.82837 3.17149C9.0236 3.36673 9.0236 3.68326 8.82837 3.87849L6.70687 5.99999L8.82837 8.12149C9.0236 8.31673 9.0236 8.63326 8.82837 8.82849C8.63314 9.02373 8.3166 9.02373 8.12137 8.82849L5.99987 6.70699L3.87837 8.82849C3.68314 9.02373 3.3666 9.02373 3.17137 8.82849C2.97614 8.63326 2.97614 8.31673 3.17137 8.12149L5.29287 5.99999L3.17137 3.87849C2.97614 3.68326 2.97614 3.36673 3.17137 3.17149C3.3666 2.97626 3.68314 2.97626 3.87837 3.17149L5.99987 5.29299Z" fill="#FEFEFE"/></svg></i></label></div>';
+                filterbar = filterbar + '<div class="filterbar_item pointer" >' + ((filters[i].key == "subtype") ? (filter_vals[j] == "7" ? "Recetas" : "Notas") : filteredValue) + '<label class="pointer" for="' + id + '"><i style ="vertical-align: middle;margin-left: 10px;cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.99987 5.29299L8.12137 3.17149C8.3166 2.97626 8.63314 2.97626 8.82837 3.17149C9.0236 3.36673 9.0236 3.68326 8.82837 3.87849L6.70687 5.99999L8.82837 8.12149C9.0236 8.31673 9.0236 8.63326 8.82837 8.82849C8.63314 9.02373 8.3166 9.02373 8.12137 8.82849L5.99987 6.70699L3.87837 8.82849C3.68314 9.02373 3.3666 9.02373 3.17137 8.82849C2.97614 8.63326 2.97614 8.31673 3.17137 8.12149L5.29287 5.99999L3.17137 3.87849C2.97614 3.68326 2.97614 3.36673 3.17137 3.17149C3.3666 2.97626 3.68314 2.97626 3.87837 3.17149L5.99987 5.29299Z" fill="#FEFEFE"/></svg></i></label></div>';
             }            
         }
         if (filterbar != '') {
-            filterbar = "<div id='filterbar' class='lg-only' style='margin:-10px 0px 10px 0px; display: flex; justify-content: space-between;'><div>" + filterbar + "</div><div><button onclick='searchPage.dofacetedsearch(0,\"\",\"\");' class='clear-all lg-only button foodit-button gap-8 roboto-bold text-12 rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-8'><i><svg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.8335 3.99992H14.5002C14.8684 3.99992 15.1668 4.2984 15.1668 4.66659C15.1668 5.03478 14.8684 5.33325 14.5002 5.33325H13.8335V13.9999C13.8335 14.1767 13.7633 14.3463 13.6382 14.4713C13.5132 14.5963 13.3436 14.6666 13.1668 14.6666H3.8335C3.65669 14.6666 3.48712 14.5963 3.36209 14.4713C3.23707 14.3463 3.16683 14.1767 3.16683 13.9999V5.33325H2.50016C2.13197 5.33325 1.8335 5.03478 1.8335 4.66659C1.8335 4.2984 2.13197 3.99992 2.50016 3.99992H5.16683V1.99992C5.16683 1.82311 5.23707 1.65354 5.36209 1.52851C5.48712 1.40349 5.65669 1.33325 5.8335 1.33325H11.1668C11.3436 1.33325 11.5132 1.40349 11.6382 1.52851C11.7633 1.65354 11.8335 1.82311 11.8335 1.99992V3.99992ZM12.5002 5.33325H4.50016V13.3333H12.5002V5.33325ZM6.50016 7.99992C6.50016 7.63173 6.79864 7.33325 7.16683 7.33325C7.53502 7.33325 7.8335 7.63173 7.8335 7.99992V10.6666C7.8335 11.0348 7.53502 11.3333 7.16683 11.3333C6.79864 11.3333 6.50016 11.0348 6.50016 10.6666V7.99992ZM9.16683 7.99992C9.16683 7.63173 9.46531 7.33325 9.8335 7.33325C10.2017 7.33325 10.5002 7.63173 10.5002 7.99992V10.6666C10.5002 11.0348 10.2017 11.3333 9.8335 11.3333C9.46531 11.3333 9.16683 11.0348 9.16683 10.6666V7.99992ZM6.50016 2.66659V3.99992H10.5002V2.66659H6.50016Z' fill='#846B05'/></svg></i>Limpiar Filtros</button></div></div>";
+            filterbar = "<div id='filterbar' class='lg-only' style='margin:-10px 0px 10px 0px; cursor:pointer; display: flex; justify-content: space-between;'><div>" + filterbar + "</div><div><button onclick='searchPage.dofacetedsearch(0,\"\",\"\");' class='clear-all lg-only button foodit-button gap-8 roboto-bold text-12 rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-8'><i><svg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.8335 3.99992H14.5002C14.8684 3.99992 15.1668 4.2984 15.1668 4.66659C15.1668 5.03478 14.8684 5.33325 14.5002 5.33325H13.8335V13.9999C13.8335 14.1767 13.7633 14.3463 13.6382 14.4713C13.5132 14.5963 13.3436 14.6666 13.1668 14.6666H3.8335C3.65669 14.6666 3.48712 14.5963 3.36209 14.4713C3.23707 14.3463 3.16683 14.1767 3.16683 13.9999V5.33325H2.50016C2.13197 5.33325 1.8335 5.03478 1.8335 4.66659C1.8335 4.2984 2.13197 3.99992 2.50016 3.99992H5.16683V1.99992C5.16683 1.82311 5.23707 1.65354 5.36209 1.52851C5.48712 1.40349 5.65669 1.33325 5.8335 1.33325H11.1668C11.3436 1.33325 11.5132 1.40349 11.6382 1.52851C11.7633 1.65354 11.8335 1.82311 11.8335 1.99992V3.99992ZM12.5002 5.33325H4.50016V13.3333H12.5002V5.33325ZM6.50016 7.99992C6.50016 7.63173 6.79864 7.33325 7.16683 7.33325C7.53502 7.33325 7.8335 7.63173 7.8335 7.99992V10.6666C7.8335 11.0348 7.53502 11.3333 7.16683 11.3333C6.79864 11.3333 6.50016 11.0348 6.50016 10.6666V7.99992ZM9.16683 7.99992C9.16683 7.63173 9.46531 7.33325 9.8335 7.33325C10.2017 7.33325 10.5002 7.63173 10.5002 7.99992V10.6666C10.5002 11.0348 10.2017 11.3333 9.8335 11.3333C9.46531 11.3333 9.16683 11.0348 9.16683 10.6666V7.99992ZM6.50016 2.66659V3.99992H10.5002V2.66659H6.50016Z' fill='#846B05'/></svg></i>Limpiar Filtros</button></div></div>";
         }
         return filterbar;
     },
@@ -197,7 +208,7 @@ var searchPage = {
             var id = "subtype_" + subtype[i].key.toLowerCase().replace(' ', '_');
             var name = (subtype[i].key == "7") ? "Recetas" : "Notas";
             var count = subtype[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + subtype[i].key + '"><input  count="' + count + '" id="' + id + '" type="checkbox" value="' + subtype[i].key + '" onclick="searchPage.dofacetedsearch(0,\'subtype\',\'' + subtype[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + subtype[i].key + '"><input class="pointer"  count="' + count + '" id="' + id + '" type="checkbox" value="' + subtype[i].key + '" onclick="searchPage.dofacetedsearch(0,\'subtype\',\'' + subtype[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
 
         }
         html = html + '</div></div>';
@@ -209,7 +220,7 @@ var searchPage = {
             if (name != "Vegetariana" && name != "Sin Gluten" && name != "Keto" && name != "Sin Lactosa" && name != "Vegana") { continue; }
             var id = "section_" + name.toLowerCase().replace(' ', '_');
             var count = dieta_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + dieta_section[i].key + '"><input count="' + count + '" id="' + id + '" type="checkbox" value="' + dieta_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dieta_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter" >('+ count +')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + dieta_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + dieta_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dieta_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter" >('+ count +')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -220,7 +231,7 @@ var searchPage = {
             if (name != "Arroz" && name != "Tartas" && name != "Pollo" && name != "Pizza y Empanadas" && name != "Pastas" && name != "Pescados" && name != "Carnes" && name != "Hamburguesa" && name != "Sopa" && name != "Salsas" && name != "Ensaladas") { continue; }
             var id = "section_" + name.toLowerCase().replace(' ', '_');
             var count = saladas_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + saladas_section[i].key + '"><input count="' + count + '" id="' + id + '" type="checkbox" value="' + saladas_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + saladas_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + saladas_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + saladas_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + saladas_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -231,7 +242,7 @@ var searchPage = {
             if (name != "Tortas" && name != "Postres" && name != "Panqueques" && name != "Budines" && name != "Helados" && name != "Batidos") { continue; }
             var id = "section_" + name.toLowerCase().replace(' ', '_');
             var count = dulces_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + dulces_section[i].key + '"><input count="' + count + '" id="' + id + '" type="checkbox" value="' + dulces_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dulces_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + dulces_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + dulces_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dulces_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -243,7 +254,7 @@ var searchPage = {
             if (name != "Fácil" && name != "Saludable" && name != "Bajo Costo" && name != "Rápida" && name != "Bebidas" && name != "De autor") { continue; }
             var id = "section_" + name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/'/g, "\\'")
             var count = other_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + other_section[i].key + '"><input count="' + count + '" id="' + id + '" type="checkbox" value="' + other_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + other_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + other_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + other_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + other_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -254,7 +265,7 @@ var searchPage = {
             var name = main_ingredients[i].key;
             var id = "main_ingredients_" + name.toLowerCase().replace(' ', '_');
             var count = main_ingredients[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + main_ingredients[i].key + '"><input count="' + count + '" id="' + id + '" type="checkbox" value="' + main_ingredients[i].key + '" onclick="searchPage.dofacetedsearch(0,\'main_ingredients\',\'' + main_ingredients[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + main_ingredients[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + main_ingredients[i].key + '" onclick="searchPage.dofacetedsearch(0,\'main_ingredients\',\'' + main_ingredients[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -264,7 +275,7 @@ var searchPage = {
             var name = cookingtypes[i].key;
             var id = "cookingtypes_" + name.toLowerCase().replace(' ', '_');
             var count = cookingtypes[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + cookingtypes[i].key + '"><input count="' + count + '" id="' + id + '" type="checkbox" value="' + cookingtypes[i].key + '" onclick="searchPage.dofacetedsearch(0,\'cookingtypes\',\'' + cookingtypes[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + cookingtypes[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + cookingtypes[i].key + '" onclick="searchPage.dofacetedsearch(0,\'cookingtypes\',\'' + cookingtypes[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -274,7 +285,7 @@ var searchPage = {
             var name = regions[i].key;
             var id = "regions_" + name.toLowerCase().replace(' ', '_');
             var count = regions[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + regions[i].key + '"><input count="' + count + '" id="' + id + '" type="checkbox" value="' + regions[i].key + '" onclick="searchPage.dofacetedsearch(0,\'regions\',\'' + regions[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + regions[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + regions[i].key + '" onclick="searchPage.dofacetedsearch(0,\'regions\',\'' + regions[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
         
@@ -357,10 +368,7 @@ var searchPage = {
         //retrieve metadata
         var total = results.metadata.total;
         searchPage.endIndex = results.metadata.endindex;
-        
-        const deployment = Fusion.deployment;
-        const contextPath = Fusion.contextPath
-        const emptyState = `<img class="image flex --cover" decoding="async" fetchpriority="low" loading="lazy" src="${contextPath}/resources/images/empty-state-recetario.png?d=${deployment}" alt="¡Aún no hay nada por acá!">`
+        const emptyState = `<img class="image flex --cover" decoding="async" fetchpriority="low" loading="lazy" src="${emptyStateIcon}" alt="¡Aún no hay nada por acá!">`
         
         if (total == 0) {
             document.getElementById('btn-toggle-filter').classList.add('none');

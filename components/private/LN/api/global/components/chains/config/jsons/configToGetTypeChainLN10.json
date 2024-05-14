@@ -24,5 +24,13 @@
         {
             "customFields.layout": "horizontal"
         }
+    ],
+    "foodit": [
+        {
+            "customFields.layout": "foodit_1_grid"
+        },
+        {
+            "customFields.layout": "foodit_3_grid"
+        }
     ]
 }

@@ -3,27 +3,22 @@ import Consumer from 'fusion:consumer';
 import BreadcrumbFoodit from '../../features/foodit-global/common/breadcrumb/foodit';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { Text } from '@ln/common-ui-text';
-import { formatSectionName } from '../../features/foodit-global/common/breadcrumb/_helpers';
+import { getFooditAcuTitle } from '../../features/foodit-global/common/breadcrumb/_helpers';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
+import { AcuSchema } from '../../features/foodit-global/schemas/Acu';
 
 const pageBuilderSections = ['Apertura', 'Notas'];
 
 const AcumuladoFoodit = props => {
     const { globalContent, children } = props;
-    const { _id: id = '' } = globalContent;
 
-    const sectionsArray = id.split('/').filter(Boolean);
-    const sectionsTransformed =
-        sectionsArray.length > 1
-            ? [...sectionsArray.slice(0, 1), ...sectionsArray.slice(-1)]
-            : sectionsArray;
-    const sectionStringTransformed = sectionsTransformed.join('/');
-    const title = formatSectionName(sectionStringTransformed);
+    const [, notas] = children;
 
-    const [apertura, notas] = children;
+    const title = getFooditAcuTitle(globalContent);
 
     return (
         <BaseLayout>
+            <AcuSchema globalContent={globalContent} title={title} />
             <UserBookmarks />
             <div className="flex flex-column gap-32">
                 <section className="flex flex-column gap-24">

@@ -86,12 +86,6 @@ export const OpeningRecipe = ({ article = {} }) => {
                             size={{ sm: 32, lg: 40 }}
                             data-modal={'open-modal'}
                             data-id={_id}
-                            data-interaction="dataLayerInteraction"
-                            data-event-data-layer="e_linkclick"
-                            data-dynamic-category="interaction"
-                            data-dynamic-label="receta"
-                            data-dynamic-action="guardar"
-                            data-title={title}
                         >
                             <Icon size={16} className="sm-none">
                                 <IconSprite name="bookmark" critical />

@@ -1,3 +1,5 @@
+import { addToast, TOAST, addErrorToast } from '../bookmark/api/_helper';
+
 export const transformObjectToText = ({ text = '', sections = [] }) => {
     if (!sections.length) return '';
 
@@ -27,16 +29,12 @@ export const copyListToClipboard = async shoppingList => {
     );
     try {
         await navigator.clipboard.writeText(text);
-        window.LN.observable.publish('addToast', {
-            title: '¡Listo!',
-            message: 'Podes enviar el listado que copiaste',
-            variant: 'success'
+        addToast({
+            variant: TOAST.SUCCESS.VARIANT,
+            title: TOAST.SUCCESS.TITLE,
+            message: TOAST.SUCCESS.MESSAGE.COPY_INGREDIENTS
         });
     } catch (error) {
-        window.LN.observable.publish('addToast', {
-            title: 'Error',
-            message: 'No se pude copiar el listado',
-            variant: 'danger'
-        });
+        addErrorToast();
     }
 };

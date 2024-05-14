@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-danger */
 /* eslint-disable react-hooks/rules-of-hooks */
+import { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import get from '../../../common/utils/get';
+import { GlobalContext } from '../../../common/context/globalContext';
 import bannersRules from '../../../common/banners/bannersRules';
 import isWebview from '../../../common/utils/isWebview';
-import useSiteServices from '../../../../features/LN-10-global/hooks/useSiteServices';
 
 export const suffixDevice = {
     desktop: '_dsk',
@@ -99,6 +100,7 @@ export const getBannerConfigFromSiteService = ({
     if (bannersSiteConfig) {
         return {
             ...bannerConfiguration,
+            bidding: setPrebidBanners(bannerConfiguration, section),
             dimensions:
                 getDimsFromSiteService(
                     bannersSiteConfig,
@@ -126,13 +128,19 @@ export const getBannerConfiguration = (
     const { label, taxonomy, type } = globalContent;
     const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
 
-    const siteService = useSiteServices() || {};
+    const getSiteService = () => {
+        const gc = useContext(GlobalContext);
+        return get(gc, 'state.siteService', {});
+    };
+
+    const siteService = getSiteService();
 
     const {
         banners: bannersSiteConfig,
         termicas = [],
         adserver = []
     } = siteService;
+
     const segments = adserver.map(segment => segment.value);
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     const sponsored = get(globalContent, 'owner.sponsored');
@@ -142,6 +150,7 @@ export const getBannerConfiguration = (
         type && type === 'story'
             ? get(globalContent, 'taxonomy.primary_section._id', '')
             : get(globalContentConfig, 'query.id');
+
     const hideBanners = get(
         globalContent,
         'acumuladoGeneral.hide_banner',
@@ -164,6 +173,20 @@ export const getBannerConfiguration = (
         !bannersRules[slotGroup][device][slotId].validateInclusion(
             globalContent
         );
+
+    /* config es esto de abajo para el slotId
+    adhesion_dsk: {
+            slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
+            dimensions: [
+                [728, 90],
+                [920, 100]
+            ],
+            targeting: {
+                sitio: 'lanacion',
+                seccion: 'nota'
+            }
+        },
+    */
 
     if (
         !config ||
@@ -465,6 +488,20 @@ export const queueGoogletagCommand = bannersToLoad => {
                 }
             });
     });
+};
+
+export const setPrebidBanners = (_bannerConfig, section) => {
+    const bannerConfig = { ..._bannerConfig };
+    if (['propiedades', 'campo', 'bienestar', 'movilidad'].includes(section)) {
+        bannerConfig.bidding = { prebid: { enabled: true } };
+    }
+    return (
+        bannerConfig.bidding || {
+            prebid: {
+                enabled: false
+            }
+        }
+    );
 };
 
 /* export const determineSafeFrame = bannersToLoad => {

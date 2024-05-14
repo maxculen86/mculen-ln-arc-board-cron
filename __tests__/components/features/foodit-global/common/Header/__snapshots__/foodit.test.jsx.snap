@@ -61,16 +61,20 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 data-event-data-layer="subscription_start"
                 data-interaction="dataLayerInteraction"
                 data-variant="accent"
-                title="Suscribirse"
+                title="SUSCRIBITE"
               >
                 SUSCRIBITE
               </button>
               <button
-                class="button foodit-button gap-8 roboto-regular text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
                 data-variant="link"
-                title="Iniciar sesión"
+                title="INICIAR SESIÓN"
               >
-                INICIAR SESIÓN
+                <span
+                  class="roboto-regular"
+                >
+                  INICIAR SESIÓN
+                </span>
               </button>
             </div>
             <div
@@ -1141,7 +1145,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       data-event-data-layer="e_linkclick"
                       data-interaction="dataLayerInteraction"
                       data-variant="primary"
-                      href="/recetario"
+                      href="/recetario/"
                       target="_self"
                       title="Ir a mis recetas"
                     >
@@ -1165,7 +1169,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       data-event-data-layer="e_linkclick"
                       data-interaction="dataLayerInteraction"
                       data-variant="primary"
-                      href="/lista-de-compras"
+                      href="/lista-de-compras/"
                       target="_self"
                       title="Ir a lista de compras"
                     >
@@ -1222,16 +1226,20 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             data-event-data-layer="subscription_start"
             data-interaction="dataLayerInteraction"
             data-variant="accent"
-            title="Suscribirse"
+            title="SUSCRIBITE"
           >
             SUSCRIBITE
           </button>
           <button
-            class="button foodit-button gap-8 roboto-regular text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
             data-variant="link"
-            title="Iniciar sesión"
+            title="INICIAR SESIÓN"
           >
-            INICIAR SESIÓN
+            <span
+              class="roboto-regular"
+            >
+              INICIAR SESIÓN
+            </span>
           </button>
         </div>
       </div>
@@ -2200,7 +2208,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
             data-dynamic-action="N/A"
             data-dynamic-category="header"
-            data-dynamic-label="Guía de cocina"
+            data-dynamic-label="guia_de_cocina"
             data-event-data-layer="e_linkclick"
             data-interaction="dataLayerInteraction"
             data-variant="primary"
@@ -2231,7 +2239,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
             data-dynamic-action="N/A"
             data-dynamic-category="header"
-            data-dynamic-label="Masterclass"
+            data-dynamic-label="masterclass"
             data-event-data-layer="e_linkclick"
             data-interaction="dataLayerInteraction"
             data-variant="primary"

@@ -10,7 +10,6 @@ import {
     hasArticles,
     RANKING
 } from './_helper';
-import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 
@@ -72,23 +71,25 @@ const RankingFeature = ({ id: featureId }) => {
             });
     }, [type]);
 
-    const component = articles && articles.length && (
-        <CajaTema
-            title={title || customTitle}
-            notesQuantity={notesQuantity}
-            sectionName={sectionName}
-            articles={articles}
-            position={sectionName === RANKING ? '0190' : '0191'}
-            dataSection={sectionId}
-            outputType={outputType}
-            classCondition={classCondition}
-            titleSize="--xs"
-            withVolanta
-            layout={rankingLayout}
-            isHome={isHome}
-        />
-    );
-
+    const component =
+        articles && articles.length ? (
+            <CajaTema
+                title={title || customTitle}
+                notesQuantity={notesQuantity}
+                sectionName={sectionName}
+                articles={articles}
+                position={sectionName === RANKING ? '0190' : '0191'}
+                dataSection={sectionId}
+                outputType={outputType}
+                classCondition={classCondition}
+                titleSize="--xs"
+                withVolanta
+                layout={rankingLayout}
+                isHome={isHome}
+            />
+        ) : (
+            <></>
+        );
     return (
         <Static id={`common-ranking-${featureId}`} htmlOnly>
             {component}

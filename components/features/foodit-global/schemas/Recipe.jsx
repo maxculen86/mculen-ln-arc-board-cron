@@ -2,6 +2,8 @@ import React from 'react';
 import get from '../../../private/common/utils/get';
 import { getSuitableForDietUrls } from './_helpers';
 import { getFooditAuthor } from '../common/utils/notaFooditHelper';
+import replaceBaseUrl from '../common/utils/replaceBaseUrl';
+import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 
 export const RecipeSchema = ({ article = {} }) => {
     const {
@@ -32,6 +34,9 @@ export const RecipeSchema = ({ article = {} }) => {
     );
     const [video] = playlist;
 
+    const { resized_urls = [] } = replaceBaseUrl(get(promo_items, 'basic', {}));
+    const { resizedUrl = '' } = getShortestImage(resized_urls);
+
     const {
         prepTime,
         cookTime,
@@ -44,11 +49,16 @@ export const RecipeSchema = ({ article = {} }) => {
     const recipeSchema = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
+        name: get(headlines, 'basic', ''),
+        Image: {
+            '@context': 'https://schema.org',
+            '@type': 'ImageObject',
+            url: resizedUrl
+        },
         cookTime: (cookTime && `PT${cookTime}M`) || `PT0M`,
         cookingMethod: cookingTypes.join(','),
         recipeCategory: primarySectionName,
         recipeCuisine: regions.join(','),
-        recipeInstructions,
         recipeYield: (counterPortion && counterPortion) || 0,
         suitableForDiet: getSuitableForDietUrls(sections)
     };
@@ -57,7 +67,8 @@ export const RecipeSchema = ({ article = {} }) => {
         '@context': 'https://schema.org',
         '@type': 'HowTo',
         performTime: (prepTime && `PT${prepTime}M`) || `PT0M`,
-        totalTime: (counterTime && `PT${counterTime}M`) || `PT0M`
+        totalTime: (counterTime && `PT${counterTime}M`) || `PT0M`,
+        step: recipeInstructions
     };
 
     const creativeWorkchema = {

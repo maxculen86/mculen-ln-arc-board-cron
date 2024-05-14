@@ -5,23 +5,17 @@ import {
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 import useGetUserData from '../../../hooks/useGetUserData';
-import classNames from 'classnames';
 
 const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
     const { promotions } = useGetUserData();
     const { buttonLogginText, buttonSubscribeText } = promotions;
-
-    const classNameLoginButton = classNames(
-        'button foodit-button gap-8 roboto-regular text-12 rounded-4 text-light-800 text-accent-lechuga__hover',
-        classNameButtons
-    );
 
     return (
         <>
             {buttonSubscribeText && (
                 <Button
                     className={classNameButtons}
-                    title="Suscribirse"
+                    title={buttonSubscribeText}
                     variant="accent"
                     size={{ sm: 32, md: 32, lg: 40 }}
                     data-interaction="dataLayerInteraction"
@@ -37,17 +31,18 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                 </Button>
             )}
             {buttonLogginText && (
-                <button
-                    className={classNameLoginButton}
-                    title="Iniciar sesión"
+                <Button
+                    className={classNameButtons}
+                    title={buttonLogginText}
+                    variant="link"
                     data-variant="link"
                     onClick={() =>
                         (location.href =
                             FOODIT_LOGIN_URL + window.btoa(location.href))
                     }
                 >
-                    {buttonLogginText}
-                </button>
+                    <span className="roboto-regular">{buttonLogginText}</span>
+                </Button>
             )}
         </>
     );

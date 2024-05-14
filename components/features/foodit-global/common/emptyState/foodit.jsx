@@ -44,6 +44,8 @@ const EmptyState = ({ variant, className, direction = 'row' }) => {
                     imagePropsByVariant[variant].asset
                 )}
                 alt={imagePropsByVariant[variant].alt}
+                width={imagePropsByVariant[variant].width}
+                height={imagePropsByVariant[variant].height}
             />
             <div className={descriptionClassNames}>
                 <Text

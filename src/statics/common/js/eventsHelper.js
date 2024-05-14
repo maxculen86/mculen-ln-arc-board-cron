@@ -244,8 +244,45 @@ class EventsHelper {
             this.addEventListeners(game, payload);
         });
     }
+
+    setEventsFoodit() {
+        const buttonFooditGrid = document.getElementById('btn-foodit-grid');
+        const ACTION = 'caja_foodit';
+        const HOME_LN10 = 'home_ln10';
+        const SUSCRIBE_FOODIT = 'cta_suscribite_a_foodit';
+
+        if (buttonFooditGrid) {
+            const payload = {
+                action: ACTION,
+                label: `${SUSCRIBE_FOODIT}`,
+                category: HOME_LN10
+            };
+            this.addEventListeners(buttonFooditGrid, payload);
+        }
+    }
 }
 
+const handler = {
+    construct(target, args) {
+        const instance = new target(...args);
+
+        // Crear un proxy para interceptar llamadas a métodos
+        return new Proxy(instance, {
+            get: function(target, property, receiver) {
+                const origMethod = target[property];
+                if (typeof origMethod === 'function') {
+                    return function(...args) {
+                        setTimeout(() => origMethod.apply(target, args), 0);
+                    };
+                }
+                return Reflect.get(target, property, receiver);
+            }
+        });
+    }
+};
+
+const ProxiedEventsHelper = new Proxy(EventsHelper, handler);
+
 window.LN = {
-    eventshelper: new EventsHelper()
+    eventshelper: new ProxiedEventsHelper()
 };

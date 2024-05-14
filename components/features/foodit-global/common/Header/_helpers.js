@@ -5,7 +5,7 @@ import { SITE_FOODIT } from 'fusion:environment';
 const listDescubrir = [
     '/restaurantes',
     '/nutricion',
-    '/Beneficios-Club-LA-NACION'
+    '/novedades-y-tendencias'
 ];
 
 const iconList = [
@@ -33,6 +33,7 @@ const transformSubategorie = (subcategoryList = []) => {
     return subcategoryList.map(({ name, _id, children = [] } = {}) => {
         const subCategorysWithoutUrl = [
             '/recetas/dietas',
+            '/recetas/dieta',
             '/recetas/que-cocinar-hoy'
         ];
         const newElement = {

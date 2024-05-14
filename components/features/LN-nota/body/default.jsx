@@ -34,7 +34,6 @@ const body = ({ customFields }) => {
     const {
         _id,
         isListenable,
-        last_updated_date: date,
         content_elements: contentElements
     } = globalContent;
 
@@ -72,10 +71,8 @@ const body = ({ customFields }) => {
             {isClient ? (
                 <AudioPlayerDesktop
                     isListenable={isListenable}
-                    publishDate={date}
                     noteId={_id}
                     className={'--no-app'}
-                    isClient={isClient}
                 />
             ) : (
                 <FalsePlaceHolderAudioPlayer isListenable={isListenable} />

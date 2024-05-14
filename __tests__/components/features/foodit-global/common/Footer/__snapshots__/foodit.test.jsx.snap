@@ -36,7 +36,8 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://www.instagram.com/foodit_ar/"
-              target="_self"
+              rel="nofollow"
+              target="_blank"
               title="Seguinos en Instagram"
             >
               <i
@@ -63,7 +64,8 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://twitter.com/FOODITAR"
-              target="_self"
+              rel="nofollow"
+              target="_blank"
               title="Seguinos en X"
             >
               <i
@@ -90,7 +92,8 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://www.tiktok.com/@fooditar?lang=es "
-              target="_self"
+              rel="nofollow"
+              target="_blank"
               title="Seguinos en TikTok"
             >
               <i
@@ -117,7 +120,8 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://ar.pinterest.com/foodit_ar/"
-              target="_self"
+              rel="nofollow"
+              target="_blank"
               title="Seguinos en Pinterest"
             >
               <i

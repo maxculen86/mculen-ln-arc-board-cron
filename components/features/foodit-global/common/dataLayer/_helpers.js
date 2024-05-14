@@ -6,3 +6,9 @@ export const TRANSLATE_LAYOUTS = {
     'Foodit-compras': 'lista_de_compras',
     'Foodit-recetario': 'recetario'
 };
+
+export const DESCUBRIR_SECTIONS = [
+    'nutricion',
+    'restaurantes',
+    'chefs_protagonistas'
+];

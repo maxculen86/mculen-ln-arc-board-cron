@@ -26,12 +26,16 @@ const HeaderFoodit = () => {
 
     const isHome = layout === layoutsName.FooditHome;
 
+    const marginByLayouts = {
+        [layoutsName.FooditHome]: 'mb-12 mb-40_lg',
+        [layoutsName.FooditFichaReceta]: 'mb-12 mb-40_lg',
+        [layoutsName.FooditFichaNota]: 'mb-0',
+        default: 'mb-40'
+    };
+
     const classNameHeaderContainer = classNames(
         'z-10 w-100 sticky top-0',
-        layout === layoutsName.FooditHome ||
-            layout === layoutsName.FooditFichaReceta
-            ? 'mb-12 mb-40_lg'
-            : 'mb-40'
+        marginByLayouts[layout] || marginByLayouts.default
     );
 
     const categories = useContent({

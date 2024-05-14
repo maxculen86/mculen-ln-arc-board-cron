@@ -12,11 +12,15 @@ export default {
         props: {},
         location: [HEAD]
     },
-    Comscore: {
+    ComscoreFoodit: {
         props: {
             config: {
                 c1: '2',
                 c2: '6906398'
+            },
+            configNoScript: {
+                cv: '4.4.0',
+                cj: '1'
             }
         },
         location: [HEAD]

@@ -933,7 +933,7 @@
 .ln-roof img {
   max-width: 16.25rem;
 }
-.ln-roof.--generic .--ln-roof-full, .ln-roof.--hashtag .--ln-roof-full {
+.ln-roof.--generic .--ln-roof-full, .ln-roof.--hashtag .--ln-roof-full, .ln-roof.--foodit .--ln-roof-full {
   border-top: 0.09375rem solid var(--dark-neutral-50);
 }
 .ln-roof.--generic .--ln-roof-full .--ln-roof-left .image,
@@ -956,7 +956,7 @@
   }
 }
 @media (max-width: 767px) {
-  .ln-roof:not(.--sub-exclusive) .--roof-button {
+  .ln-roof:not(.--sub-exclusive, .--foodit) .--roof-button {
     display: none !important;
   }
 }

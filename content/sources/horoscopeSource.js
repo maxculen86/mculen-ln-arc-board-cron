@@ -48,7 +48,9 @@ const fetch = ({ arcSite, horoscope, sign, year }) => {
 export default {
     fetch,
     params: {
-        horoscope: 'text'
+        horoscope: 'text',
+        sign: 'text',
+        year: 'text'
     },
     ttl: 120
 };

@@ -150,11 +150,19 @@ const transform = async (dataPage, query) => {
         let cajaCount = 1;
         const cajas = [];
         elementsPage.forEach((elem, i) => {
-            if (elem.type !== 0 && elem.type !== 7) return; // Ignorar elementos que no son cajas
+            if (elem.type !== 0 && elem.type !== 7 && elem.type !== 11) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
             cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
         });
-        return { cajas };
+
+        return {
+            cajas,
+            apiPageHomeSourceFetchDate:
+                query.information.apiPageHomeSourceFetchDate,
+            layoutDate: query.information.layoutDate,
+            homeFetchDate: query.information.homeFetchDate,
+            keyCachedCall: query.information.keyCachedCall
+        };
     } catch (error) {
         // eslint-disable-next-line no-console
 

@@ -18,7 +18,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
             <Static id="foodit-top-navigation-bar">
                 <Topnavigationbar className="text-12">
                     <Link
-                        href="/recetario"
+                        href="/recetario/"
                         title="Ir a mis recetas"
                         className="gap-8"
                         data-interaction="dataLayerInteraction"
@@ -33,7 +33,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         MIS RECETAS
                     </Link>
                     <Link
-                        href="/lista-de-compras"
+                        href="/lista-de-compras/"
                         title="Ir a lista de compras"
                         className="gap-8"
                         data-interaction="dataLayerInteraction"

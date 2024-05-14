@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { getConfigByLayout } from './helpers';
+import { getTypeOfDevice } from '@ln/hooks';
 
-export const useFloatingGroupButton = ({ layout }) => {
+export const useFloatingGroupButton = ({ observerSelector }) => {
     const [visible, setVisible] = useState(false);
 
-    const { buttons = [], className = '', observerSelector } =
-        getConfigByLayout(layout) || {};
+    const typeOfDevice = getTypeOfDevice({
+        breakpoints: { desktop: 1280 }
+    });
 
     useEffect(() => {
-        if (!observerSelector) return;
+        if (!observerSelector || typeOfDevice === 'desktop') return;
 
         const callback = entries => {
             entries.forEach(entry => {
@@ -22,11 +23,9 @@ export const useFloatingGroupButton = ({ layout }) => {
         return () => {
             sentinel && intersectionObserver.unobserve(sentinel);
         };
-    }, [observerSelector]);
+    }, [observerSelector, typeOfDevice]);
 
     return {
-        buttons,
-        className,
         visible
     };
 };

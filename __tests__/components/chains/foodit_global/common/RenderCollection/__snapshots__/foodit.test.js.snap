@@ -56,11 +56,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una comida si saludable
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -158,11 +158,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una dieta ...poco saludable
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -260,11 +260,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una comida mas o menos saludable
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -346,11 +346,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta para comer mas rico con ...MILANESAS 
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -448,11 +448,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Ficha nota FOODIT
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -550,11 +550,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta para comer mas rico con ...POLLITO 2
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -652,11 +652,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una comida no saludable
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -737,11 +737,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta rapida
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -822,11 +822,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Prueba nota recetas nuevo
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -923,11 +923,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Sopa de mani
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -1029,11 +1029,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Como traer la tercera
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -1136,11 +1136,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             <div
               class="flex flex-column gap-4"
             >
-              <span
+              <h2
                 class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Prueba receta vegana
-              </span>
+              </h2>
             </div>
           </div>
           <div
@@ -1222,6 +1222,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         data-collectionid=""
         data-variant="link"
         text="Guardar todo"
+        title="Guardar todo"
       >
         <i
           class="icon w-24 w-20_md --dark"
@@ -1292,11 +1293,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una comida si saludable
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -1398,11 +1399,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una dieta ...poco saludable
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -1504,11 +1505,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una comida mas o menos saludable
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -1594,11 +1595,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Receta para comer mas rico con ...MILANESAS 
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -1700,11 +1701,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Ficha nota FOODIT
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -1806,11 +1807,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Receta para comer mas rico con ...POLLITO 2
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -1912,11 +1913,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una comida no saludable
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -2001,11 +2002,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Receta rapida
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -2090,11 +2091,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Prueba nota recetas nuevo
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -2195,11 +2196,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Sopa de mani
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -2305,11 +2306,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Como traer la tercera
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -2416,11 +2417,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   <div
                     class="flex flex-column gap-4"
                   >
-                    <span
+                    <h2
                       class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Prueba receta vegana
-                    </span>
+                    </h2>
                   </div>
                 </div>
                 <div

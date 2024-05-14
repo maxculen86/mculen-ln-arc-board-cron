@@ -7,7 +7,6 @@ const CommentsViafoura = ({ messageProps }) => {
     });
     return (
         <div className={viafouraClassName}>
-            <vf-tray />
             <vf-conversations
                 limit="15"
                 pagination-limit="30"

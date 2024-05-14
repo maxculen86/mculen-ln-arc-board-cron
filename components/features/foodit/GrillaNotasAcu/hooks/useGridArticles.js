@@ -27,10 +27,10 @@ const useGridArticlesFoodit = ({
             [queryId]: queryId ? id : null,
             page,
             size: maxArticles,
-            website: 'foodit'
+            website: 'foodit',
+            imageConfig: 'm'
         },
-        imageConfig: 'm',
-        staticMode: false
+        staticMode
     };
     const articleList = useContent(config);
 

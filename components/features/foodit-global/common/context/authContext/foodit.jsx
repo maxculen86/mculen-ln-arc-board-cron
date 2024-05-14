@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { handleLogin } from './_helpers';
-import { setInitialState } from './_helpers';
+import { handleLogin, setInitialState } from './_helpers';
 
 export const AuthContext = createContext();
 

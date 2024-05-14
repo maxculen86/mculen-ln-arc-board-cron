@@ -13,7 +13,7 @@ export default function FooditSearch() {
 
     return (
         <BaseLayout>
-            <Static htmlOnly persistent id="foodit-queryly-search">
+            <Static id="foodit-queryly-search">
                 <div
                     id="queryly_advanced_container"
                     className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg relative"
@@ -100,6 +100,12 @@ export default function FooditSearch() {
 
                 <script
                     id="scriptBuscadorQuerylyFoodit"
+                    data-empty-state={deployment(
+                        `${contextPath}/resources/images/empty-state-recetario.png`
+                    )}
+                    data-timer-icon={deployment(
+                        `${contextPath}/resources/images/foodit-sprite-default.svg#timer`
+                    )}
                     type="text/javascript"
                     src={deployment(
                         `${contextPath}/resources/js/FOODIT/fooditScriptBuscadorQueryly.js`

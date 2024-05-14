@@ -19,7 +19,9 @@ export const LAYOUTS = {
     BN_A_FONDO: 'bnFondo',
     CONTENT_LAB: 'cajaContent1',
     OPINION_4: 'opinion4',
-    OPINION_8: 'opinion8'
+    OPINION_8: 'opinion8',
+    FOODIT_1_GRID: 'foodit_1_grid',
+    FOODIT_3_GRID: 'foodit_3_grid'
 };
 
 export const VERTICALS = ['bienestar', 'campo', 'movilidad', 'propiedades'];
@@ -30,7 +32,8 @@ export const CHAIN_STYLE = {
     CAMPO: 'campo',
     BIENESTAR: 'bienestar',
     MOVILIDAD: 'movilidad',
-    SUB_EXCLUSIVE: 'sub-exclusive'
+    SUB_EXCLUSIVE: 'sub-exclusive',
+    FOODIT: 'foodit'
 };
 
 const {
@@ -53,7 +56,9 @@ const {
     GRILLA4VERTICALES,
     BN_A_FONDO,
     OPINION_4,
-    OPINION_8
+    OPINION_8,
+    FOODIT_1_GRID,
+    FOODIT_3_GRID
 } = LAYOUTS;
 
 export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
@@ -78,6 +83,8 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
         [BN_A_FONDO]: 1,
         [OPINION_4]: 4,
         [OPINION_8]: 8,
+        [FOODIT_1_GRID]: 1,
+        [FOODIT_3_GRID]: 3,
         default: Number(layout && layout.slice(-1)) || 3
     };
 
