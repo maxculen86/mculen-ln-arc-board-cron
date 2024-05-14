@@ -87,14 +87,14 @@ const fetch = async (query, { cachedCall } = {}) => {
         }
 
         throw new Error('content version not implemented for this case.');
-    } catch (error) {
+    } catch (err) {
         // eslint-disable-next-line no-console
         console.error(
             `Error content/apiPageHomeLastUpdateSource : ${JSON.stringify(
                 queryParams
-            )} - errorMsj:${error.message}`
+            )} - errorMsj:${err.message}`
         );
-        throw error.message;
+        throw err;
     }
 };
 
