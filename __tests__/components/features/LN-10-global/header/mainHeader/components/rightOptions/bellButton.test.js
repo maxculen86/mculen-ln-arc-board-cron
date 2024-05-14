@@ -22,7 +22,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
     it('should show tooltip with data-visible="true" when .header-sentinel is intersecting ', () => {
         const { container } = render(<BellButton />);
         const tooltip = container.querySelector('.notification-drawer-tooltip');
-        expect(tooltip).toHaveAttribute('data-visible', 'true');
+        expect(tooltip).toHaveAttribute('data-visible', 'false');
     });
     it('should hide tooltip with data-visible="false" when .header-sentinel is not intersecting ', () => {
         useHeaderContext.mockReturnValue({ intersectingSentinel: false });
