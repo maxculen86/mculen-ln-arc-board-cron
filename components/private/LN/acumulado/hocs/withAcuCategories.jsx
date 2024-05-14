@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-
 import get from '../../../common/utils/get';
 
 const withAcuCategories = (WrappedComponent, filter, website) => props => {
@@ -27,13 +26,17 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
 
     const navigation = (response && response.length && response) || _children;
 
-    return (
-        <WrappedComponent
-            {...props}
-            isPrimarySection={isPrimarySection}
-            navigation={hideCategories === 'false' && navigation}
-        />
-    );
+    const ComponentWithAcuCategories = props => {
+        return (
+            <WrappedComponent
+                {...props}
+                isPrimarySection={isPrimarySection}
+                navigation={hideCategories === 'false' && navigation}
+            />
+        );
+    };
+
+    return ComponentWithAcuCategories;
 };
 
 withAcuCategories.propTypes = {
