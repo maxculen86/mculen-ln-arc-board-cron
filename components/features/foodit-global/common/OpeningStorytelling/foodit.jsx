@@ -33,7 +33,8 @@ export const OpeningStorytelling = ({ article = {} }) => {
         defaultUrl,
         posterUrl,
         resizedUrls,
-        altText
+        altText,
+        caption
     } = getAperturaStorytelling(videoJw, basicImage, basicImageMobile, device);
 
     if (videoUrl && isSSR()) return <></>;
@@ -49,7 +50,7 @@ export const OpeningStorytelling = ({ article = {} }) => {
     ) : (
         <Image
             className="w-100 h-100"
-            alt={altText}
+            alt={altText || caption}
             src={defaultUrl}
             fetchPriority="high"
             loading="eager"

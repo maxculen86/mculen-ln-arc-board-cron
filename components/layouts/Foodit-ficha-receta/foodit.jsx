@@ -9,6 +9,8 @@ import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import { RecipeSchema } from '../../features/foodit-global/schemas/Recipe';
+import { BreadcrumbSchema } from '../../features/foodit-global/schemas/Breadcrumb';
+import { getBreadcrumbSections } from '../../features/foodit-global/common/breadcrumb/_helpers';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -18,9 +20,14 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
     return (
         <BaseLayout>
             <RecipeSchema article={globalContent} />
+            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
             <UserBookmarks />
             <section className="flex flex-column gap-24">
-                <Breadcrumb globalContent={globalContent} className="lg-only" />
+                <Breadcrumb
+                    globalContent={globalContent}
+                    className="lg-only"
+                    layout={'ficha-receta'}
+                />
                 <OpeningRecipe article={globalContent} />
             </section>
             <Static htmlOnly persistent id="subtitle-mobile-recipe">
@@ -48,7 +55,11 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </section>
-            <Breadcrumb globalContent={globalContent} className="lg-none" />
+            <Breadcrumb
+                globalContent={globalContent}
+                className="lg-none"
+                layout={'ficha-receta'}
+            />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );

@@ -1,27 +1,41 @@
 import React from 'react';
 import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
+import { SITE_FOODIT } from 'fusion:environment';
+
 import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { Text } from '@ln/common-ui-text';
+import { BreadcrumbSchema } from '../../features/foodit-global/schemas/Breadcrumb';
 
 const pageBuilderSections = ['Apertura', 'Chefs'];
 
 const AcumuladoChefFoodit = ({ children }) => {
     const [apertura, chefs] = children;
+    const sectionsCustom = [
+        {
+            name: 'Chefs protagonistas',
+            url: `/chefs-protagonistas/`
+        }
+    ];
 
     return (
         <BaseLayout>
+            <BreadcrumbSchema
+                sections={[
+                    {
+                        name: 'Foodit',
+                        url: `${SITE_FOODIT}/`
+                    },
+                    ...sectionsCustom
+                ]}
+            />
             <Static id="acu-chefs-protagonistas">
                 <div className="flex flex-column gap-32">
                     <section className="flex flex-column gap-24">
                         <BreadcrumbCustomFoodit
-                            sectionsCustom={[
-                                {
-                                    name: 'Chefs protagonistas',
-                                    url: `/chefs-protagonistas/`
-                                }
-                            ]}
+                            sectionsCustom={sectionsCustom}
+                            layout={'acumulado-chef'}
                         />
                         <Text
                             as="h1"

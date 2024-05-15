@@ -153,6 +153,7 @@
         "author": "Foodit",
         "image": {
             "alt_text": "",
+            "caption": "Pie de foto",
             "height": 513,
             "resized_urls": [
                 {
@@ -264,6 +265,7 @@
         "author": "Por Emilio Ocampo",
         "image": {
             "height": 406,
+            "subtitle": "Subtitle",
             "resized_urls": [
                 {
                     "option": {

@@ -445,7 +445,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/JCYWqHBocu_465twQ4jXqcvKTY8=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
                   />
                   <img
-                    alt=""
+                    alt="Pie de foto"
                     class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
@@ -747,6 +747,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/4euC7C0duGKCn3hj5T6WiNA5aL0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
                   />
                   <img
+                    alt="Subtitle"
                     class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
@@ -836,6 +837,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/39iaG0em6yhSZIkIwxjfFRhZXw0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
                   />
                   <img
+                    alt=""
                     class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
@@ -941,6 +943,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/ipLc_6K_t4yo-Smy0KpJuVxL420=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
                   />
                   <img
+                    alt=""
                     class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
@@ -1046,6 +1049,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/Gb-JZZkR73DjvH-pNLmt4EQESHM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
                   />
                   <img
+                    alt=""
                     class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"

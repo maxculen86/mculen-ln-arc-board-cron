@@ -10,9 +10,6 @@ import {
     transformArticleFoodit,
     validateArticleFoodit
 } from '../../foodit-global/common/utils/notaFooditHelper.js';
-
-import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-
 import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
 import {
     getImagesToLoadWithPicture,
@@ -20,8 +17,11 @@ import {
 } from '../../../private/LN/common/utils/mediaHelper';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
 import classNames from 'classnames';
-import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
 import get from '../../../private/common/utils/get.js';
+import getImageAltText from '../../foodit-global/common/utils/getImageAltText.js';
+
+import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
 
 const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const articleId = checkForId(id);
@@ -79,7 +79,8 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
         href
     } = transformArticleFoodit(articleContent);
 
-    const { alt_text = '', url = '', resized_urls = [] } = image;
+    const { url = '', resized_urls = [] } = image;
+
     const { resizedUrl = '' } = getShortestImage(resized_urls);
 
     return (
@@ -87,13 +88,13 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
             {!error && articleContent && (
                 <CommonCardFoodit
                     articleId={articleId}
-                    showTime={!isOpening}
-                    time={!isOpening && time}
+                    showTime={Boolean(time)}
+                    time={time}
                     linksProps={{ href, title }}
                     size={!isOpening && size}
                     variant={isOpening ? 'day-recipe' : variant}
                     src={resizedUrl || url}
-                    alt={alt_text}
+                    alt={getImageAltText(image)}
                     sources={getImagesToLoadWithPicture(resized_urls)}
                     loading={isOpening ? 'eager' : 'lazy'}
                     fetchPriority={isOpening ? 'high' : 'low'}
