@@ -1,3 +1,5 @@
+import { SITE_FOODIT } from 'fusion:environment';
+
 export const getSuitableForDietUrls = sections => {
     const DIET_SCHEMAS_URLS = {
         'Sin gluten': 'https://schema.org/GlutenFreeDiet',
@@ -19,7 +21,7 @@ export const fooditSchemaLogo = (deployment, contextPath) => ({
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
     url: deployment(
-        `${contextPath}/resources/foodit/assets/images/placeholderFoodit.jpg`
+        `${SITE_FOODIT}${contextPath}/resources/foodit/assets/images/placeholderFoodit.jpg`
     ),
     height: 112,
     width: 112

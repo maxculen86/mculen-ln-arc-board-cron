@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const BreadcrumbSchema = ({ sections = [] }) => {
+const shouldNotRenderSchema = ['acumulado-chef', 'ficha-receta'];
+
+export const BreadcrumbSchema = ({ sections = [], layout = '' }) => {
+    if (shouldNotRenderSchema.includes(layout)) return <></>;
+
     const breadcrumbSchema = {
         '@context': 'http://schema.org',
         '@type': 'BreadcrumbList',

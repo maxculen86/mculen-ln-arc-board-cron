@@ -1,11 +1,15 @@
 import React from 'react';
-import Carousel from '../Carousel/foodit';
+
+import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
+import { filterBookmarksByArticledIs } from '../../../../features/foodit-global/common/bookmark/_helper';
+import getImageAltText from '../../../../features/foodit-global/common/utils/getImageAltText';
+
 import { LAYOUTS } from '../utils/helper-WebApi';
+
+import Carousel from '../Carousel/foodit';
 import RoofFoodit from '../../../../features/foodit-global/common/RoofFoodit/foodit';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import { filterBookmarksByArticledIs } from '../../../../features/foodit-global/common/bookmark/_helper';
 
 const { CAROUSEL, BN_12_GRID } = LAYOUTS;
 
@@ -94,7 +98,7 @@ export const RenderCollection = ({
                             variant,
                             image = {}
                         }) => {
-                            const { alt_text, resized_urls, url } = image;
+                            const { resized_urls, url } = image;
                             return (
                                 <CommonCardFoodit
                                     articleId={articleId}
@@ -104,7 +108,7 @@ export const RenderCollection = ({
                                     size={size}
                                     variant={variant}
                                     src={url}
-                                    alt={alt_text}
+                                    alt={getImageAltText(image)}
                                     sources={getImagesToLoadWithPicture(
                                         resized_urls
                                     )}

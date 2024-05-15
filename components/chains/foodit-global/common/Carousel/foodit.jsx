@@ -4,6 +4,7 @@ import { Button } from '@ln/foodit-ui-button';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 import { getTypeOfDevice } from '@ln/hooks';
+import getImageAltText from '../../../../features/foodit-global/common/utils/getImageAltText';
 
 export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
     const device = getTypeOfDevice({
@@ -45,7 +46,7 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                             variant,
                             image = {}
                         }) => {
-                            const { alt_text, resized_urls, url } = image;
+                            const { resized_urls, url } = image;
                             return (
                                 <CommonCardFoodit
                                     articleId={articleId}
@@ -55,7 +56,7 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                                     size={size}
                                     variant={variant}
                                     src={url}
-                                    alt={alt_text}
+                                    alt={getImageAltText(image)}
                                     sources={getImagesToLoadWithPicture(
                                         resized_urls
                                     )}

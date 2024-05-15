@@ -4,6 +4,8 @@ const image = `
     height
     width
     alt_text
+    caption
+    subtitle
     resized_urls {
         ${imageResizedUrl}          
     }
