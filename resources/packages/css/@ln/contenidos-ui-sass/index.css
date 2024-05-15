@@ -1533,6 +1533,10 @@ a {
   color: var(--blue-500);
 }
 
+.text-danger-600 {
+  color: var(--danger-600);
+}
+
 .text-red-700 {
   color: var(--red-700);
 }
@@ -1962,6 +1966,10 @@ strong:not(.--font-primary),
   margin-bottom: 0rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.125rem;
+}
+
 .mb-4 {
   margin-bottom: 0.25rem;
 }
@@ -2008,6 +2016,10 @@ strong:not(.--font-primary),
 
 .ml-7 {
   margin-left: 0.4375rem;
+}
+
+.mr-2 {
+  margin-right: 0.125rem;
 }
 
 .mr-4 {
@@ -2136,6 +2148,10 @@ strong:not(.--font-primary),
 
 .pr-24 {
   padding-right: 1.5rem;
+}
+
+.pr-32 {
+  padding-right: 2rem;
 }
 
 .pr-60 {
@@ -3389,24 +3405,41 @@ hr {
   display: block;
 }
 
-@media (max-width: 767px) {
-  .--degrade-scroll_max767::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 68px;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgb(255, 255, 255) 100%);
-    z-index: 1;
+.--degrade-scroll_max1279::after,
+.--degrade-scroll::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 68px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgb(255, 255, 255) 100%);
+  z-index: 1;
+}
+
+.--degrade-scroll_max1279::after {
+  display: none;
+}
+@media (max-width: 1279px) {
+  .--degrade-scroll_max1279::after {
+    display: block;
   }
 }
 
-.--bullet-list li:not(:first-child):before {
+.--bullet-list_4 li:not(:first-child):before,
+.--bullet-list_8 li:not(:first-child):before {
   content: "•";
-  color: #cccccc;
   position: relative;
   display: flex;
+}
+
+.--bullet-list_4 li:not(:first-child):before {
+  color: #cccccc;
+  margin-inline: 0.25rem;
+}
+
+.--bullet-list_8 li:not(:first-child):before {
+  color: inherit;
   margin-inline: 0.5rem;
 }
 

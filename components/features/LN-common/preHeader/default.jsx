@@ -7,11 +7,7 @@ import Static from 'fusion:static';
 import { PreHeader } from '@ln/contenidos-ui-preheader';
 import filterSubHeader from '../../../../content/filters/LN/home/subHeaderFilter';
 import useTermica from '../../../private/common/hooks/useTermica';
-import {
-    setWeatherData,
-    getTopicsFromCustomFields,
-    setTopicsCustomFields
-} from './_helper';
+import { setWeatherData, setTopicsCustomFields } from './_helper';
 import PreHeaderEventsScript from '../../../private/common/scriptManager/PreHeaderEventsScript';
 
 const PreHeaderFeature = ({ customFields = {} }) => {
@@ -29,13 +25,10 @@ const PreHeaderFeature = ({ customFields = {} }) => {
     const weatherValue = useTermica('weather', weather);
     const weatherData = setWeatherData(weatherValue);
 
-    const topics = getTopicsFromCustomFields(customFields);
-
     return (
         <Static id="clima-Ln10">
             <PreHeader>
                 <PreHeader.Weather weatherData={weatherData} />
-                {topics.length && <PreHeader.Topics tags={topics} />}
             </PreHeader>
             <PreHeaderEventsScript />
         </Static>
@@ -43,11 +36,5 @@ const PreHeaderFeature = ({ customFields = {} }) => {
 };
 
 PreHeaderFeature.label = 'LN10 PreHeader';
-
-PreHeaderFeature.propTypes = {
-    customFields: PropTypes.shape({
-        ...(setTopicsCustomFields() || {})
-    }).isRequired
-};
 
 export default PreHeaderFeature;

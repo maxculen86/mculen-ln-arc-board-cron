@@ -41,65 +41,6 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
           </span>
         </div>
       </a>
-      <div
-        class="topics-container flex ai-center pl-16 border border-left border-thin border-light-400 overflow-hidden relative"
-      >
-        <nav
-          class="topics flex ai-center --scroll-x pr-60"
-        >
-          <span
-            class="text ln-text mr-8 --font-xs"
-          >
-            HOY: 
-          </span>
-          <ul
-            class="tag-list inline-flex text-light-800 --bullet-list"
-          >
-            <li
-              class="w-max flex ai-center"
-            >
-              <a
-                class="link --font-bold text-light-800 --font-xs --unstyled"
-                data-event="e_linkclick"
-                data-section="MenuLN"
-                href="/first-topic"
-                target="_self"
-                title="First topic"
-              >
-                First topic
-              </a>
-            </li>
-            <li
-              class="w-max flex ai-center"
-            >
-              <a
-                class="link --font-bold text-light-800 --font-xs --unstyled"
-                data-event="e_linkclick"
-                data-section="MenuLN"
-                href="/second-topic"
-                target="_self"
-                title="Second topic"
-              >
-                Second topic
-              </a>
-            </li>
-            <li
-              class="w-max flex ai-center"
-            >
-              <a
-                class="link --font-bold text-light-800 --font-xs --unstyled"
-                data-event="e_linkclick"
-                data-section="MenuLN"
-                href="/third-topic"
-                target="_self"
-                title="Third topic"
-              >
-                Third topic
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
     </div>
   </div>
 </div>

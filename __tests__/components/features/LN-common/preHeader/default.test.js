@@ -78,7 +78,7 @@ describe('Components - Features - LN-Common - PreHeader', () => {
         expect(getByText(mock.weather.temperature)).toBeInTheDocument();
     });
 
-    test('should renders topics data', () => {
+    /* test('should renders topics data', () => {
         setWeatherData.mockImplementation(() => mock.weather);
         getTopicsFromCustomFields.mockImplementation(() => mock.topics);
 
@@ -90,7 +90,7 @@ describe('Components - Features - LN-Common - PreHeader', () => {
             expect(topicAnchor).toBeInTheDocument();
             expect(topicAnchor.getAttribute('href')).toEqual(topic.link);
         });
-    });
+    }); */
 
     test('should match snapshot of PreHeader', () => {
         setWeatherData.mockImplementation(() => mock.weather);
@@ -102,7 +102,7 @@ describe('Components - Features - LN-Common - PreHeader', () => {
         expect(preHeader).toMatchSnapshot();
     });
 
-    test('should register in dataLayer the click events of each link', () => {
+    /* test('should register in dataLayer the click events of each link', () => {
         setWeatherData.mockImplementation(() => mock.weather);
         getTopicsFromCustomFields.mockImplementation(() => mock.topics);
 
@@ -112,5 +112,5 @@ describe('Components - Features - LN-Common - PreHeader', () => {
         const links = screen.getAllByRole('link');
         links.forEach(link => link.click());
         expect(window.dataLayer).toEqual(preHeaderEventLogResult);
-    });
+    }); */
 });
