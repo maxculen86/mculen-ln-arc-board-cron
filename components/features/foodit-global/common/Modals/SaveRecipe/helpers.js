@@ -51,7 +51,7 @@ const addSavedBookmarksToDataLayer = (
                 ? { title: carouselTitle }
                 : {
                       title: get(firstArticle, 'headlines.basic', ''),
-                      label: get(firstArticle, 'variant', ''),
+                      label: get(firstArticle, 'content.variant', ''),
                       articleId: get(firstArticle, 'content.id', '')
                   })
         });

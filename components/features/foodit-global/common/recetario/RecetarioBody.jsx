@@ -70,14 +70,15 @@ const RecetarioBody = () => {
                                     ({
                                         bookmarkTypeId,
                                         bookmarkId,
-                                        bookmarkParent,
                                         bookmarkContent
                                     }) => {
                                         const {
                                             image = {},
                                             time = null,
                                             headlines = {},
-                                            canonical_url
+                                            canonical_url,
+                                            variant,
+                                            tag
                                         } = bookmarkContent || {};
 
                                         const {
@@ -103,7 +104,7 @@ const RecetarioBody = () => {
                                                     title: title
                                                 }}
                                                 size={'small'}
-                                                variant={'m'}
+                                                variant={variant || 'm'}
                                                 src={get(url, 'resizedUrl', '')}
                                                 alt={''}
                                                 sources={getImagesToLoadWithPicture(
@@ -111,7 +112,7 @@ const RecetarioBody = () => {
                                                 )}
                                                 loading={'lazy'}
                                                 fetchPriority={'low'}
-                                                tag={bookmarkParent}
+                                                tag={tag}
                                                 fill={true}
                                                 title={title}
                                                 author={getAuthorsAsString(
