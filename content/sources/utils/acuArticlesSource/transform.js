@@ -60,7 +60,8 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
                                 ? '-1'
                                 : subtype,
                             shouldUseV2: true,
-                            isInApertura
+                            isInApertura,
+                            arcSite: siteProps['arc-site']
                         }
                     )
                 };

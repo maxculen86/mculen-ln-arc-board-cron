@@ -11,13 +11,24 @@ describe('BodyComponents - Foodit - Subtitle', () => {
     });
 
     it('renders the correct subtitle level', () => {
-        const levels = [1, 2, 3, 4, 5, 6];
+        const levels = [4, 5, 6];
         levels.forEach(level => {
             render(
                 <Subtitle data={{ level: level, content: `Level ${level}` }} />
             );
             const subtitleElement = screen.getByText(`Level ${level}`);
             expect(subtitleElement.tagName).toBe(`H${level}`);
+        });
+    });
+
+    it('Subtitle levels 1, 2 and 3 must be h3', () => {
+        const levels = [1, 2, 3];
+        levels.forEach(level => {
+            render(
+                <Subtitle data={{ level: level, content: `Level ${level}` }} />
+            );
+            const subtitleElement = screen.getByText(`Level ${level}`);
+            expect(subtitleElement.tagName).toBe('H3');
         });
     });
 

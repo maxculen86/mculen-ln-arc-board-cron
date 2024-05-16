@@ -51,11 +51,17 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                         <Note>
                             <Note.Body>
                                 <div className="flex flex-column gap-12">
-                                    <Text className="prumo prumo-book text-28 text-40_md text-48_lg">
+                                    <Text
+                                        className="prumo prumo-book text-28 text-40_md text-48_lg"
+                                        as="h1"
+                                    >
                                         {title}
                                     </Text>
                                     {subtitle && (
-                                        <Text className="text-18 text-20_md">
+                                        <Text
+                                            className="text-18 text-20_md"
+                                            as="h2"
+                                        >
                                             {subtitle}
                                         </Text>
                                     )}

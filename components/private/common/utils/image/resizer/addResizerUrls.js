@@ -48,7 +48,8 @@ export const addResizedUrls = (ansDoc, options) => {
                         elem,
                         presetsContentElements || presetsDefault,
                         zoomSizes,
-                        defaultResize
+                        defaultResize,
+                        arcSite
                     );
                 }
                 const { type } = elem;

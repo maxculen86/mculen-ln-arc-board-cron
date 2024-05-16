@@ -198,5 +198,25 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
                 { text: 'Postres', url: '/recetas/postres' }
             ]);
         });
+
+        test('Should filter the sections ¿Qué cocinar hoy?, Recetas, Dietas', () => {
+            const input = {
+                taxonomy: {
+                    primary_section: { name: 'Dulces' },
+                    sections: [
+                        { name: 'Sin gluten', path: '/recetas/sin-gluten' },
+                        { name: 'Postres', path: '/recetas/postres' },
+                        { name: 'Recetas', path: '/recetas' },
+                        { name: 'Dietas', path: '/dietas' },
+                        { name: '¿Qué cocinar hoy?', path: '/que-cocinar-hoy' }
+                    ]
+                }
+            };
+            const result = getTagList(input);
+            expect(result).toEqual([
+                { text: 'Sin gluten', url: '/recetas/sin-gluten' },
+                { text: 'Postres', url: '/recetas/postres' }
+            ]);
+        });
     });
 });

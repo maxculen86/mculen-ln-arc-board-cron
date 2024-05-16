@@ -16,7 +16,7 @@ export const createArticleList = ({ articles = [] } = {}) => {
             variant,
             image = {}
         } = transformArticleFoodit(article);
-        const { alt_text, resized_urls, url } = image;
+        const { alt_text, caption, subtitle, resized_urls, url } = image;
         return (
             <CommonCardFoodit
                 articleId={articleId}
@@ -26,7 +26,7 @@ export const createArticleList = ({ articles = [] } = {}) => {
                 size={size}
                 variant={variant}
                 src={url}
-                alt={alt_text}
+                alt={alt_text || caption || subtitle}
                 sources={getImagesToLoadWithPicture(resized_urls)}
                 loading={'lazy'}
                 fetchPriority={'low'}
