@@ -43,7 +43,6 @@ const HeaderLN = props => {
         >
             <div className={headerWrapperClassName}>
                 {isHome && <PreHeader />}
-                {/* <PreHeader /> */}
                 <Header classNameContainer={headerClassName}>
                     <MainHeader />
                     <SubHeader />

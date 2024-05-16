@@ -6,21 +6,33 @@
         "event": "e_linkclick"
     },
     {
-        "dynamic_action": "header_temas_hoy",
+        "dynamic_action": "header_marcas",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "first_topic",
+        "dynamic_label": "club_ln",
         "event": "e_linkclick"
     },
     {
-        "dynamic_action": "header_temas_hoy",
+        "dynamic_action": "header_marcas",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "second_topic",
+        "dynamic_label": "en_vivo",
         "event": "e_linkclick"
     },
     {
-        "dynamic_action": "header_temas_hoy",
+        "dynamic_action": "header_marcas",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "third_topic",
+        "dynamic_label": "foodit",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "header_marcas",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "canchallena",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "header_marcas",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "bonvivir",
         "event": "e_linkclick"
     }
 ]

@@ -5,8 +5,8 @@ import { Text } from '@ln/contenidos-ui-text';
 export const Dollar = ({ data }) => {
     if (data.length === 0) return <></>;
     return (
-        <div className="dollar dollar-container --scroll-x pr-60">
-            <ul className="inline-flex --bullet-list">
+        <div className="dollar dollar-container flex --scroll-x --degrade-scroll_max1279">
+            <ul className="flex --bullet-list_4">
                 {data.map(
                     (
                         {

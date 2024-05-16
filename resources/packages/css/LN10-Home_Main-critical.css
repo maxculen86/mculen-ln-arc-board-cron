@@ -5515,6 +5515,10 @@ strong:not(.--font-primary),
   padding-right: 1.5rem;
 }
 
+.pr-32 {
+  padding-right: 2rem;
+}
+
 .pr-60 {
   padding-right: 3.75rem;
 }
@@ -6774,24 +6778,42 @@ hr {
   display: block;
 }
 
+.--degrade-scroll_max1279::after,
+.--degrade-scroll::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 68px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgb(255, 255, 255) 100%);
+  z-index: 1;
+  margin-right: -0.0625rem;
+}
+
+.--degrade-scroll_max1279::after {
+  display: none;
+}
 @media (max-width: 1279px) {
   .--degrade-scroll_max1279::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 68px;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgb(255, 255, 255) 100%);
-    z-index: 1;
+    display: block;
   }
 }
 
-.--bullet-list li:not(:first-child):before {
+.--bullet-list_4 li:not(:first-child):before,
+.--bullet-list_8 li:not(:first-child):before {
   content: "•";
-  color: #cccccc;
   position: relative;
   display: flex;
+}
+
+.--bullet-list_4 li:not(:first-child):before {
+  color: #cccccc;
+  margin-inline: 0.25rem;
+}
+
+.--bullet-list_8 li:not(:first-child):before {
+  color: inherit;
   margin-inline: 0.5rem;
 }
 

@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - LN-10-global - header - preHeader - default should match snapshot of PreHeader 1`] = `
+<div
+  class="ln-pre-header flex ai-center h-48 bg-neutral-light-50 relative --tablet-none"
+>
+  <div
+    class="lay-container"
+  >
+    <div
+      class="flex ai-center"
+    >
+      <a
+        class="link ln-link --weather mr-16"
+        data-event="e_linkclick"
+        data-section="MenuLN"
+        href="/clima"
+        target="_self"
+        title="Clima"
+      >
+        <div
+          class="ln-weather flex ai-center jc-start w-max text-black"
+        >
+          <span
+            class="text ln-text place mr-8 text-light-800 --font-xs"
+          >
+            Capital Federal
+          </span>
+          <i
+            class="icon mr-4 --icon-16"
+          >
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
+          </i>
+          <span
+            class="text ln-text --font-bold --font-xs"
+          >
+            24.5
+          </span>
+        </div>
+      </a>
+      <div
+        class="brands-container flex ai-center pl-16 border border-left border-thin border-neutral-light-200 overflow-hidden relative"
+      >
+        <nav
+          class="brands flex ai-center --scroll-x pr-60"
+        >
+          <ul
+            class="tag-list inline-flex gap-28"
+          >
+            <li
+              class="w-max flex ai-center text-neutral-light-800"
+            >
+              <a
+                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                data-event="e_linkclick"
+                data-section="MenuLN"
+                href="https://club.lanacion.com.ar/"
+                rel="nofollow"
+                target="_blank"
+                title="CLUB LN"
+              >
+                <i
+                  class="icon --icon-20"
+                >
+                  <mock-icon
+                    critical="true"
+                    fill="#333333"
+                    name="clubLnDefault"
+                  />
+                </i>
+                CLUB LN
+              </a>
+            </li>
+            <li
+              class="w-max flex ai-center text-neutral-light-800"
+            >
+              <a
+                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                data-event="e_linkclick"
+                data-section="MenuLN"
+                href="https://lnmas.lanacion.com.ar/"
+                rel="LN+ EN VIVO"
+                target="_blank"
+                title="EN VIVO"
+              >
+                <i
+                  class="icon --icon-20"
+                >
+                  <mock-icon
+                    critical="true"
+                    fill="#333333"
+                    name="lnMas"
+                  />
+                </i>
+                EN VIVO
+              </a>
+            </li>
+            <li
+              class="w-max flex ai-center text-neutral-light-800"
+            >
+              <a
+                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                data-event="e_linkclick"
+                data-section="MenuLN"
+                href="https://foodit.lanacion.com.ar/"
+                rel="nofollow"
+                target="_blank"
+                title="FOODIT"
+              >
+                <i
+                  class="icon --icon-20"
+                >
+                  <mock-icon
+                    critical="true"
+                    fill="#333333"
+                    name="foodit"
+                  />
+                </i>
+                FOODIT
+              </a>
+            </li>
+            <li
+              class="w-max flex ai-center text-neutral-light-800"
+            >
+              <a
+                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                data-event="e_linkclick"
+                data-section="MenuLN"
+                href="https://canchallena.lanacion.com.ar/"
+                rel="nofollow"
+                target="_blank"
+                title="CANCHALLENA"
+              >
+                <i
+                  class="icon --icon-20"
+                >
+                  <mock-icon
+                    critical="true"
+                    fill="#333333"
+                    name="canchallena"
+                  />
+                </i>
+                CANCHALLENA
+              </a>
+            </li>
+            <li
+              class="w-max flex ai-center text-neutral-light-800"
+            >
+              <a
+                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                data-event="e_linkclick"
+                data-section="MenuLN"
+                href="https://bonvivir.com/"
+                rel="nofollow"
+                target="_blank"
+                title="BONVIVIR"
+              >
+                <i
+                  class="icon --icon-20"
+                >
+                  <mock-icon
+                    critical="true"
+                    fill="#333333"
+                    name="bonvivir"
+                  />
+                </i>
+                BONVIVIR
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+`;

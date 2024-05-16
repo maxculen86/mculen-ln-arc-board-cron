@@ -42,6 +42,7 @@ const LN10Home = props => {
     } = props;
 
     const [
+        cabezal,
         preApertura,
         apertura,
         breaking1,
@@ -91,6 +92,7 @@ const LN10Home = props => {
                     'section[data-section="pre-apertura"]'
                 )}
                 <div className="--no-app">
+                    <div data-section="cabezal">{cabezal}</div>
                     <Header />
                 </div>
                 <main className="main-container">

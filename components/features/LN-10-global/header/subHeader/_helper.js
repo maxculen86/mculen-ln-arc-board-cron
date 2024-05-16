@@ -1,6 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import React from 'react';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 export const setDollarData = dollarValue => {
     if (!dollarValue) return null;
@@ -9,39 +7,48 @@ export const setDollarData = dollarValue => {
         'Dólar oficial',
         'Dólar blue',
         'Dólar turista',
-        'Dólar CCL'
+        'Dólar CCL',
+        'Dólar MEP'
     ];
 
-    const filteredCurrencies = dollarValue.filter(dollar =>
-        INCLUDED_CURRENCIES.includes(dollar.titleMobile)
-    );
+    const TITLE_TRANSFORMATIONS = {
+        'Dólar MEP': 'Dólar mep'
+    };
 
-    return filteredCurrencies.map(({ titleMobile, venta, link } = {}) => ({
-        text: titleMobile,
-        title: titleMobile,
-        venta,
-        link
-    }));
+    const filteredCurrencies = dollarValue
+        .filter(dollar => INCLUDED_CURRENCIES.includes(dollar.titleMobile))
+        .sort(
+            (a, b) =>
+                INCLUDED_CURRENCIES.indexOf(a.titleMobile) -
+                INCLUDED_CURRENCIES.indexOf(b.titleMobile)
+        );
+
+    return filteredCurrencies.map(({ titleMobile, venta, link } = {}) => {
+        const transformedTitle =
+            TITLE_TRANSFORMATIONS[titleMobile] || titleMobile;
+        return {
+            text: transformedTitle,
+            title: transformedTitle,
+            venta,
+            link
+        };
+    });
 };
 
 export const setAccessData = () => {
     return [
         {
-            icon: <IconSprite name="bookmark" critical />,
-            text: 'Mis notas',
-            href: 'https://www.lanacion.com.ar/mis-notas/'
+            text: 'LN juegos',
+            href: 'https://www.lanacion.com.ar/juegos/'
         },
         {
-            icon: <IconSprite name="emailOpen" critical />,
+            text: 'Suscriptores',
+            href: 'https://www.lanacion.com.ar/suscriptores/'
+        },
+        {
             text: 'Newsletters',
             href:
-                'https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
-        },
-        {
-            icon: <IconSprite name="clubLnDefault" critical />,
-            text: 'Club LA NACION',
-            href:
-                'https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
+                'https://newsletter.lanacion.com.ar/?_ga=2.115587013.2111665650.1713785519-1414281100.1711030569'
         }
     ];
 };

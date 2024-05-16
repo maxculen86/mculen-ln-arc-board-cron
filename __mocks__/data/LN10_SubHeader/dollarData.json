@@ -22,5 +22,11 @@
         "title": "Dólar CCL",
         "venta": "365,93",
         "link": "https://www.lanacion.com.ar/tema/dolar-ccl/"
+    },
+    {
+        "text": "Dólar MEP",
+        "title": "Dólar MEP",
+        "venta": "400,33",
+        "link": "https://www.lanacion.com.ar/tema/dolar-mep/"
     }
 ]

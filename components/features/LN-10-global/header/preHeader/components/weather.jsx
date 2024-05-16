@@ -13,7 +13,7 @@ export const Weather = ({ weatherData }) => {
         callback,
         icon
     } = weatherData;
-    console.log('TEMPERATURAAAAA:', temperature);
+
     return (
         <Link
             href={link}

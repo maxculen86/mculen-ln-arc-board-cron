@@ -27,9 +27,11 @@ const SubHeaderLN = () => {
     return (
         <Static id="subheader-LN10">
             <SubHeader className={subHeaderClassNames}>
-                <div className="lay-container relative --degrade-scroll_max767">
-                    <div className="flex py-16 text-14 ai-center jc-between">
-                        <Dollar data={dollarData} />
+                <div className="lay-container">
+                    <div className="flex py-16 text-14 ai-center jc-between gap-24">
+                        <div className="relative w-100 overflow-hidden">
+                            <Dollar data={dollarData} />
+                        </div>
                         <Access data={accessData} />
                     </div>
                 </div>

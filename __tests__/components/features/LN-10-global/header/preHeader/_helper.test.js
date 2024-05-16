@@ -3,14 +3,14 @@ import {
     setWeatherData,
     setTopicsCustomFields,
     getTopicsFromCustomFields
-} from '../../../../../components/features/LN-common/preHeader/_helper';
-import IconSprite from '../../../../../components/features/private-global/common/iconSprite/IconSprite';
+} from '../../../../../../components/features/LN-10-global/header/preHeader/__helper';
+import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 
-jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
 );
 
-describe('Features - LN-Common - PreHeader - Helper =>', () => {
+describe('Features - LN-10-global - header - preHeader - Helper =>', () => {
     const mock = {
         weather: {
             dataService: {
@@ -49,7 +49,7 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
     };
 
     describe('Helper - getWeatherInfo', () => {
-        it('should returns an object with specific data', () => {
+        it('should return an object with specific data', () => {
             const { weather } = mock;
             const weatherData = setWeatherData(weather);
             const currentLocation = weather.dataService.locations[0];
@@ -70,14 +70,14 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
             );
         });
 
-        it('should returns null when weatherValue is undefined', () => {
+        it('should return null when weatherValue is undefined', () => {
             const weatherData = setWeatherData();
             expect(weatherData).toBeNull();
         });
     });
 
     describe('Helper - getTopicsFromCustomFields', () => {
-        it('should returns topics array with specific data', () => {
+        it('should return topics array with specific data', () => {
             const topics = getTopicsFromCustomFields(mock.customFields);
             const [currentTopic] = topics;
 
@@ -93,7 +93,7 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
             ]);
         });
 
-        it('should returns topics array with multiple custom fields', () => {
+        it('should return topics array with multiple custom fields', () => {
             const topics = getTopicsFromCustomFields(
                 mock.customFieldsMultipleTopics
             );
@@ -127,11 +127,11 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
             });
         };
 
-        it('should returns custom fields with default max length', () => {
+        it('should return custom fields with default max length', () => {
             verifyCustomFields();
         });
 
-        it('should returns custom fields with another length', () => {
+        it('should return custom fields with another length', () => {
             verifyCustomFields(4);
         });
     });

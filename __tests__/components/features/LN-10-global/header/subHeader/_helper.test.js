@@ -43,6 +43,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
             },
             {
                 compra: '-',
+                link: 'https://www.lanacion.com.ar/tema/dolar-mep/',
                 sourceName: 'dmep',
                 titleMobile: 'Dólar MEP',
                 venta: '334,93'
@@ -70,6 +71,12 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
         ]
     };
 
+    const TITLE_TRANSFORMATIONS = {
+        'Dólar MEP': 'Dólar mep'
+    };
+
+    const getTransformedTitle = title => TITLE_TRANSFORMATIONS[title] || title;
+
     describe('Helper - setDollarData', () => {
         it('should returns a collection with specific data', () => {
             const { dollar } = mock;
@@ -82,11 +89,14 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
                 'link'
             ]);
 
-            expect(dollarData).toHaveLength(4);
+            expect(dollarData).toHaveLength(5);
 
             dollarData.forEach(currentDollar => {
                 const mockDollar = dollar.find(
-                    mockItem => mockItem.titleMobile === currentDollar.title
+                    mockItem =>
+                        mockItem.titleMobile === currentDollar.title ||
+                        getTransformedTitle(mockItem.titleMobile) ===
+                            currentDollar.title
                 );
 
                 expect(
@@ -94,14 +104,36 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
                         'Dólar oficial',
                         'Dólar blue',
                         'Dólar turista',
-                        'Dólar CCL'
+                        'Dólar CCL',
+                        'Dólar mep'
                     ].includes(currentDollar.title)
                 ).toBeTruthy();
 
-                expect(currentDollar.text).toEqual(mockDollar.titleMobile);
-                expect(currentDollar.title).toEqual(mockDollar.titleMobile);
+                expect(currentDollar.text).toEqual(
+                    getTransformedTitle(mockDollar.titleMobile)
+                );
+                expect(currentDollar.title).toEqual(
+                    getTransformedTitle(mockDollar.titleMobile)
+                );
                 expect(currentDollar.venta).toEqual(mockDollar.venta);
                 expect(currentDollar.link).toEqual(mockDollar.link);
+            });
+        });
+
+        it('should return sorted dollar data in the correct order', () => {
+            const { dollar } = mock;
+            const dollarData = setDollarData(dollar);
+
+            const expectedOrder = [
+                'Dólar oficial',
+                'Dólar blue',
+                'Dólar turista',
+                'Dólar CCL',
+                'Dólar mep'
+            ];
+
+            dollarData.forEach((dollar, index) => {
+                expect(dollar.title).toEqual(expectedOrder[index]);
             });
         });
 
@@ -117,6 +149,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
             ['Dólar blue', 'dolar_blue'],
             ['Dólar turista', 'dolar_turista'],
             ['Dólar CCL', 'dolar_ccl'],
+            ['Dólar MEP', 'dolar_mep'],
             ['', ''],
             [undefined, '']
         ];
@@ -135,7 +168,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
             const accessData = setAccessData();
             const [firstAccess] = accessData;
 
-            expect(Object.keys(firstAccess)).toEqual(['icon', 'text', 'href']);
+            expect(Object.keys(firstAccess)).toEqual(['text', 'href']);
 
             expect(accessData).toHaveLength(3);
         });

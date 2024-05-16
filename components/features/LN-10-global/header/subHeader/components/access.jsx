@@ -1,30 +1,34 @@
 import React from 'react';
 import { Link } from '@ln/contenidos-ui-link';
-import { Icon } from '@ln/common-ui-icon';
 
 export const Access = ({ data }) => {
-    // TODO: al corregir "lenght" se borran los datos tanto de clima como de dolar... ??
-    if (data.leght === 0) return <></>;
+    if (data.length === 0) return <></>;
+    const lastChild = data.length - 1;
     return (
         <div className="access-container --tablet-none ">
-            <ul className="access flex">
-                {data.map(({ href, text, icon, callback }, i) => {
+            <ul className="access flex gap-8">
+                {data.map(({ href, text, callback }, i) => {
+                    const divider =
+                        i !== lastChild ? (
+                            <hr className="border-left-none" />
+                        ) : (
+                            <></>
+                        );
                     return (
-                        <li className="w-max mr-16" key={i}>
-                            <Link
-                                className="flex ai-center"
-                                href={href}
-                                title={`Ir a ${text}`}
-                                size="xs"
-                                onClick={callback}
-                                unstyled
-                            >
-                                <Icon size={20} className="mr-4">
-                                    {icon}
-                                </Icon>
-                                {text}
-                            </Link>
-                        </li>
+                        <div className="flex gap-8">
+                            <li className="w-max" key={i}>
+                                <Link
+                                    className="flex ai-center"
+                                    href={href}
+                                    title={`Ir a ${text}`}
+                                    text={text}
+                                    size="xs"
+                                    onClick={callback}
+                                    unstyled
+                                />
+                            </li>
+                            {divider}
+                        </div>
                     );
                 })}
             </ul>
