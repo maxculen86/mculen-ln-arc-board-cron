@@ -9,18 +9,28 @@ export const handleScriptBtnSuscription = () => {
                   .shift()
             : '';
 
-    if (productsPremium && productsPremium.includes('2')) {
-        const button = document.querySelector('a.--roof-button.--subscribe');
+    const cookieArray = productsPremium.split(',');
+    const subscription = cookieArray.includes('2');
 
-        button && button.classList.add('none');
-    }
-
-    if (productsPremium && productsPremium.includes('22')) {
+    if (cookieArray.includes('22')) {
         const buttonFooditRoof = document.getElementById('btn-foodit-roof');
         const buttonFooditGrid = document.getElementById('btn-foodit-grid');
 
         buttonFooditRoof && buttonFooditRoof.classList.add('none');
         buttonFooditGrid && buttonFooditGrid.classList.add('none');
+    }
+    if (subscription) {
+        const button = document.querySelector('a.--roof-button.--subscribe');
+        button && button.classList.add('none');
+    }
+    if (subscription && cookieArray.includes('22')) {
+        const buttonFooditRoof = document.getElementById('btn-foodit-roof');
+        const buttonFooditGrid = document.getElementById('btn-foodit-grid');
+        const button = document.querySelector('a.--roof-button.--subscribe');
+
+        buttonFooditRoof && buttonFooditRoof.classList.add('none');
+        buttonFooditGrid && buttonFooditGrid.classList.add('none');
+        button && button.classList.remove('none');
     }
 };
 
