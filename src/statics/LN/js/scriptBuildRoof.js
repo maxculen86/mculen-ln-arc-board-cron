@@ -8,30 +8,25 @@ export const handleScriptBtnSuscription = () => {
                   .split(';')
                   .shift()
             : '';
-
     const cookieArray = productsPremium.split(',');
     const subscription = cookieArray.includes('2');
-
     if (cookieArray.includes('22')) {
         const buttonFooditRoof = document.getElementById('btn-foodit-roof');
         const buttonFooditGrid = document.getElementById('btn-foodit-grid');
-
         buttonFooditRoof && buttonFooditRoof.classList.add('none');
         buttonFooditGrid && buttonFooditGrid.classList.add('none');
     }
     if (subscription) {
         const button = document.querySelector('a.--roof-button.--subscribe');
-        button && button.classList.add('none');
+        button && button?.remove();
     }
     if (subscription && cookieArray.includes('22')) {
         const buttonFooditRoof = document.getElementById('btn-foodit-roof');
         const buttonFooditGrid = document.getElementById('btn-foodit-grid');
         const button = document.querySelector('a.--roof-button.--subscribe');
-
         buttonFooditRoof && buttonFooditRoof.classList.add('none');
         buttonFooditGrid && buttonFooditGrid.classList.add('none');
-        button && button.classList.remove('none');
+        button && button?.remove();
     }
 };
-
 handleScriptBtnSuscription();
