@@ -29,6 +29,13 @@ const getTagList = ({
         primarySection,
         tagList: get(taxonomy, 'sections', [])
     });
+
+    const EXCLUDED_TAGS = ['¿Qué cocinar hoy?', 'Recetas', 'Dietas'];
+
+    const filteredSectionsTags = sectionsTags.filter(
+        ({ text = '' }) => text && !EXCLUDED_TAGS.includes(text)
+    );
+
     const cookingTypesTags = setUrlTag({
         nameSection: 'cookingTypes',
         primarySection,
@@ -51,7 +58,7 @@ const getTagList = ({
         ...cookingTypesTags,
         ...occasionsTags,
         ...regionsTags,
-        ...sectionsTags
+        ...filteredSectionsTags
     ];
 };
 

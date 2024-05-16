@@ -47,7 +47,8 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         </Icon>
                         LISTA DE COMPRAS
                     </Link>
-                    <Link
+                    {/* TODO: descomentar cuando esten listos los newsletters de foodit */}
+                    {/* <Link
                         href="https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274"
                         title="Ir a newsletter"
                         className="gap-8"
@@ -61,7 +62,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                             <IconSprite name="newsletter" critical />
                         </Icon>
                         NEWSLETTER
-                    </Link>
+                    </Link> */}
                 </Topnavigationbar>
             </Static>
         </div>

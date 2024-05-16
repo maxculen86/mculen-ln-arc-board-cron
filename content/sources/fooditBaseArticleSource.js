@@ -69,7 +69,8 @@ export default {
         id: 'text',
         published: 'text',
         outputType: 'text',
-        sourceInclude: 'text'
+        sourceInclude: 'text',
+        isInApertura: 'bool'
     },
     ttl: 120
 };
