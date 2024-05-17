@@ -8,6 +8,9 @@ import '../../../../resources/dist/css/ln/modules/modal.css';
 const PwaModals = () => {
     const { outputType } = useFusionContext();
 
+    // TODO: el componente se deja de importar para ver efectos en INP, borrar codigo si no se vuelve a utilizar
+    // se remueve el import del iniciador components/private/LN/common/utils/register.js en el globalContext
+
     return outputType === 'default' ? (
         <>
             <div

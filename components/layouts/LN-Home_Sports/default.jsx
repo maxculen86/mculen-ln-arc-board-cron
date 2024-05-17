@@ -10,7 +10,6 @@ import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalCont
 import get from '../../private/common/utils/get';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
-import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
 
@@ -84,7 +83,6 @@ const LNSportsHome = props => {
                     </div>
                 </div>
                 <LoadBannersSSR />
-                <PwaModals />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

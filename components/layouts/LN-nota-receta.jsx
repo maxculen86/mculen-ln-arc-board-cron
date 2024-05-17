@@ -8,7 +8,6 @@ import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import PwaModals from '../private/LN/common/pwaModals';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 
@@ -96,7 +95,6 @@ const LNNotaReceta = ({ outputType, children }) => {
                 </div>
             </div>
             <LoadBannersSSR />
-            <PwaModals />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

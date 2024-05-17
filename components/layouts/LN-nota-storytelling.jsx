@@ -8,7 +8,6 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import PwaModals from '../private/LN/common/pwaModals';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
@@ -108,7 +107,6 @@ const lnNotaStorytelling = ({
                 </div>
             </div>
             <LoadBannersSSR />
-            <PwaModals />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

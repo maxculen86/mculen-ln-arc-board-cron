@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
@@ -202,7 +201,6 @@ const LN10Home = props => {
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
-            <PwaModal contextPath={contextPath} deployment={deployment} />
             <RoofEventsScript />
             <ScriptViewability />
         </GlobalProvider>
