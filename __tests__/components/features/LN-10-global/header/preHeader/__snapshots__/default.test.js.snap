@@ -56,7 +56,6 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               <a
                 class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
-                data-section="MenuLN"
                 href="https://club.lanacion.com.ar/"
                 rel="nofollow"
                 target="_blank"
@@ -80,7 +79,6 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               <a
                 class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
-                data-section="MenuLN"
                 href="https://lnmas.lanacion.com.ar/"
                 rel="LN+ EN VIVO"
                 target="_blank"
@@ -104,7 +102,6 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               <a
                 class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
-                data-section="MenuLN"
                 href="https://foodit.lanacion.com.ar/"
                 rel="nofollow"
                 target="_blank"
@@ -128,7 +125,6 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               <a
                 class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
-                data-section="MenuLN"
                 href="https://canchallena.lanacion.com.ar/"
                 rel="nofollow"
                 target="_blank"
@@ -152,7 +148,6 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               <a
                 class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
-                data-section="MenuLN"
                 href="https://bonvivir.com/"
                 rel="nofollow"
                 target="_blank"
