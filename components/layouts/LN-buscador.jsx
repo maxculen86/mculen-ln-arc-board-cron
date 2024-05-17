@@ -6,7 +6,6 @@ import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import ComTitle from '../private/common/com-title';
 import GlobalProvider from '../private/common/context/globalContext';
-import PwaModals from '../private/LN/common/pwaModals';
 import createTagsTitleAndMetas from '../private/common/utils/lnBuscadorHelper';
 import getQueryParamValue from '../private/common/utils/getQueryParamValue';
 import '../../resources/dist/css/ln/pages/buscador.css';
@@ -46,7 +45,6 @@ const lnBuscador = ({
                     <Footer />
                 </div>
             </div>
-            <PwaModals />
         </GlobalProvider>
     );
 };

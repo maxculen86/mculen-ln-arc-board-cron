@@ -5,6 +5,9 @@ import { Text } from '@ln/contenidos-ui-text';
 import { Button } from '@ln/contenidos-ui-button';
 
 export function PwaModal({ className, contextPath, deployment }) {
+    // TODO: el componente se deja de importar para ver efectos en INP, borrar codigo si no se vuelve a utilizar
+    // se remueve el import del iniciador components/private/LN/common/utils/register.js en el globalContext
+
     const path = `${contextPath}/resources/images/la-nacion.webp`;
     const deploymentPath = deployment(path);
     const classes = classNames(

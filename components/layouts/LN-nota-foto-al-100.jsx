@@ -9,7 +9,6 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
-import PwaModals from '../private/LN/common/pwaModals';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
@@ -103,7 +102,6 @@ const lnNotaFotoAl100 = ({
                 </div>
             </div>
             <LoadBannersSSR />
-            <PwaModals />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
