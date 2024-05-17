@@ -71,12 +71,6 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
         ]
     };
 
-    const TITLE_TRANSFORMATIONS = {
-        'Dólar MEP': 'Dólar mep'
-    };
-
-    const getTransformedTitle = title => TITLE_TRANSFORMATIONS[title] || title;
-
     describe('Helper - setDollarData', () => {
         it('should returns a collection with specific data', () => {
             const { dollar } = mock;
@@ -93,10 +87,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
 
             dollarData.forEach(currentDollar => {
                 const mockDollar = dollar.find(
-                    mockItem =>
-                        mockItem.titleMobile === currentDollar.title ||
-                        getTransformedTitle(mockItem.titleMobile) ===
-                            currentDollar.title
+                    mockItem => mockItem.titleMobile === currentDollar.title
                 );
 
                 expect(
@@ -105,16 +96,12 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
                         'Dólar blue',
                         'Dólar turista',
                         'Dólar CCL',
-                        'Dólar mep'
+                        'Dólar MEP'
                     ].includes(currentDollar.title)
                 ).toBeTruthy();
 
-                expect(currentDollar.text).toEqual(
-                    getTransformedTitle(mockDollar.titleMobile)
-                );
-                expect(currentDollar.title).toEqual(
-                    getTransformedTitle(mockDollar.titleMobile)
-                );
+                expect(currentDollar.text).toEqual(mockDollar.titleMobile);
+                expect(currentDollar.title).toEqual(mockDollar.titleMobile);
                 expect(currentDollar.venta).toEqual(mockDollar.venta);
                 expect(currentDollar.link).toEqual(mockDollar.link);
             });
@@ -129,7 +116,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
                 'Dólar blue',
                 'Dólar turista',
                 'Dólar CCL',
-                'Dólar mep'
+                'Dólar MEP'
             ];
 
             dollarData.forEach((dollar, index) => {

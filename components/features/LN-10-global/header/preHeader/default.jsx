@@ -30,9 +30,7 @@ const PreHeaderLN = () => {
                 <div className="lay-container">
                     <div className="flex ai-center">
                         <Weather weatherData={weatherData} />
-                        {preHeader.length > 0 && (
-                            <Brands brandsData={preHeader} />
-                        )}
+                        <Brands brandsData={preHeader} />
                     </div>
                 </div>
             </div>

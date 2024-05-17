@@ -11,10 +11,6 @@ export const setDollarData = dollarValue => {
         'Dólar MEP'
     ];
 
-    const TITLE_TRANSFORMATIONS = {
-        'Dólar MEP': 'Dólar mep'
-    };
-
     const filteredCurrencies = dollarValue
         .filter(dollar => INCLUDED_CURRENCIES.includes(dollar.titleMobile))
         .sort(
@@ -23,16 +19,12 @@ export const setDollarData = dollarValue => {
                 INCLUDED_CURRENCIES.indexOf(b.titleMobile)
         );
 
-    return filteredCurrencies.map(({ titleMobile, venta, link } = {}) => {
-        const transformedTitle =
-            TITLE_TRANSFORMATIONS[titleMobile] || titleMobile;
-        return {
-            text: transformedTitle,
-            title: transformedTitle,
-            venta,
-            link
-        };
-    });
+    return filteredCurrencies.map(({ titleMobile, venta, link } = {}) => ({
+        text: titleMobile,
+        title: titleMobile,
+        venta,
+        link
+    }));
 };
 
 export const setAccessData = () => {
