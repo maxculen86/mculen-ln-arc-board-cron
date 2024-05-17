@@ -3,17 +3,10 @@ import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 
-export const Weather = ({ weatherData }) => {
-    const {
-        link,
-        dataEvent,
-        dataSection,
-        place,
-        temperature,
-        callback,
-        icon
-    } = weatherData;
-
+export const Weather = ({ weatherData = [] }) => {
+    if (weatherData.length === 0) return <></>;
+    const { link, dataEvent, dataSection, place, temperature, callback, icon } =
+        weatherData || {};
     return (
         <Link
             href={link}

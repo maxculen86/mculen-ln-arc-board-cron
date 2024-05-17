@@ -3,13 +3,13 @@ import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 
-export const Brands = ({ brands }) => {
-    if (brands.length === 0) return <></>;
+export const Brands = ({ brandsData = [] }) => {
+    if (brandsData.length === 0) return <></>;
     return (
         <div className="brands-container flex ai-center pl-16 border border-left border-thin border-neutral-light-200 overflow-hidden relative">
             <nav className="brands flex ai-center --scroll-x pr-60">
                 <ul className="tag-list inline-flex gap-28">
-                    {brands.map(
+                    {brandsData.map(
                         (
                             {
                                 title,
@@ -19,7 +19,7 @@ export const Brands = ({ brands }) => {
                                 icon,
                                 callback
                             },
-                            i
+                            brandIndex
                         ) => {
                             const relTitle =
                                 title === 'EN VIVO' ? 'LN+ EN VIVO' : '';
@@ -27,7 +27,7 @@ export const Brands = ({ brands }) => {
                             return (
                                 <li
                                     className="w-max flex ai-center text-neutral-light-800"
-                                    key={i}
+                                    key={brandIndex}
                                 >
                                     <Link
                                         className="--font-bold flex gap-8 uppercase ai-center"

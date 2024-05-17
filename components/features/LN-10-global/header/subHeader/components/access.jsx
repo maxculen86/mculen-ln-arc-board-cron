@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from '@ln/contenidos-ui-link';
 
-export const Access = ({ data }) => {
-    if (data.length === 0) return <></>;
-    const lastChild = data.length - 1;
+export const Access = ({ accessData = [] }) => {
+    if (accessData.length === 0) return <></>;
+    const lastChild = accessData.length - 1;
     return (
         <div className="access-container --tablet-none ">
             <ul className="access flex gap-8">
-                {data.map(({ href, text, callback }, i) => {
+                {accessData.map(({ href, text, callback }, accessIndex) => {
                     const divider =
-                        i !== lastChild ? (
+                        accessIndex !== lastChild ? (
                             <hr className="border-left-none" />
                         ) : (
                             <></>
                         );
                     return (
                         <div className="flex gap-8">
-                            <li className="w-max" key={i}>
+                            <li className="w-max" key={accessIndex}>
                                 <Link
                                     className="flex ai-center"
                                     href={href}

@@ -30,9 +30,9 @@ const SubHeaderLN = () => {
                 <div className="lay-container">
                     <div className="flex py-16 text-14 ai-center jc-between gap-24">
                         <div className="relative w-100 overflow-hidden">
-                            <Dollar data={dollarData} />
+                            <Dollar dollarData={dollarData} />
                         </div>
-                        <Access data={accessData} />
+                        <Access accessData={accessData} />
                     </div>
                 </div>
             </SubHeader>
