@@ -27,7 +27,8 @@ const Foodit = ({
     deployment,
     metaValue,
     isAdmin,
-    template
+    template,
+    requestUri = ''
 } = {}) => {
     const {
         node_type: nodeType,
@@ -60,8 +61,9 @@ const Foodit = ({
                     name="viewport"
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
-                {/*  TODO: Una vez salga foodit a PROD, elminar el meta noindex,nofollow y sumar la validacion para agregarlo al preview de composer*/}
-                <meta name="robots" content="noindex, nofollow" />
+                {['preview-arc'].includes(requestUri) && (
+                    <meta name="robots" content="noindex, nofollow" />
+                )}
                 <meta name="theme-color" content="#ffffff" />
                 <PreloadFooditImages
                     layout={layout}

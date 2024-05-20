@@ -31,7 +31,7 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
                     method: 'POST',
                     headers: {
                         'X-Token': token,
-                        Authorization: accessToken
+                        Authorization: `Bearer ${accessToken}`
                     },
                     body: JSON.stringify({
                         bookmarkParent: primarySection,

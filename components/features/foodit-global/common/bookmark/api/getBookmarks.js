@@ -16,7 +16,7 @@ const getBookmarks = async (bookmarkType = 'article') => {
                 method: 'GET',
                 headers: {
                     'X-Token': token,
-                    Authorization: accessToken
+                    Authorization: `Bearer ${accessToken}`
                 }
             }
         );
