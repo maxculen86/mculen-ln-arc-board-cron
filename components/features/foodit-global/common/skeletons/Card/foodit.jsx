@@ -1,6 +1,5 @@
 import React from 'react';
 import { Skeleton } from '@ln/common-ui-skeleton';
-import { Image } from '@ln/foodit-ui-image';
 import classNames from 'classnames';
 
 export const SkeletonCard = ({

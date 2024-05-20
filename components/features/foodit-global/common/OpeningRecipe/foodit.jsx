@@ -95,7 +95,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                     </Static>
                     <hr className="h-100 lg-only" />
                     <div className="flex ai-center gap-16 gap-24_md">
-                        <ActionsButtons article={article} />
+                        {article && <ActionsButtons article={article} />}
                     </div>
                 </div>
             </Recipe.Body>

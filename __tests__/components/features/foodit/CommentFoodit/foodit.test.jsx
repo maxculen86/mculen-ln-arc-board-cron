@@ -53,7 +53,8 @@ describe('Components - features - CommentFoodit', () => {
             }
         };
 
-        const { container } = render(<CommentFoodit {...props} />);
+        const { container, debug } = render(<CommentFoodit {...props} />);
+        debug();
         expect(container.querySelector('vf-tray')).not.toBeInTheDocument();
         expect(container.querySelector('vf-conversations')).toBeInTheDocument();
     });

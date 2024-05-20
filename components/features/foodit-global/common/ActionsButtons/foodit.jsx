@@ -3,7 +3,7 @@ import { buttonConfig, renderAction } from './_helper';
 import { allowCommentsFoodit } from '../../../../private/common/utils/commentsHelper';
 
 export const ActionsButtons = ({ article = {} }) => {
-    const allowComment = allowCommentsFoodit(article);
+    const allowComment = allowCommentsFoodit({ article });
 
     const updateButtons = button => {
         if (button.type === 'comment') {

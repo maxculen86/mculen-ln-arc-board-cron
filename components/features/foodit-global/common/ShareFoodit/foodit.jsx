@@ -44,20 +44,28 @@ export const ShareFoodit = ({
                 className="bg-light-1 p-24 rounded-4 shadow-center"
             >
                 <ul className="w-202">
-                    {socialList.map(({ type, onClick, title, text, icon }) => {
-                        return (
-                            <Itemcard
-                                type={type}
-                                onClick={() => {
-                                    onClick({ article });
-                                }}
-                                title={title}
-                                text={text}
-                                icon={icon}
-                                key={text}
-                            />
-                        );
-                    })}
+                    {socialList.map(
+                        ({
+                            type: typeSocial,
+                            onClick,
+                            title: titleSocial,
+                            text,
+                            icon
+                        }) => {
+                            return (
+                                <Itemcard
+                                    type={typeSocial}
+                                    onClick={() => {
+                                        onClick({ article });
+                                    }}
+                                    title={titleSocial}
+                                    text={text}
+                                    icon={icon}
+                                    key={text}
+                                />
+                            );
+                        }
+                    )}
                 </ul>
             </Dropdown.Menu>
         </Dropdown>

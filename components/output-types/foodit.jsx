@@ -40,7 +40,8 @@ const Foodit = ({
     const { layoutsName = {} } = siteProperties || {};
 
     const allowCommentsValidate =
-        useTermica('livefyre') && allowCommentsFoodit({ globalContent });
+        useTermica('livefyre') &&
+        allowCommentsFoodit({ article: globalContent });
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
 
