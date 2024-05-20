@@ -25,7 +25,7 @@ export const Search = ({ className, ...r }) => {
                     <IconSprite name="search" critical />
                 </Icon>
                 <input
-                    className="text-light-600 text-14 w-100"
+                    className="text-light-600 text-16 w-100"
                     type="text"
                     placeholder="¿Qué querés cocinar hoy?"
                     value={inputValue}

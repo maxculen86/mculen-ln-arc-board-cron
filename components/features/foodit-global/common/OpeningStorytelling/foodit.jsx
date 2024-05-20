@@ -49,7 +49,8 @@ export const OpeningStorytelling = ({ article = {} }) => {
         />
     ) : (
         <Image
-            className="w-100 h-100"
+            className="w-100 ratio-unset_lg ratio-3-2"
+            placeholderClassName="h-100"
             alt={altText || caption}
             src={defaultUrl}
             fetchPriority="high"

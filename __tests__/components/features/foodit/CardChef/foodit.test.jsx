@@ -36,9 +36,11 @@ describe('Components - features - CardChef', () => {
 
         expect(screen.getByText('Maru botana')).toBeTruthy();
         expect(screen.getByTitle('Ir a Maru botana')).toBeTruthy();
-        expect(
-            screen.getByRole('link', { name: 'Maru botana' })
-        ).toHaveAttribute('href', 'http://lanacion/chef-123.com');
+        expect(screen.getByTitle('Ir a Maru botana')).toHaveAttribute(
+            'href',
+            'http://lanacion/chef-123.com'
+        );
+        expect(screen.getByAltText('Maru botana')).toBeTruthy();
     });
 
     it('renders warning message when ID is missing', () => {

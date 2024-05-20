@@ -2,6 +2,8 @@ import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Link } from '@ln/foodit-ui-link';
+import siteProperties from '../../../../../properties/sites/foodit';
+
 import {
     SITIO_SEGURO_REGISTRACION,
     FOODIT_LOGIN_URL
@@ -14,33 +16,48 @@ export const titleByVariant = {
     '404': '¡Uppps! Contenido en preparación'
 };
 
-export const descriptionByVariant = {
-    'barrier-logged':
-        'Para realizar esta acción es necesario que tengas una suscripción.',
-    'barrier-unlogged':
-        'Para realizar esta acción es necesario que inicies sesión.',
-    'empty-state': (
-        <span>
-            Presioná el botón{' '}
-            <Icon size={16} className="vertical-align-middle">
-                <IconSprite name="bookmark" critical />
-            </Icon>{' '}
-            para guardar el contenido que te gusta y ¡Listo!
-        </span>
-    ),
-    '404': (
-        <span>
-            Mientras te invitamos a seguir navegando en{' '}
-            <Link
-                href="/"
-                title="Ir a Foodit"
-                className="inline-flex"
-                variant="secondary"
-            >
-                Foodit
-            </Link>
-        </span>
-    )
+export const descriptionByVariant = ({ layout, variant }) => {
+    const { layoutsName = {} } = siteProperties || {};
+    const isLayoutShoppingList = layout === layoutsName.FooditListadoCompras;
+
+    const optionsDescription = {
+        'barrier-logged':
+            'Para realizar esta acción es necesario que tengas una suscripción.',
+        'barrier-unlogged':
+            'Para realizar esta acción es necesario que inicies sesión.',
+        'empty-state': isLayoutShoppingList ? (
+            <span>
+                Presioná el botón
+                <Icon size={16} className="vertical-align-middle mx-4">
+                    <IconSprite name="cart" critical />
+                </Icon>
+                para guardar el contenido que te gusta y ¡Listo!
+            </span>
+        ) : (
+            <span>
+                Presioná el botón
+                <Icon size={16} className="vertical-align-middle mx-4">
+                    <IconSprite name="bookmark" critical />
+                </Icon>
+                en la receta para agregar los ingredientes que necesitas y
+                ¡Listo!
+            </span>
+        ),
+        '404': (
+            <span>
+                <span>Mientras te invitamos a seguir navegando en </span>
+                <Link
+                    href="/"
+                    title="Ir a Foodit"
+                    className="inline-flex"
+                    variant="secondary"
+                >
+                    Foodit
+                </Link>
+            </span>
+        )
+    };
+    return optionsDescription[variant];
 };
 
 // TODO: agregar eventos para login y suscripción

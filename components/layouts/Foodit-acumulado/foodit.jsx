@@ -32,7 +32,7 @@ const AcumuladoFoodit = props => {
                 </section>
                 {/* TODO: Descomentar si un acumulado lleva apertura */}
                 {/* <section>{apertura}</section> */}
-                <section className="flex flex-column gap-32">{notas}</section>
+                <section className="grid gap-32">{notas}</section>
             </div>
         </BaseLayout>
     );
