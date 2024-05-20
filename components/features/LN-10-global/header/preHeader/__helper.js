@@ -1,4 +1,4 @@
-import optionsIcons from '../../../private/LN/services/weather/optionsIcons';
+import optionsIcons from '../../../../private/LN/services/weather/optionsIcons';
 
 export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;

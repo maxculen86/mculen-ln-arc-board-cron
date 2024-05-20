@@ -1538,10 +1538,6 @@ a {
   color: var(--blue-500);
 }
 
-.text-danger-600 {
-  color: var(--danger-600);
-}
-
 .text-red-700 {
   color: var(--red-700);
 }
@@ -1971,10 +1967,6 @@ strong:not(.--font-primary),
   margin-bottom: 0rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.125rem;
-}
-
 .mb-4 {
   margin-bottom: 0.25rem;
 }
@@ -2021,10 +2013,6 @@ strong:not(.--font-primary),
 
 .ml-7 {
   margin-left: 0.4375rem;
-}
-
-.mr-2 {
-  margin-right: 0.125rem;
 }
 
 .mr-4 {

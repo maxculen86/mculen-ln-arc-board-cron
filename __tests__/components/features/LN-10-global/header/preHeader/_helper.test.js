@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    setWeatherData,
-    setTopicsCustomFields,
-    getTopicsFromCustomFields
-} from '../../../../../../components/features/LN-10-global/header/preHeader/__helper';
+import { setWeatherData } from '../../../../../../components/features/LN-10-global/header/preHeader/__helper';
 import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 
 jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
