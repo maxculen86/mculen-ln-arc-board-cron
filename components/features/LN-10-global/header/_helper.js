@@ -4,7 +4,7 @@ import { LOGIN_URL } from 'fusion:environment';
 
 export const getUserType = (isSubscribed, userEmail) => {
     if (isSubscribed) return 'subscribed';
-    if (userEmail) return 'logged';
+    if (userEmail && !isSubscribed) return 'logged';
     return 'unlogged';
 };
 
@@ -54,12 +54,13 @@ export const isHeaderNegative = ({
 export const getUserData = () => {
     const { getCookie } = handleCookie();
     const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
-
+    const cookieArray = ProductoPremiumId.split(',');
+    const subscription = cookieArray.includes('2');
     return {
         userName: getCookie('usuario%5Fdetalle%5Fnombre'),
         userLastName: getCookie('usuario%5Fdetalle%5Fapellido'),
         userEmail: getCookie('usuarioemail'),
-        isSubscribed: ProductoPremiumId.includes('2'),
+        isSubscribed: subscription,
         goToLoginUrl: () => {
             location.href = LOGIN_URL + window.btoa(location.href);
         },

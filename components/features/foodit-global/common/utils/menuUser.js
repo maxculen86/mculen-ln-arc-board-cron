@@ -46,19 +46,20 @@ export const menuUser = [
             window.location.replace(`${SITE_FOODIT}/lista-de-compras/`);
         }
     },
-    {
-        text: 'Newsletters',
-        icon: <IconSprite name="newsletter" critical />,
-        onClick: () => {
-            addEventToDataLayer({
-                event: 'e_linkclick',
-                category: 'autogestion',
-                label: 'perfil',
-                action: 'newsletters'
-            });
-            window.location.replace('https://newsletter.lanacion.com.ar/');
-        }
-    },
+    // TODO: Descomentar cuando esten listos los newsletters de foodit
+    // {
+    //     text: 'Newsletters',
+    //     icon: <IconSprite name="newsletter" critical />,
+    //     onClick: () => {
+    //         addEventToDataLayer({
+    //             event: 'e_linkclick',
+    //             category: 'autogestion',
+    //             label: 'perfil',
+    //             action: 'newsletters'
+    //         });
+    //         window.location.replace('https://newsletter.lanacion.com.ar/');
+    //     }
+    // },
     {
         text: '¿Cómo podemos ayudarte?',
         icon: <IconSprite name="custom-service" />,

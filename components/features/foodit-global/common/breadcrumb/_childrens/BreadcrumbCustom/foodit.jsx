@@ -9,7 +9,8 @@ import { BreadcrumbSchema } from '../../../../schemas/Breadcrumb';
 
 export default function BreadcrumbCustomFoodit({
     sectionsCustom = [],
-    className
+    className,
+    layout = ''
 }) {
     const sections = [
         {
@@ -20,25 +21,27 @@ export default function BreadcrumbCustomFoodit({
     ];
 
     return (
-        <Static htmlOnly persistent id="breadcrumb-foodit-custom">
-            <BreadcrumbSchema sections={sections} />
-            <div className={classNames('flex ai-center gap-8', className)}>
-                <Breadcrumb gap={8} className="text-14">
-                    {sections.map(({ name, url } = {}, index) => (
-                        <Link
-                            href={url}
-                            title={`Ir a ${name}`}
-                            key={name}
-                            disabled={
-                                sections.length > 1 &&
-                                index === sections.length - 1
-                            }
-                        >
-                            {capitalizeFirstLetter(name)}
-                        </Link>
-                    ))}
-                </Breadcrumb>
-            </div>
-        </Static>
+        <>
+            <BreadcrumbSchema sections={sections} layout={layout} />
+            <Static htmlOnly persistent id="breadcrumb-foodit-custom">
+                <div className={classNames('flex ai-center gap-8', className)}>
+                    <Breadcrumb gap={8} className="text-14">
+                        {sections.map(({ name, url } = {}, index) => (
+                            <Link
+                                href={url}
+                                title={`Ir a ${name}`}
+                                key={name}
+                                disabled={
+                                    sections.length > 1 &&
+                                    index === sections.length - 1
+                                }
+                            >
+                                {capitalizeFirstLetter(name)}
+                            </Link>
+                        ))}
+                    </Breadcrumb>
+                </div>
+            </Static>
+        </>
     );
 }

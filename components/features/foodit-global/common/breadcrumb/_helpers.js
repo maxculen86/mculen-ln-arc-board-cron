@@ -26,6 +26,16 @@ export const getFooditAcuTitle = globalContent => {
     );
 };
 
+export const getBreadcrumbSections = globalContent => {
+    const acuSection = get(globalContent, '_id', '');
+    const noteSection = get(globalContent, 'taxonomy.primary_section._id', '');
+    const isAcu = acuSection.startsWith('/');
+
+    return isAcu
+        ? setArraySection(acuSection, isAcu)
+        : setArraySection(noteSection);
+};
+
 export const setArraySection = (stringSections = '', isAcu = false) => {
     const arraySections = stringSections.split('/');
     const sectionsTransformed = arraySections.map((section, index) => {

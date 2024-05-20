@@ -1,4 +1,4 @@
-class EventsHelper {
+export class EventsHelper {
     constructor() {
         this.createDynamicLabel = (text = '') => {
             return text
@@ -87,13 +87,24 @@ class EventsHelper {
 
     setEventsTopics() {
         const topics = window.document.querySelectorAll('.tag-list a');
-
         topics.forEach(topicElement => {
             const payload = {
                 action: 'header_temas_hoy',
                 label: this.createDynamicLabel(topicElement.title)
             };
             this.addEventListeners(topicElement, payload);
+        });
+    }
+
+    setEventsBrands() {
+        const brands = window.document.querySelectorAll('.tag-list a');
+
+        brands.forEach(brandElement => {
+            const payload = {
+                action: 'header_marcas',
+                label: this.createDynamicLabel(brandElement.title)
+            };
+            this.addEventListeners(brandElement, payload);
         });
     }
 

@@ -2,6 +2,7 @@ import get from './get';
 import { getShortestImage } from '../../LN/common/utils/mediaHelper';
 import { getVideoData } from '../../../features/private-global/common/utils/getVideoData';
 import { filterImagesByDevice } from '../../../features/private-global/common/utils/filterImagesByDevice';
+import getImageAltText from '../../../features/foodit-global/common/utils/getImageAltText';
 
 const getListOfOpeningImages = (video, basicImageMobile, basicImageDsk) => {
     if (video && basicImageMobile) {
@@ -33,7 +34,8 @@ const getAperturaStorytelling = (
         ? basicImageMobile
         : (videoJW && dataJw) || basicImageDsk;
 
-    const { alt_text: altText = '', url = '', caption = '' } = data || {};
+    const { url = '', caption = '' } = data || {};
+    const altText = getImageAltText(data || {});
 
     const resizedUrls = getListOfOpeningImages(
         videoJW,
@@ -48,8 +50,7 @@ const getAperturaStorytelling = (
         defaultUrl,
         posterUrl,
         resizedUrls,
-        altText,
-        caption
+        altText
     };
 };
 

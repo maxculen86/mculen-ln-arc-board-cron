@@ -56,7 +56,8 @@ export const resizeContentElements = (
     elem,
     presetsContentOrDefault,
     zoomSizes,
-    defaultResize
+    defaultResize,
+    arcSite
 ) => {
     const { type } = elem;
     return (
@@ -66,7 +67,8 @@ export const resizeContentElements = (
                 resizeOptions: presetsContentOrDefault,
                 zoomSizes,
                 smartCropExcluded: true,
-                defaultResize
+                defaultResize,
+                arcSite
             })) ||
         (type === 'gallery' &&
             resizeArcGallery(elem, presetsContentOrDefault, zoomSizes, true)) ||

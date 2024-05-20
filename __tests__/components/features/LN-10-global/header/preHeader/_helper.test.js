@@ -3,14 +3,14 @@ import {
     setWeatherData,
     setTopicsCustomFields,
     getTopicsFromCustomFields
-} from '../../../../../components/features/LN-common/preHeader/_helper';
-import IconSprite from '../../../../../components/features/private-global/common/iconSprite/IconSprite';
+} from '../../../../../../components/features/LN-10-global/header/preHeader/__helper';
+import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 
-jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
 );
 
-describe('Features - LN-Common - PreHeader - Helper =>', () => {
+describe('Features - LN-10-global - header - preHeader - Helper =>', () => {
     const mock = {
         weather: {
             dataService: {
@@ -49,7 +49,7 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
     };
 
     describe('Helper - getWeatherInfo', () => {
-        it('should returns an object with specific data', () => {
+        it('should return an object with specific data', () => {
             const { weather } = mock;
             const weatherData = setWeatherData(weather);
             const currentLocation = weather.dataService.locations[0];
@@ -70,7 +70,7 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
             );
         });
 
-        it('should returns null when weatherValue is undefined', () => {
+        it('should return null when weatherValue is undefined', () => {
             const weatherData = setWeatherData();
             expect(weatherData).toBeNull();
         });

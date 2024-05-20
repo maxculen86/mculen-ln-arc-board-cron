@@ -1184,30 +1184,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       LISTA DE COMPRAS
                     </a>
                   </li>
-                  <li>
-                    <a
-                      class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
-                      data-dynamic-action="N/A"
-                      data-dynamic-category="header"
-                      data-dynamic-label="newsletter"
-                      data-event-data-layer="e_linkclick"
-                      data-interaction="dataLayerInteraction"
-                      data-variant="primary"
-                      href="https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274"
-                      target="_self"
-                      title="Ir a newsletter"
-                    >
-                      <i
-                        class="icon --icon-20"
-                      >
-                        <mock-icon
-                          critical="true"
-                          name="newsletter"
-                        />
-                      </i>
-                      NEWSLETTER
-                    </a>
-                  </li>
                 </ul>
               </nav>
             </div>

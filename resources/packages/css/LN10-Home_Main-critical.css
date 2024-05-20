@@ -4476,6 +4476,7 @@ a {
   --neutral-light-1: #fefefe;
   --neutral-light-50: #f2f2f2;
   --neutral-light-100: #E6E6E6;
+  --neutral-light-200: #CCCCCC;
   --neutral-light-600: #666666;
   --neutral-light-700: #4D4D4D;
   --neutral-light-800: #333333;
@@ -4655,9 +4656,6 @@ a {
 .border.border-light-50 {
   border-color: var(--light-neutral-50);
 }
-.border.border-light-400 {
-  border-color: var(--light-neutral-400);
-}
 .border.border-light-300 {
   border-color: var(--light-neutral-300);
 }
@@ -4666,6 +4664,9 @@ a {
 }
 .border.border-neutral-light-100 {
   border-color: var(--neutral-light-100);
+}
+.border.border-neutral-light-200 {
+  border-color: var(--neutral-light-200);
 }
 .border.border-neutral-light-700 {
   border-color: var(--neutral-light-700);
@@ -4708,6 +4709,10 @@ a {
   .--border-l-left-gray {
     border-left: 0.0625rem solid #CCCCCC;
   }
+}
+
+.border-left-none {
+  border-left: none;
 }
 
 .z-1 {
@@ -5315,6 +5320,10 @@ strong:not(.--font-primary),
   margin-right: 3.25rem;
 }
 
+.-mr-60 {
+  margin-right: -3.75rem;
+}
+
 .-mx-12 {
   margin-inline: -0.75rem;
 }
@@ -5820,6 +5829,10 @@ strong:not(.--font-primary),
 
 .w-40.w-40 {
   width: 2.5rem;
+}
+
+.w-48.w-48 {
+  width: 3rem;
 }
 
 .w-50.w-50 {
@@ -6347,6 +6360,10 @@ strong:not(.--font-primary),
   gap: 1.5rem;
 }
 
+.gap-28 {
+  gap: 1.75rem;
+}
+
 .gap-32 {
   gap: 2rem;
 }
@@ -6688,6 +6705,7 @@ hr {
   height: 100%;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgb(255, 255, 255) 100%);
   z-index: 1;
+  margin-right: -0.0625rem;
 }
 
 .--degrade-scroll_max1279::after {

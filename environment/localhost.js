@@ -13,6 +13,7 @@ export default {
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
     SITE_LANACION: 'https://sandbox.lanacion.com.ar',
+    SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     RESIZER_URL: 'https://sandbox-resizer.glanacion.com/resizer',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     // Fin variables de sandbox

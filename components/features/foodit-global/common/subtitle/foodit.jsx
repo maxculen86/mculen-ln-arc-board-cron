@@ -13,7 +13,7 @@ const Subtitle = ({ globalContent, calssName }) => {
 
     return (
         subtitle && (
-            <Text as="p" className={classes}>
+            <Text as="h2" className={classes}>
                 {subtitle}
             </Text>
         )

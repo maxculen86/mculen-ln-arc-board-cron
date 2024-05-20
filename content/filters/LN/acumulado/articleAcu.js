@@ -49,6 +49,9 @@ export default `
 
                 }
             }
+            sections {
+                name
+            }
         }
         content_restrictions {
             content_code

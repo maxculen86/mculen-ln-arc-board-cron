@@ -15,12 +15,14 @@ const GridFooditServer = ({
         staticMode: true,
         maxArticles
     });
-    if (articles.length < maxArticles) {
-        haveShowButton();
-    }
+
     return (
         <Static id={`acu-grid-ssr-${id}`}>
-            <GridArticlesFoodit articles={articles} />
+            <GridArticlesFoodit
+                articles={articles}
+                maxArticles={maxArticles}
+                haveShowButton={haveShowButton}
+            />
         </Static>
     );
 };

@@ -1,0 +1,32 @@
+[
+    {
+        "title": "CLUB LN",
+        "link": "https://club.lanacion.com.ar/",
+        "dataEvent": "e_linkclick",
+        "icon": "clubLnDefault"
+    },
+    {
+        "title": "EN VIVO",
+        "link": "https://lnmas.lanacion.com.ar/",
+        "dataEvent": "e_linkclick",
+        "icon": "lnMas"
+    },
+    {
+        "title": "FOODIT",
+        "link": "https://foodit.lanacion.com.ar/",
+        "dataEvent": "e_linkclick",
+        "icon": "foodit"
+    },
+    {
+        "title": "CANCHALLENA",
+        "link": "https://canchallena.lanacion.com.ar/",
+        "dataEvent": "e_linkclick",
+        "icon": "canchallena"
+    },
+    {
+        "title": "BONVIVIR",
+        "link": "https://bonvivir.com/",
+        "dataEvent": "e_linkclick",
+        "icon": "bonvivir"
+    }
+]

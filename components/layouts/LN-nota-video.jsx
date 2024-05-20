@@ -4,7 +4,6 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
-import PwaModals from '../private/LN/common/pwaModals';
 
 import '../../resources/dist/css/ln/pages/video.css';
 
@@ -70,7 +69,6 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
                 </div>
             </div>
             <LoadBannersSSR />
-            <PwaModals />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

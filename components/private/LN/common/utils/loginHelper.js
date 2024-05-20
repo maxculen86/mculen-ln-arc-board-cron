@@ -158,9 +158,9 @@ const setUserData = (res, dispatch) => {
             ProductoPremiumId
         } = tryParseJSON(res.response);
 
-        const subscription = ProductoPremiumId
-            ? ProductoPremiumId.includes('2')
-            : false;
+        const cookieArray = ProductoPremiumId.split(',');
+        const subscription = cookieArray.includes('2');
+
         const userName = UsuarioDetalleEmail
             ? `${UsuarioDetalleEmail.substring(0, 16)}...`
             : '';
