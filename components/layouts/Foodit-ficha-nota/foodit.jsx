@@ -15,8 +15,6 @@ import IconSprite from '../../features/private-global/common/iconSprite/IconSpri
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import { getFooditAuthor } from '../../features/foodit-global/common/utils/notaFooditHelper';
 import { StorytellingSchema } from '../../features/foodit-global/schemas/Note';
-import { BreadcrumbSchema } from '../../features/foodit-global/schemas/Breadcrumb';
-import { getBreadcrumbSections } from '../../features/foodit-global/common/breadcrumb/_helpers';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -103,8 +101,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </div>
-            <Breadcrumb globalContent={globalContent} layout={'ficha-nota'} />
-            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
+            <Breadcrumb globalContent={globalContent} />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
