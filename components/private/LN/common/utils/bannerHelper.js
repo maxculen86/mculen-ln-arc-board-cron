@@ -174,20 +174,6 @@ export const getBannerConfiguration = (
             globalContent
         );
 
-    /* config es esto de abajo para el slotId
-    adhesion_dsk: {
-            slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
-            dimensions: [
-                [728, 90],
-                [920, 100]
-            ],
-            targeting: {
-                sitio: 'lanacion',
-                seccion: 'nota'
-            }
-        },
-    */
-
     if (
         !config ||
         !dfpId ||
@@ -398,12 +384,6 @@ export const queueGoogletagCommand = bannersToLoad => {
             .map(defineSlot);
         const hastSlotswithBids = headerBiddingSlots.length !== 0;
 
-        /* const saleFrameValidation = determineSafeFrame(bannersToLoad);
-        // initialize
-        saleFrameValidation.map(banner => {
-            googletag.pubads().setForceSafeFrame(banner.safeFrame);
-        }); */
-
         const slotAPS = {
             slots: bannersToLoad.map(slot => {
                 const { adUnitPath, size, opt_div: optDiv } = slot;
@@ -490,17 +470,3 @@ export const setPrebidBanners = (_bannerConfig, section) => {
         }
     );
 };
-
-/* export const determineSafeFrame = bannersToLoad => {
-    const validValues = [
-        'caja1_dsk',
-        'caja2_dsk',
-        'caja3_dsk',
-        'caja4_dsk',
-        'caja5_dsk'
-    ];
-    return bannersToLoad.map(banner => ({
-        ...banner,
-        safeFrame: validValues.includes(banner.opt_div)
-    }));
-}; */

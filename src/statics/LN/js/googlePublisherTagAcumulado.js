@@ -32,6 +32,5 @@ googletag.cmd.push(function() {
     googletag.pubads().setTargeting('tags_nuevos', newTags);
     googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
     googletag.pubads().setTargeting('seccion', 'acumulado');
-    // googletag.pubads().setTargeting('adstest', testQueryString());
     googletag.pubads().setTargeting('sitio', 'lanacion');
 });
