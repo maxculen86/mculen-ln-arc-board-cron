@@ -169,6 +169,10 @@ em {
   align-self: flex-end;
 }
 
+.js-center {
+  justify-self: center;
+}
+
 @media (min-width: 48rem) {
   .ai-end_md {
     align-items: flex-end;
@@ -1355,6 +1359,10 @@ b, strong {
   height: 15.625rem;
 }
 
+.h-336 {
+  height: 21rem;
+}
+
 .h-max {
   height: -moz-max-content;
   height: max-content;
@@ -1387,6 +1395,9 @@ b, strong {
   .h-44_md {
     height: 2.75rem;
   }
+  .h-509_md {
+    height: 31.8125rem;
+  }
 }
 @media (min-width: 80rem) {
   .h-42_lg {
@@ -1397,6 +1408,9 @@ b, strong {
   }
   .h-160_lg {
     height: 10rem;
+  }
+  .h-461_lg {
+    height: 28.8125rem;
   }
 }
 .max-h-24 {
@@ -1459,6 +1473,14 @@ b, strong {
   margin-bottom: 4.5rem;
 }
 
+.mx-4 {
+  margin-inline: 0.25rem;
+}
+
+.mx-8 {
+  margin-inline: 0.5rem;
+}
+
 .-mx-12 {
   margin-inline: -0.75rem;
 }
@@ -1485,6 +1507,10 @@ b, strong {
 
 .mt-24 {
   margin-top: 1.5rem;
+}
+
+.ml-8 {
+  margin-left: 0.5rem;
 }
 
 .-ml-55 {
@@ -1611,6 +1637,10 @@ b, strong {
   padding-top: 3rem;
 }
 
+.pt-56 {
+  padding-top: 3.5rem;
+}
+
 .pb-4 {
   padding-bottom: 0.25rem;
 }
@@ -1673,6 +1703,9 @@ b, strong {
   .py-12_md {
     padding-block: 0.75rem;
   }
+  .py-56_md {
+    padding-block: 3.5rem;
+  }
   .pt-0_md {
     padding-top: 0rem;
   }
@@ -1703,6 +1736,9 @@ b, strong {
   }
   .p-32_lg {
     padding: 2rem;
+  }
+  .py-0_lg {
+    padding-block: 0rem;
   }
   .py-8_lg {
     padding-block: 0.5rem;
@@ -1859,9 +1895,6 @@ b, strong {
   display: none;
 }
 
-.viafoura.viafoura .vf-tray-trigger.vf-tray-trigger,
-.viafoura.viafoura .vf-share-menu__trigger.vf-share-menu__trigger,
-.viafoura.viafoura .vf-dropdown.vf-secondary-actions,
 .viafoura.viafoura .vf-branding-container.vf-branding-container,
 .viafoura.viafoura .vf-tray-trigger--floating.vf-tray-trigger--floating {
   display: none;

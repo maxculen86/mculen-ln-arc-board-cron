@@ -95,7 +95,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     />
                   </i>
                   <input
-                    class="text-light-600 text-14 w-100"
+                    class="text-light-600 text-16 w-100"
                     placeholder="¿Qué querés cocinar hoy?"
                     type="text"
                     value=""
