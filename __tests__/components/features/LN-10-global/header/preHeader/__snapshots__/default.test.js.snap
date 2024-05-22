@@ -80,9 +80,9 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                 class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
                 href="https://lnmas.lanacion.com.ar/"
-                rel="LN+ EN VIVO"
+                rel="nofollow"
                 target="_blank"
-                title="EN VIVO"
+                title="LN+ EN VIVO"
               >
                 <i
                   class="icon --icon-20"

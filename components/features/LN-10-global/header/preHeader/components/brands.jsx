@@ -22,7 +22,7 @@ export const Brands = ({ brandsData = [] }) => {
                             brandIndex
                         ) => {
                             const relTitle =
-                                title === 'EN VIVO' ? 'LN+ EN VIVO' : '';
+                                title === 'EN VIVO' ? 'LN+ EN VIVO' : title;
 
                             return (
                                 <li
@@ -33,12 +33,11 @@ export const Brands = ({ brandsData = [] }) => {
                                         className="--font-bold flex gap-8 uppercase ai-center"
                                         size="xs"
                                         href={link}
-                                        title={title}
+                                        title={relTitle}
                                         data-event={dataEvent}
                                         data-section={dataSection}
                                         onClick={callback}
                                         target="_blank"
-                                        rel={relTitle}
                                         unstyled
                                     >
                                         <Icon size={20}>
