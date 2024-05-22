@@ -66,19 +66,6 @@ export const setEventSignIn = () => {
     addEventListeners(btnSignIn, payload);
 };
 
-export const setEventsSections = () => {
-    const sections = window.document.querySelectorAll('.dd-link');
-
-    sections.forEach(section => {
-        const payload = {
-            action: 'menu_secciones',
-            label: createDynamicLabel(section.innerHTML)
-        };
-
-        addEventListeners(section, payload);
-    });
-};
-
 export const setEventsDollar = () => {
     const dollars = window.document.querySelectorAll('.dollar a');
 

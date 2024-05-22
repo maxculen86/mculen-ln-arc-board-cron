@@ -92,7 +92,7 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
-  padding: 0rem 1.25rem;
+  padding: 0.625rem 1.25rem;
 }
 .wrapper-dropdown .ln-dropdown > nav ul li .button {
   display: none;

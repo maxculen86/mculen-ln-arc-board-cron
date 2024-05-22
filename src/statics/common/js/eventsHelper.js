@@ -227,12 +227,30 @@ export class EventsHelper {
     }
 
     setEventsSections() {
-        const sections = window.document.querySelectorAll('.dd-link');
+        const sections = document.querySelectorAll('.dd-link');
 
         sections.forEach(section => {
+            let nameSectionHTML = Array.from(section.childNodes)
+                .filter(
+                    node =>
+                        node.nodeType === Node.TEXT_NODE ||
+                        node.tagName !== 'SPAN'
+                )
+                .map(node => node.textContent.trim())
+                .join(' ');
+
+            if (nameSectionHTML.includes('flex')) {
+                const nameSectionNode = section.querySelector(
+                    '.flex > div:last-child'
+                );
+                nameSectionHTML = nameSectionNode
+                    ? nameSectionNode.textContent.trim()
+                    : '';
+            }
+
             const payload = {
                 action: 'menu_secciones',
-                label: this.createDynamicLabel(section.innerHTML)
+                label: this.createDynamicLabel(nameSectionHTML)
             };
 
             this.addEventListeners(section, payload);

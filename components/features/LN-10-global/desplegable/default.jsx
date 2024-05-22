@@ -6,7 +6,7 @@ import { useHeaderContext } from '../header/context';
 import { useAppContext } from 'fusion:context';
 import { Search } from './search';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import menuData from './menuData.json';
+import { menuData } from './menuData.js';
 
 export const Desplegable = () => {
     const { toggleDesplegable, showMenu } = useHeaderContext();
