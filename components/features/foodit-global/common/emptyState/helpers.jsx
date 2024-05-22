@@ -68,7 +68,7 @@ export const buttonPropsByVariant = {
         onClick: () => {
             location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
                 window.location.href
-            )}}`;
+            )}`;
         }
     },
     'barrier-unlogged': {
