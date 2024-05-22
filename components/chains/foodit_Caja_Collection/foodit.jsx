@@ -78,7 +78,7 @@ const CajaCollection = props => {
         />
     );
 
-    return !isStatic ? (
+    return !isStatic && !isAdmin ? (
         <LazyLoad
             hide={hideCaja}
             onViewport={() => setInViewport(true)}
