@@ -1,6 +1,5 @@
-import { NormalModuleReplacementPlugin } from 'webpack';
-import get from '../../../../../../../common/utils/get';
 import { parse } from 'node-html-parser';
+import get from '../../../../../../../common/utils/get';
 
 export const CardAnexo = article => {
     const url = get(article[0], 'url', null);
