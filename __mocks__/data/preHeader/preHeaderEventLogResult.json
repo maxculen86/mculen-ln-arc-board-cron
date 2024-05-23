@@ -14,7 +14,7 @@
     {
         "dynamic_action": "header_marcas",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "en_vivo",
+        "dynamic_label": "ln+_en_vivo",
         "event": "e_linkclick"
     },
     {
