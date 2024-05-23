@@ -94,7 +94,7 @@ export const RenderCollection = ({
                             size,
                             tag,
                             time,
-                            title,
+                            title: titleArticle,
                             variant,
                             image = {}
                         }) => {
@@ -104,7 +104,7 @@ export const RenderCollection = ({
                                     articleId={articleId}
                                     showTime={Boolean(time)}
                                     time={time}
-                                    linksProps={{ href, title }}
+                                    linksProps={{ href, title: titleArticle }}
                                     size={size}
                                     variant={variant}
                                     src={url}
@@ -115,7 +115,7 @@ export const RenderCollection = ({
                                     loading={'lazy'}
                                     fetchPriority={'low'}
                                     tag={tag}
-                                    title={title}
+                                    title={titleArticle}
                                     author={author}
                                     className={classNameChildren}
                                     key={articleId}

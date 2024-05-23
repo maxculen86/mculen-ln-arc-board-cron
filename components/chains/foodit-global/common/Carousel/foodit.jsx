@@ -20,8 +20,7 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
     const [articlesShow, setArticlesShow] = useState(
         isMobile ? [...articles.slice(0, elementsToScroll * page)] : articles
     );
-    const showButtonLoad =
-        isMobile && !(articles.length == articlesShow.length);
+    const showButtonLoad = isMobile && articles.length !== articlesShow.length;
 
     const loadMore = () => {
         setArticlesShow(articles.slice(0, elementsToScroll * (page + 1)));

@@ -10,14 +10,19 @@ import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
 
+const getUrlAndTitle = article => {
+    return {
+        url: get(article, 'website_url', ''),
+        title: get(article, 'headlines.basic', '')
+    };
+};
+
 export const socials = [
     {
         type: 'button',
         onClick: ({ article }) => {
             addActionToDataLayer(article, 'compartir');
-            const url = get(article, 'website_url', '');
-            const title = get(article, 'headlines.basic', '');
-
+            const { url, title } = getUrlAndTitle(article);
             popUpCompartirNotaFB(url, SITE_FOODIT, title);
         },
         title: 'Compartir por Facebook',
@@ -28,9 +33,7 @@ export const socials = [
         type: 'button',
         onClick: ({ article }) => {
             addActionToDataLayer(article, 'compartir');
-            const url = get(article, 'website_url', '');
-            const title = get(article, 'headlines.basic', '');
-
+            const { url, title } = getUrlAndTitle(article);
             popUpCompartirNotaTW(url, SITE_FOODIT, title);
         },
         title: 'Compartir por Twitter',
@@ -41,9 +44,7 @@ export const socials = [
         type: 'button',
         onClick: ({ article }) => {
             addActionToDataLayer(article, 'compartir');
-            const url = get(article, 'website_url', '');
-            const title = get(article, 'headlines.basic', '');
-
+            const { url, title } = getUrlAndTitle(article);
             shareWhatsAppDesktop(url, SITE_FOODIT, title);
         },
         title: 'Compartir por Whatsapp',
@@ -54,7 +55,7 @@ export const socials = [
         type: 'button',
         onClick: ({ article }) => {
             addActionToDataLayer(article, 'compartir');
-            const url = get(article, 'website_url', '');
+            const { url } = getUrlAndTitle(article);
             popUpCompartirMailTo(url, SITE_FOODIT);
         },
         title: 'Compartir por Email',

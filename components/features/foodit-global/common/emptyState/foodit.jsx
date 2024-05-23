@@ -10,10 +10,11 @@ import {
     buttonPropsByVariant,
     imagePropsByVariant
 } from './helpers';
+
 import classNames from 'classnames';
 
 const EmptyState = ({ variant, className, direction = 'row' }) => {
-    const { contextPath, deployment } = useAppContext();
+    const { contextPath, deployment, layout } = useAppContext();
 
     const containerClassNames = classNames(
         'flex ai-center px-24 px-32_lg',
@@ -46,6 +47,7 @@ const EmptyState = ({ variant, className, direction = 'row' }) => {
                 alt={imagePropsByVariant[variant].alt}
                 width={imagePropsByVariant[variant].width}
                 height={imagePropsByVariant[variant].height}
+                objectFit="fill"
             />
             <div className={descriptionClassNames}>
                 <Text
@@ -55,7 +57,7 @@ const EmptyState = ({ variant, className, direction = 'row' }) => {
                     {titleByVariant[variant]}
                 </Text>
                 <Text as="p" className="text-16 text-light-600">
-                    {descriptionByVariant[variant]}
+                    {descriptionByVariant({ layout, variant })}
                 </Text>
             </div>
             {label && (

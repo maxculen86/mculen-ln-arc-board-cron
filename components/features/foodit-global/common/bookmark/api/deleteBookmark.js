@@ -26,7 +26,7 @@ const deleteBookmark = async bookmarks => {
                     method: 'DELETE',
                     headers: {
                         'X-Token': token,
-                        Authorization: accessToken
+                        Authorization: `Bearer ${accessToken}`
                     }
                 }
             );

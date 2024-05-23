@@ -35,7 +35,8 @@ const CommentFoodit = props => {
     } = useValidateComments(props, subscription);
 
     const allowCommentsValidate =
-        useTermica('livefyre') && allowCommentsFoodit({ globalContent });
+        useTermica('livefyre') &&
+        allowCommentsFoodit({ article: globalContent });
 
     const [isReady, setIsReady] = useState(false);
     const [isVisible, setIsVisible] = useState(false);

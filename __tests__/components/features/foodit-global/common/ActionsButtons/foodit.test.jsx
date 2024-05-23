@@ -27,11 +27,9 @@ describe('ActionsButtons component', () => {
         render(
             <ActionsButtons
                 article={{
-                    globalContent: {
-                        _id: 'ABC',
-                        type: 'story',
-                        comments: { display_comments: true }
-                    }
+                    _id: 'ABC',
+                    type: 'story',
+                    comments: { display_comments: true }
                 }}
             />
         );
@@ -45,11 +43,9 @@ describe('ActionsButtons component', () => {
         render(
             <ActionsButtons
                 article={{
-                    globalContent: {
-                        _id: 'ABC',
-                        type: 'story',
-                        comments: { display_comments: false }
-                    }
+                    _id: 'ABC',
+                    type: 'story',
+                    comments: { display_comments: false }
                 }}
             />
         );

@@ -37,7 +37,8 @@ const useGridArticlesFoodit = ({
     return {
         idArticleList: get(articleList, '_id', ''),
         articles: get(articleList, 'content_elements', []),
-        hasMoreArticle: Boolean(get(articleList, 'next', 0)) || staticMode
+        hasMoreArticle: Boolean(get(articleList, 'next', 0)) || staticMode,
+        count: get(articleList, 'count', 0)
     };
 };
 

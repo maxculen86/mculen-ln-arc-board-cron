@@ -70,13 +70,13 @@ var searchPage = {
 
         var result_template = `
             <script type="text/html" id="queryly_resultpage_template">
-            <article class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden  <%=queryly.data.subtype === '7' ? 'bg-light-1' : 'bg-positive'%> col-span-4 col-span-4_md" data-variant="<%=queryly.data.subtype === '7' ? 'recipe' : 'note'%>">
+            <article class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden  <%=queryly.data.subtype === '4' ? 'bg-positive' : 'bg-light-1'%> col-span-4 col-span-4_md" data-variant="<%=queryly.data.subtype === '4' ? 'note' : 'recipe'%>">
                 <a href="<%=queryly.data.link%>" <%=queryly.data.trackevent%> class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit" title="<%=queryly.data.title%>" target="_self" data-variant="primary">
-                    <div class="<%=queryly.data.subtype === '7' ? 'relative w-100' : 'relative w-100 px-16 pt-16 pb-4'%>">
+                    <div class="<%=queryly.data.subtype === '4' ? 'relative w-100 px-16 pt-16 pb-4' : 'relative w-100'%>">
                         <div class="foodit-placeholder card-image ratio-3-2 w-100">
                             <picture>
                                 <source media="(max-width: 767px)" srcset="<%=queryly.data.image%>">
-                                <img class="image flex card-image ratio-3-2 w-100  <%=queryly.data.subtype === '7' ? '' : 'none'%> --cover" decoding="async" fetchpriority="low" loading="lazy" src="<%=queryly.data.image%>" alt="">
+                                <img class="image flex card-image ratio-3-2 w-100  <%=queryly.data.subtype === '4' ? 'none' : ''%> --cover" decoding="async" fetchpriority="low" loading="lazy" src="<%=queryly.data.image%>" alt="">
                             </picture>
                         </div>
                         <%if (typeof queryly.data.badge != "undefined") {%>
@@ -85,25 +85,27 @@ var searchPage = {
                     </div>
                     <div class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20">
                         <div class="flex flex-column gap-12">
-                            <div class="flex flex-column gap-4"><span class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"><%=queryly.data.title%></span></div>
+                            <div class="flex flex-column gap-4"><span class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20 <%=!queryly.data.subtype ? 'text-center' : ''%>"><%=queryly.data.title%></span></div>
                         </div>
-                        <div class="flex gap-16 text-light-800 ai-center">
-                            <div class="flex flex-column gap-8 flex-grow-1">
-                                <%if (queryly.data.creator) {%>
-                                    <span class="text text-14">Por <%=queryly.data.creator%></span>
-                                <%}%>
-                                <%if (queryly.data.counter_time) {%>
-                                    <div class="opacity-1">
-                                        <i class="icon --icon-12 --inherit">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                <use href="${timerIcon}"></use>
-                                            </svg>
-                                        </i>
-                                        <span class="text text-12 roboto-light"><%=queryly.data.counter_time%> min</span>
-                                    </div>
-                                <%}%>
+                        <%if (queryly.data.subtype) {%>
+                            <div class="flex gap-16 text-light-800 ai-center">
+                                <div class="flex flex-column gap-8 flex-grow-1">
+                                    <%if (queryly.data.creator) {%>
+                                        <span class="text text-14">Por <%=queryly.data.creator%></span>
+                                    <%}%>
+                                    <%if (queryly.data.counter_time) {%>
+                                        <div class="opacity-1">
+                                            <i class="icon --icon-12 --inherit">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <use href="${timerIcon}"></use>
+                                                </svg>
+                                            </i>
+                                            <span class="text text-12 roboto-light"><%=queryly.data.counter_time%> min</span>
+                                        </div>
+                                    <%}%>
+                                </div>
                             </div>
-                        </div>
+                        <%}%>
                     </div>
                 </a>
             </article>
@@ -523,6 +525,18 @@ var searchPage = {
         html = html + '<button id="btn-open-filter" class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover px-16 py-12 fixed bottom-16 z-5 shadow-down-2xs left-50 -ml-55 lg-none" onclick="searchPage.toggleFilter();">' + filterIcon +'Filtros (' + results.metadata.total + ')</button>'
         html = html + '<div class="woocommerce mt-24 mb-32"><ul class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32">';
         var rows = '';
+
+        if (typeof results.topics != 'undefined') {
+            for (var i = 0; i < results.topics.length; i++) {
+                var item = results.topics[i];
+                try {
+                    rows = rows + searchPage.renderitem(item);
+                }
+                catch (e) {}
+              
+            }
+        }
+
         for (var i = 0; i < results.items.length; i++) {
             var item = results.items[i];
             rows = rows + searchPage.renderitem(item);
@@ -565,7 +579,7 @@ var searchPage = {
             item.image = item.imageresizer.split('|')[0];
         }
 
-        var sections = item.section.split('|');
+        var sections = (typeof item.sections != 'undefined' ? item.section.split('|') : []);
         for (var i = 0; i < sections.length; i++) {
             if (searchPage.badges.indexOf(sections[i]) >= 0) {
                 item.badge = sections[i];                

@@ -69,8 +69,10 @@ const TagsLoadingList = ({
             delete scriptData.location;
             delete scriptData.section;
 
+            const sectionActive = section === _section || _section === 'all';
+
             return (
-                section === _section &&
+                sectionActive &&
                 location === _location && <Tag {...scriptData} key={index} />
             );
         } catch (error) {

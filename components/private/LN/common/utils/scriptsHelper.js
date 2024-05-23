@@ -26,6 +26,7 @@ import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
+import FundingChoices from '../../../common/scriptManager/scriptFundingChoices';
 
 const scriptList = [
     {
@@ -129,6 +130,10 @@ const scriptList = [
     },
     {
         component: { name: 'EventsHelper', function: EventsHelpers },
+        feature: 'none'
+    },
+    {
+        component: { name: 'FundingChoices', function: FundingChoices },
         feature: 'none'
     }
 ];

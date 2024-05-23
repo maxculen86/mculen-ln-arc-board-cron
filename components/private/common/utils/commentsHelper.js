@@ -57,11 +57,11 @@ export const allowComments = props =>
     get(props, 'globalContent._id', '') &&
     get(props, 'globalContent.comments.display_comments', true);
 
-export const allowCommentsFoodit = ({ globalContent }) => {
+export const allowCommentsFoodit = ({ article }) => {
     return (
-        get(globalContent, 'type', '') === 'story' &&
-        get(globalContent, '_id', '') &&
-        get(globalContent, 'comments.display_comments', true)
+        get(article, 'type', '') === 'story' &&
+        get(article, '_id', '') &&
+        get(article, 'comments.display_comments', true)
     );
 };
 export const shouldLoadViafoura = inputDate => {

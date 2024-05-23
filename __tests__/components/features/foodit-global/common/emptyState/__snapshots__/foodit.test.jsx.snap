@@ -7,7 +7,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
   >
     <img
       alt="Para realizar esta acción es necesario que tengas una suscripción."
-      class="image flex --cover"
+      class="image flex --fill"
       decoding="async"
       fetchpriority="low"
       height="110"
@@ -46,7 +46,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
   >
     <img
       alt="Para realizar esta acción es necesario que inicies sesión."
-      class="image flex --cover"
+      class="image flex --fill"
       decoding="async"
       fetchpriority="low"
       height="110"
@@ -85,7 +85,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
   >
     <img
       alt="¡Aún no hay nada por acá!"
-      class="image flex --cover"
+      class="image flex --fill"
       decoding="async"
       fetchpriority="low"
       height="152"
@@ -106,16 +106,14 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
       >
         <span>
           Presioná el botón
-           
           <i
-            class="icon vertical-align-middle --icon-16"
+            class="icon vertical-align-middle mx-4 --icon-16"
           >
             <mock-icon
               critical="true"
               name="bookmark"
             />
           </i>
-           
           para guardar el contenido que te gusta y ¡Listo!
         </span>
       </p>

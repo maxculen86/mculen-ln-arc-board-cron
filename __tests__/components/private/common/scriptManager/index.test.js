@@ -135,7 +135,8 @@ describe('getScriptsToLoad', () => {
             'ObservableFoodit',
             'DataModal',
             'FooditEventsHelper',
-            'EventsHelper'
+            'EventsHelper',
+            'FundingChoices'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
@@ -161,7 +162,8 @@ describe('getScriptsToLoad', () => {
             'ObservableFoodit',
             'DataModal',
             'FooditEventsHelper',
-            'EventsHelper'
+            'EventsHelper',
+            'FundingChoices'
         ]);
         expect(result.Datadog).toBeDefined();
     });

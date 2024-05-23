@@ -11,7 +11,11 @@ export const AuthorCard = ({ href, name, imageProps }) => {
             title={`Ir a ${name}`}
         >
             <div className="border border-all border-thin p-16 p-24_md p-32_lg w-100 transition-regular">
-                <Image {...imageProps} className="ratio-1-1 h-100" />
+                <Image
+                    {...imageProps}
+                    className="ratio-1-1 h-100 w-100"
+                    alt={name}
+                />
             </div>
             <Text className="text-center prumo prumo-medium text-24">
                 {name}

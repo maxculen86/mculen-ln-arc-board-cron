@@ -7,6 +7,7 @@ import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import classNames from 'classnames';
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 
 const FooterFoodit = () => {
     const { contextPath, deployment, layout, siteProperties } = useAppContext();
@@ -97,19 +98,20 @@ const FooterFoodit = () => {
                             href="https://www.lanacion.com.ar/"
                             unstyled
                             title="Ir a la página principal de LA NACION"
+                            target="_blank"
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"
                             data-dynamic-label={'pagina_principal'}
                             data-dynamic-action={'la_nacion'}
                         >
-                            <img
+                            <Adaptableimage
                                 width={151}
                                 height={16}
                                 src={getAssetsPath(contextPath)(deployment)(
                                     'logo-ln-black.webp'
                                 )}
-                                alt="La Nación"
+                                alt="LA NACION"
                             />
                         </Link>
                     </section>
@@ -122,18 +124,20 @@ const FooterFoodit = () => {
                             href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/GenericError.htm?aspxerrorpath=/clavefiscal/qr/publicInfoD.aspx"
                             unstyled
                             title="Data fiscal"
+                            target="_blank"
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"
                             data-dynamic-label={'legales'}
                             data-dynamic-action={'data_fiscal'}
                         >
-                            <img
+                            <Adaptableimage
                                 width={28}
                                 height={38}
                                 src={getAssetsPath(contextPath)(deployment)(
                                     'data-fiscal.webp'
                                 )}
+                                alt="Data Fiscal"
                             />
                         </Link>
                     </section>
@@ -147,6 +151,7 @@ const FooterFoodit = () => {
                                 uppercase
                                 bold
                                 title="Ir a condiciones"
+                                target="_blank"
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"
@@ -163,6 +168,7 @@ const FooterFoodit = () => {
                                 uppercase
                                 bold
                                 title="Ir a privacidad"
+                                target="_blank"
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"

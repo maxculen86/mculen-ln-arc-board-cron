@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 import { fooditSchemaLogo } from './_helpers';
+import SnippetRender from '../../../private/common/snippet/snippetRender';
 
 export const AcuSchema = ({ id = '', title = '' }) => {
     const { contextPath, deployment } = useAppContext();
@@ -18,11 +19,5 @@ export const AcuSchema = ({ id = '', title = '' }) => {
         }
     };
 
-    return (
-        <>
-            <script type="application/ld+json" key={`schema-CollectionPage`}>
-                {JSON.stringify(acuSchema)}
-            </script>
-        </>
-    );
+    return <SnippetRender id="acu-schema" data={acuSchema} />;
 };

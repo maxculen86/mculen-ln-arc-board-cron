@@ -8,7 +8,7 @@ const CollectionBox = ({
     button = <></>,
     onItemSelected
 }) => {
-    const [selectedId, setSelectedId] = useState(null);
+    const [selectedId, setSelectedId] = useState('Todas');
 
     const handleItemClick = (id, quantity) => {
         setSelectedId(id);
@@ -34,7 +34,6 @@ const CollectionBox = ({
                     <Itemcard
                         text="Todas (0)"
                         type="button"
-                        className="border border-bottom border-thin border-secondary-positive text-12"
                         selected
                         disabled
                     />
