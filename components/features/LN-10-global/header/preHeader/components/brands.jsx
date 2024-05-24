@@ -8,7 +8,7 @@ export const Brands = ({ brandsData = [] }) => {
     return (
         <div className="brands-container flex ai-center pl-16 border border-left border-thin border-neutral-light-200 overflow-hidden relative">
             <nav className="brands flex ai-center --scroll-x pr-60">
-                <ul className="tag-list inline-flex gap-28">
+                <ul className="brands-list inline-flex gap-28">
                     {brandsData.map(
                         (
                             {

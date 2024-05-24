@@ -48,7 +48,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
           class="brands flex ai-center --scroll-x pr-60"
         >
           <ul
-            class="tag-list inline-flex gap-28"
+            class="brands-list inline-flex gap-28"
           >
             <li
               class="w-max flex ai-center text-neutral-light-800"
