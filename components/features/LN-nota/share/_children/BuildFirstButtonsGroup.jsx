@@ -134,7 +134,10 @@ const BuildFirtsButtonsGroup = ({
                     dataSection="CompartirNotaLN"
                     onClick={() => {
                         scrollToComments();
-                        addEventToDataLayer('Ir a los comentarios');
+                        addEventToDataLayer(
+                            'Ir a los comentarios',
+                            'ver_comentarios'
+                        );
                     }}
                     variant="secondary"
                     title="Ir a los comentarios de la nota"

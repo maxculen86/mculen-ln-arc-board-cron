@@ -119,6 +119,12 @@ describe('Share', () => {
             {
                 event: 'gtm.linkClick',
                 clickText: 'Ir a los comentarios'
+            },
+            {
+                event: 'e_linkclick',
+                dynamic_action: 'toolbard',
+                dynamic_category: 'nota_ln9',
+                dynamic_label: 'ver_comentarios'
             }
         ]);
 
@@ -138,6 +144,12 @@ describe('Share', () => {
             {
                 event: 'gtm.linkClick',
                 clickText: 'Compartir la nota en WhatsApp'
+            },
+            {
+                event: 'e_linkclick',
+                dynamic_action: 'toolbard',
+                dynamic_category: 'nota_ln9',
+                dynamic_label: 'compartir_whatsapp'
             }
         ]);
         expect(window.open).toHaveBeenCalled();
@@ -163,6 +175,12 @@ describe('Share', () => {
             {
                 event: 'gtm.linkClick',
                 clickText: 'Copiar link de la nota'
+            },
+            {
+                event: 'e_linkclick',
+                dynamic_action: 'toolbard',
+                dynamic_category: 'nota_ln9',
+                dynamic_label: 'copiar_link'
             }
         ]);
         expect(navigator.clipboard.writeText).toHaveBeenCalled();
@@ -184,6 +202,12 @@ describe('Share', () => {
             {
                 event: 'gtm.linkClick',
                 clickText: 'Compartir la nota en Facebook'
+            },
+            {
+                event: 'e_linkclick',
+                dynamic_action: 'toolbard',
+                dynamic_category: 'nota_ln9',
+                dynamic_label: 'compartir_facebook'
             }
         ]);
         expect(window.open).toHaveBeenCalled();
@@ -201,6 +225,12 @@ describe('Share', () => {
             {
                 event: 'gtm.linkClick',
                 clickText: 'Compartir la nota en X'
+            },
+            {
+                event: 'e_linkclick',
+                dynamic_action: 'toolbard',
+                dynamic_category: 'nota_ln9',
+                dynamic_label: 'compartir_x'
             }
         ]);
         expect(window.open).toHaveBeenCalled();
@@ -219,6 +249,12 @@ describe('Share', () => {
             {
                 event: 'gtm.linkClick',
                 clickText: 'Compartir la nota por E-mail'
+            },
+            {
+                event: 'e_linkclick',
+                dynamic_action: 'toolbard',
+                dynamic_category: 'nota_ln9',
+                dynamic_label: 'enviar_mail'
             }
         ]);
         expect(window.open).toHaveBeenCalled();
@@ -243,6 +279,12 @@ describe('Share', () => {
             {
                 event: 'gtm.linkClick',
                 clickText: 'Guardar Nota'
+            },
+            {
+                event: 'e_linkclick',
+                dynamic_action: 'toolbard',
+                dynamic_category: 'nota_ln9',
+                dynamic_label: 'guardar_nota'
             }
         ]);
         expect(useCheckBookmark).toHaveBeenCalled();
