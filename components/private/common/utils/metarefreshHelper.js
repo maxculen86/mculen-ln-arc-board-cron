@@ -1,0 +1,37 @@
+import get from './get';
+
+export const findTemplate = type => {
+    if (['story', 'results'].includes(type)) return 'nota';
+    if (type === '/deportes') return 'home_deportes';
+    return 'home';
+};
+
+export const getInterval = (type, resolution, config, category) => {
+    const template = findTemplate(type);
+    const device = resolution === 'tablet' ? 'mobile' : resolution;
+    const key =
+        category === 'Estados Unidos'
+            ? 'nota_estados_unidos'
+            : `${template}_${device}`;
+    const seconds = config ? config[key] : 0;
+
+    return parseInt(seconds, 10) * 1000;
+};
+
+export const shouldBeExcluded = ({ globalContent }) => {
+    const labelMetarefresh = get(globalContent, 'label.metarefresh.text', null);
+    const contentElements = get(globalContent, 'content_elements', null);
+    const promoItem = get(globalContent, 'promo_items.basic', null);
+
+    return (
+        (contentElements &&
+            contentElements.some(
+                contentElement =>
+                    contentElement.type === 'raw_html' ||
+                    contentElement.type === 'oembed_response' ||
+                    contentElement.type === 'video'
+            )) ||
+        (promoItem && promoItem.type === 'video') ||
+        labelMetarefresh === 'No'
+    );
+};
