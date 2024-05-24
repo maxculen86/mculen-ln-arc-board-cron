@@ -90,15 +90,17 @@ exports[`When the _id !== "/economia/dolar-oficial-historico" Should match snaps
         <div
           class=" currency-data"
         >
-          <span
-            class="com-text link-container-currency-data"
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-mep/"
+            title="Dólar MEP"
           >
             <h2
               class="dolar-title --fourxs"
             >
               Dólar MEP
             </h2>
-          </span>
+          </a>
           <p
             class="com-text --sixxs"
           >
@@ -398,15 +400,17 @@ exports[`When the _id === "/economia/dolar-oficial-historico" Should match the s
         <div
           class=" currency-data"
         >
-          <span
-            class="com-text link-container-currency-data"
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-mep/"
+            title="Dólar MEP"
           >
             <h2
               class="dolar-title --fourxs"
             >
               Dólar MEP
             </h2>
-          </span>
+          </a>
           <p
             class="com-text --sixxs"
           >
