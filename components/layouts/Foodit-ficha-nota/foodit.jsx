@@ -104,7 +104,6 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                 </div>
             </div>
             <Breadcrumb globalContent={globalContent} layout={'ficha-nota'} />
-            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
