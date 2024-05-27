@@ -800,18 +800,6 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
-                    href="https://www.lanacion.com.ar/recetas/"
-                    target="_self"
-                    title="Recetas"
-                  >
-                    Recetas
-                  </a>
-                </li>
-                <li
-                  class=""
-                >
-                  <a
-                    class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/tema/podcasts-tid64878/"
                     target="_self"
                     title="Podcasts"

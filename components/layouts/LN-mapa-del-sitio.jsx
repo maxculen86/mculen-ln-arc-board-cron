@@ -224,10 +224,6 @@ const LNMapaDelSitio = ({ children }) => {
             href: `${SITE_LANACION}/cartelera-de-teatro/`
         },
         {
-            text: 'Recetas',
-            href: `${SITE_LANACION}/recetas/`
-        },
-        {
             text: 'Podcasts',
             href: `${SITE_LANACION}/tema/podcasts-tid64878/`
         },

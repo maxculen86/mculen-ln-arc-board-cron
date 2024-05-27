@@ -15,18 +15,21 @@
         "title": "FOODIT",
         "link": "https://foodit.lanacion.com.ar/",
         "dataEvent": "e_linkclick",
-        "icon": "foodit"
+        "icon": "foodit",
+        "iconWidth": 17
     },
     {
         "title": "CANCHALLENA",
         "link": "https://canchallena.lanacion.com.ar/",
         "dataEvent": "e_linkclick",
-        "icon": "canchallena"
+        "icon": "canchallena",
+        "iconWidth": 12
     },
     {
         "title": "BONVIVIR",
         "link": "https://bonvivir.com/",
         "dataEvent": "e_linkclick",
-        "icon": "bonvivir"
+        "icon": "bonvivir",
+        "iconWidth": 11
     }
 ]

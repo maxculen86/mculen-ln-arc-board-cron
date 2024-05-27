@@ -17,6 +17,7 @@ export const Brands = ({ brandsData = [] }) => {
                                 dataEvent,
                                 dataSection,
                                 icon,
+                                iconWidth,
                                 callback
                             },
                             brandIndex
@@ -40,11 +41,12 @@ export const Brands = ({ brandsData = [] }) => {
                                         target="_blank"
                                         unstyled
                                     >
-                                        <Icon size={20}>
+                                        <Icon height={20}>
                                             <IconSprite
                                                 name={icon}
                                                 critical
                                                 fill="#333333"
+                                                width={iconWidth}
                                             />
                                         </Icon>
                                         {title}
