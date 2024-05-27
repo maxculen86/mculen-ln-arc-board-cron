@@ -1,0 +1,137 @@
+{
+    "collection": "layouts",
+    "type": "Foodit-home",
+    "children": [
+        {
+            "collection": "sections",
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "props": {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "id": "moked-id-recipe-day",
+                        "customFields": {
+                            "noteId": "IDEDE5L2YZB7ZMS3QLBZMAYXJM"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "foodit_Caja_Collection",
+                    "props": {
+                        "collection": "chains",
+                        "type": "foodit_Caja_Collection",
+                        "id": "mocked-id-firts-carusel",
+                        "name": null,
+                        "customFields": {
+                            "idCollection": "D5NV5DD62JB35NXUEPJZQV35FI",
+                            "layout": "carousel",
+                            "initialPosition": 2,
+                            "title": "Carrusel",
+                            "link": ""
+                        }
+                    }
+                },
+                {
+                    "collection": "chains",
+                    "type": "foodit_Caja_Manual",
+                    "props": {
+                        "collection": "chains",
+                        "type": "foodit_Caja_Manual",
+                        "id": "mocked-id-manual-box",
+                        "customFields": {
+                            "idCollection": "",
+                            "layout": "bn_2_grid",
+                            "initialPosition": 1,
+                            "title": "Prueba 2",
+                            "link": "https://www.lanacion.com.ar/"
+                        }
+                    },
+                    "children": [
+                        {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "props": {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "id": "f0fJqr0yptP5252",
+                                "customFields": {
+                                    "noteId": "QYAPJRHQAVAZLKJO5KGT62M4DM"
+                                }
+                            }
+                        },
+                        {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "props": {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "customFields": {
+                                    "noteId": "QYAPJRHQAVAZLKJO5KGT62M4DM"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": {
+                "collection": "sections",
+                "id": 2
+            },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "foodit_Caja_Manual",
+                    "props": {
+                        "collection": "chains",
+                        "type": "foodit_Caja_Manual",
+                        "id": "c0fCNBbFz1c73Ui",
+                        "name": null,
+                        "customFields": {
+                            "idCollection": "",
+                            "layout": "bn_2_grid",
+                            "initialPosition": 1,
+                            "title": "Recetas destacadas"
+                        }
+                    },
+                    "children": [
+                        {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "props": {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "id": "f0fWS6rpxVk73df",
+                                "customFields": {
+                                    "noteId": "NSPVLYYPBBBNVEPBDDBMDW6DMQ"
+                                }
+                            }
+                        },
+                        {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "props": {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "id": "f0f7jyZDt3p54x7",
+                                "customFields": {
+                                    "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
