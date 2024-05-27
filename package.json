@@ -28,7 +28,7 @@
         "zip": "npm run build && fusion zip",
         "full-reset-all": "fusion clean && npm run clean && rm -rf node_modules/* --verbose && npm i && npm test",
         "doc": "react-doc-generator ./components/ -o ./components.md",
-        "analize": "npx webpack-bundle-analyzer -p 3000 .fusion/dist/stats.json .fusion/dist/components/combinations/",
+        "analyzer": "npx webpack-bundle-analyzer -p 3000 .fusion/dist/stats.json .fusion/dist/components/combinations/",
         "create-demo": "node ./scripts/gitDemoBranch.mjs",
         "postinstall": "npm run ln:copycss"
     },
