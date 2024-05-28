@@ -75,7 +75,8 @@ const transform = data => {
         dtarjeta: '/tema/dolar-tarjeta-tid50462/',
         dturista: '/tema/dolar-turista-tid67475/',
         dccl: '/tema/dolar-ccl/',
-        euro: '/tema/euro-hoy-tid66142/'
+        euro: '/tema/euro-hoy-tid66142/',
+        dmep: '/tema/dolar-mep/'
     };
     const imageUrl = createResizer().resizeUrl({
         originalUrl: 'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',

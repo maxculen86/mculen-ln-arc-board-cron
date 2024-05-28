@@ -1,26 +1,26 @@
+import React from 'react';
+import { render } from '@testing-library/react';
+import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/acumuladoTitle/acumuladoTitle';
+
 jest.mock(
     '../../../../../../components/private/common/mod-category.jsx',
     () => 'mod-category-mock'
 );
+
 jest.mock(
     '../../../../../../components/private/LN/acumulado/hocs/withAcuCategories.jsx',
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
 );
 
-import React from 'react';
-import { render, mount } from 'enzyme';
-
-import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/acumuladoTitle/acumuladoTitle';
-
-xdescribe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
+describe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
     it('Render OK', () => {
-        const component = mount(<AcumuladoTitle />);
-        expect(component).toBeDefined();
-        expect(component.isEmptyRender()).toBeFalsy();
-        expect(component.find('mod-category-mock')).toHaveLength(1);
+        const { container } = render(<AcumuladoTitle />);
+        const category = container.querySelector('mod-category-mock[category]');
+
+        expect(category).toBeInTheDocument();
     });
 
-    it('Validación Título Sección Principal', () => {
+    it('Validation Título Sección Principal', () => {
         const props = {
             globalContent: {
                 _id: '/recetas',
@@ -28,12 +28,16 @@ xdescribe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
                 node_type: 'section'
             }
         };
-        const component = mount(<AcumuladoTitle {...props} />);
-        const titleSectionPrimary = component.find('mod-category-mock');
-        expect(titleSectionPrimary.props().category).toBe('Recetas');
+        render(<AcumuladoTitle {...props} />);
+
+        const categoryElement = document.querySelector(
+            'mod-category-mock[category="Recetas"]'
+        );
+
+        expect(categoryElement).toBeInTheDocument();
     });
 
-    it('Validación Título Subsección', () => {
+    it('Validation Título Subsección', () => {
         const props = {
             globalContent: {
                 _id: '/economia/campo',
@@ -41,12 +45,16 @@ xdescribe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
                 node_type: 'section'
             }
         };
-        const component = mount(<AcumuladoTitle {...props} />);
-        const titleSubsection = component.find('mod-category-mock');
-        expect(titleSubsection.props().category).toBe('Campo');
+        render(<AcumuladoTitle {...props} />);
+
+        const categoryElement = document.querySelector(
+            'mod-category-mock[category="Campo"]'
+        );
+
+        expect(categoryElement).toBeInTheDocument();
     });
 
-    it('Validación Título con Prefijo', () => {
+    it('Validation Título con Prefijo', () => {
         const props = {
             globalContent: {
                 _id: '/recetas/dulces',
@@ -56,12 +64,17 @@ xdescribe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
             customFields: { prefixTitle: 'Recetas:' },
             isPrimarySection: false
         };
-        const component = mount(<AcumuladoTitle {...props} />);
-        const titleRecetas = component.find('mod-category-mock');
-        expect(titleRecetas.props().category).toBe('Recetas: Dulces');
+
+        render(<AcumuladoTitle {...props} />);
+
+        const categoryElement = document.querySelector(
+            'mod-category-mock[category="Recetas: Dulces"]'
+        );
+
+        expect(categoryElement).toBeInTheDocument();
     });
 
-    it('Validación Título con Replace', () => {
+    it('Validation Título con Replace', () => {
         const props = {
             globalContent: {
                 _id: '/recetas/dulces',
@@ -72,12 +85,17 @@ xdescribe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
                 replaceTitle: 'Título Personalizado'
             }
         };
-        const component = mount(<AcumuladoTitle {...props} />);
-        const titleRecetas = component.find('mod-category-mock');
-        expect(titleRecetas.props().category).toBe('Título Personalizado');
+
+        render(<AcumuladoTitle {...props} />);
+
+        const categoryElement = document.querySelector(
+            'mod-category-mock[category="Título Personalizado"]'
+        );
+
+        expect(categoryElement).toBeInTheDocument();
     });
 
-    it('Validación Título Tags', () => {
+    it('Validation Título Tags', () => {
         const props = {
             globalContent: {
                 _id: '/pescados-tid67216',
@@ -91,20 +109,28 @@ xdescribe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
                 }
             }
         };
-        const component = mount(<AcumuladoTitle {...props} />);
-        const titleTags = component.find('mod-category-mock');
-        expect(titleTags.props().category).toBe('Pescados');
+        render(<AcumuladoTitle {...props} />);
+
+        const categoryElement = document.querySelector(
+            'mod-category-mock[category="Pescados"]'
+        );
+
+        expect(categoryElement).toBeInTheDocument();
     });
 
-    it('Validación Título Autor', () => {
+    it('Validation Título Autor', () => {
         const props = {
             globalContent: {
                 _id: '/carlos-pagni-81',
                 byline: 'Carlos Pagni'
             }
         };
-        const component = mount(<AcumuladoTitle {...props} />);
-        const titleAuthor = component.find('mod-category-mock');
-        expect(titleAuthor.props().category).toBe('Carlos Pagni');
+        render(<AcumuladoTitle {...props} />);
+
+        const categoryElement = document.querySelector(
+            'mod-category-mock[category="Carlos Pagni"]'
+        );
+
+        expect(categoryElement).toBeInTheDocument();
     });
 });

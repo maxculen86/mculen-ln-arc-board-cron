@@ -37,7 +37,7 @@ attachBanners.mockImplementation((box, sectionAlias) => {
 
 const paramsPage = { information: { layoutPage: 'LN10-Home_Main' } };
 
-xdescribe('components - private - LN - api - mobile - v2 - home - index.js', () => {
+describe('components - private - LN - api - mobile - v2 - home - index.js', () => {
     it('Should return caja juegos in position 14', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage);
@@ -468,5 +468,11 @@ xdescribe('components - private - LN - api - mobile - v2 - home - index.js', () 
             expect(home[0].items[0].tipoSeccion).toBe('title');
             expect(home[0].items[0].banner).not.toBeNull();
         });
+    });
+
+    it('Should return contentVersion in metadata', () => {
+        const homeSections = homeDataSections;
+        const home = index(homeSections, paramsPage);
+        expect(home[0]['metadata']).toHaveProperty('contentVersion');
     });
 });

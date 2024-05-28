@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
-import { shallow, mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import TagsLoadingList from '../../../../../components/private/common/scriptManager/tagsLoadingList';
 
 jest.mock('fusion:content', () => ({
@@ -25,19 +25,23 @@ const globalContent = {
     },
     paywallEnabled: '1'
 };
+
 const scriptsMock = [
     '{ "rel":"dns-prefetch", "href":"//cdn.livefyre.com", "location":"head", "section":"all" }',
     '{ "rel":"dns-prefetch", "href":"https://sb.scorecardresearch.com/", "location":"head", "section":"all" }',
     '{ "rel":"preconnect", "href":"https://www.google-analytics.com", "location":"head", "section":"all" }'
 ];
-xdescribe('TagsLoadingList', () => {
+
+describe('TagsLoadingList', () => {
     it('Returns <></> when Tag is empty', () => {
-        const wrapper = shallow(<TagsLoadingList />);
-        expect(wrapper.contains(<></>)).toEqual(true);
+        useContent.mockReturnValueOnce([]);
+        const { container } = render(<TagsLoadingList />);
+        expect(container.innerHTML).toEqual('');
     });
+
     it('Returns <></> when error catch', () => {
         useContent.mockReturnValueOnce([{ jsonError: 'error' }]);
-        const wrapper = shallow(
+        const { container } = render(
             <TagsLoadingList
                 arcSite="la-nacion-ar"
                 Tag="script"
@@ -45,11 +49,12 @@ xdescribe('TagsLoadingList', () => {
                 location="head"
             />
         );
-        expect(wrapper.contains(<></>)).toEqual(true);
+        expect(container.innerHTML).toEqual('');
     });
+
     it('Return Tag Script', () => {
         useContent.mockReturnValueOnce(scriptsMock);
-        const wrapper = mount(
+        const { container } = render(
             <TagsLoadingList
                 arcSite="la-nacion-ar"
                 Tag="script"
@@ -58,20 +63,11 @@ xdescribe('TagsLoadingList', () => {
             />
         );
 
-        expect(
-            wrapper.contains([
-                <script rel="dns-prefetch" href="//cdn.livefyre.com" />,
-                <script
-                    rel="dns-prefetch"
-                    href="https://sb.scorecardresearch.com/"
-                />,
-                <script
-                    rel="preconnect"
-                    href="https://www.google-analytics.com"
-                />
-            ])
-        ).toEqual(true);
+        expect(container.innerHTML).toStrictEqual(
+            '<script rel="dns-prefetch" href="//cdn.livefyre.com"></script><script rel="dns-prefetch" href="https://sb.scorecardresearch.com/"></script><script rel="preconnect" href="https://www.google-analytics.com"></script>'
+        );
     });
+
     describe('showCase Test', () => {
         const scriptsMockShowCase = [
             `{
@@ -93,9 +89,10 @@ xdescribe('TagsLoadingList', () => {
                 }
             }`
         ];
-        it('verificar vidalacion', () => {
-            useContent.mockImplementation(() => scriptsMockShowCase);
-            const wrapper = mount(
+
+        it('verificar validacion', () => {
+            useContent.mockReturnValueOnce(scriptsMockShowCase);
+            const { container } = render(
                 <TagsLoadingList
                     arcSite="la-nacion-ar"
                     Tag="script"
@@ -104,18 +101,9 @@ xdescribe('TagsLoadingList', () => {
                     globalContent={globalContent}
                 />
             );
-
-            expect(
-                wrapper.contains(
-                    <script
-                        id="TestShowCase"
-                        src="ejemplo"
-                        metered="cerrada"
-                        showcase="si"
-                        paywall-enabled="1"
-                    />
-                )
-            ).toEqual(true);
+            expect(container.innerHTML).toContain(
+                '<script id="TestShowCase" src="ejemplo" metered="cerrada" showcase="si" paywall-enabled="1"></script>'
+            );
         });
     });
 });

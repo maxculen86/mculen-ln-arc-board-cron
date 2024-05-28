@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import getTitleText from '../../../../../components/private/common/utils/getTitleText';
 import getBajadaOrFirstTextParagraph from '../../../../../components/private/common/utils/getBajadaOrFirstTextParagraph';
-
 import article from '../../../../../__mocks__/data/articles/articleAcum.json';
 import ArticleAcum from '../../../../../components/private/LN/acumulado/articleAcum';
 import ComHour from '../../../../../components/private/common/com-hour';
@@ -13,7 +12,7 @@ jest.mock(
     () => 'mod-article-mock'
 );
 
-xdescribe('Private - LN - Acumulado - ArticleAcum', () => {
+describe('Private - LN - Acumulado - ArticleAcum', () => {
     const props = {
         dataSection: 'CuerpoAcu',
         article: article,
@@ -21,156 +20,145 @@ xdescribe('Private - LN - Acumulado - ArticleAcum', () => {
         withSubhead: false
     };
 
-    it('Validar que las props lleguen bien en caso de Grilla a ModArticle', () => {
-        const component = mount(<ArticleAcum {...props} />);
+    it('Props validation for Grid type to ModArticle', () => {
+        const { container } = render(<ArticleAcum {...props} />);
+        const modArticleMock = container.querySelector('mod-article-mock');
 
-        expect(component.find('mod-article-mock').props().withMedia).toBe(true);
-        expect(component.find('mod-article-mock').props().subheadText).toBe(
-            false
-        );
-        expect(component.find('mod-article-mock').props().titleText).toEqual(
+        expect(modArticleMock.getAttribute('withMedia')).toBe('true');
+        expect(modArticleMock.getAttribute('subheadText')).toBe('false');
+        expect(modArticleMock.getAttribute('titleText')).toEqual(
             'Titulo Movil Corto'
         );
-        expect(component.find('mod-article-mock').props().authors).toEqual(
+        expect(modArticleMock.getAttribute('authors')).toEqual(
             'Por Mirta Albamonte'
         );
     });
 
-    it('Validar que las props lleguen bien en caso de Listado a ModArticle', () => {
-        const component = mount(
+    it('Props validation for List type to ModArticle', () => {
+        const { container } = render(
             <ArticleAcum {...props} typeArticle="Listado" withSubhead={true} />
         );
+        const modArticleMock = container.querySelector('mod-article-mock');
 
-        expect(component.find('mod-article-mock').props().withMedia).toBe(
-            false
-        );
-        expect(component.find('mod-article-mock').props().hour).toBeFalsy();
-        expect(component.find('mod-article-mock').props().subheadText).toBe(
+        expect(modArticleMock.getAttribute('withMedia')).toBe('false');
+        expect(modArticleMock.getAttribute('hour')).toBe('false');
+        expect(modArticleMock.getAttribute('subheadText')).toBe(
             'Este es el subtitulo'
         );
     });
 
-    it('Validar que las props lleguen bien en caso de Listado a ModArticle', () => {
-        const component = mount(
+    it('Props validation for Timeline type to ModArticle', () => {
+        const { container } = render(
             <ArticleAcum {...props} typeArticle="Timeline" />
         );
+        const modArticleMock = container.querySelector('mod-article-mock');
 
-        expect(component.find('mod-article-mock').props().subheadText).toBe(
-            false
-        );
-        expect(component.find('mod-article-mock').props().dateText).toBe(false);
-        expect(component.find('mod-article-mock').props().hour).toBeTruthy();
+        expect(modArticleMock.getAttribute('subheadText')).toBe('false');
+        expect(modArticleMock.getAttribute('dateText')).toBe('false');
+        expect(modArticleMock.getAttribute('hour')).toBeTruthy();
     });
 
     it('Validar que la hora en ComHour se muestre bien', () => {
-        const hourComponent = render(
+        const { container } = render(
             <ComHour display_date="2020-06-02T15:28:04.694Z" />
         );
-        expect(hourComponent.html()).toBe('09:28');
+        expect(container.firstChild.textContent).toBe('09:28');
     });
 
     it('Test de snapshot ArticleAcum', () => {
-        const component = render(<ArticleAcum {...props} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<ArticleAcum {...props} />);
+        expect(container).toMatchSnapshot();
     });
 });
 
 describe('Private - Common - getBajadaOrFirstTextParagraph', () => {
-    const subheadText1 = getBajadaOrFirstTextParagraph(article);
     it('Mostrar subtitulo (subheadlines)', () => {
-        expect(subheadText1).toEqual('Este es el subtitulo');
+        expect(getBajadaOrFirstTextParagraph(article)).toEqual(
+            'Este es el subtitulo'
+        );
     });
 
-    const articleCopy = { ...article };
-    articleCopy.subheadlines = {};
-    const subheadText2 = getBajadaOrFirstTextParagraph(articleCopy);
-
     it('Mostrar primer parrafo de texto', () => {
-        expect(subheadText2).toEqual(
+        const articleCopy = { ...article };
+        articleCopy.subheadlines = {};
+        expect(getBajadaOrFirstTextParagraph(articleCopy)).toEqual(
             'Este es el primer parrafo de prueba para ver si en la vision tipo listado se muestra en caso que no este la bajada. Pero hay que tener en cuenta que se debe co...'
         );
     });
 
-    const articleCopy2 = { ...article };
-    articleCopy2.subheadlines = {};
-    articleCopy2.content_elements = [];
-    const subheadText3 = getBajadaOrFirstTextParagraph(articleCopy2);
-
     it('No mostrar nada', () => {
-        expect(subheadText3).toEqual('');
+        const articleCopy2 = { ...article };
+        articleCopy2.subheadlines = {};
+        articleCopy2.content_elements = [];
+        expect(getBajadaOrFirstTextParagraph(articleCopy2)).toEqual('');
     });
 });
 
 describe('Private - Common - GetTitleText', () => {
-    const { headlines, label } = article;
-    const titleCorto = getTitleText(headlines, label);
-
     it('Mostrar titulo corto', () => {
-        expect(titleCorto).toEqual('Volanta Titulo Movil Corto');
+        const { headlines, label } = article;
+        expect(getTitleText(headlines, label)).toEqual(
+            'Volanta Titulo Movil Corto'
+        );
     });
 
-    const headlines2 = { ...headlines };
-    headlines2.mobile = null;
-    const titleLargo = getTitleText(headlines2, label);
     it('Mostrar titulo largo', () => {
-        expect(titleLargo).toEqual('Volanta Test dl (titulo basico largo)');
+        const headlines2 = { ...article.headlines };
+        headlines2.mobile = null;
+        expect(getTitleText(headlines2, article.label)).toEqual(
+            'Volanta Test dl (titulo basico largo)'
+        );
     });
 });
 
 // TODO: Mover este tests a un archivo nuevo especifico para el utilitario getAuthorAsString
 describe('Private - Common - GetAuthorAsString', () => {
-    const authorsString = getAuthorsAsString(article);
-
     it('Mostrar author en string', () => {
-        expect(authorsString).toEqual('Por Mirta Albamonte');
+        expect(getAuthorsAsString(article)).toEqual('Por Mirta Albamonte');
     });
 
-    const article2 = {
-        ...article,
-        credits: {
-            by: [
-                {
-                    name: 'Mirta Albamonte',
-                    type: 'author'
-                },
-                {
-                    name: 'Mariano Grondona',
-                    type: 'author'
-                },
-                {
-                    name: 'Alberto Fernandez',
-                    type: 'author'
-                }
-            ]
-        }
-    };
-
-    const authorsString2 = getAuthorsAsString(article2);
     it('Mostrar varios authores separados con , e y al final', () => {
-        expect(authorsString2).toEqual(
+        const article2 = {
+            ...article,
+            credits: {
+                by: [
+                    {
+                        name: 'Mirta Albamonte',
+                        type: 'author'
+                    },
+                    {
+                        name: 'Mariano Grondona',
+                        type: 'author'
+                    },
+                    {
+                        name: 'Alberto Fernandez',
+                        type: 'author'
+                    }
+                ]
+            }
+        };
+        expect(getAuthorsAsString(article2)).toEqual(
             'Por Mirta Albamonte, Mariano Grondona y Alberto Fernandez'
         );
     });
 
-    const article3 = {
-        ...article,
-        credits: {
-            by: [
-                {
-                    name: 'Mirta Albamonte',
-                    type: 'another'
-                },
-                {
-                    name: 'Mariano Grondona',
-                    type: 'author'
-                }
-            ]
-        }
-    };
-
-    const authorsString3 = getAuthorsAsString(article3);
     it('Mostrar author que es del tipo author', () => {
-        expect(authorsString3).toEqual('Por Mariano Grondona');
+        const article3 = {
+            ...article,
+            credits: {
+                by: [
+                    {
+                        name: 'Mirta Albamonte',
+                        type: 'another'
+                    },
+                    {
+                        name: 'Mariano Grondona',
+                        type: 'author'
+                    }
+                ]
+            }
+        };
+        expect(getAuthorsAsString(article3)).toEqual('Por Mariano Grondona');
     });
 
     it('should return a empty string when the author name is a blank space', () => {

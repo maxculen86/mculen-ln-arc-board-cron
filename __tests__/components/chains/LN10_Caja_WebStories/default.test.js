@@ -15,7 +15,7 @@ jest.mock(
     () => jest.fn()
 );
 
-xdescribe('Componentes - Chains - LN10_Caja_WebStories', () => {
+describe('Componentes - Chains - LN10_Caja_WebStories', () => {
     getDynamicBanners.mockReturnValue({
         bannerMob: <div class="bannerMob"></div>
     });
@@ -58,7 +58,7 @@ xdescribe('Componentes - Chains - LN10_Caja_WebStories', () => {
 
     it('should have data-... attributes', () => {
         expect(
-            container.querySelector('data-module="tema_webstories')
+            container.querySelector('[data-module="tema_webstories"]')
         ).toBeDefined();
         expect(
             container.querySelector('div[data-block-name="n_webstories"]')
@@ -101,7 +101,7 @@ xdescribe('Componentes - Chains - LN10_Caja_WebStories', () => {
             />
         );
         expect(
-            container.querySelector('data-module="tema_webstories')
+            container.querySelector('div[data-block-name="n_webstories"]')
         ).toBeNull();
     });
 });

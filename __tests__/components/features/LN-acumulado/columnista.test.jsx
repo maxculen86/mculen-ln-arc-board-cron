@@ -1,6 +1,7 @@
 import React from 'react';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
 import { useContent } from 'fusion:content';
-import { shallow } from 'enzyme';
 import COLUMNIST_DATA from '../../../../__mocks__/data/columnista/columnista.json';
 import ColumnistaComponent from '../../../../components/features/LN-acumulado/columnista/default';
 import * as Columnista from '../../../../components/features/LN-acumulado/columnista/json';
@@ -16,17 +17,20 @@ jest.mock('fusion:consumer', component => {
         };
     };
 });
-xdescribe('features - LaNacion - Acumulado - columnista', () => {
+
+describe('features - LaNacion - Acumulado - columnista', () => {
     useContent.mockImplementation(() => COLUMNIST_DATA);
     const props = {
         customFields: {
             id: 'joaquin-morales-sola-51'
         }
     };
-    it('Test de snapshot Columnista', () => {
-        const component = shallow(<ColumnistaComponent {...props} />);
-        expect(component).toMatchSnapshot();
+
+    it('should render columnist component', () => {
+        const { container } = render(<ColumnistaComponent {...props} />);
+        expect(container).toMatchSnapshot();
     });
+
     it('undefined data', () => {
         const objArticle = new Columnista.default(props);
         const result = objArticle.render();

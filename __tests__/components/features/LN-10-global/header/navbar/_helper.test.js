@@ -34,9 +34,9 @@ describe('components - features - LN-10-global - header - navbar', () => {
             'https://www.lanacion.com.ar/'
         );
     });
-    it('should redirect to bookmark template', () => {
+    it('should redirect to foodit website', () => {
         expect(getNavbarItems()[2].link).toStrictEqual(
-            'https://www.lanacion.com.ar/mis-notas/'
+            'https://foodit.lanacion.com.ar/'
         );
     });
     it('should redirect to Club La Nacion', () => {

@@ -24,21 +24,27 @@
         "event": "e_linkclick"
     },
     {
+        "dynamic_action": "header_dolar",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "dolar_mep",
+        "event": "e_linkclick"
+    },
+    {
         "dynamic_action": "header_accesos",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "mis_notas",
+        "dynamic_label": "ln_juegos",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "header_accesos",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "suscriptores",
         "event": "e_linkclick"
     },
     {
         "dynamic_action": "header_accesos",
         "dynamic_category": "home_ln10",
         "dynamic_label": "newsletters",
-        "event": "e_linkclick"
-    },
-    {
-        "dynamic_action": "header_accesos",
-        "dynamic_category": "home_ln10",
-        "dynamic_label": "club_la_nacion",
         "event": "e_linkclick"
     }
 ]

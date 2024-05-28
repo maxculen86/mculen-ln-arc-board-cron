@@ -1,4 +1,4 @@
-class EventsHelper {
+export class EventsHelper {
     constructor() {
         this.createDynamicLabel = (text = '') => {
             return text
@@ -87,13 +87,24 @@ class EventsHelper {
 
     setEventsTopics() {
         const topics = window.document.querySelectorAll('.tag-list a');
-
         topics.forEach(topicElement => {
             const payload = {
-                action: 'header_temas_hoy',
+                action: 'temas_hoy',
                 label: this.createDynamicLabel(topicElement.title)
             };
             this.addEventListeners(topicElement, payload);
+        });
+    }
+
+    setEventsBrands() {
+        const brands = window.document.querySelectorAll('.brands-list a');
+
+        brands.forEach(brandElement => {
+            const payload = {
+                action: 'header_marcas',
+                label: this.createDynamicLabel(brandElement.title)
+            };
+            this.addEventListeners(brandElement, payload);
         });
     }
 
@@ -216,12 +227,30 @@ class EventsHelper {
     }
 
     setEventsSections() {
-        const sections = window.document.querySelectorAll('.dd-link');
+        const sections = document.querySelectorAll('.dd-link');
 
         sections.forEach(section => {
+            let nameSectionHTML = Array.from(section.childNodes)
+                .filter(
+                    node =>
+                        node.nodeType === Node.TEXT_NODE ||
+                        node.tagName !== 'SPAN'
+                )
+                .map(node => node.textContent.trim())
+                .join(' ');
+
+            if (nameSectionHTML.includes('flex')) {
+                const nameSectionNode = section.querySelector(
+                    '.flex > div:last-child'
+                );
+                nameSectionHTML = nameSectionNode
+                    ? nameSectionNode.textContent.trim()
+                    : '';
+            }
+
             const payload = {
                 action: 'menu_secciones',
-                label: this.createDynamicLabel(section.innerHTML)
+                label: this.createDynamicLabel(nameSectionHTML)
             };
 
             this.addEventListeners(section, payload);
