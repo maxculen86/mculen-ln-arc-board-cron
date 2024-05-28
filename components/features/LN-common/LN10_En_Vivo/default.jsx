@@ -87,7 +87,7 @@ const EnVivo = ({ customFields, id: featureId }) => {
                                 badgeType={typeBadge[chapitaStyle]}
                                 data-testid="live-component"
                             >
-                                {topics.length && <Live.Topics tags={topics} />}
+                                {topics.length !== 0 ? <Live.Topics tags={topics} /> : <></>}
                             </Live>
                             {bannerMob}
                         </>
