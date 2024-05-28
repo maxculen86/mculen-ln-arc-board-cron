@@ -163,4 +163,42 @@ describe('Private - LN - Common - LinkCanonical', () => {
             expect(container).toMatchSnapshot();
         });
     });
+
+    describe('With author id', () => {
+        const props = {
+            host: 'https://www.foodit.lanacion.com.ar',
+            canonicalUrl: '',
+            _id: 'leo-messi-10',
+            site: {},
+            nodeType: 'home',
+            template: 'template/t5bxoboL6RikBt7u'
+        };
+
+        it('Should render OK', () => {
+            const { container } = render(<LinkCanonical {...props} />);
+            expect(container).toBeVisible();
+            expect(container).not.toBeEmptyDOMElement();
+        });
+
+        it('Validate sent props', () => {
+            const { container } = render(<LinkCanonical {...props} />);
+            const link = container.getElementsByTagName('link');
+            expect(link[0].href).toEqual(`${props.host}/${props._id}/`);
+        });
+
+        it('Should have the correct DOM attributes', () => {
+            const { container } = render(<LinkCanonical {...props} />);
+            const link = container.getElementsByTagName('link');
+            expect(link).toHaveLength(1);
+            expect(link[0].rel).toEqual('canonical');
+            expect(link[0].href).toEqual(
+                'https://www.foodit.lanacion.com.ar/leo-messi-10/'
+            );
+        });
+
+        it('Snapshot link canonical sub-section', () => {
+            const { container } = render(<LinkCanonical {...props} />);
+            expect(container).toMatchSnapshot();
+        });
+    });
 });
