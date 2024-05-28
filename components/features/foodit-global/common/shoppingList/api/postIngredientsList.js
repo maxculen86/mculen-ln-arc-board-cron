@@ -21,7 +21,7 @@ const postIngredientsList = async content => {
                 method: 'POST',
                 headers: {
                     'X-Token': token,
-                    Authorization: accessToken
+                    Authorization: `Bearer ${accessToken}`
                 },
                 body: JSON.stringify({
                     bookmarkType: 'ingredientList',
