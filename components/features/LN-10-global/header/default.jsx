@@ -6,6 +6,7 @@ import { Header } from '@ln/common-ui-header';
 import { HeaderProvider } from './context';
 import { Desplegable } from '../desplegable/default';
 import { NavBar } from './navBar/default';
+import PreHeader from './preHeader/default';
 import SubHeader from './subHeader/default';
 import MainHeader from './mainHeader/default';
 import classNames from 'classnames';
@@ -41,6 +42,7 @@ const HeaderLN = props => {
             isHome={isHome}
         >
             <div className={headerWrapperClassName}>
+                {isHome && <PreHeader />}
                 <Header classNameContainer={headerClassName}>
                     <MainHeader />
                     <SubHeader />

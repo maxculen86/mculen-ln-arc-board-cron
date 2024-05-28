@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoBox Should render if parent id is /deportes 1`] = `
+<div>
+  <div>
+    <article
+      class="p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
+    >
+      <a
+        class="link"
+        href="https://canchallena.lanacion.com.ar/"
+        rel="external"
+        target="_blank"
+        title="Ir a Canchallena"
+      >
+        <div
+          class="flex flex-row_m flex-column ai-center ai-stretch_m"
+        >
+          <div
+            class="mb-0_m mb-24 mr-24_m flex-shrink-0"
+          >
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset=""
+              />
+              <img
+                alt="Imagen de celular con la app de Canchallena"
+                class="image flex w-100 none --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src=""
+              />
+            </picture>
+          </div>
+          <div
+            class="flex flex-column gap-24 ai-start_m ai-center jc-center jc-evenly flex-shrink-1"
+          >
+            <div
+              class="gap-16 flex flex-wrap jc-start_m jc-center"
+            >
+              <img
+                alt="Logo de Canchallena"
+                class="image flex none --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src=""
+              />
+              <p
+                class="text --font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800"
+              >
+                Resultados deportivos en vivo de fútbol con actualización en directo, próximos partidos, fixtures, estadísticas, tablas de liga y todos los detalles
+              </p>
+            </div>
+            <button
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-blue-500 text-light-0 h-40 px-16 py-12 --primary"
+              data-variant="primary"
+              title="Ir a Canchallena"
+              type="button"
+            >
+              Ir a Canchallena
+            </button>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`InfoBox shouldnt render if parent id is another than /deportes 1`] = `<div />`;

@@ -5,6 +5,7 @@ import Static from 'fusion:static';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import get from '../../../private/common/utils/get';
 import SummaryNote from '../../../private/LN/common/summaryNote';
+import useTermica from '../../../private/common/hooks/useTermica';
 
 const Resumen = ({ customFields: { hide } = {} }) => {
     const { globalContent } = useAppContext();
@@ -14,13 +15,18 @@ const Resumen = ({ customFields: { hide } = {} }) => {
         'promo_items.summary.embed.config.arrayBullets',
         []
     );
+    const isThermalSummaryEnabled = useTermica('resumen_nota');
 
+    if (hide || !isThermalSummaryEnabled) {
+        return null;
+    }
     return (
         <Static id={`resumen-nota-${id}`} htmlOnly>
-            {hide ? <></> : <SummaryNote paragraphs={arrayBullets} />}
+            <SummaryNote paragraphs={arrayBullets} />
         </Static>
     );
 };
+
 Resumen.label = 'LN-Resumen-Nota';
 
 Resumen.propTypes = {

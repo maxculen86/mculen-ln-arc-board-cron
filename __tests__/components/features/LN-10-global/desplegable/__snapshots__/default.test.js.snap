@@ -95,15 +95,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
             class="list --fourxs --principal --font-bold"
           >
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/ultimas-noticias/"
                 target="_self"
                 title="Ir a Últimas noticias"
               >
-                Últimas noticias
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Últimas noticias
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -172,27 +176,35 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/politica/"
                 target="_self"
                 title="Ir a Política"
               >
-                Política
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Política
+                </div>
               </a>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/economia/"
                 target="_self"
                 title="Ir a Economía"
               >
-                Economía
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Economía
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -297,15 +309,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/el-mundo/"
                 target="_self"
                 title="Ir a El Mundo"
               >
-                El Mundo
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  El Mundo
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -350,15 +366,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/sociedad/"
                 target="_self"
                 title="Ir a Sociedad"
               >
-                Sociedad
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Sociedad
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -487,15 +507,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/opinion/"
                 target="_self"
                 title="Ir a Opinión"
               >
-                Opinión
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Opinión
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -564,15 +588,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/deportes/"
                 target="_self"
                 title="Ir a Deportes"
               >
-                Deportes
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Deportes
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -653,15 +681,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/lifestyle/"
                 target="_self"
                 title="Ir a Lifestyle"
               >
-                Lifestyle
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Lifestyle
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -768,18 +800,6 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
-                    href="https://www.lanacion.com.ar/recetas/"
-                    target="_self"
-                    title="Recetas"
-                  >
-                    Recetas
-                  </a>
-                </li>
-                <li
-                  class=""
-                >
-                  <a
-                    class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/tema/podcasts-tid64878/"
                     target="_self"
                     title="Podcasts"
@@ -802,15 +822,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/espectaculos/"
                 target="_self"
                 title="Ir a Espectáculos"
               >
-                Espectáculos
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Espectáculos
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -866,20 +890,20 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 </li>
               </ul>
             </li>
-          </ul>
-          <ul
-            class="list --fourxs --secondary --font-bold"
-          >
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar"
                 target="_self"
                 title="Ir a Edición Impresa"
               >
-                Edición Impresa
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Edición Impresa
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -1008,15 +1032,19 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               </ul>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://www.lanacion.com.ar/revistas/"
                 target="_self"
                 title="Ir a Revistas"
               >
-                Revistas
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Revistas
+                </div>
               </a>
               <button
                 class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -1120,52 +1148,223 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 </li>
               </ul>
             </li>
+          </ul>
+          <ul
+            class="list --fourxs --secondary --font-bold"
+          >
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
-                href="https://lnmas.lanacion.com.ar/"
+                class="link ln-link dd-link jc-between --font-s"
+                href="/juegos/"
                 target="_self"
-                title="Ir a LN+"
+                title="Ir a LN Juegos"
               >
-                LN+
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  LN Juegos
+                </div>
               </a>
             </li>
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="/suscriptores/"
                 target="_self"
                 title="Ir a Exclusivo Suscriptores"
               >
-                Exclusivo Suscriptores
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Exclusivo Suscriptores
+                </div>
               </a>
             </li>
+          </ul>
+          <ul
+            class="list --fourxs --tertiary --font-bold flex flex-column gap-4 pt-8"
+          >
             <li
-              class="item --more --inactive"
+              class="item --more flex --inactive"
             >
               <a
-                class="link ln-link dd-link --font-s"
-                href="https://pdf.lanacion.com.ar/"
-                target="_self"
-                title="Ir a Kiosco LA NACION"
-              >
-                Kiosco LA NACION
-              </a>
-            </li>
-            <li
-              class="item --more --inactive"
-            >
-              <a
-                class="link ln-link dd-link --font-s"
+                class="link ln-link dd-link jc-between --font-s"
                 href="https://club.lanacion.com.ar/"
                 target="_self"
                 title="Ir a Club LA NACION"
               >
-                Club LA NACION
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  <div
+                    class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="clubLnDefault"
+                      />
+                    </i>
+                  </div>
+                  Club LA NACION
+                </div>
+              </a>
+            </li>
+            <li
+              class="item --more flex --inactive"
+            >
+              <a
+                class="link ln-link dd-link jc-between --font-s"
+                href="https://canchallena.lanacion.com.ar/"
+                target="_self"
+                title="Ir a canchallena"
+              >
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  <div
+                    class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="canchallena"
+                      />
+                    </i>
+                  </div>
+                  canchallena
+                </div>
+              </a>
+            </li>
+            <li
+              class="item --more flex --inactive"
+            >
+              <a
+                class="link ln-link dd-link jc-between --font-s"
+                href="https://foodit.lanacion.com.ar/"
+                target="_self"
+                title="Ir a Foodit"
+              >
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  <div
+                    class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="foodit"
+                      />
+                    </i>
+                  </div>
+                  Foodit
+                </div>
+                <span
+                  class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-black text-light-0 uppercase py-6 px-8 --negative"
+                >
+                  NUEVO
+                </span>
+              </a>
+            </li>
+            <li
+              class="item --more flex --inactive"
+            >
+              <a
+                class="link ln-link dd-link jc-between --font-s"
+                href="https://bonvivir.com/"
+                target="_self"
+                title="Ir a Bonvivir"
+              >
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  <div
+                    class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="bonvivir"
+                      />
+                    </i>
+                  </div>
+                  Bonvivir
+                </div>
+              </a>
+            </li>
+            <li
+              class="item --more flex --inactive"
+            >
+              <a
+                class="link ln-link dd-link jc-between --font-s"
+                href="https://lnmas.lanacion.com.ar/"
+                target="_self"
+                title="Ir a LN+"
+              >
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  <div
+                    class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="lnMas"
+                      />
+                    </i>
+                  </div>
+                  LN+
+                </div>
+              </a>
+            </li>
+            <li
+              class="item --more flex --inactive"
+            >
+              <a
+                class="link ln-link dd-link jc-between --font-s"
+                href="https://pdf.lanacion.com.ar/"
+                target="_self"
+                title="Ir a Kiosco LA NACION"
+              >
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  <div
+                    class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <mock-icon
+                        default="true"
+                        fill="#333333"
+                        name="storeLine"
+                      />
+                    </i>
+                  </div>
+                  Kiosco LA NACION
+                </div>
               </a>
             </li>
           </ul>

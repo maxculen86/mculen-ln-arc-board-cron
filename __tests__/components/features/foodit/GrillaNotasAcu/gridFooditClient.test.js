@@ -28,13 +28,17 @@ describe('Components - features - helpers - gridFooditClient', () => {
         expect(screen.getAllByRole('article').length).toStrictEqual(24);
     });
 
-    it('should render gridFooditClient with ver mas', () => {
+    it('should render gridFooditClient with ver mas', async () => {
+        Object.defineProperty(document, 'getElementsByTagName', {
+            value: () => ({ length: 24 })
+        });
+
         useGridArticlesFoodit.mockImplementation(() => {
             return { articles: articlesFoodit, hasMoreArticle: false };
         });
 
         const { container } = render(
-            <GridFooditClient idSection="/recetas/saladas" showButton={true} />
+            <GridFooditClient idSection="/recetas/saladas" />
         );
         const hiddenDiv = container.querySelector('.hidden');
         const gridDiv = container.querySelector('.grid');

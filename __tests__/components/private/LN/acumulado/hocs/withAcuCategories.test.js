@@ -1,3 +1,5 @@
+import React from 'react';
+import withAcuCategories from '../../../../../../components/private/LN/acumulado/hocs/withAcuCategories';
 jest.mock('fusion:content', () => ({
     useContent: () => ({
         _id: '/',
@@ -38,126 +40,87 @@ jest.mock('fusion:content', () => ({
         ]
     })
 }));
-jest.mock(
-    '../../../../../../components/private/LN/acumulado/acumuladoTitle',
-    () => 'acumulado-title-mock'
+const Component = ({ isPrimarySection, navigation }) => (
+    <div>
+        <p>isPrimarySection: {String(isPrimarySection)}</p>
+        <p>navigation: {JSON.stringify(navigation)}</p>
+    </div>
 );
-import React from 'react';
-import { render, shallow } from 'enzyme';
-import withAcuCategories from '../../../../../../components/private/LN/acumulado/hocs/withAcuCategories';
-import filter from '../../../../../../content/filters/LN/acumulado/collections';
-import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/acumuladoTitle';
-const navigationManual = [
-    {
-        _id: '/economia/campo',
-        _website: 'la-nacion-ar',
-        name: 'Campo',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/comercio-exterior',
-        _website: 'la-nacion-ar',
-        name: 'Comercio Exterior',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/dolar',
-        _website: 'la-nacion-ar',
-        name: 'Dólar Hoy',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/industria',
-        _website: 'la-nacion-ar',
-        name: 'Industria',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/empleos',
-        _website: 'la-nacion-ar',
-        name: 'Empleos',
-        node_type: 'section'
-    }
-];
-const navigationAutomatica = [
-    {
-        _id: '/economia/campo',
-        _website: 'la-nacion-ar',
-        name: 'Campo',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/comercio-exterior',
-        _website: 'la-nacion-ar',
-        name: 'Comercio Exterior',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/dolar',
-        _website: 'la-nacion-ar',
-        name: 'Dólar Hoy',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/industria',
-        _website: 'la-nacion-ar',
-        name: 'Industria',
-        node_type: 'section'
-    },
-    {
-        _id: '/economia/empleos',
-        _website: 'la-nacion-ar',
-        name: 'Empleos',
-        node_type: 'section'
-    }
-];
-xdescribe('Private - Common - hocs - withAcuCategories => ', () => {
-    const props = {
-        globalContent: {
-            acumuladoGeneral: { hierarchy_navigation: 'Economy' },
-            children: navigationAutomatica,
-            _id: '/economia'
+const ComponentWithHOC = (hideCategories, navigation) => (
+    <Component
+        globalContent={{
+            _id: '/news',
+            children: ['category1', 'category2']
+        }}
+        hideCategories={hideCategories}
+        hierarchyManual="news"
+        isPrimarySection={true}
+        navigation={
+            navigation
+                ? [
+                      {
+                          _id: '/economia/dolar',
+                          _website: 'la-nacion-ar',
+                          name: 'Dólar Hoy',
+                          node_type: 'section'
+                      },
+                      {
+                          _id: '/economia/comercio-exterior',
+                          _website: 'la-nacion-ar',
+                          name: 'Comercio Exterior',
+                          node_type: 'section'
+                      },
+                      {
+                          _id: '/economia/campo',
+                          _website: 'la-nacion-ar',
+                          name: 'Campo',
+                          node_type: 'section'
+                      },
+                      {
+                          _id: '/economia/industria',
+                          _website: 'la-nacion-ar',
+                          name: 'Industria',
+                          node_type: 'section'
+                      },
+                      {
+                          _id: '/economia/empleos',
+                          _website: 'la-nacion-ar',
+                          name: 'Empleos',
+                          node_type: 'section'
+                      }
+                  ]
+                : false
         }
-    };
-    const component = props => <AcumuladoTitle {...props} />;
-    const ComponentWithAcuCategories = withAcuCategories(
-        component(props),
-        filter,
-        'la-nacion-ar'
-    );
-    it('Render OK', () => {
-        const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
-        expect(wrapper).toBeDefined();
+    />
+);
+describe('components - private - LN - acumulado - hocs - withAcuCategories', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
     });
-    it('Render NOTOK', () => {
-        const props = {};
-        const component = props => <AcumuladoTitle {...props} />;
-        const ComponentWithAcuCategories = withAcuCategories(
-            component(props),
-            filter,
-            'la-nacion-ar'
-        );
-        const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
-        expect(wrapper).toBeDefined();
-        expect(wrapper.first().props().navigation).toBe(undefined);
-        expect(wrapper.first().props().isPrimarySection).toBe(undefined);
-    });
-    it('Prioridad navegación manual', () => {
-        const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
-        expect(wrapper.first()).toBeTruthy();
-        expect(wrapper.first().props().navigation).toStrictEqual(
-            navigationManual
-        );
-    });
-    it('Ocultar navegación automática / manual', () => {
-        const _props = {
-            ...props,
+    it('should pass props correctly when hideCategories is "false"', () => {
+        const props = {
             globalContent: {
-                ...props.globalContent
+                _id: '/news',
+                children: ['category1', 'category2']
             },
-            hideCategories: 'true'
+            hideCategories: 'false',
+            hierarchyManual: 'news'
         };
-        const wrapper = shallow(<ComponentWithAcuCategories {..._props} />);
-        expect(wrapper.first().props().navigation).toStrictEqual(false);
+        expect(
+            withAcuCategories(Component, {}, 'la-nacion-ar')(props)
+        ).toStrictEqual(ComponentWithHOC('false', true));
+    });
+    it('should not pass navigation prop when hideCategories is not "false"', () => {
+        const props = {
+            globalContent: {
+                _id: '/news',
+                children: ['category1', 'category2']
+            },
+            hideCategories: 'true',
+            hierarchyManual: 'news'
+        };
+        expect(
+            withAcuCategories(Component, {}, 'la-nacion-ar')(props)
+        ).toStrictEqual(ComponentWithHOC('true', false));
     });
 });

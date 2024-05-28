@@ -1,3 +1,4 @@
+import React from 'react';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Button } from '@ln/contenidos-ui-button';
 import { Link } from '@ln/common-ui-link';
@@ -25,7 +26,7 @@ export const InfoBox = ({ deployment, contextPath }) => {
         alt: 'Logo de Canchallena'
     };
     return (
-        <article className="p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100">
+        <article className="p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32">
             <Link
                 href="https://canchallena.lanacion.com.ar/"
                 title="Ir a Canchallena"
@@ -36,17 +37,19 @@ export const InfoBox = ({ deployment, contextPath }) => {
                     <div className="mb-0_m mb-24 mr-24_m flex-shrink-0">
                         <Adaptableimage {...imgData} />
                     </div>
-                    <div className="flex flex-column ai-start_m ai-center jc-center jc-evenly flex-shrink-1">
-                        <Adaptableimage {...logoData} />
-                        <Text
-                            as="p"
-                            className="--font-primary --font-m-xl text-center text-initial_m text-neutral-light-800 mb-24 mt-16 inline-flex"
-                        >
-                            Resultados deportivos en vivo de fútbol con
-                            actualización en directo, próximos partidos,
-                            fixtures, estadísticas, tablas de liga y todos los
-                            detalles
-                        </Text>
+                    <div className="flex flex-column gap-24 ai-start_m ai-center jc-center jc-evenly flex-shrink-1">
+                        <div className="gap-16 flex flex-wrap jc-start_m jc-center">
+                            <Adaptableimage {...logoData} />
+                            <Text
+                                as="p"
+                                className="--font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800"
+                            >
+                                Resultados deportivos en vivo de fútbol con
+                                actualización en directo, próximos partidos,
+                                fixtures, estadísticas, tablas de liga y todos
+                                los detalles
+                            </Text>
+                        </div>
                         <Button
                             title="Ir a Canchallena"
                             variant="primary"

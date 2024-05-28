@@ -1,8 +1,8 @@
 import { videoJWNota } from '../../../../../common/elements/story/videoJW';
 
-const videoJW = nodo => {
+const videoJW = (nodo, notaId = '') => {
     if (!nodo) return null;
-    const valorNodo = videoJWNota(nodo);
+    const valorNodo = videoJWNota(nodo, notaId);
     if (valorNodo) {
         return {
             _t: 'p',

@@ -5,6 +5,7 @@ import {
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 import useGetUserData from '../../../hooks/useGetUserData';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
     const { promotions } = useGetUserData();
@@ -21,11 +22,16 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     data-interaction="dataLayerInteraction"
                     data-event-data-layer="subscription_start"
                     data-button="buttonSubscribeText"
-                    onClick={() =>
-                        (location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?cv=670&fc=825&callback=${window.btoa(
+                    onClick={() => {
+                        addEventToDataLayer({
+                            event: 'subscription_start',
+                            button: buttonSubscribeText
+                        });
+
+                        return (location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?cv=670&fc=825&callback=${window.btoa(
                             window.location.href
-                        )}`)
-                    }
+                        )}`);
+                    }}
                 >
                     {buttonSubscribeText}
                 </Button>

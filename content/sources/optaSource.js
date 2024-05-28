@@ -66,5 +66,8 @@ const transform = (data, url) => {
 
 export default {
     fetch,
+    params: {
+        uri: 'text'
+    },
     ttl: 300
 };

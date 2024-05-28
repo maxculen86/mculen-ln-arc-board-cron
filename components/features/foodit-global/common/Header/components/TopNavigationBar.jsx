@@ -5,7 +5,6 @@ import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/foodit-ui-link';
 import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
 import Categories from './menuCategories';
-import StaticContent from '../../../../../private/common/staticContent';
 
 export const TopNavigationBar = ({ categories = [] }) => {
     return (

@@ -7,15 +7,15 @@ import getTitleText from '../../../private/common/utils/getTitleText';
 export const getFieldsFromNotes = index => ({
     [`noteId${index}`]: PropTypes.string.tag({
         name: 'ID de nota',
-        description: 'Ingrese aquí el id deula nota',
+        description: 'Ingrese aquí el id de la nota',
         defaultValue: '',
-        group: `Nota ${index}`
+        group: `Vivo ${index}`
     }),
     [`title${index}`]: PropTypes.string.tag({
         name: 'Título',
         description: 'Ingrese el texto del título.',
         defaultValue: '',
-        group: `Nota ${index}`
+        group: `Vivo ${index}`
     })
 });
 
@@ -97,4 +97,38 @@ export const calculateTimePublish = (noteDate, currentDate) => {
     const minutes = convertMillisecondsToMinutes(diference);
 
     return minutes < 45 && `Hace ${minutes} min`;
+};
+
+export const getTopicsFromCustomFields = (customFields = {}) => {
+    const totalCustomFieldsKeys = Object.keys(customFields).length;
+    const topicKeys = [...new Array(totalCustomFieldsKeys).keys()];
+
+    return topicKeys
+        .map(key => ({
+            title: customFields[`title ${key}`],
+            link: customFields[`link ${key}`],
+            dataEvent: 'e_linkclick',
+            dataSection: 'MenuLN'
+        }))
+        .filter(topic => topic.title && topic.link);
+};
+
+export const setTopicsCustomFields = (maxTopics = 5) => {
+    const iterator = [...new Array(maxTopics).keys()];
+
+    return iterator.reduce((customFields, next) => {
+        const group = `Tema ${next + 1}`;
+
+        return {
+            ...customFields,
+            [`title ${next}`]: PropTypes.string.isRequired.tag({
+                label: 'Título',
+                group
+            }),
+            [`link ${next}`]: PropTypes.string.isRequired.tag({
+                label: 'Link',
+                group
+            })
+        };
+    }, {});
 };

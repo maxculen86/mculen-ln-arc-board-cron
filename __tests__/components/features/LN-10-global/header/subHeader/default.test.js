@@ -6,7 +6,6 @@ import {
     setDollarData,
     setAccessData
 } from '../../../../../../components/features/LN-10-global/header/subHeader/_helper';
-import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 import {
     setEventsAccess,
     setEventsDollar
@@ -22,21 +21,17 @@ jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
 const mockDollar = dollarData;
 const mockAccess = [
     {
-        icon: <IconSprite name="bookmark" critical />,
-        text: 'Mis notas',
-        href: 'https://www.lanacion.com.ar/mis-notas/'
+        text: 'LN juegos',
+        href: 'https://www.lanacion.com.ar/juegos/'
     },
     {
-        icon: <IconSprite name="emailOpen" critical />,
+        text: 'Suscriptores',
+        href: 'https://www.lanacion.com.ar/suscriptores/'
+    },
+    {
         text: 'Newsletters',
         href:
-            'https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
-    },
-    {
-        icon: <IconSprite name="clubLnDefault" critical />,
-        text: 'Club LA NACION',
-        href:
-            'https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
+            'https://newsletter.lanacion.com.ar/?_ga=2.115587013.2111665650.1713785519-1414281100.1711030569'
     }
 ];
 
@@ -121,7 +116,6 @@ describe('components - features - LN-10-global - subHeader - default', () => {
 
         expect(container).toMatchSnapshot();
     });
-    // TODO: REFACTOR HEADER
     test('should register in dataLayer the click events of each link', () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: true

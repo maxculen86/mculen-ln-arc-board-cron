@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import GooglePublisherTag from '../../../../../components/private/common/scriptManager/googlePublisherTag';
 
 jest.mock('fusion:context', () => ({
@@ -8,7 +8,7 @@ jest.mock('fusion:context', () => ({
     }
 }));
 
-xdescribe('GooglePublisherTag', () => {
+describe('GooglePublisherTag', () => {
     const props = {
         location: 'header',
         globalContent: {
@@ -65,17 +65,11 @@ xdescribe('GooglePublisherTag', () => {
             }
         }
     };
+
     it('Builds the json object accordingly', () => {
-        const component = mount(<GooglePublisherTag {...props} />);
+        const { container } = render(<GooglePublisherTag {...props} />);
+        const scriptElements = container.querySelectorAll('script');
 
-        const script =
-            "googletag.pubads().setTargeting('tags_nuevos', ['ca_economia','ca_revista_jardin', 'te_comun','te_turismo', 'au_john_doe', 'url_economia_ultima-prueba-syndication-nid14052020', 'te_6WTWFSCNKBGHTPTZUBF7WOPC5M'])";
-
-        expect(component.find('script')).toHaveLength(3);
-        expect(
-            component
-                .find('script')
-                .filterWhere(item => item.prop('type') === 'text/javascript')
-        ).toHaveLength(1);
+        expect(scriptElements.length).toBe(2);
     });
 });

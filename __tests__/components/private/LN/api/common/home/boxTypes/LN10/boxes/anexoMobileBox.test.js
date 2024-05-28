@@ -79,9 +79,9 @@ describe('anexoMobileBox LN10', () => {
 
         expect(result).toEqual({
             anexo: {
-                src: 'https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0',
-                url: 'https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0',
-                alto: 300
+                src:
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+                alto: 315
             },
             tipoSeccion: 'anexoMobile',
             idSeccion: 603

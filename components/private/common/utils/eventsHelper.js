@@ -66,45 +66,6 @@ export const setEventSignIn = () => {
     addEventListeners(btnSignIn, payload);
 };
 
-export const setEventsSections = () => {
-    const sections = window.document.querySelectorAll('.dd-link');
-
-    sections.forEach(section => {
-        const payload = {
-            action: 'menu_secciones',
-            label: createDynamicLabel(section.innerHTML)
-        };
-
-        addEventListeners(section, payload);
-    });
-};
-
-export const setEventsWeather = () => {
-    const linkWeather = window.document.querySelector(
-        '.link.ln-link.--weather'
-    );
-
-    const payload = {
-        action: 'header_clima',
-        label: 'clima'
-    };
-
-    addEventListeners(linkWeather, payload);
-};
-
-export const setEventsTopics = () => {
-    const topics = window.document.querySelectorAll('.tag-list a');
-
-    topics.forEach(topicElement => {
-        const payload = {
-            action: 'header_temas_hoy',
-            label: createDynamicLabel(topicElement.title)
-        };
-
-        addEventListeners(topicElement, payload);
-    });
-};
-
 export const setEventsDollar = () => {
     const dollars = window.document.querySelectorAll('.dollar a');
 

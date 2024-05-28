@@ -37,7 +37,7 @@ describe('components - features - LN-10-global - header - navbar', () => {
         toggleDesplegable: jest.fn()
     }));
 
-    it('should render "Home, "Sections", "Profile", "Club LN", "Mis notas" buttons regardless of the userType', () => {
+    it('should render "Home, "Sections", "Profile", "Club LN", "Foodit" buttons regardless of the userType', () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: false,
             userType: 'subscribed',
@@ -47,9 +47,9 @@ describe('components - features - LN-10-global - header - navbar', () => {
 
         expect(getByText('Inicio')).toBeInTheDocument();
         expect(getByText('Secciones')).toBeInTheDocument();
-        expect(getByText('Mis Notas')).toBeInTheDocument();
+        expect(getByText('Foodit')).toBeInTheDocument();
         expect(getByText('Club LN')).toBeInTheDocument();
-        expect(getByText('Perfil')).toBeInTheDocument();
+        expect(getByText('Mi cuenta')).toBeInTheDocument();
     });
 
     it.skip('should match snapshot', () => {

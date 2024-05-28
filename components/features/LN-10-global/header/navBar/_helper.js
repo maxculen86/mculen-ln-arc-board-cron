@@ -1,12 +1,7 @@
 import * as React from 'react';
-import { SITE_LANACION, API_ENV, MY_ACCOUNT_URL } from 'fusion:environment';
+import { SITE_LANACION, MY_ACCOUNT_URL } from 'fusion:environment';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
-
-const bookmarkUrl =
-    API_ENV === 'prod'
-        ? `${SITE_LANACION}/mis-notas/`
-        : `${SITE_LANACION}/pf/mis-notas/?_website=la-nacion-ar`;
 
 export const getEventData = label => ({
     event: 'e_linkclick',
@@ -15,8 +10,7 @@ export const getEventData = label => ({
     label
 });
 
-export const getNavbarItems = toggleDesplegable => [
-    // TODO: agregar botton de foodit junto al lanzamiento del sitio
+export const getNavbarItems = (toggleDesplegable, userType) => [
     {
         text: 'Inicio',
         icon: <IconSprite name="home" critical />,
@@ -38,12 +32,12 @@ export const getNavbarItems = toggleDesplegable => [
         }
     },
     {
-        text: 'Mis Notas',
-        icon: <IconSprite name="bookmark" critical />,
-        className: 'bookmark',
-        link: bookmarkUrl,
+        text: 'Foodit',
+        icon: <IconSprite name="foodit" critical />,
+        className: 'foodit',
+        link: 'https://foodit.lanacion.com.ar/',
         callback: () => {
-            addEventToDataLayer(getEventData('mis_notas'));
+            addEventToDataLayer(getEventData('foodit'));
         }
     },
     {
@@ -56,7 +50,7 @@ export const getNavbarItems = toggleDesplegable => [
         }
     },
     {
-        text: 'Perfil',
+        text: userType !== 'unlogged' ? 'Mi cuenta' : 'Ingresar',
         icon: <IconSprite name="profile" critical />,
         className: 'profile',
         link: `${MY_ACCOUNT_URL}/mi-usuario/`,

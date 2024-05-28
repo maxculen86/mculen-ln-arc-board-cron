@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 import { GridArticlesFoodit } from './gridArticles';
 import { LoadMoreButton } from './loadMoreButton';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
+import isSSR from '../../../../private/LN/common/utils/isSSR';
 
-const GridFooditClient = ({
-    id = '',
-    layout = '',
-    showButton = false,
-    maxArticles = 24
-}) => {
+const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalArticles, setTotalArticles] = useState([]);
     const [pageLoaded, setPageLoaded] = useState({});
 
-    const { idArticleList, articles, hasMoreArticle } = useGridArticlesFoodit({
+    const { idArticleList, articles, count } = useGridArticlesFoodit({
         id,
         page: currentPage,
         layout,
@@ -30,6 +26,13 @@ const GridFooditClient = ({
         setTotalArticles(prev => [...prev, ...articles]);
         setLoading(false);
     }
+    //TODO: revisar posible mejora de logica para boton ver mas
+    const showButton =
+        !isSSR() &&
+        document.getElementsByTagName('article').length >= maxArticles &&
+        count !== maxArticles;
+
+    const hasMoreArticles = totalArticles.length + maxArticles < count;
 
     const clickMoreArticle = () => {
         setLoading(true);
@@ -41,12 +44,13 @@ const GridFooditClient = ({
             {totalArticles.length > 0 && (
                 <GridArticlesFoodit articles={totalArticles} />
             )}
-            {(currentPage === 1 || loading || hasMoreArticle) && showButton && (
-                <LoadMoreButton
-                    clickMoreArticle={clickMoreArticle}
-                    loading={loading}
-                />
-            )}
+            {showButton &&
+                (currentPage === 1 || loading || hasMoreArticles) && (
+                    <LoadMoreButton
+                        clickMoreArticle={clickMoreArticle}
+                        loading={loading}
+                    />
+                )}
         </>
     );
 };

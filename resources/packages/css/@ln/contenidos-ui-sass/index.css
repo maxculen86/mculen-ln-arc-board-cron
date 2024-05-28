@@ -2007,10 +2007,6 @@ strong:not(.--font-primary),
   margin-top: 0.5rem;
 }
 
-.mt-16 {
-  margin-top: 1rem;
-}
-
 .mt-32 {
   margin-top: 2rem;
 }
@@ -2452,10 +2448,6 @@ strong:not(.--font-primary),
 
 .jc-start {
   justify-content: flex-start;
-}
-
-.jc-evenly {
-  justify-content: space-evenly;
 }
 
 .ai-center {

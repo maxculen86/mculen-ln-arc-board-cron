@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SummaryBox from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/summaryBox/foodit';
 
@@ -18,7 +18,7 @@ describe('components - features - foodit-global - body - powerUpRecetas - summar
         );
 
         expect(getByText('Tiempo de cocción')).toBeInTheDocument();
-        expect(getByText('Tiempo de Preparación')).toBeInTheDocument();
+        expect(getByText('Tiempo de preparación')).toBeInTheDocument();
         expect(getByText('Tiempo total')).toBeInTheDocument();
 
         const icons = document.querySelectorAll('i');
@@ -42,7 +42,7 @@ describe('components - features - foodit-global - body - powerUpRecetas - summar
             <SummaryBox prepTime={prepTime} counterTime={counterTime} />
         );
 
-        expect(getByText('Tiempo de Preparación')).toBeInTheDocument();
+        expect(getByText('Tiempo de preparación')).toBeInTheDocument();
         expect(getByText('Tiempo total')).toBeInTheDocument();
 
         const icons = document.querySelectorAll('i');

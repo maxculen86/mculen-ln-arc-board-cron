@@ -1,4 +1,5 @@
 import React from 'react';
+import SnippetRender from '../../../private/common/snippet/snippetRender';
 
 const shouldNotRenderSchema = ['acumulado-chef', 'ficha-receta'];
 
@@ -18,11 +19,5 @@ export const BreadcrumbSchema = ({ sections = [], layout = '' }) => {
         }))
     };
 
-    return (
-        <>
-            <script type="application/ld+json" key={`schema-BreadcrumbList`}>
-                {JSON.stringify(breadcrumbSchema)}
-            </script>
-        </>
-    );
+    return <SnippetRender id="breadcrumb-schema" data={breadcrumbSchema} />;
 };

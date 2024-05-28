@@ -22,10 +22,19 @@ export default class PostBid extends Component {
             ['nota', 'acumulado'].includes(
                 getSectionName({ nodeType, type })
             ) && (
-                <script
-                    async
-                    src={`https://micro.rubiconproject.com/prebid/dynamic/20148${isTest}.js`}
-                />
+                <>
+                    <script
+                        async
+                        src={`https://micro.rubiconproject.com/prebid/dynamic/20148${isTest}.js`}
+                    />
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            var pbjs = pbjs || {};
+                            pbjs.que = pbjs.que || [];`
+                        }}
+                    />
+                </>
             )
         );
     }
