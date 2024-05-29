@@ -4,6 +4,7 @@ import { getSuitableForDietUrls } from './_helpers';
 import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 import replaceBaseUrl from '../common/utils/replaceBaseUrl';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
+import SnippetRender from '../../../private/common/snippet/snippetRender';
 
 export const RecipeSchema = ({ article = {} }) => {
     const {
@@ -94,12 +95,11 @@ export const RecipeSchema = ({ article = {} }) => {
     return (
         <>
             {[recipeSchema, howToSchema, creativeWorkchema].map(schema => (
-                <script
-                    type="application/ld+json"
+                <SnippetRender
                     key={`schema-${schema['@type']}`}
-                >
-                    {JSON.stringify(schema)}
-                </script>
+                    id={`schema-${schema['@type']}`}
+                    data={schema}
+                />
             ))}
         </>
     );

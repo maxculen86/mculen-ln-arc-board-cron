@@ -62,7 +62,7 @@ describe('cardAnexo v2 LN10', () => {
         expect(result).toBeNull();
     });
 
-    it('should return the first result item with html content', () => {
+    it('should return the first result item with html content iframe', () => {
         const element = {
             articles: [
                 {
@@ -79,12 +79,82 @@ describe('cardAnexo v2 LN10', () => {
 
         expect(result).toEqual({
             anexo: {
-                src: 'https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0',
-                url: 'https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0',
-                alto: 300
+                src:
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+                alto: 315
             },
             tipoSeccion: 'anexoMobile',
             idSeccion: 603
         });
+    });
+
+    it('should return first result element with html content with height 400', () => {
+        const element = {
+            articles: [
+                {
+                    html:
+                        '<style> #ln-anexo-copa-america-container{ height:180px; overflow:hidden; background-color:#f0f2f6;}@media (max-width: 768px) {#ln-anexo-copa-america-container{height:265px;}}</style><div id="ln-anexo-copa-america-container" height="300" height-mobile="400"><ln-anexo-copa-america env="dev"></ln-anexo-copa-america></div><script type="module" src="https://especialess3.lanacion.com.ar/interactivos/24/06/anexo-copa-america-2024/ln-anexo-copa-america.js" async></script>'
+                }
+            ]
+        };
+        const featureInfo = {
+            tipoSeccion: 'anexoMobile',
+            idSeccion: 603
+        };
+        const result = anexoMobileBox(element, featureInfo, cardAnexo);
+
+        expect(result).toEqual({
+            anexo: {
+                src:
+                    '<style> #ln-anexo-copa-america-container{ height:180px; overflow:hidden; background-color:#f0f2f6;}@media (max-width: 768px) {#ln-anexo-copa-america-container{height:265px;}}</style><div id="ln-anexo-copa-america-container" height="300" height-mobile="400"><ln-anexo-copa-america env="dev"></ln-anexo-copa-america></div><script type="module" src="https://especialess3.lanacion.com.ar/interactivos/24/06/anexo-copa-america-2024/ln-anexo-copa-america.js" async></script>',
+                alto: 400
+            },
+            tipoSeccion: 'anexoMobile',
+            idSeccion: 603
+        });
+    });
+
+    it('should return first result element with html content with height 600', () => {
+        const element = {
+            articles: [
+                {
+                    html:
+                        '<style> #ln-anexo-copa-america-container{ height:180px; overflow:hidden; background-color:#f0f2f6;}@media (max-width: 768px) {#ln-anexo-copa-america-container{height:265px;}}</style><div id="ln-anexo-copa-america-container" height="600"><ln-anexo-copa-america env="dev"></ln-anexo-copa-america></div><script type="module" src="https://especialess3.lanacion.com.ar/interactivos/24/06/anexo-copa-america-2024/ln-anexo-copa-america.js" async></script>'
+                }
+            ]
+        };
+        const featureInfo = {
+            tipoSeccion: 'anexoMobile',
+            idSeccion: 603
+        };
+        const result = anexoMobileBox(element, featureInfo, cardAnexo);
+
+        expect(result).toEqual({
+            anexo: {
+                src:
+                    '<style> #ln-anexo-copa-america-container{ height:180px; overflow:hidden; background-color:#f0f2f6;}@media (max-width: 768px) {#ln-anexo-copa-america-container{height:265px;}}</style><div id="ln-anexo-copa-america-container" height="600"><ln-anexo-copa-america env="dev"></ln-anexo-copa-america></div><script type="module" src="https://especialess3.lanacion.com.ar/interactivos/24/06/anexo-copa-america-2024/ln-anexo-copa-america.js" async></script>',
+                alto: 600
+            },
+            tipoSeccion: 'anexoMobile',
+            idSeccion: 603
+        });
+    });
+
+    it('should return null because it does not have the height or height-mobile properties', () => {
+        const element = {
+            articles: [
+                {
+                    html:
+                        '<style> #ln-anexo-copa-america-container{ height:180px; overflow:hidden; background-color:#f0f2f6;}@media (max-width: 768px) {#ln-anexo-copa-america-container{height:265px;}}</style><div id="ln-anexo-copa-america-container"><ln-anexo-copa-america env="dev"></ln-anexo-copa-america></div><script type="module" src="https://especialess3.lanacion.com.ar/interactivos/24/06/anexo-copa-america-2024/ln-anexo-copa-america.js" async></script>'
+                }
+            ]
+        };
+        const featureInfo = {
+            tipoSeccion: 'anexoMobile',
+            idSeccion: 603
+        };
+        const result = anexoMobileBox(element, featureInfo, cardAnexo);
+
+        expect(result).toBeNull();
     });
 });

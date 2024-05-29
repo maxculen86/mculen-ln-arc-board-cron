@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { render } from '@testing-library/react';
 import GooglePublisherTagAcumulado from '../../../../../components/private/common/scriptManager/googlePublisherTagAcumulado';
 
 jest.mock('fusion:context', () => ({
@@ -8,7 +8,7 @@ jest.mock('fusion:context', () => ({
     }
 }));
 
-xdescribe('GooglePublisherTagAcumulado', () => {
+describe('GooglePublisherTagAcumulado', () => {
     const content = {
         globalContent: {
             Payload: {
@@ -35,7 +35,7 @@ xdescribe('GooglePublisherTagAcumulado', () => {
     };
 
     it('Returns null when on stories', () => {
-        const component = mount(
+        const { container } = render(
             <GooglePublisherTagAcumulado
                 {...{
                     ...content,
@@ -48,17 +48,19 @@ xdescribe('GooglePublisherTagAcumulado', () => {
                 }}
             />
         );
-        expect(component.html()).toBeNull();
+        expect(container.innerHTML).toEqual('');
     });
 
     it('Builds the json object as expected', () => {
-        const component = mount(<GooglePublisherTagAcumulado {...content} />);
-        expect(component.find('script')).toHaveLength(2);
-        expect(component.html()).toMatch('ca_recetas');
-        expect(component.html()).toMatch('ca_deportes');
-        expect(component.html()).toMatch('ca_futbol');
-        expect(component.html()).toMatch('te_deportes-qatar');
-        expect(component.html()).toMatch('au_alberto-fernandez');
+        const { container } = render(
+            <GooglePublisherTagAcumulado {...content} />
+        );
+        expect(container.querySelectorAll('script')).toHaveLength(2);
+        expect(container.innerHTML).toMatch('ca_recetas');
+        expect(container.innerHTML).toMatch('ca_deportes');
+        expect(container.innerHTML).toMatch('ca_futbol');
+        expect(container.innerHTML).toMatch('te_deportes-qatar');
+        expect(container.innerHTML).toMatch('au_alberto-fernandez');
     });
 
     const content2 = {
@@ -71,10 +73,12 @@ xdescribe('GooglePublisherTagAcumulado', () => {
     };
 
     it('Builds the json object without ancestors', () => {
-        const component = mount(<GooglePublisherTagAcumulado {...content2} />);
-        expect(component.find('script')).toHaveLength(2);
-        expect(component.html()).toMatch('ca_deportes');
-        expect(component.html()).toMatch('ca_futbol');
+        const { container } = render(
+            <GooglePublisherTagAcumulado {...content2} />
+        );
+        expect(container.querySelectorAll('script')).toHaveLength(2);
+        expect(container.innerHTML).toMatch('ca_deportes');
+        expect(container.innerHTML).toMatch('ca_futbol');
     });
 
     const content3 = {
@@ -82,7 +86,9 @@ xdescribe('GooglePublisherTagAcumulado', () => {
     };
 
     it('Builds the json object without ancestors', () => {
-        const component = render(<GooglePublisherTagAcumulado {...content3} />);
-        expect(component).toBeDefined();
+        const { container } = render(
+            <GooglePublisherTagAcumulado {...content3} />
+        );
+        expect(container.innerHTML).toBeDefined();
     });
 });

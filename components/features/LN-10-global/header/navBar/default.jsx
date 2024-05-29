@@ -8,10 +8,10 @@ import '../../../../../resources/packages/css/@ln/common-ui-link/index.css';
 import '../../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 export const NavBar = () => {
-    const { toggleDesplegable } = useHeaderContext();
+    const { toggleDesplegable, userType } = useHeaderContext();
     return (
         <Navbarmobile
-            data={getNavbarItems(toggleDesplegable)}
+            data={getNavbarItems(toggleDesplegable, userType)}
             className="--no-app"
         />
     );

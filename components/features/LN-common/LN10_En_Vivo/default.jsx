@@ -6,7 +6,9 @@ import {
     getFieldsFromNotes,
     getNotesLists,
     findError,
-    validateId
+    validateId,
+    getTopicsFromCustomFields,
+    setTopicsCustomFields
 } from './_helpers';
 import get from '../../../private/common/utils/get';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
@@ -22,8 +24,8 @@ const EnVivo = ({ customFields, id: featureId }) => {
     const hideFeature = get(customFields, 'show', false);
     const chapita = get(customFields, 'chapita', 'vivo');
     const chapitaStyle = get(customFields, 'chapitaStyle', 2);
-    const listCustomFileds = Object.entries(customFields);
-    const articles = getNotesLists(listCustomFileds);
+    const listCustomFields = Object.entries(customFields);
+    const articles = getNotesLists(listCustomFields);
     const error = findError(articles);
 
     const { bannerMob = undefined } =
@@ -63,6 +65,8 @@ const EnVivo = ({ customFields, id: featureId }) => {
         })
         .filter(article => validateId(article.id));
 
+    const topics = getTopicsFromCustomFields(customFields);
+
     return (
         <StaticContentV2 {...{ ...extraOptsDiv, id: featureId }}>
             {setRender({
@@ -82,7 +86,13 @@ const EnVivo = ({ customFields, id: featureId }) => {
                                 }
                                 badgeType={typeBadge[chapitaStyle]}
                                 data-testid="live-component"
-                            />
+                            >
+                                {topics.length !== 0 ? (
+                                    <Live.Topics tags={topics} />
+                                ) : (
+                                    <></>
+                                )}
+                            </Live>
                             {bannerMob}
                         </>
                     )
@@ -104,19 +114,20 @@ EnVivo.propTypes = {
             name: 'Texto de chapita',
             description: 'Ingrese aquí el texto de la chapita',
             default: 'Vivo',
-            group: 'Chapita'
+            group: 'Chapita para VIVOS'
         }),
         chapitaStyle: PropTypes.oneOf([0, 1, 2]).tag({
             labels: typeBadge,
             label: 'Estilo Chapita',
             defaultValue: 2,
-            group: 'Chapita'
+            group: 'Chapita para VIVOS'
         }),
         show: PropTypes.bool.tag({
             name: 'Ocultar ',
             description: 'Definí la visibilidad del "En vivo"',
             default: false
-        })
+        }),
+        ...(setTopicsCustomFields() || {})
     }).isRequired
 };
 

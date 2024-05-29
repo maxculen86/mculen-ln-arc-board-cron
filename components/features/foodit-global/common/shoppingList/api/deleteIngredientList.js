@@ -15,7 +15,7 @@ const deleteIngredientList = async (bookmarkId, setShoppingList) => {
                 method: 'DELETE',
                 headers: {
                     'X-Token': token,
-                    Authorization: accessToken
+                    Authorization: `Bearer ${accessToken}`
                 }
             }
         );

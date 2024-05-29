@@ -3,12 +3,7 @@ import Static from 'fusion:static';
 import { GridArticlesFoodit } from './gridArticles';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
 
-const GridFooditServer = ({
-    id = '',
-    layout = '',
-    haveShowButton,
-    maxArticles = 24
-}) => {
+const GridFooditServer = ({ id = '', layout = '', maxArticles = 24 }) => {
     const { articles } = useGridArticlesFoodit({
         id,
         layout,
@@ -18,11 +13,7 @@ const GridFooditServer = ({
 
     return (
         <Static id={`acu-grid-ssr-${id}`}>
-            <GridArticlesFoodit
-                articles={articles}
-                maxArticles={maxArticles}
-                haveShowButton={haveShowButton}
-            />
+            <GridArticlesFoodit articles={articles} maxArticles={maxArticles} />
         </Static>
     );
 };

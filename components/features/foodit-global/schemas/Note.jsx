@@ -7,6 +7,7 @@ import { fooditSchemaLogo } from './_helpers';
 import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 import replaceBaseUrl from '../common/utils/replaceBaseUrl';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
+import SnippetRender from '../../../private/common/snippet/snippetRender';
 
 export const StorytellingSchema = ({ article = {} }) => {
     const { contextPath, deployment } = useAppContext();
@@ -51,11 +52,5 @@ export const StorytellingSchema = ({ article = {} }) => {
         description: `${subheadline || title} - Foodit`
     };
 
-    return (
-        <>
-            <script type="application/ld+json" key={`schema-NewsArticle`}>
-                {JSON.stringify(recipeSchema)}
-            </script>
-        </>
-    );
+    return <SnippetRender id="ficha-schema" data={recipeSchema} />;
 };

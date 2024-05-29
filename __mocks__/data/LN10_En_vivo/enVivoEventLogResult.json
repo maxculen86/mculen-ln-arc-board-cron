@@ -1,0 +1,32 @@
+[
+    {
+        "dynamic_action": "temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "tema_1",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "tema_2",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "tema_3",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "tema_4",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "tema_5",
+        "event": "e_linkclick"
+    }
+]

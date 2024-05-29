@@ -1,29 +1,34 @@
 import React from 'react';
 import { Link } from '@ln/contenidos-ui-link';
-import { Icon } from '@ln/common-ui-icon';
 
-export const Access = ({ data }) => {
-    if (data.leght === 0) return <></>;
+export const Access = ({ accessData = [] }) => {
+    if (accessData.length === 0) return <></>;
+    const lastChild = accessData.length - 1;
     return (
         <div className="access-container --tablet-none ">
-            <ul className="access flex">
-                {data.map(({ href, text, icon, callback }, i) => {
+            <ul className="access flex gap-8">
+                {accessData.map(({ href, text, callback }, accessIndex) => {
+                    const divider =
+                        accessIndex !== lastChild ? (
+                            <hr className="border-left-none" />
+                        ) : (
+                            <></>
+                        );
                     return (
-                        <li className="w-max mr-16" key={i}>
-                            <Link
-                                className="flex ai-center"
-                                href={href}
-                                title={`Ir a ${text}`}
-                                size="xs"
-                                onClick={callback}
-                                unstyled
-                            >
-                                <Icon size={20} className="mr-4">
-                                    {icon}
-                                </Icon>
-                                {text}
-                            </Link>
-                        </li>
+                        <div className="flex gap-8">
+                            <li className="w-max" key={accessIndex}>
+                                <Link
+                                    className="flex ai-center"
+                                    href={href}
+                                    title={`Ir a ${text}`}
+                                    text={text}
+                                    size="xs"
+                                    onClick={callback}
+                                    unstyled
+                                />
+                            </li>
+                            {divider}
+                        </div>
                     );
                 })}
             </ul>

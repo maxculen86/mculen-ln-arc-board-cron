@@ -91,7 +91,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Arroz"
+                  data-dynamic-action="arroz"
                   data-dynamic-category="header"
                   data-dynamic-label="Saladas"
                   data-event-data-layer="e_linkclick"
@@ -119,7 +119,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Tartas"
+                  data-dynamic-action="tartas"
                   data-dynamic-category="header"
                   data-dynamic-label="Saladas"
                   data-event-data-layer="e_linkclick"
@@ -147,7 +147,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Pollo"
+                  data-dynamic-action="pollo"
                   data-dynamic-category="header"
                   data-dynamic-label="Saladas"
                   data-event-data-layer="e_linkclick"
@@ -175,7 +175,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Pizzas y empanadas"
+                  data-dynamic-action="pizzas_y_empanadas"
                   data-dynamic-category="header"
                   data-dynamic-label="Saladas"
                   data-event-data-layer="e_linkclick"
@@ -203,7 +203,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Pasta"
+                  data-dynamic-action="pasta"
                   data-dynamic-category="header"
                   data-dynamic-label="Saladas"
                   data-event-data-layer="e_linkclick"
@@ -231,7 +231,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Pescados"
+                  data-dynamic-action="pescados"
                   data-dynamic-category="header"
                   data-dynamic-label="Saladas"
                   data-event-data-layer="e_linkclick"
@@ -259,7 +259,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Carnes"
+                  data-dynamic-action="carnes"
                   data-dynamic-category="header"
                   data-dynamic-label="Saladas"
                   data-event-data-layer="e_linkclick"
@@ -326,7 +326,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Tortas"
+                  data-dynamic-action="tortas"
                   data-dynamic-category="header"
                   data-dynamic-label="Dulces"
                   data-event-data-layer="e_linkclick"
@@ -354,7 +354,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Postres"
+                  data-dynamic-action="postres"
                   data-dynamic-category="header"
                   data-dynamic-label="Dulces"
                   data-event-data-layer="e_linkclick"
@@ -382,7 +382,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Panqueques"
+                  data-dynamic-action="panqueques"
                   data-dynamic-category="header"
                   data-dynamic-label="Dulces"
                   data-event-data-layer="e_linkclick"
@@ -410,7 +410,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Budines"
+                  data-dynamic-action="budines"
                   data-dynamic-category="header"
                   data-dynamic-label="Dulces"
                   data-event-data-layer="e_linkclick"
@@ -438,7 +438,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Helados"
+                  data-dynamic-action="helados"
                   data-dynamic-category="header"
                   data-dynamic-label="Dulces"
                   data-event-data-layer="e_linkclick"
@@ -466,7 +466,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Batidos"
+                  data-dynamic-action="batidos"
                   data-dynamic-category="header"
                   data-dynamic-label="Dulces"
                   data-event-data-layer="e_linkclick"
@@ -523,7 +523,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Vegetariana"
+                  data-dynamic-action="vegetariana"
                   data-dynamic-category="header"
                   data-dynamic-label="Dieta"
                   data-event-data-layer="e_linkclick"
@@ -551,7 +551,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Sin gluten"
+                  data-dynamic-action="sin_gluten"
                   data-dynamic-category="header"
                   data-dynamic-label="Dieta"
                   data-event-data-layer="e_linkclick"
@@ -579,7 +579,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Keto"
+                  data-dynamic-action="keto"
                   data-dynamic-category="header"
                   data-dynamic-label="Dieta"
                   data-event-data-layer="e_linkclick"
@@ -607,7 +607,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Sin lactosa"
+                  data-dynamic-action="sin_lactosa"
                   data-dynamic-category="header"
                   data-dynamic-label="Dieta"
                   data-event-data-layer="e_linkclick"
@@ -635,7 +635,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Vegana"
+                  data-dynamic-action="vegana"
                   data-dynamic-category="header"
                   data-dynamic-label="Dieta"
                   data-event-data-layer="e_linkclick"
@@ -693,7 +693,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="De autor"
+                  data-dynamic-action="de_autor"
                   data-dynamic-category="header"
                   data-dynamic-label="¿Que cocinar hoy?"
                   data-event-data-layer="e_linkclick"
@@ -721,7 +721,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Fácil"
+                  data-dynamic-action="facil"
                   data-dynamic-category="header"
                   data-dynamic-label="¿Que cocinar hoy?"
                   data-event-data-layer="e_linkclick"
@@ -749,7 +749,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Saludable"
+                  data-dynamic-action="saludable"
                   data-dynamic-category="header"
                   data-dynamic-label="¿Que cocinar hoy?"
                   data-event-data-layer="e_linkclick"
@@ -777,7 +777,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Bajo costo"
+                  data-dynamic-action="bajo_costo"
                   data-dynamic-category="header"
                   data-dynamic-label="¿Que cocinar hoy?"
                   data-event-data-layer="e_linkclick"
@@ -805,7 +805,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Rápida"
+                  data-dynamic-action="rapida"
                   data-dynamic-category="header"
                   data-dynamic-label="¿Que cocinar hoy?"
                   data-event-data-layer="e_linkclick"
@@ -848,7 +848,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Chef protagonistas"
+                  data-dynamic-action="chef_protagonistas"
                   data-dynamic-category="header"
                   data-dynamic-label="N/A"
                   data-event-data-layer="e_linkclick"
@@ -876,9 +876,9 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Nutrición"
+                  data-dynamic-action="nutricion"
                   data-dynamic-category="header"
-                  data-dynamic-label="N/A"
+                  data-dynamic-label="descubrir"
                   data-event-data-layer="e_linkclick"
                   data-interaction="dataLayerInteraction"
                   data-variant="primary"
@@ -904,9 +904,9 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Restaurantes"
+                  data-dynamic-action="restaurantes"
                   data-dynamic-category="header"
-                  data-dynamic-label="N/A"
+                  data-dynamic-label="descubrir"
                   data-event-data-layer="e_linkclick"
                   data-interaction="dataLayerInteraction"
                   data-variant="primary"
@@ -932,7 +932,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
-                  data-dynamic-action="Beneficion Club La Nación"
+                  data-dynamic-action="beneficion_club_la_nacion"
                   data-dynamic-category="header"
                   data-dynamic-label="N/A"
                   data-event-data-layer="e_linkclick"

@@ -2,6 +2,7 @@ import addEventToDataLayer from '../../../../../private/LN/common/utils/addEvent
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
 import { fillBookmarks } from '../../bookmark/iconHelper';
+import { dataLayerDictionary } from '../../dataLayer/_helpers';
 
 export const saveRecipeConfig = {
     'save-folder': {
@@ -42,6 +43,11 @@ const addSavedBookmarksToDataLayer = (
 ) => {
     if (articlesDetails.length) {
         const [firstArticle] = articlesDetails;
+        const label =
+            dataLayerDictionary[get(firstArticle, 'content.variant')] || '';
+        const title =
+            get(firstArticle, 'content.headlines.basic') ||
+            get(firstArticle, 'content.headlines.mobile', '');
 
         addEventToDataLayer({
             event: 'e_linkclick',
@@ -50,8 +56,8 @@ const addSavedBookmarksToDataLayer = (
             ...(articlesDetails.length > 1
                 ? { title: carouselTitle }
                 : {
-                      title: get(firstArticle, 'headlines.basic', ''),
-                      label: get(firstArticle, 'content.variant', ''),
+                      title,
+                      label,
                       articleId: get(firstArticle, 'content.id', '')
                   })
         });

@@ -52,7 +52,7 @@ jest.mock('react', () => ({
     }))
 }));
 
-xdescribe('components - features - LN-10-global - header - mainHeader - rightOptions - UpsellingButton', () => {
+describe('components - features - LN-10-global - header - mainHeader - rightOptions - UpsellingButton', () => {
     afterAll(() => {
         jest.clearAllMocks();
     });

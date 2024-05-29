@@ -63,7 +63,7 @@ export const SaleBox = ({ ...props }) => {
                         variant="accent"
                         href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
                             window.location.href
-                        )}}`}
+                        )}`}
                     >
                         ¡suscribite hoy!
                     </Button>

@@ -31,7 +31,8 @@ export const descriptionByVariant = ({ layout, variant }) => {
                 <Icon size={16} className="vertical-align-middle mx-4">
                     <IconSprite name="cart" critical />
                 </Icon>
-                para guardar el contenido que te gusta y ¡Listo!
+                en la receta para agregar los ingredientes que necesitas y
+                ¡Listo!
             </span>
         ) : (
             <span>
@@ -39,8 +40,7 @@ export const descriptionByVariant = ({ layout, variant }) => {
                 <Icon size={16} className="vertical-align-middle mx-4">
                     <IconSprite name="bookmark" critical />
                 </Icon>
-                en la receta para agregar los ingredientes que necesitas y
-                ¡Listo!
+                para guardar el contenido que te gusta y ¡Listo!
             </span>
         ),
         '404': (
@@ -68,7 +68,7 @@ export const buttonPropsByVariant = {
         onClick: () => {
             location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
                 window.location.href
-            )}}`;
+            )}`;
         }
     },
     'barrier-unlogged': {

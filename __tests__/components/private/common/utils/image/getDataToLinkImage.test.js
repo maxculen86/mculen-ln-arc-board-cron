@@ -1,12 +1,9 @@
 import React from 'react';
-import * as fusionConsumer from 'fusion:consumer';
-import { shallow, mount } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import getProperties from 'fusion:properties';
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
 import useGetMediaData from '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData';
-// Data
 import dataAccumulatedAuthor from '../../../../../../__mocks__/data/renderables/dataAccumulatedAuthor.json';
 import dataAccumulatedEconomy from '../../../../../../__mocks__/data/renderables/dataAccumulatedEconomy.json';
 import dataAccumulatedCulture from '../../../../../../__mocks__/data/renderables/dataAccumulatedCulture.json';
@@ -15,11 +12,10 @@ import bombaVisible from '../../../../../../__mocks__/data/renderables/bomba/bom
 import dataApertura from '../../../../../../__mocks__/data/renderables/dataApertura2.json';
 import bombaVisibleOnlyNoteId from '../../../../../../__mocks__/data/renderables/bomba/bombaVisibleOnlyNoteId';
 import articleToExclude from '../../../../../../__mocks__/data/images/getDataToLinkImage/articleToExclude.json';
-import globalContent from '../../../../../../__mocks__/data/images/getDataToLinkImage/globalContent';
+import globalContent from '../../../../../../__mocks__/data/images/getDataToLinkImage/globalContent.json';
 import globalContentWithVideo from '../../../../../../__mocks__/data/images/getDataToLinkImage/globalContentWithVideo';
 import responseArticleSourceNota from '../../../../../../__mocks__/data/images/getDataToLinkImage/responseArticleSourceNota';
 import responseRelatedImageSource from '../../../../../../__mocks__/data/images/getDataToLinkImage/responseRelatedImageSource.json';
-import LinkImagePreload from '../../../../../../components/private/LN/common/utils/mediaHelper';
 import dataAperturaWithVideo from '../../../../../../__mocks__/data/renderables/dataAperturaWithVideo.json';
 import responseGetVideoPosterResized from '../../../../../../__mocks__/data/videos/getDataToLinkImage/responseGetVideoPosterResized.json';
 import storytellingWithVideoAndImgDesktop from '../../../../../../__mocks__/data/images/getDataToLinkImage/storytellingWithVideoAndImageDesktop.json';
@@ -29,60 +25,47 @@ jest.mock(
     () => jest.fn()
 );
 
-xdescribe('Common - GetDataToLinkImage', () => {
-    /////////// NOTA ///////////
+describe('Common - GetDataToLinkImage', () => {
     describe('When section is note,', () => {
-        const expected = `<link rel=\"preload\" as=\"image\" fetchPriority=\"high\" href=\"https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg\" imagesrcset=\"https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 879w,https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 1119w,https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 768w\"/>`;
-        const expectedVideoType = `<link rel=\"preload\" as=\"image\" fetchPriority=\"high\" href=\"https://resizer.glanacion.com/resizer/ZpxaMJQuq3zkfZkZ47TcSELlvb0=/351x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg\" imagesrcset=\"https://resizer.glanacion.com/resizer/mxeQgSo8rF_5hYakbXPqoXCi4lo=/820x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 820w,https://resizer.glanacion.com/resizer/3IibxbS9Q7-2PL73hRaFQrk5XCA=/768x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 768w,https://resizer.glanacion.com/resizer/W6Qqj-PwP6QDW_3kLX_oqF7HCog=/360x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 360w,https://resizer.glanacion.com/resizer/ZpxaMJQuq3zkfZkZ47TcSELlvb0=/351x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 351w\"/>`;
-        const expectedFotoAl100 = `<link rel=\"preload\" as=\"image\" fetchpriority=\"high\" media=\"(min-width: 1280.1px)\" href=\"https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg\"><link rel=\"preload\" as=\"image\" fetchpriority=\"high\" media=\"(min-width: 1024.1px and max-width: 1280px)\" href=\"https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg\"><link rel=\"preload\" as=\"image\" fetchpriority=\"high\" media=\"(max-width: 1024px)\" href=\"https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg\">`;
+        const expected =
+            '<link rel="preload" as="image" fetchpriority="high" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg" imagesrcset="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 879w,https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 1119w,https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 768w">';
+        const expectedVideoType =
+            '<link rel="preload" as="image" fetchpriority="high" href="https://resizer.glanacion.com/resizer/ZpxaMJQuq3zkfZkZ47TcSELlvb0=/351x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg" imagesrcset="https://resizer.glanacion.com/resizer/mxeQgSo8rF_5hYakbXPqoXCi4lo=/820x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 820w,https://resizer.glanacion.com/resizer/3IibxbS9Q7-2PL73hRaFQrk5XCA=/768x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 768w,https://resizer.glanacion.com/resizer/W6Qqj-PwP6QDW_3kLX_oqF7HCog=/360x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 360w,https://resizer.glanacion.com/resizer/ZpxaMJQuq3zkfZkZ47TcSELlvb0=/351x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 351w">';
+        const expectedFotoAl100 =
+            '<link rel="preload" as="image" fetchpriority="high" media="(min-width: 1280.1px)" href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 1024.1px and max-width: 1280px)" href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg">';
 
         it('with resized Media, return array media data', () => {
-            const wrapper = shallow(
-                GetDataToLinkImage({
-                    data: globalContent,
-                    section: 'nota'
-                })
+            const { container } = render(
+                <GetDataToLinkImage data={globalContent} section="nota" />
             );
-            expect(wrapper.html()).toEqual(expected);
+
+            expect(container.innerHTML).toEqual(expected);
         });
 
         it('Opening with video, it should return the preload of the facade image', () => {
-            const wrapper1 = shallow(
-                GetDataToLinkImage({
-                    data: globalContentWithVideo,
-                    section: 'nota'
-                })
+            const { container } = render(
+                <GetDataToLinkImage
+                    data={globalContentWithVideo}
+                    section="nota"
+                />
             );
 
-            expect(wrapper1.html()).toEqual(expectedVideoType);
+            expect(container.innerHTML).toEqual(expectedVideoType);
         });
 
-        it('without resized Media, return empty Array', () => {
-            const wrapper = shallow(
-                GetDataToLinkImage({ data: {}, section: 'nota' })
-            );
-            expect(wrapper.isEmptyRender()).toEqual(true);
+        it('without resized Media, return empty string', () => {
+            const { container } = render(<GetDataToLinkImage section="nota" />);
+            expect(container.innerHTML).toEqual('');
         });
 
         it('FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
-            const wrapper2 = mount(
-                GetDataToLinkImage({
-                    data: { ...globalContent, subtype: '8' },
-                    section: 'nota'
-                })
+            const { container } = render(
+                <GetDataToLinkImage
+                    data={{ ...globalContent, subtype: '8' }}
+                    section="nota"
+                />
             );
-            expect(wrapper2.html()).toEqual(expectedFotoAl100);
-        });
-
-        it('FOTOAL100 with promo_items.storytelling_mobile, return empty Array', () => {
-            const wrapper1 = mount(
-                GetDataToLinkImage({
-                    data: { ...articleToExclude, subtype: '8' },
-                    section: 'nota'
-                })
-            );
-
-            expect(wrapper1).toEqual({});
+            expect(container.innerHTML).toEqual(expectedFotoAl100);
         });
 
         it('STORYTELLING without promo_items.storytelling_mobile, return desk preload', () => {
@@ -158,7 +141,6 @@ xdescribe('Common - GetDataToLinkImage', () => {
         });
     });
 
-    /////////// HOME ///////////
     describe('When section is home', () => {
         it('without renderables, return empty fragment', () => {
             const { container } = render(
@@ -283,26 +265,25 @@ xdescribe('Common - GetDataToLinkImage', () => {
         });
     });
 
-    /////////// DEFAULT ///////////
-    describe('When section is undefined return empty', () => {
+    describe('When section is undefined return empty string', () => {
         it('GetDataToLinkImage - nuevaSeccion', () => {
             const globalContent = {};
             const renderables = [];
-            const wrapper = mount(
-                GetDataToLinkImage({
-                    data: globalContent,
-                    section: 'nuevaSeccion',
-                    renderables
-                })
+            const { container } = render(
+                <GetDataToLinkImage
+                    data={globalContent}
+                    section="nuevaSeccion"
+                    renderables={renderables}
+                />
             );
-            expect(wrapper).toEqual({});
+            expect(container.innerHTML).toEqual('');
         });
     });
 
     describe('When the params is undefined', () => {
-        it('without defined parameters, return empty', () => {
-            const wrapper = mount(GetDataToLinkImage({}));
-            expect(wrapper).toEqual({});
+        it('without defined parameters, return empty string', () => {
+            const { container } = render(<GetDataToLinkImage />);
+            expect(container.innerHTML).toEqual('');
         });
     });
 

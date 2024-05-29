@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
-import { getIdCollection, validateChainFoodit } from './common/_helper';
+import {
+    getIdCollection,
+    validateChainFoodit,
+    isElementInPosition
+} from './common/_helper';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import RenderCollection from '../foodit-global/common/RenderCollection/foodit';
 import { transformArticleFoodit } from '../../features/foodit-global/common/utils/notaFooditHelper';
@@ -15,7 +19,7 @@ import LazyLoad from '../../features/foodit-global/common/LazyLoad/foodit';
 
 const CajaCollection = props => {
     const [inViewport, setInViewport] = useState(false);
-    const { isAdmin, customFields, id: chainId } = props;
+    const { isAdmin, customFields, id: chainId, tree } = props;
 
     const {
         idCollection,
@@ -31,13 +35,23 @@ const CajaCollection = props => {
 
     const { minArticles, maxArticles, size, isStatic } = rules;
 
+    const isWithOutLazyLoad =
+        layout === 'carousel' &&
+        isElementInPosition({
+            positionElement: 0,
+            positionBlock: 1,
+            id: chainId,
+            tree
+        });
+
     const articles = useGetArticleInCollectionFoodit({
-        idCollection: getIdCollection(
+        idCollection: getIdCollection({
             isStatic,
             inViewport,
             idCollection,
-            isAdmin
-        ),
+            isAdmin,
+            isWithOutLazyLoad
+        }),
         size: maxArticles,
         initialPosition: Number(initialPosition) - 1,
         staticMode: isStatic
@@ -78,7 +92,11 @@ const CajaCollection = props => {
         />
     );
 
-    return !isStatic ? (
+    if (!isStatic && isWithOutLazyLoad) {
+        return <>{Component}</>;
+    }
+
+    return !isStatic && !isAdmin ? (
         <LazyLoad
             hide={hideCaja}
             onViewport={() => setInViewport(true)}

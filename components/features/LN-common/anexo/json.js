@@ -47,6 +47,12 @@ class AnexoFeature {
         if (!hideByHtml && html) {
             information.hideCaja = false;
             articles = [{ html }];
+            resp = {
+                information,
+                articles
+            };
+
+            return resp;
         }
         if (!hideByUrl && urlAnexo && heightMobile) {
             information.hideCaja = false;

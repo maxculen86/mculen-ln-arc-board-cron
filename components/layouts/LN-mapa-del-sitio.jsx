@@ -28,7 +28,7 @@ const LNMapaDelSitio = ({ children }) => {
         },
         {
             text: 'Edición impresa',
-            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion'
+            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion/'
         },
         { text: 'Club LA NACION', href: 'https://club.lanacion.com.ar/' }
     ];
@@ -47,15 +47,7 @@ const LNMapaDelSitio = ({ children }) => {
         { text: 'Cómo anunciar', href: 'https://www.lanacion.in/' }
     ];
 
-    const listado3 = [
-        {
-            text: 'Todos los títulos',
-            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion/'
-        }
-    ];
-
     const listado4 = [
-        { text: 'Autos', href: `${SITE_LANACION}/autos/` },
         {
             text: 'Al volante',
             href: `${SITE_LANACION}/autos/al-volante/`
@@ -72,12 +64,8 @@ const LNMapaDelSitio = ({ children }) => {
             href: `${SITE_LANACION}/propiedades/`
         },
         {
-            text: 'Inmuebles comerciales',
-            href: `${SITE_LANACION}/propiedades/inmuebles-comerciales/`
-        },
-        {
-            text: 'La Nacion revista',
-            href: `${SITE_LANACION}/la-nacion-revista/`
+            text: 'Conversaciones de domingo',
+            href: `${SITE_LANACION}/conversaciones-de-domingo/`
         },
         {
             text: 'Moda y belleza',
@@ -91,19 +79,19 @@ const LNMapaDelSitio = ({ children }) => {
         {
             text: 'Fúnebres',
             href:
-                'https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres'
+                'https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres/'
         },
         {
             text: 'Sociales',
             href:
-                'https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales'
+                'https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales/'
         }
     ];
 
     const listado6 = [
         {
             text: 'OHLALÁ!',
-            href: `${SITE_LANACION}/revista-ohlala/`
+            href: 'https://www.somosohlala.com/'
         },
         {
             text: '¡HOLA! Argentina',
@@ -118,7 +106,6 @@ const LNMapaDelSitio = ({ children }) => {
             href: `${SITE_LANACION}/revista-lugares/`
         },
         { text: 'Living', href: `${SITE_LANACION}/revista-living/` },
-        { text: 'Brando', href: `${SITE_LANACION}/revista-brando/` },
         { text: 'Jardín', href: `${SITE_LANACION}/revista-jardin/` }
     ];
 
@@ -127,70 +114,70 @@ const LNMapaDelSitio = ({ children }) => {
         {
             text: 'Gastronomía',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Gastronom%C3%ADa'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Gastronom%C3%ADa/'
         },
         {
             text: 'Entretenimiento',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Entretenimiento'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Entretenimiento/'
         },
         {
             text: 'Turismo',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Viajes'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Viajes/'
         },
         {
             text: 'Moda',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Moda'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Moda/'
         },
         {
             text: 'Belleza',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Bienestar'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Bienestar/'
         },
         {
             text: 'Deco y Hogar',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Deco%20%26%20Hogar'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Deco%20%26%20Hogar/'
         },
         {
             text: 'Automóvil',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Autom%C3%B3vil'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Autom%C3%B3vil/'
         },
         {
             text: 'ECO Sustentable',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=ECO%20Sustentable'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=ECO%20Sustentable/'
         },
         {
             text: 'Supermercados',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Supermercados'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Supermercados/'
         },
         {
             text: 'Otros beneficios',
             href:
-                'https://club.lanacion.com.ar/search?benefits.category.keyword=Otros%20beneficios'
+                'https://club.lanacion.com.ar/search?benefits.category.keyword=Otros%20beneficios/'
         },
         {
             text: 'Pedí tu tarjeta',
             href:
-                'https://miclub.lanacion.com.ar/?utm_source=sitio%20club&utm_medium=organico%20-%20boton&utm_term=peditutarjeta&utm_campaign=autogestion'
+                'https://miclub.lanacion.com.ar/?utm_source=sitio%20club&utm_medium=organico%20-%20boton&utm_term=peditutarjeta&utm_campaign=autogestion/'
         }
     ];
 
     const listado8 = [
         {
             text: 'Twitter',
-            href: 'https://twitter.com/LANACION',
+            href: 'https://twitter.com/LANACION/',
             rel: 'nofollow',
             target: '_blank'
         },
         {
             text: 'Facebook',
-            href: 'https://www.facebook.com/lanacion',
+            href: 'https://www.facebook.com/lanacion/',
             rel: 'nofollow',
             target: '_blank'
         },
@@ -202,7 +189,7 @@ const LNMapaDelSitio = ({ children }) => {
         },
         {
             text: 'Youtube',
-            href: 'https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA',
+            href: 'https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA/',
             rel: 'nofollow',
             target: '_blank'
         }
@@ -216,7 +203,7 @@ const LNMapaDelSitio = ({ children }) => {
         },
         { text: 'Tránsito', href: `${SITE_LANACION}/transito/` },
         { text: 'Dólar hoy', href: `${SITE_LANACION}/dolar-hoy/` },
-        { text: 'Feriados', href: `${SITE_LANACION}/feriados` },
+        { text: 'Feriados', href: `${SITE_LANACION}/feriados/` },
         {
             text: 'Loterías y quinielas',
             href: `${SITE_LANACION}/loterias/`
@@ -230,14 +217,10 @@ const LNMapaDelSitio = ({ children }) => {
             href: `${SITE_LANACION}/cartelera-de-teatro/`
         },
         {
-            text: 'Recetas',
-            href: `${SITE_LANACION}/recetas/`
-        },
-        {
             text: 'Podcasts',
             href: `${SITE_LANACION}/tema/podcasts-tid64878/`
         },
-        { text: 'Sudoku', href: `${SITE_LANACION}/sudoku-online` },
+        { text: 'Juegos', href: `${SITE_LANACION}/juegos/` },
         { text: 'RSS', href: `${SITE_LANACION}/arcio/rss/` },
         { text: 'Agencias', href: `${SITE_LANACION}/agencias/` }
     ];
@@ -248,13 +231,12 @@ const LNMapaDelSitio = ({ children }) => {
         {
             text: 'Máster en periodismo',
             href:
-                'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327'
+                'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/'
         },
         {
             text: 'Fundación LA NACION',
             href: 'https://fundacionlanacion.org.ar/'
-        },
-        { text: 'HOP', href: 'https://www.hopenvios.com.ar/' }
+        }
     ];
 
     return (
@@ -288,7 +270,6 @@ const LNMapaDelSitio = ({ children }) => {
                             </div>
                             <div className="col-6 col-tablet-3">
                                 <Title content="Edición impresa" tag="h2" />
-                                <List mod="">{listado3}</List>
                                 <List mod="">{listado4}</List>
                                 <List mod="">{listado5}</List>
                             </div>
