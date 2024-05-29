@@ -6,6 +6,7 @@ import {
     getShortestImage
 } from '../../../../private/LN/common/utils/mediaHelper';
 import { getFooditAuthor } from '../../../foodit-global/common/utils/notaFooditHelper';
+import getImageAltText from '../../../foodit-global/common/utils/getImageAltText';
 
 export const Image = ({ data }) => {
     const { caption = '', resized_urls = [], url = '' } = data || {};
@@ -16,7 +17,7 @@ export const Image = ({ data }) => {
             <FooditImage
                 className="w-100 ratio-3-2"
                 src={resizedUrl || url}
-                alt={caption}
+                alt={getImageAltText(data)}
                 fetchPriority="low"
                 loading="lazy"
                 sources={getImagesToLoadWithPicture(resized_urls)}

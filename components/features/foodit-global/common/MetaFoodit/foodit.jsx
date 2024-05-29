@@ -22,7 +22,8 @@ export const MetaFoodit = ({
     const url =
         get(globalContent, 'canonical_url', '') ||
         get(globalContent, '_id', '');
-    const urlMeta = getUrl(url, domain);
+
+    const urlMeta = getUrl(`${url.startsWith('/') ? '' : '/'}${url}`, domain);
 
     const metas = [
         {

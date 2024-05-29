@@ -1597,6 +1597,10 @@ b, strong {
   padding-inline: 0.5rem;
 }
 
+.px-12 {
+  padding-inline: 0.75rem;
+}
+
 .px-16 {
   padding-inline: 1rem;
 }
@@ -1675,6 +1679,10 @@ b, strong {
 
 .pl-8 {
   padding-left: 0.5rem;
+}
+
+.pl-16 {
+  padding-left: 1rem;
 }
 
 .pl-36 {
@@ -2043,4 +2051,8 @@ hr {
 }
 .card-author:hover .border {
   border-color: var(--accent-lechuga);
+}
+
+.--search-cancel-button-hide::-webkit-search-cancel-button {
+  display: none;
 }

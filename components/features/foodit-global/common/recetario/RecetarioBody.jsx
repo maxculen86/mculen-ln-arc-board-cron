@@ -106,7 +106,7 @@ const RecetarioBody = () => {
                                                 size={'small'}
                                                 variant={variant || 'm'}
                                                 src={get(url, 'resizedUrl', '')}
-                                                alt={''}
+                                                alt={title}
                                                 sources={getImagesToLoadWithPicture(
                                                     resized_urls
                                                 )}

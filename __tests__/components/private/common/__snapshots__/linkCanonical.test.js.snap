@@ -35,3 +35,12 @@ exports[`Private - LN - Common - LinkCanonical At sub-sections Snapshot link can
   />
 </div>
 `;
+
+exports[`Private - LN - Common - LinkCanonical With author id Snapshot link canonical sub-section 1`] = `
+<div>
+  <link
+    href="https://www.foodit.lanacion.com.ar/leo-messi-10/"
+    rel="canonical"
+  />
+</div>
+`;

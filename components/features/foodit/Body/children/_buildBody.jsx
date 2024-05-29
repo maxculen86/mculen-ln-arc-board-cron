@@ -32,11 +32,14 @@ const buildBody = ({ globalContent = {} }) => {
         const Component =
             bodyComponents[type] || bodyComponents[subtype] || null;
 
+        const elementData =
+            type === 'image' ? { ...element, title: tituloNota } : element;
+
         return Component ? (
             setDataComponent({
                 Component,
                 extraProps,
-                element,
+                element: elementData,
                 currentIndex,
                 capitalIndex,
                 type,
