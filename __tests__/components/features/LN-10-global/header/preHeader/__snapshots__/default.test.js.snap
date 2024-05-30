@@ -48,7 +48,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
           class="brands flex ai-center --scroll-x pr-60"
         >
           <ul
-            class="tag-list inline-flex gap-28"
+            class="brands-list inline-flex gap-28"
           >
             <li
               class="w-max flex ai-center text-neutral-light-800"
@@ -62,7 +62,8 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                 title="CLUB LN"
               >
                 <i
-                  class="icon --icon-20"
+                  class="icon"
+                  style="height: 20px;"
                 >
                   <mock-icon
                     critical="true"
@@ -85,7 +86,8 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                 title="LN+ EN VIVO"
               >
                 <i
-                  class="icon --icon-20"
+                  class="icon"
+                  style="height: 20px;"
                 >
                   <mock-icon
                     critical="true"
@@ -108,12 +110,14 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                 title="FOODIT"
               >
                 <i
-                  class="icon --icon-20"
+                  class="icon"
+                  style="height: 20px;"
                 >
                   <mock-icon
                     critical="true"
                     fill="#333333"
                     name="foodit"
+                    width="17"
                   />
                 </i>
                 FOODIT
@@ -131,12 +135,14 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                 title="CANCHALLENA"
               >
                 <i
-                  class="icon --icon-20"
+                  class="icon"
+                  style="height: 20px;"
                 >
                   <mock-icon
                     critical="true"
                     fill="#333333"
                     name="canchallena"
+                    width="12"
                   />
                 </i>
                 CANCHALLENA
@@ -154,12 +160,14 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                 title="BONVIVIR"
               >
                 <i
-                  class="icon --icon-20"
+                  class="icon"
+                  style="height: 20px;"
                 >
                   <mock-icon
                     critical="true"
                     fill="#333333"
                     name="bonvivir"
+                    width="11"
                   />
                 </i>
                 BONVIVIR

@@ -55,7 +55,7 @@ describe('GooglePublisherTagAcumulado', () => {
         const { container } = render(
             <GooglePublisherTagAcumulado {...content} />
         );
-        expect(container.querySelectorAll('script')).toHaveLength(3);
+        expect(container.querySelectorAll('script')).toHaveLength(2);
         expect(container.innerHTML).toMatch('ca_recetas');
         expect(container.innerHTML).toMatch('ca_deportes');
         expect(container.innerHTML).toMatch('ca_futbol');
@@ -76,7 +76,7 @@ describe('GooglePublisherTagAcumulado', () => {
         const { container } = render(
             <GooglePublisherTagAcumulado {...content2} />
         );
-        expect(container.querySelectorAll('script')).toHaveLength(3);
+        expect(container.querySelectorAll('script')).toHaveLength(2);
         expect(container.innerHTML).toMatch('ca_deportes');
         expect(container.innerHTML).toMatch('ca_futbol');
     });

@@ -89,7 +89,7 @@ export class EventsHelper {
         const topics = window.document.querySelectorAll('.tag-list a');
         topics.forEach(topicElement => {
             const payload = {
-                action: 'header_temas_hoy',
+                action: 'temas_hoy',
                 label: this.createDynamicLabel(topicElement.title)
             };
             this.addEventListeners(topicElement, payload);
@@ -97,7 +97,7 @@ export class EventsHelper {
     }
 
     setEventsBrands() {
-        const brands = window.document.querySelectorAll('.tag-list a');
+        const brands = window.document.querySelectorAll('.brands-list a');
 
         brands.forEach(brandElement => {
             const payload = {

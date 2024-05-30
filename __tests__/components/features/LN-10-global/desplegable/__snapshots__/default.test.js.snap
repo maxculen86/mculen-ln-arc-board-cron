@@ -104,7 +104,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Últimas noticias"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Últimas noticias
                 </div>
@@ -185,7 +185,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Política"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Política
                 </div>
@@ -201,7 +201,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Economía"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Economía
                 </div>
@@ -318,7 +318,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a El Mundo"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   El Mundo
                 </div>
@@ -375,7 +375,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Sociedad"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Sociedad
                 </div>
@@ -516,7 +516,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Opinión"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Opinión
                 </div>
@@ -597,7 +597,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Deportes"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Deportes
                 </div>
@@ -690,7 +690,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Lifestyle"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Lifestyle
                 </div>
@@ -800,18 +800,6 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
-                    href="https://www.lanacion.com.ar/recetas/"
-                    target="_self"
-                    title="Recetas"
-                  >
-                    Recetas
-                  </a>
-                </li>
-                <li
-                  class=""
-                >
-                  <a
-                    class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/tema/podcasts-tid64878/"
                     target="_self"
                     title="Podcasts"
@@ -843,7 +831,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Espectáculos"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Espectáculos
                 </div>
@@ -912,7 +900,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Edición Impresa"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Edición Impresa
                 </div>
@@ -1053,7 +1041,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Revistas"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Revistas
                 </div>
@@ -1174,7 +1162,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a LN Juegos"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   LN Juegos
                 </div>
@@ -1190,7 +1178,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Exclusivo Suscriptores"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   Exclusivo Suscriptores
                 </div>
@@ -1210,7 +1198,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Club LA NACION"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   <div
                     class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
@@ -1239,7 +1227,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a canchallena"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   <div
                     class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
@@ -1268,7 +1256,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Foodit"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   <div
                     class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
@@ -1286,7 +1274,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   Foodit
                 </div>
                 <span
-                  class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-black text-light-0 uppercase py-6 px-8 --negative"
+                  class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-black text-light-0 uppercase py-6 px-8 --negative"
                 >
                   NUEVO
                 </span>
@@ -1302,7 +1290,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Bonvivir"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   <div
                     class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
@@ -1331,7 +1319,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a LN+"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   <div
                     class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
@@ -1360,7 +1348,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 title="Ir a Kiosco LA NACION"
               >
                 <div
-                  class="flex gap-8 ai-center"
+                  class="menu-item-title flex gap-8 ai-center"
                 >
                   <div
                     class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"

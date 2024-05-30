@@ -79,7 +79,7 @@ describe('components - feature - foodit-glogal - common - MetaFoodit', () => {
         expect(OGImage).toBeTruthy();
 
         const OGUrl = container.querySelector(
-            'meta[property="og:url"][content="https://foodit.lanacion.com.ar"]'
+            'meta[property="og:url"][content="https://foodit.lanacion.com.ar/"]'
         );
         expect(OGUrl).toBeTruthy();
 

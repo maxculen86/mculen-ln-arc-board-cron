@@ -19,9 +19,9 @@ const googleTagSuscriptionType = googleTagUserCookie.includes('2')
 window.googletag = window.googletag || { cmd: [] };
 googletag.cmd.push(() => {
     // initialize
-    googletag.pubads().enableSingleRequest();
-    googletag.pubads().enableAsyncRendering();
     googletag.pubads().disableInitialLoad();
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
 
     if (googleTagEmailCookie) {
         createHash(googleTagEmailCookie).then(hash => {

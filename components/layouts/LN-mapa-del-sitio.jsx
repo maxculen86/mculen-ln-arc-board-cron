@@ -47,13 +47,6 @@ const LNMapaDelSitio = ({ children }) => {
         { text: 'Cómo anunciar', href: 'https://www.lanacion.in/' }
     ];
 
-    const listado3 = [
-        {
-            text: 'Todos los títulos',
-            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion/'
-        }
-    ];
-
     const listado4 = [
         {
             text: 'Al volante',
@@ -224,14 +217,10 @@ const LNMapaDelSitio = ({ children }) => {
             href: `${SITE_LANACION}/cartelera-de-teatro/`
         },
         {
-            text: 'Recetas',
-            href: `${SITE_LANACION}/recetas/`
-        },
-        {
             text: 'Podcasts',
             href: `${SITE_LANACION}/tema/podcasts-tid64878/`
         },
-        { text: 'Sudoku', href: `${SITE_LANACION}/juegos/` },
+        { text: 'Juegos', href: `${SITE_LANACION}/juegos/` },
         { text: 'RSS', href: `${SITE_LANACION}/arcio/rss/` },
         { text: 'Agencias', href: `${SITE_LANACION}/agencias/` }
     ];
@@ -281,7 +270,6 @@ const LNMapaDelSitio = ({ children }) => {
                             </div>
                             <div className="col-6 col-tablet-3">
                                 <Title content="Edición impresa" tag="h2" />
-                                <List mod="">{listado3}</List>
                                 <List mod="">{listado4}</List>
                                 <List mod="">{listado5}</List>
                             </div>

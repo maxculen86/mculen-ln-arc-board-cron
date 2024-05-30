@@ -33,7 +33,7 @@ const Logo = props => {
         ? dictionaryAlt[logoName]
         : logoName;
 
-    return (
+    return logoName !== 'canchallena' ? (
         <ComLogo
             size="--xs"
             logoName={logoName}
@@ -42,6 +42,8 @@ const Logo = props => {
             title={altLogo}
             classCondition="ln-nota-logo"
         />
+    ) : (
+        <></>
     );
 };
 

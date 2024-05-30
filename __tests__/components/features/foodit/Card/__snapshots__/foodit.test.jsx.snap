@@ -28,7 +28,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
               <img
-                alt=""
+                alt="Receta para comer mas rico con ...POLLITO 2"
                 class="image flex card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="high"
@@ -144,7 +144,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                 srcset="https://resizer.glanacion.com/resizer/Spw-P_Ze--P3HO9SaTYjxuMlPNw=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
               />
               <img
-                alt=""
+                alt="Ficha nota FOODIT"
                 class="image flex card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
@@ -255,7 +255,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
               <img
-                alt=""
+                alt="Receta para comer mas rico con ...POLLITO 2"
                 class="image flex card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"

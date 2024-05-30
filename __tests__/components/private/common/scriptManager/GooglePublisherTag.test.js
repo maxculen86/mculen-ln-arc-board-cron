@@ -70,6 +70,6 @@ describe('GooglePublisherTag', () => {
         const { container } = render(<GooglePublisherTag {...props} />);
         const scriptElements = container.querySelectorAll('script');
 
-        expect(scriptElements.length).toBe(3);
+        expect(scriptElements.length).toBe(2);
     });
 });

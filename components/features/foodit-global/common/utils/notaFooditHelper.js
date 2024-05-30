@@ -47,12 +47,14 @@ export const transformArticleFoodit = article => {
         get(article, 'taxonomy.sections', [])
     );
 
+    const title = get(article, 'headlines.basic', '');
+
     return {
         articleId: get(article, '_id', ''),
-        title: get(article, 'headlines.basic', ''),
+        title,
         mobileTitle: get(article, 'headlines.mobile', ''),
         author: getFooditAuthor(article),
-        image: get(article, 'promo_items.basic', {}),
+        image: { ...get(article, 'promo_items.basic', {}), title },
         href: get(article, 'website_url', ''),
         time: get(article, 'promo_items.receta.embed.config.counterTime', null),
         tag: highestPriorityTag.toUpperCase(),

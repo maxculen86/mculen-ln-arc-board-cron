@@ -18,16 +18,19 @@ const googleTagSuscriptionType = googleTagUserCookie.includes('2')
 
 window.googletag = window.googletag || { cmd: [] };
 googletag.cmd.push(function() {
+    // initialize
+    googletag.pubads().disableInitialLoad();
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+
     if (googleTagEmailCookie) {
         createHash(googleTagEmailCookie).then(hash => {
             googletag.pubads().setPublisherProvidedId(hash);
         });
     }
 
-    googletag.enableServices();
     googletag.pubads().setTargeting('tags_nuevos', newTags);
     googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
     googletag.pubads().setTargeting('seccion', 'acumulado');
-    // googletag.pubads().setTargeting('adstest', testQueryString());
     googletag.pubads().setTargeting('sitio', 'lanacion');
 });

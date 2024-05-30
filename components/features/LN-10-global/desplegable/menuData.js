@@ -214,11 +214,6 @@ export const menuData = [
                     title: 'Loterías y quinielas'
                 },
                 {
-                    name: 'Recetas',
-                    href: 'https://www.lanacion.com.ar/recetas/',
-                    title: 'Recetas'
-                },
-                {
                     name: 'Podcasts',
                     href: 'https://www.lanacion.com.ar/tema/podcasts-tid64878/',
                     title: 'Podcasts'
