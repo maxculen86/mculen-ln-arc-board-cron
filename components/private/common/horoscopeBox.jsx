@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ComTitle from './com-title';
-import Text from './text';
 import HoroscopeItem from './horoscopeItem';
 import '../../../resources/dist/css/ln/components/horoscope-box.css';
 
@@ -10,7 +9,8 @@ const HoroscopeBox = ({
     signos,
     title,
     deployment,
-    contextPath
+    contextPath,
+    chineseYear
 }) => {
     return (
         <article className={`horoscope-box ${classCondition}`}>
@@ -44,6 +44,7 @@ const HoroscopeBox = ({
                         nombre="Horóscopo Chino"
                         deployment={deployment}
                         contextPath={contextPath}
+                        chineseYear={chineseYear}
                     />
                 </div>
             </div>
