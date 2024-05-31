@@ -410,39 +410,43 @@ const transform = (data, siteProps) => {
 
         return {
             ...elem,
-            ...addResizedUrls(
-                {
-                    ...(promoItems && {
-                        promo_items: {
-                            ...promoItems,
-                            ...(isV2
-                                ? {
-                                      basic: {
-                                          ...get(promoItems, 'basic', {}),
-                                          _id: parsedId ? parsedId[0] : '',
-                                          auth: {
-                                              1: imageAuth
-                                          }
-                                      }
-                                  }
-                                : {})
-                        }
-                    })
-                },
-                {
-                    resizerSecret: RESIZER_KEY,
-                    resizerUrl: RESIZER_URL,
-                    presets: {
-                        promoItems: presetsPromoItems,
-                        presetsDefault
-                    },
-                    // Se pasa el subtype para que las notas de foto al 100
-                    // y storytelling no sean excluidas de las validaciones del resizer
-                    // y pueda aplicarse 3:2, focal point o smartcrop
-                    subtype: isFotoAl100orStorytelling ? '-1' : subtype,
-                    shouldUseV2: isV2
-                }
-            )
+            ...(!promoImage.includes('placeholderLN.jpg')
+                ? addResizedUrls(
+                      {
+                          ...(promoItems && {
+                              promo_items: {
+                                  ...promoItems,
+                                  ...(isV2
+                                      ? {
+                                            basic: {
+                                                ...get(promoItems, 'basic', {}),
+                                                _id: parsedId
+                                                    ? parsedId[0]
+                                                    : '',
+                                                auth: {
+                                                    1: imageAuth
+                                                }
+                                            }
+                                        }
+                                      : {})
+                              }
+                          })
+                      },
+                      {
+                          resizerSecret: RESIZER_KEY,
+                          resizerUrl: RESIZER_URL,
+                          presets: {
+                              promoItems: presetsPromoItems,
+                              presetsDefault
+                          },
+                          // Se pasa el subtype para que las notas de foto al 100
+                          // y storytelling no sean excluidas de las validaciones del resizer
+                          // y pueda aplicarse 3:2, focal point o smartcrop
+                          subtype: isFotoAl100orStorytelling ? '-1' : subtype,
+                          shouldUseV2: isV2
+                      }
+                  )
+                : { promo_items: { basic: {} } })
         };
     });
 };
