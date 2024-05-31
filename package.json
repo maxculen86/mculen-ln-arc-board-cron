@@ -49,7 +49,7 @@
         "@ln/common-ui-header": "0.0.6",
         "@ln/common-ui-icon": "1.1.2",
         "@ln/common-ui-image": "1.1.2",
-        "@ln/common-ui-inputfield": "0.0.4",
+        "@ln/common-ui-inputfield": "0.0.7",
         "@ln/common-ui-interfaces": "1.1.1",
         "@ln/common-ui-link": "1.1.1",
         "@ln/common-ui-media": "1.1.5",

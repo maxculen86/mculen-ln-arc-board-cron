@@ -10,6 +10,7 @@ import { Icon } from '@ln/common-ui-icon';
 const MainSaveRecipe = props => {
     const {
         newFolder,
+        error,
         selectedFolder,
         onInputFolderChange,
         onSelectChange,
@@ -81,19 +82,25 @@ const MainSaveRecipe = props => {
                 </Select>
             )}
             {showInputFolder && (
-                <Inputfield
-                    autoFocus
-                    type="text"
-                    onChange={onInputFolderChange}
-                    value={newFolder}
-                    focusClassName="border-secondary-positive"
-                    hoverClassName="border-accent-lechuga__hover"
-                    inputRef={inputRef}
-                    label="Colección"
-                    floatingLabelProps={{
-                        className: 'bg-white'
-                    }}
-                />
+                <>
+                    <Inputfield
+                        autoFocus
+                        type="text"
+                        onChange={onInputFolderChange}
+                        value={newFolder}
+                        focusClassName="border-secondary-positive"
+                        hoverClassName="border-accent-lechuga__hover"
+                        inputRef={inputRef}
+                        label="Colección"
+                        floatingLabelProps={{
+                            className: 'bg-white'
+                        }}
+                        error={Boolean(error?.hasError)}
+                        errorClassName="todo-define-error-classname"
+                    />
+                    {/* MOSTRAR MENSAJE DE ERROR */}
+                    {error?.message && <p>{error.message}</p>}
+                </>
             )}
         </main>
     );
