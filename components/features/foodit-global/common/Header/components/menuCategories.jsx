@@ -9,6 +9,7 @@ const Categories = ({ title, href, data }) => {
             <Dropdown toggleOn="hover" key={title} className="flex ai-center">
                 <>
                     <Dropdown.Toggle
+                        iconProps={{ color: 'inherit' }}
                         onClick={() => console.log(title)}
                         className="ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover"
                         gap={8}

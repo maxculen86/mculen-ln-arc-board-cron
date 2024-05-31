@@ -64,14 +64,7 @@ const ShoppingList = () => {
             <aside className="sm-none col-span-5 bg-positive p-24 p-32_lg">
                 <CollectionBox
                     title="Recetas"
-                    list={[
-                        {
-                            text: 'Todas',
-                            quantity: shoppingList.length,
-                            id: 'Todas'
-                        },
-                        ...shoppingList
-                    ]}
+                    list={shoppingList}
                     button={
                         <Button
                             title="copiar"

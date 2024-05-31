@@ -41,7 +41,7 @@ export default function FooditSearch() {
                         >
                             <div
                                 id="drawer-faceted-data"
-                                className="drawer-faceteddata flex flex-column p-16_max1280 transition-regular"
+                                className="drawer-faceteddata flex flex-column p-16 p-24_md transition-regular"
                             >
                                 <div
                                     id="faceteddata"

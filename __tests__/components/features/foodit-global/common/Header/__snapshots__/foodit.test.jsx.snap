@@ -144,7 +144,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     >
                       Recetas
                       <i
-                        class="icon dropdown-icon"
+                        class="icon dropdown-icon --inherit"
                       >
                         <svg
                           fill="inherit"
@@ -966,7 +966,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     >
                       Descubrir
                       <i
-                        class="icon dropdown-icon"
+                        class="icon dropdown-icon --inherit"
                       >
                         <svg
                           fill="inherit"
@@ -1274,7 +1274,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         </button>
       </div>
       <div
-        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-16 pr-16"
+        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-24 pr-16"
       >
         <div>
           <span

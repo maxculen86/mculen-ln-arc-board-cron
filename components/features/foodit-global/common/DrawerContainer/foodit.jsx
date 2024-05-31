@@ -37,7 +37,7 @@ export const DrawerContainer = ({
             </Drawer.Header>
             <Drawer.Body
                 className={classNames(
-                    'foodit-scrollbar flex flex-column gap-16',
+                    'foodit-scrollbar flex flex-column gap-24',
                     bodyClassName
                 )}
             >

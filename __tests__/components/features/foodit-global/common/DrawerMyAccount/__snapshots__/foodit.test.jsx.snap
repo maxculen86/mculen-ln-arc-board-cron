@@ -38,7 +38,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
         </button>
       </div>
       <div
-        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-16"
+        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-24"
       >
         <ul
           class="flex flex-column w-100 h-100"

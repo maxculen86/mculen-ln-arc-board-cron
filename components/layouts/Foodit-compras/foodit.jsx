@@ -8,8 +8,9 @@ const ListadoComprasFoodit = () => {
     return (
         <BaseLayout>
             <div className="flex flex-column gap-32">
-                <section className="flex flex-column gap-24">
+                <section className="flex flex-column">
                     <BreadcrumbCustomFoodit
+                        className={'mb-24'}
                         sectionsCustom={[
                             {
                                 name: 'Lista de compras',
