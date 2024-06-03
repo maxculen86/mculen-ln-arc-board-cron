@@ -18,9 +18,9 @@ export const Brands = ({ brandsData = [] }) => {
                                 dataSection,
                                 icon,
                                 iconWidth,
-                                callback
+                                callback,
                             },
-                            brandIndex
+                            brandIndex,
                         ) => {
                             const relTitle =
                                 title === 'EN VIVO' ? 'LN+ EN VIVO' : title;
@@ -31,7 +31,7 @@ export const Brands = ({ brandsData = [] }) => {
                                     key={brandIndex}
                                 >
                                     <Link
-                                        className="--font-bold flex gap-8 uppercase ai-center"
+                                        className="flex gap-8 uppercase ai-center"
                                         size="xs"
                                         href={link}
                                         title={relTitle}
@@ -53,7 +53,7 @@ export const Brands = ({ brandsData = [] }) => {
                                     </Link>
                                 </li>
                             );
-                        }
+                        },
                     )}
                 </ul>
             </nav>

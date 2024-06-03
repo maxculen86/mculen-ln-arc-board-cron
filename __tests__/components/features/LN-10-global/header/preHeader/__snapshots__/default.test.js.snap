@@ -54,7 +54,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
                 href="https://club.lanacion.com.ar/"
                 rel="nofollow"
@@ -78,7 +78,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
                 href="https://lnmas.lanacion.com.ar/"
                 rel="nofollow"
@@ -102,7 +102,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
                 href="https://foodit.lanacion.com.ar/"
                 rel="nofollow"
@@ -127,7 +127,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
                 href="https://canchallena.lanacion.com.ar/"
                 rel="nofollow"
@@ -152,7 +152,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link --font-bold flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
                 href="https://bonvivir.com/"
                 rel="nofollow"
