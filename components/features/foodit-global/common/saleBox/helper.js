@@ -4,8 +4,9 @@ export const mockBenefits = [
     '<strong>Platos de autor</strong> y <strong>masterclasses</strong> con cocineros referentes.',
     '<strong>Guías de cocina</strong> para principiantes.',
     '<strong>Buscador</strong> eficiente, <strong>colecciones</strong> personalizadas y más <strong>funciones.</strong>',
-    '<strong>Soluciones practicas</strong> para cocinar todos los días.',
-    '<strong>Newsletter semanal</strong> con ideas inspiradoras y novedades.'
+    '<strong>Soluciones practicas</strong> para cocinar todos los días.'
+    // TODO: Se mantiene oculto mientras se crean los newsletters.
+    // '<strong>Newsletter semanal</strong> con ideas inspiradoras y novedades.'
 ];
 
 export const imgsPhoneFoodit = assetsPath => [

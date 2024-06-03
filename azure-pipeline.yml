@@ -29,4 +29,4 @@ jobs:
       parameters:
         runTest: true
         nodeVersion: 18.x
-        projectKeySonarQube: LaNacion.Arc
+        projectKeySonarQube: arc-ln
