@@ -4,6 +4,7 @@
   grid-auto-columns: calc(var(--scroller-element-columns, 2) / var(--scroller-columns, 8) * 100% - var(--scroller-gap, 16px) * (1 - var(--scroller-element-columns, 2) / var(--scroller-columns, 8)));
   gap: var(--scroller-gap, 16px);
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
   -ms-overflow-style: none;

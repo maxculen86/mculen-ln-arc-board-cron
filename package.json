@@ -53,7 +53,7 @@
         "@ln/common-ui-interfaces": "1.1.1",
         "@ln/common-ui-link": "1.1.1",
         "@ln/common-ui-media": "1.1.5",
-        "@ln/common-ui-mediascroller": "0.0.13",
+        "@ln/common-ui-mediascroller": "0.0.14",
         "@ln/common-ui-newsletterbox": "1.1.10",
         "@ln/common-ui-progress": "0.0.2",
         "@ln/common-ui-scrollinx": "1.1.0",
