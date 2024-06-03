@@ -195,6 +195,11 @@ export default {
                 ],
                 targeting: targetingNota,
                 closeButton: true
+            },
+            '1x1_signwall_dsk': {
+                slotName: 'la_nacion_desktop/Nota/1x1_signwall_dsk',
+                dimensions: [[1, 1]],
+                targeting: targetingNota
             }
         },
         mobile: {
@@ -424,6 +429,11 @@ export default {
                 ],
                 targeting: targetingNota,
                 closeButton: true
+            },
+            '1x1_signwall_mob': {
+                slotName: 'la_nacion_desktop/Nota/1x1_signwall_mob',
+                dimensions: [[1, 1]],
+                targeting: targetingNota
             }
         },
         tablet: {
@@ -545,6 +555,11 @@ export default {
             middle_teads_tab: {
                 device: 'tab',
                 slotName: 'la_nacion_tablet/Nota/middle_teads_tab',
+                dimensions: [[1, 1]],
+                targeting: targetingNota
+            },
+            '1x1_signwall_tab': {
+                slotName: 'la_nacion_desktop/Nota/1x1_signwall_tab',
                 dimensions: [[1, 1]],
                 targeting: targetingNota
             }
