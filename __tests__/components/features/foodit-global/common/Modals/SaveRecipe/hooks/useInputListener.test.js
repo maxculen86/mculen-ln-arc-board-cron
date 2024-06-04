@@ -50,7 +50,7 @@ describe('useInputListener', () => {
         fireEvent.change(input, { target: { value: longValue } });
 
         expect(input.value).toBe('');
-        expect(getByTestId('error').textContent).toBe('Máximo 45 caracteres!');
+        expect(getByTestId('error').textContent).toBe('Máximo 45 caracteres');
     });
 
     it('should reset value to initial value on unmount', () => {

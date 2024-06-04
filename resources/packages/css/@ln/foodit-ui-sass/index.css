@@ -339,6 +339,9 @@ em {
 .border.border-accent-maiz {
   border-color: var(--accent-maiz);
 }
+.border.border-danger-600 {
+  border-color: var(--feedback-danger-600);
+}
 .border.border-thin {
   border-width: thin;
 }
@@ -422,6 +425,10 @@ em {
 
 .text-danger-500 {
   color: var(--feedback-danger-500);
+}
+
+.text-danger-600 {
+  color: var(--feedback-danger-600);
 }
 
 .bg-light-1 {
@@ -2055,4 +2062,8 @@ hr {
 
 .--search-cancel-button-hide::-webkit-search-cancel-button {
   display: none;
+}
+
+body:has(.disable-body-scroll) {
+  overflow: hidden;
 }

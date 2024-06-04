@@ -21,8 +21,7 @@ export const TOAST = {
                     </Link>
                 </>
             ),
-            RENAME_COLLECTION:
-                'POR FAVOR ACTUALIZAR MENSAJE DEL TOAST AL RENOMBRAR CARPETA',
+            RENAME_COLLECTION: 'Podes ver la colección en mis recetas.',
             DELETE_ARTICLE: 'Se quito de tu colección.',
             SAVE_ARTICLE: (
                 <>

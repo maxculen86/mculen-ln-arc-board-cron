@@ -3,14 +3,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import useGetRecetarioData from './hooks/useGetRecetarioData';
 import useGetUserData from '../../hooks/useGetUserData';
 import { createSummaryList } from '../utils/recetarioHelper';
-
+import { Button } from '@ln/foodit-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Text } from '@ln/common-ui-text';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import CollectionBox from '../collectionBox/foodit';
-import RoofFoodit from '../RoofFoodit/foodit';
 import { EmptyStateComponent } from './helpers';
 import DrawerRecetario from '../drawerRecetario/foodit';
 import BookmarkedArticles from './components/BookmarkedArticles';
 import EditFolderModal from './components/EditFolderModal';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 const RecetarioBody = () => {
     const { loading, userBookmarks, setUserBookmarks } = useGetRecetarioData();
@@ -44,22 +45,29 @@ const RecetarioBody = () => {
             </aside>
             <section className="col-span-8 col-span-12_lg min-h-344">
                 <div className="floating-button-sentinel" />
-                <RoofFoodit
-                    title={{ text: selectedItemId, as: 'h2' }}
-                    buttonProps={
-                        userBookmarks.length && selectedItemId !== 'Todas'
-                            ? {
-                                  text: 'RENOMBRAR',
-                                  onClick: () => setIsModalOpen(true)
-                              }
-                            : undefined
-                    }
-                    icon={
-                        <IconSprite
-                            name={'delete'} //TODO: Actualizar icono a lapiz
-                        />
-                    }
-                />
+                <div className="flex ai-center gap-24 mb-24">
+                    <Text
+                        className="prumo prumo-light text-24 text-32_md text-36_lg"
+                        as="h2"
+                    >
+                        {selectedItemId}
+                    </Text>
+                    {userBookmarks.length && selectedItemId !== 'Todas' ? (
+                        <Button
+                            onClick={() => setIsModalOpen(true)}
+                            iconOnly
+                            variant="secondary"
+                            size={40}
+                            className="ml-auto ml-0_md"
+                        >
+                            <Icon size={16}>
+                                <IconSprite name="edit" />
+                            </Icon>
+                        </Button>
+                    ) : (
+                        <></>
+                    )}
+                </div>
                 {userBookmarks.length ? (
                     <BookmarkedArticles
                         userBookmarks={userBookmarks}
@@ -79,15 +87,13 @@ const RecetarioBody = () => {
                 summaryList={summaryList}
                 onItemSelected={setSelectedItem}
             />
-            {isModalOpen && (
-                <EditFolderModal
-                    isOpen={isModalOpen}
-                    onClose={onClose}
-                    folderId={selectedItemId}
-                    setUserBookmarks={setUserBookmarks}
-                    setSelectedItem={setSelectedItem}
-                />
-            )}
+            <EditFolderModal
+                isOpen={isModalOpen}
+                onClose={onClose}
+                folderId={selectedItemId}
+                setUserBookmarks={setUserBookmarks}
+                setSelectedItem={setSelectedItem}
+            />
         </div>
     );
 };

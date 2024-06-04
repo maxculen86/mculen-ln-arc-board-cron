@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useInputListener = (initialValue = '') => {
     const [value, setValue] = useState(initialValue);
-    const [error, setError] = useState({ hasError: false });
+    const [error, setError] = useState({ hasError: false, message: '' });
 
     const handleInputChange = event => {
         const inputValue = event?.target?.value;
@@ -13,7 +13,7 @@ const useInputListener = (initialValue = '') => {
         } else {
             setError({
                 hasError: true,
-                message: inputValue.length > 45 && 'Máximo 45 caracteres!'
+                message: inputValue.length > 45 && 'Máximo 45 caracteres'
             });
         }
     };
