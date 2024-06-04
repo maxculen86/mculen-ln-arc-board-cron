@@ -23,7 +23,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
                 nameSection: '',
                 primarySection: 'Recetas',
                 tagList: [
-                    { name: 'Al horno', path: '/al-horno' },
+                    { name: 'Al horno', path: '/al-horno/' },
                     { name: 'Frito', path: '/frito' }
                 ]
             };
@@ -31,11 +31,11 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(setUrlTag(input)).toEqual([
                 {
                     text: 'Al horno',
-                    url: '/al-horno'
+                    url: '/al-horno/'
                 },
                 {
                     text: 'Frito',
-                    url: '/frito'
+                    url: '/frito/'
                 }
             ]);
         });
@@ -163,8 +163,8 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             };
             const result = getTagList(input);
             expect(result).toEqual([
-                { text: 'Sin gluten', url: '/recetas/sin-gluten' },
-                { text: 'Postres', url: '/recetas/postres' }
+                { text: 'Sin gluten', url: '/recetas/sin-gluten/' },
+                { text: 'Postres', url: '/recetas/postres/' }
             ]);
         });
 
@@ -195,7 +195,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
                     url:
                         'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=regions&fval=Italiana'
                 },
-                { text: 'Postres', url: '/recetas/postres' }
+                { text: 'Postres', url: '/recetas/postres/' }
             ]);
         });
 
@@ -214,8 +214,8 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             };
             const result = getTagList(input);
             expect(result).toEqual([
-                { text: 'Sin gluten', url: '/recetas/sin-gluten' },
-                { text: 'Postres', url: '/recetas/postres' }
+                { text: 'Sin gluten', url: '/recetas/sin-gluten/' },
+                { text: 'Postres', url: '/recetas/postres/' }
             ]);
         });
     });

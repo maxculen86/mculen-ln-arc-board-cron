@@ -39,7 +39,7 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
 
                         const label = DESCUBRIR_SECTIONS.includes(dataLayerText)
                             ? 'descubrir'
-                            : (title && title.text) || 'N/A';
+                            : title?.text || 'N/A';
 
                         return (
                             <li key={text}>

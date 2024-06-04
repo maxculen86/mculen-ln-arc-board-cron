@@ -7,7 +7,7 @@ export const LazyLoad = ({
     showComponent = true,
     rootMargin = '600px',
     threshold = 0.1,
-    onViewport,
+    onViewport = () => {},
     hide,
     ...props
 }) => {
@@ -26,11 +26,13 @@ export const LazyLoad = ({
             { rootMargin, threshold }
         );
 
-        if (targetRef.current) {
+        if (targetRef?.current) {
             observer.observe(targetRef.current);
         }
         return () => {
-            observer.unobserve(targetRef.current);
+            if (targetRef?.current) {
+                observer.unobserve(targetRef.current);
+            }
         };
     }, [rootMargin, threshold]);
 

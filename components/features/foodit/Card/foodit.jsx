@@ -98,7 +98,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                     sources={getImagesToLoadWithPicture(resized_urls)}
                     loading={isOpening ? 'eager' : 'lazy'}
                     fetchPriority={isOpening ? 'high' : 'low'}
-                    tag={!isOpening && tag}
+                    tag={tag}
                     title={title}
                     author={author}
                     subtitle={

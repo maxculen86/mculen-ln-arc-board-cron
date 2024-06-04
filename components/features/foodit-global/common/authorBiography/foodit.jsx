@@ -24,7 +24,7 @@ export const AuthorBiography = ({
                 {socialNetworks.length > 0 && (
                     <div className="flex jc-center flex-wrap gap-24 gap-16_md">
                         {socialNetworks.map((socialNetwork, i) => (
-                            <React.Fragment key={i}>
+                            <React.Fragment key={`${socialNetwork.name}`}>
                                 <SocialNetwork {...socialNetwork} />
                                 {i < socialNetworks.length - 1 && (
                                     <hr className="h-100 max-h-24 sm-none" />

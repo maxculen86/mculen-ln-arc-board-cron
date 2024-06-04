@@ -30,7 +30,10 @@ export const SummaryBox = ({ cookTime, prepTime, counterTime }) => {
                 {items
                     .filter(item => item.type)
                     .map((item, i) => (
-                        <SummaryItem key={i} {...item} />
+                        <SummaryItem
+                            key={`${item.time}-${item.type}`}
+                            {...item}
+                        />
                     ))}
             </ul>
         </div>
