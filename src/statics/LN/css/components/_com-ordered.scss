@@ -13,6 +13,11 @@
         i {
             font-style: italic;
         }
+
+        b {
+            font-weight: 700;
+        }
+
         &:before {
             content: counter(item) '';
             counter-increment: item;

@@ -13,6 +13,10 @@
             font-style: italic;
         }
 
+        b {
+            font-weight: 700;
+        }
+
         &:before {
             content: '•';
             position: absolute;
