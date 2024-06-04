@@ -44,10 +44,10 @@ export const InfoBox = ({ deployment, contextPath }) => {
                                 as="p"
                                 className="--font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800"
                             >
-                                Resultados deportivos en vivo de fútbol con
-                                actualización en directo, próximos partidos,
-                                fixtures, estadísticas, tablas de liga y todos
-                                los detalles
+                                Encontrá resultados de fútbol en vivo, los
+                                próximos partidos, las tablas de posiciones, y
+                                todas las estadísticas de los principales
+                                torneos del mundo
                             </Text>
                         </div>
                         <Button

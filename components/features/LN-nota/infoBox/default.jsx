@@ -1,9 +1,8 @@
 import React from 'react';
 import { InfoBox } from '../../LN-10-global/infoBox/default';
 import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
 
-const InfoBoxFeature = ({ id: featureId }) => {
+const InfoBoxFeature = () => {
     const {
         contextPath,
         deployment,
@@ -15,13 +14,10 @@ const InfoBoxFeature = ({ id: featureId }) => {
     } = useAppContext();
     if (!parentId.includes('/deportes')) return <></>;
 
-    return (
-        <Static id={featureId}>
-            <InfoBox contextPath={contextPath} deployment={deployment} />
-        </Static>
-    );
+    return <InfoBox contextPath={contextPath} deployment={deployment} />;
 };
 
 InfoBoxFeature.label = 'LN Caja Canchallena';
+InfoBoxFeature.lazy = true;
 
 export default InfoBoxFeature;
