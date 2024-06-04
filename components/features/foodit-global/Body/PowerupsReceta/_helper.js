@@ -9,10 +9,19 @@ export const setUrlTag = ({
     const baseUrl = `${SITE_FOODIT}/buscador/?query=${primarySection}`;
 
     if (tagList) {
-        return tagList.map(tag => ({
-            text: tag.name || tag,
-            url: tag.path || `${baseUrl}&fkey=${nameSection}&fval=${tag}`
-        }));
+        return tagList.map(tag => {
+            const tagPath = get(tag, 'path', '');
+
+            const tagPathValidated =
+                tagPath && (tagPath.endsWith('/') ? tagPath : `${tagPath}/`);
+
+            const tagPathWithQuery = `${baseUrl}&fkey=${nameSection}&fval=${tag}`;
+
+            return {
+                text: tag.name || tag,
+                url: tagPathValidated || tagPathWithQuery
+            };
+        });
     }
 
     return [];
