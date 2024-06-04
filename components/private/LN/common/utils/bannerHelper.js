@@ -35,7 +35,8 @@ export const BANNERS_DESKTOP = [
     'caja1_amp',
     'caja2_amp',
     'caja3_amp',
-    'caja4_amp'
+    'caja4_amp',
+    '1x1_signwall_dsk'
 ];
 
 export const BANNERS_MOBILE = [
@@ -59,7 +60,8 @@ export const BANNERS_MOBILE = [
     'caja1_amp',
     'caja2_amp',
     'caja3_amp',
-    'caja4_amp'
+    'caja4_amp',
+    '1x1_signwall_mob'
 ];
 
 export const BANNERS_TABLET = [
@@ -77,7 +79,8 @@ export const BANNERS_TABLET = [
     'caja1_amp',
     'caja2_amp',
     'caja3_amp',
-    'caja4_amp'
+    'caja4_amp',
+    '1x1_signwall_tab'
 ];
 
 export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
@@ -371,10 +374,24 @@ export const getTargetingFormat = sections => {
 
 export const queueGoogletagCommand = bannersToLoad => {
     googletag.cmd.push(() => {
-        const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
-            googletag
+        const defineSlot = ({
+            adUnitPath,
+            size,
+            opt_div: optDiv,
+            customTargeting
+        }) => {
+            const slot = googletag
                 .defineSlot(adUnitPath, size, optDiv)
                 .addService(googletag.pubads());
+
+            if (customTargeting && Object.keys(customTargeting).length > 0) {
+                Object.keys(customTargeting).forEach(key => {
+                    slot.setTargeting(key, customTargeting[key]);
+                });
+            }
+
+            return slot;
+        };
 
         const headerBiddingSlots = bannersToLoad
             .filter(e => e.prebidEnabled)

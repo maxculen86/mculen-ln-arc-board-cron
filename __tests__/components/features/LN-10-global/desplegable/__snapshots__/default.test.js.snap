@@ -1184,6 +1184,22 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 </div>
               </a>
             </li>
+            <li
+              class="item --more flex --inactive"
+            >
+              <a
+                class="link ln-link dd-link jc-between --font-s"
+                href="/mis-notas/"
+                target="_self"
+                title="Ir a Mis notas"
+              >
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  Mis notas
+                </div>
+              </a>
+            </li>
           </ul>
           <ul
             class="list --fourxs --tertiary --font-bold flex flex-column gap-4 pt-8"
@@ -1194,7 +1210,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               <a
                 class="link ln-link dd-link jc-between --font-s"
                 href="https://club.lanacion.com.ar/"
-                target="_self"
+                rel="nofollow"
+                target="_blank"
                 title="Ir a Club LA NACION"
               >
                 <div
@@ -1223,7 +1240,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               <a
                 class="link ln-link dd-link jc-between --font-s"
                 href="https://canchallena.lanacion.com.ar/"
-                target="_self"
+                rel="nofollow"
+                target="_blank"
                 title="Ir a canchallena"
               >
                 <div
@@ -1252,7 +1270,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               <a
                 class="link ln-link dd-link jc-between --font-s"
                 href="https://foodit.lanacion.com.ar/"
-                target="_self"
+                rel="nofollow"
+                target="_blank"
                 title="Ir a Foodit"
               >
                 <div
@@ -1274,7 +1293,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   Foodit
                 </div>
                 <span
-                  class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-black text-light-0 uppercase py-6 px-8 --negative"
+                  class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-black text-light-0 uppercase py-6 px-8 --negative"
                 >
                   NUEVO
                 </span>
@@ -1286,7 +1305,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               <a
                 class="link ln-link dd-link jc-between --font-s"
                 href="https://bonvivir.com/"
-                target="_self"
+                rel="nofollow"
+                target="_blank"
                 title="Ir a Bonvivir"
               >
                 <div
@@ -1315,7 +1335,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               <a
                 class="link ln-link dd-link jc-between --font-s"
                 href="https://lnmas.lanacion.com.ar/"
-                target="_self"
+                rel="nofollow"
+                target="_blank"
                 title="Ir a LN+"
               >
                 <div
@@ -1344,7 +1365,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               <a
                 class="link ln-link dd-link jc-between --font-s"
                 href="https://pdf.lanacion.com.ar/"
-                target="_self"
+                rel="nofollow"
+                target="_blank"
                 title="Ir a Kiosco LA NACION"
               >
                 <div

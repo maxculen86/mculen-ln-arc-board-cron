@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .wrapper-dropdown {
   visibility: hidden;
-  z-index: 10000;
+  z-index: 15001;
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -206,13 +206,13 @@
 
 @media (min-width: 1024px) and (max-width: 1279px) and (max-height: 950px) {
   .wrapper-dropdown .ln-dropdown > nav ul.--tertiary {
-    height: calc(100vh - 680px);
+    height: calc(100vh - 660px);
     overflow-y: scroll;
   }
 }
 @media (min-width: 1280px) and (max-height: 850px) {
   .wrapper-dropdown .ln-dropdown > nav ul.--tertiary {
-    height: calc(100vh - 570px);
+    height: calc(100vh - 610px);
     overflow-y: scroll;
   }
 }

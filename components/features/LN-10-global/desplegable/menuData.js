@@ -11,24 +11,24 @@ export const menuData = [
                 {
                     name: 'Tránsito y transporte',
                     href: 'https://www.lanacion.com.ar/transito/',
-                    title: 'Tránsito y transporte'
+                    title: 'Tránsito y transporte',
                 },
                 {
                     name: 'Clima',
                     href: 'https://www.lanacion.com.ar/clima/',
-                    title: 'Clima'
+                    title: 'Clima',
                 },
                 {
                     name: 'LA NACION Data',
                     href: 'https://www.lanacion.com.ar/data/',
-                    title: 'LA NACION Data'
-                }
-            ]
+                    title: 'LA NACION Data',
+                },
+            ],
         },
         {
             name: 'Política',
             href: 'https://www.lanacion.com.ar/politica/',
-            title: 'Política'
+            title: 'Política',
         },
         {
             name: 'Economía',
@@ -38,35 +38,34 @@ export const menuData = [
                 {
                     name: 'Dólar Hoy',
                     href: 'https://www.lanacion.com.ar/dolar-hoy/',
-                    title: 'Dólar Hoy'
+                    title: 'Dólar Hoy',
                 },
                 {
                     name: 'Campo',
                     href: 'https://www.lanacion.com.ar/economia/campo/',
-                    title: 'Campo'
+                    title: 'Campo',
                 },
                 {
                     name: 'Propiedades',
                     href: 'https://www.lanacion.com.ar/propiedades/',
-                    title: 'Propiedades'
+                    title: 'Propiedades',
                 },
                 {
                     name: 'Comercio Exterior',
-                    href:
-                        'https://www.lanacion.com.ar/economia/comercio-exterior/',
-                    title: 'Comercio Exterior'
+                    href: 'https://www.lanacion.com.ar/economia/comercio-exterior/',
+                    title: 'Comercio Exterior',
                 },
                 {
                     name: 'Movilidad',
                     href: '/autos/',
-                    title: 'Movilidad'
+                    title: 'Movilidad',
                 },
                 {
                     name: 'Índices',
                     href: 'https://www.lanacion.com.ar/economia/indices',
-                    title: 'Índices'
-                }
-            ]
+                    title: 'Índices',
+                },
+            ],
         },
         {
             name: 'El Mundo',
@@ -76,9 +75,9 @@ export const menuData = [
                 {
                     name: 'Estados Unidos',
                     href: 'https://www.lanacion.com.ar/estados-unidos/',
-                    title: 'Estados Unidos'
-                }
-            ]
+                    title: 'Estados Unidos',
+                },
+            ],
         },
         {
             name: 'Sociedad',
@@ -88,45 +87,44 @@ export const menuData = [
                 {
                     name: 'Buenos Aires',
                     href: 'https://www.lanacion.com.ar/buenos-aires/',
-                    title: 'Buenos Aires'
+                    title: 'Buenos Aires',
                 },
                 {
                     name: 'Seguridad',
                     href: 'https://www.lanacion.com.ar/seguridad/',
-                    title: 'Seguridad'
+                    title: 'Seguridad',
                 },
                 {
                     name: 'Educación',
                     href: 'https://www.lanacion.com.ar/educacion/',
-                    title: 'Educación'
+                    title: 'Educación',
                 },
                 {
                     name: 'Cultura',
                     href: 'https://www.lanacion.com.ar/cultura/',
-                    title: 'Cultura'
+                    title: 'Cultura',
                 },
                 {
                     name: 'Comunidad',
                     href: 'https://www.lanacion.com.ar/comunidad/',
-                    title: 'Comunidad'
+                    title: 'Comunidad',
                 },
                 {
                     name: 'Bienestar',
                     href: '/salud/',
-                    title: 'Bienestar'
+                    title: 'Bienestar',
                 },
                 {
                     name: 'Ciencia',
                     href: 'https://www.lanacion.com.ar/ciencia/',
-                    title: 'Ciencia'
+                    title: 'Ciencia',
                 },
                 {
                     name: 'Hablemos de todo',
-                    href:
-                        'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/',
-                    title: 'Hablemos de todo'
-                }
-            ]
+                    href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/',
+                    title: 'Hablemos de todo',
+                },
+            ],
         },
         {
             name: 'Opinión',
@@ -136,20 +134,19 @@ export const menuData = [
                 {
                     name: 'Editoriales',
                     href: 'https://www.lanacion.com.ar/editoriales/',
-                    title: 'Editoriales'
+                    title: 'Editoriales',
                 },
                 {
                     name: 'Columnistas',
                     href: 'https://www.lanacion.com.ar/opinion/columnistas/',
-                    title: 'Columnistas'
+                    title: 'Columnistas',
                 },
                 {
                     name: 'Cartas de Suscriptores',
-                    href:
-                        'https://www.lanacion.com.ar/opinion/carta-de-suscriptores/',
-                    title: 'Cartas de Suscriptores'
-                }
-            ]
+                    href: 'https://www.lanacion.com.ar/opinion/carta-de-suscriptores/',
+                    title: 'Cartas de Suscriptores',
+                },
+            ],
         },
         {
             name: 'Deportes',
@@ -159,24 +156,24 @@ export const menuData = [
                 {
                     name: 'Fútbol',
                     href: 'https://www.lanacion.com.ar/deportes/futbol/',
-                    title: 'Fútbol'
+                    title: 'Fútbol',
                 },
                 {
                     name: 'Rugby',
                     href: 'https://www.lanacion.com.ar/deportes/rugby/',
-                    title: 'Rugby'
+                    title: 'Rugby',
                 },
                 {
                     name: 'Tenis',
                     href: 'https://www.lanacion.com.ar/deportes/tenis/',
-                    title: 'Tenis'
+                    title: 'Tenis',
                 },
                 {
                     name: 'Canchallena',
                     href: 'https://canchallena.lanacion.com.ar/',
-                    title: 'Canchallena'
-                }
-            ]
+                    title: 'Canchallena',
+                },
+            ],
         },
         {
             name: 'Lifestyle',
@@ -186,44 +183,44 @@ export const menuData = [
                 {
                     name: 'LN Juegos',
                     href: 'https://www.lanacion.com.ar/juegos/',
-                    title: 'LN Juegos'
+                    title: 'LN Juegos',
                 },
                 {
                     name: 'Turismo',
                     href: 'https://www.lanacion.com.ar/turismo/',
-                    title: 'Turismo'
+                    title: 'Turismo',
                 },
                 {
                     name: 'Tecnología',
                     href: 'https://www.lanacion.com.ar/tecnologia/',
-                    title: 'Tecnología'
+                    title: 'Tecnología',
                 },
                 {
                     name: 'Horóscopo',
                     href: 'https://www.lanacion.com.ar/horoscopo/',
-                    title: 'Horóscopo'
+                    title: 'Horóscopo',
                 },
                 {
                     name: 'Feriados',
                     href: 'https://www.lanacion.com.ar/feriados/',
-                    title: 'Feriados'
+                    title: 'Feriados',
                 },
                 {
                     name: 'Loterías y quinielas',
                     href: 'https://www.lanacion.com.ar/loterias/',
-                    title: 'Loterías y quinielas'
+                    title: 'Loterías y quinielas',
                 },
                 {
                     name: 'Podcasts',
                     href: 'https://www.lanacion.com.ar/tema/podcasts-tid64878/',
-                    title: 'Podcasts'
+                    title: 'Podcasts',
                 },
                 {
                     name: 'Moda y Belleza',
                     href: 'https://www.lanacion.com.ar/moda-y-belleza/',
-                    title: 'Moda y Belleza'
-                }
-            ]
+                    title: 'Moda y Belleza',
+                },
+            ],
         },
         {
             name: 'Espectáculos',
@@ -233,14 +230,14 @@ export const menuData = [
                 {
                     name: 'Cartelera de cine',
                     href: 'https://www.lanacion.com.ar/cartelera-de-cine',
-                    title: 'Cartelera de cine'
+                    title: 'Cartelera de cine',
                 },
                 {
                     name: 'Cartelera de teatro',
                     href: 'https://www.lanacion.com.ar/cartelera-de-teatro',
-                    title: 'Cartelera de teatro'
-                }
-            ]
+                    title: 'Cartelera de teatro',
+                },
+            ],
         },
         {
             name: 'Edición Impresa',
@@ -250,48 +247,44 @@ export const menuData = [
                 {
                     name: 'Acceso PDF',
                     href: 'https://edicionimpresa.lanacion.com.ar/la-nacion',
-                    title: 'Acceso PDF'
+                    title: 'Acceso PDF',
                 },
                 {
                     name: 'Editoriales',
                     href: 'https://www.lanacion.com.ar/editoriales/',
-                    title: 'Editoriales'
+                    title: 'Editoriales',
                 },
                 {
                     name: 'Conversaciones de domingo',
-                    href:
-                        'https://www.lanacion.com.ar/conversaciones-de-domingo/',
-                    title: 'Conversaciones de domingo'
+                    href: 'https://www.lanacion.com.ar/conversaciones-de-domingo/',
+                    title: 'Conversaciones de domingo',
                 },
                 {
                     name: 'Sábado',
                     href: 'https://www.lanacion.com.ar/sabado/',
-                    title: 'Sábado'
+                    title: 'Sábado',
                 },
                 {
                     name: 'Ideas',
                     href: 'https://www.lanacion.com.ar/ideas/',
-                    title: 'Ideas'
+                    title: 'Ideas',
                 },
                 {
                     name: 'Carta de lectores',
-                    href:
-                        'https://www.lanacion.com.ar/opinion/carta-de-lectores/',
-                    title: 'Carta de lectores'
+                    href: 'https://www.lanacion.com.ar/opinion/carta-de-lectores/',
+                    title: 'Carta de lectores',
                 },
                 {
                     name: 'Avisos fúnebres',
-                    href:
-                        'https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres',
-                    title: 'Avisos fúnebres'
+                    href: 'https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres',
+                    title: 'Avisos fúnebres',
                 },
                 {
                     name: 'Avisos sociales',
-                    href:
-                        'https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales',
-                    title: 'Avisos sociales'
-                }
-            ]
+                    href: 'https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales',
+                    title: 'Avisos sociales',
+                },
+            ],
         },
         {
             name: 'Revistas',
@@ -301,85 +294,96 @@ export const menuData = [
                 {
                     name: 'Revista OHLALÁ!',
                     href: 'https://www.somosohlala.com/',
-                    title: 'Revista OHLALÁ!'
+                    title: 'Revista OHLALÁ!',
                 },
                 {
                     name: 'Revista ¡HOLA!',
                     href: 'https://www.lanacion.com.ar/revista-hola/',
-                    title: 'Revista ¡HOLA!'
+                    title: 'Revista ¡HOLA!',
                 },
                 {
                     name: 'Revista Lugares',
                     href: 'https://www.lanacion.com.ar/revista-lugares/',
-                    title: 'Revista Lugares'
+                    title: 'Revista Lugares',
                 },
                 {
                     name: 'Revista Living',
                     href: 'https://www.lanacion.com.ar/revista-living/',
-                    title: 'Revista Living'
+                    title: 'Revista Living',
                 },
                 {
                     name: 'Revista Rolling Stone',
                     href: 'https://es.rollingstone.com/arg/',
-                    title: 'Revista Rolling Stone'
+                    title: 'Revista Rolling Stone',
                 },
                 {
                     name: 'Revista Jardín',
                     href: 'https://www.lanacion.com.ar/revista-jardin/',
-                    title: 'Revista Jardín'
-                }
-            ]
-        }
+                    title: 'Revista Jardín',
+                },
+            ],
+        },
     ],
     [
         {
             name: 'LN Juegos',
             href: '/juegos/',
-            title: 'LN Juegos'
+            title: 'LN Juegos',
         },
         {
             name: 'Exclusivo Suscriptores',
             href: '/suscriptores/',
-            title: 'Exclusivo Suscriptores'
-        }
+            title: 'Exclusivo Suscriptores',
+        },
+        {
+            name: 'Mis notas',
+            href: '/mis-notas/',
+            title: 'Mis notas',
+        },
     ],
     [
         {
             name: 'Club LA NACION',
             href: 'https://club.lanacion.com.ar/',
             title: 'Club LA NACION',
-            icon: <IconSprite name="clubLnDefault" critical fill="#333333" />
+            icon: <IconSprite name="clubLnDefault" critical fill="#333333" />,
+            target: '_blank',
         },
         {
             name: 'canchallena',
             href: 'https://canchallena.lanacion.com.ar/',
             title: 'canchallena',
-            icon: <IconSprite name="canchallena" critical fill="#333333" />
+            icon: <IconSprite name="canchallena" critical fill="#333333" />,
+            target: '_blank',
         },
         {
             name: 'Foodit',
             href: 'https://foodit.lanacion.com.ar/',
             title: 'Foodit',
             icon: <IconSprite name="foodit" critical fill="#333333" />,
-            isNew: true
+            isNew: true,
+            target: '_blank',
         },
         {
             name: 'Bonvivir',
             href: 'https://bonvivir.com/',
             title: 'Bonvivir',
-            icon: <IconSprite name="bonvivir" critical fill="#333333" />
+            icon: <IconSprite name="bonvivir" critical fill="#333333" />,
+            target: '_blank',
         },
         {
             name: 'LN+',
             href: 'https://lnmas.lanacion.com.ar/',
             title: 'LN+',
-            icon: <IconSprite name="lnMas" critical fill="#333333" />
+            icon: <IconSprite name="lnMas" critical fill="#333333" />,
+            target: '_blank',
         },
         {
             name: 'Kiosco LA NACION',
             href: 'https://pdf.lanacion.com.ar/',
             title: 'Kiosco LA NACION',
-            icon: <IconSprite name="storeLine" default fill="#333333" />
-        }
-    ]
+            icon: <IconSprite name="storeLine" default fill="#333333" />,
+            target: '_blank',
+        },
+    ],
 ];

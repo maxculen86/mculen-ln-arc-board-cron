@@ -4,11 +4,11 @@ import useGetUserData from '../../foodit-global/hooks/useGetUserData';
 
 export default function HtmlFeature({ id: featureId }) {
     const { isSuscribed } = useGetUserData();
-    const [showSaleBox, setShowSaleBox] = useState(null);
+    const [showSaleBox, setShowSaleBox] = useState(true);
 
     useEffect(() => {
-        if (!isSuscribed) {
-            setShowSaleBox(true);
+        if (isSuscribed) {
+            setShowSaleBox(false);
         }
     }, []);
 

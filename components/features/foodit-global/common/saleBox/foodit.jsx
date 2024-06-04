@@ -12,6 +12,7 @@ import {
     imgsIngredientsBackground,
     imgsPhoneFoodit
 } from './helper';
+import isSSR from '../../../../private/LN/common/utils/isSSR';
 
 export const SaleBox = ({ ...props }) => {
     const { deployment, contextPath } = useAppContext();
@@ -20,6 +21,12 @@ export const SaleBox = ({ ...props }) => {
         deployment(
             `${contextPath}/resources/foodit/assets/images/saleBox/${file}`
         );
+
+    const paywallUrl = !isSSR()
+        ? `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
+              window.location.href
+          )}`
+        : '';
 
     return (
         <section className="bg-positive relative w-100vw as-center" {...props}>
@@ -61,9 +68,7 @@ export const SaleBox = ({ ...props }) => {
                     <Button
                         title="Ir a Suscribirse"
                         variant="accent"
-                        href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
-                            window.location.href
-                        )}`}
+                        href={paywallUrl}
                     >
                         ¡suscribite hoy!
                     </Button>

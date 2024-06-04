@@ -23,7 +23,8 @@ const getAperturaStorytelling = (
     videoJW,
     basicImageDsk,
     basicImageMobile,
-    device = 'desktop'
+    device = 'desktop',
+    title = ''
 ) => {
     const isMobile = device !== 'desktop';
 
@@ -34,8 +35,9 @@ const getAperturaStorytelling = (
         ? basicImageMobile
         : (videoJW && dataJw) || basicImageDsk;
 
-    const { url = '', caption = '' } = data || {};
-    const altText = getImageAltText(data || {});
+    const { url = '' } = data || {};
+    const dataWithTitle = { ...data, title };
+    const altText = getImageAltText(dataWithTitle || {});
 
     const resizedUrls = getListOfOpeningImages(
         videoJW,

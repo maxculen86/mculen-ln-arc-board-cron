@@ -9,6 +9,7 @@ import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
 import bannerConfigType from './helpers/loadBannersSSRHelper';
+import getCustomTargeting from './helpers/getCustomTargeting';
 
 let googleCmdPushed = false;
 
@@ -30,7 +31,8 @@ const getBannersInDOM = device => {
                 targeting: JSON.parse(divBanner.dataset.targeting),
                 slotGroup: divBanner.dataset.slotGroup,
                 hideForSubscriptor: divBanner.dataset.subscription === 'true',
-                withoutHide: divBanner.dataset.withoutHide === 'true'
+                withoutHide: divBanner.dataset.withoutHide === 'true',
+                customTargeting: getCustomTargeting({ bannerId: divBanner.id })
             });
         });
     return bannersToLoad;
