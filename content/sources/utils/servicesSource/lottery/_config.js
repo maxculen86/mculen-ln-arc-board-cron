@@ -1,5 +1,5 @@
 const getLotteryDate = (date, name) => {
-    return quinielas[name] === '' ? `${name} - ${date}` : date;
+    return dailyLotteriesNames[name] === '' ? `${name} - ${date}` : date;
 };
 
 export const reorderSubLotteries = (results, order, isDetail) =>
@@ -222,7 +222,9 @@ export const meanings = {
     }
 };
 
-const quinielas = {
+const dailyLotteriesNames = {
+    Previa: '',
+    Turista: '',
     Primera: '',
     Nocturna: '',
     Vespertina: '',
