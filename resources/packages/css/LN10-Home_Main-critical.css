@@ -5050,6 +5050,11 @@ a {
   line-height: 100%;
 }
 
+.text-10_130 {
+  font-size: 0.625rem;
+  line-height: 130%;
+}
+
 .text-12 {
   font-size: 0.75rem;
   line-height: 100%;
@@ -5366,6 +5371,10 @@ strong:not(.--font-primary),
   padding-inline: 0rem;
 }
 
+.px-4 {
+  padding-inline: 0.25rem;
+}
+
 .px-6 {
   padding-inline: 0.375rem;
 }
@@ -5456,6 +5465,10 @@ strong:not(.--font-primary),
 
 .py-0 {
   padding-block: 0rem;
+}
+
+.py-2 {
+  padding-block: 0.125rem;
 }
 
 .py-4 {
@@ -5753,6 +5766,11 @@ strong:not(.--font-primary),
   justify-self: flex-end;
 }
 
+@media (min-width: 32rem) {
+  .ai-center_sm {
+    align-items: center;
+  }
+}
 @media (min-width: 48rem) {
   .jc-between_m {
     justify-content: space-between;
@@ -5795,6 +5813,11 @@ strong:not(.--font-primary),
   flex-direction: column;
 }
 
+@media (min-width: 32rem) {
+  .flex-row_sm {
+    flex-direction: row;
+  }
+}
 @media (min-width: 48rem) {
   .flex-column_m {
     flex-direction: column;
@@ -6485,6 +6508,10 @@ strong:not(.--font-primary),
   top: 0.1875rem;
 }
 
+.top-10 {
+  top: 0.625rem;
+}
+
 .top-100 {
   top: 100%;
 }
@@ -6503,6 +6530,10 @@ strong:not(.--font-primary),
 
 .right--2 {
   right: -0.125rem;
+}
+
+.right-4 {
+  right: 0.25rem;
 }
 
 .left-50 {

@@ -100,4 +100,30 @@ describe('Game Component', () => {
         const gameCardDiv = gameCardLink.querySelector('div');
         expect(gameCardDiv).toHaveClass('h-6 w-100');
     });
+
+    it('renders "Nuevo" badge when isNewGame is SI', () => {
+        const customFields = {
+            sectionId: '/juegos/criptograma',
+            gameType: 'Externo',
+            isNewGame: 'SI',
+            forSubscriber: false
+        };
+        render(<Game customFields={customFields} />);
+
+        const newBadge = screen.getByText('nuevo');
+        expect(newBadge).toBeInTheDocument();
+    });
+
+    it('does not render "Nuevo" badge when isNewGame is NO', () => {
+        const customFields = {
+            sectionId: '/juegos/criptograma',
+            gameType: 'Externo',
+            isNewGame: 'NO',
+            forSubscriber: false
+        };
+        render(<Game customFields={customFields} />);
+
+        const newBadge = screen.queryByText('nuevo');
+        expect(newBadge).not.toBeInTheDocument();
+    });
 });
