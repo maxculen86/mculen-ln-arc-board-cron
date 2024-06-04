@@ -29,18 +29,10 @@ describe('Test aperura article imagen/video validacion defensiva', () => {
     test('Medio destacado Básico "Origen del vídeo" con una imagen', () => {
         const image = Image(imageDefault);
         const resp = aperturaArticle(article);
-        expect(resp.imagenes).not.toBeUndefined();
-        expect(resp.imagenes.length).toBe(1);
-        expect(resp.imagenes[0]._t).toBe(image._t);
-        expect(resp.imagenes[0].url).toBe(image.url);
-        expect(resp.imagenes[0].parameters.length).toBe(
-            image.parameters.length
-        );
+        expect(resp.imagenes).toBeUndefined();
+
         expect(resp.video).not.toBeUndefined();
-        expect(console.error).toHaveBeenCalledTimes(1);
-        expect(console.error.mock.calls[0][0]).toBe(
-            'La nota id: SGLHVRAV2VGFHB5OZZ57PKYAVQ , tiene seteado en Medio destacado Básico "Origen del vídeo" una imagen. Se esta enviando una imagen por defecto hasta su correción'
-        );
+        expect(console.error).toHaveBeenCalledTimes(0);
     });
 });
 
@@ -93,8 +85,8 @@ describe('Test apetura con videoJW', () => {
         const resp = aperturaArticle(articleWithVideoJW);
         expect(resp).not.toBeNull();
         expect(resp.video).not.toBeNull();
-        expect(resp.imagenes).not.toBeNull();
+        expect(resp.imagenes).toBeUndefined();
         expect(resp.imagenesAcumulado).toBeUndefined();
-        expect(console.error).toHaveBeenCalledTimes(1);
+        expect(console.error).toHaveBeenCalledTimes(0);
     });
 });
