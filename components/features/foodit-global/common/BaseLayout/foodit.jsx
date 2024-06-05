@@ -11,13 +11,20 @@ import FloatingGroupButton from '../floatingGroupButton/foodit';
 import Toasts from '../toasts/foodit';
 import AuthProvider from '../context/authContext/foodit';
 import FooditEventsHelper from '../dataLayer/FooditEventsHelper';
+import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 
 const BaseLayout = ({ children }) => {
-    const { layout } = useAppContext();
+    const { layout, contextPath, deployment, arcSite } = useAppContext();
 
     return (
         <AuthProvider>
+            <DynamicStylesheetLoader
+                contextPath={contextPath}
+                deployment={deployment}
+                layout={layout}
+                arcSite={arcSite}
+            />
             <div className="wrapper overflow-x-clip roboto">
                 <Header />
                 <div className="header-sentinel" />

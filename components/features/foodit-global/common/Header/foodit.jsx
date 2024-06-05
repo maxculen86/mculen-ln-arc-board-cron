@@ -1,5 +1,5 @@
 import React from 'react';
-import Static from 'fusion:static';
+import { Logo } from '@ln/foodit-ui-logo';
 import { useAppContext } from 'fusion:context';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
@@ -9,7 +9,6 @@ import { SubHeader } from './components/subHeader/SubHeader';
 import { Search } from './components/Search';
 import { TopNavigationBar } from './components/TopNavigationBar';
 import { Promotions } from './components/promotions/Promotions';
-import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import LoginSubscribeButtons from './components/LoginSubscribeButtons';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
@@ -20,7 +19,7 @@ import { useContent } from 'fusion:content';
 import filterMenuSections from '../../../../../content/filters/foodit/filterMenuSections';
 
 const HeaderFoodit = () => {
-    const { deployment, contextPath, siteProperties, layout } = useAppContext();
+    const { siteProperties, layout } = useAppContext();
 
     const { layoutsName = {} } = siteProperties || {};
 
@@ -69,23 +68,20 @@ const HeaderFoodit = () => {
                                 </Icon>
                             </Button>
                         </MainHeader.Content.Left>
-                        <Static htmlOnly persistent id="foodit-logo">
-                            <MainHeader.Content.Center className="jc-center ai-center">
-                                <MainHeader.Brand
-                                    href="/"
-                                    title="Ir a inicio"
-                                    className="flex"
-                                >
-                                    <img
-                                        className="h-32 h-44_md h-52_lg"
-                                        src={getAssetsPath(contextPath)(
-                                            deployment
-                                        )('logo-foodit.webp')}
-                                        alt="Foodit"
-                                    />
-                                </MainHeader.Brand>
-                            </MainHeader.Content.Center>
-                        </Static>
+                        <MainHeader.Content.Center className="jc-center ai-center">
+                            <MainHeader.Brand
+                                href="/"
+                                title="Ir a inicio"
+                                className="flex"
+                            >
+                                <Logo
+                                    variant="row"
+                                    classNameSvgAnimated="h-32 h-44_md h-52_lg"
+                                    classNameSvgText="h-20 h-24_md h-28_lg"
+                                    enabledAnimation
+                                />
+                            </MainHeader.Brand>
+                        </MainHeader.Content.Center>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
                             <LoginSubscribeButtons classNameButtons="lg-only" />
                             <RenderUserOptions />

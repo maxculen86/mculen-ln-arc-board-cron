@@ -1326,6 +1326,10 @@ b, strong {
   height: 0.3125rem;
 }
 
+.h-20 {
+  height: 1.25rem;
+}
+
 .h-24 {
   height: 1.5rem;
 }
@@ -1396,6 +1400,9 @@ b, strong {
   .h-16_md {
     height: 1rem;
   }
+  .h-24_md {
+    height: 1.5rem;
+  }
   .h-37_md {
     height: 2.3125rem;
   }
@@ -1407,6 +1414,9 @@ b, strong {
   }
 }
 @media (min-width: 80rem) {
+  .h-28_lg {
+    height: 1.75rem;
+  }
   .h-42_lg {
     height: 2.625rem;
   }
@@ -1422,6 +1432,10 @@ b, strong {
 }
 .max-h-24 {
   max-height: 1.5rem;
+}
+
+.max-h-32 {
+  max-height: 2rem;
 }
 
 .max-h-196 {

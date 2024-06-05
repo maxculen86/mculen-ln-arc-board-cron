@@ -1,19 +1,21 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { cssPathsByLayout } from './helpers';
+import { cssPathsBySiteAndLayout } from './helpers';
 import { createLinkTag } from './helpers';
 
 export const DynamicStylesheetLoader = ({
     contextPath,
     deployment,
-    layout
+    layout,
+    arcSite
 }) => {
     useEffect(() => {
         createLinkTag({
             contextPath,
-            cssPathsByLayout,
+            cssPathsBySiteAndLayout,
             deployment,
-            layout
+            layout,
+            arcSite
         });
     });
     return <></>;

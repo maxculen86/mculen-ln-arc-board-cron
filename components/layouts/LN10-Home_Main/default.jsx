@@ -37,7 +37,8 @@ const LN10Home = props => {
         renderables,
         contextPath,
         deployment,
-        layout
+        layout,
+        arcSite
     } = props;
 
     const [
@@ -82,6 +83,7 @@ const LN10Home = props => {
                 contextPath={contextPath}
                 deployment={deployment}
                 layout={layout}
+                arcSite={arcSite}
             />
             <div className="wrapper homepage">
                 {bannersHome.megatopDsk}
