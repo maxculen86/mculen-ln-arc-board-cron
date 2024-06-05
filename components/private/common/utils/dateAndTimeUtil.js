@@ -205,3 +205,28 @@ export const getArgentinaDateMonthYear = () => {
         timeZone: 'America/Argentina/Buenos_Aires'
     });
 };
+
+export const getUpdateDateMoreYears = (publish_date, last_updated_date) => {
+    const publishDate = new Date(publish_date);
+    const lastUpdatedDate = new Date(last_updated_date);
+
+    if (isNaN(publishDate.getTime()) || isNaN(lastUpdatedDate.getTime())) {
+        return false;
+    }
+
+    const timeDifference = lastUpdatedDate - publishDate;
+    const yearDifference = timeDifference / (1000 * 60 * 60 * 24 * 365.25);
+
+    return yearDifference >= 1 ? last_updated_date : false;
+};
+
+export const getFormattedStringDate = last_updated_date => {
+    if (!last_updated_date || last_updated_date === false) {
+        return '';
+    }
+    const date = new Date(last_updated_date);
+    if (isNaN(date.getTime())) {
+        return '';
+    }
+    return formatDate(date);
+};

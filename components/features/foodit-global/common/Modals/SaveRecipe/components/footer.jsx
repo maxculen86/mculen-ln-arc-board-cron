@@ -4,6 +4,7 @@ import { actionButtons } from '../helpers';
 import { Button } from '@ln/foodit-ui-button';
 
 const FooterSaveRecipe = ({
+    hasInputError,
     close,
     indexStep,
     leftButton,
@@ -46,6 +47,7 @@ const FooterSaveRecipe = ({
                     })
                 }
                 disabled={
+                    hasInputError ||
                     !selectedFolder?.value ||
                     !articlesDetails.length ||
                     (indexStep === 2 && !newFolder)

@@ -46,17 +46,22 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
         class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-24"
       >
         <div
-          class="select w-100 max-w-328 relative"
+          class="select w-100 relative"
         >
           <div
             class="flex jc-between ai-center gap-16 p-16 opacity-80_hover h-56 border border-all border-thin border-light-100 rounded-8 cursor-pointer border-accent-lechuga__hover mt-8"
             tabindex="0"
           >
             <label
-              class="floating-label absolute cursor-inherit transition-regular pointer-events-none bg-white"
+              class="floating-label absolute cursor-inherit transition-regular pointer-events-none z-1 bg-white"
+              style="left: 16px;"
             >
               Colección
             </label>
+            <input
+              class="none"
+              value=""
+            />
             <span
               class="text-16"
             />

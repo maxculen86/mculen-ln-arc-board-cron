@@ -6,6 +6,7 @@ import MainSaveRecipe from './components/main';
 import FooterSaveRecipe from './components/footer';
 
 import { getConfig, saveRecipeConfig } from './helpers';
+import useSelectListener from './hooks/useSelectListener';
 
 const SaveRecipe = props => {
     const {
@@ -20,13 +21,11 @@ const SaveRecipe = props => {
 
     const {
         onChange: onInputFolderChange,
-        value: inputValue
+        value: inputValue,
+        error: inputError
     } = useInputListener('');
 
-    const {
-        onChange: onSelectChange,
-        value: selectValue = {}
-    } = useInputListener();
+    const { onSelectChange, selectValue = {} } = useSelectListener({});
 
     const {
         leftButton,
@@ -41,12 +40,14 @@ const SaveRecipe = props => {
             setIndexStep(prev => prev + 1);
         }
     }, [selectValue]);
+
     return (
         <>
             <HeaderSaveRecipe title={title} />
             <MainSaveRecipe
                 newFolder={inputValue}
                 onInputFolderChange={onInputFolderChange}
+                error={inputError}
                 selectedFolder={selectValue}
                 onSelectChange={onSelectChange}
                 showInputFolder={showInputFolder}
@@ -59,6 +60,7 @@ const SaveRecipe = props => {
                 indexStep={indexStep}
                 leftButton={leftButton}
                 newFolder={inputValue}
+                hasInputError={Boolean(inputError?.hasError)}
                 rightButton={rightButton}
                 selectedFolder={selectValue}
                 setIndexStep={setIndexStep}

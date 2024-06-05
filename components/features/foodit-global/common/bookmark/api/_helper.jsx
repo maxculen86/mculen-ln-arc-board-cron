@@ -21,6 +21,7 @@ export const TOAST = {
                     </Link>
                 </>
             ),
+            RENAME_COLLECTION: 'Podes ver la colección en mis recetas.',
             DELETE_ARTICLE: 'Se quito de tu colección.',
             SAVE_ARTICLE: (
                 <>
