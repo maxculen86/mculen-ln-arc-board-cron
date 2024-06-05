@@ -5,7 +5,9 @@ import dateAndTimeUtil, {
     getSpecificDate,
     datesDiffInDays,
     getArgentinaYear,
-    getArgentinaDateMonthYear
+    getArgentinaDateMonthYear,
+    getUpdateDateMoreYears,
+    getFormattedStringDate,
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
 beforeEach(() => {
@@ -34,7 +36,7 @@ describe('Private - Common - Utils - dateAndTimeUtil', () => {
     it('Test Fecha del articulo dateAndTimeUtil', () => {
         expect(dateAndTimeUtil('2021-02-18T17:34:00.624Z')).toEqual({
             date: '18 de febrero de 2021',
-            time: '11:34'
+            time: '11:34',
         });
     });
 
@@ -94,7 +96,7 @@ describe('Private - Common - Utils - dateAndTimeUtil', () => {
 });
 
 describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaYear', () => {
-    const mockDateFn = dateString => {
+    const mockDateFn = (dateString) => {
         const mockDate = new Date(dateString);
         const spy = jest
             .spyOn(global, 'Date')
@@ -123,7 +125,7 @@ describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaYear', () => 
 });
 
 describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaDateMonthYear', () => {
-    const mockDateFn = dateString => {
+    const mockDateFn = (dateString) => {
         const mockDate = new Date(dateString);
         const spy = jest
             .spyOn(global, 'Date')
@@ -146,5 +148,27 @@ describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaDateMonthYear
 
         const result = getArgentinaDateMonthYear();
         expect(result).toBe('31/12/2022');
+    });
+});
+
+describe('Private - Common - Utils - dateAndTimeUtil - getFormattedStringDate', () => {
+    it('should return an empty string if last_updated_date is null', () => {
+        const last_updated_date = null;
+        expect(getFormattedStringDate(last_updated_date)).toEqual('');
+    });
+
+    it('should return an empty string if last_updated_date is undefined', () => {
+        const last_updated_date = undefined;
+        expect(getFormattedStringDate(last_updated_date)).toEqual('');
+    });
+
+    it('should return an empty string if last_updated_date is false', () => {
+        const last_updated_date = false;
+        expect(getFormattedStringDate(last_updated_date)).toEqual('');
+    });
+
+    it('should return an empty string if last_updated_date is an invalid date', () => {
+        const last_updated_date = 'invalid-date';
+        expect(getFormattedStringDate(last_updated_date)).toEqual('');
     });
 });

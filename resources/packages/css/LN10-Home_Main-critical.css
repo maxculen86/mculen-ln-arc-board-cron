@@ -5753,6 +5753,11 @@ strong:not(.--font-primary),
   justify-self: flex-end;
 }
 
+@media (min-width: 32rem) {
+  .ai-center_sm {
+    align-items: center;
+  }
+}
 @media (min-width: 48rem) {
   .jc-between_m {
     justify-content: space-between;
@@ -5795,6 +5800,11 @@ strong:not(.--font-primary),
   flex-direction: column;
 }
 
+@media (min-width: 32rem) {
+  .flex-row_sm {
+    flex-direction: row;
+  }
+}
 @media (min-width: 48rem) {
   .flex-column_m {
     flex-direction: column;

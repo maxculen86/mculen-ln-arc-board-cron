@@ -12,7 +12,7 @@ export const monthNames = [
     'septiembre',
     'octubre',
     'noviembre',
-    'diciembre'
+    'diciembre',
 ];
 
 export const getSpecificDate = (year, month, day) => {
@@ -46,7 +46,7 @@ export function formatDate(originalDate) {
     return `${date.getDate()} de ${month} de ${date.getFullYear()}`;
 }
 
-const setDay = date => {
+const setDay = (date) => {
     const day = String(date.getDate());
     return day < 10 ? day.padStart(2, '0') : day;
 };
@@ -113,7 +113,7 @@ export function formatYearMontDayDate(originalDate) {
 export default function dateAndTimeUtil(displayDate) {
     return {
         date: formatDate(new Date(displayDate)),
-        time: formatDateHoursAndMint(new Date(displayDate))
+        time: formatDateHoursAndMint(new Date(displayDate)),
     };
 }
 
@@ -124,7 +124,7 @@ export default function dateAndTimeUtil(displayDate) {
 export function dateAndTimeForAppsUtil(displayDate) {
     if (displayDate) {
         return `${formatYearMontDayDate(
-            new Date(displayDate)
+            new Date(displayDate),
         )} ${formatDateHoursMinAndSecond(new Date(displayDate))}`;
     }
     return displayDate;
@@ -154,10 +154,9 @@ export function addHours(hours, originalDate) {
 }
 
 export function convertToFormat(dateInJS) {
-    return `${dateInJS
-        .getFullYear()
-        .toString()
-        .padStart(4, '0')}-${(dateInJS.getMonth() + 1)
+    return `${dateInJS.getFullYear().toString().padStart(4, '0')}-${(
+        dateInJS.getMonth() + 1
+    )
         .toString()
         .padStart(2, '0')}-${dateInJS
         .getDate()
@@ -184,7 +183,7 @@ export function differenceInMinutes(firstDate, secondDate) {
 export const substractDays = (date, days) =>
     new Date(date.setDate(date.getDate() - days));
 
-export const formatToISOString = date => date.toISOString().split('T')[0];
+export const formatToISOString = (date) => date.toISOString().split('T')[0];
 
 export function restMinutes(date, minutes) {
     return new Date(date.getTime() - minutes * 60000);
@@ -194,7 +193,7 @@ export const getArgentinaYear = () => {
     const date = new Date();
     return date.toLocaleString('es-AR', {
         timeZone: 'America/Argentina/Buenos_Aires',
-        year: 'numeric'
+        year: 'numeric',
     });
 };
 
@@ -202,6 +201,31 @@ export const getArgentinaYear = () => {
 export const getArgentinaDateMonthYear = () => {
     const date = new Date();
     return date.toLocaleDateString('en-GB', {
-        timeZone: 'America/Argentina/Buenos_Aires'
+        timeZone: 'America/Argentina/Buenos_Aires',
     });
+};
+
+export const getUpdateDateMoreYears = (publish_date, last_updated_date) => {
+    const publishDate = new Date(publish_date);
+    const lastUpdatedDate = new Date(last_updated_date);
+
+    if (isNaN(publishDate.getTime()) || isNaN(lastUpdatedDate.getTime())) {
+        return false;
+    }
+
+    const timeDifference = lastUpdatedDate - publishDate;
+    const yearDifference = timeDifference / (1000 * 60 * 60 * 24 * 365.25);
+
+    return yearDifference >= 1 ? last_updated_date : false;
+};
+
+export const getFormattedStringDate = (last_updated_date) => {
+    if (!last_updated_date || last_updated_date === false) {
+        return '';
+    }
+    const date = new Date(last_updated_date);
+    if (isNaN(date.getTime())) {
+        return '';
+    }
+    return formatDate(date);
 };
