@@ -3,18 +3,30 @@ import Context from 'fusion:context';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MonthsList from '../../../../../components/features/LN-services/monthsList/default';
-import { monthNames } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
+export const monthNames = [
+    'enero',
+    'febrero',
+    'marzo',
+    'abril',
+    'mayo',
+    'junio',
+    'julio',
+    'agosto',
+    'septiembre',
+    'octubre',
+    'noviembre',
+    'diciembre'
+];
 
 describe('Tests the month list.', () => {
-    const currentYear = new Date().getFullYear();
     Context.useAppContext = jest.fn(() => ({
-        globalContent: { serviceItem: currentYear }
+        globalContent: { serviceItem: '2024' }
     }));
 
     it('Should have the names of these classes', () => {
@@ -48,10 +60,10 @@ describe('Tests the month list.', () => {
         anchors.forEach((anchor, index) => {
             expect(anchor).toHaveTextContent(monthNames[index]);
             expect(anchor.getAttribute('title')).toBe(
-                `Ir a feriados de ${monthNames[index]} del ${currentYear}`
+                `Ir a feriados de ${monthNames[index]} del 2024`
             );
             expect(anchor.getAttribute('href')).toBe(
-                `/feriados/${currentYear}/${monthNames[index]}/`
+                `/feriados/2024/${monthNames[index]}/`
             );
         });
     });
