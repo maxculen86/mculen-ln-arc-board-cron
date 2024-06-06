@@ -145,19 +145,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             <div
               class="right-options flex jc-end ai-center gap-16 gap-24_md"
             >
-              <button
+              <a
                 class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg lg-only"
                 data-button="buttonSubscribeText"
                 data-event-data-layer="subscription_start"
                 data-interaction="dataLayerInteraction"
                 data-variant="accent"
+                href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
+                target="_self"
                 title="SUSCRIBITE"
               >
                 SUSCRIBITE
-              </button>
-              <button
+              </a>
+              <a
                 class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
                 data-variant="link"
+                href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
+                target="_self"
                 title="INICIAR SESIÓN"
               >
                 <span
@@ -165,7 +169,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 >
                   INICIAR SESIÓN
                 </span>
-              </button>
+              </a>
             </div>
             <div
               class="search-container flex"
@@ -1303,19 +1307,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         <div
           class="promotions-container lg-none flex ai-center gap-24 w-100 jc-center"
         >
-          <button
+          <a
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
             data-button="buttonSubscribeText"
             data-event-data-layer="subscription_start"
             data-interaction="dataLayerInteraction"
             data-variant="accent"
+            href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
+            target="_self"
             title="SUSCRIBITE"
           >
             SUSCRIBITE
-          </button>
-          <button
+          </a>
+          <a
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
             data-variant="link"
+            href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
+            target="_self"
             title="INICIAR SESIÓN"
           >
             <span
@@ -1323,7 +1331,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             >
               INICIAR SESIÓN
             </span>
-          </button>
+          </a>
         </div>
       </div>
     </header>
