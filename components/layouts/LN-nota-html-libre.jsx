@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import classNames from 'classnames';
 import Header from '../features/LN-10-global/header/default';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
@@ -8,6 +9,7 @@ import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 import GlobalProvider from '../private/common/context/globalContext';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 const lnNotaNoticia = ({
     children: [bannerMegatop, bottom, bottomTercera],
@@ -24,6 +26,8 @@ const lnNotaNoticia = ({
         'html-libre',
         amp
     );
+
+    const { deployment, contextPath } = useAppContext();
 
     return (
         <GlobalProvider>
@@ -58,6 +62,7 @@ const lnNotaNoticia = ({
                 </main>
             </div>
             <LoadBannersSSR />
+            <PwaModal contextPath={contextPath} deployment={deployment} />
         </GlobalProvider>
     );
 };

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PwaModal should not render the modal when isShowModal is false 1`] = `<div />`;
+
+exports[`PwaModal should render the modal when isShowModal is true 1`] = `
+<div>
+  <div
+    class="ln-pwa-modal fixed p-16 w-100 z-1600 max-w-365 bg-white bottom-60 left-50 border border-left border-5 border-black -transform-50 transform-none_l left-90_l shadow-pwamodal bottom-auto_l top-0_l class"
+    id="notificacion-modal"
+  >
+    <a
+      class="link ln-link block mb-16"
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title="LA NACION"
+    >
+      <img
+        alt="LA NACION"
+        class="image flex --cover"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="pf//resources/images/la-nacion.webp"
+        width="164"
+      />
+    </a>
+    <p
+      class="text ln-text text-black --prumo --font-medium --font-m"
+    >
+      ¿Querés recibir notificaciones de alertas?
+    </p>
+    <div
+      class="flex jc-end"
+    >
+      <button
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 mr-12 --secondary"
+        data-variant="secondary"
+        id="notificacion-no"
+        title="No, gracias"
+        type="button"
+      >
+        No, gracias
+      </button>
+      <button
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-blue-500 text-light-0 h-40 px-16 py-12 --primary"
+        data-variant="primary"
+        id="notificacion-si"
+        title="Aceptar"
+        type="button"
+      >
+        Aceptar
+      </button>
+    </div>
+  </div>
+</div>
+`;

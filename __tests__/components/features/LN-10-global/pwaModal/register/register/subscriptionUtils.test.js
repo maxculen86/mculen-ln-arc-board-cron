@@ -1,8 +1,7 @@
 import {
-    storeAuth3Token,
     checkLocalStorageItems,
     updateToken
-} from '../../../../../../components/private/LN/common/utils/register';
+} from '../../../../../../../components/features/LN-10-global/pwaModal/register/subscriptionUtils';
 
 const localStorageMock = (function() {
     let store = {};
@@ -55,17 +54,8 @@ const VALUES = {
     }
 };
 
-describe('components - private - LN - common - utils - register', () => {
+describe('components - features - LN-10-global - pwaModal - register - subscriptionUtils', () => {
     const { authToken, endpointArn } = VALUES;
-
-    describe('storeAuth3Token function', () => {
-        test('should set item received by parameter on localStorage', () => {
-            storeAuth3Token(authToken.value);
-            expect(localStorage.getItem(authToken.title[1])).toEqual(
-                authToken.value
-            );
-        });
-    });
 
     describe('checkLocalStorageItems function', () => {
         test('should return default values', () => {

@@ -1,9 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 import Consumer from 'fusion:consumer';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 import '../../resources/dist/css/ln/pages/video.css';
 
@@ -16,6 +18,7 @@ import intersectionObserverForRelatedTags from '../private/common/utils/relatedT
 const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+    const { deployment, contextPath } = useAppContext();
 
     const classNameWrapper = classNames(
         'wrapper',
@@ -69,6 +72,7 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
                 </div>
             </div>
             <LoadBannersSSR />
+            <PwaModal contextPath={contextPath} deployment={deployment} />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

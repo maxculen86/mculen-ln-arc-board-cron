@@ -2,10 +2,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import { useAppContext } from 'fusion:context';
 import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
@@ -35,6 +37,9 @@ const LNNotaReceta = ({ outputType, children }) => {
         '--top-fixed',
         amp
     );
+
+    const { deployment, contextPath } = useAppContext();
+
     return (
         <GlobalProvider>
             <div id="wrapper" className={classNameWrapper}>
@@ -95,6 +100,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                 </div>
             </div>
             <LoadBannersSSR />
+            <PwaModal contextPath={contextPath} deployment={deployment} />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

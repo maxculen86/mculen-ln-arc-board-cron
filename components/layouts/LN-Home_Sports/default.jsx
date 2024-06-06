@@ -10,11 +10,14 @@ import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalCont
 import get from '../../private/common/utils/get';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
 
 const LNSportsHome = props => {
     const {
+        contextPath,
+        deployment,
         children: [
             bannerMegatop,
             stickyMobile,
@@ -40,6 +43,7 @@ const LNSportsHome = props => {
         'acumuladoGeneral.colecciones',
         []
     );
+
     return (
         <GlobalProvider>
             <GlobalProviderAcu
@@ -83,6 +87,7 @@ const LNSportsHome = props => {
                     </div>
                 </div>
                 <LoadBannersSSR />
+                <PwaModal contextPath={contextPath} deployment={deployment} />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

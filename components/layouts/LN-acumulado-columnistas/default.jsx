@@ -7,6 +7,7 @@ import Footer from '../../private/LN10/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import ComTitle from '../../private/common/com-title';
 
 const layoutItemsColumnistas = [
@@ -17,7 +18,7 @@ const layoutItemsColumnistas = [
 ];
 
 const LNAcumuladoColumnistasLayout = props => {
-    const { children } = props;
+    const { children, contextPath, deployment } = props;
 
     return (
         <GlobalProvider>
@@ -65,6 +66,7 @@ const LNAcumuladoColumnistasLayout = props => {
                 </div>
             </div>
             <LoadBannersSSR />
+            <PwaModal contextPath={contextPath} deployment={deployment} />
         </GlobalProvider>
     );
 };

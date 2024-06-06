@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import classNames from 'classnames';
+import { useAppContext } from 'fusion:context';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
@@ -9,6 +10,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
@@ -60,6 +62,8 @@ const lnNotaFotoAl100 = ({
         amp
     );
 
+    const { deployment, contextPath } = useAppContext();
+
     return (
         <GlobalProvider>
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
@@ -102,6 +106,7 @@ const lnNotaFotoAl100 = ({
                 </div>
             </div>
             <LoadBannersSSR />
+            <PwaModal contextPath={contextPath} deployment={deployment} />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

@@ -2,6 +2,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import classNames from 'classnames';
 import '../../resources/dist/css/ln/pages/magazine.css';
 import GlobalProvider from '../private/common/context/globalContext';
@@ -10,6 +11,7 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 import '../../resources/dist/css/ln/base/helpers.css';
 import '../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
@@ -30,6 +32,7 @@ const lnNotaNoticia = ({
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
+    const { deployment, contextPath } = useAppContext();
 
     const classNameNotaMain = classNames(
         'wrapper',
@@ -45,6 +48,7 @@ const lnNotaNoticia = ({
             {bannerMegatop}
             <NotaMain className={classNameNotaMain}>{children}</NotaMain>
             <LoadBannersSSR />
+            <PwaModal contextPath={contextPath} deployment={deployment} />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
