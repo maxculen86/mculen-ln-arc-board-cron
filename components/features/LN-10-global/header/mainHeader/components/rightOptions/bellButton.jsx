@@ -6,6 +6,7 @@ import { toggleBellColor } from './_helper';
 import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { useHeaderContext } from '../../../context';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+
 export const BellButton = () => {
     const { negative, intersectingSentinel } = useHeaderContext();
     const [showTooltip, setShowTooltip] = useState(false);
@@ -68,7 +69,8 @@ export const BellButton = () => {
             title:
                 (notification.title && `notificación-${notification.title}`) ||
                 'N/A',
-            page_notification: notification.url || 'N/A'
+            page_notification: notification.url || 'N/A',
+            identifier: notification.id
         });
     };
     const handleMessageButtonClick = message => {
