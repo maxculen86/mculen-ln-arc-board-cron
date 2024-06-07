@@ -413,40 +413,43 @@ export const queueGoogletagCommand = bannersToLoad => {
             timeout: 2e3
         };
 
-        apstag.fetchBids(
-            {
-                ...slotAPS
-            },
-            function(bids) {
-                // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
-                if (pbjs.adserverRequestSent) return;
-                apstag.setDisplayBids();
+        if (headerBiddingSlots.length > 0) {
+            apstag.fetchBids(
+                {
+                    ...slotAPS
+                },
+                function(bids) {
+                    // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
+                    if (pbjs.adserverRequestSent) return;
+                    apstag.setDisplayBids();
+                }
+            );
+
+            // function that calls the ad-server
+            function callAdserver(_headerBiddingSlots, fallback = false) {
+                if (pbjs.adserverCalled) return;
+                fallback &&
+                    console.log('🚀 ~ callAdserver ~ fallback:', fallback);
+                pbjs.adserverCalled = true;
+                googletag.pubads().refresh(_headerBiddingSlots);
             }
-        );
 
-        // function that calls the ad-server
-        function callAdserver(_headerBiddingSlots, fallback = false) {
-            if (pbjs.adserverCalled) return;
-            fallback && console.log('🚀 ~ callAdserver ~ fallback:', fallback);
-            pbjs.adserverCalled = true;
-            googletag.pubads().refresh(_headerBiddingSlots);
-        }
-
-        !isWebview(navigator.userAgent) &&
-            hastSlotswithBids &&
-            pbjs.que.push(function() {
-                pbjs.rp.requestBids({
-                    callback: callAdserver,
-                    gptSlotObjects: headerBiddingSlots
+            !isWebview(navigator.userAgent) &&
+                hastSlotswithBids &&
+                pbjs.que.push(function() {
+                    pbjs.rp.requestBids({
+                        callback: callAdserver,
+                        gptSlotObjects: headerBiddingSlots
+                    });
                 });
-            });
 
-        // this timeout is a failsafe
-        // the ad ops team can set lower thresholds that will be respected by Prebid
-        // but the web-dev team can define the worst case here
-        setTimeout(() => {
-            callAdserver(headerBiddingSlots, true);
-        }, 3500);
+            // this timeout is a failsafe
+            // the ad ops team can set lower thresholds that will be respected by Prebid
+            // but the web-dev team can define the worst case here
+            setTimeout(() => {
+                callAdserver(headerBiddingSlots, true);
+            }, 3500);
+        }
 
         googletag.pubads().refresh(nonHeaderBiddingSlots);
 
