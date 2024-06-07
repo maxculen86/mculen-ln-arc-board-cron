@@ -42,7 +42,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         data-dynamic-action="N/A"
                     >
                         <Icon size={20}>
-                            <IconSprite name="cart" critical />
+                            <IconSprite name="shopping-list" critical />
                         </Icon>
                         LISTA DE COMPRAS
                     </Link>

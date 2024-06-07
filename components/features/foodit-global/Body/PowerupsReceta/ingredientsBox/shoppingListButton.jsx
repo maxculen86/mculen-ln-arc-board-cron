@@ -40,7 +40,7 @@ const ShoppingListButton = ({
             }
         >
             <Icon size={16}>
-                <IconSprite name="cart" critical />
+                <IconSprite name="shopping-list" critical />
             </Icon>
             {bookmarkId ? 'ELIMINAR DE LISTA' : 'AGREGAR A LISTA'}
         </Button>

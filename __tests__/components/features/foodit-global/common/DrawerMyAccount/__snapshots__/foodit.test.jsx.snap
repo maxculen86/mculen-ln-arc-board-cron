@@ -110,7 +110,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
               >
                 <mock-icon
                   critical="true"
-                  name="cart"
+                  name="shopping-list"
                 />
               </i>
               <span
