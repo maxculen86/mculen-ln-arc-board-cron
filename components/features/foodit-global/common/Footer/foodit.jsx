@@ -43,7 +43,7 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
-                                href="https://twitter.com/FOODITAR"
+                                href="https://x.com/FOODIT_AR"
                                 title="Seguinos en X"
                                 iconOnly
                                 size={32}
