@@ -74,12 +74,13 @@ export default {
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
     ARC_WIDGETS: 'https://sandbox-arc-widgets.lanacion.com.ar/widgets/',
     LANACION_SERVICES_URL: 'https://pre-arcservices.lanacion.com.ar',
+    //TODO: apuntar a QA la api personalizacion nuevamente cuando reestablezcan QA
     PERSONALIZACION_API:
-        'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     PERSONALIZACION_APIV2:
-        'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
     PERSONALIZACION_API_FOODIT:
-        'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
     BOOKMARK_URL:
         'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar',
     AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
@@ -88,10 +89,13 @@ export default {
     API_KEY_ARC_SERVICES: '82816e61-c4ff-4ccf-96c4-d809ca7b418f',
     API_KEY_ARC_SERVICES_PROD: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
     VIDEO_CDN_URL: 'https://lanacionar-sandbox.video.arc-cdn.net/',
-    LOGIN_URL: 'https://qa-ingresar.lanacion.com.ar/auth0-login/?callback=',
+    // TODO: CUando reestablezcan QA cambiar a URL de QA
+    LOGIN_URL: 'https://pre-ingresar.lanacion.com.ar/auth0-login/?callback=',
+    // TODO: CUando reestablezcan QA cambiar a URL de QA
     FOODIT_LOGIN_URL:
-        'https://qa-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
-    API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
+        'https://pre-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
+    // TODO: CUando reestablezcan QA cambiar a URL de QA
+    API_INGRESAR: 'https://pre-api-ingresar.lanacion.com.ar',
     CLL_BACK_BASE_URL: 'https://qa-api-cll-services.lanacion.com.ar/graphql/',
     CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe',
     MARFEEL_ACCOUNT_ID: '3353',
@@ -102,6 +106,8 @@ export default {
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
-    SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
+    // TODO: Queda comentado hasta que habiliten qa
+    // SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
+    SITIO_SEGURO_REGISTRACION: 'https://pre-suscripciones.lanacion.com.ar/',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
 };
