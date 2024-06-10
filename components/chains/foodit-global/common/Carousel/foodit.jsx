@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Mediascroller } from '@ln/common-ui-mediascroller';
 import { Button } from '@ln/foodit-ui-button';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
+import {
+    getImagesToLoadWithPicture,
+    getShortestImage
+} from '../../../../private/LN/common/utils/mediaHelper';
 import { getTypeOfDevice } from '@ln/hooks';
 import getImageAltText from '../../../../features/foodit-global/common/utils/getImageAltText';
 
@@ -46,6 +49,10 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                             image = {}
                         }) => {
                             const { resized_urls, url } = image;
+                            const { resizedUrl = '' } = getShortestImage(
+                                resized_urls
+                            );
+
                             return (
                                 <CommonCardFoodit
                                     articleId={articleId}
@@ -54,7 +61,7 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                                     linksProps={{ href, title }}
                                     size={size}
                                     variant={variant}
-                                    src={url}
+                                    src={resizedUrl || url}
                                     alt={getImageAltText(image)}
                                     sources={getImagesToLoadWithPicture(
                                         resized_urls
