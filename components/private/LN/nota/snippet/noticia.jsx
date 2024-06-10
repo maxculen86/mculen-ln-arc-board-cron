@@ -143,7 +143,7 @@ const SnippetNoticia = props => {
         'placeholderLN-1080.jpg'
     );
 
-    const { path, name } = primarySection;
+    const { name } = primarySection;
 
     const distributorAuthor = {
         '@type': 'Organization',
