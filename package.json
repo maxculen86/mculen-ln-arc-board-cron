@@ -41,7 +41,7 @@
         "@ln/common-ui-breadcrumb": "1.1.2",
         "@ln/common-ui-button": "2.1.0",
         "@ln/common-ui-closebutton": "0.0.2",
-        "@ln/common-ui-drawer": "0.0.7",
+        "@ln/common-ui-drawer": "0.1.0",
         "@ln/common-ui-dropdown": "0.0.15",
         "@ln/common-ui-floatinglabel": "0.0.3",
         "@ln/common-ui-grid": "1.1.0",

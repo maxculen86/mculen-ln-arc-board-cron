@@ -2,15 +2,16 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AvatarRecetas from '../../../../../../../components/features/foodit-global/common/Header/components/Avatar';
-import { toggleDrawer } from '@ln/common-ui-drawer';
+import { useDrawer } from '@ln/common-ui-drawer';
 
 jest.mock('@ln/common-ui-drawer', () => ({
-    toggleDrawer: jest.fn()
+    useDrawer: jest.fn()
 }));
 
-xdescribe('Components - Features - foodit-global - common - Header - components - AvatarRecetas', () => {
+describe('Components - Features - foodit-global - common - Header - components - AvatarRecetas', () => {
+    useDrawer.mockReturnValue({ toggleDrawer: jest.fn() });
     it('renders correctly', () => {
-        const { getByTitle, debug } = render(
+        const { getByTitle } = render(
             <AvatarRecetas
                 className="test"
                 initials="AB"
@@ -40,9 +41,8 @@ xdescribe('Components - Features - foodit-global - common - Header - components 
             />
         );
         fireEvent.click(getByTitle('Abrir menú'));
-        expect(toggleDrawer).toHaveBeenCalledWith({
-            id: 'drawer-account',
-            show: true
-        });
+        expect(
+            useDrawer({ id: 'drawer-account' }).toggleDrawer
+        ).toHaveBeenCalled();
     });
 });

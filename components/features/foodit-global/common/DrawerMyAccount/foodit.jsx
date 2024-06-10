@@ -3,6 +3,7 @@ import DrawerContainer from '../DrawerContainer/foodit';
 import MyAccount from '../MyAccount/foodit';
 import { menuUser } from '../utils/menuUser';
 import useGetUserData from '../../hooks/useGetUserData';
+import { DRAWER } from '../DrawerContainer/constants';
 
 export const DrawerMyAccount = () => {
     // TODO: contenido de menú
@@ -11,7 +12,7 @@ export const DrawerMyAccount = () => {
     const { email, initials, isSuscribed, restoreContext } = useGetUserData();
 
     return (
-        <DrawerContainer drawerId="drawer-account" position="right">
+        <DrawerContainer drawerId={DRAWER.MY_ACCOUNT} position="right">
             <MyAccount
                 itemsList={itemsList}
                 fullWidth

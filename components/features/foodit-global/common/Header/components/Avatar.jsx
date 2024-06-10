@@ -1,16 +1,19 @@
 import React from 'react';
 import { Avatar } from '@ln/foodit-ui-avatar';
 import { Button } from '@ln/foodit-ui-button';
-import { toggleDrawer } from '@ln/common-ui-drawer';
+import { useDrawer } from '@ln/common-ui-drawer';
+import { DRAWER } from '../../DrawerContainer/constants';
 
 const AvatarRecetas = ({ className, initials, suscription }) => {
+    const { toggleDrawer } = useDrawer({ id: DRAWER.MY_ACCOUNT });
+
     return (
         <Button
             className={className}
             variant="link"
             title="Abrir menú"
             onClick={() => {
-                toggleDrawer({ id: 'drawer-account', show: true });
+                toggleDrawer();
             }}
         >
             <Avatar

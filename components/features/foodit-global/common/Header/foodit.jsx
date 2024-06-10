@@ -1,7 +1,8 @@
 import React from 'react';
 import { Logo } from '@ln/foodit-ui-logo';
 import { useAppContext } from 'fusion:context';
-import { toggleDrawer } from '@ln/common-ui-drawer';
+import { useDrawer } from '@ln/common-ui-drawer';
+import { DRAWER } from '../DrawerContainer/constants';
 import { Button } from '@ln/common-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Header, MainHeader } from '@ln/common-ui-header';
@@ -20,6 +21,7 @@ import filterMenuSections from '../../../../../content/filters/foodit/filterMenu
 
 const HeaderFoodit = () => {
     const { siteProperties, layout } = useAppContext();
+    const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
 
     const { layoutsName = {} } = siteProperties || {};
 
@@ -56,12 +58,7 @@ const HeaderFoodit = () => {
                             <Button
                                 title="Menu"
                                 className="text-light-800"
-                                onClick={() =>
-                                    toggleDrawer({
-                                        id: 'drawer-menu',
-                                        show: true
-                                    })
-                                }
+                                onClick={() => toggleDrawer()}
                             >
                                 <Icon size={24} color="dark">
                                     <IconSprite name="menu" critical />

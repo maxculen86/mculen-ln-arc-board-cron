@@ -2,8 +2,7 @@ import '@testing-library/jest-dom';
 import {
     customFloatingButtonConfig,
     floatingButtonConfig,
-    getConfigByLayout,
-    getCustomConfigByLayout
+    getConfigByLayout
 } from '../../../../../../components/features/foodit-global/common/floatingGroupButton/helpers';
 
 describe('FloatingGroupButton getConfigByLayout helper', () => {

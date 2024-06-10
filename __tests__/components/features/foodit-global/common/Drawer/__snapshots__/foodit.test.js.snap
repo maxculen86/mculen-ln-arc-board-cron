@@ -7,7 +7,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
     data-id="overlay-drawer-menu"
   >
     <div
-      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh h-100dvh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular left-0"
+      class="drawer flex flex-column overflow-hidden fixed w-100 max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular h-100vh h-100dvh top-0 left-0"
       data-id="drawer-menu"
       data-position="left"
       data-visible="false"
@@ -16,8 +16,8 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
         class="flex"
       >
         <button
-          class="cursor-pointer transition-regular flex opacity-80_hover ml-auto"
-          title="Cerrar menú"
+          class="button ml-auto"
+          title="Cerrar"
         >
           <i
             class="icon --icon-24"
