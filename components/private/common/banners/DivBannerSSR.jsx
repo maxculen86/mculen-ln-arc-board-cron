@@ -64,20 +64,22 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
     ];
 
     const bannerClass = classNames(
-        `${
-            layout !== get(siteProperties, homeLN10PropName)
-                ? 'com-banner'
-                : 'ln-banner'
-        }`,
-        lazyClass,
+        layout !== get(siteProperties, homeLN10PropName)
+            ? 'com-banner'
+            : 'ln-banner',
+        lazyClass
+    );
+
+    const bannerClassContainer = classNames(
+        layout !== get(siteProperties, homeLN10PropName)
+            ? 'mod-banner'
+            : 'ln-banner-container',
+        `--${slotId}`,
+        classes,
+        { none: isHidden },
         { '--no-app': bannersNoApp.includes(slotId) }
     );
 
-    const _classNames = `${
-        layout !== get(siteProperties, homeLN10PropName)
-            ? 'mod-banner'
-            : 'ln-banner-container'
-    } --${slotId} ${classes || ''} ${isHidden ? 'none' : ''}`;
     const Comp = (
         <>
             <div
@@ -116,11 +118,11 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
     );
 
     return isStatic ? (
-        <StaticContentV2 id={slotId} className={_classNames}>
+        <StaticContentV2 id={slotId} className={bannerClassContainer}>
             {Comp}
         </StaticContentV2>
     ) : (
-        <div className={_classNames}>{Comp}</div>
+        <div className={bannerClassContainer}>{Comp}</div>
     );
 };
 

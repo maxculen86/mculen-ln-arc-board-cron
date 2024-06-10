@@ -40,7 +40,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     .
   </p>
   <div
-    class="mod-banner --caja1_mob  "
+    class="mod-banner --caja1_mob"
   >
     <div
       class="com-banner"
@@ -151,7 +151,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Tipo de letra normal
   </p>
   <div
-    class="mod-banner --middle_1_dsk  "
+    class="mod-banner --middle_1_dsk"
   >
     <div
       class="com-banner"
@@ -168,7 +168,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="mod-banner --caja1_amp none  "
+    class="mod-banner --caja1_amp none "
   >
     <div
       class="com-banner"
@@ -191,7 +191,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </strong>
   </p>
   <div
-    class="mod-banner --caja2_mob  "
+    class="mod-banner --caja2_mob"
   >
     <div
       class="com-banner"
@@ -215,7 +215,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja2_amp none  "
+    class="mod-banner --caja2_amp none "
   >
     <div
       class="com-banner"
@@ -238,7 +238,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </u>
   </p>
   <div
-    class="mod-banner --middle_2_dsk  "
+    class="mod-banner --middle_2_dsk"
   >
     <div
       class="com-banner"
@@ -264,7 +264,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja3_mob  "
+    class="mod-banner --caja3_mob"
   >
     <div
       class="com-banner"
@@ -299,7 +299,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja4_mob  "
+    class="mod-banner --caja4_mob"
   >
     <div
       class="com-banner"
@@ -336,7 +336,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </mark>
   </p>
   <div
-    class="mod-banner --caja5_mob  "
+    class="mod-banner --caja5_mob"
   >
     <div
       class="com-banner"
@@ -2713,7 +2713,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     .
   </p>
   <div
-    class="mod-banner --caja1_mob  "
+    class="mod-banner --caja1_mob"
   >
     <div
       class="com-banner"
@@ -2824,7 +2824,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Tipo de letra normal
   </p>
   <div
-    class="mod-banner --middle_1_dsk  "
+    class="mod-banner --middle_1_dsk"
   >
     <div
       class="com-banner"
@@ -2841,7 +2841,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="mod-banner --caja1_amp none  "
+    class="mod-banner --caja1_amp none "
   >
     <div
       class="com-banner"
@@ -2864,7 +2864,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </strong>
   </p>
   <div
-    class="mod-banner --caja2_mob  "
+    class="mod-banner --caja2_mob"
   >
     <div
       class="com-banner"
@@ -2888,7 +2888,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja2_amp none  "
+    class="mod-banner --caja2_amp none "
   >
     <div
       class="com-banner"
@@ -2911,7 +2911,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </u>
   </p>
   <div
-    class="mod-banner --middle_2_dsk  "
+    class="mod-banner --middle_2_dsk"
   >
     <div
       class="com-banner"
@@ -2937,7 +2937,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja3_mob  "
+    class="mod-banner --caja3_mob"
   >
     <div
       class="com-banner"
@@ -2972,7 +2972,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja4_mob  "
+    class="mod-banner --caja4_mob"
   >
     <div
       class="com-banner"
@@ -3009,7 +3009,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </mark>
   </p>
   <div
-    class="mod-banner --caja5_mob  "
+    class="mod-banner --caja5_mob"
   >
     <div
       class="com-banner"
@@ -5386,7 +5386,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     .
   </p>
   <div
-    class="mod-banner --caja1_mob  "
+    class="mod-banner --caja1_mob"
   >
     <div
       class="com-banner"
@@ -5497,7 +5497,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     Tipo de letra normal
   </p>
   <div
-    class="mod-banner --middle_1_dsk  "
+    class="mod-banner --middle_1_dsk"
   >
     <div
       class="com-banner"
@@ -5514,7 +5514,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <div
-    class="mod-banner --caja1_amp none  "
+    class="mod-banner --caja1_amp none "
   >
     <div
       class="com-banner"
@@ -5537,7 +5537,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </strong>
   </p>
   <div
-    class="mod-banner --caja2_mob  "
+    class="mod-banner --caja2_mob"
   >
     <div
       class="com-banner"
@@ -5561,7 +5561,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="mod-banner --caja2_amp none  "
+    class="mod-banner --caja2_amp none "
   >
     <div
       class="com-banner"
@@ -5584,7 +5584,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </u>
   </p>
   <div
-    class="mod-banner --middle_2_dsk  "
+    class="mod-banner --middle_2_dsk"
   >
     <div
       class="com-banner"
@@ -5610,7 +5610,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="mod-banner --caja3_mob  "
+    class="mod-banner --caja3_mob"
   >
     <div
       class="com-banner"
@@ -5645,7 +5645,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="mod-banner --caja4_mob  "
+    class="mod-banner --caja4_mob"
   >
     <div
       class="com-banner"
@@ -5682,7 +5682,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </mark>
   </p>
   <div
-    class="mod-banner --caja5_mob  "
+    class="mod-banner --caja5_mob"
   >
     <div
       class="com-banner"
