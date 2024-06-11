@@ -60,6 +60,7 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                 className="lg-none"
                 layout={'ficha-receta'}
             />
+            <hr className="lg-none" />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );

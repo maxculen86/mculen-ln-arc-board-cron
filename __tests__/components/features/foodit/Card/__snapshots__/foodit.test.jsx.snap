@@ -169,7 +169,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               class="flex flex-column gap-4"
             >
               <h2
-                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-semibold text-20"
               >
                 Ficha nota FOODIT
               </h2>
