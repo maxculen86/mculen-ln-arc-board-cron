@@ -5,7 +5,13 @@ import Author from './authorArticle';
 
 const authorAndDate = props => {
     const { globalContent, author, date, authorDate } = props;
-    const { display_date: displayDate, credits, label } = globalContent || {};
+    const {
+        display_date: displayDate,
+        credits,
+        label,
+        first_publish_date,
+        last_updated_date
+    } = globalContent || {};
     const { edicion: labelEdicionImpresa } = label || {};
     const [visible, setVisible] = useState(false);
 
@@ -21,6 +27,8 @@ const authorAndDate = props => {
                 <ModDate
                     display_date={displayDate}
                     labelEdicionImpresa={labelEdicionImpresa}
+                    first_publish_date={first_publish_date}
+                    last_updated_date={last_updated_date}
                 />
             )}
             {author && (

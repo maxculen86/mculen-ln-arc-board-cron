@@ -27,6 +27,8 @@ beforeEach(() => {
     fetch.mockClear();
     jest.spyOn(console, 'error');
     jest.spyOn(console, 'warn');
+    console.warn.mockImplementation(() => null);
+    console.error.mockImplementation(() => null);
 });
 
 jest.mock('request-promise-native', () => {
@@ -51,8 +53,10 @@ jest.mock('request-promise-native', () => {
 
     return result;
 });
+
 const { fetch: seguirFetch } = seguir;
-xdescribe('Content - Sources - seguirSource', () => {
+
+describe('Content - Sources - seguirSource', () => {
     let responseCase = responseCase1;
     let query = {
         page: '1',

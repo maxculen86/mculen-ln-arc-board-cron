@@ -12,7 +12,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
       >
         <div>
           <div
-            class="mod-banner --billboard_dsk billboard_dsk "
+            class="mod-banner --billboard_dsk billboard_dsk"
             id="billboard_dsk"
           >
             <div
@@ -148,7 +148,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
         </section>
         <div>
           <div
-            class="mod-banner --billboard_mob billboard_mob "
+            class="mod-banner --billboard_mob billboard_mob"
             id="billboard_mob"
           >
             <div
@@ -180,7 +180,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
       >
         <div>
           <div
-            class="mod-banner --billboard_dsk billboard_dsk "
+            class="mod-banner --billboard_dsk billboard_dsk"
             id="billboard_dsk"
           >
             <div
@@ -266,7 +266,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         >
           <div>
             <div
-              class="mod-banner --cajasuscriptores_dsk  "
+              class="mod-banner --cajasuscriptores_dsk"
               id="cajasuscriptores_dsk"
             >
               <div
@@ -282,7 +282,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           </div>
           <div>
             <div
-              class="mod-banner --cajasuscriptores_mob  "
+              class="mod-banner --cajasuscriptores_mob"
               id="cajasuscriptores_mob"
             >
               <div
@@ -298,7 +298,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           </div>
           <div>
             <div
-              class="mod-banner --cajasuscriptores_tab  "
+              class="mod-banner --cajasuscriptores_tab"
               id="cajasuscriptores_tab"
             >
               <div
@@ -486,7 +486,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
                       <div
                         class="pulse-animation"
@@ -769,7 +769,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
                       <div
                         class="pulse-animation"
@@ -1052,7 +1052,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
                       <div
                         class="pulse-animation"
@@ -1294,7 +1294,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
                       <div
                         class="pulse-animation"
@@ -1460,7 +1460,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
                       <div
                         class="pulse-animation"
@@ -1656,7 +1656,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
                       <div
                         class="pulse-animation"

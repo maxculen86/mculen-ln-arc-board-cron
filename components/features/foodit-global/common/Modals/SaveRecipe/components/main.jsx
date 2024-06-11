@@ -6,11 +6,12 @@ import { useEffect, useState } from 'react';
 import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 import { Icon } from '@ln/common-ui-icon';
+import { ErrorMessage } from '../../../errorMessage/foodit';
 
 const MainSaveRecipe = props => {
     const {
         newFolder,
-        selectedFolder,
+        error,
         onInputFolderChange,
         onSelectChange,
         showInputFolder,
@@ -42,12 +43,10 @@ const MainSaveRecipe = props => {
             {showSelect && (
                 <Select
                     label="Colección"
-                    defaultValue={selectedFolder}
                     openClassName="border-secondary-positive"
                     hoverClassName="border-accent-lechuga__hover"
-                    listClassName="foodit-scrollbar shadow-down-lg"
+                    listClassName="foodit-scrollbar shadow-down-lg bg-white px-16 pb-16 rounden-4"
                     onChange={onSelectChange}
-                    name="select"
                     floatingLabelProps={{
                         className: 'bg-white'
                     }}
@@ -81,19 +80,24 @@ const MainSaveRecipe = props => {
                 </Select>
             )}
             {showInputFolder && (
-                <Inputfield
-                    autoFocus
-                    type="text"
-                    onChange={onInputFolderChange}
-                    value={newFolder}
-                    focusClassName="border-secondary-positive"
-                    hoverClassName="border-accent-lechuga__hover"
-                    inputRef={inputRef}
-                    label="Colección"
-                    floatingLabelProps={{
-                        className: 'bg-white'
-                    }}
-                />
+                <div className="flex flex-column">
+                    <Inputfield
+                        autoFocus
+                        type="text"
+                        onChange={onInputFolderChange}
+                        value={newFolder}
+                        focusClassName="border-secondary-positive"
+                        hoverClassName="border-accent-lechuga__hover"
+                        inputRef={inputRef}
+                        label="Colección"
+                        floatingLabelProps={{
+                            className: 'bg-white'
+                        }}
+                        error={Boolean(error?.hasError)}
+                        errorClassName="border-danger-600"
+                    />
+                    <ErrorMessage message={error?.message} />
+                </div>
             )}
         </main>
     );

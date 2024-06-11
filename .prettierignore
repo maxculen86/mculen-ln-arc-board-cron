@@ -15,3 +15,5 @@ coverage/
 .fusion/**
 babel.config.js
 resources/js/**
+data/
+data/**

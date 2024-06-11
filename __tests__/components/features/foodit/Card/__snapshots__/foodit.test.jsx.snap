@@ -37,6 +37,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               />
             </picture>
           </div>
+          <span
+            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 m-8"
+          >
+            FÁCIL
+          </span>
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 max-w-483_lg pt-16 pt-0_lg"

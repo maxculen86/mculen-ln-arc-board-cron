@@ -2,10 +2,11 @@ import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import getAssetsPath from './utils/getAssetsPath';
-import '../../../resources/dist/css/ln/components/horoscope-item.css';
 import Link from './link';
 import Text from './text';
 import Image from './com-image';
+
+import '../../../resources/dist/css/ln/components/horoscope-item.css';
 
 const HoroscopeItem = ({
     classCondition,
@@ -13,7 +14,8 @@ const HoroscopeItem = ({
     nombre,
     filenameLogo,
     deployment,
-    contextPath
+    contextPath,
+    chineseYear
 }) => {
     const baseUrl = `${SITE_LANACION || 'https://www.lanacion.com.ar'}`;
     const quitarTildes = string => {
@@ -28,7 +30,7 @@ const HoroscopeItem = ({
             <Link
                 href={
                     nombre === 'Horóscopo Chino'
-                        ? 'https://www.lanacion.com.ar/horoscopo/horoscopo-chino-2023/'
+                        ? `https://www.lanacion.com.ar/horoscopo/horoscopo-chino-${chineseYear}/`
                         : `${baseUrl}/horoscopo/${quitarTildes(nombre)}/`
                 }
                 title={`Ir al horóscopo de ${nombre}`}

@@ -8,6 +8,11 @@ const getValue = (input, key) => input.filter(e => e.id === key);
 const formatNumbers = (arr = []) =>
     arr ? arr.map(num => num.padStart(2, '0')) : [];
 
+export const validateLotteryLetters = (letters = '') => {
+    const letterWithoutSpace = String(letters).replace(/\s+/g, '');
+    return letters !== '' && /^[a-zA-Z]+$/.test(letterWithoutSpace);
+};
+
 export const transformLotteryDetail = data => {
     const [firstLottery = {}] = data;
     const newRules = get(games, `${firstLottery.id}.rules`, []);
@@ -34,7 +39,7 @@ export const transformLotteryDetail = data => {
             name: lottery_draw_name || name,
             id,
             date: transformISODate(date, 'day dd/mm/yyyy'),
-            ...(letters !== '' && {
+            ...(validateLotteryLetters(letters) && {
                 letters: [letters.replace(/\s+/g, '')]
             }),
             ...(jackpot.length && {
@@ -107,7 +112,7 @@ export const transformLotteryHome = data => ({
                 name: games[lottery].name,
                 date: transformISODate(date, 'day dd/mm/yyyy'),
                 ...(url && { link: url }),
-                ...(letters !== '' && {
+                ...(validateLotteryLetters(letters) && {
                     letters: [letters.replace(/\s+/g, '')]
                 }),
                 ...(meaning && {

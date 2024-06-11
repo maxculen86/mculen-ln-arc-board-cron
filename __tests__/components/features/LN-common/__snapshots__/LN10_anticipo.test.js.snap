@@ -30,7 +30,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
               class="text-container flex flex-column gap-8 py-24_m"
             >
               <span
-                class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 text-12 z-1 flex-nowrap bg-light-0 text-black uppercase py-6 px-8 --positive w-fit h-fit min-w-fit"
+                class="ln-badge inline-flex w-fit h-fit ai-center rounded-16 z-1 flex-nowrap text-12 bg-light-0 text-black uppercase py-6 px-8 --positive w-fit h-fit min-w-fit"
               >
                 chapita
               </span>

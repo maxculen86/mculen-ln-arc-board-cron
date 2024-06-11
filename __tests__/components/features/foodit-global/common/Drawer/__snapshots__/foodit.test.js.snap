@@ -38,7 +38,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
         </button>
       </div>
       <div
-        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-16 pr-16"
+        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-24 pr-16"
       >
         <div>
           <span

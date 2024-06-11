@@ -28,6 +28,7 @@ const CajaHoroscopos = ({ customFields, id: featureId }) => {
                         title={title}
                         deployment={deployment}
                         contextPath={contextPath}
+                        chineseYear={data.anoHoroscopoChino}
                     />
                 ) : (
                     <></>

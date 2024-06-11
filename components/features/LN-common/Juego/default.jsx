@@ -13,7 +13,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
     const { contextPath, deployment, arcSite, globalContent } =
         useAppContext() || {};
 
-    const { sectionId, gameType, subscriber } = customFields;
+    const { sectionId, gameType, subscriber, isNewGame } = customFields;
     const primarySection = checkSection(globalContent, '/juegos');
 
     const { name: sectionTitle } =
@@ -31,6 +31,8 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
         contextPath,
         deployment
     );
+
+    const newGame = isNewGame === 'SI';
 
     if (!sectionId && isAdmin) {
         return (
@@ -51,13 +53,14 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
     }
 
     const GameCard = (props = {}) => {
-        const { forSubscriber, ...restProps } = props;
+        const { forSubscriber, newGame, ...restProps } = props;
         return (
             <div className="col-span-4 col-span-3_sm">
                 <Cardgames
                     {...restProps}
                     isHomeGames={primarySection}
                     forSubscriber={forSubscriber}
+                    newGame={newGame}
                 />
             </div>
         );
@@ -71,6 +74,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
                 {...gameProperties}
                 href={sectionId}
                 forSubscriber={forSubscriber}
+                newGame={newGame}
             />
         );
     }
@@ -93,6 +97,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
             {...gameProperties}
             href={articleLink}
             forSubscriber={forSubscriber}
+            newGame={newGame}
         />
     );
 };
@@ -113,6 +118,10 @@ Game.propTypes = {
         subscriber: PropTypes.oneOf(['SI', 'NO']).tag({
             defaultValue: 'NO',
             name: 'Es cerrada?'
+        }).isRequired,
+        isNewGame: PropTypes.oneOf(['SI', 'NO']).tag({
+            defaultValue: 'NO',
+            name: 'Es nuevo?'
         }).isRequired
     })
 };

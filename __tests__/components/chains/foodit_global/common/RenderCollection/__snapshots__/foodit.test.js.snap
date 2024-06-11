@@ -1213,7 +1213,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
       class="flex ai-end jc-between gap-24 mb-24"
     >
       <a
-        class="link foodit-link flex gap-8 ai-center roboto-regular prumo prumo-light text-24 text-32_md text-36_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+        class="link foodit-link flex gap-8 ai-center roboto-regular prumo prumo-light text-24 text-32_md text-36_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-lechuga__hover"
         data-variant="primary"
         href="https://lanacion.com"
         target="_self"

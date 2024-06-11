@@ -17,7 +17,7 @@ export const RoofFoodit = ({
         <div className="flex ai-end jc-between gap-24 mb-24">
             {linkProps.href ? (
                 <Link
-                    className="prumo prumo-light text-24 text-32_md text-36_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+                    className="prumo prumo-light text-24 text-32_md text-36_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-lechuga__hover"
                     title={`Ir a ${title.text}`}
                     {...linkProps}
                 />

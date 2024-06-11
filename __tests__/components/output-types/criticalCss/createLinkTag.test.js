@@ -3,13 +3,24 @@ import '@testing-library/jest-dom';
 describe('components - outputType - criticalCss - createStyleTag', () => {
     const mockParams = {
         contextPath: '/pf',
-        cssPathsByLayout: {
-            HomeLN10: 'resources/packages/css/HomeLN10.min.css'
+        cssPathsBySiteAndLayout: {
+            'la-nacion-ar': {
+                HomeLN10: 'resources/packages/css/HomeLN10.min.css',
+                default: ''
+            },
+            foodit: {
+                default: 'resources/packages/css/@ln/foodit-ui-logo/index.css'
+            },
+            ott: {
+                default: ''
+            }
         },
         deployment: arg => arg,
-        layout: 'HomeLN10'
+        layout: 'HomeLN10',
+        arcSite: 'la-nacion-ar'
     };
     createLinkTag(mockParams);
+
     it('should render attributes correctly', () => {
         const link = document.head.querySelector('link');
         expect(link).toHaveAttribute('rel', 'stylesheet');

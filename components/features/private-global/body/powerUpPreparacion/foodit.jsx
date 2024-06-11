@@ -7,7 +7,7 @@ export const PowerUpPreparacion = ({ data }) => {
     const { items = [], titleList = '' } = get(data, 'embed.config', {});
 
     return items.length > 0 ? (
-        <div className="flex flex-column gap-24">
+        <div className="flex flex-column gap-16">
             {titleList && (
                 <Text as="h4" className="roboto-bold text-16 text-18_md">
                     {titleList}

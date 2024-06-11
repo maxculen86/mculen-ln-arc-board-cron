@@ -1,7 +1,12 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import getToken from '../../../../../private/common/utils/getToken';
+import { addErrorToast, addToast, TOAST } from '../../bookmark/api/_helper';
 
-const deleteIngredientList = async (bookmarkId, setShoppingList) => {
+const deleteIngredientList = async (
+    bookmarkId,
+    setShoppingList,
+    title = ''
+) => {
     // TODO: should use useClientLibs
     const token = getToken();
     const accessToken = getToken('access-token');
@@ -24,14 +29,21 @@ const deleteIngredientList = async (bookmarkId, setShoppingList) => {
             console.error(
                 `Error al eliminar ingredientes, status: ${response.status}`
             );
+            addErrorToast();
             return { bookmarkId, status: response.status };
         }
 
-        setShoppingList(shoppingList => {
-            return shoppingList.filter(
-                article => article.bookmarkId !== bookmarkId
-            );
-        });
+        setShoppingList
+            ? setShoppingList(shoppingList => {
+                  return shoppingList.filter(
+                      article => article.bookmarkId !== bookmarkId
+                  );
+              })
+            : addToast({
+                  variant: TOAST.SUCCESS.VARIANT,
+                  title: TOAST.SUCCESS.TITLE,
+                  message: `${title} ${TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS}`
+              });
 
         return { bookmarkId, status: '200' };
     } catch (error) {

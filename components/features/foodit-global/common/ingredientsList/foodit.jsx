@@ -7,7 +7,7 @@ import { ContentWrapper } from './components/ContentWrapper';
 
 export const IngredientsList = ({ isMobile, list = [], setShoppingList }) => {
     return (
-        <section className="col-span-8 col-span-7_md col-span-11_lg flex flex-column gap-24">
+        <section className="col-span-8 col-span-7_md col-span-11_lg flex flex-column gap-32">
             {list?.map((articleIngredients, i) => {
                 if (!articleIngredients) return <></>;
 
@@ -15,7 +15,7 @@ export const IngredientsList = ({ isMobile, list = [], setShoppingList }) => {
                     articleIngredients || {};
 
                 return (
-                    <React.Fragment key={`${bookmarkId}-list-${i}`}>
+                    <React.Fragment key={`${bookmarkId}-list`}>
                         <MainWrapper isMobile={isMobile} visible={i === 0}>
                             <HeaderWrapper isMobile={isMobile}>
                                 <IngredientsListHeader
@@ -28,7 +28,7 @@ export const IngredientsList = ({ isMobile, list = [], setShoppingList }) => {
                             <ContentWrapper isMobile={isMobile}>
                                 {sections.map((section, i) => (
                                     <IngredientsListContent
-                                        key={`${bookmarkId}-ingredient-${i}`}
+                                        key={`${bookmarkId}-ingredient`}
                                         bookmarkId={bookmarkId}
                                         {...section}
                                     />

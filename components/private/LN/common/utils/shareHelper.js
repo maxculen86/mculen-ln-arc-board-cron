@@ -161,7 +161,7 @@ export const onButtonClicked = (
     state,
     accessToken
 ) => {
-    addEventToDataLayer('Guardar Nota');
+    addEventToDataLayer('Guardar Nota', 'guardar_nota');
     const { open } = get(state, 'showModal', {});
     if (token && suscription && !open) {
         toggleBookmark(
@@ -198,10 +198,17 @@ export const BtnContainer = ({ children, withContainer, id }) => {
     return children;
 };
 
-export const addEventToDataLayer = clickText => {
+export const addEventToDataLayer = (clickText, labelDataLayer) => {
     window.dataLayer.push({
         event: 'gtm.linkClick',
         clickText
+    });
+
+    window.dataLayer.push({
+        event: 'e_linkclick',
+        dynamic_action: 'toolbard',
+        dynamic_category: 'nota_ln9',
+        dynamic_label: `${labelDataLayer}`
     });
 };
 
@@ -224,7 +231,8 @@ export const buttonsList = [
         handleClick: ({ requestUri, host }) => {
             shareWhatsAppDesktop(requestUri, host);
         },
-        className: 'p-0 sm-none'
+        className: 'p-0 sm-none',
+        labelDataLayer: 'compartir_whatsapp'
     },
     {
         dataEvent: 'LinkClick',
@@ -237,7 +245,8 @@ export const buttonsList = [
             setCopy(true);
         },
         withContainer: true,
-        className: 'p-0 sm-none'
+        className: 'p-0 sm-none',
+        labelDataLayer: 'copiar_link'
     },
     {
         dataEvent: 'LinkClick',
@@ -248,7 +257,8 @@ export const buttonsList = [
         handleClick: ({ requestUri, host, title }) => {
             popUpCompartirNotaFB(requestUri, host, title);
         },
-        className: 'p-0 sm-none'
+        className: 'p-0 sm-none',
+        labelDataLayer: 'compartir_facebook'
     },
     {
         dataEvent: 'LinkClick',
@@ -260,7 +270,8 @@ export const buttonsList = [
             const twitterTitle = getTwitterTitle(mobileTitle, title);
             popUpCompartirNotaTW(requestUri, host, twitterTitle);
         },
-        className: 'p-0 sm-none'
+        className: 'p-0 sm-none',
+        labelDataLayer: 'compartir_x'
     },
     {
         dataEvent: 'LinkClick',
@@ -271,6 +282,7 @@ export const buttonsList = [
         handleClick: ({ requestUri, host }) => {
             popUpCompartirMailTo(requestUri, host);
         },
-        className: 'email p-0 sm-none'
+        className: 'email p-0 sm-none',
+        labelDataLayer: 'enviar_mail'
     }
 ];

@@ -5,15 +5,18 @@ import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 import replaceBaseUrl from '../common/utils/replaceBaseUrl';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
+import getTagList from '../Body/PowerupsReceta/_helper';
 
 export const RecipeSchema = ({ article = {} }) => {
     const {
         promo_items = {},
         content_elements = [],
         headlines = {},
+        subheadlines = {},
         taxonomy = {},
         additional_properties = {}
     } = article;
+
     const sections = get(taxonomy, 'sections', []);
     const primarySectionName = get(taxonomy, 'primary_section.name', '');
 
@@ -26,14 +29,35 @@ export const RecipeSchema = ({ article = {} }) => {
             name: `Paso ${index + 1}`
         }));
 
-    const author = getFooditAuthor(article);
+    const recipeIngredient = content_elements
+        .filter(
+            item =>
+                item.subtype === 'foodit-ingredientes' ||
+                item.subtype === 'custom-ingrediente'
+        )
+        .flatMap(item =>
+            item.subtype === 'foodit-ingredientes'
+                ? item.embed.config.items
+                      .filter(
+                          ingredient =>
+                              typeof ingredient === 'object' &&
+                              ingredient.fullIngredientString
+                      )
+                      .map(ingredient => ingredient.fullIngredientString)
+                : item.embed.config.items
+        );
 
-    const { playlist = [], title = '', description = '' } = get(
+    const author = getFooditAuthor(article, true);
+
+    const { playlist = [] } = get(
         promo_items,
         'video_jw.embed.config.videoJw',
         {}
     );
     const [video] = playlist;
+
+    const { link = '', image = '', title = '', description, pubdate } =
+        video || {};
 
     const { resized_urls = [] } = replaceBaseUrl(get(promo_items, 'basic', {}));
     const { resizedUrl = '' } = getShortestImage(resized_urls);
@@ -42,65 +66,65 @@ export const RecipeSchema = ({ article = {} }) => {
         prepTime,
         cookTime,
         counterTime,
-        counterPortion,
+        counterPortion = 0,
         cookingTypes = [],
-        regions = []
+        regions = [],
+        occasions = []
     } = get(promo_items, 'receta.embed.config', {});
+
+    const tags = getTagList({
+        cookingTypes,
+        occasions,
+        taxonomy,
+        regions
+    });
 
     const recipeSchema = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
         name: get(headlines, 'basic', ''),
-        Image: {
+        description: get(subheadlines, 'basic', ''),
+        image: {
             '@context': 'https://schema.org',
             '@type': 'ImageObject',
             url: resizedUrl
         },
+        author: {
+            '@type': 'Person',
+            name: author || 'Redacción de Foodit'
+        },
+        keywords: tags.map(tag => tag?.text).join(', '),
         cookTime: (cookTime && `PT${cookTime}M`) || `PT0M`,
         cookingMethod: cookingTypes.join(','),
         recipeCategory: primarySectionName,
         recipeCuisine: regions.join(','),
-        recipeYield: (counterPortion && counterPortion) || 0,
-        suitableForDiet: getSuitableForDietUrls(sections)
-    };
-
-    const howToSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
+        recipeYield: counterPortion,
+        suitableForDiet: getSuitableForDietUrls(sections),
         performTime: (prepTime && `PT${prepTime}M`) || `PT0M`,
         totalTime: (counterTime && `PT${counterTime}M`) || `PT0M`,
-        step: recipeInstructions
-    };
-
-    const creativeWorkchema = {
-        '@context': 'https://schema.org',
-        '@type': 'CreativeWork',
-        author: {
-            '@type': 'Person',
-            name: (author && author) || 'Redacción de Foodit'
-        },
+        recipeInstructions,
+        recipeIngredient,
         dateCreated: get(additional_properties, 'publish_date', ''),
         headline: get(headlines, 'basic', ''),
         ...((video && {
             video: {
                 '@type': 'VideoObject',
                 name: title,
-                description: description,
-                contentUrl: get(video, 'link', '')
+                description: description || title,
+                contentUrl: link,
+                thumbnailUrl: image,
+                uploadDate:
+                    (pubdate && new Date(pubdate * 1000).toISOString()) || ''
             }
         }) ||
             {})
     };
 
     return (
-        <>
-            {[recipeSchema, howToSchema, creativeWorkchema].map(schema => (
-                <SnippetRender
-                    key={`schema-${schema['@type']}`}
-                    id={`schema-${schema['@type']}`}
-                    data={schema}
-                />
-            ))}
-        </>
+        <SnippetRender
+            key={'schema-Recipe'}
+            id={'schema-Recipe'}
+            data={recipeSchema}
+        />
     );
 };

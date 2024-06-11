@@ -1,0 +1,582 @@
+{
+    "_id": "G3RXP4QNH5HWRJ664Y5OACWV24",
+    "canonical_url": "/recetas/receta-de-tortas-fritas-criollas-nid25012024/",
+    "category": "Pizzas y empanadas",
+    "content_elements": [
+        {
+            "_id": "PH73YFN66FFI5NRSWNN6HHVQ2I",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "abbreviation": "g",
+                            "amount": "500",
+                            "fullIngredientString": "500 g de Harina 0000",
+                            "includeInShoppingList": true,
+                            "ingredient": "Harina 0000",
+                            "isMainIngredient": true,
+                            "unit": "Gramo"
+                        },
+                        {
+                            "abbreviation": "Cda.",
+                            "amount": "4",
+                            "fullIngredientString": "4 Cda. de Manteca",
+                            "includeInShoppingList": true,
+                            "ingredient": "Manteca",
+                            "isMainIngredient": false,
+                            "unit": "Cucharada"
+                        },
+                        {
+                            "abbreviation": "Tz.",
+                            "amount": "1/2",
+                            "fullIngredientString": "1/2 Tz. de Agua",
+                            "includeInShoppingList": true,
+                            "ingredient": "Agua",
+                            "isMainIngredient": false,
+                            "unit": "Taza"
+                        },
+                        {
+                            "abbreviation": "Cdita.",
+                            "amount": "2",
+                            "fullIngredientString": "2 Cdita. de Sal",
+                            "includeInShoppingList": true,
+                            "ingredient": "Sal",
+                            "isMainIngredient": false,
+                            "unit": "Cucharadita"
+                        },
+                        {
+                            "abbreviation": "cantidad necesaria",
+                            "amount": "",
+                            "fullIngredientString": "Abadejo cantidad necesaria",
+                            "includeInShoppingList": true,
+                            "ingredient": "Abadejo",
+                            "isMainIngredient": false,
+                            "unit": "Cantidad necesaria"
+                        }
+                    ],
+                    "titleList": "",
+                    "typeList": "foodit-ingredientes"
+                }
+            },
+            "subtype": "foodit-ingredientes",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "TBSXAAS5RRDUBIFNLYYIO75DXY",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        "Poner en un bol la harina cernida y colocar en el centro la grasa a temperatura ambiente.",
+                        "Con la punta de los dedos ir tomando la masa, agregando de a poco el agua con la sal y seguir hasta formar un bollo.",
+                        "Amasarlo enérgicamente hasta que la masa forme ampollas en su superficie.",
+                        "Dejar reposar durante 1 o 2 horas y luego cortar pequeñas pelotitas, achatarlas con la palma de la mano y pincharlas con un tenedor.",
+                        "Freírlas enseguida en abundante aceite o grasa muy caliente, retirar con espumadera y colocar sobre papel blanco las torta fritas para que se escurran.",
+                        "Espolvorearlas con azúcar molida."
+                    ],
+                    "titleList": "De las tortas fritas",
+                    "typeList": "preparacion"
+                }
+            },
+            "subtype": "custom-preparacion",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "JEHVWYNHRJFZZCEEKAOURPV4QA",
+            "additional_properties": {},
+            "content": "Para que <em>salgan </em>más esponjosas usar harina leudante. otra cosa",
+            "type": "text"
+        },
+        {
+            "_id": "7XHEM43L2ZAZJO65P6NOW5BVKQ",
+            "additional_properties": {},
+            "content": "Riquísimas para acompañar alguna bebida <a href=\"https://www.indec.gob.ar/uploads/informesdeprensa/ipc_09_2338D7EF8261.pdf\" title=\"12,4%\" class=\"link foodit-link\" data-variant=\"secondary\" rel=\"nofollow\">12,4%</a> haiosfdaio como el chocolate caliente<a href=\"https://www.indec.gob.ar/uploads/informesdeprensa/ipc_09_2338D7EF8261.pdf\" title=\"12,4%\" class=\"link foodit-link\" data-variant=\"secondary\" rel=\"nofollow\">12,4%</a>",
+            "type": "text"
+        },
+        {
+            "_id": "GK55X66SSFBMLN3OQ3WU6V76EQ",
+            "additional_properties": {},
+            "content": "<a href=\"https://www.indec.gob.ar/uploads/informesdeprensa/ipc_09_2338D7EF8261.pdf\" title=\"12,4%\" class=\"link foodit-link\" data-variant=\"secondary\" rel=\"nofollow\">12,4%</a> haiosfdaio",
+            "type": "text"
+        },
+        {
+            "_id": "TGWFUEKJPJDPBBECNG2MUGQSOM",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "abbreviation": "cantidad necesaria",
+                            "amount": "",
+                            "fullIngredientString": "Acaí cantidad necesaria",
+                            "includeInShoppingList": true,
+                            "ingredient": "Acaí",
+                            "isMainIngredient": false,
+                            "unit": "Cantidad necesaria"
+                        },
+                        {
+                            "amount": "",
+                            "fullIngredientString": "Arroz salvaje A Gusto",
+                            "includeInShoppingList": false,
+                            "ingredient": "Arroz salvaje",
+                            "isMainIngredient": false,
+                            "unit": "A Gusto"
+                        },
+                        {
+                            "amount": "300",
+                            "fullIngredientString": "300 Mililitro de Aceite",
+                            "includeInShoppingList": true,
+                            "ingredient": "Aceite",
+                            "isMainIngredient": false,
+                            "unit": "Mililitro"
+                        }
+                    ],
+                    "titleList": "Foodit Ing 2",
+                    "typeList": "foodit-ingredientes"
+                }
+            },
+            "subtype": "foodit-ingredientes",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "4DEDU5PA6FDK3GO47IVFJKOFXA",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        "Custom ing A",
+                        "Custom ing B",
+                        "Custom ing C"
+                    ],
+                    "titleList": "Custom Ing 1",
+                    "typeList": "ingredientes"
+                }
+            },
+            "subtype": "custom-ingrediente",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "2XBHEPM6UNG7VMXJ4ZSDHP3ERY",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        "Custom ing 2 A",
+                        "Custom ing 2 B",
+                        "Custom ing 2 C"
+                    ],
+                    "titleList": "Custom ing 2",
+                    "typeList": "ingredientes"
+                }
+            },
+            "subtype": "custom-ingrediente",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "CKCKH6RLUZD7TOIUK7OVHVHYPY",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "abbreviation": "pizca",
+                            "amount": "2",
+                            "fullIngredientString": "2 pizca de Arroz salvaje",
+                            "includeInShoppingList": false,
+                            "ingredient": "Arroz salvaje",
+                            "isMainIngredient": false,
+                            "unit": "Pizca"
+                        }
+                    ],
+                    "titleList": "No incluir en lista de compras",
+                    "typeList": "foodit-ingredientes"
+                }
+            },
+            "subtype": "foodit-ingredientes",
+            "type": "custom_embed"
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "abierta"
+    },
+    "created_date": "2024-01-25T18:26:21.549Z",
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2024-01-25T18:30:37.695Z",
+    "first_publish_date": "2024-01-25T18:30:37.695Z",
+    "headlines": {
+        "basic": "Receta de Tortas fritas criollas",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "label": {
+        "autor": {
+            "text": "Usuario"
+        }
+    },
+    "last_updated_date": "2024-04-16T16:36:33.351Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "1",
+    "promo_items": {
+        "basic": {
+            "_id": "BWFX5NDNM5BOVBNDANNDLPUJEE",
+            "additional_properties": {},
+            "auth": {
+                "1": "1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6"
+            },
+            "caption": "Tortas fritas en triángulos",
+            "created_date": "2019-12-04T03:19:14Z",
+            "description": {
+                "basic": "Tortas fritas en triángulos"
+            },
+            "distributor": {
+                "name": ""
+            },
+            "height": 410,
+            "publish_date": "2007-07-08T03:00:00Z",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 587,
+                        "media_preload": "(min-width: 768px)",
+                        "minScreenWidth": 768,
+                        "proportion": "3:2",
+                        "width": 880
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=880&height=586&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 280,
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=420&height=280&quality=70&smart=true"
+                }
+            ],
+            "subtitle": "Tortas fritas en triángulos",
+            "type": "image",
+            "url": "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=768&height=1153&quality=70&smart=true",
+            "vanity_credits": {
+                "by": []
+            },
+            "width": 273
+        },
+        "receta": {
+            "embed": {
+                "config": {
+                    "cookTime": 20,
+                    "cookingTypes": [
+                        "Frito"
+                    ],
+                    "counterPortion": 1,
+                    "counterTime": 80,
+                    "occasions": [],
+                    "prepTime": 60,
+                    "regions": [
+                        "Argentina"
+                    ],
+                    "title": "detalle-receta"
+                }
+            },
+            "subtype": "custom-detalle-receta"
+        },
+        "video_jw": {
+            "embed": {
+                "config": {
+                    "idPlayer": "bWFcPBAT",
+                    "idVideo": "BqIBDLKG",
+                    "videoJw": {
+                        "description": "",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "description": "",
+                                "duration": 238,
+                                "image": "https://cdn.jwplayer.com/v2/media/BqIBDLKG/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/BqIBDLKG/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/BqIBDLKG/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/BqIBDLKG/poster.jpg?width=640",
+                                        "type": "image/jpeg",
+                                        "width": 640
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/BqIBDLKG/poster.jpg?width=720",
+                                        "type": "image/jpeg",
+                                        "width": 720
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/BqIBDLKG/poster.jpg?width=1280",
+                                        "type": "image/jpeg",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/BqIBDLKG/poster.jpg?width=1920",
+                                        "type": "image/jpeg",
+                                        "width": 1920
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/BqIBDLKG",
+                                "mediaid": "BqIBDLKG",
+                                "pubdate": 1706206613,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/BqIBDLKG.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 329432,
+                                        "file": "https://cdn.jwplayer.com/videos/BqIBDLKG-kTExGaWf.mp4",
+                                        "filesize": 9800604,
+                                        "framerate": 24,
+                                        "height": 180,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 486822,
+                                        "file": "https://cdn.jwplayer.com/videos/BqIBDLKG-K8B0kybS.mp4",
+                                        "filesize": 14482980,
+                                        "framerate": 24,
+                                        "height": 270,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    },
+                                    {
+                                        "bitrate": 1606442,
+                                        "file": "https://cdn.jwplayer.com/videos/BqIBDLKG-46NIuRKO.mp4",
+                                        "filesize": 47791662,
+                                        "framerate": 24,
+                                        "height": 720,
+                                        "label": "720p",
+                                        "type": "video/mp4",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "bitrate": 113730,
+                                        "file": "https://cdn.jwplayer.com/videos/BqIBDLKG-hz5z2Tv4.m4a",
+                                        "filesize": 3383489,
+                                        "label": "AAC Audio",
+                                        "type": "audio/mp4"
+                                    },
+                                    {
+                                        "bitrate": 597959,
+                                        "file": "https://cdn.jwplayer.com/videos/BqIBDLKG-FnZGUVnC.mp4",
+                                        "filesize": 17789293,
+                                        "framerate": 24,
+                                        "height": 360,
+                                        "label": "360p",
+                                        "type": "video/mp4",
+                                        "width": 640
+                                    },
+                                    {
+                                        "bitrate": 1022758,
+                                        "file": "https://cdn.jwplayer.com/videos/BqIBDLKG-0G6Pwvlw.mp4",
+                                        "filesize": 30427062,
+                                        "framerate": 24,
+                                        "height": 540,
+                                        "label": "540p",
+                                        "type": "video/mp4",
+                                        "width": 960
+                                    }
+                                ],
+                                "title": "El video oficial de Selfish, el nuevo tema de Justin Timberlake",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/BqIBDLKG-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "El video oficial de Selfish, el nuevo tema de Justin Timberlake"
+                    }
+                }
+            },
+            "subtype": "video_jw"
+        }
+    },
+    "publish_date": "2024-04-16T16:36:32.799Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "subheadlines": {
+        "basic": "Una receta bien argentina, con pocos ingredientes y fácil de hacer. Las tortas fritas caseras son ideales para comer en los días de lluvia, aunque se disfrutan en cualquier momento. Aprendé cómo hacer tortas fritas con en esta receta de una de las comidas sabrosas que más nos representan."
+    },
+    "subscription": "A",
+    "subtype": "7",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/recetas/saladas/pizza-y-empanadas",
+            "_website": "foodit",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": [
+                            "/recetas",
+                            "/recetas/saladas"
+                        ]
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Pizzas y empanadas",
+            "parent_id": "/recetas/saladas",
+            "path": "/recetas/saladas/pizza-y-empanadas",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/recetas/saladas/pizza-y-empanadas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas",
+                                "/recetas/saladas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Pizzas y empanadas",
+                "parent_id": "/recetas/saladas",
+                "path": "/recetas/saladas/pizza-y-empanadas",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/que-cocinar-hoy",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "¿Qué cocinar hoy?",
+                "parent_id": "/recetas",
+                "path": "/recetas/que-cocinar-hoy",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/que-cocinar-hoy/facil",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas",
+                                "/recetas/que-cocinar-hoy"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Fácil",
+                "parent_id": "/recetas/que-cocinar-hoy",
+                "path": "/recetas/que-cocinar-hoy/facil",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/dietas/sin-gluten",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas",
+                                "/recetas/dietas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Sin gluten",
+                "parent_id": "/recetas/dietas",
+                "path": "/recetas/dietas/sin-gluten",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/dietas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Dieta",
+                "parent_id": "/recetas",
+                "path": "/recetas/dietas",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": []
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Recetas",
+                "parent_id": "/",
+                "path": "/recetas",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/saladas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Saladas",
+                "parent_id": "/recetas",
+                "path": "/recetas/saladas",
+                "type": "section"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/recetas/receta-de-tortas-fritas-criollas-nid25012024/"
+}

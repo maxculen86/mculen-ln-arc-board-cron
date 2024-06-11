@@ -65,7 +65,11 @@ const deleteBookmark = async bookmarks => {
     return { successfullResponses, failureResponses };
 };
 
-const fetchDeleteBookmark = async (bookmarkedArticles, setUserBookmarks) => {
+const fetchDeleteBookmark = async (
+    bookmarkedArticles,
+    setUserBookmarks,
+    setSelectedItem
+) => {
     const { successfullResponses, failureResponses } = await deleteBookmark(
         bookmarkedArticles
     );
@@ -78,6 +82,11 @@ const fetchDeleteBookmark = async (bookmarkedArticles, setUserBookmarks) => {
                         !successfullResponses.includes(bookmarkTypeId)
                 )
             );
+            setSelectedItem &&
+                setSelectedItem(({ id: prevId, quantity: prevQuantity }) => ({
+                    id: prevId,
+                    quantity: prevQuantity - successfullResponses.length
+                }));
         } else {
             const bookmarkedItems =
                 JSON.parse(localStorage.getItem('bookmarkedItems')) || [];

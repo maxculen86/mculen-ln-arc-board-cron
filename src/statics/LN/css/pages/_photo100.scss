@@ -46,13 +46,26 @@
             h2,
             h3,
             .com-partner,
-            .mod-date,
             .FirmaAutor,
             .com-unordered,
             .com-ordered,
             .container-center-100,
             figcaption {
                 display: block;
+            }
+
+            .com-paragraph,
+            .element-paragraph,
+            .com-container,
+            h2,
+            h3,
+            .com-partner,
+            .FirmaAutor,
+            .com-unordered,
+            .com-ordered,
+            .container-center-100,
+            figcaption,
+            .mod-date-container {
                 width: 100%;
                 margin-right: auto;
                 margin-left: auto;
@@ -60,6 +73,7 @@
                 @include padding_rl;
                 @include width-nota100;
             }
+
             .com-container {
                 margin-bottom: $spacing-lg;
                 text-align: center;

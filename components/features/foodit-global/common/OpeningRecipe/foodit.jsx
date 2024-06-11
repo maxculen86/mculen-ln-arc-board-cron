@@ -21,6 +21,7 @@ import {
 } from '../../../../private/LN/common/utils/mediaHelper';
 import get from '../../../../private/common/utils/get';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
+import getImageAltText from '../utils/getImageAltText';
 
 export const OpeningRecipe = ({ article = {} }) => {
     const { promo_items = {}, headlines = {}, taxonomy, _id = '' } = article;
@@ -29,8 +30,9 @@ export const OpeningRecipe = ({ article = {} }) => {
     const title = get(headlines, 'basic', '');
 
     const videoJW = get(promo_items, 'video_jw', null);
+    const imageData = get(promo_items, 'basic', {});
     const { caption = '', resized_urls = [], url = '' } = replaceBaseUrl(
-        get(promo_items, 'basic', {})
+        imageData
     );
 
     const { resizedUrl = '' } = getShortestImage(resized_urls);
@@ -49,7 +51,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                     </Static>
                 ) : (
                     <Image
-                        alt={caption}
+                        alt={getImageAltText({ ...imageData, title })}
                         src={resizedUrl || url}
                         className="w-100 ratio-3-2"
                         fetchPriority="high"

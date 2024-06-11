@@ -35,13 +35,14 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-xdescribe('Content Sources - Dolar Source', () => {
+describe('Content Sources - Dolar Source', () => {
     const { fetch } = dolarSource;
 
     const query = {
         'arc-site': 'la-nacion-ar'
     };
-    it('Should return data in the correct order when all dolar types are set', async done => {
+
+    it('Should return data in the correct order when all dolar types are set', async () => {
         const termicasDolar = [
             'dbna',
             'dblue',
@@ -53,27 +54,23 @@ xdescribe('Content Sources - Dolar Source', () => {
             'euro'
         ];
 
-        fetch(query, {
+        const response = await fetch(query, {
             cachedCall: jest.fn(async () => ({
                 Termicas: {
                     dolares: termicasDolar
                 }
             }))
-        })
-            .then(response => {
-                const { data: dolaresData } = response;
-                expect(response).toStrictEqual(MOCK_DOLAR_FULL_RESPONSE);
+        });
 
-                dolaresData.forEach((dolar, index) => {
-                    expect(dolar.sourceName).toStrictEqual(
-                        termicasDolar[index]
-                    );
-                });
-            })
-            .then(done);
+        const { data: dolaresData } = response;
+        expect(response).toStrictEqual(MOCK_DOLAR_FULL_RESPONSE);
+
+        dolaresData.forEach((dolar, index) => {
+            expect(dolar.sourceName).toStrictEqual(termicasDolar[index]);
+        });
     });
 
-    it('Should return data in the correct order acording to termicas order and missing dolars types', async done => {
+    it('Should return data in the correct order acording to termicas order and missing dolars types', async () => {
         const termicasDolar = [
             'dbna',
             'dblue',
@@ -82,66 +79,58 @@ xdescribe('Content Sources - Dolar Source', () => {
             'dturista',
             'dtarjeta'
         ];
-        fetch(query, {
+
+        const response = await fetch(query, {
             cachedCall: jest.fn(async () => ({
                 Termicas: {
                     dolares: termicasDolar
                 }
             }))
-        })
-            .then(response => {
-                const { data: dolaresData } = response;
+        });
 
-                expect(response).toStrictEqual(MOCK_DOLAR_PARTIAL_RESPONSE);
+        const { data: dolaresData } = response;
+        expect(response).toStrictEqual(MOCK_DOLAR_PARTIAL_RESPONSE);
 
-                dolaresData.forEach((dolar, index) => {
-                    expect(dolar.sourceName).toStrictEqual(
-                        termicasDolar[index]
-                    );
-                });
-            })
-            .then(done);
+        dolaresData.forEach((dolar, index) => {
+            expect(dolar.sourceName).toStrictEqual(termicasDolar[index]);
+        });
     });
 
-    it('Should catch error when cachedCall request for termicas data is rejected', done => {
-        fetch(query, {
+    it('Should catch error when cachedCall request for termicas data is rejected', async () => {
+        await fetch(query, {
             cachedCall: jest.fn(async () => Promise.reject('Mocked Error'))
-        })
-            .then(() => {
-                expect(loggerPush).toBeCalledTimes(1);
-                expect(loggerPush).toBeCalledWith(
-                    'Mocked Error',
-                    {
-                        data: 'navigationTreeSource cachedCall',
-                        source: 'content/sources/dolarSource'
-                    },
-                    'la-nacion-ar'
-                );
-            })
-            .then(done);
+        });
+
+        expect(loggerPush).toBeCalledTimes(1);
+        expect(loggerPush).toBeCalledWith(
+            'Mocked Error',
+            {
+                data: 'navigationTreeSource cachedCall',
+                source: 'content/sources/dolarSource'
+            },
+            'la-nacion-ar'
+        );
     });
-    it('Should catch error when request for dolar data is rejected', done => {
+
+    it('Should catch error when request for dolar data is rejected', async () => {
         mockRequestResponse.mockReturnValueOnce(Promise.reject('Mocked Error'));
 
-        fetch(query, {
+        await fetch(query, {
             cachedCall: jest.fn(async () => ({
                 Termicas: {
                     dolares: ['dbna', 'dblue']
                 }
             }))
-        })
-            .then(() => {
-                expect(loggerPush).toBeCalledTimes(1);
-                expect(loggerPush).toBeCalledWith(
-                    'Mocked Error',
-                    {
-                        source: 'content/sources/dolarSource',
-                        url:
-                            'https://arcservices.lanacion.com.ar/api/v1/quotations'
-                    },
-                    'la-nacion-ar'
-                );
-            })
-            .then(done);
+        });
+
+        expect(loggerPush).toBeCalledTimes(1);
+        expect(loggerPush).toBeCalledWith(
+            'Mocked Error',
+            {
+                source: 'content/sources/dolarSource',
+                url: 'https://arcservices.lanacion.com.ar/api/v1/quotations'
+            },
+            'la-nacion-ar'
+        );
     });
 });

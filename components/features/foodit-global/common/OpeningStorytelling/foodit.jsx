@@ -13,7 +13,7 @@ import VideoSource from '../../../private-global/common/videoSource/foodit';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 
 export const OpeningStorytelling = ({ article = {} }) => {
-    const { promo_items = {} } = article;
+    const { promo_items = {}, headlines = {} } = article;
 
     const device = getTypeOfDevice({
         breakpoints: {
@@ -22,6 +22,7 @@ export const OpeningStorytelling = ({ article = {} }) => {
         }
     });
 
+    const title = get(headlines, 'basic', '');
     const basicImage = replaceBaseUrl(get(promo_items, 'basic', null));
     const basicImageMobile = replaceBaseUrl(
         get(promo_items, 'storytelling_mobile')
@@ -33,9 +34,14 @@ export const OpeningStorytelling = ({ article = {} }) => {
         defaultUrl,
         posterUrl,
         resizedUrls,
-        altText,
-        caption
-    } = getAperturaStorytelling(videoJw, basicImage, basicImageMobile, device);
+        altText
+    } = getAperturaStorytelling(
+        videoJw,
+        basicImage,
+        basicImageMobile,
+        device,
+        title
+    );
 
     if (videoUrl && isSSR()) return <></>;
 
@@ -51,7 +57,7 @@ export const OpeningStorytelling = ({ article = {} }) => {
         <Image
             className="w-100 ratio-unset_lg ratio-3-2"
             placeholderClassName="h-100"
-            alt={altText || caption}
+            alt={altText}
             src={defaultUrl}
             fetchPriority="high"
             loading="eager"

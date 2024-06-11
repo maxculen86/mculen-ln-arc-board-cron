@@ -1,15 +1,11 @@
 import React from 'react';
 import Static from 'fusion:static';
-import { Text } from '@ln/common-ui-text';
-import { Button } from '@ln/foodit-ui-button';
-import { Icon } from '@ln/common-ui-icon';
-import IngredientsSection from './ingredientsSection';
-import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
-import { saveIngredientsList } from './_helper';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+
 import get from '../../../../../private/common/utils/get';
-import getToken from '../../../../../private/common/utils/getToken';
-import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
+
+import { Text } from '@ln/common-ui-text';
+import IngredientsSection from './ingredientsSection';
+import ShoppingListButton from './shoppingListButton';
 
 export const Ingredients = ({
     articleId,
@@ -17,29 +13,6 @@ export const Ingredients = ({
     title,
     portions
 }) => {
-    const addToShoppingLists = ingredientsLists.reduce(
-        (accumulator, currentList) => {
-            if (currentList.typeList === 'ingredientes')
-                return [...accumulator, currentList];
-
-            const filteredItems = currentList.items.filter(
-                item => item.includeInShoppingList
-            );
-
-            if (filteredItems.length)
-                return [
-                    ...accumulator,
-                    {
-                        ...currentList,
-                        items: filteredItems
-                    }
-                ];
-
-            return accumulator;
-        },
-        []
-    );
-
     return (
         <div className="flex flex-column gap-24">
             <Static htmlOnly persistent id={`ingredients-list-${articleId}`}>
@@ -91,35 +64,11 @@ export const Ingredients = ({
                     );
                 })}
             </Static>
-            <Button
-                title="Agregar"
-                size={{ sm: 32, md: 40 }}
-                onClick={() => {
-                    if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
-                        addEventToDataLayer({
-                            event: 'e_linkclick',
-                            category: 'interaction',
-                            label: 'receta',
-                            action: 'agregar a la lista',
-                            title,
-                            articleId
-                        });
-
-                        saveIngredientsList({
-                            text: title,
-                            sections: addToShoppingLists,
-                            id: articleId
-                        });
-                    } else {
-                        window.LN.observable.publish('openModal', {});
-                    }
-                }}
-            >
-                <Icon size={16}>
-                    <IconSprite name="cart" critical />
-                </Icon>
-                AGREGAR A LISTA
-            </Button>
+            <ShoppingListButton
+                ingredientsLists={ingredientsLists}
+                title={title}
+                articleId={articleId}
+            />
         </div>
     );
 };

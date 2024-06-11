@@ -70,6 +70,7 @@ const BuildSecondButtonsGroup = ({
                     dataSection,
                     icon,
                     title,
+                    labelDataLayer,
                     handleClick,
                     className
                 } = {}) => {
@@ -88,7 +89,7 @@ const BuildSecondButtonsGroup = ({
                                         setCopy,
                                         mobileTitle
                                     });
-                                    addEventToDataLayer(title);
+                                    addEventToDataLayer(title, labelDataLayer);
                                 }}
                                 className={className}
                                 iconOnly

@@ -14,7 +14,7 @@ export const SocialNetwork = ({ href, icon, name }) => {
             <Icon size={24}>
                 <IconSprite name={icon} />
             </Icon>
-            <span className="sm-none">{name}</span>
+            <span className="sm-none text-12 uppercase">{name}</span>
         </Link>
     );
 };

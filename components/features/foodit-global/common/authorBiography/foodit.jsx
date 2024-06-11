@@ -14,7 +14,7 @@ export const AuthorBiography = ({
             <div className="col-span-3-center col-span-5-center_md col-span-7-center_lg border border-all border-thin p-16 p-24_md p-32_lg w-100 text-light-200">
                 <Image {...imageProps} className="ratio-1-1 h-100" />
             </div>
-            <div className="col-span-8 col-span-12_md col-span-4-center_lg flex flex-column gap-16 text-center">
+            <div className="col-span-8 col-span-12_md col-span-4-center_lg flex flex-column gap-16 gap-24_lg text-center">
                 <Text className="text-center prumo prumo-medium text-28 text-40_md text-48_lg">
                     {name}
                 </Text>
@@ -24,7 +24,7 @@ export const AuthorBiography = ({
                 {socialNetworks.length > 0 && (
                     <div className="flex jc-center flex-wrap gap-24 gap-16_md">
                         {socialNetworks.map((socialNetwork, i) => (
-                            <React.Fragment key={i}>
+                            <React.Fragment key={`${socialNetwork.name}`}>
                                 <SocialNetwork {...socialNetwork} />
                                 {i < socialNetworks.length - 1 && (
                                     <hr className="h-100 max-h-24 sm-none" />

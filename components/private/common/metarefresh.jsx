@@ -6,42 +6,17 @@ import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import handleCookie from '../LN/common/utils/handleCookie';
-
-const findTemplate = type => {
-    if (['story', 'results'].includes(type)) return 'nota';
-    if (type === '/deportes') return 'home_deportes';
-    return 'home';
-};
-
-const getInterval = (type, resolution, config) => {
-    const template = findTemplate(type);
-    const device = resolution === 'tablet' ? 'mobile' : resolution;
-    const seconds = config ? config[`${template}_${device}`] : 0;
-    return parseInt(seconds, 10) * 1000;
-};
-
-export const shouldBeExcluded = ({ globalContent }) => {
-    const labelMetarefresh = get(globalContent, 'label.metarefresh.text', null);
-    const contentElements = get(globalContent, 'content_elements', null);
-    const promoItem = get(globalContent, 'promo_items.basic', null);
-
-    return (
-        (contentElements &&
-            contentElements.some(
-                contentElement =>
-                    contentElement.type === 'raw_html' ||
-                    contentElement.type === 'oembed_response' ||
-                    contentElement.type === 'video'
-            )) ||
-        (promoItem && promoItem.type === 'video') ||
-        labelMetarefresh === 'No'
-    );
-};
+import {
+    findTemplate,
+    getInterval,
+    shouldBeExcluded
+} from './utils/metarefreshHelper';
 
 const Component = props => {
     const { getCookie } = handleCookie();
     const globalContent = get(props, 'globalContent', null);
     const type = get(props, 'globalContent.type', null);
+    const category = get(props, 'globalContent.category', null);
     const _id = get(props, 'globalContent._id', null);
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
@@ -57,7 +32,13 @@ const Component = props => {
         }
     });
 
-    const interval = getInterval(type || _id, resolution, metarefresh);
+    const interval = getInterval(
+        type || _id,
+        resolution,
+        metarefresh,
+        category
+    );
+
     const cookieProductoPremium = getCookie('ProductoPremiumId');
     const template = findTemplate(type);
     const isSubscribed =
@@ -109,6 +90,7 @@ Component.propTypes = {
 };
 
 const Metarefresh = Context(withScreenUtils(Component));
+
 Metarefresh.WrappedComponent = Component;
 
 export default Metarefresh;

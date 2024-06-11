@@ -1,48 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
-import CollectionBox from '../collectionBox/foodit';
-import RoofFoodit from '../RoofFoodit/foodit';
-import CommonCardFoodit from '../CommonCardFoodit/foodit';
-import get from '../../../../private/common/utils/get';
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
-import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
-import fetchDeleteBookmark from '../bookmark/api/deleteBookmark';
+import useGetRecetarioData from './hooks/useGetRecetarioData';
+import useGetUserData from '../../hooks/useGetUserData';
 import { createSummaryList } from '../utils/recetarioHelper';
-import getToken from '../../../../private/common/utils/getToken';
-import getBookmarks from '../bookmark/api/getBookmarks';
 import { Button } from '@ln/foodit-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Text } from '@ln/common-ui-text';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import CollectionBox from '../collectionBox/foodit';
 import { EmptyStateComponent } from './helpers';
-import useGetUserData, { isFooditSuscriptor } from '../../hooks/useGetUserData';
 import DrawerRecetario from '../drawerRecetario/foodit';
+import BookmarkedArticles from './components/BookmarkedArticles';
+import EditFolderModal from './components/EditFolderModal';
 
 const RecetarioBody = () => {
-    const [userBookmarks, setUserBookmarks] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [selectedItem, setSelectedItem] = useState({});
-    const [displayArticlesNum, setDisplayArticlesNum] = useState(24);
-
+    const { loading, userBookmarks, setUserBookmarks } = useGetRecetarioData();
     const { userType } = useGetUserData();
 
+    const [selectedItem, setSelectedItem] = useState({});
+    useEffect(() => {
+        if (!loading && userBookmarks.length)
+            setSelectedItem({ id: 'Todas', quantity: userBookmarks.length });
+    }, [loading]);
+
+    const [summaryList, setSummaryList] = useState([]);
+    useEffect(() => {
+        if (userBookmarks.length)
+            setSummaryList(createSummaryList(userBookmarks));
+    }, [userBookmarks]);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const onClose = useCallback(() => setIsModalOpen(false), []);
+
     const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
-
-    useEffect(() => {
-        if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
-            (async () => {
-                const { data = [] } = await getBookmarks();
-                setUserBookmarks(data);
-                setSelectedItem({ id: 'Todas', quantity: data.length });
-                setLoading(false);
-            })();
-        } else {
-            setLoading(false);
-        }
-    }, []);
-
-    useEffect(() => {
-        setDisplayArticlesNum(24);
-    }, [selectedItemId]);
-
-    const summaryList = createSummaryList(userBookmarks);
 
     return (
         <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
@@ -55,104 +45,37 @@ const RecetarioBody = () => {
             </aside>
             <section className="col-span-8 col-span-12_lg min-h-344">
                 <div className="floating-button-sentinel" />
-                <RoofFoodit title={{ text: selectedItemId, as: 'h2' }} />
+                <div className="flex ai-center gap-24 mb-24">
+                    <Text
+                        className="prumo prumo-light text-24 text-32_md text-36_lg"
+                        as="h2"
+                    >
+                        {selectedItemId}
+                    </Text>
+                    {/* {userBookmarks.length && selectedItemId !== 'Todas' ? (
+                        <Button
+                            onClick={() => setIsModalOpen(true)}
+                            iconOnly
+                            variant="secondary"
+                            size={40}
+                            className="ml-auto ml-0_md"
+                        >
+                            <Icon size={16}>
+                                <IconSprite name="edit" />
+                            </Icon>
+                        </Button>
+                    ) : (
+                        <></>
+                    )} */}
+                </div>
                 {userBookmarks.length ? (
-                    <>
-                        <div className="grid grid-cols-8 grid-cols-8_md grid-cols-12_lg gap-32">
-                            {userBookmarks
-                                .filter(
-                                    ({ bookmarkGroup }) =>
-                                        selectedItemId === 'Todas' ||
-                                        bookmarkGroup === selectedItemId
-                                )
-                                .slice(0, displayArticlesNum)
-                                .map(
-                                    ({
-                                        bookmarkTypeId,
-                                        bookmarkId,
-                                        bookmarkContent
-                                    }) => {
-                                        const {
-                                            image = {},
-                                            time = null,
-                                            headlines = {},
-                                            canonical_url,
-                                            variant,
-                                            tag
-                                        } = bookmarkContent || {};
-
-                                        const {
-                                            url = {},
-                                            resized_urls = []
-                                        } = image;
-
-                                        const title = get(
-                                            headlines,
-                                            'basic',
-                                            ''
-                                        );
-
-                                        return (
-                                            <CommonCardFoodit
-                                                key={bookmarkId}
-                                                articleId={bookmarkTypeId}
-                                                showTime={Boolean(time)}
-                                                time={time}
-                                                className="col-span-8 col-span-4_md"
-                                                linksProps={{
-                                                    href: canonical_url,
-                                                    title: title
-                                                }}
-                                                size={'small'}
-                                                variant={variant || 'm'}
-                                                src={get(url, 'resizedUrl', '')}
-                                                alt={title}
-                                                sources={getImagesToLoadWithPicture(
-                                                    resized_urls
-                                                )}
-                                                loading={'lazy'}
-                                                fetchPriority={'low'}
-                                                tag={tag}
-                                                fill={true}
-                                                title={title}
-                                                author={getAuthorsAsString(
-                                                    bookmarkContent,
-                                                    false
-                                                )}
-                                                bookmarkAction={() =>
-                                                    fetchDeleteBookmark(
-                                                        [
-                                                            {
-                                                                bookmarkId,
-                                                                bookmarkTypeId
-                                                            }
-                                                        ],
-                                                        setUserBookmarks
-                                                    )
-                                                }
-                                            />
-                                        );
-                                    }
-                                )}
-                        </div>
-                        {displayArticlesNum < selectedItemQuantity && (
-                            <div className="text-center pt-24">
-                                <Button
-                                    title="Ver más"
-                                    onClick={() =>
-                                        setDisplayArticlesNum(
-                                            displayArticlesNum =>
-                                                displayArticlesNum + 24
-                                        )
-                                    }
-                                    variant="secondary"
-                                    size={{ sm: 32, lg: 40 }}
-                                >
-                                    Ver más
-                                </Button>
-                            </div>
-                        )}
-                    </>
+                    <BookmarkedArticles
+                        userBookmarks={userBookmarks}
+                        setUserBookmarks={setUserBookmarks}
+                        selectedItemId={selectedItemId}
+                        setSelectedItem={setSelectedItem}
+                        selectedItemQuantity={selectedItemQuantity}
+                    />
                 ) : (
                     <EmptyStateComponent
                         userType={userType}
@@ -163,6 +86,13 @@ const RecetarioBody = () => {
             <DrawerRecetario
                 summaryList={summaryList}
                 onItemSelected={setSelectedItem}
+            />
+            <EditFolderModal
+                isOpen={isModalOpen}
+                onClose={onClose}
+                folderId={selectedItemId}
+                setUserBookmarks={setUserBookmarks}
+                setSelectedItem={setSelectedItem}
             />
         </div>
     );

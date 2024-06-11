@@ -18,7 +18,7 @@ export default LotteryDetailNav;
 
 const tagList = [
     {
-        title: 'Quiniela Nacional',
+        title: 'Quiniela de la Ciudad (ex Quiniela Nacional)',
         link: '/loterias/quiniela-nacional/'
     },
     {
