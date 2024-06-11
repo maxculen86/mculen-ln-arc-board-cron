@@ -1,6 +1,5 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import { useAppContext } from 'fusion:context';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
@@ -44,7 +43,6 @@ const lnNotaStorytelling = ({
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
-    const { deployment, contextPath } = useAppContext();
 
     const classNameWrapper = classNames(
         'wrapper',
@@ -110,7 +108,7 @@ const lnNotaStorytelling = ({
                 </div>
             </div>
             <LoadBannersSSR />
-            <PwaModal contextPath={contextPath} deployment={deployment} />
+            <PwaModal />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

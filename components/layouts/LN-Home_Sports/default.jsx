@@ -16,8 +16,6 @@ import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.jso
 
 const LNSportsHome = props => {
     const {
-        contextPath,
-        deployment,
         children: [
             bannerMegatop,
             stickyMobile,
@@ -87,7 +85,7 @@ const LNSportsHome = props => {
                     </div>
                 </div>
                 <LoadBannersSSR />
-                <PwaModal contextPath={contextPath} deployment={deployment} />
+                <PwaModal />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

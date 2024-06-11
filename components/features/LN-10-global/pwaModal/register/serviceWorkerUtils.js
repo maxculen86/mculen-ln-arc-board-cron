@@ -4,49 +4,37 @@ export const verify = () => {
     return true && 'serviceWorker' in navigator;
 };
 
-export const unregister = () => {
-    return new Promise((resolve, reject) => {
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .getRegistrations()
-                .then(registrations => {
-                    const { length } = registrations || [];
+export const unregister = async () => {
+    if ('serviceWorker' in navigator) {
+        try {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            const { length } = registrations || [];
 
-                    for (const registration of registrations) {
-                        console.log('SW: unreg', registration);
-                        registration.unregister();
-                    }
+            for (const registration of registrations) {
+                await registration.unregister();
+            }
 
-                    resolve(length);
-                })
-                .catch(err => {
-                    console.log('SW: unreg ERROR', err);
-                    reject(err);
-                });
-        } else {
-            reject(new Error('serviceWorker == undefined'));
+            return length;
+        } catch (err) {
+            console.error('SW: unreg ERROR', err);
+            throw err;
         }
-    });
+    } else {
+        throw new Error('serviceWorker == undefined');
+    }
 };
 
-export const register = deployment => {
-    return new Promise((resolve, reject) => {
-        if ('serviceWorker' in navigator) {
-            console.log('[Service Worker] Will the service worker register?');
-            navigator.serviceWorker
-                .register(`/sw.js?d=${deployment}`)
-                .then(reg => {
-                    initialize();
-                    console.log('[Service Worker] Yes, it did.');
-                    resolve();
-                })
-                .catch(err => {
-                    console.log(
-                        "[Service Worker] No it didn't. This happened: ",
-                        err
-                    );
-                    reject(err);
-                });
+export const register = async deployment => {
+    if ('serviceWorker' in navigator) {
+        try {
+            await navigator.serviceWorker.register(`/sw.js?d=${deployment}`);
+            initialize();
+        } catch (err) {
+            console.error(
+                "[Service Worker] No it didn't. This happened: ",
+                err
+            );
+            throw err;
         }
-    });
+    }
 };

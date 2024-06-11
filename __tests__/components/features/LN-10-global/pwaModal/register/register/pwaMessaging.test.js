@@ -15,7 +15,7 @@ describe('components - features - LN-10-global - pwaModal - register - pwaMwssag
     const { authToken } = VALUES;
 
     describe('storeAuth3Token function', () => {
-        test('should set item received by parameter on localStorage', () => {
+        it('should set item received by parameter on localStorage', () => {
             storeAuth3Token(authToken.value);
             expect(localStorage.getItem(authToken.title[1])).toEqual(
                 authToken.value

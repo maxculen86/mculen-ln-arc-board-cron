@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppContext } from 'fusion:context';
 import classNames from 'classnames';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Link } from '@ln/contenidos-ui-link';
 import { Text } from '@ln/contenidos-ui-text';
 import { Button } from '@ln/contenidos-ui-button';
-import usePwaModal from './usePwaModal';
+import usePwaModal from '../../../private/common/hooks/usePwaModal';
+import startPWASetup from './register';
 
-export function PwaModal({ className, contextPath, deployment }) {
+export function PwaModal({ className }) {
     const { isShowModal, handleNoClick, handleYesClick } = usePwaModal();
+    const { deployment, contextPath } = useAppContext();
 
     const path = `${contextPath}/resources/images/la-nacion.webp`;
     const deploymentPath = deployment(path);
@@ -17,6 +20,10 @@ export function PwaModal({ className, contextPath, deployment }) {
         'left-90_l shadow-pwamodal bottom-auto_l top-0_l',
         className
     );
+
+    useEffect(() => {
+        startPWASetup(deployment);
+    }, [deployment]);
 
     if (!isShowModal) return <></>;
 

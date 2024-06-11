@@ -5,7 +5,7 @@ exports[`PwaModal should not render the modal when isShowModal is false 1`] = `<
 exports[`PwaModal should render the modal when isShowModal is true 1`] = `
 <div>
   <div
-    class="ln-pwa-modal fixed p-16 w-100 z-1600 max-w-365 bg-white bottom-60 left-50 border border-left border-5 border-black -transform-50 transform-none_l left-90_l shadow-pwamodal bottom-auto_l top-0_l class"
+    class="ln-pwa-modal fixed p-16 w-100 z-1600 max-w-365 bg-white bottom-60 left-50 border border-left border-5 border-black -transform-50 transform-none_l left-90_l shadow-pwamodal bottom-auto_l top-0_l"
     id="notificacion-modal"
   >
     <a
@@ -16,11 +16,10 @@ exports[`PwaModal should render the modal when isShowModal is true 1`] = `
     >
       <img
         alt="LA NACION"
-        class="image flex --cover"
+        class="image flex none --cover"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
-        src="pf//resources/images/la-nacion.webp"
         width="164"
       />
     </a>

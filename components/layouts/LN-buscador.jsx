@@ -2,7 +2,6 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useAppContext } from 'fusion:context';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import ComTitle from '../private/common/com-title';
@@ -18,8 +17,6 @@ const lnBuscador = ({
     siteProperties: { description } = {}
 }) => {
     let searchResults = '';
-
-    const { deployment, contextPath } = useAppContext();
 
     if (typeof window !== 'undefined') {
         searchResults = getQueryParamValue('query', window.location.href);
@@ -49,7 +46,7 @@ const lnBuscador = ({
                     <Footer />
                 </div>
             </div>
-            <PwaModal contextPath={contextPath} deployment={deployment} />
+            <PwaModal />
         </GlobalProvider>
     );
 };

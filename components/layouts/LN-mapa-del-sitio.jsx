@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useAppContext } from 'fusion:context';
 import { SITE_LANACION, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import List from '../private/common/mod-list';
 import Title from '../private/common/com-title';
@@ -240,8 +239,6 @@ const LNMapaDelSitio = ({ children }) => {
         }
     ];
 
-    const { deployment, contextPath } = useAppContext();
-
     return (
         <>
             {children[0]}
@@ -300,7 +297,7 @@ const LNMapaDelSitio = ({ children }) => {
                     </div>
                 </footer>
             </div>
-            <PwaModal contextPath={contextPath} deployment={deployment} />
+            <PwaModal />
         </>
     );
 };

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import handleCookie from '../../../private/LN/common/utils/handleCookie';
-import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
+import handleCookie from '../../LN/common/utils/handleCookie';
+import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import {
     checkSubscription,
     isNotificationDefault
-} from './register/pwaMessaging';
+} from '../../../features/LN-10-global/pwaModal/register/pwaMessaging';
+import { scheduleTask } from '../utils/scheduleTask';
 
 const lnNotification = 'ln-notification';
 
@@ -15,27 +16,27 @@ const usePwaModal = () => {
     useEffect(() => {
         const notificationCookie = getCookie(lnNotification);
         if (!notificationCookie && isNotificationDefault()) {
-            addEventToDataLayer({ event: 'PushNoficationPrompt' });
             setIsShowModal(true);
         }
     }, []);
 
-    const handleNoClick = async e => {
+    const handleNoClick = e => {
         e.preventDefault();
-        await addEventToDataLayer({ event: 'PushNoficationDismiss' });
         setCookie(lnNotification, 'false', 43200);
         setIsShowModal(false);
     };
 
     const handleYesClick = async e => {
         e.preventDefault();
-        await addEventToDataLayer({ event: 'PushNoficationConsent' });
+        await scheduleTask(() =>
+            addEventToDataLayer({ event: 'PushNoficationConsent' })
+        );
         setCookie(lnNotification, 'true', 43200);
         try {
             checkSubscription(true);
             setIsShowModal(false);
         } catch (error) {
-            console.log('🚀 ~ handleYesClick ~ error:', error);
+            console.error('🚀 ~ handleYesClick ~ error:', error);
             setIsShowModal(false);
         }
     };

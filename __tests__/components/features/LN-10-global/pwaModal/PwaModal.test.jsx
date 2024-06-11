@@ -1,12 +1,22 @@
 import React from 'react';
 import '@testing-library/jest-dom';
+import Context from 'fusion:context';
 import { render, screen, fireEvent } from '@testing-library/react';
 import PwaModal from '../../../../../components/features/LN-10-global/pwaModal/default';
-import usePwaModal from '../../../../../components/features/LN-10-global/pwaModal/usePwaModal';
+import usePwaModal from '../../../../../components/private/common/hooks/usePwaModal';
 
-jest.mock(
-    '../../../../../components/features/LN-10-global/pwaModal/usePwaModal'
-);
+jest.mock('../../../../../components/private/common/hooks/usePwaModal');
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+Context.useAppContext = jest.fn(() => ({
+    contextPath: '/pf',
+    deployment: jest.fn()
+}));
 
 describe('PwaModal', () => {
     const mockHandleNoClick = jest.fn();
@@ -27,13 +37,7 @@ describe('PwaModal', () => {
             handleYesClick: mockHandleYesClick
         });
 
-        const { container } = render(
-            <PwaModal
-                className="class"
-                contextPath="pf/"
-                deployment={path => path}
-            />
-        );
+        const { container } = render(<PwaModal />);
 
         expect(
             screen.getByText('¿Querés recibir notificaciones de alertas?')
@@ -52,13 +56,7 @@ describe('PwaModal', () => {
             handleYesClick: mockHandleYesClick
         });
 
-        const { container } = render(
-            <PwaModal
-                className="class"
-                contextPath="pf/"
-                deployment={path => path}
-            />
-        );
+        const { container } = render(<PwaModal />);
 
         expect(
             screen.queryByText('¿Querés recibir notificaciones de alertas?')
@@ -74,13 +72,7 @@ describe('PwaModal', () => {
             handleYesClick: mockHandleYesClick
         });
 
-        render(
-            <PwaModal
-                className="class"
-                contextPath="pf/"
-                deployment={path => path}
-            />
-        );
+        render(<PwaModal />);
 
         fireEvent.click(screen.getByText('No, gracias'));
 
@@ -94,13 +86,7 @@ describe('PwaModal', () => {
             handleYesClick: mockHandleYesClick
         });
 
-        render(
-            <PwaModal
-                className="class"
-                contextPath="pf/"
-                deployment={path => path}
-            />
-        );
+        render(<PwaModal />);
 
         fireEvent.click(screen.getByText('Aceptar'));
 

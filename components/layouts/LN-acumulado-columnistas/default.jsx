@@ -18,7 +18,7 @@ const layoutItemsColumnistas = [
 ];
 
 const LNAcumuladoColumnistasLayout = props => {
-    const { children, contextPath, deployment } = props;
+    const { children } = props;
 
     return (
         <GlobalProvider>
@@ -66,7 +66,7 @@ const LNAcumuladoColumnistasLayout = props => {
                 </div>
             </div>
             <LoadBannersSSR />
-            <PwaModal contextPath={contextPath} deployment={deployment} />
+            <PwaModal />
         </GlobalProvider>
     );
 };

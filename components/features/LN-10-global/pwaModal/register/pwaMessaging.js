@@ -18,13 +18,6 @@ export const initialize = () => {
         messaging = firebase.messaging();
     }
 
-    document.addEventListener('freeze', e => {
-        console.log('freeze');
-    });
-    document.addEventListener('resume', e => {
-        console.log('resume');
-    });
-
     const hasArnStored = localStorage.getItem(ENDPOINT_ARN) !== null;
     const authToken = localStorage.getItem(AUTH3_TOKEN);
 
@@ -37,8 +30,6 @@ export const requestToken = showError => {
     const setToken = () => {
         handleToken()
             .then(token => {
-                console.log('[Service Worker] Notificaciones Admitidas');
-
                 storeAuth3Token(token);
 
                 const {
@@ -57,7 +48,7 @@ export const requestToken = showError => {
                 }
             })
             .catch(err => {
-                console.log('[Service Worker] Notificaciones denegadas');
+                console.error('[Service Worker] Notificaciones denegadas', err);
             });
     };
 
@@ -85,15 +76,15 @@ export const handleSubscription = ({ token, showError }) => {
         localStorage.setItem(AUTH_TOKEN, token);
         registerSubscription(token, showError);
     } catch (e) {
-        console.log('Error al intentar guardar x-auth2-token en localStorage');
+        console.error(
+            'Error al intentar guardar x-auth2-token en localStorage'
+        );
     }
 };
 
 export const checkSubscription = showError => {
     navigator.serviceWorker.ready.then(registration => {
-        console.log(`[Service Worker] on ready = ${registration}`);
         registration.pushManager.getSubscription().then(subscription => {
-            console.log(`[Service Worker] on ready = ${subscription}`);
             messaging.useServiceWorker(registration);
             requestToken(showError);
         });
@@ -104,6 +95,8 @@ export const storeAuth3Token = token => {
     try {
         localStorage.setItem(AUTH3_TOKEN, token);
     } catch (e) {
-        console.log('Error al intentar guardar x-auth3-token en localStorage');
+        console.error(
+            'Error al intentar guardar x-auth3-token en localStorage'
+        );
     }
 };

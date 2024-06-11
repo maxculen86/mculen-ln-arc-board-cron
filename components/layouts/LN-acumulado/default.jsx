@@ -47,8 +47,6 @@ const acumToSearchAperturaChain = ['tags'];
 
 const LNAcumuladoLayout = props => {
     const {
-        deployment,
-        contextPath,
         children: [
             bannerMegatop,
             stickyMobile,
@@ -247,7 +245,7 @@ const LNAcumuladoLayout = props => {
                     </div>
                 </div>
                 <LoadBannersSSR />
-                <PwaModal contextPath={contextPath} deployment={deployment} />
+                <PwaModal />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

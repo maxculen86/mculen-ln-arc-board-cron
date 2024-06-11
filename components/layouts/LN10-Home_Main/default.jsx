@@ -204,7 +204,7 @@ const LN10Home = props => {
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
-            <PwaModal contextPath={contextPath} deployment={deployment} />
+            <PwaModal />
             <RoofEventsScript />
             <ScriptViewability />
         </GlobalProvider>

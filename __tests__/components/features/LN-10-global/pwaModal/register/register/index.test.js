@@ -5,23 +5,26 @@ jest.mock(
     '../../../../../../../components/private/LN/common/utils/dynamicallyLoadScript',
     () => ({
         __esModule: true,
-        default: jest.fn().mockResolvedValue()
+        default: jest.fn().mockResolvedValue(true)
     })
 );
 
-describe('components - features - LN-10-global - pwaModal - register - index - startPWASetup', () => {
+describe('startPWASetup', () => {
     beforeEach(() => {
         jest.clearAllMocks();
-    });
-
-    test('should start PWA setup correctly', async () => {
         jest.spyOn(window.navigator, 'userAgent', 'get').mockReturnValue(
             'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)'
         );
+    });
 
+    it('should start PWA setup correctly', async () => {
         const deployment = jest.fn();
 
-        await startPWASetup(deployment);
+        startPWASetup(deployment);
+
+        window.dispatchEvent(new Event('load'));
+
+        await new Promise(resolve => setTimeout(resolve, 0));
 
         expect(dynamicallyLoadScript).toHaveBeenNthCalledWith(
             1,

@@ -58,7 +58,7 @@ describe('components - features - LN-10-global - pwaModal - register - subscript
     const { authToken, endpointArn } = VALUES;
 
     describe('checkLocalStorageItems function', () => {
-        test('should return default values', () => {
+        it('should return default values', () => {
             const result = checkLocalStorageItems(authToken.value);
 
             expect(result).toMatchObject({
@@ -69,7 +69,7 @@ describe('components - features - LN-10-global - pwaModal - register - subscript
             });
         });
 
-        test('should return result with endpointArn stored', () => {
+        it('should return result with endpointArn stored', () => {
             localStorage.setItem(endpointArn.title, endpointArn.value);
             const result = checkLocalStorageItems(authToken.value);
 
@@ -81,7 +81,7 @@ describe('components - features - LN-10-global - pwaModal - register - subscript
             });
         });
 
-        test('should return result with token stored', () => {
+        it('should return result with token stored', () => {
             localStorage.setItem(authToken.title[0], authToken.value);
             localStorage.setItem(authToken.title[1], authToken.value);
 
@@ -95,7 +95,7 @@ describe('components - features - LN-10-global - pwaModal - register - subscript
             });
         });
 
-        test('should return result with token changed', () => {
+        it('should return result with token changed', () => {
             localStorage.setItem(authToken.title[0], authToken.value);
             localStorage.setItem(
                 authToken.title[1],
@@ -114,7 +114,7 @@ describe('components - features - LN-10-global - pwaModal - register - subscript
     });
 
     describe('updateToken function', () => {
-        test('should get new token', async () => {
+        it('should get new token', async () => {
             const NEW_TOKEN_VALUE = 'NEW_TOKEN_VALUE';
 
             global.fetch.mockReturnValue(
@@ -135,7 +135,7 @@ describe('components - features - LN-10-global - pwaModal - register - subscript
             });
         });
 
-        test('should fails getting new token', async () => {
+        it('should fails getting new token', async () => {
             global.fetch.mockReturnValue(Promise.reject('Token invalid'));
 
             await updateToken({

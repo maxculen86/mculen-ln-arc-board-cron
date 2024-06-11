@@ -3,6 +3,7 @@ import get from '../../../../private/common/utils/get';
 
 const { getCookie } = handleCookie();
 const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
+const topicName = 'Alertas_LA_NACION';
 const aplicationJson = 'application/json';
 const ENDPOINT_ARN = 'endpointArn';
 const AUTH_TOKEN = 'x-auth2-token';
@@ -19,7 +20,7 @@ export const savePushTokenCache = token => {
             cache.put('/pushtoken', new Response(response, options));
         })
         .catch(e => {
-            console.log('caches error', e);
+            console.error('caches error', e);
         });
 };
 
@@ -42,14 +43,13 @@ export const registerSubscription = (token, showError) => {
     })
         .then(response => response.json())
         .then(res => {
-            console.log('device notifications registered.', res);
             const endpointArn = get(res, 'data.endpointArn');
 
             localStorage.setItem(ENDPOINT_ARN, endpointArn);
             registerTopic(topicName, token, showError);
         })
         .catch(err => {
-            console.log('device notifications error: ', err);
+            console.error('device notifications error: ', err);
         });
 };
 
@@ -74,11 +74,10 @@ export const updateToken = ({ token, deviceArn }) => {
     })
         .then(response => response.json())
         .then(res => {
-            console.log('updating notification success', res);
             localStorage.setItem(AUTH_TOKEN, res);
         })
         .catch(err => {
-            console.log('updating notification token error: ', err);
+            console.error('updating notification token error: ', err);
         });
 };
 
@@ -126,12 +125,11 @@ export const registerTopic = (topic, token, showError) => {
         .then(response => response.json())
         .then(res => {
             if (res.status === 200) {
-                console.log('topic registered.');
                 return true;
             }
             return false;
         })
         .catch(err => {
-            console.log('device notifications error: ', err);
+            console.error('device notifications error: ', err);
         });
 };
