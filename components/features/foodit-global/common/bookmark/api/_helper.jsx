@@ -54,7 +54,7 @@ export const TOAST = {
 };
 
 export const addToast = ({ variant, title, message }) => {
-    window.LN.observable.publish('addToast', {
+    window?.LN?.observable?.publish('addToast', {
         variant,
         title,
         message
