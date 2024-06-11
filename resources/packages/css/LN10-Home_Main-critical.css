@@ -5275,10 +5275,6 @@ strong:not(.--font-primary),
   margin-bottom: 1rem;
 }
 
-.mb-24 {
-  margin-bottom: 1.5rem;
-}
-
 .mb-32 {
   margin-bottom: 2rem;
 }
@@ -5515,9 +5511,6 @@ strong:not(.--font-primary),
   }
   .mt-24_m {
     margin-top: 1.5rem;
-  }
-  .mr-24_m {
-    margin-right: 1.5rem;
   }
   .p-0_m {
     padding: 0rem;
@@ -5922,6 +5915,11 @@ strong:not(.--font-primary),
   width: 9.5rem;
 }
 
+@media (max-width: 512px) {
+  .w-140_max512.w-140_max512 {
+    width: 8.75rem;
+  }
+}
 @media (min-width: 48rem) {
   .w-32_md.w-32_md {
     width: 2rem;
@@ -6831,6 +6829,10 @@ hr {
     transform: none;
     -webkit-transform: none;
   }
+}
+
+body:has(.disable-body-scroll) {
+  overflow: hidden;
 }header .text.ln-text {
   color: #000000;
 }.ln-timeline > div .--bbt {
