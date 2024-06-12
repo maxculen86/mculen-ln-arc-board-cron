@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ModDate from '../../../common/mod-date';
 import Author from './authorArticle';
+import ReadingTime from '../../../../features/LN-10-global/common/readingTime/default';
 
 const authorAndDate = props => {
     const { globalContent, author, date, authorDate } = props;
@@ -40,6 +41,7 @@ const authorAndDate = props => {
                     </div>
                 </div>
             )}
+            <ReadingTime />
             {authorDate && (
                 <>
                     {/* <Date
