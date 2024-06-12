@@ -224,7 +224,7 @@
   }
   36% {
     offset-path: var(--_2ndItemPath);
-    ransform: rotate(180deg) scale(1.3);
+    transform: rotate(180deg) scale(1.3);
   }
   50% {
     offset-path: var(--_3rdItemPath);

@@ -3,18 +3,23 @@ import { render, screen } from '@testing-library/react';
 import Context from 'fusion:context';
 import FooterFoodit from '../../../../../../components/features/foodit-global/common/Footer/foodit';
 
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = { outputType: 'amp' };
-
-        return props.children(mockAvailableProps);
-    }
-}));
-const deployment = (deploymentValue = 'lanacion.com.ar') => deploymentValue;
-xdescribe('Components - Features - foodit-global - Common - FooterFoodit', () => {
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+const deployment = deploymentValue => deploymentValue;
+describe('Components - Features - foodit-global - Common - FooterFoodit', () => {
     Context.useAppContext = jest.fn(() => ({
         contextPath: '/pf',
-        deployment
+        deployment,
+        layout: 'Foodit-home',
+        siteProperties: {
+            layoutsName: {
+                Foodit404: 'Foodit404',
+                FooditHome: 'Foodit-home'
+            }
+        }
     }));
 
     beforeEach(() => {

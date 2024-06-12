@@ -5100,7 +5100,7 @@ strong:not(.--font-primary),
 }
 
 .--prumo-italic {
-  font-family: "Prumo Italic", "georgia", "serif";
+  font-family: Prumo Italic, georgia, serif;
   font-weight: 100;
 }
 
@@ -6831,6 +6831,10 @@ hr {
     transform: none;
     -webkit-transform: none;
   }
+}
+
+body:has(.disable-body-scroll) {
+  overflow: hidden;
 }header .text.ln-text {
   color: #000000;
 }.ln-timeline > div .--bbt {
