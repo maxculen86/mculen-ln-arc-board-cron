@@ -93,6 +93,6 @@ export const handleIgredientListButton = async ({
             newBookmarkId && setBookmarkId(newBookmarkId);
         }
     } else {
-        window.LN.observable.publish('openModal', {});
+        window?.LN?.observable?.publish('openModal', {});
     }
 };

@@ -55,9 +55,9 @@ export default function useIsomorphicPopupHandling() {
     };
 
     useEffect(() => {
-        window.LN.observable.subscribe('openModal', handleData);
+        window?.LN?.observable?.subscribe('openModal', handleData);
         return () => {
-            window.LN.observable.unsubscribe('openModal', handleData);
+            window?.LN?.observable?.unsubscribe('openModal', handleData);
         };
     }, []);
 

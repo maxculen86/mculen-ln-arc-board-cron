@@ -465,7 +465,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-semibold text-20"
                   >
                     Ficha nota FOODIT
                   </h2>
@@ -571,7 +571,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-semibold text-20"
                   >
                     Receta para comer mas rico con ...POLLITO 2
                   </h2>

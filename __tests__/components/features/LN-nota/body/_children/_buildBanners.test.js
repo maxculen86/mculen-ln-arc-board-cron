@@ -68,7 +68,7 @@ describe('BuildBanners', () => {
 
         expect(
             container.querySelectorAll(`div`)[0].getAttribute('class')
-        ).toEqual('mod-banner --caja1_mob  ');
+        ).toEqual('mod-banner --caja1_mob');
     });
 
     it('deberia renderizar un Div Banner middle_1_dsk', () => {
@@ -84,7 +84,7 @@ describe('BuildBanners', () => {
 
         expect(
             container.querySelectorAll(`div`)[0].getAttribute('class')
-        ).toEqual('mod-banner --middle_1_dsk  ');
+        ).toEqual('mod-banner --middle_1_dsk');
     });
     it('no deberia renderizar nada', () => {
         const { container } = render(

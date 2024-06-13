@@ -1817,7 +1817,7 @@ strong:not(.--font-primary),
 }
 
 .--prumo-italic {
-  font-family: "Prumo Italic", "georgia", "serif";
+  font-family: Prumo Italic, georgia, serif;
   font-weight: 100;
 }
 

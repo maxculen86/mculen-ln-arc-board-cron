@@ -753,7 +753,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           </p>
           <a
             class="link"
-            href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
+            href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
             rel="nofollow"
             target="_blank"
             title="Data fiscal"

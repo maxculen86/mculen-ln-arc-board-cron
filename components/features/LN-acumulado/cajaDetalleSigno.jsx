@@ -13,19 +13,20 @@ const CajaDetalleSigno = ({ id: featureId }) => {
     return (
         <Static id={featureId}>
             {(() => {
-                const { data } =
+                const { dataService = {} } =
                     useContent({
-                        source: 'horoscopeSource',
+                        source: 'servicesSource',
                         query: {
                             arcSite,
-                            horoscope: path.length ? path[0] : '',
-                            sign: path.length > 1 ? path[1] : ''
+                            service: 'horoscopo',
+                            serviceItem: path.length > 1 ? path[1] : ''
                         },
                         staticMode: true
                     }) || {};
-                return data ? (
+
+                return Object.keys(dataService).length > 0 ? (
                     <DailyHoroscope
-                        data={data}
+                        data={dataService}
                         deployment={deployment}
                         contextPath={contextPath}
                     />

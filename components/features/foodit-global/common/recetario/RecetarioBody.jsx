@@ -52,7 +52,7 @@ const RecetarioBody = () => {
                     >
                         {selectedItemId}
                     </Text>
-                    {userBookmarks.length && selectedItemId !== 'Todas' ? (
+                    {/* {userBookmarks.length && selectedItemId !== 'Todas' ? (
                         <Button
                             onClick={() => setIsModalOpen(true)}
                             iconOnly
@@ -66,7 +66,7 @@ const RecetarioBody = () => {
                         </Button>
                     ) : (
                         <></>
-                    )}
+                    )} */}
                 </div>
                 {userBookmarks.length ? (
                     <BookmarkedArticles

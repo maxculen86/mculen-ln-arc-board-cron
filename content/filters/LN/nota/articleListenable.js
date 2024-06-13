@@ -605,6 +605,16 @@ export default `
     first_publish_date,
     last_updated_date,
     publish_date,
+    planning {
+        internal_note
+        story_length {
+            character_count_actual
+            character_encoding
+            inch_count_actual
+            line_count_actual
+            word_count_actual
+        }
+    }
     owner {
         sponsored
     }

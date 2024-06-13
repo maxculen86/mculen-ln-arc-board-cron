@@ -22,10 +22,10 @@ export default function useIsomorphicToastHandling({ component: Component }) {
     };
 
     useEffect(() => {
-        window.LN.observable.subscribe('addToast', addToast);
+        window?.LN?.observable?.subscribe('addToast', addToast);
 
         return () => {
-            window.LN.observable.unsubscribe('addToast', addToast);
+            window?.LN?.observable?.unsubscribe('addToast', addToast);
         };
     }, []);
 

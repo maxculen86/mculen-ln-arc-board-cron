@@ -28,7 +28,7 @@ export const HomeSchema = () => {
         sameAs: [
             'https://www.tiktok.com/@fooditar?lang=es',
             'https://www.instagram.com/foodit_ar/',
-            'https://twitter.com/FOODITAR',
+            'https://x.com/FOODIT_AR',
             'https://ar.pinterest.com/foodit_ar/'
         ]
     };

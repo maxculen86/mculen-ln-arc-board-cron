@@ -43,7 +43,7 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
-                                href="https://twitter.com/FOODITAR"
+                                href="https://x.com/FOODIT_AR"
                                 title="Seguinos en X"
                                 iconOnly
                                 size={32}
@@ -119,9 +119,8 @@ const FooterFoodit = () => {
                         <Text>
                             © 2024 S.A. LA NACION. Todos los derechos reservados
                         </Text>
-                        {/* TODO: actualizar link */}
                         <Link
-                            href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/GenericError.htm?aspxerrorpath=/clavefiscal/qr/publicInfoD.aspx"
+                            href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                             unstyled
                             title="Data fiscal"
                             target="_blank"

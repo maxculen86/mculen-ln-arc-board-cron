@@ -70,7 +70,7 @@ const CommonCardFoodit = ({
                             if (bookmarkAction) {
                                 bookmarkAction();
                             } else {
-                                window.LN.observable.publish('openModal', {
+                                window?.LN?.observable?.publish('openModal', {
                                     ids: [articleId]
                                 });
                             }
