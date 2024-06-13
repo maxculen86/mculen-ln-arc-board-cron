@@ -5,9 +5,7 @@ export default function component({ imgSrc }) {
         <section className="apertura">
             <picture className="content-picture">
                 {imgSrc && <source srcSet={imgSrc} data-srcset={imgSrc} />}
-                {imgSrc && (
-                    <img className="lazy loaded" className="img-desktop" />
-                )}
+                {imgSrc && <img className="lazy loaded img-desktop" />}
             </picture>
         </section>
     );

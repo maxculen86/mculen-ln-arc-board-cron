@@ -42,7 +42,7 @@ export const StorytellingSchema = ({ article = {} }) => {
         datePublished: get(additional_properties, 'publish_date', ''),
         author: {
             '@type': 'Person',
-            name: (author && author) || 'Redacción de Foodit'
+            name: author || 'Redacción de Foodit'
         },
         publisher: {
             '@type': 'Organization',
