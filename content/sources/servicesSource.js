@@ -7,7 +7,6 @@ import holidays from './utils/servicesSource/holidays/holidays';
 import horoscope from './utils/servicesSource/horoscope/horoscope';
 import getRequest from './utils/getRequest';
 import NotFoundError from './utils/notFoundError';
-import force404AMP from './utils/force404AMP';
 import filter from '../filters/LN/services/filter';
 
 const SERVICES = {
