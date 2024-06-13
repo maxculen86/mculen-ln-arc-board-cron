@@ -19,6 +19,7 @@ export default `
     content_elements {
         _id
         subtype
+        canonical_url
         promo_items {
             basic {
                 ${image}

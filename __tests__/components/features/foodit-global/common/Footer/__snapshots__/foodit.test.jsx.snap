@@ -43,16 +43,9 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               <i
                 class="icon --icon-16"
               >
-                <svg
-                  fill="currentColor"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <use
-                    href="/pf/resources/images/undefined-sprite-default.svg#instagram"
-                  />
-                </svg>
+                <mock-icon
+                  name="instagram"
+                />
               </i>
             </a>
             <a
@@ -71,72 +64,51 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               <i
                 class="icon --icon-16"
               >
-                <svg
-                  fill="currentColor"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <use
-                    href="/pf/resources/images/undefined-sprite-default.svg#twitter"
-                  />
-                </svg>
+                <mock-icon
+                  name="twitter"
+                />
               </i>
             </a>
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
-              data-dynamic-action="tiktok"
+              data-dynamic-action="facebook"
               data-dynamic-category="interaction"
               data-dynamic-label="social"
               data-event-data-layer="e_linkclick"
               data-interaction="dataLayerInteraction"
               data-variant="primary"
-              href="https://www.tiktok.com/@fooditar?lang=es "
+              href="https://www.facebook.com/profile.php?id=61558653507465"
               rel="nofollow"
               target="_blank"
-              title="Seguinos en TikTok"
+              title="Seguinos en Facebook"
             >
               <i
                 class="icon --icon-16"
               >
-                <svg
-                  fill="currentColor"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <use
-                    href="/pf/resources/images/undefined-sprite-default.svg#tiktok"
-                  />
-                </svg>
+                <mock-icon
+                  name="facebook"
+                />
               </i>
             </a>
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
-              data-dynamic-action="pinterest"
+              data-dynamic-action="youtube"
               data-dynamic-category="interaction"
               data-dynamic-label="social"
               data-event-data-layer="e_linkclick"
               data-interaction="dataLayerInteraction"
               data-variant="primary"
-              href="https://ar.pinterest.com/foodit_ar/"
+              href="https://www.youtube.com/channel/UCg3Rc6CdupnBnmcSyWrlMgg"
               rel="nofollow"
               target="_blank"
-              title="Seguinos en Pinterest"
+              title="Suscribite a Youtube"
             >
               <i
                 class="icon --icon-16"
               >
-                <svg
-                  fill="currentColor"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <use
-                    href="/pf/resources/images/undefined-sprite-default.svg#pinterest"
-                  />
-                </svg>
+                <mock-icon
+                  name="youtube"
+                />
               </i>
             </a>
           </div>
@@ -157,13 +129,18 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             data-event-data-layer="e_linkclick"
             data-interaction="dataLayerInteraction"
             data-variant="primary"
-            href="/"
-            target="_self"
-            title="Ir a la página principal"
+            href="https://www.lanacion.com.ar/"
+            rel="nofollow"
+            target="_blank"
+            title="Ir a la página principal de LA NACION"
           >
             <img
-              alt="La Nación"
+              alt="LA NACION"
+              class="image flex --cover"
+              decoding="async"
+              fetchpriority="low"
               height="16"
+              loading="lazy"
               src="undefined/pf/resources/images/logo-ln-black.webp"
               width="151"
             />
@@ -185,12 +162,18 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             data-event-data-layer="e_linkclick"
             data-interaction="dataLayerInteraction"
             data-variant="primary"
-            href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/GenericError.htm?aspxerrorpath=/clavefiscal/qr/publicInfoD.aspx"
-            target="_self"
+            href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+            rel="nofollow"
+            target="_blank"
             title="Data fiscal"
           >
             <img
+              alt="Data Fiscal"
+              class="image flex --cover"
+              decoding="async"
+              fetchpriority="low"
               height="38"
+              loading="lazy"
               src="undefined/pf/resources/images/data-fiscal.webp"
               width="28"
             />
@@ -216,7 +199,8 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://policies.google.com/terms?hl=es-419/"
-              target="_self"
+              rel="nofollow"
+              target="_blank"
               title="Ir a condiciones"
             >
               CONDICIONES
@@ -224,16 +208,9 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             <i
               class="icon --icon-24"
             >
-              <svg
-                fill="currentColor"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <use
-                  href="/pf/resources/images/undefined-sprite-default.svg#bullet-xs"
-                />
-              </svg>
+              <mock-icon
+                name="bullet-xs"
+              />
             </i>
             <a
               class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"
@@ -244,7 +221,8 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://policies.google.com/privacy?hl=es-419/"
-              target="_self"
+              rel="nofollow"
+              target="_blank"
               title="Ir a privacidad"
             >
               PRIVACIDAD
