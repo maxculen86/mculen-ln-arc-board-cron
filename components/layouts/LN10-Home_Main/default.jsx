@@ -28,6 +28,7 @@ import {
     createDifferVideosObserver,
     createDifferYoutubeVideosObserver
 } from '../../private/common/banners/intersectionObservers';
+import PwaModal from '../../features/LN-10-global/pwaModal/default';
 
 const LN10Home = props => {
     const {
@@ -203,6 +204,7 @@ const LN10Home = props => {
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
+            <PwaModal />
             <RoofEventsScript />
             <ScriptViewability />
         </GlobalProvider>

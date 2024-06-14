@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
@@ -35,6 +36,7 @@ const LNNotaReceta = ({ outputType, children }) => {
         '--top-fixed',
         amp
     );
+
     return (
         <GlobalProvider>
             <div id="wrapper" className={classNameWrapper}>
@@ -95,6 +97,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                 </div>
             </div>
             <LoadBannersSSR />
+            <PwaModal />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
