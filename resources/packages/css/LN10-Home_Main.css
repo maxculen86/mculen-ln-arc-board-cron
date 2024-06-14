@@ -552,7 +552,7 @@
   content: "1";
   position: absolute;
   left: -1.8125rem;
-  font-family: "Prumo", "georgia", "serif";
+  font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
 }
 @media (min-width: 48rem) {
@@ -576,7 +576,7 @@
   content: "2";
   position: absolute;
   left: -1.8125rem;
-  font-family: "Prumo", "georgia", "serif";
+  font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
 }
 @media (min-width: 48rem) {
@@ -600,7 +600,7 @@
   content: "3";
   position: absolute;
   left: -1.8125rem;
-  font-family: "Prumo", "georgia", "serif";
+  font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
 }
 @media (min-width: 48rem) {
@@ -624,7 +624,7 @@
   content: "4";
   position: absolute;
   left: -1.8125rem;
-  font-family: "Prumo", "georgia", "serif";
+  font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
 }
 @media (min-width: 48rem) {
@@ -648,7 +648,7 @@
   content: "5";
   position: absolute;
   left: -1.8125rem;
-  font-family: "Prumo", "georgia", "serif";
+  font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
 }
 @media (min-width: 48rem) {

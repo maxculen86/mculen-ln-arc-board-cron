@@ -1,21 +1,32 @@
+import React, { useEffect } from 'react';
+import { useAppContext } from 'fusion:context';
 import classNames from 'classnames';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Link } from '@ln/contenidos-ui-link';
 import { Text } from '@ln/contenidos-ui-text';
 import { Button } from '@ln/contenidos-ui-button';
+import usePwaModal from '../../../private/common/hooks/usePwaModal';
+import startPWASetup from './register';
 
-export function PwaModal({ className, contextPath, deployment }) {
-    // TODO: el componente se deja de importar para ver efectos en INP, borrar codigo si no se vuelve a utilizar
-    // se remueve el import del iniciador components/private/LN/common/utils/register.js en el globalContext
+export function PwaModal({ className }) {
+    const { isShowModal, handleNoClick, handleYesClick } = usePwaModal();
+    const { deployment, contextPath } = useAppContext();
 
     const path = `${contextPath}/resources/images/la-nacion.webp`;
     const deploymentPath = deployment(path);
     const classes = classNames(
-        'ln-pwa-modal fixed none p-16 w-100 z-1600 max-w-365 bg-white bottom-60 left-50',
+        'ln-pwa-modal fixed p-16 w-100 z-1600 max-w-365 bg-white bottom-60 left-50',
         'border border-left border-5 border-black -transform-50 transform-none_l',
         'left-90_l shadow-pwamodal bottom-auto_l top-0_l',
         className
     );
+
+    useEffect(() => {
+        startPWASetup(deployment);
+    }, [deployment]);
+
+    if (!isShowModal) return <></>;
+
     return (
         <div className={classes} id="notificacion-modal">
             <Link
@@ -45,12 +56,14 @@ export function PwaModal({ className, contextPath, deployment }) {
                     label="No, gracias"
                     variant="secondary"
                     id="notificacion-no"
+                    onClick={handleNoClick}
                 />
                 <Button
                     title="Aceptar"
                     label="Aceptar"
                     variant="primary"
                     id="notificacion-si"
+                    onClick={handleYesClick}
                 />
             </div>
         </div>

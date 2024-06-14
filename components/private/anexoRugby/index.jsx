@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Anexorugby } from '@ln/common-ui-anexorugby';
 import useRefresh from '../../features/LN-10/anexoRugby/utils/useRefresh';
-import '../../../../resources/packages/css/@ln/common-ui-anexorugby/index.css';
 
 const AnexoRugbyComponent = ({ matchesData }) => {
     const [matches, setMatches] = useState(matchesData);

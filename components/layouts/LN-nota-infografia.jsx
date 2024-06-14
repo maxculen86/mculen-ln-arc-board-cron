@@ -10,6 +10,7 @@ import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 const lnNotaInfografia = ({
     children,
@@ -43,6 +44,7 @@ const lnNotaInfografia = ({
                 {children}
             </NotaMain>
             <LoadBannersSSR />
+            <PwaModal />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

@@ -44,7 +44,6 @@ const getCssLibsHome = () => {
 
             // CONTENIDOS
             file('contenidos-ui-advance'),
-            file('contenidos-ui-anexob'),
             file('contenidos-ui-banners'),
             file('contenidos-ui-bngrid'),
             file('contenidos-ui-bomba'),

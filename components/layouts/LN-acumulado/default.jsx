@@ -19,6 +19,7 @@ import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import { formatText } from '../../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 
@@ -154,6 +155,7 @@ const LNAcumuladoLayout = props => {
             layout
         })
     });
+
     return (
         <GlobalProvider>
             <GlobalProviderAcu
@@ -243,6 +245,7 @@ const LNAcumuladoLayout = props => {
                     </div>
                 </div>
                 <LoadBannersSSR />
+                <PwaModal />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

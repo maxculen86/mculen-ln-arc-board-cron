@@ -8,6 +8,7 @@ import get from '../../common/utils/get';
 import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
 import addRelatedImage from '../common/utils/addRelatedImage';
 import setAuthorsRender from '../../common/utils/setAuthorsRender';
+import unescapeHtml from '../../common/utils/unescapeHtml';
 
 const typeAcumRules = {
     Grilla: {
@@ -75,7 +76,7 @@ const ArticleAcum = ({
     const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
 
     const titleTextShort = get(headlines, 'mobile', '');
-    const titleTextLong = get(headlines, 'basic', '');
+    const titleTextLong = unescapeHtml(get(headlines, 'basic', ''));
     const leadText = withVolanta ? get(label, 'volanta.text', '') : '';
     const chapita = get(label, 'chapita.text', '');
 

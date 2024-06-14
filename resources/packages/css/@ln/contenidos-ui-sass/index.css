@@ -1812,7 +1812,7 @@ strong:not(.--font-primary),
 }
 
 .--prumo {
-  font-family: "Prumo", "georgia", "serif";
+  font-family: Prumo, georgia, serif;
   font-weight: 100;
 }
 
@@ -3203,8 +3203,8 @@ strong:not(.--font-primary),
   --newsletterbox-button-background-color: var(--blue-500);
   --newsletterbox-button-color: var(--light-neutral-50);
   --newsletterbox-button-radius: 0.25rem;
-  --newsletterbox-button-font-family: Arial, Roboto;
-  --newsletterbox-excusive-badge-font-family: Arial, Roboto;
+  --newsletterbox-button-font-family: Arial, roboto, serif;
+  --newsletterbox-excusive-badge-font-family: Arial, roboto, serif;
   --newsletterbox-exclusive-badge-background-color: #010101;
   --newsletterbox-exlusive-badge-color: var(--light-neutral-50);
   --newsletterbox-exclusive-button-background-color: var(--blue-300);
