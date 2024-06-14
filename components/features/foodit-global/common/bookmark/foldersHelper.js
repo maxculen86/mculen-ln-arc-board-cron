@@ -1,6 +1,6 @@
 import getBookmarkGroups from './api/getBookmarkGroups';
 import safeJSONParse from '../../../private-global/common/utils/safeJSONParse';
-import { INGREDIENTS_BOOKMARK_GROUP } from '../shoppingList/api/postIngredientsList';
+import { INGREDIENTS_BOOKMARK_GROUP } from './api/postIngredientsList';
 
 export const loadBookmarkFolders = async () => {
     const { data = [] } = await getBookmarkGroups();
