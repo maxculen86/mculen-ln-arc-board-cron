@@ -28,7 +28,8 @@ class StoryText {
                 },
                 filter: `{
                             Termicas {
-                                hide_listening_articles
+                                hide_listening_articles,
+                                hide_listening_articles_summary
                             }
                          }`
             }

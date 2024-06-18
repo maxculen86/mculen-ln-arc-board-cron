@@ -13,6 +13,14 @@ const indexNotaText = dataNota => {
         dataNota.audio_url = undefined;
     }
 
+    if (
+        (dataNota.Termicas &&
+            dataNota.Termicas.hide_listening_articles_summary === 'true') ||
+        ![6, 7].includes(audio_status)
+    ) {
+        dataNota.audio_summary_url = undefined;
+    }
+
     const content = removeEmptyItems(cuerpo(dataNota));
 
     const authors = [];
@@ -27,6 +35,7 @@ const indexNotaText = dataNota => {
               ...storyTitleAndResume(dataNota),
               contenido: content.concat('Fin de la nota').join('\n'),
               audio_url: dataNota.audio_url,
+              audio_summary_url: dataNota.audio_summary_url,
               categoria: dataNota.category,
               authors
           }

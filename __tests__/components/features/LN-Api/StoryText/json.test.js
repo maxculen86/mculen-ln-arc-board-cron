@@ -54,6 +54,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'audio_summary_url',
                     'authors',
                     'bajada',
                     'categoria',
@@ -99,6 +100,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'audio_summary_url',
                     'authors',
                     'bajada',
                     'categoria',
@@ -135,6 +137,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'audio_summary_url',
                     'authors',
                     'bajada',
                     'categoria',
@@ -178,6 +181,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'audio_summary_url',
                     'authors',
                     'bajada',
                     'categoria',
@@ -218,6 +222,93 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'audio_summary_url',
+                    'authors',
+                    'bajada',
+                    'categoria',
+                    'contenido',
+                    'titulo',
+                    'tituloMobile'
+                ].sort()
+            );
+
+            expect(result.audio_url).toEqual(undefined);
+        });
+    });
+
+    describe('check termica hide_listening_articles_summary behavior', () => {
+        it('should show the audio_url property if hide_listening_articles_summary is set to false', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                children: [],
+                collection: 'features',
+                id: 'f0fbqPGS59PM2x',
+                outputType: 'json',
+                globalContent: storyWithAudio,
+                requestUri:
+                    '/api/mobile/v1/notas/text/byId/UK57ZJT3DJGPRFTACPR7KTFUWA/?_website=la-nacion-ar&outputType=json'
+            };
+
+            const objArticle = new storyText.default(props);
+            objArticle.state.audionewsSource = {
+                audio_status: 6,
+                audio_url: 'url',
+                audio_summary_url: 'audio_summary_url'
+            };
+
+            objArticle.state.navigationTreeSource = {
+                Termicas: {
+                    hide_listening_articles_summary: 'false'
+                }
+            };
+
+            const result = objArticle.render();
+
+            expect(Object.keys(result).sort()).toEqual(
+                [
+                    'audio_url',
+                    'audio_summary_url',
+                    'authors',
+                    'bajada',
+                    'categoria',
+                    'contenido',
+                    'titulo',
+                    'tituloMobile'
+                ].sort()
+            );
+
+            expect(result.audio_url).toEqual('url');
+        });
+
+        it('should hide the audio_url property if hide_listening_articles_summary is set to true', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                children: [],
+                collection: 'features',
+                id: 'f0fbqPGS59PM2x',
+                outputType: 'json',
+                globalContent: storyWithAudio,
+                requestUri:
+                    '/api/mobile/v1/notas/text/byId/UK57ZJT3DJGPRFTACPR7KTFUWA/?_website=la-nacion-ar&outputType=json'
+            };
+
+            const objArticle = new storyText.default(props);
+            objArticle.state.audionewsSource = {
+                audio_url: 'url'
+            };
+
+            objArticle.state.navigationTreeSource = {
+                Termicas: {
+                    hide_listening_articles_summary: 'true'
+                }
+            };
+
+            const result = objArticle.render();
+
+            expect(Object.keys(result).sort()).toEqual(
+                [
+                    'audio_url',
+                    'audio_summary_url',
                     'authors',
                     'bajada',
                     'categoria',
