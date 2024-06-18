@@ -33,14 +33,9 @@ window.addEventListener('load', _event => {
         if (productoPremium && productoPremium.includes('2')) {
             window.vf &&
                 window.vf.session &&
-                window.vf.session.login
-                    .cookie(token)
-                    .then(successMessage => {
-                        console.log('Viafoura Login correcto ', successMessage);
-                    })
-                    .catch(error => {
-                        console.log('Viafoura Login incorrecto ', error);
-                    });
+                window.vf.session.login.cookie(token).catch(error => {
+                    console.error('Viafoura Login incorrecto ', error);
+                });
         }
     });
 });

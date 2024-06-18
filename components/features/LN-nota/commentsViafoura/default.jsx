@@ -79,12 +79,6 @@ const CommentsViafouraFeature = props => {
                                 window.vf.session &&
                                 window.vf.session.login
                                     .cookie(token)
-                                    .then(successMessage => {
-                                        console.log(
-                                            'Viafoura Login correcto ',
-                                            successMessage
-                                        );
-                                    })
                                     .catch(error => {
                                         console.error(
                                             'Viafoura Login incorrecto ',
