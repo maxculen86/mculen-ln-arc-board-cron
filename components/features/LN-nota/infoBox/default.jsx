@@ -1,9 +1,8 @@
 import React from 'react';
-import { InfoBox } from '../../LN-10-global/infoBox/default';
-// import { Zocalo } from '@ln/contenidos-ui-zocalo';
-// import zocaloData from './zocaloData.json';
-// import { getZocaloProps } from './helper';
-
+import { Zocalo } from '@ln/contenidos-ui-zocalo';
+import { getZocaloProps } from './helper';
+import { scheduleTask } from '../../../private/common/utils/scheduleTask';
+import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
 import { useAppContext } from 'fusion:context';
 
 const InfoBoxFeature = () => {
@@ -11,25 +10,33 @@ const InfoBoxFeature = () => {
         contextPath,
         deployment,
         globalContent: {
-            taxonomy: {
-                primary_section: { parent_id: parentId = '' } = {},
-            } = {},
-        } = {},
+            taxonomy: { primary_section: { path = '' } = {} } = {}
+        } = {}
     } = useAppContext();
-    if (!parentId.includes('/deportes')) return <></>;
 
-    return <InfoBox contextPath={contextPath} deployment={deployment} />;
+    const zocaloConfig = getZocaloProps(deployment, contextPath, path);
+    if (!zocaloConfig.showZocalo) return <></>;
 
-    //     return <Zocalo
-    //     linkProps={productData.linkProps}
-    //     imgProps={productData.imgProps}
-    //     buttonProps={productData.buttonProps}
-    //     logoProps={productData.logoProps}
-    //     description={productData.description}
-    //   />;
+    return (
+        <Zocalo
+            linkProps={zocaloConfig.linkProps}
+            imgProps={zocaloConfig.imgProps}
+            className="mb-32"
+            logoProps={zocaloConfig.logoProps}
+            description={zocaloConfig.description}
+            onClick={scheduleTask(() =>
+                addEventToDataLayer({
+                    event: 'e_linkclick',
+                    action: 'zocalo_nota',
+                    category: 'nota_ln9',
+                    label: zocaloConfig.label
+                })
+            )}
+        />
+    );
 };
 
-InfoBoxFeature.label = 'LN Caja Canchallena';
+InfoBoxFeature.label = 'LN Caja Zocalo';
 InfoBoxFeature.lazy = true;
 
 export default InfoBoxFeature;

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-Nota - infoBox - helper should return the correct config for deportes 1`] = `
+{
+  "description": "Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo",
+  "imgProps": {
+    "alt": "Imagen de celular con la app de Canchallena",
+    "className": "w-100",
+    "sources": [
+      {
+        "minWidth": 768,
+        "srcSet": "undefined/pf/resources/images/cll_web-image_infobox_desk.webp",
+      },
+    ],
+    "src": "undefined/pf/resources/images/cll_web-image_infobox_mob.webp",
+  },
+  "label": "Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo",
+  "linkProps": {
+    "href": "https://canchallena.lanacion.com.ar/",
+    "target": "_blank",
+    "title": "Ir a Canchallena",
+  },
+  "logoProps": {
+    "alt": "Logo de Canchallena",
+    "className": undefined,
+    "src": "undefined/pf/resources/images/cll-logo.webp",
+  },
+  "showZocalo": true,
+}
+`;
+
+exports[`components - features - LN-Nota - infoBox - helper should return the correct config for juegos 1`] = `
+{
+  "description": "Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.",
+  "imgProps": {
+    "alt": "Imagen de celular con la app de LN Juegos",
+    "className": "w-100",
+    "sources": [
+      {
+        "minWidth": 768,
+        "srcSet": "undefined/pf/resources/images/promo-juegos_dsk.webp",
+      },
+    ],
+    "src": "undefined/pf/resources/images/promo-juegos_mob.webp",
+  },
+  "label": "Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.",
+  "linkProps": {
+    "href": "https://www.lanacion.com.ar/juegos/",
+    "title": "Ir a Juegos",
+  },
+  "logoProps": {
+    "alt": "Logo de LN Juegos",
+    "className": "w-140_max512",
+    "src": "undefined/pf/resources/images/logo-juegos.webp",
+  },
+  "showZocalo": true,
+}
+`;
