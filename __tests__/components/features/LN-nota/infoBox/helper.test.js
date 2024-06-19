@@ -1,5 +1,9 @@
 import { getZocaloProps } from '../../../../../components/features/LN-nota/infoBox/helper';
 
+jest.mock('fusion:environment', () => ({
+    ARC_STATIC: 'https://arc-static.glanacion.com'
+}));
+
 describe('components - features - LN-Nota - infoBox - helper', () => {
     test('should return the correct config for deportes', () => {
         const zocaloProps = getZocaloProps(arg => arg, '/pf', '/deportes');

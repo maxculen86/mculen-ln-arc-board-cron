@@ -50,7 +50,7 @@ exports[`InfoBox Should render if path has /deportes in it 1`] = `
             <p
               class="text --font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800"
             >
-              Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo
+              Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo.
             </p>
           </div>
           <div

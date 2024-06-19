@@ -39,7 +39,7 @@ export default function Footer({ year, handleOpenWindowEvent }) {
                         Ayuda
                     </a>
                     <a
-                        href="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
+                        href="https://lnmas.lanacion.com.ar/programas/"
                         target="_blank"
                         data-event="LinkClick"
                         data-section="FooterLN"

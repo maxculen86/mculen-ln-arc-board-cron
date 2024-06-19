@@ -3,8 +3,8 @@ import zocaloOptions from './ZocaloConfig';
 import get from '../../../private/common/utils/get';
 
 export const getZocaloProps = (deployment, contextPath, path = '') => {
-    const secction = path.split('/');
-    const zocaloData = get(zocaloOptions, secction[1], undefined);
+    const section = path.split('/');
+    const zocaloData = get(zocaloOptions, section[1], undefined);
     if (!zocaloData) return { showZocalo: false };
 
     return {
@@ -33,6 +33,6 @@ export const getZocaloProps = (deployment, contextPath, path = '') => {
             className: zocaloData.logoClassName
         },
         description: zocaloData.description,
-        label: zocaloData.description
+        label: zocaloData.label
     };
 };

@@ -11,7 +11,7 @@ const zocaloOptions = {
         logoAlt: 'Logo de Canchallena',
         label: 'canchallena',
         description:
-            'Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo'
+            'Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo.'
     },
 
     juegos: {
