@@ -109,5 +109,14 @@ export default {
     // TODO: Queda comentado hasta que habiliten qa
     // SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://pre-suscripciones.lanacion.com.ar/',
-    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    FIREBASE_CONFIG: {
+        apiKey: 'AIzaSyDx9szVMLkQylr9LN0G3v5faTrMKXyz3rM',
+        authDomain: 'lanaciontest-24eed.firebaseapp.com',
+        databaseURL: 'https://lanaciontest-24eed.firebaseio.com',
+        messagingSenderId: '247148690244',
+        projectId: 'lanaciontest-24eed',
+        storageBucket: 'lanaciontest-24eed.appspot.com'
+    },
+    API_NOTIFICATION: 'https://qa-notificaciones.lanacion.com.ar/api/'
 };

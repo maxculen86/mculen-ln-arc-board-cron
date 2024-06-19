@@ -113,5 +113,14 @@ export default {
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
-    SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+    SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+    FIREBASE_CONFIG: {
+        apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
+        authDomain: 'lanacion-92a91.firebaseapp.com',
+        databaseURL: 'https://lanacion-92a91.firebaseio.com',
+        messagingSenderId: '221085116662',
+        projectId: 'lanacion-92a91',
+        storageBucket: 'lanacion-92a91.appspot.com'
+    },
+    API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/'
 };

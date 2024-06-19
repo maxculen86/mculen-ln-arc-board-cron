@@ -1,8 +1,8 @@
+import { API_NOTIFICATION } from 'fusion:environment';
 import handleCookie from '../../../../private/LN/common/utils/handleCookie';
 import get from '../../../../private/common/utils/get';
 
 const { getCookie } = handleCookie();
-const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION';
 const aplicationJson = 'application/json';
 const ENDPOINT_ARN = 'endpointArn';
@@ -29,7 +29,7 @@ export const registerSubscription = (token, showError) => {
 
     const body = JSON.stringify({ token });
 
-    const apiUrl = `${apiNotification}notification/register/`;
+    const apiUrl = `${API_NOTIFICATION}notification/register/`;
 
     const headers = {
         Accept: aplicationJson,
@@ -54,7 +54,7 @@ export const registerSubscription = (token, showError) => {
 };
 
 export const updateToken = ({ token, deviceArn }) => {
-    const apiUrl = `${apiNotification}notification/updateToken/`;
+    const apiUrl = `${API_NOTIFICATION}notification/updateToken/`;
 
     const body = JSON.stringify({
         token,
@@ -111,7 +111,7 @@ export const registerTopic = (topic, token, showError) => {
         topicName: topic
     });
 
-    const apiUrl = `${apiNotification}notification/subscriptions/`;
+    const apiUrl = `${API_NOTIFICATION}notification/subscriptions/`;
     const headers = {
         Accept: aplicationJson,
         'Content-Type': aplicationJson
