@@ -4,6 +4,7 @@ import {
 } from '../../../../../components/private/common/utils/noteTracker/ctrTracker';
 
 describe('CTR tracker util', () => {
+    window.requestIdleCallback = jest.fn(cb => cb());
     describe('ctrViewTracker function', () => {
         test('When navigate, send event to data layer', () => {
             global.window.dataLayer = [];
@@ -45,7 +46,8 @@ describe('CTR tracker util', () => {
         test('When navigate and click en X button send event to data layer', () => {
             delete global.window;
             global.window = {
-                dataLayer: []
+                dataLayer: [],
+                requestIdleCallback: jest.fn(cb => cb())
             };
             Object.defineProperty(window, 'performance', {
                 value: {
@@ -67,7 +69,8 @@ describe('CTR tracker util', () => {
         test('When navigate, and click on note must send event to data layer', () => {
             delete global.window;
             global.window = {
-                dataLayer: []
+                dataLayer: [],
+                requestIdleCallback: jest.fn(cb => cb())
             };
             Object.defineProperty(window, 'performance', {
                 value: {
@@ -89,7 +92,8 @@ describe('CTR tracker util', () => {
         test('On reload, and click on note shouldnt send event to data layer', () => {
             delete global.window;
             global.window = {
-                dataLayer: []
+                dataLayer: [],
+                requestIdleCallback: jest.fn(cb => cb())
             };
             Object.defineProperty(window, 'performance', {
                 value: {
