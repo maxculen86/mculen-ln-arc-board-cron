@@ -3,9 +3,15 @@ import { Spriteicon } from '@ln/common-ui-spriteicon';
 import { useAppContext } from 'fusion:context';
 import { getIconPath } from './utils/getIconPath';
 
-const IconSprite = ({ critical, name, ...props }) => {
+const IconSprite = ({ critical, color, name, ...props }) => {
     const { deployment, contextPath, arcSite } = useAppContext();
-    const path = getIconPath({ deployment, contextPath, critical, arcSite });
+    const path = getIconPath({
+        deployment,
+        contextPath,
+        critical,
+        color,
+        arcSite,
+    });
 
     if (!path || !name) return <></>;
 
