@@ -96,8 +96,6 @@ export default {
         'https://pre-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     // TODO: CUando reestablezcan QA cambiar a URL de QA
     API_INGRESAR: 'https://pre-api-ingresar.lanacion.com.ar',
-    CLL_BACK_BASE_URL: 'https://qa-api-cll-services.lanacion.com.ar/graphql/',
-    CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe',
     MARFEEL_ACCOUNT_ID: '3353',
     BEYONDWORDS_PROJECT_ID: 38983,
     JWP_TOKEN:
