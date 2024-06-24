@@ -1,7 +1,6 @@
 import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
-import filter from '../filters/LN/acumulado/articleAcu';
 import getQueryParams from './utils/acuArticleSourceV2/getQueryParams';
 
 const fetch = async query => {
@@ -64,6 +63,5 @@ export default {
         hasCollectionApertura: 'bool',
         collectionId: 'text'
     },
-    filter,
     ttl: 120
 };
