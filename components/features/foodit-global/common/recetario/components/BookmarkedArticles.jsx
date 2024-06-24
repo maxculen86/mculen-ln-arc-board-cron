@@ -1,11 +1,7 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo } from 'react';
 
-import get from '../../../../../private/common/utils/get';
-import getAuthorsAsString from '../../../../../private/common/utils/getAuthorsAsString';
-import { getImagesToLoadWithPicture } from '../../../../../private/LN/common/utils/mediaHelper';
-import fetchDeleteBookmark from '../../bookmark/api/deleteBookmark';
+import useBookmarkedArticles from '../hooks/useBookmarkedArticles';
 
-import CommonCardFoodit from '../../CommonCardFoodit/foodit';
 import { Button } from '@ln/foodit-ui-button';
 
 const BookmarkedArticles = ({
@@ -15,78 +11,21 @@ const BookmarkedArticles = ({
     setSelectedItem,
     setUserBookmarks
 }) => {
-    const [displayArticlesNum, setDisplayArticlesNum] = useState(24);
-
-    useEffect(() => {
-        setDisplayArticlesNum(24);
-    }, [selectedItemId]);
+    const {
+        displayArticlesNum,
+        setDisplayArticlesNum,
+        filteredAndSlicedBookmarks
+    } = useBookmarkedArticles(
+        userBookmarks,
+        selectedItemId,
+        setUserBookmarks,
+        setSelectedItem
+    );
 
     return (
         <>
             <div className="grid grid-cols-8 grid-cols-8_md grid-cols-12_lg gap-32">
-                {userBookmarks
-                    .filter(
-                        ({ bookmarkGroup }) =>
-                            selectedItemId === 'Todas' ||
-                            bookmarkGroup === selectedItemId
-                    )
-                    .slice(0, displayArticlesNum)
-                    .map(({ bookmarkTypeId, bookmarkId, bookmarkContent }) => {
-                        const {
-                            image = {},
-                            time = null,
-                            headlines = {},
-                            canonical_url,
-                            variant,
-                            tag
-                        } = bookmarkContent || {};
-
-                        const { url = {}, resized_urls = [] } = image;
-
-                        const title = get(headlines, 'basic', '');
-
-                        return (
-                            <CommonCardFoodit
-                                key={bookmarkId}
-                                articleId={bookmarkTypeId}
-                                showTime={Boolean(time)}
-                                time={time}
-                                className="col-span-8 col-span-4_md"
-                                linksProps={{
-                                    href: canonical_url,
-                                    title: title
-                                }}
-                                size={'small'}
-                                variant={variant || 'm'}
-                                src={get(url, 'resizedUrl', '')}
-                                alt={title}
-                                sources={getImagesToLoadWithPicture(
-                                    resized_urls
-                                )}
-                                loading={'lazy'}
-                                fetchPriority={'low'}
-                                tag={tag}
-                                fill={true}
-                                title={title}
-                                author={getAuthorsAsString(
-                                    bookmarkContent,
-                                    false
-                                )}
-                                bookmarkAction={() =>
-                                    fetchDeleteBookmark(
-                                        [
-                                            {
-                                                bookmarkId,
-                                                bookmarkTypeId
-                                            }
-                                        ],
-                                        setUserBookmarks,
-                                        setSelectedItem
-                                    )
-                                }
-                            />
-                        );
-                    })}
+                {filteredAndSlicedBookmarks}
             </div>
             {displayArticlesNum < selectedItemQuantity && (
                 <div className="text-center pt-24">

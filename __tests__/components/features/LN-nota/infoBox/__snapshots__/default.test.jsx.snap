@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfoBox Should render if parent id is /deportes 1`] = `
+exports[`InfoBox Should render if path has /deportes in it 1`] = `
 <div>
   <article
-    class="p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
+    class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
   >
     <a
       class="link"
       href="https://canchallena.lanacion.com.ar/"
-      rel="external"
+      rel="nofollow"
       target="_blank"
       title="Ir a Canchallena"
     >
       <div
-        class="flex flex-row_m flex-column ai-center ai-stretch_m"
+        class="flex flex-row_m flex-column ai-center ai-stretch_m gap-24"
       >
         <div
-          class="mb-0_m mb-24 mr-24_m flex-shrink-0"
+          class="mb-0_m flex-shrink-0"
         >
           <picture>
             <source
@@ -34,10 +34,10 @@ exports[`InfoBox Should render if parent id is /deportes 1`] = `
           </picture>
         </div>
         <div
-          class="flex flex-column gap-24 ai-start_m ai-center jc-center jc-evenly flex-shrink-1"
+          class="flex flex-column gap-24 ai-start_m ai-center jc-center flex-shrink-1"
         >
           <div
-            class="gap-16 flex flex-wrap jc-start_m jc-center"
+            class="flex gap-16 flex-wrap jc-start_m jc-center"
           >
             <img
               alt="Logo de Canchallena"
@@ -50,17 +50,14 @@ exports[`InfoBox Should render if parent id is /deportes 1`] = `
             <p
               class="text --font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800"
             >
-              Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo
+              Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo.
             </p>
           </div>
-          <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-blue-500 text-light-0 h-40 px-16 py-12 --primary"
-            data-variant="primary"
-            title="Ir a Canchallena"
-            type="button"
+          <div
+            class="py-12 px-16 rounded-4 --font-2xs --font-bold bg-blue-500 text-light-0 uppercase transition transition-all transition-duration-800"
           >
             Ir a Canchallena
-          </button>
+          </div>
         </div>
       </div>
     </a>
@@ -68,4 +65,4 @@ exports[`InfoBox Should render if parent id is /deportes 1`] = `
 </div>
 `;
 
-exports[`InfoBox shouldnt render if parent id is another than /deportes 1`] = `<div />`;
+exports[`InfoBox shouldnt render if path not contain /deportes or /juegos in it 1`] = `<div />`;
