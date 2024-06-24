@@ -26,3 +26,12 @@ export const videosJW = streams => {
         .filter(v => v.type === 'video/mp4')
         .map(s => generateVideoJW(s));
 };
+
+export const videoJWM3u8 = streams => {
+    if (!streams) return null;
+    const objVideo = streams.find(
+        v => v.type === 'application/vnd.apple.mpegurl'
+    );
+
+    return objVideo && objVideo.file;
+};

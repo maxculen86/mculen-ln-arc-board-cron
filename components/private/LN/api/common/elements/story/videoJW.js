@@ -1,5 +1,5 @@
 import get from '../../../../../common/utils/get';
-import { videoJWCommon, videosJW } from '../videoJW';
+import { videoJWCommon, videosJW, videoJWM3u8 } from '../videoJW';
 import { videoJWThumbnail, videoJWThumbnailGlobal } from '../videoJW/thumbnail';
 import BackendLnError from '../../../common/models/backendLnError';
 import { enumTypeError } from '../../../common/enums/enumTypeError';
@@ -69,9 +69,9 @@ export const videoJWNota = (videoData, notaId = '') => {
     } catch (error) {
         console.error(
             new BackendLnError(
-                `StoryId: ${notaId} - videoJWNota content: ${JSON.stringify(
-                    videoData || {}
-                )}`,
+                `StoryId: ${notaId} - videoJWNota - msj: ${
+                    error.message
+                } - content: ${JSON.stringify(videoData || {})}`,
                 enumTypeError.storyContentError
             )
         );
@@ -124,13 +124,19 @@ export const videoJWNotaMobile = (videoData, notaId = '') => {
         if (thumbail) {
             resp.thumbnailImage = thumbail;
         }
+
+        const videoHls = videoJWM3u8(sources);
+        if (videoHls) {
+            resp.multimediaHls = videoHls;
+        }
+
         return resp;
     } catch (error) {
         console.error(
             new BackendLnError(
-                `StoryId: ${notaId} - videoJWNotaMobile content: ${JSON.stringify(
-                    videoData || {}
-                )}`,
+                `StoryId: ${notaId} - videoJWNotaMobile - msj: ${
+                    error.message
+                } -  content: ${JSON.stringify(videoData || {})}`,
                 enumTypeError.storyContentError
             )
         );
