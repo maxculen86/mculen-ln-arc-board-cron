@@ -30,11 +30,11 @@ export const SaleBox = ({ ...props }) => {
 
     return (
         <section className="bg-positive relative w-100vw as-center" {...props}>
-            <div className="container relative pt-40 px-16 px-24_md grid grid-cols-12_md jc-center ai-center ai-start_md gap-24 gap-64_md">
-                <div className="col-span-8 flex flex-column gap-24 ai-center ai-start_md pt-16">
+            <div className="container relative pt-56 pb-56_md pb-0_lg px-16 px-24_md px-32_lg grid grid-cols-12_md grid-cols-16_lg jc-center ai-center ai-start_md gap-24 gap-64_md">
+                <div className="col-span-8 col-span-7_md col-span-9_lg flex flex-column gap-24 ai-center ai-start_md pb-56_lg">
                     <Text
                         as="h2"
-                        className="prumo text-24 text-center text-start_md"
+                        className="prumo text-24 text-28_md text-center text-start_md"
                     >
                         <span className="roboto-bold mr-8">
                             ¡Hoy se cocina!
@@ -42,9 +42,10 @@ export const SaleBox = ({ ...props }) => {
                         Disfrutá de
                         <span className="roboto-bold mx-8">Foodit</span>con
                         acceso ilimitado y saboreá el
-                        <span className="roboto-bold ml-8">
-                            mejor contenido gastronómico.
+                        <span className="roboto-bold mx-8">
+                            mejor contenido gastronómico
                         </span>
+                        exclusivo para suscriptores
                     </Text>
                     <div>
                         {mockBenefits.map((beneficts, i) => (
@@ -55,7 +56,7 @@ export const SaleBox = ({ ...props }) => {
                                 <Icon size={20}>
                                     <IconSprite name="check" fill="#4D4D4D" />
                                 </Icon>
-                                <Text as="p">
+                                <Text as="p" className="text-16">
                                     <span
                                         dangerouslySetInnerHTML={{
                                             __html: beneficts
@@ -73,7 +74,7 @@ export const SaleBox = ({ ...props }) => {
                         ¡suscribite hoy!
                     </Button>
                 </div>
-                <div className="col-span-8 col-span-4_md js-center">
+                <div className="col-span-8 col-span-5_md col-span-7_lg js-center as-end">
                     <Adaptableimage
                         className="relative z-5 h-336 h-509_md h-461_lg"
                         sources={imgsPhoneFoodit(assetsPath)}

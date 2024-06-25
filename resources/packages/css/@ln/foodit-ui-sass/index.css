@@ -1744,6 +1744,9 @@ b, strong {
   .pt-48_md {
     padding-top: 3rem;
   }
+  .pb-56_md {
+    padding-bottom: 3.5rem;
+  }
 }
 @media (max-width:79.99rem) {
   .p-16_max1280 {
@@ -1765,6 +1768,9 @@ b, strong {
   }
   .p-32_lg {
     padding: 2rem;
+  }
+  .px-32_lg {
+    padding-inline: 2rem;
   }
   .py-0_lg {
     padding-block: 0rem;
@@ -1804,6 +1810,9 @@ b, strong {
   }
   .pb-24_lg {
     padding-bottom: 1.5rem;
+  }
+  .pb-56_lg {
+    padding-bottom: 3.5rem;
   }
 }
 .capitalize {
@@ -1926,6 +1935,12 @@ b, strong {
 
 .viafoura.viafoura .vf-branding-container.vf-branding-container,
 .viafoura.viafoura .vf-tray-trigger--floating.vf-tray-trigger--floating {
+  display: none;
+}
+.viafoura.viafoura.not-comment section div.vf-post-form__container {
+  display: none;
+}
+.viafoura.viafoura .vf-tray-trigger.vf-tray-trigger {
   display: none;
 }
 
