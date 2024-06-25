@@ -17,6 +17,7 @@ import { isSubtypeWithAmp } from '../../components/private/common/utils/subtypes
 import force404AMP from './utils/force404AMP';
 
 const fetch = (query, { cachedCall } = {}) => {
+    console.log('🚀 ~ fetch ~ query:', query);
     const arcSite = query['arc-site'];
 
     const opt = {
@@ -76,7 +77,8 @@ export default {
         isInApertura: 'bool',
         checkExclusiveAccess: 'bool',
         isAdmin: 'bool',
-        uri: 'text'
+        uri: 'text',
+        banners_disabled: 'bool'
     },
     filter,
     ttl: 120
