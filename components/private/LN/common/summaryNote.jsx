@@ -2,34 +2,71 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
+import classNames from 'classnames';
+import './test.scss';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
-const SummaryNote = ({ paragraphs = [] }) => {
+const SummaryNote = ({ paragraphs = [], collapsed = true, className }) => {
     if (!paragraphs.length) return <></>;
+
+    const toggleText = collapsed ? 'Ver más' : 'Ver menos';
+    const _classNames = classNames(
+        'flex flex-column gap-16 border border-thin border-primary-ia border-left-solid_min512 pl-20_min512',
+        className
+    );
+
     return (
-        <section
-            className="pl-16_l --border-l-left-gray w-100 mb-24"
-            data-testid="summary-note"
-        >
-            <Text
-                as="h2"
-                className="--font-primary --font-medium --l text-neutral-light-900 mb-16"
-                text="Lo que tenés que saber"
-            />
-            <ul className="flex flex-column --gap-24 mb-24 pl-24 --list-inherit">
-                {paragraphs.map((paragraph, i) => {
-                    return (
-                        <li
-                            className="--font-m"
-                            key={i}
-                            dangerouslySetInnerHTML={{ __html: paragraph }}
+        <section className={_classNames} data-testid="summary-note">
+            <div className="flex ai-center gap-6">
+                <IconSprite name="summary" color />
+                <Text
+                    as="h2"
+                    className="--font-primary --font-medium --font-l text-neutral-light-800"
+                    text="Resumen de nota"
+                />
+            </div>
+            <div className="grid-drawer" data-collapsed={collapsed}>
+                <div
+                    className="flex flex-column gap-16 pb-16 relative difumination pb-170 pb-125_min1024"
+                    data-difumination={collapsed}
+                >
+                    <ul className="flex flex-column pl-32 gap-16 --list-inherit">
+                        {paragraphs.map((paragraph, i) => (
+                            <li
+                                className="--font-m --font-regular marker-26"
+                                key={i}
+                                dangerouslySetInnerHTML={{ __html: paragraph }}
+                            />
+                        ))}
+                    </ul>
+                    <div className="flex ai-center gap-8 pb-8">
+                        <IconSprite
+                            name="iaGeneric"
+                            default
+                            width={16}
+                            height={16}
+                            fill="#FFFFFF"
                         />
-                    );
-                })}
-            </ul>
-            <Text
-                text="Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACION"
-                className="text-light-600 --font-2xs"
-            />
+                        <Text
+                            text="Realizado con Inteligencia Artificial"
+                            className="text-light-600"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div className="flex gap-4 ai-center">
+                <Text
+                    text={toggleText}
+                    className="--font-regular --font-xs text-neutral-light-800"
+                />
+                <IconSprite
+                    name="arrowDown"
+                    default
+                    width={16}
+                    height={16}
+                    className={collapsed ? '' : 'rotate-180'}
+                />
+            </div>
         </section>
     );
 };

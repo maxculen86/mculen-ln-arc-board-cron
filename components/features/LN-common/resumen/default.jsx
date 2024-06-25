@@ -22,7 +22,11 @@ const Resumen = ({ customFields: { hide } = {} }) => {
     }
     return (
         <Static id={`resumen-nota-${id}`} htmlOnly>
-            <SummaryNote paragraphs={arrayBullets} />
+            <SummaryNote
+                paragraphs={arrayBullets}
+                collapsed={true}
+                className="mb-32"
+            />
         </Static>
     );
 };
