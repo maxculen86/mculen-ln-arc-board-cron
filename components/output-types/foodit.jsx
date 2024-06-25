@@ -7,12 +7,11 @@ import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
-import useTermica from '../private/common/hooks/useTermica';
 import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
 import { Favicon } from '../features/foodit-global/common/favicon/foodit';
-import { allowCommentsFoodit } from '../private/common/utils/commentsHelper';
 import { GetFonts } from './criticalCss/getFonts';
 import LinkCanonical from '../private/common/linkCanonical';
+import get from '../private/common/utils/get';
 
 const Foodit = ({
     children,
@@ -40,9 +39,11 @@ const Foodit = ({
     } = globalContent;
     const { layoutsName = {} } = siteProperties || {};
 
-    const allowCommentsValidate =
-        useTermica('livefyre') &&
-        allowCommentsFoodit({ article: globalContent });
+    const allowCommentsValidate = get(
+        globalContent,
+        'comments.display_comments',
+        true
+    );
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
 

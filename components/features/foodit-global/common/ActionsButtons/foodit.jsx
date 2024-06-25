@@ -1,9 +1,8 @@
-import React from 'react';
 import { buttonConfig, renderAction } from './_helper';
-import { allowCommentsFoodit } from '../../../../private/common/utils/commentsHelper';
+import get from '../../../../private/common/utils/get';
 
 export const ActionsButtons = ({ article = {} }) => {
-    const allowComment = allowCommentsFoodit({ article });
+    const allowComment = get(article, 'comments.display_comments', true);
 
     const updateButtons = button => {
         if (button.type === 'comment') {

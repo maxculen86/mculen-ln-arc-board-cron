@@ -8,7 +8,7 @@ jest.mock('react', () => ({
     useContext: jest.fn()
 }));
 
-xdescribe('Components - Features - foodit-global - common - Header - components - Promotions', () => {
+describe('Components - Features - foodit-global - common - Header - components - Promotions', () => {
     it('renders correctly for user type "unlogged"', () => {
         useContext.mockReturnValue({
             ProductoPremiumId: '',
