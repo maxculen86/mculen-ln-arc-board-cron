@@ -153,9 +153,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 data-variant="accent"
                 href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
                 target="_self"
-                title="SUSCRIBITE"
+                title="SUSCRIBITE GRATIS"
               >
-                SUSCRIBITE
+                SUSCRIBITE GRATIS
               </a>
               <a
                 class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
@@ -1339,9 +1339,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             data-variant="accent"
             href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
             target="_self"
-            title="SUSCRIBITE"
+            title="SUSCRIBITE GRATIS"
           >
-            SUSCRIBITE
+            SUSCRIBITE GRATIS
           </a>
           <a
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"

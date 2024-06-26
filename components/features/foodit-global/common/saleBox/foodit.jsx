@@ -71,7 +71,7 @@ export const SaleBox = ({ ...props }) => {
                         variant="accent"
                         href={paywallUrl}
                     >
-                        ¡suscribite hoy!
+                        ¡suscribite gratis!
                     </Button>
                 </div>
                 <div className="col-span-8 col-span-5_md col-span-7_lg js-center as-end">
