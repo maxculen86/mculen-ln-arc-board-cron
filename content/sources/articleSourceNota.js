@@ -17,7 +17,6 @@ import { isSubtypeWithAmp } from '../../components/private/common/utils/subtypes
 import force404AMP from './utils/force404AMP';
 
 const fetch = (query, { cachedCall } = {}) => {
-    console.log('🚀 ~ fetch ~ query:', query);
     const arcSite = query['arc-site'];
 
     const opt = {
