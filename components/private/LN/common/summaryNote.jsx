@@ -1,9 +1,8 @@
-/* eslint-disable react/no-danger */
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Text } from '@ln/contenidos-ui-text';
 import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import addEventToDataLayer from './utils/addEventToDataLayer';
 
 const SummaryNote = ({ paragraphs = [], className }) => {
     if (!paragraphs.length) return <></>;
@@ -20,12 +19,26 @@ const SummaryNote = ({ paragraphs = [], className }) => {
         collapsed ? 'pb-170 pb-125_min1024' : 'pb-0'
     );
 
+    const handleCollapsedClick = () => {
+        if (collapsed) {
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                action: 'IA',
+                category: 'nota_ln9',
+                label: 'resumen_nota'
+            });
+        }
+    };
+
     return (
         <section
             className={_classNames}
             data-testid="summary-note"
             title={toggleText}
-            onClick={() => setCollapsed(collapsed => !collapsed)}
+            onClick={() => {
+                setCollapsed(collapsed => !collapsed);
+                handleCollapsedClick();
+            }}
         >
             <div className="flex ai-center gap-6">
                 <IconSprite name="summary" color />
