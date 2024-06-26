@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useHeaderVariants } from './useHeaderVariants';
-import { getUserType } from './_helper';
-import { getUserData } from './_helper';
+import { getUserType, getUserData } from './_helper';
 
 export const HeaderContext = React.createContext({});
 
