@@ -13,8 +13,15 @@ const WeatherProvinces = ({ id: _featureId }) => {
         source: 'sectionSource',
         query: {
             id: '/clima'
-        }
+        },
+        filter: `{
+            children {
+                _id
+                name
+            }
+        }`
     });
+    console.log('🚀 ~ WeatherProvinces ~ children:', data);
     const { children: provinces = [] } = data || {};
 
     if (!provinces.length || sectionId === '/clima') return null;
