@@ -10,7 +10,7 @@ import startPWASetup from './register';
 
 export function PwaModal({ className }) {
     const { isShowModal, handleNoClick, handleYesClick } = usePwaModal();
-    const { deployment, contextPath } = useAppContext();
+    const { deployment, contextPath, isAdmin } = useAppContext();
 
     const path = `${contextPath}/resources/images/la-nacion.webp`;
     const deploymentPath = deployment(path);
@@ -25,7 +25,7 @@ export function PwaModal({ className }) {
         startPWASetup(deployment);
     }, [deployment]);
 
-    if (!isShowModal) return <></>;
+    if (!isShowModal || isAdmin) return <></>;
 
     return (
         <div className={classes} id="notificacion-modal">
