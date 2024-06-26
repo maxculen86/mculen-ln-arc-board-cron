@@ -1,22 +1,32 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import { Text } from '@ln/contenidos-ui-text';
 import classNames from 'classnames';
-import './test.scss';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
-const SummaryNote = ({ paragraphs = [], collapsed = true, className }) => {
+const SummaryNote = ({ paragraphs = [], className }) => {
     if (!paragraphs.length) return <></>;
+
+    const [collapsed, setCollapsed] = useState(true);
 
     const toggleText = collapsed ? 'Ver más' : 'Ver menos';
     const _classNames = classNames(
-        'flex flex-column gap-16 border border-thin border-primary-ia border-left-solid_min512 pl-20_min512',
+        'flex flex-column gap-16 border border-thin border-primary-ia border-left-solid_min512 pl-20_min512 cursor-pointer',
         className
+    );
+    const drawerChildClass = classNames(
+        'flex flex-column gap-16 relative difumination',
+        collapsed ? 'pb-170 pb-125_min1024' : 'pb-0'
     );
 
     return (
-        <section className={_classNames} data-testid="summary-note">
+        <section
+            className={_classNames}
+            data-testid="summary-note"
+            title={toggleText}
+            onClick={() => setCollapsed(collapsed => !collapsed)}
+        >
             <div className="flex ai-center gap-6">
                 <IconSprite name="summary" color />
                 <Text
@@ -26,10 +36,7 @@ const SummaryNote = ({ paragraphs = [], collapsed = true, className }) => {
                 />
             </div>
             <div className="grid-drawer" data-collapsed={collapsed}>
-                <div
-                    className="flex flex-column gap-16 pb-16 relative difumination pb-170 pb-125_min1024"
-                    data-difumination={collapsed}
-                >
+                <div className={drawerChildClass} data-difumination={collapsed}>
                     <ul className="flex flex-column pl-32 gap-16 --list-inherit">
                         {paragraphs.map((paragraph, i) => (
                             <li
