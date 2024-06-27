@@ -10,11 +10,10 @@ import {
     isPrimarySectionInBannerSegments,
     handleCanchallenaException,
     shouldShow,
-    determineSafeFrame,
     setPrebidBanners
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 jest.mock(
     '../../../../components/private/common/staticContent',
@@ -1073,6 +1072,7 @@ describe('getBannerConfiguration =>', () => {
         );
         expect(container.innerHTML).toStrictEqual('');
     });
+
     it('deberia mostrar banner para todos los usuarios con nuevo custom field', () => {
         const cabezalBanner = `<div class=\"mod-banner --cabezal_dsk --no-app\"><div id=\"cabezal_dsk\" class=\"com-banner\" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
 
@@ -1085,32 +1085,6 @@ describe('getBannerConfiguration =>', () => {
             <Banner customFields={customFields} globalContent={globalContent} />
         );
         expect(container.innerHTML).toStrictEqual(cabezalBanner);
-    });
-
-    xdescribe('determineSafeFrame', () => {
-        test('Should set safeFrame to true if opt_div is valid', () => {
-            const bannersToLoad = [
-                { opt_div: 'caja1_dsk' },
-                { opt_div: 'caja2_dsk' }
-            ];
-            const result = determineSafeFrame(bannersToLoad);
-            expect(result).toEqual([
-                { opt_div: 'caja1_dsk', safeFrame: true },
-                { opt_div: 'caja2_dsk', safeFrame: true }
-            ]);
-        });
-
-        test('Should set safeFrame to false if opt_div is invalid', () => {
-            const bannersToLoad = [
-                { opt_div: 'caja1_dsk' },
-                { opt_div: 'caja1_amp' }
-            ];
-            const result = determineSafeFrame(bannersToLoad);
-            expect(result).toEqual([
-                { opt_div: 'caja1_dsk', safeFrame: true },
-                { opt_div: 'caja1_amp', safeFrame: false }
-            ]);
-        });
     });
 
     describe('setPrebidBanners function', () => {
