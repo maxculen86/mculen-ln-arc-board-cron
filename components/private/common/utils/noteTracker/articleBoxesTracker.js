@@ -1,15 +1,22 @@
 import { checkUserRealoadAction } from './ctrTracker';
 import { eventListenerAttacher } from '../linksTracker';
 
-const articleBoxesTracker = ({ boxType, diagramation, sectionTitle }) => {
+export const articleBoxesTracker = ({
+    boxType,
+    diagramation,
+    sectionTitle,
+    articles = []
+}) => {
     const { dataLayer } = window;
     const refresh = checkUserRealoadAction(window);
 
     const articlesToTrack =
         boxArticleEventBuilder[boxType]({
             grid: diagramation,
-            sectionTitle
+            sectionTitle,
+            articles
         }) || [];
+
     if (!refresh) {
         const callback = entries => {
             entries.forEach(article => {
@@ -50,7 +57,7 @@ const addPositionInBox = (elem, brand, elemPosition, indexElem) => {
             ctr_position: `${elemPosition}${position}`
         });
     }
-    return true;
+    return null;
 };
 
 const boxArticleEventBuilder = {
@@ -99,17 +106,14 @@ const boxArticleEventBuilder = {
 
         return rankingArticles;
     },
-    tePuedeInteresar: () => {
-        const itMayInterestArticles = document.querySelectorAll(
-            '[data-block-name="n_te_puede_interesar"] div article'
-        );
-
-        itMayInterestArticles.forEach((interestArt, i) => {
-            addPositionInBox(interestArt, 'puedeInteresar_diag15', '1011', i);
+    tePuedeInteresar: ({ articles }) => {
+        return articles.map((article, index) => {
+            return addPositionInBox(
+                article,
+                'puedeInteresar_diag15',
+                '1011',
+                index
+            );
         });
-
-        return itMayInterestArticles;
     }
 };
-
-export default articleBoxesTracker;

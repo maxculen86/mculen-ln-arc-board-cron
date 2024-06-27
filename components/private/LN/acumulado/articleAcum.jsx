@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
@@ -38,92 +38,100 @@ const typeAcumRules = {
     }
 };
 
-const ArticleAcum = ({
-    children,
-    dataSection,
-    sectionName,
-    article,
-    typeArticle = 'Grilla',
-    outputType,
-    titleTag,
-    titleSize,
-    titleWeight,
-    withSubhead,
-    withVolanta,
-    isRenderAuthor,
-    boxPosition,
-    artPosition,
-    withCategory,
-    withTags,
-    handleClick,
-    isApertura,
-    layout
-}) => {
-    const _article = addRelatedImage(article);
+const ArticleAcum = forwardRef(
+    (
+        {
+            children,
+            dataSection,
+            sectionName,
+            article,
+            typeArticle = 'Grilla',
+            outputType,
+            titleTag,
+            titleSize,
+            titleWeight,
+            withSubhead,
+            withVolanta,
+            isRenderAuthor,
+            boxPosition,
+            artPosition,
+            withCategory,
+            withTags,
+            handleClick,
+            isApertura
+        },
+        ref
+    ) => {
+        const _article = addRelatedImage(article);
 
-    const {
-        display_date,
-        headlines,
-        website_url,
-        label,
-        taxonomy: { primary_section: primarySection, tags } = {}
-    } = _article;
+        const {
+            display_date,
+            headlines,
+            website_url,
+            label,
+            taxonomy: { primary_section: primarySection, tags } = {}
+        } = _article;
 
-    const authors =
-        setAuthorsRender({ typeAcumRules, typeArticle, sectionName }) &&
-        getAuthorsAsString(_article);
+        const authors =
+            setAuthorsRender({ typeAcumRules, typeArticle, sectionName }) &&
+            getAuthorsAsString(_article);
 
-    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
+        const subheadText =
+            withSubhead && getBajadaOrFirstTextParagraph(_article);
 
-    const titleTextShort = get(headlines, 'mobile', '');
-    const titleTextLong = unescapeHtml(get(headlines, 'basic', ''));
-    const leadText = withVolanta ? get(label, 'volanta.text', '') : '';
-    const chapita = get(label, 'chapita.text', '');
+        const titleTextShort = get(headlines, 'mobile', '');
+        const titleTextLong = unescapeHtml(get(headlines, 'basic', ''));
+        const leadText = withVolanta ? get(label, 'volanta.text', '') : '';
+        const chapita = get(label, 'chapita.text', '');
 
-    const tagList =
-        (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
+        const tagList =
+            (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
 
-    const hourToDisplay = typeAcumRules[typeArticle].withHour && (
-        <ComHour
-            display_date={display_date}
-            size={typeAcumRules[typeArticle].dateClassNames || '--twoxs'}
-            isUltimasNoticias={typeArticle === 'Timeline'}
-        />
-    );
-
-    return (
-        <>
-            <ModArticle
-                articleData={_article}
-                dataSection={dataSection}
-                withMedia={typeAcumRules[typeArticle].withMedia}
-                link={website_url}
-                titleTag={titleTag}
-                titleSize={titleSize}
-                titleText={
-                    titleTextShort !== '' ? titleTextShort : titleTextLong
-                }
-                titleWeight={titleWeight}
-                leadText={titleTextShort !== '' ? leadText : ''}
-                authors={authors}
-                dateText={!typeAcumRules[typeArticle].withHour && display_date}
-                hour={hourToDisplay}
-                subheadText={subheadText}
-                outputType={outputType}
-                isRenderAuthor={isRenderAuthor}
-                typeArticle={typeArticle}
-                artPosition={artPosition}
-                boxPosition={boxPosition}
-                category={withCategory && primarySection}
-                tags={withTags && tagList}
-                label={{ text: chapita }}
-                handleClick={handleClick}
-                isApertura={isApertura}
+        const hourToDisplay = typeAcumRules[typeArticle].withHour && (
+            <ComHour
+                display_date={display_date}
+                size={typeAcumRules[typeArticle].dateClassNames || '--twoxs'}
+                isUltimasNoticias={typeArticle === 'Timeline'}
             />
-            {children}
-        </>
-    );
-};
+        );
+
+        return (
+            <>
+                <ModArticle
+                    ref={ref}
+                    articleData={_article}
+                    dataSection={dataSection}
+                    withMedia={typeAcumRules[typeArticle].withMedia}
+                    link={website_url}
+                    titleTag={titleTag}
+                    titleSize={titleSize}
+                    titleText={
+                        titleTextShort !== '' ? titleTextShort : titleTextLong
+                    }
+                    titleWeight={titleWeight}
+                    leadText={titleTextShort !== '' ? leadText : ''}
+                    authors={authors}
+                    dateText={
+                        !typeAcumRules[typeArticle].withHour && display_date
+                    }
+                    hour={hourToDisplay}
+                    subheadText={subheadText}
+                    outputType={outputType}
+                    isRenderAuthor={isRenderAuthor}
+                    typeArticle={typeArticle}
+                    artPosition={artPosition}
+                    boxPosition={boxPosition}
+                    category={withCategory && primarySection}
+                    tags={withTags && tagList}
+                    label={{ text: chapita }}
+                    handleClick={handleClick}
+                    isApertura={isApertura}
+                />
+                {children}
+            </>
+        );
+    }
+);
 
 ArticleAcum.propTypes = {
     dataSection: PropTypes.string,

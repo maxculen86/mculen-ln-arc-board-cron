@@ -15,7 +15,7 @@ import {
     filterType
 } from '../../private/common/utils/masNotasHelper';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import articleBoxesTracker from '../../private/common/utils/noteTracker/articleBoxesTracker';
+import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
 // TODO fixes de eslint
 

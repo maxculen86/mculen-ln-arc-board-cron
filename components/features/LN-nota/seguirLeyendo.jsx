@@ -7,7 +7,7 @@ import { useContent } from 'fusion:content';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/nota/articleAcu';
-import articleBoxesTracker from '../../private/common/utils/noteTracker/articleBoxesTracker';
+import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
 // TODO hacer unit test, fix hooks y default props
 

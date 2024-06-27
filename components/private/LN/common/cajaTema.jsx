@@ -29,8 +29,13 @@ const CajaTema = props => {
         _children = [],
         isHome = false,
         features,
-        pageLayout
+        pageLayout,
+        setRefs = []
     } = props;
+
+    if (!setRefs.current) {
+        setRefs.current = [];
+    }
 
     const artWithoutDate = clearArticleKey('display_date', articles);
     const layoutName = getLayoutType(layout, artWithoutDate, _children);
@@ -44,10 +49,14 @@ const CajaTema = props => {
     );
 
     const childrenComponent =
-        getComponentForLayout(layoutName, {
-            ...props,
-            articles: artWithoutDate
-        }) || {};
+        getComponentForLayout(
+            layoutName,
+            {
+                ...props,
+                articles: artWithoutDate
+            },
+            setRefs
+        ) || {};
 
     const sectionProps = {
         ...extraOpts,

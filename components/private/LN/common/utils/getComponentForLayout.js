@@ -1,15 +1,11 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
 import React from 'react';
-
 import Opinion from '../../../common/opinion';
 import Editoriales from '../../../common/editoriales';
 import ArticleAcum from '../../acumulado/articleAcum';
 import FocalFactory from '../../home/templatesContainers/focalFactory';
-
 import { customHeading } from './cajaTemasHelper';
 
-const getComponentForLayout = (layoutName, props) => {
+const getComponentForLayout = (layoutName, props, setRefs = []) => {
     const types = {
         Opinion: ({ articles, layout, handleClick }) => {
             return (
@@ -74,8 +70,18 @@ const getComponentForLayout = (layoutName, props) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
                 const isRenderAuthor = layout.includes('author');
 
+                // TODO: add sections with querySelectors in dataLayers
+                const sectionsWithRef = ['TePuedeInteresar'];
+
+                const articleRef = sectionsWithRef.includes(sectionName)
+                    ? el => {
+                          setRefs.current[i] = el;
+                      }
+                    : null;
+
                 return (
                     <ArticleAcum
+                        ref={articleRef}
                         key={art._id}
                         article={art}
                         outputType={outputType}

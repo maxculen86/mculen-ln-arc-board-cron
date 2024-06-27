@@ -11,7 +11,7 @@ import {
     RANKING
 } from './_helper';
 import '../../../../resources/dist/css/ln/components/ranking.css';
-import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
+import { articleBoxesTracker } from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 
 const getDataContent = (
     sectionId,

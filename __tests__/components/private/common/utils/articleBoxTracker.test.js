@@ -1,5 +1,5 @@
 import { screen, fireEvent } from '@testing-library/react';
-import articleBoxesTracker from '../../../../../components/private/common/utils/noteTracker/articleBoxesTracker';
+import { articleBoxesTracker } from '../../../../../components/private/common/utils/noteTracker/articleBoxesTracker';
 
 Object.defineProperty(window, 'performance', {
     value: {
@@ -260,7 +260,7 @@ describe('articleBoxTracker funtion for all article boxes', () => {
             }
         ]);
     });
-    test('seguir leyendo case, observer and click event', () => {
+    test('te puede interesar case, observer and click event', () => {
         global.window.dataLayer = [];
         let section5 = global.document.createElement('section');
         let div5 = global.document.createElement('div');
@@ -297,7 +297,8 @@ describe('articleBoxTracker funtion for all article boxes', () => {
         );
 
         const observer5 = articleBoxesTracker({
-            boxType: 'tePuedeInteresar'
+            boxType: 'tePuedeInteresar',
+            articles: [article5]
         });
 
         const [callback4] = window.IntersectionObserver.mock.calls[0];

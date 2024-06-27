@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useContext } from 'react';
+import React, { useContext, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
@@ -13,7 +13,7 @@ import ComButton from './com-button';
 import { GlobalContext } from './context/globalContext';
 import getMediaData from '../LN/common/utils/modArticleHelper';
 
-const ModArticle = props => {
+const ModArticle = forwardRef((props, ref) => {
     const {
         isPowa,
         device,
@@ -101,6 +101,7 @@ const ModArticle = props => {
 
     return (
         <article
+            ref={ref}
             className={setArticleClassName({
                 classCondition,
                 withMedia,
@@ -174,7 +175,7 @@ const ModArticle = props => {
             )}
         </article>
     );
-};
+});
 
 ModArticle.propTypes = {
     anexo: PropTypes.string,
