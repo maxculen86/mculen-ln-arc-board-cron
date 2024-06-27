@@ -1,6 +1,6 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import getToken from '../../../../../private/common/utils/getToken';
-import { addErrorToast, addToast, TOAST } from '../../bookmark/api/_helper';
+import { TOAST, addErrorToast, addToast } from './_helper';
 
 const deleteIngredientList = async (
     bookmarkId,

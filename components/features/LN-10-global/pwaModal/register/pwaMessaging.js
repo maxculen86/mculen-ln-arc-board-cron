@@ -1,4 +1,4 @@
-import siteConfig from '../../../../../properties/sites/la-nacion-ar';
+import { FIREBASE_CONFIG } from 'fusion:environment';
 import {
     checkLocalStorageItems,
     registerSubscription,
@@ -12,7 +12,24 @@ const AUTH3_TOKEN = 'x-auth3-token';
 
 export const initialize = () => {
     if (typeof firebase !== 'undefined') {
-        const { firebase: firebaseConfig = {} } = siteConfig || {};
+        const {
+            apiKey,
+            authDomain,
+            databaseURL,
+            projectId,
+            storageBucket,
+            messagingSenderId
+        } = FIREBASE_CONFIG || {};
+
+        const firebaseConfig = {
+            apiKey,
+            authDomain,
+            databaseURL,
+            projectId,
+            storageBucket,
+            messagingSenderId
+        };
+
         firebase.initializeApp(firebaseConfig);
 
         messaging = firebase.messaging();

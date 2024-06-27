@@ -21,14 +21,6 @@ export default {
             appID: '154042854349421'
         }
     },
-    firebase: {
-        apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
-        authDomain: 'lanacion-92a91.firebaseapp.com',
-        databaseURL: 'https://lanacion-92a91.firebaseio.com',
-        messagingSenderId: '221085116662',
-        projectId: 'lanacion-92a91',
-        storageBucket: 'lanacion-92a91.appspot.com'
-    },
     loginUrl: '//qa-ingresar.lanacion.com.ar/ingresar/D/1/?callback=',
     logoutUrl: '/logout.html',
     lifigniter: {

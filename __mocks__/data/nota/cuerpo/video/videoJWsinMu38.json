@@ -1,0 +1,125 @@
+{
+    "_id": "fc286f8a-a6e0-4a3f-9ed2-64fa6a010a99",
+    "description": "",
+    "kind": "Single Item",
+    "playlist": [
+        {
+            "description": "",
+            "duration": 21,
+            "image": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=720",
+            "images": [
+                {
+                    "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=320",
+                    "type": "image/jpeg",
+                    "width": 320
+                },
+                {
+                    "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=480",
+                    "type": "image/jpeg",
+                    "width": 480
+                },
+                {
+                    "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=640",
+                    "type": "image/jpeg",
+                    "width": 640
+                },
+                {
+                    "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=720",
+                    "type": "image/jpeg",
+                    "width": 720
+                },
+                {
+                    "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=1280",
+                    "type": "image/jpeg",
+                    "width": 1280
+                },
+                {
+                    "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=1920",
+                    "type": "image/jpeg",
+                    "width": 1920
+                }
+            ],
+            "link": "https://cdn.jwplayer.com/previews/JgtuNUEs",
+            "mediaid": "JgtuNUEs",
+            "sources": [
+                {
+                    "bitrate": 332586,
+                    "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-kTExGaWf.mp4",
+                    "filesize": 873039,
+                    "framerate": 30,
+                    "height": 320,
+                    "label": "180p",
+                    "type": "video/mp4",
+                    "width": 180
+                },
+                {
+                    "bitrate": 525919,
+                    "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-K8B0kybS.mp4",
+                    "filesize": 1380539,
+                    "framerate": 30,
+                    "height": 480,
+                    "label": "270p",
+                    "type": "video/mp4",
+                    "width": 270
+                },
+                {
+                    "bitrate": 1699540,
+                    "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-46NIuRKO.mp4",
+                    "filesize": 4461293,
+                    "framerate": 30,
+                    "height": 1280,
+                    "label": "720p",
+                    "type": "video/mp4",
+                    "width": 720
+                },
+                {
+                    "bitrate": 118244,
+                    "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-hz5z2Tv4.m4a",
+                    "filesize": 310392,
+                    "label": "AAC Audio",
+                    "type": "audio/mp4"
+                },
+                {
+                    "bitrate": 3382040,
+                    "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-SomplJdm.mp4",
+                    "filesize": 8877856,
+                    "framerate": 30,
+                    "height": 1920,
+                    "label": "1080p",
+                    "type": "video/mp4",
+                    "width": 1080
+                },
+                {
+                    "bitrate": 637589,
+                    "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-FnZGUVnC.mp4",
+                    "filesize": 1673672,
+                    "framerate": 30,
+                    "height": 640,
+                    "label": "360p",
+                    "type": "video/mp4",
+                    "width": 360
+                },
+                {
+                    "bitrate": 1133293,
+                    "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-0G6Pwvlw.mp4",
+                    "filesize": 2974896,
+                    "framerate": 30,
+                    "height": 960,
+                    "label": "540p",
+                    "type": "video/mp4",
+                    "width": 540
+                }
+            ],
+            "title": "Noche de Copa en el Monumental",
+            "tracks": [
+                {
+                    "file": "https://cdn.jwplayer.com/strips/JgtuNUEs-120.vtt",
+                    "kind": "thumbnails"
+                }
+            ],
+            "variations": {}
+        }
+    ],
+    "title": "Noche de Copa en el Monumental",
+    "type": "video_jw"
+}

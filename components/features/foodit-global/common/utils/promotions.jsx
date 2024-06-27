@@ -7,11 +7,11 @@ import IconSprite from '../../../../features/private-global/common/iconSprite/Ic
 export const mockConfigUserTypes = {
     unlogged: {
         buttonLogginText: 'INICIAR SESIÓN',
-        buttonSubscribeText: 'SUSCRIBITE',
+        buttonSubscribeText: 'SUSCRIBITE GRATIS',
         containerClassName: 'jc-center'
     },
     logged: {
-        buttonSubscribeText: 'SUSCRIBITE',
+        buttonSubscribeText: 'SUSCRIBITE GRATIS',
         plan: 'Gratis',
         containerClassName: 'jc-between'
     },

@@ -7,7 +7,6 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
     beforeEach(() => {
         render(<DrawerMenu categories={menuCategories} />);
     });
-    // TODO: testear todo lo relacionado al contenido del drawer cuando se defina
     it('should be hidden by default', () => {
         const drawer = document.querySelector('.drawer');
         const attribute = drawer.getAttribute('data-visible');
@@ -19,13 +18,12 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
         expect(attribute).toStrictEqual('left');
     });
     it('should render button to handleClose', () => {
-        const button = screen.getByRole('button', { name: 'Cerrar menú' });
+        const button = screen.getByRole('button', { name: 'Cerrar' });
         expect(button).toBeTruthy();
     });
-    it('should change the value of data-visible from "true" to "false" when toogleDrawer is called', () => {
+    it('should change the value of data-visible from "true" to "false" when button close is called', () => {
         const drawer = document.querySelector('.drawer');
-        drawer.setAttribute('data-visible', 'true');
-        const button = screen.getByRole('button', { name: 'Cerrar menú' });
+        const button = screen.getByRole('button', { name: 'Cerrar' });
         fireEvent.click(button);
         const modifiedAttribute = drawer.getAttribute('data-visible');
         expect(modifiedAttribute).toStrictEqual('false');
@@ -35,6 +33,7 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
         const { container } = render(
             <DrawerMenu categories={menuCategories} />
         );
+
         expect(container).toMatchSnapshot();
     });
 });

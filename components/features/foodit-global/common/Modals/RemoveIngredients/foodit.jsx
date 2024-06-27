@@ -6,7 +6,7 @@ import { ButtonAccept } from './components/ButtonAccept';
 import { ButtonCancel } from './components/ButtonCancel';
 import { usePopupHandling } from './hooks/usePopupHandling';
 import get from '../../../../../private/common/utils/get';
-import deleteIngredientList from '../../shoppingList/api/deleteIngredientList';
+import deleteIngredientList from '../../bookmark/api/deleteIngredientList';
 
 export const ModalRemoveIngredient = () => {
     const { close, modalData } = usePopupHandling();

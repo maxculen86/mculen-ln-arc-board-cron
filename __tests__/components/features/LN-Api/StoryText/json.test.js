@@ -278,9 +278,10 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             );
 
             expect(result.audio_url).toEqual('url');
+            expect(result.audio_summary_url).toEqual('audio_summary_url');
         });
 
-        it('should hide the audio_url property if hide_listening_articles_summary is set to true', () => {
+        it('should hide the audio_url_summary property if hide_listening_articles_summary is set to true', () => {
             const props = {
                 arcSite: 'la-nacion-ar',
                 children: [],
@@ -294,7 +295,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
 
             const objArticle = new storyText.default(props);
             objArticle.state.audionewsSource = {
-                audio_url: 'url'
+                audio_url: 'url',
+                audio_summary_url: 'audio_summary_url'
             };
 
             objArticle.state.navigationTreeSource = {
@@ -318,7 +320,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 ].sort()
             );
 
-            expect(result.audio_url).toEqual(undefined);
+            expect(result.audio_summary_url).toEqual(undefined);
         });
     });
 });

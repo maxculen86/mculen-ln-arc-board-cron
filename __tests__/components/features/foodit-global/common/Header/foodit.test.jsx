@@ -52,7 +52,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         const { container } = render(<HeaderFoodit />);
 
         expect(screen.getAllByText('INICIAR SESIÓN')).toHaveLength(2);
-        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(2);
         expect(container).toMatchSnapshot();
     });
 
@@ -95,7 +95,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
         render(<HeaderFoodit />);
 
-        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(2);
         expect(screen.getAllByText('HM')).toHaveLength(1);
     });
 });

@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
     buttons.forEach(button => {
         button.addEventListener('click', e => {
             e.preventDefault();
-            window.LN.observable.publish('openModal', {
+            window?.LN?.observable?.publish('openModal', {
                 ids: button.dataset.id.split(',')
             });
         });

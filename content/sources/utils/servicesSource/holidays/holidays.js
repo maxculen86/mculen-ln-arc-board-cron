@@ -33,8 +33,7 @@ const holidayRequest = ({ queryData, auth } = {}) => {
         headers: {
             Referer: API_ENV,
             'api-key': API_KEY_ARC_SERVICES
-        },
-        ...auth
+        }
     };
     return request(opt).then(data => data);
 };

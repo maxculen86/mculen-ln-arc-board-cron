@@ -39,7 +39,12 @@ const getBannersInDOM = device => {
 };
 
 const LoadBannersSSR = ({ blocksBanners }) => {
-    const { renderables = [], outputType, isAdmin } = useAppContext();
+    const {
+        renderables = [],
+        outputType,
+        isAdmin,
+        globalContentConfig
+    } = useAppContext();
     const device = useViewportSize();
     const subscription = isSubscribed();
     const bannersConfigured = renderables.filter(e =>
@@ -52,11 +57,20 @@ const LoadBannersSSR = ({ blocksBanners }) => {
         ].includes(e.type)
     );
 
+    const bannersDisabled =
+        get(globalContentConfig, 'query.banners_disabled', 'false') === 'true';
+
     const suffix = useAdsTestAndSuffix(device, outputType);
 
     useEffect(() => {
         try {
-            if (suffix && device && blocksBanners.length === 0 && !isAdmin) {
+            if (
+                suffix &&
+                device &&
+                blocksBanners.length === 0 &&
+                !isAdmin &&
+                !bannersDisabled
+            ) {
                 const bannersToLoadFromDOM = getBannersInDOM(device);
 
                 const bannersInBody = [];
@@ -146,7 +160,8 @@ const LoadBannersSSR = ({ blocksBanners }) => {
         isAdmin,
         suffix,
         outputType,
-        subscription
+        subscription,
+        bannersDisabled
     ]);
 
     return <div className="hlp-none">Cargando banners ...</div>;

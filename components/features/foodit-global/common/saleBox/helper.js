@@ -1,12 +1,11 @@
 export const mockBenefits = [
-    `Una colección de <strong>recetas curadas</strong> por expertos.`,
-    'Todas las <strong>tendencias alimentarias.</strong>',
-    '<strong>Platos de autor</strong> y <strong>masterclasses</strong> con cocineros referentes.',
-    '<strong>Guías de cocina</strong> para principiantes.',
-    '<strong>Buscador</strong> eficiente, <strong>colecciones</strong> personalizadas y más <strong>funciones.</strong>',
-    '<strong>Soluciones practicas</strong> para cocinar todos los días.'
-    // TODO: Se mantiene oculto mientras se crean los newsletters.
-    // '<strong>Newsletter semanal</strong> con ideas inspiradoras y novedades.'
+    `Una colección de <span class"roboto-bold">recetas curadas</span> por expertos.`,
+    'Todas las <span class"roboto-bold">tendencias alimentarias.</span>',
+    '<span class"roboto-bold">Platos de autor</span> y <span>masterclasses</span> con cocineros referentes.',
+    '<span class"roboto-bold">Guías de cocina</span> para principiantes.',
+    '<span class"roboto-bold">Buscador</span> eficiente, <span>colecciones</span> personalizadas y más <span>funciones.</span>',
+    '<span class"roboto-bold">Soluciones practicas</span> para cocinar todos los días.',
+    '<span class"roboto-bold">Newsletter semanal</span> con ideas inspiradoras y novedades.'
 ];
 
 export const imgsPhoneFoodit = assetsPath => [

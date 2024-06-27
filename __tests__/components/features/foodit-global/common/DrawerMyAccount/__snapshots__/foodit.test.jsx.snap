@@ -7,7 +7,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
     data-id="overlay-drawer-account"
   >
     <div
-      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh h-100dvh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular right-0"
+      class="drawer flex flex-column overflow-hidden fixed w-100 max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular h-100vh h-100dvh top-0 right-0"
       data-id="drawer-account"
       data-position="right"
       data-visible="false"
@@ -16,8 +16,8 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
         class="flex"
       >
         <button
-          class="cursor-pointer transition-regular flex opacity-80_hover ml-auto"
-          title="Cerrar menú"
+          class="button ml-auto"
+          title="Cerrar"
         >
           <i
             class="icon --icon-24"
@@ -110,13 +110,41 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
               >
                 <mock-icon
                   critical="true"
-                  name="cart"
+                  name="shopping-list"
                 />
               </i>
               <span
                 class="text-left flex-grow-1"
               >
                 Lista de compras
+              </span>
+              <i
+                class="icon --icon-16 --inherit"
+              >
+                <mock-icon
+                  name="arrow-right"
+                />
+              </i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              role="button"
+              title="Ir a Newsletters"
+            >
+              <i
+                class="icon --icon-20 --inherit"
+              >
+                <mock-icon
+                  critical="true"
+                  name="newsletter"
+                />
+              </i>
+              <span
+                class="text-left flex-grow-1"
+              >
+                Newsletters
               </span>
               <i
                 class="icon --icon-16 --inherit"

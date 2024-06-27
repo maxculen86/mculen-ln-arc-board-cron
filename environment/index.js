@@ -104,8 +104,6 @@ export default {
     API_KEY_ARC_SERVICES: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
     API_KEY_ARC_SERVICES_PROD: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
     VIDEO_CDN_URL: 'https://lanacionar-prod.video.arc-cdn.net/',
-    CLL_BACK_BASE_URL: 'https://api-cll-services.lanacion.com.ar/graphql/',
-    CLL_BACK_API_KEY: 'da2-6dgg5zavxjdlpmgjs2ztndfnl4',
     MARFEEL_ACCOUNT_ID: '3353',
     BEYONDWORDS_PROJECT_ID: 37324,
     JWP_TOKEN:
@@ -113,5 +111,14 @@ export default {
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
-    SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+    SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+    FIREBASE_CONFIG: {
+        apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
+        authDomain: 'lanacion-92a91.firebaseapp.com',
+        databaseURL: 'https://lanacion-92a91.firebaseio.com',
+        messagingSenderId: '221085116662',
+        projectId: 'lanacion-92a91',
+        storageBucket: 'lanacion-92a91.appspot.com'
+    },
+    API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/'
 };

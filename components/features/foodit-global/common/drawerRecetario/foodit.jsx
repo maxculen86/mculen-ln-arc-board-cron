@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import DrawerContainer from '../DrawerContainer/foodit';
 import { Button } from '@ln/foodit-ui-button';
-import { toggleDrawer } from '@ln/common-ui-drawer';
+import { useDrawer } from '@ln/common-ui-drawer';
+import { DRAWER } from '../DrawerContainer/constants';
 import { Select } from '@ln/common-ui-select';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 
@@ -11,21 +12,23 @@ const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
     const [selectedId, setSelectedId] = useState('');
     const [selectedQuantity, setSelectedQuantity] = useState(null);
 
-    const onSelect = ({ label, value }) => {
+    const { toggleDrawer } = useDrawer({ id: DRAWER.RECETARIO });
+
+    const onSelect = ({ value }) => {
         const { quantity, id } = value;
         setSelectedId(id);
         setSelectedQuantity(quantity);
     };
 
     const handleApplyFilters = () => {
-        toggleDrawer({ id: 'drawer-recetario' });
+        toggleDrawer();
         if (onItemSelected)
             onItemSelected({ id: selectedId, quantity: selectedQuantity });
     };
 
     return (
         <DrawerContainer
-            drawerId="drawer-recetario"
+            drawerId={DRAWER.RECETARIO}
             position="bottom"
             title="Elegir colección"
         >
@@ -34,7 +37,7 @@ const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
                 className="mt-8"
                 openClassName="border-secondary-positive"
                 hoverClassName="border-accent-lechuga__hover"
-                listClassName="foodit-scrollbar shadow-down-lg"
+                listClassName="foodit-scrollbar shadow-down-lg bg-white px-16 pb-16 rounden-4"
                 onChange={onSelect}
                 floatingLabelProps={{
                     className: 'bg-white'
@@ -62,6 +65,7 @@ const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
                 variant="secondary"
                 fullWidth
                 onClick={handleApplyFilters}
+                disabled={!selectedId}
             >
                 Aplicar
             </Button>

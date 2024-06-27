@@ -1,3 +1,5 @@
+import { scheduleTask } from '../scheduleTask';
+
 const position = '101101';
 const eventClick = 'productClickNota';
 const ctrBrand = 'stickyMobile_diag1';
@@ -14,11 +16,13 @@ export const crtViewTracker = (tracked, trackSetter) => {
     const isReloaded = checkUserRealoadAction(window);
     if (!isReloaded && tracked) {
         trackSetter(false);
-        dataLayer.push({
-            event: 'impressionNota',
-            ctr_brand: ctrBrand,
-            ctr_position: position
-        });
+        scheduleTask(() =>
+            dataLayer.push({
+                event: 'impressionNota',
+                ctr_brand: ctrBrand,
+                ctr_position: position
+            })
+        );
     }
 };
 
@@ -30,17 +34,21 @@ export const handleClickForCTRcomponent = action => {
 
 const userActions = {
     close: dataLayer => {
-        return dataLayer.push({
-            event: eventClick,
-            ctr_brand: 'stickyMobile_close',
-            ctr_position: position
-        });
+        return scheduleTask(() =>
+            dataLayer.push({
+                event: eventClick,
+                ctr_brand: 'stickyMobile_close',
+                ctr_position: position
+            })
+        );
     },
     open: dataLayer => {
-        return dataLayer.push({
-            event: eventClick,
-            ctr_brand: ctrBrand,
-            ctr_position: position
-        });
+        return scheduleTask(() =>
+            dataLayer.push({
+                event: eventClick,
+                ctr_brand: ctrBrand,
+                ctr_position: position
+            })
+        );
     }
 };

@@ -1,4 +1,4 @@
-import postIngredientsList from '../../../common/shoppingList/api/postIngredientsList';
+import postIngredientsList from '../../../common/bookmark/api/postIngredientsList';
 import { SITE_FOODIT } from 'fusion:environment';
 import {
     addToast,
@@ -6,7 +6,7 @@ import {
     TOAST
 } from '../../../common/bookmark/api/_helper';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
-import deleteIngredientList from '../../../common/shoppingList/api/deleteIngredientList';
+import deleteIngredientList from '../../../common/bookmark/api/deleteIngredientList';
 
 export const saveIngredientsList = async ({ text, sections, id }) => {
     const response = await postIngredientsList({ text, sections, id });
@@ -93,6 +93,6 @@ export const handleIgredientListButton = async ({
             newBookmarkId && setBookmarkId(newBookmarkId);
         }
     } else {
-        window.LN.observable.publish('openModal', {});
+        window?.LN?.observable?.publish('openModal', {});
     }
 };

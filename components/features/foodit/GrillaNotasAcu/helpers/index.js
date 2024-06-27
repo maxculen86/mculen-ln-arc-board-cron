@@ -1,5 +1,8 @@
 import React from 'react';
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
+import {
+    getImagesToLoadWithPicture,
+    getShortestImage
+} from '../../../../private/LN/common/utils/mediaHelper';
 import CommonCardFoodit from '../../../foodit-global/common/CommonCardFoodit/foodit';
 import { transformArticleFoodit } from '../../../foodit-global/common/utils/notaFooditHelper';
 import getImageAltText from '../../../foodit-global/common/utils/getImageAltText';
@@ -18,6 +21,8 @@ export const createArticleList = ({ articles = [] } = {}) => {
             image = {}
         } = transformArticleFoodit(article);
         const { resized_urls, url } = image;
+        const { resizedUrl = '' } = getShortestImage(resized_urls);
+
         return (
             <CommonCardFoodit
                 articleId={articleId}
@@ -26,7 +31,7 @@ export const createArticleList = ({ articles = [] } = {}) => {
                 linksProps={{ href, title }}
                 size={size}
                 variant={variant}
-                src={url}
+                src={resizedUrl || url}
                 alt={getImageAltText(image)}
                 sources={getImagesToLoadWithPicture(resized_urls)}
                 loading={'lazy'}

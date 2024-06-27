@@ -80,8 +80,7 @@ const EditFolderModal = ({
                                 oldFolderName: folderId,
                                 newFolderName: inputValue,
                                 setSelectedItem,
-                                setUserBookmarks,
-                                onClose
+                                setUserBookmarks
                             });
                         }}
                         disabled={Boolean(inputError?.hasError)}

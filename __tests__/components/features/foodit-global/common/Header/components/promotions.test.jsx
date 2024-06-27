@@ -8,7 +8,7 @@ jest.mock('react', () => ({
     useContext: jest.fn()
 }));
 
-xdescribe('Components - Features - foodit-global - common - Header - components - Promotions', () => {
+describe('Components - Features - foodit-global - common - Header - components - Promotions', () => {
     it('renders correctly for user type "unlogged"', () => {
         useContext.mockReturnValue({
             ProductoPremiumId: '',
@@ -25,7 +25,7 @@ xdescribe('Components - Features - foodit-global - common - Header - components 
 
         expect(PromotionContainer).toHaveClass('jc-center');
         expect(screen.getByText('INICIAR SESIÓN')).toBeInTheDocument();
-        expect(screen.getByText('SUSCRIBITE')).toBeInTheDocument();
+        expect(screen.getByText('SUSCRIBITE GRATIS')).toBeInTheDocument();
     });
     it('renders correctly for user type "logged"', () => {
         useContext.mockReturnValue({
@@ -41,7 +41,7 @@ xdescribe('Components - Features - foodit-global - common - Header - components 
         );
 
         expect(PromotionContainer).toHaveClass('jc-between');
-        expect(screen.getByText('SUSCRIBITE')).toBeInTheDocument();
+        expect(screen.getByText('SUSCRIBITE GRATIS')).toBeInTheDocument();
         expect(screen.getByText('Gratis')).toBeInTheDocument();
     });
 

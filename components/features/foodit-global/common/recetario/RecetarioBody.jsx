@@ -3,10 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import useGetRecetarioData from './hooks/useGetRecetarioData';
 import useGetUserData from '../../hooks/useGetUserData';
 import { createSummaryList } from '../utils/recetarioHelper';
-import { Button } from '@ln/foodit-ui-button';
-import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import CollectionBox from '../collectionBox/foodit';
 import { EmptyStateComponent } from './helpers';
 import DrawerRecetario from '../drawerRecetario/foodit';
@@ -18,6 +15,7 @@ const RecetarioBody = () => {
     const { userType } = useGetUserData();
 
     const [selectedItem, setSelectedItem] = useState({});
+    const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
     useEffect(() => {
         if (!loading && userBookmarks.length)
             setSelectedItem({ id: 'Todas', quantity: userBookmarks.length });
@@ -31,8 +29,6 @@ const RecetarioBody = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const onClose = useCallback(() => setIsModalOpen(false), []);
-
-    const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
 
     return (
         <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
@@ -52,21 +48,6 @@ const RecetarioBody = () => {
                     >
                         {selectedItemId}
                     </Text>
-                    {userBookmarks.length && selectedItemId !== 'Todas' ? (
-                        <Button
-                            onClick={() => setIsModalOpen(true)}
-                            iconOnly
-                            variant="secondary"
-                            size={40}
-                            className="ml-auto ml-0_md"
-                        >
-                            <Icon size={16}>
-                                <IconSprite name="edit" />
-                            </Icon>
-                        </Button>
-                    ) : (
-                        <></>
-                    )}
                 </div>
                 {userBookmarks.length ? (
                     <BookmarkedArticles

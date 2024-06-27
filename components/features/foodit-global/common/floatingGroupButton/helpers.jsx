@@ -1,5 +1,4 @@
 import React from 'react';
-import { toggleDrawer } from '@ln/common-ui-drawer';
 import siteProperties from '../../../../../properties/sites/foodit';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
@@ -56,22 +55,24 @@ export const floatingButtonConfig = {
         className: defaultClassName,
         buttons: defaultButtons
     },
-    [layoutsName.FooditRecetario]: {
-        observerSelector: '.floating-button-sentinel',
-        className: 'sm-only',
-        buttons: [
-            // {
-            //     title: 'Crear colección',
-            //     children: 'Crear colección'
-            //     TODO: agregar callback o href para el botón
-            // },
-            {
-                title: 'Elegir colección',
-                children: 'Elegir colección',
-                onClick: () =>
-                    toggleDrawer({ id: 'drawer-recetario', show: true })
-            }
-        ]
+    [layoutsName.FooditRecetario]: (callbacks = []) => {
+        const [toggleDrawer = () => null] = callbacks;
+        return {
+            observerSelector: '.floating-button-sentinel',
+            className: 'sm-only',
+            buttons: [
+                // {
+                //     title: 'Crear colección',
+                //     children: 'Crear colección'
+                //     TODO: agregar callback o href para el botón
+                // },
+                {
+                    title: 'Elegir colección',
+                    children: 'Elegir colección',
+                    onClick: () => toggleDrawer()
+                }
+            ]
+        };
     },
     [layoutsName.FooditAcumuladoChef]: {
         observerSelector: '.floating-button-sentinel',
@@ -85,7 +86,13 @@ export const floatingButtonConfig = {
     }
 };
 
-export const getConfigByLayout = layout => floatingButtonConfig[layout] || {};
+export const getConfigByLayout = (layout, callbacks = []) => {
+    const config = floatingButtonConfig[layout];
+
+    if (typeof config === 'function') return config(callbacks);
+    if (config) return config;
+    return {};
+};
 
 export const customFloatingButtonConfig = {
     [layoutsName.FooditListadoCompras]: (callbacks = []) => {

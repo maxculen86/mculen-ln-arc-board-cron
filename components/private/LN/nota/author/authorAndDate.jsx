@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ModDate from '../../../common/mod-date';
 import Author from './authorArticle';
-
 const authorAndDate = props => {
     const { globalContent, author, date, authorDate } = props;
     const {

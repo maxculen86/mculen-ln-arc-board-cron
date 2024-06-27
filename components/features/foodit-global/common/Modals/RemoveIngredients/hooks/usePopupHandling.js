@@ -22,10 +22,13 @@ export const usePopupHandling = () => {
     };
 
     useEffect(() => {
-        window.LN.observable.subscribe('showModalIngredient', handleData);
+        window?.LN?.observable?.subscribe('showModalIngredient', handleData);
 
         return () => {
-            window.LN.observable.unsubscribe('showModalIngredient', handleData);
+            window?.LN?.observable?.unsubscribe(
+                'showModalIngredient',
+                handleData
+            );
         };
     }, []);
 

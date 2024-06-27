@@ -1,23 +1,26 @@
 import React, { useContext } from 'react';
 import '@testing-library/jest-dom';
 import { render, fireEvent } from '@testing-library/react';
-import { toggleDrawer } from '@ln/common-ui-drawer';
+import { useDrawer } from '@ln/common-ui-drawer';
 import RenderUserOptions from '../../../../../../../components/features/foodit-global/common/Header/components/rightOptions/RenderUserOptions';
 
-jest.mock('@ln/common-ui-drawer');
+jest.mock('@ln/common-ui-drawer', () => ({
+    useDrawer: jest.fn()
+}));
 
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
     useContext: jest.fn()
 }));
 
-xdescribe('Components - features - foodit-global - common - header - components - RightOptions', () => {
+describe('Components - features - foodit-global - common - header - components - RightOptions', () => {
     const mockUserLogedAndSuscribed = {
         ProductoPremiumId: '2,3,4,5',
         UsuarioDetalleEmail: 'hola@mundo.com',
         UsuarioDetalleNombre: 'Hola',
         UsuarioDetalleApellido: 'Mundo'
     };
+    useDrawer.mockReturnValue({ toggleDrawer: jest.fn() });
 
     it('when the user is "unlogged" it should not render any menu options', () => {
         useContext.mockReturnValue({
@@ -64,9 +67,8 @@ xdescribe('Components - features - foodit-global - common - header - components 
 
         const { getByTitle } = render(<RenderUserOptions />);
         fireEvent.click(getByTitle('Abrir menu de usuario'));
-        expect(toggleDrawer).toHaveBeenCalledWith({
-            id: 'drawer-account',
-            show: true
-        });
+        expect(
+            useDrawer({ id: 'drawer-account' }).toggleDrawer
+        ).toHaveBeenCalled();
     });
 });

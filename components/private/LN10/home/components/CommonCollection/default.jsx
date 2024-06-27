@@ -32,7 +32,7 @@ export default function CommonCollection({
     isExclusiveSub,
     isFoodit
 }) {
-    const { linkButton } = roofData;
+    const { linkButton, titleLink } = roofData;
     const hrefButtonFoodit = isFoodit && linkButton;
     const targetButton = targetUrlRedirect(linkButton);
     return (
@@ -42,7 +42,7 @@ export default function CommonCollection({
                 gridType={gridType}
                 gridStyle={roofData.chainStyle}
                 hrefButton={hrefButtonFoodit}
-                hrefLink={linkButton}
+                hrefLink={titleLink}
                 targetButton={targetButton}
             >
                 {articles.map((article, index) => {

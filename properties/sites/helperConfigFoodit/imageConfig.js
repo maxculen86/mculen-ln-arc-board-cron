@@ -149,14 +149,14 @@ export default {
                     {
                         width: 420,
                         height: 280,
-                        maxScreenWidth: 767,
-                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        maxScreenWidth: 1279,
+                        media_preload: setMediaCondition({ maxWidth: 1279 }),
                         proportion: '3:2'
                     },
                     {
-                        width: 238,
-                        height: 159,
-                        media_preload: setMediaCondition({ minWidth: 768 }),
+                        width: 300,
+                        height: 200,
+                        media_preload: setMediaCondition({ minWidth: 1280 }),
                         proportion: '3:2'
                     }
                 ]

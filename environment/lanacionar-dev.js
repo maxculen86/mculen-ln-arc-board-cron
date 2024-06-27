@@ -93,8 +93,6 @@ export default {
     FOODIT_LOGIN_URL:
         'https://qa-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
-    CLL_BACK_BASE_URL: 'https://qa-api-cll-services.lanacion.com.ar/graphql/',
-    CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe',
     JWP_TOKEN:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHlA2jUvxj+ey+zZiBAe3MOAAAApjCBowYJKoZIhvcNAQcGoIGVMIGSAgEAMIGMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDN2vbS7VCeoGV3LfoAIBEIBfPdrJEEeMvrvz/07ci9dEJt+nfOY4JzanaHtPLHc4lX73pXElrzPGYyKLjqxbO+C+93w8N+t1vB6ejcAzfVbHj4N+HtgNFhSFG3kjO5gRwIp0kBsmYrKX78PJgtie3Y4=}',
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',

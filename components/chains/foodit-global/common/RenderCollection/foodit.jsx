@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
+import {
+    getImagesToLoadWithPicture,
+    getShortestImage
+} from '../../../../private/LN/common/utils/mediaHelper';
 import { filterBookmarksByArticledIs } from '../../../../features/foodit-global/common/bookmark/_helper';
 import getImageAltText from '../../../../features/foodit-global/common/utils/getImageAltText';
 
@@ -52,7 +55,7 @@ export const RenderCollection = ({
                         onClick: e => {
                             e.preventDefault();
                             e.stopPropagation();
-                            window.LN.observable.publish('openModal', {
+                            window?.LN?.observable?.publish('openModal', {
                                 carouselTitle: title,
                                 ids: articles.map(article => article.articleId),
                                 collectionArticles: articles.filter(
@@ -99,6 +102,10 @@ export const RenderCollection = ({
                             image = {}
                         }) => {
                             const { resized_urls, url } = image;
+                            const { resizedUrl = '' } = getShortestImage(
+                                resized_urls
+                            );
+
                             return (
                                 <CommonCardFoodit
                                     articleId={articleId}
@@ -107,7 +114,7 @@ export const RenderCollection = ({
                                     linksProps={{ href, title: titleArticle }}
                                     size={size}
                                     variant={variant}
-                                    src={url}
+                                    src={resizedUrl || url}
                                     alt={getImageAltText(image)}
                                     sources={getImagesToLoadWithPicture(
                                         resized_urls

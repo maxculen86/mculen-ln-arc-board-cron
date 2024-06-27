@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const CommentsViafoura = ({ messageProps }) => {
+const CommentsViafoura = ({ allowComments, subscription }) => {
     const viafouraClassName = classNames('viafoura --no-app', {
-        'not-comment': messageProps
+        'not-comment': !allowComments || !subscription
     });
     return (
         <div className={viafouraClassName}>

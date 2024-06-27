@@ -7,7 +7,7 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
     data-id="overlay-drawer-recetario"
   >
     <div
-      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh h-100dvh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular left-0 bottom-0"
+      class="drawer flex flex-column overflow-hidden fixed w-100 max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular h-100vh h-100dvh left-0 bottom-0"
       data-id="drawer-recetario"
       data-position="bottom"
       data-visible="false"
@@ -21,8 +21,8 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
           Elegir colección
         </span>
         <button
-          class="cursor-pointer transition-regular flex opacity-80_hover ml-auto"
-          title="Cerrar menú"
+          class="button ml-auto"
+          title="Cerrar"
         >
           <i
             class="icon --icon-24"
@@ -86,6 +86,7 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
         <button
           class="button foodit-button gap-8 roboto-bold text-12 --full-width rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-12 mt-auto"
           data-variant="secondary"
+          disabled=""
           title="Aplicar"
         >
           Aplicar

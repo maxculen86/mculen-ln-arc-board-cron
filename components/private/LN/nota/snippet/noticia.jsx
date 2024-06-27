@@ -143,7 +143,7 @@ const SnippetNoticia = props => {
         'placeholderLN-1080.jpg'
     );
 
-    const { path, name } = primarySection;
+    const { name } = primarySection;
 
     const distributorAuthor = {
         '@type': 'Organization',
@@ -172,7 +172,9 @@ const SnippetNoticia = props => {
         dateCreated: `${new Date(createdDate).toUTCString()}`,
         datePublished: datePublishedISO,
         dateModified: dateModifiedISO,
-        mainEntityOfPage: addForwardSlash(`${siteProperties.host}${path}`),
+        mainEntityOfPage: addForwardSlash(
+            `${siteProperties.host}${canonical_url}`
+        ),
         articleSection: `${name}`,
         isAccessibleForFree:
             contentCode === 'abierta' || contentCode === 'comun',

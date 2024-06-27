@@ -76,7 +76,8 @@ export default {
         isInApertura: 'bool',
         checkExclusiveAccess: 'bool',
         isAdmin: 'bool',
-        uri: 'text'
+        uri: 'text',
+        banners_disabled: 'bool'
     },
     filter,
     ttl: 120

@@ -1,5 +1,4 @@
 import 'regenerator-runtime/runtime';
-import { render } from '@testing-library/react';
 import { LANACION_SERVICES_URL } from 'fusion:environment';
 import mockFilterHolidays from '../../../../../__mocks__/data/holidays/mockFilterHolidays.json';
 import mockHolidays from '../../../../../__mocks__/data/holidays/mockHolidays.json';
@@ -23,6 +22,10 @@ import {
     getHolidaysDate,
     getHolidaysMetaData
 } from '../../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
+import {
+    getArgentinaYear,
+    datesDiffInDays
+} from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
 const mockResponse = Promise.resolve(mockCatholicAndJewishHoliday);
 
@@ -41,24 +44,46 @@ jest.mock('request-promise-native', () => {
     };
 });
 
+jest.mock(
+    '../../../../../components/private/common/utils/dateAndTimeUtil',
+    () => ({
+        getArgentinaYear: jest.fn().mockReturnValue(2024),
+        monthNames: [
+            'enero',
+            'febrero',
+            'marzo',
+            'abril',
+            'mayo',
+            'junio',
+            'julio',
+            'agosto',
+            'septiembre',
+            'octubre',
+            'noviembre',
+            'diciembre'
+        ],
+        getSpecificDate: jest.fn(),
+        datesDiffInDays: jest.fn()
+    })
+);
 const currentYear = new Date().getFullYear();
 const previousYear = new Date().getFullYear() - 1;
 
 describe('Test getUri function', () => {
-    it('Should return endpoint with the year', () => {
+    test('Should return endpoint with the year', () => {
         expect(
             getUri({ service: 'feriados', serviceItem: '2022' })
         ).toStrictEqual(
             'https://arcservices.lanacion.com.ar/api/v1/feriados/2022'
         );
     });
-    it('Should return endpoint with the current year', () => {
+    test('Should return endpoint with the current year', () => {
         expect(getUri({ service: 'feriados' })).toStrictEqual(
             `https://arcservices.lanacion.com.ar/api/v1/feriados/${currentYear}`
         );
     });
 
-    it('Should return endpoint with the month detail', () => {
+    test('Should return endpoint with the month detail', () => {
         expect(
             getUri({
                 service: 'feriados',
@@ -69,7 +94,7 @@ describe('Test getUri function', () => {
             'https://arcservices.lanacion.com.ar/api/v1/feriados/2022/5'
         );
     });
-    it('Should return error', () => {
+    test('Should return error', () => {
         expect(() => {
             getUri({});
         }).toThrow(
@@ -79,16 +104,15 @@ describe('Test getUri function', () => {
 });
 
 describe('Tests holidays request', () => {
-    it('Should return data from the request', () => {
-        const queryObj = { service: 'feriados' };
-        const req = { queryData: queryObj, auth: {} };
+    test('Should return data from the request', () => {
+        const req = { queryData: { service: 'feriados' }, auth: {} };
 
         expect(holidayRequest(req)).toStrictEqual(mockResponse);
     });
 });
 
 describe('Tests reject function', () => {
-    it('Should reject request', () => {
+    test('Should reject request', () => {
         const error = { error: error404, uri: '', arcSite: '' };
         expect(() => {
             reject(error);
@@ -97,41 +121,64 @@ describe('Tests reject function', () => {
 });
 
 describe('Tests getTemplates function', () => {
-    it('Should return string "feriados-mes" as serviceType', () => {
-        expect(getTemplates('2022', 'mayo')).toStrictEqual('feriados-mes');
-    });
-    it('Should return string "feriados-año" as serviceType', () => {
-        expect(getTemplates('2022')).toStrictEqual('feriados-año');
-        expect(getTemplates('')).toStrictEqual('feriados-año');
-        expect(getTemplates()).toStrictEqual('feriados-año');
+    const cases = [
+        [
+            'Should return string "feriados-mes" as serviceType',
+            '2022',
+            'mayo',
+            'feriados-mes'
+        ],
+        [
+            'Should return string "feriados-año" as serviceType',
+            '2022',
+            undefined,
+            'feriados-año'
+        ],
+        [
+            'Should return string "feriados-año" as serviceType',
+            '',
+            undefined,
+            'feriados-año'
+        ],
+        [
+            'Should return string "feriados-año" as serviceType',
+            undefined,
+            undefined,
+            'feriados-año'
+        ]
+    ];
+    test.each(cases)('%s', (message, year, month, result) => {
+        const template = getTemplates(year, month);
+        expect(template).toBe(result);
     });
 });
 
 describe('Test getMonthNumber helperFunction', () => {
-    it('Should return number', () => {
-        expect(getMonthNumber('diciembre')).toBe(12);
-    });
-    it('Should return zero', () => {
-        expect(getMonthNumber('hola')).toBe(0);
-        expect(getMonthNumber('')).toBe(0);
-        expect(getMonthNumber('2')).toBe(0);
-        expect(getMonthNumber()).toBe(0);
+    const cases = [
+        ['Should return number', 'diciembre', 12],
+        ['Should return zero', 'hola', 0],
+        ['Should return zero', '', 0],
+        ['Should return zero', undefined, 0]
+    ];
+    test.each(cases)('%s', (message, month, result) => {
+        expect(getMonthNumber(month)).toBe(result);
     });
 });
 
 describe('Test getMonthName helperFunction', () => {
-    it('Should return name', () => {
-        expect(getMonthName(5)).toBe('mayo');
-    });
-    it('Should return string', () => {
-        expect(getMonthName('enero')).toBe('');
-        expect(getMonthName('')).toBe('');
-        expect(getMonthName()).toBe('');
+    const cases = [
+        ['Should return name', 5, 'mayo'],
+        ['Should return empty string for enero', 'enero', ''],
+        ['Should return empty string for empty string', '', ''],
+        ['Should return empty string for undefined', undefined, '']
+    ];
+    test.each(cases)('%s', (message, number, result) => {
+        expect(getMonthName(number)).toBe(result);
     });
 });
 
 describe('Test getNameDay helperFunction', () => {
-    it('Should return name', () => {
+    test('Should return name', () => {
         expect(getNameDay('2022-10-25')).toBe('Martes');
     });
 });
@@ -376,19 +423,19 @@ describe('Test convertHolidaysTable helperFuction', () => {
 });
 
 describe('Tests getHolidaysDate', () => {
-    it('Should return correct format for date when the array has more than two days', () => {
+    test('Should return correct format for date when the array has more than two days', () => {
         expect(getHolidaysDate([1, 2, 3, 4], 4)).toStrictEqual('1-4 de abril');
     });
-    it('Should return correct format for date when the array has two days', () => {
+    test('Should return correct format for date when the array has two days', () => {
         expect(getHolidaysDate([5, 6], 6)).toStrictEqual('5-6 de junio');
     });
-    it('Should return correct format for date with only one day', () => {
+    test('Should return correct format for date with only one day', () => {
         expect(getHolidaysDate([23], 11)).toStrictEqual('23 de noviembre');
     });
 });
 
 describe('Test getHolidaysMetaData', () => {
-    it('Should return the correct metadata of the month detail', () => {
+    test('Should return the correct metadata of the month detail', () => {
         expect(getHolidaysMetaData('enero')('2023', 'enero')).toStrictEqual({
             description:
                 'Calendario de feriados nacionales en enero de 2023 en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.',
@@ -398,7 +445,7 @@ describe('Test getHolidaysMetaData', () => {
                 'Feriados en enero de 2023 en Argentina. Calendario 2023 - LA NACION'
         });
     });
-    it('Should return the correct default metadata of the month detail', () => {
+    test('Should return the correct default metadata of the month detail', () => {
         expect(getHolidaysMetaData('mayo')('2024', 'mayo')).toStrictEqual({
             description:
                 'Calendario de feriados nacionales en mayo de 2024 en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.',
@@ -408,7 +455,7 @@ describe('Test getHolidaysMetaData', () => {
                 'Feriados en mayo de 2024 en Argentina. Calendario 2024 - LA NACION'
         });
     });
-    it('Should return the correct metadata of the calendar home', () => {
+    test('Should return the correct metadata of the calendar home', () => {
         expect(getHolidaysMetaData()('2022')).toStrictEqual({
             title:
                 'Feriados 2022 en Argentina: Calendario de feriados nacionales - LA NACION',
@@ -416,7 +463,7 @@ describe('Test getHolidaysMetaData', () => {
                 'Calendario de feriados nacionales 2022 en Argentina: días no laborables, fines de semana largo y feriados puente del 2022 y 2023 en LA NACION.'
         });
     });
-    it.skip('Should return the correct metadata for the year current of the calendar home', () => {
+    test('Should return the correct metadata for the year current of the calendar home', () => {
         expect(getHolidaysMetaData()()).toStrictEqual({
             title:
                 'Feriados 2024 en Argentina: Calendario de feriados nacionales - LA NACION',
@@ -426,14 +473,14 @@ describe('Test getHolidaysMetaData', () => {
     });
 });
 describe('Test getUri function', () => {
-    it('Should return endpoint with the year', () => {
+    test('Should return endpoint with the year', () => {
         expect(
             getUri({ service: 'feriados', serviceItem: '2023' })
         ).toStrictEqual(
             'https://arcservices.lanacion.com.ar/api/v1/feriados/2023'
         );
     });
-    it('Should return endpoint with the current year', () => {
+    test('Should return endpoint with the current year', () => {
         const mockDate = new Date(2024, 6, 1);
         const spy = jest
             .spyOn(global, 'Date')
@@ -444,7 +491,7 @@ describe('Test getUri function', () => {
         spy.mockRestore();
     });
 
-    it('Should return endpoint with the month detail', () => {
+    test('Should return endpoint with the month detail', () => {
         expect(
             getUri({
                 service: 'feriados',
@@ -455,7 +502,7 @@ describe('Test getUri function', () => {
             'https://arcservices.lanacion.com.ar/api/v1/feriados/2022/5'
         );
     });
-    it('Should return error', () => {
+    test('Should return error', () => {
         expect(() => {
             getUri({});
         }).toThrow(
@@ -469,10 +516,10 @@ describe('Test transform holidays ', () => {
         dataService: mockHolidays,
         serviceType: 'feriados-año'
     };
-    it.skip('Check transform function for holidays home template', () => {
+    test('Check transform function for holidays home template', () => {
         expect(transform(data)).toStrictEqual(outputTransformHome);
     });
-    it('Check transform function for holidays año template', () => {
+    test('Check transform function for holidays año template', () => {
         const dataYear = { ...data, serviceItem: 2024 };
         expect(transform(dataYear)).toStrictEqual({
             ...outputTransformHome,
@@ -485,7 +532,8 @@ describe('Test transform holidays ', () => {
             }
         });
     });
-    it.skip('Check transform function in month without holidays ', () => {
+    test('Check transform function in month without holidays ', () => {
+        getArgentinaYear.mockReturnValueOnce(2022);
         expect(
             transform({
                 dataService: inputMonthWithoutHolidays,
@@ -495,7 +543,8 @@ describe('Test transform holidays ', () => {
             })
         ).toStrictEqual(outputMonthWithoutHolidays);
     });
-    it.skip('Check transform function in month with holidays', () => {
+    test('Check transform function in month with holidays', () => {
+        getArgentinaYear.mockReturnValueOnce(2022);
         expect(
             transform({
                 dataService: inputMonthWithHolidays,
@@ -513,11 +562,13 @@ describe('Test next holiday data generation with getNextHolidayData', () => {
     } = outputTransformHome;
 
     describe('When current date is a holiday, should return next holiday', () => {
-        it('On christmas should return new year', () => {
+        test('On christmas should return new year', () => {
             const mockDateObject = new Date(2022, 11, 25);
             const spy = jest
                 .spyOn(global, 'Date')
                 .mockImplementation(() => mockDateObject);
+
+            datesDiffInDays.mockReturnValueOnce(0);
 
             expect(getNextHolidayData(calendars)).toStrictEqual({
                 countdown: 0,
@@ -530,11 +581,13 @@ describe('Test next holiday data generation with getNextHolidayData', () => {
         });
     });
     describe('When current date is not holiday, should return upcoming holiday', () => {
-        it('On first of july should return independency day', () => {
+        test('On first of july should return independency day', () => {
             const mockDateObject = new Date(2022, 6, 1);
             const spy = jest
                 .spyOn(global, 'Date')
                 .mockImplementation(() => mockDateObject);
+
+            datesDiffInDays.mockReturnValueOnce(0);
 
             expect(getNextHolidayData(calendars)).toStrictEqual({
                 countdown: 0,
@@ -549,13 +602,13 @@ describe('Test next holiday data generation with getNextHolidayData', () => {
 });
 
 describe('Tests getHolidaysDate', () => {
-    it('Should return correct format for date when the array has more than two days', () => {
+    test('Should return correct format for date when the array has more than two days', () => {
         expect(getHolidaysDate([1, 2, 3, 4], 4)).toStrictEqual('1-4 de abril');
     });
-    it('Should return correct format for date when the array has two days', () => {
+    test('Should return correct format for date when the array has two days', () => {
         expect(getHolidaysDate([5, 6], 6)).toStrictEqual('5-6 de junio');
     });
-    it('Should return correct format for date with only one day', () => {
+    test('Should return correct format for date with only one day', () => {
         expect(getHolidaysDate([23], 11)).toStrictEqual('23 de noviembre');
     });
 });

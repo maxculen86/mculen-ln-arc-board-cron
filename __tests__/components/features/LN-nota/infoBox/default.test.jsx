@@ -8,10 +8,10 @@ jest.mock('fusion:context', () => ({
 }));
 
 describe('InfoBox', () => {
-    it('Should render if parent id is /deportes', () => {
+    it('Should render if path has /deportes in it', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
-                taxonomy: { primary_section: { parent_id: '/deportes' } }
+                taxonomy: { primary_section: { path: '/deportes' } }
             }
         }));
 
@@ -21,10 +21,10 @@ describe('InfoBox', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('shouldnt render if parent id is another than /deportes', () => {
+    it('shouldnt render if path not contain /deportes or /juegos in it', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
-                taxonomy: { primary_section: { parent_id: '/mundo' } }
+                taxonomy: { primary_section: { path: '/mundo' } }
             }
         }));
 

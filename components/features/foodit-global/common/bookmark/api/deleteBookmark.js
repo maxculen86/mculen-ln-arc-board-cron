@@ -68,7 +68,8 @@ const deleteBookmark = async bookmarks => {
 const fetchDeleteBookmark = async (
     bookmarkedArticles,
     setUserBookmarks,
-    setSelectedItem
+    setSelectedItem,
+    userBookmarksQuantity = 0
 ) => {
     const { successfullResponses, failureResponses } = await deleteBookmark(
         bookmarkedArticles
@@ -83,10 +84,22 @@ const fetchDeleteBookmark = async (
                 )
             );
             setSelectedItem &&
-                setSelectedItem(({ id: prevId, quantity: prevQuantity }) => ({
-                    id: prevId,
-                    quantity: prevQuantity - successfullResponses.length
-                }));
+                userBookmarksQuantity &&
+                setSelectedItem(({ id: prevId, quantity: prevQuantity }) => {
+                    const quantity = prevQuantity - successfullResponses.length;
+
+                    return quantity > 0
+                        ? {
+                              id: prevId,
+                              quantity
+                          }
+                        : {
+                              id: 'Todas',
+                              quantity:
+                                  userBookmarksQuantity -
+                                  successfullResponses.length
+                          };
+                });
         } else {
             const bookmarkedItems =
                 JSON.parse(localStorage.getItem('bookmarkedItems')) || [];

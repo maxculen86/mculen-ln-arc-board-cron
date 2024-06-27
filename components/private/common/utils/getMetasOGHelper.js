@@ -45,7 +45,7 @@ export const getData = ({
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const imagePath = `${contextPath}/resources/images/placeholderLN.jpg`;
+    const imagePath = `${contextPath}/resources/images/favicon-192.png`;
     const PLACEHOLDER = `${ARC_STATIC}${deployment(imagePath)}`;
     const {
         title: titleDefault,
@@ -60,7 +60,8 @@ export const getData = ({
         canonical_url: canonicalUrl,
         _id,
         publish_date: publishDate,
-        subtype
+        subtype,
+        acuOgImg = ''
     } = addRelatedImage(globalContent) || {};
 
     const { basic: headlinesBasic } = headlines;
@@ -85,7 +86,9 @@ export const getData = ({
             : metaValue('title') ||
               validateTitle(section, longTitle, titleDefault),
         description,
-        image: typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER,
+        image:
+            acuOgImg.url ||
+            (typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER),
         url: getUrl(url, domain),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,

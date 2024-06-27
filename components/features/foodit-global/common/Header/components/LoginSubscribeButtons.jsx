@@ -22,15 +22,13 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     data-interaction="dataLayerInteraction"
                     data-event-data-layer="subscription_start"
                     data-button="buttonSubscribeText"
+                    href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window &&
+                        window.btoa(window.location.href)}`}
                     onClick={() => {
                         addEventToDataLayer({
                             event: 'subscription_start',
                             button: buttonSubscribeText
                         });
-
-                        return (location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?cv=670&fc=825&callback=${window.btoa(
-                            window.location.href
-                        )}`);
                     }}
                 >
                     {buttonSubscribeText}
@@ -42,9 +40,9 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     title={buttonLogginText}
                     variant="link"
                     data-variant="link"
-                    onClick={() =>
-                        (location.href =
-                            FOODIT_LOGIN_URL + window.btoa(location.href))
+                    href={
+                        FOODIT_LOGIN_URL +
+                        (window && window.btoa(location.href))
                     }
                 >
                     <span className="roboto-regular">{buttonLogginText}</span>

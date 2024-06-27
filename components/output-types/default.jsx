@@ -61,7 +61,8 @@ const Default = props => {
         isAdmin,
         requestUri,
         template,
-        Resource
+        Resource,
+        globalContentConfig = {}
     } = props;
 
     const {
@@ -133,7 +134,8 @@ const Default = props => {
     const Scripts = buildScriptComponent(
         renderables,
         siteProperties.scripts,
-        globalContent
+        globalContent,
+        globalContentConfig
     );
 
     const metaDescription = getMetaDescriptionDefault(

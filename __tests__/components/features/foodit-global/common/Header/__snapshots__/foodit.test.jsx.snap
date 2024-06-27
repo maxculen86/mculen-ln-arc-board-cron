@@ -145,19 +145,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             <div
               class="right-options flex jc-end ai-center gap-16 gap-24_md"
             >
-              <button
+              <a
                 class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg lg-only"
                 data-button="buttonSubscribeText"
                 data-event-data-layer="subscription_start"
                 data-interaction="dataLayerInteraction"
                 data-variant="accent"
-                title="SUSCRIBITE"
+                href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
+                target="_self"
+                title="SUSCRIBITE GRATIS"
               >
-                SUSCRIBITE
-              </button>
-              <button
+                SUSCRIBITE GRATIS
+              </a>
+              <a
                 class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
                 data-variant="link"
+                href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
+                target="_self"
                 title="INICIAR SESIÓN"
               >
                 <span
@@ -165,7 +169,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 >
                   INICIAR SESIÓN
                 </span>
-              </button>
+              </a>
             </div>
             <div
               class="search-container flex"
@@ -1285,10 +1289,34 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       >
                         <mock-icon
                           critical="true"
-                          name="cart"
+                          name="shopping-list"
                         />
                       </i>
                       LISTA DE COMPRAS
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
+                      data-dynamic-action="N/A"
+                      data-dynamic-category="header"
+                      data-dynamic-label="newsletter"
+                      data-event-data-layer="e_linkclick"
+                      data-interaction="dataLayerInteraction"
+                      data-variant="primary"
+                      href="https://newsletter.lanacion.com.ar/#foodit"
+                      target="_self"
+                      title="Ir a newsletter"
+                    >
+                      <i
+                        class="icon --icon-20"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="newsletter"
+                        />
+                      </i>
+                      NEWSLETTER
                     </a>
                   </li>
                 </ul>
@@ -1303,19 +1331,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         <div
           class="promotions-container lg-none flex ai-center gap-24 w-100 jc-center"
         >
-          <button
+          <a
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
             data-button="buttonSubscribeText"
             data-event-data-layer="subscription_start"
             data-interaction="dataLayerInteraction"
             data-variant="accent"
-            title="SUSCRIBITE"
+            href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
+            target="_self"
+            title="SUSCRIBITE GRATIS"
           >
-            SUSCRIBITE
-          </button>
-          <button
+            SUSCRIBITE GRATIS
+          </a>
+          <a
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
             data-variant="link"
+            href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
+            target="_self"
             title="INICIAR SESIÓN"
           >
             <span
@@ -1323,27 +1355,25 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             >
               INICIAR SESIÓN
             </span>
-          </button>
+          </a>
         </div>
       </div>
     </header>
   </div>
   <div
     class="drawer-overlay fixed top-0 left-0 w-100 h-100vh visibility-hidden opacity-0 z-15"
-    data-id="overlay-drawer-menu"
+    data-id="overlay-undefined"
   >
     <div
-      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh h-100dvh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular left-0"
-      data-id="drawer-menu"
+      class="drawer flex flex-column overflow-hidden fixed w-100 max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular h-100vh h-100dvh top-0 left-0"
       data-position="left"
-      data-visible="false"
     >
       <div
         class="flex"
       >
         <button
-          class="cursor-pointer transition-regular flex opacity-80_hover ml-auto"
-          title="Cerrar menú"
+          class="button ml-auto"
+          title="Cerrar"
         >
           <i
             class="icon --icon-24"

@@ -1,6 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import SummaryNote from '../../../../../../components/private/LN/common/summaryNote';
+import addEventToDataLayer from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+
+jest.mock(
+    '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => jest.fn()
+);
 
 describe('SummaryNote =>', () => {
     const Paragraphs = [
@@ -21,5 +27,16 @@ describe('SummaryNote =>', () => {
     it('Should match the snapshot', () => {
         const { container } = render(<SummaryNote paragraphs={Paragraphs} />);
         expect(container).toMatchSnapshot();
+    });
+    it('calls addEventToDataLayer when collapsed is true', () => {
+        render(<SummaryNote paragraphs={Paragraphs} />);
+
+        fireEvent.click(screen.getByText('Ver más'));
+        expect(addEventToDataLayer).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            action: 'IA',
+            category: 'nota_ln9',
+            label: 'resumen_nota'
+        });
     });
 });

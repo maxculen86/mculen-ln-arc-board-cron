@@ -107,11 +107,11 @@ xdescribe('ScriptManager genera un builder', () => {
 });
 
 describe('getScriptsToLoad', () => {
-    it('... es una function', () => {
+    it('should return a function', () => {
         expect(typeof getScriptsToLoad).toEqual('function');
     });
 
-    it('... devuelve un objeto con los scripts a incluir', () => {
+    it('should returns an object with the scripts to include', () => {
         const result = getScriptsToLoad(renderables);
         expect(Object.keys(getScriptsToLoad(undefined))).toEqual([
             'Datadog',
@@ -166,5 +166,36 @@ describe('getScriptsToLoad', () => {
             'FundingChoices'
         ]);
         expect(result.Datadog).toBeDefined();
+    });
+
+    it('should returns an object with the scripts to include when banners are disabled', () => {
+        const bannersDisabled = true;
+        const result = getScriptsToLoad(renderables, bannersDisabled);
+        expect(Object.keys(result)).toEqual([
+            'Datadog',
+            'AdblockDetector',
+            'Permutive',
+            'GTM',
+            'Comscore',
+            'ComscoreFoodit',
+            'Microdata',
+            'PostBid',
+            'GooglePublisherTagAcumulado',
+            'LiftIgniter',
+            'Petametrics',
+            'SocialEmbeds',
+            'OptaEmbed',
+            'ScriptHtmlLibre',
+            'Blockthrough',
+            'AmazonPublisherServices',
+            'ComscoreVideo',
+            'DevReactTracker',
+            'Marfeel',
+            'ObservableFoodit',
+            'DataModal',
+            'FooditEventsHelper',
+            'EventsHelper',
+            'FundingChoices'
+        ]);
     });
 });

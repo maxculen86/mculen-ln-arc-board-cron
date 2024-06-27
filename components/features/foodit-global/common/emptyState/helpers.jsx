@@ -29,7 +29,7 @@ export const descriptionByVariant = ({ layout, variant }) => {
             <span>
                 Presioná el botón
                 <Icon size={16} className="vertical-align-middle mx-4">
-                    <IconSprite name="cart" critical />
+                    <IconSprite name="shopping-list" critical />
                 </Icon>
                 en la receta para agregar los ingredientes que necesitas y
                 ¡Listo!

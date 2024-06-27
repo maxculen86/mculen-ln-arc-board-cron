@@ -6,13 +6,14 @@ import { Itemcard } from '@ln/foodit-ui-itemcard';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import removeAccents from '../../../../private/common/utils/removeAccents';
 import { DESCUBRIR_SECTIONS } from '../dataLayer/_helpers';
+import { DRAWER } from '../DrawerContainer/constants';
 
 const DrawerMenu = ({ categories = [] }) => {
     if (!categories.length) return <></>;
 
     return (
         <DrawerContainer
-            drawerId="drawer-menu"
+            drawerId={DRAWER.MENU}
             position="left"
             bodyClassName="pr-16"
         >

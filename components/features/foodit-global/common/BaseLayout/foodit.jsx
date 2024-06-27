@@ -2,7 +2,8 @@ import React from 'react';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import { getConfigByLayout } from '../floatingGroupButton/helpers';
-
+import { useDrawer } from '@ln/common-ui-drawer';
+import { DRAWER } from '../DrawerContainer/constants';
 import Header from '../Header/foodit';
 import Footer from '../Footer/foodit';
 import Modal from '../Modals/SaveRecipe/foodit';
@@ -16,6 +17,7 @@ import DataLayerInteractions from '../../../../private/common/scriptManager/Data
 
 const BaseLayout = ({ children }) => {
     const { layout, contextPath, deployment, arcSite } = useAppContext();
+    const { toggleDrawer } = useDrawer({ id: DRAWER.RECETARIO });
 
     return (
         <AuthProvider>
@@ -39,7 +41,9 @@ const BaseLayout = ({ children }) => {
                 <DataLayerInteractions />
                 <Modal />
                 <Toasts />
-                <FloatingGroupButton {...getConfigByLayout(layout)} />
+                <FloatingGroupButton
+                    {...getConfigByLayout(layout, [toggleDrawer])}
+                />
             </div>
         </AuthProvider>
     );

@@ -96,8 +96,6 @@ export default {
         'https://pre-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     // TODO: CUando reestablezcan QA cambiar a URL de QA
     API_INGRESAR: 'https://pre-api-ingresar.lanacion.com.ar',
-    CLL_BACK_BASE_URL: 'https://qa-api-cll-services.lanacion.com.ar/graphql/',
-    CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe',
     MARFEEL_ACCOUNT_ID: '3353',
     BEYONDWORDS_PROJECT_ID: 38983,
     JWP_TOKEN:
@@ -109,5 +107,14 @@ export default {
     // TODO: Queda comentado hasta que habiliten qa
     // SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://pre-suscripciones.lanacion.com.ar/',
-    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    FIREBASE_CONFIG: {
+        apiKey: 'AIzaSyDx9szVMLkQylr9LN0G3v5faTrMKXyz3rM',
+        authDomain: 'lanaciontest-24eed.firebaseapp.com',
+        databaseURL: 'https://lanaciontest-24eed.firebaseio.com',
+        messagingSenderId: '247148690244',
+        projectId: 'lanaciontest-24eed',
+        storageBucket: 'lanaciontest-24eed.appspot.com'
+    },
+    API_NOTIFICATION: 'https://qa-notificaciones.lanacion.com.ar/api/'
 };

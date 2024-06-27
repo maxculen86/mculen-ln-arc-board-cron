@@ -42,7 +42,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
                   />
                 </picture>
               </div>
@@ -148,7 +148,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
                   />
                 </picture>
               </div>
@@ -254,7 +254,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
                   />
                 </picture>
               </div>
@@ -344,7 +344,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                    src="https://resizer.glanacion.com/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
                   />
                 </picture>
               </div>
@@ -450,7 +450,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/sjKjOz-Qkwp1fWlFQXqG-lAgTMI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+                    src="https://resizer.glanacion.com/resizer/sZWokM9HOmBxTxsh1wLkXIaYB64=/238x158/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
                   />
                 </picture>
               </div>
@@ -465,7 +465,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-semibold text-20"
                   >
                     Ficha nota FOODIT
                   </h2>
@@ -556,7 +556,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                    src="https://resizer.glanacion.com/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
                   />
                 </picture>
               </div>
@@ -571,7 +571,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-semibold text-20"
                   >
                     Receta para comer mas rico con ...POLLITO 2
                   </h2>
@@ -662,7 +662,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
                   />
                 </picture>
               </div>
@@ -752,7 +752,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/3Rpes7kYHc0yrSyXJYdR9vLK1R8=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
+                    src="https://resizer.glanacion.com/resizer/ySDDSPdlKx7hOqPQ7stYATozdW4=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
                   />
                 </picture>
               </div>
@@ -842,7 +842,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/6yMye19gDxb92IUuoJqISyioUAM=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
+                    src="https://resizer.glanacion.com/resizer/A29ND6fhGV2TlD5CIZW5SNpyEwY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
                   />
                 </picture>
               </div>
@@ -948,7 +948,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/ZU0-XzArUvlmFY_lS1eu8QaOg1E=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
+                    src="https://resizer.glanacion.com/resizer/j-IJ5qMXhujp_MG5mjLTIRnayHI=/238x158/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
                   />
                 </picture>
               </div>
@@ -1054,7 +1054,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                    src="https://resizer.glanacion.com/resizer/VB6dy7gi6LI1unkCJMZg0zgyNBQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
                   />
                 </picture>
               </div>
@@ -1165,7 +1165,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/mpDZYaDvBIh_2bnsmH41tsxny8w=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
+                    src="https://resizer.glanacion.com/resizer/Pi97y-0q3jUiWl6dDQ_UPITX8MY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
                   />
                 </picture>
               </div>

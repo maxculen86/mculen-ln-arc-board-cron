@@ -6,6 +6,20 @@ const AddRelatedImage = (article = {}) => {
     const relatedContent = get(article, 'related_content.basic', []);
     const canonicalUrl = get(article, 'canonical_url', '');
     const articleId = get(article, '_id', '');
+
+    const { id_logo_compartir: shareImage = '' } = get(
+        article,
+        'acumuladoColor',
+        ''
+    );
+
+    const acuOgImg = getContent({
+        source: shareImage ? 'imageSource' : null,
+        query: {
+            id: shareImage
+        }
+    });
+
     const { _id: id } =
         (relatedContent &&
             relatedContent.find(
@@ -35,15 +49,17 @@ const AddRelatedImage = (article = {}) => {
             filter
         });
 
-    return (
-        (imageData && {
-            ...article,
+    const resultArticle = {
+        ...article,
+        ...(imageData && {
             promo_items: {
                 ...imageData.promo_items
             }
-        }) ||
-        article
-    );
+        }),
+        ...(acuOgImg && { acuOgImg: acuOgImg })
+    };
+
+    return resultArticle;
 };
 
 export default AddRelatedImage;

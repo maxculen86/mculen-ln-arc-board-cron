@@ -49,7 +49,7 @@ const ComTitle = ({
     );
 
     const _props = {
-        style: style && style,
+        style,
         className: classes,
         ...(!linkComponent && { dangerouslySetInnerHTML: { __html: content } }),
         ...(linkComponent && { children: linkComponent })

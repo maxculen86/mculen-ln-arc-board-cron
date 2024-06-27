@@ -11,7 +11,9 @@ const addEventToDataLayer = ({
     detail,
     code,
     notificationsCategory,
-    button
+    button,
+    page_notification,
+    identifier
 } = {}) => {
     !isSSR() &&
         window.dataLayer &&
@@ -28,7 +30,9 @@ const addEventToDataLayer = ({
             ...(button && { button }),
             ...(notificationsCategory && {
                 notifications_category: notificationsCategory
-            })
+            }),
+            ...(page_notification && { page_notification }),
+            ...(identifier && { identifier })
         });
 };
 

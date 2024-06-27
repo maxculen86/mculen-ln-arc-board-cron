@@ -27,6 +27,7 @@ import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
 import FundingChoices from '../../../common/scriptManager/scriptFundingChoices';
+import get from '../../../common/utils/get';
 
 const scriptList = [
     {
@@ -141,13 +142,19 @@ const scriptList = [
 const getPageBuilderFeatures = _renderables =>
     _renderables.filter(renderable => renderable.collection === 'features');
 
-const getScriptsFilterFunction = scripts => features =>
+const isGPTAndDisabled = (script, bannersDisabled) => {
+    return bannersDisabled && script.component.name === 'GooglePublisherTag';
+};
+
+const getScriptsFilterFunction = (scripts, bannersDisabled) => features =>
     scripts
         .filter(
             script =>
-                features.find(feature =>
-                    script.feature.includes(feature.type)
-                ) !== undefined || script.feature === 'none'
+                (script.feature === 'none' ||
+                    features.find(feature =>
+                        script.feature.includes(feature.type)
+                    ) !== undefined) &&
+                !isGPTAndDisabled(script, bannersDisabled)
         )
         .map(element => element.component)
         .reduce(
@@ -158,20 +165,24 @@ const getScriptsFilterFunction = scripts => features =>
             {}
         );
 
-export const getScriptsToLoad = (renderables = []) => {
+export const getScriptsToLoad = (renderables = [], bannersDisabled = false) => {
     return pipe(
         getPageBuilderFeatures,
-        getScriptsFilterFunction(scriptList)
+        getScriptsFilterFunction(scriptList, bannersDisabled)
     )(renderables);
 };
 
 const buildScriptComponent = (
     renderables = [],
     sitePropertiesScripts = [],
-    globalContent = {}
+    globalContent = {},
+    globalContentConfig = {}
 ) => {
+    const bannersDisabled =
+        get(globalContentConfig, 'query.banners_disabled', 'false') === 'true';
+
     return ScriptManager(
-        getScriptsToLoad(renderables),
+        getScriptsToLoad(renderables, bannersDisabled),
         sitePropertiesScripts,
         globalContent
     );

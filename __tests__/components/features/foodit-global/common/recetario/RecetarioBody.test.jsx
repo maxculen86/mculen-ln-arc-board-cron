@@ -39,7 +39,7 @@ jest.mock(
 
 jest.mock('../../../../../../components/private/common/utils/getToken');
 
-xdescribe('RecetarioBody', () => {
+describe('RecetarioBody', () => {
     beforeEach(() => {
         useAppContext.mockImplementation(() => ({
             contextPath: '/test-path',
@@ -58,7 +58,7 @@ xdescribe('RecetarioBody', () => {
     });
 
     test('Should render empty state component variant="barrier-unlogged" when user is unlogged', async () => {
-        getBookmarks.mockResolvedValueOnce({ data: [] });
+        getBookmarks.mockReturnValue({ data: [] });
         useGetUserData.mockReturnValue({
             userType: 'unlogged'
         });
@@ -77,7 +77,7 @@ xdescribe('RecetarioBody', () => {
         );
     });
     test('Should render empty state component variant="barrier-logged" when user is logged', async () => {
-        getBookmarks.mockResolvedValueOnce({ data: [] });
+        getBookmarks.mockReturnValue({ data: [] });
         useGetUserData.mockReturnValue({
             userType: 'logged'
         });

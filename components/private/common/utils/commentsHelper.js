@@ -19,9 +19,7 @@ export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
     },
     commenting: {
         loaded: ({ setIsReady, outputType }) => {
-            (outputType === 'default' || outputType === 'foodit') &&
-                setIsReady &&
-                setIsReady(true);
+            outputType === 'default' && setIsReady?.(true);
             if (outputType === 'widgets') {
                 const loader = document.getElementsByClassName('loader');
                 loader && loader[0].classList.add('hlp-none');
@@ -57,13 +55,6 @@ export const allowComments = props =>
     get(props, 'globalContent._id', '') &&
     get(props, 'globalContent.comments.display_comments', true);
 
-export const allowCommentsFoodit = ({ article }) => {
-    return (
-        get(article, 'type', '') === 'story' &&
-        get(article, '_id', '') &&
-        get(article, 'comments.display_comments', true)
-    );
-};
 export const shouldLoadViafoura = inputDate => {
     const gc = useContext(GlobalContext);
     const deadlineLivefyre = get(
@@ -99,16 +90,6 @@ export const getLoginAndRegistrationURLS = () => {
     };
 };
 
-export const getLoginAndRegistrationURLSFoodit = () => {
-    const urlBase64 =
-        typeof window !== 'undefined' ? window.btoa(location.href) : '';
-
-    return {
-        loginUrl: `${LOGIN_URL}${urlBase64}`,
-        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/${urlBase64}`
-    };
-};
-
 export const getMessageProps = (props, messageType, gc) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     const outputType = get(props, 'outputType', 'default');
@@ -116,7 +97,7 @@ export const getMessageProps = (props, messageType, gc) => {
     const element = termicas.find(
         ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
     );
-    const customMessage = (element && element.value) || '';
+    const customMessage = element?.value || '';
     const { loginUrl, registracionUrl } = getLoginAndRegistrationURLS();
 
     const MESSAGE_PROPS = {
