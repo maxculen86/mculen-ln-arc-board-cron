@@ -40,7 +40,11 @@ const ModDate = ({
                 <ReadingTime />
             </ul>
             {dateFormattedUpdate && (
-                <Text className="mod-last-update" size="2xs" weight="regular">
+                <Text
+                    className="mod-last-update white-space-nowrap"
+                    size="2xs"
+                    weight="regular"
+                >
                     Actualizado el {dateFormattedUpdate}
                 </Text>
             )}
