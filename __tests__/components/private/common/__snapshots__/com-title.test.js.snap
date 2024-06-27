@@ -1,77 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Private - Common - ComTitle =>  Snapshot con classCondition, size y weight 1`] = `
-<h2
-  class="com-title --font-primary --xl --font-medium --modificador"
->
-  Título de impacto H2
-</h2>
+<div>
+  <h2
+    class="com-title --font-primary --xl --font-medium --modificador"
+  >
+    Título de impacto H2
+  </h2>
+</div>
 `;
 
-exports[`Private - Common - ComTitle =>  Snapshot h2 con content tags  y link 1`] = `
-<h2
-  class="com-title --font-primary --l --font-medium"
->
-  <a
-    class="com-link"
-    href="/ultimas-noticias"
-    title="Soy un <em>Título</em> de impacto H2 con ComLink"
+exports[`Private - Common - ComTitle =>  Snapshot h2 con content tags y link 1`] = `
+<div>
+  <h2
+    class="com-title --font-primary --l --font-medium"
   >
-    Soy un &lt;em&gt;Título&lt;/em&gt; de impacto H2 con ComLink
-  </a>
-</h2>
+    <a
+      class="com-link"
+      href="/ultimas-noticias"
+      title="Soy un <em>Título</em> de impacto H2 con ComLink"
+    >
+      Soy un &lt;em&gt;Título&lt;/em&gt; de impacto H2 con ComLink
+    </a>
+  </h2>
+</div>
 `;
 
 exports[`Private - Common - ComTitle =>  Snapshot h2 con link 1`] = `
-<h2
-  class="com-title --font-primary --l --font-medium"
->
-  <a
-    class="com-link"
-    href="/ultimas-noticias"
-    title="Título de impacto H2 con ComLink"
+<div>
+  <h2
+    class="com-title --font-primary --l --font-medium"
   >
-    Título de impacto H2 con ComLink
-  </a>
-</h2>
+    <a
+      class="com-link"
+      href="/ultimas-noticias"
+      title="Título de impacto H2 con ComLink"
+    >
+      Título de impacto H2 con ComLink
+    </a>
+  </h2>
+</div>
 `;
 
 exports[`Private - Common - ComTitle =>  Snapshots con tags h1, h2, h3, h4 1`] = `
-Array [
+<div>
   <h1
     class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H1
-  </h1>,
+  </h1>
   <h2
     class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H2
-  </h2>,
+  </h2>
   <h3
     class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H3
-  </h3>,
+  </h3>
   <h4
     class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H4
-  </h4>,
-]
+  </h4>
+</div>
 `;
 
 exports[`Private - Common - ComTitle =>  Snapshots tags no permitidos 1`] = `
-Array [
+<div>
   <h4
     class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H5
-  </h4>,
+  </h4>
   <h4
     class="com-title --font-primary --l --font-medium"
   >
     Título de impacto SPAN
-  </h4>,
-]
+  </h4>
+</div>
 `;

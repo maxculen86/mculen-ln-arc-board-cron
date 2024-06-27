@@ -1,28 +1,21 @@
 import Consumer from 'fusion:consumer';
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-
-        return props.children(mockAvailableProps);
-    }
-}));
-
 import Context from 'fusion:context';
-
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import Media from '../../../../components/private/LN/common/media';
 import image from '../../../../__mocks__/data/images/OTTprogramImage.json';
 import { getEpigrafe } from '../../../../components/private/LN/common/utils/mediaHelper';
 import EpigrafeAndCreditsData from '../../../../components/private/common/utils/epigrafeAndCreditsData';
 
-xdescribe('Private - LN - Common - Media', () => {
-    Context.useAppContext = jest.fn(() => ({
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => ({
         globalContent: { subtype: '1' }
-    }));
+    }))
+}));
 
+describe('Private - LN - Common - Media', () => {
     it('Dibuja el tag loading lazy', () => {
-        const comp = mount(
+        render(
             <Media
                 mediaData={image}
                 withZoom={false}
@@ -33,14 +26,13 @@ xdescribe('Private - LN - Common - Media', () => {
                 outputType="default"
             />
         );
-        const img = comp.find('img');
-        expect(img.is('img')).toBe(true);
-        //expect(comp.find('img').length).toEqual(1);
-        expect(img.prop('loading')).toBe('lazy');
+        const img = screen.getByRole('img');
+        expect(img).toBeInTheDocument();
+        expect(img).toHaveAttribute('loading', 'lazy');
     });
 
     it('No dibuja el tag loading lazy por ser Galeria', () => {
-        const comp = mount(
+        render(
             <Media
                 mediaData={image}
                 withZoom={false}
@@ -51,13 +43,13 @@ xdescribe('Private - LN - Common - Media', () => {
                 outputType="default"
             />
         );
-        const img = comp.find('img');
-        expect(img.is('img')).toBe(true);
-        expect(comp.prop('loading')).toBe(undefined);
+        const img = screen.getByRole('img');
+        expect(img).toBeInTheDocument();
+        expect(img).toHaveAttribute('loading', undefined);
     });
 
     it('No dibuja el tag loading lazy por tener zoom', () => {
-        const comp = mount(
+        render(
             <Media
                 mediaData={image}
                 withZoom={true}
@@ -68,9 +60,9 @@ xdescribe('Private - LN - Common - Media', () => {
                 outputType="default"
             />
         );
-        const img = comp.find('img');
-        expect(img.is('img')).toBe(true);
-        expect(comp.prop('loading')).toBe(undefined);
+        const img = screen.getByRole('img');
+        expect(img).toBeInTheDocument();
+        expect(img).toHaveAttribute('loading', undefined);
     });
 
     const basicImage = {
