@@ -1,5 +1,4 @@
 import { useContent } from 'fusion:content';
-
 import filter from '../../../../content/filters/foodit/relatedArticles';
 import get from '../../../private/common/utils/get';
 
@@ -10,7 +9,7 @@ export const useGetRelatedArticles = ({
     staticMode = false
 }) => {
     const articleList = useContent({
-        source: 'acuArticlesSource',
+        source: 'fooditAcuSource',
         query: {
             ...(filterBy === 'author' && { authorId: id }),
             ...((filterBy === 'section' || filterBy === 'relatedArticles') && {
