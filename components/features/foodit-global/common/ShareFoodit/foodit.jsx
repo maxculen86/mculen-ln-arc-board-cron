@@ -16,9 +16,7 @@ export const ShareFoodit = ({
     const socialList = socials;
 
     useEffect(() => {
-        const canShare = Boolean(
-            navigator && navigator.canShare && navigator.share
-        );
+        const canShare = Boolean(navigator?.canShare && navigator.share);
         setHasNavigator(canShare);
     }, []);
     if (hasNavigator) {
