@@ -29,7 +29,6 @@ import {
 } from '../private/common/utils/outputTypeHelper';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
-import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
 import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 import { GetFonts } from './criticalCss/getFonts';
@@ -80,6 +79,7 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
+        display_date: displayDate,
         acumuladoGeneral: { metas } = {},
         content_elements: contentElements,
         site = {}
@@ -263,6 +263,7 @@ const Default = props => {
                         section={_nodeType}
                         metaDescription={metaDescription}
                         ottMetaDescription={ottMetaDescription}
+                        displayDate={displayDate}
                     />
                 )}
                 <MetaViafoura {...props} />

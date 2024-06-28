@@ -13,7 +13,8 @@ const MetaDescription = ({
     _id,
     section,
     metaDescription,
-    ottMetaDescription
+    ottMetaDescription,
+    displayDate
 }) => {
     if (
         !subtype &&
@@ -31,7 +32,8 @@ const MetaDescription = ({
                     description,
                     metaTitleBasic,
                     subheadlines,
-                    subtype
+                    subtype,
+                    displayDate
                 )}`) ||
             metaDescription
         );

@@ -1,8 +1,9 @@
 import { ARC_STATIC } from 'fusion:environment';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
 import getDomain from './getDomain';
-import { RECETA } from './subtypes/subtypeHelper';
 import { getSectionOfRequestUri } from './outputTypeHelper';
+import get from './get';
+import transformISODate from './transformISODate';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -61,7 +62,8 @@ export const getData = ({
         _id,
         publish_date: publishDate,
         subtype,
-        acuOgImg = ''
+        acuOgImg = '',
+        display_date: displayDate
     } = addRelatedImage(globalContent) || {};
 
     const { basic: headlinesBasic } = headlines;
@@ -93,6 +95,7 @@ export const getData = ({
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
         ...(isArticle && { publishDate }),
+        ...(isArticle && { displayDate }),
         ...(isArticle && { tier: 'metered' }),
         subtype
     };
@@ -114,15 +117,25 @@ export const setMetaDescription = ({
                     : `${data.title}`;
 
             if (section === 'nota') {
-                if (data.subtype === RECETA) {
-                    return data.description !== ''
-                        ? `${
-                              data.description.split('.', 1)[0]
-                          }. Encontrá acá la receta de ${data.title}`
-                        : `Encontrá acá la receta de ${data.title}`;
-                }
+                const optionsNote = {
+                    '5': () => {
+                        return data.description !== ''
+                            ? data.description
+                            : `Video de ${data.title} - ${transformISODate(
+                                  data.displayDate
+                              )}`;
+                    },
+                    '7': () => {
+                        return data.description !== ''
+                            ? `${
+                                  data.description.split('.', 1)[0]
+                              }. Encontrá acá la receta de ${data.title}`
+                            : `Encontrá acá la receta de ${data.title}`;
+                    },
+                    default: () => defaultDescription
+                };
 
-                return defaultDescription;
+                return get(optionsNote, data.subtype, optionsNote.default)();
             }
 
             if (getSectionOfRequestUri(requestUri) === 'mis-notas') {
