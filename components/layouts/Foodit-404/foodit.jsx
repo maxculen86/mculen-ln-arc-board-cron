@@ -9,4 +9,6 @@ const Foodit404 = () => {
     );
 };
 
+Foodit404.sections = ['Cuerpo'];
+
 export default Foodit404;
