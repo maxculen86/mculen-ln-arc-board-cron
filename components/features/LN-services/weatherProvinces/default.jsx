@@ -21,7 +21,6 @@ const WeatherProvinces = ({ id: _featureId }) => {
             }
         }`
     });
-    console.log('🚀 ~ WeatherProvinces ~ children:', data);
     const { children: provinces = [] } = data || {};
 
     if (!provinces.length || sectionId === '/clima') return null;
