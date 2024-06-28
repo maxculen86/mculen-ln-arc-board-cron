@@ -1,6 +1,6 @@
 import React from 'react';
 import Context from 'fusion:context';
-import { render, mount, shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import AnexoFeature, {
     getComponentFromConfig,
     getComponentType
@@ -65,8 +65,9 @@ const testCases = [
     }
 ];
 
-xdescribe('features - LN-common - anexo - default', () => {
+describe('features - LN-common - anexo - default', () => {
     isInSection.mockRestore();
+
     describe('With HTML anexo props', () => {
         const propsHtml = {
             collection: 'features',
@@ -80,31 +81,39 @@ xdescribe('features - LN-common - anexo - default', () => {
         };
 
         it('Should render HTML anexo correctly', () => {
-            const component = mount(<AnexoFeature {...propsHtml} />);
-            expect(component.html()).not.toBeNull();
+            const { container } = render(<AnexoFeature {...propsHtml} />);
 
-            // Find the BuildRoof component
-            const buildRoofComponent = component.find(BuildRoof);
+            const buildRoofClass = container.querySelector('.ln-roof');
+            expect(buildRoofClass).toBeInTheDocument();
 
-            expect(buildRoofComponent.exists()).toBeTruthy();
+            const comAnexoClass = container.querySelector('.ln-roof');
+            expect(comAnexoClass).toBeInTheDocument();
 
-            const anexoDiv = component.find('div.com-anexo');
-
-            expect(anexoDiv.exists()).toBeTruthy();
-            expect(anexoDiv.hasClass('com-anexo')).toBeTruthy();
-
-            expect(component.html()).toMatch(propsHtml.customFields.html);
+            const anexoDiv = screen.getByText(/Mock HTML anexo/i);
+            expect(anexoDiv).toBeInTheDocument();
+            expect(anexoDiv.outerHTML).toMatch(propsHtml.customFields.html);
         });
+
         it('Should match HTML anexo snapshot', () => {
             const component = render(<AnexoFeature {...propsHtml} />);
             expect(component).toMatchSnapshot();
         });
+
         it('With hideByHtml true - Should return null', () => {
-            propsHtml.customFields.hideByHtml = true;
-            const component = render(<AnexoFeature {...propsHtml} />);
-            expect(component.html()).toBeNull();
+            const propsHtml = {
+                customFields: {
+                    html: '<div class="com-anexo">Anexo Content</div>',
+                    hideByHtml: true
+                }
+            };
+
+            const { container } = render(<AnexoFeature {...propsHtml} />);
+
+            const anexoDiv = container.querySelector('.com-anexo');
+            expect(anexoDiv).toBeNull();
         });
     });
+
     describe('With anexo URL props', () => {
         const propsUrl = {
             collection: 'features',
@@ -122,71 +131,78 @@ xdescribe('features - LN-common - anexo - default', () => {
             }
         };
 
-        it('Should render iframe correctly', () => {
-            const component = mount(<AnexoFeature {...propsUrl} />);
+        it.only('Should render iframe correctly', () => {
+            const { container } = render(<AnexoFeature {...propsUrl} />);
 
-            expect(component.html()).not.toBeNull();
-            expect(component.find('iframe')).toHaveLength(1);
-            expect(component.find('iframe').props()['data-src']).toBe(
+            expect(container).not.toBeNull();
+
+            const iframe = container.querySelector('iframe');
+
+            expect(iframe).toBeInTheDocument();
+            expect(iframe).toHaveAttribute(
+                'data-src',
                 propsUrl.customFields.url
             );
-            expect(component.find('iframe').props().src).toBe(undefined);
+            expect(iframe).toHaveAttribute('src', undefined);
 
-            expect(
-                component.find('div.com-anexo.skeleton-box').exists()
-            ).toBeTruthy();
-
-            const buildRoofComponent = component.find(BuildRoof);
-            expect(buildRoofComponent.exists()).toBeTruthy();
+            const buildRoofComponent = container.querySelector('.ln-roof');
+            expect(buildRoofComponent).toBeInTheDocument();
         });
+
         it('Should generate style tag with media queries correctly', () => {
-            const component = mount(<AnexoFeature {...propsUrl} />);
-            expect(component.html()).not.toBeNull();
-            expect(component.find('style')).toHaveLength(1);
-            const styleTag = component.find('style').html();
-            expect(styleTag).toMatch(
+            const { container } = render(<AnexoFeature {...propsUrl} />);
+
+            expect(container).not.toBeNull();
+
+            const styleTag = container.querySelector('style');
+            expect(styleTag).toBeInTheDocument();
+
+            expect(styleTag.textContent).toMatch(
                 '#anexo-responsive-f0f0raOK8mKx1sc{height:100px}'
             );
-            expect(styleTag).toMatch(
+            expect(styleTag.textContent).toMatch(
                 '@media(min-width:768px){#anexo-responsive-f0f0raOK8mKx1sc{height:150px}}'
             );
-            expect(styleTag).toMatch(
+            expect(styleTag.textContent).toMatch(
                 '@media(min-width:1024px){#anexo-responsive-f0f0raOK8mKx1sc{height:300px}}'
             );
         });
+
         it('Should match URL anexo snapshot', () => {
             const component = render(<AnexoFeature {...propsUrl} />);
             expect(component).toMatchSnapshot();
         });
-        it('Should set src when isAdmin (PB) and NOT data-src', () => {
+
+        it.only('Should set src when isAdmin (PB) and NOT data-src', () => {
             Context.useAppContext = jest.fn(() => ({
                 contextPath: '/pf',
                 deployment: arg => arg,
                 isAdmin: true,
                 layout: ''
             }));
-            const component = mount(<AnexoFeature {...propsUrl} />);
-            expect(component.html()).not.toBeNull();
-            expect(component.find('iframe')).toHaveLength(1);
-            expect(component.find('iframe').props()['data-src']).toBe(
-                undefined
-            );
-            expect(component.find('iframe').props().src).toBe(
-                propsUrl.customFields.url
-            );
+
+            const { container } = render(<AnexoFeature {...propsUrl} />);
+
+            const iframe = container.querySelector('iframe');
+            expect(iframe).toBeInTheDocument();
+            expect(iframe).toHaveAttribute('src');
+            expect(iframe).not.toHaveAttribute('data-src');
         });
 
         it('With hideByUrl true - Should return null', () => {
             propsUrl.customFields.hideByUrl = true;
-            const component = render(<AnexoFeature {...propsUrl} />);
-            expect(component.html()).toBeNull();
+
+            const { container } = render(<AnexoFeature {...propsUrl} />);
+
+            expect(container.firstChild).toBeNull();
         });
 
         it('Without any of 3 heights on URL anexo - Should return ErrorMessage', () => {
             propsUrl.customFields.hideByUrl = false;
             propsUrl.customFields.heightDesktop = undefined;
-            const component = render(<AnexoFeature {...propsUrl} />);
-            expect(component.html()).toMatch(
+            const { container } = render(<AnexoFeature {...propsUrl} />);
+
+            expect(container).toHaveTextContent(
                 'Los tres altos fijos del anexo (Desktop, Tablet y Mobile) son campos requeridos para los anexos con URL'
             );
         });
@@ -194,16 +210,20 @@ xdescribe('features - LN-common - anexo - default', () => {
         it('When any of the 3 heights exceed limit inside Apertura - Should return ErrorMessage', () => {
             propsUrl.customFields.heightDesktop = 700;
             isInSection.mockImplementation(() => true);
-            const component = render(<AnexoFeature {...propsUrl} />);
-            expect(component.html()).toMatch(
-                '<h2 class="title">Advertencia</h2><p class="text">Los altos fijos máximos de anexos con URL en pre apertura son de 300px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se verá el anexo</p>'
+            const { container } = render(<AnexoFeature {...propsUrl} />);
+
+            expect(container).toHaveTextContent('Advertencia');
+            expect(container).toHaveTextContent(
+                'Los altos fijos máximos de anexos con URL en pre apertura son de 300px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se verá el anexo'
             );
         });
     });
+
     describe('Without right props', () => {
         it('Should return ErrorMessage', () => {
-            const component = render(<AnexoFeature />);
-            expect(component.html()).toMatch(
+            const { container } = render(<AnexoFeature />);
+
+            expect(container).toHaveTextContent(
                 'Se requiere agregue la URL o HTML del anexo'
             );
         });

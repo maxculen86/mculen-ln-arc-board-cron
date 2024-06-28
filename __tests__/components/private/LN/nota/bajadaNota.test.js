@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import BajadaNota from '../../../../../components/private/LN/nota/bajada';
 
-describe('Components - private - LN - nota', () => {
+describe('Components - private - LN - nota - bajadaNota', () => {
     test('With subheadline must be subheadline', () => {
         const { container } = render(
             <BajadaNota

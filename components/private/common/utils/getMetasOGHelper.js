@@ -4,6 +4,7 @@ import getDomain from './getDomain';
 import { getSectionOfRequestUri } from './outputTypeHelper';
 import get from './get';
 import transformISODate from './transformISODate';
+import { isEmptyString } from './dataValidation';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -111,22 +112,21 @@ export const setMetaDescription = ({
 }) => {
     const options = {
         'la-nacion-ar': () => {
-            const defaultDescription =
-                data.description !== ''
-                    ? `${data.description}`
-                    : `${data.title}`;
+            const defaultDescription = !isEmptyString(data.description)
+                ? `${data.description}`
+                : `${data.title}`;
 
             if (section === 'nota') {
                 const optionsNote = {
                     '5': () => {
-                        return data.description !== ''
+                        return !isEmptyString(data.description)
                             ? data.description
                             : `Video de ${data.title} - ${transformISODate(
                                   data.displayDate
                               )}`;
                     },
                     '7': () => {
-                        return data.description !== ''
+                        return !isEmptyString(data.description)
                             ? `${
                                   data.description.split('.', 1)[0]
                               }. Encontrá acá la receta de ${data.title}`
