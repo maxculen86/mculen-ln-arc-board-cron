@@ -1,8 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import MetaSyndication from '../../../../../components/private/common/syndication';
 
-xdescribe('LN - Common - MetaSyndication', () => {
+describe('LN - Common - MetaSyndication', () => {
     it('MetaSyndication nota snapshot', () => {
         const props = {
             arcSite: 'la-nacion-ar',
@@ -15,7 +16,7 @@ xdescribe('LN - Common - MetaSyndication', () => {
             }
         };
 
-        const component = mount(
+        const { container } = render(
             <MetaSyndication
                 arcSite={props.arcSite}
                 subtype={props.subtype}
@@ -24,7 +25,8 @@ xdescribe('LN - Common - MetaSyndication', () => {
                 outputType={props.outputType}
             />
         );
-        expect(component).toMatchSnapshot();
+
+        expect(container).toMatchSnapshot();
     });
 
     it('Renders only over story templates', () => {
@@ -39,7 +41,7 @@ xdescribe('LN - Common - MetaSyndication', () => {
             }
         };
 
-        const component = mount(
+        const { container } = render(
             <MetaSyndication
                 arcSite={props.arcSite}
                 subtype={props.subtype}
@@ -48,7 +50,8 @@ xdescribe('LN - Common - MetaSyndication', () => {
                 outputType={props.outputType}
             />
         );
-        expect(component.html()).toBeNull();
+
+        expect(container.firstChild).toBeNull();
     });
 
     it('Renders over AMP pages', () => {
@@ -63,7 +66,7 @@ xdescribe('LN - Common - MetaSyndication', () => {
             }
         };
 
-        const component = mount(
+        const { container } = render(
             <MetaSyndication
                 arcSite={props.arcSite}
                 subtype={props.subtype}
@@ -72,7 +75,8 @@ xdescribe('LN - Common - MetaSyndication', () => {
                 outputType={props.outputType}
             />
         );
-        expect(component.html()).not.toBeNull();
+
+        expect(container).not.toBeNull();
     });
 
     it('Does not render in recipes template', () => {
@@ -87,7 +91,7 @@ xdescribe('LN - Common - MetaSyndication', () => {
             }
         };
 
-        const component = mount(
+        const { container } = render(
             <MetaSyndication
                 arcSite={props.arcSite}
                 subtype={props.subtype}
@@ -96,6 +100,9 @@ xdescribe('LN - Common - MetaSyndication', () => {
                 outputType={props.outputType}
             />
         );
-        expect(component.html()).not.toMatch('noindex, follow');
+
+        expect(
+            container.querySelector('meta[name="robots"]')
+        ).not.toHaveAttribute('content', 'noindex, follow');
     });
 });

@@ -1,21 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LN - Common - MetaSyndication MetaSyndication nota snapshot 1`] = `
-<Syndication
-  arcSite="la-nacion-ar"
-  outputType="default"
-  subtype="1"
-  syndication={
-    Object {
-      "external_distribution": false,
-      "search": false,
-    }
-  }
-  type="story"
->
+<div>
   <meta
     content="noindex, follow, max-image-preview:large"
     name="robots"
   />
-</Syndication>
+</div>
 `;
