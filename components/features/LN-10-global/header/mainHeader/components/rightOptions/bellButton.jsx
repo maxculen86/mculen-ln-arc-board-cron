@@ -78,7 +78,8 @@ export const BellButton = () => {
             event: 'action_notification',
             button: message.buttonLabel || 'N/A',
             title: (message.title && `mensaje-${message.title}`) || 'N/A',
-            page_notification: message.url || 'N/A'
+            page_notification: message.url || 'N/A',
+            identifier: message.id
         });
     };
     return <NotificationsCentre {...props} />;
