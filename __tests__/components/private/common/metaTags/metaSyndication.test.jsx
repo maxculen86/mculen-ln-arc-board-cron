@@ -54,31 +54,6 @@ describe('LN - Common - MetaSyndication', () => {
         expect(container.firstChild).toBeNull();
     });
 
-    it('Renders over AMP pages', () => {
-        const props = {
-            arcSite: 'la-nacion-ar',
-            outputType: 'amp',
-            type: 'story',
-            subtype: '1',
-            syndication: {
-                external_distribution: false,
-                search: false
-            }
-        };
-
-        const { container } = render(
-            <MetaSyndication
-                arcSite={props.arcSite}
-                subtype={props.subtype}
-                syndication={props.syndication}
-                type={props.type}
-                outputType={props.outputType}
-            />
-        );
-
-        expect(container).not.toBeNull();
-    });
-
     it('Does not render in recipes template', () => {
         const props = {
             arcSite: 'la-nacion-ar',

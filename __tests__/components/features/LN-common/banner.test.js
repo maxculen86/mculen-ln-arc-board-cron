@@ -501,20 +501,6 @@ const siteProperties = {
                     dimensions: [[1, 1]],
                     targeting: defaultTargeting
                 }
-            },
-            amp: {
-                caja1_amp: {
-                    slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: [[300, 250]]
-                },
-                caja2_amp: {
-                    slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: [[300, 250]]
-                },
-                caja3_amp: {
-                    slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: [[300, 250]]
-                }
             }
         }
     }
@@ -795,32 +781,6 @@ describe('changeSegmentAdUnit =>', () => {
 
         expect(configCaja1.slotName).toEqual('campo_desktop/Nota/caja1_dsk');
 
-        const configCaja1Amp = getBannerConfiguration(
-            globalContentDeNotaCampo,
-            {
-                desktop: 'caja1_amp',
-                group: 'nota'
-            },
-            null,
-            { slotId: 'caja1_amp' }
-        );
-
-        expect(configCaja1Amp.slotName).toEqual('/campo_amp/AMP/ROS/caja1_amp');
-
-        const configCajaAmpNoCampo = getBannerConfiguration(
-            globalContent,
-            {
-                desktop: 'caja1_amp',
-                group: 'nota'
-            },
-            null,
-            { slotId: 'caja1_amp' }
-        );
-
-        expect(configCajaAmpNoCampo.slotName).toEqual(
-            '/133919216/AMP/ROS/caja1_amp'
-        );
-
         const configCajaNoCampo = getBannerConfiguration(
             globalContent,
             {
@@ -915,9 +875,7 @@ describe('getBannerConfiguration =>', () => {
         customFields = {
             desktop: 'cabezal_dsk',
             sticky: true,
-            // background,
             group: 'nota'
-            //amp
         };
 
         const componentBannerCabezal = render(
@@ -953,10 +911,7 @@ describe('getBannerConfiguration =>', () => {
         customFields = {
             mobile: 'adhesion_mob',
             fixed: true,
-            // sticky,
-            // background,
             group: 'nota'
-            //amp
         };
         const configAdhesionMobileConSuscripcion = getBannerConfiguration(
             globalContent,
@@ -981,27 +936,6 @@ describe('getBannerConfiguration =>', () => {
             />
         );
         expect(componentAdhesionBanner).toMatchSnapshot();
-    });
-
-    it('No deberia renderizar el adhesion_amp con y sin suscripcion', () => {
-        const componentAmp = render(
-            <Banner
-                customFields={{
-                    mobile: 'adhesion_amp',
-                    group: 'nota',
-                    amp: true
-                }}
-                globalContent={globalContent}
-            />
-        );
-
-        expect(componentAmp).toBeEmptyRender;
-    });
-
-    it('Validar si el banner es para amp o no', () => {
-        expect(isForAmp(undefined, undefined, undefined)).toBeFalsy();
-        expect(isForAmp('caja1_desk', undefined, 'caja1_tab')).toBeFalsy();
-        expect(isForAmp('caja1_amp', undefined, undefined)).toBeTruthy();
     });
 
     it('Validar que las clases css se construyan bien segun la configuracion del banner', () => {

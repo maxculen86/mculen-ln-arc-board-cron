@@ -140,12 +140,10 @@ describe('BuildBody', () => {
         expect(container.querySelectorAll(`div[class*="slide"]`)).toHaveLength(
             3
         );
-        expect(container.querySelectorAll(`amp-carousel`)).toHaveLength(0);
         /* image */
         expect(
             container.querySelectorAll(`img[class*="com-image"]`)
         ).toHaveLength(13);
-        expect(container.querySelectorAll(`amp-img`)).toHaveLength(0);
         /* blockquiote */
         expect(
             container.querySelectorAll(`blockquote[class*="mod-paragraph"]`)

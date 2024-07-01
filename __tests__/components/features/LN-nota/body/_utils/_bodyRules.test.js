@@ -81,28 +81,6 @@ describe('_utils/_bodyRules.js', () => {
             expect(component).toEqual(bodyRules.raw_html.default);
         });
 
-        it('es raw_html AMP trae regla de raw', () => {
-            const attr = {
-                subtype: '',
-                outputType: 'amp',
-                type: 'raw_html'
-            };
-
-            const component = selectRule(attr);
-            expect(component).toEqual(bodyRules.raw_html.amp);
-        });
-
-        it('es raw_html AMP trae regla de raw', () => {
-            const attr = {
-                subtype: '',
-                outputType: '',
-                type: 'raw_html'
-            };
-
-            const component = selectRule(attr);
-            expect(component).toEqual(bodyRules.raw_html);
-        });
-
         it('is RECETA (7) con power up return custom_embed Function in selectRule', () => {
             const attr = {
                 subtype: '7',

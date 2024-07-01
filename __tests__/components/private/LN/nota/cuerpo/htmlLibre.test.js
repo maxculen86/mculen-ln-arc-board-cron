@@ -25,13 +25,6 @@ xdescribe('Private - LN - nota - cuerpo - HtmlLibre', () => {
         expect(container).toBeEmptyDOMElement();
     });
 
-    it('should render empty element if outputType is not default', () => {
-        const props = setCommonProps(mockContentElements.slice(1, 3), 'amp');
-        const { container } = render(<HtmlLibre {...props} />);
-
-        expect(container).toBeEmptyDOMElement();
-    });
-
     it('should render the second content element if there are more than one', () => {
         const props = setCommonProps(mockContentElements.slice(1, 3));
         const { container } = render(<HtmlLibre {...props} />);

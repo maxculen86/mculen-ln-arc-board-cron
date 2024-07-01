@@ -26,9 +26,4 @@ describe('hook - useAdsTestAndSuffix', () => {
         useAdsTestAndSuffix('desktop', 'default');
         expect(setSuffix).toHaveBeenCalledWith('_dsk');
     });
-
-    it('Should return the correct suffix when the outputType is amp', () => {
-        useAdsTestAndSuffix('desktop', 'amp');
-        expect(setSuffix).toHaveBeenCalledWith('_amp');
-    });
 });
