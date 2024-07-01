@@ -1,83 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Private - Common - ModheaderSection =>  ModheaderSection with image and link should render mod-logo with anchor tag 1`] = `
-<section
-  class="mod-headersection  --line"
-  role="contentinfo"
->
-  <div
-    class="mod-logo"
+exports[`Private - Common - ModheaderSection Snapshot ModheaderSection con link 1`] = `
+<DocumentFragment>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
   >
-    <a
-      class="com-link"
-      href="https://lanacion.com.ar/"
-      title="Titulo Separador"
+    <h3
+      class="com-title --font-primary --l --font-black"
     >
-      <img
-        alt="Titulo Separador"
-        class="com-image "
-        decoding="async"
-        fetchpriority="low"
-        height="100"
-        loading="lazy"
-        src="https://lanacion.com.ar/mock.jpeg"
-        width="100"
-      />
-    </a>
-  </div>
-</section>
+      <a
+        class="com-link"
+        href="https://lanacion.com.ar/"
+        title="Titulo Separador"
+      >
+        Titulo Separador
+      </a>
+    </h3>
+  </section>
+</DocumentFragment>
 `;
 
-exports[`Private - Common - ModheaderSection =>  ModheaderSection with image should render mod-logo 1`] = `
-<section
-  class="mod-headersection  --line"
-  role="contentinfo"
->
-  <div
-    class="mod-logo"
+exports[`Private - Common - ModheaderSection Snapshots ModheaderSection 1`] = `
+<DocumentFragment>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
   >
-    <img
-      alt="Titulo Separador"
-      class="com-image "
-      decoding="async"
-      fetchpriority="low"
-      height="100"
-      loading="lazy"
-      src="https://lanacion.com.ar/mock.jpeg"
-      width="100"
-    />
-  </div>
-</section>
-`;
-
-exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con link 1`] = `
-<section
-  class="mod-headersection  --line"
-  role="contentinfo"
->
-  <h3
-    class="com-title --font-primary --l --font-black"
-  >
-    <a
-      class="com-link"
-      href="https://lanacion.com.ar/"
-      title="Titulo Separador"
+    <h3
+      class="com-title --font-primary --l --font-black"
     >
       Titulo Separador
-    </a>
-  </h3>
-</section>
-`;
-
-exports[`Private - Common - ModheaderSection =>  Snapshots ModheaderSection 1`] = `
-<section
-  class="mod-headersection  --line"
-  role="contentinfo"
->
-  <h3
-    class="com-title --font-primary --l --font-black"
-  >
-    Titulo Separador
-  </h3>
-</section>
+    </h3>
+  </section>
+</DocumentFragment>
 `;

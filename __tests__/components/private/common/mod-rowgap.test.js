@@ -1,28 +1,32 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import ModRowGap from '../../../../components/private/common/mod-rowgap';
 
-xdescribe('Private - Common - ModRowGap', () => {
-    it('Mostrar layout para 3 columnas', () => {
-        const component = shallow(
+describe('Private - Common - ModRowGap', () => {
+    it('Should layout for 3 columns', () => {
+        const { container } = render(
             <ModRowGap column="3" classCondition="" typeArticle="Grilla" />
         );
-        expect(component.find('.row-gap-tablet-3').length).toBe(1);
+        expect(
+            container.querySelector('.row-gap-tablet-3')
+        ).toBeInTheDocument();
     });
 
-    it('Mostrar layout para 2 columnas y apertura', () => {
-        const component = shallow(
+    it('Show layout for 2 columns and opening', () => {
+        const { container } = render(
             <ModRowGap column="2" classCondition="--opening" />
         );
         expect(
-            component.find('div').hasClass('row-gap-tablet-2 --opening')
-        ).toBe(true);
+            container.querySelector('.row-gap-tablet-2.--opening')
+        ).toBeInTheDocument();
     });
 
-    it('Mostrar layout para listado', () => {
-        const component = shallow(
+    it('Show layout for listing', () => {
+        const { container } = render(
             <ModRowGap column="3" classCondition="" typeArticle="Listado" />
         );
-        expect(component.find('.row-gap-tablet-3').length).toBe(0);
+        expect(
+            container.querySelector('.row-gap-tablet-3')
+        ).not.toBeInTheDocument();
     });
 });

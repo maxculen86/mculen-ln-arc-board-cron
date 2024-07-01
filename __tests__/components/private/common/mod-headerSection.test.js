@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import ModheaderSection from '../../../../components/private/common/mod-headerSection';
 import useGetLogoImage from '../../../../components/private/common/hooks/useGetLogoImage';
 
@@ -19,9 +19,9 @@ const imageMock = {
     url: 'https://lanacion.com.ar/mock.jpeg'
 };
 
-xdescribe('Private - Common - ModheaderSection => ', () => {
-    it('Render OK', () => {
-        const component = mount(
+describe('Private - Common - ModheaderSection', () => {
+    it('Should render the componente with props', () => {
+        render(
             <ModheaderSection
                 title="Titulo Separador"
                 link="https://lanacion.com.ar/"
@@ -30,12 +30,21 @@ xdescribe('Private - Common - ModheaderSection => ', () => {
                 line
             />
         );
-        expect(component).toBeDefined();
-        expect(component.isEmptyRender()).toBeFalsy();
-        expect(component.props().classCondition).toBe('--pink');
+
+        expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+        expect(screen.getByText('Titulo Separador')).toBeInTheDocument();
+        expect(
+            screen.getByRole('link', { name: 'Titulo Separador' })
+        ).toHaveAttribute('href', 'https://lanacion.com.ar/');
+        expect(screen.getByRole('contentinfo')).toHaveClass(
+            'mod-headersection',
+            '--line',
+            '--pink'
+        );
     });
+
     it('Render OK without classCondition', () => {
-        const component = mount(
+        render(
             <ModheaderSection
                 title="Titulo Separador"
                 link="https://lanacion.com.ar/"
@@ -43,51 +52,70 @@ xdescribe('Private - Common - ModheaderSection => ', () => {
                 line
             />
         );
-        expect(component).toBeDefined();
-        expect(component.html()).toMatch(
-            '<section class="mod-headersection  --line" role="contentinfo">'
+
+        expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+        expect(screen.getByText('Titulo Separador')).toBeInTheDocument();
+        expect(
+            screen.getByRole('link', { name: 'Titulo Separador' })
+        ).toHaveAttribute('href', 'https://lanacion.com.ar/');
+        expect(screen.getByRole('contentinfo')).toHaveClass(
+            'mod-headersection',
+            '--line'
         );
     });
 
-    it('Render NOTOK', () => {
-        const component = mount(<ModheaderSection />);
-        expect(component.isEmptyRender()).toBeTruthy();
+    it('should not render the component in the roof', () => {
+        render(<ModheaderSection />);
+        expect(screen.queryByRole('contentinfo')).not.toBeInTheDocument();
     });
 
-    it('Render del link', () => {
-        const component = mount(
+    it('Render link', () => {
+        render(
             <ModheaderSection
                 title="Titulo Separador"
                 link="https://lanacion.com.ar/"
             />
         );
-        expect(component.find('a')).toHaveLength(1);
-        expect(component.find('a.com-link').html()).toMatch(
-            '<a href="https://lanacion.com.ar/" title="Titulo Separador" class="com-link">Titulo Separador</a>'
-        );
+
+        expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+        expect(
+            screen.getByRole('link', { name: 'Titulo Separador' })
+        ).toBeInTheDocument();
+        expect(
+            screen.getByRole('link', { name: 'Titulo Separador' })
+        ).toHaveAttribute('href', 'https://lanacion.com.ar/');
     });
 
     it('Snapshots ModheaderSection', () => {
-        const component = render(
+        const { asFragment } = render(
             <ModheaderSection title="Titulo Separador" size="--l" line />
         );
-        expect(component).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     });
+
     it('ModheaderSection with image should render mod-logo', () => {
         useGetLogoImage.mockImplementationOnce(() => imageMock);
-        const component = render(
-            <ModheaderSection title="Titulo Separador" size="--l" line />
+        render(<ModheaderSection title="Titulo Separador" size="--l" line />);
+
+        expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+        expect(screen.getByRole('img')).toBeInTheDocument();
+        expect(screen.getByRole('img')).toHaveAttribute(
+            'src',
+            'https://lanacion.com.ar/mock.jpeg'
         );
-        expect(component.find('div.mod-logo')).toHaveLength(1);
-        expect(component.find('a.com-link')).toHaveLength(0);
-        expect(component.find('div.mod-logo').html()).toMatch(
-            '<img src="https://lanacion.com.ar/mock.jpeg" alt="Titulo Separador" width="100" height="100" class="com-image " loading="lazy" fetchpriority="low" decoding="async">'
+        expect(screen.queryByRole('link')).not.toBeInTheDocument();
+        expect(screen.getByRole('img')).toHaveAttribute(
+            'alt',
+            'Titulo Separador'
         );
-        expect(component).toMatchSnapshot();
+        expect(screen.getByRole('img')).toHaveClass('com-image');
+        expect(screen.getByRole('img')).toHaveAttribute('width', '100');
+        expect(screen.getByRole('img')).toHaveAttribute('height', '100');
     });
+
     it('ModheaderSection with image and link should render mod-logo with anchor tag', () => {
         useGetLogoImage.mockImplementationOnce(() => imageMock);
-        const component = render(
+        render(
             <ModheaderSection
                 link="https://lanacion.com.ar/"
                 title="Titulo Separador"
@@ -96,16 +124,29 @@ xdescribe('Private - Common - ModheaderSection => ', () => {
                 line
             />
         );
-        expect(component.find('div.mod-logo')).toHaveLength(1);
-        expect(component.find('a.com-link')).toHaveLength(1);
-        expect(component.find('a.com-link').html()).toMatch(
-            '<img src="https://lanacion.com.ar/mock.jpeg" alt="Titulo Separador" width="100" height="100" class="com-image " loading="lazy" fetchpriority="low" decoding="async">'
+
+        expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+        expect(screen.getByRole('img')).toBeInTheDocument();
+        expect(screen.getByRole('link')).toBeInTheDocument();
+        expect(screen.getByRole('img')).toHaveAttribute(
+            'src',
+            'https://lanacion.com.ar/mock.jpeg'
         );
-        expect(component).toMatchSnapshot();
+        expect(screen.getByRole('link')).toHaveAttribute(
+            'href',
+            'https://lanacion.com.ar/'
+        );
+        expect(screen.getByRole('img')).toHaveAttribute(
+            'alt',
+            'Titulo Separador'
+        );
+        expect(screen.getByRole('img')).toHaveClass('com-image');
+        expect(screen.getByRole('img')).toHaveAttribute('width', '100');
+        expect(screen.getByRole('img')).toHaveAttribute('height', '100');
     });
 
     it('Snapshot ModheaderSection con link', () => {
-        const component = render(
+        const { asFragment } = render(
             <ModheaderSection
                 title="Titulo Separador"
                 link="https://lanacion.com.ar"
@@ -113,6 +154,6 @@ xdescribe('Private - Common - ModheaderSection => ', () => {
                 line
             />
         );
-        expect(component).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     });
 });

@@ -1,24 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModSponsor Matches Snapshot 1`] = `
-<div
-  class="mod-sponsor  jardin"
->
-  <a
-    class="com-link"
-    href="/revista-jardin"
-    title=""
+exports[`Private - Common -  ModSponsor Matches Snapshot 1`] = `
+<div>
+  <div
+    class="mod-sponsor  jardin"
   >
-    <com-logo
-      alt="Revista Jardin"
-      logoname="jardin"
-      size="--sm"
-    />
-  </a>
-  <span
-    class="com-text --sponsor --threexs"
-  >
-    Espacio Patrocinado
-  </span>
+    <a
+      class="com-link"
+      href="/revista-jardin"
+      title=""
+    >
+      <com-logo
+        alt="Revista Jardin"
+        logoname="jardin"
+        size="--sm"
+      />
+    </a>
+    <span
+      class="com-text --sponsor --threexs"
+    >
+      Espacio Patrocinado
+    </span>
+  </div>
 </div>
 `;
