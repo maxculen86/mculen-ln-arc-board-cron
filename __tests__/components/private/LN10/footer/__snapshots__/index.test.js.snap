@@ -683,7 +683,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       <p
         class="text ln-text --font-xs"
       >
-        © Copyright 2024 SA LA NACION | Todos los derechos reservados. Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ.
+        © Copyright 
+         SA LA NACION | Todos los derechos reservados. Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ.
         <br />
         Queda prohibida la reproducción total o parcial del presente diario.
       </p>
