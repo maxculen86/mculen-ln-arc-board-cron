@@ -60,7 +60,7 @@ const ShoppingList = () => {
         );
 
     return (
-        <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg min-h-344">
+        <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
             <aside className="sm-none col-span-5 bg-positive p-24 p-32_lg">
                 <CollectionBox
                     title="Recetas"
