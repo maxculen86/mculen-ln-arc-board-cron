@@ -4,7 +4,7 @@ export const getIconPath = ({
     contextPath,
     critical,
     color,
-    arcSite,
+    arcSite
 } = {}) => {
     if (!contextPath || !deployment) return '';
     const spriteType =

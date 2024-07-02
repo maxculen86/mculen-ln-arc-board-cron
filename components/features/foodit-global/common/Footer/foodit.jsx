@@ -23,7 +23,7 @@ const FooterFoodit = () => {
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12">
                         <Text>
                             <strong className="roboto-bold">Seguinos</strong> en
-                            nuestra redes
+                            nuestras redes
                         </Text>
                         <div className="flex gap-24 jc-center">
                             <Button

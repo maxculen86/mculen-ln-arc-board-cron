@@ -1,6 +1,6 @@
 import {
     calcReadingMinutes,
-    isExcludedSubtype,
+    isExcludedSubtype
 } from '../../../../../components/features/LN-10-global/common/readingTime/_helpers';
 import {
     HTMLLIBRE,
@@ -8,7 +8,7 @@ import {
     FOTOAL100,
     AGENCIA,
     NOTICIA,
-    RECETA,
+    RECETA
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('Exclude reading time for different types of notes', () => {

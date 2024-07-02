@@ -10,7 +10,7 @@ const IconSprite = ({ critical, color, name, ...props }) => {
         contextPath,
         critical,
         color,
-        arcSite,
+        arcSite
     });
 
     if (!path || !name) return <></>;

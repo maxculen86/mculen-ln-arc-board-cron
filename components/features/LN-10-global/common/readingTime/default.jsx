@@ -12,7 +12,7 @@ const ReadingTime = () => {
     const wordCount = get(
         globalContent,
         'planning.story_length.word_count_actual',
-        '',
+        ''
     );
     const readingMinutes = calcReadingMinutes(wordCount);
     const formattedReadingTime = readingMinutes.toString().padStart(2, '0');

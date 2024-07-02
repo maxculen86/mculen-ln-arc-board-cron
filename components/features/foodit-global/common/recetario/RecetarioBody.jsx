@@ -2,9 +2,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import useGetRecetarioData from './hooks/useGetRecetarioData';
 import useGetUserData from '../../hooks/useGetUserData';
+
 import { createSummaryList } from '../utils/recetarioHelper';
+
+import { Button } from '@ln/foodit-ui-button';
+import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import CollectionBox from '../collectionBox/foodit';
+
 import { EmptyStateComponent } from './helpers';
 import DrawerRecetario from '../drawerRecetario/foodit';
 import BookmarkedArticles from './components/BookmarkedArticles';
@@ -48,6 +54,22 @@ const RecetarioBody = () => {
                     >
                         {selectedItemId}
                     </Text>
+                    {userBookmarks.length && selectedItemId !== 'Todas' ? (
+                        <Button
+                            data-testid="rename-collection-button"
+                            onClick={() => setIsModalOpen(true)}
+                            iconOnly
+                            variant="secondary"
+                            size={40}
+                            className="ml-auto ml-0_md"
+                        >
+                            <Icon size={16}>
+                                <IconSprite name="edit" />
+                            </Icon>
+                        </Button>
+                    ) : (
+                        <></>
+                    )}
                 </div>
                 {userBookmarks.length ? (
                     <BookmarkedArticles
