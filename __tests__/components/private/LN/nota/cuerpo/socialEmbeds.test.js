@@ -1,16 +1,79 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
-import ArticleWithEmbeds from '../../../../../../__mocks__/data/nota/cuerpo/embed/articleWithEmbeds.json';
-import SocialEmbeds from '../../../../../../components/private/common/scriptManager/socialEmbeds';
+import { render, screen } from '@testing-library/react';
+import SocialEmbeds, {
+    filterEmbeds,
+    hasFacebookEmbed,
+    hasInstagramEmbed
+} from '../../../../../../components/private/common/scriptManager/socialEmbeds';
 
 jest.mock('fusion:context', () => ({
-    useAppContext: () => {
-        return { contextPath: 'pf', deployment: () => {} };
-    }
+    useAppContext: () => ({
+        contextPath: 'pf',
+        deployment: () => {}
+    })
 }));
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+jest.mock(
+    '../../../../../../components/private/common/scriptManager/socialEmbeds'
+);
+
+jest.mock(
+    '../../../../../../components/private/common/scriptManager/socialEmbeds',
+    () => {
+        const originalModule = jest.requireActual(
+            '../../../../../../components/private/common/scriptManager/socialEmbeds'
+        );
+        return {
+            __esModule: true,
+            ...originalModule,
+            filterEmbeds: jest.fn(),
+            hasInstagramEmbed: jest.fn(),
+            hasFacebookEmbed: jest.fn()
+        };
+    }
+);
+
+describe('components - private - LN - nota - cuerpo - socialEmbeds', () => {
+    beforeEach(() => {
+        filterEmbeds.mockReturnValue([]);
+        hasInstagramEmbed.mockReturnValue(false);
+        hasFacebookEmbed.mockReturnValue(false);
+    });
+    it('Render OK', () => {
+        const { container } = render(<SocialEmbeds />);
+        expect(container).toBeDefined();
+    });
+
+    it('returns null when contentElements is not provided', () => {
+        const { container } = render(<SocialEmbeds globalContent={{}} />);
+        expect(container.firstChild).toBeNull();
+    });
+
+    it('returns null when type is not story', () => {
+        const { container } = render(
+            <SocialEmbeds
+                globalContent={{ type: 'not-story', content_elements: [] }}
+            />
+        );
+        expect(container.firstChild).toBeNull();
+    });
+
+    it('returns null when there are no Instagram or Facebook embeds', () => {
+        const { container } = render(
+            <SocialEmbeds
+                globalContent={{ type: 'story', content_elements: [] }}
+            />
+        );
+        expect(container.firstChild).toBeNull();
+    });
+
+    it('should test attributes and node of component', () => {
         const globalContent = {
             type: 'story',
             content_elements: [
@@ -90,39 +153,21 @@ jest.mock('fusion:consumer', Component => {
                 }
             ]
         };
-        return props => <Component {...props} globalContent={globalContent} />;
-    };
-});
+        const { container } = render(
+            <SocialEmbeds globalContent={globalContent} />
+        );
 
-xdescribe('Test de las embebidos en el cuerpo de una nota', () => {
-    const props = {
-        type: 'story',
-        content_elements: ArticleWithEmbeds
-    };
+        const scripts = container.querySelectorAll('script');
 
-    it('Render OK', () => {
-        const component = render(<SocialEmbeds />);
-        expect(component).toBeDefined();
+        expect(scripts).toHaveLength(2);
+        expect(scripts[0]).toHaveAttribute(
+            'src',
+            'https://www.instagram.com/embed.js'
+        );
     });
 
-    it('Validar props enviadas', () => {
-        const component = mount(<SocialEmbeds />);
-        expect(component.props()).toEqual({});
-    });
-
-    it('Atributos y nodo del DOM correcto', () => {
-        const component = mount(<SocialEmbeds />);
-        expect(component.find('script')).toHaveLength(2);
-        expect(
-            component
-                .find('script')
-                .at(0)
-                .props().src
-        ).toEqual('https://www.instagram.com/embed.js');
-    });
-
-    it('Snapshots', () => {
-        const component = mount(<SocialEmbeds />);
-        expect(component).toMatchSnapshot();
+    it('renders snapshot', () => {
+        const { asFragment } = render(<SocialEmbeds />);
+        expect(asFragment()).toMatchSnapshot();
     });
 });
