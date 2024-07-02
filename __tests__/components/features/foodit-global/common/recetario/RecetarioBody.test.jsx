@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/';
 
 import { useAppContext } from 'fusion:context';
@@ -8,20 +8,6 @@ import getBookmarks from '../../../../../../components/features/foodit-global/co
 import useGetUserData, {
     isFooditSuscriptor
 } from '../../../../../../components/features/foodit-global/hooks/useGetUserData';
-
-class MockMutationObserver {
-    constructor(callback) {
-        this.callback = callback;
-        this.observe = jest.fn();
-        this.disconnect = jest.fn();
-    }
-
-    triggerMock(mutationsList) {
-        this.callback(mutationsList, this);
-    }
-}
-
-global.MutationObserver = MockMutationObserver;
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
@@ -39,7 +25,13 @@ jest.mock(
 
 jest.mock('../../../../../../components/private/common/utils/getToken');
 
-describe('RecetarioBody', () => {
+jest.mock(
+    '../../../../../../components/features/foodit-global/common/recetario/components/EditFolderModal',
+    () => ({ isOpen }) =>
+        isOpen ? <div role="dialog">Edit Folder Modal</div> : null
+);
+
+describe('Components - Features - Foodit-global - Common - Recetario - RecetarioBody', () => {
     beforeEach(() => {
         useAppContext.mockImplementation(() => ({
             contextPath: '/test-path',
@@ -76,6 +68,7 @@ describe('RecetarioBody', () => {
             ).toBeInTheDocument()
         );
     });
+
     test('Should render empty state component variant="barrier-logged" when user is logged', async () => {
         getBookmarks.mockReturnValue({ data: [] });
         useGetUserData.mockReturnValue({
@@ -118,6 +111,57 @@ describe('RecetarioBody', () => {
         );
         await waitFor(() =>
             expect(screen.getByText('Todas (3)')).toBeInTheDocument()
+        );
+    });
+
+    test('Should open modal on button click', async () => {
+        getBookmarks.mockReturnValue({
+            data: [
+                {
+                    bookmarkTypeId: 'group1',
+                    bookmarkId: 'id1',
+                    bookmarkGroup: 'group1'
+                },
+                {
+                    bookmarkTypeId: 'group2',
+                    bookmarkId: 'id2',
+                    bookmarkGroup: 'group2'
+                },
+                {
+                    bookmarkTypeId: 'group1',
+                    bookmarkId: 'id3',
+                    bookmarkGroup: 'group1'
+                }
+            ]
+        });
+
+        useGetUserData.mockReturnValue({
+            userType: 'subscribed'
+        });
+
+        isFooditSuscriptor.mockReturnValue(true);
+
+        render(<RecetarioBody />);
+
+        await waitFor(() =>
+            expect(screen.getByText('Colecciones')).toBeInTheDocument()
+        );
+        await waitFor(() =>
+            expect(screen.getByText('Todas (3)')).toBeInTheDocument()
+        );
+
+        const itemToSelect = screen.getByText('group1 (2)');
+        fireEvent.click(itemToSelect);
+
+        await waitFor(() =>
+            expect(screen.getByText('group1 (2)')).toBeInTheDocument()
+        );
+
+        const editButton = screen.getByTestId('rename-collection-button');
+        fireEvent.click(editButton);
+
+        await waitFor(() =>
+            expect(screen.getByRole('dialog')).toBeInTheDocument()
         );
     });
 });
