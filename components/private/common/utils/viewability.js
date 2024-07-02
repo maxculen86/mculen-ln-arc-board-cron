@@ -94,11 +94,10 @@ const getName = element => {
 };
 
 export const productClickFromClient = (element = {}) => {
-    const { product, item } = getDataSetProps(element.currentTarget);
-    if (product.id || product.item_id) {
+    const { item } = getDataSetProps(element.currentTarget);
+    if (item.item_id) {
         window.dataLayer.push({
             event: `productClickScore`,
-            product,
             item
         });
     }
@@ -206,8 +205,7 @@ const addEventImpressionToDataLayer = (
         });
         window.dataLayer.push({
             event: `impressionsScore`,
-            ecommerce: { items: itemsUpdated },
-            products: articlesToAdd
+            ecommerce: { items: itemsUpdated }
         });
 
         articlesSeen.push(...articlesToAdd);
