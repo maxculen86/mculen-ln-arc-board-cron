@@ -61,6 +61,9 @@ describe('GooglePublisherTag', () => {
             label: {
                 recomendar: {
                     text: 'No'
+                },
+                eje_subeje: {
+                    text: 'Trends'
                 }
             }
         }
@@ -71,5 +74,33 @@ describe('GooglePublisherTag', () => {
         const scriptElements = container.querySelectorAll('script');
 
         expect(scriptElements.length).toBe(2);
+    });
+
+    it('Includes the googlePublisherTag-metadata script in the DOM', () => {
+        const { container } = render(<GooglePublisherTag {...props} />);
+        const googlePublisherTagScript = container.querySelector(
+            '#googlePublisherTag-metadata'
+        );
+        expect(googlePublisherTagScript).toBeInTheDocument();
+    });
+
+    it('Generates the correct new-tags', () => {
+        const { container } = render(<GooglePublisherTag {...props} />);
+        const googlePublisherTagScript = container.querySelector(
+            '#googlePublisherTag-metadata'
+        );
+        const newTags = JSON.parse(
+            googlePublisherTagScript.getAttribute('data-new-tags')
+        );
+
+        expect(newTags).toContain('te_6WTWFSCNKBGHTPTZUBF7WOPC5M');
+        expect(newTags).toContain('ca_economia,ca_revista_jardin');
+        expect(newTags).toContain('te_comun');
+        expect(newTags).toContain('te_turismo');
+        expect(newTags).toContain('au_john_doe');
+        expect(newTags).toContain(
+            'url_economia_ultima-prueba-syndication-nid14052020'
+        );
+        expect(newTags).toContain('Trends');
     });
 });

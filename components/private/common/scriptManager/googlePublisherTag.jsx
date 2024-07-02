@@ -22,11 +22,14 @@ const GooglePublisherTag = props => {
         taxonomy,
         canonical_url: canonicalUrl,
         credits = { by: [] },
-        content_elements: contentElements = []
+        content_elements: contentElements = [],
+        label
     } = globalContent;
 
     const { tags = [], sections = [] } = taxonomy || {};
     const { by: authors = [] } = credits || {};
+    const { eje_subeje } = label || {};
+    const { text: ejeSubejeText = '' } = eje_subeje || {};
 
     const getTopics = tags => {
         return tags && tags.length
@@ -73,7 +76,14 @@ const GooglePublisherTag = props => {
                 id="googlePublisherTag-metadata"
                 type="text/javascript"
                 data-new-tags={JSON.stringify(
-                    [categories, topics, authorList, url, articleId]
+                    [
+                        categories,
+                        topics,
+                        authorList,
+                        url,
+                        articleId,
+                        ejeSubejeText
+                    ]
                         .flat()
                         .filter(Boolean)
                 )}
@@ -108,6 +118,11 @@ GooglePublisherTag.propTypes = {
                     path: PropTypes.string
                 })
             )
+        }),
+        label: PropTypes.shape({
+            eje_subeje: PropTypes.shape({
+                text: PropTypes.string
+            })
         }),
         content_elements:
             googlePublisherAndLiftIgniterPropTypes.content_elements,
