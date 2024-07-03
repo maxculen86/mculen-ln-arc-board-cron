@@ -7,7 +7,10 @@ import CommonCardFoodit from '../../../foodit-global/common/CommonCardFoodit/foo
 import { transformArticleFoodit } from '../../../foodit-global/common/utils/notaFooditHelper';
 import getImageAltText from '../../../foodit-global/common/utils/getImageAltText';
 
-export const createArticleList = ({ articles = [] } = {}) => {
+export const createArticleList = ({
+    articles = [],
+    bookmarkedArticlesIds = []
+} = {}) => {
     return articles.map(article => {
         const {
             articleId,
@@ -41,7 +44,10 @@ export const createArticleList = ({ articles = [] } = {}) => {
                 author={author}
                 className="col-span-8 col-span-4_md"
                 key={articleId}
-                fill={false} // TODO: boolean receta guardada
+                fill={
+                    bookmarkedArticlesIds.length &&
+                    bookmarkedArticlesIds.includes(articleId)
+                }
             />
         );
     });
