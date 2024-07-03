@@ -5,6 +5,7 @@ import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import AuthorBiography from '../../features/foodit-global/common/authorBiography/foodit';
 import { Text } from '@ln/common-ui-text';
 import transformSocial from '../../features/private-global/common/utils/transformSocial';
+import { ChefSchema } from '../../features/foodit-global/schemas/Chef';
 
 const pageBuilderSections = ['Notas'];
 
@@ -18,9 +19,19 @@ const ChefFoodit = props => {
         instagram = '',
         youtube = '',
         pinterest = '',
-        twitter = ''
+        twitter = '',
+        bio_page = '',
+        role = '',
+        location = ''
     } = globalContent;
     const [notas] = children;
+
+    const socialNetworks = [
+        transformSocial('instagram', instagram),
+        transformSocial('youtube', youtube),
+        transformSocial('pinterest', pinterest),
+        transformSocial('twitter', twitter)
+    ].filter(social => Boolean(social.name));
 
     const authorBiography = {
         name: byline,
@@ -30,16 +41,22 @@ const ChefFoodit = props => {
             title: byline
         },
         description: longBio,
-        socialNetworks: [
-            transformSocial('instagram', instagram),
-            transformSocial('youtube', youtube),
-            transformSocial('pinterest', pinterest),
-            transformSocial('twitter', twitter)
-        ].filter(social => Boolean(social.name))
+        socialNetworks
     };
 
     return (
         <BaseLayout>
+            <ChefSchema
+                name={byline}
+                description={longBio}
+                imageUrl={imageUrl}
+                url={bio_page}
+                role={role}
+                socialNetworks={socialNetworks.map(
+                    social => social?.href || ''
+                )}
+                location={location}
+            />
             <div className="flex flex-column gap-32">
                 <AuthorBiography {...authorBiography} />
                 <hr className="floating-button-sentinel" />
