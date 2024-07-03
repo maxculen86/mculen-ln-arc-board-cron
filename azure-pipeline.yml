@@ -1,32 +1,36 @@
 resources:
-  repositories:
-    - repository: templates
-      type: git
-      name: Arquitectura/PipelineTemplates #Se define el nombre del TeamProject / Repositorio donde se encuentra el template.
-      ref: refs/tags/2.14.0
-
+    repositories:
+        - repository: templates
+          type: git
+          name: Arquitectura/PipelineTemplates #Se define el nombre del TeamProject / Repositorio donde se encuentra el template.
+          ref: refs/tags/2.15.0
 trigger:
-  - demo/*
-  - sandbox
-  - demo-sandbox/*
-  - master
-  - demo-prod/*
-
-pool:
-  vmImage: ubuntu-latest #El agente utilizado, adentro cada template tiene su agente particular.
-
+    - demo/*
+    - sandbox
+    - demo-sandbox/*
+    - master
+    - demo-prod/*
+pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
 jobs:
-- job: BuildArc
-  steps:
-    - bash: | 
-        echo "checking date"
-        date
-        echo "setting date to America/Argentina/Buenos_Aires"
-        sudo timedatectl set-timezone "America/Argentina/Buenos_Aires"
-        date
-      displayName: Cambio zona horaria
-    - template: Arc/build.yml@templates
-      parameters:
-        runTest: true
-        nodeVersion: 18.x
-        projectKeySonarQube: arc-ln
+    - job: BuildArc
+      steps:
+          - bash: |
+                echo "checking date"
+                date
+                echo "setting date to America/Argentina/Buenos_Aires"
+                sudo timedatectl set-timezone "America/Argentina/Buenos_Aires"
+                date
+            displayName: Cambio zona horaria
+          - template: Arc/build.yml@templates
+            parameters:
+                runTest: true
+                nodeVersion: 18.x
+                projectKeySonarQube: arc-ln
+                sonarQubeExtraProperties: |
+                    sonar.sourceEncoding=UTF-8
+                    sonar.sources=./
+                    sonar.language=js
+                    sonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules,resources
+                    sonar.tests=./__tests__
+                    sonar.test.inclusions=./__tests__/**/*.test.js
+                    sonar.javascript.lcov.reportPaths=coverage/lcov.info

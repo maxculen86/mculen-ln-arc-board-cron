@@ -1,16 +1,15 @@
 import React from 'react';
-import { render } from 'enzyme';
-
+import { render } from '@testing-library/react';
 import ModMedio from '../../../../components/private/common/mod-medio';
 
-xdescribe('ModMedio', () => {
+describe('Private - Common -  ModMedio', () => {
     const props = {
         medio: 'nacion',
         classCondition: '--medio'
     };
 
     it('Matches snapshot', () => {
-        const component = render(<ModMedio {...props} />);
-        expect(component).toMatchSnapshot();
+        const { asFragment } = render(<ModMedio {...props} />);
+        expect(asFragment()).toMatchSnapshot();
     });
 });

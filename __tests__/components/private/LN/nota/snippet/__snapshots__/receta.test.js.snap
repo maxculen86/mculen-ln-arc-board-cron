@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
+exports[`components - private - LN - Nota - Receta  Test Recipient Receta 1`] = `
 <div>
   <script
     type="application/ld+json"

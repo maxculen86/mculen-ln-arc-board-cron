@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`features - LaNacion - Nota -  Test de snapshot Breadcrumb 1`] = `
-Array [
+exports[`components - private - LN - nota - breadcrumbArticle should render snapshots 1`] = `
+<div>
   <nav
     class="com-breadcrumb --no-app "
   >
@@ -53,7 +53,37 @@ Array [
       </i>
       Recetas con pollo
     </a>
-  </nav>,
-  null,
-]
+  </nav>
+  <script
+    type="application/ld+json"
+  >
+    
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{"@type":"ListItem","position":1,"name":"LA NACION"},
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Recetas",
+                    "item": "https://www.lanacion.com.ar/recetas/"
+                }
+            ,
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Dulces",
+                    "item": "https://www.lanacion.com.ar/recetas/dulces/"
+                }
+            ,
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Pollo",
+                    "item": "https://www.lanacion.com.ar/recetas/recetas-con-ingredientes/pollo/"
+                }
+            ]
+            }
+  </script>
+</div>
 `;

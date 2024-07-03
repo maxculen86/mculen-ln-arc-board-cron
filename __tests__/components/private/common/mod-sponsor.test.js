@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import ModSponsor from '../../../../components/private/common/mod-sponsor';
 import formatDistributorName from '../../../../components/private/LN/common/utils/formatDistributorName';
@@ -15,12 +15,13 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
-xdescribe('ModSponsor', () => {
+describe('Private - Common -  ModSponsor', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' },
         deployment: () => {},
         contextPath: ''
     }));
+
     it('Matches Snapshot', () => {
         const props = {
             type: '',
@@ -29,8 +30,8 @@ xdescribe('ModSponsor', () => {
             link: '/revista-jardin',
             logoName: 'jardin'
         };
-        const component = render(<ModSponsor {...props} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<ModSponsor {...props} />);
+        expect(container).toMatchSnapshot();
     });
 
     it('Sets Logo', () => {
@@ -41,8 +42,8 @@ xdescribe('ModSponsor', () => {
             link: '/revista-jardin',
             logoName: 'jardin'
         };
-        const component = mount(<ModSponsor {...props} />);
-        expect(component.find('com-logo')).toHaveLength(1);
+        const { container } = render(<ModSponsor {...props} />);
+        expect(container.querySelector('com-logo')).toBeInTheDocument();
     });
 
     it('Sets Content Lab', () => {
@@ -52,9 +53,9 @@ xdescribe('ModSponsor', () => {
             textName: 'Volkswagen',
             link: '/revista-jardin'
         };
-        const component = mount(<ModSponsor {...props} />);
-        expect(component.find('.com-text')).toHaveLength(1);
-        expect(component.html()).toMatch('Content LAB para Volkswagen');
+        const { container } = render(<ModSponsor {...props} />);
+        expect(container.querySelector('.com-text')).toBeInTheDocument();
+        expect(container.innerHTML).toMatch('Content LAB para Volkswagen');
     });
 
     it('Sets Sponsored Content', () => {
@@ -64,9 +65,9 @@ xdescribe('ModSponsor', () => {
             textName: null,
             link: '/revista-jardin'
         };
-        const component = mount(<ModSponsor {...props} />);
-        expect(component.find('.com-text')).toHaveLength(1);
-        expect(component.html()).toMatch('Espacio Patrocinado');
+        const { container } = render(<ModSponsor {...props} />);
+        expect(container.querySelector('.com-text')).toBeInTheDocument();
+        expect(container.innerHTML).toMatch('Espacio Patrocinado');
     });
 
     it('Sets Logo and Content Lab', () => {
@@ -77,10 +78,10 @@ xdescribe('ModSponsor', () => {
             link: '/revista-jardin',
             logoName: 'jardin'
         };
-        const component = mount(<ModSponsor {...props} />);
-        expect(component.find('.com-text')).toHaveLength(1);
-        expect(component.find('com-logo')).toHaveLength(1);
-        expect(component.html()).toMatch('Content LAB para Volkswagen');
+        const { container } = render(<ModSponsor {...props} />);
+        expect(container.querySelector('.com-text')).toBeInTheDocument();
+        expect(container.querySelector('com-logo')).toBeInTheDocument();
+        expect(container.innerHTML).toMatch('Content LAB para Volkswagen');
     });
 
     it('Sets Logo and Sponsored Content', () => {
@@ -91,10 +92,10 @@ xdescribe('ModSponsor', () => {
             link: '/revista-jardin',
             logoName: 'jardin'
         };
-        const component = mount(<ModSponsor {...props} />);
-        expect(component.find('com-logo')).toHaveLength(1);
-        expect(component.find('.com-text')).toHaveLength(1);
-        expect(component.html()).toMatch('Espacio Patrocinado');
+        const { container } = render(<ModSponsor {...props} />);
+        expect(container.querySelector('com-logo')).toBeInTheDocument();
+        expect(container.querySelector('.com-text')).toBeInTheDocument();
+        expect(container.innerHTML).toMatch('Espacio Patrocinado');
     });
 
     it('Format distributor name', () => {

@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import Context from 'fusion:context';
 import ModArticle from '../../../../components/private/common/mod-article';
 import article from '../../../../__mocks__/data/articles/articleAcum.json';
@@ -19,7 +19,7 @@ jest.mock('react', () => {
     };
 });
 
-xdescribe('Private - Common - ModArticle', () => {
+describe('Private - Common - ModArticle', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' }
     }));
@@ -67,30 +67,37 @@ xdescribe('Private - Common - ModArticle', () => {
         typeArticle: ''
     };
 
-    it('Render OK', () => {
-        const component = mount(<ModArticle {...props} />);
-        expect(component).toBeDefined();
+    it('Should render ModArticle component', () => {
+        render(<ModArticle {...props} />);
+        const titleElement = screen.getByText('Este es el titulo');
+        const linkElement = screen.getByRole('link', {
+            name: 'Este es el titulo'
+        });
+
+        expect(titleElement).toBeInTheDocument();
+        expect(linkElement).toHaveAttribute('href', 'http://google.com');
     });
 
-    it('Validar props enviadas', () => {
-        const component = mount(<ModArticle {...props} />);
-        expect(component.props()).toEqual(props);
+    it('Should sent props correctly', () => {
+        render(<ModArticle {...props} />);
+        expect(screen.getByText('Este es el titulo')).toBeInTheDocument();
+        expect(screen.getByText('Este es el subtitulo')).toBeInTheDocument();
+        expect(
+            screen.getByRole('link', { name: 'Este es el titulo' })
+        ).toHaveAttribute('href', 'http://google.com');
     });
 
-    it('Atributos y nodo del DOM correcto', () => {
-        const component = mount(<ModArticle {...props} />);
-        expect(component.find('.mod-article')).toHaveLength(1);
-        expect(component.find('.mod-description')).toHaveLength(1);
-        expect(component.find('.com-subhead')).toHaveLength(1);
-        expect(component.find('.mod-marquee')).toHaveLength(1);
-        expect(component.find('.com-date')).toHaveLength(1);
-        expect(component.find('.com-title').html()).toBe(
-            '<h1 class="com-title --font-primary --s --font-medium"><a href="http://google.com" title="Este es el titulo" class="com-link">Este es el titulo</a></h1>'
-        );
+    it('Should render HTML attributes correctly', () => {
+        render(<ModArticle {...props} />);
+        expect(screen.getByRole('article')).toBeInTheDocument();
+        expect(screen.getByRole('article')).toHaveClass('mod-article');
+        expect(screen.getByText('Este es el subtitulo')).toBeInTheDocument();
+        expect(screen.getByText('Mariano Grondona')).toBeInTheDocument();
+        expect(screen.getByText('2 de junio de 2020')).toBeInTheDocument();
     });
 
     it('ModArticle - Snapshots', () => {
-        const component = render(<ModArticle {...props} />);
-        expect(component).toMatchSnapshot();
+        const { asFragment } = render(<ModArticle {...props} />);
+        expect(asFragment()).toMatchSnapshot();
     });
 });

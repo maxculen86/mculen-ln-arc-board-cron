@@ -1,71 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Private - LN - nota - cuerpo - <Html /> Snapshots - HTML 1`] = `
-<div
-  class="com-embed --html"
-  id="anexo-AHYEKXSUEQIUXZD"
->
+exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot  - iframe with pym inside html block 1`] = `
+<div>
   <div
-    class="empty"
-    style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;"
-  >
-    sample html block
-  </div>
-</div>
-`;
-
-exports[`Private - LN - nota - cuerpo - <Html /> Snapshots - iframe con class "pym" 1`] = `
-<div
-  class="com-embed --html"
->
-  <div
-    class="contenido-externo"
+    class="com-embed --html"
   >
     <div
-      class="com-anexo pym"
-      id="anexo-AHYEKXSUEQIUXZD-0"
-    />
-  </div>
-</div>
-`;
-
-exports[`Private - LN - nota - cuerpo - <Html /> Snapshots - iframe con class "pym" dentro de un bloque HTML 1`] = `
-<div
-  class="com-embed --html"
->
-  <div
-    class="test"
-  >
-    <h3
-      class="title"
+      class="test"
     >
-      iframe dentro de un div
-    </h3>
-    <div
-      class="contenido-externo"
-    >
+      <h3
+        class="title"
+      >
+        iframe dentro de un div
+      </h3>
       <div
-        class="com-anexo pym"
-        id="anexo-AHYEKXSUEQIUXZD-0-3"
-      />
+        class="contenido-externo"
+      >
+        <div
+          class="com-anexo pym"
+          id="anexo-AHYEKXSUEQIUXZD-0-3"
+        >
+          <iframe
+            frameborder="0"
+            marginheight="0"
+            scrolling="no"
+            src="https://especialess3.lanacion.com.ar/tableau/tableau.html?id=coronavirus_tests_argentina_porcentajes&altoTV=460&altoD=460&altoM=410&initialWidth=0&childId=anexo-AHYEKXSUEQIUXZD-0-3&parentTitle=&parentUrl=http%3A%2F%2Flocalhost%2F"
+            width="100%"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Private - LN - nota - cuerpo - <Html /> Snapshots - iframe sin class "pym" 1`] = `
-<div
-  class="com-embed --html"
-  id="anexo-AHYEKXSUEQIUXZD"
->
-  <iframe
-    frameborder="0"
-    height="800"
-    scrolling="no"
-    src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/#/barras"
-    width="100%"
+exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot - HTML 1`] = `
+<div>
+  <div
+    class="com-embed --html"
+    id="anexo-AHYEKXSUEQIUXZD"
   >
-     
-  </iframe>
+    <div
+      class="empty"
+      style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;"
+    >
+      sample html block
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot - iframe with "pym" 1`] = `
+<div>
+  <div
+    class="com-embed --html"
+  >
+    <div
+      class="contenido-externo"
+    >
+      <div
+        class="com-anexo pym"
+        id="anexo-AHYEKXSUEQIUXZD-0"
+      >
+        <iframe
+          frameborder="0"
+          marginheight="0"
+          scrolling="no"
+          src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/?initialWidth=0&childId=anexo-AHYEKXSUEQIUXZD-0&parentTitle=&parentUrl=http%3A%2F%2Flocalhost%2F#/barras"
+          width="100%"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot - iframe without "pym" 1`] = `
+<div>
+  <div
+    class="com-embed --html"
+    id="anexo-AHYEKXSUEQIUXZD"
+  >
+    <iframe
+      frameborder="0"
+      height="800"
+      scrolling="no"
+      src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/#/barras"
+      width="100%"
+    >
+       
+    </iframe>
+  </div>
 </div>
 `;

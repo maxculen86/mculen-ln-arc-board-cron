@@ -1,28 +1,26 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import ModDescription from '../../../../components/private/common/mod-description';
 import Context from 'fusion:context';
 
 jest.mock(
     '../../../../components/private/common/com-title.jsx',
-    () => 'com-title-mock'
+    () => props => <div data-testid="com-title-mock" {...props} />
 );
-jest.mock(
-    '../../../../components/private/common/com-date.jsx',
-    () => 'com-date-mock'
-);
+jest.mock('../../../../components/private/common/com-date.jsx', () => props => (
+    <div data-testid="com-date-mock" {...props} />
+));
 jest.mock(
     '../../../../components/private/common/text/index.jsx',
-    () => 'text-mock'
+    () => props => <div data-testid="text-mock" {...props} />
 );
-jest.mock(
-    '../../../../components/private/common/com-tag.jsx',
-    () => 'com-tag-mock'
-);
+jest.mock('../../../../components/private/common/com-tag.jsx', () => props => (
+    <div data-testid="com-tag-mock" {...props} />
+));
 
 jest.mock(
     '../../../../components/private/common/badge/Badge.jsx',
-    () => 'com-badge-mock'
+    () => props => <div data-testid="com-badge-mock" {...props} />
 );
 
 jest.mock('fusion:context', Component => {
@@ -31,7 +29,7 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-xdescribe('Private - Common - ModDescription', () => {
+describe('Private - Common - ModDescription', () => {
     const props = {
         link: 'http://google.com',
         titleTag: 'h1',
@@ -65,29 +63,45 @@ xdescribe('Private - Common - ModDescription', () => {
         layout: 'LN-Home_Main'
     }));
 
-    it('Render OK', () => {
-        const component = mount(<ModDescription {...props} />);
-        expect(component).toBeDefined();
+    it('Should render', () => {
+        render(<ModDescription {...props} />);
+        expect(screen.getByTestId('com-title-mock')).toBeInTheDocument();
     });
 
-    it('Validar props enviadas', () => {
-        const component = mount(<ModDescription {...props} />);
-        expect(component.props()).toEqual(props);
+    it('Should sent props correctly', () => {
+        render(<ModDescription {...props} />);
+        const titleComponent = screen.getByTestId('com-title-mock');
+        expect(titleComponent).toHaveAttribute('content', 'Este es el titulo');
+        expect(titleComponent).toHaveAttribute('link', 'http://google.com');
+        expect(titleComponent).toHaveAttribute('tag', 'h1');
+        expect(titleComponent).toHaveAttribute('weight', '--font-bold');
     });
 
-    it('Atributos y nodo del DOM correcto', () => {
-        const component = mount(<ModDescription {...props} />);
-        expect(component.find('com-title-mock')).toHaveLength(1);
-        expect(component.find('com-tag-mock')).toHaveLength(4);
-        expect(component.find('com-date-mock')).toHaveLength(1);
-        expect(component.find('com-badge-mock')).toBeDefined();
-        expect(component.find('com-title-mock').html()).toMatch(
-            'http://google.com'
-        );
+    it('Should render HTML attributes correctly', () => {
+        render(<ModDescription {...props} />);
+        expect(screen.getByTestId('com-title-mock')).toBeInTheDocument();
+
+        const textMocks = screen.getAllByTestId('text-mock');
+        expect(textMocks).toHaveLength(2);
+        expect(textMocks[0]).toHaveAttribute('text', 'Este es el subtitulo');
+        expect(textMocks[1]).toHaveAttribute('text', 'Por Carlos Pagni');
+
+        const tags = screen.getAllByTestId('com-tag-mock');
+        const expectedContents = [
+            'Comunidad',
+            'Educación',
+            'Inclusión',
+            'Sociedad'
+        ];
+        expectedContents.forEach(content => {
+            expect(
+                tags.some(tag => tag.getAttribute('content') === content)
+            ).toBeTruthy();
+        });
     });
 
     it('ModDescription - Snapshots', () => {
-        const component = render(<ModDescription {...props} />);
-        expect(component).toMatchSnapshot();
+        const { asFragment } = render(<ModDescription {...props} />);
+        expect(asFragment()).toMatchSnapshot();
     });
 });

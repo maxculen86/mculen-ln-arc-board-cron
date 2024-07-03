@@ -15,7 +15,8 @@ jest.mock('fusion:context', Component => {
 
 Context.useAppContext = jest.fn(() => ({
     contextPath: '/pf',
-    deployment: jest.fn()
+    deployment: jest.fn(),
+    isAdmin: false
 }));
 
 describe('PwaModal', () => {
@@ -91,5 +92,27 @@ describe('PwaModal', () => {
         fireEvent.click(screen.getByText('Aceptar'));
 
         expect(mockHandleYesClick).toHaveBeenCalled();
+    });
+
+    it('should not render the modal when isAdmin is true', () => {
+        usePwaModal.mockReturnValueOnce({
+            isShowModal: true,
+            handleNoClick: mockHandleNoClick,
+            handleYesClick: mockHandleYesClick
+        });
+
+        Context.useAppContext.mockReturnValueOnce({
+            contextPath: '/pf',
+            deployment: jest.fn(),
+            isAdmin: true
+        });
+
+        const { container } = render(<PwaModal />);
+
+        expect(
+            screen.queryByText('¿Querés recibir notificaciones de alertas?')
+        ).not.toBeInTheDocument();
+
+        expect(container).toMatchSnapshot();
     });
 });

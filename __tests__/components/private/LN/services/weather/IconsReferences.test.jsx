@@ -16,19 +16,23 @@ jest.mock('fusion:consumer', component => {
         };
     };
 });
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
-// TODO: ver porque no toma el mock global
-xdescribe('Components - private - services - weather - IconsReferences =>', () => {
+describe('Components - private - services - weather - IconsReferences =>', () => {
     it('Test when id props is invalid ', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
                 dataService: weatherHome
             }
         }));
+
         const modHeaderSectionClass = 'mod-headersection  --line';
         const expectedClass = 'content-icon';
-        const { container, debug } = render(<IconsReferences />);
-        debug();
+        const { container } = render(<IconsReferences />);
         expect(container).toMatchSnapshot();
         expect(
             container.getElementsByClassName(modHeaderSectionClass).length

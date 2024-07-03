@@ -1,9 +1,8 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
 import Html from '../../../../../../components/private/LN/nota/cuerpo/html';
 
-xdescribe('Private - LN - nota - cuerpo - <Html />', () => {
+describe('components - private - LN - nota - cuerpo - <Html />', () => {
     let props = {
         data: {
             content: '',
@@ -21,110 +20,102 @@ xdescribe('Private - LN - nota - cuerpo - <Html />', () => {
         };
     };
 
-    it('<Html/> definido', () => {
-        const component = render(<Html {...props} />);
-        expect(component).toBeDefined();
+    it('should test if html is defined in document', () => {
+        const { container } = render(<Html {...props} />);
+        expect(container).toBeDefined();
     });
 
-    it('Render OK', () => {
+    it('should test it sample an html block correctly', () => {
         const __html = '<div>sample html block</div>';
-        const component = mount(<Html {...setContent(__html)} />);
-        expect(component.html()).not.toBeNull();
+        const { container } = render(<Html {...setContent(__html)} />);
+        expect(container.innerHTML).not.toBeNull();
     });
 
-    it('Render NOTOK', () => {
-        const component = mount(<Html {...props} />);
-        expect(component.html()).toBeNull();
+    it('should test inner html returns empty when theres no html block', () => {
+        const { container } = render(<Html {...props} />);
+        expect(container.innerHTML).toBe('');
     });
 
-    it('Validar props enviadas', () => {
-        const component = mount(<Html {...props} />);
-        expect(component.props()).toEqual(props);
+    it('should test props validation for component', () => {
+        const _props = {
+            data: {
+                content: '<p>Test Content</p>',
+                _id: 'AHYEKXSUEQIUXZD'
+            }
+        };
+        render(<Html {..._props} />);
+
+        expect(screen.getByText('Test Content')).toBeInTheDocument();
+        expect(screen.getByText('Test Content').parentNode).toHaveAttribute(
+            'id',
+            'anexo-AHYEKXSUEQIUXZD'
+        );
+        expect(screen.getByText('Test Content').parentNode).toHaveClass(
+            'com-embed --html'
+        );
     });
 
-    it('Si no envio props retornar null', () => {
-        const component = mount(<Html />);
-        expect(component.html()).toBeNull();
-    });
-
-    it('Atributos y nodo del DOM correcto - HTML libre', () => {
+    it('should test node and attributes of html libre', () => {
         const __html =
             '<link rel="stylesheet" href="http://widget.cloud.opta.net/v3/css/v3.football.opta-widgets.css"><div class="empty" style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;">sample html block</div>';
-        const component = mount(<Html {...setContent(__html)} />);
-        const container = component.find('div.com-embed');
-        expect(container.exists()).toBeTruthy();
-        expect(container.hasClass('--html')).toBeTruthy();
-        //Link
-        const link = container
-            .render()
-            .children()
-            .get(0);
+        const { container } = render(<Html {...setContent(__html)} />);
+        const link = container.querySelector('link[rel="stylesheet"]');
+        const div = container.querySelector('div.empty');
+
         expect(link).toBeDefined();
-        expect(link.attribs.rel).toBe('stylesheet');
-        expect(link.attribs.href).toBe(
+        expect(link).toHaveAttribute(
+            'href',
             'http://widget.cloud.opta.net/v3/css/v3.football.opta-widgets.css'
         );
-        expect(link.firstChild).toBe(null);
 
-        // Div content
-        const content = container
-            .render()
-            .children()
-            .get(1);
-        expect(content).toBeDefined();
-        expect(content.attribs.class).toBe('empty');
-        expect(content.attribs.style).toBe(
+        expect(div).toBeDefined();
+        expect(div).toHaveStyle(
             'padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;'
         );
-        expect(content.firstChild.nodeValue).toBe('sample html block');
+        expect(div).toHaveTextContent('sample html block');
     });
 
-    // TODO: mockear el Parent del Pym
-    it('Atributos y nodo del DOM correcto - HTML con iframe.pym', () => {
+    it('should test node and attributes of html pym', () => {
         const __html =
             '<iframe class="pym" frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/#/barras"> </iframe>';
+        const { container } = render(<Html {...setContent(__html)} />);
+        const iframe = container.querySelector('iframe');
 
-        const component = shallow(<Html {...setContent(__html)} />);
-        expect(component.exists()).toBeTruthy();
-        expect(component.render().hasClass('--html')).toBeTruthy();
-        const content = component
-            .render()
-            .children()
-            .get(0);
-        expect(content).toBeDefined();
-        expect(content.attribs.class).toBe('contenido-externo');
-        expect(content.childNodes[0].attribs.id).toBe(
-            `anexo-${props.data._id}-0`
+        expect(iframe).toBeDefined();
+        expect(iframe).toHaveAttribute(
+            'src',
+            'https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/?initialWidth=0&childId=anexo-AHYEKXSUEQIUXZD-0&parentTitle=&parentUrl=http%3A%2F%2Flocalhost%2F#/barras'
         );
-        expect(content.childNodes[0].attribs.class).toBe('com-anexo pym');
+        expect(iframe).toHaveAttribute('frameborder', '0');
+        expect(iframe).toHaveAttribute('width', '100%');
+        expect(iframe).toHaveAttribute('scrolling', 'no');
     });
 
-    it('Snapshots - HTML', () => {
-        const __html = `<div class="empty" style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;">sample html block</div>`;
-        const component = render(<Html {...setContent(__html)} />);
-        expect(component).toMatchSnapshot();
+    it('renders snapshot - HTML', () => {
+        const __html =
+            '<div class="empty" style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;">sample html block</div>';
+        const { container } = render(<Html {...setContent(__html)} />);
+        expect(container).toMatchSnapshot();
     });
 
-    it('Snapshots - iframe sin class "pym"', () => {
+    it('renders snapshot - iframe without "pym"', () => {
         const __html =
             '<iframe frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/#/barras"> </iframe>';
-        const component = render(<Html {...setContent(__html)} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<Html {...setContent(__html)} />);
+        expect(container).toMatchSnapshot();
     });
 
-    it('Snapshots - iframe con class "pym"', () => {
+    it('renders snapshot - iframe with "pym"', () => {
         const __html =
             '<iframe class="pym" frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/#/barras"> </iframe>';
-
-        const component = render(<Html {...setContent(__html)} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<Html {...setContent(__html)} />);
+        expect(container).toMatchSnapshot();
     });
 
-    it('Snapshots - iframe con class "pym" dentro de un bloque HTML', () => {
+    it('renders snapshot  - iframe with pym inside html block', () => {
         const __html =
             '<div class="test">    <h3 class="title">iframe dentro de un div</h3>    <iframe class="pym" frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/tableau/tableau.html?id=coronavirus_tests_argentina_porcentajes&altoTV=460&altoD=460&altoM=410"> </iframe></div>';
-
-        const component = render(<Html {...setContent(__html)} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<Html {...setContent(__html)} />);
+        expect(container).toMatchSnapshot();
     });
 });

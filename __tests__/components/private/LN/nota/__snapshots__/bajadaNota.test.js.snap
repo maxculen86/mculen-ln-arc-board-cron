@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - private - LN - nota - bajadaNota With subheadline must be subheadline 1`] = `
+<div>
+  <h2
+    class="com-subhead --bajada --m-xs-"
+  >
+    Basic headline
+  </h2>
+</div>
+`;
+
+exports[`Components - private - LN - nota - bajadaNota Without subheadline and subtype  video must custom title and display date 1`] = `
+<div>
+  <h2
+    class="com-subhead --bajada --m-xs-"
+  >
+    Video publicado por LA NACION el 14/09/2023.
+  </h2>
+</div>
+`;

@@ -13,7 +13,13 @@ const WeatherProvinces = ({ id: _featureId }) => {
         source: 'sectionSource',
         query: {
             id: '/clima'
-        }
+        },
+        filter: `{
+            children {
+                _id
+                name
+            }
+        }`
     });
     const { children: provinces = [] } = data || {};
 

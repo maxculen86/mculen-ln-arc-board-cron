@@ -72,51 +72,6 @@ describe('components - private - common - ComImage', () => {
         });
     });
 
-    describe('Props on amp outputType, without layout, target nor classCondition', () => {
-        it('Should return link and amp-img with correct props', () => {
-            const propsThree = {
-                ...props,
-                amp: true,
-                layout: undefined,
-                target: undefined,
-                classCondition: undefined,
-                srcset: 'mock',
-                alt: 'test-amp-image'
-            };
-            const { queryByRole, getByAltText, getByRole } = render(
-                <ComImage {...propsThree} />
-            );
-
-            const ampImageTag = getByAltText('test-amp-image');
-            const linkImage = getByRole('link');
-
-            expect(queryByRole('img')).toBeNull();
-            expect(ampImageTag).toBeInTheDocument();
-            expect(ampImageTag).toHaveAttribute('width', propsThree.width);
-            expect(ampImageTag).toHaveAttribute('height', propsThree.height);
-            expect(ampImageTag).toHaveAttribute('layout', 'responsive');
-            expect(ampImageTag).toHaveAttribute('class', ' ');
-            expect(ampImageTag).toHaveAttribute('srcSet', propsThree.srcset);
-            expect(ampImageTag.getAttribute('data-hero')).toBeNull();
-            expect(linkImage).toHaveAttribute('href', propsThree.href);
-        });
-    });
-
-    describe('Props on amp outputType, with isApertura', () => {
-        it('Should return amp-img with data-hero set to true', () => {
-            const propsFour = {
-                ...props,
-                amp: true,
-                isApertura: true,
-                alt: 'test-amp-image'
-            };
-            const { getByAltText } = render(<ComImage {...propsFour} />);
-            const imageTag = getByAltText('test-amp-image');
-
-            expect(imageTag.getAttribute('data-hero')).toBeTruthy();
-        });
-    });
-
     describe('Without src', () => {
         it('Should return null', () => {
             props.src = null;

@@ -1,6 +1,5 @@
-import Consumer from 'fusion:consumer';
 import React from 'react';
-import { render } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import siteProps from '../../../../../__mocks__/data/properties/lnSiteProps';
@@ -40,18 +39,15 @@ jest.mock('fusion:context', () => ({
     }))
 }));
 
-xdescribe('features - LaNacion - Nota - ', () => {
-    it('Test de snapshot Breadcrumb', () => {
-        const component = render(
+describe('components - private - LN - nota - breadcrumbArticle', () => {
+    it('should render snapshots', () => {
+        const { container } = render(
             <Breadcrumb globalContent={nota} siteProperties={siteProps} />
         );
-        expect(component).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 
-    it('Test de Breadcrumb variante 2 niveles', () => {
-        // /recetas/recetas-con-ingredientes/pollo
-        // /recetas/recetas-con-ingredientes
-
+    it('should test Breadcrumb Test variant 2 levels', () => {
         nota.taxonomy.sections = nota.taxonomy.sections.filter(
             x =>
                 ![
@@ -63,28 +59,21 @@ xdescribe('features - LaNacion - Nota - ', () => {
             x => x._id === '/recetas'
         );
 
-        const component = render(
-            <Breadcrumb globalContent={nota} siteProperties={siteProps} />
-        );
+        render(<Breadcrumb globalContent={nota} siteProperties={siteProps} />);
 
-        expect(component.find('a').length).toBe(2);
+        expect(screen.getAllByRole('link')).toHaveLength(2);
     });
 
-    it('Test de Breadcrumb variante 1 nivel', () => {
-        // /recetas/recetas-con-ingredientes/pollo
-        // /recetas/recetas-con-ingredientes
-
+    it('should test Breadcrumb Test variant 1 level', () => {
         nota.taxonomy.sections = undefined;
         nota.taxonomy.primary_section = undefined;
 
-        const component = render(
-            <Breadcrumb globalContent={nota} siteProperties={siteProps} />
-        );
+        render(<Breadcrumb globalContent={nota} siteProperties={siteProps} />);
 
-        expect(component.find('a').length).toBe(1);
+        expect(screen.getAllByRole('link')).toHaveLength(1);
     });
 
-    it('Test when section is not defined on recursive execution.', () => {
+    it('should test when section is not defined on recursive execution.', () => {
         const note = {
             ...nota,
             taxonomy: {
@@ -104,14 +93,12 @@ xdescribe('features - LaNacion - Nota - ', () => {
             }
         };
 
-        const component = render(
-            <Breadcrumb globalContent={note} siteProperties={siteProps} />
-        );
+        render(<Breadcrumb globalContent={note} siteProperties={siteProps} />);
 
-        expect(component.find('a').length).toBe(2);
+        expect(screen.getAllByRole('link')).toHaveLength(2);
     });
 
-    it('Test when the section is defined in recursive execution', () => {
+    it('should test when the section is defined in recursive execution', () => {
         const note = {
             ...nota,
             taxonomy: {
@@ -132,10 +119,8 @@ xdescribe('features - LaNacion - Nota - ', () => {
             }
         };
 
-        const component = render(
-            <Breadcrumb globalContent={note} siteProperties={siteProps} />
-        );
+        render(<Breadcrumb globalContent={note} siteProperties={siteProps} />);
 
-        expect(component.find('a').length).toBe(3);
+        expect(screen.getAllByRole('link')).toHaveLength(3);
     });
 });

@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 import Subtitle from '../../../../../components/private/LN/nota/cuerpo/subtitle';
 
-xdescribe('Subtitle', () => {
+describe('components - private - LN - nota', () => {
     const props = {
         data: {
             level: 2,
@@ -12,11 +12,12 @@ xdescribe('Subtitle', () => {
     };
 
     it('renders without crashing', () => {
-        render(<Subtitle {...props} />);
+        const { container } = render(<Subtitle {...props} />);
+        expect(container).toBeInTheDocument();
     });
 
     it('matches snapshot', () => {
-        const component = render(<Subtitle {...props} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<Subtitle {...props} />);
+        expect(container).toMatchSnapshot();
     });
 });

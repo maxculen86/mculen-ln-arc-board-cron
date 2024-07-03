@@ -171,24 +171,6 @@ xdescribe('Metarefresh', () => {
             expect(window.location.reload).not.toBeCalled();
         });
 
-        it('Does not reload on accelerated mobile pages', () => {
-            const props = {
-                arcSite: 'la-nacion-ar',
-                globalContent: {
-                    type: 'story',
-                    content_elements: []
-                },
-                outputType: 'amp',
-                screenUtils: {
-                    device: 'desktop'
-                }
-            };
-
-            mount(<Component {...props} />);
-            jest.advanceTimersByTime(40000);
-            expect(window.location.reload).not.toBeCalled();
-        });
-
         it('Reload when required conditions are met', () => {
             const props = {
                 arcSite: 'la-nacion-ar',

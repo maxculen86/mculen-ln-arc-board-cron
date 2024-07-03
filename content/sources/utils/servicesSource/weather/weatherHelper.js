@@ -254,7 +254,9 @@ const convertIcon = oldIcon => {
         92: snow,
         96: snow,
         51: windy,
-        118: windy
+        118: windy,
+        77: snowCloudy,
+        78: snowCloudy
     };
     if (oldIcon && Object.keys(iconConverter).includes(oldIcon.toString()))
         return iconConverter[oldIcon];

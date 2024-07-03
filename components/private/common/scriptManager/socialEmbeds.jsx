@@ -6,14 +6,14 @@ import { useAppContext } from 'fusion:context';
 import config from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
 
-const filterEmbeds = contentElements =>
+export const filterEmbeds = contentElements =>
     contentElements.filter(
         contentElement =>
             contentElement.type === 'oembed_response' ||
             contentElement.type === 'raw_html'
     );
 
-const hasInstagramEmbed = contentElements =>
+export const hasInstagramEmbed = contentElements =>
     contentElements.some(
         contentElement =>
             contentElement.subtype === 'instagram' ||
@@ -21,7 +21,7 @@ const hasInstagramEmbed = contentElements =>
                 contentElement.content.includes('instagram-media'))
     );
 
-const hasFacebookEmbed = contentElements => {
+export const hasFacebookEmbed = contentElements => {
     return contentElements.some(
         contentElement =>
             contentElement.subtype === 'facebook' ||

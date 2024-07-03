@@ -372,7 +372,7 @@ var searchPage = {
         //retrieve metadata
         var total = results.metadata.total;
         searchPage.endIndex = results.metadata.endindex;
-        const emptyState = `<img class="image flex --cover" decoding="async" fetchpriority="low" loading="lazy" src="${emptyStateIcon}" alt="¡Aún no hay nada por acá!">`
+        const emptyState = `<img class="image flex --cover w-147" decoding="async" fetchpriority="low" loading="lazy" src="${emptyStateIcon}" alt="¡Aún no hay nada por acá!">`
         
         if (total == 0) {
             document.getElementById('btn-toggle-filter').classList.add('none');

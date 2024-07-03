@@ -51,7 +51,7 @@ describe('Test return functions by getMetasOGHelper', () => {
     it('Test return function setMetaDescription', () => {
         const props = {
             data: {
-                subtype: 5,
+                subtype: 6,
                 description: '',
                 title: 'Ultimas noticias de Argentina y el Mundo'
             },
@@ -140,6 +140,41 @@ describe('Test return functions by getMetasOGHelper', () => {
             props.ottMetaDescription
         );
     });
+
+    it('Test return function setMetaDescription subtype VIDEO without description', () => {
+        const props = {
+            data: {
+                subtype: '5',
+                description: '',
+                title: 'El titulo del video',
+                arcSite: 'la-nacion-ar',
+                displayDate: '2024-01-09T19:22:33.461Z'
+            },
+            arcSite: 'la-nacion-ar',
+            section: 'nota'
+        };
+
+        expect(setMetaDescription(props)).toStrictEqual(
+            'Video de El titulo del video - 09/01/2024'
+        );
+    });
+    it('Test return function setMetaDescription subtype VIDEO with description', () => {
+        const props = {
+            data: {
+                subtype: '5',
+                description: 'La descripcion del video',
+                title: 'El titulo del video',
+                arcSite: 'la-nacion-ar',
+                displayDate: '2024-01-09T19:22:33.461Z'
+            },
+            arcSite: 'la-nacion-ar',
+            section: 'nota'
+        };
+
+        expect(setMetaDescription(props)).toStrictEqual(
+            'La descripcion del video'
+        );
+    });
 });
 
 describe('Case return getData', () => {
@@ -168,6 +203,7 @@ describe('Case return getData', () => {
                 receta: {}
             },
             publish_date: '2021-01-08T15:24:00.940Z',
+            display_date: '2021-01-08T15:24:00.940Z',
             subheadlines: { basic: '' },
             subtype: '7',
             type: 'story',
@@ -189,6 +225,7 @@ describe('Case return getData', () => {
             type: 'article',
             title: 'Arroz chaufa de mariscos',
             description: '',
+            displayDate: '2021-01-08T15:24:00.940Z',
             image:
                 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
             url:

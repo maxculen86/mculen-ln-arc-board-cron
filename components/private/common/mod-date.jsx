@@ -7,7 +7,7 @@ import ReadingTime from '../../features/LN-10-global/common/readingTime/default'
 import { Text } from '@ln/contenidos-ui-text';
 import {
     getFormattedStringDate,
-    getUpdateDateMoreYears,
+    getUpdateDateMoreYears
 } from './utils/dateAndTimeUtil';
 import { getClassNameByLayout } from './utils/modDateHelper';
 
@@ -15,11 +15,11 @@ const ModDate = ({
     display_date = '',
     labelEdicionImpresa = {},
     first_publish_date = '',
-    last_updated_date = '',
+    last_updated_date = ''
 }) => {
     const last_updated_result = getUpdateDateMoreYears(
         first_publish_date,
-        last_updated_date,
+        last_updated_date
     );
     const dateFormattedUpdate = getFormattedStringDate(last_updated_result);
     const { layout } = useAppContext() || {};
@@ -40,7 +40,11 @@ const ModDate = ({
                 <ReadingTime />
             </ul>
             {dateFormattedUpdate && (
-                <Text className="mod-last-update" size="2xs" weight="regular">
+                <Text
+                    className="mod-last-update white-space-nowrap"
+                    size="2xs"
+                    weight="regular"
+                >
                     Actualizado el {dateFormattedUpdate}
                 </Text>
             )}
@@ -52,7 +56,7 @@ ModDate.propTypes = {
     display_date: PropTypes.string.isRequired,
     first_publish_date: PropTypes.string.isRequired,
     last_updated_date: PropTypes.string.isRequired,
-    labelEdicionImpresa: PropTypes.string,
+    labelEdicionImpresa: PropTypes.string
 };
 
 export default ModDate;

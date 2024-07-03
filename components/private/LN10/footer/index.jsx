@@ -9,19 +9,15 @@ import {
     productos,
     revistas,
     secciones,
-    optionsIcons
+    optionsIcons,
+    getEditionDetails,
 } from './_helper';
 import FooterEventsScript from '../../common/scriptManager/FooterEventsScript';
-import { datesDiffInDays } from '../../common/utils/dateAndTimeUtil';
-import { getArgentinaDateMonthYear } from '../../common/utils/dateAndTimeUtil';
 
 const Footer = () => {
     const { contextPath, deployment, layout } = useAppContext();
     const { layoutsName = {} } = siteConfig || {};
-
-    const refDate = new Date('1995-12-13T03:00:00');
-    const currentDate = new Date();
-    const currentEdNumber = datesDiffInDays(refDate, currentDate);
+    const editionDetails = getEditionDetails();
 
     return (
         <>
@@ -33,8 +29,8 @@ const Footer = () => {
                     listFooterSecciones={secciones}
                     optionsIcons={optionsIcons(contextPath, deployment)}
                     isHome={layout === layoutsName.HomeLN10}
-                    edDate={getArgentinaDateMonthYear()}
-                    edNumber={currentEdNumber}
+                    edDate={editionDetails.edDate}
+                    edNumber={editionDetails.edNumber}
                 />
                 <FooterEventsScript />
             </Static>

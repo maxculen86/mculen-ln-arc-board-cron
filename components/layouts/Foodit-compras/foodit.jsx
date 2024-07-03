@@ -32,4 +32,6 @@ const ListadoComprasFoodit = () => {
     );
 };
 
+ListadoComprasFoodit.sections = ['Cuerpo'];
+
 export default ListadoComprasFoodit;

@@ -1,3 +1,9 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Context from 'fusion:context';
+import Consumer from 'fusion:consumer';
+import Image from '../../../../../../components/private/LN/nota/cuerpo/image';
+
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {};
@@ -6,15 +12,7 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
-import Context from 'fusion:context';
-
-import Consumer from 'fusion:consumer';
-import React from 'react';
-
-import Image from '../../../../../../components/private/LN/nota/cuerpo/image';
-import { mount } from 'enzyme';
-
-xdescribe('features - La Nacion - Components - Nota - Apertura - Destacado ', () => {
+describe('components - private - LN - nota - cuerpo', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' }
     }));
@@ -106,13 +104,23 @@ xdescribe('features - La Nacion - Components - Nota - Apertura - Destacado ', ()
         width: 345
     };
 
-    /* it('Matches snapshot', () => {
+    it('should render image with correct src and alt', () => {
+        render(<Image data={data} />);
+        const img = screen.getByRole('img');
+        expect(img).toHaveAttribute('src', data.url);
+        expect(img).toHaveAttribute('alt', data.caption);
+    });
+
+    it('should render caption and credits', () => {
+        render(<Image data={data} />);
+        const caption = screen.getByText(data.caption);
+        const credit = screen.getByText(/Credito/);
+        expect(caption).toBeInTheDocument();
+        expect(credit).toBeInTheDocument();
+    });
+
+    it('Matches snapshot', () => {
         const image = render(<Image data={data} />);
         expect(image).toMatchSnapshot();
-    }); */
-
-    it('Test de logica de Destacado - Imagen', () => {
-        const comp = mount(<Image data={data} />);
-        expect('image').toBe(data.type);
     });
 });

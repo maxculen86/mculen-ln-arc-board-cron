@@ -1,19 +1,16 @@
 import React from 'react';
-/*
+import { render } from '@testing-library/react';
+import MetaDescription from '../../../../../components/private/common/metaDescription';
+
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
-*/
-import Consumer from 'fusion:consumer';
-import { mount, shallow, render } from 'enzyme';
-import MetaDescription from '../../../../../components/private/common/metaDescription';
-import MetaDescriptionAcumulado from '../../../../../components/private/LN/acumulado/metaDescriptionAcumulado';
 
-xdescribe('LN - Common - MetaDescription', () => {
+describe('LN - Common - MetaDescription', () => {
     it('MetaDescription nota snapshot', () => {
-        const metaTitleBasic = mount(
+        const { container } = render(
             <MetaDescription
                 arcSite="la-nacion-ar"
                 subtype="1"
@@ -22,7 +19,8 @@ xdescribe('LN - Common - MetaDescription', () => {
                 description="Descripción Pruebaaaaa !!!"
             />
         );
-        expect(metaTitleBasic).toMatchSnapshot();
+
+        expect(container).toMatchSnapshot();
     });
 
     it('MetaDescriptionAcumulado', () => {
@@ -43,9 +41,13 @@ xdescribe('LN - Common - MetaDescription', () => {
                 'Últimas Noticias de Economía: Guyana: El pequeño país que creció un 54% durante 2020, Nueva suba de la inflación esperada: Queda lejos el 29% pronosticado por el gobierno'
         };
 
-        const meta = mount(<MetaDescription {...props} />);
-        expect(meta.html()).toEqual(
-            '<meta name="description" content="Últimas Noticias de Economía: Guyana: El pequeño país que creció un 54% durante 2020, Nueva suba de la inflación esperada: Queda lejos el 29% pronosticado por el gobierno - LA NACION">'
+        render(<MetaDescription {...props} />);
+        const metaElement = document.querySelector('meta[name="description"]');
+
+        expect(metaElement).toBeInTheDocument();
+        expect(metaElement).toHaveAttribute(
+            'content',
+            'Últimas Noticias de Economía: Guyana: El pequeño país que creció un 54% durante 2020, Nueva suba de la inflación esperada: Queda lejos el 29% pronosticado por el gobierno - LA NACION'
         );
     });
 
@@ -67,9 +69,13 @@ xdescribe('LN - Common - MetaDescription', () => {
                 'Las mejores Recetas para cocinar, inspirate con estas ideas'
         };
 
-        const meta = mount(<MetaDescription {...props} />);
-        expect(meta.html()).toEqual(
-            '<meta name="description" content="Las mejores Recetas para cocinar, inspirate con estas ideas">'
+        render(<MetaDescription {...props} />);
+        const metaElement = document.querySelector('meta[name="description"]');
+
+        expect(metaElement).toBeInTheDocument();
+        expect(metaElement).toHaveAttribute(
+            'content',
+            'Las mejores Recetas para cocinar, inspirate con estas ideas'
         );
     });
 });

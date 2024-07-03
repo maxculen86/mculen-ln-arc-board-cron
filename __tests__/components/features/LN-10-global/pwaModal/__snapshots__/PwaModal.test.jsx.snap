@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PwaModal should not render the modal when isAdmin is true 1`] = `<div />`;
+
 exports[`PwaModal should not render the modal when isShowModal is false 1`] = `<div />`;
 
 exports[`PwaModal should render the modal when isShowModal is true 1`] = `

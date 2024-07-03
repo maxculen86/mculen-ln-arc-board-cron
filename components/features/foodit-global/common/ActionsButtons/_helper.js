@@ -11,9 +11,10 @@ const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
 };
 const buttonShare = article => {
+    const title = get(article, 'headlines.basic', '');
+    const subTitle = get(article, 'subheadlines.basic', '');
     navigator.share({
-        title: get(article, 'headlines.basic', ''),
-        text: get(article, 'subheadlines.basic', ''),
+        text: `${title}\n${subTitle}\n`,
         url: window.location.href
     });
 };

@@ -104,38 +104,7 @@ describe('Article source nota - htmlLibre AMP 404', () => {
         Redirect.mockClear();
         NotFoundError.mockClear();
     });
-    describe('When is htmlLibre subtype 9 and outputType AMP', () => {
-        it('Should throw notFound error 404', done => {
-            mockRequestResponse.mockReturnValueOnce(mockResponseHtmlLibre);
-            query.outputType = 'amp';
 
-            articleSourceFetch(query, {
-                cachedCall: jest.fn()
-            })
-                .then(() => {
-                    expect(Redirect).not.toBeCalled();
-                    expect(NotFoundError).toBeCalledWith(
-                        'Pagina en Amp no encontrada'
-                    );
-                })
-                .then(done);
-        });
-    });
-    describe('When is NOT htmlLibre subtype and outputType AMP', () => {
-        it('Should NOT throw notFound error 404', done => {
-            mockRequestResponse.mockReturnValueOnce(mockResponseNotaNoticia);
-            query.outputType = 'amp';
-
-            articleSourceFetch(query, {
-                cachedCall: jest.fn()
-            })
-                .then(() => {
-                    expect(Redirect).not.toBeCalled();
-                    expect(NotFoundError).not.toBeCalled();
-                })
-                .then(done);
-        });
-    });
     describe('When is htmlLibre subtype 9 and outputType default', () => {
         it('Should NOT throw notFound error 404', done => {
             mockRequestResponse.mockReturnValueOnce(mockResponseHtmlLibre);

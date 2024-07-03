@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModMedio Matches snapshot 1`] = `
-<div
-  class="container-medio"
->
-  <span
-    class="com-text --medio"
+exports[`Private - Common -  ModMedio Matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container-medio"
   >
-    nacion
-  </span>
-</div>
+    <span
+      class="com-text --medio"
+    >
+      nacion
+    </span>
+  </div>
+</DocumentFragment>
 `;

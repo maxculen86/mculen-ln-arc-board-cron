@@ -1,6 +1,7 @@
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import get from '../../../../private/common/utils/get';
+import filter from '../../../../../content/filters/foodit/relatedArticles';
 
 const useGridArticlesFoodit = ({
     id = '',
@@ -22,7 +23,7 @@ const useGridArticlesFoodit = ({
     const isFirstGridClient = page === 1 && !staticMode;
 
     const config = {
-        source: isFirstGridClient ? null : 'acuArticlesSource',
+        source: isFirstGridClient ? null : 'fooditAcuSource',
         query: {
             [queryId]: queryId ? id : null,
             page,
@@ -30,6 +31,7 @@ const useGridArticlesFoodit = ({
             website: 'foodit',
             imageConfig: 'm'
         },
+        filter,
         staticMode
     };
     const articleList = useContent(config);

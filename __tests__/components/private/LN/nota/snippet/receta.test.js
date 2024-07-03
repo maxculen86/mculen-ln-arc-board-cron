@@ -1,9 +1,8 @@
 import React from 'react';
 import Context from 'fusion:context';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Receta from '../../../../../../components/private/LN/nota/snippet/receta';
-import SnippetRender from '../../../../../../components/private/common/snippet/snippetRender';
 import getDomain from '../../../../../../components/private/common/utils/getDomain';
 import article from '../../../../../../__mocks__/data/articles/ATLC5WVL4NH5HAHU2BWJXTSATY';
 import recipeCuisineTaxonomy from '../../../../../../__mocks__/data/articles/recipeCuisineTaxonomy';
@@ -46,7 +45,7 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-xdescribe('SNIPPET - La Nacion - Nota - Receta ', () => {
+describe('components - private - LN - Nota - Receta ', () => {
     Context.useAppContext = jest.fn(() => ({}));
     const props = {
         arcSite: 'la-nacion-ar',
@@ -54,22 +53,6 @@ xdescribe('SNIPPET - La Nacion - Nota - Receta ', () => {
     };
 
     const articleRecipeCuisine = JSON.parse(JSON.stringify(article));
-
-    const propsRecipeCuisinePrimary = {
-        arcSite: 'la-nacion-ar',
-        globalContent: {
-            ...articleRecipeCuisine,
-            taxonomy: recipeCuisineTaxonomy.primarySection
-        }
-    };
-
-    const propsRecipeCuisineSecondary = {
-        arcSite: 'la-nacion-ar',
-        globalContent: {
-            ...articleRecipeCuisine,
-            taxonomy: recipeCuisineTaxonomy.secondarySection
-        }
-    };
 
     const propsRecipeCuisineNone = {
         arcSite: 'la-nacion-ar',
@@ -80,22 +63,16 @@ xdescribe('SNIPPET - La Nacion - Nota - Receta ', () => {
     };
 
     it('Test getDomain main site ', () => {
-        const { container } = render(<Receta {...props} />);
-
         const domain = getDomain({ _id: '/' });
         expect(domain).toBe('https://www.lanacion.com.ar');
     });
 
     it('Test getDomain child site ', () => {
-        const { container } = render(<Receta {...props} />);
-
         const domain = getDomain({ _id: '/recetas' });
         expect(domain).toBe('https://www.lanacion.com.ar');
     });
 
     it('Test getDomain child with website_url and no _id ', () => {
-        const { container } = render(<Receta {...props} />);
-
         const domain = getDomain({
             _id: '/NVDUCEERNZHWFH66AFKFLJEHOE',
             website_url:
