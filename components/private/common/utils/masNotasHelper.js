@@ -1,9 +1,9 @@
+import { useContent } from 'fusion:content';
 import getProperties from 'fusion:properties';
-import useGetArticlesFromAcumSource from '../../LN/common/hooks/useGetArticlesFromAcumSource';
 import addForwardSlash from '../../LN/common/utils/addForwardSlash';
 import capitalizeFirstLetter from './capitalizeFirstLetter';
-import filter from '../../../../content/filters/LN/acumulado/articleMasNotas';
 import get from './get';
+import filter from '../../../../content/filters/LN/acumulado/articleMasNotas';
 
 export const getSectionTitle = (isNoticia, isRecetas) => {
     if (isNoticia) return 'Otras noticias de&nbsp;';
@@ -49,41 +49,6 @@ export const validateMasNotas = (articles, cantidadNotas) => {
     return message && { type: 'warning', message };
 };
 
-export const GetArticlesList = ({
-    typesOfQuery,
-    excludeSectionId = false,
-    notFilter = false,
-    _website = 'la-nacion-ar',
-    isSection,
-    idArticle,
-    cantidadNotas
-}) => {
-    const size = {
-        tripleSize: Math.ceil(cantidadNotas * 1.5),
-        originalSize: cantidadNotas
-    };
-
-    return useGetArticlesFromAcumSource({
-        typesOfQuery,
-        filter,
-        imageConfig: 'boxArticles',
-        size,
-        sourceOrigin: 'composer',
-        excludeSectionId,
-        type: 'story',
-        shouldNotFilter: notFilter,
-        _website,
-        promoItemsOnly: true,
-        staticMode: isSection,
-        excludePreload: true
-    })
-        .filter(
-            ({ _id: id = '', promo_items: promoItems = {} } = {}) =>
-                id !== idArticle && get(promoItems, 'basic.type') === 'image'
-        )
-        .slice(0, Number(size.originalSize));
-};
-
 export const shouldNotFilter = (sectionId = '', arcSite = 'la-nacion-ar') => {
     const { notRecommendedSections = [] } = getProperties(arcSite);
     const SectionIdElements = sectionId.split('/');
@@ -93,10 +58,27 @@ export const shouldNotFilter = (sectionId = '', arcSite = 'la-nacion-ar') => {
     );
 };
 
-export const filterType = {
+const setSize = cantidadNotas => ({
+    tripleSize: Math.ceil(cantidadNotas * 1.5),
+    originalSize: cantidadNotas
+});
+
+export const getFilteredContentElements = (
+    articlesList = {},
+    idArticle = '',
+    cantidadNotas = 0
+) => {
+    return get(articlesList, 'content_elements', [])
+        .filter(
+            ({ _id: id = '', promo_items: promoItems = {} } = {}) =>
+                id !== idArticle && get(promoItems, 'basic.type') === 'image'
+        )
+        .slice(0, Number(cantidadNotas));
+};
+
+export const setSearchParamsByFilterType = {
     byLastNews: ({
-        _website,
-        idArticle,
+        _website: website,
         sectionId,
         isNoticia,
         isRecetas,
@@ -105,49 +87,99 @@ export const filterType = {
         cantidadNotas,
         arcSite
     }) => {
-        let id = sectionId;
-        if (isRecetas) id = '/recetas';
-        const typesOfQuery = isVideo ? { sectionId, subtype } : { sectionId };
+        const size = setSize(cantidadNotas);
 
         return {
-            articles: GetArticlesList({
-                typesOfQuery,
-                excludeSectionId: isNoticia,
-                notFilter: shouldNotFilter(id, arcSite),
-                _website,
-                idArticle,
-                cantidadNotas,
-                isSection: false
-            }),
+            sectionId,
+            subtype: isVideo ? subtype : undefined,
+            excludeSectionId: isNoticia,
+            shouldNotFilter: isRecetas
+                ? shouldNotFilter('/recetas', arcSite)
+                : shouldNotFilter(sectionId, arcSite),
+            website,
+            size: size.tripleSize || size,
+            imageConfig: 'boxArticles',
+            sourceOrigin: 'composer',
+            type: 'story',
+            promoItemsOnly: true,
+            excludePreload: true
+        };
+    },
+
+    bySectionOrTag: ({
+        sectionOrTag,
+        _website: website,
+        sectionId,
+        cantidadNotas,
+        arcSite
+    }) => {
+        const size = setSize(cantidadNotas);
+        const isSearchByTag = sectionOrTag && sectionOrTag[0] !== '/';
+
+        return {
+            ...(isSearchByTag
+                ? { tagId: sectionOrTag }
+                : { sectionId: sectionOrTag }),
+            website,
+            size: size.tripleSize || size,
+            shouldNotFilter: shouldNotFilter(sectionId, arcSite),
+            imageConfig: 'boxArticles',
+            sourceOrigin: 'composer',
+            type: 'story',
+            promoItemsOnly: true,
+            excludePreload: true
+        };
+    }
+};
+
+export const filterType = {
+    byLastNews: ({ filteredContentElements, isRecetas }) => {
+        return {
+            articles: filteredContentElements,
             sectionTitle: 'UltimasNoticias',
             title: isRecetas ? 'Últimas Recetas' : 'Últimas Noticias'
         };
     },
 
     byTags: ({
-        _website,
+        _website: website,
+        sectionId,
+        cantidadNotas,
+        arcSite,
         sectionName,
         path,
         idArticle,
-        sectionId,
         isNoticia,
         isRecetas,
-        cantidadNotas,
-        arcSite,
         tags = []
     }) => {
         const { articles = [], link = {} } = tags.reduce((acc, tag) => {
             if (acc.articles) return acc;
             const { slug, text } = tag;
+            const size = setSize(cantidadNotas);
 
-            const res = GetArticlesList({
-                typesOfQuery: { tagId: slug },
-                notFilter: shouldNotFilter(sectionId, arcSite),
-                _website,
-                isSection: false,
+            const articlesList = useContent({
+                source: 'acuArticlesSourceV2',
+                query: {
+                    website,
+                    tagId: slug,
+                    size: size.tripleSize || size,
+                    shouldNotFilter: shouldNotFilter(sectionId, arcSite),
+                    imageConfig: 'boxArticles',
+                    sourceOrigin: 'composer',
+                    type: 'story',
+                    promoItemsOnly: true,
+                    excludePreload: true
+                },
+                filter,
+                staticMode: false
+            });
+
+            const res = getFilteredContentElements(
+                articlesList,
                 idArticle,
                 cantidadNotas
-            });
+            );
 
             if (res.length >= 3) {
                 acc.articles = res;
@@ -168,32 +200,19 @@ export const filterType = {
 
     bySectionOrTag: ({
         sectionOrTag,
-        _website,
-        idArticle,
-        sectionId,
+        filteredContentElements,
         isNoticia,
-        isRecetas,
-        cantidadNotas,
-        arcSite
+        isRecetas
     }) => {
         const isSearchByTag = sectionOrTag && sectionOrTag[0] !== '/';
-        let typesOfQuery = { sectionId: sectionOrTag };
-
-        if (isSearchByTag) typesOfQuery = { tagId: sectionOrTag };
-
-        const articles = GetArticlesList({
-            typesOfQuery,
-            notFilter: shouldNotFilter(sectionId, arcSite),
-            _website,
-            isSection: false,
-            idArticle,
-            cantidadNotas
-        });
-
-        const link = getLink(isSearchByTag, sectionOrTag, articles);
+        const link = getLink(
+            isSearchByTag,
+            sectionOrTag,
+            filteredContentElements
+        );
 
         return {
-            articles,
+            articles: filteredContentElements,
             sectionTitle: isSearchByTag ? 'OtrasNoticias' : 'UltimasNoticias',
             title: getTitle(isNoticia, isRecetas, link, isSearchByTag)
         };

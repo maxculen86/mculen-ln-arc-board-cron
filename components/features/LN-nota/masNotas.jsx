@@ -4,6 +4,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import { useContent } from 'fusion:content';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
@@ -12,8 +13,11 @@ import {
 } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
     validateMasNotas,
-    filterType
+    filterType,
+    setSearchParamsByFilterType,
+    getFilteredContentElements
 } from '../../private/common/utils/masNotasHelper';
+import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
@@ -38,6 +42,8 @@ const masNotas = props => {
 
     if (!_id) return <></>;
 
+    const isFilteringByTags = filterCustomField === 'byTags';
+
     const searchParameters = {
         sectionOrTag,
         _website,
@@ -54,12 +60,40 @@ const masNotas = props => {
         arcSite
     };
 
-    const { articles = [], title = '', sectionTitle } = filterType[
-        filterCustomField
-    ]
-        ? filterType[filterCustomField]({ ...searchParameters })
-        : filterType.byLastNews({ ...searchParameters });
+    let content = {};
 
+    const refinedSearchParams = setSearchParamsByFilterType[filterCustomField]
+        ? setSearchParamsByFilterType[filterCustomField](searchParameters)
+        : setSearchParamsByFilterType.byLastNews(searchParameters);
+
+    const articlesList = useContent({
+        source: isFilteringByTags ? null : 'acuArticlesSourceV2',
+        query: refinedSearchParams,
+        filter,
+        staticMode: false
+    });
+
+    if (isFilteringByTags) {
+        content = filterType.byTags(searchParameters);
+    }
+
+    const filteredContentElements = getFilteredContentElements(
+        articlesList,
+        idArticle,
+        cantidadNotas
+    );
+
+    content = filterType[filterCustomField]
+        ? filterType[filterCustomField]({
+              ...searchParameters,
+              filteredContentElements
+          })
+        : filterType.byLastNews({
+              ...searchParameters,
+              filteredContentElements
+          });
+
+    const { articles = [], title = '', sectionTitle } = content;
     const error = validateMasNotas(articles, cantidadNotas);
 
     useEffect(() => {
