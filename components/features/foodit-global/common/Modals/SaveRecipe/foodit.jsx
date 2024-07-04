@@ -47,7 +47,7 @@ export const Modal = () => {
             'rounded-4 h-fit p-16 p-24_md p-32_lg flex gap-16 gap-24_md gap-32_lg',
             userType === 'subscribed'
                 ? 'bg-light-1 max-w-328'
-                : 'w-100 max-w-720_md max-w-944_lg bg-positive'
+                : 'w-100 min-w-360 min-w-720_md min-w-944_lg bg-positive'
         );
 
     return (

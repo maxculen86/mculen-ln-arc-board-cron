@@ -39,7 +39,7 @@ const MainSaveRecipe = props => {
     }, []);
 
     return (
-        <main className="mb-16">
+        <div className="mb-16">
             {showSelect && (
                 <Select
                     label="Colección"
@@ -99,7 +99,7 @@ const MainSaveRecipe = props => {
                     <ErrorMessage message={error?.message} />
                 </div>
             )}
-        </main>
+        </div>
     );
 };
 
