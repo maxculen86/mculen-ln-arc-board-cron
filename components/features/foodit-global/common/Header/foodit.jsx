@@ -18,14 +18,22 @@ import DrawerMenu from '../DrawerMenu/foodit';
 import transformMenuData from './_helpers';
 import { useContent } from 'fusion:content';
 import filterMenuSections from '../../../../../content/filters/foodit/filterMenuSections';
+import get from '../../../../private/common/utils/get';
 
 const HeaderFoodit = () => {
-    const { siteProperties, layout } = useAppContext();
+    const { siteProperties, layout, globalContent } = useAppContext();
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
+    const isOpen =
+        get(globalContent, 'content_restrictions.content_code') !== 'cerrada';
 
     const { layoutsName = {} } = siteProperties || {};
 
-    const isHome = layout === layoutsName.FooditHome;
+    const layoutSheets = [
+        layoutsName.FooditFichaReceta,
+        layoutsName.FooditFichaNota
+    ];
+    const showSubheaderInSheet = layoutSheets.includes(layout) && isOpen;
+    const showSubheaderInHome = layout === layoutsName.FooditHome;
 
     const marginByLayouts = {
         [layoutsName.FooditHome]: 'mb-12 mb-40_lg',
@@ -91,7 +99,7 @@ const HeaderFoodit = () => {
                         <TopNavigationBar categories={categories} />
                     </MainHeader.Bottom>
                 </MainHeader>
-                {isHome && (
+                {(showSubheaderInHome || showSubheaderInSheet) && (
                     <SubHeader>
                         <Promotions />
                     </SubHeader>
