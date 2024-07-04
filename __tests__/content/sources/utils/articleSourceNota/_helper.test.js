@@ -4,7 +4,8 @@ import {
     filterSections,
     transformAuthors,
     transformElementsBasedOnType,
-    setRedirect
+    setRedirect,
+    injectGlossaryHTML
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -17,6 +18,326 @@ import {
 } from '../../../../../content/sources/utils/articleSourceNota/_configs';
 
 describe('Tests articleSourceNota - _helper', () => {
+    describe('Tests injectGlossaryHTML function', () => {
+        const content_elements_typeList = [
+            {
+                _id: 'B3FHRIJWIJCP7H5BYWWI3IGM4U',
+                type: 'list',
+                list_type: 'unordered',
+                additional_properties: {
+                    comments: [],
+                    inline_comments: []
+                },
+                items: [
+                    {
+                        _id: 'FPBTN5ZFOBGITHOB6S7VLMKULA',
+                        additional_properties: {
+                            comments: [],
+                            inline_comments: []
+                        },
+                        block_properties: {},
+                        content:
+                            'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores',
+                        type: 'text'
+                    },
+                    {
+                        _id: 'J7RUYWZE35GRZC6XW73QILF6NM',
+                        additional_properties: {
+                            comments: [],
+                            inline_comments: []
+                        },
+                        block_properties: {},
+                        content:
+                            'Los argentinos que operaron Cedears, obligaciones negociables o criptomonedas en los 90 días anteriores',
+                        type: 'text'
+                    },
+                    {
+                        _id: 'YCFA37VCKRA3DNUOCBVEDK3HAQ',
+                        additional_properties: {
+                            comments: [],
+                            inline_comments: []
+                        },
+                        block_properties: {},
+                        content:
+                            'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)',
+                        type: 'text'
+                    }
+                ]
+            }
+        ];
+
+        const content_elements_typeText = [
+            {
+                _id: '2MA6ML6UBZCF7JZPZ6YLRH4HWA',
+                type: 'text',
+                additional_properties: {
+                    _id: 1719404876013,
+                    comments: [],
+                    inline_comments: []
+                },
+                content:
+                    'El <b>dólar CCL </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
+            },
+            {
+                _id: 'VMSDGMET4BFGBATL6B6DMVVDVE',
+                type: 'text',
+                additional_properties: {
+                    _id: 1719397953735,
+                    comments: [],
+                    inline_comments: []
+                },
+                content:
+                    '<b>Martín Redrado</b> afirmó este domingo a la noche en <b>LN+ </b>que “la Argentina necesita consolidar la estabilidad y plantear una <b>estrategia de desarrollo</b> basada en la innovación”. También se refirió al futuro de la economía y consideró que el país necesita una verdadera “<b>revolución impositiva”</b>, donde se eliminen i<b>mpuestos distorsivos</b>, se plantee un cronograma para <b>eliminar retenciones </b>y se reforme el <b>impuesto de ganancias</b>.'
+            }
+        ];
+
+        const glossary = [
+            {
+                key: 'CCL',
+                value:
+                    'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
+            },
+            {
+                key: 'Cedears',
+                value:
+                    '(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).'
+            },
+            {
+                key: 'distorsivos',
+                value:
+                    'Acción de torcer o desequilibrar la disposición de figuras en general o de elementos artísticos, o de presentar o interpretar hechos, intenciones, etc., deformándolos de modo intencionado. alteración, deformación, desfiguración.'
+            }
+        ];
+
+        const content_elements = [
+            {
+                _id: '2MA6ML6UBZCF7JZPZ6YLRH4HWA',
+                type: 'text',
+                additional_properties: {
+                    _id: 1719404876013,
+                    comments: [],
+                    inline_comments: []
+                },
+                content:
+                    'El <b>dólar CCL </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
+            },
+            {
+                _id: 'VMSDGMET4BFGBATL6B6DMVVDVE',
+                type: 'text',
+                additional_properties: {
+                    _id: 1719397953735,
+                    comments: [],
+                    inline_comments: []
+                },
+                content:
+                    '<b>Martín Redrado</b> afirmó este domingo a la noche en <b>LN+ </b>que “la Argentina necesita consolidar la estabilidad y plantear una <b>estrategia de desarrollo</b> basada en la innovación”. También se refirió al futuro de la economía y consideró que el país necesita una verdadera “<b>revolución impositiva”</b>, donde se eliminen i<b>mpuestos distorsivos</b>, se plantee un cronograma para <b>eliminar retenciones </b>y se reforme el <b>impuesto de ganancias</b>.'
+            },
+            {
+                _id: 'B3FHRIJWIJCP7H5BYWWI3IGM4U',
+                type: 'list',
+                list_type: 'unordered',
+                additional_properties: {
+                    comments: [],
+                    inline_comments: []
+                },
+                items: [
+                    {
+                        _id: 'FPBTN5ZFOBGITHOB6S7VLMKULA',
+                        additional_properties: {
+                            comments: [],
+                            inline_comments: []
+                        },
+                        block_properties: {},
+                        content:
+                            'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores',
+                        type: 'text'
+                    },
+                    {
+                        _id: 'J7RUYWZE35GRZC6XW73QILF6NM',
+                        additional_properties: {
+                            comments: [],
+                            inline_comments: []
+                        },
+                        block_properties: {},
+                        content:
+                            'Los argentinos que operaron Cedears, obligaciones negociables o criptomonedas en los 90 días anteriores',
+                        type: 'text'
+                    },
+                    {
+                        _id: 'YCFA37VCKRA3DNUOCBVEDK3HAQ',
+                        additional_properties: {
+                            comments: [],
+                            inline_comments: []
+                        },
+                        block_properties: {},
+                        content:
+                            'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)',
+                        type: 'text'
+                    }
+                ]
+            }
+        ];
+
+        it('should inject glossary HTML into the content when type is text', async () => {
+            const expectedContent = [
+                {
+                    _id: '2MA6ML6UBZCF7JZPZ6YLRH4HWA',
+                    type: 'text',
+                    additional_properties: {
+                        _id: 1719404876013,
+                        comments: [],
+                        inline_comments: []
+                    },
+                    content: `El <b>dólar <div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('CCL')" class="word-glossary"><span class="word">CCL</span><div class="tooltip-glossary"><h3>CCL</h3><p>Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.</p><span class="disclaimer" /></div></div> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.`
+                },
+                {
+                    _id: 'VMSDGMET4BFGBATL6B6DMVVDVE',
+                    type: 'text',
+                    additional_properties: {
+                        _id: 1719397953735,
+                        comments: [],
+                        inline_comments: []
+                    },
+                    content: `<b>Martín Redrado</b> afirmó este domingo a la noche en <b>LN+ </b>que “la Argentina necesita consolidar la estabilidad y plantear una <b>estrategia de desarrollo</b> basada en la innovación”. También se refirió al futuro de la economía y consideró que el país necesita una verdadera “<b>revolución impositiva”</b>, donde se eliminen i<b>mpuestos <div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('distorsivos')" class="word-glossary"><span class="word">distorsivos</span><div class="tooltip-glossary"><h3>distorsivos</h3><p>Acción de torcer o desequilibrar la disposición de figuras en general o de elementos artísticos, o de presentar o interpretar hechos, intenciones, etc., deformándolos de modo intencionado. alteración, deformación, desfiguración.</p><span class="disclaimer" /></div></div></b>, se plantee un cronograma para <b>eliminar retenciones </b>y se reforme el <b>impuesto de ganancias</b>.`
+                }
+            ];
+
+            const result = await injectGlossaryHTML(
+                content_elements_typeText,
+                glossary
+            );
+
+            expect(result).toEqual(expectedContent);
+        });
+
+        it('should inject glossary HTML into the content when type is list', async () => {
+            const expectedContent = [
+                {
+                    _id: 'B3FHRIJWIJCP7H5BYWWI3IGM4U',
+                    type: 'list',
+                    list_type: 'unordered',
+                    additional_properties: {
+                        comments: [],
+                        inline_comments: []
+                    },
+                    items: [
+                        {
+                            _id: 'FPBTN5ZFOBGITHOB6S7VLMKULA',
+                            additional_properties: {
+                                comments: [],
+                                inline_comments: []
+                            },
+                            block_properties: {},
+                            content:
+                                'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores',
+                            type: 'text'
+                        },
+                        {
+                            _id: 'J7RUYWZE35GRZC6XW73QILF6NM',
+                            additional_properties: {
+                                comments: [],
+                                inline_comments: []
+                            },
+                            block_properties: {},
+                            content: `Los argentinos que operaron <div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('Cedears')" class="word-glossary"><span class="word">Cedears</span><div class="tooltip-glossary"><h3>Cedears</h3><p>(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).</p><span class="disclaimer" /></div></div>, obligaciones negociables o criptomonedas en los 90 días anteriores`,
+                            type: 'text'
+                        },
+                        {
+                            _id: 'YCFA37VCKRA3DNUOCBVEDK3HAQ',
+                            additional_properties: {
+                                comments: [],
+                                inline_comments: []
+                            },
+                            block_properties: {},
+                            content:
+                                'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)',
+                            type: 'text'
+                        }
+                    ]
+                }
+            ];
+
+            const result = await injectGlossaryHTML(
+                content_elements_typeList,
+                glossary
+            );
+
+            expect(result).toEqual(expectedContent);
+        });
+
+        it('should inject glossary HTML into the content when types are list and text', async () => {
+            const expectedContent = [
+                {
+                    _id: '2MA6ML6UBZCF7JZPZ6YLRH4HWA',
+                    type: 'text',
+                    additional_properties: {
+                        _id: 1719404876013,
+                        comments: [],
+                        inline_comments: []
+                    },
+                    content: `El <b>dólar <div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('CCL')" class="word-glossary"><span class="word">CCL</span><div class="tooltip-glossary"><h3>CCL</h3><p>Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.</p><span class="disclaimer" /></div></div> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.`
+                },
+                {
+                    _id: 'VMSDGMET4BFGBATL6B6DMVVDVE',
+                    type: 'text',
+                    additional_properties: {
+                        _id: 1719397953735,
+                        comments: [],
+                        inline_comments: []
+                    },
+                    content: `<b>Martín Redrado</b> afirmó este domingo a la noche en <b>LN+ </b>que “la Argentina necesita consolidar la estabilidad y plantear una <b>estrategia de desarrollo</b> basada en la innovación”. También se refirió al futuro de la economía y consideró que el país necesita una verdadera “<b>revolución impositiva”</b>, donde se eliminen i<b>mpuestos <div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('distorsivos')" class="word-glossary"><span class="word">distorsivos</span><div class="tooltip-glossary"><h3>distorsivos</h3><p>Acción de torcer o desequilibrar la disposición de figuras en general o de elementos artísticos, o de presentar o interpretar hechos, intenciones, etc., deformándolos de modo intencionado. alteración, deformación, desfiguración.</p><span class="disclaimer" /></div></div></b>, se plantee un cronograma para <b>eliminar retenciones </b>y se reforme el <b>impuesto de ganancias</b>.`
+                },
+                {
+                    _id: 'B3FHRIJWIJCP7H5BYWWI3IGM4U',
+                    type: 'list',
+                    list_type: 'unordered',
+                    additional_properties: {
+                        comments: [],
+                        inline_comments: []
+                    },
+                    items: [
+                        {
+                            _id: 'FPBTN5ZFOBGITHOB6S7VLMKULA',
+                            additional_properties: {
+                                comments: [],
+                                inline_comments: []
+                            },
+                            block_properties: {},
+                            content:
+                                'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores',
+                            type: 'text'
+                        },
+                        {
+                            _id: 'J7RUYWZE35GRZC6XW73QILF6NM',
+                            additional_properties: {
+                                comments: [],
+                                inline_comments: []
+                            },
+                            block_properties: {},
+                            content: `Los argentinos que operaron <div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('Cedears')" class="word-glossary"><span class="word">Cedears</span><div class="tooltip-glossary"><h3>Cedears</h3><p>(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).</p><span class="disclaimer" /></div></div>, obligaciones negociables o criptomonedas en los 90 días anteriores`,
+                            type: 'text'
+                        },
+                        {
+                            _id: 'YCFA37VCKRA3DNUOCBVEDK3HAQ',
+                            additional_properties: {
+                                comments: [],
+                                inline_comments: []
+                            },
+                            block_properties: {},
+                            content:
+                                'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)',
+                            type: 'text'
+                        }
+                    ]
+                }
+            ];
+
+            const result = await injectGlossaryHTML(content_elements, glossary);
+
+            expect(result).toEqual(expectedContent);
+        });
+    });
+
     describe('Tests addHttpsInterstitialLink function', () => {
         const urlWithHttps =
             'https://www.lanacion.com.ar/sabado/en-florida-la-isla-deshabitada-y-paradisiaca-que-cautiva-a-los-turistas-nid07012023/';

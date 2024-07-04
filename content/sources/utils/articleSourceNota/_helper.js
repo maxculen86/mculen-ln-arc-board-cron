@@ -244,13 +244,42 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
     };
 };
 
+export const injectGlossaryHTML = async (contentElements, glossary) => {
+    const injectGlossaryInText = text => {
+        glossary.forEach(glossaryItem => {
+            const regex = new RegExp(`\\b${glossaryItem.key}\\b`, 'g');
+            if (regex.test(text)) {
+                text = text.replace(
+                    regex,
+                    `<div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('${glossaryItem.key}')" class="word-glossary"><span class="word">${glossaryItem.key}</span><div class="tooltip-glossary"><h3>${glossaryItem.key}</h3><p>${glossaryItem.value}</p><span class="disclaimer" /></div></div>`
+                );
+            }
+        });
+        return text;
+    };
+
+    await contentElements.forEach(item => {
+        if (item.type === 'text') {
+            item.content = injectGlossaryInText(item.content);
+        } else if (item.type === 'list') {
+            item.items.forEach(listItem => {
+                if (listItem.type === 'text') {
+                    listItem.content = injectGlossaryInText(listItem.content);
+                }
+            });
+        }
+    });
+
+    return contentElements;
+};
+
 const transformContentElements = async ({
     result,
     siteProperties,
     cachedCall,
     aditionalProps
 }) => {
-    const contentElementTransformed = await Promise.all(
+    let contentElementTransformed = await Promise.all(
         transformElementsBasedOnType({
             arrayElements: get(result, 'content_elements', []),
             configCallbacks: configCallbackContentElements,
@@ -258,6 +287,23 @@ const transformContentElements = async ({
             aditionalProps
         })
     );
+
+    const glossary = get(
+        result,
+        'promo_items.glossary.embed.config.arrayData',
+        []
+    );
+
+    if (glossary && glossary.length > 0) {
+        contentElementTransformed = await injectGlossaryHTML(
+            contentElementTransformed,
+            glossary
+        );
+
+        contentElementTransformed.push({
+            type: 'glossary'
+        });
+    }
 
     if (get(result, 'subtype', '') === FOTOAL100) {
         const presetsPromoItemsFotoAl100 = get(

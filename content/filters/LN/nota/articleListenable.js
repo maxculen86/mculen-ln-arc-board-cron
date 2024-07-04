@@ -419,6 +419,14 @@ export default `
                 1
             }
         }
+        glossary {
+            _id
+            embed {
+               config {
+                   arrayData 
+               } 
+            }
+        }
         storytelling {
             _id
             ${video}
