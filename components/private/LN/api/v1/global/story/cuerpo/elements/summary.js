@@ -9,7 +9,7 @@ const list = (nodo, dataNota) => {
 
     const resp = {
         _t: 'article_summary',
-        title: 'RESUMEN DE NOTA',
+        title: 'RESUMEN DE LA NOTA',
         disclaimer: 'Realizado con inteligencia artificial.',
         type: 'ul'
     };

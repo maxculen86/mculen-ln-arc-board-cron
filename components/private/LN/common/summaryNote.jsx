@@ -45,7 +45,7 @@ const SummaryNote = ({ paragraphs = [], className }) => {
                 <Text
                     as="h2"
                     className="--font-primary --font-medium --font-l text-neutral-light-800"
-                    text="Resumen de nota"
+                    text="Resumen de la nota"
                 />
             </div>
             <div className="grid-drawer" data-collapsed={collapsed}>
