@@ -17,7 +17,7 @@ exports[`SummaryNote => Should match the snapshot 1`] = `
       <h2
         class="text ln-text --font-primary --font-medium --font-l text-neutral-light-800"
       >
-        Resumen de nota
+        Resumen de la nota
       </h2>
     </div>
     <div

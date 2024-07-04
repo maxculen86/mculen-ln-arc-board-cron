@@ -9,7 +9,7 @@ describe('components - private - LN - api - v1 - global - story - cuerpo - eleme
                     _t: 'p',
                     valor: {
                         _t: 'article_summary',
-                        title: 'RESUMEN DE NOTA',
+                        title: 'RESUMEN DE LA NOTA',
                         disclaimer: 'Realizado con inteligencia artificial.',
                         type: 'ul',
                         valor: [
@@ -26,7 +26,7 @@ describe('components - private - LN - api - v1 - global - story - cuerpo - eleme
                     _t: 'p',
                     valor: {
                         _t: 'article_summary',
-                        title: 'RESUMEN DE NOTA',
+                        title: 'RESUMEN DE LA NOTA',
                         disclaimer: 'Realizado con inteligencia artificial.',
                         type: 'ul',
                         valor: [
@@ -49,7 +49,7 @@ describe('components - private - LN - api - v1 - global - story - cuerpo - eleme
                     _t: 'p',
                     valor: {
                         _t: 'article_summary',
-                        title: 'RESUMEN DE NOTA',
+                        title: 'RESUMEN DE LA NOTA',
                         disclaimer: 'Realizado con inteligencia artificial.',
                         type: 'ul',
                         valor: [
@@ -69,7 +69,7 @@ describe('components - private - LN - api - v1 - global - story - cuerpo - eleme
                     _t: 'p',
                     valor: {
                         _t: 'article_summary',
-                        title: 'RESUMEN DE NOTA',
+                        title: 'RESUMEN DE LA NOTA',
                         disclaimer: 'Realizado con inteligencia artificial.',
                         type: 'ul',
                         valor: [
@@ -86,7 +86,7 @@ describe('components - private - LN - api - v1 - global - story - cuerpo - eleme
                     _t: 'p',
                     valor: {
                         _t: 'article_summary',
-                        title: 'RESUMEN DE NOTA',
+                        title: 'RESUMEN DE LA NOTA',
                         disclaimer: 'Realizado con inteligencia artificial.',
                         type: 'ul',
                         valor: [
