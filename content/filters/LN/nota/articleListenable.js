@@ -337,6 +337,15 @@ const customSummary = `
     }
 `;
 
+const customGlossary = ` 
+    _id
+    embed {
+        config {
+            arrayData 
+        } 
+    }
+`;
+
 const gallery = `
     subtype
     _id
@@ -419,13 +428,8 @@ export default `
                 1
             }
         }
-        glossary {
-            _id
-            embed {
-               config {
-                   arrayData 
-               } 
-            }
+        glossary {          
+            ${customGlossary}
         }
         storytelling {
             _id

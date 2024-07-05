@@ -18,8 +18,20 @@ export const configCallbackContentElements = {
     gallery: ({ cachedCall, element, arcSite } = {}) => {
         return addGalleryData(cachedCall, element, arcSite);
     },
-    text: ({ element = {} } = {}) => {
-        return formatElementText(element);
+    text: ({ element = {}, glossary = [] } = {}) => {
+        const elements = formatElementText(element);
+        const content = get(elements, 'content', '');
+
+        const { text, foundGlossaryWord } = injectGlossaryInText(
+            content,
+            glossary
+        );
+
+        return {
+            ...elements,
+            content: text,
+            ...(foundGlossaryWord && { subtype: 'glossary' })
+        };
     },
     interstitial_link: ({ element = {} } = {}) => {
         const interstitialLink = get(element, 'url', '');
@@ -29,6 +41,9 @@ export const configCallbackContentElements = {
     },
     video: ({ element, arcSite, cachedCall } = {}) => {
         return convertVideoArcToJw(element, arcSite, cachedCall);
+    },
+    list: ({ element = {}, glossary = [] }) => {
+        return configListWithItemText(element, glossary);
     }
 };
 
@@ -36,6 +51,25 @@ const callbacksByTypeReference = {
     story: ({ cachedCall, element, arcSite } = {}) => {
         return addFollowAnotherNoteData(cachedCall, element, arcSite);
     }
+};
+
+const configListWithItemText = (element, glossary) => {
+    if (!element) return null;
+
+    const items = get(element, 'items', []);
+
+    items.map(item => {
+        if (item.type === 'text') {
+            const { text, foundGlossaryWord } = injectGlossaryInText(
+                item.content,
+                glossary
+            );
+            item.content = text;
+            foundGlossaryWord && (item.subtype = 'glossary');
+        }
+    });
+
+    return element;
 };
 
 export const configCallbacksRelatedContent = {
@@ -136,4 +170,22 @@ export const formatInterstitialLink = (interstitialLink = '') => {
     );
 
     return removeErrosInterstitialLink(formatUrl);
+};
+
+export const injectGlossaryInText = (text, glossary) => {
+    let foundGlossaryWord = false;
+    if (!(glossary && glossary.length)) return text;
+
+    glossary.forEach(glossaryItem => {
+        const regex = new RegExp(`\\b${glossaryItem.key}\\b`, 'g');
+        if (regex.test(text)) {
+            foundGlossaryWord = true;
+            text = text.replace(
+                regex,
+                `<div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('${glossaryItem.key}')" class="word-glossary"><span class="word">${glossaryItem.key}</span><div class="tooltip-glossary"><h3>${glossaryItem.key}</h3><p>${glossaryItem.value}</p><span class="disclaimer" /></div></div>`
+            );
+        }
+    });
+
+    return { text, foundGlossaryWord };
 };
