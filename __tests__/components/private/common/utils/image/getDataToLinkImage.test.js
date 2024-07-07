@@ -19,6 +19,7 @@ import responseRelatedImageSource from '../../../../../../__mocks__/data/images/
 import dataAperturaWithVideo from '../../../../../../__mocks__/data/renderables/dataAperturaWithVideo.json';
 import responseGetVideoPosterResized from '../../../../../../__mocks__/data/videos/getDataToLinkImage/responseGetVideoPosterResized.json';
 import storytellingWithVideoAndImgDesktop from '../../../../../../__mocks__/data/images/getDataToLinkImage/storytellingWithVideoAndImageDesktop.json';
+import { fillMaxWidth } from '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper';
 
 jest.mock(
     '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData',
@@ -30,7 +31,7 @@ describe('Common - GetDataToLinkImage', () => {
         const expected =
             '<link rel="preload" as="image" fetchpriority="high" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg" imagesrcset="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 879w,https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 1119w,https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 768w">';
         const expectedVideoType =
-            '<link rel="preload" as="image" fetchpriority="high" href="https://resizer.glanacion.com/resizer/ZpxaMJQuq3zkfZkZ47TcSELlvb0=/351x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg" imagesrcset="https://resizer.glanacion.com/resizer/mxeQgSo8rF_5hYakbXPqoXCi4lo=/820x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 820w,https://resizer.glanacion.com/resizer/3IibxbS9Q7-2PL73hRaFQrk5XCA=/768x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 768w,https://resizer.glanacion.com/resizer/W6Qqj-PwP6QDW_3kLX_oqF7HCog=/360x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 360w,https://resizer.glanacion.com/resizer/ZpxaMJQuq3zkfZkZ47TcSELlvb0=/351x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg 351w">';
+            '<link rel="preload" as="image" fetchpriority="high" href="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=480" imagesrcset="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=480 0w,https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=720 768w">';
         const expectedFotoAl100 =
             '<link rel="preload" as="image" fetchpriority="high" media="(min-width: 1280.1px)" href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 1024.1px and max-width: 1280px)" href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg">';
 
@@ -309,5 +310,43 @@ describe('Common - GetDataToLinkImage', () => {
                 expect(container).toBeEmptyDOMElement();
             });
         });
+    });
+});
+
+describe('fillMaxWidth function', () => {
+    test('should correctly set maxWidth for images without maxWidth', () => {
+        const images = [
+            { minWidth: 200 },
+            { minWidth: 100, maxWidth: 199 },
+            { minWidth: 50 }
+        ];
+        const expected = [
+            { minWidth: 200, maxWidth: 99 },
+            { minWidth: 100, maxWidth: 199 },
+            { minWidth: 50 }
+        ];
+        const result = fillMaxWidth(images);
+        expect(result).toEqual(expected);
+    });
+
+    test('should not modify maxWidth if it is already defined', () => {
+        const images = [
+            { minWidth: 200, maxWidth: 250 },
+            { minWidth: 100, maxWidth: 199 },
+            { minWidth: 50 }
+        ];
+        const expected = [
+            { minWidth: 200, maxWidth: 250 },
+            { minWidth: 100, maxWidth: 199 },
+            { minWidth: 50 }
+        ];
+        const result = fillMaxWidth(images);
+        expect(result).toEqual(expected);
+    });
+
+    test('should handle an empty array without errors', () => {
+        const images = [];
+        const result = fillMaxWidth(images);
+        expect(result).toEqual([]);
     });
 });

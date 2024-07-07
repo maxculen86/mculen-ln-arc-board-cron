@@ -196,10 +196,10 @@ export const LinkImagePreload = ({
     const imagesrcset = [];
     const imagesizes = [];
 
-    resizedUrls.forEach(x => {
-        imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
+    resizedUrls.forEach(url => {
+        imagesrcset.push(`${url.resizedUrl} ${url.option.width}w`);
         imagesizes.push(
-            x.option.media && `${x.option.media} ${x.option.width}px`
+            url.option.media && `${url.option.media} ${url.option.width}px`
         );
     });
 

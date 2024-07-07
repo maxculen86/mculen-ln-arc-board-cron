@@ -22,10 +22,12 @@ const videoPlayerJW = ({
             } = {}
         } = {}
     } = data;
+
     const player = isOtt ? '81YXy6Mt' : idPlayer || 'ih0086X3';
     const [video] = playlist || [];
     const { mediaid = '' } = video || {};
-    const { arcSite, deployment, contextPath } = useAppContext();
+    const { arcSite, deployment, contextPath, globalContent } = useAppContext();
+    const subtype = get(globalContent, 'subtype', '');
 
     const {
         container,
@@ -46,6 +48,7 @@ const videoPlayerJW = ({
                                 playlist={playlist}
                                 className={facade}
                                 title={title}
+                                subtype={subtype}
                             />
                             <div id={mediaid} />
                             <script

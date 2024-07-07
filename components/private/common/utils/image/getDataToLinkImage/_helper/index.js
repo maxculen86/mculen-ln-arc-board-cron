@@ -2,6 +2,8 @@ import get from '../../../get';
 import { FOTOAL100, STORYTELLING } from '../../../subtypes/subtypeHelper';
 import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/mediaHelper';
 import { getImageData } from '../../../getApertura';
+import { transformImages } from '../../../../videoPlayerJw/utils/helperJw';
+import setMediaCondition from '../../../../../../../properties/sites/utils/setMediaCondition';
 
 const getImageListStorytelling = (imageData, proportion) => {
     return replaceAllUrlsResizerArray(getImageData(imageData, proportion));
@@ -26,14 +28,33 @@ const getImagesList = ({ promoItems, basicDefault }) => {
 
 export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     const isVideoType =
-        get(promoItems, 'apertura_multimedia.type', false) === 'video';
+        get(promoItems, 'video_jw.subtype', false) === 'video_jw';
 
     if (isVideoType) {
-        const aperturaMultimedia = get(promoItems, 'apertura_multimedia', {});
-
-        return replaceAllUrlsResizerArray(
-            get(aperturaMultimedia, 'promo_items.basic.resized_urls', [])
+        const aperturaMultimedia = get(
+            promoItems,
+            'video_jw.embed.config.videoJw.playlist',
+            {}
         );
+        const aperturaSrcImages =
+            aperturaMultimedia.length > 0 ? aperturaMultimedia[0] : {};
+        const srcImages = get(aperturaSrcImages, 'images', []);
+
+        let imagesJwPlayer = transformImages(srcImages, subtype);
+        imagesJwPlayer = fillMaxWidth(imagesJwPlayer);
+
+        const preloadJwPlayer = imagesJwPlayer.map(
+            ({ minWidth = '', maxWidth = '', srcSet = '' }) => ({
+                option: {
+                    media_preload: setMediaCondition({ minWidth, maxWidth }),
+                    minScreenWidth: minWidth || 0,
+                    width: minWidth || 0
+                },
+                resizedUrl: srcSet
+            })
+        );
+
+        return preloadJwPlayer;
     }
 
     if (
@@ -47,6 +68,16 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     }
 
     return get(basicDefault, 'resized_urls', []);
+};
+
+export const fillMaxWidth = images => {
+    return images.reduceRight((acc, image, index, array) => {
+        if (!image.maxWidth && index < array.length - 1) {
+            image.maxWidth = array[index + 1].minWidth - 1;
+        }
+        acc.unshift(image);
+        return acc;
+    }, []);
 };
 
 export const getcustomFieldsData = fieldsData => {

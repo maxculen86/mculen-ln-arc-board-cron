@@ -82,6 +82,133 @@
                 }
             ],
             "type": "video"
+        },
+        "video_jw": {
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "aomrvRI3",
+                    "videoJw": {
+                        "description": "¿A qué debe su particular apariencia el Palacio de aguas?",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "description": "¿A qué debe su particular apariencia el Palacio de aguas?",
+                                "duration": "128410",
+                                "image": "https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=640",
+                                        "type": "image/jpeg",
+                                        "width": 640
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=720",
+                                        "type": "image/jpeg",
+                                        "width": 720
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=1280",
+                                        "type": "image/jpeg",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=1920",
+                                        "type": "image/jpeg",
+                                        "width": 1920
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/aomrvRI3",
+                                "mediaid": "aomrvRI3",
+                                "pubdate": 1516428840,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/aomrvRI3.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 343639,
+                                        "file": "https://cdn.jwplayer.com/videos/aomrvRI3-kTExGaWf.mp4",
+                                        "filesize": 5498230,
+                                        "framerate": 25,
+                                        "height": 180,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 481372,
+                                        "file": "https://cdn.jwplayer.com/videos/aomrvRI3-K8B0kybS.mp4",
+                                        "filesize": 7701954,
+                                        "framerate": 25,
+                                        "height": 270,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    },
+                                    {
+                                        "bitrate": 1261307,
+                                        "file": "https://cdn.jwplayer.com/videos/aomrvRI3-46NIuRKO.mp4",
+                                        "filesize": 20180915,
+                                        "framerate": 25,
+                                        "height": 720,
+                                        "label": "720p",
+                                        "type": "video/mp4",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "bitrate": 113809,
+                                        "file": "https://cdn.jwplayer.com/videos/aomrvRI3-hz5z2Tv4.m4a",
+                                        "filesize": 1820950,
+                                        "label": "AAC Audio",
+                                        "type": "audio/mp4"
+                                    },
+                                    {
+                                        "bitrate": 525375,
+                                        "file": "https://cdn.jwplayer.com/videos/aomrvRI3-FnZGUVnC.mp4",
+                                        "filesize": 8406006,
+                                        "framerate": 25,
+                                        "height": 360,
+                                        "label": "360p",
+                                        "type": "video/mp4",
+                                        "width": 640
+                                    },
+                                    {
+                                        "bitrate": 853781,
+                                        "file": "https://cdn.jwplayer.com/videos/aomrvRI3-0G6Pwvlw.mp4",
+                                        "filesize": 13660511,
+                                        "framerate": 25,
+                                        "height": 540,
+                                        "label": "540p",
+                                        "type": "video/mp4",
+                                        "width": 960
+                                    }
+                                ],
+                                "title": "¿A qué debe su particular apariencia el Palacio de aguas?",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/aomrvRI3-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "¿A qué debe su particular apariencia el Palacio de aguas?"
+                    }
+                }
+            },
+            "subtype": "video_jw"
         }
     }
 }

@@ -3,8 +3,24 @@ import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { transformImages } from './helperJw';
 import get from '../../utils/get';
 
-export const Facade = ({ id = '', playlist = [], className = '', title }) => {
+export const Facade = ({
+    id = '',
+    playlist = [],
+    className = '',
+    title,
+    subtype = ''
+}) => {
     const [video] = playlist || {};
+    const allImages = get(video, 'images', []);
+    const srcFacade = get(video, 'image', '');
+
+    const imgSource = transformImages(allImages, subtype).filter(item => {
+        if (srcFacade && item.srcSet) {
+            return item.srcSet.includes(srcFacade);
+        }
+        return true;
+    });
+
     return (
         <div
             id={`facade-${id}`}
@@ -32,8 +48,8 @@ export const Facade = ({ id = '', playlist = [], className = '', title }) => {
                 </svg>
             </div>
             <Adaptableimage
-                sources={transformImages(get(video, 'images', []))}
-                src={get(video, 'image', '')}
+                sources={imgSource}
+                src={srcFacade}
                 className={className}
                 alt={title}
             />

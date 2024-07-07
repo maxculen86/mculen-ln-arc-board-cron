@@ -2,6 +2,7 @@ import {
     addToDataLayer,
     isInDatalayerEvent
 } from '../../utils/videoPlayerHelper';
+import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
 
 export const configClassName = {
     'la-nacion-ar': {
@@ -19,7 +20,8 @@ export const configClassName = {
     }
 };
 
-export function transformImages(data) {
+export function transformImages(data, subtype = '') {
+    console.log('itemmmm', data);
     const transformedImages = data
         .filter(item => [480, 720, 1280].includes(item.width))
         .map(item => ({
@@ -27,7 +29,17 @@ export function transformImages(data) {
             ...(item.width === 480 && { maxWidth: 767 }),
             ...(item.width === 720 && { minWidth: 768 }),
             ...(item.width === 1280 && { minWidth: 1280 })
-        }));
+        }))
+        .filter(item => {
+            if (
+                subtype !== FOTOAL100 &&
+                item.srcSet.includes('1280') &&
+                item.minWidth === 1280
+            ) {
+                return false;
+            }
+            return true;
+        });
 
     return transformedImages;
 }

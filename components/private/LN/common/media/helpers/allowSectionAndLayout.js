@@ -1,7 +1,8 @@
 import {
     FOTOAL100,
     NOTICIA,
-    STORYTELLING
+    STORYTELLING,
+    VIDEO
 } from '../../../../common/utils/subtypes/subtypeHelper';
 
 const allowSectionAndLayout = [
@@ -25,6 +26,7 @@ const allowSectionAndLayout = [
     { section: '/revista-jardin', pageLayout: 'LN-acumulado' },
     { section: '/recetas', pageLayout: 'LN-nota-receta' },
     { subtype: NOTICIA },
+    { subtype: VIDEO },
     { subtype: STORYTELLING },
     { subtype: FOTOAL100 }
 ];
