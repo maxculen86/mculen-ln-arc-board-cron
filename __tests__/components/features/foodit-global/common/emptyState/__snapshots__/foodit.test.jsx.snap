@@ -88,8 +88,10 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
       class="image flex --fill"
       decoding="async"
       fetchpriority="low"
+      height="152"
       loading="lazy"
       src="undefined/pf/resources/images/empty-state-recetario.webp"
+      width="147"
     />
     <div
       class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"

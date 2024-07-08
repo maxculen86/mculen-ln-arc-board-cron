@@ -98,7 +98,9 @@ export const imagePropsByVariant = {
     },
     'empty-state': {
         asset: 'empty-state-recetario.webp',
-        alt: '¡Aún no hay nada por acá!'
+        alt: '¡Aún no hay nada por acá!',
+        width: 147,
+        height: 152
     },
     '404': {
         asset: 'logo-404.png',

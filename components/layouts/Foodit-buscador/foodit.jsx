@@ -65,13 +65,13 @@ export default function FooditSearch() {
                                         LIMPIAR
                                     </Button>
                                     <Button
-                                        id="btn-apply-filter"
+                                        id="btn-close-filter"
                                         onClick={() =>
                                             searchPage.toggleFilter()
                                         }
                                         className="flex-grow-1"
                                     >
-                                        APLICAR
+                                        CERRAR
                                     </Button>
                                 </div>
                             </div>

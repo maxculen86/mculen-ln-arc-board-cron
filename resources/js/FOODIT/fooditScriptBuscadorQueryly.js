@@ -114,14 +114,14 @@ var searchPage = {
 
         const toggleFilterButtonMobile = document.getElementById("btn-toggle-filter");
         const btnDeleteFilter = document.getElementById("btn-delete-filter");
-        const btnApplyFilter = document.getElementById("btn-apply-filter");
+        const btnCloseFilter = document.getElementById("btn-close-filter");
         setActionBar(toggleFilterButtonMobile, () => searchPage.toggleFilter())
 
         setActionBar(btnDeleteFilter, () => {
             searchPage.dofacetedsearch(0, '');
         })
 
-        setActionBar(btnApplyFilter, () => searchPage.toggleFilter())
+        setActionBar(btnCloseFilter, () => searchPage.toggleFilter())
 
 
         template = document.createElement('div');
@@ -170,7 +170,7 @@ var searchPage = {
             btnToggleFilter.classList.remove('none')
             body.classList.remove("overflow-hidden");
             overlayDrawer.classList.remove("drawer-overlay", "top-0", "fixed", "right-0", "w-100", "h-100vh", "z-15");
-            drawer.classList.remove("drawer", "overflow-x-hidden", "pr-16", "top-0", "p-16", "bg-light-1", "right-0", "fixed", "w-100", "h-100vh", "h-100dvh", "max-w-520_md")
+            drawer.classList.remove("drawer", "overflow-x-hidden", "pr-16", "top-0", "bg-light-1", "right-0", "fixed", "w-100", "h-100vh", "h-100dvh", "max-w-520_md")
             actionBar.style["display"] = "none";
         }
     },
@@ -211,7 +211,7 @@ var searchPage = {
             var id = "subtype_" + subtype[i].key.toLowerCase().replace(' ', '_');
             var name = (subtype[i].key == "7") ? "Recetas" : "Notas";
             var count = subtype[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + subtype[i].key + '"><input class="pointer"  count="' + count + '" id="' + id + '" type="checkbox" value="' + subtype[i].key + '" onclick="searchPage.dofacetedsearch(0,\'subtype\',\'' + subtype[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + subtype[i].key + '"><input class="pointer w-22 h-22"  count="' + count + '" id="' + id + '" type="checkbox" value="' + subtype[i].key + '" onclick="searchPage.dofacetedsearch(0,\'subtype\',\'' + subtype[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
 
         }
         html = html + '</div></div>';
@@ -223,7 +223,7 @@ var searchPage = {
             if (name != "Vegetariana" && name != "Sin Gluten" && name != "Keto" && name != "Sin Lactosa" && name != "Vegana") { continue; }
             var id = "section_" + name.toLowerCase().replace(' ', '_');
             var count = dieta_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + dieta_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + dieta_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dieta_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter" >('+ count +')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + dieta_section[i].key + '"><input class="pointer w-22 h-22" count="' + count + '" id="' + id + '" type="checkbox" value="' + dieta_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dieta_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter" >('+ count +')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -234,7 +234,7 @@ var searchPage = {
             if (name != "Arroz" && name != "Tartas" && name != "Pollo" && name != "Pizza y Empanadas" && name != "Pastas" && name != "Pescados" && name != "Carnes" && name != "Hamburguesa" && name != "Sopa" && name != "Salsas" && name != "Ensaladas") { continue; }
             var id = "section_" + name.toLowerCase().replace(' ', '_');
             var count = saladas_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + saladas_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + saladas_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + saladas_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + saladas_section[i].key + '"><input class="pointer w-22 h-22" count="' + count + '" id="' + id + '" type="checkbox" value="' + saladas_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + saladas_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -245,7 +245,7 @@ var searchPage = {
             if (name != "Tortas" && name != "Postres" && name != "Panqueques" && name != "Budines" && name != "Helados" && name != "Batidos") { continue; }
             var id = "section_" + name.toLowerCase().replace(' ', '_');
             var count = dulces_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + dulces_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + dulces_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dulces_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + dulces_section[i].key + '"><input class="pointer w-22 h-22" count="' + count + '" id="' + id + '" type="checkbox" value="' + dulces_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + dulces_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -257,7 +257,7 @@ var searchPage = {
             if (name != "Fácil" && name != "Saludable" && name != "Bajo Costo" && name != "Rápida" && name != "Bebidas" && name != "De autor") { continue; }
             var id = "section_" + name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/'/g, "\\'")
             var count = other_section[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + other_section[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + other_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + other_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + other_section[i].key + '"><input class="pointer w-22 h-22" count="' + count + '" id="' + id + '" type="checkbox" value="' + other_section[i].key + '" onclick="searchPage.dofacetedsearch(0,\'section\',\'' + other_section[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -268,7 +268,7 @@ var searchPage = {
             var name = main_ingredients[i].key;
             var id = "main_ingredients_" + name.toLowerCase().replace(' ', '_');
             var count = main_ingredients[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + main_ingredients[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + main_ingredients[i].key + '" onclick="searchPage.dofacetedsearch(0,\'main_ingredients\',\'' + main_ingredients[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + main_ingredients[i].key + '"><input class="pointer w-22 h-22" count="' + count + '" id="' + id + '" type="checkbox" value="' + main_ingredients[i].key + '" onclick="searchPage.dofacetedsearch(0,\'main_ingredients\',\'' + main_ingredients[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -278,7 +278,7 @@ var searchPage = {
             var name = cookingtypes[i].key;
             var id = "cookingtypes_" + name.toLowerCase().replace(' ', '_');
             var count = cookingtypes[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + cookingtypes[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + cookingtypes[i].key + '" onclick="searchPage.dofacetedsearch(0,\'cookingtypes\',\'' + cookingtypes[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + cookingtypes[i].key + '"><input class="pointer w-22 h-22" count="' + count + '" id="' + id + '" type="checkbox" value="' + cookingtypes[i].key + '" onclick="searchPage.dofacetedsearch(0,\'cookingtypes\',\'' + cookingtypes[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
 
@@ -286,10 +286,10 @@ var searchPage = {
         html = html + '<div id="regions_filter" class="queryly_filter"><div class="queryly_filter_title queryly_filter_title_expand" >REGIÓN<img class="filter_arrow"/></div><div class="filter_item_container flex flex-column pb-16 gap-8">';
         var regions = faceted.regions;
         for (var i = 0; i < regions.length; i++) {
-            var name = regions[i].key;
+            var name = regions[i].key;   
             var id = "regions_" + name.toLowerCase().replace(' ', '_');
             var count = regions[i].value;
-            html = html + '<div class="filter_item flex gap-8" data-filter-value="' + regions[i].key + '"><input class="pointer" count="' + count + '" id="' + id + '" type="checkbox" value="' + regions[i].key + '" onclick="searchPage.dofacetedsearch(0,\'regions\',\'' + regions[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
+            html = html + '<div class="filter_item flex ai-center gap-8" data-filter-value="' + regions[i].key + '"><input class="pointer w-22 h-22" count="' + count + '" id="' + id + '" type="checkbox" value="' + regions[i].key + '" onclick="searchPage.dofacetedsearch(0,\'regions\',\'' + regions[i].key.replace(/'/g, "\\'") + '\')";return false;" /><label class="pointer" for="' + id + '">' + name + '</label><label class="filter_item_counter">(' + count + ')</label></div>';
         }
         html = html + '</div></div>';
         
