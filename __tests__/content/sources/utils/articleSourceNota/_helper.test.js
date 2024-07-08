@@ -76,7 +76,12 @@ describe('Tests articleSourceNota - _helper', () => {
             const content =
                 'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)';
 
-            expect(injectGlossaryInText(content, glossary)).toEqual(content);
+            const expected = {
+                foundGlossaryWord: false,
+                text:
+                    'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)'
+            };
+            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
     });
 

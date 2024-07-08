@@ -174,7 +174,7 @@ export const formatInterstitialLink = (interstitialLink = '') => {
 
 export const injectGlossaryInText = (text, glossary) => {
     let foundGlossaryWord = false;
-    if (!(glossary && glossary.length)) return text;
+    if (!(glossary && glossary.length)) return { text, foundGlossaryWord };
 
     glossary.forEach(glossaryItem => {
         const regex = new RegExp(`\\b${glossaryItem.key}\\b`, 'g');
