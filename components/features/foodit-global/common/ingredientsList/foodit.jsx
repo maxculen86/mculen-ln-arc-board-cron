@@ -9,7 +9,7 @@ export const IngredientsList = ({ isMobile, list = [], setShoppingList }) => {
     return (
         <section className="col-span-8 col-span-7_md col-span-11_lg flex flex-column gap-32">
             {list?.map((articleIngredients, i) => {
-                if (!articleIngredients) return <></>;
+                if (!articleIngredients || (!isMobile && i !== 0)) return <></>;
 
                 const { text = '', sections = [], bookmarkId = '' } =
                     articleIngredients || {};

@@ -8,7 +8,8 @@ const CollectionBox = ({
     button = <></>,
     onItemSelected
 }) => {
-    const [selectedId, setSelectedId] = useState('Todas');
+    const defaultSelectedId = list.length ? list[0].id : 'Todas';
+    const [selectedId, setSelectedId] = useState(defaultSelectedId);
 
     const handleItemClick = (id, quantity) => {
         setSelectedId(id);

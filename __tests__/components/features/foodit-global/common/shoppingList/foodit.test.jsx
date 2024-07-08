@@ -29,7 +29,7 @@ beforeEach(() => {
     };
 });
 
-describe('ShoppingList foodit component', () => {
+describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit', () => {
     // meter en carpeta de mocks lo de aca arriba y las variantes de los emptyState
     test('Should render empty state without shoppingList', () => {
         useShoppingList.mockImplementation(() => ({
@@ -53,6 +53,17 @@ describe('ShoppingList foodit component', () => {
         const { getAllByText } = render(<ShoppingList />);
         expect(
             getAllByText('Receta para comer mas rico con ...MILANESAS').length
-        ).toBe(2);
+        ).toBe(1);
+    });
+
+    test('Should render selected list title twice', () => {
+        useShoppingList.mockImplementation(() => ({
+            loading: false,
+            setShoppingList: () => null,
+            isMobile: false,
+            shoppingList: shoppingList
+        }));
+        const { getAllByText } = render(<ShoppingList />);
+        expect(getAllByText('Receta empanada de cazon').length).toBe(2);
     });
 });
