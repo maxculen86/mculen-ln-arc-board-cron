@@ -8,28 +8,28 @@ import toggleBookmark from '../../../../../../components/private/common/utils/bo
 import useCheckBookmark from '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark';
 import useFetch from '../../../../../../components/private/common/hooks/useFetch';
 
-jest.mock('fusion:context', Component => {
-    return function(Component) {
-        return props => <Component {...props} />;
+jest.mock('fusion:context', (Component) => {
+    return function (Component) {
+        return (props) => <Component {...props} />;
     };
 });
 
 jest.mock('../../../../../../components/private/common/utils/getToken', () =>
-    jest.fn()
+    jest.fn(),
 );
 
 jest.mock(
     '../../../../../../components/private/common/utils/bookmarkHelper',
-    () => jest.fn()
+    () => jest.fn(),
 );
 
 jest.mock(
     '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark',
-    () => jest.fn()
+    () => jest.fn(),
 );
 
 jest.mock('../../../../../../components/private/common/hooks/useFetch', () =>
-    jest.fn()
+    jest.fn(),
 );
 
 const props = {
@@ -39,21 +39,21 @@ const props = {
         _id: 'L47IICAOMVFW5MV343TJIHS4RY',
         headlines: {
             basic: 'title',
-            mobile: 'mobileTitle'
+            mobile: 'mobileTitle',
         },
         comments: {
-            display_comments: true
+            display_comments: true,
         },
         first_publish_date: 'firstPublishDate',
-        subtype: ''
+        subtype: '',
     },
-    requestUri: '/economia/dolar-hoy/'
+    requestUri: '/economia/dolar-hoy/',
 };
 
 Context.useAppContext = jest.fn(() => props);
 
 Content.useContent = jest.fn(() => ({
-    totalVisibleContent: '64'
+    totalVisibleContent: '64',
 }));
 
 jest.mock('react', () => {
@@ -63,24 +63,24 @@ jest.mock('react', () => {
         useContext: () => ({
             state: {
                 loginData: {
-                    subscription: true
-                }
+                    subscription: true,
+                },
             },
-            dispatch: jest.fn()
-        })
+            dispatch: jest.fn(),
+        }),
     };
 });
 
 describe('Share', () => {
     useFetch.mockImplementation(() => ({
-        data: {}
+        data: {},
     }));
     delete global.window.open;
     global.window = Object.create(window);
     global.window.open = jest.fn();
     global.window.FB = {
         init: jest.fn(),
-        ui: jest.fn()
+        ui: jest.fn(),
     };
     global.window.scrollTo = jest.fn();
 
@@ -89,7 +89,7 @@ describe('Share', () => {
     beforeEach(() => {
         toggleBookmark.mockImplementation(() => 200);
         useCheckBookmark.mockImplementation(
-            () => '2aa355fd-2679-4e54-b552-ea404096c323'
+            () => '2aa355fd-2679-4e54-b552-ea404096c323',
         );
 
         component = render(<Share />);
@@ -100,15 +100,15 @@ describe('Share', () => {
         component = null;
     });
 
-    test('Snapshot - Should show 7 buttons ', () => {
+    test('Snapshot - Should show 8 buttons ', () => {
         const { container } = component;
-        expect(screen.getAllByRole('button').length).toStrictEqual(8);
+        expect(screen.getAllByRole('button').length).toStrictEqual(9);
         expect(container).toMatchSnapshot();
     });
 
     test('Should scroll to the comments section. ', () => {
         const button = screen.getByRole('button', {
-            name: 'Ir a los comentarios de la nota'
+            name: 'Ir a los comentarios de la nota',
         });
 
         expect(button).toBeTruthy();
@@ -118,14 +118,14 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Ir a los comentarios'
+                clickText: 'Ir a los comentarios',
             },
             {
                 event: 'e_linkclick',
                 dynamic_action: 'toolbard',
                 dynamic_category: 'nota_ln9',
-                dynamic_label: 'ver_comentarios'
-            }
+                dynamic_label: 'ver_comentarios',
+            },
         ]);
 
         expect(window.scrollTo).toHaveBeenCalled();
@@ -133,7 +133,7 @@ describe('Share', () => {
 
     test('Should open whatsapp in a new window and record the click on dataLayer', () => {
         const button = screen.getByRole('button', {
-            name: 'Compartir la nota en WhatsApp'
+            name: 'Compartir la nota en WhatsApp',
         });
 
         expect(button).toBeTruthy();
@@ -143,14 +143,14 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Compartir la nota en WhatsApp'
+                clickText: 'Compartir la nota en WhatsApp',
             },
             {
                 event: 'e_linkclick',
                 dynamic_action: 'toolbard',
                 dynamic_category: 'nota_ln9',
-                dynamic_label: 'compartir_whatsapp'
-            }
+                dynamic_label: 'compartir_whatsapp',
+            },
         ]);
         expect(window.open).toHaveBeenCalled();
     });
@@ -158,13 +158,13 @@ describe('Share', () => {
     test('Should copy the url to the clipboard and record the click in dataLayer', () => {
         Object.assign(navigator, {
             clipboard: {
-                writeText: jest.fn()
-            }
+                writeText: jest.fn(),
+            },
         });
         const { container } = component;
 
         const button = screen.getByRole('button', {
-            name: 'Copiar link de la nota'
+            name: 'Copiar link de la nota',
         });
 
         expect(button).toBeTruthy();
@@ -174,24 +174,24 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Copiar link de la nota'
+                clickText: 'Copiar link de la nota',
             },
             {
                 event: 'e_linkclick',
                 dynamic_action: 'toolbard',
                 dynamic_category: 'nota_ln9',
-                dynamic_label: 'copiar_link'
-            }
+                dynamic_label: 'copiar_link',
+            },
         ]);
         expect(navigator.clipboard.writeText).toHaveBeenCalled();
         expect(
-            container.querySelector('.mod-tooltip .com-text').innerHTML
+            container.querySelector('.mod-tooltip .com-text').innerHTML,
         ).toStrictEqual('Copiado');
     });
 
     test('should open facebook in a new window and record the click on dataLayer', () => {
         const button = screen.getByRole('button', {
-            name: 'Compartir la nota en Facebook'
+            name: 'Compartir la nota en Facebook',
         });
 
         expect(button).toBeTruthy();
@@ -201,21 +201,21 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Compartir la nota en Facebook'
+                clickText: 'Compartir la nota en Facebook',
             },
             {
                 event: 'e_linkclick',
                 dynamic_action: 'toolbard',
                 dynamic_category: 'nota_ln9',
-                dynamic_label: 'compartir_facebook'
-            }
+                dynamic_label: 'compartir_facebook',
+            },
         ]);
         expect(window.open).toHaveBeenCalled();
     });
 
     test('should open X (previously Twitter) in a new window and record the click on dataLayer', () => {
         const button = screen.getByRole('button', {
-            name: 'Compartir la nota en X'
+            name: 'Compartir la nota en X',
         });
 
         expect(button).toBeTruthy();
@@ -224,21 +224,21 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Compartir la nota en X'
+                clickText: 'Compartir la nota en X',
             },
             {
                 event: 'e_linkclick',
                 dynamic_action: 'toolbard',
                 dynamic_category: 'nota_ln9',
-                dynamic_label: 'compartir_x'
-            }
+                dynamic_label: 'compartir_x',
+            },
         ]);
         expect(window.open).toHaveBeenCalled();
     });
 
     test('should open E-mail in a new window and record the click on dataLayer', () => {
         const button = screen.getByRole('button', {
-            name: 'Compartir la nota por E-mail'
+            name: 'Compartir la nota por E-mail',
         });
 
         expect(button).toBeTruthy();
@@ -248,26 +248,26 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Compartir la nota por E-mail'
+                clickText: 'Compartir la nota por E-mail',
             },
             {
                 event: 'e_linkclick',
                 dynamic_action: 'toolbard',
                 dynamic_category: 'nota_ln9',
-                dynamic_label: 'enviar_mail'
-            }
+                dynamic_label: 'enviar_mail',
+            },
         ]);
         expect(window.open).toHaveBeenCalled();
     });
 
     test('Test click button bookmark', () => {
         getToken.mockImplementation(
-            () => '9B979333-C7F4-4F46-8EA8-8BBCBB3F14DF'
+            () => '9B979333-C7F4-4F46-8EA8-8BBCBB3F14DF',
         );
 
         const { container } = component;
         const button = screen.getByRole('button', {
-            name: 'Notas guardadas'
+            name: 'Notas guardadas',
         });
 
         expect(button).toBeTruthy();
@@ -278,14 +278,14 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Guardar Nota'
+                clickText: 'Guardar Nota',
             },
             {
                 event: 'e_linkclick',
                 dynamic_action: 'toolbard',
                 dynamic_category: 'nota_ln9',
-                dynamic_label: 'guardar_nota'
-            }
+                dynamic_label: 'guardar_nota',
+            },
         ]);
         expect(useCheckBookmark).toHaveBeenCalled();
         expect(container).toMatchSnapshot();
@@ -299,14 +299,14 @@ describe('Note display comment in false ', () => {
             globalContent: {
                 ...props.globalContent,
                 comments: {
-                    display_comments: false
-                }
-            }
+                    display_comments: false,
+                },
+            },
         }));
     });
     test('Matches snapshot when the note is not comments', () => {
         const { container } = render(<Share />);
-        expect(screen.getAllByRole('button').length).toStrictEqual(7);
+        expect(screen.getAllByRole('button').length).toStrictEqual(8);
         expect(container).toMatchSnapshot();
     });
 });

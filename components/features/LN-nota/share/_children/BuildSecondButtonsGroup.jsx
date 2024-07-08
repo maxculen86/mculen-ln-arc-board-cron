@@ -7,10 +7,12 @@ import {
     BtnContainer,
     addEventToDataLayer,
     setEventShare,
-    getTwitterTitle
+    getTwitterTitle,
+    shareWhatsAppMobile,
 } from '../../../../private/LN/common/utils/shareHelper';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import classNames from 'classnames';
 
 const BuildSecondButtonsGroup = ({
@@ -18,20 +20,20 @@ const BuildSecondButtonsGroup = ({
     host,
     title: basic,
     mobileTitle,
-    subtypeVideo
+    subtypeVideo,
 } = {}) => {
     const [copy, setCopy] = useState(false);
 
     const paddingPosition = subtypeVideo
         ? 'pl-8 ai-center gap-16_m gap-24'
-        : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-24';
+        : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m';
 
     const flexVideo = subtypeVideo ? '' : 'flex-column_l';
     const _classes = classNames(
         'second-buttons-group',
         'flex ai-center',
         flexVideo,
-        paddingPosition
+        paddingPosition,
     );
 
     const shareButton = () => {
@@ -40,7 +42,7 @@ const BuildSecondButtonsGroup = ({
         const shareData = {
             title: shareTitle,
             text: shareTitle,
-            url: shareUrl
+            url: shareUrl,
         };
 
         if (navigator && Boolean(navigator.canShare)) {
@@ -52,16 +54,37 @@ const BuildSecondButtonsGroup = ({
         <div className={_classes}>
             <Button
                 id="compartirMobile"
-                title="Compartir"
+                title="Compartir la nota"
                 variant="secondary"
-                label="Compartir"
                 className="sm-only"
+                iconOnly
                 isNegative={subtypeVideo}
                 onClick={() => {
                     shareButton();
                     setEventShare();
                 }}
-            />
+            >
+                <Icon size={24} color="inherit">
+                    <IconSprite name="reply" />
+                </Icon>
+            </Button>
+            <Button
+                id="whatsAppShareMobile"
+                title="Compartir la nota en Whatsapp"
+                variant="secondary"
+                iconOnly
+                size={40}
+                className="sm-only"
+                isNegative={subtypeVideo}
+                target="_blank"
+                onClick={() => {
+                    shareWhatsAppMobile(requestUri, host, basic);
+                }}
+            >
+                <Icon size={24} color="inherit">
+                    <IconSprite name="whatsapp" />
+                </Icon>
+            </Button>
             {buttonsList.map(
                 ({
                     withContainer = false,
@@ -72,7 +95,7 @@ const BuildSecondButtonsGroup = ({
                     title,
                     labelDataLayer,
                     handleClick,
-                    className
+                    className,
                 } = {}) => {
                     return (
                         <BtnContainer withContainer={withContainer} key={id}>
@@ -87,7 +110,7 @@ const BuildSecondButtonsGroup = ({
                                         host,
                                         basic,
                                         setCopy,
-                                        mobileTitle
+                                        mobileTitle,
                                     });
                                     addEventToDataLayer(title, labelDataLayer);
                                 }}
@@ -109,7 +132,7 @@ const BuildSecondButtonsGroup = ({
                             )}
                         </BtnContainer>
                     );
-                }
+                },
             )}
         </div>
     );
@@ -120,7 +143,7 @@ BuildSecondButtonsGroup.propTypes = {
     host: PropTypes.string,
     title: PropTypes.string,
     mobileTitle: PropTypes.string,
-    subtypeVideo: PropTypes.string
+    subtypeVideo: PropTypes.string,
 };
 
 export default BuildSecondButtonsGroup;

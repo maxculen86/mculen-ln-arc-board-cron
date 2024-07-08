@@ -38,16 +38,37 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           class=""
         />
         <div
-          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-24"
+          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m"
         >
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 sm-only --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
             data-variant="secondary"
             id="compartirMobile"
-            title="Compartir"
+            title="Compartir la nota"
             type="button"
           >
-            Compartir
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="reply"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
+            data-variant="secondary"
+            id="whatsAppShareMobile"
+            title="Compartir la nota en Whatsapp"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="whatsapp"
+              />
+            </i>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -150,7 +171,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
 </div>
 `;
 
-exports[`Share Snapshot - Should show 7 buttons  1`] = `
+exports[`Share Snapshot - Should show 8 buttons  1`] = `
 <div>
   <div
     class="mod-share-container --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
@@ -205,16 +226,37 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
           class=""
         />
         <div
-          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-24"
+          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m"
         >
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 sm-only --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
             data-variant="secondary"
             id="compartirMobile"
-            title="Compartir"
+            title="Compartir la nota"
             type="button"
           >
-            Compartir
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="reply"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
+            data-variant="secondary"
+            id="whatsAppShareMobile"
+            title="Compartir la nota en Whatsapp"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="whatsapp"
+              />
+            </i>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
@@ -372,16 +414,37 @@ exports[`Share Test click button bookmark 1`] = `
           class=""
         />
         <div
-          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-24"
+          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m"
         >
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 sm-only --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
             data-variant="secondary"
             id="compartirMobile"
-            title="Compartir"
+            title="Compartir la nota"
             type="button"
           >
-            Compartir
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="reply"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
+            data-variant="secondary"
+            id="whatsAppShareMobile"
+            title="Compartir la nota en Whatsapp"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="whatsapp"
+              />
+            </i>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
