@@ -14,7 +14,6 @@ const useGridArticles = props => {
         payload,
         sectionsIds,
         distributorId,
-        outputType,
         nodeType,
         type,
         renderables,

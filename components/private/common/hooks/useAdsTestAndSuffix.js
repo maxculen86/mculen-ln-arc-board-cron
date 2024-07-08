@@ -13,7 +13,7 @@ const useAdsTestAndSuffix = (device, outputType) => {
         }
     }, []);
     useEffect(() => {
-        if (outputType && device) setSuffix(suffixDevice[device]);
+        if (device) setSuffix(suffixDevice[device]);
     }, [device, outputType]);
 
     return suffix;
