@@ -3,7 +3,6 @@ const htmlEntities = {
     lt: '<',
     gt: '>',
     quot: '"',
-    amp: '&',
     apos: "'"
 };
 

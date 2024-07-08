@@ -12,9 +12,7 @@ const ComImage = props => {
         src,
         srcset,
         alt,
-        layout,
         classCondition,
-        amp,
         width,
         height,
         href,
@@ -47,27 +45,14 @@ const ComImage = props => {
         />
     );
 
-    const imageAmp = (
-        <amp-img
-            {...commonProps}
-            srcSet={srcset}
-            class={classes}
-            layout={layout || 'responsive'}
-            data-hero={isApertura ? true : undefined}
-            data-amp-auto-lightbox-disable="true"
-        />
-    );
-
-    const rightImage = amp ? imageAmp : image;
-
     return (
         <>
             {href ? (
                 <ComLink link={href} target={target || ''} title={alt}>
-                    {rightImage}
+                    {image}
                 </ComLink>
             ) : (
-                <>{rightImage}</>
+                <>{image}</>
             )}
         </>
     );
@@ -78,7 +63,6 @@ ComImage.propTypes = {
     srcset: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
-    amp: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     href: PropTypes.string,

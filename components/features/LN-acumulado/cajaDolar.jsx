@@ -16,7 +16,6 @@ const CajaDolar = ({ id: featureId }) => {
     const { contextPath, deployment, outputType, layout, globalContent = {} } =
         useAppContext() || {};
     const { _id = '', type = '' } = globalContent;
-    const isAmp = outputType === 'amp';
     const shouldShowDollar =
         layout === layoutsName.Noticia
             ? get(globalContent, 'label.mostrar_caja_dolar.text', '') ===
@@ -50,13 +49,12 @@ const CajaDolar = ({ id: featureId }) => {
             fillClass={fillClass}
             logoByma={getAssetsPath(contextPath)(deployment)('logo-byma.svg')}
             logoIol={getAssetsPath(contextPath)(deployment)('logo-iol.svg')}
-            isAmp={isAmp}
         />
     ) : (
         <></>
     );
 
-    return shouldShowDollar && !isAmp ? (
+    return shouldShowDollar ? (
         <Static id={featureId}>
             {type === 'story' && (
                 <h2 className="com-title --font-primary --xl --font-extra">

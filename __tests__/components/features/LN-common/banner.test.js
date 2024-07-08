@@ -5,8 +5,6 @@ import {
     changeSegmentAdUnit,
     getBannerConfiguration,
     getDimsFromSiteService,
-    getTargetingFormat,
-    isForAmp,
     isPrimarySectionInBannerSegments,
     handleCanchallenaException,
     shouldShow,
@@ -652,19 +650,6 @@ describe('handleCanchallenaException =>', () => {
     it('it should return false by default =>', () => {
         expect(handleCanchallenaException()).toEqual(false);
     });
-});
-
-describe('getTargetingFormat =>', () => {
-    Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
-        contextPath: '/pf'
-    }));
-    const { taxonomy } = globalContent;
-    const { sections, tags } = taxonomy;
-    const targeting = getTargetingFormat(sections)(tags);
-    expect(targeting).toEqual(
-        '{"tags":["ca_el mundo|ca_ciencia|te_deportes|te_sake"],"tags_nuevos":["ca_el mundo","ca_ciencia","te_deportes","te_sake"]}'
-    );
 });
 
 describe('getDimsFromSiteService =>', () => {

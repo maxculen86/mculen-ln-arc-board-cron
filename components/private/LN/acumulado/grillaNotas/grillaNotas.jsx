@@ -13,7 +13,6 @@ const GrillaNotas = props => {
         loading = false,
         goToNextPage,
         name = '',
-        outputType = 'default',
         featureId
     } = props;
 
@@ -23,7 +22,7 @@ const GrillaNotas = props => {
                 <Static id={featureId}>{InitialGrid}</Static>
                 {NextResults}
             </div>
-            {outputType !== 'amp' && hasMoreArticles && (
+            {hasMoreArticles && (
                 <section className="row">
                     <BtnMasNotas
                         onClickHandler={goToNextPage}

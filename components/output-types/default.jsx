@@ -12,7 +12,6 @@ import MetaDescription from '../private/common/metaDescription';
 import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
-import LinkAmpHTML from '../private/common/linkAmpHTML';
 import LinkCanonical from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
@@ -231,13 +230,6 @@ const Default = props => {
                     nodeType={_nodeType}
                     site={site}
                     template={template}
-                />
-                <LinkAmpHTML
-                    subtype={subtype}
-                    canonicalUrl={canonicalUrl || _id}
-                    arcSite={arcSite}
-                    nodeType={nodeType}
-                    globalContent={globalContent}
                 />
                 {layout !== lnBuscador && (
                     <MetaTitle

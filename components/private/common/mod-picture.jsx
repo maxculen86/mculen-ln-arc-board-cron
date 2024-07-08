@@ -17,10 +17,8 @@ const ModImage = props => {
         alt,
         classCondition,
         video,
-        amp,
         sources,
         isApertura,
-        sizes,
         isLoadWithPicture,
         imageListForPicture,
         imgDefault
@@ -56,9 +54,7 @@ const ModImage = props => {
                     srcset={srcSet}
                     src={src}
                     alt={alt}
-                    amp={amp}
                     sizes={!sizesImg || `${sizesImg},100vw`}
-                    {...sizes}
                     isApertura={isApertura}
                 />
             )}
@@ -72,7 +68,6 @@ ModImage.propTypes = {
     alt: PropTypes.string,
     classCondition: PropTypes.string,
     video: PropTypes.string,
-    amp: PropTypes.bool,
     isApertura: PropTypes.bool,
     sources: PropTypes.arrayOf(
         PropTypes.shape({
@@ -101,7 +96,6 @@ ModImage.propTypes = {
 ModImage.defaultProps = {
     alt: '',
     classCondition: '',
-    amp: false,
     video: '',
     sources: [],
     sizes: {},

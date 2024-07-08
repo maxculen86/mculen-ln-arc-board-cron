@@ -18,7 +18,6 @@ const ModheaderSection = props => {
         size,
         classCondition,
         link,
-        outputType,
         customTitle,
         isVisible = true,
         imageId,
@@ -33,13 +32,7 @@ const ModheaderSection = props => {
     if ((!title && !url) || !isVisible) return null;
 
     const Image = url && (
-        <ComImage
-            width={width}
-            height={height}
-            src={url}
-            alt={roofTitle}
-            amp={outputType === 'amp'}
-        />
+        <ComImage width={width} height={height} src={url} alt={roofTitle} />
     );
 
     const modLogoImage = link ? (

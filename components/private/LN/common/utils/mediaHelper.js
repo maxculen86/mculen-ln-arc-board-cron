@@ -165,12 +165,11 @@ export const getImagesToLoadWithPicture = (sourceActive = [], isPreload) => {
 
 export const LinkImagePreload = ({
     resizedUrls = [],
-    isAmp,
     isLoadWithPicture = false
 }) => {
     if (resizedUrls.length === 0) return null;
 
-    const fetchPriorityAttr = isAmp ? {} : { fetchPriority: 'high' };
+    const fetchPriorityAttr = { fetchPriority: 'high' };
     const { resizedUrl } = getShortestImage(resizedUrls);
 
     // TODO: Sacar condicion isLoadWithPicture cuando se implemente carga con picture en todo el sitio.

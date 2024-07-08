@@ -17,7 +17,6 @@ const ModDolar = ({
     fillClass,
     logoByma,
     logoIol,
-    isAmp,
     _id
 }) => {
     const pageDolarOficialHistorico =
@@ -62,7 +61,6 @@ const ModDolar = ({
                     <ComImage
                         classCondition="logo byma"
                         alt={informationAlt}
-                        amp={isAmp}
                         src={logoByma}
                     />
                     <span className="--fivexs">provista por</span>
@@ -75,7 +73,6 @@ const ModDolar = ({
                         <ComImage
                             classCondition="logo iol"
                             alt={providedAlt}
-                            amp={isAmp}
                             src={logoIol}
                         />
                     </ComLink>
@@ -101,7 +98,6 @@ ModDolar.propTypes = {
     fillClass: PropTypes.string,
     logoByma: PropTypes.string,
     logoIol: PropTypes.string,
-    isAmp: PropTypes.bool,
     _id: PropTypes.string
 };
 
@@ -112,7 +108,6 @@ ModDolar.defaultProps = {
     fillClass: '',
     logoByma: '',
     logoIol: '',
-    isAmp: false,
     _id: ''
 };
 

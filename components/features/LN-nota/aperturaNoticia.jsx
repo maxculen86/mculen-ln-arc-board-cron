@@ -27,7 +27,7 @@ const AperturaNoticia = props => {
                     element => element.type === 'text'
                 );
 
-                const scriptForZoom = outputType !== 'amp' && (
+                const scriptForZoom = (
                     <BuildScriptForZoom
                         mediaData={mediaData}
                         subtype={subtype}

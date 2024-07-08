@@ -9,8 +9,7 @@ import ComImage from './com-image';
 import '../../../resources/dist/css/ln/modules/mod-image.css';
 
 const ModImage = props => {
-    const { link, target, src, alt, amp, isApertura = false } = props;
-    const sizes = amp ? { width: 80, height: 80 } : {};
+    const { link, target, src, alt, isApertura = false } = props;
     if (!link || !src) return null;
 
     return (
@@ -20,13 +19,7 @@ const ModImage = props => {
             target={target}
             classCondition="mod-image"
         >
-            <ComImage
-                src={src}
-                alt={alt}
-                amp={amp}
-                isApertura={isApertura}
-                {...sizes}
-            />
+            <ComImage src={src} alt={alt} isApertura={isApertura} />
         </ComLink>
     );
 };
@@ -36,7 +29,6 @@ ModImage.propTypes = {
     target: PropTypes.string,
     src: PropTypes.string.isRequired,
     alt: PropTypes.string,
-    amp: PropTypes.bool,
     isApertura: PropTypes.bool.isRequired
 };
 

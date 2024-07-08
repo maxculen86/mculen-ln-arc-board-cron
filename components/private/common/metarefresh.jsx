@@ -48,7 +48,6 @@ const Component = props => {
         if (
             !metarefresh ||
             isAdmin ||
-            outputType === 'amp' ||
             (isSubscribed && template !== 'home') ||
             interval < 1 ||
             shouldBeExcluded({ globalContent })

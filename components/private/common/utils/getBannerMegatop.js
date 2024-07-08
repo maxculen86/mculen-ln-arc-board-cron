@@ -1,10 +1,7 @@
 import React from 'react';
 import PageBuilderMessage from '../../LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    // const { children } = tree;
-    // children[0] => Section BannerMegatop
-    // const { children: childrenSectionBannerMegatop } = children[0];
+const getBannerMegatop = (element, outputType, isAdmin) => {
     const isValid = outputType !== 'amp';
     const component = isValid ? (
         element

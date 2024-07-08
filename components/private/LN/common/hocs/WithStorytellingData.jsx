@@ -84,7 +84,7 @@ export default function WithStorytellingData(WrappedComponent) {
                 }
             });
 
-            const isMobile = outputType === 'amp' || device !== 'desktop';
+            const isMobile = device !== 'desktop';
 
             return type === 'story' &&
                 (subtype === STORYTELLING || subtype === FOTOAL100) &&

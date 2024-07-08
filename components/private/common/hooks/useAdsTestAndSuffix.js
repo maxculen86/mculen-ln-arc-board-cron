@@ -13,8 +13,7 @@ const useAdsTestAndSuffix = (device, outputType) => {
         }
     }, []);
     useEffect(() => {
-        if (outputType && device)
-            setSuffix(outputType === 'amp' ? '_amp' : suffixDevice[device]);
+        if (outputType && device) setSuffix(suffixDevice[device]);
     }, [device, outputType]);
 
     return suffix;

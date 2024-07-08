@@ -2,16 +2,11 @@ import { getAspectRatio } from '../../../../content/sources/utils/getRatio';
 import { STORYTELLING } from '../utils/subtypes/subtypeHelper';
 import setProportion from '../utils/setProportion';
 
-const useProportions = ({
-    resizedUrls = [],
-    device = 'desktop',
-    isAmp,
-    subtype
-}) =>
+const useProportions = ({ resizedUrls = [], device = 'desktop', subtype }) =>
     subtype === STORYTELLING || !subtype
         ? resizedUrls.filter(({ option }) => {
               const imageRatio = getAspectRatio(option.width, option.height);
-              const proportion = setProportion(device, isAmp);
+              const proportion = setProportion(device);
 
               return imageRatio === proportion;
           })

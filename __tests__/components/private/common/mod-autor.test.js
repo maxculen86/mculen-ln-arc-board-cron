@@ -12,8 +12,7 @@ describe('ModAutor', () => {
         ],
         foto: null,
         classCondition: '--autor',
-        medio: null,
-        amp: false
+        medio: null
     };
 
     it('If no image must no render author image', () => {
@@ -28,7 +27,6 @@ describe('ModAutor', () => {
                 'https://resizer.glanacion.com/resizer/V5K_reWbvEbIuJAS7PQaidnMVp8=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2281458.png',
             classCondition: '--autor',
             medio: null,
-            amp: false,
             subtype: '1'
         };
         const { container } = render(<ModAutor {...props2} />);
@@ -44,7 +42,6 @@ describe('ModAutor', () => {
                 'https://resizer.glanacion.com/resizer/V5K_reWbvEbIuJAS7PQaidnMVp8=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2281458.png',
             classCondition: '--autor',
             medio: null,
-            amp: false,
             subtype: '4'
         };
         const { container } = render(<ModAutor {...props3} />);

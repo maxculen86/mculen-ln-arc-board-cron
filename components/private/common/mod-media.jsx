@@ -18,8 +18,7 @@ const ModMedia = props => {
         active,
         zoom,
         html,
-        scriptForZoom,
-        outputType
+        scriptForZoom
     } = props;
     return (
         <>
@@ -32,8 +31,7 @@ const ModMedia = props => {
                     (itsGallery || zoom) && active ? '--active' : ''
                 } ${classCondition || ''}`}
             >
-                {(html && renderHtml(html, idMedia, outputType === 'amp')) ||
-                    children}
+                {(html && renderHtml(html, idMedia)) || children}
             </section>
             {scriptForZoom}
         </>

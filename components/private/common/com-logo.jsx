@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 import getAssetsPath from './utils/getAssetsPath';
@@ -26,11 +25,9 @@ const ComLogo = props => {
         folder = ''
     } = props;
 
-    const { contextPath, deployment, outputType } = useAppContext();
+    const { contextPath, deployment } = useAppContext();
     const extraClass = `com-logo ${logoName} ${size || ''}`;
     const classes = `${classCondition} ${extraClass}`;
-
-    const amp = outputType === 'amp' ? 'amp' : '';
 
     if (!logoName) return null;
 
@@ -44,7 +41,6 @@ const ComLogo = props => {
                     `${folder}${logoName}.svg`
                 )}
                 alt={alt || title}
-                amp={amp}
                 svg
             />
         </Static>

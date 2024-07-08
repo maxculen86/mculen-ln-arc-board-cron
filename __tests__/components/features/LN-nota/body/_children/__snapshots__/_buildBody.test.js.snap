@@ -167,22 +167,6 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       id="middle_1_dsk"
     />
   </div>
-  <div
-    class="mod-banner --caja1_amp none "
-  >
-    <div
-      class="com-banner"
-      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
-      data-prebid-enabled="false"
-      data-size="[[300,250]]"
-      data-sizemap="[]"
-      data-slot-group="nota"
-      data-subscription="false"
-      data-targeting=""{\\"tags\\":[\\"\\"],\\"tags_nuevos\\":[]}""
-      data-without-hide="false"
-      id="caja1_amp"
-    />
-  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -214,22 +198,6 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra cursiva
     </em>
   </p>
-  <div
-    class="mod-banner --caja2_amp none "
-  >
-    <div
-      class="com-banner"
-      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
-      data-prebid-enabled="false"
-      data-size="[[300,250]]"
-      data-sizemap="[]"
-      data-slot-group="nota"
-      data-subscription="false"
-      data-targeting=""{\\"tags\\":[\\"\\"],\\"tags_nuevos\\":[]}""
-      data-without-hide="false"
-      id="caja2_amp"
-    />
-  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -2840,22 +2808,6 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       id="middle_1_dsk"
     />
   </div>
-  <div
-    class="mod-banner --caja1_amp none "
-  >
-    <div
-      class="com-banner"
-      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
-      data-prebid-enabled="false"
-      data-size="[[300,250]]"
-      data-sizemap="[]"
-      data-slot-group="nota"
-      data-subscription="false"
-      data-targeting=""{\\"tags\\":[\\"\\"],\\"tags_nuevos\\":[]}""
-      data-without-hide="false"
-      id="caja1_amp"
-    />
-  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -2887,22 +2839,6 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra cursiva
     </em>
   </p>
-  <div
-    class="mod-banner --caja2_amp none "
-  >
-    <div
-      class="com-banner"
-      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
-      data-prebid-enabled="false"
-      data-size="[[300,250]]"
-      data-sizemap="[]"
-      data-slot-group="nota"
-      data-subscription="false"
-      data-targeting=""{\\"tags\\":[\\"\\"],\\"tags_nuevos\\":[]}""
-      data-without-hide="false"
-      id="caja2_amp"
-    />
-  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -5513,22 +5449,6 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       id="middle_1_dsk"
     />
   </div>
-  <div
-    class="mod-banner --caja1_amp none "
-  >
-    <div
-      class="com-banner"
-      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
-      data-prebid-enabled="false"
-      data-size="[[300,250]]"
-      data-sizemap="[]"
-      data-slot-group="nota"
-      data-subscription="false"
-      data-targeting=""{\\"tags\\":[\\"\\"],\\"tags_nuevos\\":[]}""
-      data-without-hide="false"
-      id="caja1_amp"
-    />
-  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -5560,22 +5480,6 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       Tipo de letra cursiva
     </em>
   </p>
-  <div
-    class="mod-banner --caja2_amp none "
-  >
-    <div
-      class="com-banner"
-      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
-      data-prebid-enabled="false"
-      data-size="[[300,250]]"
-      data-sizemap="[]"
-      data-slot-group="nota"
-      data-subscription="false"
-      data-targeting=""{\\"tags\\":[\\"\\"],\\"tags_nuevos\\":[]}""
-      data-without-hide="false"
-      id="caja2_amp"
-    />
-  </div>
   <p
     class="com-paragraph   --s"
   >

@@ -3,7 +3,6 @@ import Consumer from 'fusion:consumer';
 import Placeholder from '../../../private/common/banners/placeholder';
 import {
     getBannerConfiguration,
-    isForAmp,
     shouldShowBanner
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
@@ -21,8 +20,6 @@ const Banner = props => {
         tablet,
         solo_no_suscriptores: soloNoSuscriptores
     } = customFields;
-
-    if (isForAmp(desktop || '', mobile || '', tablet || '')) return <></>;
 
     const bannersConfiguration = [
         { device: 'desktop', slotId: desktop },

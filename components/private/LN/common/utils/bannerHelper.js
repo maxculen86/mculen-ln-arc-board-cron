@@ -32,10 +32,6 @@ export const BANNERS_DESKTOP = [
     'middle_2_dsk',
     'middle_3_dsk',
     'middle_teads_dsk',
-    'caja1_amp',
-    'caja2_amp',
-    'caja3_amp',
-    'caja4_amp',
     '1x1_signwall_dsk'
 ];
 
@@ -57,10 +53,6 @@ export const BANNERS_MOBILE = [
     'caja9_mob',
     'caja10_mob',
     'inread_mob',
-    'caja1_amp',
-    'caja2_amp',
-    'caja3_amp',
-    'caja4_amp',
     '1x1_signwall_mob'
 ];
 
@@ -76,19 +68,8 @@ export const BANNERS_TABLET = [
     'middle_1_tab',
     'middle_2_tab',
     'middle_teads_tab',
-    'caja1_amp',
-    'caja2_amp',
-    'caja3_amp',
-    'caja4_amp',
     '1x1_signwall_tab'
 ];
-
-export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
-    return desktop
-        .concat(mobile)
-        .concat(tablet)
-        .includes('_amp');
-};
 
 export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
     soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
@@ -160,11 +141,9 @@ export const getBannerConfiguration = (
         'false'
     );
 
-    const slotIdForAmp = slotId.includes('_amp') ? 'amp' : device;
-
     const config = get(
         siteProperties,
-        `bannerConfig[${slotGroup}][${slotIdForAmp}][${slotId}]`
+        `bannerConfig[${slotGroup}][${device}][${slotId}]`
     );
 
     // Se valida que se cumpla las reglas del banner
@@ -192,9 +171,7 @@ export const getBannerConfiguration = (
         slotGroup,
         dfpId,
         classes: buildBannerClasses(config, customFields),
-        targeting: slotId.includes('_amp')
-            ? getTargetingFormat(sections)(tags)
-            : config.targeting
+        targeting: config.targeting
     };
 
     // Si en adServer hay una seccion (ej: campo) para segmentar banner, se cambia el slotName
@@ -208,7 +185,7 @@ export const getBannerConfiguration = (
             ...bannerConfiguration,
             slotName: changeSegmentAdUnit(
                 section,
-                slotIdForAmp,
+                device,
                 bannerConfiguration.slotName
             )
         };
@@ -350,26 +327,6 @@ export const changeSegmentAdUnit = (section, device, slotName = '') => {
         : '';
 
     return slotName.replace(stringToReplace, `${section}_${device}`);
-};
-
-export const getTargetingFormat = sections => {
-    return tags => {
-        const targeting = {
-            tags: [
-                sections
-                    .map(section => 'ca_'.concat(section.name).toLowerCase())
-                    .concat(
-                        tags.map(tag => 'te_'.concat(tag.text).toLowerCase())
-                    )
-                    .join('|')
-            ],
-            tags_nuevos: sections
-                .map(section => 'ca_'.concat(section.name).toLowerCase())
-                .concat(tags.map(tag => 'te_'.concat(tag.text).toLowerCase()))
-        };
-
-        return `${JSON.stringify(targeting)}`;
-    };
 };
 
 export const queueGoogletagCommand = bannersToLoad => {

@@ -15,7 +15,6 @@ const ModCategory = props => {
         category,
         style = undefined,
         navigation,
-        outputType,
         url
     } = props;
 
@@ -45,7 +44,6 @@ const ModCategory = props => {
                             height={resizedHeight || height}
                             src={resizedUrl || imageUrl}
                             alt={category}
-                            amp={outputType === 'amp'}
                             isApertura
                         />
                     </h1>

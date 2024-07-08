@@ -15,37 +15,17 @@ import {
 import { replaceAllUrlsResizerObject } from '../../../common/utils/mediaHelper';
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
-import { getAspectRatio } from '../../../../../../content/sources/utils/getRatio';
 import useProportions from '../../../../common/hooks/useProportions';
-
-export const filteredSources = (resizedUrls, device, isAmp) => {
-    if (resizedUrls && device) {
-        return resizedUrls.filter(image => {
-            const imageRatio = getAspectRatio(
-                image.option.width,
-                image.option.height
-            );
-
-            if (device === 'mobile' || device === 'tablet' || isAmp) {
-                return imageRatio === '2:3';
-            }
-            return imageRatio === '3:2';
-        });
-    }
-    return '';
-};
 
 const Component = props => {
     const {
         storytellingData,
-        outputType,
         globalContent: { headlines, subtype },
         isLoadWithPicture,
         withoutVideoBackground
     } = props;
     const isMobile = get(storytellingData, 'apertura.isMobile', false);
     const device = get(storytellingData, 'apertura.device', 'desktop');
-    const isAmp = outputType === 'amp';
     const [data, setData] = useState(
         isMobile || subtype === FOTOAL100 || withoutVideoBackground
             ? storytellingData
@@ -75,11 +55,8 @@ const Component = props => {
     const sourcesForDevice = useProportions({
         resizedUrls,
         device,
-        isAmp,
         subtype
     });
-
-    const sizes = isAmp ? { width: 80, height: 537 } : {};
 
     return (
         <section className="mod-opening">
@@ -90,8 +67,6 @@ const Component = props => {
                     src={src || ''}
                     alt={caption || altText || titleNote || ''}
                     video={video || ''}
-                    amp={isAmp}
-                    sizes={sizes}
                     sources={sourcesForDevice}
                     isApertura
                     isLoadWithPicture={isLoadWithPicture}

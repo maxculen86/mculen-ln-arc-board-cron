@@ -44,7 +44,6 @@ const useGridArticles = props => {
 
     const authorId = nodeType === 'author' ? _id : null;
     const sectionId = nodeType === 'section' ? _id : null;
-    const size = outputType === 'amp' ? DEFAULT_QUANTITY : articlesQuantity;
 
     const cajaManualArticles =
         tagId === SUSCRIPTOR_SECTION
@@ -88,7 +87,7 @@ const useGridArticles = props => {
         },
         filter,
         imageConfig,
-        size: size.tripleSize || size,
+        size: articlesQuantity.tripleSize || articlesQuantity,
         type,
         staticMode: isServerSide,
         withPagination: true,

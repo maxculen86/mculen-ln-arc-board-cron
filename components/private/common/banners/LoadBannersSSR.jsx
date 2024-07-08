@@ -92,11 +92,6 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                             ''
                         );
 
-                        const checkAmp =
-                            outputType === 'amp'
-                                ? bannerInPB.amp
-                                : !bannerInPB.amp;
-
                         bannerConfigType({
                             bannerConfig,
                             slotGroup,
@@ -112,7 +107,6 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                             bannerInPB &&
                             (bannerInPB.device === device ||
                                 bannerInPB[device]) &&
-                            checkAmp &&
                             Object.keys(finalBannersToLoad).find(
                                 i =>
                                     finalBannersToLoad[i].opt_div ===

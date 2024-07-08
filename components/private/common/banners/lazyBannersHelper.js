@@ -107,9 +107,7 @@ export const getBannerConfiguration = (customFields, bannerConfig = {}) => {
 
     const config = get(
         siteProperties,
-        `bannerConfig[${slotGroup}][${
-            slotId.includes('_amp') ? 'amp' : device
-        }][${slotId}]`
+        `bannerConfig[${slotGroup}][${device}][${slotId}]`
     );
 
     // Se valida que se cumpla las reglas del banner

@@ -57,8 +57,6 @@ describe('BuildBody', () => {
     const banners = [
         { desktop: 'middle_1_dsk', position: 3, sticky: true },
         { desktop: 'middle_2_dsk', position: 6 },
-        { desktop: 'caja1_amp', position: 3 },
-        { desktop: 'caja2_amp', position: 5 },
         { mobile: 'caja1_mob', position: 1 },
         { mobile: 'caja2_mob', position: 4, background: true },
         { mobile: 'caja3_mob', position: 7 },
@@ -159,7 +157,7 @@ describe('BuildBody', () => {
         /* banner */
         expect(
             container.querySelectorAll(`div[class*="mod-banner"]`)
-        ).toHaveLength(9);
+        ).toHaveLength(7);
         /* powerup receta */
         expect(
             container.querySelectorAll(`div[class*="--ingredients"]`)
@@ -274,7 +272,7 @@ describe('BuildBody', () => {
         /* banner */
         expect(
             container.querySelectorAll(`div[class*="mod-banner"]`)
-        ).toHaveLength(9);
+        ).toHaveLength(7);
         /* powerup receta no renderiza porque no matchea subtype en las rules */
         expect(
             container.querySelectorAll(`div[class*="--ingredients"]`)

@@ -20,7 +20,6 @@ import formatDistributorName from '../../private/LN/common/utils/formatDistribut
 
 const FirmaFeature = props => {
     const {
-        outputType,
         customFields: { position },
         globalContent: {
             content_elements: contentElements,
@@ -64,7 +63,6 @@ const FirmaFeature = props => {
                     foto={photo}
                     classCondition="--autor"
                     medio={medio}
-                    amp={outputType === 'amp'}
                     subtype={subtype}
                 />
             </div>

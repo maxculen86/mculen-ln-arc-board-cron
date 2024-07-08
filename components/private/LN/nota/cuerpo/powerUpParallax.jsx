@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import ComImage from '../../../common/com-image';
 import '../../../../../resources/dist/css/ln/components/parallax.css';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import useProportions from '../../../common/hooks/useProportions';
@@ -10,8 +9,7 @@ import Text from '../../../common/text';
 import { getImagesToLoadWithPicture } from '../../common/utils/mediaHelper';
 
 const Parallax = ({ data = {} }) => {
-    const { outputType, globalContent: { subtype = 8 } = {} } = useAppContext();
-    const isAmp = outputType === 'amp';
+    const { globalContent: { subtype = 8 } = {} } = useAppContext();
     const dev = useViewportSize();
     const [device, setDevice] = useState(dev);
 
@@ -35,7 +33,6 @@ const Parallax = ({ data = {} }) => {
     const sourcesForDevice = useProportions({
         resizedUrls: imagesResized,
         device,
-        isAmp,
         subtype
     });
 
@@ -43,35 +40,19 @@ const Parallax = ({ data = {} }) => {
 
     if (!imageId || (!title && !paragraph)) return null;
 
-    const srcSet = sourcesForDevice
-        ? sourcesForDevice.map(x => `${x.resizedUrl} ${x.option.width}w`).join()
-        : '';
-
     return (
         <div className="container-parallax">
             <div className="image-container">
-                {!isAmp ? (
-                    <Adaptableimage
-                        width={width}
-                        alt={caption}
-                        height={height}
-                        src={imageUrl}
-                        className="com-image --parallax"
-                        fetchPriority="low"
-                        loading="lazy"
-                        sources={getImagesToLoadWithPicture(sourcesForDevice)}
-                    />
-                ) : (
-                    <ComImage
-                        src={imageUrl}
-                        srcset={srcSet}
-                        alt={caption}
-                        amp={isAmp}
-                        width={width}
-                        height={height}
-                        classCondition="--parallax"
-                    />
-                )}
+                <Adaptableimage
+                    width={width}
+                    alt={caption}
+                    height={height}
+                    src={imageUrl}
+                    className="com-image --parallax"
+                    fetchPriority="low"
+                    loading="lazy"
+                    sources={getImagesToLoadWithPicture(sourcesForDevice)}
+                />
             </div>
             {title && (
                 <div className="step-parallax">

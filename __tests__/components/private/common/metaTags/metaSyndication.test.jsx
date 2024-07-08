@@ -57,7 +57,7 @@ describe('LN - Common - MetaSyndication', () => {
     it('Does not render in recipes template', () => {
         const props = {
             arcSite: 'la-nacion-ar',
-            outputType: 'amp',
+            outputType: 'default',
             type: 'story',
             subtype: '7',
             syndication: {

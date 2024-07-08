@@ -45,13 +45,12 @@ const Media = ({
     const subtype = subtipo.id;
     const idForMedia = isApertura ? idMedia : undefined;
 
-    const isValidSection =
-        isAllowedSection({
-            noteType: subtype,
-            globalContent,
-            listOfAllowedSection,
-            layout: layoutPageBuilder
-        }) && outputType !== 'amp';
+    const isValidSection = isAllowedSection({
+        noteType: subtype,
+        globalContent,
+        listOfAllowedSection,
+        layout: layoutPageBuilder
+    });
 
     useEffect(() => {
         !itsGallery &&
@@ -96,7 +95,6 @@ const Media = ({
                     width={width}
                     itsGallery={itsGallery}
                     handleClick={validateHandleClick} // NOSONAR
-                    outputType={outputType}
                 >
                     <Image
                         active={active}

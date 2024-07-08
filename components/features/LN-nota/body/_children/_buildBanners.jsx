@@ -35,11 +35,7 @@ export const BuildBanners = ({
                             }
                         );
 
-                    return isAmpWithoutSlotIdAmpValidator({
-                        bannerConfiguration,
-                        outputType,
-                        slotId
-                    }) ? (
+                    return !bannerConfiguration ? (
                         <></>
                     ) : (
                         DivBannerRender({
@@ -56,13 +52,6 @@ export const BuildBanners = ({
 };
 
 export default BuildBanners;
-
-const isAmpWithoutSlotIdAmpValidator = ({
-    bannerConfiguration,
-    outputType,
-    slotId
-}) =>
-    !bannerConfiguration || (outputType === 'amp' && !slotId.includes('_amp'));
 
 const DivBannerRender = ({
     elementsCount,
