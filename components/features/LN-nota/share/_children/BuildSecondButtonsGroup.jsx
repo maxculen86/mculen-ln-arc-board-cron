@@ -8,7 +8,7 @@ import {
     addEventToDataLayer,
     setEventShare,
     getTwitterTitle,
-    shareWhatsAppMobile,
+    shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
@@ -20,7 +20,7 @@ const BuildSecondButtonsGroup = ({
     host,
     title: basic,
     mobileTitle,
-    subtypeVideo,
+    subtypeVideo
 } = {}) => {
     const [copy, setCopy] = useState(false);
 
@@ -33,7 +33,7 @@ const BuildSecondButtonsGroup = ({
         'second-buttons-group',
         'flex ai-center',
         flexVideo,
-        paddingPosition,
+        paddingPosition
     );
 
     const shareButton = () => {
@@ -42,7 +42,7 @@ const BuildSecondButtonsGroup = ({
         const shareData = {
             title: shareTitle,
             text: shareTitle,
-            url: shareUrl,
+            url: shareUrl
         };
 
         if (navigator && Boolean(navigator.canShare)) {
@@ -61,7 +61,7 @@ const BuildSecondButtonsGroup = ({
                 isNegative={subtypeVideo}
                 onClick={() => {
                     shareButton();
-                    setEventShare();
+                    setEventShare('compartir_mobile');
                 }}
             >
                 <Icon size={24} color="inherit">
@@ -78,7 +78,8 @@ const BuildSecondButtonsGroup = ({
                 isNegative={subtypeVideo}
                 target="_blank"
                 onClick={() => {
-                    shareWhatsAppMobile(requestUri, host, basic);
+                    shareWhatsAppDesktop(requestUri, host);
+                    setEventShare('compartir_whatsapp');
                 }}
             >
                 <Icon size={24} color="inherit">
@@ -95,7 +96,7 @@ const BuildSecondButtonsGroup = ({
                     title,
                     labelDataLayer,
                     handleClick,
-                    className,
+                    className
                 } = {}) => {
                     return (
                         <BtnContainer withContainer={withContainer} key={id}>
@@ -110,7 +111,7 @@ const BuildSecondButtonsGroup = ({
                                         host,
                                         basic,
                                         setCopy,
-                                        mobileTitle,
+                                        mobileTitle
                                     });
                                     addEventToDataLayer(title, labelDataLayer);
                                 }}
@@ -132,7 +133,7 @@ const BuildSecondButtonsGroup = ({
                             )}
                         </BtnContainer>
                     );
-                },
+                }
             )}
         </div>
     );
@@ -143,7 +144,7 @@ BuildSecondButtonsGroup.propTypes = {
     host: PropTypes.string,
     title: PropTypes.string,
     mobileTitle: PropTypes.string,
-    subtypeVideo: PropTypes.string,
+    subtypeVideo: PropTypes.string
 };
 
 export default BuildSecondButtonsGroup;

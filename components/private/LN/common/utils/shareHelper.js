@@ -212,12 +212,12 @@ export const addEventToDataLayer = (clickText, labelDataLayer) => {
     });
 };
 
-export const setEventShare = () => {
+export const setEventShare = (label = '') => {
     window.dataLayer.push({
         event: 'e_linkclick',
         dynamic_action: 'toolbard',
         dynamic_category: 'nota_ln9',
-        dynamic_label: 'compartir_mobile'
+        dynamic_label: `${label}`
     });
 };
 

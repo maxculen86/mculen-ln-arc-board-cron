@@ -41,23 +41,31 @@ describe('shareWhatsAppDesktop', () => {
 });
 
 describe('setEventShare', () => {
-    const input = {
-        dynamic_category: 'nota_ln9',
-        dynamic_action: 'toolbard',
-        dynamic_label: 'compartir_mobile',
-        event: 'e_linkclick'
-    };
-
-    it('should push correct event data to dataLayer', () => {
+    it('should push correct event data to dataLayer for compartir_mobile', () => {
         delete window.dataLayer;
         global.window.dataLayer = [];
 
-        setEventShare(input);
+        setEventShare('compartir_mobile');
         expect(window.dataLayer).toStrictEqual([
             {
                 dynamic_category: 'nota_ln9',
                 dynamic_action: 'toolbard',
                 dynamic_label: 'compartir_mobile',
+                event: 'e_linkclick'
+            }
+        ]);
+    });
+
+    it('should push correct event data to dataLayer for compartir_whatsapp', () => {
+        delete window.dataLayer;
+        global.window.dataLayer = [];
+
+        setEventShare('compartir_whatsapp');
+        expect(window.dataLayer).toStrictEqual([
+            {
+                dynamic_category: 'nota_ln9',
+                dynamic_action: 'toolbard',
+                dynamic_label: 'compartir_whatsapp',
                 event: 'e_linkclick'
             }
         ]);
