@@ -44,14 +44,6 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/private/LN/common/utils/contextHelper',
-    () => ({
-        getLoginData: jest.fn(),
-        isLoggedIn: jest.fn()
-    })
-);
-
-jest.mock(
     '../../../../../../components/private/common/scriptManager/MainHeaderEventsScript',
     () => {
         return jest.fn(() => <div id="mock-main-header-events-script" />);

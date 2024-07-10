@@ -1,12 +1,4 @@
 import classNames from 'classnames';
-import handleCookie from '../../../private/LN/common/utils/handleCookie';
-import { LOGIN_URL } from 'fusion:environment';
-
-export const getUserType = (isSubscribed, userEmail) => {
-    if (isSubscribed) return 'subscribed';
-    if (userEmail && !isSubscribed) return 'logged';
-    return 'unlogged';
-};
 
 export const getConfigClassName = ({ sticky, negative, isHome }) => {
     return {
@@ -49,21 +41,4 @@ export const isHeaderNegative = ({
     ];
 
     return validationBy.some(validation => validations.includes(validation));
-};
-
-export const getUserData = () => {
-    const { getCookie } = handleCookie();
-    const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
-    const cookieArray = ProductoPremiumId.split(',');
-    const subscription = cookieArray.includes('2');
-    return {
-        userName: getCookie('usuario%5Fdetalle%5Fnombre'),
-        userLastName: getCookie('usuario%5Fdetalle%5Fapellido'),
-        userEmail: getCookie('usuarioemail'),
-        isSubscribed: subscription,
-        goToLoginUrl: () => {
-            location.href = LOGIN_URL + window.btoa(location.href);
-        },
-        loading: false
-    };
 };

@@ -39,12 +39,7 @@ export const loginViafoura = async ({
                         });
             });
         })
-        .catch(error => {
-            console.error(
-                'Ocurrió un error al intentar cargar el script de viafoura',
-                error
-            );
-        });
+        .catch(error => {});
 };
 export const useValidateComments = props => {
     const [data, setData] = useState({});

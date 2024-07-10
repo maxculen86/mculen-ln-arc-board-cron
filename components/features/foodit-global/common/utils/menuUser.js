@@ -3,7 +3,6 @@ import { MY_ACCOUNT_URL, SITE_FOODIT } from 'fusion:environment';
 import { logout } from '../../../../../auth/helper/loginHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
-import get from '../../../../private/common/utils/get';
 
 export const menuUser = [
     {

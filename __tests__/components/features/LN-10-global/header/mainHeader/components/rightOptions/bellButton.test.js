@@ -15,6 +15,17 @@ jest.mock(
     }
 );
 describe('components - features - LN-10-global - header - mainHeader - rightOptions - BellButton', () => {
+    window.LN = {
+        observable: {
+            publish: jest.fn(),
+            subscribe: jest.fn((event, callback) => {
+                if (event === 'statusRotationAuth') {
+                    callback({ isFinished: true });
+                }
+            })
+        }
+    };
+
     it('should render successfully', () => {
         const { baseElement } = render(<BellButton />);
         expect(baseElement).toBeInTheDocument();

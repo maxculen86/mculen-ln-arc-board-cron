@@ -13,7 +13,7 @@ export const useShoppingList = () => {
     const [shoppingList, setShoppingList] = useState([]);
 
     useEffect(() => {
-        const fetchUserBookmarks = async ({ accessToken, token }) => {
+        const fetchUserBookmarks = async ({ accessToken, token } = {}) => {
             const { data = [] } = await getBookmarks(
                 accessToken,
                 token,
