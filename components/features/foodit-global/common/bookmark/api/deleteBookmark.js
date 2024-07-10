@@ -1,13 +1,12 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import { addToast, TOAST, addErrorToast } from './_helper';
-import getToken from '../../../../../private/common/utils/getToken';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { getAuthFromCookie } from '../../../../../../auth/helper/loginHelper';
 import { fillBookmarks } from '../iconHelper';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const deleteBookmark = async bookmarks => {
-    // TODO: should use useClientLibs
-    const token = getToken();
-    const accessToken = getToken('access-token');
+    const token = await getAuthFromCookie();
+    const accessToken = await getAuthFromCookie('access-token');
 
     if (!token || !accessToken || !bookmarks) return [];
 
@@ -26,7 +25,7 @@ const deleteBookmark = async bookmarks => {
                     method: 'DELETE',
                     headers: {
                         'X-Token': token,
-                        Authorization: `Bearer ${accessToken}`
+                        Authorization: accessToken
                     }
                 }
             );

@@ -1,14 +1,12 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-
-import getToken from '../../../../../private/common/utils/getToken';
+import { getAuthFromCookie } from '../../../../../../auth/helper/loginHelper';
 import get from '../../../../../private/common/utils/get';
 
 export const INGREDIENTS_BOOKMARK_GROUP = '0c470be489a8782dda8265b77d0dfcd4';
 
 const postIngredientsList = async content => {
-    // TODO: should use useClientLibs
-    const token = getToken();
-    const accessToken = getToken('access-token');
+    const token = await getAuthFromCookie();
+    const accessToken = await getAuthFromCookie('access-token');
 
     const articleId = get(content, 'id');
 
@@ -21,7 +19,7 @@ const postIngredientsList = async content => {
                 method: 'POST',
                 headers: {
                     'X-Token': token,
-                    Authorization: `Bearer ${accessToken}`
+                    Authorization: accessToken
                 },
                 body: JSON.stringify({
                     bookmarkType: 'ingredientList',

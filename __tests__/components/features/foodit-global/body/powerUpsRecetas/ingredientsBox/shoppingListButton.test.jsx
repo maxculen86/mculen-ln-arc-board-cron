@@ -3,15 +3,13 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import ShoppingListButton from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/shoppingListButton';
 import { handleIgredientListButton } from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/_helper';
 import { useIsInShoppingList } from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList';
-import { isFooditSuscriptor } from '../../../../../../../components/features/foodit-global/hooks/useGetUserData';
+import { isSubscribed } from '../../../../../../../auth/helper/loginHelper';
 import getToken from '../../../../../../../components/private/common/utils/getToken';
 
 jest.mock(
     '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/_helper'
 );
-jest.mock(
-    '../../../../../../../components/features/foodit-global/hooks/useGetUserData'
-);
+jest.mock('../../../../../../../auth/helper/loginHelper');
 jest.mock(
     '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList'
 );
@@ -31,7 +29,7 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
 
     beforeEach(() => {
         jest.clearAllMocks();
-        isFooditSuscriptor.mockReturnValue(true);
+        isSubscribed.mockReturnValue(true);
         getToken.mockReturnValue('mockToken');
         useIsInShoppingList.mockReturnValue({
             bookmarkId: null,

@@ -1,12 +1,10 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-
-import getToken from '../../../../../private/common/utils/getToken';
+import { getAuthFromCookie } from '../../../../../../auth/helper/loginHelper';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const getBookmarkGroups = async () => {
-    // TODO: should use useClientLibs
-    const token = getToken();
-    const accessToken = getToken('access-token');
+    const token = await getAuthFromCookie();
+    const accessToken = await getAuthFromCookie('access-token');
 
     if (!token || !accessToken) return [];
 
@@ -17,7 +15,7 @@ const getBookmarkGroups = async () => {
                 method: 'GET',
                 headers: {
                     'X-Token': token,
-                    Authorization: `Bearer ${accessToken}`
+                    Authorization: accessToken
                 }
             }
         );

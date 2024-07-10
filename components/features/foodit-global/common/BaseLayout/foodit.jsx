@@ -10,17 +10,17 @@ import Modal from '../Modals/SaveRecipe/foodit';
 import DrawerMyAccount from '../DrawerMyAccount/foodit';
 import FloatingGroupButton from '../floatingGroupButton/foodit';
 import Toasts from '../toasts/foodit';
-import AuthProvider from '../context/authContext/foodit';
 import FooditEventsHelper from '../dataLayer/FooditEventsHelper';
 import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
+import AuthInitializer from '../../../../../auth/AuthInitializer';
 
 const BaseLayout = ({ children }) => {
     const { layout, contextPath, deployment, arcSite } = useAppContext();
     const { toggleDrawer } = useDrawer({ id: DRAWER.RECETARIO });
 
     return (
-        <AuthProvider>
+        <AuthInitializer>
             <DynamicStylesheetLoader
                 contextPath={contextPath}
                 deployment={deployment}
@@ -45,7 +45,7 @@ const BaseLayout = ({ children }) => {
                     {...getConfigByLayout(layout, [toggleDrawer])}
                 />
             </div>
-        </AuthProvider>
+        </AuthInitializer>
     );
 };
 

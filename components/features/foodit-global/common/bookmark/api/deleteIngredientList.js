@@ -1,15 +1,14 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-import getToken from '../../../../../private/common/utils/getToken';
 import { TOAST, addErrorToast, addToast } from './_helper';
+import { getAuthFromCookie } from '../../../../../../auth/helper/loginHelper';
 
 const deleteIngredientList = async (
     bookmarkId,
     setShoppingList,
     title = ''
 ) => {
-    // TODO: should use useClientLibs
-    const token = getToken();
-    const accessToken = getToken('access-token');
+    const token = await getAuthFromCookie();
+    const accessToken = await getAuthFromCookie('access-token');
 
     if (!token || !accessToken || !bookmarkId) return null;
 
@@ -20,7 +19,7 @@ const deleteIngredientList = async (
                 method: 'DELETE',
                 headers: {
                     'X-Token': token,
-                    Authorization: `Bearer ${accessToken}`
+                    Authorization: accessToken
                 }
             }
         );

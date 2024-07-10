@@ -1,14 +1,17 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-
 import useGetRecetarioData from '../../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData';
-import { isFooditSuscriptor } from '../../../../../../../components/features/foodit-global/hooks/useGetUserData';
+import {
+    isSubscribed,
+    getAuthFromCookie,
+    authManager
+} from '../../../../../../../auth/helper/loginHelper';
 import getBookmarks from '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
-import getToken from '../../../../../../../components/private/common/utils/getToken';
 
+jest.mock('../../../../../../../auth/helper/loginHelper');
 jest.mock(
-    '../../../../../../../components/features/foodit-global/hooks/useGetUserData'
+    '../../../../../../../components/features/foodit-global/hooks/useGetUserConfig'
 );
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks'
@@ -32,10 +35,13 @@ const TestComponent = () => {
 describe('components - features - foodit-global - common - recetario - hooks - useGetRecetarioData', () => {
     beforeEach(() => {
         jest.clearAllMocks();
+        authManager.mockImplementation(callback =>
+            callback({ accessToken: 'mock-access-token', token: 'mock-token' })
+        );
     });
 
     it('should set loading to false and userBookmarks to an empty array if not a Foodit subscriber', async () => {
-        isFooditSuscriptor.mockReturnValue(false);
+        isSubscribed.mockReturnValue(false);
 
         const { getByText, getByTestId } = render(<TestComponent />);
 
@@ -44,8 +50,8 @@ describe('components - features - foodit-global - common - recetario - hooks - u
     });
 
     it('should fetch bookmarks and set userBookmarks if a Foodit subscriber', async () => {
-        isFooditSuscriptor.mockReturnValue(true);
-        getToken.mockReturnValue('mockToken');
+        isSubscribed.mockReturnValue(true);
+        getAuthFromCookie.mockReturnValue('mockToken');
         getBookmarks.mockResolvedValue({
             data: [{ id: 1, name: 'Bookmark 1' }]
         });
@@ -58,9 +64,9 @@ describe('components - features - foodit-global - common - recetario - hooks - u
     });
 
     it('should handle errors gracefully', async () => {
-        isFooditSuscriptor.mockReturnValue(true);
-        getToken.mockReturnValue('mockToken');
-        getBookmarks.mockReturnValue({});
+        isSubscribed.mockReturnValue(true);
+        getAuthFromCookie.mockReturnValue('mockToken');
+        getBookmarks.mockRejectedValue(new Error('Fetch error'));
 
         const { getByText, getByTestId } = render(<TestComponent />);
 

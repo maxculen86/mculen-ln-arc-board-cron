@@ -2,14 +2,14 @@ import React from 'react';
 import DrawerContainer from '../DrawerContainer/foodit';
 import MyAccount from '../MyAccount/foodit';
 import { menuUser } from '../utils/menuUser';
-import useGetUserData from '../../hooks/useGetUserData';
 import { DRAWER } from '../DrawerContainer/constants';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 export const DrawerMyAccount = () => {
     // TODO: contenido de menú
     const itemsList = menuUser;
 
-    const { email, initials, isSuscribed, restoreContext } = useGetUserData();
+    const { email, initials, isSubscribed } = useGetUserConfig();
 
     return (
         <DrawerContainer drawerId={DRAWER.MY_ACCOUNT} position="right">
@@ -19,8 +19,7 @@ export const DrawerMyAccount = () => {
                 avatarProps={{
                     email,
                     initials,
-                    hasSubscription: isSuscribed,
-                    restoreContext
+                    hasSubscription: isSubscribed
                 }}
             />
         </DrawerContainer>
