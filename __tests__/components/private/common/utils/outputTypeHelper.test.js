@@ -6,7 +6,8 @@ import {
     getSectionOfRequestUri,
     metasFromSiteServices,
     getTagTitle,
-    addMetaNoIndexNoFollow
+    addMetaNoIndexNoFollow,
+    isUSALangHtml
 } from '../../../../../components/private/common/utils/outputTypeHelper';
 import { RECETA } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
@@ -632,5 +633,29 @@ describe('getTagTitle function test', () => {
                 })
             ).toBe('Receta de i am a recipe metaTitle - LA NACION');
         });
+    });
+});
+
+describe('isUSALangHtml test', () => {
+    const cases = [
+        ['should return true', '/estados-unidos', undefined, true],
+        ['should return false', '/economia', undefined, false],
+        [
+            'should return true',
+            undefined,
+            '/estados-unidos/nota-trump-biden-nid12345',
+            true
+        ],
+        [
+            'should return false',
+            undefined,
+            '/deportes/nota-messi-nid12345',
+            false
+        ],
+        ['should return false', undefined, undefined, false]
+    ];
+
+    test.each(cases)('%s', (message, id, canonical, result) => {
+        expect(isUSALangHtml(id, canonical)).toBe(result);
     });
 });

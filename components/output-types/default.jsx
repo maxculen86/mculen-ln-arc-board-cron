@@ -24,7 +24,8 @@ import {
     getMetaDescriptionDefault,
     metasFromSiteServices,
     getTagTitle,
-    addMetaNoIndexNoFollow
+    addMetaNoIndexNoFollow,
+    isUSALangHtml
 } from '../private/common/utils/outputTypeHelper';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
@@ -151,7 +152,7 @@ const Default = props => {
     );
 
     return (
-        <html lang="es">
+        <html lang={!isUSALangHtml(_id, canonicalUrl) ? 'es' : 'es-US'}>
             <head>
                 <meta charset="utf-8" />
                 <meta

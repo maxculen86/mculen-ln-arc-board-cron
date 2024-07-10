@@ -118,6 +118,9 @@ export const getMetaDescriptionDefault = (
     return defaultDescription;
 };
 
+export const isUSALangHtml = (sectionId, canonicalUrl = '') =>
+    sectionId === '/estados-unidos' || canonicalUrl.includes('/estados-unidos');
+
 export const metasFromSiteServices = (metaTags = {}) => {
     const metas =
         metaTags && !Array.isArray(metaTags) && Object.entries(metaTags);
