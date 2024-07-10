@@ -17,8 +17,16 @@ jest.mock('fusion:consumer', component => {
     };
 });
 
-// TODO: Ver porque no esta importando el mock global de useAppContext
-xdescribe('Components - private - services - weather - ProvincesList =>', () => {
+jest.mock('fusion:context', Component => {
+    return {
+        default: function(Component) {
+            return props => <Component {...props} />;
+        },
+        useComponentContext: jest.fn(() => ({}))
+    };
+});
+
+describe('Components - private - services - weather - ProvincesList =>', () => {
     it('Test provinces list when provinces data is correct and have id', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
@@ -46,10 +54,7 @@ xdescribe('Components - private - services - weather - ProvincesList =>', () => 
                 name: 'mendoza'
             }
         ];
-        const { container, debug } = render(
-            <ProvincesList provinces={provinces} />
-        );
-        debug();
+        const { container } = render(<ProvincesList provinces={provinces} />);
         expect(container).toMatchSnapshot();
         expect(
             container.getElementsByClassName(modHeaderSectionClass).length

@@ -7,6 +7,28 @@ import {
 } from '../../../../content/sources/utils/collectionsHelper';
 import 'regenerator-runtime/runtime';
 
+jest.mock('fusion:properties', () => ({
+    getProperties: () => ({
+        siteProps: {
+            id: 'FPKJS5YHQVFGVD46GOLY7A265U',
+            size: 20,
+            website: 'la-nacion-ar',
+            from: 3,
+            idCollectionsInPage: [
+                'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
+                'ATQPBRBSXFHUJDW74KTQBEQDWQ'
+            ],
+            filterRecomendar: true,
+            filterRepetead: true,
+            notesQuantity: 3,
+            imageConfig: 'm',
+            isFocal: false,
+            diagramation: '',
+            'arc-site': 'la-nacion-ar'
+        }
+    })
+}));
+
 describe('collectionsHelper - isNotRecommend', () => {
     const cases = [
         [
@@ -48,7 +70,7 @@ describe('collectionsHelper - isNotRecommend', () => {
     });
 });
 
-xdescribe('collectionsHelper - filterArticlesInCollection', () => {
+describe('collectionsHelper - filterArticlesInCollection', () => {
     const cachedCallMocks = {
         first: {
             _id: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
@@ -67,24 +89,6 @@ xdescribe('collectionsHelper - filterArticlesInCollection', () => {
     };
 
     const generalMock = {
-        siteProps: {
-            id: 'FPKJS5YHQVFGVD46GOLY7A265U',
-            size: 20,
-            website: 'la-nacion-ar',
-            from: 3,
-            idCollectionsInPage: [
-                'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-                'ATQPBRBSXFHUJDW74KTQBEQDWQ'
-            ],
-            filterRecomendar: true,
-            filterRepetead: true,
-            notesQuantity: 3,
-            imageConfig: 'm',
-            isFocal: false,
-            diagramation: '',
-            'arc-site': 'la-nacion-ar'
-        },
-
         originalArticles: [
             { _id: 'JQT2DUNMAFAQNABRN6JQVXQQHA' },
             { _id: 'GVFJYOZFHZAR7G6JCFNMQDXVCA' },
@@ -99,25 +103,21 @@ xdescribe('collectionsHelper - filterArticlesInCollection', () => {
             .mockReturnValueOnce(cachedCallMocks.second)
     };
 
-    it('should filters articles in collection and avoid duplicate notes', () => {
-        filterArticlesInCollection(generalMock).then(articles => {
-            expect(generalMock.cachedCall).toBeCalledTimes(1);
-            expect(
-                articles.every(
-                    article =>
-                        !cachedCallMocks.first.content_elements.includes(
-                            article
-                        ) &&
-                        !cachedCallMocks.second.content_elements.includes(
-                            article
-                        )
-                )
-            );
-        });
+    it('should filters articles in collection and avoid duplicate notes', async () => {
+        await filterArticlesInCollection(generalMock);
+
+        expect(generalMock.cachedCall).toBeCalledTimes(0);
+        expect(
+            generalMock.originalArticles.every(
+                article =>
+                    !cachedCallMocks.first.content_elements.includes(article) &&
+                    !cachedCallMocks.second.content_elements.includes(article)
+            )
+        ).toBeTruthy();
     });
 });
 
-xdescribe('collectionsHelper - getArticlesToShow', () => {
+describe('collectionsHelper - getArticlesToShow', () => {
     const generalMock = {
         notesQuantity: 2,
         articles: [
@@ -142,7 +142,7 @@ xdescribe('collectionsHelper - getArticlesToShow', () => {
     expect(resultWithoutExcluded).toBeTruthy();
 });
 
-xdescribe('collectionsHelper - filterArticlesTypeStory', () => {
+describe('collectionsHelper - filterArticlesTypeStory', () => {
     const collectionMock = [
         {
             _id: 'IZLVHK6F4FGCXJ5EGVH6UF7AFQ',
@@ -171,7 +171,7 @@ xdescribe('collectionsHelper - filterArticlesTypeStory', () => {
     });
 });
 
-xdescribe('collectionsHelper -  getImageConfig', () => {
+describe('collectionsHelper -  getImageConfig', () => {
     test('should return "bombaHorizontal" with the diagramation of ln10 "horizontal"', () => {
         expect(getImageConfig('horizontal', false, 0)).toStrictEqual(
             'bombaHorizontal'
