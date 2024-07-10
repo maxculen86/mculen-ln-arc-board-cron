@@ -53,7 +53,7 @@ export default {
             sampleRateRum: 0.15,
             service: 'lanacion-arc',
             env: 'prod',
-            sessionReplaySampleRate: 30,
+            sessionReplaySampleRate: 41,
             trackResources: true,
             trackLongTasks: true,
             trackUserInteractions: true,
