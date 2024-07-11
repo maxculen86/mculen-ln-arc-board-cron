@@ -1,34 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { API_ENV, LOGIN_URL } from 'fusion:environment';
-import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
 import { getInitialState } from '../../_helper';
 import { toggleBellColor } from './_helper';
 import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { useHeaderContext } from '../../../context';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { authManager } from '../../../../../../../auth/helper/loginHelper';
+import isSSR from '../../../../../../private/LN/common/utils/isSSR';
 
 export const BellButton = () => {
     const { negative, intersectingSentinel } = useHeaderContext();
     const [showTooltip, setShowTooltip] = useState(false);
     const [props, setProps] = useState({});
-    const { getCookie } = handleCookie();
-    const token = getCookie('token');
-    const accessToken = getCookie('access-token');
+
+    useEffect(() => {
+        authManager(tokenProps => {
+            const properties = buildProps(tokenProps);
+            setProps(properties);
+        });
+    }, []);
+
     useEffect(() => {
         initializeTooltip();
-        setProps(buildProps());
+        toggleBellColor(negative);
     }, [showTooltip, intersectingSentinel]);
     const initializeTooltip = () => {
         const toggleTooltip = getInitialState() ? intersectingSentinel : false;
         setShowTooltip(toggleTooltip);
     };
-    toggleBellColor(negative);
-    const buildProps = () => {
+    const buildProps = ({ accessToken, token } = {}) => {
         return {
             ...(token &&
                 accessToken && {
                     userIdToken: token,
-                    userAccessToken: `Bearer ${accessToken}`
+                    userAccessToken: accessToken
                 }),
             isTestEnvironment: API_ENV !== 'prod',
             zone: 'lanacion',
@@ -82,6 +87,6 @@ export const BellButton = () => {
             identifier: message.id
         });
     };
-    return <NotificationsCentre {...props} />;
+    return !isSSR() && <NotificationsCentre {...props} />;
 };
 export default BellButton;

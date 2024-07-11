@@ -6,35 +6,31 @@ import HelperBookmark from './HelperBookmark';
 import useListBookmarks from '../hooks/bookmark/useListBookmarks';
 import useCountBookmarks from '../hooks/bookmark/useCountBookmarks';
 import useTermica from '../hooks/useTermica';
-import getToken from '../utils/getToken';
 import Barrier from '../barrier/Barrier';
 import { GlobalContext } from '../context/globalContext';
-import handleCookie from '../../LN/common/utils/handleCookie';
 import ShowToast from '../toast/showToast';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../auth/helper/loginHelper';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 
 const BookmarkLayout = () => {
     const { state, dispatch } = useContext(GlobalContext);
     const [showHelper, setShowHelper] = useState(false);
-    const token = getToken();
-    const accessToken = getToken('access-token');
     const termica = useTermica('bookmark_web');
-    const { getCookie } = handleCookie();
-    const productoPremiumId = getCookie('ProductoPremiumId');
-    const isSubscribed = productoPremiumId && productoPremiumId.includes('2');
+    const isSubscriber = isSubscribed(SUBSCRIBED_HELPER.LN);
     const {
         bookmarks,
         morePages,
         getNextPage,
         loading,
         deleteArticle
-    } = useListBookmarks(termica, token, accessToken, isSubscribed);
+    } = useListBookmarks(termica, isSubscriber);
 
     const { bookmarkCount, substractOne } = useCountBookmarks(
         termica,
-        token,
-        accessToken,
-        isSubscribed
+        isSubscriber
     );
 
     return (

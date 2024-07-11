@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { getTypeOfDevice } from '@ln/hooks';
-import getToken from '../../../../../private/common/utils/getToken';
 import getBookmarks from '../../bookmark/api/getBookmarks';
-import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
+import {
+    authManager,
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../../../auth/helper/loginHelper';
 
 export const useShoppingList = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -10,8 +13,12 @@ export const useShoppingList = () => {
     const [shoppingList, setShoppingList] = useState([]);
 
     useEffect(() => {
-        const fetchUserBookmarks = async () => {
-            const { data = [] } = await getBookmarks('ingredientList');
+        const fetchUserBookmarks = async ({ accessToken, token } = {}) => {
+            const { data = [] } = await getBookmarks(
+                accessToken,
+                token,
+                'ingredientList'
+            );
 
             setShoppingList(
                 data.reduce(
@@ -36,8 +43,8 @@ export const useShoppingList = () => {
 
         setIsMobile(isMobile);
 
-        if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
-            fetchUserBookmarks();
+        if (isSubscribed(SUBSCRIBED_HELPER.FOODIT)) {
+            authManager(fetchUserBookmarks);
         } else {
             setLoading(false);
         }

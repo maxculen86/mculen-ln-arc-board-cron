@@ -33,18 +33,11 @@ const Share = () => {
     const [enableButton, setEnableButton] = useState(false);
 
     const token = getToken();
-    const accessToken = getToken('access-token');
     const termicaBookmark = useTermica('bookmark_web');
     const subtypeVideo = getClassCondition(subtype);
     const suscription = isSuscription(token);
 
-    const checkBookmarkId = useCheckBookmark(
-        termicaBookmark,
-        token,
-        accessToken,
-        id,
-        suscription
-    );
+    const checkBookmarkId = useCheckBookmark(termicaBookmark, id, suscription);
 
     useEffect(() => {
         termicaBookmark && setBookmark(checkBookmarkId);

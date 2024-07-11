@@ -1,10 +1,9 @@
 import React from 'react';
 import { MY_ACCOUNT_URL, SITE_FOODIT } from 'fusion:environment';
-import { logout } from '../context/authContext/_helpers';
+import { logout } from '../../../../../auth/helper/loginHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
-// TODO: Eliminar cuando se consigan los datos dinámicamente
 export const menuUser = [
     {
         text: 'Mi cuenta',
@@ -36,7 +35,6 @@ export const menuUser = [
         text: 'Lista de compras',
         icon: <IconSprite name="shopping-list" critical />,
         onClick: () => {
-            console.log('click');
             addEventToDataLayer({
                 event: 'e_linkclick',
                 category: 'autogestion',
@@ -79,11 +77,14 @@ export const menuUser = [
     {
         text: 'Cerrar sesión',
         icon: <IconSprite name="exit" />,
-        onClick: ({ callback }) => {
+        onClick: () => {
             addEventToDataLayer({
                 event: 'logout'
             });
-            logout(callback);
+            logout(() => {
+                localStorage.removeItem('bookmarkFolders');
+                localStorage.removeItem('bookmarkedItems');
+            });
         },
         variant: 'danger',
         title: 'Cerrar sesión',

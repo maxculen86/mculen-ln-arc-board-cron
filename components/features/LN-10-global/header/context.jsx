@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useHeaderVariants } from './useHeaderVariants';
-import { getUserType, getUserData } from './_helper';
+import useGetUserData from '../../../../auth/hooks/useGetUserData';
+import { SUBSCRIBED_HELPER } from '../../../../auth/helper/loginHelper';
 
 export const HeaderContext = React.createContext({});
 
@@ -8,9 +9,8 @@ export const HeaderProvider = ({ children, ...headerVariantProps }) => {
     const [showMenu, setShowMenu] = useState(false);
     const toggleDesplegable = () => setShowMenu(prev => !prev);
 
-    const loginData = getUserData();
-    const { isSubscribed, userEmail } = loginData || {};
-    const userType = getUserType(isSubscribed, userEmail);
+    const loginData = useGetUserData(SUBSCRIBED_HELPER.LN);
+    const { userType } = loginData || {};
 
     const headerVariants = useHeaderVariants({ ...headerVariantProps });
 

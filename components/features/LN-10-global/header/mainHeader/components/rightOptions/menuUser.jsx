@@ -1,28 +1,16 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../../../../../../private/common/context/globalContext';
+import React from 'react';
 import { Avatar } from '@ln/contenidos-ui-avatar';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { getMenuUser } from '../../_helper';
 import { Link } from '@ln/contenidos-ui-link';
-import { goToLogout } from '../../../../../../private/LN/common/utils/loginHelper';
 import { useHeaderContext } from '../../../context';
-import getUserInitials from '../../../../../../private/common/utils/getUserInitials';
 import classNames from 'classnames';
-
+import { logout } from '../../../../../../../auth/helper/loginHelper';
 import '../../../../../../../resources/packages/css/@ln/common-ui-dropdown/index.css';
 
 export const MenuUser = () => {
-    const {
-        userType,
-        negative,
-        userName,
-        userEmail,
-        userLastName
-    } = useHeaderContext();
+    const { userType, negative, userEmail, initials } = useHeaderContext();
 
-    const { dispatch } = useContext(GlobalContext);
-    const logout = () => goToLogout(dispatch);
-    const initials = getUserInitials(userName, userLastName, userEmail);
     const menuUserData = getMenuUser(logout) || [];
 
     const iconProps = {
@@ -33,8 +21,8 @@ export const MenuUser = () => {
         )
     };
 
-    if (userType === 'unlogged') return <></>;
-    if (menuUserData.length === 0) return <></>;
+    if (userType === 'unlogged' || menuUserData.length === 0) return <></>;
+
     return (
         <Dropdown className="flex cursor-pointer l-only pt-4" toggleOn="hover">
             <Dropdown.Toggle gap={0} iconProps={iconProps}>

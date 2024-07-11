@@ -313,5 +313,6 @@ const handler = {
 const ProxiedEventsHelper = new Proxy(EventsHelper, handler);
 
 window.LN = {
+    ...window.LN,
     eventshelper: new ProxiedEventsHelper()
 };

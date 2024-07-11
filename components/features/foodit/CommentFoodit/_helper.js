@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
-import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import get from '../../../private/common/utils/get';
+import { getAuthFromCookie } from '../../../../auth/helper/loginHelper';
 
-export const loginViafoura = ({ outputType, setIsReady, subscription }) => {
-    const { getCookie } = handleCookie();
+export const loginViafoura = async ({
+    outputType,
+    setIsReady,
+    subscription
+}) => {
+    const token = await getAuthFromCookie();
+    const accessToken = await getAuthFromCookie('access-token');
 
     dynamicallyLoadScript('https://cdn.viafoura.net/vf-v2.js', 'body')
         .then(() => {
-            const token = getCookie('token');
             window.vfQ = window.vfQ || [];
             window.vfQ.push(() => {
                 window.vf.$subscribe('commenting', 'loaded', () => {
@@ -16,6 +20,7 @@ export const loginViafoura = ({ outputType, setIsReady, subscription }) => {
                 });
                 subscription &&
                     token &&
+                    accessToken &&
                     window.vf &&
                     window.vf.session &&
                     window.vf.session.login
