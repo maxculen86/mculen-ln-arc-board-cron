@@ -182,7 +182,7 @@ export const injectGlossaryInText = (text, glossary) => {
             foundGlossaryWord = true;
             text = text.replace(
                 regex,
-                `<div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('${glossaryItem.key}')" class="word-glossary"><span class="word">${glossaryItem.key}</span><div class="tooltip-glossary"><h3>${glossaryItem.key}</h3><p>${glossaryItem.value}</p><span class="disclaimer" /></div></div>`
+                `<mark class="word-glossary" onmouseenter="window?.LN?.handleGlossary(event,'${glossaryItem.key}')" onmouseleave="window?.LN?.handleGlossary(event,'${glossaryItem.key}')">${glossaryItem.key}</mark>`
             );
         }
     });

@@ -342,6 +342,10 @@ const customGlossary = `
     embed {
         config {
             arrayData 
+            {
+            key
+            value
+            }
         } 
     }
 `;
