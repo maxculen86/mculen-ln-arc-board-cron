@@ -8,7 +8,6 @@ import GlobalProvider from '../../private/common/context/globalContext';
 import '../../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
-import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
@@ -24,14 +23,10 @@ const LNSportsHome = props => {
             cuerpo,
             aside
         ],
-        globalContent,
-        outputType,
-        tree,
-        isAdmin
+        globalContent
     } = props;
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
-    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     const idCollectionApertura = get(
         globalContent,
         'acumuladoGeneral.id_collection_promo_items'
@@ -50,7 +45,7 @@ const LNSportsHome = props => {
                 idCollectionsInPage={idCollectionsInPage}
                 idCollectionApertura={idCollectionApertura}
             >
-                {megatop}
+                {bannerMegatop}
                 <div
                     id="wrapper"
                     className="wrapper --top-fixed acumulado deportes"

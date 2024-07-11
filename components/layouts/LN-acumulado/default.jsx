@@ -16,7 +16,6 @@ import '../../../resources/dist/css/ln/pages/wiki-tags.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
-import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import { formatText } from '../../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import PwaModal from '../../features/LN-10-global/pwaModal/default';
@@ -59,9 +58,6 @@ const LNAcumuladoLayout = props => {
             bottom
         ],
         globalContent,
-        outputType,
-        tree,
-        isAdmin,
         renderables,
         requestUri = '',
         layout
@@ -98,8 +94,6 @@ const LNAcumuladoLayout = props => {
         header_class_name: headerDark
     } = acumuladoColor;
 
-    const amp = outputType === 'amp' ? 'amp' : '';
-    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
 
     const chainCollection =
@@ -140,8 +134,7 @@ const LNAcumuladoLayout = props => {
         COLOR_CLASS,
         classRevista,
         sectionClass,
-        OPENING_CLASS,
-        amp
+        OPENING_CLASS
     );
 
     const listOfAllowedSection = [
@@ -166,7 +159,7 @@ const LNAcumuladoLayout = props => {
                 // TODO: Eliminar esta prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
                 globalContent={globalContent}
             >
-                {megatop}
+                {bannerMegatop}
                 <div id="wrapper" className={classNameWrapper}>
                     <Header />
                     <main id="content" className={classNameMain}>

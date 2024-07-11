@@ -6,7 +6,6 @@ import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelli
 import '../../resources/dist/css/ln/pages/storytelling.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
@@ -19,8 +18,6 @@ import classNames from 'classnames';
 const lnNotaStorytelling = ({
     children,
     outputType,
-    tree,
-    isAdmin,
     layout,
     globalContent: {
         taxonomy: { sections },
@@ -29,18 +26,16 @@ const lnNotaStorytelling = ({
     },
     globalContent
 }) => {
-    const amp = outputType === 'amp' ? 'amp' : '';
-    const isLoadWithPicture =
-        isAllowedSection({
-            globalContent,
-            listOfAllowedSection,
-            noteType: subtype
-        }) && !amp;
+    const isLoadWithPicture = isAllowedSection({
+        globalContent,
+        listOfAllowedSection,
+        noteType: subtype
+    });
     const withoutVideoBackground = !Boolean(
         get(globalContent, 'promo_items.storytelling', null) ||
             get(globalContent, 'promo_items.video_jw', null)
     );
-    const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+    const bannerMegatop = children[0];
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
 
@@ -49,8 +44,7 @@ const lnNotaStorytelling = ({
         '--top-fixed',
         'nota',
         magazine,
-        '--storytelling',
-        amp
+        '--storytelling'
     );
 
     return (

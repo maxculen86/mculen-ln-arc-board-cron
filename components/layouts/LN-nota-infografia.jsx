@@ -5,7 +5,6 @@ import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
 
@@ -15,16 +14,13 @@ import PwaModal from '../features/LN-10-global/pwaModal/default';
 const lnNotaInfografia = ({
     children,
     outputType,
-    tree,
-    isAdmin,
     globalContent: {
         taxonomy: { sections },
         distributor: { name }
     },
     layout
 }) => {
-    const amp = outputType === 'amp' ? 'amp' : '';
-    const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+    const bannerMegatop = children[0];
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
 
@@ -33,8 +29,7 @@ const lnNotaInfografia = ({
         '--top-fixed',
         'nota',
         '--info',
-        magazine,
-        amp
+        magazine
     );
 
     return (

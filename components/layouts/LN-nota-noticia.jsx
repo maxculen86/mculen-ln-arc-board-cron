@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import '../../resources/dist/css/ln/pages/magazine.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
@@ -18,8 +17,6 @@ import '../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 const lnNotaNoticia = ({
     children,
     outputType,
-    tree,
-    isAdmin,
     layout,
     globalContent: {
         taxonomy: { sections },
@@ -27,8 +24,7 @@ const lnNotaNoticia = ({
     }
 }) => {
     const { name = 'LA NACION' } = distributor;
-    const amp = outputType === 'amp' ? 'amp' : '';
-    const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+    const bannerMegatop = children[0];
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
 
@@ -37,8 +33,7 @@ const lnNotaNoticia = ({
         '--top-fixed',
         'nota',
         'noticia',
-        magazine,
-        amp
+        magazine
     );
 
     return (

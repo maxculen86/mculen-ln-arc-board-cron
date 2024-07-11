@@ -6,31 +6,22 @@ import Header from '../features/LN-10-global/header/default';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 
 import GlobalProvider from '../private/common/context/globalContext';
-import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 const lnNotaNoticia = ({
-    children: [bannerMegatop, bottom, bottomTercera],
-    outputType,
-    tree,
-    isAdmin
+    children: [bannerMegatop, bottom, bottomTercera]
 }) => {
-    const amp = outputType === 'amp' ? 'amp' : '';
-
     const classNameWrapper = classNames(
         'wrapper',
         '--top-fixed',
         'nota',
-        'html-libre',
-        amp
+        'html-libre'
     );
 
     return (
         <GlobalProvider>
-            {/* Banner Megatop */}
-            {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
-
+            {bannerMegatop}
             <div id="wrapper" className={classNameWrapper}>
                 <Header />
                 <main id="content" className="--header-fixed-margin">

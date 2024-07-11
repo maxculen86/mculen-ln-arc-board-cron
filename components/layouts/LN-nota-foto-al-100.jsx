@@ -8,7 +8,6 @@ import '../../resources/dist/css/ln/pages/photo100.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
@@ -29,8 +28,6 @@ const lnNotaFotoAl100 = ({
         bottomTercera
     ],
     outputType,
-    tree,
-    isAdmin,
     globalContent: {
         taxonomy: { sections },
         distributor: { name },
@@ -39,15 +36,13 @@ const lnNotaFotoAl100 = ({
     layout,
     globalContent
 }) => {
-    const amp = outputType === 'amp' ? 'amp' : '';
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
-    const isLoadWithPicture =
-        isAllowedSection({
-            globalContent,
-            listOfAllowedSection,
-            noteType: subtype
-        }) && !amp;
+    const isLoadWithPicture = isAllowedSection({
+        globalContent,
+        listOfAllowedSection,
+        noteType: subtype
+    });
     const withoutVideoBackground = !Boolean(
         get(globalContent, 'promo_items.storytelling', null) ||
             get(globalContent, 'promo_items.video_jw', null)
@@ -57,13 +52,12 @@ const lnNotaFotoAl100 = ({
         '--top-fixed',
         'nota',
         magazine,
-        '--photo100',
-        amp
+        '--photo100'
     );
 
     return (
         <GlobalProvider>
-            {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+            {bannerMegatop}
             <div id="wrapper" className={classNameWrapper}>
                 <Header />
                 <main id="content" className="--header-fixed-margin">

@@ -9,21 +9,18 @@ import PwaModal from '../features/LN-10-global/pwaModal/default';
 import '../../resources/dist/css/ln/pages/video.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
-import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 
-const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
-    const amp = outputType === 'amp' ? 'amp' : '';
-    const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+const lnNotaVideo = ({ children, outputType }) => {
+    const bannerMegatop = children[0];
 
     const classNameWrapper = classNames(
         'wrapper',
         '--top-fixed',
         'nota',
-        'video',
-        amp
+        'video'
     );
 
     return (

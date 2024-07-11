@@ -28,13 +28,11 @@ const pageBuilderSections = [
 ];
 
 const LNNotaReceta = ({ outputType, children }) => {
-    const amp = outputType === 'amp' ? 'amp' : '';
     const classNameWrapper = classNames(
         'wrapper',
         'nota',
         'recetas',
-        '--top-fixed',
-        amp
+        '--top-fixed'
     );
 
     return (
