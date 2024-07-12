@@ -6,15 +6,19 @@ import mockArticle from '../../../../../__mocks__/data/articlesFoodit/SubtypeRec
 
 describe('components - features- foodit-global - schemas - RecipeSchema', () => {
     it('renders the correct number of schema script tags', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
         const scripts = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
-        expect(scripts.length).toBe(1);
+        expect(scripts.length).toBe(2);
     });
 
     it('outputs correct suitableForDiet URLs', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
         const scriptTags = Array.from(
             container.querySelectorAll('script[type="application/ld+json"]')
         );
@@ -29,7 +33,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct author information', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
         const scriptTags = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
@@ -38,7 +44,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct recipe instructions', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
         const scriptTags = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
@@ -83,7 +91,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct recipe ingredients', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
         const scriptTags = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
@@ -108,7 +118,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct image URL', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
         const scriptTags = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
@@ -119,7 +131,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct prep and cook times', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
         const scriptTags = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
@@ -129,7 +143,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('matches the snapshot', () => {
-        const { container } = render(<RecipeSchema article={mockArticle} />);
+        const { container } = render(
+            <RecipeSchema globalContent={mockArticle} />
+        );
 
         expect(container).toMatchSnapshot();
     });

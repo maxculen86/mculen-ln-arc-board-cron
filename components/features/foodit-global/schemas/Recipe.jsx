@@ -1,13 +1,20 @@
 import React from 'react';
+import { SITE_FOODIT } from 'fusion:environment';
+import { useAppContext } from 'fusion:context';
+
 import get from '../../../private/common/utils/get';
-import { getSuitableForDietUrls } from './_helpers';
+import { fooditSchemaLogo, getSuitableForDietUrls } from './_helpers';
 import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 import replaceBaseUrl from '../common/utils/replaceBaseUrl';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
-import SnippetRender from '../../../private/common/snippet/snippetRender';
 import getTagList from '../Body/PowerupsReceta/_helper';
+import { getBreadcrumbSections } from '../common/breadcrumb/_helpers';
 
-export const RecipeSchema = ({ article = {} }) => {
+import SnippetRender from '../../../private/common/snippet/snippetRender';
+import { BreadcrumbSchema } from './Breadcrumb';
+
+export const RecipeSchema = ({ globalContent = {} }) => {
+    const { contextPath, deployment } = useAppContext();
     const {
         promo_items = {},
         content_elements = [],
@@ -15,7 +22,7 @@ export const RecipeSchema = ({ article = {} }) => {
         subheadlines = {},
         taxonomy = {},
         additional_properties = {}
-    } = article;
+    } = globalContent;
 
     const sections = get(taxonomy, 'sections', []);
     const primarySectionName = get(taxonomy, 'primary_section.name', '');
@@ -47,7 +54,7 @@ export const RecipeSchema = ({ article = {} }) => {
                 : item.embed.config.items
         );
 
-    const author = getFooditAuthor(article, true);
+    const author = getFooditAuthor(globalContent, true);
 
     const { playlist = [] } = get(
         promo_items,
@@ -82,6 +89,12 @@ export const RecipeSchema = ({ article = {} }) => {
     const recipeSchema = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
+        publisher: {
+            '@type': 'Organization',
+            name: 'Foodit',
+            url: `${SITE_FOODIT}/`,
+            logo: fooditSchemaLogo(deployment, contextPath)
+        },
         name: get(headlines, 'basic', ''),
         description: get(subheadlines, 'basic', ''),
         image: {
@@ -121,10 +134,13 @@ export const RecipeSchema = ({ article = {} }) => {
     };
 
     return (
-        <SnippetRender
-            key={'schema-Recipe'}
-            id={'schema-Recipe'}
-            data={recipeSchema}
-        />
+        <>
+            <SnippetRender
+                key={'schema-Recipe'}
+                id={'schema-Recipe'}
+                data={recipeSchema}
+            />
+            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
+        </>
     );
 };

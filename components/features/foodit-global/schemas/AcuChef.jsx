@@ -3,15 +3,12 @@ import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 
 import { fooditSchemaLogo } from './_helpers';
-import {
-    getBreadcrumbSections,
-    getFooditAcuTitle
-} from '../common/breadcrumb/_helpers';
+import { getFooditAcuTitle } from '../common/breadcrumb/_helpers';
 
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const AcuSchema = ({ globalContent = {} }) => {
+export const AcuChefSchema = ({ globalContent = {} }) => {
     const { _id = '' } = globalContent;
     const title = getFooditAcuTitle(globalContent);
 
@@ -33,7 +30,18 @@ export const AcuSchema = ({ globalContent = {} }) => {
     return (
         <>
             <SnippetRender key="acu-schema" id="acu-schema" data={acuSchema} />
-            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
+            <BreadcrumbSchema
+                sections={[
+                    {
+                        name: 'Foodit',
+                        url: `${SITE_FOODIT}/`
+                    },
+                    {
+                        name: 'Chefs protagonistas',
+                        url: `/chefs-protagonistas/`
+                    }
+                ]}
+            />
         </>
     );
 };

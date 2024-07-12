@@ -3,25 +3,18 @@ import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 
 import { fooditSchemaLogo } from './_helpers';
-import {
-    getBreadcrumbSections,
-    getFooditAcuTitle
-} from '../common/breadcrumb/_helpers';
 
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const AcuSchema = ({ globalContent = {} }) => {
-    const { _id = '' } = globalContent;
-    const title = getFooditAcuTitle(globalContent);
-
+export const RecetarioSchema = () => {
     const { contextPath, deployment } = useAppContext();
 
-    const acuSchema = {
+    const recetarioSchema = {
         '@context': 'http://schema.org',
         '@type': 'WebPage',
-        name: `Acumulado - ${title}`,
-        url: `${SITE_FOODIT}${_id}`,
+        name: `Recetario`,
+        url: `${SITE_FOODIT}/recetario/`,
         publisher: {
             '@type': 'Organization',
             name: 'Foodit',
@@ -32,8 +25,14 @@ export const AcuSchema = ({ globalContent = {} }) => {
 
     return (
         <>
-            <SnippetRender key="acu-schema" id="acu-schema" data={acuSchema} />
-            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
+            <SnippetRender
+                key="recetario-schema"
+                id="recetario-schema"
+                data={recetarioSchema}
+            />
+            <BreadcrumbSchema
+                sections={[{ name: 'Mis recetas', url: '/recetario/' }]}
+            />
         </>
     );
 };

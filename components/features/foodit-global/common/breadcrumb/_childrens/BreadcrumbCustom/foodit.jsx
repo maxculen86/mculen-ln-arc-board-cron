@@ -1,16 +1,16 @@
 import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
 import Static from 'fusion:static';
-import { Breadcrumb } from '@ln/common-ui-breadcrumb';
+
 import classNames from 'classnames';
-import { Link } from '@ln/foodit-ui-link';
 import capitalizeFirstLetter from '../../../../../../private/common/utils/capitalizeFirstLetter';
-import { BreadcrumbSchema } from '../../../../schemas/Breadcrumb';
+
+import { Breadcrumb } from '@ln/common-ui-breadcrumb';
+import { Link } from '@ln/foodit-ui-link';
 
 export default function BreadcrumbCustomFoodit({
     sectionsCustom = [],
-    className,
-    layout = ''
+    className
 }) {
     const sections = [
         {
@@ -22,7 +22,6 @@ export default function BreadcrumbCustomFoodit({
 
     return (
         <>
-            <BreadcrumbSchema sections={sections} layout={layout} />
             <Static htmlOnly persistent id="breadcrumb-foodit-custom">
                 <div className={classNames('flex ai-center gap-8', className)}>
                     <Breadcrumb gap={8} className="text-14">

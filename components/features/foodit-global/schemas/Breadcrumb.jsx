@@ -1,11 +1,8 @@
 import React from 'react';
+
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 
-const shouldNotRenderSchema = ['acumulado-chef', 'ficha-receta'];
-
-export const BreadcrumbSchema = ({ sections = [], layout = '' }) => {
-    if (shouldNotRenderSchema.includes(layout)) return <></>;
-
+export const BreadcrumbSchema = ({ sections = [] }) => {
     const breadcrumbSchema = {
         '@context': 'http://schema.org',
         '@type': 'BreadcrumbList',
