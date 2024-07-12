@@ -76,25 +76,6 @@ describe('components - private - LN - api - v1 - mobile - home - externalArticle
         expect(result.volanta).toBe('Mock Volanta');
     });
 
-    it.skip('should handle unsupported value for additional_properties.variant property', () => {
-        const article = {
-            additionalProperties: {
-                variant: 'unsupported'
-            }
-        };
-
-        CardWebStory.mockImplementationOnce(article => ({
-            titulo: 'Mock Title',
-            id: 'Mock ID',
-            url: 'Mock URL',
-            volanta: 'Mock Volanta',
-            imagen: 'Mock Image'
-        }));
-
-        const result = ExternalArticle(article);
-        expect(result.design.typeCard).toBe('webstories');
-    });
-
     it('should handle falsy value other than undefined or null for additional_properties.variant property', () => {
         const article = {
             additionalProperties: {

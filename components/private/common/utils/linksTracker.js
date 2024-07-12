@@ -1,5 +1,3 @@
-import { checkUserRealoadAction } from './noteTracker/ctrTracker';
-
 export const addPositionInNote = (elem, indexElem) => {
     const { localName = {} } = elem;
     const index = indexElem + 1;
@@ -30,10 +28,4 @@ export const eventListenerAttacher = (element, layer) => {
     element.addEventListener('auxclick', () => {
         layer.push(eventClick);
     });
-};
-
-// TODO: // TODO: Si se quiere volver a usar esta lógica. Fijarse en el histórico
-
-export const createIntersectionObserverForLinks = () => {
-    return false;
 };
