@@ -72,5 +72,5 @@ export default {
         sourceInclude: 'text',
         isInApertura: 'bool'
     },
-    ttl: 120
+    ttl: 3600
 };
