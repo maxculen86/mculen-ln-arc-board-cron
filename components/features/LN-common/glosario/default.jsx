@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
-import { v4 as uuidv4 } from 'uuid';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import get from '../../../private/common/utils/get';
 
@@ -23,7 +22,7 @@ const Glossary = ({ customFields: { hide } = {} }) => {
         <Static id="LN-Glosario" htmlOnly>
             <ul>
                 {glossary.map(item => (
-                    <li key={uuidv4()}>
+                    <li key={item.key}>
                         <p>{item.key}</p>
                         <p>{item.value}</p>
                     </li>

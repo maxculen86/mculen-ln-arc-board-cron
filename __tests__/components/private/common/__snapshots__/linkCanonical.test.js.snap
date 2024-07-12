@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Private - LN - Common - LinkCanonical At homepage Snapshot link canonical homepage 1`] = `
+exports[`Private - LN - Common - LinkCanonicalAndAlternate At homepage Snapshot link canonical homepage 1`] = `
 <div>
   <link
     href="https://www.lanacion.com.ar/"
@@ -9,7 +9,7 @@ exports[`Private - LN - Common - LinkCanonical At homepage Snapshot link canonic
 </div>
 `;
 
-exports[`Private - LN - Common - LinkCanonical At note Snapshot link canonical note 1`] = `
+exports[`Private - LN - Common - LinkCanonicalAndAlternate At note Snapshot link canonical note 1`] = `
 <div>
   <link
     href="https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/"
@@ -18,7 +18,7 @@ exports[`Private - LN - Common - LinkCanonical At note Snapshot link canonical n
 </div>
 `;
 
-exports[`Private - LN - Common - LinkCanonical At sections Snapshot link canonical section 1`] = `
+exports[`Private - LN - Common - LinkCanonicalAndAlternate At sections Snapshot link canonical section 1`] = `
 <div>
   <link
     href="https://www.lanacion.com.ar/deportes/"
@@ -27,7 +27,7 @@ exports[`Private - LN - Common - LinkCanonical At sections Snapshot link canonic
 </div>
 `;
 
-exports[`Private - LN - Common - LinkCanonical At sub-sections Snapshot link canonical sub-section 1`] = `
+exports[`Private - LN - Common - LinkCanonicalAndAlternate At sub-sections Snapshot link canonical sub-section 1`] = `
 <div>
   <link
     href="https://www.lanacion.com.ar/deportes/futbol/boca-juniors/"
@@ -36,7 +36,21 @@ exports[`Private - LN - Common - LinkCanonical At sub-sections Snapshot link can
 </div>
 `;
 
-exports[`Private - LN - Common - LinkCanonical With author id Snapshot link canonical sub-section 1`] = `
+exports[`Private - LN - Common - LinkCanonicalAndAlternate When parent is estados-unidos Should link canonical and link alternate 1`] = `
+<div>
+  <link
+    href="https://www.lanacion.com.ar/estados-unidos/"
+    rel="canonical"
+  />
+  <link
+    href="https://www.lanacion.com.ar/estados-unidos/"
+    hreflang="es-US"
+    rel="alternate"
+  />
+</div>
+`;
+
+exports[`Private - LN - Common - LinkCanonicalAndAlternate With author id Snapshot link canonical sub-section 1`] = `
 <div>
   <link
     href="https://www.foodit.lanacion.com.ar/leo-messi-10/"
