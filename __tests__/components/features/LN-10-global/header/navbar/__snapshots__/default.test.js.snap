@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
-// TODO CHEQUEAR LINEA 31 ELIMINACION DE LI
+
 exports[`components - features - LN-10-global - header - navbar should match snapshot 1`] = `
 <div>
   <nav
@@ -27,9 +27,6 @@ exports[`components - features - LN-10-global - header - navbar should match sna
         </a>
       </li>
       <li
-        class="--item search"
-      />
-      <li
         class="--item sections"
       >
         <a
@@ -50,23 +47,23 @@ exports[`components - features - LN-10-global - header - navbar should match sna
         </a>
       </li>
       <li
-        class="--item bookmark"
+        class="--item foodit"
       >
         <a
           class="link ln-link --font-2xs"
-          href="https://www.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar"
+          href="https://foodit.lanacion.com.ar/"
           target="_self"
-          title="Ir a Mis Notas"
+          title="Ir a Foodit"
         >
           <i
             class="icon --icon-20"
           >
             <mock-icon
               critical="true"
-              name="bookmark"
+              name="foodit"
             />
           </i>
-          Mis Notas
+          Foodit
         </a>
       </li>
       <li
@@ -96,7 +93,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
           class="link ln-link --font-2xs"
           href="https://myaccount.lanacion.com.ar/mi-usuario/"
           target="_self"
-          title="Ir a Perfil"
+          title="Ir a Mi cuenta"
         >
           <i
             class="icon --icon-20"
@@ -106,7 +103,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
               name="profile"
             />
           </i>
-          Perfil
+          Mi cuenta
         </a>
       </li>
     </ul>
