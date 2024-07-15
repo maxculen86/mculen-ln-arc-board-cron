@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 import React from 'react';
 import { AUDIO_NEWS_URL } from 'fusion:environment';
-import { addEventToDataLayer } from '../../LN/common/utils/shareHelper';
 import get from '../utils/get';
 import eventHandler from './trackerAudioNews';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
 // POSIBLEMENTE TODAS LAS FUNCIONES SE ELIMINEN
 export const calculateTime = secs => {
@@ -38,7 +38,12 @@ export const handleClickAudioNews = (
     setOpenPlayer,
     dispatch
 ) => {
-    addEventToDataLayer('Escuchar nota');
+    addEventToDataLayer({
+        event: 'e_linkclick',
+        action: 'toolbard',
+        category: 'nota_ln9',
+        label: 'Escuchar nota'
+    });
     if (token && suscription) setOpenPlayer(true);
 
     (!suscription || !token) &&

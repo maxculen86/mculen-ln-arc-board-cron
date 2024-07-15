@@ -171,7 +171,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
 </div>
 `;
 
-exports[`Share Snapshot - Should show 8 buttons  1`] = `
+exports[`components - private - LN - nota - share Snapshot - Should show 8 buttons  1`] = `
 <div>
   <div
     class="mod-share-container --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
@@ -359,7 +359,7 @@ exports[`Share Snapshot - Should show 8 buttons  1`] = `
 </div>
 `;
 
-exports[`Share Test click button bookmark 1`] = `
+exports[`components - private - LN - nota - share Test click button bookmark 1`] = `
 <div>
   <div
     class="mod-share-container --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
