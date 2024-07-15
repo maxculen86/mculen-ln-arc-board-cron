@@ -25,8 +25,7 @@ import ScriptViewability from '../../private/common/utils/ScriptViewability';
 import DynamicStylesheetLoader from '../../output-types/criticalCss/dynamicStylesheetLoader';
 import {
     createBannersIntersectionObserver,
-    createDifferVideosObserver,
-    createDifferYoutubeVideosObserver
+    createDifferVideosObserver
 } from '../../private/common/banners/intersectionObservers';
 import PwaModal from '../../features/LN-10-global/pwaModal/default';
 
@@ -70,7 +69,6 @@ const LN10Home = props => {
         createBannersIntersectionObserver();
         if (!isAdmin) {
             createDifferVideosObserver();
-            createDifferYoutubeVideosObserver();
         }
     }, [isAdmin]);
 
