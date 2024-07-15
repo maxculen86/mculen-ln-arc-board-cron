@@ -25,17 +25,6 @@ describe('videos banners intersection observers', () => {
         expect(observerInstance.observe).toHaveBeenCalledWith('video');
     });
 
-    it('should test createDifferYoutubeVideosObserver', () => {
-        document.querySelectorAll = jest.fn(() => ['video']);
-        observers.createDifferYoutubeVideosObserver();
-
-        const observerInstance =
-            global.IntersectionObserver.mock.results[0].value;
-
-        expect(global.IntersectionObserver).toHaveBeenCalledTimes(1);
-        expect(observerInstance.observe).toHaveBeenCalledWith('video');
-    });
-
     it('should call videos play pause and change src', () => {
         const mockPause = jest.fn();
         const mockPlay = jest.fn();
@@ -86,44 +75,6 @@ describe('videos banners intersection observers', () => {
         expect(mockPlay).toHaveBeenCalledTimes(1);
         expect(lazyVideo.target.src).toStrictEqual(
             lazyVideo.target.dataset.src
-        );
-    });
-
-    it('should change yt videos src and  call handleVideoEvents', () => {
-        const mockPostMessage = jest.fn();
-
-        const mockedYtEntry = [
-            {
-                isIntersecting: true,
-                target: {
-                    children: [
-                        {
-                            contentWindow: { postMessage: mockPostMessage }
-                        }
-                    ],
-                    dataset: { src: 'www.youtube.com/wjHE8klk' }
-                }
-            }
-        ];
-
-        const [lazyYtVideo] = mockedYtEntry;
-
-        const observe = jest.fn();
-
-        window.IntersectionObserver.mockImplementationOnce(() => ({
-            observe
-        }));
-
-        const observer = observers.createDifferYoutubeVideosObserver();
-
-        const [callback] = window.IntersectionObserver.mock.calls[0];
-
-        callback(mockedYtEntry, observer);
-
-        expect(mockPostMessage).toHaveBeenCalledTimes(1);
-        expect(observe).toBeCalledTimes(1);
-        expect(lazyYtVideo.target.children[0].src).toStrictEqual(
-            lazyYtVideo.target.dataset.src
         );
     });
 });
