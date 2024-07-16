@@ -52,6 +52,9 @@ export default `
             type
         }
     }
+    content_restrictions {
+        content_code
+    }
     label {
         autor{
             text

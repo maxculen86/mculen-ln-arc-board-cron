@@ -35,7 +35,10 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                 className="flex flex-column gap-16 hide-mobile"
                 elementsToScroll={elementsToScroll}
             >
-                <Mediascroller.Track fullWidth>
+                <Mediascroller.Track
+                    fullWidth
+                    data-test-id="container-cards-carousel"
+                >
                     {articlesShow.map(
                         ({
                             articleId,
@@ -46,7 +49,8 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                             time,
                             title,
                             variant,
-                            image = {}
+                            image = {},
+                            contentCode = ''
                         }) => {
                             const { resized_urls, url } = image;
                             const { resizedUrl = '' } = getShortestImage(
@@ -76,6 +80,7 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                                         articleId
                                     )}
                                     titleEllipsis={2}
+                                    contentCode={contentCode}
                                 />
                             );
                         }

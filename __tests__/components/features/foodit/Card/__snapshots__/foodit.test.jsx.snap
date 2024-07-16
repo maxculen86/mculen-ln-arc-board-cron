@@ -7,6 +7,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
   >
     <article
       class="card relative h-100 w-100 max-w-1366 mx-auto --day-recipe bg-light-1"
+      data-test-id="card-day-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
       data-variant="day-recipe"
     >
       <a
@@ -96,6 +97,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
               data-modal="open-modal"
+              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
               data-variant="link"
               title="Guardar receta"
             >
@@ -128,6 +130,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
   >
     <article
       class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-positive"
+      data-test-id="card-note--FMLGIYTL2ZBCRAKQTSO27CCQ6U"
       data-variant="note"
     >
       <a
@@ -207,6 +210,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="FMLGIYTL2ZBCRAKQTSO27CCQ6U"
               data-modal="open-modal"
+              data-test-id="button-bookmark-FMLGIYTL2ZBCRAKQTSO27CCQ6U"
               data-variant="link"
               title="Guardar receta"
             >
@@ -239,6 +243,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
   >
     <article
       class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+      data-test-id="card-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
       data-variant="recipe"
     >
       <a
@@ -323,6 +328,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
               data-modal="open-modal"
+              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
               data-variant="link"
               title="Guardar receta"
             >
