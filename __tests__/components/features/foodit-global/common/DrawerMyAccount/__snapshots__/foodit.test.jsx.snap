@@ -46,6 +46,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           <li>
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-test-id="button-menu-user-Mi cuenta"
               role="button"
               title="Ir a Mi cuenta"
             >
@@ -74,6 +75,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           <li>
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-test-id="button-menu-user-Mis recetas"
               role="button"
               title="Ir a Mis recetas"
             >
@@ -102,6 +104,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           <li>
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-test-id="button-menu-user-Lista de compras"
               role="button"
               title="Ir a Lista de compras"
             >
@@ -130,6 +133,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           <li>
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-test-id="button-menu-user-Newsletters"
               role="button"
               title="Ir a Newsletters"
             >
@@ -158,6 +162,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           <li>
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-test-id="button-menu-user-¿Cómo podemos ayudarte?"
               role="button"
               title="Ir a ¿Cómo podemos ayudarte?"
             >
@@ -187,6 +192,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           >
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100 --accent text-danger-500"
+              data-test-id="button-menu-user-Cerrar sesión"
               role="button"
               title="Cerrar sesión"
             >

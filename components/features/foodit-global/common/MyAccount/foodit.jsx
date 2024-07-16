@@ -55,6 +55,7 @@ export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
                         return (
                             <li key={text} className={classNameList}>
                                 <Itemcard
+                                    data-test-id={`button-menu-user-${text}`}
                                     type="button"
                                     text={text}
                                     icon={icon}

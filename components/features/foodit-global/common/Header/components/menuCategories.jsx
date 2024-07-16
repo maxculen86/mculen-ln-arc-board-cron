@@ -13,6 +13,7 @@ const Categories = ({ title, href, data }) => {
                         onClick={() => console.log(title)}
                         className="ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover"
                         gap={8}
+                        data-test-id={`header-button-dropdown-${title}`}
                         title={`Ir a ${title}`}
                     >
                         {title}
@@ -33,6 +34,7 @@ const Categories = ({ title, href, data }) => {
             className="text-12 roboto-bold uppercase"
             text={title}
             title={`Ir a ${title}`}
+            data-test-id={`header-link-${title}`}
             data-interaction="dataLayerInteraction"
             data-event-data-layer="e_linkclick"
             data-dynamic-category="header"

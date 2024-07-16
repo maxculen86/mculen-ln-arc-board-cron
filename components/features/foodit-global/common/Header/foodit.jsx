@@ -66,6 +66,7 @@ const HeaderFoodit = () => {
                             <Button
                                 title="Menu"
                                 className="text-light-800"
+                                data-test-id="button-menu-foodit"
                                 onClick={() => toggleDrawer()}
                             >
                                 <Icon size={24} color="dark">
@@ -75,6 +76,7 @@ const HeaderFoodit = () => {
                         </MainHeader.Content.Left>
                         <MainHeader.Content.Center className="jc-center ai-center">
                             <MainHeader.Brand
+                                data-test-id="header-link-inicio"
                                 href="/"
                                 title="Ir a inicio"
                                 className="flex"

@@ -11,6 +11,7 @@ const AvatarRecetas = ({ className, initials, suscription }) => {
         <Button
             className={className}
             variant="link"
+            data-test-id="button-menu-user"
             title="Abrir menú"
             onClick={() => {
                 toggleDrawer();

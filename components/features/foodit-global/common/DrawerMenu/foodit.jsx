@@ -32,6 +32,7 @@ const DrawerMenu = ({ categories = [] }) => {
                                 level={1}
                                 fullWidth
                                 arrowIcon={<IconSprite name="arrow-right" />}
+                                data-test-id={`header-menu-${title}`}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="header"
