@@ -186,7 +186,8 @@ export const configCallbackContentElements = {
                 })
             )
         };
-    }
+    },
+    header: props => transformElementText(props)
 };
 
 const callbacksByTypeReference = {

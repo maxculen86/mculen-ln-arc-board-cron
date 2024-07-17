@@ -6,6 +6,10 @@ import Metadata from './metadata';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
 import { openComments } from './comments';
+import {
+    calcReadingMinutes,
+    isExcludedSubtype
+} from '../../../../../../features/LN-10-global/common/readingTime/_helpers';
 
 const getPaywallStatus = dataNota => {
     const paywallStatus = get(
@@ -78,10 +82,24 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const allowComments = get(dataNota, 'comments.allow_comments', null);
 
+    const wordCount = get(
+        dataNota,
+        'planning.story_length.word_count_actual',
+        ''
+    );
+
+    const readingMinutes = calcReadingMinutes(wordCount);
+
+    const subtype = get(dataNota, 'subtype', '');
+
     const resp = {
         id,
         template: template === '6' || template === '5' ? '1' : template,
         url,
+        readingTime:
+            readingMinutes !== 0 && !isExcludedSubtype(subtype)
+                ? `${readingMinutes}'`
+                : null,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: getPaywallStatus(dataNota),
         comentarios: {

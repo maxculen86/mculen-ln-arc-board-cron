@@ -27,6 +27,7 @@ const FooterFoodit = () => {
                         </Text>
                         <div className="flex gap-24 jc-center">
                             <Button
+                                data-test-id="footer-link-instagram"
                                 href="https://www.instagram.com/foodit_ar/"
                                 title="Seguinos en Instagram"
                                 iconOnly
@@ -43,6 +44,7 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
+                                data-test-id="footer-link-twitter"
                                 href="https://x.com/FOODIT_AR"
                                 title="Seguinos en X"
                                 iconOnly
@@ -59,6 +61,7 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
+                                data-test-id="footer-link-facebook"
                                 href="https://www.facebook.com/profile.php?id=61558653507465"
                                 title="Seguinos en Facebook"
                                 iconOnly
@@ -75,6 +78,7 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
+                                data-test-id="footer-link-youtube"
                                 href="https://www.youtube.com/channel/UCg3Rc6CdupnBnmcSyWrlMgg"
                                 title="Suscribite a Youtube"
                                 iconOnly
@@ -95,6 +99,7 @@ const FooterFoodit = () => {
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md py-32 border border-top border-thin border-light-100 border-0_md ">
                         <Text> Contenido y curaduría por</Text>
                         <Link
+                            data-test-id="footer-link-lanacion"
                             href="https://www.lanacion.com.ar/"
                             unstyled
                             title="Ir a la página principal de LA NACION"
@@ -120,6 +125,7 @@ const FooterFoodit = () => {
                             © 2024 S.A. LA NACION. Todos los derechos reservados
                         </Text>
                         <Link
+                            data-test-id="footer-link-afip"
                             href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                             unstyled
                             title="Data fiscal"
@@ -146,6 +152,7 @@ const FooterFoodit = () => {
                         </Text>
                         <div className="flex my-auto">
                             <Link
+                                data-test-id="footer-link-condiciones"
                                 href="https://policies.google.com/terms?hl=es-419/"
                                 uppercase
                                 bold
@@ -163,6 +170,7 @@ const FooterFoodit = () => {
                                 <IconSprite name="bullet-xs" />
                             </Icon>
                             <Link
+                                data-test-id="footer-link-privacidad"
                                 href="https://policies.google.com/privacy?hl=es-419/"
                                 uppercase
                                 bold

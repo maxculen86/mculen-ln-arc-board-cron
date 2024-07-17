@@ -3,7 +3,7 @@ resources:
         - repository: templates
           type: git
           name: Arquitectura/PipelineTemplates #Se define el nombre del TeamProject / Repositorio donde se encuentra el template.
-          ref: refs/tags/2.15.2
+          ref: refs/tags/2.15.3
 trigger:
     - demo/*
     - sandbox

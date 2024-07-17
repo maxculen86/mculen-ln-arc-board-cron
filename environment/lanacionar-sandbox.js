@@ -109,7 +109,8 @@ export default {
     SITIO_SEGURO_REGISTRACION: 'https://pre-suscripciones.lanacion.com.ar/',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     FIREBASE_CONFIG: {
-        apiKey: 'AIzaSyDx9szVMLkQylr9LN0G3v5faTrMKXyz3rM',
+        apiKey:
+            '%AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFZgu4onAWq/W8gBEVE+TDOAAAAhjCBgwYJKoZIhvcNAQcGoHYwdAIBADBvBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDO+34OLq7J1XCUflkAIBEIBCk/Fx9RAYnbPSR0o5i/5nUV6bnpQCHju6ywpO3rsV+RUvKkrVj2LumjluMyEVLSXr2s3DOZ/KCxD1eStkgIxthAxL',
         authDomain: 'lanaciontest-24eed.firebaseapp.com',
         databaseURL: 'https://lanaciontest-24eed.firebaseio.com',
         messagingSenderId: '247148690244',

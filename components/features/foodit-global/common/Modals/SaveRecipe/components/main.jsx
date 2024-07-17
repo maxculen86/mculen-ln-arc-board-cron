@@ -39,7 +39,7 @@ const MainSaveRecipe = props => {
     }, []);
 
     return (
-        <div className="mb-16">
+        <div className="mb-16" data-test-id="button-bookmark-show-collections">
             {showSelect && (
                 <Select
                     label="Colección"
@@ -60,7 +60,10 @@ const MainSaveRecipe = props => {
                                 return (
                                     <>
                                         {value === 'new' ? (
-                                            <span className="flex ai-center roboto-bold py-8 text-12 gap-8 border border-bottom border-thin border-light-100">
+                                            <span
+                                                className="flex ai-center roboto-bold py-8 text-12 gap-8 border border-bottom border-thin border-light-100"
+                                                data-test-id="button-bookmark-create-collection"
+                                            >
                                                 <Icon size={16}>
                                                     <IconSprite name="plus" />
                                                 </Icon>

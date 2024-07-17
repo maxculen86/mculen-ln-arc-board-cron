@@ -21,7 +21,8 @@ export const createArticleList = ({
             time,
             title,
             variant,
-            image = {}
+            image = {},
+            contentCode = ''
         } = transformArticleFoodit(article);
         const { resized_urls, url } = image;
         const { resizedUrl = '' } = getShortestImage(resized_urls);
@@ -48,6 +49,7 @@ export const createArticleList = ({
                     bookmarkedArticlesIds.length &&
                     bookmarkedArticlesIds.includes(articleId)
                 }
+                contentCode={contentCode}
             />
         );
     });

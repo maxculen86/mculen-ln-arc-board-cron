@@ -563,24 +563,6 @@ export default {
                 dimensions: [[1, 1]],
                 targeting: targetingNota
             }
-        },
-        amp: {
-            caja1_amp: {
-                slotName: '/133919216/AMP/ROS/caja1_amp',
-                dimensions: [[300, 250]]
-            },
-            caja2_amp: {
-                slotName: '/133919216/AMP/ROS/caja2_amp',
-                dimensions: [[300, 250]]
-            },
-            caja3_amp: {
-                slotName: '/133919216/AMP/ROS/caja3_amp',
-                dimensions: [[300, 250]]
-            },
-            caja4_amp: {
-                slotName: '/133919216/AMP/ROS/caja4_amp',
-                dimensions: [[300, 250]]
-            }
         }
     },
     acumulado: {
@@ -899,20 +881,6 @@ export default {
                         enabled: true
                     }
                 }
-            }
-        },
-        amp: {
-            caja1_amp: {
-                slotName: '/133919216/AMP/ROS/caja1_amp',
-                dimensions: [[300, 250]]
-            },
-            caja2_amp: {
-                slotName: '/133919216/AMP/ROS/caja2_amp',
-                dimensions: [[300, 250]]
-            },
-            caja3_amp: {
-                slotName: '/133919216/AMP/ROS/caja3_amp',
-                dimensions: [[300, 250]]
             }
         }
     },
@@ -1378,8 +1346,7 @@ export default {
                 dimensions: [[720, 110]],
                 targeting: targetingHome
             }
-        },
-        amp: {}
+        }
     },
     common: {
         desktop: {

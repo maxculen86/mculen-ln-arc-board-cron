@@ -12,7 +12,7 @@ import MetaDescription from '../private/common/metaDescription';
 import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
-import LinkCanonical from '../private/common/linkCanonical';
+import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
@@ -152,7 +152,7 @@ const Default = props => {
     );
 
     return (
-        <html lang={!isUSALangHtml(_id, canonicalUrl) ? 'es' : 'es-US'}>
+        <html lang="es">
             <head>
                 <meta charset="utf-8" />
                 <meta
@@ -224,7 +224,7 @@ const Default = props => {
                         subtype={subtype}
                     />
                 )}
-                <LinkCanonical
+                <LinkCanonicalAndAlternate
                     _id={_id}
                     canonicalUrl={canonicalUrl}
                     host={host}

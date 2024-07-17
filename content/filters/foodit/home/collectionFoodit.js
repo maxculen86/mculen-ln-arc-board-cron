@@ -12,5 +12,8 @@ export default `
     first_publish_date,
     last_updated_date,
     publish_date,
+    content_restrictions {
+        content_code
+    }
     website_url
 }`;

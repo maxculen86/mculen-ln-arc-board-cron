@@ -17,6 +17,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
             <Static id="foodit-top-navigation-bar">
                 <Topnavigationbar className="text-12">
                     <Link
+                        data-test-id="header-link-recetario"
                         href="/recetario/"
                         title="Ir a mis recetas"
                         className="gap-8"
@@ -32,6 +33,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         MIS RECETAS
                     </Link>
                     <Link
+                        data-test-id="header-link-lista-compras"
                         href="/lista-de-compras/"
                         title="Ir a lista de compras"
                         className="gap-8"
@@ -47,6 +49,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         LISTA DE COMPRAS
                     </Link>
                     <Link
+                        data-test-id="header-link-newsletter"
                         href="https://newsletter.lanacion.com.ar/#foodit"
                         title="Ir a newsletter"
                         className="gap-8"

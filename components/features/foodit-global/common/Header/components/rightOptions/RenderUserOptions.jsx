@@ -26,6 +26,7 @@ const RenderUserOptions = () => {
                 className="lg-only"
             />
             <Button
+                data-test-id="button-menu-user"
                 variant="link"
                 className="lg-none"
                 onClick={() => toggleDrawer()}

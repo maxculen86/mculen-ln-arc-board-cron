@@ -76,7 +76,8 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
         image,
         tag,
         variant,
-        href
+        href,
+        contentCode = ''
     } = transformArticleFoodit(articleContent);
 
     const { url = '', resized_urls = [] } = image;
@@ -104,6 +105,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                     subtitle={
                         isOpening && get(articleContent, 'subheadlines.basic')
                     }
+                    contentCode={contentCode}
                 />
             )}
         </div>

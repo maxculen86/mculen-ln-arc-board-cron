@@ -38,7 +38,8 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const expected = {
                 foundGlossaryWord: true,
-                text: `El <b>dólar <div role="mockRole" onclick="window?.LN?.handleDrawerGlossary('CCL')" class="word-glossary"><span class="word">CCL</span><div class="tooltip-glossary"><h3>CCL</h3><p>Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.</p><span class="disclaimer" /></div></div> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.`
+                text:
+                    'El <b>dólar <mark class="word-glossary" onmouseenter="window?.LN?.handleGlossary(event,\'CCL\')" onmouseleave="window?.LN?.handleGlossary(event,\'CCL\')">CCL</mark> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
             };
 
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);

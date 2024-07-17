@@ -37,6 +37,7 @@ export const Search = ({ className, ...r }) => {
                 </div>
                 <div className="flex border border-left border-thin border-light-100 h-100">
                     <Button
+                        data-test-id="button-header-search"
                         title="Buscar"
                         iconOnly
                         variant="link"

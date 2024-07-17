@@ -19,6 +19,7 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     title={buttonSubscribeText}
                     variant="accent"
                     size={{ sm: 32, md: 32, lg: 40 }}
+                    data-test-id="button-suscribe"
                     data-interaction="dataLayerInteraction"
                     data-event-data-layer="subscription_start"
                     data-button="buttonSubscribeText"
@@ -36,6 +37,7 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
             )}
             {buttonLogginText && (
                 <Button
+                    data-test-id="button-login"
                     className={classNameButtons}
                     title={buttonLogginText}
                     variant="link"

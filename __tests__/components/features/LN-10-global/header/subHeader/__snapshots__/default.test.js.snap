@@ -125,9 +125,9 @@ exports[`components - features - LN-10-global - subHeader - default should match
                     class="link ln-link flex ai-center --font-xs --unstyled"
                     href="https://www.lanacion.com.ar/juegos/"
                     target="_self"
-                    title="Ir a LN juegos"
+                    title="Ir a LN Juegos"
                   >
-                    LN juegos
+                    LN Juegos
                   </a>
                 </li>
                 <hr

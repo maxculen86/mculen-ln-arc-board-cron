@@ -21,10 +21,12 @@ const CommonCardFoodit = ({
     author,
     subtitle,
     bookmarkAction = null,
-    titleEllipsis
+    titleEllipsis,
+    contentCode
 }) => {
     return (
         <Card
+            data-test-id={`card-${variant}-${contentCode}-${articleId}`}
             linkProps={linksProps}
             size={size}
             variant={variant}
@@ -56,6 +58,7 @@ const CommonCardFoodit = ({
                         title: 'Guardar receta',
                         'data-id': articleId,
                         'data-modal': 'open-modal',
+                        'data-test-id': `button-bookmark-${articleId}`,
                         text: 'Guardar',
                         icon: (
                             <IconSprite

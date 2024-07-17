@@ -26,6 +26,7 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                 {...(title.href && {
                                     arrowIcon: <IconSprite name="arrow-right" />
                                 })}
+                                data-test-id={`header-link-${title?.text}`}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="header"
@@ -55,6 +56,7 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                     data-dynamic-category="header"
                                     data-dynamic-label={label}
                                     data-dynamic-action={dataLayerText}
+                                    data-test-id={`header-link-${text}`}
                                 />
                             </li>
                         );

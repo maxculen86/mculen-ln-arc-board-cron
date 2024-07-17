@@ -61,7 +61,8 @@ export const transformArticleFoodit = article => {
         variant: getVariantBySubtype(get(article, 'subtype', '')),
         primarySection: get(article, 'taxonomy.primary_section.name', ''),
         canonicalUrl: get(article, 'canonical_url', ''),
-        credits: get(article, 'credits', {})
+        credits: get(article, 'credits', {}),
+        contentCode: get(article, 'content_restrictions.content_code', '')
     };
 };
 

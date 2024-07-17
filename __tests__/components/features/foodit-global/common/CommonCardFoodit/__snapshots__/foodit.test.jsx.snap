@@ -4,6 +4,7 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
 <div>
   <article
     class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+    data-test-id="card-recipe-undefined-TDEG3VTIAFEW7BKS676OUVQAVE"
     data-variant="recipe"
   >
     <a
@@ -88,6 +89,7 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
             data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
             data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
             data-variant="link"
             title="Guardar receta"
           >

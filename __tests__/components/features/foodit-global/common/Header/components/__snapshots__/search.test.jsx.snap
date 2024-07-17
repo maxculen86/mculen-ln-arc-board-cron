@@ -24,6 +24,7 @@ exports[`Components - features - foodit-global - common - header - components - 
       >
         <a
           class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
+          data-test-id="button-header-search"
           data-variant="link"
           href="https://foodit-lanacion.com.ar/buscador/?query="
           target="_self"

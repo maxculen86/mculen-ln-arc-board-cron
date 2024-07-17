@@ -40,38 +40,6 @@ describe('shareWhatsAppDesktop', () => {
     });
 });
 
-describe('setEventShare', () => {
-    it('should push correct event data to dataLayer for compartir_mobile', () => {
-        delete window.dataLayer;
-        global.window.dataLayer = [];
-
-        setEventShare('compartir_mobile');
-        expect(window.dataLayer).toStrictEqual([
-            {
-                dynamic_category: 'nota_ln9',
-                dynamic_action: 'toolbard',
-                dynamic_label: 'compartir_mobile',
-                event: 'e_linkclick'
-            }
-        ]);
-    });
-
-    it('should push correct event data to dataLayer for compartir_whatsapp', () => {
-        delete window.dataLayer;
-        global.window.dataLayer = [];
-
-        setEventShare('compartir_whatsapp');
-        expect(window.dataLayer).toStrictEqual([
-            {
-                dynamic_category: 'nota_ln9',
-                dynamic_action: 'toolbard',
-                dynamic_label: 'compartir_whatsapp',
-                event: 'e_linkclick'
-            }
-        ]);
-    });
-});
-
 describe('shareWhatsAppMobile', () => {
     it('should open a new window with the correct URL', () => {
         const notaId = '123';

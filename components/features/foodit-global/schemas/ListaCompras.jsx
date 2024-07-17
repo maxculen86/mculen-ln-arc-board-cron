@@ -3,25 +3,18 @@ import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 
 import { fooditSchemaLogo } from './_helpers';
-import {
-    getBreadcrumbSections,
-    getFooditAcuTitle
-} from '../common/breadcrumb/_helpers';
 
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const AcuSchema = ({ globalContent = {} }) => {
-    const { _id = '' } = globalContent;
-    const title = getFooditAcuTitle(globalContent);
-
+export const ListaComprasSchema = () => {
     const { contextPath, deployment } = useAppContext();
 
-    const acuSchema = {
+    const listaComprasSchema = {
         '@context': 'http://schema.org',
         '@type': 'WebPage',
-        name: `Acumulado - ${title}`,
-        url: `${SITE_FOODIT}${_id}`,
+        name: `Lista de compras`,
+        url: `${SITE_FOODIT}/lista-de-compras/`,
         publisher: {
             '@type': 'Organization',
             name: 'Foodit',
@@ -32,8 +25,19 @@ export const AcuSchema = ({ globalContent = {} }) => {
 
     return (
         <>
-            <SnippetRender key="acu-schema" id="acu-schema" data={acuSchema} />
-            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
+            <SnippetRender
+                key="listado-compras-schema"
+                id="listado-compras-schema"
+                data={listaComprasSchema}
+            />
+            <BreadcrumbSchema
+                sections={[
+                    {
+                        name: 'Lista de compras',
+                        url: '/listado-compras/'
+                    }
+                ]}
+            />
         </>
     );
 };

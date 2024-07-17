@@ -1,23 +1,33 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
+import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
-
-// TO DO: aplicar la logica y los test correspondientes cuando producto nos baje la definicion
+import get from '../../../private/common/utils/get';
 
 const Glossary = ({ customFields: { hide } = {} }) => {
     if (hide) {
         return null;
     }
 
+    const { globalContent } = useAppContext();
+    const glossary = get(
+        globalContent,
+        'promo_items.glossary.embed.config.arrayData',
+        []
+    );
+
+    //TODO: EL COMPONENTE LO SIGUEN DESDE FRONT
     return (
         <Static id="LN-Glosario" htmlOnly>
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Quidem, illum esse laboriosam ex, in earum ab placeat iste
-                blanditiis cum, nihil error numquam vero ipsam sit maiores hic
-                ad unde.
-            </div>
+            <ul>
+                {glossary.map(item => (
+                    <li key={item.key}>
+                        <p>{item.key}</p>
+                        <p>{item.value}</p>
+                    </li>
+                ))}
+            </ul>
         </Static>
     );
 };
@@ -28,7 +38,7 @@ Glossary.propTypes = {
     customFields: PropTypes.shape({
         hide: PropTypes.bool.tag({
             name: 'Ocultar',
-            description: 'Definí la visibilidad del resumen',
+            description: 'Definí la visibilidad del glosario',
             default: false,
             group: groupCustomFields
         })

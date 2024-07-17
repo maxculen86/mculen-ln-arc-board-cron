@@ -21,7 +21,6 @@ export const configClassName = {
 };
 
 export function transformImages(data, subtype = '') {
-    console.log('itemmmm', data);
     const transformedImages = data
         .filter(item => [480, 720, 1280].includes(item.width))
         .map(item => ({

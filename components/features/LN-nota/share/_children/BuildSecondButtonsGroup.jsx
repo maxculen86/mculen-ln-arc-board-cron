@@ -5,8 +5,6 @@ import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
     BtnContainer,
-    addEventToDataLayer,
-    setEventShare,
     getTwitterTitle,
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
@@ -14,6 +12,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import classNames from 'classnames';
+import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const BuildSecondButtonsGroup = ({
     requestUri,
@@ -25,7 +24,7 @@ const BuildSecondButtonsGroup = ({
     const [copy, setCopy] = useState(false);
 
     const paddingPosition = subtypeVideo
-        ? 'pl-8 ai-center gap-16_m gap-24'
+        ? 'pl-8 ai-center gap-8 gap-24_m'
         : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m';
 
     const flexVideo = subtypeVideo ? '' : 'flex-column_l';
@@ -61,7 +60,12 @@ const BuildSecondButtonsGroup = ({
                 isNegative={subtypeVideo}
                 onClick={() => {
                     shareButton();
-                    setEventShare('compartir_mobile');
+                    addEventToDataLayer({
+                        event: 'e_linkclick',
+                        action: 'toolbard',
+                        category: 'nota_ln9',
+                        label: 'compartir_mobile'
+                    });
                 }}
             >
                 <Icon size={24} color="inherit">
@@ -79,7 +83,12 @@ const BuildSecondButtonsGroup = ({
                 target="_blank"
                 onClick={() => {
                     shareWhatsAppDesktop(requestUri, host);
-                    setEventShare('compartir_whatsapp');
+                    addEventToDataLayer({
+                        event: 'e_linkclick',
+                        action: 'toolbard',
+                        category: 'nota_ln9',
+                        label: 'compartir_whatsapp'
+                    });
                 }}
             >
                 <Icon size={24} color="inherit">
@@ -113,7 +122,12 @@ const BuildSecondButtonsGroup = ({
                                         setCopy,
                                         mobileTitle
                                     });
-                                    addEventToDataLayer(title, labelDataLayer);
+                                    addEventToDataLayer({
+                                        event: 'e_linkclick',
+                                        action: 'toolbard',
+                                        category: 'nota_ln9',
+                                        label: `${labelDataLayer}`
+                                    });
                                 }}
                                 className={className}
                                 iconOnly

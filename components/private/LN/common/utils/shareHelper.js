@@ -8,6 +8,7 @@ import toggleBookmark from '../../../common/utils/bookmarkHelper';
 import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import addEventToDataLayer from './addEventToDataLayer';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
@@ -161,7 +162,12 @@ export const onButtonClicked = (
     state,
     accessToken
 ) => {
-    addEventToDataLayer('Guardar Nota', 'guardar_nota');
+    addEventToDataLayer({
+        event: 'e_linkclick',
+        action: 'toolbard',
+        category: 'nota_ln9',
+        label: 'guardar_nota'
+    });
     const { open } = get(state, 'showModal', {});
     if (token && suscription && !open) {
         toggleBookmark(
@@ -196,29 +202,6 @@ export const BtnContainer = ({ children, withContainer, id }) => {
     }
 
     return children;
-};
-
-export const addEventToDataLayer = (clickText, labelDataLayer) => {
-    window.dataLayer.push({
-        event: 'gtm.linkClick',
-        clickText
-    });
-
-    window.dataLayer.push({
-        event: 'e_linkclick',
-        dynamic_action: 'toolbard',
-        dynamic_category: 'nota_ln9',
-        dynamic_label: `${labelDataLayer}`
-    });
-};
-
-export const setEventShare = (label = '') => {
-    window.dataLayer.push({
-        event: 'e_linkclick',
-        dynamic_action: 'toolbard',
-        dynamic_category: 'nota_ln9',
-        dynamic_label: `${label}`
-    });
 };
 
 export const buttonsList = [

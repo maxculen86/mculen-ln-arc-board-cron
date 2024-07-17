@@ -53,7 +53,7 @@ export default {
             sampleRateRum: 0.15,
             service: 'lanacion-arc',
             env: 'prod',
-            sessionReplaySampleRate: 30,
+            sessionReplaySampleRate: 41,
             trackResources: true,
             trackLongTasks: true,
             trackUserInteractions: true,
@@ -113,7 +113,8 @@ export default {
     MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
     SITE_FOODIT: 'https://foodit.lanacion.com.ar',
     FIREBASE_CONFIG: {
-        apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
+        apiKey:
+            '%AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFZgu4onAWq/W8gBEVE+TDOAAAAhjCBgwYJKoZIhvcNAQcGoHYwdAIBADBvBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDO+34OLq7J1XCUflkAIBEIBCk/Fx9RAYnbPSR0o5i/5nUV6bnpQCHju6ywpO3rsV+RUvKkrVj2LumjluMyEVLSXr2s3DOZ/KCxD1eStkgIxthAxL',
         authDomain: 'lanacion-92a91.firebaseapp.com',
         databaseURL: 'https://lanacion-92a91.firebaseio.com',
         messagingSenderId: '221085116662',

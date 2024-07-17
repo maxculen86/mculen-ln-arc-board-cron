@@ -5,7 +5,6 @@ import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { Text } from '@ln/common-ui-text';
 import { getFooditAcuTitle } from '../../features/foodit-global/common/breadcrumb/_helpers';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
-import { AcuSchema } from '../../features/foodit-global/schemas/Acu';
 
 const pageBuilderSections = ['Apertura', 'Notas'];
 
@@ -14,11 +13,8 @@ const AcumuladoFoodit = props => {
 
     const [, notas] = children;
 
-    const title = getFooditAcuTitle(globalContent);
-
     return (
         <BaseLayout>
-            <AcuSchema globalContent={globalContent} title={title} />
             <UserBookmarks />
             <div className="flex flex-column gap-32">
                 <section className="flex flex-column gap-24">
@@ -27,7 +23,7 @@ const AcumuladoFoodit = props => {
                         as="h1"
                         className="prumo prumo-semibold text-28 text-40_md text-48_lg"
                     >
-                        {title}
+                        {getFooditAcuTitle(globalContent)}
                     </Text>
                 </section>
                 {/* TODO: Descomentar si un acumulado lleva apertura */}

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
-import { mount, shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import ScriptManager, {
     ERRORS
 } from '../../../../../components/private/common/scriptManager';
-
 import renderables from '../../../../../__mocks__/data/renderables/data1';
 import { getScriptsToLoad } from '../../../../../components/private/LN/common/utils/scriptsHelper';
 
@@ -30,7 +29,7 @@ describe('ScriptManager ...', () => {
     });
 });
 
-xdescribe('ScriptManager genera un builder', () => {
+describe('ScriptManager genera un builder', () => {
     const LOCATION = 'OK';
 
     // eslint-disable-next-line react/prefer-stateless-function
@@ -74,35 +73,29 @@ xdescribe('ScriptManager genera un builder', () => {
 
     it('al que debe indicarse nombre o posicion', () => {
         const error = 'Debe especificar props: location o name';
-        expect(() => shallow(<Script />)).toThrowError(error);
-        expect(() => shallow(<Script foo="foo" />)).toThrowError(error);
+        expect(() => render(<Script />)).toThrowError(error);
+        expect(() => render(<Script foo="foo" />)).toThrowError(error);
     });
 
     it('el que hace el render de los componente que coinciden con el nombre', () => {
-        const wrapper = mount(<Script name="ScriptMock" />);
-
-        expect(wrapper.html()).toEqual(
-            `<script value="${rnd}">ScriptMock</script>`
-        );
-
-        expect(() => shallow(<Script name="foo" />)).toBeDefined();
+        render(<Script name="ScriptMock" />);
+        const scriptMock = document.querySelector('script');
+        expect(scriptMock).toBeInTheDocument();
+        expect(scriptMock).toHaveAttribute('value', `${rnd}`);
+        expect(scriptMock).toHaveTextContent('ScriptMock');
     });
 
     it('el que NO hace el render de los componente que NO coinciden con el nombre', () => {
-        const wrapper = mount(<Script name="otroName" />);
-
-        expect(wrapper.html()).toBeNull();
+        const { container } = render(<Script name="otroName" />);
+        expect(container).toBeEmptyDOMElement();
     });
 
     it('el que hace el render de los componente que coinciden con la ubicación', () => {
-        const wrapper = mount(<Script location={LOCATION} />);
-
-        expect(wrapper.props().location).toEqual(LOCATION);
-        expect(wrapper.html()).toEqual(
-            `<script location="${LOCATION}">OtroScriptMock</script>`
-        );
-
-        expect(() => shallow(<Script location="foo" />)).toBeDefined();
+        render(<Script location={LOCATION} />);
+        const otroScript = document.querySelector('script');
+        expect(otroScript).toBeInTheDocument();
+        expect(otroScript).toHaveAttribute('location', LOCATION);
+        expect(otroScript).toHaveTextContent('OtroScriptMock');
     });
 });
 

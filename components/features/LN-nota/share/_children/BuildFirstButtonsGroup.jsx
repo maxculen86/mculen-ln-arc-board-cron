@@ -10,7 +10,6 @@ import { GlobalContext } from '../../../../private/common/context/globalContext'
 import {
     scrollToComments,
     onButtonClicked,
-    addEventToDataLayer,
     getClassAndIconByBookmark,
     getFirstGroupClassNames
 } from '../../../../private/LN/common/utils/shareHelper';
@@ -25,6 +24,7 @@ import eventHandler from '../../../../private/common/audioNews/trackerAudioNews'
 import useTermica from '../../../../private/common/hooks/useTermica';
 import getToken from '../../../../private/common/utils/getToken';
 import classNames from 'classnames';
+import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -134,10 +134,12 @@ const BuildFirtsButtonsGroup = ({
                     dataSection="CompartirNotaLN"
                     onClick={() => {
                         scrollToComments();
-                        addEventToDataLayer(
-                            'Ir a los comentarios',
-                            'ver_comentarios'
-                        );
+                        addEventToDataLayer({
+                            event: 'e_linkclick',
+                            action: 'toolbard',
+                            category: 'nota_ln9',
+                            label: 'ver_comentarios'
+                        });
                     }}
                     variant="secondary"
                     title="Ir a los comentarios de la nota"

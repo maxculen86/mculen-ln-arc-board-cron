@@ -99,7 +99,8 @@ export const RenderCollection = ({
                             time,
                             title: titleArticle,
                             variant,
-                            image = {}
+                            image = {},
+                            contentCode = ''
                         }) => {
                             const { resized_urls, url } = image;
                             const { resizedUrl = '' } = getShortestImage(
@@ -126,6 +127,7 @@ export const RenderCollection = ({
                                     author={author}
                                     className={classNameChildren}
                                     key={articleId}
+                                    contentCode={contentCode}
                                 />
                             );
                         }
