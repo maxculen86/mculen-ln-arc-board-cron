@@ -1,24 +1,18 @@
 import { useLayoutEffect, useState } from 'react';
 
+import getToken from '../../../../../private/common/utils/getToken';
 import getBookmarks from '../../bookmark/api/getBookmarks';
-import {
-    authManager,
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../../../auth/helper/loginHelper';
+import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
 
 const useGetRecetarioData = () => {
     const [loading, setLoading] = useState(true);
     const [userBookmarks, setUserBookmarks] = useState([]);
 
     useLayoutEffect(() => {
-        const fetchBookmarks = async ({ accessToken, token } = {}) => {
+        const fetchBookmarks = async () => {
             try {
-                if (isSubscribed(SUBSCRIBED_HELPER.FOODIT)) {
-                    const { data = [] } = await getBookmarks(
-                        accessToken,
-                        token
-                    );
+                if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
+                    const { data = [] } = await getBookmarks();
                     setUserBookmarks(data);
                 }
             } catch (error) {
@@ -28,7 +22,7 @@ const useGetRecetarioData = () => {
             }
         };
 
-        authManager(fetchBookmarks);
+        fetchBookmarks();
     }, []);
 
     return {

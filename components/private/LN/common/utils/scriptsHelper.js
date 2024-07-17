@@ -21,7 +21,7 @@ import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import Permutive from '../../../common/scriptManager/Permutive';
 import Marfeel from '../../../common/scriptManager/Marfeel';
 import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
-import Observable from '../../../../output-types/Helper/observable';
+import ObservableFoodit from '../../../../output-types/Helper/observableFoodit';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 
 import { pipe } from '../../../common/utils/functional';
@@ -115,7 +115,7 @@ const scriptList = [
     },
     { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
     {
-        component: { name: 'Observable', function: Observable },
+        component: { name: 'ObservableFoodit', function: ObservableFoodit },
         feature: 'none'
     },
     {

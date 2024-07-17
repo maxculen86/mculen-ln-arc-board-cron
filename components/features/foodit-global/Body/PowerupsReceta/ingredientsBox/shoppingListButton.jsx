@@ -1,10 +1,8 @@
 import React, { useMemo } from 'react';
 
 import { handleIgredientListButton } from './_helper';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../../../auth/helper/loginHelper';
+import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
+import getToken from '../../../../../private/common/utils/getToken';
 import { useIsInShoppingList } from './hooks/useIsInShoppingList';
 
 import { Icon } from '@ln/common-ui-icon';
@@ -17,7 +15,7 @@ const ShoppingListButton = ({
     title = ''
 }) => {
     const isSuscriptor = useMemo(
-        () => isSubscribed(SUBSCRIBED_HELPER.FOODIT),
+        () => isFooditSuscriptor(getToken('ProductoPremiumId')),
         []
     );
 

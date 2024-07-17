@@ -4,11 +4,11 @@ import CTRNota, {
     ctrRecommendNote
 } from '../../../../components/features/LN-nota/ctrNotaMobile';
 import useViewportSize from '../../../../components/private/common/hooks/useViewportSize';
+import { isSubscribed } from '../../../../components/private/LN/common/utils/contextHelper';
 import { useAppContext } from 'fusion:context';
 import '@testing-library/jest-dom';
 import StickyMobile from '../../../../components/private/LN/nota/StickyMobile';
 import { useContent as getContent } from 'fusion:content';
-import { isSubscribed } from '../../../../auth/helper/loginHelper';
 
 jest.mock('fusion:content', () => ({
     useContent: jest.fn(),
@@ -21,8 +21,12 @@ jest.mock('fusion:context', () => ({
 jest.mock('../../../../components/private/common/hooks/useViewportSize', () =>
     jest.fn()
 );
-
-jest.mock('../../../../auth/helper/loginHelper');
+jest.mock(
+    '../../../../components/private/LN/common/utils/contextHelper',
+    () => ({
+        isSubscribed: jest.fn()
+    })
+);
 
 const mockSetTrigger = jest.fn();
 

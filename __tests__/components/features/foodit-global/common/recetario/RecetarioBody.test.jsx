@@ -4,21 +4,19 @@ import '@testing-library/jest-dom/';
 
 import { useAppContext } from 'fusion:context';
 import RecetarioBody from '../../../../../../components/features/foodit-global/common/recetario/RecetarioBody';
-import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
-import { isSubscribed } from '../../../../../../auth/helper/loginHelper';
-import useGetRecetarioData from '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData';
+import getBookmarks from '../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
+import useGetUserData, {
+    isFooditSuscriptor
+} from '../../../../../../components/features/foodit-global/hooks/useGetUserData';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
-
 jest.mock(
-    '../../../../../../components/features/foodit-global/hooks/useGetUserConfig'
+    '../../../../../../components/features/foodit-global/hooks/useGetUserData'
 );
-
-jest.mock('../../../../../../auth/helper/loginHelper');
 jest.mock(
-    '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData'
+    '../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks'
 );
 jest.mock(
     '../../../../../../components/features/foodit-global/common/bookmark/api/deleteBookmark',
@@ -40,13 +38,6 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
             deployment: () => '/test-deployment'
         }));
 
-        window.LN = {
-            observable: {
-                publish: jest.fn(),
-                subscribe: jest.fn()
-            }
-        };
-
         global.IntersectionObserver = jest.fn((callback, options) => {
             return {
                 observe: jest.fn(() => {
@@ -58,71 +49,74 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
         });
     });
 
-    test('Should render empty state component variant="barrier-unlogged" when user is unlogged', () => {
-        useGetRecetarioData.mockReturnValue({
-            userBookmarks: [],
-            setUserBookmarks: jest.fn(),
-            loading: false
-        });
-        useGetUserConfig.mockReturnValue({
+    test('Should render empty state component variant="barrier-unlogged" when user is unlogged', async () => {
+        getBookmarks.mockReturnValue({ data: [] });
+        useGetUserData.mockReturnValue({
             userType: 'unlogged'
         });
         render(<RecetarioBody />);
 
-        expect(screen.getByText('¡Exclusivo suscriptor!')).toBeInTheDocument(),
+        await waitFor(
+            () =>
+                expect(
+                    screen.getByText('¡Exclusivo suscriptor!')
+                ).toBeInTheDocument(),
             expect(
                 screen.getByText(
                     'Para realizar esta acción es necesario que inicies sesión.'
                 )
-            ).toBeInTheDocument();
+            ).toBeInTheDocument()
+        );
     });
 
-    test('Should render empty state component variant="barrier-logged" when user is logged', () => {
-        useGetRecetarioData.mockReturnValue({
-            userBookmarks: [],
-            setUserBookmarks: jest.fn(),
-            loading: false
-        });
-        useGetUserConfig.mockReturnValue({
+    test('Should render empty state component variant="barrier-logged" when user is logged', async () => {
+        getBookmarks.mockReturnValue({ data: [] });
+        useGetUserData.mockReturnValue({
             userType: 'logged'
         });
 
         render(<RecetarioBody />);
-        expect(screen.getByText('¡Exclusivo suscriptor!')).toBeInTheDocument(),
+        await waitFor(
+            () =>
+                expect(
+                    screen.getByText('¡Exclusivo suscriptor!')
+                ).toBeInTheDocument(),
             expect(
                 screen.getByText(
                     'Para realizar esta acción es necesario que tengas una suscripción.'
                 )
-            ).toBeInTheDocument();
+            ).toBeInTheDocument()
+        );
     });
 
-    test('Should render bookmarks', () => {
-        useGetRecetarioData.mockReturnValue({
-            userBookmarks: [
+    test('Should render bookmarks', async () => {
+        getBookmarks.mockReturnValue({
+            data: [
                 { bookmarkTypeId: 'test1', bookmarkId: 'id1' },
                 { bookmarkTypeId: 'test2', bookmarkId: 'id2' },
                 { bookmarkTypeId: 'test3', bookmarkId: 'id3' }
-            ],
-            setUserBookmarks: jest.fn(),
-            loading: false
+            ]
         });
 
-        useGetUserConfig.mockReturnValue({
+        useGetUserData.mockReturnValue({
             userType: 'subscribed'
         });
 
-        isSubscribed.mockReturnValue(true);
+        isFooditSuscriptor.mockReturnValue(true);
 
         render(<RecetarioBody />);
 
-        expect(screen.getByText('Colecciones')).toBeInTheDocument();
-
-        expect(screen.getByText('Todas (3)')).toBeInTheDocument();
+        await waitFor(() =>
+            expect(screen.getByText('Colecciones')).toBeInTheDocument()
+        );
+        await waitFor(() =>
+            expect(screen.getByText('Todas (3)')).toBeInTheDocument()
+        );
     });
 
     test('Should open modal on button click', async () => {
-        useGetRecetarioData.mockReturnValue({
-            userBookmarks: [
+        getBookmarks.mockReturnValue({
+            data: [
                 {
                     bookmarkTypeId: 'group1',
                     bookmarkId: 'id1',
@@ -138,16 +132,14 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
                     bookmarkId: 'id3',
                     bookmarkGroup: 'group1'
                 }
-            ],
-            setUserBookmarks: jest.fn(),
-            loading: false
+            ]
         });
 
-        useGetUserConfig.mockReturnValue({
+        useGetUserData.mockReturnValue({
             userType: 'subscribed'
         });
 
-        isSubscribed.mockReturnValue(true);
+        isFooditSuscriptor.mockReturnValue(true);
 
         render(<RecetarioBody />);
 

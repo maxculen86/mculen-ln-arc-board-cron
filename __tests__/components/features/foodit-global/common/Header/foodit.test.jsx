@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { render, screen } from '@testing-library/react';
 import HeaderFoodit from '../../../../../../components/features/foodit-global/common/Header/foodit';
 import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
-import useGetUserData from '../../../../../../auth/hooks/useGetUserData';
-jest.mock('../../../../../../auth/hooks/useGetUserData');
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -20,7 +18,10 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-jest.mock('../../../../../../auth/hooks/useGetUserData', () => jest.fn());
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useContext: jest.fn()
+}));
 
 describe('Components - Features - foodit-global - Common - HeaderFoodit', () => {
     Context.useAppContext = jest.fn(() => ({
@@ -41,12 +42,11 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
     it('should return buttons login and button suscribed when the user is unlogged', () => {
         useContent.mockReturnValue(menuCategories);
-        useGetUserData.mockReturnValue({
-            userType: 'unlogged',
-            userEmail: '',
-            userName: '',
-            userLastName: '',
-            isSubscribed: false
+        useContext.mockReturnValue({
+            ProductoPremiumId: '',
+            UsuarioDetalleEmail: '',
+            UsuarioDetalleNombre: '',
+            UsuarioDetalleApellido: ''
         });
 
         const { container } = render(<HeaderFoodit />);
@@ -56,14 +56,13 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         expect(container).toMatchSnapshot();
     });
 
-    it('should show the user avatar with the initials of their name when the user is logged and subscribed to foodit.', () => {
+    it('should show the user avatar with the initials of their name and the upgrade plan button when the user is logged in and subscribed to foodit.', () => {
         useContent.mockReturnValue(menuCategories);
-        useGetUserData.mockReturnValue({
-            userType: 'subscribed',
-            userEmail: 'hola@mundo.com',
-            userName: 'Hola',
-            userLastName: 'Mundo',
-            isSubscribed: true
+        useContext.mockReturnValue({
+            ProductoPremiumId: '2,3,4,5,22',
+            UsuarioDetalleEmail: 'hola@mundo.com',
+            UsuarioDetalleNombre: 'Hola',
+            UsuarioDetalleApellido: 'Mundo'
         });
 
         render(<HeaderFoodit />);
@@ -71,19 +70,32 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         expect(screen.getAllByText('HM')).toHaveLength(1);
     });
 
-    it('Should show the initials and button "SUSCRIBITE" when the user is not sucribed', () => {
+    it('Should show the initials of the email in the avatar when the user does not have a first or last name', () => {
         useContent.mockReturnValue(menuCategories);
-        useGetUserData.mockReturnValue({
-            userType: 'logged',
-            userEmail: 'hola@mundo.com',
-            userName: '',
-            userLastName: '',
-            isSubscribed: false
+        useContext.mockReturnValue({
+            ProductoPremiumId: '2,3,4,5,22',
+            UsuarioDetalleEmail: 'hola@mundo.com',
+            UsuarioDetalleNombre: '',
+            UsuarioDetalleApellido: ''
         });
 
         render(<HeaderFoodit />);
 
         expect(screen.getAllByText('HO')).toHaveLength(1);
+    });
+
+    it('should show the users avatar and the subscribe button when the user is logged in but is not a subscriber.', () => {
+        useContent.mockReturnValue(menuCategories);
+        useContext.mockReturnValue({
+            ProductoPremiumId: '',
+            UsuarioDetalleEmail: 'hola@mundo.com',
+            UsuarioDetalleNombre: 'Hola',
+            UsuarioDetalleApellido: 'Mundo'
+        });
+
+        render(<HeaderFoodit />);
+
         expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(2);
+        expect(screen.getAllByText('HM')).toHaveLength(1);
     });
 });

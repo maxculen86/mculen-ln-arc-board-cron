@@ -101,6 +101,5 @@ export default {
     Marfeel: { props: {}, location: [HEAD] },
     ScriptCloseBanners: { props: {}, location: [BODYBOTTOM] },
     EventsHelper: { props: {}, location: [HEAD] },
-    FundingChoices: { props: {}, location: [BODYBOTTOM] },
-    Observable: { props: {}, location: [BODYBOTTOM] }
+    FundingChoices: { props: {}, location: [BODYBOTTOM] }
 };

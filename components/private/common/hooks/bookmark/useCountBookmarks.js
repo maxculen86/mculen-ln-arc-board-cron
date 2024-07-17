@@ -1,11 +1,15 @@
 import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
-import { authManager } from '../../../../../auth/helper/loginHelper';
 
-export default function useCountBookmarks(termicaBookmark, isSuscriber) {
+export default function useCountBookmarks(
+    termicaBookmark,
+    token,
+    accessToken,
+    isSuscriber
+) {
     const [data, setData] = useState(null);
 
-    const getDataFromAPI = useCallback(async ({ accessToken, token } = {}) => {
+    const getDataFromAPI = useCallback(async () => {
         try {
             if (accessToken && token) {
                 const res = await fetch(
@@ -13,7 +17,7 @@ export default function useCountBookmarks(termicaBookmark, isSuscriber) {
                     {
                         method: 'GET',
                         headers: {
-                            Authorization: accessToken,
+                            Authorization: `Bearer ${accessToken}`,
                             'X-Token': token
                         }
                     }
@@ -29,12 +33,12 @@ export default function useCountBookmarks(termicaBookmark, isSuscriber) {
             // eslint-disable-next-line no-console
             console.error(err);
         }
-    }, []);
+    }, [token]);
     useEffect(() => {
-        if (termicaBookmark && isSuscriber) {
-            authManager(getDataFromAPI);
+        if (token && termicaBookmark && isSuscriber) {
+            getDataFromAPI();
         }
-    }, [termicaBookmark, isSuscriber, getDataFromAPI]);
+    }, [token, termicaBookmark, isSuscriber, getDataFromAPI]);
 
     const substractOne = () => {
         setData(data - 1);

@@ -1,13 +1,25 @@
 /* eslint-disable no-restricted-globals */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { LOGIN_URL } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
-import AuthInitializer from '../../../../auth/AuthInitializer';
+import { loginSetup } from '../../LN/common/utils/loginHelper';
 
 export const GlobalContext = React.createContext();
 
 const actionType = {
+    SET_LOGIN: (state = {}, action = {}) => {
+        const { logueado, loginData } = action.payload || {};
+        return {
+            ...state,
+            ...(typeof logueado !== 'undefined' && { logueado }),
+            loginData: {
+                ...state.loginData,
+                ...loginData
+            }
+        };
+    },
     SHOW_MODAL: (state, action) => {
         const { typeModal, typeAlert, open, origin, data } = action.payload;
         return {
@@ -29,7 +41,10 @@ const reducer = (state, action) => {
         : actionType.default(state);
 };
 const GlobalProvider = ({ children }) => {
-    const { arcSite: website = 'la-nacion-ar' } = useAppContext();
+    const {
+        arcSite: website = 'la-nacion-ar',
+        deployment = {}
+    } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
         siteService: useContent({
             source: 'navigationTreeSource',
@@ -71,18 +86,31 @@ const GlobalProvider = ({ children }) => {
                 };
             }
         }),
+        logueado: false,
         showModal: {
             typeModal: '',
             typeAlert: '',
             open: false,
             origin: '',
             data: undefined
+        },
+        loginData: {
+            subscription: false,
+            userName: 'Sin nombre',
+            goToLoginUrl: () => {
+                location.href = LOGIN_URL + window.btoa(location.href);
+            },
+            loading: true
         }
     });
 
+    useEffect(() => {
+        loginSetup(dispatch);
+    }, [deployment]);
+
     return (
         <GlobalContext.Provider value={{ state, dispatch }}>
-            <AuthInitializer>{children}</AuthInitializer>
+            {children}
         </GlobalContext.Provider>
     );
 };

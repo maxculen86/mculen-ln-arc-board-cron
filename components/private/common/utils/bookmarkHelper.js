@@ -2,9 +2,10 @@ import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
-import { getAuthFromCookie } from '../../../../auth/helper/loginHelper';
 
 export default function toggleBookmark(
+    accessToken,
+    token,
     isDelete,
     setBookmark,
     dispatch,
@@ -18,8 +19,6 @@ export default function toggleBookmark(
             'taxonomy.primary_section.name',
             ''
         );
-        const token = await getAuthFromCookie();
-        const accessToken = await getAuthFromCookie('access-token');
 
         const bookmarkRequestBody = isDelete
             ? {}
@@ -47,7 +46,7 @@ export default function toggleBookmark(
                     {
                         method: isDelete ? 'DELETE' : 'POST',
                         headers: {
-                            Authorization: accessToken,
+                            Authorization: `Bearer ${accessToken}`,
                             'X-Token': token
                         },
                         body: JSON.stringify(bookmarkRequestBody)
@@ -64,8 +63,6 @@ export default function toggleBookmark(
 
                 return res.status;
             }
-
-            return statusActions.default({ dispatch });
         } catch (err) {
             // eslint-disable-next-line no-console
             console.error(err);
@@ -74,7 +71,8 @@ export default function toggleBookmark(
         }
     };
 
-    const shouldCallApi = isDelete || Object.keys(_globalContent).length;
+    const shouldCallApi =
+        token && (isDelete || Object.keys(_globalContent).length);
 
     return shouldCallApi ? getDataFromAPI() : null;
 }

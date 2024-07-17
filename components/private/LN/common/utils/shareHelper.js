@@ -5,10 +5,7 @@ import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import toggleBookmark from '../../../common/utils/bookmarkHelper';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../../auth/helper/loginHelper';
+import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
@@ -120,8 +117,7 @@ export const copyToClipboard = () => {
 export const getClassCondition = subtype =>
     subtype === VIDEO ? ' --video' : '';
 
-export const isSuscription = token =>
-    token ? isSubscribed(SUBSCRIBED_HELPER.LN) : false;
+export const isSuscription = token => (token ? isSubscribed() : false);
 
 export const getTwitterTitle = (mobileTitle, title) =>
     !mobileTitle ? title : mobileTitle;
@@ -156,17 +152,26 @@ export const getFirstGroupClassNames = ({ subtypeVideo }) => {
 };
 
 export const onButtonClicked = (
+    token,
     suscription,
     globalContent,
     bookmark,
     setBookmark,
     dispatch,
-    state
+    state,
+    accessToken
 ) => {
     addEventToDataLayer('Guardar Nota', 'guardar_nota');
     const { open } = get(state, 'showModal', {});
-    if (suscription && !open) {
-        toggleBookmark(bookmark, setBookmark, dispatch, globalContent);
+    if (token && suscription && !open) {
+        toggleBookmark(
+            accessToken,
+            token,
+            bookmark,
+            setBookmark,
+            dispatch,
+            globalContent
+        );
     }
 
     !suscription &&
