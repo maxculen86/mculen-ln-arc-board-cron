@@ -21,7 +21,7 @@ jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
 const mockDollar = dollarData;
 const mockAccess = [
     {
-        text: 'LN juegos',
+        text: 'LN Juegos',
         href: 'https://www.lanacion.com.ar/juegos/'
     },
     {

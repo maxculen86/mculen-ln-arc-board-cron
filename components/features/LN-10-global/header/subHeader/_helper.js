@@ -30,7 +30,7 @@ export const setDollarData = dollarValue => {
 export const setAccessData = () => {
     return [
         {
-            text: 'LN juegos',
+            text: 'LN Juegos',
             href: 'https://www.lanacion.com.ar/juegos/'
         },
         {
