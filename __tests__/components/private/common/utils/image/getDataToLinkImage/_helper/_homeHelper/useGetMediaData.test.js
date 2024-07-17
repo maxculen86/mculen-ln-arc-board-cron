@@ -18,7 +18,6 @@ describe('Tests hook useGetMediaData', () => {
         isInApertura: true,
         imageConfig: '',
         isHideImage: true,
-        isHomeLN10: true,
         isAdmin: false,
         imageID: 'imageID',
         videoID: 'videoID',

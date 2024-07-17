@@ -29,8 +29,7 @@ const GetDataToLinkImage = ({
     renderables = [],
     arcSite = '',
     isAdmin = false,
-    layout,
-    isHomeLN10 = false
+    layout
 }) => {
     const {
         _id: id,
@@ -158,7 +157,6 @@ const GetDataToLinkImage = ({
                     renderables={renderables}
                     arcSite={arcSite}
                     isAdmin={isAdmin}
-                    isHomeLN10={isHomeLN10}
                     layout={layout}
                 />
             );

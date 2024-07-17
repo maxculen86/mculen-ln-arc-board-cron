@@ -53,7 +53,7 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
             isHome
         } = getDataChainCollection({
             ...cajaCollection,
-            pageLayout: 'LN-Home_Main'
+            pageLayout: 'LN10-Home_Main'
         });
         expect(isInSiteService).toBeFalsy;
         expect(titleSize).toBeUndefined();
