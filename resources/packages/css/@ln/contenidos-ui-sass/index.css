@@ -1243,7 +1243,7 @@ a {
   --sopa-de-letras: #ecb535;
   --el-telar: #5bbb87;
   --trivias: #69c7c3;
-  --cruciexpress: #ff8ea9;
+  --cruciexpres: #ff8ea9;
   --palabra-oculta: #97c7ff;
   --diferencias: #ed933f;
   --line-100: 100%;
@@ -1680,8 +1680,8 @@ a {
   background: var(--trivias);
 }
 
-.bg-cruciexpress {
-  background: var(--cruciexpress);
+.bg-cruciexpres {
+  background: var(--cruciexpres);
 }
 
 .bg-palabra-oculta {
@@ -1744,8 +1744,8 @@ a {
   background-color: var(--trivias);
 }
 
-.bg-cruciexpress__hover:hover {
-  background-color: var(--cruciexpress);
+.bg-cruciexpres__hover:hover {
+  background-color: var(--cruciexpres);
 }
 
 .bg-palabra-oculta__hover:hover {
