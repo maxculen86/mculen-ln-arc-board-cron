@@ -63,14 +63,7 @@ const setDataComponent = ({
     articleSubtype
 }) => {
     return articleSubtype === STORYTELLING ? (
-        <section
-            key={`body-${currentIndex}`}
-            className={
-                type === 'image' || subtype === 'video_jw'
-                    ? 'full-width'
-                    : 'content'
-            }
-        >
+        <section key={`body-${currentIndex}`} className="content">
             <Component
                 data={element}
                 capital={currentIndex === capitalIndex}
