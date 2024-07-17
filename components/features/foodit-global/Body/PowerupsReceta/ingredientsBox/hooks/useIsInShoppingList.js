@@ -6,7 +6,7 @@ export const useIsInShoppingList = (articleId = '', isSuscriptor) => {
     const [bookmarkId, setBookmarkId] = useState(null);
 
     useEffect(() => {
-        const fetchUserBookmarks = async ({ accessToken, token } = {}) => {
+        const fetchUserBookmarks = async ({ accessToken, token }) => {
             const { bookmarkId: resBookmarkId } = await getBookmarkByArticleId(
                 'ingredientList',
                 articleId,

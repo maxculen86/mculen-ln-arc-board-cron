@@ -5,25 +5,14 @@ import toggleBookmark, {
 } from '../../../../../components/private/common/utils/bookmarkHelper';
 import notaExample from '../../../../../__mocks__/data/nota/body/globalContent.json';
 import BookmarkApiNoteFormat from '../../../../../__mocks__/data/bookmark/APINoteData.json';
-import { getAuthFromCookie } from '../../../../../auth/helper/loginHelper';
-
-jest.mock('../../../../../auth/helper/loginHelper', () => ({
-    getAuthFromCookie: jest.fn()
-}));
 
 describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
     describe('toggleBookmark', () => {
-        const setBookmark = jest.fn();
-        const dispatch = jest.fn();
-        const _globalContent = {
-            _id: 'noteId',
-            taxonomy: { primary_section: { name: 'sectionName' } }
-        };
         const accessToken = '469C121D-238F-4447-A656-A32E50DBB997';
         const token = '469C121D-238F-4447-A656-A32E50DBB997';
         const bookmarkId = 'd08588de-88ef-48ca-8254-ee46860f25ee';
-        const bearerAccessToken = `Bearer ${accessToken}`;
         const setToast = jest.fn();
+        const setBookmark = jest.fn();
 
         global.fetch = jest.fn(() =>
             Promise.resolve({
@@ -31,39 +20,33 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             })
         );
 
-        beforeEach(() => {
-            jest.clearAllMocks();
+        afterEach(() => {
+            fetch.mockClear();
         });
 
-        it('should return null if _globalContent is empty and isDelete is false', async () => {
-            const result = await toggleBookmark(
-                false,
-                setBookmark,
-                dispatch,
-                {}
-            );
-
-            expect(result).toBeNull();
+        it('Should return null without token and without bookmarkId or globalContent', () => {
+            expect(toggleBookmark()).toBeNull();
+            expect(
+                toggleBookmark(accessToken, token, null, setBookmark, setToast)
+            ).toBeNull();
+            expect(fetch).not.toBeCalled();
         });
-
-        it('should call fetch with DELETE method when isDelete', async () => {
-            getAuthFromCookie
-                .mockResolvedValueOnce(token)
-                .mockResolvedValueOnce(bearerAccessToken);
-
-            await toggleBookmark(
-                bookmarkId,
-                setBookmark,
-                dispatch,
-                _globalContent
-            );
-
+        it('Should call fetch with proper endpoint, token and DELETE method when bookmarkId is defined (bookmark already saved -> action delete bookmark)', () => {
+            expect(
+                toggleBookmark(
+                    accessToken,
+                    token,
+                    bookmarkId,
+                    setBookmark,
+                    setToast
+                )
+            ).toBeTruthy();
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks/${bookmarkId}`,
                 {
                     body: '{}',
                     headers: {
-                        Authorization: bearerAccessToken,
+                        Authorization: `Bearer ${accessToken}`,
                         'X-Token': token
                     },
                     method: 'DELETE'
@@ -71,19 +54,23 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             );
         });
 
-        it('should call fetch with POST method when isDelete is false', async () => {
-            getAuthFromCookie
-                .mockResolvedValueOnce(token)
-                .mockResolvedValueOnce(bearerAccessToken);
-
-            await toggleBookmark('', setBookmark, dispatch, notaExample);
-
+        it('Should call fetch with proper endpoint, token and POST method when bookmarkId is not defined (bookmark not saved -> action create bookmark)', () => {
+            expect(
+                toggleBookmark(
+                    accessToken,
+                    token,
+                    null,
+                    setBookmark,
+                    setToast,
+                    notaExample
+                )
+            ).toBeTruthy();
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks`,
                 {
                     body: JSON.stringify(BookmarkApiNoteFormat),
                     headers: {
-                        Authorization: bearerAccessToken,
+                        Authorization: `Bearer ${accessToken}`,
                         'X-Token': token
                     },
                     method: 'POST'

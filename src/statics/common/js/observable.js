@@ -26,6 +26,5 @@ class Observable {
 }
 
 window.LN = {
-    ...window.LN,
     observable: new Observable()
 };

@@ -116,8 +116,8 @@ export const setUserData = async () => {
 };
 
 export const authManager = (callback = () => {}) => {
-    const setAuthorization = async ({ isFinished = false } = {}) => {
-        if (isFinished) {
+    const setAuthorization = async props => {
+        if (props.isFinished) {
             const accessToken = await _UserClientLibs(
                 'BuildBearerAccessTokenAsync'
             )();

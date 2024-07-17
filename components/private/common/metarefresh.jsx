@@ -11,10 +11,6 @@ import {
     getInterval,
     shouldBeExcluded
 } from './utils/metarefreshHelper';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../auth/helper/loginHelper';
 
 const Component = props => {
     const { getCookie } = handleCookie();
@@ -45,14 +41,15 @@ const Component = props => {
 
     const cookieProductoPremium = getCookie('ProductoPremiumId');
     const template = findTemplate(type);
-    const isSubscriber = isSubscribed(SUBSCRIBED_HELPER.LN);
+    const isSubscribed =
+        cookieProductoPremium && cookieProductoPremium.includes('2');
 
     useEffect(() => {
         if (
             !metarefresh ||
             isAdmin ||
             outputType === 'amp' ||
-            (isSubscriber && template !== 'home') ||
+            (isSubscribed && template !== 'home') ||
             interval < 1 ||
             shouldBeExcluded({ globalContent })
         ) {
@@ -79,7 +76,7 @@ const Component = props => {
         metarefresh,
         outputType,
         template,
-        isSubscriber
+        isSubscribed
     ]);
 
     return <></>;

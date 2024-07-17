@@ -6,10 +6,7 @@ import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
 import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../auth/helper/loginHelper';
+import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
 import bannerConfigType from './helpers/loadBannersSSRHelper';
 import getCustomTargeting from './helpers/getCustomTargeting';
@@ -49,7 +46,7 @@ const LoadBannersSSR = ({ blocksBanners }) => {
         globalContentConfig
     } = useAppContext();
     const device = useViewportSize();
-    const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
+    const subscription = isSubscribed();
     const bannersConfigured = renderables.filter(e =>
         [
             'LN-common/banner',

@@ -12,7 +12,7 @@ export const UserBookmarks = () => {
         localStorage.removeItem('bookmarkFolders');
         localStorage.removeItem('bookmarkedItems');
 
-        const fetchUserBookmarks = async ({ accessToken, token } = {}) => {
+        const fetchUserBookmarks = async ({ accessToken, token }) => {
             const { data = [] } = await getBookmarks(accessToken, token);
 
             const bookmarks = data.map(({ bookmarkTypeId, bookmarkId }) => {
