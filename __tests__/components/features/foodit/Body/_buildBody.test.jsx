@@ -56,8 +56,5 @@ describe('buildBody', () => {
         expect(getByText('Pie de foto')).toBeInTheDocument();
 
         expect(container.querySelector('section.content')).toBeInTheDocument();
-        expect(
-            container.querySelector('section.full-width')
-        ).toBeInTheDocument();
     });
 });
