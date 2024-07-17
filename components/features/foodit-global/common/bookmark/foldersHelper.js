@@ -2,8 +2,8 @@ import getBookmarkGroups from './api/getBookmarkGroups';
 import safeJSONParse from '../../../private-global/common/utils/safeJSONParse';
 import { INGREDIENTS_BOOKMARK_GROUP } from './api/postIngredientsList';
 
-export const loadBookmarkFolders = async (accessToken, token) => {
-    const { data = [] } = await getBookmarkGroups(accessToken, token);
+export const loadBookmarkFolders = async () => {
+    const { data = [] } = await getBookmarkGroups();
     localStorage.setItem(
         'bookmarkFolders',
         JSON.stringify(

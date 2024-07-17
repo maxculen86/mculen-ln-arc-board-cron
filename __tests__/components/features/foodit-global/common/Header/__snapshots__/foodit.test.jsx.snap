@@ -259,7 +259,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <div
                       class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-1 p-24 rounded-4 shadow-center visibility-hidden opacity-0"
                       data-position="left"
-                      data-visible="false"
                       role="menu"
                     >
                       <div
@@ -1082,7 +1081,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <div
                       class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-1 p-24 rounded-4 shadow-center visibility-hidden opacity-0"
                       data-position="left"
-                      data-visible="false"
                       role="menu"
                     >
                       <div
@@ -1364,13 +1362,11 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
   </div>
   <div
     class="drawer-overlay fixed top-0 left-0 w-100 h-100vh visibility-hidden opacity-0 z-15"
-    data-id="overlay-drawer-menu"
+    data-id="overlay-undefined"
   >
     <div
       class="drawer flex flex-column overflow-hidden fixed w-100 max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular h-100vh h-100dvh top-0 left-0"
-      data-id="drawer-menu"
       data-position="left"
-      data-visible="false"
     >
       <div
         class="flex"

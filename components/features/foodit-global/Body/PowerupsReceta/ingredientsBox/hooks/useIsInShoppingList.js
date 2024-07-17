@@ -1,23 +1,20 @@
 import { useEffect, useState } from 'react';
 import getBookmarkByArticleId from '../../../../common/bookmark/api/getBookmarkByArticleId';
-import { authManager } from '../../../../../../../auth/helper/loginHelper';
 
 export const useIsInShoppingList = (articleId = '', isSuscriptor) => {
     const [bookmarkId, setBookmarkId] = useState(null);
 
     useEffect(() => {
-        const fetchUserBookmarks = async ({ accessToken, token }) => {
+        const fetchUserBookmarks = async () => {
             const { bookmarkId: resBookmarkId } = await getBookmarkByArticleId(
                 'ingredientList',
-                articleId,
-                accessToken,
-                token
+                articleId
             );
 
             resBookmarkId && setBookmarkId(resBookmarkId);
         };
 
-        if (isSuscriptor) authManager(fetchUserBookmarks);
+        if (isSuscriptor) fetchUserBookmarks();
     }, []);
 
     return { bookmarkId, setBookmarkId };

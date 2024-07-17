@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
+import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import get from '../../../private/common/utils/get';
-import { getAuthFromCookie } from '../../../../auth/helper/loginHelper';
 
-export const loginViafoura = async ({
-    outputType,
-    setIsReady,
-    subscription
-}) => {
-    const token = await getAuthFromCookie();
-    const accessToken = await getAuthFromCookie('access-token');
+export const loginViafoura = ({ outputType, setIsReady, subscription }) => {
+    const { getCookie } = handleCookie();
 
     dynamicallyLoadScript('https://cdn.viafoura.net/vf-v2.js', 'body')
         .then(() => {
+            const token = getCookie('token');
             window.vfQ = window.vfQ || [];
             window.vfQ.push(() => {
                 window.vf.$subscribe('commenting', 'loaded', () => {
@@ -20,7 +16,6 @@ export const loginViafoura = async ({
                 });
                 subscription &&
                     token &&
-                    accessToken &&
                     window.vf &&
                     window.vf.session &&
                     window.vf.session.login
@@ -39,12 +34,7 @@ export const loginViafoura = async ({
                         });
             });
         })
-        .catch(error => {
-            console.error(
-                'Ocurrió un error al intentar cargar el script de viafoura',
-                error
-            );
-        });
+        .catch(error => {});
 };
 export const useValidateComments = props => {
     const [data, setData] = useState({});

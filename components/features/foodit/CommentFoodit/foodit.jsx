@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { HeaderComments } from '../../foodit-global/common/headerComments/foodit';
+import useGetUserData from '../../foodit-global/hooks/useGetUserData';
 import { loginViafoura, useValidateComments } from './_helper';
-import useGetUserConfig from '../../foodit-global/hooks/useGetUserConfig';
 import LazyLoad from '../../foodit-global/common/LazyLoad/foodit';
 import LoadingFoodit from '../../foodit-global/common/Loading/foodit';
 import CommentsViafoura from '../../foodit-global/common/CommentFoodit/foodit';
@@ -18,7 +18,7 @@ const CommentFoodit = props => {
         outputType,
         customFields: { hideCaja }
     } = props;
-    const { isSubscribed: subscription, userType } = useGetUserConfig();
+    const { isSuscribed: subscription, userType } = useGetUserData();
 
     const { showComments, allowComments } = useValidateComments(props);
 
