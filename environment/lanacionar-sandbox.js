@@ -117,7 +117,5 @@ export default {
         projectId: 'lanaciontest-24eed',
         storageBucket: 'lanaciontest-24eed.appspot.com'
     },
-    // TODO: Dejar QA cuando se habilite
-    // API_NOTIFICATION: 'https://qa-notificaciones.lanacion.com.ar/api/'
-    API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/'
+    API_NOTIFICATION: 'https://qa-notificaciones.lanacion.com.ar/api/'
 };

@@ -10,8 +10,9 @@ import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
 import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
 import { Favicon } from '../features/foodit-global/common/favicon/foodit';
 import { GetFonts } from './criticalCss/getFonts';
-import LinkCanonical from '../private/common/linkCanonical';
+import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import get from '../private/common/utils/get';
+import FooditSchemas from '../features/foodit-global/schemas/foodit';
 
 const Foodit = ({
     children,
@@ -79,7 +80,8 @@ const Foodit = ({
                     siteProperties={siteProperties}
                     deployment={deployment}
                 />
-                <LinkCanonical
+                <FooditSchemas globalContent={globalContent} layout={layout} />
+                <LinkCanonicalAndAlternate
                     _id={_id}
                     canonicalUrl={canonicalUrl}
                     host={SITE_FOODIT}

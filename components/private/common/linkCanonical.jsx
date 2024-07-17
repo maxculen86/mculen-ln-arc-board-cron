@@ -3,8 +3,9 @@ import PropTypes from 'fusion:prop-types';
 import addForwardSlash from '../LN/common/utils/addForwardSlash';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
+import { isUSALangHtml } from './utils/outputTypeHelper';
 
-const LinkCanonical = (props = {}) => {
+const LinkCanonicalAndAlternate = (props = {}) => {
     const {
         _id = '',
         canonicalUrl = '',
@@ -33,12 +34,17 @@ const LinkCanonical = (props = {}) => {
           );
 
     return host && (canonicalUrl || _id || nodeType === 'home') ? (
-        <link rel="canonical" href={canonicalLink} />
+        <>
+            <link rel="canonical" href={canonicalLink} />
+            {isUSALangHtml(_id, canonicalUrl) && (
+                <link rel="alternate" href={canonicalLink} hreflang="es-US" />
+            )}
+        </>
     ) : (
         <></>
     );
 };
-LinkCanonical.propTypes = {
+LinkCanonicalAndAlternate.propTypes = {
     _id: PropTypes.string.isRequired,
     canonicalUrl: PropTypes.string.isRequired,
     host: PropTypes.string.isRequired,
@@ -48,4 +54,4 @@ LinkCanonical.propTypes = {
     }).isRequired,
     template: PropTypes.string.isRequired
 };
-export default LinkCanonical;
+export default LinkCanonicalAndAlternate;

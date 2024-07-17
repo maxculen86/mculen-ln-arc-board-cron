@@ -10,8 +10,7 @@ export const MainHeaderLN = () => {
     const {
         wrapperMainHeaderClassNames,
         mainHeaderClassNames,
-        mainHeaderContentClassNames,
-        userType
+        mainHeaderContentClassNames
     } = useHeaderContext();
 
     return (
@@ -25,7 +24,7 @@ export const MainHeaderLN = () => {
                         <CenterOptions />
                     </MainHeader.Content.Center>
                     <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
-                        <RightOptions userType={userType} />
+                        <RightOptions />
                     </MainHeader.Content.Right>
                     <MainHeaderEventsScript />
                 </MainHeader.Content>

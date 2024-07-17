@@ -3,12 +3,13 @@ import { LAZY_OFFSETTOP, API_ENV } from 'fusion:environment';
 import React, { useEffect, useState } from 'react';
 import Lazy from 'lazy-child';
 import { NewsletterBox } from '@ln/lib-newsletter';
+import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import get from '../../../private/common/utils/get';
 import { ToastContainer } from '@ln/common-ui-toast';
 import { toastProps } from './_helper';
 import { Toast } from '@ln/contenidos-ui-toast';
 import NewsLetterEventsScript from '../../../private/common/scriptManager/NewsLetterEventScript';
-import { authManager } from '../../../../auth/helper/loginHelper';
+
 import '../../../../resources/packages/css/@ln/common-ui-toast/index.css';
 
 const NewsLetter = ({ globalContent }) => {
@@ -16,32 +17,29 @@ const NewsLetter = ({ globalContent }) => {
     const [newToast, setNewToast] = useState(<></>);
 
     useEffect(() => {
-        authManager(({ accessToken = '', token = '' } = {}) => {
-            const primarySection = get(
-                globalContent,
-                'taxonomy.primary_section._id',
-                ''
-            );
-            // TODO: Este parche se debe eliminar una vez hagan el cambio respectivo en la Lib NewsletterBox
-            const tokenTransformed = accessToken
-                ? accessToken.replace('Bearer', '').trim()
-                : '';
+        const { getCookie } = handleCookie();
+        const primarySection = get(
+            globalContent,
+            'taxonomy.primary_section._id',
+            ''
+        );
+        const token = getCookie('token');
+        const accessToken = getCookie('access-token');
 
-            setProps({
-                section: primarySection.split('/')[1],
-                version: 3,
-                site: 'all',
-                ...(token &&
-                    accessToken && {
-                        userIdToken: token,
-                        userAccessToken: tokenTransformed
-                    }),
-                useTestEnvironment: API_ENV !== 'prod',
-                onSubscription: ({ code }) =>
-                    code >= 200 && code < 400
-                        ? setNewToast(<Toast {...toastProps['success']} />)
-                        : setNewToast(<Toast {...toastProps['error']} />)
-            });
+        setProps({
+            section: primarySection.split('/')[1],
+            version: 3,
+            site: 'all',
+            ...(token &&
+                accessToken && {
+                    userIdToken: token,
+                    userAccessToken: accessToken
+                }),
+            useTestEnvironment: API_ENV !== 'prod',
+            onSubscription: ({ code }) =>
+                code >= 200 && code < 400
+                    ? setNewToast(<Toast {...toastProps['success']} />)
+                    : setNewToast(<Toast {...toastProps['error']} />)
         });
     }, []);
 

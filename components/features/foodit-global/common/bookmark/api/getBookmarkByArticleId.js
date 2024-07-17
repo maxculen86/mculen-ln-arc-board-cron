@@ -1,11 +1,13 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 
-const getBookmarkByArticleId = async (
-    bookmarkType = 'article',
-    articleId,
-    accessToken,
-    token
-) => {
+import getToken from '../../../../../private/common/utils/getToken';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+
+const getBookmarkByArticleId = async (bookmarkType = 'article', articleId) => {
+    // TODO: should use useClientLibs
+    const token = getToken();
+    const accessToken = getToken('access-token');
+
     if (!token || !accessToken || !articleId) return {};
 
     try {
@@ -15,7 +17,7 @@ const getBookmarkByArticleId = async (
                 method: 'GET',
                 headers: {
                     'X-Token': token,
-                    Authorization: accessToken
+                    Authorization: `Bearer ${accessToken}`
                 }
             }
         );

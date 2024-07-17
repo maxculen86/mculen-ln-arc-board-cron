@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 
-const Observable = () => {
+const ObservableFoodit = () => {
     const { contextPath, deployment } = useAppContext();
 
     return (
@@ -14,4 +14,4 @@ const Observable = () => {
         />
     );
 };
-export default Observable;
+export default ObservableFoodit;

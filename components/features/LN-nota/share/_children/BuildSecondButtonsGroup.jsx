@@ -24,7 +24,7 @@ const BuildSecondButtonsGroup = ({
     const [copy, setCopy] = useState(false);
 
     const paddingPosition = subtypeVideo
-        ? 'pl-8 ai-center gap-16_m gap-24'
+        ? 'pl-8 ai-center gap-8 gap-24_m'
         : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m';
 
     const flexVideo = subtypeVideo ? '' : 'flex-column_l';

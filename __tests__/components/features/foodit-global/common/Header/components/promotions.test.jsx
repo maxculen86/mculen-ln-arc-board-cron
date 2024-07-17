@@ -1,30 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { render, screen } from '@testing-library/react';
 import { Promotions } from '../../../../../../../components/features/foodit-global/common/Header/components/promotions/Promotions';
 import '@testing-library/jest-dom';
-import useGetUserData from '../../../../../../../auth/hooks/useGetUserData';
 
-jest.mock('../../../../../../../auth/hooks/useGetUserData');
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
     useContext: jest.fn()
 }));
 
 describe('Components - Features - foodit-global - common - Header - components - Promotions', () => {
-    const mockUserLogedAndSuscribed = {
-        userType: 'subscribed',
-        isSubscribed: true,
-        userEmail: 'hola@mundo.com',
-        userName: 'Hola',
-        userLastName: 'Mundo'
-    };
     it('renders correctly for user type "unlogged"', () => {
-        useGetUserData.mockReturnValue({
-            userType: 'unlogged',
-            isSubscribed: false,
-            userEmail: '',
-            userName: '',
-            userLastName: ''
+        useContext.mockReturnValue({
+            ProductoPremiumId: '',
+            UsuarioDetalleEmail: '',
+            UsuarioDetalleNombre: '',
+            UsuarioDetalleApellido: ''
         });
 
         const { container } = render(<Promotions />);
@@ -38,10 +28,11 @@ describe('Components - Features - foodit-global - common - Header - components -
         expect(screen.getByText('SUSCRIBITE GRATIS')).toBeInTheDocument();
     });
     it('renders correctly for user type "logged"', () => {
-        useGetUserData.mockReturnValue({
-            ...mockUserLogedAndSuscribed,
-            userType: 'logged',
-            isSubscribed: false
+        useContext.mockReturnValue({
+            ProductoPremiumId: '',
+            UsuarioDetalleEmail: 'hola@mundo.com',
+            UsuarioDetalleNombre: 'Hola',
+            UsuarioDetalleApellido: 'Mundo'
         });
 
         const { container } = render(<Promotions />);
@@ -56,9 +47,15 @@ describe('Components - Features - foodit-global - common - Header - components -
 
     //TODO: queda pendiente la validacion para el suscribedPlus (MVP2)
     it('renders correctly for user type "subscribed"', () => {
-        useGetUserData.mockReturnValue(mockUserLogedAndSuscribed);
+        useContext.mockReturnValue({
+            ProductoPremiumId: '2,3,4,5,22',
+            UsuarioDetalleEmail: 'hola@mundo.com',
+            UsuarioDetalleNombre: 'Hola',
+            UsuarioDetalleApellido: 'Mundo'
+        });
 
         const { container } = render(<Promotions />);
+
         const PromotionContainer = container.querySelector(
             '.promotions-container'
         );

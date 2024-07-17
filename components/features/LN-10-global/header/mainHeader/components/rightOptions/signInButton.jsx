@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button } from '@ln/contenidos-ui-button';
 import { useHeaderContext } from '../../../context';
-import { LOGIN_URL } from 'fusion:environment';
 
 export const SignInButton = () => {
-    const { negative, userType } = useHeaderContext();
+    const { negative, userType, goToLoginUrl } = useHeaderContext();
 
     if (userType !== 'unlogged') return <></>;
     return (
@@ -13,9 +12,7 @@ export const SignInButton = () => {
                 title="Iniciar sesión"
                 variant="secondary"
                 className="--tablet-none"
-                onClick={() =>
-                    (location.href = LOGIN_URL + window.btoa(location.href))
-                }
+                onClick={goToLoginUrl}
                 isNegative={negative}
                 id="btningresar"
             >

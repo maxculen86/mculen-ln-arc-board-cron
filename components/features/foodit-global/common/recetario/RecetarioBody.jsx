@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import useGetRecetarioData from './hooks/useGetRecetarioData';
+import useGetUserData from '../../hooks/useGetUserData';
+
 import { createSummaryList } from '../utils/recetarioHelper';
 
 import { Button } from '@ln/foodit-ui-button';
@@ -13,11 +15,11 @@ import { EmptyStateComponent } from './helpers';
 import DrawerRecetario from '../drawerRecetario/foodit';
 import BookmarkedArticles from './components/BookmarkedArticles';
 import EditFolderModal from './components/EditFolderModal';
-import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 const RecetarioBody = () => {
     const { loading, userBookmarks, setUserBookmarks } = useGetRecetarioData();
-    const { userType } = useGetUserConfig();
+    const { userType } = useGetUserData();
+
     const [selectedItem, setSelectedItem] = useState({});
     const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
     useEffect(() => {

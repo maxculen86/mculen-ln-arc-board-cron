@@ -7,9 +7,12 @@ import { fooditSchemaLogo } from './_helpers';
 import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 import replaceBaseUrl from '../common/utils/replaceBaseUrl';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
-import SnippetRender from '../../../private/common/snippet/snippetRender';
+import { getBreadcrumbSections } from '../common/breadcrumb/_helpers';
 
-export const StorytellingSchema = ({ article = {} }) => {
+import SnippetRender from '../../../private/common/snippet/snippetRender';
+import { BreadcrumbSchema } from './Breadcrumb';
+
+export const StorytellingSchema = ({ globalContent = {} }) => {
     const { contextPath, deployment } = useAppContext();
     const {
         promo_items = {},
@@ -17,8 +20,8 @@ export const StorytellingSchema = ({ article = {} }) => {
         additional_properties = {},
         subheadlines = {},
         canonical_url = ''
-    } = article;
-    const author = getFooditAuthor(article);
+    } = globalContent;
+    const author = getFooditAuthor(globalContent);
 
     const title = get(headlines, 'basic', '');
     const subheadline = get(subheadlines, 'basic');
@@ -26,7 +29,7 @@ export const StorytellingSchema = ({ article = {} }) => {
     const { resized_urls = [] } = replaceBaseUrl(get(promo_items, 'basic', {}));
     const { resizedUrl = '' } = getShortestImage(resized_urls);
 
-    const recipeSchema = {
+    const storyTellingSchema = {
         '@context': 'http://schema.org',
         '@type': 'NewsArticle',
         mainEntityOfPage: {
@@ -47,10 +50,20 @@ export const StorytellingSchema = ({ article = {} }) => {
         publisher: {
             '@type': 'Organization',
             name: 'Foodit',
+            url: `${SITE_FOODIT}/`,
             logo: fooditSchemaLogo(deployment, contextPath)
         },
         description: `${subheadline || title} - Foodit`
     };
 
-    return <SnippetRender id="ficha-schema" data={recipeSchema} />;
+    return (
+        <>
+            <SnippetRender
+                key="ficha-schema"
+                id="ficha-schema"
+                data={storyTellingSchema}
+            />
+            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
+        </>
+    );
 };

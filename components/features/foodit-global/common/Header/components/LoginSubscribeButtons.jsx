@@ -4,11 +4,11 @@ import {
     FOODIT_LOGIN_URL,
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
+import useGetUserData from '../../../hooks/useGetUserData';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
-import useGetUserConfig from '../../../hooks/useGetUserConfig';
 
 const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
-    const { promotions } = useGetUserConfig();
+    const { promotions } = useGetUserData();
     const { buttonLogginText, buttonSubscribeText } = promotions;
 
     return (

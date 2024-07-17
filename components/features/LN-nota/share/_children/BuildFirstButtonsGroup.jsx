@@ -22,6 +22,7 @@ import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 import eventHandler from '../../../../private/common/audioNews/trackerAudioNews';
 import useTermica from '../../../../private/common/hooks/useTermica';
+import getToken from '../../../../private/common/utils/getToken';
 import classNames from 'classnames';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
@@ -56,6 +57,7 @@ const BuildFirtsButtonsGroup = ({
         }
     });
     const totalVisibleContent = get(data, 'total_visible_content', '');
+    const accessToken = getToken('access-token');
 
     const { bookmarkClass, bookmarkIcon } = getClassAndIconByBookmark(bookmark);
     const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
@@ -104,12 +106,14 @@ const BuildFirtsButtonsGroup = ({
                     dataSection="Guardar Nota"
                     onClick={() => {
                         onButtonClicked(
+                            token,
                             suscription,
                             globalContent,
                             bookmark,
                             setBookmark,
                             dispatch,
-                            state
+                            state,
+                            accessToken
                         );
                     }}
                     variant="secondary"

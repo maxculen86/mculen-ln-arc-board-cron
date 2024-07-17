@@ -2,23 +2,16 @@ import 'regenerator-runtime/runtime';
 import env from '../../../../../__mocks__/fusion:environment';
 import React from 'react';
 import useCountBookmarks from '../../../../../components/private/common/hooks/bookmark/useCountBookmarks';
-import { authManager } from '../../../../../auth/helper/loginHelper';
-
-jest.mock('../../../../../auth/helper/loginHelper');
 
 describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
     const setData = jest.fn().mockImplementation(x => x);
     React.useState = jest.fn().mockReturnValue([null, setData]);
     React.useEffect = jest.fn().mockImplementation(f => f());
     React.useCallback = jest.fn().mockImplementation(f => f);
-    beforeEach(() => {
-        jest.clearAllMocks();
-        authManager.mockImplementation(callback =>
-            callback({ accessToken: 'mock-access-token', token: 'mock-token' })
-        );
-    });
 
     const termicaBookmark = true;
+    const token = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
+    const accessToken = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
     const isSuscriber = true;
 
     global.fetch = jest.fn();
@@ -39,17 +32,17 @@ describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
         const termicaBookmark = false;
         const { bookmarkCount } = useCountBookmarks(
             termicaBookmark,
+            token,
             isSuscriber
         );
         expect(bookmarkCount).toBe(null);
         expect(fetch).not.toBeCalled();
     });
     it('Should return null when there is no token', () => {
-        authManager.mockImplementation(callback =>
-            callback({ accessToken: 'mock-access-token', token: undefined })
-        );
+        const token = null;
         const { bookmarkCount } = useCountBookmarks(
             termicaBookmark,
+            token,
             isSuscriber
         );
         expect(bookmarkCount).toBe(null);
@@ -59,19 +52,25 @@ describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
         const isSuscriber = false;
         const { bookmarkCount } = useCountBookmarks(
             termicaBookmark,
+            token,
             isSuscriber
         );
         expect(bookmarkCount).toBe(null);
         expect(fetch).not.toBeCalled();
     });
     it('Should call fetch correctly when called with all necesary parameters', () => {
-        useCountBookmarks(termicaBookmark, isSuscriber);
+        const { bookmarkCount } = useCountBookmarks(
+            termicaBookmark,
+            token,
+            accessToken,
+            isSuscriber
+        );
         expect(fetch).toBeCalledWith(
             `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks-count`,
             {
                 headers: {
-                    Authorization: 'mock-access-token',
-                    'X-Token': 'mock-token'
+                    Authorization: `Bearer ${accessToken}`,
+                    'X-Token': token
                 },
                 method: 'GET'
             }

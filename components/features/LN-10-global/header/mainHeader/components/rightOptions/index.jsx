@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SignInButton } from './signInButton';
 import { MenuUser } from './menuUser';
 import { SubscribeButton } from './subscribeButton';
 import { UpsellingButton } from './upsellingButton';
+import { useHeaderContext } from '../../../context';
 import BellButton from './bellButton';
 
-export const RightOptions = ({ userType }) => {
+export const RightOptions = () => {
+    const [loadingData, setLoadingData] = useState(true);
+
+    const { loading } = useHeaderContext();
+    useEffect(() => {
+        setLoadingData(loading);
+    }, []);
+
+    if (loadingData) return <></>;
     return (
         <>
             <BellButton />
-            {userType !== 'loading' && (
-                <>
-                    <UpsellingButton />
-                    <MenuUser />
-                    <SignInButton />
-                    <SubscribeButton />
-                </>
-            )}
+            <UpsellingButton />
+            <MenuUser />
+            <SignInButton />
+            <SubscribeButton />
         </>
     );
 };

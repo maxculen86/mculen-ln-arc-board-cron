@@ -19,15 +19,9 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
 
     return (
         <BaseLayout>
-            <RecipeSchema article={globalContent} />
-            <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
             <UserBookmarks />
             <section className="flex flex-column gap-24">
-                <Breadcrumb
-                    globalContent={globalContent}
-                    className="lg-only"
-                    layout={'ficha-receta'}
-                />
+                <Breadcrumb globalContent={globalContent} className="lg-only" />
                 <OpeningRecipe article={globalContent} />
             </section>
             <Static htmlOnly persistent id="subtitle-mobile-recipe">
@@ -55,11 +49,7 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </section>
-            <Breadcrumb
-                globalContent={globalContent}
-                className="lg-none"
-                layout={'ficha-receta'}
-            />
+            <Breadcrumb globalContent={globalContent} className="lg-none" />
             <hr className="lg-none" />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>

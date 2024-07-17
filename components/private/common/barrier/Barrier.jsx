@@ -10,6 +10,7 @@ import get from '../utils/get';
 import '../../../../resources/dist/css/ln/components/barrier.css';
 import CONFIG from './_config';
 import toggleBookmark from '../utils/bookmarkHelper';
+import getToken from '../utils/getToken';
 
 const Barrier = ({
     handleBarrier,
@@ -83,6 +84,8 @@ const Barrier = ({
                                 classCondition={buttons.confirm.style}
                                 onClick={() => {
                                     toggleBookmark(
+                                        getToken('access-token'),
+                                        getToken(),
                                         bookmarkId,
                                         false,
                                         dispatch

@@ -4,7 +4,7 @@ import { Icon } from '@ln/common-ui-icon';
 import { useDrawer } from '@ln/common-ui-drawer';
 import { DRAWER } from '../../../DrawerContainer/constants';
 import AvatarRecetas from '../Avatar';
-import useGetUserConfig from '../../../../hooks/useGetUserConfig';
+import useGetUserData from '../../../../hooks/useGetUserData';
 import IconSprite from '../../../../../../features/private-global/common/iconSprite/IconSprite';
 
 const RenderUserOptions = () => {
@@ -13,8 +13,7 @@ const RenderUserOptions = () => {
         initials,
         initialsClassName,
         suscription
-    } = useGetUserConfig();
-
+    } = useGetUserData();
     const { toggleDrawer } = useDrawer({ id: DRAWER.MY_ACCOUNT });
 
     if (userType === 'loading' || userType === 'unlogged') return <></>;

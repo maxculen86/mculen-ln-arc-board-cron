@@ -1,11 +1,11 @@
 import React from 'react';
 import { RenderPlans } from './RenderPlans';
 import LoginSubscribeButtons from '../LoginSubscribeButtons';
-import useGetUserConfig from '../../../../hooks/useGetUserConfig';
+import useGetUserData from '../../../../hooks/useGetUserData';
 import classNames from 'classnames';
 
 export const Promotions = () => {
-    const { promotions } = useGetUserConfig();
+    const { promotions } = useGetUserData();
 
     const {
         buttonLogginText,

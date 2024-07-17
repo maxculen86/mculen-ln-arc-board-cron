@@ -7,10 +7,7 @@ import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
 import flatArray from '../utils/flatArray';
 import getQueryParamValue from '../utils/getQueryParamValue';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../auth/helper/loginHelper';
+import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import {
     getBannerConfiguration,
     getSlotForDevice,
@@ -23,7 +20,7 @@ const LoadBanners = ({ blocksBanners }) => {
     const { outputType, isAdmin } = useAppContext();
     const device = useViewportSize();
 
-    const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
+    const subscription = isSubscribed();
 
     const bannersConfiguration = blocksBanners.map(el => {
         const { desktop, tablet, mobile } = el;

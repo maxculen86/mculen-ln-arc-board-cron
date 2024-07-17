@@ -67,7 +67,7 @@ const body = ({ customFields }) => {
     });
 
     return (
-        <div className="flex flex-column mrf-article-body">
+        <>
             {isClient ? (
                 <AudioPlayerDesktop
                     isListenable={isListenable}
@@ -78,7 +78,7 @@ const body = ({ customFields }) => {
                 <FalsePlaceHolderAudioPlayer isListenable={isListenable} />
             )}
             {renderComponents}
-        </div>
+        </>
     );
 };
 

@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
+
 import getBookmarks from '../api/getBookmarks';
 import { fillBookmarks } from '../iconHelper';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER,
-    authManager
-} from '../../../../../../auth/helper/loginHelper';
+import getToken from '../../../../../private/common/utils/getToken';
+import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
 
 export const UserBookmarks = () => {
     useEffect(() => {
         localStorage.removeItem('bookmarkFolders');
         localStorage.removeItem('bookmarkedItems');
 
-        const fetchUserBookmarks = async ({ accessToken, token } = {}) => {
-            const { data = [] } = await getBookmarks(accessToken, token);
+        const fetchUserBookmarks = async () => {
+            const { data = [] } = await getBookmarks();
 
             const bookmarks = data.map(({ bookmarkTypeId, bookmarkId }) => {
                 return { bookmarkTypeId, bookmarkId };
@@ -27,8 +25,8 @@ export const UserBookmarks = () => {
             }
         };
 
-        if (isSubscribed(SUBSCRIBED_HELPER.FOODIT))
-            authManager(fetchUserBookmarks);
+        const premiumProduct = getToken('ProductoPremiumId');
+        isFooditSuscriptor(premiumProduct) && fetchUserBookmarks();
     }, []);
 
     return <></>;
