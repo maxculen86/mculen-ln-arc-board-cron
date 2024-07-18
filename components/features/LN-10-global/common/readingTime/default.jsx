@@ -15,7 +15,7 @@ const ReadingTime = () => {
         ''
     );
     const readingMinutes = calcReadingMinutes(wordCount);
-    const formattedReadingTime = readingMinutes.toString().padStart(2, '0');
+    const formattedReadingTime = readingMinutes.toString();
 
     const minuteOrMinutes = readingMinutes === 1 ? 'minuto' : 'minutos';
     const subtype = get(globalContent, 'subtype', '');
