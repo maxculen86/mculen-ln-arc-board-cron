@@ -3,23 +3,27 @@
 exports[`SummaryNote => Should match the snapshot 1`] = `
 <div>
   <section
-    class="flex flex-column gap-16 border border-thin border-primary-ia border-left-solid_min512 pl-20_min512 cursor-pointer"
+    class="common-collapse cursor-pointer flex flex-column gap-16 border border-thin border-primary-ia border-left-solid_min512 pl-20_min512 cursor-pointer"
     data-testid="summary-note"
     title="Ver más"
   >
-    <div
+    <header
       class="flex ai-center gap-6"
     >
-      <mock-icon
-        color="true"
-        name="summary"
-      />
+      <i
+        class="icon --icon-24"
+      >
+        <mock-icon
+          color="true"
+          name="summary"
+        />
+      </i>
       <h2
         class="text ln-text --font-primary --font-medium --font-l text-neutral-light-800"
       >
         Resumen de la nota
       </h2>
-    </div>
+    </header>
     <div
       class="grid-drawer"
       data-collapsed="true"
@@ -29,7 +33,7 @@ exports[`SummaryNote => Should match the snapshot 1`] = `
         data-difumination="true"
       >
         <ul
-          class="flex flex-column pl-32 gap-16 --list-inherit"
+          class="flex flex-column --list-inherit gap-16 pl-32"
         >
           <li
             class="--font-m --font-regular marker-26"
@@ -84,13 +88,15 @@ exports[`SummaryNote => Should match the snapshot 1`] = `
         <div
           class="flex ai-center gap-8 pb-8"
         >
-          <mock-icon
-            default="true"
-            fill="#FFFFFF"
-            height="16"
-            name="iaGeneric"
-            width="16"
-          />
+          <i
+            class="icon --icon-16"
+          >
+            <mock-icon
+              default="true"
+              fill="#FFFFFF"
+              name="iaGeneric"
+            />
+          </i>
           <span
             class="text ln-text text-light-600"
           >
@@ -99,7 +105,7 @@ exports[`SummaryNote => Should match the snapshot 1`] = `
         </div>
       </div>
     </div>
-    <div
+    <footer
       class="flex gap-4 ai-center"
     >
       <span
@@ -107,14 +113,16 @@ exports[`SummaryNote => Should match the snapshot 1`] = `
       >
         Ver más
       </span>
-      <mock-icon
-        classname=""
-        default="true"
-        height="16"
-        name="arrowDown"
-        width="16"
-      />
-    </div>
+      <i
+        class="icon --icon-16"
+      >
+        <mock-icon
+          classname=""
+          default="true"
+          name="arrowDown"
+        />
+      </i>
+    </footer>
   </section>
 </div>
 `;

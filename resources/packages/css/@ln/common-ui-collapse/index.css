@@ -1,0 +1,36 @@
+.common-collapse .difumination::after {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6.25rem;
+  transition: opacity 500ms;
+  -webkit-transition: opacity 500ms;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0, #fff 100%);
+  z-index: 1;
+}
+.common-collapse .difumination[data-difumination=true]::after {
+  opacity: 1;
+}
+.common-collapse .grid-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
+}
+.common-collapse .grid-drawer > *:first-child {
+  overflow: hidden;
+  transition: padding-bottom 100ms 100ms;
+}
+.common-collapse .grid-drawer > *:first-child.pb-170 {
+  padding-bottom: 10.625rem;
+}
+@media (min-width: 64rem) {
+  .common-collapse .grid-drawer > *:first-child.pb-125_min1024 .pb-125_min1024 {
+    padding-bottom: 7.8125rem;
+  }
+}
+.common-collapse .grid-drawer[data-collapsed=false] {
+  grid-template-rows: 1fr;
+}

@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
+import { Icon } from '@ln/common-ui-icon';
+import { Collapse, useCollapse } from '@ln/common-ui-collapse';
 import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from './utils/addEventToDataLayer';
+import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
+import generateUniqueId from '../../../features/LN-10-global/common/utils/ generateUniqueId';
 
 const SummaryNote = ({ paragraphs = [], className }) => {
-    if (!paragraphs.length) return <></>;
+    const { collapsed, toggle } = useCollapse(true);
 
-    const [collapsed, setCollapsed] = useState(true);
+    if (!paragraphs.length) return null;
 
     const toggleText = collapsed ? 'Ver más' : 'Ver menos';
+
     const _classNames = classNames(
         'flex flex-column gap-16 border border-thin border-primary-ia border-left-solid_min512 pl-20_min512 cursor-pointer',
         className
-    );
-    const drawerChildClass = classNames(
-        'flex flex-column gap-16 relative difumination',
-        collapsed ? 'pb-170 pb-125_min1024' : 'pb-0'
     );
 
     const handleCollapsedClick = () => {
@@ -28,66 +29,62 @@ const SummaryNote = ({ paragraphs = [], className }) => {
                 label: 'resumen_nota'
             });
         }
+        toggle();
     };
 
     return (
-        <section
+        <Collapse
+            handleCollapse={handleCollapsedClick}
             className={_classNames}
-            data-testid="summary-note"
             title={toggleText}
-            onClick={() => {
-                setCollapsed(collapsed => !collapsed);
-                handleCollapsedClick();
-            }}
+            data-testid="summary-note"
         >
-            <div className="flex ai-center gap-6">
-                <IconSprite name="summary" color />
+            <Collapse.Header className="flex ai-center gap-6">
+                <Icon size={24}>
+                    <IconSprite name="summary" color />
+                </Icon>
                 <Text
                     as="h2"
                     className="--font-primary --font-medium --font-l text-neutral-light-800"
                     text="Resumen de la nota"
                 />
-            </div>
-            <div className="grid-drawer" data-collapsed={collapsed}>
-                <div className={drawerChildClass} data-difumination={collapsed}>
-                    <ul className="flex flex-column pl-32 gap-16 --list-inherit">
-                        {paragraphs.map((paragraph, i) => (
-                            <li
-                                className="--font-m --font-regular marker-26"
-                                key={i}
-                                dangerouslySetInnerHTML={{ __html: paragraph }}
-                            />
-                        ))}
-                    </ul>
-                    <div className="flex ai-center gap-8 pb-8">
-                        <IconSprite
-                            name="iaGeneric"
-                            default
-                            width={16}
-                            height={16}
-                            fill="#FFFFFF"
+            </Collapse.Header>
+            <Collapse.Body collapsed={collapsed}>
+                <ul className="flex flex-column --list-inherit gap-16 pl-32">
+                    {paragraphs.map(paragraph => (
+                        <li
+                            key={generateUniqueId()}
+                            className="--font-m --font-regular marker-26"
+                            dangerouslySetInnerHTML={{
+                                __html: paragraph
+                            }}
                         />
-                        <Text
-                            text="Realizado con Inteligencia Artificial"
-                            className="text-light-600"
-                        />
-                    </div>
+                    ))}
+                </ul>
+                <div className="flex ai-center gap-8 pb-8">
+                    <Icon size={16}>
+                        <IconSprite name="iaGeneric" default fill="#FFFFFF" />
+                    </Icon>
+                    <Text
+                        text="Realizado con Inteligencia Artificial"
+                        className="text-light-600"
+                    />
                 </div>
-            </div>
-            <div className="flex gap-4 ai-center">
+            </Collapse.Body>
+            <Collapse.Footer className="flex gap-4 ai-center">
                 <Text
                     text={toggleText}
                     className="--font-regular --font-xs text-neutral-light-800"
                 />
-                <IconSprite
-                    name="arrowDown"
-                    default
-                    width={16}
-                    height={16}
-                    className={collapsed ? '' : 'rotate-180'}
-                />
-            </div>
-        </section>
+                <Icon size={16}>
+                    <IconSprite
+                        name="arrowDown"
+                        default
+                        className={collapsed ? '' : 'rotate-180'}
+                    />
+                </Icon>
+            </Collapse.Footer>
+        </Collapse>
     );
 };
 
