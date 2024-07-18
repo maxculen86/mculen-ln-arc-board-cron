@@ -4,13 +4,7 @@ import siteConfig from '../../../../properties/sites/la-nacion-ar';
 
 export const hasArticles = data => !!get(data, 'articles', []).length;
 
-export const getDataContent = (
-    sectionId,
-    sectionParentId,
-    website,
-    hasHydrateOnly = false,
-    layout
-) => {
+export const getDataContent = (sectionId, sectionParentId, website, layout) => {
     const getRankingData = section =>
         getContent({
             source: 'rankingArticlesSource',
@@ -21,8 +15,7 @@ export const getDataContent = (
                 layout,
                 shouldUseV2:
                     layout === get(siteConfig, 'layoutsName.HomeLN10', '')
-            },
-            staticMode: hasHydrateOnly
+            }
         });
 
     const data = getRankingData(sectionId);

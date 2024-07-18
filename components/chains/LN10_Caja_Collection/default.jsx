@@ -61,8 +61,7 @@ const CajaCollection = props => {
         isInSiteService,
         articlesFromCollectionSiteService,
         idsArticlesToExclude,
-        diagramation,
-        isHome
+        diagramation
     } = getDataChainCollection({
         idCollection,
         pageLayout,
@@ -93,8 +92,7 @@ const CajaCollection = props => {
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website: isFoodit ? 'foodit' : 'la-nacion-ar',
-              hasHydrateOnly: isHome
+              website: isFoodit ? 'foodit' : 'la-nacion-ar'
           })
         : [];
 

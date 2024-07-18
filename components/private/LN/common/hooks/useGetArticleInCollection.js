@@ -13,8 +13,7 @@ const useGetArticleInCollection = ({
     filterRecomendar = false,
     filterRepetead = false,
     layout = '',
-    website = 'la-nacion-ar',
-    hasHydrateOnly = true
+    website = 'la-nacion-ar'
 }) => {
     const checkIdCollection =
         idCollection && idCollection.trim() && idCollection;
@@ -33,7 +32,6 @@ const useGetArticleInCollection = ({
             isFocal: layout && layout.includes('focal'),
             diagramation
         },
-        staticMode: hasHydrateOnly,
         filter:
             (diagramation &&
                 diagramation === 'editoriales2' &&

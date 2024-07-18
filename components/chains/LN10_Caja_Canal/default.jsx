@@ -53,8 +53,7 @@ const CajaCanal = props => {
         isInSiteService,
         articlesFromCollectionSiteService,
         idsArticlesToExclude,
-        diagramation,
-        isHome
+        diagramation
     } = getDataChainCollection({
         idCollection,
         pageLayout,
@@ -80,8 +79,7 @@ const CajaCanal = props => {
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website,
-              hasHydrateOnly: isHome
+              website
           })
         : [];
 
