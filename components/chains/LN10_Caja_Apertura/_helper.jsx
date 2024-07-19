@@ -2,7 +2,7 @@
 import PropTypes from 'fusion:prop-types';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 
-const { FOCAL_LEFT, FOCAL_CENTER, FOCAL_70, BN_OPENING_4 } = LAYOUTS;
+const { FOCAL_LEFT, FOCAL_CENTER, FOCAL_70, BN_OPENING_4, FOCAL_100 } = LAYOUTS;
 
 export const setCustomFields = () => {
     const CUSTOM_FIELDS_CONFIG = {
@@ -15,7 +15,8 @@ export const setCustomFields = () => {
                 [FOCAL_LEFT]: 'Focal Izquierdo',
                 [FOCAL_CENTER]: 'Focal Central',
                 [FOCAL_70]: 'Focal al 70',
-                [BN_OPENING_4]: 'Apertura x 4'
+                [BN_OPENING_4]: 'Apertura x 4',
+                [FOCAL_100]: 'Focal al 100'
             }
         },
         hideCaja: {
