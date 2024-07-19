@@ -29,6 +29,10 @@ export default {
         props: {},
         location: [HEAD]
     },
+    SocialEmbeds: {
+        props: {},
+        location: [BODYTOP]
+    },
     GooglePublisherTagAcumulado: {
         props: {},
         location: [HEAD]
