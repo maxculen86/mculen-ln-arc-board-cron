@@ -4,10 +4,13 @@ import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../snippet/snippetRender';
 import MillisecondsToTime from '../utils/millisecondsToTime';
 import get from '../utils/get';
-import { formatJwPlayerDate } from '../videoPlayerJw/utils/helperJw';
+import {
+    formatJwPlayerDate,
+    getAlternativeDescription
+} from '../videoPlayerJw/utils/helperJw';
 
-const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
-    const { content: primerParrafo = '' } = parrafo || {};
+const videoPlayerSnippet = ({ mediaData, minStream, paragraph, noteTitle }) => {
+    const { content: firstParagraph = '' } = paragraph || {};
     const {
         promo_items: promoItems,
         created_date: createdDate = '',
@@ -18,21 +21,24 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
 
     if (!mediaData) return null;
 
-    const notaTitle = tituloNota || '';
     const caption = get(promoItems, 'basic.caption', '');
-    const epigrafe = get(mediaData, 'headlines.basic', '').trim() || caption;
+    const epigraph = get(mediaData, 'headlines.basic', '').trim() || caption;
     const basicUrl = get(promoItems, 'basic.url') || image;
     const minStreamUrl = get(minStream, 'url', '');
+    const uploadDate = createdDate || formatJwPlayerDate(pubdate) || '';
+    const description =
+        epigraph ||
+        firstParagraph.trim() ||
+        paragraph?.trim() ||
+        getAlternativeDescription(uploadDate, noteTitle?.trim());
 
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
-        name: notaTitle || 'LA NACION - Noticia',
-        description: `${epigrafe || primerParrafo || parrafo}`,
+        name: noteTitle?.trim() || 'LA NACION - Noticia',
+        description,
         thumbnailUrl: [`${basicUrl}`],
-        uploadDate:
-            `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') ||
-                formatJwPlayerDate(pubdate)}` || '',
+        uploadDate,
         embedUrl: `${minStreamUrl}`,
         duration: `${MillisecondsToTime(duration)}`
     };
@@ -52,6 +58,7 @@ videoPlayerSnippet.propTypes = {
             })
         }),
         created_date: PropTypes.string.isRequired,
+        pubdate: PropTypes.number,
         publish_date: PropTypes.string.isRequired,
         duration: PropTypes.number.isRequired
     }).isRequired,
@@ -60,7 +67,7 @@ videoPlayerSnippet.propTypes = {
         url: PropTypes.string
     }).isRequired,
     tituloNota: PropTypes.string.isRequired,
-    parrafo: PropTypes.oneOfType([
+    paragraph: PropTypes.oneOfType([
         PropTypes.shape({
             content: PropTypes.string
         }),

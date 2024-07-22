@@ -32,8 +32,8 @@ const ProgramSnippet = props => {
         <VideoPlayerSnippet
             mediaData={mediaData}
             minStream={min_stream}
-            parrafo={description}
-            tituloNota={basic}
+            paragraph={description}
+            noteTitle={basic}
         />
     );
 };

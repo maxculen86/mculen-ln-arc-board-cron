@@ -1,6 +1,6 @@
 {
-    "tituloNota": "+Realidad - 4 mayo 2022",
-    "parrafo": "Mira el programa +Realidad en su edición del 4 mayo 2022",
+    "noteTitle": "+Realidad - 4 mayo 2022",
+    "paragraph": "Mira el programa +Realidad en su edición del 4 mayo 2022",
     "minStream": {
         "height": 360,
         "width": 640,
@@ -24,6 +24,7 @@
         },
         "duration": 2419285,
         "created_date": "2022-05-05T12:24:50Z",
+        "pubdate": 1693833189,
         "headlines": {
             "basic": "Mira el programa +Realidad en su edición del 4 mayo 2022"
         }

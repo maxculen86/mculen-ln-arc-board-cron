@@ -2,7 +2,8 @@ import {
     transformImages,
     formatJwPlayerDate,
     getJWScript,
-    handleVideoEventsScript
+    handleVideoEventsScript,
+    getAlternativeDescription
 } from '../../../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 describe('Components - Private - Common - videoPlayerJw - Utils', () => {
@@ -45,8 +46,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const timestamp = 1630186800;
 
         const formattedDate = formatJwPlayerDate(timestamp);
-
-        expect(formattedDate).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/);
+        expect(formattedDate).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
     });
 
     it('should handle video events correctly', () => {
@@ -164,6 +164,39 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                     videoID: 'testId'
                 }
             ]);
+        });
+    });
+    describe('getAlternativeDescription function', () => {
+        it('If uploadDate does not exist, should returns an empty string', () => {
+            const uploadDate = '';
+            const noteTitle = 'Note Title';
+            const description = getAlternativeDescription(
+                uploadDate,
+                noteTitle
+            );
+            expect(description).toStrictEqual('');
+        });
+        it('If uploadDate exists and noteTitle does not, it should return an alternative description', () => {
+            const uploadDate = '2022-05-05T12:24:50Z';
+            const noteTitle = '';
+            const description = getAlternativeDescription(
+                uploadDate,
+                noteTitle
+            );
+            expect(description).toStrictEqual(
+                'Video publicado el 05/05/2022 por LA NACION'
+            );
+        });
+        it('If uploadDate and noteTitle exist, should return an alternative description', () => {
+            const uploadDate = '2022-05-05T12:24:50Z';
+            const noteTitle = 'Note Title';
+            const description = getAlternativeDescription(
+                uploadDate,
+                noteTitle
+            );
+            expect(description).toStrictEqual(
+                'Video de Note Title publicado el 05/05/2022 por LA NACION'
+            );
         });
     });
 });
