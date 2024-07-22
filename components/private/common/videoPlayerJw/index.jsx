@@ -70,8 +70,8 @@ const videoPlayerJW = ({
                     </div>
                     {!isOtt && (
                         <VideoPlayerSnippet
-                            parrafo={parrafo || description}
-                            tituloNota={tituloNota}
+                            paragraph={parrafo || description}
+                            noteTitle={tituloNota}
                             mediaData={video}
                             minStream={{ url: get(video, 'link', '') }}
                         />

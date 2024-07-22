@@ -3,6 +3,7 @@ import {
     isInDatalayerEvent
 } from '../../utils/videoPlayerHelper';
 import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
+import transformISODate from '../../../../private/common/utils/transformISODate';
 
 export const configClassName = {
     'la-nacion-ar': {
@@ -45,15 +46,22 @@ export function transformImages(data, subtype = '') {
 
 export function formatJwPlayerDate(timestamp) {
     if (!timestamp) return '';
-    const date = new Date(timestamp * 1000);
 
-    const formattedDate = date
-        .toISOString()
-        .replace('T', ' ')
-        .substring(0, 19);
+    const date = new Date(timestamp * 1000);
+    const formattedDate = date.toISOString().slice(0, -5) + 'Z';
 
     return formattedDate;
 }
+
+export const getAlternativeDescription = (uploadDate, noteTitle) => {
+    if (!uploadDate) return '';
+
+    const formattedDate = transformISODate(uploadDate);
+    const baseDescription = `Video publicado el ${formattedDate} por LA NACION`;
+    return noteTitle
+        ? `Video de ${noteTitle} publicado el ${formattedDate} por LA NACION`
+        : baseDescription;
+};
 
 export const getJWScript = (
     title,
