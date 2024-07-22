@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from './utils/addEventToDataLayer';
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
-import generateUniqueId from '../../../features/LN-10-global/common/utils/ generateUniqueId';
 
 const SummaryNote = ({ paragraphs = [], className }) => {
     const { collapsed, toggle } = useCollapse(true);
@@ -53,7 +52,7 @@ const SummaryNote = ({ paragraphs = [], className }) => {
                 <ul className="flex flex-column --list-inherit gap-16 pl-32">
                     {paragraphs.map(paragraph => (
                         <li
-                            key={generateUniqueId()}
+                            key={paragraph}
                             className="--font-m --font-regular marker-26"
                             dangerouslySetInnerHTML={{
                                 __html: paragraph

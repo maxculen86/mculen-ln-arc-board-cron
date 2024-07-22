@@ -1,6 +1,5 @@
 /* eslint-disable no-bitwise */
 import { WIDGETS } from 'fusion:environment';
-import generateUniqueId from '../../LN-10-global/common/utils/ generateUniqueId';
 
 export const getVariablesFromLocalStorage = () => {
     const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
@@ -25,8 +24,14 @@ export const setLocalStorage = (urls, sessionId) => {
 };
 
 export const generateSessionId = () => {
-    const uniqueId = generateUniqueId();
-    return `${uniqueId}-${Date.now()}`;
+    const cryptoNumber = ([1e7] + -1e3 + -4e3 + -8e3).replace(/[018]/g, c =>
+        (
+            c ^
+            (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+        ).toString(16)
+    );
+
+    return `${cryptoNumber}-${Date.now()}`;
 };
 
 export const saveUrlToExclude = (urls, currentUrl) => {
