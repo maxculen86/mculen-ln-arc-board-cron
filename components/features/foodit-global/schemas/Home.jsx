@@ -5,11 +5,12 @@ import SnippetRender from '../../../private/common/snippet/snippetRender';
 
 export const HomeSchema = () => {
     const { contextPath, deployment } = useAppContext();
+    const websiteName = 'Foodit';
 
     const data = {
         '@context': 'http://schema.org',
         '@type': 'NewsMediaOrganization',
-        name: 'Foodit',
+        name: websiteName,
         url: 'https://www.foodit.lanacion.com.ar/',
         description: 'Tu aliado en la cocina - FOODIT',
         alternateName: 'Foodit',
@@ -41,6 +42,7 @@ export const HomeSchema = () => {
                 data={{
                     '@context': 'http://schema.org',
                     '@type': 'WebSite',
+                    name: websiteName,
                     url: 'https://www.foodit.lanacion.com.ar/'
                 }}
             />
