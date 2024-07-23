@@ -276,6 +276,15 @@ export const handleCanchallenaException = (subSections = []) => {
     return isCanchallena ? [true, CANCHALLENA.toLowerCase()] : false;
 };
 
+export const handleUnitedStatesLabelException = () => {
+    const { globalContent } = useAppContext();
+    const UNITEDSTATES = 'la_nacion_usa';
+    const isUnitedStates =
+        get(globalContent, 'label.eje_subeje.text', '') === 'Estados-Unidos';
+
+    return isUnitedStates ? [true, UNITEDSTATES] : false;
+};
+
 export const isPrimarySectionInBannerSegments = primarySection => (
     segments,
     subSections = []
@@ -285,6 +294,12 @@ export const isPrimarySectionInBannerSegments = primarySection => (
 
     if (canchallenaException) {
         return canchallenaException;
+    }
+
+    const unitedStatesFromLabel = handleUnitedStatesLabelException();
+
+    if (unitedStatesFromLabel) {
+        return unitedStatesFromLabel;
     }
 
     const EXCEPTIONS = {
