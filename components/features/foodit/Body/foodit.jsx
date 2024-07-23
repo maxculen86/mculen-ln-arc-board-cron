@@ -12,7 +12,6 @@ import {
     embedIntersectionObserver,
     takeEmbedScriptToDiffer
 } from '../../../../components/features/LN-nota/body/_utils/_embedHelper';
-import { createIntersectionObserverForLinks } from '../../../private/common/utils/linksTracker';
 
 const Body = ({ globalContent = {} }) => {
     const { _id, content_elements: contentElements } = globalContent;
@@ -21,7 +20,6 @@ const Body = ({ globalContent = {} }) => {
         try {
             setStorageConfiguration(_id);
             embedIntersectionObserver(takeEmbedScriptToDiffer(contentElements));
-            createIntersectionObserverForLinks();
         } catch (error) {
             console.error('Error en setear Local Storage, CuerpoDefault', {
                 error,
