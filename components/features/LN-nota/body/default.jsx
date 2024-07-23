@@ -15,7 +15,6 @@ import {
     embedIntersectionObserver,
     takeEmbedScriptToDiffer
 } from './_utils/_embedHelper';
-import { createIntersectionObserverForLinks } from '../../../private/common/utils/linksTracker';
 import { FalsePlaceHolderAudioPlayer } from './_children/FalsePlaceHolderAudioPlayer';
 
 /*
@@ -41,7 +40,6 @@ const body = ({ customFields }) => {
         try {
             setStorageConfiguration(_id);
             embedIntersectionObserver(takeEmbedScriptToDiffer(contentElements));
-            createIntersectionObserverForLinks();
         } catch (error) {
             console.error('Error en setear Local Storage, CuerpoDefault', {
                 error,
