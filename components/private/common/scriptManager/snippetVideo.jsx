@@ -14,7 +14,7 @@ const videoPlayerSnippet = ({ mediaData, minStream, paragraph, noteTitle }) => {
     const {
         promo_items: promoItems,
         created_date: createdDate = '',
-        duration,
+        duration = '',
         image = '',
         pubdate
     } = mediaData || {};
@@ -60,7 +60,7 @@ videoPlayerSnippet.propTypes = {
         created_date: PropTypes.string.isRequired,
         pubdate: PropTypes.number,
         publish_date: PropTypes.string.isRequired,
-        duration: PropTypes.number.isRequired
+        duration: PropTypes.string.isRequired
     }).isRequired,
     minStream: PropTypes.shape({
         height: PropTypes.number,

@@ -15,7 +15,7 @@ describe('Private - Common - scriptManager - videoPlayerSnippet =>', () => {
                 '@type': 'VideoObject',
                 description:
                     'Mira el programa +Realidad en su edición del 4 mayo 2022',
-                duration: 'T40M19S',
+                duration: 'PT40M19S',
                 embedUrl:
                     'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20220505/6273c21251a9cd0d74f6ed92/t_22b22fe5873e4145bf65cdf2b4612a20_name__Realidad___4_mayo_2022/file_640x360-600.mp4',
                 name: '+Realidad - 4 mayo 2022',
