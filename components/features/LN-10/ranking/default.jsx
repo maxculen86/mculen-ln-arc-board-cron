@@ -14,7 +14,6 @@ import diagramationRules from '../../../private/common/utils/diagramationRules';
 import CommonCollection from '../../../private/LN10/home/components/CommonCollection/default';
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
-import isSSR from '../../../private/LN/common/utils/isSSR';
 
 const RankingFeature = ({ id: featureId }) => {
     const { website, arcSite, layout, globalContent = {} } = useAppContext();
@@ -32,7 +31,6 @@ const RankingFeature = ({ id: featureId }) => {
             sectionId,
             sectionParentId,
             website || arcSite,
-            isSSR(),
             layout
         ) || {};
 

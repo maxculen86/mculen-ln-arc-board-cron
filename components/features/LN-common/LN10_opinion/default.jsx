@@ -59,8 +59,7 @@ const Opinion = props => {
     const {
         isInSiteService,
         idsArticlesToExclude,
-        diagramation,
-        isHome
+        diagramation
     } = getDataChainCollection({
         idCollectionOpinion,
         pageLayout,
@@ -80,7 +79,6 @@ const Opinion = props => {
         idsArticlesToExclude,
         diagramation,
         initialPosition,
-        isHome,
         isInSiteService,
         layout,
         notesQuantity,

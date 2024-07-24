@@ -225,7 +225,6 @@ export default {
         distributorId: 'text',
         type: 'text',
         shouldNotFilter: 'text',
-        page: 'text',
         excludePreload: 'bool',
         hasCollectionApertura: 'bool',
         collectionId: 'text'

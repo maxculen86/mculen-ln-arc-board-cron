@@ -226,7 +226,6 @@ const convertIcon = oldIcon => {
         13: sunCloudy,
         14: sunCloudy,
         71: rainyCloudy,
-        77: snowCloudy,
         84: snowCloudy,
         73: rain,
         72: rain,

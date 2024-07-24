@@ -67,7 +67,7 @@ const masNotas = props => {
         : setSearchParamsByFilterType.byLastNews(searchParameters);
 
     const articlesList = useContent({
-        source: isFilteringByTags ? null : 'acuArticlesSourceV2',
+        source: isFilteringByTags ? null : 'lnAcuSource',
         query: refinedSearchParams,
         filter,
         staticMode: false

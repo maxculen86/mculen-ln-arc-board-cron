@@ -159,7 +159,7 @@ export const filterType = {
             const size = setSize(cantidadNotas);
 
             const articlesList = useContent({
-                source: 'acuArticlesSourceV2',
+                source: 'lnAcuSource',
                 query: {
                     website,
                     tagId: slug,
