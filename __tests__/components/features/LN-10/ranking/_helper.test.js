@@ -8,7 +8,6 @@ import {
     getSectionId,
     getRankingType
 } from '../../../../../components/features/LN-10/ranking/common/_helper-WebApi.js';
-import getSectionName from '../../../../../components/private/LN/common/utils/getSectionName';
 import articlesMock from '../../../../../__mocks__/data/articlesAcum/articles.json';
 import { useContent as getContent } from 'fusion:content';
 
@@ -187,7 +186,6 @@ describe('features - LN10 - Ranking - Helper - getDataContent', () => {
             '',
             '',
             'la-nacion-ar',
-            true,
             'LN10-Home_Main'
         );
 
@@ -200,7 +198,6 @@ describe('features - LN10 - Ranking - Helper - getDataContent', () => {
             '',
             '',
             'la-nacion-ar',
-            true,
             'LN10-Home_Main'
         );
 
@@ -221,7 +218,6 @@ describe('features - LN10 - Ranking - Helper - getDataContent', () => {
             'economia/campo/',
             'economia/',
             'la-nacion-ar',
-            true,
             'LN10-Home_Main'
         );
 
@@ -253,7 +249,6 @@ describe('features - LN10 - Ranking - Helper - getDataContent', () => {
             'economia/campo/',
             'economia/',
             'la-nacion-ar',
-            true,
             'LN10-Home_Main'
         );
         expect(dataContent).toEqual(parentDataMock);

@@ -42,7 +42,6 @@ export default {
         page: 'text',
         website: 'text',
         imageConfig: 'text',
-        page: 'text',
         collectionId: 'text'
     },
     ttl: 120
