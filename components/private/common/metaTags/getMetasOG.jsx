@@ -96,6 +96,12 @@ const getMetasOG = props => {
             content: siteProperties.title
         });
     }
+
+    metas.push({
+        property: 'twitter:image',
+        content: data.image
+    });
+
     return metas;
 };
 

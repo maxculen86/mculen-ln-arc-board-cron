@@ -135,6 +135,12 @@ describe('Metas OTT', () => {
             {
                 property: 'og:site_name',
                 content: 'LN+ Mirá todos los programas y videos online'
+            },
+            {
+                property: 'twitter:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
             }
         ];
 
@@ -237,6 +243,11 @@ describe('Common - getMetasOG function', () => {
             {
                 content: 'LA NACION',
                 property: 'og:site_name'
+            },
+            {
+                property: 'twitter:image',
+                content:
+                    'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
             }
         ];
 
@@ -306,6 +317,12 @@ describe('Common - getMetasOG function', () => {
             {
                 content: 'LA NACION',
                 property: 'og:site_name'
+            },
+            {
+                property: 'twitter:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
             }
         ];
 
@@ -376,6 +393,12 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:url',
                 content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
+            },
+            {
+                property: 'twitter:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
             }
         ];
 
@@ -474,6 +497,12 @@ describe('Metas home', () => {
             {
                 content: 'LA NACION',
                 property: 'og:site_name'
+            },
+            {
+                property: 'twitter:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
             }
         ];
 
