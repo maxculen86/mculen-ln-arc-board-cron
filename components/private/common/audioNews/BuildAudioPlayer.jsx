@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import { GlobalContext } from '../context/globalContext';
+import { setCookie, getCookie } from './helpers';
 
 const BuildAudioPlayer = ({
     setOpenPlayer,
@@ -13,6 +14,9 @@ const BuildAudioPlayer = ({
     const { dispatch } = useContext(GlobalContext) || {};
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [contentVariant, setContentVariant] = useState(
+        getCookie('contentVariant') || 'article'
+    );
 
     useEffect(() => {
         if (error) {
@@ -51,9 +55,12 @@ const BuildAudioPlayer = ({
     }, []);
 
     useEffect(() => {
+        let player;
+        let listener;
+
         if (!isLoading && document.querySelector('.audio-player')) {
             try {
-                const player = new BeyondWords.Player({
+                player = new BeyondWords.Player({
                     target: '.audio-player',
                     projectId: BEYONDWORDS_PROJECT_ID,
                     sourceId: noteId,
@@ -64,21 +71,12 @@ const BuildAudioPlayer = ({
                     widgetWidth: '40rem'
                 });
 
-                const handleNoContentAvailable = () => {
-                    setError(true);
-                };
+                player.contentVariant = contentVariant;
 
-                player.addEventListener(
+                listener = player.addEventListener(
                     'NoContentAvailable',
                     handleNoContentAvailable
                 );
-
-                return () => {
-                    player.removeEventListener(
-                        'NoContentAvailable',
-                        handleNoContentAvailable
-                    );
-                };
             } catch (error) {
                 console.error(
                     'Failed to initialize the BeyondWords player:',
@@ -87,12 +85,38 @@ const BuildAudioPlayer = ({
                 setError(true);
             }
         }
-    }, [isLoading, noteId]);
+
+        return () => {
+            if (player) {
+                player.removeEventListener('NoContentAvailable', listener);
+                player.destroy();
+            }
+        };
+    }, [isLoading, noteId, contentVariant]);
+
+    const handleToggleChange = event => {
+        const newContentVariant = event.target.checked ? 'summary' : 'article';
+        setContentVariant(newContentVariant);
+        setCookie('contentVariant', newContentVariant, 7);
+    };
+
+    const handleNoContentAvailable = () => {
+        setError(true);
+    };
 
     return (
         <>
             {!isLoading && !error ? (
-                <div className="audio-player w-100 mb-24 mb-0_l" />
+                <>
+                    <label>
+                        <input
+                            type="checkbox"
+                            onChange={handleToggleChange}
+                            checked={contentVariant === 'summary'}
+                        />
+                    </label>
+                    <div className="audio-player w-100 mb-24 mb-0_l" />
+                </>
             ) : (
                 <LoadingIcon className={loaderClass} />
             )}
