@@ -45,7 +45,7 @@ const fetch = (query, { cachedCall } = {}) => {
                     source: 'content/sources/authorSource',
                     url: resolve(query)
                 },
-                arcSite
+                query['arc-site']
             );
         });
 };
