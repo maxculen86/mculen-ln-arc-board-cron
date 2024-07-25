@@ -81,13 +81,12 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
 
     const articleData =
         useContent({
-            source: 'acuArticlesSource',
+            source: 'lnAcuSource',
             query: {
                 sectionId,
                 size: 1,
                 website: arcSite
-            },
-            staticMode: true
+            }
         }) || {};
 
     const articleLink = get(articleData, 'content_elements[0].website_url', '');
