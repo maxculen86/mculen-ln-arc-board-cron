@@ -1,7 +1,7 @@
 @ln:registry=https://pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/ 
 ; begin auth token
-//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/:username=lndigital
-//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/:_password=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEOymmBh8te1+LTeMnz9CXOAAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDLUnBcIWJTJVLD953QIBEIBjrdhmgx+HVI13CKig92mS3hqYONDnpuTi785cZ540RYULQPl/RroCBRm21tF5SSKkkkfLUYi9+s+4tBVe+PsMoM3APaDQO2/T2lDFPUxx1Gw1n4i/AwE1hP4F/TEC9GjfUkWu}
-//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/:username=lndigital
-//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/:_password=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEOymmBh8te1+LTeMnz9CXOAAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDLUnBcIWJTJVLD953QIBEIBjrdhmgx+HVI13CKig92mS3hqYONDnpuTi785cZ540RYULQPl/RroCBRm21tF5SSKkkkfLUYi9+s+4tBVe+PsMoM3APaDQO2/T2lDFPUxx1Gw1n4i/AwE1hP4F/TEC9GjfUkWu}
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/:username=vstsagent
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/:_password=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGNr6MLH+g1dVRZyB50MqNYAAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDEaVQWRhP3An5xmj+AIBEIBjj9k01f1F2MgtOXBl10DsR7G2GfT7E5nvMcklfghmw6ExdOQvHYlo8XVsbn9y/7Na2vcH1d0F0ifBxc+ELe8bZw5ffLQkG6dAMx6fbecFbfjDTUx/G9wHXFFX2mH7Wmi8HH+d}
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/:username=vstsagent
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/:_password=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGNr6MLH+g1dVRZyB50MqNYAAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDEaVQWRhP3An5xmj+AIBEIBjj9k01f1F2MgtOXBl10DsR7G2GfT7E5nvMcklfghmw6ExdOQvHYlo8XVsbn9y/7Na2vcH1d0F0ifBxc+ELe8bZw5ffLQkG6dAMx6fbecFbfjDTUx/G9wHXFFX2mH7Wmi8HH+d}
 ; end auth token
