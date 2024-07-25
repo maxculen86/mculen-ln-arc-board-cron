@@ -2,7 +2,6 @@ import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { getTodayDateForAcuDolar } from '../../components/private/common/utils/dateAndTimeUtil';
-import force404AMP from './utils/force404AMP';
 import NotFoundError from './utils/notFoundError';
 
 export const resolve = key => {
@@ -22,7 +21,7 @@ export const resolve = key => {
 };
 
 const fetch = query => {
-    const { id = '', outputType } = query;
+    const { id = '' } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -33,8 +32,6 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-
-    force404AMP({ outputType });
 
     return request(opt)
         .then(response => {
