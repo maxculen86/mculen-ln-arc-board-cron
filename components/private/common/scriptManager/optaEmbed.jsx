@@ -29,8 +29,7 @@ const hasOptaElements = (contentElements, renderables, promoItems) => {
                         get(elem, 'type', '') === 'Ln_Caja_Manual' &&
                         get(elem, 'props.customFields.hideCaja', false) !==
                             true &&
-                        childrenHasOpta(elem.children)) ||
-                    get(elem, 'type', '') === 'LN-common/rugbyWidget'
+                        childrenHasOpta(elem.children))
             )) ||
         (promoItems &&
             get(promoItems, 'apertura_multimedia.type', '') === 'raw_html' &&
