@@ -7,7 +7,6 @@ import {
 } from 'fusion:environment';
 import request from 'request-promise-native';
 import filter from '../filters/LN/acumulado/tag';
-import force404AMP from './utils/force404AMP';
 import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
@@ -15,10 +14,9 @@ import transformWikiTagData from './utils/transformWikiTagData';
 import getRequestWithJSON from './utils/getRequestWithJson';
 
 const resolve = key => {
-    const { slug, outputType } = key;
+    const { slug } = key;
 
     if (!slug) throw new Error('Debe definir un slug para obtener el tag');
-    force404AMP({ outputType });
 
     return `/tags/v2/search?prefix=${slug}`;
 };
