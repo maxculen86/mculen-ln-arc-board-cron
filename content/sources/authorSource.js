@@ -18,6 +18,8 @@ const resolve = key => {
 };
 
 const fetch = (query, { cachedCall } = {}) => {
+    const arcSite = query['arc-site'];
+
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -45,7 +47,7 @@ const fetch = (query, { cachedCall } = {}) => {
                     source: 'content/sources/authorSource',
                     url: resolve(query)
                 },
-                query['arc-site']
+                arcSite
             );
         });
 };
