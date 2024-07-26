@@ -213,4 +213,46 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.tagDestacado.tipoDescripcion).toBe('contentLab');
         expect(resp.tagDestacado.valor).toBe('Chevrolet');
     });
+
+    it('Render en caso que tenga voz el autor', () => {
+        ArticleApertura[0] = {
+            ...ArticleApertura[0],
+            credits: {
+                by: [
+                    {
+                        _id: 'mock-author-999',
+                        type: 'author',
+                        version: '0.5.8',
+                        name: 'mock author',
+                        description: 'mock author',
+                        url: '/autor/mock-author-999/',
+                        slug: '',
+                        social_links: [],
+                        socialLinks: [],
+                        additional_properties: {
+                            original: {
+                                _id: 'mock-author-999',
+                                firstName: 'mock',
+                                lastName: 'author',
+                                byline: 'mock author',
+                                author_type: 'Estandar',
+                                slug: '',
+                                suffix: 'subfijo',
+                                voice: '1'
+                            }
+                        }
+                    }
+                ]
+            }
+        };
+
+        const resp = Apertura(ArticleApertura[0]);
+        expect(resp.autores[0]).toHaveProperty('voice');
+        expect(resp.autores[0].voice).toBe(1);
+    });
+
+    it('Render en caso que no tenga voz el autor', () => {
+        const resp = Apertura(ArticleApertura[1]);
+        expect(resp.autores[0]).not.toHaveProperty('voice');
+    });
 });

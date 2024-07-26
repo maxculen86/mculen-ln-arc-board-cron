@@ -522,3 +522,27 @@ describe('Html apertura', () => {
             .then(done);
     });
 });
+
+describe('Author Voice Data', () => {
+    it('should get voice value, when exist', () => {
+        mockRequestResponse.mockReturnValue(mockResponseBasic);
+
+        articleSourceFetch(query, {
+            cachedCall: jest.fn()
+        }).then(response => {
+            expect(
+                response.credits.by[0].additional_properties.original.voice
+            ).toBe('1');
+        });
+    });
+
+    it('should get empty author data, when not exists', () => {
+        mockRequestResponse.mockReturnValue(responseAperturaBasic);
+
+        articleSourceFetch(query, {
+            cachedCall: jest.fn()
+        }).then(response => {
+            expect(response.credits.by).toHaveLength(0);
+        });
+    });
+});

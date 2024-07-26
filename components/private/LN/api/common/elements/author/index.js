@@ -4,7 +4,6 @@ import { getImageUrl, getImageUrlBasedOnResizerVersion } from '../image';
 
 const getAuthorData = author => {
     const { _id: id, name, expertise, role } = author;
-
     if (!name) {
         throw new Error('Nombre de Autor Inexistente');
     }
@@ -12,13 +11,24 @@ const getAuthorData = author => {
     const roleDesc =
         role || get(author, 'additional_properties.original.role', null);
 
-    return {
+    const voicePropertyValue = get(
+        author,
+        'additional_properties.original.voice',
+        null
+    );
+
+    const parsedValue = parseInt(voicePropertyValue);
+    const voice = !isNaN(parsedValue) ? parsedValue : null;
+
+    const authorData = {
         id: getAutorId(id),
         slug: id,
         valor: name,
         intereses: expertise,
         rol: roleDesc
     };
+
+    return voice ? { ...authorData, voice } : authorData;
 };
 
 export const getAuthorBio = author => {
