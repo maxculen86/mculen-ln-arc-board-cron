@@ -1,17 +1,16 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 
-const ObservableFoodit = () => {
-    const { contextPath, deployment } = useAppContext();
+export default function HandleGlossary() {
+    const { deployment, contextPath } = useAppContext();
 
     return (
         <script
             type="application/javascript"
             src={deployment(
-                `${contextPath}/resources/js/common/observable.min.js`
+                `${contextPath}/resources/js/LN/handleGlossary.min.js`
             )}
             defer
         />
     );
-};
-export default ObservableFoodit;
+}

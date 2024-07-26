@@ -182,7 +182,7 @@ export const injectGlossaryInText = (text, glossary) => {
             foundGlossaryWord = true;
             text = text.replace(
                 regex,
-                `<mark class="word-glossary" onmouseenter="window?.LN?.handleGlossary(event,'${glossaryItem.key}')" onmouseleave="window?.LN?.handleGlossary(event,'${glossaryItem.key}')">${glossaryItem.key}</mark>`
+                `<mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }">${glossaryItem.key}</mark>`
             );
         }
     });

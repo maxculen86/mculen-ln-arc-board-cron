@@ -57,8 +57,8 @@
             .com-paragraph,
             .element-paragraph,
             .com-container,
-            h2,
-            h3,
+            h2:not(.glossary-title),
+            h3:not(.glossary-title),
             .com-partner,
             .FirmaAutor,
             .com-unordered,
@@ -145,6 +145,15 @@
                 }
                 @media ($media-xl) {
                     left: calc(((100% - #{$width_nota100_xl}) / 2) - 185px);
+                }
+            }
+            .common-collapse {
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+                @include width-nota100;
+                @media (max-width: px(1023)) {
+                    padding-inline: $spacing-sm;
                 }
             }
         }

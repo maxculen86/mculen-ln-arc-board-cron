@@ -39,7 +39,7 @@ describe('Tests articleSourceNota - _helper', () => {
             const expected = {
                 foundGlossaryWord: true,
                 text:
-                    'El <b>dólar <mark class="word-glossary" onmouseenter="window?.LN?.handleGlossary(event,\'CCL\')" onmouseleave="window?.LN?.handleGlossary(event,\'CCL\')">CCL</mark> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
+                    'El <b>dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">CCL</mark> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
             };
 
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);

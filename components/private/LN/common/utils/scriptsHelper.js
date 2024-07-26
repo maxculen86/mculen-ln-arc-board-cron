@@ -21,8 +21,9 @@ import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import Permutive from '../../../common/scriptManager/Permutive';
 import Marfeel from '../../../common/scriptManager/Marfeel';
 import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
-import ObservableFoodit from '../../../../output-types/Helper/observableFoodit';
+import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
+import HandleGlossary from '../../../common/scriptManager/handleGlossary';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -115,7 +116,7 @@ const scriptList = [
     },
     { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
     {
-        component: { name: 'ObservableFoodit', function: ObservableFoodit },
+        component: { name: 'Observable', function: Observable },
         feature: 'none'
     },
     {
@@ -136,6 +137,10 @@ const scriptList = [
     {
         component: { name: 'FundingChoices', function: FundingChoices },
         feature: 'none'
+    },
+    {
+        component: { name: 'HandleGlossary', function: HandleGlossary },
+        feature: 'LN-10/glossary'
     }
 ];
 

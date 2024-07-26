@@ -45,7 +45,7 @@ export default {
         props: {},
         location: [HEAD]
     },
-    ObservableFoodit: { props: {}, location: [BODYBOTTOM] },
+    Observable: { props: {}, location: [BODYBOTTOM] },
     DataModal: { props: {}, location: [BODYBOTTOM] },
     FooditEventsHelper: { props: {}, location: [BODYBOTTOM] }
 };

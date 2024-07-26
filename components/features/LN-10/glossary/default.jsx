@@ -1,34 +1,34 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
-import { useAppContext } from 'fusion:context';
+import { Collapse } from './components/collapse';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
+import { useAppContext } from 'fusion:context';
+import { Dialog } from './components/dialog';
+import { Tooltip } from './components/tooltip';
 import get from '../../../private/common/utils/get';
 
-const Glossary = ({ customFields: { hide } = {} }) => {
-    if (hide) {
-        return null;
-    }
+import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
+const Glossary = ({ customFields: { hide } = {} }) => {
     const { globalContent } = useAppContext();
-    const glossary = get(
+
+    const glossaryData = get(
         globalContent,
         'promo_items.glossary.embed.config.arrayData',
         []
     );
 
-    //TODO: EL COMPONENTE LO SIGUEN DESDE FRONT
+    if (hide || !glossaryData.length) {
+        return null;
+    }
+
+    //TODO: agregar test relacionados al feature y componentes presentacionales
     return (
-        <Static id="LN-Glosario" htmlOnly>
-            <ul>
-                {glossary.map(item => (
-                    <li key={item.key}>
-                        <p>{item.key}</p>
-                        <p>{item.value}</p>
-                    </li>
-                ))}
-            </ul>
-        </Static>
+        <>
+            <Collapse glossaryData={glossaryData} />
+            <Dialog glossaryData={glossaryData} />
+            <Tooltip glossaryData={glossaryData} />
+        </>
     );
 };
 
