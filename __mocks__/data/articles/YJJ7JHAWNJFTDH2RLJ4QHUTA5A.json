@@ -496,7 +496,34 @@
     },
     "display_date": "2022-12-12T21:19:27.560Z",
     "credits": {
-        "by": []
+        "by":  [
+            {
+                "_id": "mock-author-999",
+                "type": "author",
+                "version": "0.5.8",
+                "name": "mock author",
+                "description": "mock author",
+                "url": "/autor/mock-author-999/",
+                "slug": "",
+                "social_links": [],
+                "socialLinks": [],
+                "additional_properties": {
+                    "original": {
+                        "_id": "mock-author-999",
+                        "firstName": "mock",
+                        "image":"",
+                        "lastName": "author",
+                        "secondLastName": "",
+                        "byline": "mock author",
+                        "role": "mock",
+                        "author_type": "Estandar",
+                        "slug": "",
+                        "suffix": "subfijo",
+                        "voice": "1"
+                    }
+                }
+            }
+        ]
     },
     "subtype": "1",
     "first_publish_date": "2022-12-12T21:19:27.560Z",

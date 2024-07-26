@@ -496,6 +496,7 @@ export default `
                     role
                     bio_page
                     author_type
+                    voice
                 }
             }
         }

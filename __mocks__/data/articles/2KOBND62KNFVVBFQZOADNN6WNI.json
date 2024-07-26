@@ -287,7 +287,10 @@
             "_id": "KQXLNRRS2RBYRBFK6IE6VRJX2Y",
             "type": "list",
             "list_type": "unordered",
-            "additional_properties": { "comments": [], "inline_comments": [] },
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
             "items": [
                 {
                     "_id": "XFMPUNKJQBAHJFBQ52YXQHAC5Q",
@@ -535,7 +538,10 @@
             "_id": "OB5WMN6LFBGKXEZ2AYIHRYNIPA",
             "type": "list",
             "list_type": "ordered",
-            "additional_properties": { "comments": [], "inline_comments": [] },
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
             "items": [
                 {
                     "_id": "XFMPUNKJQBAHJFBQ52YXQHAC5Q",
@@ -1027,7 +1033,10 @@
                     "type": "text"
                 }
             ],
-            "citation": { "content": "Xime Paparella", "type": "text" },
+            "citation": {
+                "content": "Xime Paparella",
+                "type": "text"
+            },
             "subtype": "blockquote",
             "additional_properties": {
                 "_id": "KADHSIU6XFGKDJ7U4EE6WKL5DA",
@@ -1049,7 +1058,10 @@
                 }
             ],
             "subtype_label": "pullquote",
-            "citation": { "content": "Ignacio Madrid", "type": "text" },
+            "citation": {
+                "content": "Ignacio Madrid",
+                "type": "text"
+            },
             "subtype": "pullquote",
             "additional_properties": {
                 "_id": "S7V4ZEWWYJCVPMKAMF6LW72MOY",
@@ -1091,7 +1103,8 @@
                     {
                         "byline": "Ignacio Madrid",
                         "name": "Ignacio Madrid",
-                        "type": "author"
+                        "type": "author",
+                        "voice": "1"
                     }
                 ]
             },
@@ -1105,25 +1118,34 @@
             "image_type": "photograph",
             "last_updated_date": "2020-05-05T16:00:45Z",
             "licensable": false,
-            "owner": { "id": "sandbox.lanacionar", "sponsored": false },
+            "owner": {
+                "id": "sandbox.lanacionar",
+                "sponsored": false
+            },
             "source": {
                 "name": "LA NACION",
                 "source_id": "1311713.jpg",
                 "source_type": "other",
-                "additional_properties": { "editor": "photo center" },
+                "additional_properties": {
+                    "editor": "photo center"
+                },
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/TVQDULM5R5AUZBRLAOBMLQQEOE",
                 "system": "photo center"
             },
             "status": "published",
             "subtitle": "",
-            "taxonomy": { "associated_tasks": [] },
+            "taxonomy": {
+                "associated_tasks": []
+            },
             "type": "image",
             "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg",
             "version": "0.10.3",
             "width": 960,
             "display_date": "2010-12-31T16:08:00Z",
             "first_publish_date": "2010-12-31T16:08:00Z",
-            "description": { "basic": "" },
+            "description": {
+                "basic": ""
+            },
             "language": "es-419",
             "publish_date": "2010-12-31T16:08:00Z"
         },
@@ -1151,7 +1173,10 @@
             "_id": "KQXLNRRS2RBYRBFK6IE6VRJX2Y",
             "type": "list",
             "list_type": "unordered",
-            "additional_properties": { "comments": [], "inline_comments": [] },
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
             "items": [
                 {
                     "_id": "XFMPUNKJQBAHJFBQ52YXQHAC5Q",
@@ -1359,7 +1384,10 @@
             "_id": "AJAAVYUAYZGSJEZ2E44K4BLEYQ",
             "type": "list",
             "list_type": "ordered",
-            "additional_properties": { "comments": [], "inline_comments": [] },
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
             "items": [
                 {
                     "_id": "OACDOMQWK5BRBJ3V6QHJWY7OGE",
@@ -1576,7 +1604,12 @@
             "caption": "",
             "created_date": "2020-04-01T21:03:07Z",
             "credits": {
-                "by": [{ "name": "Miguel Acevedo Riu", "type": "author" }]
+                "by": [
+                    {
+                        "name": "Miguel Acevedo Riu",
+                        "type": "author"
+                    }
+                ]
             },
             "distributor": {
                 "category": "other",
@@ -1586,11 +1619,15 @@
             "height": 640,
             "last_updated_date": "2020-04-01T21:03:07Z",
             "licensable": false,
-            "owner": { "id": "sandbox.lanacionar" },
+            "owner": {
+                "id": "sandbox.lanacionar"
+            },
             "source": {
                 "source_id": "1311715.jpg",
                 "source_type": "other",
-                "additional_properties": { "editor": "photo center" },
+                "additional_properties": {
+                    "editor": "photo center"
+                },
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/77NRHRWIWFCFDOCDN34LGQ32SE",
                 "system": "photo center"
             },
@@ -1602,7 +1639,9 @@
             "width": 960,
             "display_date": "2010-12-31T16:09:00Z",
             "first_publish_date": "2010-12-31T16:09:00Z",
-            "description": { "basic": "" },
+            "description": {
+                "basic": ""
+            },
             "language": "es-419",
             "publish_date": "2010-12-31T16:09:00Z"
         },
@@ -1619,15 +1658,27 @@
             "publish_date": "2020-03-18T12:35:37Z",
             "first_publish_date": "2019-06-10T17:22:52Z",
             "display_date": "2019-06-10T17:22:00Z",
-            "headlines": { "basic": "Test cambio de nombre y ordenn" },
+            "headlines": {
+                "basic": "Test cambio de nombre y ordenn"
+            },
             "credits": {},
             "taxonomy": {
                 "tags": [
-                    { "text": "test test test test test test test for ticket" },
-                    { "text": "testtesttest" },
-                    { "text": "test tag video" },
-                    { "text": "especiales" },
-                    { "text": "programa" }
+                    {
+                        "text": "test test test test test test test for ticket"
+                    },
+                    {
+                        "text": "testtesttest"
+                    },
+                    {
+                        "text": "test tag video"
+                    },
+                    {
+                        "text": "especiales"
+                    },
+                    {
+                        "text": "programa"
+                    }
                 ],
                 "primary_site": {
                     "type": "site",
@@ -1667,7 +1718,9 @@
                         "primary": true
                     }
                 ],
-                "seo_keywords": ["test"]
+                "seo_keywords": [
+                    "test"
+                ]
             },
             "promo_items": {
                 "basic": {
@@ -1680,17 +1733,32 @@
                     "height": 720
                 }
             },
-            "related_content": { "redirect": [], "basic": [] },
-            "owner": { "sponsored": false },
-            "planning": { "scheduling": {} },
-            "revision": { "published": true },
-            "syndication": { "search": true },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
             "source": {
                 "system": "video center",
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/5cfe914c46e0fb000981496e"
             },
-            "distributor": { "category": "staff" },
-            "tracking": { "in_url_headline": "video" },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
             "additional_properties": {
                 "subsection": "Terapia de noticias",
                 "videoCategory": "ln---ln-mas",
@@ -1905,13 +1973,22 @@
             "canonical_url": "/cwrink-lobos-en-mardel/",
             "canonical_website": "la-nacion-ar",
             "created_date": "2020-04-15T17:59:01Z",
-            "credits": { "by": [] },
-            "description": { "basic": "" },
+            "credits": {
+                "by": []
+            },
+            "description": {
+                "basic": ""
+            },
             "display_date": "2020-04-15T17:59:00Z",
             "first_publish_date": "2020-04-15T17:59:00Z",
-            "headlines": { "basic": "Lobos en Mardel" },
+            "headlines": {
+                "basic": "Lobos en Mardel"
+            },
             "last_updated_date": "2020-04-27T23:32:56Z",
-            "owner": { "id": "sandbox.lanacionar", "sponsored": false },
+            "owner": {
+                "id": "sandbox.lanacionar",
+                "sponsored": false
+            },
             "promo_items": {
                 "basic": {
                     "_id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
@@ -1919,7 +1996,9 @@
                         "fullSizeResizeUrl": "/resizer/H_btZQEuAwvWTUzP3gFEqtZcjPA=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
                         "galleries": [
                             {
-                                "headlines": { "basic": "Lobos en Mardel" },
+                                "headlines": {
+                                    "basic": "Lobos en Mardel"
+                                },
                                 "_id": "CWRINK62SFFXXOTXG7SKY3A76U"
                             }
                         ],
@@ -1953,8 +2032,14 @@
                                 },
                                 "slug": "agustina-de-alba",
                                 "social_links": [
-                                    { "site": "email", "url": "" },
-                                    { "site": "twitter", "url": "" }
+                                    {
+                                        "site": "email",
+                                        "url": ""
+                                    },
+                                    {
+                                        "site": "twitter",
+                                        "url": ""
+                                    }
                                 ],
                                 "socialLinks": [
                                     {
@@ -1999,8 +2084,13 @@
                     "image_type": "photograph",
                     "last_updated_date": "2020-04-15T17:58:47Z",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
-                    "taxonomy": { "associated_tasks": [] },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
                     "version": "0.10.3",
@@ -2009,13 +2099,18 @@
             },
             "publish_date": "2020-04-27T23:32:55Z",
             "source": {
-                "additional_properties": { "editor": "photo center" },
+                "additional_properties": {
+                    "editor": "photo center"
+                },
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/gallery/CWRINK62SFFXXOTXG7SKY3A76U",
                 "system": "photo center"
             },
             "taxonomy": {
                 "primary_site": {
-                    "referent": { "id": "/sociedad", "type": "site" },
+                    "referent": {
+                        "id": "/sociedad",
+                        "type": "site"
+                    },
                     "type": "reference"
                 },
                 "sections": [
@@ -2030,7 +2125,10 @@
                 ],
                 "sites": [
                     {
-                        "referent": { "id": "/sociedad", "type": "site" },
+                        "referent": {
+                            "id": "/sociedad",
+                            "type": "site"
+                        },
                         "type": "reference"
                     }
                 ]
@@ -2051,7 +2149,9 @@
                     "website_url": "/cwrink-lobos-en-mardel/"
                 }
             },
-            "workflow": { "status_code": 5 },
+            "workflow": {
+                "status_code": 5
+            },
             "content_elements": [
                 {
                     "_id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
@@ -2059,7 +2159,9 @@
                         "fullSizeResizeUrl": "/resizer/H_btZQEuAwvWTUzP3gFEqtZcjPA=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
                         "galleries": [
                             {
-                                "headlines": { "basic": "Lobos en Mardel" },
+                                "headlines": {
+                                    "basic": "Lobos en Mardel"
+                                },
                                 "_id": "CWRINK62SFFXXOTXG7SKY3A76U"
                             }
                         ],
@@ -2093,8 +2195,14 @@
                                 },
                                 "slug": "agustina-de-alba",
                                 "social_links": [
-                                    { "site": "email", "url": "" },
-                                    { "site": "twitter", "url": "" }
+                                    {
+                                        "site": "email",
+                                        "url": ""
+                                    },
+                                    {
+                                        "site": "twitter",
+                                        "url": ""
+                                    }
                                 ],
                                 "socialLinks": [
                                     {
@@ -2139,8 +2247,13 @@
                     "image_type": "photograph",
                     "last_updated_date": "2020-04-15T17:58:47Z",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
-                    "taxonomy": { "associated_tasks": [] },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
                     "version": "0.10.3",
@@ -2166,11 +2279,16 @@
                         "version": 0
                     },
                     "address": {},
-                    "credits": { "affiliation": [] },
+                    "credits": {
+                        "affiliation": []
+                    },
                     "height": 980,
                     "image_type": "photograph",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg",
                     "version": "0.10.3",
@@ -2182,7 +2300,9 @@
                         "fullSizeResizeUrl": "/resizer/hAw5L4uOswLAxgc6azKD8IyNR4M=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg",
                         "galleries": [
                             {
-                                "headlines": { "basic": "Lobos en Mardel" },
+                                "headlines": {
+                                    "basic": "Lobos en Mardel"
+                                },
                                 "_id": "CWRINK62SFFXXOTXG7SKY3A76U"
                             }
                         ],
@@ -2224,7 +2344,10 @@
                                         "site": "email",
                                         "url": "ptomino@lanacion.com.ar"
                                     },
-                                    { "site": "twitter", "url": "@prtomino" }
+                                    {
+                                        "site": "twitter",
+                                        "url": "@prtomino"
+                                    }
                                 ],
                                 "socialLinks": [
                                     {
@@ -2269,9 +2392,14 @@
                     "image_type": "photograph",
                     "last_updated_date": "2020-04-15T17:58:47Z",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
                     "status": "estado",
-                    "taxonomy": { "associated_tasks": [] },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg",
                     "version": "0.10.3",
@@ -2317,12 +2445,19 @@
                     }
                 ]
             },
-            "description": { "basic": "Esto es una descripcion" },
+            "description": {
+                "basic": "Esto es una descripcion"
+            },
             "display_date": "2020-05-13T16:26:26Z",
             "first_publish_date": "2020-05-13T16:26:26Z",
-            "headlines": { "basic": "Prueba Galeria" },
+            "headlines": {
+                "basic": "Prueba Galeria"
+            },
             "last_updated_date": "2020-12-23T13:43:04Z",
-            "owner": { "id": "sandbox.lanacionar", "sponsored": false },
+            "owner": {
+                "id": "sandbox.lanacionar",
+                "sponsored": false
+            },
             "promo_items": {
                 "basic": {
                     "_id": "DD7YGPCCDFACLN5SPQZZWWQN6U",
@@ -2330,7 +2465,9 @@
                         "fullSizeResizeUrl": "/resizer/yIkXgPW54f3PBdzShyVDzt9LyPg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg",
                         "galleries": [
                             {
-                                "headlines": { "basic": "Prueba Galeria" },
+                                "headlines": {
+                                    "basic": "Prueba Galeria"
+                                },
                                 "_id": "YNN2UCD52NAA5OZCL7RGN3RKDQ"
                             }
                         ],
@@ -2355,14 +2492,21 @@
                     "caption": "Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda",
                     "copyright": "LA NACION",
                     "created_date": "2020-05-13T15:08:28Z",
-                    "credits": { "by": [] },
+                    "credits": {
+                        "by": []
+                    },
                     "geo": {},
                     "height": 2000,
                     "image_type": "photograph",
                     "last_updated_date": "2020-05-13T15:08:28Z",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
-                    "taxonomy": { "associated_tasks": [] },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg",
                     "version": "0.10.3",
@@ -2372,15 +2516,21 @@
             },
             "publish_date": "2020-05-13T16:26:26Z",
             "source": {
-                "additional_properties": { "editor": "photo center" },
+                "additional_properties": {
+                    "editor": "photo center"
+                },
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/gallery/YNN2UCD52NAA5OZCL7RGN3RKDQ",
                 "system": "photo center"
             },
-            "taxonomy": { "sections": [] },
+            "taxonomy": {
+                "sections": []
+            },
             "type": "gallery",
             "version": "0.10.3",
             "websites": {
-                "la-nacion-ar": { "website_url": "/ynn2ucd-prueba-galeria/" }
+                "la-nacion-ar": {
+                    "website_url": "/ynn2ucd-prueba-galeria/"
+                }
             },
             "content_elements": [
                 {
@@ -2389,7 +2539,9 @@
                         "fullSizeResizeUrl": "/resizer/yIkXgPW54f3PBdzShyVDzt9LyPg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg",
                         "galleries": [
                             {
-                                "headlines": { "basic": "Prueba Galeria" },
+                                "headlines": {
+                                    "basic": "Prueba Galeria"
+                                },
                                 "_id": "YNN2UCD52NAA5OZCL7RGN3RKDQ"
                             }
                         ],
@@ -2414,14 +2566,21 @@
                     "caption": "Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda",
                     "copyright": "LA NACION",
                     "created_date": "2020-05-13T15:08:28Z",
-                    "credits": { "by": [] },
+                    "credits": {
+                        "by": []
+                    },
                     "geo": {},
                     "height": 2000,
                     "image_type": "photograph",
                     "last_updated_date": "2020-05-13T15:08:28Z",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
-                    "taxonomy": { "associated_tasks": [] },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg",
                     "version": "0.10.3",
@@ -2448,7 +2607,14 @@
                     "alt_text": "Coloccini",
                     "caption": "Coloccini",
                     "created_date": "2000-01-07T03:00:00Z",
-                    "credits": { "by": [{ "name": "", "type": "author" }] },
+                    "credits": {
+                        "by": [
+                            {
+                                "name": "",
+                                "type": "author"
+                            }
+                        ]
+                    },
                     "distributor": {
                         "category": "other",
                         "mode": "custom",
@@ -2469,7 +2635,9 @@
                     "width": 200,
                     "display_date": "2000-01-07T03:00:00Z",
                     "first_publish_date": "2000-01-07T03:00:00Z",
-                    "description": { "basic": "Coloccini" },
+                    "description": {
+                        "basic": "Coloccini"
+                    },
                     "language": "es-419",
                     "publish_date": "2000-01-07T03:00:00Z"
                 },
@@ -2497,12 +2665,19 @@
                     "address": {},
                     "caption": "Restricted 2nd image",
                     "copyright": "LA NACION",
-                    "credits": { "affiliation": [] },
+                    "credits": {
+                        "affiliation": []
+                    },
                     "height": 1536,
                     "image_type": "photograph",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
-                    "taxonomy": { "associated_tasks": [] },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
                     "version": "0.10.3",
@@ -2530,12 +2705,19 @@
                         "template_id": 771
                     },
                     "address": {},
-                    "credits": { "affiliation": [] },
+                    "credits": {
+                        "affiliation": []
+                    },
                     "height": 1112,
                     "image_type": "photograph",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
-                    "taxonomy": { "associated_tasks": [] },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg",
                     "version": "0.10.3",
@@ -2564,13 +2746,20 @@
                     },
                     "address": {},
                     "created_date": "2020-04-14T19:56:55Z",
-                    "credits": { "affiliation": [] },
+                    "credits": {
+                        "affiliation": []
+                    },
                     "height": 688,
                     "image_type": "photograph",
                     "last_updated_date": "2020-04-14T19:56:55Z",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
-                    "taxonomy": { "associated_tasks": [] },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
                     "version": "0.10.3",
@@ -2585,7 +2774,9 @@
                         "ingestionMethod": "manual",
                         "iptc_source": "ANSA POOL",
                         "iptc_title": "POOL",
-                        "keywords": [""],
+                        "keywords": [
+                            ""
+                        ],
                         "mime_type": "image/jpeg",
                         "originalName": "155f1822b57d40adbd9670591a65dac5-155f1822b57d40adbd9670591a6.jpg",
                         "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg",
@@ -2601,10 +2792,17 @@
                         "version": 0,
                         "template_id": 771
                     },
-                    "address": { "locality": "Vatican City" },
+                    "address": {
+                        "locality": "Vatican City"
+                    },
                     "caption": "Pope Francis stands with Croatia's Prime Minister Andrej Plenkovic, left, on the occasion of their private audience at the Vatican, Thursday, Feb. 6, 2020. (Alessandro Di Meo/Pool Photo via AP)",
                     "credits": {
-                        "affiliation": [{ "name": "AP", "type": "author" }],
+                        "affiliation": [
+                            {
+                                "name": "AP",
+                                "type": "author"
+                            }
+                        ],
                         "by": [
                             {
                                 "byline": "Alessandro Di Meo",
@@ -2616,9 +2814,14 @@
                     "height": 2048,
                     "image_type": "photograph",
                     "licensable": false,
-                    "owner": { "id": "sandbox.lanacionar", "sponsored": false },
+                    "owner": {
+                        "id": "sandbox.lanacionar",
+                        "sponsored": false
+                    },
                     "slug": "Vatican Croatia",
-                    "taxonomy": { "associated_tasks": [] },
+                    "taxonomy": {
+                        "associated_tasks": []
+                    },
                     "type": "image",
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg",
                     "version": "0.10.3",
@@ -2646,7 +2849,10 @@
                     "created_date": "2020-03-26T09:38:32.6242168-03:00",
                     "credits": {
                         "affiliation": [
-                            { "name": "LA NACION S.A.", "type": "author" }
+                            {
+                                "name": "LA NACION S.A.",
+                                "type": "author"
+                            }
                         ]
                     },
                     "height": 300,
@@ -2660,7 +2866,9 @@
                     "width": 210,
                     "display_date": "2020-03-26T09:38:32.6242168-03:00",
                     "first_publish_date": "2020-03-26T09:38:32.6242168-03:00",
-                    "description": { "basic": "" },
+                    "description": {
+                        "basic": ""
+                    },
                     "language": "es-419",
                     "publish_date": "2020-03-26T09:38:32.6242168-03:00"
                 }
@@ -2966,7 +3174,9 @@
             "publish_date": "2020-04-27T23:34:14Z",
             "first_publish_date": "2019-10-22T16:32:55Z",
             "display_date": "2019-10-22T16:32:55Z",
-            "headlines": { "basic": "Este es el titulo del video" },
+            "headlines": {
+                "basic": "Este es el titulo del video"
+            },
             "credits": {},
             "taxonomy": {
                 "tags": [],
@@ -3026,17 +3236,32 @@
                     "height": 720
                 }
             },
-            "related_content": { "redirect": [], "basic": [] },
-            "owner": { "sponsored": false },
-            "planning": { "scheduling": {} },
-            "revision": { "published": true },
-            "syndication": { "search": true },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
             "source": {
                 "system": "video center",
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/5daf2cfc46e0fb0009c12a9b"
             },
-            "distributor": { "category": "staff" },
-            "tracking": { "in_url_headline": "video" },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
             "additional_properties": {
                 "subsection": "Espectáculos",
                 "videoCategory": "ln---videos-no-propios",
@@ -3156,7 +3381,14 @@
             "alt_text": "Más de dos millones de personas coparon las playas de Río para recibir el 2014",
             "caption": "Más de dos millones de personas coparon las playas de Río para recibir el 2014",
             "created_date": "2020-06-26T20:52:20Z",
-            "credits": { "by": [{ "name": "", "type": "author" }] },
+            "credits": {
+                "by": [
+                    {
+                        "name": "",
+                        "type": "author"
+                    }
+                ]
+            },
             "distributor": {
                 "category": "other",
                 "mode": "custom",
@@ -3165,11 +3397,15 @@
             "height": 640,
             "last_updated_date": "2020-06-26T20:52:20Z",
             "licensable": false,
-            "owner": { "id": "sandbox.lanacionar" },
+            "owner": {
+                "id": "sandbox.lanacionar"
+            },
             "source": {
                 "source_id": "1819899.jpg",
                 "source_type": "other",
-                "additional_properties": { "editor": "photo center" },
+                "additional_properties": {
+                    "editor": "photo center"
+                },
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/3PJZH265DJBT3MCROZPBD6MVUU",
                 "system": "photo center"
             },
@@ -3219,7 +3455,10 @@
                     "type": "text"
                 }
             ],
-            "citation": { "content": "", "type": "text" },
+            "citation": {
+                "content": "",
+                "type": "text"
+            },
             "subtype": "blockquote",
             "additional_properties": {
                 "_id": "BR5ORTY4RVGH5AX4BSG3HCLPOI",
@@ -3356,7 +3595,9 @@
     "revision": {
         "revision_id": "XRMRAESTBRETBE25NXCSHROWEQ",
         "parent_id": "WZ6BXB5TVNCYLC2IL72TUD7L74",
-        "editions": ["default"],
+        "editions": [
+            "default"
+        ],
         "branch": "default",
         "user_id": "JAlvarez@lanacion.com.ar",
         "published": true
@@ -3371,26 +3612,71 @@
         "tablet": "",
         "web": ""
     },
-    "owner": { "sponsored": true, "id": "sandbox.lanacionar" },
-    "content_restrictions": { "content_code": "comun" },
+    "owner": {
+        "sponsored": true,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
     "address": {},
-    "comments": { "allow_comments": true, "display_comments": true },
-    "syndication": { "external_distribution": true, "search": true },
-    "workflow": { "status_code": 1 },
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
     "subheadlines": {
         "basic": "Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..."
     },
-    "description": { "basic": "" },
+    "description": {
+        "basic": ""
+    },
     "language": "",
     "label": {
-        "autor": { "display": true, "text": "Otro", "url": "" },
-        "autor_otro": { "display": true, "text": "Otro Autor" },
-        "edicion": { "display": true, "text": "Digital", "url": "" },
-        "enviar_a_apps": { "display": true, "text": "Si", "url": "" },
-        "mostrar_banners": { "display": true, "text": "Si", "url": "" },
-        "recomendar": { "display": true, "text": "Si", "url": "" },
-        "trust": { "display": true, "text": "No mostrar Trust", "url": "" },
-        "volanta": { "display": true, "text": "Esto es una volanta." }
+        "autor": {
+            "display": true,
+            "text": "Otro",
+            "url": ""
+        },
+        "autor_otro": {
+            "display": true,
+            "text": "Otro Autor"
+        },
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "No mostrar Trust",
+            "url": ""
+        },
+        "volanta": {
+            "display": true,
+            "text": "Esto es una volanta."
+        }
     },
     "source": {
         "name": "LA NACION",
@@ -3406,7 +3692,9 @@
             "name": "Boca Juniors",
             "path": "/deportes/futbol/boca-juniors",
             "parent_id": "/deportes/futbol",
-            "parent": { "default": "/deportes/futbol" },
+            "parent": {
+                "default": "/deportes/futbol"
+            },
             "additional_properties": {
                 "original": {
                     "_id": "/deportes/futbol/boca-juniors",
@@ -3416,9 +3704,15 @@
                     },
                     "_website": "la-nacion-ar",
                     "name": "Boca Juniors",
-                    "parent": { "default": "/deportes/futbol" },
+                    "parent": {
+                        "default": "/deportes/futbol"
+                    },
                     "ancestors": {
-                        "default": ["/", "/deportes", "/deportes/futbol"]
+                        "default": [
+                            "/",
+                            "/deportes",
+                            "/deportes/futbol"
+                        ]
                     },
                     "inactive": false,
                     "node_type": "section"
@@ -3440,9 +3734,15 @@
                         "id_section_ln9": "7249"
                     },
                     "name": "Boca Juniors",
-                    "parent": { "default": "/deportes/futbol" },
+                    "parent": {
+                        "default": "/deportes/futbol"
+                    },
                     "ancestors": {
-                        "default": ["/", "/deportes", "/deportes/futbol"]
+                        "default": [
+                            "/",
+                            "/deportes",
+                            "/deportes/futbol"
+                        ]
                     },
                     "inactive": false
                 }
@@ -3457,7 +3757,9 @@
                 "name": "Boca Juniors",
                 "path": "/deportes/futbol/boca-juniors",
                 "parent_id": "/deportes/futbol",
-                "parent": { "default": "/deportes/futbol" },
+                "parent": {
+                    "default": "/deportes/futbol"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes/futbol/boca-juniors",
@@ -3467,9 +3769,15 @@
                         },
                         "_website": "la-nacion-ar",
                         "name": "Boca Juniors",
-                        "parent": { "default": "/deportes/futbol" },
+                        "parent": {
+                            "default": "/deportes/futbol"
+                        },
                         "ancestors": {
-                            "default": ["/", "/deportes", "/deportes/futbol"]
+                            "default": [
+                                "/",
+                                "/deportes",
+                                "/deportes/futbol"
+                            ]
                         },
                         "inactive": false,
                         "node_type": "section"
@@ -3485,7 +3793,9 @@
                 "name": "Deportes",
                 "path": "/deportes",
                 "parent_id": "/",
-                "parent": { "default": "/" },
+                "parent": {
+                    "default": "/"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes",
@@ -3528,11 +3838,19 @@
                             "Hambre_futuro": null
                         },
                         "ancestors": {
-                            "Header-FirstNav": ["/"],
-                            "Architecture": ["/"],
-                            "default": ["/"],
+                            "Header-FirstNav": [
+                                "/"
+                            ],
+                            "Architecture": [
+                                "/"
+                            ],
+                            "default": [
+                                "/"
+                            ],
                             "CustomNavigationComunidadNegocios": [],
-                            "Prueba": ["/"],
+                            "Prueba": [
+                                "/"
+                            ],
                             "Hambre_futuro": []
                         },
                         "inactive": false,
@@ -3549,7 +3867,9 @@
                 "name": "Ajedrez",
                 "path": "/deportes/ajedrez",
                 "parent_id": "/deportes",
-                "parent": { "default": "/deportes" },
+                "parent": {
+                    "default": "/deportes"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes/ajedrez",
@@ -3559,8 +3879,15 @@
                         },
                         "_website": "la-nacion-ar",
                         "name": "Ajedrez",
-                        "parent": { "default": "/deportes" },
-                        "ancestors": { "default": ["/", "/deportes"] },
+                        "parent": {
+                            "default": "/deportes"
+                        },
+                        "ancestors": {
+                            "default": [
+                                "/",
+                                "/deportes"
+                            ]
+                        },
                         "inactive": false,
                         "node_type": "section"
                     }
@@ -3575,7 +3902,9 @@
                 "name": "Boxeo",
                 "path": "/deportes/boxeo",
                 "parent_id": "/deportes",
-                "parent": { "default": "/deportes" },
+                "parent": {
+                    "default": "/deportes"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes/boxeo",
@@ -3585,8 +3914,15 @@
                         },
                         "_website": "la-nacion-ar",
                         "name": "Boxeo",
-                        "parent": { "default": "/deportes" },
-                        "ancestors": { "default": ["/", "/deportes"] },
+                        "parent": {
+                            "default": "/deportes"
+                        },
+                        "ancestors": {
+                            "default": [
+                                "/",
+                                "/deportes"
+                            ]
+                        },
                         "inactive": false,
                         "node_type": "section"
                     }
@@ -3601,7 +3937,9 @@
                 "name": "Argentinos Juniors",
                 "path": "/deportes/futbol/argentinos-juniors",
                 "parent_id": "/deportes/futbol",
-                "parent": { "default": "/deportes/futbol" },
+                "parent": {
+                    "default": "/deportes/futbol"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes/futbol/argentinos-juniors",
@@ -3611,9 +3949,15 @@
                         },
                         "_website": "la-nacion-ar",
                         "name": "Argentinos Juniors",
-                        "parent": { "default": "/deportes/futbol" },
+                        "parent": {
+                            "default": "/deportes/futbol"
+                        },
                         "ancestors": {
-                            "default": ["/", "/deportes", "/deportes/futbol"]
+                            "default": [
+                                "/",
+                                "/deportes",
+                                "/deportes/futbol"
+                            ]
                         },
                         "inactive": false,
                         "node_type": "section"
@@ -3629,7 +3973,9 @@
                 "name": "Fútbol",
                 "path": "/deportes/futbol",
                 "parent_id": "/deportes",
-                "parent": { "default": "/deportes" },
+                "parent": {
+                    "default": "/deportes"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes/futbol",
@@ -3639,14 +3985,22 @@
                         },
                         "_website": "la-nacion-ar",
                         "name": "Fútbol",
-                        "order": { "Header-FirstNav": 2001 },
+                        "order": {
+                            "Header-FirstNav": 2001
+                        },
                         "parent": {
                             "default": "/deportes",
                             "Header-FirstNav": "/deportes"
                         },
                         "ancestors": {
-                            "Header-FirstNav": ["/", "/deportes"],
-                            "default": ["/", "/deportes"]
+                            "Header-FirstNav": [
+                                "/",
+                                "/deportes"
+                            ],
+                            "default": [
+                                "/",
+                                "/deportes"
+                            ]
                         },
                         "inactive": false,
                         "node_type": "section"
@@ -3662,7 +4016,9 @@
                 "name": "Atlético Tucumán",
                 "path": "/deportes/futbol/atletico-tucuman",
                 "parent_id": "/deportes/futbol",
-                "parent": { "default": "/deportes/futbol" },
+                "parent": {
+                    "default": "/deportes/futbol"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes/futbol/atletico-tucuman",
@@ -3672,9 +4028,15 @@
                         },
                         "_website": "la-nacion-ar",
                         "name": "Atlético Tucumán",
-                        "parent": { "default": "/deportes/futbol" },
+                        "parent": {
+                            "default": "/deportes/futbol"
+                        },
                         "ancestors": {
-                            "default": ["/", "/deportes", "/deportes/futbol"]
+                            "default": [
+                                "/",
+                                "/deportes",
+                                "/deportes/futbol"
+                            ]
                         },
                         "inactive": false,
                         "node_type": "section"
@@ -3699,9 +4061,15 @@
                             "id_section_ln9": "7249"
                         },
                         "name": "Boca Juniors",
-                        "parent": { "default": "/deportes/futbol" },
+                        "parent": {
+                            "default": "/deportes/futbol"
+                        },
                         "ancestors": {
-                            "default": ["/", "/deportes", "/deportes/futbol"]
+                            "default": [
+                                "/",
+                                "/deportes",
+                                "/deportes/futbol"
+                            ]
                         },
                         "inactive": false
                     }
@@ -3755,11 +4123,19 @@
                             "Hambre_futuro": null
                         },
                         "ancestors": {
-                            "Header-FirstNav": ["/"],
-                            "Architecture": ["/"],
-                            "default": ["/"],
+                            "Header-FirstNav": [
+                                "/"
+                            ],
+                            "Architecture": [
+                                "/"
+                            ],
+                            "default": [
+                                "/"
+                            ],
                             "CustomNavigationComunidadNegocios": [],
-                            "Prueba": ["/"],
+                            "Prueba": [
+                                "/"
+                            ],
                             "Hambre_futuro": []
                         },
                         "inactive": false
@@ -3781,8 +4157,15 @@
                             "id_section_ln9": "7372"
                         },
                         "name": "Ajedrez",
-                        "parent": { "default": "/deportes" },
-                        "ancestors": { "default": ["/", "/deportes"] },
+                        "parent": {
+                            "default": "/deportes"
+                        },
+                        "ancestors": {
+                            "default": [
+                                "/",
+                                "/deportes"
+                            ]
+                        },
                         "inactive": false
                     }
                 }
@@ -3802,8 +4185,15 @@
                             "id_section_ln9": "217"
                         },
                         "name": "Boxeo",
-                        "parent": { "default": "/deportes" },
-                        "ancestors": { "default": ["/", "/deportes"] },
+                        "parent": {
+                            "default": "/deportes"
+                        },
+                        "ancestors": {
+                            "default": [
+                                "/",
+                                "/deportes"
+                            ]
+                        },
                         "inactive": false
                     }
                 }
@@ -3823,9 +4213,15 @@
                             "id_section_ln9": "7246"
                         },
                         "name": "Argentinos Juniors",
-                        "parent": { "default": "/deportes/futbol" },
+                        "parent": {
+                            "default": "/deportes/futbol"
+                        },
                         "ancestors": {
-                            "default": ["/", "/deportes", "/deportes/futbol"]
+                            "default": [
+                                "/",
+                                "/deportes",
+                                "/deportes/futbol"
+                            ]
                         },
                         "inactive": false
                     }
@@ -3846,14 +4242,22 @@
                             "id_section_ln9": "140"
                         },
                         "name": "Fútbol",
-                        "order": { "Header-FirstNav": 2001 },
+                        "order": {
+                            "Header-FirstNav": 2001
+                        },
                         "parent": {
                             "default": "/deportes",
                             "Header-FirstNav": "/deportes"
                         },
                         "ancestors": {
-                            "Header-FirstNav": ["/", "/deportes"],
-                            "default": ["/", "/deportes"]
+                            "Header-FirstNav": [
+                                "/",
+                                "/deportes"
+                            ],
+                            "default": [
+                                "/",
+                                "/deportes"
+                            ]
                         },
                         "inactive": false
                     }
@@ -3874,9 +4278,15 @@
                             "id_section_ln9": "7352"
                         },
                         "name": "Atlético Tucumán",
-                        "parent": { "default": "/deportes/futbol" },
+                        "parent": {
+                            "default": "/deportes/futbol"
+                        },
                         "ancestors": {
-                            "default": ["/", "/deportes", "/deportes/futbol"]
+                            "default": [
+                                "/",
+                                "/deportes",
+                                "/deportes/futbol"
+                            ]
                         },
                         "inactive": false
                     }
@@ -3913,7 +4323,10 @@
                 "fullSizeResizeUrl": "/resizer/yFt00JqzGqIf2E9eqmcby7LBD58=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
                 "galleries": [],
                 "ingestionMethod": "manual",
-                "keywords": ["ruinas", "cueva"],
+                "keywords": [
+                    "ruinas",
+                    "cueva"
+                ],
                 "mime_type": "image/jpeg",
                 "originalName": "3510518h1080.jpg",
                 "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
@@ -3926,8 +4339,14 @@
                 "version": 0,
                 "template_id": 770,
                 "focal_point": {
-                    "max": [1113.75, 157.5],
-                    "min": [1113.75, 157.5]
+                    "max": [
+                        1113.75,
+                        157.5
+                    ],
+                    "min": [
+                        1113.75,
+                        157.5
+                    ]
                 }
             },
             "address": {},
@@ -3935,18 +4354,27 @@
             "caption": "Ruinas de una casa",
             "copyright": "LA NACION",
             "created_date": "2020-12-16T16:24:12Z",
-            "credits": { "affiliation": [] },
+            "credits": {
+                "affiliation": []
+            },
             "height": 910,
             "image_type": "photograph",
             "last_updated_date": "2020-12-16T16:24:12Z",
             "licensable": false,
-            "owner": { "id": "sandbox.lanacionar", "sponsored": false },
+            "owner": {
+                "id": "sandbox.lanacionar",
+                "sponsored": false
+            },
             "source": {
-                "additional_properties": { "editor": "photo center" },
+                "additional_properties": {
+                    "editor": "photo center"
+                },
                 "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/TWKBIKLZYBARBFLM5BOAXGYP3I",
                 "system": "photo center"
             },
-            "taxonomy": { "associated_tasks": [] },
+            "taxonomy": {
+                "associated_tasks": []
+            },
             "type": "image",
             "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
             "version": "0.10.3",
@@ -4040,11 +4468,15 @@
         ],
         "clonedChildren": [
             {
-                "referent": { "id": "TNAUPW2ZI5BGHNKNRXNQ2IWSWQ" },
+                "referent": {
+                    "id": "TNAUPW2ZI5BGHNKNRXNQ2IWSWQ"
+                },
                 "type": "reference"
             },
             {
-                "referent": { "id": "YCJLVUQZGJENLAUW5OFXMPBNL4" },
+                "referent": {
+                    "id": "YCJLVUQZGJENLAUW5OFXMPBNL4"
+                },
                 "type": "reference"
             }
         ],
@@ -4078,11 +4510,19 @@
                 "type": "author",
                 "version": "0.5.8",
                 "name": "Ignacio  Madrid",
-                "image": { "url": "", "version": "0.5.8" },
+                "image": {
+                    "url": "",
+                    "version": "0.5.8"
+                },
                 "description": "",
                 "url": "",
                 "slug": "",
-                "social_links": [{ "site": "email", "url": "" }],
+                "social_links": [
+                    {
+                        "site": "email",
+                        "url": ""
+                    }
+                ],
                 "socialLinks": [
                     {
                         "site": "email",
@@ -4122,12 +4562,21 @@
                 "type": "author",
                 "version": "0.5.8",
                 "name": "Max Fisher",
-                "image": { "url": "", "version": "0.5.8" },
+                "image": {
+                    "url": "",
+                    "version": "0.5.8"
+                },
                 "url": "/autor/max-fisher-4189/",
                 "slug": "max-fisher-4189",
                 "social_links": [
-                    { "site": "email", "url": "" },
-                    { "site": "twitter", "url": "" }
+                    {
+                        "site": "email",
+                        "url": ""
+                    },
+                    {
+                        "site": "twitter",
+                        "url": ""
+                    }
                 ],
                 "socialLinks": [
                     {
@@ -4180,7 +4629,9 @@
                 "name": "Boca Juniors",
                 "path": "/deportes/futbol/boca-juniors",
                 "parent_id": "/deportes/futbol",
-                "parent": { "default": "/deportes/futbol" },
+                "parent": {
+                    "default": "/deportes/futbol"
+                },
                 "additional_properties": {
                     "original": {
                         "_id": "/deportes/futbol/boca-juniors",
@@ -4190,9 +4641,15 @@
                         },
                         "_website": "la-nacion-ar",
                         "name": "Boca Juniors",
-                        "parent": { "default": "/deportes/futbol" },
+                        "parent": {
+                            "default": "/deportes/futbol"
+                        },
                         "ancestors": {
-                            "default": ["/", "/deportes", "/deportes/futbol"]
+                            "default": [
+                                "/",
+                                "/deportes",
+                                "/deportes/futbol"
+                            ]
                         },
                         "inactive": false,
                         "node_type": "section"
