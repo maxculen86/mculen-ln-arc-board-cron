@@ -1,0 +1,27 @@
+.dialog {
+  --transition: all 0.3s ease-in-out;
+  transition: var(--transition);
+  max-width: unset;
+  max-height: unset;
+  inset-block-start: unset;
+  inset-block-end: unset;
+}
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: var(--transition);
+  opacity: 1;
+}
+.dialog[data-visible=false] {
+  visibility: hidden;
+  opacity: 0;
+}
+.dialog[data-visible=true] {
+  visibility: visible;
+  opacity: 1;
+}
+.dialog[data-position=bottom] {
+  inset-block-end: 0;
+}
+.dialog[data-position=top] {
+  inset-block-start: 0;
+}

@@ -9,7 +9,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
       class="mod-share flex mb-24 mb-0_l"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-neutral-light-1_l pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
         id="v-share"
       >
         <div
@@ -180,7 +180,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 8 butto
       class="mod-share flex mb-24 mb-0_l"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-neutral-light-1_l pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
         id="v-share"
       >
         <div
@@ -368,7 +368,7 @@ exports[`components - private - LN - nota - share Test click button bookmark 1`]
       class="mod-share flex mb-24 mb-0_l"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-neutral-light-1_l pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
         id="v-share"
       >
         <div

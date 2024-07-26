@@ -65,7 +65,7 @@ const Share = () => {
     );
 
     const shareSubClasses = !subtypeVideo
-        ? 'flex-column_l bg-neutral-light-1_l pb-16_l pt-8_l px-8_l'
+        ? 'flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l'
         : 'mb-8_l';
     const shareClasses = classNames(
         'share',
