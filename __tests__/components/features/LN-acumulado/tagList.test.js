@@ -57,7 +57,7 @@ describe('Features - LN-acumulado - Tag list', () => {
 
         const { sourceName, query } = getSectionProps(config);
 
-        expect(sourceName).toStrictEqual('acuArticlesSource');
+        expect(sourceName).toStrictEqual('acuArticlesSourceV2');
         expect(query).toStrictEqual({
             page: 0,
             promoItemsOnly: false,
@@ -78,7 +78,7 @@ describe('Features - LN-acumulado - Tag list', () => {
 
         const { sourceName: source2, query: query2 } = getSectionProps(config2);
 
-        expect(source2).toStrictEqual('acuArticlesSource');
+        expect(source2).toStrictEqual('acuArticlesSourceV2');
         expect(query2).toStrictEqual({
             page: 0,
             promoItemsOnly: false,
@@ -99,7 +99,7 @@ describe('Features - LN-acumulado - Tag list', () => {
 
         const { sourceName, query } = getSectionProps(config);
 
-        expect(sourceName).toStrictEqual('acuArticlesSource');
+        expect(sourceName).toStrictEqual('acuArticlesSourceV2');
         expect(query).toStrictEqual({
             page: 0,
             promoItemsOnly: false,

@@ -119,7 +119,7 @@ export const getSectionProps = ({
 
     const configForSection = {
         default: {
-            sourceName: 'acuArticlesSource',
+            sourceName: 'acuArticlesSourceV2',
             query: {
                 website: arcSite,
                 sectionId,
