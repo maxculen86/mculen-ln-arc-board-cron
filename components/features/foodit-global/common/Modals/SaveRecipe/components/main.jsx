@@ -61,7 +61,7 @@ const MainSaveRecipe = props => {
                                     <>
                                         {value === 'new' ? (
                                             <span
-                                                className="flex ai-center roboto-bold py-8 text-12 gap-8 border border-bottom border-thin border-light-100"
+                                                className="flex ai-center roboto-bold py-8 text-14 gap-8 border border-bottom border-thin border-light-100"
                                                 data-test-id="button-bookmark-create-collection"
                                             >
                                                 <Icon size={16}>

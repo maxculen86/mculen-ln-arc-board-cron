@@ -42,13 +42,13 @@ const ChefFoodit = props => {
 
     return (
         <BaseLayout>
-            <div className="flex flex-column gap-32">
+            <div className="flex flex-column gap-40">
                 <AuthorBiography {...authorBiography} />
                 <hr className="floating-button-sentinel" />
-                <section className="flex flex-column gap-32">
+                <section className="flex flex-column gap-24">
                     <Text
                         as="h1"
-                        className="prumo prumo-semibold text-28 text-40_md text-48_lg"
+                        className="prumo prumo-light text-24 text-32_md text-36_lg"
                     >
                         Sus recetas
                     </Text>
