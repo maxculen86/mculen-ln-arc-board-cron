@@ -9,6 +9,7 @@ import useTermica from '../../../../../../private/common/hooks/useTermica';
 import get from '../../../../../../private/common/utils/get';
 import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
 import classNames from 'classnames';
+import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const UpsellingButton = () => {
     const { userType, isHome } = useHeaderContext();
@@ -17,6 +18,14 @@ export const UpsellingButton = () => {
 
     const { getCookie } = handleCookie();
     const valueCookie = getCookie('gaComboType') || '';
+
+    const upsellingLabels = {
+        'ga-combo2': 'upselling_duo',
+        'ga-comboDuo': 'upselling_triple',
+        'ga-comboTriple': 'upselling_black'
+    };
+
+    const upsellingLabel = upsellingLabels[valueCookie] || '';
 
     const {
         black_button_text,
@@ -49,6 +58,7 @@ export const UpsellingButton = () => {
         '--mobile-none',
         class_upselling_tooltip
     );
+
     if (
         userType !== 'subscribed' ||
         !upsellingText ||
@@ -56,6 +66,7 @@ export const UpsellingButton = () => {
         !termicaUpselling
     )
         return <></>;
+
     return (
         <Button
             id="btn-upselling"
@@ -64,6 +75,12 @@ export const UpsellingButton = () => {
             size={{ sm: 32, md: 40 }}
             className="relative"
             onClick={() => {
+                addEventToDataLayer({
+                    event: 'e_linkclick',
+                    label: upsellingLabel,
+                    category: 'home_ln10',
+                    action: 'header_logo'
+                });
                 window.location.href = valueCookie && upsellingUrl;
             }}
         >
