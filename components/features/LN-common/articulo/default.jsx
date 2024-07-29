@@ -16,7 +16,6 @@ import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import featureArticleCustomsFields, {
     GetImage
 } from '../../../private/LN/common/utils/articuloHelper';
-import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import isSSR from '../../../private/LN/common/utils/isSSR';
@@ -123,7 +122,8 @@ const ArticleFeature = ({
     }
 
     return (
-        (!error && article && (
+        !error &&
+        article && (
             <ErrorBoundary>
                 <NoteCard
                     id={featureId}
@@ -144,8 +144,7 @@ const ArticleFeature = ({
                     isApertura={isEager}
                 />
             </ErrorBoundary>
-        )) ||
-        getPlaceholder(layout, index)
+        )
     );
 };
 
