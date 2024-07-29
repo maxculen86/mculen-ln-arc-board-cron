@@ -36,7 +36,6 @@ import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
 import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
-import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
@@ -242,7 +241,8 @@ const ArticleFeature = ({
     }
 
     return (
-        (!error && article && (
+        !error &&
+        article && (
             <ErrorBoundary>
                 <Card
                     data-feature-id={featureId}
@@ -293,8 +293,7 @@ const ArticleFeature = ({
                     onClick={() => hasVariants && registerSuccessEvent()}
                 />
             </ErrorBoundary>
-        )) ||
-        getPlaceholder(layout, index)
+        )
     );
 };
 
