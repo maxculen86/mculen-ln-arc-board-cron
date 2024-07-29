@@ -1,12 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import '@testing-library/jest-dom';
 import { termicaValuesUpselling } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/_helper';
 import { getTermicaValues } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
 import { UpsellingButton } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/upsellingButton';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { useHeaderContext } from '../../../../../../../../components/features/LN-10-global/header/context';
 import useTermica from '../../../../../../../../components/private/common/hooks/useTermica';
 import handleCookie from '../../../../../../../../components/private/LN/common/utils/handleCookie';
+import addEventToDataLayer from '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+
+jest.mock(
+    '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
+);
 
 jest.mock(
     '../../../../../../../../components/private/common/hooks/useTermica',
@@ -56,6 +65,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
     afterAll(() => {
         jest.clearAllMocks();
     });
+
     it('should render a fragment when termicaUpselling is falsy', () => {
         useTermica.mockImplementationOnce(() => false);
         useHeaderContext.mockImplementationOnce(() => ({
@@ -66,6 +76,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
 
         expect(container).toBeEmptyDOMElement();
     });
+
     it('should render a fragment when userType is not subscribe', () => {
         useTermica.mockImplementation(() => true);
         useHeaderContext.mockImplementationOnce(() => ({
@@ -75,6 +86,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
 
         expect(container).toBeEmptyDOMElement();
     });
+
     it('should render a fragment when not match the cookies', () => {
         useTermica.mockImplementation(() => true);
         useHeaderContext.mockImplementation(() => ({
@@ -87,6 +99,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
 
         expect(container).toBeEmptyDOMElement();
     });
+
     it('should render a button with promotion text when match cookie "ga-combo2" - duo_button_text', () => {
         useTermica.mockImplementation(() => true);
         useHeaderContext.mockImplementation(() => ({
@@ -102,6 +115,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
 
         expect(upsellingButtonText).toBeInTheDocument();
     });
+
     it('should render a button with promotion text when match cookie "ga-comboDuo" - triple_button_text', () => {
         useTermica.mockImplementation(() => true);
         useHeaderContext.mockImplementation(() => ({
@@ -117,6 +131,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
 
         expect(upsellingButtonText).toBeInTheDocument();
     });
+
     it('should render a button with promotion text when match cookie "ga-comboTriple" - black_button_text', () => {
         useTermica.mockImplementation(() => true);
         useHeaderContext.mockImplementation(() => ({
@@ -131,5 +146,27 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         const upsellingButtonText = getByText(black_button_text);
 
         expect(upsellingButtonText).toBeInTheDocument();
+    });
+
+    it('should call addEventToDataLayer function when the button is clicked', () => {
+        useTermica.mockImplementation(() => true);
+        useHeaderContext.mockImplementation(() => ({
+            userType: 'subscribed'
+        }));
+        handleCookie.mockReturnValue({
+            getCookie: jest.fn(() => 'ga-combo2')
+        });
+        const { duo_button_text } = getTermicaValues(termicaValuesUpselling);
+        const { getByText } = render(<UpsellingButton />);
+
+        const button = getByText(duo_button_text);
+        fireEvent.click(button);
+
+        expect(addEventToDataLayer).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            label: 'upselling_duo',
+            category: 'home_ln10',
+            action: 'header_logo'
+        });
     });
 });
