@@ -37,6 +37,7 @@ const Schemas = ({ section }) => {
     const webSite = `{
         "@context":"http://schema.org",
         "@type":"WebSite",
+        "name": "LA NACION",
         "url":"https://www.lanacion.com.ar/"
     }`;
 
