@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
 import BallLotteries from './BallLotteries';
+import { removeEmptyElements } from './helpers';
 
 const CardDetail = ({
     isDetail,
@@ -13,6 +14,8 @@ const CardDetail = ({
     hasJackpot,
     jackpot
 }) => {
+    const filteredJackspot = removeEmptyElements(jackpot);
+
     return (
         <>
             {!isDetail && hasExtraResults && (
@@ -56,14 +59,14 @@ const CardDetail = ({
                         )}
                 </div>
             )}
-            {isDetail && jackpot && (
+            {isDetail && filteredJackspot.length > 0 && (
                 <div className="extra-results --jackpot-details">
                     <LabelText
                         text="Jackpot"
                         className="jackpot-text-details"
                     />
                     <div className="jackpot-result-details">
-                        {jackpot.map(number => (
+                        {filteredJackspot.map(number => (
                             <BallLotteries
                                 key={number}
                                 number={number}
@@ -84,7 +87,7 @@ CardDetail.propTypes = {
     isQuiniela: PropTypes.bool,
     extraResultsModificator: PropTypes.string,
     hasJackpot: PropTypes.bool,
-    jackpot: PropTypes.string
+    jackpot: PropTypes.arrayOf(PropTypes.string)
 };
 
 CardDetail.defaultProps = {
@@ -93,7 +96,7 @@ CardDetail.defaultProps = {
     isQuiniela: PropTypes.bool,
     extraResultsModificator: PropTypes.string,
     hasJackpot: PropTypes.bool,
-    jackpot: '',
+    jackpot: [],
     isDetail: false
 };
 

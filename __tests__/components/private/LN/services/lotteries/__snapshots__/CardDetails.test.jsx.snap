@@ -134,6 +134,34 @@ exports[`Components - private - CardDetails => Test when detail is true and have
 </div>
 `;
 
+exports[`Components - private - CardDetails => Test when detail is true and jackpot contains different values that must be filtered. 1`] = `
+<div>
+  <div
+    class="extra-results --jackpot-details"
+  >
+    <span
+      class="label-text jackpot-text-details --font-bold --fourxs"
+    >
+      Jackpot
+    </span>
+    <div
+      class="jackpot-result-details"
+    >
+      <div
+        class="--twoxs --font-bold ball --blue"
+      >
+        1
+      </div>
+      <div
+        class="--twoxs --font-bold ball --blue"
+      >
+        2
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Components - private - CardDetails => Test when isQuiniela is false and detail is false 1`] = `
 <div>
   <div

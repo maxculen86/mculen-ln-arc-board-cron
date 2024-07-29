@@ -20,7 +20,7 @@ describe('Components - private - CardDetails =>', () => {
                 isQuiniela={isQuiniela}
                 extraResultsModificator={extraResultsModificator}
                 hasJackpot={false}
-                jackpot={''}
+                jackpot={[]}
             />
         );
 
@@ -49,7 +49,7 @@ describe('Components - private - CardDetails =>', () => {
                 isQuiniela={isQuiniela}
                 extraResultsModificator={''}
                 hasJackpot={false}
-                jackpot={''}
+                jackpot={[]}
             />
         );
 
@@ -61,7 +61,7 @@ describe('Components - private - CardDetails =>', () => {
     });
 
     it('Test when detail is true and have jackpot', () => {
-        const jackpot = [88123, 1234, 333];
+        const jackpot = ['88123', '1234', '333'];
         const expectedClass = 'extra-results --jackpot-details';
 
         const { container } = render(
@@ -131,7 +131,7 @@ describe('Components - private - CardDetails =>', () => {
         const result = {
             name: 'subLottery',
             result: ['1', '3', '88'],
-            jackpot: [88123, 1234, 333]
+            jackpot: ['88123', '1234', '333']
         };
         const hasJackpot = true;
         const expectedClass = 'extra-results --loto-plus';
@@ -144,7 +144,7 @@ describe('Components - private - CardDetails =>', () => {
                 hasExtraResults={false}
                 isQuiniela={false}
                 extraResultsModificator={''}
-                jackpot={false}
+                jackpot={[]}
             />
         );
 
@@ -170,7 +170,7 @@ describe('Components - private - CardDetails =>', () => {
                 hasExtraResults={false}
                 isQuiniela={false}
                 extraResultsModificator={''}
-                jackpot={false}
+                jackpot={[]}
             />
         );
 
@@ -190,7 +190,7 @@ describe('Components - private - CardDetails =>', () => {
                 hasJackpot={false}
                 isQuiniela={false}
                 extraResultsModificator={''}
-                jackpot={false}
+                jackpot={[]}
             />
         );
 
@@ -200,7 +200,7 @@ describe('Components - private - CardDetails =>', () => {
 
     it('Test when detail is false and have jackpot', () => {
         const detail = false;
-        const jackpot = [1, 3, 2];
+        const jackpot = ['1', '3', '2'];
 
         const { container } = render(
             <CardDetails
@@ -216,5 +216,31 @@ describe('Components - private - CardDetails =>', () => {
 
         expect(container).toMatchSnapshot();
         expect(container.innerHTML).toBe('');
+    });
+
+    it('Test when detail is true and jackpot contains different values that must be filtered.', () => {
+        const detail = true;
+        const jackpot = ['1', '2', '-', '--', '3-'];
+
+        const { container } = render(
+            <CardDetails
+                isDetail={detail}
+                jackpot={jackpot}
+                hasExtraResults={false}
+                reorderedResults={[]}
+                hasJackpot={false}
+                isQuiniela={false}
+                extraResultsModificator={''}
+            />
+        );
+
+        expect(container).toMatchSnapshot();
+
+        const divElements = container.querySelectorAll(
+            '.--twoxs.--font-bold.ball.--blue'
+        );
+        divElements.forEach(div => {
+            expect(div.textContent.includes('-')).toBe(false);
+        });
     });
 });
