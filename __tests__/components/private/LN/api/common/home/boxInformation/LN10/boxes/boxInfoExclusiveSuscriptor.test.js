@@ -14,7 +14,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
             typeSection
         );
         expect(box).toBeDefined();
-        expect(box.parameters.title).toBe('EXCLUSIVO SUSCRIPTORES');
+        expect(box.parameters.title).toBe('SUSCRIPTORES');
     });
 
     it('should assign default title to box parameters if no title is provided', () => {
@@ -29,7 +29,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
             typeSection
         );
         expect(box).toBeDefined();
-        expect(box.tituloCaja).toBe('EXCLUSIVO SUSCRIPTORES');
+        expect(box.tituloCaja).toBe('SUSCRIPTORES');
     });
 
     it('should set buttonText and linkButton of information to null', () => {
@@ -115,7 +115,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
         const expectedBox = {
             tituloCaja: 'TEST TITLE',
             parameters: {
-                title: 'TEST TITLE',
+                title: 'TEST TITLE'
             }
         };
 
@@ -138,12 +138,12 @@ describe('boxInfoExclusiveSuscriptor', () => {
         expect(box.tituloCaja).toBe('TEST TITLE');
         expect(box.parameters.title).toBe('TEST TITLE');
     });
-    it('should return EXCLUSIVO SUSCRIPTORES when information.title is empty', () => {
+    it('should return SUSCRIPTORES when information.title is empty', () => {
         const information = {
             title: ''
         };
 
-         const boxInfoCompleteSpy = jest.spyOn(
+        const boxInfoCompleteSpy = jest.spyOn(
             boxInfoComplete,
             'boxInfoComplete'
         );
@@ -159,13 +159,13 @@ describe('boxInfoExclusiveSuscriptor', () => {
             'typeSection'
         );
 
-        expect(box.tituloCaja).toBe('EXCLUSIVO SUSCRIPTORES');
-        expect(box.parameters.title).toBe('EXCLUSIVO SUSCRIPTORES');
+        expect(box.tituloCaja).toBe('SUSCRIPTORES');
+        expect(box.parameters.title).toBe('SUSCRIPTORES');
     });
-    it('should return EXCLUSIVO SUSCRIPTORES when information.title is undefined', () => {
+    it('should return SUSCRIPTORES when information.title is undefined', () => {
         const information = {};
 
-         const boxInfoCompleteSpy = jest.spyOn(
+        const boxInfoCompleteSpy = jest.spyOn(
             boxInfoComplete,
             'boxInfoComplete'
         );
@@ -181,7 +181,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
             'typeSection'
         );
 
-        expect(box.tituloCaja).toBe('EXCLUSIVO SUSCRIPTORES');
-        expect(box.parameters.title).toBe('EXCLUSIVO SUSCRIPTORES');
+        expect(box.tituloCaja).toBe('SUSCRIPTORES');
+        expect(box.parameters.title).toBe('SUSCRIPTORES');
     });
 });

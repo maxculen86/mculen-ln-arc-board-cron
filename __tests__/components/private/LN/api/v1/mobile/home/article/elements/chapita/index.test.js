@@ -18,8 +18,8 @@ describe('components - private - LN - api - v1 - mobile - home - article - eleme
                     informationBox: { sectionAliasMobile: 'some-section' }
                 },
                 'exclusive-ln',
-                'Exclusivo suscriptores',
-                'Exclusivo suscriptores'
+                'Suscriptores',
+                'Suscriptores'
             ],
             [
                 {
@@ -28,8 +28,8 @@ describe('components - private - LN - api - v1 - mobile - home - article - eleme
                     informationBox: { sectionAliasMobile: 'some-section' }
                 },
                 'exclusive-ln',
-                'Exclusivo suscriptores',
-                'Exclusivo suscriptores'
+                'Suscriptores',
+                'Suscriptores'
             ],
             [
                 {
@@ -37,9 +37,9 @@ describe('components - private - LN - api - v1 - mobile - home - article - eleme
                     additionalProperties: { diseno: { size: 'M' } },
                     informationBox: { sectionAliasMobile: 'some-section' }
                 },
-               null,
-               null,
-               null
+                null,
+                null,
+                null
             ]
         ])(
             'should return badgeStyle="exclusive-ln" badge="Exclusivo suscriptores" chapita="Exclusivo suscriptores" when article is closed in any size',
@@ -90,7 +90,6 @@ describe('components - private - LN - api - v1 - mobile - home - article - eleme
                 expect(fieldsBadge.chapita).toBeNull();
             }
         );
-        
     });
     describe('when article is CONTENT LAB', () => {
         it('should return fieldsBadge with badgeStyle="default", badge="CONTENT LAB", and chapita="CONTENT LAB" size="M"', () => {

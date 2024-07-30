@@ -52,8 +52,8 @@ export const getBadgebyConfig = article => {
         !isAfondo
     ) {
         fieldsBadge.badgeStyle = 'exclusive-ln';
-        fieldsBadge.badge = 'Exclusivo suscriptores';
-        fieldsBadge.chapita = 'Exclusivo suscriptores';
+        fieldsBadge.badge = 'Suscriptores';
+        fieldsBadge.chapita = 'Suscriptores';
     } else if (isSponsored) {
         fieldsBadge.badgeStyle = 'default';
         fieldsBadge.badge = 'CONTENT LAB';

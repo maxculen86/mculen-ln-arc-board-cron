@@ -10,13 +10,11 @@ export const boxInfoExclusiveSuscriptor = (
     informationWithExclude.linkButton = null;
     const box = boxInfoComplete(informationWithExclude, section, typeSection);
     if (box) {
-        box.tituloCaja = (
-            box.tituloCaja || 'Exclusivo suscriptores'
-        ).toUpperCase();
+        box.tituloCaja = (box.tituloCaja || 'suscriptores').toUpperCase();
     }
     if (box && box.parameters) {
         box.parameters.title = (
-            box.parameters.title || 'Exclusivo suscriptores'
+            box.parameters.title || 'suscriptores'
         ).toUpperCase();
     }
     return box;
