@@ -13,6 +13,10 @@ import Carousel from '../Carousel/foodit';
 import RoofFoodit from '../../../../features/foodit-global/common/RoofFoodit/foodit';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import {
+    BOOKMARK_FILLED,
+    BOOKMARK_PLUS
+} from '../../../../features/foodit-global/common/bookmark/iconHelper';
 
 const { CAROUSEL, BN_12_GRID } = LAYOUTS;
 
@@ -69,7 +73,7 @@ export const RenderCollection = ({
                     }}
                     icon={
                         <IconSprite
-                            name={fill ? 'bookmark-filled' : 'bookmark-plus'}
+                            name={fill ? BOOKMARK_FILLED : BOOKMARK_PLUS}
                             critical={false}
                         />
                     }

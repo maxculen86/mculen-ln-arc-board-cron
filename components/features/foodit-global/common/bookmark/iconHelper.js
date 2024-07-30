@@ -1,3 +1,6 @@
+export const BOOKMARK_FILLED = 'bookmark-filled';
+export const BOOKMARK_PLUS = 'bookmark-plus';
+
 const checkBookmarksInCarousel = carousel => {
     const recipes = carousel.querySelectorAll('[data-id]');
 
@@ -13,8 +16,8 @@ const checkBookmarksInCarousel = carousel => {
     if (collectionIcon) {
         const href = collectionIcon.getAttribute('href');
         const newHref = allFilled
-            ? href.replace('bookmark-plus', 'bookmark-filled')
-            : href.replace('bookmark-filled', 'bookmark-plus');
+            ? href.replace(BOOKMARK_PLUS, BOOKMARK_FILLED)
+            : href.replace(BOOKMARK_FILLED, BOOKMARK_PLUS);
 
         collectionIcon.setAttribute('href', newHref);
     }
@@ -40,10 +43,10 @@ export const fillBookmarks = articleIds => {
             if (!icon) return;
 
             const href = icon.getAttribute('href');
-            if (href.includes('bookmark-filled')) return;
+            if (href.includes(BOOKMARK_FILLED)) return;
 
             const newHref = href
-                .replace('bookmark', 'bookmark-filled')
+                .replace('bookmark', BOOKMARK_FILLED)
                 .replace('critical', 'default');
 
             icon.setAttribute('href', newHref);
@@ -69,7 +72,7 @@ export const unfillBookmarks = articleIds => {
 
             const href = icon.getAttribute('href');
             const newHref = href
-                .replace('bookmark-filled', 'bookmark')
+                .replace(BOOKMARK_FILLED, 'bookmark')
                 .replace('default', 'critical');
 
             icon.setAttribute('href', newHref);

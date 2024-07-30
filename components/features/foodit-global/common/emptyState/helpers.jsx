@@ -60,22 +60,24 @@ export const descriptionByVariant = ({ layout, variant }) => {
     return optionsDescription[variant];
 };
 
-// TODO: agregar eventos para login y suscripción
 export const buttonPropsByVariant = {
     'barrier-logged': {
         label: 'Suscribite',
         variant: 'accent',
-        onClick: () => {
-            location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
-                window.location.href
-            )}`;
-        }
+        href: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${
+            typeof window !== 'undefined'
+                ? window.btoa(window.location.href)
+                : ''
+        }`
     },
     'barrier-unlogged': {
         label: 'Inicia sesión',
         variant: 'primary',
-        onClick: () =>
-            (location.href = FOODIT_LOGIN_URL + window.btoa(location.href))
+        href:
+            FOODIT_LOGIN_URL +
+            (typeof window !== 'undefined'
+                ? window.btoa(window.location.href)
+                : '')
     },
     'empty-state': {
         label: false

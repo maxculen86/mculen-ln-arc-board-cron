@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from '@ln/foodit-ui-card';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import { BOOKMARK_FILLED } from '../bookmark/iconHelper';
 
 const CommonCardFoodit = ({
     articleId,
@@ -62,7 +63,7 @@ const CommonCardFoodit = ({
                         text: 'Guardar',
                         icon: (
                             <IconSprite
-                                name={fill ? 'bookmark-filled' : 'bookmark'}
+                                name={fill ? BOOKMARK_FILLED : 'bookmark'}
                                 critical={!fill}
                             />
                         ),

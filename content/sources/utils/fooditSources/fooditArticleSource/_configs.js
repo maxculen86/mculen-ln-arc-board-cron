@@ -59,10 +59,10 @@ export const replaceMalformedAnchorTags = ({ textTypeElement, newValue }) => {
     const listErrors = getMalformedAnchorTags(content);
 
     return listErrors.reduce((acc, e) => {
-        const { content } = acc;
+        const { content: acumContent } = acc;
         return {
             ...acc,
-            content: content.replace(e, e.replace(/<[^>]*>/gim, newValue))
+            content: acumContent.replace(e, e.replace(/<[^>]*>/gim, newValue))
         };
     }, textTypeElement);
 };

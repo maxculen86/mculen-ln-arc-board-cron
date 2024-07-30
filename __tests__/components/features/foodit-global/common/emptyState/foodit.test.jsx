@@ -24,7 +24,7 @@ describe('EmptyState component', () => {
     it('should render title and button "accent" for variant "barrier-logged"', () => {
         render(<EmptyState variant="barrier-logged" />);
         const title = screen.getByText(titleByVariant['barrier-logged']);
-        const button = screen.getByRole('button');
+        const button = screen.getByRole('link');
         expect(button).toHaveAttribute('data-variant', 'accent');
         expect(button).toHaveTextContent('Suscribite');
         expect(title).toBeInTheDocument();
@@ -32,7 +32,7 @@ describe('EmptyState component', () => {
     it('should render title, button "primary" for variant "barrier-unlogged"', () => {
         render(<EmptyState variant="barrier-unlogged" />);
         const title = screen.getByText(titleByVariant['barrier-unlogged']);
-        const button = screen.getByRole('button');
+        const button = screen.getByRole('link');
         expect(title).toBeInTheDocument();
         expect(button).toHaveAttribute('data-variant', 'primary');
         expect(button).toHaveTextContent('Inicia sesión');

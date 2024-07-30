@@ -9,20 +9,23 @@ export const useFloatingGroupButton = ({ observerSelector }) => {
     });
 
     useEffect(() => {
-        if (!observerSelector || typeOfDevice === 'desktop') return;
+        if (observerSelector && typeOfDevice !== 'desktop') {
+            const callback = entries => {
+                entries.forEach(entry => {
+                    setVisible(!entry.isIntersecting);
+                });
+            };
 
-        const callback = entries => {
-            entries.forEach(entry => {
-                setVisible(!entry.isIntersecting);
-            });
-        };
+            const sentinel = document.querySelector(observerSelector);
+            const intersectionObserver = new IntersectionObserver(callback);
+            sentinel && intersectionObserver.observe(sentinel);
 
-        const sentinel = document.querySelector(observerSelector);
-        const intersectionObserver = new IntersectionObserver(callback);
-        sentinel && intersectionObserver.observe(sentinel);
-        return () => {
-            sentinel && intersectionObserver.unobserve(sentinel);
-        };
+            return () => {
+                sentinel && intersectionObserver.unobserve(sentinel);
+            };
+        }
+
+        return () => {};
     }, [observerSelector, typeOfDevice]);
 
     return {

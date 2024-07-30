@@ -34,7 +34,7 @@ const EmptyState = ({ variant, className, direction = 'row' }) => {
         }
     );
 
-    const { label, onClick, variant: buttonVariant } =
+    const { label, href, variant: buttonVariant } =
         buttonPropsByVariant[variant] || {};
 
     if (!variant) return <></>;
@@ -61,7 +61,7 @@ const EmptyState = ({ variant, className, direction = 'row' }) => {
                 </Text>
             </div>
             {label && (
-                <Button variant={buttonVariant} onClick={onClick}>
+                <Button variant={buttonVariant} href={href}>
                     {label}
                 </Button>
             )}
