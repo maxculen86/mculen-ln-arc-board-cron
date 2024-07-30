@@ -20,8 +20,8 @@ const ShoppingListButton = ({
     );
 
     const { bookmarkId, setBookmarkId } = useIsInShoppingList(
-        articleId,
-        isSuscriptor
+        isSuscriptor,
+        articleId
     );
 
     return (

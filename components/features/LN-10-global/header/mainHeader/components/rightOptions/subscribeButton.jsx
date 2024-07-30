@@ -5,13 +5,12 @@ import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/contenidos-ui-tooltip';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 import { useHeaderContext } from '../../../context';
-import { getTermicaValues } from '../../_helper';
+import { getTermicaValues, showSubscribeButton } from '../../_helper';
 import {
     FallBackTextButton,
     termicaValuesSubscribe,
     getClassNameButtonSubscribe
 } from './_helper';
-import { showSubscribeButton } from '../../_helper';
 import useTermica from '../../../../../../private/common/hooks/useTermica';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 

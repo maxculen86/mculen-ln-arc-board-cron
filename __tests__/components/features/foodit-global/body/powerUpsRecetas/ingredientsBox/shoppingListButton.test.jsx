@@ -34,8 +34,8 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
         isFooditSuscriptor.mockReturnValue(true);
         getToken.mockReturnValue('mockToken');
         useIsInShoppingList.mockReturnValue({
-            bookmarkId: null,
-            setBookmarkId: jest.fn()
+            setBookmarkId: jest.fn(),
+            bookmarkId: null
         });
     });
 
@@ -46,8 +46,8 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
 
     it('should render the button with "ELIMINAR DE LISTA" text when bookmarkId is provided', () => {
         useIsInShoppingList.mockReturnValue({
-            bookmarkId: '123',
-            setBookmarkId: jest.fn()
+            setBookmarkId: jest.fn(),
+            bookmarkId: '123'
         });
         render(<ShoppingListButton {...defaultProps} />);
         expect(screen.getByText('ELIMINAR DE LISTA')).toBeInTheDocument();
@@ -56,8 +56,8 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
     it('should call handleIgredientListButton with correct parameters when clicked', () => {
         const setBookmarkIdMock = jest.fn();
         useIsInShoppingList.mockReturnValue({
-            bookmarkId: null,
-            setBookmarkId: setBookmarkIdMock
+            setBookmarkId: setBookmarkIdMock,
+            bookmarkId: null
         });
 
         render(<ShoppingListButton {...defaultProps} />);

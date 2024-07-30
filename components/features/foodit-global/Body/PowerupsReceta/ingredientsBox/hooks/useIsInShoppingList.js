@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import getBookmarkByArticleId from '../../../../common/bookmark/api/getBookmarkByArticleId';
 
-export const useIsInShoppingList = (articleId = '', isSuscriptor) => {
+export const useIsInShoppingList = (isSuscriptor, articleId = '') => {
     const [bookmarkId, setBookmarkId] = useState(null);
 
     useEffect(() => {
