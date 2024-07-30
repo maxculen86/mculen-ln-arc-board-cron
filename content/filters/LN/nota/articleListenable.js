@@ -212,6 +212,10 @@ const labels = `
             display
             text
         }
+        glosario_nota {
+            display
+            text
+        }
     }
 `;
 const table = `
