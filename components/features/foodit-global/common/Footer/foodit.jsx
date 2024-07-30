@@ -78,9 +78,9 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
-                                data-test-id="footer-link-youtube"
-                                href="https://www.youtube.com/channel/UCg3Rc6CdupnBnmcSyWrlMgg"
-                                title="Suscribite a Youtube"
+                                data-test-id="footer-link-tiktok"
+                                href="https://www.tiktok.com/@fooditar?lang=es"
+                                title="Seguinos en TikTok"
                                 iconOnly
                                 size={32}
                                 target="_blank"
@@ -88,10 +88,10 @@ const FooterFoodit = () => {
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
                                 data-dynamic-label={'social'}
-                                data-dynamic-action={'youtube'}
+                                data-dynamic-action={'tiktok'}
                             >
                                 <Icon size={16}>
-                                    <IconSprite name="youtube" />
+                                    <IconSprite name="tiktok" />
                                 </Icon>
                             </Button>
                         </div>
