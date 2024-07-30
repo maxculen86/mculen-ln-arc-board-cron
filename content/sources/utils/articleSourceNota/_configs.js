@@ -176,16 +176,25 @@ export const injectGlossaryInText = (text, glossary) => {
     let foundGlossaryWord = false;
     if (!(glossary && glossary.length)) return { text, foundGlossaryWord };
 
-    glossary.forEach(glossaryItem => {
-        const regex = new RegExp(`\\b${glossaryItem.key}\\b`, 'g');
-        if (regex.test(text)) {
-            foundGlossaryWord = true;
-            text = text.replace(
-                regex,
-                `<mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }">${glossaryItem.key}</mark>`
-            );
+    const parts = text.split(/(<a[^>]*>.*?<\/a>)/g);
+    const processedParts = parts.map(part => {
+        if (part.startsWith('<a')) {
+            return part;
+        } else {
+            glossary.forEach(glossaryItem => {
+                const regex = new RegExp(`\\b${glossaryItem.key}\\b`, 'gi');
+                if (regex.test(part)) {
+                    foundGlossaryWord = true;
+                    part = part.replace(
+                        regex,
+                        match =>
+                            `<mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }">${match}</mark>`
+                    );
+                }
+            });
+            return part;
         }
     });
 
-    return { text, foundGlossaryWord };
+    return { text: processedParts.join(''), foundGlossaryWord };
 };

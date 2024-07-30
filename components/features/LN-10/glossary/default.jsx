@@ -22,7 +22,6 @@ const Glossary = ({ customFields: { hide } = {} }) => {
         return null;
     }
 
-    //TODO: agregar test relacionados al feature y componentes presentacionales
     return (
         <>
             <Collapse glossaryData={glossaryData} />

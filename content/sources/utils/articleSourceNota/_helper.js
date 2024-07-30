@@ -96,8 +96,13 @@ export const transformPromoItems = async ({
     cachedCall,
     arcSite,
     configCallbacks,
-    promoItemObject = {}
+    promoItemObject = {},
+    showGlossary
 }) => {
+    if (!showGlossary) {
+        delete promoItemObject.glossary;
+    }
+
     const promiseArr = [];
 
     for (let property in promoItemObject) {
@@ -279,6 +284,14 @@ const transformContentElements = async ({
     return contentElementTransformed;
 };
 
+export const isValidSectionGlossary = (sections, notShowGlossary) => {
+    const section = get(sections, '[0].path', '');
+
+    const validSections = ['/sociedad', '/espectaculos', '/tecnologia'];
+
+    return validSections.includes(section) && !notShowGlossary;
+};
+
 export const transform = async (response, query, cachedCall) => {
     const {
         meteringVariant,
@@ -302,6 +315,8 @@ export const transform = async (response, query, cachedCall) => {
     const sections = get(response, 'taxonomy.sections', []);
     const authors = get(response, 'credits.by', []);
     const layout = 'LN-nota-noticia';
+    const notShowGlossary =
+        get(response, 'label.glosario_nota.text', 'No') === 'No';
 
     const result = {
         ...response,
@@ -320,11 +335,9 @@ export const transform = async (response, query, cachedCall) => {
         cachedCall,
         subtype,
         arcSite,
-        glossary: get(
-            response,
-            'promo_items.glossary.embed.config.arrayData',
-            []
-        )
+        glossary: isValidSectionGlossary(sections, notShowGlossary)
+            ? get(response, 'promo_items.glossary.embed.config.arrayData', [])
+            : []
     };
 
     const [
@@ -336,7 +349,8 @@ export const transform = async (response, query, cachedCall) => {
             cachedCall,
             arcSite,
             configCallbacks: configPromoItems,
-            promoItemObject: get(result, 'promo_items', {})
+            promoItemObject: get(result, 'promo_items', {}),
+            showGlossary: isValidSectionGlossary(sections, notShowGlossary)
         }),
         transformContentElements({
             result,

@@ -4,7 +4,8 @@ import {
     filterSections,
     transformAuthors,
     transformElementsBasedOnType,
-    setRedirect
+    setRedirect,
+    isValidSectionGlossary
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -45,6 +46,52 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
 
+        it('should handle glossary words with special characters', () => {
+            const glossary = [
+                { key: 'dólar', value: 'Moneda estadounidense...' }
+            ];
+            const content = 'El dólar registra un aumento...';
+
+            const expected = {
+                foundGlossaryWord: true,
+                text:
+                    'El <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }">dólar</mark> registra un aumento...'
+            };
+
+            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
+        });
+
+        it('should detect glossary words regardless of case', () => {
+            const glossary = [
+                { key: 'CCL', value: 'Dólar CCL es una variante...' }
+            ];
+
+            const content = 'El dólar ccl registra un aumento...';
+
+            const expected = {
+                foundGlossaryWord: true,
+                text:
+                    'El dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">ccl</mark> registra un aumento...'
+            };
+
+            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
+        });
+
+        it('should not inject glossary words that are substrings of other words', () => {
+            const glossary = [
+                { key: 'CCL', value: 'Dólar CCL es una variante...' }
+            ];
+
+            const content = 'La palabra "CCLara" no debería ser resaltada.';
+
+            const expected = {
+                foundGlossaryWord: false,
+                text: 'La palabra "CCLara" no debería ser resaltada.'
+            };
+
+            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
+        });
+
         it('should not inject glossary HTML when no glossary word is found', () => {
             const glossary = [
                 {
@@ -66,6 +113,27 @@ describe('Tests articleSourceNota - _helper', () => {
                 foundGlossaryWord: false,
                 text:
                     'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores'
+            };
+
+            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
+        });
+
+        it('should not inject glossary HTML inside anchor tags', () => {
+            const glossary = [
+                {
+                    key: 'CCL',
+                    value:
+                        'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
+                }
+            ];
+
+            const content =
+                'El <a href="https://example.com">dólar CCL</a> ha aumentado...';
+
+            const expected = {
+                foundGlossaryWord: false,
+                text:
+                    'El <a href="https://example.com">dólar CCL</a> ha aumentado...'
             };
 
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
@@ -167,7 +235,7 @@ describe('Tests articleSourceNota - _helper', () => {
             url: '/receta/pollito-con-papa/'
         };
 
-        test('should return query with id', () => {
+        it('should return query with id', () => {
             expect(
                 getUrlQuery({
                     ...mockKey,
@@ -179,13 +247,13 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should return query with website_url when url is provided', () => {
+        it('should return query with website_url when url is provided', () => {
             expect(getUrlQuery({ ...mockKey, id: undefined })).toStrictEqual(
                 '/content/v4/stories/?website=foodit&website_url=/receta/pollito-con-papa/'
             );
         });
 
-        test('should return query with published', () => {
+        it('should return query with published', () => {
             expect(
                 getUrlQuery({
                     ...mockKey,
@@ -197,7 +265,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should return query with included fields', () => {
+        it('should return query with included fields', () => {
             expect(
                 getUrlQuery({
                     ...mockKey,
@@ -208,7 +276,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should handle and clean URL for specific format', () => {
+        it('should handle and clean URL for specific format', () => {
             expect(
                 getUrlQuery({
                     ...mockKey,
@@ -222,13 +290,13 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should throw an error when neither url nor id is provided', () => {
+        it('should throw an error when neither url nor id is provided', () => {
             expect(() => getUrlQuery({})).toThrowError(
                 'Debe definir url o id para obtener la nota'
             );
         });
 
-        test('should throw an error when the props is not defined or null', () => {
+        it('should throw an error when the props is not defined or null', () => {
             expect(() => getUrlQuery(undefined)).toThrowError(
                 'Debe definir url o id para obtener la nota'
             );
@@ -280,7 +348,7 @@ describe('Tests articleSourceNota - _helper', () => {
             basic: { type: 'image', id: 'image-id' }
         };
 
-        test('should transform promo items using callbacks', async () => {
+        it('should transform promo items using callbacks', async () => {
             const result = await transformPromoItems({
                 cachedCall,
                 arcSite: 'foodit',
@@ -306,7 +374,7 @@ describe('Tests articleSourceNota - _helper', () => {
             });
         });
 
-        test('should handle empty promoItemObject', async () => {
+        it('should handle empty promoItemObject', async () => {
             const result = await transformPromoItems({
                 cachedCall,
                 arcSite: 'foodit',
@@ -316,7 +384,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result).toEqual({});
         });
 
-        test('should handle callbacks that return undefined', async () => {
+        it('should handle callbacks that return undefined', async () => {
             mockCallbackConvertVideoToJW.mockResolvedValueOnce(undefined);
 
             const result = await transformPromoItems({
@@ -338,7 +406,7 @@ describe('Tests articleSourceNota - _helper', () => {
     });
 
     describe('Tests replaceMalformedAnchorTags function', () => {
-        test('should replace malformed anchor tags with new value', () => {
+        it('should replace malformed anchor tags with new value', () => {
             const textTypeElement = {
                 content: '<a href="https://example\\">Link 1</a>'
             };
@@ -350,7 +418,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result.content).toStrictEqual('Link 1');
         });
 
-        test('should replace multiple malformed anchor tags with new value', () => {
+        it('should replace multiple malformed anchor tags with new value', () => {
             const textTypeElement = {
                 content:
                     'This is <a href="https://example\\">Link 1</a> <a href="https://example2\\">Link 2</a>'
@@ -363,7 +431,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result.content).toStrictEqual('This is Link 1 Link 2');
         });
 
-        test('should not replace well-formed anchor tags', () => {
+        it('should not replace well-formed anchor tags', () => {
             const textTypeElement = {
                 content: '<a href="https://example.com">Link 1</a>'
             };
@@ -377,7 +445,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should not replace when no malformed anchor tags present', () => {
+        it('should not replace when no malformed anchor tags present', () => {
             const textTypeElement = {
                 content: 'This is plain text without any anchor tags.'
             };
@@ -391,7 +459,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should handle empty content', () => {
+        it('should handle empty content', () => {
             const textTypeElement = {
                 content: ''
             };
@@ -403,7 +471,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result.content).toStrictEqual('');
         });
 
-        test('should handle empty textTypeElement', () => {
+        it('should handle empty textTypeElement', () => {
             const result = replaceMalformedAnchorTags({
                 textTypeElement: null,
                 newValue: 'Replacement'
@@ -411,7 +479,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result).toBeNull();
         });
 
-        test('should handle empty newValue', () => {
+        it('should handle empty newValue', () => {
             const textTypeElement = {
                 content: '<a href="https://example\\">Link 1</a>'
             };
@@ -424,7 +492,7 @@ describe('Tests articleSourceNota - _helper', () => {
     });
 
     describe('Tests formatElementText function', () => {
-        test('should add "https://" in paragraphs link', () => {
+        it('should add "https://" in paragraphs link', () => {
             const elementText = {
                 content:
                     'This is a <p>paragraph</p> with a <a href="//lanacion.com.ar/">link</a>.'
@@ -435,7 +503,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should add forward slash in paragraphs links', () => {
+        it('should add forward slash in paragraphs links', () => {
             const elementText = {
                 content:
                     'This is a <p>paragraph</p> with a <a href="https://lanacion.com.ar">link</a>.'
@@ -446,7 +514,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should replace malformed anchor tags with empty value', () => {
+        it('should replace malformed anchor tags with empty value', () => {
             const elementText = {
                 content:
                     'This is a text with malformed link: <a href="https://example\\">Link 1</a>'
@@ -457,14 +525,14 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should handle empty elementText', () => {
+        it('should handle empty elementText', () => {
             const result = formatElementText();
             expect(result).toEqual({
                 content: ''
             });
         });
 
-        test('should handle empty content in elementText', () => {
+        it('should handle empty content in elementText', () => {
             const elementText = {
                 content: ''
             };
@@ -472,14 +540,14 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result.content).toStrictEqual('');
         });
 
-        test('should handle empty content when elementText is null', () => {
+        it('should handle empty content when elementText is null', () => {
             const result = formatElementText(null);
             expect(result.content).toStrictEqual('');
         });
     });
 
     describe('Tests removeErrosInterstitialLink function', () => {
-        test('should return empty string for invalid URL format', () => {
+        it('should return empty string for invalid URL format', () => {
             const invalidUrls = ['invalid-url', 'ftp://example.com'];
 
             invalidUrls.forEach(url => {
@@ -489,7 +557,7 @@ describe('Tests articleSourceNota - _helper', () => {
             });
         });
 
-        test('should return original URL for valid URL format', () => {
+        it('should return original URL for valid URL format', () => {
             const validUrls = [
                 'http://example.com',
                 'https://example.com/path',
@@ -502,12 +570,12 @@ describe('Tests articleSourceNota - _helper', () => {
             });
         });
 
-        test('should handle empty string as input', () => {
+        it('should handle empty string as input', () => {
             const result = removeErrosInterstitialLink('');
             expect(result).toStrictEqual('');
         });
 
-        test('should handle non-string input', () => {
+        it('should handle non-string input', () => {
             const nonStringInputs = [null, undefined, 123, { key: 'value' }];
 
             nonStringInputs.forEach(input => {
@@ -518,32 +586,32 @@ describe('Tests articleSourceNota - _helper', () => {
     });
 
     describe('Tests formatInterstitialLink function', () => {
-        test('should format interstitial link with forward slash and https', () => {
+        it('should format interstitial link with forward slash and https', () => {
             expect(formatInterstitialLink('//lanacion.com.ar')).toEqual(
                 'https://lanacion.com.ar/'
             );
         });
 
-        test('should return null when the url is a empty string', () => {
+        it('should return null when the url is a empty string', () => {
             expect(formatInterstitialLink('')).toStrictEqual('');
         });
 
-        test('should return null when the url is invalid', () => {
+        it('should return null when the url is invalid', () => {
             expect(formatInterstitialLink('invalid-url')).toStrictEqual('');
         });
 
-        test('should return null when non-string url', () => {
+        it('should return null when non-string url', () => {
             expect(formatInterstitialLink(123)).toStrictEqual('');
         });
 
-        test('should return null when the url is not defined or is null', () => {
+        it('should return null when the url is not defined or is null', () => {
             expect(formatInterstitialLink(null)).toStrictEqual('');
             expect(formatInterstitialLink(undefined)).toStrictEqual('');
         });
     });
 
     describe('Tests filterSections function', () => {
-        test('should filter sections from valid response', () => {
+        it('should filter sections from valid response', () => {
             const validResponse = {
                 taxonomy: {
                     sections: [
@@ -561,17 +629,17 @@ describe('Tests articleSourceNota - _helper', () => {
             });
         });
 
-        test('should return a empty array when the response is not defined', () => {
+        it('should return a empty array when the response is not defined', () => {
             const result = filterSections();
             expect(result.sections).toHaveLength(0);
         });
 
-        test('should return a empty array when the response is a empty object', () => {
+        it('should return a empty array when the response is a empty object', () => {
             const result = filterSections({});
             expect(result.sections).toHaveLength(0);
         });
 
-        test('should return a empty array when the taxonomy is a empty object', () => {
+        it('should return a empty array when the taxonomy is a empty object', () => {
             const responseWithoutSections = {
                 taxonomy: {}
             };
@@ -579,7 +647,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result.sections).toHaveLength(0);
         });
 
-        test('should handle sections property with non-object items', () => {
+        it('should handle sections property with non-object items', () => {
             const responseWithNonObjectItems = {
                 taxonomy: {
                     sections: [null, 'not-an-object', 123]
@@ -589,7 +657,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result.sections).toHaveLength(0);
         });
 
-        test('should handle sections property with items missing type property', () => {
+        it('should handle sections property with items missing type property', () => {
             const responseWithItemsMissingType = {
                 taxonomy: {
                     sections: [
@@ -605,7 +673,7 @@ describe('Tests articleSourceNota - _helper', () => {
             ]);
         });
 
-        test('should handle sections property with items of type other than "section"', () => {
+        it('should handle sections property with items of type other than "section"', () => {
             const responseWithItemsOfDifferentType = {
                 taxonomy: {
                     sections: [
@@ -620,7 +688,7 @@ describe('Tests articleSourceNota - _helper', () => {
     });
 
     describe('Tests transformAuthors function', () => {
-        test('should transform author list with resized image URL', () => {
+        it('should transform author list with resized image URL', () => {
             const authorList = [
                 {
                     _id: 'francisco-jueguen-12',
@@ -662,12 +730,12 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should handle empty author list', () => {
+        it('should handle empty author list', () => {
             const result = transformAuthors([]);
             expect(result).toHaveLength(0);
         });
 
-        test('should return a empty array when the authorList is not defined', () => {
+        it('should return a empty array when the authorList is not defined', () => {
             expect(transformAuthors(undefined)).toEqual([]);
         });
     });
@@ -688,7 +756,7 @@ describe('Tests articleSourceNota - _helper', () => {
             })
         };
 
-        test('should transform elements based on type', () => {
+        it('should transform elements based on type', () => {
             const arrayElements = [
                 { type: 'text', value: 'This is a text' },
                 {
@@ -723,12 +791,12 @@ describe('Tests articleSourceNota - _helper', () => {
             ]);
         });
 
-        test('should return a empty array', () => {
+        it('should return a empty array', () => {
             const result = transformElementsBasedOnType({});
             expect(result).toHaveLength(0);
         });
 
-        test('should handle invalid array elements', () => {
+        it('should handle invalid array elements', () => {
             invalidArgunments.forEach(elements => {
                 const result = transformElementsBasedOnType({
                     arrayElements: elements
@@ -737,7 +805,7 @@ describe('Tests articleSourceNota - _helper', () => {
             });
         });
 
-        test('should handle invalid config callbacks', () => {
+        it('should handle invalid config callbacks', () => {
             const arrayElements = [{ type: 'gallery', value: 'gallery list' }];
 
             invalidArgunments.forEach(callbacks => {
@@ -751,7 +819,7 @@ describe('Tests articleSourceNota - _helper', () => {
             });
         });
 
-        test('should handle elements without matching callback', () => {
+        it('should handle elements without matching callback', () => {
             const arrayElements = [
                 { type: 'header', value: 'This is a title' },
                 { type: 'custom_embed', value: 'This is a power up' }
@@ -767,7 +835,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(result).toEqual(arrayElements);
         });
 
-        test('should handle errors during transformation', () => {
+        it('should handle errors during transformation', () => {
             const arrayElements = [
                 { type: 'text', value: 'This is a text' },
                 { type: 'header', value: 'This is a title' }
@@ -810,7 +878,7 @@ describe('Tests articleSourceNota - _helper', () => {
 
         const siteUrl = 'https://lanacion.com.ar';
 
-        test('should throw Redirect exception for response type "redirect" with redirect_url', () => {
+        it('should throw Redirect exception for response type "redirect" with redirect_url', () => {
             const response = {
                 type: 'redirect',
                 redirect_url: 'https://example.com'
@@ -821,7 +889,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should throw Redirect exception for forwardUrl with valid URL', () => {
+        it('should throw Redirect exception for forwardUrl with valid URL', () => {
             const response = {
                 related_content: {
                     redirect: [{ redirect_url: 'https://example.com' }]
@@ -834,7 +902,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should not throw Redirect for forwardUrl with invalid URL', () => {
+        it('should not throw Redirect for forwardUrl with invalid URL', () => {
             const response = {
                 related_content: {
                     redirect: [{ redirect_url: 'invalid-url' }]
@@ -846,7 +914,7 @@ describe('Tests articleSourceNota - _helper', () => {
             ).not.toThrow();
         });
 
-        test('should validate exclusive access when paywallEnabled is true and checkExclusiveAccess is present', () => {
+        it('should validate exclusive access when paywallEnabled is true and checkExclusiveAccess is present', () => {
             const response = {
                 content_restrictions: { content_code: 'cerrada' },
                 type: 'story'
@@ -862,7 +930,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should not validate exclusive access when paywallEnabled is false', () => {
+        it('should not validate exclusive access when paywallEnabled is false', () => {
             const response = {
                 content_restrictions: { content_code: 'cerrada' },
                 type: 'story'
@@ -878,7 +946,7 @@ describe('Tests articleSourceNota - _helper', () => {
             ).not.toThrow();
         });
 
-        test('should not validate exclusive access when checkExclusiveAccess is false', () => {
+        it('should not validate exclusive access when checkExclusiveAccess is false', () => {
             const response = {
                 content_restrictions: { content_code: 'cerrada' },
                 type: 'story'
@@ -894,7 +962,7 @@ describe('Tests articleSourceNota - _helper', () => {
             ).not.toThrow();
         });
 
-        test('should call checkPaywall when isNotShowcase is true', () => {
+        it('should call checkPaywall when isNotShowcase is true', () => {
             const response = {
                 type: 'story',
                 label: {
@@ -917,7 +985,7 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
-        test('should not call checkPaywall when isNotShowcase is false', () => {
+        it('should not call checkPaywall when isNotShowcase is false', () => {
             const response = {
                 type: 'story',
                 label: {
@@ -931,6 +999,43 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(() =>
                 setRedirect({ response, query: {}, siteUrl })
             ).not.toThrow();
+        });
+    });
+
+    describe('isValidSectionGlossary', () => {
+        it('should return false if sections is not an array', () => {
+            expect(isValidSectionGlossary(null, false)).toBe(false);
+            expect(isValidSectionGlossary(undefined, false)).toBe(false);
+            expect(isValidSectionGlossary({}, false)).toBe(false);
+        });
+
+        it('should return false if sections is an empty array', () => {
+            expect(isValidSectionGlossary([], false)).toBe(false);
+        });
+
+        it('should return false if section path is not in validSections', () => {
+            const sections = [{ path: '/deportes' }];
+            expect(isValidSectionGlossary(sections, false)).toBe(false);
+        });
+
+        it('should return true if section path is in validSections and notShowGlossary is false', () => {
+            const sections = [{ path: '/sociedad' }];
+            expect(isValidSectionGlossary(sections, false)).toBe(true);
+        });
+
+        it('should return false if section path is in validSections but notShowGlossary is true', () => {
+            const sections = [{ path: '/sociedad' }];
+            expect(isValidSectionGlossary(sections, true)).toBe(false);
+        });
+
+        it('should handle missing path property in sections', () => {
+            const sections = [{}];
+            expect(isValidSectionGlossary(sections, false)).toBe(false);
+        });
+
+        it('should handle sections with path as an empty string', () => {
+            const sections = [{ path: '' }];
+            expect(isValidSectionGlossary(sections, false)).toBe(false);
         });
     });
 });
