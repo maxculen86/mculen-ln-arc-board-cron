@@ -107,6 +107,15 @@
             }
         }
     ],
+    "focal-100": [
+        {
+            "variants": ["regular", "author", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            }
+        }
+    ],
     "bn-opening-4": [
         {
             "variants": ["regular", "liveblog"],
