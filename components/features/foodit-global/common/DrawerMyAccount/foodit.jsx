@@ -6,7 +6,6 @@ import useGetUserData from '../../hooks/useGetUserData';
 import { DRAWER } from '../DrawerContainer/constants';
 
 export const DrawerMyAccount = () => {
-    // TODO: contenido de menú
     const itemsList = menuUser;
 
     const { email, initials, isSuscribed, restoreContext } = useGetUserData();

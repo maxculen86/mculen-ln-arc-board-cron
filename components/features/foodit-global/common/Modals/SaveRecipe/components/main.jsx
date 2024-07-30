@@ -56,7 +56,7 @@ const MainSaveRecipe = props => {
                             key={value || bookmarkGroup}
                             value={value || bookmarkGroup}
                             label={bookmarkGroup}
-                            as={props => {
+                            as={propsAs => {
                                 return (
                                     <>
                                         {value === 'new' ? (
@@ -72,7 +72,7 @@ const MainSaveRecipe = props => {
                                         ) : (
                                             <Itemcard
                                                 type="button"
-                                                {...props}
+                                                {...propsAs}
                                             />
                                         )}
                                     </>
