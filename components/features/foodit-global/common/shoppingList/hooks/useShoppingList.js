@@ -31,10 +31,7 @@ export const useShoppingList = () => {
             setLoading(false);
         };
 
-        const isMobile =
-            getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile';
-
-        setIsMobile(isMobile);
+        setIsMobile(getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile');
 
         if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
             fetchUserBookmarks();

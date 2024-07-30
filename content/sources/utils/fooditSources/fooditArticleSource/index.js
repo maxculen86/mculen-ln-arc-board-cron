@@ -115,8 +115,8 @@ export const transform = async (result, query, cachedCall) => {
     };
 
     const [
-        promo_items,
-        content_elements,
+        promoItems,
+        contentElements,
         relatedContentBasic
     ] = await Promise.all([
         transformPromoItems({
@@ -146,8 +146,8 @@ export const transform = async (result, query, cachedCall) => {
     return {
         ...result,
         subtype,
-        promo_items,
-        content_elements,
+        promo_items: promoItems,
+        content_elements: contentElements,
         related_content: {
             ...get(result, 'related_content', {}),
             basic: relatedContentBasic

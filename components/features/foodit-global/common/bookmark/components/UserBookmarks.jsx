@@ -20,7 +20,7 @@ export const UserBookmarks = () => {
 
             if (bookmarks.length) {
                 fillBookmarks(
-                    bookmarks.map(bookmarks => bookmarks.bookmarkTypeId)
+                    bookmarks.map(bookmark => bookmark.bookmarkTypeId)
                 );
             }
         };

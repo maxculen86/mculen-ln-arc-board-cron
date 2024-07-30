@@ -26,9 +26,9 @@ export const IngredientsList = ({ isMobile, list = [], setShoppingList }) => {
                                 />
                             </HeaderWrapper>
                             <ContentWrapper isMobile={isMobile}>
-                                {sections.map((section, i) => (
+                                {sections.map((section, sectionIndex) => (
                                     <IngredientsListContent
-                                        key={`${bookmarkId}-ingredient`}
+                                        key={`${bookmarkId}-ingredient-${sectionIndex}`}
                                         bookmarkId={bookmarkId}
                                         {...section}
                                     />

@@ -6,6 +6,8 @@ import { Icon } from '@ln/common-ui-icon';
 
 const { layoutsName = {} } = siteProperties || {};
 
+const FLOATING_BUTTON_SENTINEL = '.floating-button-sentinel';
+
 const defaultClassName = 'lg-none';
 const defaultButtons = [
     {
@@ -58,14 +60,9 @@ export const floatingButtonConfig = {
     [layoutsName.FooditRecetario]: (callbacks = []) => {
         const [toggleDrawer = () => null] = callbacks;
         return {
-            observerSelector: '.floating-button-sentinel',
+            observerSelector: FLOATING_BUTTON_SENTINEL,
             className: 'sm-only',
             buttons: [
-                // {
-                //     title: 'Crear colección',
-                //     children: 'Crear colección'
-                //     TODO: agregar callback o href para el botón
-                // },
                 {
                     title: 'Elegir colección',
                     children: 'Elegir colección',
@@ -75,12 +72,12 @@ export const floatingButtonConfig = {
         };
     },
     [layoutsName.FooditAcumuladoChef]: {
-        observerSelector: '.floating-button-sentinel',
+        observerSelector: FLOATING_BUTTON_SENTINEL,
         className: defaultClassName,
         buttons: defaultButtons
     },
     [layoutsName.FooditChef]: {
-        observerSelector: '.floating-button-sentinel',
+        observerSelector: FLOATING_BUTTON_SENTINEL,
         className: defaultClassName,
         buttons: defaultButtons
     }
@@ -99,7 +96,7 @@ export const customFloatingButtonConfig = {
         const [copyAction = () => null] = callbacks;
 
         return {
-            observerSelector: '.floating-button-sentinel',
+            observerSelector: FLOATING_BUTTON_SENTINEL,
             className: defaultClassName,
             buttons: [
                 {

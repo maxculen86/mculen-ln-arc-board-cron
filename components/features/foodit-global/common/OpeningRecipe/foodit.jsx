@@ -31,13 +31,10 @@ export const OpeningRecipe = ({ article = {} }) => {
 
     const videoJW = get(promo_items, 'video_jw', null);
     const imageData = get(promo_items, 'basic', {});
-    const { caption = '', resized_urls = [], url = '' } = replaceBaseUrl(
-        imageData
-    );
+    const { resized_urls = [], url = '' } = replaceBaseUrl(imageData);
 
     const { resizedUrl = '' } = getShortestImage(resized_urls);
 
-    // TODO: Icons still pending design definitions
     return (
         <Recipe>
             <Recipe.Media className="z-1">
