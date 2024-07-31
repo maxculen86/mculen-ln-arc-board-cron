@@ -235,8 +235,8 @@ describe('Test function getBadge', () => {
         expect(
             getBadge({ article: articleMock, isExclusiveSub: false })
         ).toEqual({
-            badgeStyle: 'exclusive-ln',
-            badgeText: 'Exclusivo suscriptores'
+            badgeStyle: 'subscriber',
+            badgeText: 'Suscriptores'
         });
     });
     test('should return an badge with style live priority 2.', () => {

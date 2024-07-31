@@ -92,8 +92,8 @@ export const getBadge = ({ article, isExclusiveSub, isFoodit }) => {
         !isFoodit
     ) {
         return {
-            badgeStyle: 'exclusive-ln',
-            badgeText: 'Exclusivo suscriptores'
+            badgeStyle: 'subscriber',
+            badgeText: 'Suscriptores'
         };
     }
 

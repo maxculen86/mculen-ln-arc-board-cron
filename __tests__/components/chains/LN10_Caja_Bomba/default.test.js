@@ -14,7 +14,7 @@ jest.mock('fusion:consumer', Component => {
 
 jest.mock(
     '../../../../components/features/LN-10/article/default',
-    () => 'mocked-ArticleFeature'
+    () => 'mocked-articlefeature'
 );
 
 describe('Tests - Chain - CajaBomba', () => {
@@ -76,7 +76,7 @@ describe('Tests - Chain - CajaBomba', () => {
 
             expect(wrapperBomba).toBeDefined();
             expect(
-                wrapperBomba.querySelectorAll('mocked-ArticleFeature')
+                wrapperBomba.querySelectorAll('mocked-articlefeature')
             ).toHaveLength(1);
         });
 
@@ -172,7 +172,7 @@ describe('Tests - Chain - CajaBomba', () => {
 
             expect(wrapperBomba).toBeDefined();
             expect(
-                wrapperBomba.querySelectorAll('mocked-ArticleFeature')
+                wrapperBomba.querySelectorAll('mocked-articlefeature')
             ).toHaveLength(5);
         });
 
@@ -185,7 +185,7 @@ describe('Tests - Chain - CajaBomba', () => {
 
             expect(wrapperBomba).toBeDefined();
             expect(
-                wrapperBomba.querySelectorAll('mocked-ArticleFeature')
+                wrapperBomba.querySelectorAll('mocked-articlefeature')
             ).toHaveLength(1);
         });
 
@@ -200,7 +200,7 @@ describe('Tests - Chain - CajaBomba', () => {
 
             expect(wrapperBomba).toBeDefined();
             expect(
-                wrapperBomba.querySelectorAll('mocked-ArticleFeature')
+                wrapperBomba.querySelectorAll('mocked-articlefeature')
             ).toHaveLength(1);
         });
 
@@ -213,7 +213,7 @@ describe('Tests - Chain - CajaBomba', () => {
 
             expect(wrapperBomba).toBeDefined();
             expect(
-                wrapperBomba.querySelectorAll('mocked-ArticleFeature')
+                wrapperBomba.querySelectorAll('mocked-articlefeature')
             ).toHaveLength(1);
         });
     });

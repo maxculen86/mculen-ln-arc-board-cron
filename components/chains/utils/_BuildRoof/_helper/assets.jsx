@@ -17,9 +17,7 @@ export const getAssetsLeft = {
             />
         </svg>
     ),
-    exclusivoSuscriptores: (
-        <IconSprite name="exclusivoSuscriptores" critical fill="#FDB727" />
-    )
+    subscriber: <IconSprite name="subscriber" color />
 };
 
 export const getAssetsRight = {

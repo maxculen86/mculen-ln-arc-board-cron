@@ -11,12 +11,10 @@ exports[`components - features - LN-10-global - header - mainHeader - rightOptio
   >
     <i
       class="icon --mobile-none --icon-16"
-      icon="suscriptorExclusivo"
     >
       <mock-icon
-        critical="true"
-        fill="#FDB727"
-        name="exclusivoSuscriptores"
+        color="true"
+        name="subscriber"
       />
     </i>
     <span

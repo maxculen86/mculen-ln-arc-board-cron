@@ -1,5 +1,4 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import CurrencyData from '../../../../components/private/common/currencyData/CurrencyData';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -19,7 +18,7 @@ jest.mock(
     '../../../../components/private/common/com-image',
     () => 'mock-com-image'
 );
-jest.mock('../../../../components/private/common/text', () => 'mock-Text');
+jest.mock('../../../../components/private/common/text', () => 'mock-text');
 
 describe('Common private currencyData - with dbna', () => {
     const props = {
@@ -45,7 +44,7 @@ describe('Common private currencyData - with dbna', () => {
     it('Check text component', () => {
         const { container } = render(<CurrencyData {...props} />);
 
-        const textComponent = container.querySelector('mock-Text');
+        const textComponent = container.querySelector('mock-text');
 
         expect(textComponent).toBeTruthy;
         expect(textComponent.getAttribute('size')).toBe('--fourxs');

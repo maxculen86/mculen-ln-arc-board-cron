@@ -792,8 +792,8 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                     typeOfMedia: 'image'
                 })
             ).toStrictEqual({
-                badgetStyle: 'exclusive-ln',
-                badgetText: 'Exclusivo suscriptores'
+                badgetStyle: 'subscriber',
+                badgetText: 'Suscriptores'
             });
         });
         test('should return an badget with style live priority 2.', () => {

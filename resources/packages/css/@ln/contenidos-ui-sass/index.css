@@ -1761,8 +1761,8 @@ a {
   background: var(--trivias);
 }
 
-.bg-cruciexpress__hover:hover {
-  background: var(--cruciexpress);
+.bg-cruciexpres__hover:hover {
+  background: var(--cruciexpres);
 }
 
 .bg-palabra-oculta__hover:hover {

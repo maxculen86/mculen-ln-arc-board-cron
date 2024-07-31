@@ -126,7 +126,7 @@ const featureArticleCustomsFields = (featuredName, isLN10) => {
                 'negative',
                 'positive',
                 'live',
-                'exclusive-ln'
+                'subscriber'
             ]).tag({
                 default: '',
                 name: 'Estilo Chapita',
