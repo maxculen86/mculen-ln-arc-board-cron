@@ -95,7 +95,7 @@ describe('Components - features - helpers - gridFooditClient', () => {
 
         //not saved bookmark
         const notBookmarkedItemButton = container.querySelector(
-            `[data-id=${NOT_BOOKMARKED_ITEM_ID}]`
+            `[data-id='${NOT_BOOKMARKED_ITEM_ID}']`
         );
         expect(notBookmarkedItemButton).toBeInTheDocument();
 

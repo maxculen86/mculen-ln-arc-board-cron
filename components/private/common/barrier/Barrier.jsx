@@ -4,7 +4,7 @@ import Text from '../text';
 import Icon from '../icon';
 import ComButton from '../com-button';
 import ModalBody from '../ModalBody';
-import Badge from '../badge/Badge';
+import { Badge } from '@ln/contenidos-ui-badge';
 import Link from '../link';
 import get from '../utils/get';
 import '../../../../resources/dist/css/ln/components/barrier.css';
@@ -53,8 +53,9 @@ const Barrier = ({
                         ),
                         'exclusive-ln': (
                             <Badge
-                                type="exclusive-ln"
-                                className="--large --dark"
+                                type="subscriberNegative"
+                                text="Suscriptores"
+                                className="mb-24"
                             />
                         )
                     }[type]

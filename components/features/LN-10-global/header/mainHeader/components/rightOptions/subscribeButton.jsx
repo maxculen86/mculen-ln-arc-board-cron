@@ -60,16 +60,8 @@ export const SubscribeButton = () => {
             {termicaSubscribe && tooltip_text && (
                 <Tooltip className={tooltipClassName} text={tooltip_text} />
             )}
-            <Icon
-                icon="suscriptorExclusivo"
-                size={16}
-                className="--mobile-none"
-            >
-                <IconSprite
-                    name="exclusivoSuscriptores"
-                    fill="#FDB727"
-                    critical
-                />
+            <Icon size={16} className="--mobile-none">
+                <IconSprite name="subscriber" color />
             </Icon>
             <FallBackTextButton
                 buttonText={button_text}

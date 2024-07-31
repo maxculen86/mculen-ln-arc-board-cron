@@ -24,9 +24,8 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
             class="icon --suscriptor-logo --icon-32"
           >
             <mock-icon
-              critical="true"
-              fill="#FDB727"
-              name="exclusivoSuscriptores"
+              color="true"
+              name="subscriber"
             />
           </i>
           <h3

@@ -131,8 +131,8 @@ export const getBadgetConfig = ({
 }) => {
     if (get(article, 'content_restrictions.content_code') === 'cerrada') {
         return {
-            badgetStyle: 'exclusive-ln',
-            badgetText: 'Exclusivo suscriptores'
+            badgetStyle: 'subscriber',
+            badgetText: 'Suscriptores'
         };
     }
 

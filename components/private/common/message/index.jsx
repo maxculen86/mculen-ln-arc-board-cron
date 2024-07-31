@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Text from '../text';
 import Link from '../com-link';
 import Icon from '../icon';
 import ComTitle from '../com-title';
+import { Badge } from '@ln/contenidos-ui-badge';
 
 import '../../../../resources/dist/css/ln/modules/message.css';
 
@@ -26,10 +26,7 @@ const Message = props => {
         <section className={`message row w-100-mobile ${dark ? '--dark' : ''}`}>
             <div className="col-12 --top">
                 {isExclusive ? (
-                    <Text tag="strong" extraClass="subscribers" size="--twoxs">
-                        <Icon name="ln" size="--xs" />
-                        Exclusivo suscriptores
-                    </Text>
+                    <Badge type="subscriberNegative" text="Suscriptores" />
                 ) : (
                     <Text tag="strong" extraClass="text" size="--twoxs">
                         <Icon name={icon} size="--xs" />
