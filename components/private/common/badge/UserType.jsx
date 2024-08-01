@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/components/badge-usertype.css';
-import { Icon as IconWithMapper } from '../icon';
+import IconWithMapper from '../icon';
 import { Icon } from '@ln/common-ui-icon';
 
 import Text from '../text';
