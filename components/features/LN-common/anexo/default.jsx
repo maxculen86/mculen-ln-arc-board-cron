@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
@@ -16,7 +16,6 @@ import { useRoofData } from '../../../chains/utils/_helpers';
 import BuildRoof from '../../../chains/utils/_BuildRoof/default';
 import classNames from 'classnames';
 import { typesButtonStyle } from '../../../chains/utils/setCommonCustomFields';
-import { setupIntersectionObserver } from '../../LN-10-global/common/utils/intersectionObserver.js';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;
@@ -139,27 +138,21 @@ export const getComponentFromConfig = (
                 message={errorMessage}
             />
         ),
-        Html: ({ customFields: { html = '' }, extraClass }) => {
-            const containerRef = useRef(null);
-
-            useEffect(() => {
-                return setupIntersectionObserver(containerRef, html);
-            }, [html]);
-
-            return (
-                <>
-                    <div className={classNameRoof}>
-                        <BuildRoof {...roofData} />
-                    </div>
-                    <div
-                        ref={containerRef}
-                        className={`com-anexo ${extraClass}`}
-                    />
-                    {bannerMob}
-                    {bannerDsk}
-                </>
-            );
-        },
+        Html: ({ customFields: { html = '' }, extraClass }) => (
+            <>
+                <div className={classNameRoof}>
+                    <BuildRoof {...roofData} />
+                </div>
+                <div
+                    className={`com-anexo ${extraClass}`}
+                    dangerouslySetInnerHTML={{
+                        __html: html
+                    }}
+                />
+                {bannerMob}
+                {bannerDsk}
+            </>
+        ),
         Iframe: ({ id, customFields: { url = '' } }) => {
             const anexoId = `anexo-${id}`;
             return (
