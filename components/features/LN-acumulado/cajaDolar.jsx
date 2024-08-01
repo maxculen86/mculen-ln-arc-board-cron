@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
-import ModDolar from './components/mod-dolar';
+import ModDolar from '../../private/common/mod-dolar';
 import Static from 'fusion:static';
-import filter from '../../../../../content/filters/LN/services/dolar';
-import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
-import get from '../../../../private/common/utils/get';
-import config from '../../../../../properties/sites/la-nacion-ar';
+import filter from '../../../content/filters/LN/services/dolar';
+import getAssetsPath from '../../private/common/utils/getAssetsPath';
+import get from '../../private/common/utils/get';
+import config from '../../../properties/sites/la-nacion-ar';
 
 const { layoutsName = {} } = config || {};
 
+// TODO hacer refactor de componente, unificar para acumulado y nota
 const CajaDolar = ({ id: featureId }) => {
-    const { contextPath, deployment, layout, globalContent = {} } =
+    const { contextPath, deployment, outputType, layout, globalContent = {} } =
         useAppContext() || {};
     const { _id = '', type = '' } = globalContent;
     const shouldShowDollar =
@@ -67,7 +68,7 @@ const CajaDolar = ({ id: featureId }) => {
     );
 };
 
-CajaDolar.label = 'LN-Caja-Dolar';
+CajaDolar.label = 'LN Acumulado Caja Dolar';
 
 CajaDolar.propTypes = {
     id: PropTypes.string.isRequired
