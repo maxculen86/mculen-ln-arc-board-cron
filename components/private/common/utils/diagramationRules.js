@@ -211,6 +211,25 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             }
         ],
+        'focal-100': [
+            {
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                cardSize: size.sixXL,
+                imageConfig: size.T1,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: true,
+                isLoadWithPicture: true
+            }
+        ],
         'bn-opening-4': [
             {
                 titleTag: tag.h2,
