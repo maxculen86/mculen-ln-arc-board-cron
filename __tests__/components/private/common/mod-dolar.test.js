@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import ModDolar from '../../../../components/private/common/mod-dolar';
 import SOURCE_RESPONSE from '../../../../__mocks__/data/apiDolar/sourceFullResponse.json';
-import ModDolar from '../../../../components/features/LN-10-global/common/cajaDolar/components/mod-dolar';
 
 jest.mock('fusion:environment', () => ({
     SITE_LANACION: 'https://www.lanacion.com.ar',
@@ -19,7 +19,7 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
-describe('Features - LN-10-Global  - Common - ModDolar =>', () => {
+describe('Private - Common - ModDolar =>', () => {
     it('With empty data list ', () => {
         const { container } = render(<ModDolar />);
         expect(container).toBeEmptyDOMElement();
