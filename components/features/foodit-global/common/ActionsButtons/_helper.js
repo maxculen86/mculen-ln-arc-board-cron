@@ -29,7 +29,6 @@ const buttonPrint = () => {
 export const buttonConfig = [
     {
         type: 'copy',
-        enabled: true,
         handleClick: article => {
             addActionToDataLayer(article, 'copiar');
             buttonCopy();
@@ -39,7 +38,6 @@ export const buttonConfig = [
     },
     {
         type: 'print',
-        enabled: true,
         handleClick: article => {
             addActionToDataLayer(article, 'imprimir');
             buttonPrint();
@@ -49,7 +47,6 @@ export const buttonConfig = [
     },
     {
         type: 'share',
-        enabled: true,
         handleClick: shareData => {
             addActionToDataLayer(shareData, 'compartir');
             buttonShare(shareData);
@@ -59,7 +56,6 @@ export const buttonConfig = [
     },
     {
         type: 'comment',
-        enabled: true,
         handleClick: article => {
             buttonComment();
             addActionToDataLayer(article, 'comentarios');
