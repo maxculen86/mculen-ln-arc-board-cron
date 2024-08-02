@@ -159,9 +159,6 @@
     margin: 0;
     padding: 0;
   }
-  .bomba.bombita.mas-4 .bomba-grid > div:not(.child-0) .ln-card .media-container {
-    display: none;
-  }
   .bomba.bombita.mas-4 .bomba-grid .child-2 .ln-card::after,
   .bomba.bombita.mas-4 .bomba-grid .child-3 .ln-card::after,
   .bomba.bombita.mas-4 .bomba-grid .child-4 .ln-card::after {
