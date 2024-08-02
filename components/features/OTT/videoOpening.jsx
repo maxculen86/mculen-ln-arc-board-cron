@@ -16,9 +16,8 @@ const VideoOpening = ({ customFields } = {}) => {
                     title="live"
                     width="100%"
                     src={url}
-                    frameBorder="0"
-                    allowFullScreen=""
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; "
                 />
             </section>
             <section>
