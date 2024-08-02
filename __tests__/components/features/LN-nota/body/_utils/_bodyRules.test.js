@@ -2,95 +2,91 @@ import {
     selectRule,
     bodyRules
 } from '../../../../../../components/features/LN-nota/body/_utils/_bodyRules';
+import {
+    FOTOAL100,
+    HTMLLIBRE,
+    INFOGRAFIA,
+    LIVEBLOG,
+    NOTICIA,
+    RECETA,
+    STORYTELLING,
+    VIDEO,
+    AGENCIA
+} from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
-import NotaNoticia from '../../../../../../__mocks__/data/articles/6Q4WDU7YVJBEZEOLSQEIK3YCYI.json';
-import NotaFoto100 from '../../../../../../__mocks__/data/articles/IGR6WQGQDNHALH6PL4GAYBKYZM.json';
-import NotaEmbeds from '../../../../../../__mocks__/data/articles/OFVVZI3B7VA5PDPISOSILJ42LM.json';
-
-const defaultRule = jest.fn();
 describe('_utils/_bodyRules.js', () => {
-    describe('cuando subtipo es FOTO AL 100', () => {
-        it('is FOTOAL100 (8) return defaultFtotoAl100 Function in selectRule', () => {
-            const attr = {
-                subtype: '8',
-                outputType: 'default',
-                type: 'text'
-            };
+    describe('if subtype is "FOTOAL100"', () => {
+        const attr = {
+            subtype: FOTOAL100,
+            componentElement: { arcType: 'blockquote' },
+            subtypeElement: 'blockquote',
+            type: 'blockquote'
+        };
 
+        it('should return the function FOTOAL100 from selectRule', () => {
             const component = selectRule(attr);
-            expect(component).toEqual(bodyRules.defaultFotoAl100);
+            expect(component).toEqual(bodyRules.fotoAl100);
         });
 
-        it('is FOTOAL100 (8) pero PARALAX return custom_embed Function in selectRule', () => {
-            const attr = {
-                subtype: '8',
-                outputType: 'default',
-                type: 'custom_embed',
-                subtypeElement: 'custom-parallax'
-            };
-
+        it('if subtypeElement is "custom-parallax", should return the function default from selectRule', () => {
+            attr.subtypeElement = 'custom-parallax';
             const component = selectRule(attr);
-            expect(component).toEqual(bodyRules.custom_embed.default);
+            expect(component).toEqual(bodyRules.default);
         });
 
-        it('debe retornar FALSE cuando typeElement = oembed_response', () => {
-            const attr = {
-                type: 'raw_html',
-                componentElement: { arcType: 'raw_html' }
-            };
-            expect(bodyRules.defaultFotoAl100(attr)).toEqual(false);
+        it('should return false when type is oembed_response', () => {
+            attr.type = 'oembed_response';
+            expect(bodyRules.fotoAl100(attr)).toEqual(false);
         });
 
-        it('debe retornar FALSE cuando typeElement = video', () => {
-            const attr = {
-                type: 'video',
-                componentElement: { arcType: 'video' }
-            };
-            expect(bodyRules.defaultFotoAl100(attr)).toEqual(false);
+        it('should return false when type is video', () => {
+            attr.type = 'video';
+            expect(bodyRules.fotoAl100(attr)).toEqual(false);
         });
 
-        it('debe retornar FALSE cuando typeElement = oembed_response', () => {
-            const attr = {
-                type: 'oembed_response',
-                componentElement: { arcType: 'oembed_response' }
-            };
-            expect(bodyRules.defaultFotoAl100(attr)).toEqual(false);
+        it('should return false when type is raw_html', () => {
+            attr.type = 'raw_html';
+            expect(bodyRules.fotoAl100(attr)).toEqual(false);
         });
     });
 
-    describe('Cuando nota es distinto a Foto al 100', () => {
-        it('es quote trae regla de quote', () => {
-            const attr = {
-                subtype: '',
-                outputType: 'default',
-                type: 'quote'
-            };
+    describe('if subtype is not "FOTOAL100"', () => {
+        const attr = { componentElement: { arcType: 'text' }, type: 'text' };
+        const subtypes = [
+            NOTICIA,
+            INFOGRAFIA,
+            RECETA,
+            STORYTELLING,
+            VIDEO,
+            LIVEBLOG,
+            HTMLLIBRE,
+            AGENCIA
+        ];
 
-            const component = selectRule(attr);
-            expect(component).toEqual(bodyRules.quote.default);
+        subtypes.forEach(subtype => {
+            it('should use the default selectRule function', () => {
+                attr.subtype = subtype;
+                const component = selectRule(attr);
+                expect(component).toEqual(bodyRules.default);
+            });
         });
 
-        it('es raw_html trae regla de raw', () => {
-            const attr = {
-                subtype: '',
-                outputType: 'default',
-                type: 'raw_html'
-            };
+        it('if include videoJw, should use selectRule is videoJw function', () => {
+            attr.componentElement = { arcType: 'video_jw' };
+            attr.subtypeElement = 'video_jw';
+            attr.type = 'custom_embed';
 
             const component = selectRule(attr);
-            expect(component).toEqual(bodyRules.raw_html.default);
+            expect(component).toEqual(bodyRules.videoJw);
         });
 
-        it('is RECETA (7) con power up return custom_embed Function in selectRule', () => {
-            const attr = {
-                subtype: '7',
-                outputType: 'default',
-                type: 'custom_embed',
-                subtypeElement: 'power-up-receta'
-            };
+        it('if include element type "quote", should use selectRule is "quote" function', () => {
+            attr.componentElement = { arcType: 'blockquote' };
+            attr.subtypeElement = 'blockquote';
+            attr.type = 'quote';
 
             const component = selectRule(attr);
-            expect(component).toEqual(bodyRules.custom_embed.default);
+            expect(component).toEqual(bodyRules.quote);
         });
     });
 });
