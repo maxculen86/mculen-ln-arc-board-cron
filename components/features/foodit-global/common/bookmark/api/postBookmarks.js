@@ -1,6 +1,5 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-
-import getToken from '../../../../../private/common/utils/getToken';
+import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
 import { unfillBookmarks } from '../iconHelper';
 import { addErrorToast, addToast, TOAST } from './_helper';
 import { addStorageFolder } from '../foldersHelper';
@@ -8,9 +7,7 @@ import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const postBookmarks = async (articlesDetails, folderName = '') => {
-    // TODO: should use useClientLibs
-    const token = getToken();
-    const accessToken = getToken('access-token');
+    const { token, accessToken } = await getAuthTokens();
 
     if (!token || !accessToken) return [];
 
@@ -31,7 +28,7 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
                     method: 'POST',
                     headers: {
                         'X-Token': token,
-                        Authorization: `Bearer ${accessToken}`
+                        Authorization: accessToken
                     },
                     body: JSON.stringify({
                         bookmarkParent: primarySection,

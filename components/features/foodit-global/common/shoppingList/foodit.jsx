@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useAppContext } from 'fusion:context';
 
 import { getCustomConfigByLayout } from '../floatingGroupButton/helpers';
-import useGetUserData from '../../hooks/useGetUserData';
 import { useShoppingList } from './hooks/useShoppingList';
 import { copyListToClipboard } from './_helpers';
 import { getVariantBarrier } from '../emptyState/helpers';
@@ -16,6 +15,7 @@ import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Spinner } from '@ln/foodit-ui-spinner';
 import FloatingGroupButton from '../floatingGroupButton/foodit';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 const ShoppingList = () => {
     const { layout } = useAppContext();
@@ -29,7 +29,7 @@ const ShoppingList = () => {
 
     const [selectedItem, setSelectedItem] = useState({ id: 'Todas' });
 
-    const { userType } = useGetUserData();
+    const { userType } = useGetUserConfig();
 
     const selectedArticle = shoppingList.find(
         list => list.id === selectedItem.id

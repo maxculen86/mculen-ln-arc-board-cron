@@ -6,7 +6,7 @@ import IconSprite from '../../../../features/private-global/common/iconSprite/Ic
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 
 export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
-    const { email, initials, hasSubscription, restoreContext } = avatarProps;
+    const { email, initials, hasSubscription } = avatarProps;
 
     if (!itemsList.length) return <></>;
 
@@ -60,9 +60,7 @@ export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
                                     text={text}
                                     icon={icon}
                                     title={title ?? `Ir a ${text}`}
-                                    onClick={() =>
-                                        onClick({ callback: restoreContext })
-                                    }
+                                    onClick={onClick}
                                     level={1}
                                     fullWidth
                                     variant={variant}

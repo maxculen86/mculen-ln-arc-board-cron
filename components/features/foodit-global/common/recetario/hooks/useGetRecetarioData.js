@@ -1,20 +1,22 @@
 import { useLayoutEffect, useState } from 'react';
 
-import getToken from '../../../../../private/common/utils/getToken';
 import getBookmarks from '../../bookmark/api/getBookmarks';
-import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../../../auth/helper/loginHelper';
+import useAuthManager from '../../../../../../auth/hooks/useAuthManager';
 
 const useGetRecetarioData = () => {
     const [loading, setLoading] = useState(true);
     const [userBookmarks, setUserBookmarks] = useState([]);
+    const { token, accessToken } = useAuthManager();
 
     useLayoutEffect(() => {
         const fetchBookmarks = async () => {
             try {
-                if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
-                    const { data = [] } = await getBookmarks();
-                    setUserBookmarks(data);
-                }
+                const { data = [] } = await getBookmarks(token, accessToken);
+                setUserBookmarks(data);
             } catch (error) {
                 console.error('Error fetching bookmarks:', error);
             } finally {
@@ -22,8 +24,16 @@ const useGetRecetarioData = () => {
             }
         };
 
-        fetchBookmarks();
-    }, []);
+        const isValidSubsribed = isSubscribed(SUBSCRIBED_HELPER.FOODIT);
+
+        if (isValidSubsribed && accessToken && token) {
+            fetchBookmarks();
+        }
+
+        if (!isValidSubsribed) {
+            setLoading(false);
+        }
+    }, [token, accessToken]);
 
     return {
         loading,
