@@ -3,6 +3,7 @@ import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 // TODO: Aplicar logica para obtener promociones de suscripcion desde sites.
+const JC_BETWEEN = 'jc-between';
 
 export const mockConfigUserTypes = {
     unlogged: {
@@ -13,7 +14,7 @@ export const mockConfigUserTypes = {
     logged: {
         buttonSubscribeText: 'SUSCRIBITE GRATIS',
         plan: 'Gratis',
-        containerClassName: 'jc-between'
+        containerClassName: JC_BETWEEN
     },
     subscribed: {
         // TODO: Implementacion upsellin queda para proximo MVP
@@ -25,7 +26,7 @@ export const mockConfigUserTypes = {
                 backgroudColor: '#143318'
             }
         },
-        containerClassName: 'jc-between'
+        containerClassName: JC_BETWEEN
     },
     subscribedPlus: {
         plan: 'Digital + Club',
@@ -39,7 +40,7 @@ export const mockConfigUserTypes = {
                 backgroudColor: '#0003A6'
             }
         },
-        containerClassName: 'jc-between'
+        containerClassName: JC_BETWEEN
     }
 };
 export const getConfig = user => {

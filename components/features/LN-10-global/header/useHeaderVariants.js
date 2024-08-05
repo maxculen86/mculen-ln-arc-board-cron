@@ -28,40 +28,42 @@ export const useHeaderVariants = ({
 
         const headerSentinel = document.querySelector('.header-sentinel');
         if (!headerSentinel) return;
+
         const handleVariants = entries => {
             const wrapperHome = document.querySelector('.wrapper.homepage');
             const sectionsWithoutToggleNegative = [
                 '/revista-lugares',
                 '/revista-hola'
             ];
-            const toogleNegative = !sectionsWithoutToggleNegative.includes(
+            const toggleNegative = !sectionsWithoutToggleNegative.includes(
                 section
             );
+
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setVariants(prev => ({
-                        sticky: isHome ? false : prev.sticky,
-                        negative: isHome ? false : negative,
-                        intersectingSentinel: true
-                    }));
-                    wrapperHome && wrapperHome.classList.remove('--top-fixed');
-                } else {
-                    setVariants(prev => ({
-                        sticky: isHome ? true : prev.sticky,
-                        negative:
-                            !isHome && negative && toogleNegative
-                                ? !prev.negative
-                                : prev.negative,
-                        intersectingSentinel: false
-                    }));
-                    wrapperHome && wrapperHome.classList.add('--top-fixed');
+                const isIntersecting = entry.isIntersecting;
+
+                setVariants(prev => ({
+                    sticky: isHome ? !isIntersecting : prev.sticky,
+                    negative: isHome
+                        ? false
+                        : negative && toggleNegative
+                        ? !prev.negative
+                        : prev.negative,
+                    intersectingSentinel: isIntersecting
+                }));
+
+                if (wrapperHome) {
+                    wrapperHome.classList.toggle(
+                        '--top-fixed',
+                        !isIntersecting
+                    );
                 }
             });
         };
 
         const interSectionObserver = new IntersectionObserver(handleVariants);
-
         interSectionObserver.observe(headerSentinel);
+
         return () => {
             interSectionObserver.unobserve(headerSentinel);
         };

@@ -7,27 +7,28 @@ import get from '../../../../private/common/utils/get';
 
 export const getMenuUser = (goToLogout = () => {}) => {
     const LogoutText = 'Cerrar sesión';
+    const commonClassName = 'text-blue-500 p-12 bg-blue-100__hover rounded-4';
     const defaultOptions = [
         {
             url: `${SITE_LANACION}/mis-notas/`,
             text: 'Mis notas',
             title: 'Ir a mis notas',
             target: '_self',
-            className: 'text-blue-500 p-12 bg-blue-100__hover rounded-4'
+            className: commonClassName
         },
         {
             url: `${MY_ACCOUNT_URL}/`,
             text: 'Mi cuenta',
             title: 'Ir a mi cuenta',
             target: '_self',
-            className: 'text-blue-500 p-12 bg-blue-100__hover rounded-4'
+            className: commonClassName
         },
         {
             url: `${MY_ACCOUNT_URL}/datos-personales/`,
             text: 'Mis datos',
             title: 'Ir a mis datos',
             target: '_self',
-            className: 'text-blue-500 p-12 bg-blue-100__hover rounded-4'
+            className: commonClassName
         },
         {
             url: `${MY_ACCOUNT_URL}/mis-suscripciones/`,

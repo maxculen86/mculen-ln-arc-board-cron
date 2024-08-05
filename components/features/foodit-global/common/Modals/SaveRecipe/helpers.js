@@ -85,7 +85,7 @@ export const actionButtons = ({
 
             addSavedBookmarksToDataLayer(articlesDetails, carouselTitle);
 
-            const addFolder = selectedFolder.value == 'new';
+            const addFolder = selectedFolder.value === 'new';
 
             const nameFolder = addFolder ? newFolder : selectedFolder?.label;
 
@@ -97,26 +97,27 @@ export const actionButtons = ({
 
 export const getConfig = (saveRecipeConfig, indexStep) => {
     const stepIndex = `step-${indexStep}`;
+    const saveFolderKey = 'save-folder';
 
     return {
-        title: get(saveRecipeConfig['save-folder'], `${stepIndex}.title`, ''),
+        title: get(saveRecipeConfig[saveFolderKey], `${stepIndex}.title`, ''),
         leftButton: get(
-            saveRecipeConfig['save-folder'],
+            saveRecipeConfig[saveFolderKey],
             `${stepIndex}.leftButton`,
             {}
         ),
         rightButton: get(
-            saveRecipeConfig['save-folder'],
+            saveRecipeConfig[saveFolderKey],
             `${stepIndex}.rightButton`,
             {}
         ),
         showSelect: get(
-            saveRecipeConfig['save-folder'],
+            saveRecipeConfig[saveFolderKey],
             `${stepIndex}.showSelect`,
             false
         ),
         showInputFolder: get(
-            saveRecipeConfig['save-folder'],
+            saveRecipeConfig[saveFolderKey],
             `${stepIndex}.showInputFolder`,
             false
         )

@@ -36,7 +36,7 @@ class AnexoFeature {
         }
         let resp = {};
         let articles = [];
-        let hideCaja = true;
+        const hideCaja = true;
 
         const information = {
             hideCaja,

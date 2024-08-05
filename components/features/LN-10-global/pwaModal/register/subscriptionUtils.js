@@ -123,13 +123,9 @@ export const registerTopic = (topic, token, showError) => {
         body
     })
         .then(response => response.json())
-        .then(res => {
-            if (res.status === 200) {
-                return true;
-            }
-            return false;
-        })
+        .then(res => res.status === 200)
         .catch(err => {
             console.error('device notifications error: ', err);
+            return false;
         });
 };
