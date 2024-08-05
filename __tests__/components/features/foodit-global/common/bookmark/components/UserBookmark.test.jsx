@@ -2,13 +2,16 @@ import React from 'react';
 import { render, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import getBookmarks from '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
-import getToken from '../../../../../../../components/private/common/utils/getToken';
 import { UserBookmarks } from '../../../../../../../components/features/foodit-global/common/bookmark/components/UserBookmarks';
+import { isSubscribed } from '../../../../../../../auth/helper/loginHelper';
+import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
 
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks'
 );
 jest.mock('../../../../../../../components/private/common/utils/getToken');
+jest.mock('../../../../../../../auth/helper/loginHelper');
+jest.mock('../../../../../../../auth/hooks/useAuthManager');
 
 describe('UserBookmarks', () => {
     const mockBookmarks = [
@@ -18,7 +21,11 @@ describe('UserBookmarks', () => {
 
     beforeEach(() => {
         getBookmarks.mockResolvedValue({ data: mockBookmarks });
-        getToken.mockReturnValue(null);
+        isSubscribed.mockReturnValue(null);
+        useAuthManager.mockImplementation(() => ({
+            token: 'mock-tooken',
+            accessToken: 'mock-access-token'
+        }));
         localStorage.clear();
     });
 
@@ -27,7 +34,7 @@ describe('UserBookmarks', () => {
     });
 
     it('fetches bookmarks and updates state and localStorage when premium token is valid', async () => {
-        getToken.mockReturnValue('22');
+        isSubscribed.mockReturnValue(true);
 
         await act(async () => {
             render(<UserBookmarks />);

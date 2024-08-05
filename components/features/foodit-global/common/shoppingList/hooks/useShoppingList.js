@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
 import { getTypeOfDevice } from '@ln/hooks';
-import getToken from '../../../../../private/common/utils/getToken';
 import getBookmarks from '../../bookmark/api/getBookmarks';
-import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../../../auth/helper/loginHelper';
+import useAuthManager from '../../../../../../auth/hooks/useAuthManager';
 
 export const useShoppingList = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [loading, setLoading] = useState(true);
     const [shoppingList, setShoppingList] = useState([]);
+    const { token, accessToken } = useAuthManager();
 
     useEffect(() => {
         const fetchUserBookmarks = async () => {
-            const { data = [] } = await getBookmarks('ingredientList');
+            const { data = [] } = await getBookmarks(
+                token,
+                accessToken,
+                'ingredientList'
+            );
 
             setShoppingList(
                 data.reduce(
@@ -33,12 +41,16 @@ export const useShoppingList = () => {
 
         setIsMobile(getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile');
 
-        if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
+        const isValidSubsribed = isSubscribed(SUBSCRIBED_HELPER.FOODIT);
+
+        if (isValidSubsribed && token && accessToken) {
             fetchUserBookmarks();
-        } else {
+        }
+
+        if (!isValidSubsribed) {
             setLoading(false);
         }
-    }, []);
+    }, [token, accessToken]);
 
     return {
         loading,
