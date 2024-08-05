@@ -6,6 +6,7 @@ import { Icon } from '@ln/common-ui-icon';
 import ShareFoodit from '../ShareFoodit/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
+import { Tooltip, useTooltip } from '@ln/common-ui-tooltip';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -98,6 +99,41 @@ const renderRegularButton = ({
         <Icon size={24}>{IconButton}</Icon>
     </Button>
 );
+
+const renderCopyButton = ({
+    IconButton,
+    description,
+    handleClick,
+    type,
+    article
+}) => {
+    const { tooltipVisible, openTooltip, closeTooltip } = useTooltip();
+
+    return (
+        <div className="relative">
+            <Button
+                key={type}
+                title={description}
+                variant="link"
+                onClick={() => {
+                    openTooltip();
+                    handleClick(article);
+                }}
+            >
+                <Icon size={24}>{IconButton}</Icon>
+            </Button>
+            <Tooltip
+                autoClose={2800}
+                closeTooltip={closeTooltip}
+                visible={tooltipVisible}
+                className="rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100 z-5 w-max max-w-248"
+            >
+                Copiado
+            </Tooltip>
+        </div>
+    );
+};
+
 export const renderAction = ({
     IconButton,
     description,
@@ -109,6 +145,15 @@ export const renderAction = ({
         share:
             type === 'share' &&
             renderShareButton({
+                IconButton,
+                description,
+                handleClick,
+                type,
+                article
+            }),
+        copy:
+            type === 'copy' &&
+            renderCopyButton({
                 IconButton,
                 description,
                 handleClick,
