@@ -1,12 +1,9 @@
 import React from 'react';
 import Context from 'fusion:context';
-import Consumer from 'fusion:consumer';
 import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias/default.jsx';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import mockArticlesHtml from '../../../../__mocks__/data/ultimasNoticias/mockArticlesHtml';
 import sectionsFormated from '../../../../components/private/common/utils/sectionsFormated';
-import articles from '../../../../__mocks__/data/articles/articles.json';
 
 jest.mock(
     '../../../../components/private/LN/common/hooks/useGridArticles',
@@ -105,10 +102,6 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
-jest.mock(
-    '../../../../components/private/LN/common/hocs/WithAcuArticlesData',
-    () => () => () => mockArticlesHtml
-);
 describe('Features - LN-acumulado - Ultimas Noticias', () => {
     it('should render ultimas noticias component', () => {
         Context.useAppContext = jest.fn(() => ({
