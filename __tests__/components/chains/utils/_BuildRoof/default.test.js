@@ -81,22 +81,6 @@ describe('Tests component BuildRoof', () => {
                 screen.getByRole('heading', { name: 'Advertencia' })
             ).toBeVisible();
         });
-
-        test('Should return a warning when there is text for the button but no url for the button', () => {
-            const properties = {
-                ...props,
-                buttonText: 'Texto del boton'
-            };
-
-            render(<BuildRoof {...properties} />);
-
-            expect(
-                screen.getByText('Debe definir una url para el boton')
-            ).toBeVisible();
-            expect(
-                screen.getByRole('heading', { name: 'Advertencia' })
-            ).toBeVisible();
-        });
     });
 
     describe('Return tests outside page Builder', () => {

@@ -45,9 +45,7 @@ export default function BuildRoof(props) {
         title,
         logoId,
         hideRoof,
-        navigationId,
-        buttonText,
-        linkButton
+        navigationId
     });
 
     const roofType =

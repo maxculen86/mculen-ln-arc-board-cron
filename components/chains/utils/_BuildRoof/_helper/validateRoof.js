@@ -8,8 +8,6 @@ const validateRoof = ({
     logoId,
     hideRoof,
     navigationId,
-    linkButton,
-    buttonText,
     chainStyle
 }) => {
     const rules = [
@@ -24,10 +22,6 @@ const validateRoof = ({
         {
             validation: navigationId && !linksData,
             message: 'El ID de navegacion de site services es incorrecto.'
-        },
-        {
-            validation: buttonText && buttonText.trim() && !linkButton,
-            message: 'Debe definir una url para el boton'
         }
     ];
 
