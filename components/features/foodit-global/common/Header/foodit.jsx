@@ -32,8 +32,19 @@ const HeaderFoodit = () => {
         layoutsName.FooditFichaReceta,
         layoutsName.FooditFichaNota
     ];
+
+    const layoutsWithSubheader = [
+        layoutsName.FooditHome,
+        layoutsName.FooditFichaReceta,
+        layoutsName.FooditFichaNota,
+        layoutsName.FooditRecetario,
+        layoutsName.FooditAcumulado,
+        layoutsName.FooditListadoCompras,
+        layoutsName.FooditAcumuladoChef
+    ];
+
     const showSubheaderInSheet = layoutSheets.includes(layout) && isOpen;
-    const showSubheaderInHome = layout === layoutsName.FooditHome;
+    const showSubheaderInLayout = layoutsWithSubheader.includes(layout);
 
     const marginByLayouts = {
         [layoutsName.FooditHome]: 'mb-12 mb-40_lg',
@@ -101,7 +112,7 @@ const HeaderFoodit = () => {
                         <TopNavigationBar categories={categories} />
                     </MainHeader.Bottom>
                 </MainHeader>
-                {(showSubheaderInHome || showSubheaderInSheet) && (
+                {(showSubheaderInLayout || showSubheaderInSheet) && (
                     <SubHeader>
                         <Promotions />
                     </SubHeader>
