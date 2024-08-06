@@ -35,6 +35,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
           </h3>
           <i
             class="icon --roof-href-arrow"
+            data-icon="suscripcion"
             style="height: 16.8px;"
           >
             <mock-icon

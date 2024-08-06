@@ -1,3 +1,4 @@
+// TODO: Ver posibilidad de testear EventsHelper
 export class EventsHelper {
     constructor() {
         this.createDynamicLabel = (text = '') => {
@@ -169,10 +170,12 @@ export class EventsHelper {
 
             const addEventRoof = (elem, type, title) => {
                 const elemChildren = elem.target.children;
+                const elemParent = elem.target.parentElement;
 
                 const description =
                     elem.target.innerText ||
                     elem.target.alt ||
+                    elemParent.getAttribute('data-icon') ||
                     (elemChildren[0] &&
                         (elemChildren[0].alt || elemChildren[0].innerHTML));
 
