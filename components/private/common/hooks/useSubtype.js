@@ -6,6 +6,7 @@ import storytelling from '../utils/subtypes/storytelling';
 import htmlLibre from '../utils/subtypes/htmlLibre';
 import fotoAl100 from '../utils/subtypes/fotoAl100';
 import generico from '../utils/subtypes/generico';
+import agencia from '../utils/subtypes/agencia';
 
 const useSubtype = () => {
     const { globalContent } = useAppContext();
@@ -18,7 +19,8 @@ const useSubtype = () => {
         storytelling,
         receta,
         fotoAl100,
-        htmlLibre
+        htmlLibre,
+        agencia
     ];
 
     return {

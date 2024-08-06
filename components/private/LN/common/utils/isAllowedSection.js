@@ -4,7 +4,7 @@ const isAllowedSection = ({
     globalContent,
     listOfAllowedSection = [],
     layout,
-    noteType
+    noteType = ''
 } = {}) => {
     const id = get(globalContent, '_id', '');
     const sectionId = id.startsWith('/')

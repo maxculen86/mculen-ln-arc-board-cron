@@ -1,6 +1,8 @@
 import {
+    AGENCIA,
     FOTOAL100,
     NOTICIA,
+    RECETA,
     STORYTELLING,
     VIDEO
 } from '../../../../common/utils/subtypes/subtypeHelper';
@@ -28,7 +30,9 @@ const allowSectionAndLayout = [
     { subtype: NOTICIA },
     { subtype: VIDEO },
     { subtype: STORYTELLING },
-    { subtype: FOTOAL100 }
+    { subtype: FOTOAL100 },
+    { subtype: AGENCIA },
+    { subtype: RECETA }
 ];
 
 export default allowSectionAndLayout;

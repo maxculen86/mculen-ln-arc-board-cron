@@ -18,7 +18,8 @@ export const Subtypes = [
     { id: '7', nombre: 'Receta' },
     { id: '4', nombre: 'Storytelling' },
     { id: '8', nombre: 'FotoAl100' },
-    { id: '9', nombre: 'HtmlLibre' }
+    { id: '9', nombre: 'HtmlLibre' },
+    { id: '10', nombre: 'Agencia' }
 ];
 
 export const isFotoAl100orStorytelling = subtype => {
