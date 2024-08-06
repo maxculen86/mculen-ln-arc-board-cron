@@ -94,7 +94,7 @@ describe('Tests Component CommonCollection', () => {
         );
         articlesRendered.slice(1, 7).forEach(article => {
             expect(article).toHaveClass(
-                'ln-card flex flex-column ai-start --txt-center --m-l --regular'
+                'ln-card flex flex-column ai-start --m-l --regular'
             );
         });
         expect(container.querySelector('.ln-caja-hashtag')).toBeInTheDocument();

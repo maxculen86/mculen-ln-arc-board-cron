@@ -240,7 +240,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           class="content-lab"
         >
           <article
-            class="ln-card flex flex-column ai-start  text-center_m --3xl --regular --no-media"
+            class="ln-card flex flex-column ai-start --3xl --regular --no-media"
           >
             <a
               class="link ln-link flex flex-column --unstyled"

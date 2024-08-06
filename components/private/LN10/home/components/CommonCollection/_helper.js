@@ -74,17 +74,6 @@ export const getDataAuthorCollection = article => {
     return authorName.trim() ? authorName : null;
 };
 
-export const setFinalClassName = (
-    index,
-    chainStyle,
-    className,
-    newClass = ' text-center_m'
-) => {
-    return index === 0 && chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE
-        ? className.concat(newClass)
-        : className;
-};
-
 export const getBadge = ({ article, isExclusiveSub, isFoodit }) => {
     if (
         get(article, 'content_restrictions.content_code') === 'cerrada' &&

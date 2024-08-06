@@ -10,8 +10,7 @@ import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig, {
     getArticleHref,
     getBadge,
-    getTitleAndLeadForHome,
-    setFinalClassName
+    getTitleAndLeadForHome
 } from './_helper';
 
 import {
@@ -66,11 +65,6 @@ export default function CommonCollection({
                     );
 
                     const { title, lead } = getTitleAndLeadForHome(article);
-                    const finalClassName = setFinalClassName(
-                        index,
-                        roofData.chainStyle,
-                        className
-                    );
 
                     const { badgeText, badgeStyle } = getBadge({
                         article,
@@ -91,7 +85,7 @@ export default function CommonCollection({
                             mediaData={mediaData}
                             cardSize={isContentLab100 ? '4xl' : cardSize}
                             imagePosition={imagePosition}
-                            className={finalClassName}
+                            className={className}
                             section={showSection({
                                 withSection,
                                 article,
