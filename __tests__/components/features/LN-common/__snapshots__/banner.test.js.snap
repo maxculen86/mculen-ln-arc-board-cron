@@ -6,10 +6,10 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del adhesion_m
   "baseElement": <body>
     <div>
       <div
-        class="mod-banner --adhesion_mob --fixed --close none "
+        class="ln-banner-container --adhesion_mob --fixed --close none "
       >
         <div
-          class="com-banner"
+          class="ln-banner"
           data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
           data-device="mobile"
           data-prebid-enabled="false"
@@ -49,10 +49,10 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del adhesion_m
   </body>,
   "container": <div>
     <div
-      class="mod-banner --adhesion_mob --fixed --close none "
+      class="ln-banner-container --adhesion_mob --fixed --close none "
     >
       <div
-        class="com-banner"
+        class="ln-banner"
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
         data-device="mobile"
         data-prebid-enabled="false"
@@ -149,10 +149,10 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del banner cab
   "baseElement": <body>
     <div>
       <div
-        class="mod-banner --cabezal_dsk --sticky  --no-app"
+        class="ln-banner-container --cabezal_dsk --sticky  --no-app"
       >
         <div
-          class="com-banner"
+          class="ln-banner"
           data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cabezal_dsk"
           data-device="desktop"
           data-prebid-enabled="true"
@@ -176,10 +176,10 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del banner cab
   </body>,
   "container": <div>
     <div
-      class="mod-banner --cabezal_dsk --sticky  --no-app"
+      class="ln-banner-container --cabezal_dsk --sticky  --no-app"
     >
       <div
-        class="com-banner"
+        class="ln-banner"
         data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cabezal_dsk"
         data-device="desktop"
         data-prebid-enabled="true"

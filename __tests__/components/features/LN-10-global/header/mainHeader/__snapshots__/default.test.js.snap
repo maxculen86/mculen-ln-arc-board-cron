@@ -64,10 +64,10 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
               title="Ir a la página principal"
             >
               <div
-                class="mod-banner --logo_header_dsk --logo none"
+                class="ln-banner-container --logo_header_dsk --logo none"
               >
                 <div
-                  class="com-banner"
+                  class="ln-banner"
                   data-prebid-enabled="false"
                   data-size="[]"
                   data-sizemap="[]"
@@ -77,10 +77,10 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 />
               </div>
               <div
-                class="mod-banner --logo_header_dsk_sticky --logo --logo_sticky_dsk none"
+                class="ln-banner-container --logo_header_dsk_sticky --logo --logo_sticky_dsk none"
               >
                 <div
-                  class="com-banner"
+                  class="ln-banner"
                   data-prebid-enabled="false"
                   data-size="[]"
                   data-sizemap="[]"
@@ -90,10 +90,10 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 />
               </div>
               <div
-                class="mod-banner --logo_header_tab --logo none"
+                class="ln-banner-container --logo_header_tab --logo none"
               >
                 <div
-                  class="com-banner"
+                  class="ln-banner"
                   data-prebid-enabled="false"
                   data-size="[]"
                   data-sizemap="[]"
@@ -103,10 +103,10 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 />
               </div>
               <div
-                class="mod-banner --logo_header_mob --logo none"
+                class="ln-banner-container --logo_header_mob --logo none"
               >
                 <div
-                  class="com-banner"
+                  class="ln-banner"
                   data-prebid-enabled="false"
                   data-size="[]"
                   data-sizemap="[]"

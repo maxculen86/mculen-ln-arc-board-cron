@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useAppContext } from 'fusion:context';
 import { Closebutton } from '@ln/common-ui-closebutton';
 import { Button } from '@ln/contenidos-ui-button';
-import ComButton from '../com-button';
 import flatArray from '../utils/flatArray';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
-import siteProperties from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
 import classNames from 'classnames';
-import '../../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
+
 import '../../../../resources/dist/css/ln/modules/mod-banner.css';
-import '../../../../resources/dist/css/ln/components/com-banner.css';
 
 const DivBannerSSR = ({ bannerConfiguration }) => {
     const {
@@ -31,31 +27,19 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         lazyClass = ''
     } = bannerConfiguration;
     const [isHidden, setIsHidden] = useState(false);
-    const homeLN10PropName = 'layoutsName.HomeLN10';
-    const { layout } = useAppContext();
 
     const handleHideBanner = () => setIsHidden(true);
 
-    const comercialButton =
-        layout !== get(siteProperties, homeLN10PropName) ? (
-            <ComButton
-                onClick={handleHideBanner}
-                classCondition="--primary --compact"
-                dataEvent="LinkClick"
-                dataSection="Comercial-home"
-                id={`${slotId}_btnCloseAd`}
-                textname="CERRAR"
-            />
-        ) : (
-            <Button
-                onClick={handleHideBanner}
-                variant="primary"
-                dataEvent="LinkClick"
-                dataSection="Comercial-home"
-                id={`${slotId}_btnCloseAd`}
-                label="CERRAR"
-            />
-        );
+    const comercialButton = (
+        <Button
+            onClick={handleHideBanner}
+            variant="primary"
+            dataEvent="LinkClick"
+            dataSection="Comercial-home"
+            id={`${slotId}_btnCloseAd`}
+            label="CERRAR"
+        />
+    );
     const bannersNoApp = [
         'cabezal_dsk',
         'cabezal_tab',
@@ -63,17 +47,10 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         'comercial_mob'
     ];
 
-    const bannerClass = classNames(
-        layout !== get(siteProperties, homeLN10PropName)
-            ? 'com-banner'
-            : 'ln-banner',
-        lazyClass
-    );
+    const bannerClass = classNames('ln-banner', lazyClass);
 
     const bannerClassContainer = classNames(
-        layout !== get(siteProperties, homeLN10PropName)
-            ? 'mod-banner'
-            : 'ln-banner-container',
+        'ln-banner-container',
         `--${slotId}`,
         classes,
         { none: isHidden },

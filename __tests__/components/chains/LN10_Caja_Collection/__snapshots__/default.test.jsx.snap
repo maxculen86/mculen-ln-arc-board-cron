@@ -12,11 +12,11 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
       >
         <div>
           <div
-            class="mod-banner --billboard_dsk billboard_dsk"
+            class="ln-banner-container --billboard_dsk billboard_dsk"
             id="billboard_dsk"
           >
             <div
-              class="com-banner lazy"
+              class="ln-banner lazy"
               data-prebid-enabled="false"
               data-size="[]"
               data-sizemap="[]"
@@ -148,11 +148,11 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
         </section>
         <div>
           <div
-            class="mod-banner --billboard_mob billboard_mob"
+            class="ln-banner-container --billboard_mob billboard_mob"
             id="billboard_mob"
           >
             <div
-              class="com-banner lazy"
+              class="ln-banner lazy"
               data-prebid-enabled="false"
               data-size="[]"
               data-sizemap="[]"
@@ -180,11 +180,11 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
       >
         <div>
           <div
-            class="mod-banner --billboard_dsk billboard_dsk"
+            class="ln-banner-container --billboard_dsk billboard_dsk"
             id="billboard_dsk"
           >
             <div
-              class="com-banner lazy"
+              class="ln-banner lazy"
               data-prebid-enabled="false"
               data-size="[]"
               data-sizemap="[]"
@@ -265,11 +265,11 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         >
           <div>
             <div
-              class="mod-banner --cajasuscriptores_dsk"
+              class="ln-banner-container --cajasuscriptores_dsk"
               id="cajasuscriptores_dsk"
             >
               <div
-                class="com-banner lazy"
+                class="ln-banner lazy"
                 data-prebid-enabled="false"
                 data-size="[]"
                 data-sizemap="[]"
@@ -281,11 +281,11 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           </div>
           <div>
             <div
-              class="mod-banner --cajasuscriptores_mob"
+              class="ln-banner-container --cajasuscriptores_mob"
               id="cajasuscriptores_mob"
             >
               <div
-                class="com-banner lazy"
+                class="ln-banner lazy"
                 data-prebid-enabled="false"
                 data-size="[]"
                 data-sizemap="[]"
@@ -297,11 +297,11 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           </div>
           <div>
             <div
-              class="mod-banner --cajasuscriptores_tab"
+              class="ln-banner-container --cajasuscriptores_tab"
               id="cajasuscriptores_tab"
             >
               <div
-                class="com-banner lazy"
+                class="ln-banner lazy"
                 data-prebid-enabled="false"
                 data-size="[]"
                 data-sizemap="[]"

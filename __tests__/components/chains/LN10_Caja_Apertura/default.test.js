@@ -111,8 +111,8 @@ describe('components - chains - LN10_Caja_Apertura - helper', () => {
                 </section>
             );
 
-            const divBanner = container.querySelector('.mod-banner');
-            const comBanner = container.querySelector('.com-banner');
+            const divBanner = container.querySelector('.ln-banner-container');
+            const comBanner = container.querySelector('.ln-banner');
             const idAttribute = comBanner.getAttribute('id');
 
             expect(divBanner).toBeInTheDocument();

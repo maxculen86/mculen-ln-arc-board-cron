@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.mod-banner {
+.ln-banner-container {
     @include BgDiagonal;
     background-color: $neutral-white;
     position: relative;
@@ -14,7 +14,7 @@
     z-index: 1;
     margin-bottom: $spacing-2xl;
 
-    .com-banner {
+    .ln-banner {
         width: 100%; //pedido de comercial
         text-align: center;
     }
@@ -66,7 +66,7 @@
         top: 0;
         margin: 0;
 
-        .com-button {
+        .ln-button {
             position: absolute;
             top: $spacing-sm;
             right: $spacing-sm;
@@ -117,7 +117,7 @@
     &.--adhesion_mob {
         padding: px(10) px(20) 0 px(20);
         background-color: transparent;
-        .com-banner {
+        .ln-banner {
             border-bottom: px(10) solid $neutral-white;
         }
         .icon-close {
@@ -143,13 +143,6 @@
     &.--caja4_mob,
     &.--caja5_mob {
         height: px(250);
-    }
-
-    .home & {
-        &.--caja4_mob,
-        &.--parallax_mob {
-            height: px(450);
-        }
     }
 
     &.--top {
@@ -193,18 +186,6 @@
         &.--caja1_tab,
         &.--caja2_tab {
             height: px(600);
-        }
-
-        .home & {
-            &.--caja1_tab,
-            &.--caja2_tab,
-            &.--caja3_tab,
-            &.--caja4_tab {
-                height: px(250);
-            }
-            &.--cabezal_tab {
-                min-width: px(728);
-            }
         }
 
         &.--logo_tag_tab {
@@ -266,45 +247,6 @@
         &.--middle_3_dsk {
             height: px(360);
         }
-
-        .home & {
-            &.--cabezal_dsk {
-                height: px(100);
-            }
-            &.--adhesion_dsk {
-                padding: px(20) px(20) 0 px(20);
-                background-color: transparent;
-                .icon-close {
-                    top: auto;
-                    height: auto;
-                }
-                &:before {
-                    margin: px(20) auto 0 auto;
-                }
-            }
-            &.--middle_1_dsk,
-            &.--caja1_dsk,
-            &.--caja2_dsk,
-            &.--caja3_dsk,
-            &.--caja4_dsk,
-            &.--billboard_dsk,
-            &.--caja_producto1_dsk,
-            &.--caja_producto2_dsk,
-            &.--cinturon1_dsk,
-            &.--cinturon2_dsk {
-                height: px(250);
-            }
-
-            &.--megalateral_dsk,
-            &.--megalateral2_dsk,
-            &.--megalateral3_dsk {
-                height: px(800);
-            }
-
-            &.--parallax_dsk {
-                height: px(300);
-            }
-        }
     }
 
     //DESKTOP XL
@@ -343,7 +285,7 @@
 [class*='row-gap'] {
     &.--ads {
         margin-bottom: $spacing-2xl;
-        .mod-banner {
+        .ln-banner-container {
             margin: 0;
         }
     }
@@ -352,49 +294,4 @@
 [class*='--1x1_'] {
     margin: 0;
     position: absolute;
-}
-
-.home {
-    .row-gap-tablet-2.--ads {
-        display: none;
-        @media ($media-m) {
-            display: grid;
-        }
-        @media ($media-l) {
-            display: none;
-        }
-    }
-    .row-gap-tablet-3.--ads {
-        display: none;
-        grid-column-gap: $spacing-sm;
-        @media ($media-l) {
-            display: grid;
-        }
-    }
-    > .container {
-        &.--ads {
-            background: $neutral-white;
-            padding: px(24) 0;
-            height: px(148);
-            &:empty {
-                display: none;
-            }
-            .mod-banner {
-                width: fit-content;
-                margin: 0 auto;
-            }
-        }
-    }
-    .sidebar__main {
-        > .container.--ads {
-            height: px(164);
-        }
-    }
-    .container.--ads {
-        display: none;
-        width: 100%;
-        @media ($media-m) {
-            display: flex;
-        }
-    }
 }

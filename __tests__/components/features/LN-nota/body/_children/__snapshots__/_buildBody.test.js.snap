@@ -40,10 +40,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     .
   </p>
   <div
-    class="mod-banner --caja1_mob"
+    class="ln-banner-container --caja1_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -151,10 +151,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Tipo de letra normal
   </p>
   <div
-    class="mod-banner --middle_1_dsk"
+    class="ln-banner-container --middle_1_dsk"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
       data-device="desktop"
       data-prebid-enabled="true"
@@ -175,10 +175,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </strong>
   </p>
   <div
-    class="mod-banner --caja2_mob"
+    class="ln-banner-container --caja2_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -206,10 +206,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </u>
   </p>
   <div
-    class="mod-banner --middle_2_dsk"
+    class="ln-banner-container --middle_2_dsk"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
       data-device="desktop"
       data-prebid-enabled="true"
@@ -232,10 +232,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja3_mob"
+    class="ln-banner-container --caja3_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -267,10 +267,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja4_mob"
+    class="ln-banner-container --caja4_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -304,10 +304,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </mark>
   </p>
   <div
-    class="mod-banner --caja5_mob"
+    class="ln-banner-container --caja5_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -2681,10 +2681,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     .
   </p>
   <div
-    class="mod-banner --caja1_mob"
+    class="ln-banner-container --caja1_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -2792,10 +2792,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Tipo de letra normal
   </p>
   <div
-    class="mod-banner --middle_1_dsk"
+    class="ln-banner-container --middle_1_dsk"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
       data-device="desktop"
       data-prebid-enabled="true"
@@ -2816,10 +2816,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </strong>
   </p>
   <div
-    class="mod-banner --caja2_mob"
+    class="ln-banner-container --caja2_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -2847,10 +2847,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </u>
   </p>
   <div
-    class="mod-banner --middle_2_dsk"
+    class="ln-banner-container --middle_2_dsk"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
       data-device="desktop"
       data-prebid-enabled="true"
@@ -2873,10 +2873,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja3_mob"
+    class="ln-banner-container --caja3_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -2908,10 +2908,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="mod-banner --caja4_mob"
+    class="ln-banner-container --caja4_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -2945,10 +2945,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </mark>
   </p>
   <div
-    class="mod-banner --caja5_mob"
+    class="ln-banner-container --caja5_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -5322,10 +5322,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     .
   </p>
   <div
-    class="mod-banner --caja1_mob"
+    class="ln-banner-container --caja1_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -5433,10 +5433,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     Tipo de letra normal
   </p>
   <div
-    class="mod-banner --middle_1_dsk"
+    class="ln-banner-container --middle_1_dsk"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
       data-device="desktop"
       data-prebid-enabled="true"
@@ -5457,10 +5457,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </strong>
   </p>
   <div
-    class="mod-banner --caja2_mob"
+    class="ln-banner-container --caja2_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -5488,10 +5488,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </u>
   </p>
   <div
-    class="mod-banner --middle_2_dsk"
+    class="ln-banner-container --middle_2_dsk"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
       data-device="desktop"
       data-prebid-enabled="true"
@@ -5514,10 +5514,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="mod-banner --caja3_mob"
+    class="ln-banner-container --caja3_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -5549,10 +5549,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="mod-banner --caja4_mob"
+    class="ln-banner-container --caja4_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
       data-device="mobile"
       data-prebid-enabled="true"
@@ -5586,10 +5586,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </mark>
   </p>
   <div
-    class="mod-banner --caja5_mob"
+    class="ln-banner-container --caja5_mob"
   >
     <div
-      class="com-banner"
+      class="ln-banner"
       data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
       data-device="mobile"
       data-prebid-enabled="true"

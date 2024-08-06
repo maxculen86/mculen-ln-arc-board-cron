@@ -22,7 +22,7 @@
     .sidebar__main {
         //fix para banners tablet caja1 y caja2
         .row-gap-tablet-3 {
-            .mod-banner {
+            .ln-banner-container {
                 &.--caja1_tab,
                 &.--caja2_tab {
                     grid-column: auto;
@@ -38,7 +38,7 @@
             }
         }
 
-        .mod-banner:not(.--fixed) {
+        .ln-banner-container:not(.--fixed) {
             margin-bottom: $spacing-lg;
         }
     }
@@ -143,7 +143,7 @@
         }
     }
 
-    .--top .mod-banner.--bg-banner {
+    .--top .ln-banner-container.--bg-banner {
         background: none;
     }
 

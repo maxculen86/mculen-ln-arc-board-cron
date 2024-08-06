@@ -156,8 +156,8 @@ describe('BuildBody', () => {
         ).toHaveLength(17);
         /* banner */
         expect(
-            container.querySelectorAll(`div[class*="mod-banner"]`)
-        ).toHaveLength(7);
+            container.querySelectorAll(`div[class*="ln-banner"]`)
+        ).toHaveLength(14);
         /* powerup receta */
         expect(
             container.querySelectorAll(`div[class*="--ingredients"]`)
@@ -271,8 +271,8 @@ describe('BuildBody', () => {
         ).toHaveLength(0);
         /* banner */
         expect(
-            container.querySelectorAll(`div[class*="mod-banner"]`)
-        ).toHaveLength(7);
+            container.querySelectorAll(`div[class*="ln-banner"]`)
+        ).toHaveLength(14);
         /* powerup receta no renderiza porque no matchea subtype en las rules */
         expect(
             container.querySelectorAll(`div[class*="--ingredients"]`)

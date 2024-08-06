@@ -68,7 +68,7 @@ describe('BuildBanners', () => {
 
         expect(
             container.querySelectorAll(`div`)[0].getAttribute('class')
-        ).toEqual('mod-banner --caja1_mob');
+        ).toEqual('ln-banner-container --caja1_mob');
     });
 
     it('deberia renderizar un Div Banner middle_1_dsk', () => {
@@ -84,7 +84,7 @@ describe('BuildBanners', () => {
 
         expect(
             container.querySelectorAll(`div`)[0].getAttribute('class')
-        ).toEqual('mod-banner --middle_1_dsk');
+        ).toEqual('ln-banner-container --middle_1_dsk');
     });
     it('no deberia renderizar nada', () => {
         const { container } = render(
@@ -126,15 +126,21 @@ describe('BuildBanners', () => {
         );
 
         expect(
-            container.querySelector(`div[class*="mod-banner --caja1_dsk"]`)
+            container.querySelector(
+                `div[class*="ln-banner-container --caja1_dsk"]`
+            )
         ).toBeVisible();
 
         expect(
-            container.querySelector(`div[class*="mod-banner --middle_1_tab"]`)
+            container.querySelector(
+                `div[class*="ln-banner-container --middle_1_tab"]`
+            )
         ).toBeVisible();
 
         expect(
-            container.querySelector(`div[class*="mod-banner --caja1_mob"]`)
+            container.querySelector(
+                `div[class*="ln-banner-container --caja1_mob"]`
+            )
         ).toBeVisible();
     });
 
