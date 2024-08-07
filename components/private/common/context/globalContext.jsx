@@ -5,6 +5,10 @@ import { LOGIN_URL } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { loginSetup } from '../../LN/common/utils/loginHelper';
+import isAllowedSection from '../../LN/common/utils/isAllowedSection';
+import AuthInitializer from '../../../../auth/AuthInitializer';
+import { listValidSectionsForMvp2Auth0 } from '../../../../auth/helper/loginHelper';
+import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
 
 export const GlobalContext = React.createContext();
 
@@ -43,7 +47,9 @@ const reducer = (state, action) => {
 const GlobalProvider = ({ children }) => {
     const {
         arcSite: website = 'la-nacion-ar',
-        deployment = {}
+        deployment = {},
+        globalContent,
+        requestUri
     } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
         siteService: useContent({
@@ -104,13 +110,25 @@ const GlobalProvider = ({ children }) => {
         }
     });
 
+    const isValidForMVP2Auth0 =
+        isAllowedSection({
+            globalContent,
+            listOfAllowedSection: listValidSectionsForMvp2Auth0
+        }) || getSectionOfRequestUri(requestUri) === 'mis-notas';
+
     useEffect(() => {
-        loginSetup(dispatch);
+        if (!isValidForMVP2Auth0) {
+            loginSetup(dispatch);
+        }
     }, [deployment]);
 
     return (
         <GlobalContext.Provider value={{ state, dispatch }}>
-            {children}
+            {isValidForMVP2Auth0 ? (
+                <AuthInitializer>{children}</AuthInitializer>
+            ) : (
+                children
+            )}
         </GlobalContext.Provider>
     );
 };

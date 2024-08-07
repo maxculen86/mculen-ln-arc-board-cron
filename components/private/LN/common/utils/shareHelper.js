@@ -160,7 +160,8 @@ export const onButtonClicked = (
     setBookmark,
     dispatch,
     state,
-    accessToken
+    accessToken,
+    isValidSectionForMVP2Auth0
 ) => {
     addEventToDataLayer({
         event: 'e_linkclick',
@@ -169,15 +170,16 @@ export const onButtonClicked = (
         label: 'guardar_nota'
     });
     const { open } = get(state, 'showModal', {});
-    if (token && suscription && !open) {
-        toggleBookmark(
+    if (suscription && !open) {
+        toggleBookmark({
             accessToken,
             token,
-            bookmark,
+            isDelete: bookmark,
             setBookmark,
             dispatch,
-            globalContent
-        );
+            _globalContent: globalContent,
+            isValidSectionForMVP2Auth0
+        });
     }
 
     !suscription &&
