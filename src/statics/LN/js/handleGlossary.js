@@ -1,4 +1,4 @@
-function handleGlossary(event, key = '') {
+export function handleGlossary(event, key = '') {
     window.LN.observable.publish('handleGlossary', {
         show: true,
         key,
