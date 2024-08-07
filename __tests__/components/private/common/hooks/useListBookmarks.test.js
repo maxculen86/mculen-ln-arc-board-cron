@@ -1,14 +1,7 @@
 import 'regenerator-runtime/runtime';
 import env from '../../../../../__mocks__/fusion:environment';
-import { act } from 'react-dom/test-utils';
 import React from 'react';
 import useListBookmarks from '../../../../../components/private/common/hooks/bookmark/useListBookmarks';
-import useAuthManager from '../../../../../auth/hooks/useAuthManager';
-
-jest.mock('../../../../../auth/hooks/useAuthManager');
-jest.mock('../../../../../auth/helper/loginHelper', () => ({
-    getAuthFromCookie: jest.fn()
-}));
 
 describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
     const setBookmarks = jest.fn().mockImplementation(x => x);
@@ -17,6 +10,8 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
     React.useCallback = jest.fn().mockImplementation(f => f);
 
     const termicaBookmark = true;
+    const token = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
+    const accessToken = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
     const isSuscriber = true;
 
     global.fetch = jest.fn();
@@ -39,42 +34,30 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
     });
 
     it('Should not fetch when termicaBookmark is closed', () => {
-        useAuthManager.mockImplementation(() => ({
-            token: 'mock-tooken',
-            accessToken: 'Bearer mock-access-token'
-        }));
-        const data = useListBookmarks(false, isSuscriber);
+        const data = useListBookmarks(false, token, isSuscriber);
         expect(data).toBeDefined();
         expect(fetch).not.toBeCalled();
     });
     it('Should not fetch when there is no token', () => {
-        useAuthManager.mockImplementation(() => ({
-            token: null,
-            accessToken: 'Bearer mock-access-token'
-        }));
-        const data = useListBookmarks(termicaBookmark, false);
+        const data = useListBookmarks(termicaBookmark, null, false);
         expect(data).toBeDefined();
         expect(fetch).not.toBeCalled();
     });
     it('Should call fetch correctly and return bookmarks when called with termica and token', async () => {
-        let data;
-
-        useAuthManager.mockImplementation(() => ({
-            token: 'mock-tooken',
-            accessToken: 'Bearer mock-access-token'
-        }));
-
-        await act(async () => {
-            data = useListBookmarks(termicaBookmark, isSuscriber);
-        });
-
+        const data = useListBookmarks(
+            termicaBookmark,
+            token,
+            accessToken,
+            isSuscriber
+        );
+        const { bookmarks, morePages, getNextPage } = data || {};
         expect(data).toBeDefined();
         expect(fetch).toBeCalledWith(
             `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks?size=30`,
             {
                 headers: {
-                    Authorization: 'Bearer mock-access-token',
-                    'X-Token': 'mock-tooken'
+                    Authorization: `Bearer ${accessToken}`,
+                    'X-Token': token
                 },
                 method: 'GET'
             }

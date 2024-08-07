@@ -15,19 +15,16 @@ import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent'
 import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
 import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
+import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import useTermica from '../../../private/common/hooks/useTermica';
 import get from '../../../private/common/utils/get';
 import classNames from 'classnames';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../auth/helper/loginHelper';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
-    const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
+    const subscription = isSubscribed();
     const {
         messageType,
         shouldLoad,

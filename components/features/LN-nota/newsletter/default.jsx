@@ -11,36 +11,37 @@ import { Toast } from '@ln/contenidos-ui-toast';
 import NewsLetterEventsScript from '../../../private/common/scriptManager/NewsLetterEventScript';
 
 import '../../../../resources/packages/css/@ln/common-ui-toast/index.css';
-import useAuthManager from '../../../../auth/hooks/useAuthManager';
 
 const NewsLetter = ({ globalContent }) => {
     const [props, setProps] = useState({});
     const [newToast, setNewToast] = useState(<></>);
-    const { token, accessToken } = useAuthManager();
 
     useEffect(() => {
+        const { getCookie } = handleCookie();
         const primarySection = get(
             globalContent,
             'taxonomy.primary_section._id',
             ''
         );
+        const token = getCookie('token');
+        const accessToken = getCookie('access-token');
 
-        if (token && accessToken) {
-            setProps({
-                section: primarySection.split('/')[1],
-                version: 3,
-                site: 'all',
-
-                userIdToken: token,
-                userAccessToken: accessToken,
-                useTestEnvironment: API_ENV !== 'prod',
-                onSubscription: ({ code }) =>
-                    code >= 200 && code < 400
-                        ? setNewToast(<Toast {...toastProps['success']} />)
-                        : setNewToast(<Toast {...toastProps['error']} />)
-            });
-        }
-    }, [accessToken, token]);
+        setProps({
+            section: primarySection.split('/')[1],
+            version: 3,
+            site: 'all',
+            ...(token &&
+                accessToken && {
+                    userIdToken: token,
+                    userAccessToken: accessToken
+                }),
+            useTestEnvironment: API_ENV !== 'prod',
+            onSubscription: ({ code }) =>
+                code >= 200 && code < 400
+                    ? setNewToast(<Toast {...toastProps['success']} />)
+                    : setNewToast(<Toast {...toastProps['error']} />)
+        });
+    }, []);
 
     return (
         <Lazy

@@ -5,18 +5,17 @@ import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../properties/sites/la-nacion-ar';
 import useTermica from '../../../private/common/hooks/useTermica';
+import getToken from '../../../private/common/utils/getToken';
 import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBookmark';
-import { getClassCondition } from '../../../private/LN/common/utils/shareHelper';
+import {
+    getClassCondition,
+    isSuscription
+} from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
 import ShowBarrier from '../../../private/common/barrier/showBarrier';
 import BuildAudioPlayer from '../../../private/common/audioNews/BuildAudioPlayer';
 import ShowToast from '../../../private/common/toast/showToast';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../auth/helper/loginHelper';
-import useAuthManager from '../../../../auth/hooks/useAuthManager';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 import classNames from 'classnames';
 
@@ -33,10 +32,11 @@ const Share = () => {
     const [openPlayer, setOpenPlayer] = useState(false);
     const [enableButton, setEnableButton] = useState(false);
 
-    const { token, accessToken, isValidSectionForMVP2Auth0 } = useAuthManager();
+    const token = getToken();
+    const accessToken = getToken('access-token');
     const termicaBookmark = useTermica('bookmark_web');
     const subtypeVideo = getClassCondition(subtype);
-    const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
+    const suscription = isSuscription(token);
 
     const checkBookmarkId = useCheckBookmark(
         termicaBookmark,
@@ -92,7 +92,6 @@ const Share = () => {
                         enableButton={enableButton}
                         setOpenPlayer={setOpenPlayer}
                         subtypeVideo={subtypeVideo}
-                        isValidSectionForMVP2Auth0={isValidSectionForMVP2Auth0}
                     />
 
                     <hr className={hrVideoClasses} />

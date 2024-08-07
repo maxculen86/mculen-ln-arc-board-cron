@@ -18,7 +18,7 @@ export default function useCheckBookmark(
                     {
                         method: 'GET',
                         headers: {
-                            Authorization: accessToken,
+                            Authorization: `Bearer ${accessToken}`,
                             'X-Token': token
                         }
                     }

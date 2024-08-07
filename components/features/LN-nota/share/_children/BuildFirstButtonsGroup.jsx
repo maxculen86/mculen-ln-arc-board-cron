@@ -36,8 +36,7 @@ const BuildFirtsButtonsGroup = ({
     setOpenPlayer,
     enableButton,
     bookmark = '',
-    subtypeVideo,
-    isValidSectionForMVP2Auth0
+    subtypeVideo
 } = {}) => {
     const { dispatch, state } = useContext(GlobalContext) || {};
     const {
@@ -114,8 +113,7 @@ const BuildFirtsButtonsGroup = ({
                             setBookmark,
                             dispatch,
                             state,
-                            accessToken,
-                            isValidSectionForMVP2Auth0
+                            accessToken
                         );
                     }}
                     variant="secondary"

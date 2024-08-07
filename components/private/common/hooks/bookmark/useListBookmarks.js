@@ -1,16 +1,19 @@
 import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
 import trasformBookmarkContent from '../../utils/bookmark/trasformBookmarkContent';
-import useAuthManager from '../../../../../auth/hooks/useAuthManager';
 
-export default function useListBookmarks(termicaBookmark, isSuscriber) {
+export default function useListBookmarks(
+    termicaBookmark,
+    token,
+    accessToken,
+    isSuscriber
+) {
     const [bookmarks, setBookmarks] = useState([]);
     const [meta, setMeta] = useState(false);
     const [loading, setLoading] = useState(true);
     const paginationQuery = meta
         ? `&nextKeyPK=${meta.nextKeyPK}&nextKeySK=${meta.nextKeySK}`
         : '';
-    const { token, accessToken } = useAuthManager();
 
     const getDataFromAPI = useCallback(async () => {
         try {
@@ -20,7 +23,7 @@ export default function useListBookmarks(termicaBookmark, isSuscriber) {
                     {
                         method: 'GET',
                         headers: {
-                            Authorization: accessToken,
+                            Authorization: `Bearer ${accessToken}`,
                             'X-Token': token
                         }
                     }
@@ -39,7 +42,7 @@ export default function useListBookmarks(termicaBookmark, isSuscriber) {
             // eslint-disable-next-line no-console
             console.error(err);
         }
-    }, [bookmarks, paginationQuery, token]);
+    }, [token, bookmarks, paginationQuery]);
 
     const deleteArticle = id => {
         const newListBookmarks = bookmarks.filter(

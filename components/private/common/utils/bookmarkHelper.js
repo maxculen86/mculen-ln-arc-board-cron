@@ -2,35 +2,16 @@ import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
-import { getAuthTokens } from '../../../../auth/helper/loginHelper';
 
-export default function toggleBookmark({
+export default function toggleBookmark(
     accessToken,
     token,
     isDelete,
     setBookmark,
-    dispatch = () => {},
-    _globalContent = {},
-    isValidSectionForMVP2Auth0 = false
-} = {}) {
+    dispatch,
+    _globalContent = {}
+) {
     const getDataFromAPI = async () => {
-        let headers = {
-            Authorization: `Bearer ${accessToken}`,
-            'X-Token': token
-        };
-        // TODO: Una vez se habiliten todas las secciones a Auth0V2, eliminar esta logica y dejar obtencion de tokens por getAuthTokens
-        if (isValidSectionForMVP2Auth0) {
-            const {
-                token: tokenV2,
-                accessToken: accessTokenV2
-            } = await getAuthTokens();
-
-            headers = {
-                Authorization: accessTokenV2,
-                'X-Token': tokenV2
-            };
-        }
-
         const fetchBookmarkPath = isDelete ? `/${isDelete}` : '';
         const { _id: noteId = '' } = _globalContent;
         const primarySectionName = get(
@@ -64,7 +45,10 @@ export default function toggleBookmark({
                     `${PERSONALIZACION_APIV2}bookmarks${fetchBookmarkPath}`,
                     {
                         method: isDelete ? 'DELETE' : 'POST',
-                        headers,
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                            'X-Token': token
+                        },
                         body: JSON.stringify(bookmarkRequestBody)
                     }
                 );
@@ -75,9 +59,7 @@ export default function toggleBookmark({
                           dispatch,
                           setBookmark
                       })
-                    : statusActions.default({
-                          dispatch
-                      });
+                    : statusActions.default({ dispatch });
 
                 return res.status;
             }
@@ -85,9 +67,7 @@ export default function toggleBookmark({
             // eslint-disable-next-line no-console
             console.error(err);
 
-            return statusActions.default({
-                dispatch
-            });
+            return statusActions.default({ dispatch });
         }
     };
 
