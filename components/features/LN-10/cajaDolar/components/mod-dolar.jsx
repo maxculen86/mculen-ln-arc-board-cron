@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
-
+import '../../../../../resources/dist/css/ln/modules/mod-dolar.css';
 import CurrencyData from '../../../../private/common/currencyData/CurrencyData';
 import ComLink from '../../../../private/common/com-link';
 import ComImage from '../../../../private/common/com-image';
-import '../../../../../../resources/dist/css/ln/modules/mod-dolar.css';
 import setClassName from '../../../../private/common/utils/setClassName';
 
 const ModDolar = ({
