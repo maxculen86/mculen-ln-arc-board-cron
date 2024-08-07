@@ -125,21 +125,8 @@
         }
 
         //Icono campanita
-        &.comment-nav-right__icon.comment-nav-right__icon.vf-no-outline.is-size-large.vf-tray-trigger {
-            svg {
-                display: none;
-            }
-            &:before {
-                position: relative;
-                left: auto;
-                display: block;
-                content: '';
-                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDE3SDIyVjE5SDJWMTdINFYxMEM0IDcuODc4MjcgNC44NDI4NSA1Ljg0MzQ0IDYuMzQzMTUgNC4zNDMxNUM3Ljg0MzQ0IDIuODQyODUgOS44NzgyNyAyIDEyIDJDMTQuMTIxNyAyIDE2LjE1NjYgMi44NDI4NSAxNy42NTY5IDQuMzQzMTVDMTkuMTU3MSA1Ljg0MzQ0IDIwIDcuODc4MjcgMjAgMTBWMTdaTTkgMjFIMTVWMjNIOVYyMVoiIGZpbGw9IiMyNzI3MjciLz4KPC9zdmc+Cg==);
-                background-repeat: no-repeat;
-                background-size: contain;
-                width: px(14);
-                height: px(14);
-            }
+        &.comment-nav-right__icon.comment-nav-right__icon.vf-button.vf-button.vf-no-outline.is-size-large.vf-tray-trigger {
+            display: none;
         }
     }
     .vf3-comments .vf3-comments__tabbed-nav .vf-tabbed-nav {
