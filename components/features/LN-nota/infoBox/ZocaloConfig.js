@@ -27,6 +27,20 @@ const zocaloOptions = {
         label: 'ln_juegos',
         description:
             'Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.'
+    },
+
+    recetas: {
+        href: 'https://foodit.lanacion.com.ar/',
+        title: 'Ir a Foodit',
+        imgMob: 'image-mobile-foodit.png',
+        imgWidth: 209,
+        imgAlt: 'Imagen de celular con la app de Foodit',
+        logo: 'logo-foodit.webp',
+        logoAlt: 'Logo de Foodit',
+        logoWidth: 150,
+        label: 'foodit',
+        description:
+            'Conocé la nueva plataforma culinaria con recetas variadas y probadas, guías de cocina, masterclasses y mucho más, para inspirarte a cocinar y a comer mejor.'
     }
 };
 

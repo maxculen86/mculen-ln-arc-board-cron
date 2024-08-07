@@ -25,12 +25,14 @@ export const getZocaloProps = (deployment, contextPath, path = '') => {
                     )
                 }
             ],
-            className: zocaloData.imgClassName
+            className: zocaloData.imgClassName,
+            width: zocaloData.imgWidth
         },
         logoProps: {
             src: getAssetsPath(contextPath)(deployment)(zocaloData.logo),
             alt: zocaloData.logoAlt,
-            className: zocaloData.logoClassName
+            className: zocaloData.logoClassName,
+            width: zocaloData.logoWidth
         },
         description: zocaloData.description,
         label: zocaloData.label

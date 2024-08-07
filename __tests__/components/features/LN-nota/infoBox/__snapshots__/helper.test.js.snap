@@ -13,6 +13,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
       },
     ],
     "src": "https://arc-static.glanacion.com/pf/resources/images/cll_web-image_infobox_mob.webp",
+    "width": undefined,
   },
   "label": "canchallena",
   "linkProps": {
@@ -24,6 +25,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "alt": "Logo de Canchallena",
     "className": undefined,
     "src": "https://arc-static.glanacion.com/pf/resources/images/cll-logo.webp",
+    "width": undefined,
   },
   "showZocalo": true,
 }
@@ -42,6 +44,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
       },
     ],
     "src": "https://arc-static.glanacion.com/pf/resources/images/promo-juegos_mob.webp",
+    "width": undefined,
   },
   "label": "ln_juegos",
   "linkProps": {
@@ -52,6 +55,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "alt": "Logo de LN Juegos",
     "className": "w-140_max512",
     "src": "https://arc-static.glanacion.com/pf/resources/images/logo-juegos.webp",
+    "width": undefined,
   },
   "showZocalo": true,
 }
