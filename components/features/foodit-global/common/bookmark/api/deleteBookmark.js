@@ -3,6 +3,7 @@ import { addToast, TOAST, addErrorToast } from './_helper';
 import getToken from '../../../../../private/common/utils/getToken';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import { fillBookmarks } from '../iconHelper';
+import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
 
 const deleteBookmark = async bookmarks => {
     // TODO: should use useClientLibs
@@ -65,6 +66,53 @@ const deleteBookmark = async bookmarks => {
     return { successfullResponses, failureResponses };
 };
 
+const setClientSideBookmarks = ({
+    successfullResponses,
+    setUserBookmarks,
+    setSelectedItem,
+    userBookmarksQuantity
+}) => {
+    setUserBookmarks(previousBookmarks =>
+        previousBookmarks.filter(
+            ({ bookmarkTypeId }) =>
+                !successfullResponses.includes(bookmarkTypeId)
+        )
+    );
+    setSelectedItem &&
+        userBookmarksQuantity &&
+        setSelectedItem(({ id: prevId, quantity: prevQuantity }) => {
+            const quantity = prevQuantity - successfullResponses.length;
+
+            return quantity > 0
+                ? {
+                      id: prevId,
+                      quantity
+                  }
+                : {
+                      id: 'Todas',
+                      quantity:
+                          userBookmarksQuantity - successfullResponses.length
+                  };
+        });
+};
+
+const setLocalStorageBookmarks = successfullResponses => {
+    const bookmarkedItems = safeJSONParse(
+        localStorage?.getItem('bookmarkedItems'),
+        []
+    );
+
+    localStorage?.setItem(
+        'bookmarkedItems',
+        JSON.stringify(
+            bookmarkedItems.filter(
+                article =>
+                    !successfullResponses.includes(article.bookmarkTypeId)
+            )
+        )
+    );
+};
+
 const fetchDeleteBookmark = async (
     bookmarkedArticles,
     setUserBookmarks,
@@ -76,46 +124,14 @@ const fetchDeleteBookmark = async (
     );
 
     if (successfullResponses && successfullResponses.length) {
-        if (setUserBookmarks) {
-            setUserBookmarks(previousBookmarks =>
-                previousBookmarks.filter(
-                    ({ bookmarkTypeId }) =>
-                        !successfullResponses.includes(bookmarkTypeId)
-                )
-            );
-            setSelectedItem &&
-                userBookmarksQuantity &&
-                setSelectedItem(({ id: prevId, quantity: prevQuantity }) => {
-                    const quantity = prevQuantity - successfullResponses.length;
-
-                    return quantity > 0
-                        ? {
-                              id: prevId,
-                              quantity
-                          }
-                        : {
-                              id: 'Todas',
-                              quantity:
-                                  userBookmarksQuantity -
-                                  successfullResponses.length
-                          };
-                });
-        } else {
-            const bookmarkedItems =
-                JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
-
-            localStorage.setItem(
-                'bookmarkedItems',
-                JSON.stringify(
-                    bookmarkedItems.filter(
-                        article =>
-                            !successfullResponses.includes(
-                                article.bookmarkTypeId
-                            )
-                    )
-                )
-            );
-        }
+        if (setUserBookmarks)
+            setClientSideBookmarks({
+                successfullResponses,
+                setUserBookmarks,
+                setSelectedItem,
+                userBookmarksQuantity
+            });
+        else setLocalStorageBookmarks(successfullResponses);
 
         if (successfullResponses.length === bookmarkedArticles.length) {
             addToast({

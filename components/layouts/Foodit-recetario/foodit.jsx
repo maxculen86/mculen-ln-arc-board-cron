@@ -5,11 +5,9 @@ import RecetarioBody from '../../features/foodit-global/common/recetario/Recetar
 import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit';
 import { Text } from '@ln/common-ui-text';
 
-// TODO: Estas secciones son a modo orientativo, pueden cambiar en base a definiciones de producto.
 const pageBuilderSections = ['Apertura', 'Bloque-1'];
 
-// TODO: Validar si no tienen suscripcion, deberia redirigiar al login / paywall
-const RecetarioFoodit = ({ children }) => {
+const RecetarioFoodit = () => {
     return (
         <BaseLayout>
             <div className="flex flex-column gap-32">

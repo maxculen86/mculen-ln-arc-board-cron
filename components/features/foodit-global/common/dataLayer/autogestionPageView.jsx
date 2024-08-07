@@ -5,7 +5,7 @@ import { SITE_FOODIT } from 'fusion:environment';
 import { TRANSLATE_LAYOUTS } from './_helpers';
 
 const AutogestionPageView = ({ globalContent = {} }) => {
-    const { subtype: _subtype, _id } = globalContent;
+    const { _id } = globalContent;
 
     const {
         contextPath,

@@ -8,9 +8,6 @@ import PowerupsReceta from '../../features/foodit-global/Body/PowerupsReceta/foo
 import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
-import { RecipeSchema } from '../../features/foodit-global/schemas/Recipe';
-import { BreadcrumbSchema } from '../../features/foodit-global/schemas/Breadcrumb';
-import { getBreadcrumbSections } from '../../features/foodit-global/common/breadcrumb/_helpers';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 

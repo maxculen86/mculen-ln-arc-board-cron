@@ -9,7 +9,6 @@ import removeAccents from '../../../../private/common/utils/removeAccents';
 
 const PageViewDataLayer = ({ globalContent = {} }) => {
     const {
-        subtype: _subtype,
         _id,
         publish_date = '',
         taxonomy,

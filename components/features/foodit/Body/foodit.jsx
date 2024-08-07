@@ -5,8 +5,6 @@ import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 
 import buildBody from './children/_buildBody';
-// import addEventListener from '../../../private/common/hooks/useEventListener';
-// import handleScrollForNota from '../../../private/LN/nota/dataLayer/handleScrollForNota';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
 import {
     embedIntersectionObserver,
@@ -27,11 +25,6 @@ const Body = ({ globalContent = {} }) => {
             });
         }
     }, [_id, contentElements]);
-
-    // TODO: pendiente a implementacion del GTM, requiere window.dataLayer
-    // if (typeof window !== 'undefined') {
-    //     addEventListener('scroll', handleScrollForNota, window);
-    // }
 
     const renderComponents = buildBody({
         globalContent
