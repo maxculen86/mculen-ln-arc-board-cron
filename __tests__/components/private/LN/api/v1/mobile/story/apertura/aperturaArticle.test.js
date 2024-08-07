@@ -89,4 +89,20 @@ describe('Test apetura con videoJW', () => {
         expect(resp.imagenesAcumulado).toBeUndefined();
         expect(console.error).toHaveBeenCalledTimes(0);
     });
+
+    it('Test keys expected', () => {
+        const newArticle = { ...article };
+        newArticle.label = {
+            ...article.label,
+            volanta: {
+                display: true,
+                text: 'Mi volanta',
+                url: ''
+            }
+        };
+        const resp = aperturaArticle(newArticle);
+        expect(Object.keys(resp).sort()).toEqual(
+            ['bajada', 'titulo', 'tituloMobile', 'video', 'volanta'].sort()
+        );
+    });
 });

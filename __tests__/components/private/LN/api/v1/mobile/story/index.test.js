@@ -182,4 +182,44 @@ describe('Test json integracion Article', () => {
         );
         expect(resp.contenido[0].id).toBe('ifrme');
     });
+
+    it('test no key volanta', () => {
+        const articleNoVolanta = { ...QAZ7BVHG5BCNFN7S67XCBP6PA4 };
+        articleNoVolanta.label = {
+            ...QAZ7BVHG5BCNFN7S67XCBP6PA4.label,
+            volanta: null
+        };
+        const resp = NotaIndex(articleNoVolanta);
+        expect(Object.keys(resp.apertura).sort()).toEqual(
+            [
+                'autores',
+                'bajada',
+                'imagenes',
+                'marquesina',
+                'receta',
+                'titulo'
+            ].sort()
+        );
+    });
+    it('test keys expected', () => {
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA4);
+        expect(Object.keys(resp).sort()).toEqual(
+            [
+                'id',
+                'template',
+                'url',
+                'mostrarBanners',
+                'paywallStatus',
+                'comentarios',
+                'categoria',
+                'relacionados',
+                'enviarApps',
+                'trust',
+                'contenido',
+                'fechaActualizacion',
+                'fecha',
+                'apertura'
+            ].sort()
+        );
+    });
 });

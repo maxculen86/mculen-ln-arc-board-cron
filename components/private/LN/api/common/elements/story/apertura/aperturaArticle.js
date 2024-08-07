@@ -5,6 +5,7 @@ import {
     articleSignature as Signature
 } from '../../author';
 import { getFeaturedTag } from '../../tag';
+import { volanta } from '../../label/volanta';
 
 // For to set Image Basic to BookMark when PromoItems is Html regularly
 export const validToSetImagenesAcumulado = (article, isPromoInContent) => {
@@ -85,6 +86,11 @@ export const apertura = article => {
     const tagDestacado = getFeaturedTag(article);
     if (tagDestacado) {
         resp.tagDestacado = tagDestacado;
+    }
+
+    const flyer = volanta(article);
+    if (flyer) {
+        resp.volanta = flyer;
     }
 
     return resp;
