@@ -3,22 +3,24 @@ import { getArticleAuthor } from '../../../../../../common/article/elements/auth
 import { articleSignature } from '../../../../../../common/elements/author';
 
 export const getAuthors = article => {
-    if (
-        ['hashtag'].includes(
-            get(article, 'informationBox.sectionAliasMobile', null)
-        )
-    ) {
+    const sectionAliasMobile = get(
+        article,
+        'informationBox.sectionAliasMobile',
+        null
+    );
+    if (['hashtag'].includes(sectionAliasMobile)) {
         return null;
     }
     return getArticleAuthor(article);
 };
 
 export const getAuthor = article => {
-    if (
-        ['hashtag'].includes(
-            get(article, 'informationBox.sectionAliasMobile', null)
-        )
-    ) {
+    const sectionAliasMobile = get(
+        article,
+        'informationBox.sectionAliasMobile',
+        null
+    );
+    if (['hashtag'].includes(sectionAliasMobile)) {
         return null;
     }
     const authors = getAuthors(article);
@@ -26,11 +28,12 @@ export const getAuthor = article => {
 };
 
 export const getSignature = article => {
-    if (
-        ['hashtag'].includes(
-            get(article, 'informationBox.sectionAliasMobile', null)
-        )
-    ) {
+    const sectionAliasMobile = get(
+        article,
+        'informationBox.sectionAliasMobile',
+        null
+    );
+    if (['hashtag'].includes(sectionAliasMobile)) {
         return null;
     }
     const signature =

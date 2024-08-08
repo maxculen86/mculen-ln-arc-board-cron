@@ -10,6 +10,8 @@ import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from './addEventToDataLayer';
 
+const noPaddingSmNone = 'p-0 sm-none';
+
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
         popUpRedSocial(
@@ -214,7 +216,7 @@ export const buttonsList = [
         handleClick: ({ requestUri, host }) => {
             shareWhatsAppDesktop(requestUri, host);
         },
-        className: 'p-0 sm-none',
+        className: noPaddingSmNone,
         labelDataLayer: 'compartir_whatsapp'
     },
     {
@@ -228,7 +230,7 @@ export const buttonsList = [
             setCopy(true);
         },
         withContainer: true,
-        className: 'p-0 sm-none',
+        className: noPaddingSmNone,
         labelDataLayer: 'copiar_link'
     },
     {
@@ -240,7 +242,7 @@ export const buttonsList = [
         handleClick: ({ requestUri, host, title }) => {
             popUpCompartirNotaFB(requestUri, host, title);
         },
-        className: 'p-0 sm-none',
+        className: noPaddingSmNone,
         labelDataLayer: 'compartir_facebook'
     },
     {
@@ -253,7 +255,7 @@ export const buttonsList = [
             const twitterTitle = getTwitterTitle(mobileTitle, title);
             popUpCompartirNotaTW(requestUri, host, twitterTitle);
         },
-        className: 'p-0 sm-none',
+        className: noPaddingSmNone,
         labelDataLayer: 'compartir_x'
     },
     {

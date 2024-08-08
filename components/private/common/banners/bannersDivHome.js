@@ -1,6 +1,8 @@
 import React from 'react';
 import DivBannerSSR from './DivBannerSSR';
 
+const logoNone = '--logo none';
+
 const bannersHome = {
     megatopDsk: (
         <DivBannerSSR
@@ -475,7 +477,7 @@ const bannersHome = {
         <>
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo none',
+                    classes: logoNone,
                     slotId: 'logo_header_dsk',
                     withoutHide: true
                 }}
@@ -489,14 +491,14 @@ const bannersHome = {
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo none',
+                    classes: logoNone,
                     slotId: 'logo_header_tab',
                     withoutHide: true
                 }}
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo none',
+                    classes: logoNone,
                     slotId: 'logo_header_mob',
                     withoutHide: true
                 }}

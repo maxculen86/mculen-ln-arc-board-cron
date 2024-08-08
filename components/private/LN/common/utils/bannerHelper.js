@@ -433,17 +433,12 @@ export const queueGoogletagCommand = bannersToLoad => {
             .pubads()
             .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
                 const banner = document.getElementById(slot.getSlotElementId());
-                const hiddenBanners = {
-                    parallax_dsk: 'parallax_dsk',
-                    parallax_mob: 'parallax_mob'
-                };
-                if (
-                    !isEmpty &&
-                    bannersWithoutHide.indexOf(slot.getSlotElementId()) === -1
-                )
+
+                const shouldShowBanner =
+                    !isEmpty && !bannersWithoutHide.includes(slotId);
+
+                if (shouldShowBanner) {
                     banner.parentNode.classList.remove('none');
-                if (isEmpty && hiddenBanners[slot.getSlotElementId()]) {
-                    banner.parentNode.classList.add('none');
                 }
             });
     });
