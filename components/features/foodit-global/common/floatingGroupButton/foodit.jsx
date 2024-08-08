@@ -3,7 +3,7 @@ import { Groupbutton } from '@ln/common-ui-groupbutton';
 import { Button } from '@ln/foodit-ui-button';
 import { useFloatingGroupButton } from './useFloatingGroupButton';
 import classNames from 'classnames';
-import useGetUserData from '../../hooks/useGetUserData';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 export const FloatingGroupButton = ({
     buttons = [],
@@ -11,7 +11,7 @@ export const FloatingGroupButton = ({
     observerSelector
 }) => {
     const { visible } = useFloatingGroupButton({ observerSelector });
-    const { userType } = useGetUserData();
+    const { userType } = useGetUserConfig();
 
     const _className = classNames(
         'inline-flex fixed bottom-0 left-50 -translate-x-50 mb-16 z-5 shadow-down-2xs bg-primary-positive rounded-4 overflow-hidden',

@@ -4,19 +4,21 @@ import '@testing-library/jest-dom/';
 
 import { useAppContext } from 'fusion:context';
 import RecetarioBody from '../../../../../../components/features/foodit-global/common/recetario/RecetarioBody';
-import getBookmarks from '../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
-import useGetUserData, {
-    isFooditSuscriptor
-} from '../../../../../../components/features/foodit-global/hooks/useGetUserData';
+import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
+import { isSubscribed } from '../../../../../../auth/helper/loginHelper';
+import useGetRecetarioData from '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
+
 jest.mock(
-    '../../../../../../components/features/foodit-global/hooks/useGetUserData'
+    '../../../../../../components/features/foodit-global/hooks/useGetUserConfig'
 );
+
+jest.mock('../../../../../../auth/helper/loginHelper');
 jest.mock(
-    '../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks'
+    '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData'
 );
 jest.mock(
     '../../../../../../components/features/foodit-global/common/bookmark/api/deleteBookmark',
@@ -49,74 +51,71 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
         });
     });
 
-    test('Should render empty state component variant="barrier-unlogged" when user is unlogged', async () => {
-        getBookmarks.mockReturnValue({ data: [] });
-        useGetUserData.mockReturnValue({
+    test('Should render empty state component variant="barrier-unlogged" when user is unlogged', () => {
+        useGetRecetarioData.mockReturnValue({
+            userBookmarks: [],
+            setUserBookmarks: jest.fn(),
+            loading: false
+        });
+        useGetUserConfig.mockReturnValue({
             userType: 'unlogged'
         });
         render(<RecetarioBody />);
 
-        await waitFor(
-            () =>
-                expect(
-                    screen.getByText('¡Exclusivo suscriptor!')
-                ).toBeInTheDocument(),
+        expect(screen.getByText('¡Exclusivo suscriptor!')).toBeInTheDocument(),
             expect(
                 screen.getByText(
                     'Para realizar esta acción es necesario que inicies sesión.'
                 )
-            ).toBeInTheDocument()
-        );
+            ).toBeInTheDocument();
     });
 
-    test('Should render empty state component variant="barrier-logged" when user is logged', async () => {
-        getBookmarks.mockReturnValue({ data: [] });
-        useGetUserData.mockReturnValue({
+    test('Should render empty state component variant="barrier-logged" when user is logged', () => {
+        useGetRecetarioData.mockReturnValue({
+            userBookmarks: [],
+            setUserBookmarks: jest.fn(),
+            loading: false
+        });
+        useGetUserConfig.mockReturnValue({
             userType: 'logged'
         });
 
         render(<RecetarioBody />);
-        await waitFor(
-            () =>
-                expect(
-                    screen.getByText('¡Exclusivo suscriptor!')
-                ).toBeInTheDocument(),
+        expect(screen.getByText('¡Exclusivo suscriptor!')).toBeInTheDocument(),
             expect(
                 screen.getByText(
                     'Para realizar esta acción es necesario que tengas una suscripción.'
                 )
-            ).toBeInTheDocument()
-        );
+            ).toBeInTheDocument();
     });
 
-    test('Should render bookmarks', async () => {
-        getBookmarks.mockReturnValue({
-            data: [
+    test('Should render bookmarks', () => {
+        useGetRecetarioData.mockReturnValue({
+            userBookmarks: [
                 { bookmarkTypeId: 'test1', bookmarkId: 'id1' },
                 { bookmarkTypeId: 'test2', bookmarkId: 'id2' },
                 { bookmarkTypeId: 'test3', bookmarkId: 'id3' }
-            ]
+            ],
+            setUserBookmarks: jest.fn(),
+            loading: false
         });
 
-        useGetUserData.mockReturnValue({
+        useGetUserConfig.mockReturnValue({
             userType: 'subscribed'
         });
 
-        isFooditSuscriptor.mockReturnValue(true);
+        isSubscribed.mockReturnValue(true);
 
         render(<RecetarioBody />);
 
-        await waitFor(() =>
-            expect(screen.getByText('Colecciones')).toBeInTheDocument()
-        );
-        await waitFor(() =>
-            expect(screen.getByText('Todas (3)')).toBeInTheDocument()
-        );
+        expect(screen.getByText('Colecciones')).toBeInTheDocument();
+
+        expect(screen.getByText('Todas (3)')).toBeInTheDocument();
     });
 
     test('Should open modal on button click', async () => {
-        getBookmarks.mockReturnValue({
-            data: [
+        useGetRecetarioData.mockReturnValue({
+            userBookmarks: [
                 {
                     bookmarkTypeId: 'group1',
                     bookmarkId: 'id1',
@@ -132,14 +131,16 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
                     bookmarkId: 'id3',
                     bookmarkGroup: 'group1'
                 }
-            ]
+            ],
+            setUserBookmarks: jest.fn(),
+            loading: false
         });
 
-        useGetUserData.mockReturnValue({
+        useGetUserConfig.mockReturnValue({
             userType: 'subscribed'
         });
 
-        isFooditSuscriptor.mockReturnValue(true);
+        isSubscribed.mockReturnValue(true);
 
         render(<RecetarioBody />);
 

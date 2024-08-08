@@ -810,6 +810,10 @@ b, strong {
   row-gap: 0.25rem;
 }
 
+.row-gap-16 {
+  row-gap: 1rem;
+}
+
 .row-gap-32 {
   row-gap: 2rem;
 }
@@ -1204,6 +1208,10 @@ b, strong {
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.08);
 }
 
+.shadow-top {
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.09);
+}
+
 .shadow-recipe {
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
 }
@@ -1338,6 +1346,10 @@ b, strong {
 
 .h-5 {
   height: 0.3125rem;
+}
+
+.h-8 {
+  height: 0.5rem;
 }
 
 .h-20 {
@@ -1750,6 +1762,9 @@ b, strong {
   .py-12_md {
     padding-block: 0.75rem;
   }
+  .py-24_md {
+    padding-block: 1.5rem;
+  }
   .py-56_md {
     padding-block: 3.5rem;
   }
@@ -1801,6 +1816,9 @@ b, strong {
   }
   .py-24_lg {
     padding-block: 1.5rem;
+  }
+  .py-32_lg {
+    padding-block: 2rem;
   }
   .py-52_lg {
     padding-block: 3.25rem;
@@ -2108,4 +2126,12 @@ hr {
 
 body:has(.disable-body-scroll) {
   overflow: hidden;
+}
+
+.difumination {
+  position: relative;
+  overflow: hidden;
+  max-height: 320px;
+  -webkit-mask-image: linear-gradient(to bottom, #fefefe calc(100% - 6rem), transparent 100%);
+          mask-image: linear-gradient(to bottom, #fefefe calc(100% - 6rem), transparent 100%);
 }

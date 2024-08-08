@@ -63,5 +63,5 @@ export default {
         uri: 'text'
     },
     filter,
-    ttl: 3600
+    ttl: 600
 };

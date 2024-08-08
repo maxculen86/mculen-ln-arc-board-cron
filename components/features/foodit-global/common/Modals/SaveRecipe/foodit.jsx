@@ -6,7 +6,7 @@ import useIsomorphicPopupHandling from './hooks/useIsomorphicPopupHandling';
 import get from '../../../../../private/common/utils/get';
 import fetchDeleteBookmark from '../../bookmark/api/deleteBookmark';
 import { unfillBookmarks } from '../../bookmark/iconHelper';
-import useGetUserData from '../../../hooks/useGetUserData';
+import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
 import classNames from 'classnames';
@@ -14,7 +14,7 @@ import classNames from 'classnames';
 export const Modal = () => {
     const { close, modalData } = useIsomorphicPopupHandling();
     const showModal = get(modalData, 'isVisible', false);
-    const { userType } = useGetUserData();
+    const { userType } = useGetUserConfig();
 
     const {
         bookmarkedArticles = [],
