@@ -8,9 +8,10 @@ class JuegoFeature {
     render() {
         try {
             const {
-                customFields: { sectionId, subscriber }
+                customFields: { sectionId, subscriber, isNewGame }
             } = this.props;
-            return { closed: subscriber, id: sectionId };
+            const badge = isNewGame === 'SI' ? 'NUEVO' : null;
+            return { closed: subscriber, id: sectionId, badge };
         } catch (err) {
             return { Success: false, Message: err.message };
         }
