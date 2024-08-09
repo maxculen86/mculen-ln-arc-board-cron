@@ -18,7 +18,8 @@ export const initialize = () => {
             databaseURL,
             projectId,
             storageBucket,
-            messagingSenderId
+            messagingSenderId,
+            appId
         } = FIREBASE_CONFIG || {};
 
         const firebaseConfig = {
@@ -27,7 +28,8 @@ export const initialize = () => {
             databaseURL,
             projectId,
             storageBucket,
-            messagingSenderId
+            messagingSenderId,
+            appId
         };
 
         firebase.initializeApp(firebaseConfig);

@@ -108,14 +108,22 @@ export default {
     // SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://pre-suscripciones.lanacion.com.ar/',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    //   La API Key de Firebase se encuentra pública en el código de las aplicaciones,
+    //   debido a que Firebase utiliza esta clave para identificar tu proyecto en lugar de autenticar peticiones.
+    //   Es importante destacar que esta API Key no proporciona acceso directo a los recursos de Firebase sin la configuración adecuada de las reglas de seguridad.
+    //   Desde la consola de Firebase y Google Cloud, se pueden configurar restricciones en la API Key para limitar su uso,
+    //   como restringir los dominios desde los que se puede utilizar (HTTP referrers) o las IPs permitidas.
+    //   Para más información, puedes consultar la documentación oficial:
+    //   - https://firebase.google.com/docs/projects/api-keys
+    //   - https://cloud.google.com/docs/authentication/api-keys
     FIREBASE_CONFIG: {
-        apiKey:
-            '%AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFZgu4onAWq/W8gBEVE+TDOAAAAhjCBgwYJKoZIhvcNAQcGoHYwdAIBADBvBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDO+34OLq7J1XCUflkAIBEIBCk/Fx9RAYnbPSR0o5i/5nUV6bnpQCHju6ywpO3rsV+RUvKkrVj2LumjluMyEVLSXr2s3DOZ/KCxD1eStkgIxthAxL',
+        apiKey: 'AIzaSyDx9szVMLkQylr9LN0G3v5faTrMKXyz3rM', // NOSONAR
         authDomain: 'lanaciontest-24eed.firebaseapp.com',
         databaseURL: 'https://lanaciontest-24eed.firebaseio.com',
         messagingSenderId: '247148690244',
         projectId: 'lanaciontest-24eed',
-        storageBucket: 'lanaciontest-24eed.appspot.com'
+        storageBucket: 'lanaciontest-24eed.appspot.com',
+        appId: '1:247148690244:web:067b18e931dd7c55e77511'
     },
     API_NOTIFICATION: 'https://qa-notificaciones.lanacion.com.ar/api/'
 };

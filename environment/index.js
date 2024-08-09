@@ -112,14 +112,22 @@ export default {
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
     SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+    //   La API Key de Firebase se encuentra pública en el código de las aplicaciones,
+    //   debido a que Firebase utiliza esta clave para identificar tu proyecto en lugar de autenticar peticiones.
+    //   Es importante destacar que esta API Key no proporciona acceso directo a los recursos de Firebase sin la configuración adecuada de las reglas de seguridad.
+    //   Desde la consola de Firebase y Google Cloud, se pueden configurar restricciones en la API Key para limitar su uso,
+    //   como restringir los dominios desde los que se puede utilizar (HTTP referrers) o las IPs permitidas.
+    //   Para más información, puedes consultar la documentación oficial:
+    //   - https://firebase.google.com/docs/projects/api-keys
+    //   - https://cloud.google.com/docs/authentication/api-keys
     FIREBASE_CONFIG: {
-        apiKey:
-            '%AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFZgu4onAWq/W8gBEVE+TDOAAAAhjCBgwYJKoZIhvcNAQcGoHYwdAIBADBvBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDO+34OLq7J1XCUflkAIBEIBCk/Fx9RAYnbPSR0o5i/5nUV6bnpQCHju6ywpO3rsV+RUvKkrVj2LumjluMyEVLSXr2s3DOZ/KCxD1eStkgIxthAxL',
+        apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4', // NOSONAR
         authDomain: 'lanacion-92a91.firebaseapp.com',
         databaseURL: 'https://lanacion-92a91.firebaseio.com',
         messagingSenderId: '221085116662',
         projectId: 'lanacion-92a91',
-        storageBucket: 'lanacion-92a91.appspot.com'
+        storageBucket: 'lanacion-92a91.appspot.com',
+        appId: '1:221085116662:web:edf51a66aec1572a2924d7'
     },
     API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/'
 };

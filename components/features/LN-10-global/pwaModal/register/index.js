@@ -12,11 +12,11 @@ const startPWASetup = deployment => {
         if (!isSafari && !iOS) {
             try {
                 await dynamicallyLoadScript(
-                    'https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js',
+                    'https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js',
                     'body'
                 );
                 await dynamicallyLoadScript(
-                    'https://www.gstatic.com/firebasejs/5.11.1/firebase-messaging.js',
+                    'https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js',
                     'body'
                 );
                 if (verify()) {
