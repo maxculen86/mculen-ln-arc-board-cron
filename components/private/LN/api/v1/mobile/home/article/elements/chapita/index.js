@@ -1,22 +1,52 @@
 import get from '../../../../../../../../common/utils/get';
 
+const isDefaultStyle = chapitaStyle => {
+    return (
+        chapitaStyle === null ||
+        chapitaStyle === 'positive' ||
+        chapitaStyle === 'negative'
+    );
+};
+const getChapitaText = (labelChapitaText, propertiesChapita) => {
+    if (labelChapitaText) {
+        return labelChapitaText;
+    }
+    if (propertiesChapita) {
+        return propertiesChapita;
+    }
+    return null;
+};
+
+const getAdditionalPropertiesChapitaStyle = article => {
+    let additionalPropertiesChapitaStyle = get(
+        article,
+        'additionalProperties.chapitaStyle',
+        null
+    );
+    return additionalPropertiesChapitaStyle;
+};
+
+const getIsXLorLSizeinDefault = (
+    labelChapitaText,
+    additionalPropertiesChapita,
+    fieldsBadge
+) => {
+    const newsFieldsBadge = { ...fieldsBadge };
+    
+    const chapitaText = getChapitaText(
+        labelChapitaText,
+        additionalPropertiesChapita
+    );
+
+    if (chapitaText && chapitaText !== ' ' && chapitaText !== '.') {
+        newsFieldsBadge.badgeStyle = 'default';
+        newsFieldsBadge.badge = chapitaText.toUpperCase();
+        newsFieldsBadge.chapita = newsFieldsBadge.badge;
+    }
+    return newsFieldsBadge;
+};
+
 export const getBadgebyConfig = article => {
-    const isDefaultStyle = chapitaStyle => {
-        return (
-            chapitaStyle === null ||
-            chapitaStyle === 'positive' ||
-            chapitaStyle === 'negative'
-        );
-    };
-    const getChapitaText = (labelChapitaText, propertiesChapita) => {
-        if (labelChapitaText) {
-            return labelChapitaText;
-        }
-        if (propertiesChapita) {
-            return propertiesChapita;
-        }
-        return null;
-    };
     const typeSeccion = get(article, 'informationBox.sectionAliasMobile', null);
     const isSponsored = get(article, 'owner.sponsored', false) || false;
     const type =
@@ -29,19 +59,16 @@ export const getBadgebyConfig = article => {
         'additionalProperties.chapita',
         null
     );
-    let additionalPropertiesChapitaStyle = get(
-        article,
-        'additionalProperties.chapitaStyle',
-        null
+    let additionalPropertiesChapitaStyle = getAdditionalPropertiesChapitaStyle(
+        article
     );
 
     const isDefault = isDefaultStyle(additionalPropertiesChapitaStyle);
-    if (isDefault) additionalPropertiesChapitaStyle = 'default';
 
     const isLiveBlog = type === 'liveblog';
     const isAfondo = typeSeccion === 'afondo';
 
-    const fieldsBadge = {};
+    let fieldsBadge = {};
     fieldsBadge.badgeStyle = null;
     fieldsBadge.badge = null;
     fieldsBadge.chapita = null;
@@ -65,16 +92,11 @@ export const getBadgebyConfig = article => {
     } else if (isMLSize(size) || isAfondo || isSubExclusive(typeSeccion)) {
         return fieldsBadge;
     } else if (isXLorLSize(size) && isDefault) {
-        const chapitaText = getChapitaText(
+        fieldsBadge = getIsXLorLSizeinDefault(
             labelChapitaText,
-            additionalPropertiesChapita
+            additionalPropertiesChapita,
+            fieldsBadge
         );
-
-        if (chapitaText && chapitaText !== ' ' && chapitaText !== '.') {
-            fieldsBadge.badgeStyle = additionalPropertiesChapitaStyle;
-            fieldsBadge.badge = chapitaText.toUpperCase();
-            fieldsBadge.chapita = fieldsBadge.badge;
-        }
     }
 
     return fieldsBadge;
