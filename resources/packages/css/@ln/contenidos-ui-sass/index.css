@@ -1252,6 +1252,7 @@ a {
   --cruciexpres: #ff8ea9;
   --palabra-oculta: #97c7ff;
   --diferencias: #ed933f;
+  --crucimini: #6781C8;
   --line-100: 100%;
   --line-110: 110%;
   --line-116: 116%;
@@ -1701,6 +1702,10 @@ a {
   background: var(--diferencias);
 }
 
+.bg-crucimini {
+  background: var(--crucimini);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1771,6 +1776,10 @@ a {
 
 .bg-diferencias__hover:hover {
   background: var(--diferencias);
+}
+
+.bg-crucimini__hover:hover {
+  background: var(--crucimini);
 }
 
 .bg-secondary__hover:hover {
