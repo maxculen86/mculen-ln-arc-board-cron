@@ -101,11 +101,16 @@ const getElementsWithHtmlPromoItems = (
 
     return contentElements;
 };
-export const getSummaryElements = (summary, subtype, contentElements) => {
+export const getSummaryElements = (
+    summary,
+    subtype,
+    contentElements,
+    hideSummary = false
+) => {
     if (!contentElements) throw new Error('The story does not have body');
 
     const { length } = Object.keys(summary);
-    if (length === 0) return contentElements;
+    if (length === 0 || hideSummary) return contentElements;
 
     const newSummary = summaryToContentElements(summary);
     const allowedNotesTypes = ['1', '10']; // Noticias, Agencia
@@ -138,15 +143,24 @@ const summaryToContentElements = summary => {
 const storyBody = (dataNota, storyBodyElements) => {
     const { _id } = dataNota || {};
     const subtype = get(dataNota, 'subtype', '');
+    const hide_articles_summary =
+        get(
+            dataNota,
+            'navigationTreeSource.Termicas.hide_articles_summary',
+            'false'
+        ) === 'true';
+
     if (!subtype) throw Error('The story does not have subtype');
 
     const elementBySubtype = getStoryElementBySubtype(storyBodyElements);
     let contentElements =
         getElementsUnique(get(dataNota, 'content_elements', [])) || [];
+
     contentElements = getSummaryElements(
         get(dataNota, 'promo_items.summary', {}),
         subtype,
-        contentElements
+        contentElements,
+        hide_articles_summary
     );
 
     contentElements = getElementsWithHtmlPromoItems(

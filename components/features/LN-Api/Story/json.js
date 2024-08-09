@@ -20,7 +20,8 @@ class Story {
                             Termicas {
                                 banners,
                                 liftigniter,
-                                livefyre
+                                livefyre,
+                                hide_articles_summary
                             }
                             migration {
                                 deadline_livefyre

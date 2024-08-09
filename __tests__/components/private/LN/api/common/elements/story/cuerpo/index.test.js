@@ -23,7 +23,8 @@ describe('components - private - LN - api - common - elements - story - cuerpo',
         expect(result).toEqual(contentElements);
     });
 
-    it('should add summary to contentElements and return when both are not empty', () => {
+    it('should return contentElements when termica hide articles summary is true', () => {
+        const hide_articles_summary = true;
         const summary = {
             _id: '123',
             embed: {
@@ -35,7 +36,35 @@ describe('components - private - LN - api - common - elements - story - cuerpo',
             { _id: '456', type: 'text', text: 'Lorem ipsum' }
         ];
 
-        const result = getSummaryElements(summary, subtype, contentElements);
+        const result = getSummaryElements(
+            summary,
+            subtype,
+            contentElements,
+            hide_articles_summary
+        );
+
+        expect(result).toEqual(contentElements);
+    });
+
+    it('should add summary to contentElements and return when both are not empty and termica hide articles summary is false', () => {
+        const hide_articles_summary = false;
+        const summary = {
+            _id: '123',
+            embed: {
+                config: { arrayBullets: ['hola soy un resumen', 'yo tambien'] }
+            }
+        };
+        const subtype = '1';
+        const contentElements = [
+            { _id: '456', type: 'text', text: 'Lorem ipsum' }
+        ];
+
+        const result = getSummaryElements(
+            summary,
+            subtype,
+            contentElements,
+            hide_articles_summary
+        );
 
         expect(result).toEqual([
             {
