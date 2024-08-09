@@ -1,6 +1,7 @@
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 
 export const validateRelatedArticlesFeature = ({
+    customMaxArticles,
     minArticles,
     articles = [],
     layout,
@@ -18,6 +19,10 @@ export const validateRelatedArticlesFeature = ({
                 !idSectionOrAuthor,
             message:
                 'Para filtro por autor o sección se requiere que ingrese un ID'
+        },
+        {
+            validation: customMaxArticles < minArticles,
+            message: `El mínimo de artículos debe ser de ${minArticles}`
         },
         {
             validation: !articles || !articles.length,

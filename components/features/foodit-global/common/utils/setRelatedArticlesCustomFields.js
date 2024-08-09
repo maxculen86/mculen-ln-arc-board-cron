@@ -12,7 +12,7 @@ const customFieldsRules = {
     defaultFilterBy: 'relatedArticles',
     layouts: {
         [CAROUSEL]: 'Carrusel',
-        [BN_12_GRID]: 'Grilla 12'
+        [BN_12_GRID]: 'Grilla'
     },
     defaultLayout: BN_12_GRID,
     groupName: 'Ajuste Notas Relacionadas'

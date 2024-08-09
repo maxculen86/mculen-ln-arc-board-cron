@@ -81,7 +81,7 @@ describe('Components - features - Foodit - RelatedArticles', () => {
 
             render(<RelatedArticles {...props} />);
             expect(
-                screen.getByText('Se requieren un minimo de 4 articulos')
+                screen.getByText('El mínimo de artículos debe ser de 4')
             ).toBeInTheDocument();
         });
 
@@ -105,7 +105,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: '12345',
                 filterBy: 'section',
-                layout: 'bn_12_grid'
+                layout: 'bn_12_grid',
+                customMaxArticles: 4
             };
             const props = {
                 id: '12345',
@@ -115,7 +116,7 @@ describe('Components - features - Foodit - RelatedArticles', () => {
 
             render(<RelatedArticles {...props} />);
             expect(
-                screen.getByText('Se requieren un minimo de 3 articulos')
+                screen.getByText('Se requieren un minimo de 4 articulos')
             ).toBeInTheDocument();
         });
 
@@ -125,7 +126,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: '',
                 filterBy: 'section',
-                layout: ''
+                layout: '',
+                customMaxArticles: 4
             };
             const props = {
                 id: '12345',
@@ -147,7 +149,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: '',
                 filterBy: 'relatedArticles',
-                layout: 'carousel'
+                layout: 'carousel',
+                customMaxArticles: 4
             };
             const props = {
                 id: '12345',
@@ -178,7 +181,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: '',
                 filterBy: 'relatedArticles',
-                layout: 'bn_12_grid'
+                layout: 'bn_12_grid',
+                customMaxArticles: 4
             };
             const props = {
                 id: '12345',
@@ -211,7 +215,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: '',
                 filterBy: 'relatedArticles',
-                layout: 'bn_12_grid'
+                layout: 'bn_12_grid',
+                customMaxArticles: 4
             };
             const props = {
                 id: '12345',
@@ -242,7 +247,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: '/recetas/saladas/pizza',
                 filterBy: 'section',
-                layout: 'carousel'
+                layout: 'carousel',
+                customMaxArticles: 4
             };
             const props = {
                 id: '12345',
@@ -270,7 +276,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: 'maru-botana-3363', // Mocked response made from this author Id
                 filterBy: 'author',
-                layout: 'carousel'
+                layout: 'carousel',
+                customMaxArticles: 4
             };
             const props = {
                 id: '12345',
@@ -300,7 +307,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
                 customTitle: 'This component has a custom title',
                 idSectionOrAuthor: '/recetas/saladas/pizza',
                 filterBy: 'section',
-                layout: 'carousel'
+                layout: 'carousel',
+                customMaxArticles: 4
             };
 
             const props = {

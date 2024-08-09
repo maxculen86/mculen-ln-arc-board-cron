@@ -44,6 +44,63 @@ export const RenderCollection = ({
     } = rules;
     const tooltipText = 'Guardar todo';
 
+    const buttonsProps = {
+        text: tooltipText,
+        title: tooltipText,
+        'data-collectionid': collectionId,
+        onClick: e => {
+            e.preventDefault();
+            e.stopPropagation();
+            window?.LN?.observable?.publish('openModal', {
+                carouselTitle: title,
+                ids: articles.map(article => article.articleId),
+                collectionArticles: articles.filter(
+                    article => !bookmarkedArticles.includes(article.articleId)
+                )
+            });
+        }
+    };
+
+    const renderArticles = articles.map(
+        ({
+            articleId,
+            author,
+            href,
+            size,
+            tag,
+            time,
+            title: titleArticle,
+            variant,
+            image = {},
+            contentCode = ''
+        }) => {
+            const { resized_urls, url } = image;
+            const { resizedUrl = '' } = getShortestImage(resized_urls);
+
+            return (
+                <CommonCardFoodit
+                    articleId={articleId}
+                    showTime={Boolean(time)}
+                    time={time}
+                    linksProps={{ href, title: titleArticle }}
+                    size={size}
+                    variant={variant}
+                    src={resizedUrl || url}
+                    alt={getImageAltText(image)}
+                    sources={getImagesToLoadWithPicture(resized_urls)}
+                    loading={'lazy'}
+                    fetchPriority={'low'}
+                    tag={tag}
+                    title={titleArticle}
+                    author={author}
+                    className={classNameChildren}
+                    key={articleId}
+                    contentCode={contentCode}
+                />
+            );
+        }
+    );
+
     const options = {
         [CAROUSEL]: (
             <div className="carousel-container">
@@ -52,25 +109,7 @@ export const RenderCollection = ({
                     hide={hideTitle}
                     className={classNameRoof}
                     linkProps={{ href: link, text: title }}
-                    buttonProps={{
-                        text: tooltipText,
-                        title: tooltipText,
-                        'data-collectionid': collectionId,
-                        onClick: e => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            window?.LN?.observable?.publish('openModal', {
-                                carouselTitle: title,
-                                ids: articles.map(article => article.articleId),
-                                collectionArticles: articles.filter(
-                                    article =>
-                                        !bookmarkedArticles.includes(
-                                            article.articleId
-                                        )
-                                )
-                            });
-                        }
-                    }}
+                    buttonProps={buttonsProps}
                     icon={
                         <IconSprite
                             name={fill ? BOOKMARK_FILLED : BOOKMARK_PLUS}
@@ -92,51 +131,7 @@ export const RenderCollection = ({
                     className={classNameRoof}
                     linkProps={{ href: link, text: title }}
                 />
-                <div className={classNameParent}>
-                    {articles.map(
-                        ({
-                            articleId,
-                            author,
-                            href,
-                            size,
-                            tag,
-                            time,
-                            title: titleArticle,
-                            variant,
-                            image = {},
-                            contentCode = ''
-                        }) => {
-                            const { resized_urls, url } = image;
-                            const { resizedUrl = '' } = getShortestImage(
-                                resized_urls
-                            );
-
-                            return (
-                                <CommonCardFoodit
-                                    articleId={articleId}
-                                    showTime={Boolean(time)}
-                                    time={time}
-                                    linksProps={{ href, title: titleArticle }}
-                                    size={size}
-                                    variant={variant}
-                                    src={resizedUrl || url}
-                                    alt={getImageAltText(image)}
-                                    sources={getImagesToLoadWithPicture(
-                                        resized_urls
-                                    )}
-                                    loading={'lazy'}
-                                    fetchPriority={'low'}
-                                    tag={tag}
-                                    title={titleArticle}
-                                    author={author}
-                                    className={classNameChildren}
-                                    key={articleId}
-                                    contentCode={contentCode}
-                                />
-                            );
-                        }
-                    )}
-                </div>
+                <div className={classNameParent}>{renderArticles}</div>
             </>
         )
     };

@@ -44,14 +44,14 @@ const RelatedArticles = ({
 
     const rules = fooditRules(layout) || {};
 
-    const { minRelatedArticles, maxArticles, size, isStatic } = rules;
+    const { minRelatedArticles, maxRelatedArticles, size, isStatic } = rules;
 
     const sourceMaxARticles =
         customMaxArticles &&
         customMaxArticles >= minRelatedArticles &&
-        customMaxArticles < maxArticles
+        customMaxArticles < maxRelatedArticles
             ? customMaxArticles
-            : maxArticles;
+            : maxRelatedArticles;
 
     const articles = useGetRelatedArticles({
         filterBy,
@@ -61,6 +61,7 @@ const RelatedArticles = ({
     });
 
     const error = validateRelatedArticlesFeature({
+        customMaxArticles,
         minArticles: minRelatedArticles,
         layout,
         articles,
