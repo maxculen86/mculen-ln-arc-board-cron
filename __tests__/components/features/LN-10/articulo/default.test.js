@@ -4,12 +4,13 @@ import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
 import { useContent } from 'fusion:content';
 import ArticleFeature from '../../../../../components/features/LN-10/article/default';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import contentElementsLiveblog from '.././../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import * as cajaTemasValidators from '../../../../../components/private/LN/common/utils/cajaTemasValidators';
 import * as _helper from '../../../../../components/features/LN-10/article/_helper';
 import * as _helperWebApi from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
+import * as helpers from '../../../../../components/chains/utils/_helpers';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -40,6 +41,11 @@ jest.spyOn(_helperWebApi, 'getChainConfig').mockReturnValue({
         withMedia: true
     }
 });
+
+jest.mock('../../../../../components/chains/utils/_helpers', () => ({
+    ...jest.requireActual('../../../../../components/chains/utils/_helpers'),
+    checkVariants: jest.fn()
+}));
 
 const article = (authors, content_elements) => ({
     _id: 'BBU3ZCWFBRALRO4FZAHJ5XGW74',
@@ -81,76 +87,6 @@ const article = (authors, content_elements) => ({
     content_elements,
     website_url:
         '/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/'
-});
-
-describe('Components - features - LN-10 - articulo - default', () => {
-    jest.spyOn(cajaTemasValidators, 'validateArticleFeature').mockReturnValue(
-        false
-    );
-
-    Context.useAppContext = jest.fn(() => ({
-        isAdmin: false,
-        renderables: [],
-        layout: 'LN10-Home_Main',
-        arcSite: 'la-nacion-ar'
-    }));
-
-    const getProps = variant => ({
-        id: 'f0f9g3fKOoHW25c',
-        customFields: {
-            noteId: '2KOBND62KNFVVBFQZOADNN6WNY',
-            imageId: '',
-            videoId: '',
-            mobileImageId: '',
-            lead: 'LeadNota',
-            title: 'Nota',
-            authors: [],
-            variant
-        },
-        searchableField: () => {},
-        isBomba: false
-    });
-
-    it('should test card autor variant', () => {
-        useContent.mockReturnValue(article());
-
-        const { container } = render(
-            <ArticleFeature {...getProps('author')} />
-        );
-        expect(container).toMatchSnapshot();
-    });
-
-    it('should test card autor to be regular and not show marquee img with more than 2 authors', () => {
-        useContent.mockReturnValue(article(['Leuco', 'Leuco JR']));
-        const { container } = render(
-            <ArticleFeature {...getProps('author')} />
-        );
-        expect(screen.getByRole('article')).not.toHaveClass('--author');
-        expect(container.innerHTML).not.toMatch('marquee-img');
-    });
-
-    it('should render page builder error', () => {
-        useContent.mockReturnValue(null);
-
-        jest.spyOn(
-            cajaTemasValidators,
-            'validateArticleFeature'
-        ).mockReturnValue({
-            message: 'El ID de la nota es incorrecto.'
-        });
-
-        Context.useAppContext = jest.fn(() => ({
-            isAdmin: true,
-            renderables: [],
-            layout: 'LN10-Home_Main',
-            arcSite: 'la-nacion-ar'
-        }));
-
-        render(<ArticleFeature {...getProps()} />);
-        expect(
-            screen.getByText('El ID de la nota es incorrecto.')
-        ).toBeDefined();
-    });
 });
 
 describe('Components - features - LN-10 - articulo - default', () => {
@@ -325,5 +261,92 @@ describe('Components - features - LN-10 - articulo - default', () => {
         expect(
             screen.getByText('El ID de la nota es incorrecto.')
         ).toBeDefined();
+    });
+
+    it('should initialize config with an empty object when config is undefined', () => {
+        jest.spyOn(_helperWebApi, 'getChainConfig').mockReturnValue({
+            index: 0,
+            boxPosition: '01',
+            layout: 'bn-opening-4',
+            config: undefined
+        });
+
+        useContent.mockReturnValue(article());
+
+        render(<ArticleFeature {...getProps('author')} />);
+
+        expect(screen.getByRole('article')).toBeInTheDocument();
+    });
+
+    it('should set source to videosJwSource when checkForId(videoId) is true', () => {
+        jest.spyOn(_helperWebApi, 'checkForId').mockReturnValue(true);
+
+        useContent.mockReturnValue(article());
+
+        const props = getProps('author');
+        props.customFields.videoId = 'testId';
+        render(<ArticleFeature {...props} />);
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: 'videosJwSource'
+            })
+        );
+    });
+
+    it('should set source to null when checkForId(videoId) is false', () => {
+        jest.spyOn(_helperWebApi, 'checkForId').mockReturnValue(false);
+
+        useContent.mockReturnValue(article());
+
+        const props = getProps('author');
+        props.customFields.videoId = 'testId';
+        render(<ArticleFeature {...props} />);
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: null
+            })
+        );
+    });
+
+    it('should call registerSuccessEvent when hasVariants is true', () => {
+        helpers.checkVariants.mockReturnValue(true);
+
+        const registerSuccessEventMock = jest.fn();
+        Context.useComponentContext.mockReturnValue({
+            registerSuccessEvent: registerSuccessEventMock
+        });
+
+        useContent.mockReturnValue(article());
+
+        const props = getProps('author');
+        render(<ArticleFeature {...props} />);
+
+        const cardElement = screen.getByRole('link');
+        expect(cardElement).toBeInTheDocument();
+
+        fireEvent.click(cardElement);
+        expect(registerSuccessEventMock).toHaveBeenCalled();
+    });
+
+    it('should not call registerSuccessEvent when hasVariants is false', () => {
+        helpers.checkVariants.mockReturnValue(false);
+
+        const registerSuccessEventMock = jest.fn();
+        Context.useComponentContext.mockReturnValue({
+            registerSuccessEvent: registerSuccessEventMock
+        });
+
+        useContent.mockReturnValue(article());
+
+        const props = getProps('author');
+        render(<ArticleFeature {...props} />);
+
+        const cardElement = screen.getByRole('link');
+        expect(cardElement).toBeInTheDocument();
+
+        fireEvent.click(cardElement);
+        expect(registerSuccessEventMock).not.toHaveBeenCalled();
     });
 });

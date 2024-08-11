@@ -234,17 +234,6 @@ export const getDataAuthor = ({
     };
 };
 
-export const isBombaHidden = renderables => {
-    const preOpeningChildren =
-        getChildrenFromSectionHome(renderables, 'Pre_Apertura', 0) || [];
-
-    return preOpeningChildren.some(
-        children =>
-            get(children, 'props.customFields.hideCaja', false) &&
-            getIsBomba(children)
-    );
-};
-
 const getImageDestacada = articleData => {
     const mediaDataOfTheOpening = get(articleData, promoItemsBasic, {});
     const type = get(mediaDataOfTheOpening, 'type', '');
