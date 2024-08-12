@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { Collapse } from './components/collapse';
+import { Collapse } from './collapse';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import { useAppContext } from 'fusion:context';
-import { Dialog } from './components/dialog';
-import { Tooltip } from './components/tooltip';
 import get from '../../../private/common/utils/get';
 
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
@@ -22,13 +20,7 @@ const Glossary = ({ customFields: { hide } = {} }) => {
         return null;
     }
 
-    return (
-        <>
-            <Collapse glossaryData={glossaryData} />
-            <Dialog glossaryData={glossaryData} />
-            <Tooltip glossaryData={glossaryData} />
-        </>
-    );
+    return <Collapse glossaryData={glossaryData} />;
 };
 
 Glossary.label = 'LN-Glosario';

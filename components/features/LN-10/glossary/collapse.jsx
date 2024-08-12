@@ -1,11 +1,12 @@
+import React from 'react';
 import { Collapse as CollapseLib } from '@ln/common-ui-collapse';
 import { useDisclosure } from '@ln/hooks';
 import { Text } from '@ln/contenidos-ui-text';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
-import { handleToggleCollapse } from '../helpers';
+import IconSprite from '../../private-global/common/iconSprite/IconSprite';
+import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
+import { handleToggleCollapse } from './helpers';
+import { Disclaimer } from '../../LN-10-global/glossary/components/disclaimer';
 import classNames from 'classnames';
-import { Disclaimer } from './disclaimer';
 
 export const Collapse = ({ glossaryData = [] }) => {
     const { isOpen, onToggle } = useDisclosure(true);
@@ -26,7 +27,10 @@ export const Collapse = ({ glossaryData = [] }) => {
                     text="Glosario"
                 />
             </CollapseLib.Header>
-            <CollapseLib.Body collapsed={isOpen}>
+            <CollapseLib.Body
+                collapsed={isOpen}
+                data-testid="collpase-glossary-body"
+            >
                 <ul className="flex flex-column gap-12">
                     {glossaryData.map(({ key, value }, i) => {
                         return (

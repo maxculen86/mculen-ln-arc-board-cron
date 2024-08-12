@@ -14,6 +14,7 @@ import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import get from '../private/common/utils/get';
 import classNames from 'classnames';
+import Glossary from '../features/LN-10-global/glossary/default';
 
 const lnNotaStorytelling = ({
     children,
@@ -103,6 +104,7 @@ const lnNotaStorytelling = ({
             </div>
             <LoadBannersSSR />
             <PwaModal />
+            <Glossary />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

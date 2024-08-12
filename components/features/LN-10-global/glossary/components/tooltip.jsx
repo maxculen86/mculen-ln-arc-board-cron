@@ -34,3 +34,5 @@ export const Tooltip = ({ glossaryData = [] }) => {
         </div>
     );
 };
+
+export default Tooltip;

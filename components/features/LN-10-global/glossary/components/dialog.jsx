@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDialog } from '../hooks/useDialog';
 import { Text } from '@ln/common-ui-text';
 import { Header } from './header';
@@ -22,7 +23,8 @@ export const Dialog = ({ glossaryData = [] }) => {
             <DialogLib.Header
                 className="flex-column gap-16"
                 closeButtonProps={{
-                    className: 'as-flex-end'
+                    className: 'as-flex-end',
+                    title: 'Cerrar'
                 }}
             >
                 <Header keyGlossary={key} isDialog />
@@ -38,3 +40,5 @@ export const Dialog = ({ glossaryData = [] }) => {
         </DialogLib>
     );
 };
+
+export default Dialog;

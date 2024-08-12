@@ -1,3 +1,4 @@
+import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 

@@ -14,6 +14,7 @@ import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/util
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import get from '../private/common/utils/get';
+import Glossary from '../features/LN-10-global/glossary/default';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -98,6 +99,7 @@ const lnNotaFotoAl100 = ({
             </div>
             <LoadBannersSSR />
             <PwaModal />
+            <Glossary />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
