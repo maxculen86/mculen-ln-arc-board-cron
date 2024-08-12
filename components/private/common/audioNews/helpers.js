@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React from 'react';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
 export const getIconByOpenPlayer = enableButton =>
     enableButton
@@ -16,9 +16,9 @@ export const handleClickAudioNews = (
 ) => {
     addEventToDataLayer({
         event: 'e_linkclick',
-        action: 'toolbard',
+        action: 'escuchar',
         category: 'nota_ln9',
-        label: 'Escuchar nota'
+        label: 'escuchar_completo'
     });
     if (token && suscription) setOpenPlayer(true);
 

@@ -13,10 +13,7 @@ import {
     getClassAndIconByBookmark,
     getFirstGroupClassNames
 } from '../../../../private/LN/common/utils/shareHelper';
-import {
-    handleClickAudioNews,
-    getIconByOpenPlayer
-} from '../../../../private/common/audioNews/helpers';
+import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
 import useFetch from '../../../../private/common/hooks/useFetch';
 import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
@@ -62,7 +59,6 @@ const BuildFirtsButtonsGroup = ({
     const { bookmarkClass, bookmarkIcon } = getClassAndIconByBookmark(bookmark);
     const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
 
-    const { headphoneIcon } = getIconByOpenPlayer(openPlayer || enableButton);
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
@@ -95,7 +91,7 @@ const BuildFirtsButtonsGroup = ({
                     disabled={openPlayer || enableButton}
                 >
                     <Icon size={24} color="inherit">
-                        {headphoneIcon}
+                        <IconSprite name="listen" />
                     </Icon>
                 </Button>
             )}

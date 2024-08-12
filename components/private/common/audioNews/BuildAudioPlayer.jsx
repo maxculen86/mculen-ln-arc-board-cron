@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import { GlobalContext } from '../context/globalContext';
 import { setCookie, getCookie } from './helpers';
+import ToggleButton from './ToggleButton';
+import { Disclaimer } from '../../../features/LN-10/glossary/components/disclaimer';
 
 const BuildAudioPlayer = ({
     setOpenPlayer,
@@ -12,11 +14,14 @@ const BuildAudioPlayer = ({
     loaderClass = ''
 }) => {
     const { dispatch } = useContext(GlobalContext) || {};
+    const summaryVariant = 'summary';
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
     const [contentVariant, setContentVariant] = useState(
         getCookie('contentVariant') || 'article'
     );
+
+    const playerRef = useRef(null);
 
     useEffect(() => {
         if (error) {
@@ -55,28 +60,29 @@ const BuildAudioPlayer = ({
     }, []);
 
     useEffect(() => {
-        let player;
-        let listener;
-
         if (!isLoading && document.querySelector('.audio-player')) {
             try {
-                player = new BeyondWords.Player({
-                    target: '.audio-player',
-                    projectId: BEYONDWORDS_PROJECT_ID,
-                    sourceId: noteId,
-                    playbackRates: [1, 1.25, 1.5, 1.7, 2],
-                    playbackState: 'playing',
-                    skipButtonStyle: 'seconds',
-                    logoIconEnabled: false,
-                    widgetWidth: '40rem'
-                });
+                if (!playerRef.current) {
+                    playerRef.current = new BeyondWords.Player({
+                        target: '.audio-player',
+                        projectId: BEYONDWORDS_PROJECT_ID,
+                        sourceId: noteId,
+                        playbackRates: [1, 1.25, 1.5, 1.7, 2],
+                        playbackState: 'playing',
+                        skipButtonStyle: 'seconds',
+                        logoIconEnabled: false,
+                        widgetWidth: '40rem'
+                    });
 
-                player.contentVariant = contentVariant;
+                    playerRef.current.contentVariant = contentVariant;
 
-                listener = player.addEventListener(
-                    'NoContentAvailable',
-                    handleNoContentAvailable
-                );
+                    playerRef.current.addEventListener(
+                        'NoContentAvailable',
+                        handleNoContentAvailable
+                    );
+                } else {
+                    playerRef.current.contentVariant = contentVariant;
+                }
             } catch (error) {
                 console.error(
                     'Failed to initialize the BeyondWords player:',
@@ -87,15 +93,16 @@ const BuildAudioPlayer = ({
         }
 
         return () => {
-            if (player) {
-                player.removeEventListener('NoContentAvailable', listener);
-                player.destroy();
+            if (playerRef.current) {
+                playerRef.current.removeEventListener(
+                    'NoContentAvailable',
+                    handleNoContentAvailable
+                );
             }
         };
     }, [isLoading, noteId, contentVariant]);
 
-    const handleToggleChange = event => {
-        const newContentVariant = event.target.checked ? 'summary' : 'article';
+    const handleToggleChange = newContentVariant => {
         setContentVariant(newContentVariant);
         setCookie('contentVariant', newContentVariant, 7);
     };
@@ -107,16 +114,18 @@ const BuildAudioPlayer = ({
     return (
         <>
             {!isLoading && !error ? (
-                <>
-                    <label>
-                        <input
-                            type="checkbox"
-                            onChange={handleToggleChange}
-                            checked={contentVariant === 'summary'}
-                        />
-                    </label>
-                    <div className="audio-player w-100 mb-24 mb-0_l" />
-                </>
+                <section className="audio-player-container --contents">
+                    <ToggleButton
+                        handleToggle={handleToggleChange}
+                        contentVariant={contentVariant}
+                    />
+                    <div className="audio-player w-100 hlp-margintop-13 mb-0_l" />
+                    {contentVariant === summaryVariant && (
+                        <div className="disclaimer-container hlp-margintop-8">
+                            <Disclaimer />
+                        </div>
+                    )}
+                </section>
             ) : (
                 <LoadingIcon className={loaderClass} />
             )}

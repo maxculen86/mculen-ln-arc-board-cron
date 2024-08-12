@@ -21,7 +21,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
             class="icon --icon-24 --inherit"
           >
             <mock-icon
-              name="headphone"
+              name="listen"
             />
           </i>
         </button>
@@ -85,7 +85,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
           class="icon --icon-24 --inherit"
         >
           <mock-icon
-            name="headphone"
+            name="listen"
           />
         </i>
       </button>

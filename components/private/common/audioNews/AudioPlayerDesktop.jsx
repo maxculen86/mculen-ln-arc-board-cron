@@ -6,20 +6,18 @@ import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import getToken from '../utils/getToken';
 import { handleClickAudioNews } from './helpers';
-import { getIconByOpenPlayer } from './helpers';
 import BuildAudioPlayer from './BuildAudioPlayer';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import { GlobalContext } from '../context/globalContext';
-import eventHandler from './trackerAudioNews';
 import useTermica from '../hooks/useTermica';
 import classNames from 'classnames';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
 const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
     const { dispatch } = useContext(GlobalContext) || {};
     const [openPlayer, setOpenPlayer] = useState(false);
     const [enableButton, setEnableButton] = useState(false);
     const token = getToken();
-    const { headphoneIcon } = getIconByOpenPlayer(openPlayer || enableButton);
     const suscription = isSubscribed();
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
@@ -30,7 +28,7 @@ const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
         <>
             {showListenButton && (
                 <div
-                    className="btn-container l-only flex w-100 mb-32 ai-center transition transition-all transition-ease-in transition-duration-1000 min-h-56"
+                    className="btn-container l-only w-100 mb-32 ai-center transition transition-all transition-ease-in transition-duration-1000 min-h-56 hlp-paddingTop-16 hlp-paddingBottom-16 --d-grid"
                     id="audio-player-desktop"
                 >
                     <Button
@@ -47,16 +45,16 @@ const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
                                 setOpenPlayer,
                                 dispatch
                             );
-                            eventHandler({
-                                activeWindow: window,
-                                action: 'listenButton',
-                                eventLabel: 'escuchar'
-                            });
+                            // eventHandler({
+                            //     activeWindow: window,
+                            //     action: 'listenButton',
+                            //     eventLabel: 'escuchar duplicado'
+                            // });
                         }}
                         disabled={enableButton || openPlayer}
                     >
                         <Icon size={24} color="inherit">
-                            {headphoneIcon}
+                            <IconSprite name="listen" />
                         </Icon>
                         <Text>Escuchar</Text>
                     </Button>
