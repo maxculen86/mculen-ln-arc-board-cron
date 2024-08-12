@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import get from '../../../private/common/utils/get';
-import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
+import {
+    adjustByURL,
+    adjustByVivoYoutube,
+    adjustByHTML
+} from '../../../private/common/utils/propTypesHelper';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 import { getErrorMessage, isInSection } from './common/_helper-WebApi';
 import SetFixedHeight from '../../../private/common/SetFixedHeight';
@@ -16,6 +20,7 @@ import { useRoofData } from '../../../chains/utils/_helpers';
 import BuildRoof from '../../../chains/utils/_BuildRoof/default';
 import classNames from 'classnames';
 import { typesButtonStyle } from '../../../chains/utils/setCommonCustomFields';
+import { setupIntersectionObserver } from '../../LN-10-global/common/utils/intersectionObserver';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;
@@ -153,6 +158,27 @@ export const getComponentFromConfig = (
                 {bannerDsk}
             </>
         ),
+        VivoYoutube: ({ customFields: { vivoYoutube = '' }, extraClass }) => {
+            const containerRef = useRef(null);
+
+            useEffect(() => {
+                return setupIntersectionObserver(containerRef, vivoYoutube);
+            }, [vivoYoutube]);
+
+            return (
+                <>
+                    <div className={classNameRoof}>
+                        <BuildRoof {...roofData} />
+                    </div>
+                    <div
+                        ref={containerRef}
+                        className={`com-anexo ${extraClass}`}
+                    />
+                    {bannerMob}
+                    {bannerDsk}
+                </>
+            );
+        },
         Iframe: ({ id, customFields: { url = '' } }) => {
             const anexoId = `anexo-${id}`;
             return (
@@ -186,11 +212,14 @@ export const getComponentType = ({
         heightDesktop,
         heightTablet,
         heightMobile,
-        hideByHtml = false
+        hideByHtml = false,
+        vivoYoutube = '',
+        hideByVivoYoutube = false
     } = {}
 }) =>
     (isAdmin && errorMessage && 'Error') ||
     (!errorMessage && !hideByHtml && html && 'Html') ||
+    (!errorMessage && !hideByVivoYoutube && vivoYoutube && 'VivoYoutube') ||
     (!errorMessage &&
         !hideByUrl &&
         url &&
@@ -198,8 +227,6 @@ export const getComponentType = ({
         heightTablet &&
         heightMobile &&
         'Iframe');
-
-const adjustByHTML = 'Ajuste por HTML';
 
 AnexoFeature.label = 'LN Anexo';
 
@@ -222,8 +249,12 @@ AnexoFeature.propTypes = {
             label: 'HTML',
             group: adjustByHTML,
             description: 'Ingrese aquí el HTML del anexo',
-            // formPlugin: 'html-editor',
-            // disabled: true,
+            defaultValue: ''
+        }),
+        vivoYoutube: PropTypes.richtext.tag({
+            label: 'VIVO YOUTUBE',
+            group: adjustByVivoYoutube,
+            description: 'Ingrese aquí el VIVO YOUTUBE del anexo',
             defaultValue: ''
         }),
         heightDesktop: PropTypes.number.tag({
@@ -247,6 +278,12 @@ AnexoFeature.propTypes = {
         hideByHtml: PropTypes.bool.tag({
             label: 'Ocultar',
             group: adjustByHTML,
+            description: 'Marque para ocultar el anexo',
+            defaultValue: false
+        }),
+        hideByVivoYoutube: PropTypes.bool.tag({
+            label: 'Ocultar',
+            group: adjustByVivoYoutube,
             description: 'Marque para ocultar el anexo',
             defaultValue: false
         }),

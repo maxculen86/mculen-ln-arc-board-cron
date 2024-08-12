@@ -57,34 +57,6 @@ export const createDifferVideosObserver = () => {
     });
 };
 
-export const createDifferYoutubeVideosObserver = () => {
-    const lazyYoutubeVideos = [].slice.call(
-        document.querySelectorAll('div.embed-code')
-    );
-
-    const youtubeVideosCallback = entries => {
-        entries.forEach(ytVideo => {
-            const lazyYtVideo = ytVideo.target.children;
-            const [lazyYtVideoIframe] = lazyYtVideo;
-            if (ytVideo.isIntersecting) {
-                if (!lazyYtVideoIframe.src) {
-                    lazyYtVideoIframe.src = ytVideo.target.dataset.src;
-                }
-                handleVideoEvents('playVideo', lazyYtVideoIframe);
-            } else {
-                handleVideoEvents('stopVideo', lazyYtVideoIframe);
-            }
-        });
-    };
-    const lazyYoutubeVideoObserver = new IntersectionObserver(
-        youtubeVideosCallback,
-        { rootMargin: '0px 0px 300px 0px' }
-    );
-    lazyYoutubeVideos.forEach(lazyVideo => {
-        lazyYoutubeVideoObserver.observe(lazyVideo);
-    });
-};
-
 export const handleVideoEvents = (event, videoIframe) => {
     videoIframe.contentWindow.postMessage(
         `{"event":"command","func":"${event}","args":""}`,

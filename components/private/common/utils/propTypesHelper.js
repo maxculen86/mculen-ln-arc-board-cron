@@ -149,6 +149,8 @@ const homeLayoutsPropTypes = {
 
 const groupCustomFields = 'Custom Fields';
 const adjustByURL = 'Ajuste por URL';
+const adjustByVivoYoutube = 'Ajuste por Vivo Youtube';
+const adjustByHTML = 'Ajuste por HTML';
 
 export {
     googlePublisherAndLiftIgniterPropTypes,
@@ -157,5 +159,7 @@ export {
     notaAl100andStorytellingLayoutsPropTypes,
     homeLayoutsPropTypes,
     groupCustomFields,
-    adjustByURL
+    adjustByURL,
+    adjustByVivoYoutube,
+    adjustByHTML
 };

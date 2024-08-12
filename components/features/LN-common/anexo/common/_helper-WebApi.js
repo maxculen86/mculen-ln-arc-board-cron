@@ -20,14 +20,18 @@ export const getErrorMessage = ({
         heightDesktop,
         heightTablet,
         heightMobile,
-        hideByHtml = false
+        hideByHtml = false,
+        vivoYoutube = '',
+        hideByVivoYoutube = false
     } = {}
 }) =>
     (!url &&
         !hideByUrl &&
         !html &&
         !hideByHtml &&
-        'Se requiere agregue la URL o HTML del anexo') ||
+        !vivoYoutube &&
+        !hideByVivoYoutube &&
+        'Se requiere que agregue la URL,HTML o VIVO YOUTUBE del anexo') ||
     ((hideByHtml || (!html && !hideByHtml)) &&
         url &&
         !hideByUrl &&

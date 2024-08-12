@@ -224,7 +224,7 @@ describe('features - LN-common - anexo - default', () => {
             const { container } = render(<AnexoFeature />);
 
             expect(container).toHaveTextContent(
-                'Se requiere agregue la URL o HTML del anexo'
+                'Se requiere que agregue la URL,HTML o VIVO YOUTUBE del anexo'
             );
         });
     });
@@ -361,6 +361,17 @@ describe('features - LN-common - anexo - default', () => {
                     }
                 });
                 expect(result).toBe('Html');
+            });
+
+            it('should return "VivoYoutube" for non-admin with VivoYoutube content', () => {
+                const result = getComponentType({
+                    isAdmin: false,
+                    customFields: {
+                        VivoYoutube:
+                            '<div class="embed-code" data-src="https://www.youtube.com/embed/ZGy4e2M2Vsc?autoplay=1&amp;amp;mute=1"><iframe width="100%" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" src="https://www.youtube.com/embed/ZGy4e2M2Vsc?autoplay=1&amp;amp;mute=1"></iframe></div>'
+                    }
+                });
+                expect(result).toBe('VivoYoutube');
             });
 
             it('should return "Iframe" for non-admin with URL and height settings', () => {
