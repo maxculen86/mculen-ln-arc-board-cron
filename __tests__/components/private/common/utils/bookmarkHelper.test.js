@@ -27,19 +27,25 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
         it('Should return null without token and without bookmarkId or globalContent', () => {
             expect(toggleBookmark()).toBeNull();
             expect(
-                toggleBookmark(accessToken, token, null, setBookmark, setToast)
+                toggleBookmark({
+                    accessToken,
+                    token,
+                    isDelete: null,
+                    setBookmark,
+                    dispatch: setToast
+                })
             ).toBeNull();
             expect(fetch).not.toBeCalled();
         });
         it('Should call fetch with proper endpoint, token and DELETE method when bookmarkId is defined (bookmark already saved -> action delete bookmark)', () => {
             expect(
-                toggleBookmark(
+                toggleBookmark({
                     accessToken,
                     token,
-                    bookmarkId,
+                    isDelete: bookmarkId,
                     setBookmark,
-                    setToast
-                )
+                    dispatch: setToast
+                })
             ).toBeTruthy();
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks/${bookmarkId}`,
@@ -56,14 +62,14 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
 
         it('Should call fetch with proper endpoint, token and POST method when bookmarkId is not defined (bookmark not saved -> action create bookmark)', () => {
             expect(
-                toggleBookmark(
+                toggleBookmark({
                     accessToken,
                     token,
-                    null,
+                    isDelete: null,
                     setBookmark,
                     setToast,
-                    notaExample
-                )
+                    _globalContent: notaExample
+                })
             ).toBeTruthy();
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks`,
