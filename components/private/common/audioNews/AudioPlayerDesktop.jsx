@@ -24,45 +24,39 @@ const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
 
     const _class = classNames('mr-16 ai-start_l', className);
 
+    if (!showListenButton) return null;
     return (
         <>
-            {showListenButton && (
-                <div
-                    className="btn-container l-only w-100 mb-32 ai-start transition transition-all transition-ease-in transition-duration-1000 min-h-56 py-16 grid border border-bottom border-top border-thin border-neutral-light-100"
-                    id="audio-player-desktop"
-                >
-                    <Button
-                        id="btnAudioDesktop"
-                        title="Escuchar nota"
-                        variant="primary"
-                        dataEvent="LinkClick"
-                        dataSection="Escuchar Nota"
-                        className={_class}
-                        onClick={() => {
-                            handleClickAudioNews(
-                                token,
-                                suscription,
-                                setOpenPlayer,
-                                dispatch
-                            );
-                        }}
-                        disabled={enableButton || openPlayer}
-                    >
-                        <Icon size={24} color="inherit">
-                            <IconSprite name="listen" />
-                        </Icon>
-                        <Text>Escuchar</Text>
-                    </Button>
+            <Button
+                id="btnAudioDesktop"
+                title="Escuchar nota"
+                variant="primary"
+                dataEvent="LinkClick"
+                dataSection="Escuchar Nota"
+                className={_class}
+                onClick={() => {
+                    handleClickAudioNews(
+                        token,
+                        suscription,
+                        setOpenPlayer,
+                        dispatch
+                    );
+                }}
+                disabled={enableButton || openPlayer}
+            >
+                <Icon size={24} color="inherit">
+                    <IconSprite name="listen" />
+                </Icon>
+                <Text>Escuchar</Text>
+            </Button>
 
-                    {openPlayer && (
-                        <BuildAudioPlayer
-                            setEnableButton={setEnableButton}
-                            noteId={noteId}
-                            setOpenPlayer={setOpenPlayer}
-                            loaderClass="m-0"
-                        />
-                    )}
-                </div>
+            {openPlayer && (
+                <BuildAudioPlayer
+                    setEnableButton={setEnableButton}
+                    noteId={noteId}
+                    setOpenPlayer={setOpenPlayer}
+                    loaderClass="m-0"
+                />
             )}
         </>
     );

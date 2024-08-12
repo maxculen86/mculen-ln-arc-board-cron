@@ -8,10 +8,10 @@ import classNames from 'classnames';
 
 const ToggleButton = ({ contentVariant, handleToggle }) => {
     const notaCompletaBttn = classNames(
-        'audio-toggle-left --border-light-400 rounded-top-left-4 rounded-bottom-left-4 rounded-top-right-0 rounded-bottom-right-0'
+        'audio-toggle-left border-neutral-light-200 rounded-top-left-4 rounded-bottom-left-4 rounded-top-right-0 rounded-bottom-right-0'
     );
     const resumenConIABttn = classNames(
-        'audio-toggle-right --border-light-400 rounded-top-right-4 rounded-bottom-right-4 rounded-top-left-0 rounded-bottom-left-0'
+        'audio-toggle-right border-neutral-light-200 rounded-top-right-4 rounded-bottom-right-4 rounded-top-left-0 rounded-bottom-left-0'
     );
 
     const handleClick = (variant, label) => {

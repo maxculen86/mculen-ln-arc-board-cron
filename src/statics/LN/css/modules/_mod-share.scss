@@ -1,6 +1,28 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+#audio-player-desktop {
+    @media ($media-l) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto 1fr;
+        #btnAudioDesktop {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+        .toggle-bttn-audio {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+        .audio-player {
+            grid-column: 1 / 4;
+            grid-row: 2 / 3;
+        }
+        .disclaimer-container {
+            grid-row: 3;
+        }
+    }
+}
+
 .mod-share-container {
     .mod-share {
         .share {

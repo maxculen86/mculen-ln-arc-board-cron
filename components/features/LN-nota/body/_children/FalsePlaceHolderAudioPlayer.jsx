@@ -6,17 +6,10 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 export const FalsePlaceHolderAudioPlayer = ({ isListenable }) =>
     isListenable && (
-        <div className="btn-container l-only flex w-100 mb-32 ai-center transition transition-all transition-ease-in transition-duration-1000 min-h-56">
-            <Button
-                title="Escuchar nota"
-                variant="primary"
-                type="button"
-                disabled
-            >
-                <Icon size={24} color="inherit">
-                    <IconSprite name="listen" />
-                </Icon>
-                <Text>Escuchar</Text>
-            </Button>
-        </div>
+        <Button title="Escuchar nota" variant="primary" type="button" disabled>
+            <Icon size={24} color="inherit">
+                <IconSprite name="listen" />
+            </Icon>
+            <Text>Escuchar</Text>
+        </Button>
     );
