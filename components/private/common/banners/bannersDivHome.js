@@ -358,26 +358,6 @@ const bannersHome = {
             }}
         />
     ),
-    parallaxMob: (
-        <DivBannerSSR
-            bannerConfiguration={{
-                slotId: 'parallax_mob',
-                withoutHide: true,
-                isStatic: true,
-                lazyClass: 'lazy'
-            }}
-        />
-    ),
-    parallaxDsk: (
-        <DivBannerSSR
-            bannerConfiguration={{
-                slotId: 'parallax_dsk',
-                withoutHide: true,
-                isStatic: true,
-                lazyClass: 'lazy'
-            }}
-        />
-    ),
     megalateral2Dsk: (
         <DivBannerSSR
             bannerConfiguration={{

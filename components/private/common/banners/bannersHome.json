@@ -109,11 +109,6 @@
         },
         {
             "slotGroup": "home",
-            "desktop": "parallax_dsk",
-            "mobile": "parallax_mob"
-        },
-        {
-            "slotGroup": "home",
             "desktop": "megalateral2_dsk"
         },
         {

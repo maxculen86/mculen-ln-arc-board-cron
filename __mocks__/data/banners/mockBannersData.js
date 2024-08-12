@@ -182,14 +182,6 @@ export const mockSP = {
                         sitio: 'lanacion',
                         seccion: 'home'
                     }
-                },
-                parallax_dsk: {
-                    slotName: 'la_nacion_desktop/Home/parallax_dsk',
-                    dimensions: [[1260, 300]],
-                    targeting: {
-                        sitio: 'lanacion',
-                        seccion: 'home'
-                    }
                 }
             },
             mobile: {
@@ -310,17 +302,6 @@ export const mockSP = {
                         seccion: 'home'
                     },
                     hideForSubscriptor: true
-                },
-                parallax_mob: {
-                    slotName: 'la_nacion_mobile/Home/parallax_mob',
-                    dimensions: [
-                        [1, 1],
-                        [360, 450]
-                    ],
-                    targeting: {
-                        sitio: 'lanacion',
-                        seccion: 'home'
-                    }
                 }
             },
             tablet: {

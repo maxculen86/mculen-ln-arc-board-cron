@@ -1098,20 +1098,6 @@ export default {
                 slotName: `la_nacion_desktop/Home/cajasuscriptores_dsk`,
                 dimensions: [[920, 120]],
                 targeting: targetingHome
-            },
-            // TODO: Eliminar cuando salga home LN10
-            parallax_dsk: {
-                slotName: `la_nacion_desktop/Home/parallax_dsk`,
-                dimensions: [
-                    [1, 1],
-                    [728, 90],
-                    [920, 100],
-                    [920, 170],
-                    [920, 250],
-                    [970, 250],
-                    [1260, 300]
-                ],
-                targeting: targetingHome
             }
         },
         mobile: {
@@ -1259,14 +1245,6 @@ export default {
                 dimensions: [[1, 1]],
                 targeting: targetingHome,
                 hideForSubscriptor: true
-            },
-            parallax_mob: {
-                slotName: `la_nacion_mobile/Home/parallax_mob`,
-                dimensions: [
-                    [1, 1],
-                    [360, 450]
-                ],
-                targeting: targetingHome
             },
             cajasuscriptores_mob: {
                 slotName: `la_nacion_mobile/Home/cajasuscriptores_mob`,
