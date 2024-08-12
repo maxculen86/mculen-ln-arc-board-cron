@@ -2,13 +2,7 @@
 @import '../abstracts/mixins';
 
 .mod-share-container {
-    border-bottom: 1px solid $light-neutral-100_;
-    border-top: 1px solid $light-neutral-100_;
-    padding-bottom: px(13);
-    padding-top: px(13);
-    margin-bottom: $spacing-md;
     .mod-share {
-        margin-bottom: 0;
         .share {
             .mod-tooltip {
                 position: absolute;
@@ -52,17 +46,5 @@
         @media ($media-l) {
             margin: 0 0 $spacing-md;
         }
-    }
-    // .audio-player {
-    //     // margin-top: -$spacing-xs;
-    //     @media ($media-m) {
-    //         margin-top: 0;
-    //     }
-    // }
-
-    @media ($media-l) {
-        border: none;
-        padding: 0;
-        margin-bottom: 0;
     }
 }

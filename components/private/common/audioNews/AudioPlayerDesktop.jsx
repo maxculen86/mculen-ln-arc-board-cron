@@ -22,13 +22,13 @@ const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
-    const _class = classNames('mr-16', className);
+    const _class = classNames('mr-16 ai-start_l', className);
 
     return (
         <>
             {showListenButton && (
                 <div
-                    className="btn-container l-only w-100 mb-32 ai-center transition transition-all transition-ease-in transition-duration-1000 min-h-56 hlp-paddingTop-16 hlp-paddingBottom-16 --d-grid"
+                    className="btn-container l-only w-100 mb-32 ai-start transition transition-all transition-ease-in transition-duration-1000 min-h-56 py-16 grid border border-bottom border-top border-thin border-neutral-light-100"
                     id="audio-player-desktop"
                 >
                     <Button
@@ -45,11 +45,6 @@ const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
                                 setOpenPlayer,
                                 dispatch
                             );
-                            // eventHandler({
-                            //     activeWindow: window,
-                            //     action: 'listenButton',
-                            //     eventLabel: 'escuchar duplicado'
-                            // });
                         }}
                         disabled={enableButton || openPlayer}
                     >

@@ -14,7 +14,7 @@ export const FalsePlaceHolderAudioPlayer = ({ isListenable }) =>
                 disabled
             >
                 <Icon size={24} color="inherit">
-                    <IconSprite name="headphone" />
+                    <IconSprite name="listen" />
                 </Icon>
                 <Text>Escuchar</Text>
             </Button>

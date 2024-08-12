@@ -58,7 +58,7 @@ const Share = () => {
         : '-order-1 ratio-auto order-initial_min1024';
 
     const modShareContainerClass = classNames(
-        'mod-share-container',
+        'mod-share-container py-12 mb-16 mb-0_l border border-bottom border-top border-thin border-neutral-light-100 border-0_l',
         '--no-app',
         subtypeVideo,
         modShareContainerSubClasses
@@ -79,7 +79,7 @@ const Share = () => {
         <div className={modShareContainerClass}>
             <ShowToast />
             <ShowBarrier token={token} />
-            <div className="mod-share flex mb-24 mb-0_l" ref={shareContainer}>
+            <div className="mod-share flex mb-0 p-0_l" ref={shareContainer}>
                 <div id="v-share" className={shareClasses} ref={share}>
                     <BuildFirstButtonsGroup
                         bookmark={bookmark}

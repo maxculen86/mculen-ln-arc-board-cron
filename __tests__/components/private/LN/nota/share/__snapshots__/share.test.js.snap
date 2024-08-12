@@ -3,10 +3,10 @@
 exports[`Note display comment in false  Matches snapshot when the note is not comments 1`] = `
 <div>
   <div
-    class="mod-share-container --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+    class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-top border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-24 mb-0_l"
+      class="mod-share flex mb-0 p-0_l"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
@@ -174,10 +174,10 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
 exports[`components - private - LN - nota - share Snapshot - Should show 8 buttons  1`] = `
 <div>
   <div
-    class="mod-share-container --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+    class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-top border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-24 mb-0_l"
+      class="mod-share flex mb-0 p-0_l"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
@@ -362,10 +362,10 @@ exports[`components - private - LN - nota - share Snapshot - Should show 8 butto
 exports[`components - private - LN - nota - share Test click button bookmark 1`] = `
 <div>
   <div
-    class="mod-share-container --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+    class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-top border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-24 mb-0_l"
+      class="mod-share flex mb-0 p-0_l"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"

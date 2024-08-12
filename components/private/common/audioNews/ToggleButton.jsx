@@ -7,9 +7,11 @@ import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import classNames from 'classnames';
 
 const ToggleButton = ({ contentVariant, handleToggle }) => {
-    const notaCompletaBttn = classNames('audio-toggle-left --border-light-400');
+    const notaCompletaBttn = classNames(
+        'audio-toggle-left --border-light-400 rounded-top-left-4 rounded-bottom-left-4 rounded-top-right-0 rounded-bottom-right-0'
+    );
     const resumenConIABttn = classNames(
-        'audio-toggle-right --border-light-400'
+        'audio-toggle-right --border-light-400 rounded-top-right-4 rounded-bottom-right-4 rounded-top-left-0 rounded-bottom-left-0'
     );
 
     const handleClick = (variant, label) => {
@@ -18,12 +20,12 @@ const ToggleButton = ({ contentVariant, handleToggle }) => {
             event: 'e_linkclick',
             action: 'escuchar',
             category: 'nota_ln9',
-            label: { label }
+            label: label
         });
     };
 
     return (
-        <div className="flex ai-center hlp-margintop-20 hlp-margintop-desksm-16 toggle-bttn-audio">
+        <div className="toggle-bttn-audio flex ai-center mt-20 mt-0_l mb-16_l ai-start_l">
             <Button
                 id="notaCompleta"
                 variant={contentVariant === 'article' ? 'primary' : 'secondary'}

@@ -14,7 +14,6 @@ const BuildAudioPlayer = ({
     loaderClass = ''
 }) => {
     const { dispatch } = useContext(GlobalContext) || {};
-    const summaryVariant = 'summary';
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
     const [contentVariant, setContentVariant] = useState(
@@ -65,7 +64,7 @@ const BuildAudioPlayer = ({
                 if (!playerRef.current) {
                     playerRef.current = new BeyondWords.Player({
                         target: '.audio-player',
-                        projectId: BEYONDWORDS_PROJECT_ID,
+                        projectId: 38983,
                         sourceId: noteId,
                         playbackRates: [1, 1.25, 1.5, 1.7, 2],
                         playbackState: 'playing',
@@ -93,12 +92,10 @@ const BuildAudioPlayer = ({
         }
 
         return () => {
-            if (playerRef.current) {
-                playerRef.current.removeEventListener(
-                    'NoContentAvailable',
-                    handleNoContentAvailable
-                );
-            }
+            playerRef.current?.removeEventListener(
+                'NoContentAvailable',
+                handleNoContentAvailable
+            );
         };
     }, [isLoading, noteId, contentVariant]);
 
@@ -119,9 +116,9 @@ const BuildAudioPlayer = ({
                         handleToggle={handleToggleChange}
                         contentVariant={contentVariant}
                     />
-                    <div className="audio-player w-100 hlp-margintop-13 mb-0_l" />
-                    {contentVariant === summaryVariant && (
-                        <div className="disclaimer-container hlp-margintop-8">
+                    <div className="audio-player w-100 mt-12 mb-0_l mt-0_l as-start_l" />
+                    {contentVariant === 'summary' && (
+                        <div className="disclaimer-container mt-8 as-start_l">
                             <Disclaimer />
                         </div>
                     )}

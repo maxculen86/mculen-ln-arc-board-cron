@@ -1,36 +1,18 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.audio-player-container {
-    .audio-toggle-left {
-        border-radius: 4px 0px 0px 4px;
-    }
-    .audio-toggle-right {
-        border-radius: 0px 4px 4px 0px;
-    }
-}
-
 #audio-player-desktop {
-    border-bottom: 1px solid $light-neutral-100_;
-    border-top: 1px solid $light-neutral-100_;
     @media ($media-l) {
         grid-template-rows: auto 1fr;
-        > * {
-            align-self: start;
-        }
+        grid-template-columns: 2fr;
         #btnAudioDesktop {
             grid-row: 1;
-            justify-self: start;
         }
         .toggle-bttn-audio {
             grid-row: 1;
-            justify-self: end;
-            margin-bottom: $spacing-sm;
-            margin-top: 0;
         }
         .audio-player {
             grid-row: 2;
-            margin-top: 0;
         }
         .disclaimer-container {
             grid-row: 3;
@@ -72,6 +54,7 @@
     .hlp-paddingTop-#{$i} {
         padding-top: #{$i}px;
     }
+
     .hlp-paddingBottom-#{$i} {
         padding-bottom: #{$i}px;
     }
