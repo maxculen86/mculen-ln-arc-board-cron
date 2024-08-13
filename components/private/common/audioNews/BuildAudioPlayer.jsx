@@ -5,7 +5,7 @@ import LoadingIcon from '../../LN/common/loadingIcon';
 import { GlobalContext } from '../context/globalContext';
 import { setCookie, getCookie } from './helpers';
 import ToggleButton from './ToggleButton';
-import { Disclaimer } from '../../../features/LN-10/glossary/components/disclaimer';
+import { Disclaimer } from '../../../features/LN-10-global/glossary/components/disclaimer';
 
 const BuildAudioPlayer = ({
     setOpenPlayer,
