@@ -1,0 +1,780 @@
+{
+    "_id": "PWMLKBWMCVCIFLKOPVUVHURDAM",
+    "type": "story",
+    "version": "0.10.10",
+    "content_elements": [
+        {
+            "_id": "NDFN2B37AVBSDNXQK5VKQY6VFM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489844,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "n el<b> mundo vial de la Argentina</b> hay algunas cosas que ya se pueden dejar de inferir dado que existen datos empíricos compilados en los últimos 30 años. Uno de ellos, quizá el más importante, es que<b> las concesiones viales tal como se conocieron en estas tres décadas han sido un profundo fracaso</b>."
+        },
+        {
+            "_id": "7PF4AYQPQRDMRATO37BJ4MYXIQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489845,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "La red está colapsada, mal mantenida y sin expansión, pese a que está administrada por una empresa estatal, <b>Corredores Viales</b>, que llegó a tener una nómina de 4240 empleados. La pregunta que surge, entonces, es la siguiente: <b>¿intentará el Gobierno seguir con la misma receta?</b> La respuesta corta es que aún no se sabe cuál será la solución, pero, en principio, gana consenso una apuesta totalmente distinta, disruptiva para el mundo vial criollo."
+        },
+        {
+            "_id": "VVE2MZWH5FENBFKXTUYQCPJQLY",
+            "type": "text",
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Nuevo texto."
+        },
+        {
+            "_id": "WJV7EHTW5ZGZPDOIY33ZS7EVE4",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489846,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Ads by"
+        },
+        {
+            "_id": "FEK57YE45NBYBDWCY4MEEJUSEE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489847,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "La compañía que maneja la mayoría de las rutas nacionales con peaje, además de la Autopista Ricchieri, parece ser la elegida para inaugurar el camino privatizador. De hecho, algunos funcionarios que conocen el asunto admitieron que <b>Corredores será la primera en dejar de ser estatal.</b>"
+        },
+        {
+            "_id": "2PF6Q4NB3BGSTNLFW2ZLZYISMQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489848,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Para que eso ocurra, hay una tarea que ya empezó. La idea es que cuando la firma que maneja José Luis Acevedo sea exhibida en la góndola sea atractiva para la inversión privada. Ese plan empezó por dos carriles previsibles. Por un lado, revisar el gasto; por el otro, mejorar la recaudación."
+        },
+        {
+            "_id": "FTRMAPXGS5EXNF5CKFE7KDMUE4",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489849,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "La caja creció rápido con el aumento del peaje cuando las barreras se empezaron a levantar a cambio de<b> $900 (antes eran $300), mientras que los camiones de mayor porte, que pagaban $1500, ahora tienen una tarifa de $6000 para continuar el viaje.</b>"
+        },
+        {
+            "_id": "T3HRC7AFOFCWPFDSSKN4T42S6I",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489850,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Del otro lado de la cuenta, es decir, en la columna de los gastos, la actual administración empezó con<b> un fuerte recorte de la planta. </b>Además de un retiro voluntario,<b> no se renovaron los contratos de trabajo de varios empleados, la mayoría de ellos, con ADN político más que técnico.</b> Así las cosas, la dotación pasó de 4240 que tenía en diciembre a los actuales 3600."
+        },
+        {
+            "_id": "IOWME254J5F7VCXMAU46KKHYZU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489851,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Con estas medidas, la empresa logró en pocos meses un equilibrio rudimentario, pero equilibrio al fin. Por ahora, con la recaudación se pagan los gastos operativos y una mínima mantención, lejos, claro está, de lograr que el peaje pague la expansión de la red de rutas."
+        },
+        {
+            "_id": "KAKVOH2UF5G6DENJNAZPP2ZP3U",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489852,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "El equilibrio es algo nuevo. De hecho, <b>el año pasado la empresa dispuso de alrededor de $100.000 millones, de los cuales $60.000 millones los aportó el Estado como subsidios</b>. En ese monto no estaban contempladas las obras, ya que esa cuenta la sostenía el presupuesto de Vialidad."
+        },
+        {
+            "_id": "66ZJL7MZKNBYPBNITTBNJII37A",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489853,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Otra de las medidas que empezará a regir en poco tiempo es la digitalización de los peajes en la Autopista Ricchieri. En la empresa quieren eliminar las actuales cabinas para ser reemplazados por los arcos llamados “free flow”, un sistema que permite <b>eliminar la necesidad de barreras y que logra que los vehículos circulen de manera fluida, sin ningún tipo de detención. Según dicen, es una manera de hacer más atractiva la red vial a privatizar</b>."
+        },
+        {
+            "_id": "K47FWCXL35D2HEJJJ3Q6QEF6LY",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489854,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "El futuro de los peajes"
+        },
+        {
+            "_id": "LEUW7QJ45FHJTI7DHK37UK4OCE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489855,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Por ahora, <b>Corredores Viales</b> se mantiene dentro de la órbita de la Jefatura de Gabinete. Cuando se inició el diagrama del Gobierno, la firma estaba dentro el organigrama del viejo Ministerio de Infraestructura. Pero, tras la salida de <b>Guillermo Ferraro</b>, pasó a depender del exjefe de Gabinete, <b>Nicolás Posse</b>. De hecho, dependía directamente de la Secretaria de Empresas y Sociedades del Estado, cuya cabeza era<b> Mauricio González Botto</b>. De aquella poderosa estructura ya no queda nada y, de hecho, se especulaba donde iban a quedar <b>AySa, Corredores Viales y la Administración General de Puertos (AGP)</b>, todas en la jurisdicción del jefe de los ministros. Por ahora, la incógnita está resuelta: se mantuvieron dentro de las funciones de <b>Guillermo Francos</b>."
+        },
+        {
+            "_id": "G3XCDGZLPVA65A7SRWDQDXQJKI",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489856,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Hay varias propuestas para acercar a Milei para que, finalmente, tome la decisión que considere. La primera es repetir el sistema de concesiones como se las conoce. Es decir, <b>entregar un corredor a una empresa, o unión transitoria</b>, cobrar el peaje y hacer un contrato de mantenimiento. <b>Algo así como un gerenciamiento. </b>“Ese esquema fracasó, ya que hay rutas que son rentables mientras otras no tienen tanto flujo y para que estén en equilibrio debería subirse el peaje a cerca de $4000″, dicen quienes están sobre este proyecto."
+        },
+        {
+            "_id": "CCZB6ZZ2IJDDNCW6J3WXN7YRB4",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489857,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "La <b>otra opción sería una variante de aquel esquema: entregar todas las rutas a un mismo concesionario</b>. De esa manera, las rentables podrían sostener las no rentables. Sin embargo, nadie cree que una red que tiene presencia en 13 provincias, que interconecta 256 municipios a través de sus <b>5885 kilómetros</b> de rutas, autopistas y autovías, sea atractiva en un país que ha incumplido las actualizaciones tarifarias desde hace un cuarto de siglo."
+        },
+        {
+            "_id": "G6RGZ3UKQBCQJEAGB5SZL6XNLU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489858,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "La tercera es barajar y dar de nuevo. Hay quienes en el Gobierno exploran un nuevo régimen, absolutamente disruptivo. <b>La idea es ofrecer en una licitación internacional el cobro de todos los peajes en las rutas que tienen cabinas, a cambio de la instalación de los arcos de “free flow”</b> necesarios para <b>eliminar las barreras</b> y pasar a sistema electrónico. En esa licitación, confían, competirían las empresas más grandes del mundo dedicadas a ese tema."
+        },
+        {
+            "_id": "GOOTS7G2ORAF7HU3RI652N46WA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489859,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Una vez instalada la digitalización, <b>la concesionaria cobraría una comisión por la gestión con una dotación mínima de empleados (dicen que aproximadamente 40)</b> y el resto de lo recaudado se depositaría en las cuentas de Corredores Viales. Ese dinero formaría un fondo y desde allí, planean, se entregarían concesiones a otras empresas más pequeñas para el mantenimiento. Es decir, separar a quienes cobran de quienes mantienen."
+        },
+        {
+            "_id": "RIR44I5BGVCRXPVJJFXR3ZA4EA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489860,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "<b>Corredores</b> se convertiría en una <b>administradora de bienes públicos, las rutas, y en una estructura dedicada a la planificación de la red.</b> Ese esquema estaría preparado, además, para recibir dinero del Tesoro para licitar y hacer ejecutar la obra pública que se decida. Es decir, sacar la gestión de la adjudicación y posterior ejecución del contrato, de la administración pública."
+        },
+        {
+            "_id": "XAFCEGSGHVDZDDBID7OODLMMFE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489861,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "¿Hay algo similar? En la Argentina, nada. Quizá lo más parecido es <b>Autopistas Urbanas (AUSA),</b> la concesionaria pública que maneja la red vial porteña, justamente la empresa de donde viene <b>Acevedo</b>. Ahí se ejecuta obra pública de la Ciudad, con una diferencia: los procedimientos son más ágiles y los tiempos de pago, prácticamente inmediatos.<b> La diferencia no es menor: se trata de una sociedad anónima que, si bien es tiene socios estatales, no está atado a las formas del Estado</b>."
+        },
+        {
+            "_id": "2UJNZ7MHHBC4XKHSPBSE3UUTLA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489862,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Para que esto funcione se necesita la <b>universalización de la oblea de pago electrónico</b>. Es decir, que todos los autos del país coloquen el sistema. Quienes preparan este cambio piensan en una ley que obligue a los automovilistas y a las terminales."
+        },
+        {
+            "_id": "C4O4ZGVCE5FI5CIB3KQRTJ5KTM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1718281489863,
+                "comments": [],
+                "inline_comments": []
+            },
+            "alignment": "left",
+            "content": "Nadie sabe qué opción tomará<b> Milei</b> para avanzar. Varios se ilusionan con este último esquema porque permitiría, rápidamente, colocar nuevos arcos de peaje electrónico en cualquier lugar con la misma estructura. En el Gobierno son optimistas: esperan poner en la góndola la empresa en el corto plazo y tener en poco tiempo una red con peaje y sin cabinas."
+        }
+    ],
+    "created_date": "2024-06-07T14:56:54.077Z",
+    "revision": {
+        "revision_id": "MS4BUPHJFZFG5N2ZZQG4PASWGY",
+        "parent_id": "JWYRPSMIYJCOHMDNHRNI3KEEQY",
+        "editions": [
+            "default"
+        ],
+        "branch": "default",
+        "user_id": "seflores@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2024-06-13T12:25:16.193Z",
+    "canonical_website": "la-nacion-ar",
+    "headlines": {
+        "basic": "Cuáles son los planes del Gobierno para avanzar con la primera privatización de Milei",
+        "meta_title": "",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true,
+        "moderation_required": false
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": "Hay un paquete de opciones para ceder al sector privado la empresa estatal que maneja las rutas con peaje; la eliminación de cabinas y un nuevo esquema de obras públicas son ejes de la propuesta"
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "republicar_audio": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "resumen_nota": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "sitio": {
+            "display": true,
+            "text": "https://sandbox.lanacion.com.ar",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "Noticia Original",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/politica",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Política",
+            "path": "/politica",
+            "parent_id": "/",
+            "parent": {
+                "default": "/"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/politica",
+                    "acumuladoGeneral": {
+                        "tipo_acumulado": "Grilla",
+                        "cantidad_notas": "30",
+                        "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                        "hierarchy_navigation": "Politics",
+                        "hide_banner": "false",
+                        "hidetagslist": "true",
+                        "hidesectionslist": "true"
+                    },
+                    "acumuladoColor": {
+                        "background_color": "",
+                        "navigation_color": "",
+                        "navigation_color_tags": "",
+                        "id_logo_image": "",
+                        "header_class_name": "false"
+                    },
+                    "site": {
+                        "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                    },
+                    "migration": {
+                        "migrated_mob": "true",
+                        "id_section_ln9": "30"
+                    },
+                    "Termicas": {
+                        "hide_listening_articles": "true"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Política",
+                    "order": {
+                        "Header-FirstNav": 1002,
+                        "default": 1020,
+                        "navigationRedaccion": 1015
+                    },
+                    "parent": {
+                        "default": "/",
+                        "Header-FirstNav": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "Header-FirstNav": [
+                            "/"
+                        ],
+                        "navigationRedaccion": [
+                            "/"
+                        ]
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/politica",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Política",
+            "path": "/politica",
+            "parent_id": "/",
+            "additional_properties": {
+                "original": {
+                    "_id": "/politica",
+                    "acumuladoGeneral": {
+                        "tipo_acumulado": "Grilla",
+                        "cantidad_notas": "30",
+                        "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                        "hierarchy_navigation": "Politics",
+                        "hide_banner": "false",
+                        "hidetagslist": "true",
+                        "hidesectionslist": "true"
+                    },
+                    "acumuladoColor": {
+                        "background_color": null,
+                        "navigation_color": null,
+                        "navigation_color_tags": null,
+                        "id_logo_image": null,
+                        "header_class_name": "false"
+                    },
+                    "site": {
+                        "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                    },
+                    "migration": {
+                        "migrated_mob": "true",
+                        "id_section_ln9": "30"
+                    },
+                    "Termicas": {
+                        "hide_listening_articles": "true"
+                    },
+                    "name": "Política",
+                    "order": {
+                        "Header-FirstNav": 1002,
+                        "default": 1020,
+                        "navigationRedaccion": 1015
+                    },
+                    "parent": {
+                        "default": "/",
+                        "Header-FirstNav": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "Header-FirstNav": [
+                            "/"
+                        ],
+                        "navigationRedaccion": [
+                            "/"
+                        ]
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/politica",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Política",
+                "path": "/politica",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/politica",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                            "hierarchy_navigation": "Politics",
+                            "hide_banner": "false",
+                            "hidetagslist": "true",
+                            "hidesectionslist": "true"
+                        },
+                        "acumuladoColor": {
+                            "background_color": "",
+                            "navigation_color": "",
+                            "navigation_color_tags": "",
+                            "id_logo_image": "",
+                            "header_class_name": "false"
+                        },
+                        "site": {
+                            "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": "30"
+                        },
+                        "Termicas": {
+                            "hide_listening_articles": "true"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Política",
+                        "order": {
+                            "Header-FirstNav": 1002,
+                            "default": 1020,
+                            "navigationRedaccion": 1015
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./politica"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/politica",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Política",
+                "path": "/politica",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/politica",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                            "hierarchy_navigation": "Politics",
+                            "hide_banner": "false",
+                            "hidetagslist": "true",
+                            "hidesectionslist": "true"
+                        },
+                        "acumuladoColor": {
+                            "background_color": null,
+                            "navigation_color": null,
+                            "navigation_color_tags": null,
+                            "id_logo_image": null,
+                            "header_class_name": "false"
+                        },
+                        "site": {
+                            "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": "30"
+                        },
+                        "Termicas": {
+                            "hide_listening_articles": "true"
+                        },
+                        "name": "Política",
+                        "order": {
+                            "Header-FirstNav": 1002,
+                            "default": 1020,
+                            "navigationRedaccion": 1015
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                }
+            }
+        ]
+    },
+    "promo_items": {
+        "summary": {
+            "embed": {
+                "config": {
+                    "arrayBullets": [
+                        "<span>Prueba de modificacion de resumen de nota</span>",
+                        "<span>Esta es una prueba para analizar la modificacion</span>"
+                    ],
+                    "editorState": {
+                        "root": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Prueba de modificacion de resumen de nota",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Esta es una prueba para analizar la modificacion",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                }
+                            ],
+                            "direction": "ltr",
+                            "format": "",
+                            "indent": 0,
+                            "type": "root",
+                            "version": 1
+                        }
+                    },
+                    "fromComposer": true,
+                    "idArticle": "PWMLKBWMCVCIFLKOPVUVHURDAM"
+                },
+                "id": "BZ2WM6AOIRMF5J2E32ZJGURYXU",
+                "url": "https://www.lanacion.com.ar/"
+            },
+            "subtype": "custom-resumen",
+            "type": "custom_embed"
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+        "mode": "reference_denormalized"
+    },
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 7024,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 7,
+            "line_count_actual": 47,
+            "word_count_actual": 1171
+        }
+    },
+    "display_date": "2024-06-13T12:25:15.757Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "1",
+    "first_publish_date": "2024-06-07T14:57:53.725Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/politica",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Política",
+                "path": "/politica",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/politica",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                            "hierarchy_navigation": "Politics",
+                            "hide_banner": "false",
+                            "hidetagslist": "true",
+                            "hidesectionslist": "true"
+                        },
+                        "acumuladoColor": {
+                            "background_color": "",
+                            "navigation_color": "",
+                            "navigation_color_tags": "",
+                            "id_logo_image": "",
+                            "header_class_name": "false"
+                        },
+                        "site": {
+                            "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": "30"
+                        },
+                        "Termicas": {
+                            "hide_listening_articles": "true"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Política",
+                        "order": {
+                            "Header-FirstNav": 1002,
+                            "default": 1020,
+                            "navigationRedaccion": 1015
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./politica"
+            },
+            "website_url": "/politica/cuales-son-los-planes-del-gobierno-para-avanzar-con-la-primera-privatizacion-de-milei-nid07062024/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": true,
+        "publish_date": "2024-06-13T12:25:05.287Z",
+        "reading_time": 0
+    },
+    "publish_date": "2024-06-13T12:25:15.757Z",
+    "canonical_url": "/politica/cuales-son-los-planes-del-gobierno-para-avanzar-con-la-primera-privatizacion-de-milei-nid07062024/",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/politica/cuales-son-los-planes-del-gobierno-para-avanzar-con-la-primera-privatizacion-de-milei-nid07062024/"
+}

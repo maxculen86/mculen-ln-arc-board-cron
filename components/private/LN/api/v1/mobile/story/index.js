@@ -7,6 +7,7 @@ import { validateIdsPromoItems } from '../../../common/elements/story/apertura/u
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { isNoteListenableHome as isNoteListenable } from '../../../../../../../content/sources/utils/audioNews/helper';
 
 const indexNota = dataNotaParam => {
     if (!dataNotaParam) throw new Error(`La información de la nota esta vacia`);
@@ -19,7 +20,8 @@ const indexNota = dataNotaParam => {
     const resp = {
         ...storyCommon(dataNota, elements.elements),
         ...storyHeadline(dataNota, 'mobile'),
-        apertura: apertura(dataNota, elements.idsElements)
+        apertura: apertura(dataNota, elements.idsElements),
+        isListenable: isNoteListenable(dataNota)
     };
 
     let elmentsAdd = 0;

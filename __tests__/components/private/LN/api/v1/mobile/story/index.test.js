@@ -7,6 +7,7 @@ import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../../../__mocks__/data/a
 import FO4F7BUAJZBDDLPEMSV5QYDCGM from '../../../../../../../../__mocks__/data/articles/FO4F7BUAJZBDDLPEMSV5QYDCGM.json';
 import M3UNX7ATAZHEFJGPGFZX366ZAQ from '../../../../../../../../__mocks__/data/articles/M3UNX7ATAZHEFJGPGFZX366ZAQ.json';
 import QAZ7BVHG5BCNFN7S67XCBP6PA2 from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA2.json';
+import PWMLKBWMCVCIFLKOPVUVHURDAM from '../../../../../../../../__mocks__/data/articles/PWMLKBWMCVCIFLKOPVUVHURDAM.json';
 import ArticleFourElements from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA5.json';
 import ArticleSevenElements from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA7.json';
 import ArticleNineElements from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA9.json';
@@ -218,8 +219,19 @@ describe('Test json integracion Article', () => {
                 'contenido',
                 'fechaActualizacion',
                 'fecha',
-                'apertura'
+                'apertura',
+                'isListenable'
             ].sort()
         );
+    });
+
+    it('test isListenable false', () => {
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        expect(resp.isListenable).toBe(false);
+    });
+
+    it('test isListenable', () => {
+        const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
+        expect(resp.isListenable).toBe(true);
     });
 });
