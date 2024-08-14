@@ -7,17 +7,20 @@ import {
 } from '../helper/loginHelper';
 import getToken from '../../components/private/common/utils/getToken';
 import { AuthContext } from '../AuthInitializer';
+import { getSectionOfRequestUri } from '../../components/private/common/utils/outputTypeHelper';
 
 // TODO: Remover logica que valida secciones habilitadas cuando se implemente MVP2 de auth0 en todo LN
 const useAuthManager = () => {
     const isFinishRotation = useContext(AuthContext);
     const [tokens, setTokens] = useState({});
-    const { globalContent, arcSite } = useAppContext();
+    const { globalContent, arcSite, requestUri } = useAppContext();
     const isValidSectionForMVP2Auth0 =
         isAllowedSection({
             globalContent,
             listOfAllowedSection: listValidSectionsForMvp2Auth0
-        }) || arcSite === 'foodit';
+        }) ||
+        arcSite === 'foodit' ||
+        getSectionOfRequestUri(requestUri) === 'mis-notas';
 
     useEffect(() => {
         if (isValidSectionForMVP2Auth0 && isFinishRotation) {
@@ -26,7 +29,8 @@ const useAuthManager = () => {
                     const { token, accessToken } = await getAuthTokens();
                     setTokens({
                         token,
-                        accessToken
+                        accessToken,
+                        isValidSectionForMVP2Auth0
                     });
                 } catch (error) {
                     console.error('Error during getTokens');
@@ -40,7 +44,8 @@ const useAuthManager = () => {
     if (!isValidSectionForMVP2Auth0) {
         return {
             token: getToken(),
-            accessToken: getToken('access-token')
+            accessToken: `Bearer ${getToken('access-token')}`,
+            isValidSectionForMVP2Auth0
         };
     }
 

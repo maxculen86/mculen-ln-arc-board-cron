@@ -1,17 +1,28 @@
 import 'regenerator-runtime/runtime';
 import env from '../../../../../__mocks__/fusion:environment';
+import { act } from 'react-dom/test-utils';
 import React from 'react';
 import useCountBookmarks from '../../../../../components/private/common/hooks/bookmark/useCountBookmarks';
+import useAuthManager from '../../../../../auth/hooks/useAuthManager';
+
+jest.mock('../../../../../auth/helper/loginHelper');
+
+jest.mock('../../../../../auth/hooks/useAuthManager');
 
 describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
     const setData = jest.fn().mockImplementation(x => x);
     React.useState = jest.fn().mockReturnValue([null, setData]);
     React.useEffect = jest.fn().mockImplementation(f => f());
     React.useCallback = jest.fn().mockImplementation(f => f);
+    beforeEach(() => {
+        jest.clearAllMocks();
+        useAuthManager.mockImplementation(() => ({
+            token: 'mock-tooken',
+            accessToken: 'Bearer mock-access-token'
+        }));
+    });
 
     const termicaBookmark = true;
-    const token = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
-    const accessToken = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
     const isSuscriber = true;
 
     global.fetch = jest.fn();
@@ -32,17 +43,18 @@ describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
         const termicaBookmark = false;
         const { bookmarkCount } = useCountBookmarks(
             termicaBookmark,
-            token,
             isSuscriber
         );
         expect(bookmarkCount).toBe(null);
         expect(fetch).not.toBeCalled();
     });
     it('Should return null when there is no token', () => {
-        const token = null;
+        useAuthManager.mockImplementation(() => ({
+            token: undefined,
+            accessToken: 'mock-access-token'
+        }));
         const { bookmarkCount } = useCountBookmarks(
             termicaBookmark,
-            token,
             isSuscriber
         );
         expect(bookmarkCount).toBe(null);
@@ -52,25 +64,21 @@ describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
         const isSuscriber = false;
         const { bookmarkCount } = useCountBookmarks(
             termicaBookmark,
-            token,
             isSuscriber
         );
         expect(bookmarkCount).toBe(null);
         expect(fetch).not.toBeCalled();
     });
-    it('Should call fetch correctly when called with all necesary parameters', () => {
-        const { bookmarkCount } = useCountBookmarks(
-            termicaBookmark,
-            token,
-            accessToken,
-            isSuscriber
-        );
+    it('Should call fetch correctly when called with all necesary parameters', async () => {
+        await act(async () => {
+            useCountBookmarks(termicaBookmark, isSuscriber);
+        });
         expect(fetch).toBeCalledWith(
             `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks-count`,
             {
                 headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                    'X-Token': token
+                    Authorization: 'Bearer mock-access-token',
+                    'X-Token': 'mock-tooken'
                 },
                 method: 'GET'
             }

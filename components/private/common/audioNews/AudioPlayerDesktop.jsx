@@ -7,18 +7,21 @@ import { Text } from '@ln/contenidos-ui-text';
 import getToken from '../utils/getToken';
 import { handleClickAudioNews } from './helpers';
 import BuildAudioPlayer from './BuildAudioPlayer';
-import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import { GlobalContext } from '../context/globalContext';
 import useTermica from '../hooks/useTermica';
 import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../auth/helper/loginHelper';
 
 const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
     const { dispatch } = useContext(GlobalContext) || {};
     const [openPlayer, setOpenPlayer] = useState(false);
     const [enableButton, setEnableButton] = useState(false);
     const token = getToken();
-    const suscription = isSubscribed();
+    const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
