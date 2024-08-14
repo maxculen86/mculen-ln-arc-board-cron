@@ -1,5 +1,5 @@
 import { SITE_LANACION, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
-import mapListSection from './mapListSection.json';
+import siteMapList from './siteMapList.json';
 
 export const replacePlaceholders = items => {
     return items.map(item => ({
@@ -10,7 +10,7 @@ export const replacePlaceholders = items => {
     }));
 };
 
-export const mapListSectionLink = mapListSection.map(section => ({
+export const siteMapListSectionLink = siteMapList.map(section => ({
     ...section,
     items: replacePlaceholders(section.items)
 }));

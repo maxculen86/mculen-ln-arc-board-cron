@@ -6,7 +6,7 @@ import '../../resources/dist/css/ln/pages/sitemap.css';
 import ComLogo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import ListSection from '../private/common/utils/listSection';
-import { mapListSectionLink } from '../private/common/mapaListSection/mapListSectionLink';
+import { siteMapListSectionLink } from '../private/common/siteMapList/siteMapList';
 
 const LNMapaDelSitio = ({ children }) => {
     return (
@@ -26,7 +26,7 @@ const LNMapaDelSitio = ({ children }) => {
                 <main id="content">
                     <div className="lay">
                         <Title tag="h1" size="--l" content="Mapa del sitio" />
-                        {mapListSectionLink.map((section, index) => (
+                        {siteMapListSectionLink.map((section, index) => (
                             <div className="row" key={index}>
                                 <ListSection
                                     title={section.title}
