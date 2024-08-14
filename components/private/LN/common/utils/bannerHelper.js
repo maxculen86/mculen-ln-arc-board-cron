@@ -435,7 +435,8 @@ export const queueGoogletagCommand = bannersToLoad => {
                 const banner = document.getElementById(slot.getSlotElementId());
 
                 const shouldShowBanner =
-                    !isEmpty && !bannersWithoutHide.includes(slotId);
+                    !isEmpty &&
+                    !bannersWithoutHide.includes(slot.getSlotElementId());
 
                 if (shouldShowBanner) {
                     banner.parentNode.classList.remove('none');
