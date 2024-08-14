@@ -8,11 +8,14 @@ import getToken from '../utils/getToken';
 import { handleClickAudioNews } from './helpers';
 import { getIconByOpenPlayer } from './helpers';
 import BuildAudioPlayer from './BuildAudioPlayer';
-import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import { GlobalContext } from '../context/globalContext';
 import eventHandler from './trackerAudioNews';
 import useTermica from '../hooks/useTermica';
 import classNames from 'classnames';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../auth/helper/loginHelper';
 
 const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
     const { dispatch } = useContext(GlobalContext) || {};
@@ -20,7 +23,7 @@ const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
     const [enableButton, setEnableButton] = useState(false);
     const token = getToken();
     const { headphoneIcon } = getIconByOpenPlayer(openPlayer || enableButton);
-    const suscription = isSubscribed();
+    const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
