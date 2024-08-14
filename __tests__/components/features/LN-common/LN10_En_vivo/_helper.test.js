@@ -7,8 +7,21 @@ import {
     validateId,
     getNotesLists,
     setTopicsCustomFields,
-    getTopicsFromCustomFields
+    getTopicsFromCustomFields,
+    getListOfNoteFields,
+    getCustomFieldNameAndGroup
 } from '../../../../../components/features/LN-common/LN10_En_Vivo/_helpers';
+
+jest.mock('fusion:content');
+jest.mock(
+    '../../../../../components/features/LN-common/LN10_En_Vivo/_helpers',
+    () => ({
+        ...jest.requireActual(
+            '../../../../../components/features/LN-common/LN10_En_Vivo/_helpers'
+        ),
+        getCustomFieldNameAndGroup: jest.fn()
+    })
+);
 
 describe('Tests - helpers - feature - EnVivo', () => {
     describe('Tests function findError', () => {
@@ -283,6 +296,52 @@ describe('Tests - helpers - feature - EnVivo', () => {
 
         it('should returns custom fields with another length', () => {
             verifyCustomFields(4);
+        });
+    });
+
+    describe('getListOfNoteFields', () => {
+        beforeEach(() => {
+            getCustomFieldNameAndGroup.mockClear();
+        });
+
+        test('Must correctly group custom fields by group number', () => {
+            getCustomFieldNameAndGroup
+                .mockReturnValueOnce({ customFieldName: 'field1', group: '1' })
+                .mockReturnValueOnce({ customFieldName: 'field2', group: '2' });
+
+            const listCustomFields = [
+                ['key1', 'value1'],
+                ['key2', 'value2']
+            ];
+            const result = getListOfNoteFields(listCustomFields);
+
+            expect(result).toEqual([
+                { key: 'value1', group: '1' },
+                { key: 'value2', group: '2' }
+            ]);
+        });
+
+        test('Should extract the custom field name and group correctly when the string is in a valid format', () => {
+            const result = getCustomFieldNameAndGroup('field11');
+            expect(result).toEqual({
+                customFieldName: 'field1',
+                group: '1'
+            });
+        });
+    });
+
+    describe('getCustomFieldNameAndGroup', () => {
+        test('Should extract the custom field name and group correctly when the string is in a valid format', () => {
+            const result = getCustomFieldNameAndGroup('customFieldName1');
+            expect(result).toEqual({
+                customFieldName: 'field2',
+                group: '2'
+            });
+        });
+
+        test('Should return an object with undefined values ​​when the string does not have a valid format', () => {
+            const result = getCustomFieldNameAndGroup('invalidString');
+            expect(result).toEqual(undefined);
         });
     });
 });

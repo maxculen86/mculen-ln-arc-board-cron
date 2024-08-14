@@ -7,8 +7,6 @@ import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
 import BadgeUsertype from '../../private/common/badge/UserType';
 import BajadaNota from '../../private/LN/nota/bajada';
 
-// TODO migrar test a testing library, fix de props, testear static content
-
 const bajadaNota = props => {
     const {
         globalContent: {

@@ -3,8 +3,6 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import AperturaRecetaComponent from '../../private/LN/nota/apertura/AperturaReceta/aperturaReceta';
 
-// TODO hacer unit test
-
 const aperturaReceta = props => {
     return (
         <div>

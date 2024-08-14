@@ -14,8 +14,10 @@ import get from '../../../private/common/utils/get';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 import setRender from '../../../chains/utils/setRender';
-import { findPositionInsideSection } from '../../../private/LN/common/utils/cajaTemasHelper';
-import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
+import {
+    findPositionInsideSection,
+    getMarkupForDatalayer
+} from '../../../private/LN/common/utils/cajaTemasHelper';
 import { getDataAttributesForViewability } from '../../../features/LN-10/article/_helper';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
 

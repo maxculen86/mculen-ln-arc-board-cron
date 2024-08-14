@@ -28,7 +28,7 @@ export const findError = (articles = []) => {
         }
     );
 };
-const getCustomFieldNameAndGroup = string => {
+export const getCustomFieldNameAndGroup = string => {
     const [, customFieldName, group] =
         (typeof string === 'string' && string.match(/(.*)(\d)/)) || [];
     return { customFieldName, group };
@@ -38,7 +38,7 @@ export const getListOfNoteFields = (listCustomFields = []) => {
     return listCustomFields.reduce((acc, [key, value] = []) => {
         const { customFieldName, group } = getCustomFieldNameAndGroup(key);
         if (group) {
-            const index = group - 1;
+            const index = parseInt(group - 1);
             acc[index] = { ...acc[index], [customFieldName]: value, group };
         }
         return acc;
@@ -101,7 +101,10 @@ export const calculateTimePublish = (noteDate, currentDate) => {
 
 export const getTopicsFromCustomFields = (customFields = {}) => {
     const totalCustomFieldsKeys = Object.keys(customFields).length;
-    const topicKeys = [...new Array(totalCustomFieldsKeys).keys()];
+    const topicKeys = Array.from(
+        { length: totalCustomFieldsKeys },
+        (_, index) => index
+    );
 
     return topicKeys
         .map(key => ({
@@ -114,7 +117,7 @@ export const getTopicsFromCustomFields = (customFields = {}) => {
 };
 
 export const setTopicsCustomFields = (maxTopics = 5) => {
-    const iterator = [...new Array(maxTopics).keys()];
+    const iterator = Array.from({ length: maxTopics }, (_, index) => index);
 
     return iterator.reduce((customFields, next) => {
         const group = `Tema ${next + 1}`;
