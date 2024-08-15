@@ -1,12 +1,13 @@
 import get from '../../../../../../../common/utils/get';
-import { getPrincipalCategory } from '../../../../../common/elements/category';
-import { getArticleImage } from '../../../../../common/article/elements/image/index';
-import { getYouTubeVideoLink } from '../../../../../common/article/elements/video/index';
 import { CardBasic } from '../../../../../common/article/cardBasic/index';
-import { getBadgebyConfig } from '../elements/chapita/index';
-import { getDroptext } from '../elements/bajada/index';
-import { getFlyertext } from '../elements/volanta/index';
+import { getArticleImage } from '../../../../../common/article/elements/image/index';
+import { getPrincipalCategory } from '../../../../../common/elements/category';
 import { getAuthor, getAuthors, getSignature } from '../elements/author/index';
+import { getDroptext } from '../elements/bajada/index';
+import { getBadgebyConfig } from '../elements/chapita/index';
+import { getEmbed } from '../elements/embed/index';
+import { getFlyertext } from '../elements/volanta/index';
+import { getYouTubeVideoLink } from '../../../../../common/article/elements/video/index';
 
 export const CardRegular = article => {
     const primarySection = get(article, 'taxonomy.primary_section');
@@ -21,6 +22,7 @@ export const CardRegular = article => {
         bajada: getDroptext(article),
         imagen: getArticleImage(article),
         videoYouTube: getYouTubeVideoLink(article),
+        embed: getEmbed(article),
         ...getBadgebyConfig(article),
         opinion: false,
         isListenable: article.isListenable
