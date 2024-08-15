@@ -52,12 +52,6 @@
     .mod-nav & {
         @include flex(flex, column, center, center);
     }
-    .mod-wikiauthor & {
-        &:not(.icon-bullet-xs) {
-            color: $negro;
-            margin-right: $spacing;
-        }
-    }
     .mod-tooltip & {
         position: absolute;
         right: 0;
