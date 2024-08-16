@@ -4,7 +4,7 @@ import { isExcludedSubtype, calcReadingMinutes } from './_helpers';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import get from '../../../../private/common/utils/get';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import { TimerIaIcon } from './timerIaIcon';
 
 const ReadingTime = () => {
     const { globalContent = {} } = useAppContext() || {};
@@ -26,7 +26,7 @@ const ReadingTime = () => {
     return (
         <li className="reading-time flex bullet-sm-none ml-auto_max767 flex gap-2 ai-center">
             <Icon height={20}>
-                <IconSprite name="timer" color />
+                <TimerIaIcon />
             </Icon>
             <Text className="text-neutral-light-700">
                 {formattedReadingTime}{' '}
