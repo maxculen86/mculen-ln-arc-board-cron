@@ -25,6 +25,7 @@ export const goToLogout = dispatch => {
         isVoluntary: true
     }).then(() => {
         eraseCookie('shouldrelogin');
+        eraseCookie('contentVariant');
         dispatch({
             type: 'SET_LOGIN',
             payload: {
