@@ -96,7 +96,7 @@ exports[`features - LN-10-GLOBAL - glossary - components- Tooltip should match s
         </svg>
       </i>
       <p
-        class="text text-light-600 text-10_130"
+        class="text text-neutral-light-800 text-12_130"
       >
         Realizado con inteligencia artificial
       </p>

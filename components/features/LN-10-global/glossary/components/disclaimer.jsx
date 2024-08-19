@@ -20,7 +20,7 @@ export const Disclaimer = () => {
                     />
                 </svg>
             </Icon>
-            <Text as="p" className="text-light-600 text-10_130">
+            <Text as="p" className="text-neutral-light-800 text-12_130">
                 Realizado con inteligencia artificial
             </Text>
         </aside>

@@ -6756,6 +6756,9 @@ strong:not(.--font-primary),
 .transition.transition-all {
   transition-property: all;
 }
+.transition.transition-none {
+  transition-property: none;
+}
 .transition.transition-ease-in {
   transition-timing-function: ease-in;
 }
