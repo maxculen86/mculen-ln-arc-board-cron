@@ -1,0 +1,88 @@
+{
+    "_id": "juan-pravata-666",
+    "firstName": "Juan",
+    "lastName": "Pravata",
+    "secondLastName": "",
+    "byline": "Juan Pravata",
+    "role": "Programador",
+    "image": {
+        "url": "https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=820fe21613127ce5fb08247616be9addc1ba894dcfdc5a76e10b06014f66dca1&width=280&quality=70&smart=false"
+    },
+    "email": "pravata.juan@gmail.com",
+    "affiliations": "Afiliacion profesional random",
+    "languages": "Ingles, Español",
+    "beat": "JuanPravata",
+    "author_type": "Estandar",
+    "education": [
+        {
+            "name": "Google.com"
+        }
+    ],
+    "awards": [
+        {
+            "name": "Medalla Roca"
+        },
+        {
+            "name": "Medalla Cascada"
+        },
+        {
+            "name": "Medalla Trueno"
+        },
+        {
+            "name": "Medalla Arcoiris"
+        },
+        {
+            "name": "Medalla Alma"
+        },
+        {
+            "name": "Medalla Pantano"
+        },
+        {
+            "name": "Medalla Volcan"
+        },
+        {
+            "name": "Medalla Tierra"
+        }
+    ],
+    "books": [
+        {
+            "title": "Librito 1",
+            "url": "librito.com",
+            "publisher": "Juan Pravata"
+        }
+    ],
+    "podcasts": [
+        {
+            "name": "Hola me llamo juan",
+            "url": "podacast.com/juancito",
+            "download_url": "descarga.com/podcast"
+        }
+    ],
+    "facebook": "facebook.com.ar",
+    "twitter": "jpravataok",
+    "bio_page": "/autor/juan-pravata-666/",
+    "location": "Argentina",
+    "bio": "Programador web",
+    "longBio": "El Desarrollador Full Stack es un profesional capacitado para desarrollar distintas etapas de un proyecto web. Trabaja tanto en el back-end como en el front-end.",
+    "slug": "",
+    "linkedin": "https://linkedIn.com",
+    "instagram": "https://instagram.com/juanpravatanorecuerdotuinsta/",
+    "tumblr": "https://google.com.ar",
+    "medium": "https://medium.com",
+    "pinterest": "@datorandompinteret",
+    "youtube": "@juanpravatanotengoyoutube",
+    "whatsapp": "https://whasapp.com",
+    "reddit": "https://google.com.ar",
+    "native_app_rendering": false,
+    "fuzzy_match": false,
+    "contributor": false,
+    "status": true,
+    "last_updated_date": "2024-07-29T16:53:25.900Z",
+    "expertise": "Coding, Testing",
+    "personal_website": "https://google.com",
+    "gplus": "holanda",
+    "middleName": "Guillermo",
+    "rss": "rssfeed",
+    "suffix": "subfijo",
+    "voice": "702"
+  }

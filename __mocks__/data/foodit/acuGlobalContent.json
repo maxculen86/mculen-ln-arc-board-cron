@@ -1,0 +1,923 @@
+{
+    "_id": "/recetas/saladas",
+    "social": {
+        "rss": null,
+        "instagram": null,
+        "twitter": null,
+        "facebook": null
+    },
+    "site": {
+        "site_url": null,
+        "site_title": null,
+        "pagebuilder_path_for_native_apps": null,
+        "site_about": null,
+        "site_tagline": null,
+        "site_keywords": null,
+        "site_description": null
+    },
+    "site_topper": {
+        "site_logo_image": null
+    },
+    "navigation": {
+        "nav_title": null
+    },
+    "acumuladoColor": {
+        "header_class_name": "No"
+    },
+    "acumuladoGeneral": {
+        "mostrar_en_acu_apps": "true"
+    },
+    "Termicas": {
+        "weather": null,
+        "dolar": null,
+        "hide_listening_articles": null
+    },
+    "bannerConfig": {
+        "home_cabezal_tab": null
+    },
+    "Resumen": {
+        "temperature": "0",
+        "presence_penalty": "-2",
+        "frequency_penalty": "2",
+        "max_tokens": "3000",
+        "prompt_max_tokens": null
+    },
+    "name": "Saladas",
+    "_website": "foodit",
+    "parent": {
+        "default": "/recetas",
+        "navigationRedaccion": "/recetas",
+        "header_menu_foodit": "/recetas"
+    },
+    "ancestors": {
+        "default": [
+            "/recetas"
+        ],
+        "navigationRedaccion": [
+            "/",
+            "/recetas"
+        ],
+        "header_menu_foodit": [
+            "/",
+            "/recetas"
+        ]
+    },
+    "_admin": {
+        "alias_ids": [
+            "/recetas/saladas"
+        ]
+    },
+    "inactive": false,
+    "node_type": "section",
+    "order": {
+        "navigationRedaccion": 2003,
+        "header_menu_foodit": 2001
+    },
+    "children": [
+        {
+            "_id": "/recetas/saladas/arroz",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Arroz",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": "/recetas/saladas"
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ]
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/arroz"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3010,
+                "header_menu_foodit": 3001
+            },
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/tartas",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Tartas",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": "/recetas/saladas"
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ]
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/tartas"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3011,
+                "header_menu_foodit": 3002
+            },
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/pollo",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Pollo",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": "/recetas/saladas"
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ]
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/pollo"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3009,
+                "header_menu_foodit": 3003
+            },
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/pizza-y-empanadas",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/pizza-y-empanadas"
+                ]
+            },
+            "_website": "foodit",
+            "name": "Pizzas y empanadas",
+            "order": {
+                "navigationRedaccion": 3008,
+                "header_menu_foodit": 3004
+            },
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": "/recetas/saladas"
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/pastas",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Pastas",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": "/recetas/saladas"
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ]
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/pastas"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3007,
+                "header_menu_foodit": 3005
+            },
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/pescados",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Pescados",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": "/recetas/saladas"
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ]
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/pescados"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3006,
+                "header_menu_foodit": 3006
+            },
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/carnes",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Carnes",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": "/recetas/saladas"
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ]
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/carnes"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3005,
+                "header_menu_foodit": 3007
+            },
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/salsas",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Salsas",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": null
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": []
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/salsas"
+                ]
+            },
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3002
+            },
+            "inactive": false,
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/ensaladas",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Ensaladas",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "navigationRedaccion": "/recetas/saladas",
+                "header_menu_foodit": null
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "navigationRedaccion": [
+                    "/",
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": []
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/ensaladas"
+                ]
+            },
+            "node_type": "section",
+            "order": {
+                "navigationRedaccion": 3001
+            },
+            "inactive": false,
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/hamburguesas",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Hamburguesas",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "header_menu_foodit": null
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": []
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/hamburguesas"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {},
+            "children": []
+        },
+        {
+            "_id": "/recetas/saladas/sopas",
+            "social": {
+                "rss": null,
+                "instagram": null,
+                "twitter": null,
+                "facebook": null
+            },
+            "site": {
+                "site_url": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_tagline": null,
+                "site_keywords": null,
+                "site_description": null
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "acumuladoColor": {
+                "header_class_name": "No"
+            },
+            "acumuladoGeneral": {
+                "mostrar_en_acu_apps": "true"
+            },
+            "Termicas": {
+                "weather": null,
+                "dolar": null,
+                "hide_listening_articles": null
+            },
+            "bannerConfig": {
+                "home_cabezal_tab": null
+            },
+            "Resumen": {
+                "temperature": "0",
+                "presence_penalty": "-2",
+                "frequency_penalty": "2",
+                "max_tokens": "3000",
+                "prompt_max_tokens": null
+            },
+            "name": "Sopas",
+            "_website": "foodit",
+            "parent": {
+                "default": "/recetas/saladas",
+                "header_menu_foodit": null
+            },
+            "ancestors": {
+                "default": [
+                    "/recetas",
+                    "/recetas/saladas"
+                ],
+                "header_menu_foodit": []
+            },
+            "_admin": {
+                "alias_ids": [
+                    "/recetas/saladas/sopas"
+                ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {},
+            "children": []
+        }
+    ],
+    "date": "16 de agosto"
+}

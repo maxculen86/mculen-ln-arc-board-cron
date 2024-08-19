@@ -51,7 +51,7 @@ const fetch = (query, { cachedCall } = {}) => {
                     cachedCall
                 ));
 
-            let imageUrl =
+            const imageUrl =
                 get(response, 'image.url', '') || get(response, 'image', '');
 
             return {
