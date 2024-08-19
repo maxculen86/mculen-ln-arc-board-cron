@@ -29,7 +29,8 @@ export default function CommonCollection({
     layout,
     isContentLab100,
     isExclusiveSub,
-    isFoodit
+    isFoodit,
+    children = null
 }) {
     const { linkButton, titleLink } = roofData;
     const hrefButtonFoodit = isFoodit && linkButton;
@@ -99,6 +100,7 @@ export default function CommonCollection({
                     );
                 })}
             </ContainerCards>
+            {children}
         </>
     );
 }

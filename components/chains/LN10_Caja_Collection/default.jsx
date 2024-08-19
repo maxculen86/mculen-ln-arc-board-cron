@@ -10,7 +10,7 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
-import { CHAIN_STYLE } from '../utils/common/_helpers-WebApi';
+import { CHAIN_STYLE, LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import checkChildInSection from '../utils/checkChildBySection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
@@ -28,6 +28,8 @@ import bannersHome from '../../private/common/banners/bannersDivHome';
 import StaticContentV2 from '../LN10-global/staticContentV2';
 import CajaFooditEventScript from '../../private/common/scriptManager/scriptDataLayerCajaFoodit';
 
+const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
+
 const CajaCollection = props => {
     const {
         id: chainId,
@@ -35,7 +37,8 @@ const CajaCollection = props => {
         customFields,
         renderables = [],
         tree = {},
-        layout: pageLayout
+        layout: pageLayout,
+        children
     } = props;
 
     const {
@@ -81,6 +84,8 @@ const CajaCollection = props => {
 
     const isFoodit = chainStyle === CHAIN_STYLE.FOODIT;
 
+    const isGrid6MasTimeline = layout === BN_6_GRID_MAS_TIMELINE;
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
               notesQuantity: rules.length || notesQuantity,
@@ -109,7 +114,8 @@ const CajaCollection = props => {
         articles: _articles,
         chainId,
         chainStyle,
-        isInBreakings
+        isInBreakings,
+        isGrid6MasTimeline
     });
 
     const isExclusiveSub = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
@@ -159,6 +165,7 @@ const CajaCollection = props => {
                                 )}
                                 isExclusiveSub={isExclusiveSub}
                                 isFoodit={isFoodit}
+                                children={isGrid6MasTimeline ? children : null}
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>

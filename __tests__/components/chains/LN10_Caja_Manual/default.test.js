@@ -62,7 +62,7 @@ describe('Tests Chain CajaManual', () => {
     });
 
     describe('Tests for the case warnning', () => {
-        test('should return a warning when there is no layout defined', () => {
+        it('should return a warning when there is no layout defined', () => {
             render(<CajaManual {...getProps({ customFields })} />);
 
             expect(
@@ -74,7 +74,7 @@ describe('Tests Chain CajaManual', () => {
             ).toBeVisible();
         });
 
-        test('Should return a warning specifying a minimum item load', () => {
+        it('Should return a warning specifying a minimum item load', () => {
             const fields = {
                 ...customFields,
                 layout: 'bnGrilla4'
@@ -94,7 +94,7 @@ describe('Tests Chain CajaManual', () => {
             ).toBeVisible();
         });
 
-        test('should return a warning when adding a feature other than LN10 Article', () => {
+        it('should return a warning when adding a feature other than LN10 Article', () => {
             const fields = {
                 ...customFields,
                 layout: 'bnGrilla4'
@@ -124,7 +124,7 @@ describe('Tests Chain CajaManual', () => {
     });
 
     describe('Tests for the case of BN grid 8 and 4', () => {
-        test('should return a grid of 4 items', () => {
+        it('should return a grid of 4 items', () => {
             const fields = {
                 ...customFields,
                 layout: 'bnGrilla4'
@@ -151,7 +151,7 @@ describe('Tests Chain CajaManual', () => {
             ).toHaveLength(4);
         });
 
-        test('should return a warning when adding a feature other than LN10 Article', () => {
+        it('should return a warning when adding a feature other than LN10 Article', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn_3_grid'
@@ -181,7 +181,7 @@ describe('Tests Chain CajaManual', () => {
     });
 
     describe('Tests for the case of BN grid 8 and 4 and 3', () => {
-        test('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
+        it('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn_3_grid'
@@ -217,7 +217,7 @@ describe('Tests Chain CajaManual', () => {
             ).toHaveLength(3);
         });
 
-        test('should return a warning when adding a feature other than LN10 Article', () => {
+        it('should return a warning when adding a feature other than LN10 Article', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn_3_grid'
@@ -247,7 +247,7 @@ describe('Tests Chain CajaManual', () => {
     });
 
     describe('Tests for the case of BN grid 8 and 4 and 3', () => {
-        test('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
+        it('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn_3_grid'
@@ -283,7 +283,7 @@ describe('Tests Chain CajaManual', () => {
             ).toHaveLength(3);
         });
 
-        test('should return a warning when adding a feature other than LN10 Article', () => {
+        it('should return a warning when adding a feature other than LN10 Article', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn_3_grid'
@@ -313,7 +313,7 @@ describe('Tests Chain CajaManual', () => {
     });
 
     describe('Tests for the case of BN grid 8 and 4 and 3', () => {
-        test('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
+        it('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn_3_grid'
@@ -349,7 +349,7 @@ describe('Tests Chain CajaManual', () => {
             ).toHaveLength(3);
         });
 
-        test('should return a grid of 8 items', () => {
+        it('should return a grid of 8 items', () => {
             const fields = {
                 ...customFields,
                 layout: 'bnGrilla8'
@@ -383,7 +383,7 @@ describe('Tests Chain CajaManual', () => {
     });
 
     describe('Tests for the case of Content Lab', () => {
-        test('should return a grid of 1 items', () => {
+        it('should return a grid of 1 items', () => {
             const fields = {
                 ...customFields,
                 layout: 'cajaContent1'
@@ -405,6 +405,58 @@ describe('Tests Chain CajaManual', () => {
             expect(
                 container.getElementsByClassName('content-lab')
             ).toHaveLength(1);
+        });
+    });
+
+    describe('Tests for the case BN Grilla 6 + Timeline layout', () => {
+        it('should return a warning if LN_TIMELINE feature is missing in BN Grilla 6 + Timeline layout', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_6_grid_timeline'
+            };
+
+            render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields
+                    })}
+                />
+            );
+
+            expect(
+                screen.getByRole('heading', { name: 'Advertencia' })
+            ).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'Esta diagramación requiere el feature LN10 Timeline'
+                )
+            ).toBeVisible();
+        });
+
+        it('should not return a warning if LN_TIMELINE feature is present in BN Grilla 6 + Timeline layout', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_6_grid_timeline'
+            };
+
+            render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        childProps: [
+                            ...mockChildProps,
+                            { collection: 'features', type: 'LN-10/timeline' }
+                        ]
+                    })}
+                />
+            );
+
+            expect(
+                screen.queryByText(
+                    'Esta diagramación requiere el feature LN10 Timeline'
+                )
+            ).toBeNull();
         });
     });
 });

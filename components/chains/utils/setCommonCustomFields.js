@@ -37,6 +37,7 @@ const customFieldsRules = {
             bn_2_1_2_grid: 'BN 2 + Focal 1+2',
             'hash-1-2-2-2_grid': 'HashTag',
             cajaContent1: 'Caja Content',
+            bn_6_grid_timeline: 'BN Grilla 6 + Timeline',
             bn_1_grid: 'BN 1 nota',
             bn_2_grid: 'BN Grilla 2',
             bn_3_grid: 'BN Grilla 3',
@@ -59,6 +60,7 @@ const customFieldsRules = {
         groupName: 'Ajuste Manual',
         layouts: {
             bnGrilla4: 'BN Grilla 4',
+            bn_6_grid_timeline: 'BN Grilla 6 + Timeline',
             bnGrilla8: 'BN Grilla 8',
             cajaContent1: 'Caja Content',
             bn_1_grid: 'BN 1 nota',

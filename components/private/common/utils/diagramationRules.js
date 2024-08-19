@@ -467,6 +467,86 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             }
         ],
+        bn_6_grid_timeline: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            }
+        ],
         bnGrilla8: [
             {
                 imagePosition: {

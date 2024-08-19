@@ -62,7 +62,7 @@ describe('Tests Chain CajaCollection', () => {
     });
 
     describe('Tests for the case warnning', () => {
-        test('should return a warning when there is no layout defined', () => {
+        it('should return a warning when there is no layout defined', () => {
             render(<CajaCollection {...getProps({ customFields })} />);
 
             expect(
@@ -74,7 +74,7 @@ describe('Tests Chain CajaCollection', () => {
             ).toBeVisible();
         });
 
-        test('should return a warning when they do not specify a collection id', () => {
+        it('should return a warning when they do not specify a collection id', () => {
             const fields = {
                 ...customFields,
                 layout: 'bnGrilla4'
@@ -94,7 +94,7 @@ describe('Tests Chain CajaCollection', () => {
             ).toBeVisible();
         });
 
-        test("should return a warning when the collectionSource doesn't find notes.", () => {
+        it("should return a warning when the collectionSource doesn't find notes.", () => {
             const fields = {
                 ...customFields,
                 layout: 'bnGrilla4',
@@ -120,7 +120,7 @@ describe('Tests Chain CajaCollection', () => {
             ).toBeVisible();
         });
 
-        test('should return a warning when the layout is bn-4-8 and chainStyle is not include in VERTICALS chains', () => {
+        it('should return a warning when the layout is bn-4-8 and chainStyle is not include in VERTICALS chains', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn-4-8',
@@ -147,7 +147,7 @@ describe('Tests Chain CajaCollection', () => {
             ).toBeVisible();
         });
 
-        test('Should return a warning when the layout is hashtag and the number of articles is less than 7 ', () => {
+        it('Should return a warning when the layout is hashtag and the number of articles is less than 7 ', () => {
             const fields = {
                 ...customFields,
                 layout: 'Hashtag',
@@ -182,7 +182,7 @@ describe('Tests Chain CajaCollection', () => {
             idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
         };
 
-        test('should return a grid of 4 items', () => {
+        it('should return a grid of 4 items', () => {
             useGetArticleInCollection.mockImplementation(() => responseSource);
 
             render(
@@ -198,7 +198,7 @@ describe('Tests Chain CajaCollection', () => {
             expect(screen.getAllByRole('article')).toHaveLength(4);
         });
 
-        test('should return a grid of 8 items', () => {
+        it('should return a grid of 8 items', () => {
             useGetArticleInCollection.mockImplementation(() => [
                 ...responseSource,
                 ...responseSource
@@ -215,7 +215,7 @@ describe('Tests Chain CajaCollection', () => {
             expect(screen.getAllByRole('article')).toHaveLength(8);
         });
 
-        test('should return a grid of 3 items with variant autor, liveblog, html or regular', () => {
+        it('should return a grid of 3 items with variant autor, liveblog, html or regular', () => {
             const fields = {
                 ...customFields,
                 layout: 'bn_3_grid',
@@ -249,7 +249,7 @@ describe('Tests Chain CajaCollection', () => {
             ).toBeTruthy();
         });
 
-        test('should show the "bajada" when the article has no imaget', () => {
+        it('should show the "bajada" when the article has no imaget', () => {
             useGetArticleInCollection.mockImplementation(() => [
                 responseSource[3]
             ]);
@@ -351,7 +351,7 @@ describe('Tests Chain CajaCollection', () => {
             idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
         };
 
-        test('should return a grid of 1 items', () => {
+        it('should return a grid of 1 items', () => {
             useGetArticleInCollection.mockImplementation(() =>
                 responseSource.slice(0, 1)
             );
@@ -370,7 +370,7 @@ describe('Tests Chain CajaCollection', () => {
             ).toHaveLength(1);
         });
 
-        test('Should render the box with the --4xl class when rendering in the content section.', () => {
+        it('Should render the box with the --4xl class when rendering in the content section.', () => {
             useGetArticleInCollection.mockImplementation(() =>
                 responseSource.slice(0, 1)
             );
@@ -388,7 +388,7 @@ describe('Tests Chain CajaCollection', () => {
             expect(container.querySelector('.--4xl')).toBeDefined();
         });
 
-        test('Should render the box with the 3xl class when rendering in sections other than content.', () => {
+        it('Should render the box with the 3xl class when rendering in sections other than content.', () => {
             useGetArticleInCollection.mockImplementation(() =>
                 responseSource.slice(0, 1)
             );
@@ -418,7 +418,7 @@ describe('Tests Chain CajaCollection', () => {
             idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
         };
 
-        test('should render banner mob returned from getDynamicBanners', () => {
+        it('should render banner mob returned from getDynamicBanners', () => {
             getDynamicBanners.mockImplementation(() => ({
                 bannerMob: (
                     <DivBannerSSR
@@ -446,7 +446,7 @@ describe('Tests Chain CajaCollection', () => {
             expect(container).toMatchSnapshot();
         });
 
-        test('should render banner dsk returned from getDynamicBanners', () => {
+        it('should render banner dsk returned from getDynamicBanners', () => {
             getDynamicBanners.mockImplementation(() => ({
                 bannerDsk: (
                     <DivBannerSSR
@@ -474,7 +474,7 @@ describe('Tests Chain CajaCollection', () => {
             expect(container).toMatchSnapshot();
         });
 
-        test('should render banner subscriber when chain style is sub-exclusive', () => {
+        it('should render banner subscriber when chain style is sub-exclusive', () => {
             const { container } = render(
                 <CajaCollection
                     {...{
@@ -492,6 +492,77 @@ describe('Tests Chain CajaCollection', () => {
 
             expect(container.querySelector('.banner-subscriber')).toBeVisible();
             expect(container).toMatchSnapshot();
+        });
+    });
+
+    describe('Tests for the case BN Grilla 6 + Timeline layout', () => {
+        it('should return a warning if LN_TIMELINE feature is missing in BN Grilla 6 + Timeline layout', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_6_grid_timeline',
+                idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
+            };
+
+            useGetArticleInCollection.mockImplementation(() => [
+                ...responseSource,
+                ...responseSource
+            ]);
+
+            render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields
+                    })}
+                />
+            );
+
+            expect(
+                screen.getByRole('heading', { name: 'Advertencia' })
+            ).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'Esta diagramación requiere el feature LN10 Timeline'
+                )
+            ).toBeVisible();
+        });
+
+        it('should not return a warning if LN_TIMELINE feature is present in BN Grilla 6 + Timeline layout', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_6_grid_timeline',
+                idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
+            };
+
+            const renderables = [
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Collection',
+                    props: {
+                        collection: 'chains',
+                        type: 'LN10_Caja_Collection',
+                        id: 'c0fmf5CDUJhwID'
+                    },
+                    children: [
+                        { collection: 'features', type: 'LN-10/timeline' }
+                    ]
+                }
+            ];
+
+            render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields,
+                        renderablesData: renderables
+                    })}
+                />
+            );
+
+            expect(
+                screen.queryByText(
+                    'Esta diagramación requiere el feature LN10 Timeline'
+                )
+            ).toBeNull();
         });
     });
 });

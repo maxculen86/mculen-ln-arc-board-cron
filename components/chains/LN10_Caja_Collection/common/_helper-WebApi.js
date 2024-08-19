@@ -12,6 +12,10 @@ import { validateStyle } from '../../utils/checkValidationStyle';
 
 const { GRILLA4VERTICALES } = LAYOUTS;
 const { HASHTAG, SUB_EXCLUSIVE } = CHAIN_STYLE;
+const LN_TIMELINE = 'LN-10/timeline';
+const LN10_CAJA_COLLECTION = 'LN10_Caja_Collection';
+const COLLECTION_CHAIN = 'chains';
+const COLLECTION_FEATURES = 'features';
 
 export const validateChain = ({
     idCollection,
@@ -20,11 +24,13 @@ export const validateChain = ({
     renderables = [],
     chainId,
     isInBreakings,
-    chainStyle
+    chainStyle,
+    isGrid6MasTimeline
 }) => {
     const articlesLength = get(articles, 'length');
     const minimum = setQuantityByLayout({ layout });
     const validateStyleBox = validateStyle(layout, chainStyle);
+
     const rules = [
         {
             validation: !layout,
@@ -70,6 +76,22 @@ export const validateChain = ({
             validation: !isInBreakings && chainStyle === SUB_EXCLUSIVE,
             message:
                 'La caja collection exclusivo suscriptor debe estar dentro de las secciones Breaking 1 y Breaking 2'
+        },
+        {
+            validation:
+                isGrid6MasTimeline &&
+                !renderables.find(({ collection, type, children }) => {
+                    return (
+                        collection === COLLECTION_CHAIN &&
+                        type === LN10_CAJA_COLLECTION &&
+                        children.some(
+                            ({ collection, type }) =>
+                                collection === COLLECTION_FEATURES &&
+                                type === LN_TIMELINE
+                        )
+                    );
+                }),
+            message: 'Esta diagramación requiere el feature LN10 Timeline'
         },
         {
             validation: articlesLength < minimum,
