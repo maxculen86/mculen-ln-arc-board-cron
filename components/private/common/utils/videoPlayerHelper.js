@@ -1,5 +1,5 @@
 export const addToDataLayer = (eventName, titulo, id) => {
-    window.dataLayer.push({
+    window?.dataLayer?.push({
         event: eventName,
         videoName: titulo,
         videoID: id

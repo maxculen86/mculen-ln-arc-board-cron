@@ -7,7 +7,12 @@ export const ERRORS = {
     PROPS: 'Debe especificar props: location o name'
 };
 
-export default (components, settings = {}, globalContent = {}) => {
+export default (
+    components,
+    settings = {},
+    globalContent = {},
+    isArcPreview = false
+) => {
     if (
         !components ||
         typeof components !== 'object' ||
@@ -16,34 +21,37 @@ export default (components, settings = {}, globalContent = {}) => {
     )
         throw new Error(ERRORS.ARGUMENTS_COMPONENTS);
 
-    const componentsName = Object.keys(components);
-
     return props => {
         const { location, name } = props;
 
         if (!(location || name)) throw new Error(ERRORS.PROPS);
 
-        return componentsName
-            .filter(
-                type =>
-                    name === type ||
-                    ((settings[type] || {}).location || []).indexOf(location) >=
-                        0
-            )
-            .map(type => {
-                const { props: properties } = settings[type] || {};
+        return Object.keys(components).reduce((acc, type) => {
+            const {
+                location: settingsLocation = [],
+                props: componentProps = {}
+            } = settings[type] || {};
+
+            if (
+                name === type ||
+                (settingsLocation.indexOf(location) >= 0 &&
+                    !(isArcPreview && componentProps?.excludeInArcPreview))
+            ) {
                 const Script = components[type];
 
-                if (!Script) return false;
+                if (Script) {
+                    acc.push(
+                        <Script
+                            key={type}
+                            location={location}
+                            {...componentProps}
+                            globalContent={globalContent}
+                        />
+                    );
+                }
+            }
 
-                return (
-                    <Script
-                        location={location}
-                        {...properties}
-                        globalContent={globalContent}
-                    />
-                );
-            })
-            .filter(Boolean);
+            return acc;
+        }, []);
     };
 };
