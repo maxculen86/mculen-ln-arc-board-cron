@@ -11,6 +11,12 @@ const isValidDate = (publishDate = '') => {
 const hasParagraphs = contentElements =>
     contentElements.some(({ type = '' } = {}) => type === 'text');
 
+const isSectionNoListenable = data => {
+    const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
+    const regex = new RegExp('^/(estados-unidos|juegos|newsletters)', 'i');
+    return regex.test(primarySectionId);
+};
+
 const isNoteListenable = data => {
     const sourceOrigin = get(data, 'source.system', '');
     const subtype = get(data, 'subtype', '');
@@ -22,7 +28,8 @@ const isNoteListenable = data => {
         sourceOrigin === 'composer' &&
         labelAudioNews &&
         textAudioNews !== 'No mostrar audio' &&
-        hasParagraphs(contentElements)
+        hasParagraphs(contentElements) &&
+        !isSectionNoListenable(data)
     ) {
         const date = get(data, 'last_updated_date', '');
         const { disableSubtypes } = config;
@@ -42,7 +49,8 @@ export const isNoteListenableHome = data => {
     if (
         (sourceOrigin === 'composer' || sourceOrigin === '') &&
         labelAudioNews &&
-        textAudioNews !== 'No mostrar audio'
+        textAudioNews !== 'No mostrar audio' &&
+        !isSectionNoListenable(data)
     ) {
         const date = get(
             data,

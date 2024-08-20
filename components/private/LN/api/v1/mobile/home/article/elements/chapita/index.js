@@ -18,7 +18,7 @@ const getChapitaText = (labelChapitaText, propertiesChapita) => {
 };
 
 const getAdditionalPropertiesChapitaStyle = article => {
-    let additionalPropertiesChapitaStyle = get(
+    const additionalPropertiesChapitaStyle = get(
         article,
         'additionalProperties.chapitaStyle',
         null
@@ -59,7 +59,7 @@ export const getBadgebyConfig = article => {
         'additionalProperties.chapita',
         null
     );
-    let additionalPropertiesChapitaStyle = getAdditionalPropertiesChapitaStyle(
+    const additionalPropertiesChapitaStyle = getAdditionalPropertiesChapitaStyle(
         article
     );
 

@@ -47,11 +47,11 @@ describe('Test - isNoteListenable', () => {
             ]
         ];
 
-        test.each(casesTruthy)('%s', (message, data) => {
+        it.each(casesTruthy)('%s', (message, data) => {
             expect(isNoteListenable(data)).toBeTruthy();
         });
 
-        test('should return false when the publish date is before 23/11/2023', () => {
+        it('should return false when the publish date is before 23/11/2023', () => {
             expect(
                 isNoteListenable({
                     ...data,
@@ -72,7 +72,7 @@ describe('Test - isNoteListenable', () => {
             last_updated_date: '2023-11-24T18:06:59.601Z'
         };
 
-        test('It should return true when the source is composer, the subtype is enabled, and the publish date is 23/11/2023 onwards.', () => {
+        it('It should return true when the source is composer, the subtype is enabled, and the publish date is 23/11/2023 onwards.', () => {
             expect(isNoteListenable(response)).toBeTruthy();
         });
 
@@ -149,10 +149,54 @@ describe('Test - isNoteListenable', () => {
                         }
                     }
                 }
+            ],
+            [
+                'Should return false when the primary section is "estados-unidos"',
+                {
+                    ...response,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/estados-unidos'
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return false when the primary section is "juegos"',
+                {
+                    ...response,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/juegos'
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return false when the primary section is "newsletters"',
+                {
+                    ...response,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/newsletters'
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return false when the primary section is "/estados-unidos/california"',
+                {
+                    ...response,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/estados-unidos/california'
+                        }
+                    }
+                }
             ]
         ];
 
-        test.each(casesFalsy)('%s', (message, response) => {
+        it.each(casesFalsy)('%s', (message, response) => {
             expect(isNoteListenable(response)).toBeFalsy();
         });
     });
