@@ -13,8 +13,8 @@ describe('Private - Common - siteMapList', () => {
     describe('replacePlaceholders', () => {
         it('should replace placeholders in href correctly', () => {
             const input = [
-                { text: 'Home', href: '{SITE_LANACION}/home' },
-                { text: 'Subscribe', href: '{SITIO_SEGURO_REGISTRACION}' }
+                { text: 'Home', href: '${SITE_LANACION}/home' },
+                { text: 'Subscribe', href: '${SITIO_SEGURO_REGISTRACION}' }
             ];
 
             const expected = [
@@ -30,7 +30,10 @@ describe('Private - Common - siteMapList', () => {
         it('should correctly replace placeholders in mapListSection', () => {
             const expected = mapListSection.map(section => ({
                 ...section,
-                items: replacePlaceholders(section.items)
+                sections: section.sections.map(sec => ({
+                    ...sec,
+                    list: replacePlaceholders(sec.list)
+                }))
             }));
 
             expect(siteMapListSectionLink).toEqual(expected);
