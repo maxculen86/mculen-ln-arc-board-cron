@@ -32,7 +32,6 @@ import {
 } from '../../../../../__mocks__/data/renderables/renderablesLN10eager.js';
 import { size } from '../../../../../components/private/common/utils/diagramationRules';
 import { getMockRenderables } from '../../../../../__mocks__/data/renderables/renderablesForPreload';
-import { getShortestImage } from '../../../../../components/private/LN/common/utils/mediaHelper';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
     const getProps = ({
@@ -58,7 +57,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/sITCH5csTmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
     const iframeWithoutSrc =
-        '<iframe width="560" height="315"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/sITCH5csTmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
     describe('Test function showSubHeadText', () => {
         it('should show subHead', () => {

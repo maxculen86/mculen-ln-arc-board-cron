@@ -314,7 +314,7 @@ export const getMediaData = ({
             validation: html.trim(),
             data: {
                 type: 'embedCode',
-                embedCode: isAdmin ? html : html.replace(/src="(.*?)"/, ''),
+                embedCode: html,
                 dataSrc: html && html !== ' ' && html.match(/src="(.*?)"/)[1]
             }
         },
@@ -403,7 +403,6 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
 
 export const getTypeOfMedia = (customFields = {}) => {
     const { video, html } = customFields;
-
     if (html) return typeMedia.HTML;
     if (video) return typeMedia.VIDEO;
     return typeMedia.IMAGE;
