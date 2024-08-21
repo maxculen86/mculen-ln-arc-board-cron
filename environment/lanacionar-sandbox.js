@@ -86,8 +86,10 @@ export default {
     AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
     AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',
     AUDIONEWS_APIKEY: 'iviw9999Fp1pqX7e6c18n4VwvChUctzu1DraBnAE',
-    API_KEY_ARC_SERVICES: '82816e61-c4ff-4ccf-96c4-d809ca7b418f',
-    API_KEY_ARC_SERVICES_PROD: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
+    API_KEY_ARC_SERVICES:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGVtL6D05n1qBS+FZ1snZ2aAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJkSKWmqE+lK4ElWVwIBEIA/hXbb5b5JTYv6ym8qNVzsywSH90F+dkEDnYqOW/3Vwbqn05Z6BtLO+bNFeiIaM7G8otc9bJ5LmGMyjgfUwJFq}',
+    API_KEY_ARC_SERVICES_PROD:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF2kMZIhz29Q30zHF2gdKgSAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDoOvd6Q+DEhTuuDnQIBEIA/m6WCr7UFsNakDXPYPewFGKeb0EAxOH5CGWHIr3uBrJzPVuSy4o0+Wdz0cSI6xB65uEELKyJkHF/rUfoOuQbQ}',
     VIDEO_CDN_URL: 'https://lanacionar-sandbox.video.arc-cdn.net/',
     // TODO: CUando reestablezcan QA cambiar a URL de QA
     LOGIN_URL: 'https://pre-ingresar.lanacion.com.ar/auth0-login/?callback=',

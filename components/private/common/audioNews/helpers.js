@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React from 'react';
+import { DOMINIO_COOKIE } from 'fusion:environment';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
@@ -42,6 +43,8 @@ export const setCookie = (name, value, days) => {
         encodeURIComponent(value) +
         '; expires=' +
         expires +
+        '; domain=' +
+        DOMINIO_COOKIE +
         '; path=/';
 };
 

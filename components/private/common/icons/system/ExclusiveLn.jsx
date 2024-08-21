@@ -10,7 +10,7 @@ const ExclusiveLn = () => {
             xmlns="http://www.w3.org/2000/svg"
         >
             <rect width="16" height="16" rx="8" fill="#FDB727" />
-            <g clip-path="url(#clip0_9182_46364)">
+            <g clipPath="url(#clip0_9182_46364)">
                 <path
                     fillRule="evenodd"
                     clipRule="evenodd"

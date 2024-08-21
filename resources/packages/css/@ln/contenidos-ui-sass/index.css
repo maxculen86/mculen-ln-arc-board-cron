@@ -1151,10 +1151,6 @@ button {
   outline: none;
 }
 
-html {
-  scrollbar-gutter: stable;
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
@@ -3536,6 +3532,9 @@ strong:not(.--font-primary),
 
 .transition.transition-all {
   transition-property: all;
+}
+.transition.transition-none {
+  transition-property: none;
 }
 .transition.transition-ease-in {
   transition-timing-function: ease-in;

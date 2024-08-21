@@ -6,12 +6,16 @@ const ListSection = ({
     title = '',
     list = [],
     titleSize = '--l',
-    titleTag = 'h2'
-}) => (
-    <div className="col-6 col-tablet-3">
-        <Title content={title} tag={titleTag} size={titleSize} />
-        <List mod="">{list}</List>
-    </div>
-);
+    titleTag = 'h2',
+    mod = '',
+    className = ''
+}) => {
+    return (
+        <div className={className}>
+            <Title content={title} tag={titleTag} size={titleSize} />
+            <List mod={mod}>{list}</List>
+        </div>
+    );
+};
 
 export default ListSection;

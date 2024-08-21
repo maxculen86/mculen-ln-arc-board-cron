@@ -26,16 +26,31 @@ const LNMapaDelSitio = ({ children }) => {
                 <main id="content">
                     <div className="lay">
                         <Title tag="h1" size="--l" content="Mapa del sitio" />
-                        {siteMapListSectionLink.map((section, index) => (
-                            <div className="row" key={index}>
-                                <ListSection
-                                    title={section.title}
-                                    list={section.list}
-                                    titleSize={section.titleSize}
-                                    titleTag={section.titleTag}
-                                />
-                            </div>
-                        ))}
+                        <div className="row">
+                            {siteMapListSectionLink.map(
+                                (sectionContainer, containerIndex) => (
+                                    <div
+                                        key={containerIndex}
+                                        className={sectionContainer.className}
+                                    >
+                                        {sectionContainer.sections.map(
+                                            (section, sectionIndex) => (
+                                                <ListSection
+                                                    key={sectionIndex}
+                                                    title={section.title}
+                                                    list={section.list}
+                                                    titleSize={
+                                                        section.titleSize
+                                                    }
+                                                    titleTag={section.titleTag}
+                                                    mod={section.mod}
+                                                />
+                                            )
+                                        )}
+                                    </div>
+                                )
+                            )}
+                        </div>
                     </div>
                 </main>
                 {/* <Footer /> */}

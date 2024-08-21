@@ -37,7 +37,11 @@ const ToggleButton = ({ contentVariant, handleToggle }) => {
                     handleClick('article', 'escuchar_completo');
                 }}
             >
-                <Icon size={24} color="inherit">
+                <Icon
+                    size={24}
+                    color="inherit"
+                    className="transition transition-none"
+                >
                     <IconSprite name="article" />
                 </Icon>
                 <Text>nota completa</Text>
@@ -53,7 +57,11 @@ const ToggleButton = ({ contentVariant, handleToggle }) => {
                     handleClick('summary', 'escuchar_resumen');
                 }}
             >
-                <Icon size={16} color="inherit">
+                <Icon
+                    size={16}
+                    color="inherit"
+                    className="transition transition-none"
+                >
                     <IconSprite name="summary" />
                 </Icon>
                 <Text>resumen con ia</Text>

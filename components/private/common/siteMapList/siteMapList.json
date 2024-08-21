@@ -1,232 +1,336 @@
 [
     {
-        "section": "listado1",
-        "items": [
-            { "text": "LA NACION", "href": "${SITE_LANACION}/" },
+        "className": "col-6 col-tablet-3",
+        "sections": [
             {
-                "text": "Últimas noticias",
-                "href": "${SITE_LANACION}/ultimas-noticias/"
+                "title": "",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "--font-bold",
+                "list": [
+                    { "text": "LA NACION", "href": "${SITE_LANACION}/" },
+                    {
+                        "text": "Últimas noticias",
+                        "href": "${SITE_LANACION}/ultimas-noticias/"
+                    },
+                    {
+                        "text": "Política",
+                        "href": "${SITE_LANACION}/politica/"
+                    },
+                    {
+                        "text": "Economía",
+                        "href": "${SITE_LANACION}/economía/"
+                    },
+                    {
+                        "text": "El mundo",
+                        "href": "${SITE_LANACION}/el-mundo/"
+                    },
+                    {
+                        "text": "Sociedad",
+                        "href": "${SITE_LANACION}/sociedad/"
+                    },
+                    { "text": "Opinión", "href": "${SITE_LANACION}/opinion/" },
+                    {
+                        "text": "Deportes",
+                        "href": "${SITE_LANACION}/deportes/"
+                    },
+                    {
+                        "text": "Lifestyle",
+                        "href": "${SITE_LANACION}/lifestyle/"
+                    },
+                    {
+                        "text": "Espectáculos",
+                        "href": "${SITE_LANACION}/espectaculos/"
+                    },
+                    {
+                        "text": "Edición impresa",
+                        "href": "https://edicionimpresa.lanacion.com.ar/la-nacion/"
+                    },
+                    {
+                        "text": "Club LA NACION",
+                        "href": "https://club.lanacion.com.ar/"
+                    }
+                ]
             },
-            { "text": "Política", "href": "${SITE_LANACION}/politica/" },
-            { "text": "Economía", "href": "${SITE_LANACION}/economía/" },
-            { "text": "El mundo", "href": "${SITE_LANACION}/el-mundo/" },
-            { "text": "Sociedad", "href": "${SITE_LANACION}/sociedad/" },
-            { "text": "Opinión", "href": "${SITE_LANACION}/opinion/" },
-            { "text": "Deportes", "href": "${SITE_LANACION}/deportes/" },
-            { "text": "Lifestyle", "href": "${SITE_LANACION}/lifestyle/" },
             {
-                "text": "Espectáculos",
-                "href": "${SITE_LANACION}/espectaculos/"
+                "title": "",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    { "text": "LN+", "href": "https://lnmas.lanacion.com.ar/" },
+                    {
+                        "text": "Suscribite",
+                        "href": "${SITIO_SEGURO_REGISTRACION}/suscribirme/"
+                    },
+                    {
+                        "text": "Acceso a PDF",
+                        "href": "https://edicionimpresa.lanacion.com.ar/la-nacion/"
+                    },
+                    {
+                        "text": "Ayuda",
+                        "href": "https://www.contacto.lanacion.com.ar/ayuda/"
+                    },
+                    {
+                        "text": "Cómo anunciar",
+                        "href": "https://www.lanacion.in/"
+                    }
+                ]
             },
             {
-                "text": "Edición impresa",
-                "href": "https://edicionimpresa.lanacion.com.ar/la-nacion/"
-            },
-            {
-                "text": "Club LA NACION",
-                "href": "https://club.lanacion.com.ar/"
+                "title": "LA NACION en las redes",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    {
+                        "text": "Twitter",
+                        "href": "https://twitter.com/LANACION/",
+                        "rel": "nofollow",
+                        "target": "_blank"
+                    },
+                    {
+                        "text": "Facebook",
+                        "href": "https://www.facebook.com/lanacion/",
+                        "rel": "nofollow",
+                        "target": "_blank"
+                    },
+                    {
+                        "text": "Instagram",
+                        "href": "https://www.instagram.com/lanacioncom/",
+                        "rel": "nofollow",
+                        "target": "_blank"
+                    },
+                    {
+                        "text": "Youtube",
+                        "href": "https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA/",
+                        "rel": "nofollow",
+                        "target": "_blank"
+                    }
+                ]
             }
         ]
     },
     {
-        "section": "listado2",
-        "items": [
-            { "text": "LN+", "href": "https://lnmas.lanacion.com.ar/" },
+        "className": "col-6 col-tablet-3",
+        "sections": [
             {
-                "text": "Suscribite",
-                "href": "${SITIO_SEGURO_REGISTRACION}/suscribirme/"
+                "title": "Edición impresa",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    {
+                        "text": "Al volante",
+                        "href": "${SITE_LANACION}/autos/al-volante/"
+                    },
+                    {
+                        "text": "Campo",
+                        "href": "${SITE_LANACION}/economia/campo/"
+                    },
+                    {
+                        "text": "Comercio exterior",
+                        "href": "${SITE_LANACION}/economia/comercio-exterior/"
+                    },
+                    {
+                        "text": "Comunidad",
+                        "href": "${SITE_LANACION}/comunidad/"
+                    },
+                    { "text": "Ideas", "href": "${SITE_LANACION}/ideas/" },
+                    {
+                        "text": "Propiedades",
+                        "href": "${SITE_LANACION}/propiedades/"
+                    },
+                    {
+                        "text": "Conversaciones de domingo",
+                        "href": "${SITE_LANACION}/conversaciones-de-domingo/"
+                    },
+                    {
+                        "text": "Moda y belleza",
+                        "href": "${SITE_LANACION}/moda-y-belleza/"
+                    },
+                    { "text": "Sábado", "href": "${SITE_LANACION}/sabado/" },
+                    { "text": "Turismo", "href": "${SITE_LANACION}/turismo/" }
+                ]
             },
             {
-                "text": "Acceso a PDF",
-                "href": "https://edicionimpresa.lanacion.com.ar/la-nacion/"
-            },
-            {
-                "text": "Ayuda",
-                "href": "https://www.contacto.lanacion.com.ar/ayuda/"
-            },
-            { "text": "Cómo anunciar", "href": "https://www.lanacion.in/" }
-        ]
-    },
-    {
-        "section": "listado4",
-        "items": [
-            {
-                "text": "Al volante",
-                "href": "${SITE_LANACION}/autos/al-volante/"
-            },
-            { "text": "Campo", "href": "${SITE_LANACION}/economia/campo/" },
-            {
-                "text": "Comercio exterior",
-                "href": "${SITE_LANACION}/economia/comercio-exterior/"
-            },
-            { "text": "Comunidad", "href": "${SITE_LANACION}/comunidad/" },
-            { "text": "Ideas", "href": "${SITE_LANACION}/ideas/" },
-            { "text": "Propiedades", "href": "${SITE_LANACION}/propiedades/" },
-            {
-                "text": "Conversaciones de domingo",
-                "href": "${SITE_LANACION}/conversaciones-de-domingo/"
-            },
-            {
-                "text": "Moda y belleza",
-                "href": "${SITE_LANACION}/moda-y-belleza/"
-            },
-            { "text": "Sábado", "href": "${SITE_LANACION}/sabado/" },
-            { "text": "Turismo", "href": "${SITE_LANACION}/turismo/" }
-        ]
-    },
-    {
-        "section": "listado5",
-        "items": [
-            {
-                "text": "Fúnebres",
-                "href": "https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres/"
-            },
-            {
-                "text": "Sociales",
-                "href": "https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales/"
+                "title": "",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    {
+                        "text": "Fúnebres",
+                        "href": "https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres/"
+                    },
+                    {
+                        "text": "Sociales",
+                        "href": "https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales/"
+                    }
+                ]
             }
         ]
     },
     {
-        "section": "listado6",
-        "items": [
-            { "text": "OHLALÁ!", "href": "https://www.somosohlala.com/" },
+        "className": "col-6 col-tablet-3",
+        "sections": [
             {
-                "text": "¡HOLA! Argentina",
-                "href": "${SITE_LANACION}/revista-hola/"
+                "title": "Revistas",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    {
+                        "text": "OHLALÁ!",
+                        "href": "https://www.somosohlala.com/"
+                    },
+                    {
+                        "text": "¡HOLA! Argentina",
+                        "href": "{SITE_LANACION}/revista-hola/"
+                    },
+                    {
+                        "text": "Rolling Stone",
+                        "href": "{SITE_LANACION}/revista-rolling-stone/"
+                    },
+                    {
+                        "text": "Lugares",
+                        "href": "{SITE_LANACION}/revista-lugares/"
+                    },
+                    {
+                        "text": "Living",
+                        "href": "{SITE_LANACION}/revista-living/"
+                    },
+                    {
+                        "text": "Jardín",
+                        "href": "{SITE_LANACION}/revista-jardin/"
+                    }
+                ]
             },
             {
-                "text": "Rolling Stone",
-                "href": "${SITE_LANACION}/revista-rolling-stone/"
-            },
-            { "text": "Lugares", "href": "${SITE_LANACION}/revista-lugares/" },
-            { "text": "Living", "href": "${SITE_LANACION}/revista-living/" },
-            { "text": "Jardín", "href": "${SITE_LANACION}/revista-jardin/" }
-        ]
-    },
-    {
-        "section": "listado7",
-        "items": [
-            { "text": "Inicio", "href": "https://club.lanacion.com.ar/" },
-            {
-                "text": "Gastronomía",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Gastronom%C3%ADa/"
-            },
-            {
-                "text": "Entretenimiento",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Entretenimiento/"
-            },
-            {
-                "text": "Turismo",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Viajes/"
-            },
-            {
-                "text": "Moda",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Moda/"
-            },
-            {
-                "text": "Belleza",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Bienestar/"
-            },
-            {
-                "text": "Deco y Hogar",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Deco%20%26%20Hogar/"
-            },
-            {
-                "text": "Automóvil",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Autom%C3%B3vil/"
-            },
-            {
-                "text": "ECO Sustentable",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=ECO%20Sustentable/"
-            },
-            {
-                "text": "Supermercados",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Supermercados/"
-            },
-            {
-                "text": "Otros beneficios",
-                "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Otros%20beneficios/"
-            },
-            {
-                "text": "Pedí tu tarjeta",
-                "href": "https://miclub.lanacion.com.ar/?utm_source=sitio%20club&utm_medium=organico%20-%20boton&utm_term=peditutarjeta&utm_campaign=autogestion/"
+                "title": "Club LA NACION",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    {
+                        "text": "Inicio",
+                        "href": "https://club.lanacion.com.ar/"
+                    },
+                    {
+                        "text": "Gastronomía",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Gastronom%C3%ADa/"
+                    },
+                    {
+                        "text": "Entretenimiento",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Entretenimiento/"
+                    },
+                    {
+                        "text": "Turismo",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Viajes/"
+                    },
+                    {
+                        "text": "Moda",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Moda/"
+                    },
+                    {
+                        "text": "Belleza",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Bienestar/"
+                    },
+                    {
+                        "text": "Deco y Hogar",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Deco%20%26%20Hogar/"
+                    },
+                    {
+                        "text": "Automóvil",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Autom%C3%B3vil/"
+                    },
+                    {
+                        "text": "ECO Sustentable",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=ECO%20Sustentable/"
+                    },
+                    {
+                        "text": "Supermercados",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Supermercados/"
+                    },
+                    {
+                        "text": "Otros beneficios",
+                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Otros%20beneficios/"
+                    },
+                    {
+                        "text": "Pedí tu tarjeta",
+                        "href": "https://miclub.lanacion.com.ar/?utm_source=sitio%20club&utm_medium=organico%20-%20boton&utm_term=peditutarjeta&utm_campaign=autogestion/"
+                    }
+                ]
             }
         ]
     },
     {
-        "section": "listado8",
-        "items": [
+        "className": "col-6 col-tablet-3",
+        "sections": [
             {
-                "text": "Twitter",
-                "href": "https://twitter.com/LANACION/",
-                "rel": "nofollow",
-                "target": "_blank"
+                "title": "Servicios",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    {
+                        "text": "Horóscopo",
+                        "href": "${SITE_LANACION}/horoscopo/"
+                    },
+                    { "text": "Clima", "href": "${SITE_LANACION}/clima/" },
+                    {
+                        "text": "Tránsito",
+                        "href": "${SITE_LANACION}/transito/"
+                    },
+                    {
+                        "text": "Dólar hoy",
+                        "href": "${SITE_LANACION}/dolar-hoy/"
+                    },
+                    {
+                        "text": "Feriados",
+                        "href": "${SITE_LANACION}/feriados/"
+                    },
+                    {
+                        "text": "Loterías y quinielas",
+                        "href": "${SITE_LANACION}/loterias/"
+                    },
+                    {
+                        "text": "Cartelera de cine",
+                        "href": "${SITE_LANACION}/cartelera-de-cine/"
+                    },
+                    {
+                        "text": "Cartelera de teatro",
+                        "href": "${SITE_LANACION}/cartelera-de-teatro/"
+                    },
+                    {
+                        "text": "Podcasts",
+                        "href": "${SITE_LANACION}/tema/podcasts-tid64878/"
+                    },
+                    { "text": "Juegos", "href": "${SITE_LANACION}/juegos/" },
+                    { "text": "RSS", "href": "${SITE_LANACION}/arcio/rss/" },
+                    { "text": "Agencias", "href": "${SITE_LANACION}/agencias/" }
+                ]
             },
             {
-                "text": "Facebook",
-                "href": "https://www.facebook.com/lanacion/",
-                "rel": "nofollow",
-                "target": "_blank"
-            },
-            {
-                "text": "Instagram",
-                "href": "https://www.instagram.com/lanacioncom/",
-                "rel": "nofollow",
-                "target": "_blank"
-            },
-            {
-                "text": "Youtube",
-                "href": "https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA/",
-                "rel": "nofollow",
-                "target": "_blank"
-            }
-        ]
-    },
-    {
-        "section": "listado9",
-        "items": [
-            { "text": "Horóscopo", "href": "${SITE_LANACION}/horoscopo/" },
-            { "text": "Clima", "href": "${SITE_LANACION}/clima/" },
-            { "text": "Tránsito", "href": "${SITE_LANACION}/transito/" },
-            { "text": "Dólar hoy", "href": "${SITE_LANACION}/dolar-hoy/" },
-            { "text": "Feriados", "href": "${SITE_LANACION}/feriados/" },
-            {
-                "text": "Loterías y quinielas",
-                "href": "${SITE_LANACION}/loterias/"
-            },
-            {
-                "text": "Cartelera de cine",
-                "href": "${SITE_LANACION}/cartelera-de-cine/"
-            },
-            {
-                "text": "Cartelera de teatro",
-                "href": "${SITE_LANACION}/cartelera-de-teatro/"
-            },
-            {
-                "text": "Podcasts",
-                "href": "${SITE_LANACION}/tema/podcasts-tid64878/"
-            },
-            { "text": "Juegos", "href": "${SITE_LANACION}/juegos/" },
-            { "text": "RSS", "href": "${SITE_LANACION}/arcio/rss/" },
-            { "text": "Agencias", "href": "${SITE_LANACION}/agencias/" }
-        ]
-    },
-    {
-        "section": "listado10",
-        "items": [
-            { "text": "Bonvivir", "href": "https://www.bonvivir.com/" },
-            {
-                "text": "Colecciones",
-                "href": "https://colecciones.lanacion.com.ar/"
-            },
-            {
-                "text": "Máster en periodismo",
-                "href": "https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/"
-            },
-            {
-                "text": "Suscripciones y promociones",
-                "href": "https://www.lanacion.com.ar/suscripciones/"
+                "title": "Sitios del Grupo",
+                "titleSize": "--l",
+                "titleTag": "h2",
+                "mod": "",
+                "list": [
+                    { "text": "Bonvivir", "href": "https://www.bonvivir.com/" },
+                    {
+                        "text": "Colecciones",
+                        "href": "https://colecciones.lanacion.com.ar/"
+                    },
+                    {
+                        "text": "Máster en periodismo",
+                        "href": "https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/"
+                    },
+                    {
+                        "text": "Suscripciones y promociones",
+                        "href": "https://www.lanacion.com.ar/suscripciones/"
+                    }
+                ]
             }
         ]
     }

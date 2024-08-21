@@ -2,6 +2,10 @@
   margin-bottom: 1.5rem;
   background: #001631;
 }
+.bomba.vertical .ln-card .description-container .ln-badge, .bomba.horizontal .ln-card .description-container .ln-badge {
+  transform: none;
+  position: static;
+}
 .bomba .ln-card {
   color: var(--dark-neutral-600);
 }
@@ -11,10 +15,6 @@
 }
 .bomba .ln-card > .link .description-container .subhead {
   color: var(--dark-neutral-600);
-}
-.bomba .ln-card > .link .description-container .ln-badge {
-  transform: none;
-  position: static;
 }
 .bomba .ln-card > .link .description-container .lead {
   color: var(--blue-300);

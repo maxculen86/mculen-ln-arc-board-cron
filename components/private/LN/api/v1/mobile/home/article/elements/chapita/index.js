@@ -18,7 +18,7 @@ const getChapitaText = (labelChapitaText, propertiesChapita) => {
 };
 
 const getAdditionalPropertiesChapitaStyle = article => {
-    let additionalPropertiesChapitaStyle = get(
+    const additionalPropertiesChapitaStyle = get(
         article,
         'additionalProperties.chapitaStyle',
         null
@@ -32,7 +32,7 @@ const getIsXLorLSizeinDefault = (
     fieldsBadge
 ) => {
     const newsFieldsBadge = { ...fieldsBadge };
-    
+
     const chapitaText = getChapitaText(
         labelChapitaText,
         additionalPropertiesChapita
@@ -59,7 +59,7 @@ export const getBadgebyConfig = article => {
         'additionalProperties.chapita',
         null
     );
-    let additionalPropertiesChapitaStyle = getAdditionalPropertiesChapitaStyle(
+    const additionalPropertiesChapitaStyle = getAdditionalPropertiesChapitaStyle(
         article
     );
 

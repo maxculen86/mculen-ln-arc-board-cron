@@ -358,7 +358,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.fiveXL,
                 className: txtCenter,
-                hideBadget: true
+                hideBadget: false
             },
             {
                 variantsDisabled: [author, liveblog, html],
@@ -370,7 +370,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true,
+                hideBadget: false,
                 isLoadWithPicture: true
             },
             {
@@ -383,7 +383,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true,
+                hideBadget: false,
                 isLoadWithPicture: true
             },
             {
@@ -396,7 +396,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true,
+                hideBadget: false,
                 isLoadWithPicture: true
             },
             {
@@ -409,7 +409,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true,
+                hideBadget: false,
                 isLoadWithPicture: true
             }
         ],
