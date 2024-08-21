@@ -467,7 +467,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             }
         ],
-        bn_6_grid_timeline: [
+        bn_6_timeline: [
             {
                 imagePosition: {
                     mobile: img.top,

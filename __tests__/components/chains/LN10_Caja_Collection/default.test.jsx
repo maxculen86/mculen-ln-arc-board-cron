@@ -499,7 +499,7 @@ describe('Tests Chain CajaCollection', () => {
         it('should return a warning if LN_TIMELINE feature is missing in BN Grilla 6 + Timeline layout', () => {
             const fields = {
                 ...customFields,
-                layout: 'bn_6_grid_timeline',
+                layout: 'bn_6_timeline',
                 idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
             };
 
@@ -530,7 +530,7 @@ describe('Tests Chain CajaCollection', () => {
         it('should not return a warning if LN_TIMELINE feature is present in BN Grilla 6 + Timeline layout', () => {
             const fields = {
                 ...customFields,
-                layout: 'bn_6_grid_timeline',
+                layout: 'bn_6_timeline',
                 idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
             };
 

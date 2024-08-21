@@ -350,7 +350,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
           class="ln-bngrid pb-16 --bn_1_4_grid --bienestar"
         >
           <div
-            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
@@ -633,7 +633,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
           class="ln-bngrid pb-16 --bn_2_1_2_grid --bienestar"
         >
           <div
-            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
@@ -916,7 +916,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
           class="ln-bngrid pb-16 --bn_1_3_grid --bienestar"
         >
           <div
-            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
@@ -1175,7 +1175,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
           class="ln-bngrid pb-16 --hash-1-2-2-2_grid --bienestar"
         >
           <div
-            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
@@ -1520,7 +1520,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
           class="ln-bngrid pb-16 --bn_1_2_grid --bienestar"
         >
           <div
-            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
@@ -1733,7 +1733,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
           class="ln-bngrid pb-16 --bn_1_1_grid --bienestar"
         >
           <div
-            class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+            class="grid container-op-top grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
             <div
               class="grid-item --0 --col-8 --col-md-9 --col-lg-9 --col-xl-9"

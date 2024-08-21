@@ -17,7 +17,7 @@ export const LAYOUTS = {
     BN_FOCAL_1_MAS_3: 'bn_1_3_grid',
     BN_FOCAL_1_MAS_4: 'bn_1_4_grid',
     BN_2_FOCAL_1_MAS_2: 'bn_2_1_2_grid',
-    BN_6_GRID_MAS_TIMELINE: 'bn_6_grid_timeline',
+    BN_6_GRID_MAS_TIMELINE: 'bn_6_timeline',
     BN_A_FONDO: 'bnFondo',
     CONTENT_LAB: 'cajaContent1',
     OPINION_4: 'opinion4',
