@@ -64,7 +64,7 @@ export const videoJWNota = (videoData, notaId = '') => {
         if (description) {
             resp.epigrafe = description;
         }
-        //resp.type = 'video';
+
         return resp;
     } catch (error) {
         console.error(

@@ -25,8 +25,11 @@ const relacionadosIndex = dataArticle => {
     if (relatedNotes && relatedNotes.length > 0) {
         resp.notas = relatedNotes
             .filter(v => {
-                if (v && v.type === 'story') return true;
-                return false;
+                if (v && v.type === 'story') {
+                    return true;
+                } else {
+                    return false;
+                }
             })
             .map(v => {
                 return NotaRelacionadas(v);

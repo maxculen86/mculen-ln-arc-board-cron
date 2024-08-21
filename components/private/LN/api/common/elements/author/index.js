@@ -1,6 +1,6 @@
 import get from '../../../../../common/utils/get';
 import { getAutorId } from '../../../../../common/utils/getElementId';
-import { getImageUrl, getImageUrlBasedOnResizerVersion } from '../image';
+import { getImageUrlBasedOnResizerVersion } from '../image';
 
 const getAuthorData = author => {
     const { _id: id, name, expertise, role } = author;

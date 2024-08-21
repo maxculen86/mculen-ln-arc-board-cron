@@ -24,9 +24,8 @@ const getContentPage = async (query, cookie) => {
             Cookie: cookie
         };
     }
-    const response = await nodeFetch(resolve(query), opt);
 
-    return response;
+    return await nodeFetch(resolve(query), opt);
 };
 
 class HomeUpdate {
@@ -90,10 +89,12 @@ class HomeUpdate {
                 hashContentVersion = resultHome[0].metadata.contentVersion;
 
                 return {
-                    homeUpdated: this.contentVersion != hashContentVersion,
+                    homeUpdated: this.contentVersion !== hashContentVersion,
                     contentVersion: hashContentVersion
                 };
             }
+
+            return null;
         } catch (err) {
             return { Success: false, Message: err.message };
         }
