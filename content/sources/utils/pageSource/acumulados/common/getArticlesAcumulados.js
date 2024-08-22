@@ -1,5 +1,6 @@
 import get from '../../../../../../components/private/common/utils/get';
 import acuArticlesSource from '../../../../acuArticlesSource';
+import lnAcuSource from '../../../../lnAcuSource';
 
 const getParamsAcus = query => {
     const sectionId =
@@ -30,7 +31,8 @@ const getParamsAcus = query => {
                 .replace(']', ')'),
             sourceOrigin: 'composer',
             size,
-            website
+            website,
+            apiTransform: 'transformLnAcuApi'
         };
     }
 
@@ -46,14 +48,15 @@ const getParamsAcus = query => {
         excludeSourceOrigin,
         'arc-site': website,
         tagId,
-        authorId
+        authorId,
+        apiTransform: 'transformLnAcuApi'
     };
 };
 
 const getArticlesAcumulados = async (params, { cachedCall } = {}) => {
     try {
         const queryParams = getParamsAcus(params);
-        return await acuArticlesSource.fetch(queryParams, { cachedCall });
+        return await lnAcuSource.fetch(queryParams, { cachedCall });
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

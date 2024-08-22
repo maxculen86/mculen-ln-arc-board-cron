@@ -2,9 +2,13 @@ import acuArticlesSourceV2 from './acuArticlesSourceV2';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 import transformLnAcu from './utils/lnAcuSources/helper';
+import transformLnAcuApi from './utils/lnAcuSources/api/helper';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
+    const apiTransform = {
+        transformLnAcuApi: transformLnAcuApi
+    };
 
     const resolveData = async () => {
         try {
@@ -13,6 +17,13 @@ const fetch = (query, { cachedCall } = {}) => {
                 acuArticlesSourceV2.fetch,
                 { query, independent: true }
             );
+            if (query && query.apiTransform) {
+                return apiTransform[query.apiTransform](
+                    response,
+                    query,
+                    cachedCall
+                );
+            }
             return transformLnAcu(response, query, cachedCall);
         } catch (error) {
             logger.push(
@@ -45,7 +56,8 @@ export default {
         sourceOrigin: 'text',
         type: 'text',
         promoItemsOnly: 'text',
-        excludePreload: 'bool'
+        excludePreload: 'bool',
+        apiTransform: 'text'
     },
     ttl: 120
 };
