@@ -39,7 +39,7 @@ export default function useListBookmarks(termicaBookmark, isSuscriber) {
             // eslint-disable-next-line no-console
             console.error(err);
         }
-    }, [bookmarks, paginationQuery, token]);
+    }, [bookmarks, paginationQuery, token, loading]);
 
     const deleteArticle = id => {
         const newListBookmarks = bookmarks.filter(
@@ -57,7 +57,7 @@ export default function useListBookmarks(termicaBookmark, isSuscriber) {
             setLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token, termicaBookmark, isSuscriber]);
+    }, [token, termicaBookmark, isSuscriber, loading]);
 
     return {
         bookmarks,
