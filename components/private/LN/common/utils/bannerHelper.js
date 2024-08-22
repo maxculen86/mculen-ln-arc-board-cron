@@ -434,11 +434,11 @@ export const queueGoogletagCommand = bannersToLoad => {
             .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
                 const banner = document.getElementById(slot.getSlotElementId());
 
-                const shouldShowBanner =
+                const isBannerVisible =
                     !isEmpty &&
                     !bannersWithoutHide.includes(slot.getSlotElementId());
 
-                if (shouldShowBanner) {
+                if (isBannerVisible) {
                     banner.parentNode.classList.remove('none');
                 }
             });
