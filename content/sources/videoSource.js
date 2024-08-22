@@ -1,9 +1,7 @@
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import request from 'request-promise-native';
-import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 import {
-    resizeVideoImagesV1,
     resizeVideoImagesV2,
     updateVideoUrl
 } from './utils/videoSource/_helper';
@@ -49,22 +47,16 @@ const fetch = (query, { cachedCall } = {}) => {
 };
 
 const transform = async (data, siteProps, cachedCall) => {
-    const arcSite = get(siteProps, 'arc-site', '');
-    const { presets, presetsDefault, shouldUseV2 } = getPresets(siteProps);
-
+    const { presets, presetsDefault } = getPresets(siteProps);
     const updatedData = updateVideoUrl(data);
 
-    if (shouldUseV2) {
-        return resizeVideoImagesV2({
-            data: updatedData,
-            presets,
-            siteProps,
-            cachedCall,
-            presetsDefault
-        });
-    }
-
-    return resizeVideoImagesV1({ data: updatedData, arcSite, siteProps });
+    return resizeVideoImagesV2({
+        data: updatedData,
+        presets,
+        siteProps,
+        cachedCall,
+        presetsDefault
+    });
 };
 
 export default {
