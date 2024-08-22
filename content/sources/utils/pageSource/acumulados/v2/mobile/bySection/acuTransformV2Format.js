@@ -3,7 +3,7 @@ const acuTransformV2Format = (transformedAcu, sectionSlug, paginationValue) => {
         sectionSlug === '/ultimas-noticias'
             ? 'Últimas noticias'
             : sectionSlug === '/suscriptores'
-            ? 'Exclusivo suscriptores'
+            ? 'Suscriptores'
             : null;
 
     const title = specialSectionTItle
