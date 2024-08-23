@@ -43,6 +43,7 @@ export const CardAnexo = article => {
                 return [
                     {
                         src: html,
+                        url: srcAtributte,
                         alto: heightMobile ?? height ?? 300
                     }
                 ];
