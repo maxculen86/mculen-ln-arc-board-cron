@@ -89,14 +89,14 @@ describe('features - LN-10-GLOBAL - glossary - helpers', () => {
             });
         });
 
-        it('should return undefined if tooltipRef is not provided', () => {
+        it('should return null if tooltipRef is not provided', () => {
             const position = getLocationTooltip(null, eventTarget);
-            expect(position).toBeUndefined();
+            expect(position).toBeNull();
         });
 
-        it('should return undefined if eventTarget is not provided', () => {
+        it('should return null if eventTarget is not provided', () => {
             const position = getLocationTooltip(tooltipRef, null);
-            expect(position).toBeUndefined();
+            expect(position).toBeNull();
         });
     });
 });

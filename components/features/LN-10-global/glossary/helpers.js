@@ -21,7 +21,9 @@ export const handleEventWords = (key = '') => {
 };
 
 export const getLocationTooltip = (tooltipRef, eventTarget) => {
-    if (!tooltipRef || !eventTarget) return;
+    if (!tooltipRef || !eventTarget) {
+        return null;
+    }
     const tooltipElement = tooltipRef.current;
 
     const targetX = eventTarget?.getBoundingClientRect().left;
