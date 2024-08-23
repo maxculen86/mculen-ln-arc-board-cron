@@ -34,7 +34,8 @@ const Media = ({
     withMobileImage,
     searchableField,
     layoutPageBuilder,
-    globalContent
+    globalContent,
+    authors
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -105,6 +106,7 @@ const Media = ({
                         isApertura={isApertura}
                         searchableField={searchableField}
                         isValidSection={isValidSection}
+                        authors={authors}
                     />
                     {children}
                     {(zoom || itsGallery) && (
@@ -194,7 +196,8 @@ Media.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string
     }).isRequired,
-    layoutPageBuilder: PropTypes.string.isRequired
+    layoutPageBuilder: PropTypes.string.isRequired,
+    authors: PropTypes.string
 };
 
 Media.defaultProps = {
