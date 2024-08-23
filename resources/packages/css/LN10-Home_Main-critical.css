@@ -4498,9 +4498,14 @@ a {
 }
 @media (min-width: 1024px) {
   a:hover {
-    opacity: 0.8;
-    transition: all 0.2s ease-in-out;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+@media (min-width: 1024px) {
+  a.link:hover, a.com-link:hover {
+    opacity: 0.8;
   }
 }
 
