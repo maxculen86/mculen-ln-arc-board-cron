@@ -74,28 +74,26 @@ export default {
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
     ARC_WIDGETS: 'https://sandbox-arc-widgets.lanacion.com.ar/widgets/',
     LANACION_SERVICES_URL: 'https://pre-arcservices.lanacion.com.ar',
-    //TODO: apuntar a QA la api personalizacion nuevamente cuando reestablezcan QA
     PERSONALIZACION_API:
-        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+        'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     PERSONALIZACION_APIV2:
-        'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
+        'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
     PERSONALIZACION_API_FOODIT:
-        'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
+        'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
     BOOKMARK_URL:
         'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar',
     AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
     AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',
     AUDIONEWS_APIKEY: 'iviw9999Fp1pqX7e6c18n4VwvChUctzu1DraBnAE',
-    API_KEY_ARC_SERVICES: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGVtL6D05n1qBS+FZ1snZ2aAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJkSKWmqE+lK4ElWVwIBEIA/hXbb5b5JTYv6ym8qNVzsywSH90F+dkEDnYqOW/3Vwbqn05Z6BtLO+bNFeiIaM7G8otc9bJ5LmGMyjgfUwJFq}',
-    API_KEY_ARC_SERVICES_PROD: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF2kMZIhz29Q30zHF2gdKgSAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDoOvd6Q+DEhTuuDnQIBEIA/m6WCr7UFsNakDXPYPewFGKeb0EAxOH5CGWHIr3uBrJzPVuSy4o0+Wdz0cSI6xB65uEELKyJkHF/rUfoOuQbQ}',
+    API_KEY_ARC_SERVICES:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGVtL6D05n1qBS+FZ1snZ2aAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJkSKWmqE+lK4ElWVwIBEIA/hXbb5b5JTYv6ym8qNVzsywSH90F+dkEDnYqOW/3Vwbqn05Z6BtLO+bNFeiIaM7G8otc9bJ5LmGMyjgfUwJFq}',
+    API_KEY_ARC_SERVICES_PROD:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF2kMZIhz29Q30zHF2gdKgSAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDoOvd6Q+DEhTuuDnQIBEIA/m6WCr7UFsNakDXPYPewFGKeb0EAxOH5CGWHIr3uBrJzPVuSy4o0+Wdz0cSI6xB65uEELKyJkHF/rUfoOuQbQ}',
     VIDEO_CDN_URL: 'https://lanacionar-sandbox.video.arc-cdn.net/',
-    // TODO: CUando reestablezcan QA cambiar a URL de QA
-    LOGIN_URL: 'https://pre-ingresar.lanacion.com.ar/auth0-login/?callback=',
-    // TODO: CUando reestablezcan QA cambiar a URL de QA
+    LOGIN_URL: 'https://qa-ingresar.lanacion.com.ar/auth0-login/?callback=',
     FOODIT_LOGIN_URL:
-        'https://pre-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
-    // TODO: CUando reestablezcan QA cambiar a URL de QA
-    API_INGRESAR: 'https://pre-api-ingresar.lanacion.com.ar',
+        'https://qa-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
+    API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
     MARFEEL_ACCOUNT_ID: '3353',
     BEYONDWORDS_PROJECT_ID: 38983,
     JWP_TOKEN:
@@ -104,9 +102,7 @@ export default {
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
-    // TODO: Queda comentado hasta que habiliten qa
-    // SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
-    SITIO_SEGURO_REGISTRACION: 'https://pre-suscripciones.lanacion.com.ar/',
+    SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     //   La API Key de Firebase se encuentra pública en el código de las aplicaciones,
     //   debido a que Firebase utiliza esta clave para identificar tu proyecto en lugar de autenticar peticiones.

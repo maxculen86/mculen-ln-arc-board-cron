@@ -14,24 +14,33 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../../auth/helper/loginHelper';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
+import useAuthManager from '../../../../auth/hooks/useAuthManager';
 
 const BookmarkLayout = () => {
     const { state, dispatch } = useContext(GlobalContext);
     const [showHelper, setShowHelper] = useState(false);
     const termica = useTermica('bookmark_web');
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
+    const { token, accessToken } = useAuthManager();
     const {
         bookmarks,
         morePages,
         getNextPage,
         loading,
         deleteArticle
-    } = useListBookmarks(termica, subscription);
+    } = useListBookmarks({
+        termicaBookmark: termica,
+        subscription,
+        token,
+        accessToken
+    });
 
-    const { bookmarkCount, substractOne } = useCountBookmarks(
-        termica,
-        subscription
-    );
+    const { bookmarkCount, substractOne } = useCountBookmarks({
+        termicaBookmark: termica,
+        subscription,
+        token,
+        accessToken
+    });
 
     return (
         <div className="bookmark-layout">
