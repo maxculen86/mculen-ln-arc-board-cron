@@ -25,17 +25,9 @@ export default {
         },
         location: [HEAD]
     },
-    GooglePublisherTag: {
-        props: {},
-        location: [HEAD]
-    },
     SocialEmbeds: {
         props: {},
         location: [BODYTOP]
-    },
-    GooglePublisherTagAcumulado: {
-        props: {},
-        location: [HEAD]
     },
     ComscoreVideo: {
         props: {},

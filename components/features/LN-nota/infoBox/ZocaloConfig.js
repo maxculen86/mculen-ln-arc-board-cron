@@ -32,6 +32,7 @@ const zocaloOptions = {
     recetas: {
         href: 'https://foodit.lanacion.com.ar/',
         title: 'Ir a Foodit',
+        target: '_blank',
         imgMob: 'image-mobile-foodit.png',
         imgWidth: 209,
         imgAlt: 'Imagen de celular con la app de Foodit',
