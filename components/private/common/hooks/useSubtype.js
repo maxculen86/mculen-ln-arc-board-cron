@@ -7,6 +7,8 @@ import htmlLibre from '../utils/subtypes/htmlLibre';
 import fotoAl100 from '../utils/subtypes/fotoAl100';
 import generico from '../utils/subtypes/generico';
 import agencia from '../utils/subtypes/agencia';
+import liveblog from '../utils/subtypes/liveblog';
+import video from '../utils/subtypes/video';
 
 const useSubtype = () => {
     const { globalContent } = useAppContext();
@@ -20,11 +22,13 @@ const useSubtype = () => {
         receta,
         fotoAl100,
         htmlLibre,
-        agencia
+        agencia,
+        liveblog,
+        video
     ];
 
     return {
-        subtipo: subtypes.find(sub => sub.id === subtype) || generico
+        subtype: subtypes.find(sub => sub.id === subtype) || generico
     };
 };
 
