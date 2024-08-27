@@ -1,16 +1,19 @@
 import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
 import trasformBookmarkContent from '../../utils/bookmark/trasformBookmarkContent';
-import useAuthManager from '../../../../../auth/hooks/useAuthManager';
 
-export default function useListBookmarks(termicaBookmark, isSuscriber) {
+export default function useListBookmarks({
+    termicaBookmark,
+    subscription,
+    token,
+    accessToken
+} = {}) {
     const [bookmarks, setBookmarks] = useState([]);
     const [meta, setMeta] = useState(false);
     const [loading, setLoading] = useState(true);
     const paginationQuery = meta
         ? `&nextKeyPK=${meta.nextKeyPK}&nextKeySK=${meta.nextKeySK}`
         : '';
-    const { token, accessToken } = useAuthManager();
 
     const getDataFromAPI = useCallback(async () => {
         try {
@@ -39,7 +42,7 @@ export default function useListBookmarks(termicaBookmark, isSuscriber) {
             // eslint-disable-next-line no-console
             console.error(err);
         }
-    }, [bookmarks, paginationQuery, token]);
+    }, [bookmarks, paginationQuery, token, accessToken]);
 
     const deleteArticle = id => {
         const newListBookmarks = bookmarks.filter(
@@ -49,15 +52,15 @@ export default function useListBookmarks(termicaBookmark, isSuscriber) {
     };
 
     useEffect(() => {
-        if (token && termicaBookmark && isSuscriber) {
+        if (termicaBookmark && subscription) {
             getDataFromAPI();
         }
 
-        if (!isSuscriber) {
+        if (!subscription) {
             setLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token, termicaBookmark, isSuscriber]);
+    }, [token, accessToken, termicaBookmark, subscription]);
 
     return {
         bookmarks,

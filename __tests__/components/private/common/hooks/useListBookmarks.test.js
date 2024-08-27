@@ -3,7 +3,6 @@ import env from '../../../../../__mocks__/fusion:environment';
 import { act } from 'react-dom/test-utils';
 import React from 'react';
 import useListBookmarks from '../../../../../components/private/common/hooks/bookmark/useListBookmarks';
-import useAuthManager from '../../../../../auth/hooks/useAuthManager';
 
 jest.mock('../../../../../auth/hooks/useAuthManager');
 jest.mock('../../../../../auth/helper/loginHelper', () => ({
@@ -17,7 +16,9 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
     React.useCallback = jest.fn().mockImplementation(f => f);
 
     const termicaBookmark = true;
-    const isSuscriber = true;
+    const subscription = true;
+    const token = 'mock-tooken';
+    const accessToken = 'Bearer mock-access-token';
 
     global.fetch = jest.fn();
     fetch.mockResolvedValue({
@@ -39,33 +40,35 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
     });
 
     it('Should not fetch when termicaBookmark is closed', () => {
-        useAuthManager.mockImplementation(() => ({
-            token: 'mock-tooken',
-            accessToken: 'Bearer mock-access-token'
-        }));
-        const data = useListBookmarks(false, isSuscriber);
+        const data = useListBookmarks({
+            termicaBookmark: false,
+            subscription,
+            token,
+            accessToken
+        });
         expect(data).toBeDefined();
         expect(fetch).not.toBeCalled();
     });
     it('Should not fetch when there is no token', () => {
-        useAuthManager.mockImplementation(() => ({
+        const data = useListBookmarks({
+            termicaBookmark,
+            subscription,
             token: null,
-            accessToken: 'Bearer mock-access-token'
-        }));
-        const data = useListBookmarks(termicaBookmark, false);
+            accessToken
+        });
         expect(data).toBeDefined();
         expect(fetch).not.toBeCalled();
     });
     it('Should call fetch correctly and return bookmarks when called with termica and token', async () => {
         let data;
 
-        useAuthManager.mockImplementation(() => ({
-            token: 'mock-tooken',
-            accessToken: 'Bearer mock-access-token'
-        }));
-
         await act(async () => {
-            data = useListBookmarks(termicaBookmark, isSuscriber);
+            data = useListBookmarks({
+                termicaBookmark,
+                subscription,
+                token,
+                accessToken
+            });
         });
 
         expect(data).toBeDefined();

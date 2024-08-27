@@ -11,11 +11,15 @@ import logger from '../../components/private/common/utils/logger';
 import {
     getUrlQuery,
     setRedirect,
-    transform
+    transform,
+    updateUrlIfMatch
 } from './utils/articleSourceNota/_helper';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
+
+    query.url = updateUrlIfMatch(query.url);
+    query.uri = updateUrlIfMatch(query.uri);
 
     const opt = {
         uri: `${CONTENT_BASE}${getUrlQuery(query)}`,
@@ -71,8 +75,7 @@ export default {
         isInApertura: 'bool',
         checkExclusiveAccess: 'bool',
         isAdmin: 'bool',
-        uri: 'text',
-        banners_disabled: 'bool'
+        uri: 'text'
     },
     filter,
     ttl: 120

@@ -1,10 +1,13 @@
 import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
-import useAuthManager from '../../../../../auth/hooks/useAuthManager';
 
-export default function useCountBookmarks(termicaBookmark, isSuscriber) {
+export default function useCountBookmarks({
+    termicaBookmark,
+    subscription,
+    token,
+    accessToken
+} = {}) {
     const [data, setData] = useState(null);
-    const { token, accessToken } = useAuthManager();
 
     const getDataFromAPI = useCallback(async () => {
         try {
@@ -32,10 +35,10 @@ export default function useCountBookmarks(termicaBookmark, isSuscriber) {
         }
     }, [token, accessToken]);
     useEffect(() => {
-        if (token && termicaBookmark && isSuscriber) {
+        if (termicaBookmark && subscription) {
             getDataFromAPI();
         }
-    }, [token, termicaBookmark, isSuscriber, getDataFromAPI, accessToken]);
+    }, [token, termicaBookmark, subscription, getDataFromAPI, accessToken]);
 
     const substractOne = () => {
         setData(data - 1);

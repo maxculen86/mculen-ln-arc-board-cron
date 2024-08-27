@@ -188,7 +188,8 @@ describe('getScriptsToLoad', () => {
             'DataModal',
             'FooditEventsHelper',
             'EventsHelper',
-            'FundingChoices'
+            'FundingChoices',
+            'MetaRobots'
         ]);
     });
 });
