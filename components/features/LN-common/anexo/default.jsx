@@ -21,6 +21,7 @@ import BuildRoof from '../../../chains/utils/_BuildRoof/default';
 import classNames from 'classnames';
 import { typesButtonStyle } from '../../../chains/utils/setCommonCustomFields';
 import { setupIntersectionObserver } from '../../LN-10-global/common/utils/intersectionObserver';
+import { handleIframeProps } from './helpers/iframeHelper';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;
@@ -32,6 +33,8 @@ const AnexoFeature = props => {
     } = useAppContext();
 
     const {
+        url,
+        isGame,
         heightDesktop,
         heightTablet,
         heightMobile,
@@ -95,7 +98,7 @@ const AnexoFeature = props => {
     const anexoId = `anexo-responsive-${id}`;
 
     useEffect(() => {
-        handleIframeProps(id);
+        handleIframeProps(id, url, isGame);
     }, [id, comp]);
 
     const iframeURLContent = (
@@ -239,6 +242,13 @@ AnexoFeature.propTypes = {
             description: 'Ingrese aquí la URL del anexo',
             defaultValue: ''
         }),
+        addToken: PropTypes.boolean.tag({
+            label: 'Necesita token de usuario',
+            group: adjustByURL,
+            description:
+                'Marque si el contenido requiere un token JWT en la URL',
+            defaultValue: false
+        }),
         hideByUrl: PropTypes.bool.tag({
             label: 'Ocultar',
             group: adjustByURL,
@@ -346,11 +356,3 @@ AnexoFeature.propTypes = {
 };
 
 export default AnexoFeature;
-
-const handleIframeProps = id => {
-    const iframeAnexo = document.getElementById(`anexo-${id}`);
-    if (iframeAnexo) {
-        iframeAnexo.parentElement.classList.remove('skeleton-box');
-        iframeAnexo.src = iframeAnexo.dataset.src;
-    }
-};
