@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { getTypeOfDevice } from '@ln/hooks';
 import getBookmarks from '../../bookmark/api/getBookmarks';
 import {
@@ -13,33 +13,40 @@ export const useShoppingList = () => {
     const [shoppingList, setShoppingList] = useState([]);
     const { token, accessToken } = useAuthManager();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const fetchUserBookmarks = async () => {
-            const { data = [] } = await getBookmarks(
-                token,
-                accessToken,
-                'ingredientList'
-            );
+            try {
+                const { data = [] } = await getBookmarks(
+                    token,
+                    accessToken,
+                    'ingredientList'
+                );
 
-            setShoppingList(
-                data.reduce(
-                    (acc, list) =>
-                        list.bookmarkContent
-                            ? [
-                                  ...acc,
-                                  {
-                                      ...list.bookmarkContent,
-                                      bookmarkId: list.bookmarkId
-                                  }
-                              ]
-                            : acc,
-                    []
-                )
-            );
-            setLoading(false);
+                setShoppingList(
+                    data.reduce(
+                        (acc, list) =>
+                            list.bookmarkContent
+                                ? [
+                                      ...acc,
+                                      {
+                                          ...list.bookmarkContent,
+                                          bookmarkId: list.bookmarkId
+                                      }
+                                  ]
+                                : acc,
+                        []
+                    )
+                );
+            } catch (error) {
+                console.error('Error fetching bookmarks type shoping list');
+            } finally {
+                setLoading(false);
+            }
         };
 
-        setIsMobile(getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile');
+        if (getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile') {
+            setIsMobile(true);
+        }
 
         const isValidSubsribed = isSubscribed(SUBSCRIBED_HELPER.FOODIT);
 

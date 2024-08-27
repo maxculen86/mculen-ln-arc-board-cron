@@ -399,3 +399,12 @@ export const transform = async (response, query, cachedCall) => {
         category: get(result, 'taxonomy.primary_section.name', '')
     };
 };
+
+export const updateUrlIfMatch = url => {
+    if (typeof url !== 'string' || !url) {
+        return url;
+    }
+
+    const regex = /tests-bannerdisabled\//;
+    return regex.test(url) ? url.replace('tests-bannerdisabled/', '') : url;
+};

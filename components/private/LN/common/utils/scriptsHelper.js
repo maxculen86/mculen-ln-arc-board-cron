@@ -29,6 +29,7 @@ import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
 import FundingChoices from '../../../common/scriptManager/scriptFundingChoices';
 import get from '../../../common/utils/get';
+import MetaRobots from '../../../common/scriptManager/MetaRobots';
 
 const scriptList = [
     {
@@ -151,8 +152,8 @@ const isGPTAndDisabled = (script, bannersDisabled) => {
     return bannersDisabled && script.component.name === 'GooglePublisherTag';
 };
 
-const getScriptsFilterFunction = (scripts, bannersDisabled) => features =>
-    scripts
+const getScriptsFilterFunction = (scripts, bannersDisabled) => features => {
+    const filteredScripts = scripts
         .filter(
             script =>
                 (script.feature === 'none' ||
@@ -170,7 +171,14 @@ const getScriptsFilterFunction = (scripts, bannersDisabled) => features =>
             {}
         );
 
-export const getScriptsToLoad = (renderables = [], bannersDisabled = false) => {
+    if (bannersDisabled) {
+        filteredScripts.MetaRobots = MetaRobots;
+    }
+
+    return filteredScripts;
+};
+
+export const getScriptsToLoad = (renderables = [], bannersDisabled) => {
     return pipe(
         getPageBuilderFeatures,
         getScriptsFilterFunction(scriptList, bannersDisabled)
@@ -184,8 +192,9 @@ const buildScriptComponent = ({
     globalContentConfig = {},
     isArcPreview = false
 }) => {
-    const bannersDisabled =
-        get(globalContentConfig, 'query.banners_disabled', 'false') === 'true';
+    const bannersDisabled = /tests-bannerdisabled\//.test(
+        get(globalContentConfig, 'query.url', '')
+    );
 
     return ScriptManager(
         getScriptsToLoad(renderables, bannersDisabled),

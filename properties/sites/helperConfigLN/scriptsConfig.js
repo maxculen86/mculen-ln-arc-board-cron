@@ -103,5 +103,6 @@ export default {
     EventsHelper: { props: {}, location: [HEAD] },
     FundingChoices: { props: {}, location: [BODYBOTTOM] },
     Observable: { props: {}, location: [BODYBOTTOM] },
-    HandleGlossary: { props: {}, location: [BODYBOTTOM] }
+    HandleGlossary: { props: {}, location: [BODYBOTTOM] },
+    MetaRobots: { props: {}, location: [HEAD] }
 };

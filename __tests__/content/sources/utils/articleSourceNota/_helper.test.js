@@ -5,7 +5,8 @@ import {
     transformAuthors,
     transformElementsBasedOnType,
     setRedirect,
-    isValidSectionGlossary
+    isValidSectionGlossary,
+    updateUrlIfMatch
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -1036,6 +1037,22 @@ describe('Tests articleSourceNota - _helper', () => {
         it('should handle sections with path as an empty string', () => {
             const sections = [{ path: '' }];
             expect(isValidSectionGlossary(sections, false)).toBe(false);
+        });
+    });
+
+    describe('updateUrlIfMatch', () => {
+        it('should remove "tests-bannerdisabled/" if it matches the URL', () => {
+            const url =
+                '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid04052023/tests-bannerdisabled/';
+            expect(updateUrlIfMatch(url)).toBe(
+                '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid04052023/'
+            );
+        });
+
+        it('should not modify the URL if it does not match the pattern', () => {
+            const url =
+                '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid04052023/';
+            expect(updateUrlIfMatch(url)).toBe(url);
         });
     });
 });

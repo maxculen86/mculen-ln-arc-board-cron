@@ -141,7 +141,12 @@ export const listValidSectionsForMvp2Auth0 = [
         section: '/espectaculos'
     },
     { section: '/sociedad' },
-    { section: '/tecnologia' }
+    { section: '/tecnologia' },
+    { section: '/lifestyle' },
+    { section: '/autos' },
+    { section: '/el-mundo' },
+    { section: '/seguridad' },
+    { section: '/opinion' }
 ];
 
 export default initializeAuth;
