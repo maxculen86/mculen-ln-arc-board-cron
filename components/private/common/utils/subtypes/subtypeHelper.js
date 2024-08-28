@@ -4,6 +4,7 @@ export const STORYTELLING = '4';
 export const VIDEO = '5';
 export const LIVEBLOG = '6';
 export const RECETA = '7';
+export const RECETA_CERRADA = 'recipe-paywall';
 export const FOTOAL100 = '8';
 export const HTMLLIBRE = '9';
 export const AGENCIA = '10';

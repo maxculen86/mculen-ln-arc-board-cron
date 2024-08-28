@@ -27,6 +27,9 @@ const PreloadFooditImages = ({
         'Foodit-ficha-receta': () => {
             return getPromoItemsImages(globalContent, layout);
         },
+        'Foodit-recipe-paywall': () => {
+            return getPromoItemsImages(globalContent, layout);
+        },
         'Foodit-ficha-nota': () => {
             return getPromoItemsImages(globalContent, layout);
         }

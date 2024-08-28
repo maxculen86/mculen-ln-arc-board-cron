@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests - body - PowerupsReceta - helpers tests function getListsFromPowerup Returns lists from mocked content_elements 1`] = `
+[
+  {
+    "items": [
+      {
+        "abbreviation": "g",
+        "amount": "500",
+        "fullIngredientString": "500 g de Harina 0000",
+        "includeInShoppingList": true,
+        "ingredient": "Harina 0000",
+        "isMainIngredient": true,
+        "unit": "Gramo",
+      },
+      {
+        "abbreviation": "Cda.",
+        "amount": "4",
+        "fullIngredientString": "4 Cda. de Manteca",
+        "includeInShoppingList": true,
+        "ingredient": "Manteca",
+        "isMainIngredient": false,
+        "unit": "Cucharada",
+      },
+      {
+        "abbreviation": "Tz.",
+        "amount": "1/2",
+        "fullIngredientString": "1/2 Tz. de Agua",
+        "includeInShoppingList": true,
+        "ingredient": "Agua",
+        "isMainIngredient": false,
+        "unit": "Taza",
+      },
+      {
+        "abbreviation": "Cdita.",
+        "amount": "2",
+        "fullIngredientString": "2 Cdita. de Sal",
+        "includeInShoppingList": true,
+        "ingredient": "Sal",
+        "isMainIngredient": false,
+        "unit": "Cucharadita",
+      },
+      {
+        "abbreviation": "cantidad necesaria",
+        "amount": "",
+        "fullIngredientString": "Abadejo cantidad necesaria",
+        "includeInShoppingList": true,
+        "ingredient": "Abadejo",
+        "isMainIngredient": false,
+        "unit": "Cantidad necesaria",
+      },
+    ],
+    "titleList": "",
+    "typeList": "foodit-ingredientes",
+  },
+  {
+    "items": [
+      {
+        "abbreviation": "cantidad necesaria",
+        "amount": "",
+        "fullIngredientString": "Acaí cantidad necesaria",
+        "includeInShoppingList": true,
+        "ingredient": "Acaí",
+        "isMainIngredient": false,
+        "unit": "Cantidad necesaria",
+      },
+      {
+        "amount": "",
+        "fullIngredientString": "Arroz salvaje A Gusto",
+        "includeInShoppingList": false,
+        "ingredient": "Arroz salvaje",
+        "isMainIngredient": false,
+        "unit": "A Gusto",
+      },
+      {
+        "amount": "300",
+        "fullIngredientString": "300 Mililitro de Aceite",
+        "includeInShoppingList": true,
+        "ingredient": "Aceite",
+        "isMainIngredient": false,
+        "unit": "Mililitro",
+      },
+    ],
+    "titleList": "Foodit Ing 2",
+    "typeList": "foodit-ingredientes",
+  },
+  {
+    "items": [
+      {
+        "abbreviation": "pizca",
+        "amount": "2",
+        "fullIngredientString": "2 pizca de Arroz salvaje",
+        "includeInShoppingList": false,
+        "ingredient": "Arroz salvaje",
+        "isMainIngredient": false,
+        "unit": "Pizca",
+      },
+    ],
+    "titleList": "No incluir en lista de compras",
+    "typeList": "foodit-ingredientes",
+  },
+  {
+    "items": [
+      {
+        "fullIngredientString": "Custom ing A",
+        "ingredient": "Custom ing A",
+      },
+      {
+        "fullIngredientString": "Custom ing B",
+        "ingredient": "Custom ing B",
+      },
+      {
+        "fullIngredientString": "Custom ing C",
+        "ingredient": "Custom ing C",
+      },
+    ],
+    "titleList": "Custom Ing 1",
+    "typeList": "ingredientes",
+  },
+  {
+    "items": [
+      {
+        "fullIngredientString": "Custom ing 2 A",
+        "ingredient": "Custom ing 2 A",
+      },
+      {
+        "fullIngredientString": "Custom ing 2 B",
+        "ingredient": "Custom ing 2 B",
+      },
+      {
+        "fullIngredientString": "Custom ing 2 C",
+        "ingredient": "Custom ing 2 C",
+      },
+    ],
+    "titleList": "Custom ing 2",
+    "typeList": "ingredientes",
+  },
+]
+`;

@@ -1,6 +1,7 @@
 import {
     STORYTELLING,
-    RECETA
+    RECETA,
+    RECETA_CERRADA
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../../../../components/private/common/utils/get';
 import validateSponsoredLink from '../../validateSponsoredLink';
@@ -90,21 +91,37 @@ export const getImageConfig = (response, query) => {
     );
 };
 
-export const getArticleSubtype = subtype => {
+export const getArticleSubtype = (subtype, isExclusiveSuscriptor = false) => {
     if (![STORYTELLING, RECETA].includes(subtype)) {
         return STORYTELLING;
     }
+
+    if (subtype === RECETA && isExclusiveSuscriptor) return RECETA_CERRADA;
+
     return subtype;
 };
 
 // TODO: Pendiente por sumar tests al transform
-export const transform = async (result, query, cachedCall) => {
+export const transform = async (
+    result,
+    query,
+    cachedCall,
+    customCallbacksConfig = {}
+) => {
     const { meteringVariant, paywallEnabled = '' } = query;
+    const { customConfigCallbackContentElements } = customCallbacksConfig;
 
     const arcSite = query['arc-site'];
     const siteProperties = getProperties(query[arcSite]);
 
-    const subtype = getArticleSubtype(get(result, 'subtype', null));
+    const isExclusiveSuscriptor =
+        meteringVariant !== 'S' &&
+        get(result, 'content_restrictions.content_code') === 'cerrada';
+
+    const subtype = getArticleSubtype(
+        get(result, 'subtype', null),
+        isExclusiveSuscriptor
+    );
 
     const aditionalProps = {
         withSponsoredLink: validateSponsoredLink(result),
@@ -128,7 +145,9 @@ export const transform = async (result, query, cachedCall) => {
         Promise.all(
             transformElementsBasedOnType({
                 arrayElements: get(result, 'content_elements', []),
-                configCallbacks: configCallbackContentElements,
+                configCallbacks:
+                    customConfigCallbackContentElements ||
+                    configCallbackContentElements,
                 searchPropertyOnElem: 'type',
                 aditionalProps
             })

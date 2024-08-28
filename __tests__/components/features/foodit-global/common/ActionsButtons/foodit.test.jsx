@@ -52,5 +52,23 @@ describe('ActionsButtons component', () => {
         expect(screen.getAllByRole('button')).toHaveLength(7);
         expect(screen.getByTitle('Imprimir')).toBeInTheDocument();
         expect(screen.getByTitle('Copiar')).toBeInTheDocument();
+        expect(screen.getByTitle('Compartir')).toBeInTheDocument();
+    });
+
+    it('should render only public buttons when isPrivate is true', () => {
+        render(
+            <ActionsButtons
+                article={{
+                    _id: 'ABC',
+                    type: 'story',
+                    comments: { display_comments: true }
+                }}
+                isPrivate={true}
+            />
+        );
+        expect(screen.queryByTitle('Comentarios')).not.toBeInTheDocument();
+        expect(screen.queryByTitle('Imprimir')).not.toBeInTheDocument();
+        expect(screen.getByTitle('Copiar')).toBeInTheDocument();
+        expect(screen.getByTitle('Compartir')).toBeInTheDocument();
     });
 });

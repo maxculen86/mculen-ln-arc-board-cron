@@ -1,6 +1,9 @@
 import getTagList, {
+    getListsFromPowerup,
     setUrlTag
 } from '../../../../../../components/features/foodit-global/Body/PowerupsReceta/_helper';
+
+import { content_elements } from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/fichaReceta2.json';
 
 jest.mock('fusion:environment', () => {
     return {
@@ -217,6 +220,21 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
                 { text: 'Sin gluten', url: '/recetas/sin-gluten/' },
                 { text: 'Postres', url: '/recetas/postres/' }
             ]);
+        });
+    });
+
+    describe('tests function getListsFromPowerup', () => {
+        test('Returns empty arrays for ingredientsLists and nutritionLists if no arguments are provided', () => {
+            const { ingredientsLists, nutritionLists } = getListsFromPowerup();
+            expect(ingredientsLists).toEqual([]);
+            expect(nutritionLists).toEqual([]);
+        });
+
+        test('Returns lists from mocked content_elements', () => {
+            const { ingredientsLists } = getListsFromPowerup(content_elements);
+
+            expect(ingredientsLists.length).toBe(5);
+            expect(ingredientsLists).toMatchSnapshot();
         });
     });
 });

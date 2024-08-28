@@ -13,7 +13,7 @@ import { getBreadcrumbSections } from '../common/breadcrumb/_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const RecipeSchema = ({ globalContent = {} }) => {
+export const RecipeSchema = ({ globalContent = {}, layout = '' }) => {
     const { contextPath, deployment } = useAppContext();
     const {
         promo_items = {},
@@ -119,16 +119,29 @@ export const RecipeSchema = ({ globalContent = {} }) => {
         recipeIngredient,
         dateCreated: get(additional_properties, 'publish_date', ''),
         headline: get(headlines, 'basic', ''),
-        ...((video && {
-            video: {
-                '@type': 'VideoObject',
-                name: title,
-                description: description || title,
-                contentUrl: link,
-                thumbnailUrl: image,
-                uploadDate:
-                    (pubdate && new Date(pubdate * 1000).toISOString()) || ''
-            }
+        ...((video &&
+            layout !== 'Foodit-recipe-paywall' && {
+                video: {
+                    '@type': 'VideoObject',
+                    name: title,
+                    description: description || title,
+                    contentUrl: link,
+                    thumbnailUrl: image,
+                    uploadDate:
+                        (pubdate && new Date(pubdate * 1000).toISOString()) ||
+                        ''
+                }
+            }) ||
+            {}),
+        ...((layout === 'Foodit-recipe-paywall' && {
+            isAccessibleForFree: false,
+            hasPart: [
+                {
+                    '@type': 'WebPageElement',
+                    isAccessibleForFree: false,
+                    cssSelector: '#recipe-paywall-body'
+                }
+            ]
         }) ||
             {})
     };
