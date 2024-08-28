@@ -8,7 +8,7 @@ import filter from '../../../../../../../../content/filters/LN/acumulado/article
 import { articleSourceNotaSourceInclude } from '../../features/article/common/sources/articleSourceNotaSourceInclude';
 import { validatePropsChains } from '../common/props/validatePropsChains';
 import diagramationRules from '../../../../../../common/utils/diagramationRules';
-
+import { LAYOUTS } from '../../../../../../../chains/utils/common/_helpers-WebApi';
 class GetCajaCollection {
     constructor(props, typeChain) {
         this.props = validatePropsChains(props, typeChain, 'LN10');
@@ -91,18 +91,20 @@ class GetCajaCollection {
     };
 
     renderResponse = (props, articles, image) => {
-        const { customFields, typeChain } = props;
-
+        const { customFields, typeChain, children, renderables } = props;
+        const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
         if (!articles) {
             return null;
         }
-
         //  Tomar en cuenta para Cajas BN Focal 1+4 o Canal Focal 1+4, si valida que sea n5 notas.
         const layout = get(customFields, 'layout', null);
         let storiesQuantity = 0;
         if (layout) {
             storiesQuantity = parseInt(layout.charAt(layout.length - 1), 10);
             articles.slice(0, storiesQuantity || articles.length);
+            if (layout === BN_6_GRID_MAS_TIMELINE) {
+                articles.push(children[0]);
+            }
         }
         return {
             information: {
