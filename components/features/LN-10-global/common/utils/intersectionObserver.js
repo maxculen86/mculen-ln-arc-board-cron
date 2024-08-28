@@ -1,10 +1,10 @@
 export const setupIntersectionObserver = (ref, htmlContent) => {
-    const handleIntersection = (entries, observer) => {
+    const handleIntersection = (entries, elementObserver) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 if (ref.current) {
                     ref.current.innerHTML = htmlContent;
-                    observer.unobserve(entry.target);
+                    elementObserver.unobserve(entry.target);
                 }
             }
         });

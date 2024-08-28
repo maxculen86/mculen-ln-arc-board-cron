@@ -7,9 +7,9 @@ export const replacePlaceholders = items => {
         ...item,
         href: item.href
             ? item.href
-                  .replace('${SITE_LANACION}', SITE_LANACION)
+                  .replace('SITE_LANACION', SITE_LANACION)
                   .replace(
-                      '${SITIO_SEGURO_REGISTRACION}',
+                      'SITIO_SEGURO_REGISTRACION',
                       SITIO_SEGURO_REGISTRACION
                   )
             : undefined

@@ -8,39 +8,45 @@
                 "titleTag": "h2",
                 "mod": "--font-bold",
                 "list": [
-                    { "text": "LA NACION", "href": "${SITE_LANACION}/" },
+                    {
+                        "text": "LA NACION",
+                        "href": "SITE_LANACION/"
+                    },
                     {
                         "text": "Últimas noticias",
-                        "href": "${SITE_LANACION}/ultimas-noticias/"
+                        "href": "SITE_LANACION/ultimas-noticias/"
                     },
                     {
                         "text": "Política",
-                        "href": "${SITE_LANACION}/politica/"
+                        "href": "SITE_LANACION/politica/"
                     },
                     {
                         "text": "Economía",
-                        "href": "${SITE_LANACION}/economía/"
+                        "href": "SITE_LANACION/economía/"
                     },
                     {
                         "text": "El mundo",
-                        "href": "${SITE_LANACION}/el-mundo/"
+                        "href": "SITE_LANACION/el-mundo/"
                     },
                     {
                         "text": "Sociedad",
-                        "href": "${SITE_LANACION}/sociedad/"
+                        "href": "SITE_LANACION/sociedad/"
                     },
-                    { "text": "Opinión", "href": "${SITE_LANACION}/opinion/" },
+                    {
+                        "text": "Opinión",
+                        "href": "SITE_LANACION/opinion/"
+                    },
                     {
                         "text": "Deportes",
-                        "href": "${SITE_LANACION}/deportes/"
+                        "href": "SITE_LANACION/deportes/"
                     },
                     {
                         "text": "Lifestyle",
-                        "href": "${SITE_LANACION}/lifestyle/"
+                        "href": "SITE_LANACION/lifestyle/"
                     },
                     {
                         "text": "Espectáculos",
-                        "href": "${SITE_LANACION}/espectaculos/"
+                        "href": "SITE_LANACION/espectaculos/"
                     },
                     {
                         "text": "Edición impresa",
@@ -61,7 +67,7 @@
                     { "text": "LN+", "href": "https://lnmas.lanacion.com.ar/" },
                     {
                         "text": "Suscribite",
-                        "href": "${SITIO_SEGURO_REGISTRACION}/suscribirme/"
+                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme/"
                     },
                     {
                         "text": "Acceso a PDF",
@@ -122,35 +128,44 @@
                 "list": [
                     {
                         "text": "Al volante",
-                        "href": "${SITE_LANACION}/autos/al-volante/"
+                        "href": "SITE_LANACION/autos/al-volante/"
                     },
                     {
                         "text": "Campo",
-                        "href": "${SITE_LANACION}/economia/campo/"
+                        "href": "SITE_LANACION/economia/campo/"
                     },
                     {
                         "text": "Comercio exterior",
-                        "href": "${SITE_LANACION}/economia/comercio-exterior/"
+                        "href": "SITE_LANACION/economia/comercio-exterior/"
                     },
                     {
                         "text": "Comunidad",
-                        "href": "${SITE_LANACION}/comunidad/"
+                        "href": "SITE_LANACION/comunidad/"
                     },
-                    { "text": "Ideas", "href": "${SITE_LANACION}/ideas/" },
+                    {
+                        "text": "Ideas",
+                        "href": "SITE_LANACION/ideas/"
+                    },
                     {
                         "text": "Propiedades",
-                        "href": "${SITE_LANACION}/propiedades/"
+                        "href": "SITE_LANACION/propiedades/"
                     },
                     {
                         "text": "Conversaciones de domingo",
-                        "href": "${SITE_LANACION}/conversaciones-de-domingo/"
+                        "href": "SITE_LANACION/conversaciones-de-domingo/"
                     },
                     {
                         "text": "Moda y belleza",
-                        "href": "${SITE_LANACION}/moda-y-belleza/"
+                        "href": "SITE_LANACION/moda-y-belleza/"
                     },
-                    { "text": "Sábado", "href": "${SITE_LANACION}/sabado/" },
-                    { "text": "Turismo", "href": "${SITE_LANACION}/turismo/" }
+                    {
+                        "text": "Sábado",
+                        "href": "SITE_LANACION/sabado/"
+                    },
+                    {
+                        "text": "Turismo",
+                        "href": "SITE_LANACION/turismo/"
+                    }
                 ]
             },
             {
@@ -275,40 +290,52 @@
                 "list": [
                     {
                         "text": "Horóscopo",
-                        "href": "${SITE_LANACION}/horoscopo/"
+                        "href": "SITE_LANACION/horoscopo/"
                     },
-                    { "text": "Clima", "href": "${SITE_LANACION}/clima/" },
+                    {
+                        "text": "Clima",
+                        "href": "SITE_LANACION/clima/"
+                    },
                     {
                         "text": "Tránsito",
-                        "href": "${SITE_LANACION}/transito/"
+                        "href": "SITE_LANACION/transito/"
                     },
                     {
                         "text": "Dólar hoy",
-                        "href": "${SITE_LANACION}/dolar-hoy/"
+                        "href": "SITE_LANACION/dolar-hoy/"
                     },
                     {
                         "text": "Feriados",
-                        "href": "${SITE_LANACION}/feriados/"
+                        "href": "SITE_LANACION/feriados/"
                     },
                     {
                         "text": "Loterías y quinielas",
-                        "href": "${SITE_LANACION}/loterias/"
+                        "href": "SITE_LANACION/loterias/"
                     },
                     {
                         "text": "Cartelera de cine",
-                        "href": "${SITE_LANACION}/cartelera-de-cine/"
+                        "href": "SITE_LANACION/cartelera-de-cine/"
                     },
                     {
                         "text": "Cartelera de teatro",
-                        "href": "${SITE_LANACION}/cartelera-de-teatro/"
+                        "href": "SITE_LANACION/cartelera-de-teatro/"
                     },
                     {
                         "text": "Podcasts",
-                        "href": "${SITE_LANACION}/tema/podcasts-tid64878/"
+                        "href": "SITE_LANACION/tema/podcasts-tid64878/"
                     },
-                    { "text": "Juegos", "href": "${SITE_LANACION}/juegos/" },
-                    { "text": "RSS", "href": "${SITE_LANACION}/arcio/rss/" },
-                    { "text": "Agencias", "href": "${SITE_LANACION}/agencias/" }
+                    {
+                        "text": "Juegos",
+                        "href": "SITE_LANACION/juegos/"
+                    },
+                    {
+                        "text": "RSS",
+                        "href": "SITE_LANACION/arcio/rss/"
+                    },
+                    {
+                        "text": "Agencias",
+                        "href": "SITE_LANACION/agencias/"
+                    }
                 ]
             },
             {
@@ -328,7 +355,7 @@
                     },
                     {
                         "text": "Suscripciones y promociones",
-                        "href": "https://www.lanacion.com.ar/suscripciones/"
+                        "href": "SITE_LANACION/suscripciones/"
                     }
                 ]
             }
