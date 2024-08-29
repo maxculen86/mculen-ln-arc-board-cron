@@ -44,7 +44,7 @@ export const getPromoItemsImages = (article = {}, layout = '') => {
         layout === 'Foodit-ficha-nota' &&
         replaceBaseUrl(get(promo_items, 'storytelling_mobile', null));
 
-    if (videoJw) {
+    if (videoJw && layout !== 'Foodit-recipe-paywall') {
         const { posterUrl = '' } = getVideoData(videoJw);
         const posterImage = {
             resizedUrl: posterUrl,

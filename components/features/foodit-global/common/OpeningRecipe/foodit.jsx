@@ -23,7 +23,7 @@ import get from '../../../../private/common/utils/get';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
 
-export const OpeningRecipe = ({ article = {} }) => {
+export const OpeningRecipe = ({ article = {}, isPrivate = false }) => {
     const { promo_items = {}, headlines = {}, taxonomy, _id = '' } = article;
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
@@ -38,7 +38,7 @@ export const OpeningRecipe = ({ article = {} }) => {
     return (
         <Recipe>
             <Recipe.Media className="z-1">
-                {videoJW ? (
+                {!isPrivate && videoJW ? (
                     <Static id="opening-media-recipe">
                         <VideoPlayer
                             data={videoJW}
@@ -94,7 +94,12 @@ export const OpeningRecipe = ({ article = {} }) => {
                     </Static>
                     <hr className="h-100 lg-only" />
                     <div className="flex ai-center gap-16 gap-24_md">
-                        {article && <ActionsButtons article={article} />}
+                        {article && (
+                            <ActionsButtons
+                                article={article}
+                                isPrivate={isPrivate}
+                            />
+                        )}
                     </div>
                 </div>
             </Recipe.Body>
