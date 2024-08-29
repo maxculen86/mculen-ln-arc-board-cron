@@ -1969,6 +1969,12 @@ b, strong {
   display: none;
 }
 
+.viafoura.viafoura {
+  --primary-font: "Roboto", Georgia, serif;
+  --x-small-font: 1.2;
+  --medium-font: 1.2;
+  --accent-color: var(--secondary-positive);
+}
 .viafoura.viafoura .vf-branding-container.vf-branding-container,
 .viafoura.viafoura .vf-tray-trigger--floating.vf-tray-trigger--floating {
   display: none;
@@ -1978,6 +1984,27 @@ b, strong {
 }
 .viafoura.viafoura .vf-tray-trigger.vf-tray-trigger {
   display: none;
+}
+.viafoura.viafoura .vf-dropdown-button__text,
+.viafoura.viafoura .vf-button.is-link.is-accent-color:hover,
+.viafoura.viafoura .vf-dropdown-button--small .vf-dropdown-button__icon {
+  color: var(--primary-positive);
+}
+.viafoura.viafoura .vf-select-dropdown__trigger {
+  --background-color: #fff;
+}
+.viafoura.viafoura .vf-expanding-hover-light::before {
+  border-color: var(--secondary-positive);
+}
+.viafoura.viafoura .vf-button.is-cta.is-accent-color {
+  --accent-color: var(--primary-positive);
+  --accent-color-dark: var(--primary-positive);
+  --text-on-accent-color: #fff;
+}
+.viafoura.viafoura .vf-dropdown-button--accent--hovered,
+.viafoura.viafoura .vf-dropdown-button--accent:focus,
+.viafoura.viafoura .vf-dropdown-button--accent:hover {
+  --accent-color: var(--primary-positive);
 }
 
 hr {

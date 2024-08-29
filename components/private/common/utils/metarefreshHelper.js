@@ -1,8 +1,8 @@
 import get from './get';
 
-export const findTemplate = type => {
-    if (['story', 'results'].includes(type)) return 'nota';
-    if (type === '/deportes') return 'home_deportes';
+export const findTemplate = identifier => {
+    if (['story', 'results'].includes(identifier)) return 'nota';
+    if (identifier === '/deportes') return 'home_deportes';
     return 'home';
 };
 

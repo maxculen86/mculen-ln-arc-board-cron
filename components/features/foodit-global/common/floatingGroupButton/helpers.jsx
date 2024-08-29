@@ -38,7 +38,7 @@ const defaultButtons = [
 
 export const floatingButtonConfig = {
     [layoutsName.FooditHome]: {
-        observerSelector: '.card:first-of-type',
+        observerSelector: '.header-sentinel',
         className: defaultClassName,
         buttons: defaultButtons
     },

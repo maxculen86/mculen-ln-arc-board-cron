@@ -1,7 +1,7 @@
 import getProperties from 'fusion:properties';
 import get from '../../../components/private/common/utils/get';
-import getImageResized from '../../../components/private/common/utils/getImageResized';
 import transformISODate from '../../../components/private/common/utils/transformISODate';
+import { resizeUrlCollection } from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
 const transformWikiTagData = (data, siteProps) => {
     const { imageConfig = 'wikiTag', arcSite = 'la-nacion-ar' } = siteProps;
@@ -17,18 +17,20 @@ const transformWikiTagData = (data, siteProps) => {
         imageSizesDefault
     );
 
-    const transformedImage = getImageResized({
-        url,
+    const transformedImage = resizeUrlCollection({
+        originalUrl: url,
         originalWidth: width,
         originalHeight: height,
-        options: imageSizes
+        defaultResizeWithSmart: imageSizes,
+        arcImage: image,
+        arcSite
     });
 
     return {
         ...data,
         image: {
             ...image,
-            resizedUrls: transformedImage !== [] ? transformedImage : []
+            resizedUrls: transformedImage?.length > 0 ? transformedImage : []
         },
         schemas_info: {
             ...data.schemas_info,

@@ -10,7 +10,6 @@ import Modal from '../Modals/SaveRecipe/foodit';
 import DrawerMyAccount from '../DrawerMyAccount/foodit';
 import FloatingGroupButton from '../floatingGroupButton/foodit';
 import Toasts from '../toasts/foodit';
-import FooditEventsHelper from '../dataLayer/FooditEventsHelper';
 import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 import AuthInitializer from '../../../../../auth/AuthInitializer';
@@ -37,7 +36,6 @@ const BaseLayout = ({ children }) => {
                 <Static id="footer-static">
                     <Footer />
                 </Static>
-                <FooditEventsHelper />
                 <DataLayerInteractions />
                 <Modal />
                 <Toasts />

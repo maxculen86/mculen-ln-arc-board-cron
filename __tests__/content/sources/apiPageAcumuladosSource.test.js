@@ -95,10 +95,10 @@ describe('content source apiPageAcumuladosSource integration test', () => {
         expect(result.metadata).toEqual({
             category: {
                 slug: '/suscriptores',
-                value: 'Exclusivo suscriptores'
+                value: 'Suscriptores'
             },
             paginate: false,
-            title: 'Exclusivo suscriptores'
+            title: 'Suscriptores'
         });
     });
 

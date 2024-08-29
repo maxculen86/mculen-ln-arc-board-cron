@@ -38,7 +38,8 @@ const Foodit = ({
         headlines: { mobile, basic } = {},
         site = {}
     } = globalContent;
-    const { layoutsName = {} } = siteProperties || {};
+    const { layoutsName = {}, scripts: sitePropertiesScripts = [] } =
+        siteProperties || {};
 
     const allowCommentsValidate = get(
         globalContent,
@@ -48,12 +49,14 @@ const Foodit = ({
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
 
-    // TODO: validar cuales scripts se deben cargar y verificar el correcto comportamiento de estos
-    const Scripts = buildScriptComponent(
+    const isArcPreview = isAdmin || requestUri.includes('preview-arc');
+
+    const Scripts = buildScriptComponent({
         renderables,
-        siteProperties.scripts,
-        globalContent
-    );
+        sitePropertiesScripts,
+        globalContent,
+        isArcPreview
+    });
 
     return (
         <html lang="es">
@@ -63,7 +66,7 @@ const Foodit = ({
                     name="viewport"
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
-                {['preview-arc'].includes(requestUri) && (
+                {isArcPreview && (
                     <meta name="robots" content="noindex, nofollow" />
                 )}
                 <meta name="theme-color" content="#ffffff" />

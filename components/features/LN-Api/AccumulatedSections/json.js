@@ -140,7 +140,7 @@ class AccumulatedSections {
                 configuration
             };
             if (acuData.slug === '/suscriptores') {
-                acuData.name = 'Exclusivo suscriptores';
+                acuData.name = 'Suscriptores';
             }
 
             return indexAcu(acuData);

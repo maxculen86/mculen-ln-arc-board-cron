@@ -23,7 +23,7 @@ describe('respChildrens bomba', () => {
             .mockReturnValue(array);
         const calledObject = {
             children: props.children,
-            config: { layout: props.customFields.layout }
+            config: { layout: props.customFields.layout, countTimeline: false }
         };
         const result = respChildrens(props);
         expect(result).toBe(array);

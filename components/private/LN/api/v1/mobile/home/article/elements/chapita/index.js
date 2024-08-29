@@ -18,12 +18,7 @@ const getChapitaText = (labelChapitaText, propertiesChapita) => {
 };
 
 const getAdditionalPropertiesChapitaStyle = article => {
-    const additionalPropertiesChapitaStyle = get(
-        article,
-        'additionalProperties.chapitaStyle',
-        null
-    );
-    return additionalPropertiesChapitaStyle;
+    return get(article, 'additionalProperties.chapitaStyle', null);
 };
 
 const getIsXLorLSizeinDefault = (
@@ -32,7 +27,7 @@ const getIsXLorLSizeinDefault = (
     fieldsBadge
 ) => {
     const newsFieldsBadge = { ...fieldsBadge };
-    
+
     const chapitaText = getChapitaText(
         labelChapitaText,
         additionalPropertiesChapita
@@ -68,10 +63,12 @@ export const getBadgebyConfig = article => {
     const isLiveBlog = type === 'liveblog';
     const isAfondo = typeSeccion === 'afondo';
 
-    let fieldsBadge = {};
-    fieldsBadge.badgeStyle = null;
-    fieldsBadge.badge = null;
-    fieldsBadge.chapita = null;
+    let fieldsBadge = {
+        badgeStyle: null,
+        badge: null,
+        chapita: null
+    };
+
     if (
         isClosedContent(contentCode) &&
         isXLorLSize(size) &&
@@ -102,19 +99,18 @@ export const getBadgebyConfig = article => {
     return fieldsBadge;
 };
 
-//TODO: pasar a un file common utils
 export const isClosedContent = contentCode => {
     return contentCode === 'cerrada';
 };
-//TODO: pasar a un file common utils
+
 export const isXLorLSize = size => {
     return ['XL', 'L'].includes(size);
 };
-//TODO: pasar a un file common utils
+
 export const isMLSize = size => {
     return size === 'M';
 };
-//TODO: pasar a un file common utils
+
 export const isSubExclusive = typeSeccion => {
     return ['sub-exclusive'].includes(typeSeccion);
 };

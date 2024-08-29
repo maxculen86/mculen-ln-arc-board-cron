@@ -42,24 +42,6 @@ jest.mock('fusion:consumer', component => {
                     case 'ottVideosSource':
                         return require(`./data/ottVideos/${query.ids[0]}`);
                         break;
-                    case 'videosSearchSource':
-                        switch (query.query) {
-                            case 'body={"query":{"bool":{"must":[{"term":{"type":"video"}},{"term":{"revision.published":true}},{"nested":{"path":"taxonomy.sections","query":{"bool":{"must":[{"term":{"taxonomy.sections._id":"terapia-noticias"}}]}}}}]}}}&sort=publish_date:desc&from=0&size=12':
-                                return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
-
-                            case 'body={"query":{"bool":{"must":[{"term":{"type":"video"}},{"term":{"revision.published":true}},{"nested":{"path":"taxonomy.sections","query":{"bool":{"must":[{"term":{"taxonomy.sections._id":"sinvideos"}}]}}}}]}}}&sort=publish_date:desc&from=0&size=12':
-                                return require(`./data/videos/sinVideosEncontrados.json`);
-
-                            case 'body={"query":{"bool":{"must":[{"term":{"type":"video"}},{"term":{"revision.published":true}},{"nested":{"path":"taxonomy.sections","query":{"bool":{"must":[{"term":{"taxonomy.sections._id":"connext"}}]}}}}]}}}&sort=publish_date:desc&from=0&size=12':
-                                return require(`./data/videos/videosConNext.json`);
-
-                            case 'body={"query":{"bool":{"must":[{"term":{"type":"video"}},{"term":{"revision.published":true}},{"nested":{"path":"taxonomy.sections","query":{"bool":{"must":[{"term":{"taxonomy.sections._id":"sinnext"}}]}}}}]}}}&sort=publish_date:desc&from=0&size=12':
-                                return require(`./data/videos/videosSinNext.json`);
-
-                            case 'sort=publish_date:desc&from=0&size=8&q=type:video':
-                                return require(`./data/videos/ultimosVideos.json`);
-                        }
-                        break;
                     default:
                         console.error('Mock de Consumer no encontrado! ');
                         break;

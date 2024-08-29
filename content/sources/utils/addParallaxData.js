@@ -1,11 +1,12 @@
 import { CONTENT_BASE } from 'fusion:environment';
 import getRequest from './getRequest';
-import getImageResized from '../../../components/private/common/utils/getImageResized';
+import { resizeUrlCollection } from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
 const addParallaxData = async (
     contentElements,
     cachedCall,
-    presetsPromoItemsFotoAl100
+    presetsPromoItemsFotoAl100,
+    arcSite
 ) => {
     const parallaxs = contentElements.filter(
         x => x.type === 'custom_embed' && x.subtype === 'custom-parallax'
@@ -21,7 +22,11 @@ const addParallaxData = async (
         );
 
         parallaxsImagesData = parallaxsImagesData.map(image => {
-            return resizeImageParallax(image, presetsPromoItemsFotoAl100);
+            return resizeImageParallax(
+                image,
+                presetsPromoItemsFotoAl100,
+                arcSite
+            );
         });
 
         return contentElements.map(element => {
@@ -39,7 +44,7 @@ const addParallaxData = async (
     return contentElements;
 };
 
-const resizeImageParallax = (image, presets) => {
+const resizeImageParallax = (image, presets, arcSite) => {
     const {
         _id: id,
         url,
@@ -57,12 +62,14 @@ const resizeImageParallax = (image, presets) => {
         isNotSmart: true
     }));
 
-    const imageResized = getImageResized({
-        url,
+    const imageResized = resizeUrlCollection({
+        originalUrl: url,
         originalWidth: width,
         originalHeight: height,
-        options: sizesNew,
-        focalPoint
+        defaultResizeWithSmart: sizesNew,
+        focalPoint,
+        arcImage: image,
+        arcSite
     });
 
     return {

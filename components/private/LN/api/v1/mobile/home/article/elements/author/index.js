@@ -2,25 +2,24 @@ import get from '../../../../../../../../common/utils/get';
 import { getArticleAuthor } from '../../../../../../common/article/elements/author/index';
 import { articleSignature } from '../../../../../../common/elements/author';
 
-export const getAuthors = article => {
+const validSectionAliasMobile = article => {
     const sectionAliasMobile = get(
         article,
         'informationBox.sectionAliasMobile',
         null
     );
-    if (['hashtag'].includes(sectionAliasMobile)) {
+    return ['hashtag'].includes(sectionAliasMobile);
+};
+
+export const getAuthors = article => {
+    if (validSectionAliasMobile(article)) {
         return null;
     }
     return getArticleAuthor(article);
 };
 
 export const getAuthor = article => {
-    const sectionAliasMobile = get(
-        article,
-        'informationBox.sectionAliasMobile',
-        null
-    );
-    if (['hashtag'].includes(sectionAliasMobile)) {
+    if (validSectionAliasMobile(article)) {
         return null;
     }
     const authors = getAuthors(article);
@@ -28,12 +27,7 @@ export const getAuthor = article => {
 };
 
 export const getSignature = article => {
-    const sectionAliasMobile = get(
-        article,
-        'informationBox.sectionAliasMobile',
-        null
-    );
-    if (['hashtag'].includes(sectionAliasMobile)) {
+    if (validSectionAliasMobile(article)) {
         return null;
     }
     const signature =

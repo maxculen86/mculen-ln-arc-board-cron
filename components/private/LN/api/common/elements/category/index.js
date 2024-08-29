@@ -16,11 +16,11 @@ const getSubCategory = section => {
 
 const getCategory = section => {
     const { _id: slug, name: valor } = section || {};
-    const resp = {
+
+    return {
         slug,
         valor
     };
-    return resp;
 };
 
 export { getPrincipalCategory, getSubCategory };

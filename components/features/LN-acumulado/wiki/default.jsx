@@ -4,10 +4,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
+import { Icon } from '@ln/common-ui-icon';
+import { Link } from '@ln/common-ui-link';
 import get from '../../../private/common/utils/get';
 import ModPicture from '../../../private/common/mod-picture';
 import Text from '../../../private/common/text';
-import Icon from '../../../private/common/icon';
+import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import { wikiImagesWithWWW } from '../../../private/LN/common/utils/mediaHelper';
@@ -118,7 +120,7 @@ const WikiFeature = ({ id: featureId }) => {
                     )}
                 </div>
                 {socialNetworks.length > 0 && (
-                    <div className="social-networks --font-primary --font-medium">
+                    <div className="social-networks flex ai-center --font-primary --font-medium mb-24 gap-16 pl-16_m pl-0_lg">
                         <Text>Conectar:</Text>
                         {socialNetworks.map(iconInfo => {
                             const {
@@ -126,21 +128,26 @@ const WikiFeature = ({ id: featureId }) => {
                                 url: iconUrl = ''
                             } = iconInfo;
                             return (
-                                <div className="social-icons" key={iconType}>
-                                    <Icon
-                                        name={iconType.toLowerCase()}
-                                        href={getIconHref(iconType, iconUrl)}
-                                        title={getIconTitle(
-                                            isOrganization,
-                                            iconType,
-                                            legalName,
-                                            givenName,
-                                            familyName
-                                        )}
-                                        target="_blank"
-                                        rel="nofollow"
-                                    />
-                                </div>
+                                <Link
+                                    href={getIconHref(iconType, iconUrl)}
+                                    title={getIconTitle(
+                                        isOrganization,
+                                        iconType,
+                                        legalName,
+                                        givenName,
+                                        familyName
+                                    )}
+                                    target="_blank"
+                                    className="flex ai-center jc-center neutral-light-50 bg-neutral-light-50 rounded-4 p-8"
+                                    key={iconType}
+                                >
+                                    <Icon size={24}>
+                                        <IconSprite
+                                            name={iconType.toLowerCase()}
+                                            fill="#333"
+                                        />
+                                    </Icon>
+                                </Link>
                             );
                         })}
                     </div>

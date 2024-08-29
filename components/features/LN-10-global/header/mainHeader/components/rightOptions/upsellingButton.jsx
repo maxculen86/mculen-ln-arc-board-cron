@@ -17,7 +17,7 @@ export const UpsellingButton = () => {
     const termicaUpselling = useTermica('termica_upselling');
 
     const { getCookie } = handleCookie();
-    const valueCookie = getCookie('gaComboType') || '';
+    const [valueCookie] = (getCookie('gaComboType') || '').split(',');
 
     const upsellingLabels = {
         'ga-combo2': 'upselling_duo',

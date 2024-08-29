@@ -1,15 +1,10 @@
 const setArticleClassName = ({
     classCondition = '',
     withMedia,
-    isRenderAuthor,
-    isRenderAuthorOpinion
+    hasAuthorName
 }) => {
     const noMediaClass = !withMedia ? '--no-media' : '';
-    const authorClass =
-        (isRenderAuthor && classCondition !== '--columnista') ||
-        isRenderAuthorOpinion
-            ? '--author'
-            : '';
+    const authorClass = hasAuthorName ? '--author' : '';
 
     return ['mod-article', classCondition, noMediaClass, authorClass]
         .filter(Boolean)

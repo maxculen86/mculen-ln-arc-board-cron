@@ -31,16 +31,12 @@ const Component = props => {
             return get(resp, 'Metarefresh', undefined);
         }
     });
+    const typeOrId = type || _id;
 
-    const interval = getInterval(
-        type || _id,
-        resolution,
-        metarefresh,
-        category
-    );
+    const interval = getInterval(typeOrId, resolution, metarefresh, category);
 
     const cookieProductoPremium = getCookie('ProductoPremiumId');
-    const template = findTemplate(type);
+    const template = findTemplate(typeOrId);
     const isSubscribed =
         cookieProductoPremium && cookieProductoPremium.includes('2');
 

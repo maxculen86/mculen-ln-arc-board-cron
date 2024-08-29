@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComLi from './com-li';
-import ComLink from './com-link';
-import ComIco from './icon';
+import { Icon } from '@ln/common-ui-icon';
+import { Link } from '@ln/contenidos-ui-link';
+import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
+
 import '../../../resources/dist/css/ln/components/com-unordered.css';
 
 const list = [
@@ -20,30 +21,42 @@ const list = [
     'tumblr'
 ];
 
-const ListSocialIcons = props => {
-    const { vertical, data } = props;
-    const listItem = list.map(item => {
+const ListSocialIcons = ({ data }) => {
+    const listItem = list.map((item, index) => {
         if (!data[item]) return null;
         const linkSocialNetwork =
-            item === 'twitter'
-                ? `https://twitter.com/${data[item]}`
-                : data[item];
+            item === 'twitter' ? `https://x.com/${data[item]}` : data[item];
 
+        const itemText = item === 'twitter' ? 'x' : item;
         return (
-            <ComLi>
-                <ComLink
-                    link={linkSocialNetwork}
+            <li className="flex ai-center" key={item}>
+                {index > 0 && (
+                    <Icon size={16} className="ml-4 mr-4">
+                        <IconSprite name="bulletFilled" fill="#ccc" />
+                    </Icon>
+                )}
+                <Link
+                    href={linkSocialNetwork}
                     target="_blank"
-                    classCondition="--sociallist"
+                    className="gap-4 inline-flex ai-center font-bold"
+                    title={`Ir a ${itemText}`}
                 >
-                    <ComIco name={`${item}-filled`} />
-                    {item}
-                </ComLink>
-            </ComLi>
+                    <Icon size={32}>
+                        <IconSprite name={item} fill="#333333" />
+                    </Icon>
+                    {itemText}
+                </Link>
+            </li>
         );
     });
 
-    return <ul className={`com-unordered ${vertical}`}>{listItem}</ul>;
+    return (
+        <div className="relative overflow-hidden w-100">
+            <ul className="flex flex-wrap_lg --scroll-x --degrade-scroll_max1279 pr-60">
+                {listItem}
+            </ul>
+        </div>
+    );
 };
 
 ListSocialIcons.propTypes = {

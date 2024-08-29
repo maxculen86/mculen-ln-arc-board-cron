@@ -127,21 +127,19 @@ exports[`WIkiAuthorHelper functions test Checking authorSocialNetworks 1`] = `
   <div
     class="col-12"
   >
-    <mock-com-container
-      classcondition="--socialicons"
+    <div
+      class="flex gap-8 gap-16_m flex-column flex-row_m py-32 mb-40 border border-top border-bottom border-thin border-light-300 ai-center_lg"
+      data-testid="wiki-social-container"
     >
-      <mock-com-subtitle
-        size="--twoxs"
+      <h4
+        class="text text-16 text-black font-bold mt-4_m"
       >
         Conectar
-      </mock-com-subtitle>
+      </h4>
       <mock-social-icons
         data="[object Object]"
-        size="--threexs"
-        sizeicon="--xl"
-        vertical=""
       />
-    </mock-com-container>
+    </div>
   </div>
 </div>
 `;

@@ -81,7 +81,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         ) {
             hashContentVersion = resultHome[0].metadata.contentVersion;
             return {
-                homeUpdated: contentVersion != hashContentVersion,
+                homeUpdated: contentVersion !== hashContentVersion,
                 contentVersion: hashContentVersion
             };
         }

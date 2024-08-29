@@ -14,9 +14,9 @@ describe('components - private - common - utils - setArticleClassName', () => {
         },
         author: {
             boxPosition: 'toi202',
-            isRenderAuthorOpinion: true,
             withMedia: true,
-            _id: 'SUW6AQPARNCGLBDM2YOUGGC474'
+            _id: 'SUW6AQPARNCGLBDM2YOUGGC474',
+            hasAuthorName: true
         },
         classCondition: {
             boxPosition: 'toi202',

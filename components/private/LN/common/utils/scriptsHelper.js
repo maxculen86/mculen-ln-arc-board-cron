@@ -185,12 +185,13 @@ export const getScriptsToLoad = (renderables = [], bannersDisabled) => {
     )(renderables);
 };
 
-const buildScriptComponent = (
+const buildScriptComponent = ({
     renderables = [],
     sitePropertiesScripts = [],
     globalContent = {},
-    globalContentConfig = {}
-) => {
+    globalContentConfig = {},
+    isArcPreview = false
+}) => {
     const bannersDisabled = /tests-bannerdisabled\//.test(
         get(globalContentConfig, 'query.url', '')
     );
@@ -198,7 +199,8 @@ const buildScriptComponent = (
     return ScriptManager(
         getScriptsToLoad(renderables, bannersDisabled),
         sitePropertiesScripts,
-        globalContent
+        globalContent,
+        isArcPreview
     );
 };
 

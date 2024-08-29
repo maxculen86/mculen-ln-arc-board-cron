@@ -2,7 +2,6 @@ import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import getAuthorsPhoto from '../../../private/common/utils/getAuthorsPhoto';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
-import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 import getStreams from '../../../private/LN/common/utils/getStreams';
 import diagramationRules, {
@@ -12,7 +11,6 @@ import featureArticleCustomsFields from '../../../private/LN/common/utils/articu
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import setClassName from '../../../private/common/utils/setClassName';
 import {
-    getIsBomba,
     getChainParentOfFeature,
     handleTagWithBomba
 } from './common/_helper-WebApi';

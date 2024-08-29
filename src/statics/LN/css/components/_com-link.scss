@@ -1,20 +1,11 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .com-link {
-    //font-family: $font-arial;
-    //font-size: px(14);
     color: $link;
-    //text-transform: initial;
     &.--acu,
     &.--black {
         color: $neutral-black;
     }
-    // .text & {
-    //     //CAMBIAR
-    //     font-family: $font-georgia;
-    //     font-size: px(16);
-    //     line-height: px(24);
-    // }
     .listuser & {
         padding: px(10) px(20);
     }
@@ -71,31 +62,10 @@
             text-transform: uppercase;
         }
     }
-    // .mod-media & {
-    //     width: 100%;
-    // }
     .mod-autor & {
         line-height: px(24);
         font-size: px(16);
         font-weight: bold;
-        //color: $link;
-    }
-    // .com-paragraph & {
-    //     //font-family: $font-georgia;
-    //     .amp & {
-    //         color: $link;
-    //         //font-family: $font-georgia;
-    //     }
-    // }
-    // .mod-keepreading & {
-    //     display: block;
-    //     margin-bottom: $spacing-sm;
-    //     font-weight: 700;
-    // }
-
-    &.--sociallist {
-        @include flex(inline, row, center, center);
-        font-weight: 700;
     }
     .--contact & {
         .mod-wikiauthor & {
@@ -123,9 +93,6 @@
         }
     }
     .com-title & {
-        // .mod-headersection.--teal &,
-        // .mod-headersection.--blue &,
-        // .mod-headersection.--red &,
         .mod-headersection.--bg & {
             color: $blanco;
         }
@@ -155,10 +122,5 @@
             border: 1px solid $light-neutral-400;
             color: $neutral-black;
         }
-        // .com-paragraph & {
-        //     .amp & {
-        //         color: $link;
-        //     }
-        // }
     }
 }

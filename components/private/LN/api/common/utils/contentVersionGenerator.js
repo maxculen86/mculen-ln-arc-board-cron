@@ -27,13 +27,11 @@ const getArticlesIdsBySection = (home, section) => {
         return x['tipoSeccion'] === section;
     });
 
-    const ids = sections.map(section => {
-        return section['notas'].map(nota => {
+    return sections.map(s => {
+        return s['notas'].map(nota => {
             return nota['id'];
         });
     });
-
-    return ids;
 };
 
 const getAnticipoSectionsTitles = home => {
@@ -41,11 +39,9 @@ const getAnticipoSectionsTitles = home => {
         return x['tipoSeccion'] === 'anticipo';
     });
 
-    const titles = sections.map(section => {
+    return sections.map(section => {
         return section['parameters']['title'];
     });
-
-    return titles;
 };
 
 export { generateHashContentVersion };

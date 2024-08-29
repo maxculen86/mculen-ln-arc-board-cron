@@ -5,11 +5,7 @@ const removeEmptyItems = obj => {
         return obj
             .map(v => (v && typeof v === 'object' ? removeEmptyItems(v) : v))
             .filter(
-                v =>
-                    !(v === null) &&
-                    !(v === undefined) &&
-                    !(v === '') &&
-                    !(v.length === 0)
+                v => v !== null && v !== undefined && v !== '' && v.length !== 0
             );
     }
     return Object.entries(obj)

@@ -4,11 +4,12 @@ import get from '../../../../components/private/common/utils/get';
 import articleNoParallax from '../../../../__mocks__/data/articles/ICFK2KOK4JGCPMURVDYAT4RFLU.json';
 import articleWithParallax from '../../../../__mocks__/data/nota/cuerpo/cuerpoConParallax.json';
 import properties from '../../../../properties/sites/la-nacion-ar';
-import getImageResized from '../../../../components/private/common/utils/getImageResized';
+import { resizeUrlCollection } from '../../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
-jest.mock('../../../../components/private/common/utils/getImageResized', () =>
-    jest.fn()
+jest.mock(
+    '../../../../components/private/common/utils/image/resizer/v2/resizerHelper'
 );
+
 describe('Article source nota - addParallaxData', () => {
     const presetsPromoItemsFotoAl100 = get(
         properties,
@@ -36,7 +37,7 @@ describe('Article source nota - addParallaxData', () => {
             .mockReturnValueOnce(Promise.resolve(rawImagesData[1]))
             .mockReturnValueOnce(Promise.resolve(rawImagesData[2]));
 
-        getImageResized
+        resizeUrlCollection
             .mockReturnValueOnce(resizedImagesData[0])
             .mockReturnValueOnce(resizedImagesData[1])
             .mockReturnValueOnce(resizedImagesData[2]);
@@ -48,7 +49,7 @@ describe('Article source nota - addParallaxData', () => {
                         x.type == 'custom_embed' &&
                         x.subtype === 'custom-parallax'
                 );
-                expect(getImageResized).toBeCalledTimes(3);
+                expect(resizeUrlCollection).toBeCalledTimes(3);
                 expect(response.length).toBe(9);
                 expect(parallaxs.length).toBe(3);
                 contentElements.forEach((element, index) => {

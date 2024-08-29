@@ -2,7 +2,7 @@ import React from 'react';
 import ImageAuthor from '../../LN/acumulado/author/imageAuthor';
 import ComContainer from '../com-container';
 import ModDescriptionList from '../mod-descriptionList';
-import ComSubtitle from '../com-subtitle';
+import { Text } from '@ln/common-ui-text';
 import ListSocialIcons from '../list-socialicons';
 import { replaceAllUrlsResizerObject } from '../../LN/common/utils/mediaHelper';
 
@@ -131,15 +131,15 @@ export const authorPodcast = (podcasts = []) => {
 export const authorSocialNetworks = (socialNetworks, data) => {
     return socialNetworks.length > 0 ? (
         <div className="col-12">
-            <ComContainer classCondition="--socialicons">
-                <ComSubtitle size="--twoxs">Conectar</ComSubtitle>
-                <ListSocialIcons
-                    sizeIcon="--xl"
-                    data={data}
-                    size="--threexs"
-                    vertical=""
-                />
-            </ComContainer>
+            <div
+                className="flex gap-8 gap-16_m flex-column flex-row_m py-32 mb-40 border border-top border-bottom border-thin border-light-300 ai-center_lg"
+                data-testid="wiki-social-container"
+            >
+                <Text as="h4" className="text-16 text-black font-bold mt-4_m">
+                    Conectar
+                </Text>
+                <ListSocialIcons data={data} />
+            </div>
         </div>
     ) : null;
 };

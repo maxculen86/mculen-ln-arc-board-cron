@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features- foodit-global - schemas - AcuChefSchema renders the correct number of schema script tags 1`] = `
+<div>
+  <script
+    id="acu-schema"
+    type="application/ld+json"
+  >
+    {
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  "name": "Acumulado - Chefs Protagonistas",
+  "url": "https://foodit.lanacion.com.ar/chefs-protagonistas/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Foodit",
+    "url": "https://foodit.lanacion.com.ar/",
+    "logo": {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "url": "https://foodit.lanacion.com.ar/pf/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "height": 112,
+      "width": 112
+    }
+  }
+}
+  </script>
+  <script
+    id="breadcrumb-schema"
+    type="application/ld+json"
+  >
+    {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 0,
+      "item": {
+        "@id": "https://foodit.lanacion.com.ar/",
+        "name": "Foodit"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@id": "/chefs-protagonistas/",
+        "name": "Chefs protagonistas"
+      }
+    }
+  ]
+}
+  </script>
+</div>
+`;

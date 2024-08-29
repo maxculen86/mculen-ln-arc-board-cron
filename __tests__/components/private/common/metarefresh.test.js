@@ -60,7 +60,7 @@ jest.mock('react', () => {
     };
 });
 
-describe('Metarefresh', () => {
+describe('Components - private - common - metarefresh', () => {
     const originalLocation = window.location;
     const Component = Metarefresh.WrappedComponent;
 
@@ -171,8 +171,7 @@ describe('Metarefresh', () => {
             expect(window.location.reload).not.toBeCalled();
         });
 
-        // TODO: revivir este caso
-        it.skip('Reload when required conditions are met', () => {
+        it('Reload when required conditions are met', () => {
             const props = {
                 arcSite: 'la-nacion-ar',
                 globalContent: {

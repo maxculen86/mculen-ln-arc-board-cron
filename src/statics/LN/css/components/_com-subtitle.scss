@@ -8,21 +8,8 @@
     color: $neutral-black;
     margin-bottom: $spacing-sm;
 
-    .--socialicons & {
-        .mod-wikiauthor & {
-            margin: 0 0 $spacing-xs;
-        }
-    }
     &.--membresia {
         min-width: px(207);
-    }
-
-    @media ($media-m) {
-        .--socialicons & {
-            .mod-wikiauthor & {
-                margin: $spacing $spacing-sm 0 0;
-            }
-        }
     }
 
     @media ($media-l) {

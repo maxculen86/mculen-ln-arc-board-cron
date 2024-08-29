@@ -8,7 +8,8 @@ import {
     isPrimarySectionInBannerSegments,
     handleCanchallenaException,
     shouldShow,
-    setPrebidBanners
+    setPrebidBanners,
+    parseDimensionsBanners
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
 import { render } from '@testing-library/react';
@@ -582,428 +583,454 @@ const subSections = [
     }
 ];
 
-describe('isPrimarySectionInBannerSegments =>', () => {
-    Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
-        contextPath: '/pf'
-    }));
-    const segments = ['campo', 'propiedades'];
+describe('common - utils - bannerHelper', () => {
+    describe('isPrimarySectionInBannerSegments =>', () => {
+        Context.useAppContext = jest.fn(() => ({
+            deployment: jest.fn(),
+            contextPath: '/pf'
+        }));
+        const segments = ['campo', 'propiedades'];
 
-    const evalSectionInBanner = (section, equal) => {
-        const result = isPrimarySectionInBannerSegments(section)(segments);
-        expect(result).toEqual(equal);
-        expect(result).toBeInstanceOf(Array);
-        expect(result).toHaveLength(2);
-    };
+        const evalSectionInBanner = (section, equal) => {
+            const result = isPrimarySectionInBannerSegments(section)(segments);
+            expect(result).toEqual(equal);
+            expect(result).toBeInstanceOf(Array);
+            expect(result).toHaveLength(2);
+        };
 
-    it('it should be campo included =>', () =>
-        evalSectionInBanner('/economia/campo/', [true, 'campo']));
-    it('it should be propiedades included =>', () =>
-        evalSectionInBanner('/propiedades/', [true, 'propiedades']));
-    it('it should be economia does not included =>', () =>
-        evalSectionInBanner('/economia/dolar/', [false, 'economia']));
-    it('it should be sociedad does not included =>', () =>
-        evalSectionInBanner('/sociedad/cultura/', [false, 'sociedad']));
-    it('it should be deportes does not included =>', () =>
-        evalSectionInBanner('/deportes/futbol/', [false, 'deportes']));
-    it('it should be opinion does not included =>', () =>
-        evalSectionInBanner('/opinion/', [false, 'opinion']));
-    it('it should be deportes (two sub-categories) does not included =>', () =>
-        evalSectionInBanner('/deportes/futbol/boca/', [false, 'deportes']));
-    it('should test exceptions', () => {
-        const exceptions = [
-            { primarySection: '/estados-unidos', segment: 'la_nacion_usa' },
-            { primarySection: '/salud', segment: 'bienestar' },
-            { primarySection: '/autos', segment: 'movilidad' }
-        ];
-        exceptions.forEach(element =>
-            expect(
-                isPrimarySectionInBannerSegments(element.primarySection)([
-                    element.segment
-                ])
-            ).toStrictEqual([true, element.segment])
-        );
-    });
-    it('should be canchallena exception', () => {
-        expect(
-            isPrimarySectionInBannerSegments('deportes')(segments, subSections)
-        ).toStrictEqual([true, 'canchallena']);
-    });
-});
+        it('it should be campo included =>', () =>
+            evalSectionInBanner('/economia/campo/', [true, 'campo']));
 
-describe('handleCanchallenaException =>', () => {
-    Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
-        contextPath: '/pf'
-    }));
-    it('it should return true and canchallena section =>', () => {
-        expect(handleCanchallenaException(subSections)).toEqual([
-            true,
-            'canchallena'
-        ]);
-    });
+        it('it should be propiedades included =>', () =>
+            evalSectionInBanner('/propiedades/', [true, 'propiedades']));
 
-    it('it should return false if not canchallena =>', () => {
-        expect(handleCanchallenaException([subSections[0]])).toEqual(false);
-    });
+        it('it should be economia does not included =>', () =>
+            evalSectionInBanner('/economia/dolar/', [false, 'economia']));
 
-    it('it should return false by default =>', () => {
-        expect(handleCanchallenaException()).toEqual(false);
-    });
-});
+        it('it should be sociedad does not included =>', () =>
+            evalSectionInBanner('/sociedad/cultura/', [false, 'sociedad']));
 
-describe('getDimsFromSiteService =>', () => {
-    Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
-        contextPath: '/pf'
-    }));
-    it('should test getDimsFromSiteService func', () => {
-        let dimensions = getDimsFromSiteService(
-            [],
-            `nota_caja1_dsk`,
-            'propiedades'
-        );
-        expect(dimensions).toBeNull();
+        it('it should be deportes does not included =>', () =>
+            evalSectionInBanner('/deportes/futbol/', [false, 'deportes']));
 
-        dimensions = getDimsFromSiteService(
-            [
-                {
-                    adunit: 'nota_caja2_mob',
-                    dimensions:
-                        '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450'
-                }
-            ],
-            `nota_caja2_mob`,
-            'espectaculos'
-        );
-        expect(dimensions).toHaveLength(9);
+        it('it should be opinion does not included =>', () =>
+            evalSectionInBanner('/opinion/', [false, 'opinion']));
 
-        dimensions = getDimsFromSiteService(
-            [
-                {
-                    adunit: 'nota_caja5_mob',
-                    dimensions:
-                        '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450,fluid'
-                }
-            ],
-            `nota_caja5_mob`,
-            'espectaculos'
-        );
+        it('it should be deportes (two sub-categories) does not included =>', () =>
+            evalSectionInBanner('/deportes/futbol/boca/', [false, 'deportes']));
 
-        const expectArray = [
-            [320, 50],
-            [320, 100],
-            [300, 250],
-            [300, 450],
-            [1, 1],
-            [360, 270],
-            [320, 180],
-            [360, 450],
-            [380, 450],
-            ['fluid']
-        ];
-        expect(dimensions).toEqual(expectArray);
-        expect(dimensions).toHaveLength(10);
-    });
-    it('should add corresponding dimensions for sections', () => {
-        const banners = ['nota_caja1_dsk', 'acumulado_caja1_dsk'];
-        const sections = [
-            'propiedades',
-            'campo',
-            'salud',
-            'autos',
-            'la_nacion_usa'
-        ];
-        banners.forEach(banner =>
-            sections.forEach(section =>
+        it('should test exceptions', () => {
+            const exceptions = [
+                { primarySection: '/estados-unidos', segment: 'la_nacion_usa' },
+                { primarySection: '/salud', segment: 'bienestar' },
+                { primarySection: '/autos', segment: 'movilidad' }
+            ];
+            exceptions.forEach(element =>
                 expect(
-                    getDimsFromSiteService(
-                        [
-                            {
-                                adunit: banner,
-                                dimensions: '200x300'
-                            }
-                        ],
-                        banner,
-                        section
-                    )
-                ).toStrictEqual([
-                    [120, 600],
-                    [160, 600],
-                    [300, 600]
-                ])
-            )
-        );
-    });
-});
+                    isPrimarySectionInBannerSegments(element.primarySection)([
+                        element.segment
+                    ])
+                ).toStrictEqual([true, element.segment])
+            );
+        });
 
-describe('changeSegmentAdUnit =>', () => {
-    Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
-        contextPath: '/pf'
-    }));
-    it('Deberia cambiar el nombre de slot si uno de los segmentos del adserver esta en el path', () => {
-        const slotName = changeSegmentAdUnit(
-            'campo',
-            'desktop',
-            'la_nacion_desktop/Nota/middle_1_dsk'
-        );
-        expect(slotName).toEqual('campo_desktop/Nota/middle_1_dsk');
+        it('should be canchallena exception', () => {
+            expect(
+                isPrimarySectionInBannerSegments('deportes')(
+                    segments,
+                    subSections
+                )
+            ).toStrictEqual([true, 'canchallena']);
+        });
     });
 
-    it('La configuracion del banner deberia venir con el slot propio del segmento del adserver', () => {
+    describe('handleCanchallenaException =>', () => {
+        Context.useAppContext = jest.fn(() => ({
+            deployment: jest.fn(),
+            contextPath: '/pf'
+        }));
+        it('it should return true and canchallena section =>', () => {
+            expect(handleCanchallenaException(subSections)).toEqual([
+                true,
+                'canchallena'
+            ]);
+        });
+
+        it('it should return false if not canchallena =>', () => {
+            expect(handleCanchallenaException([subSections[0]])).toEqual(false);
+        });
+
+        it('it should return false by default =>', () => {
+            expect(handleCanchallenaException()).toEqual(false);
+        });
+    });
+
+    describe('getDimsFromSiteService =>', () => {
+        Context.useAppContext = jest.fn(() => ({
+            deployment: jest.fn(),
+            contextPath: '/pf'
+        }));
+        it('should test getDimsFromSiteService func', () => {
+            let dimensions = getDimsFromSiteService(
+                [],
+                `nota_caja1_dsk`,
+                'propiedades'
+            );
+            expect(dimensions).toEqual([
+                [300, 250],
+                [300, 600],
+                [120, 600],
+                [160, 600]
+            ]);
+
+            dimensions = getDimsFromSiteService(
+                [
+                    {
+                        adunit: 'nota_caja2_mob',
+                        dimensions:
+                            '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450'
+                    }
+                ],
+                `nota_caja2_mob`,
+                'espectaculos'
+            );
+            expect(dimensions).toHaveLength(9);
+
+            dimensions = getDimsFromSiteService(
+                [
+                    {
+                        adunit: 'nota_caja5_mob',
+                        dimensions:
+                            '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450,fluid'
+                    }
+                ],
+                `nota_caja5_mob`,
+                'espectaculos'
+            );
+
+            const expectArray = [
+                [320, 50],
+                [320, 100],
+                [300, 250],
+                [300, 450],
+                [1, 1],
+                [360, 270],
+                [320, 180],
+                [360, 450],
+                [380, 450],
+                ['fluid']
+            ];
+            expect(dimensions).toEqual(expectArray);
+            expect(dimensions).toHaveLength(10);
+        });
+
+        it('should add corresponding dimensions for sections', () => {
+            const banners = ['nota_caja1_dsk', 'acumulado_caja1_dsk'];
+            const sections = ['salud', 'autos', 'la_nacion_usa'];
+            banners.forEach(banner =>
+                sections.forEach(section =>
+                    expect(
+                        getDimsFromSiteService(
+                            [
+                                {
+                                    adunit: banner,
+                                    dimensions: '200x300'
+                                }
+                            ],
+                            banner,
+                            section
+                        )
+                    ).toStrictEqual([
+                        [120, 600],
+                        [160, 600],
+                        [300, 600]
+                    ])
+                )
+            );
+        });
+    });
+
+    describe('changeSegmentAdUnit =>', () => {
+        Context.useAppContext = jest.fn(() => ({
+            deployment: jest.fn(),
+            contextPath: '/pf'
+        }));
+        it('Should change the slot name if one of the adserver segments is in the path', () => {
+            const slotName = changeSegmentAdUnit(
+                'campo',
+                'desktop',
+                'la_nacion_desktop/Nota/middle_1_dsk'
+            );
+            expect(slotName).toEqual('campo_desktop/Nota/middle_1_dsk');
+        });
+
+        it("The banner configuration should come with the adserver segment's own slot", () => {
+            let customFields = {
+                desktop: 'caja1_dsk',
+                group: 'nota'
+            };
+
+            const configCaja1 = getBannerConfiguration(
+                globalContentDeNotaCampo,
+                customFields,
+                null,
+                { device: 'desktop', slotId: 'caja1_dsk' }
+            );
+
+            expect(configCaja1.slotName).toEqual(
+                'campo_desktop/Nota/caja1_dsk'
+            );
+
+            const configCajaNoCampo = getBannerConfiguration(
+                globalContent,
+                {
+                    desktop: 'caja1_dsk',
+                    group: 'nota'
+                },
+                null,
+                { device: 'desktop', slotId: 'caja1_dsk' }
+            );
+
+            expect(configCajaNoCampo.slotName).toEqual(
+                'la_nacion_desktop/Nota/caja1_dsk'
+            );
+        });
+    });
+
+    describe('getBannerConfiguration =>', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent,
+            siteProperties,
+            deployment: jest.fn(),
+            contextPath: '/pf'
+        }));
+
         let customFields = {
             desktop: 'caja1_dsk',
             group: 'nota'
         };
 
-        const configCaja1 = getBannerConfiguration(
-            globalContentDeNotaCampo,
-            customFields,
-            null,
-            { device: 'desktop', slotId: 'caja1_dsk' }
-        );
+        it('Deberia traer la configuracion del banner Caja1_dsk', () => {
+            const caja1 = {
+                slotName: 'la_nacion_desktop/Nota/caja1_dsk',
+                withoutHide: true,
+                dimensions: [
+                    [300, 600],
+                    [300, 250]
+                ],
+                targeting: { sitio: 'lanacion', seccion: 'nota' },
+                bidding: { prebid: { enabled: true } },
+                device: 'desktop',
+                slotId: 'caja1_dsk',
+                slotGroup: 'nota',
+                dfpId: 133919216,
+                classes: ''
+            };
 
-        expect(configCaja1.slotName).toEqual('campo_desktop/Nota/caja1_dsk');
+            const configCaja1 = getBannerConfiguration(
+                globalContent,
+                customFields,
+                null,
+                { device: 'desktop', slotId: 'caja1_dsk' }
+            );
+            expect(configCaja1).toEqual(caja1);
+            expect(configCaja1).toBeInstanceOf(Object);
+        });
 
-        const configCajaNoCampo = getBannerConfiguration(
-            globalContent,
-            {
-                desktop: 'caja1_dsk',
+        it('Deberia traer la configuracion del banner 1x1_mob con y sin suscripcion', () => {
+            customFields = {
+                mobile: '1x1_mob',
                 group: 'nota'
-            },
-            null,
-            { device: 'desktop', slotId: 'caja1_dsk' }
-        );
+            };
 
-        expect(configCajaNoCampo.slotName).toEqual(
-            'la_nacion_desktop/Nota/caja1_dsk'
-        );
-    });
-});
+            const config1x1 = getBannerConfiguration(
+                globalContent,
+                customFields,
+                null,
+                { device: 'mobile', slotId: '1x1_mob' }
+            );
+            expect(config1x1).toEqual(null);
 
-describe('getBannerConfiguration =>', () => {
-    Context.useAppContext = jest.fn(() => ({
-        globalContent,
-        siteProperties,
-        deployment: jest.fn(),
-        contextPath: '/pf'
-    }));
+            const unoxuno = {
+                dimensions: [[1, 1]],
+                targeting: { sitio: 'lanacion', seccion: 'nota' },
+                device: 'mobile',
+                slotId: '1x1_mob',
+                slotName: 'la_nacion_mobile/Nota/1x1_mob',
+                slotGroup: 'nota',
+                dfpId: 133919216,
+                classes: 'none '
+            };
 
-    let customFields = {
-        desktop: 'caja1_dsk',
-        group: 'nota'
-    };
+            const config1x1SinSuscripcion = getBannerConfiguration(
+                { ...globalContent, subscription: 'A' },
+                customFields,
+                null,
+                { device: 'mobile', slotId: '1x1_mob' }
+            );
+            expect(config1x1SinSuscripcion).toEqual(unoxuno);
+        });
 
-    it('Deberia traer la configuracion del banner Caja1_dsk', () => {
-        const caja1 = {
-            slotName: 'la_nacion_desktop/Nota/caja1_dsk',
-            withoutHide: true,
-            dimensions: [
-                [300, 600],
-                [300, 250]
-            ],
-            targeting: { sitio: 'lanacion', seccion: 'nota' },
-            bidding: { prebid: { enabled: true } },
-            device: 'desktop',
-            slotId: 'caja1_dsk',
-            slotGroup: 'nota',
-            dfpId: 133919216,
-            classes: ''
-        };
+        it('Deberia traer la configuracion del banner cabezal', () => {
+            customFields = {
+                desktop: 'cabezal_dsk',
+                sticky: true,
+                group: 'nota'
+            };
 
-        const configCaja1 = getBannerConfiguration(
-            globalContent,
-            customFields,
-            null,
-            { device: 'desktop', slotId: 'caja1_dsk' }
-        );
-        expect(configCaja1).toEqual(caja1);
-        expect(configCaja1).toBeInstanceOf(Object);
-    });
+            const componentBannerCabezal = render(
+                <Banner
+                    customFields={customFields}
+                    globalContent={globalContent}
+                />
+            );
+            expect(componentBannerCabezal).toMatchSnapshot();
 
-    it('Deberia traer la configuracion del banner 1x1_mob con y sin suscripcion', () => {
-        customFields = {
-            mobile: '1x1_mob',
-            group: 'nota'
-        };
+            const componentBannerCabezalNoShow = render(
+                <Banner
+                    customFields={customFields}
+                    globalContent={{
+                        ...globalContent,
+                        acumuladoGeneral: { hide_banner: 'true' }
+                    }}
+                />
+            );
+            expect(componentBannerCabezalNoShow).toBeEmptyRender;
+        });
 
-        const config1x1 = getBannerConfiguration(
-            globalContent,
-            customFields,
-            null,
-            { device: 'mobile', slotId: '1x1_mob' }
-        );
-        expect(config1x1).toEqual(null);
+        it('Deberia traer la configuracion del adhesion_mob con y sin suscripcion', () => {
+            const adhesionMobile = {
+                slotName: 'la_nacion_mobile/Nota/adhesion_mob',
+                dimensions: [[320, 50]],
+                targeting: { sitio: 'lanacion', seccion: 'nota' },
+                closeButton: true,
+                device: 'mobile',
+                slotId: 'adhesion_mob',
+                slotGroup: 'nota',
+                dfpId: 133919216,
+                classes: '--fixed --close none '
+            };
 
-        const unoxuno = {
-            dimensions: [[1, 1]],
-            targeting: { sitio: 'lanacion', seccion: 'nota' },
-            device: 'mobile',
-            slotId: '1x1_mob',
-            slotName: 'la_nacion_mobile/Nota/1x1_mob',
-            slotGroup: 'nota',
-            dfpId: 133919216,
-            classes: 'none '
-        };
+            customFields = {
+                mobile: 'adhesion_mob',
+                fixed: true,
+                group: 'nota'
+            };
+            const configAdhesionMobileConSuscripcion = getBannerConfiguration(
+                globalContent,
+                customFields,
+                null,
+                { device: 'mobile', slotId: 'adhesion_mob' }
+            );
+            expect(configAdhesionMobileConSuscripcion).toEqual(null);
 
-        const config1x1SinSuscripcion = getBannerConfiguration(
-            { ...globalContent, subscription: 'A' },
-            customFields,
-            null,
-            { device: 'mobile', slotId: '1x1_mob' }
-        );
-        expect(config1x1SinSuscripcion).toEqual(unoxuno);
-    });
+            const configAdhesionMobileSinSuscripcion = getBannerConfiguration(
+                { ...globalContent, subscription: 'A' },
+                customFields,
+                null,
+                { device: 'mobile', slotId: 'adhesion_mob' }
+            );
+            expect(configAdhesionMobileSinSuscripcion).toEqual(adhesionMobile);
 
-    it('Deberia traer la configuracion del banner cabezal', () => {
-        customFields = {
-            desktop: 'cabezal_dsk',
-            sticky: true,
-            group: 'nota'
-        };
+            const componentAdhesionBanner = render(
+                <Banner
+                    customFields={customFields}
+                    globalContent={{ ...globalContent, subscription: 'A' }}
+                />
+            );
+            expect(componentAdhesionBanner).toMatchSnapshot();
+        });
 
-        const componentBannerCabezal = render(
-            <Banner customFields={customFields} globalContent={globalContent} />
-        );
-        expect(componentBannerCabezal).toMatchSnapshot();
+        it('Validar que las clases css se construyan bien segun la configuracion del banner', () => {
+            expect(
+                buildBannerClasses({ closeButton: true }, { fixed: true })
+            ).toEqual('--fixed --close none ');
+            expect(buildBannerClasses({}, {})).toEqual('none ');
+            expect(
+                buildBannerClasses(
+                    { closeButton: true, withoutHide: false },
+                    { fixed: true, sticky: true, background: true }
+                )
+            ).toEqual('--bg-banner --sticky --fixed --close none ');
+            expect(
+                buildBannerClasses({ slotName: 'Nota/comercial_dsk' }, {})
+            ).toEqual('none --comercial ');
+        });
 
-        const componentBannerCabezalNoShow = render(
-            <Banner
-                customFields={customFields}
-                globalContent={{
-                    ...globalContent,
-                    acumuladoGeneral: { hide_banner: 'true' }
-                }}
-            />
-        );
-        expect(componentBannerCabezalNoShow).toBeEmptyRender;
-    });
+        it('Validar que el banner no se muestra si recibe por termicas, por section o por composer el valor', () => {
+            expect(shouldShow(undefined, undefined, undefined)).toEqual(true);
+            expect(
+                shouldShow(undefined, undefined, [
+                    { key: 'banners', value: 'false' }
+                ])
+            ).toEqual(false);
+            expect(
+                shouldShow('true', undefined, [
+                    { key: 'banners', value: 'true' }
+                ])
+            ).toEqual(false);
+            expect(
+                shouldShow(
+                    'false',
+                    {
+                        mostrar_banners: { text: 'No' }
+                    },
+                    [{ key: 'banners', value: 'true' }]
+                )
+            ).toEqual(false);
+            expect(
+                shouldShow(
+                    'false',
+                    {
+                        mostrar_banners: { text: 'Si' }
+                    },
+                    [{ key: 'banners', value: 'true' }]
+                )
+            ).toEqual(true);
 
-    it('Deberia traer la configuracion del adhesion_mob con y sin suscripcion', () => {
-        const adhesionMobile = {
-            slotName: 'la_nacion_mobile/Nota/adhesion_mob',
-            dimensions: [[320, 50]],
-            targeting: { sitio: 'lanacion', seccion: 'nota' },
-            closeButton: true,
-            device: 'mobile',
-            slotId: 'adhesion_mob',
-            slotGroup: 'nota',
-            dfpId: 133919216,
-            classes: '--fixed --close none '
-        };
+            const banner = render(
+                <Banner
+                    customFields={customFields}
+                    globalContent={{
+                        ...globalContent,
+                        label: { mostrar_banners: { text: 'No' } }
+                    }}
+                />
+            );
+            expect(banner).toBeEmptyRender;
+        });
 
-        customFields = {
-            mobile: 'adhesion_mob',
-            fixed: true,
-            group: 'nota'
-        };
-        const configAdhesionMobileConSuscripcion = getBannerConfiguration(
-            globalContent,
-            customFields,
-            null,
-            { device: 'mobile', slotId: 'adhesion_mob' }
-        );
-        expect(configAdhesionMobileConSuscripcion).toEqual(null);
+        it('deberia ocultar banner si es el usuario es suscriptor y el banner es solo para no suscriptores', () => {
+            customFields = {
+                desktop: 'cabezal_dsk',
+                solo_no_suscriptores: true,
+                group: 'nota'
+            };
+            const { container } = render(
+                <Banner
+                    customFields={customFields}
+                    globalContent={globalContent}
+                />
+            );
+            expect(container.innerHTML).toStrictEqual('');
+        });
 
-        const configAdhesionMobileSinSuscripcion = getBannerConfiguration(
-            { ...globalContent, subscription: 'A' },
-            customFields,
-            null,
-            { device: 'mobile', slotId: 'adhesion_mob' }
-        );
-        expect(configAdhesionMobileSinSuscripcion).toEqual(adhesionMobile);
+        it('deberia mostrar banner para todos los usuarios con nuevo custom field', () => {
+            const cabezalBanner = `<div class=\"ln-banner-container --cabezal_dsk --no-app\"><div id=\"cabezal_dsk\" class=\"ln-banner\" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
 
-        const componentAdhesionBanner = render(
-            <Banner
-                customFields={customFields}
-                globalContent={{ ...globalContent, subscription: 'A' }}
-            />
-        );
-        expect(componentAdhesionBanner).toMatchSnapshot();
-    });
-
-    it('Validar que las clases css se construyan bien segun la configuracion del banner', () => {
-        expect(
-            buildBannerClasses({ closeButton: true }, { fixed: true })
-        ).toEqual('--fixed --close none ');
-        expect(buildBannerClasses({}, {})).toEqual('none ');
-        expect(
-            buildBannerClasses(
-                { closeButton: true, withoutHide: false },
-                { fixed: true, sticky: true, background: true }
-            )
-        ).toEqual('--bg-banner --sticky --fixed --close none ');
-        expect(
-            buildBannerClasses({ slotName: 'Nota/comercial_dsk' }, {})
-        ).toEqual('none --comercial ');
-    });
-
-    it('Validar que el banner no se muestra si recibe por termicas, por section o por composer el valor', () => {
-        expect(shouldShow(undefined, undefined, undefined)).toEqual(true);
-        expect(
-            shouldShow(undefined, undefined, [
-                { key: 'banners', value: 'false' }
-            ])
-        ).toEqual(false);
-        expect(
-            shouldShow('true', undefined, [{ key: 'banners', value: 'true' }])
-        ).toEqual(false);
-        expect(
-            shouldShow(
-                'false',
-                {
-                    mostrar_banners: { text: 'No' }
-                },
-                [{ key: 'banners', value: 'true' }]
-            )
-        ).toEqual(false);
-        expect(
-            shouldShow(
-                'false',
-                {
-                    mostrar_banners: { text: 'Si' }
-                },
-                [{ key: 'banners', value: 'true' }]
-            )
-        ).toEqual(true);
-
-        const banner = render(
-            <Banner
-                customFields={customFields}
-                globalContent={{
-                    ...globalContent,
-                    label: { mostrar_banners: { text: 'No' } }
-                }}
-            />
-        );
-        expect(banner).toBeEmptyRender;
-    });
-
-    it('deberia ocultar banner si es el usuario es suscriptor y el banner es solo para no suscriptores', () => {
-        customFields = {
-            desktop: 'cabezal_dsk',
-            solo_no_suscriptores: true,
-            group: 'nota'
-        };
-        const { container } = render(
-            <Banner customFields={customFields} globalContent={globalContent} />
-        );
-        expect(container.innerHTML).toStrictEqual('');
-    });
-
-    it('deberia mostrar banner para todos los usuarios con nuevo custom field', () => {
-        const cabezalBanner = `<div class=\"ln-banner-container --cabezal_dsk --no-app\"><div id=\"cabezal_dsk\" class=\"ln-banner\" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
-
-        customFields = {
-            desktop: 'cabezal_dsk',
-            solo_no_suscriptores: false,
-            group: 'nota'
-        };
-        const { container } = render(
-            <Banner customFields={customFields} globalContent={globalContent} />
-        );
-        expect(container.innerHTML).toStrictEqual(cabezalBanner);
+            customFields = {
+                desktop: 'cabezal_dsk',
+                solo_no_suscriptores: false,
+                group: 'nota'
+            };
+            const { container } = render(
+                <Banner
+                    customFields={customFields}
+                    globalContent={globalContent}
+                />
+            );
+            expect(container.innerHTML).toStrictEqual(cabezalBanner);
+        });
     });
 
     describe('setPrebidBanners function', () => {
@@ -1019,7 +1046,7 @@ describe('getBannerConfiguration =>', () => {
             }
         };
 
-        test('should return config with prebid enabled using correct section', () => {
+        it('should return config with prebid enabled using correct section', () => {
             expect(setPrebidBanners(config, 'propiedades')).toStrictEqual({
                 prebid: {
                     enabled: true
@@ -1027,12 +1054,39 @@ describe('getBannerConfiguration =>', () => {
             });
         });
 
-        test('should return config with prebid disabled', () => {
+        it('should return config with prebid disabled', () => {
             expect(setPrebidBanners(config, 'economia')).toStrictEqual({
                 prebid: {
                     enabled: false
                 }
             });
+        });
+    });
+
+    describe('parseDimensionsBanners', () => {
+        it('should correctly parse a valid dimensions string', () => {
+            const dimensionsString = '300x250,728x90,160x600';
+            const expectedOutput = [
+                [300, 250],
+                [728, 90],
+                [160, 600]
+            ];
+            expect(parseDimensionsBanners(dimensionsString)).toEqual(
+                expectedOutput
+            );
+        });
+
+        it('should return null when an empty string is provided', () => {
+            const dimensionsString = '';
+            expect(parseDimensionsBanners(dimensionsString)).toBeNull();
+        });
+
+        it('should handle a single dimension correctly', () => {
+            const dimensionsString = '120x600';
+            const expectedOutput = [[120, 600]];
+            expect(parseDimensionsBanners(dimensionsString)).toEqual(
+                expectedOutput
+            );
         });
     });
 });

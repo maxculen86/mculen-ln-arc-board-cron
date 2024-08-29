@@ -20,17 +20,6 @@ jest.mock('request-promise-native', () => {
     };
 });
 
-jest.mock('../../../components/private/common/utils/image/resizer', () => {
-    const resizeUrl = jest.fn(() => {
-        return 'https://resizer.glanacion.com/resizer/0GdxpO9hiHgenNwsaSPj7ljMCRU=/314x0/filters:format(webp):quality(80)/especialess3.lanacion.com.ar/LN/svg/logo-iol.svg';
-    });
-    return {
-        createResizer: jest.fn(() => ({
-            resizeUrl
-        }))
-    };
-});
-
 beforeEach(() => {
     jest.clearAllMocks();
 });

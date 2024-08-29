@@ -5,7 +5,7 @@ const HEAD = 'head';
 export default {
     Datadog: { props: {}, location: [HEAD] },
     GTM: {
-        props: { id: 'GTM-M5NBFQW9' },
+        props: { id: 'GTM-M5NBFQW9', excludeInArcPreview: true },
         location: [HEAD, BODYTOP]
     },
     PostBid: {
@@ -25,17 +25,9 @@ export default {
         },
         location: [HEAD]
     },
-    GooglePublisherTag: {
-        props: {},
-        location: [HEAD]
-    },
     SocialEmbeds: {
         props: {},
         location: [BODYTOP]
-    },
-    GooglePublisherTagAcumulado: {
-        props: {},
-        location: [HEAD]
     },
     ComscoreVideo: {
         props: {},

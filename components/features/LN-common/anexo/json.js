@@ -31,11 +31,13 @@ class AnexoFeature {
             isApertura,
             customFields
         });
+
         if (errorMessage || (hideByHtml && hideByUrl)) {
             return null;
         }
-        let resp = {};
+
         let articles = [];
+
         const hideCaja = true;
 
         const information = {
@@ -44,32 +46,34 @@ class AnexoFeature {
         };
 
         const urlAnexo = (url && url.trim()) || '';
-        if (!hideByHtml && html) {
-            information.hideCaja = false;
-            articles = [{ html }];
-            resp = {
-                information,
-                articles
-            };
-
-            return resp;
-        }
-        if (!hideByUrl && urlAnexo && heightMobile) {
-            information.hideCaja = false;
-            articles = urlAnexo !== '' ? [{ url, alto: heightMobile }] : [];
-        }
 
         if (!hideTitle) {
             information.title = title;
             information.link = link;
         }
 
-        resp = {
+        if (!hideByHtml && html) {
+            information.hideCaja = false;
+            articles = [{ html }];
+            return {
+                information,
+                articles
+            };
+        }
+
+        if (!hideByUrl && urlAnexo && heightMobile) {
+            information.hideCaja = false;
+            articles = urlAnexo !== '' ? [{ url, alto: heightMobile }] : [];
+            return {
+                information,
+                articles
+            };
+        }
+
+        return {
             information,
             articles
         };
-
-        return resp;
     }
 }
 

@@ -59,8 +59,6 @@ export const promoItemArticle = article => {
 };
 
 export const apertura = article => {
-    const { subtype: template } = article;
-
     const recetaPromoItem = get(article, 'promo_items.receta', null);
     const authors = get(article, 'credits.by', null);
     const authorsFixed = authors && authors.filter(a => a.type === 'author');
