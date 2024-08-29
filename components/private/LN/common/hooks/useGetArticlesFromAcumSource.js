@@ -22,6 +22,7 @@ export default function useGetArticlesFromAcumSource({
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
+    // TODO setSource SE CONVIRTIO EN UN UTILITARIO usar setSource.js EN LAS PROXIMAS MIGRACIONES
     const setSource = () => {
         if (sectionId || tagId || authorId || distributorId || sectionsIds)
             return 'acuArticlesSource';
