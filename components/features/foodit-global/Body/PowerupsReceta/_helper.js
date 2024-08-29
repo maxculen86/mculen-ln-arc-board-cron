@@ -27,43 +27,6 @@ export const setUrlTag = ({
     return [];
 };
 
-export const getListsFromPowerup = (content_elements = []) => {
-    const {
-        'custom-nutrition': nutritionLists,
-        'foodit-ingredientes': fooditIngredientsLists,
-        'custom-ingrediente': customIngredientsLists
-    } = content_elements.reduce(
-        (acc, item) => {
-            const subtype = get(item, 'subtype', '');
-            if (acc.hasOwnProperty(subtype)) {
-                const embed = get(item, 'embed.config');
-                if (embed) {
-                    acc[subtype].push(embed);
-                }
-            }
-            return acc;
-        },
-        {
-            'custom-nutrition': [],
-            'foodit-ingredientes': [],
-            'custom-ingrediente': []
-        }
-    );
-
-    const ingredientsLists = [
-        ...fooditIngredientsLists,
-        ...customIngredientsLists.map(data => ({
-            ...data,
-            items: data.items.map(item => ({
-                fullIngredientString: item,
-                ingredient: item
-            }))
-        }))
-    ];
-
-    return { nutritionLists, ingredientsLists };
-};
-
 const getTagList = ({
     cookingTypes = [],
     occasions = [],

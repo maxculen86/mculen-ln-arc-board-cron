@@ -14,22 +14,10 @@ import FooditEventsHelper from '../dataLayer/FooditEventsHelper';
 import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 import AuthInitializer from '../../../../../auth/AuthInitializer';
-import classNames from 'classnames';
 
 const BaseLayout = ({ children }) => {
-    const {
-        layout,
-        contextPath,
-        deployment,
-        arcSite,
-        siteProperties
-    } = useAppContext();
+    const { layout, contextPath, deployment, arcSite } = useAppContext();
     const { toggleDrawer } = useDrawer({ id: DRAWER.RECETARIO });
-    const { layoutsName } = siteProperties || {};
-
-    const classNameMain = classNames('container flex flex-column gap-40', {
-        'pb-64': !(layoutsName.FooditRecipePaywall === layout)
-    });
 
     return (
         <AuthInitializer>
@@ -43,7 +31,9 @@ const BaseLayout = ({ children }) => {
                 <Header />
                 <div className="header-sentinel" />
                 <DrawerMyAccount />
-                <main className={classNameMain}>{children}</main>
+                <main className="container flex flex-column pb-64 gap-40">
+                    {children}
+                </main>
                 <Static id="footer-static">
                     <Footer />
                 </Static>

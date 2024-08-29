@@ -8,7 +8,7 @@ import Nutritional from './ingredientsBox/nutritional';
 import Tags from './ingredientsBox/tags';
 import SummaryBox from './summaryBox/foodit';
 import get from '../../../../private/common/utils/get';
-import getTagList, { getListsFromPowerup } from './_helper';
+import getTagList from './_helper';
 
 export const PowerupsReceta = ({ article = {} }) => {
     const {
@@ -36,8 +36,26 @@ export const PowerupsReceta = ({ article = {} }) => {
         regions
     });
 
-    const { nutritionLists, ingredientsLists } = getListsFromPowerup(
-        content_elements
+    const {
+        'custom-nutrition': nutritionLists,
+        'foodit-ingredientes': ingredientsLists,
+        'custom-ingrediente': customIngredientsLists
+    } = content_elements.reduce(
+        (acc, item) => {
+            const subtype = get(item, 'subtype', '');
+            if (acc.hasOwnProperty(subtype)) {
+                const embed = get(item, 'embed.config');
+                if (embed) {
+                    acc[subtype].push(embed);
+                }
+            }
+            return acc;
+        },
+        {
+            'custom-nutrition': [],
+            'foodit-ingredientes': [],
+            'custom-ingrediente': []
+        }
     );
 
     return (
@@ -52,7 +70,16 @@ export const PowerupsReceta = ({ article = {} }) => {
             <div className="bg-positive flex flex-column gap-16 gap-24_md gap-32_lg p-16 p-24_md p-32_lg">
                 <Ingredients
                     articleId={_id}
-                    ingredientsLists={ingredientsLists}
+                    ingredientsLists={[
+                        ...ingredientsLists,
+                        ...customIngredientsLists.map(data => ({
+                            ...data,
+                            items: data.items.map(item => ({
+                                fullIngredientString: item,
+                                ingredient: item
+                            }))
+                        }))
+                    ]}
                     title={get(headlines, 'basic', '')}
                     portions={counterPortion}
                 />

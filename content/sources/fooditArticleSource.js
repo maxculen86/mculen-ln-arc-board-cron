@@ -5,8 +5,6 @@ import logger from '../../components/private/common/utils/logger.js';
 import { setRedirect } from './utils/articleSourceNota/_helper';
 import fooditBaseArticleSource from './fooditBaseArticleSource.js';
 import filter from '../filters/foodit/article/articleFilterNota.js';
-import { RECETA } from '../../components/private/common/utils/subtypes/subtypeHelper.js';
-import { recipePaywallConfigCallbackContentElements } from './utils/fooditSources/fooditArticleSource/_configs.js';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
@@ -22,31 +20,14 @@ const fetch = (query, { cachedCall } = {}) => {
                 }
             );
 
-            const isReceta = get(response, 'subtype', null) == RECETA;
-
-            const isExclusiveSuscriptor =
-                isReceta &&
-                get(query, 'meteringVariant ') !== 'S' &&
-                get(response, 'content_restrictions.content_code') ===
-                    'cerrada';
-
-            if (!isReceta)
-                setRedirect({
-                    response,
-                    query,
-                    siteUrl: SITE_FOODIT,
-                    paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=800&fc=825&callback=`
-                });
-
-            return transform(
+            setRedirect({
                 response,
                 query,
-                cachedCall,
-                (isExclusiveSuscriptor && {
-                    customConfigCallbackContentElements: recipePaywallConfigCallbackContentElements
-                }) ||
-                    {}
-            );
+                siteUrl: SITE_FOODIT,
+                paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=800&fc=825&callback=`
+            });
+
+            return transform(response, query, cachedCall);
         } catch (error) {
             logger.push(
                 error,

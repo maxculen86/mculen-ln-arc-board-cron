@@ -1,7 +1,6 @@
 import {
     STORYTELLING,
-    RECETA,
-    RECETA_CERRADA
+    RECETA
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../../../../components/private/common/utils/get';
 import validateSponsoredLink from '../../validateSponsoredLink';
@@ -91,37 +90,21 @@ export const getImageConfig = (response, query) => {
     );
 };
 
-export const getArticleSubtype = (subtype, isExclusiveSuscriptor = false) => {
+export const getArticleSubtype = subtype => {
     if (![STORYTELLING, RECETA].includes(subtype)) {
         return STORYTELLING;
     }
-
-    if (subtype === RECETA && isExclusiveSuscriptor) return RECETA_CERRADA;
-
     return subtype;
 };
 
 // TODO: Pendiente por sumar tests al transform
-export const transform = async (
-    result,
-    query,
-    cachedCall,
-    customCallbacksConfig = {}
-) => {
+export const transform = async (result, query, cachedCall) => {
     const { meteringVariant, paywallEnabled = '' } = query;
-    const { customConfigCallbackContentElements } = customCallbacksConfig;
 
     const arcSite = query['arc-site'];
     const siteProperties = getProperties(query[arcSite]);
 
-    const isExclusiveSuscriptor =
-        meteringVariant !== 'S' &&
-        get(result, 'content_restrictions.content_code') === 'cerrada';
-
-    const subtype = getArticleSubtype(
-        get(result, 'subtype', null),
-        isExclusiveSuscriptor
-    );
+    const subtype = getArticleSubtype(get(result, 'subtype', null));
 
     const aditionalProps = {
         withSponsoredLink: validateSponsoredLink(result),
@@ -145,9 +128,7 @@ export const transform = async (
         Promise.all(
             transformElementsBasedOnType({
                 arrayElements: get(result, 'content_elements', []),
-                configCallbacks:
-                    customConfigCallbackContentElements ||
-                    configCallbackContentElements,
+                configCallbacks: configCallbackContentElements,
                 searchPropertyOnElem: 'type',
                 aditionalProps
             })

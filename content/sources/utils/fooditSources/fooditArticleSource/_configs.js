@@ -190,44 +190,6 @@ export const configCallbackContentElements = {
     header: props => transformElementText(props)
 };
 
-export const recipePaywallConfigCallbackContentElements = {
-    custom_embed: ({ element }) => {
-        const subtype = get(element, 'subtype', '');
-
-        if (subtype === 'custom-preparacion')
-            return filterCustomPreparacion(element);
-
-        if (
-            subtype === 'foodit-ingredientes' ||
-            subtype === 'custom-ingrediente'
-        )
-            return element;
-
-        return null;
-    },
-    image: () => null,
-    video: () => null,
-    text: () => null,
-    interstitial_link: () => null,
-    list: () => null,
-    header: () => null,
-    raw_html: () => null,
-    blockquote: () => null,
-    oembed_response: () => null,
-    divider: () => null
-};
-
-export const filterCustomPreparacion = (element = {}) => ({
-    ...element,
-    embed: {
-        ...element?.embed,
-        config: {
-            ...element?.embed?.config,
-            items: element?.embed?.config?.items?.slice(0, 3) || []
-        }
-    }
-});
-
 const callbacksByTypeReference = {
     story: ({ cachedCall, element, arcSite } = {}) => {
         return addFollowAnotherNoteData(cachedCall, element, arcSite);

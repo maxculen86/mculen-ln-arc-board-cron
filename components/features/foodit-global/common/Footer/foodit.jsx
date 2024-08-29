@@ -16,9 +16,6 @@ const FooterFoodit = () => {
     const wrapperClassNames = classNames('container', {
         'fixed_md fixed-center-x_md bottom-0': layout === layoutsName.Foodit404
     });
-
-    if (layoutsName.FooditRecipePaywall === layout) return <></>;
-
     return (
         <div className="hidden">
             <footer className={wrapperClassNames}>

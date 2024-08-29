@@ -3,7 +3,6 @@ import removeAccents from '../../../../private/common/utils/removeAccents';
 export const TRANSLATE_LAYOUTS = {
     'Foodit-home': 'home',
     'Foodit-ficha-receta': 'recetas',
-    'Foodit-recipe-paywall': 'receta_paywall',
     'Foodit-ficha-nota': 'nota',
     'Foodit-chef': 'chefs_protagonistas',
     'Foodit-compras': 'lista_de_compras',
