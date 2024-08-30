@@ -1,20 +1,23 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
+import NotFoundError from './utils/notFoundError';
 
 const resolve = key => {
     const { website, slug } = key;
+
     if (!slug)
         throw new Error('Debe definir un slug para obtener el distributor');
     if (!website)
         throw new Error(
             'Debe definir un website para obtener el arbol de navigation'
         );
+
     return `/site/v3/navigation/${website}/`;
 };
 
 const fetch = query => {
-    const { uri = '' } = query;
+    const { uri = '', slug = '' } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -26,8 +29,14 @@ const fetch = query => {
         };
     }
     return request(opt)
-        .then(response => {
-            return transform(response, query);
+        .then(response => response?.site?.distributor_name)
+        .then(distributor => {
+            if (!distributor[slug])
+                throw new NotFoundError(
+                    `El slug ${slug} no corresponde a un distribuidor definido en Site Service.`
+                );
+
+            return transform(distributor, query);
         })
         .catch(error => {
             logger.push(
@@ -40,9 +49,7 @@ const fetch = query => {
 
 const transform = (data, query) => {
     const { uri, slug, meteringVariant } = query || {};
-    const { site } = data || {};
-    const { distributor_name: distributor = {} } = site || {};
-    const name = distributor[slug];
+    const name = data[slug];
 
     return {
         distributorId: name,

@@ -172,7 +172,7 @@ describe('Test de renderizado condicional en FirmaFeature', () => {
             ...props,
             globalContent: {
                 ...props.globalContent,
-                distributor: { name: 'lanacionar' }
+                distributor: { name: 'reuters' }
             }
         };
         render(<FirmaFeature {...properties} />);
@@ -186,15 +186,44 @@ describe('Test de renderizado condicional en FirmaFeature', () => {
         // Verificamos que el enlace tenga el atributo 'href' correcto
         expect(linkElement).toHaveAttribute(
             'href',
-            'undefined/distributor/lanacionar/'
+            'undefined/distributor/reuters/'
         );
 
-        // Buscamos el elemento 'span' dentro del cual debería estar el texto 'lanacionar'
-        const comPartnerElement = screen.getByText('lanacionar', {
+        // Buscamos el elemento 'span' dentro del cual debería estar el texto 'reuters'
+        const comPartnerElement = screen.getByText('reuters', {
             exact: false
         });
 
         // Verificamos que el elemento 'span' tenga la clase '--twoxs'
         expect(comPartnerElement).toHaveClass('--twoxs');
+    });
+});
+
+describe('Early return test in FirmaFeature', () => {
+    const props = {
+        customFields: { position: 'Top' },
+        globalContent: {
+            content_elements: [],
+            credits: { by: [] },
+            distributor: { name: 'lanacionar' },
+            withFirmaDistributor: true
+        }
+    };
+    it('if the distributor name is "lanacionar", null should be returned', () => {
+        const { container } = render(<FirmaFeature {...props} />);
+        expect(container.firstChild).toBeNull();
+    });
+
+    it('if the distributor name is not "lanacionar", it should render correctly', () => {
+        const copyProps = {
+            ...props,
+            globalContent: {
+                ...props.globalContent,
+                distributor: { name: 'reuters' }
+            }
+        };
+
+        const { container } = render(<FirmaFeature {...copyProps} />);
+        expect(container.firstChild).toBeInTheDocument();
     });
 });
