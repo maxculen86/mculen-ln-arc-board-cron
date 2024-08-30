@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { handleIgredientListButton } from './_helper';
+import { handleIngredientListButton } from './_helper';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
@@ -31,7 +31,7 @@ const ShoppingListButton = ({
             title="Agregar"
             size={{ sm: 32, md: 40 }}
             onClick={() =>
-                handleIgredientListButton({
+                handleIngredientListButton({
                     isSuscriptor,
                     title,
                     articleId,

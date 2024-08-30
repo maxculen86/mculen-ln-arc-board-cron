@@ -58,7 +58,8 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
                 return { bookmarkTypeId: id };
             }
 
-            return await response.json();
+            const jsonResp = await response.json();
+            return jsonResp;
         })
     );
 

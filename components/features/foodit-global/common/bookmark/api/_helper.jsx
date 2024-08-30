@@ -40,7 +40,7 @@ export const TOAST = {
             SAVE_INGREDIENTS:
                 'Los ingredientes han sido añadidos a la lista de compras.',
             COPY_INGREDIENTS: 'Podes enviar el listado que copiaste.',
-            DELETE_INGREDIENTS: 'Ya no forma parte de tu listado de compras.'
+            DELETE_INGREDIENTS: 'ya no forma parte de tu listado de compras.'
         }
     },
     ERROR: {
