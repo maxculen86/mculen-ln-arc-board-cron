@@ -1,5 +1,5 @@
 import * as fusionConsumer from 'fusion:consumer';
-import * as Juegos from '../../../../../components/features/LN-common/juego/json';
+import * as Juegos from '../../../../../components/features/LN-common/Juego/json';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {

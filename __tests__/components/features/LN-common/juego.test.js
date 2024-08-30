@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Game from '../../../../components/features/LN-common/juego/default';
+import Game from '../../../../components/features/LN-common/Juego/default';
 import '@testing-library/jest-dom';
 import getGameProperties from '../../../../components/private/LN/common/utils/getGameProperties';
 
