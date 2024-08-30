@@ -7,7 +7,7 @@ const JC_BETWEEN = 'jc-between';
 
 export const mockConfigUserTypes = {
     unlogged: {
-        buttonLogginText: 'INICIAR SESIÓN',
+        buttonLogginText: 'INICIA SESIÓN',
         buttonSubscribeText: 'SUSCRIBITE GRATIS',
         containerClassName: 'jc-center'
     },

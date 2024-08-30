@@ -166,12 +166,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 data-variant="link"
                 href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
                 target="_self"
-                title="INICIAR SESIÓN"
+                title="INICIA SESIÓN"
               >
                 <span
                   class="roboto-regular"
                 >
-                  INICIAR SESIÓN
+                  INICIA SESIÓN
                 </span>
               </a>
             </div>
@@ -1395,12 +1395,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             data-variant="link"
             href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
             target="_self"
-            title="INICIAR SESIÓN"
+            title="INICIA SESIÓN"
           >
             <span
               class="roboto-regular"
             >
-              INICIAR SESIÓN
+              INICIA SESIÓN
             </span>
           </a>
         </div>
