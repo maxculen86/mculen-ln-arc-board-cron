@@ -5419,6 +5419,10 @@ strong:not(.--font-primary),
   margin-bottom: 2.5rem;
 }
 
+.-mt-16 {
+  margin-top: -1rem;
+}
+
 .mt-4 {
   margin-top: 0.25rem;
 }
@@ -5477,6 +5481,10 @@ strong:not(.--font-primary),
 
 .-mr-60 {
   margin-right: -3.75rem;
+}
+
+.mx-auto {
+  margin-inline: auto;
 }
 
 .-mx-12 {
@@ -6184,6 +6192,10 @@ strong:not(.--font-primary),
 
 .max-w-365.max-w-365 {
   max-width: 22.8125rem;
+}
+
+.max-w-1366.max-w-1366 {
+  max-width: 85.375rem;
 }
 
 @media (min-width: 48rem) {
