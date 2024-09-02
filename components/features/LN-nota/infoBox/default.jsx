@@ -1,8 +1,7 @@
 import React from 'react';
 import { Zocalo } from '@ln/contenidos-ui-zocalo';
 import { getZocaloProps } from './helper';
-import { scheduleTask } from '../../../private/common/utils/scheduleTask';
-import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import { useAppContext } from 'fusion:context';
 
 const InfoBoxFeature = () => {
@@ -24,14 +23,14 @@ const InfoBoxFeature = () => {
             className="mb-32"
             logoProps={zocaloConfig.logoProps}
             description={zocaloConfig.description}
-            onClick={scheduleTask(() =>
-                addEventToDataLayer({
+            onClick={() =>
+                addEventToDataLayerV2({
                     event: 'e_linkclick',
                     action: 'zocalo_nota',
                     category: 'nota_ln9',
                     label: zocaloConfig.label
                 })
-            )}
+            }
         />
     );
 };

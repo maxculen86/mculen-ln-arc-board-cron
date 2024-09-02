@@ -7,7 +7,7 @@ import getToken from '../../../../../../components/private/common/utils/getToken
 import toggleBookmark from '../../../../../../components/private/common/utils/bookmarkHelper';
 import useCheckBookmark from '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark';
 import useFetch from '../../../../../../components/private/common/hooks/useFetch';
-import addEventToDataLayer from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -37,7 +37,8 @@ jest.mock(
     '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
         __esModule: true,
-        default: jest.fn()
+        default: jest.fn(),
+        addEventToDataLayerV2: jest.fn()
     })
 );
 
@@ -124,7 +125,7 @@ describe('components - private - LN - nota - share', () => {
 
         fireEvent.click(button);
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'toolbard',
             category: 'nota_ln9',
@@ -143,7 +144,7 @@ describe('components - private - LN - nota - share', () => {
 
         fireEvent.click(button);
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'toolbard',
             category: 'nota_ln9',
@@ -168,7 +169,7 @@ describe('components - private - LN - nota - share', () => {
 
         fireEvent.click(button);
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'toolbard',
             category: 'nota_ln9',
@@ -189,7 +190,7 @@ describe('components - private - LN - nota - share', () => {
 
         fireEvent.click(button);
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'toolbard',
             category: 'nota_ln9',
@@ -207,7 +208,7 @@ describe('components - private - LN - nota - share', () => {
 
         fireEvent.click(button);
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'toolbard',
             category: 'nota_ln9',
@@ -225,7 +226,7 @@ describe('components - private - LN - nota - share', () => {
 
         fireEvent.click(button);
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'toolbard',
             category: 'nota_ln9',
@@ -249,7 +250,7 @@ describe('components - private - LN - nota - share', () => {
 
         button.click();
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'toolbard',
             category: 'nota_ln9',

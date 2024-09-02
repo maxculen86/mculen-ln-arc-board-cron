@@ -8,7 +8,7 @@ import toggleBookmark from '../../../common/utils/bookmarkHelper';
 import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from './addEventToDataLayer';
+import { addEventToDataLayerV2 } from './addEventToDataLayer';
 
 const noPaddingSmNone = 'p-0 sm-none';
 
@@ -165,7 +165,7 @@ export const onButtonClicked = (
     accessToken,
     isValidSectionForMVP2Auth0
 ) => {
-    addEventToDataLayer({
+    addEventToDataLayerV2({
         event: 'e_linkclick',
         action: 'toolbard',
         category: 'nota_ln9',
