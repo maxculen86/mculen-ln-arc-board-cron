@@ -40,7 +40,7 @@ const SingWall = () => {
                             title="Ir a Suscribirse"
                             data-test-id="button-suscribe-signwall"
                             variant="accent"
-                            href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window?.btoa(
+                            href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=800&fc=825&callback=${window?.btoa(
                                 location?.href
                             )}`}
                             onClick={() => {
