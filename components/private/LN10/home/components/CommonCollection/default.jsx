@@ -99,8 +99,8 @@ export default function CommonCollection({
                         />
                     );
                 })}
+                {children}
             </ContainerCards>
-            {children}
         </>
     );
 }
