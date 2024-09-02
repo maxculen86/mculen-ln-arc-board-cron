@@ -589,7 +589,7 @@ describe('common - utils - bannerHelper', () => {
             deployment: jest.fn(),
             contextPath: '/pf'
         }));
-        const segments = ['campo', 'propiedades'];
+        const segments = ['campo', 'propiedades', 'IA'];
 
         const evalSectionInBanner = (section, equal) => {
             const result = isPrimarySectionInBannerSegments(section)(segments);
@@ -600,6 +600,9 @@ describe('common - utils - bannerHelper', () => {
 
         it('it should be campo included =>', () =>
             evalSectionInBanner('/economia/campo/', [true, 'campo']));
+
+        it('it should be futuria included =>', () =>
+            evalSectionInBanner('/economia/IA/', [true, 'futuria']));
 
         it('it should be propiedades included =>', () =>
             evalSectionInBanner('/propiedades/', [true, 'propiedades']));
