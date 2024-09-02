@@ -15,29 +15,26 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
 
     const { sectionId, gameType, subscriber, isNewGame } = customFields;
     const primarySection = checkSection(globalContent, '/juegos');
-    const parsedSectionId = sectionId.endsWith('/')
-        ? sectionId.slice(0, -1)
-        : sectionId;
 
     const { name: sectionTitle } =
         useContent({
             source: 'sectionSource',
             query: {
-                id: addInitialSlash(parsedSectionId),
+                id: addInitialSlash(sectionId),
                 website: arcSite
             }
         }) || {};
 
     const gameProperties = getGameProperties(
         sectionTitle,
-        parsedSectionId,
+        sectionId,
         contextPath,
         deployment
     );
 
     const newGame = isNewGame === 'SI';
 
-    if (!parsedSectionId && isAdmin) {
+    if (!sectionId && isAdmin) {
         return (
             <div
                 style={{
@@ -75,7 +72,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
         return (
             <GameCard
                 {...gameProperties}
-                href={parsedSectionId}
+                href={sectionId}
                 forSubscriber={forSubscriber}
                 newGame={newGame}
             />
@@ -86,7 +83,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
         useContent({
             source: 'lnAcuSource',
             query: {
-                parsedSectionId,
+                sectionId,
                 size: 1,
                 website: arcSite
             }

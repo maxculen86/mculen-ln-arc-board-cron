@@ -1,14 +1,23 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Game from '../../../../components/features/LN-common/Juego/default';
+import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import getGameProperties from '../../../../components/private/LN/common/utils/getGameProperties';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(() => ({ isAdmin: true }))
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    },
+    useAppContext: jest.fn(() => ({}))
 }));
 
-jest.mock('fusion:consumer', () => component => component);
+jest.mock('fusion:consumer', component => {
+    return function(component) {
+        return component;
+    };
+});
 
 jest.mock(
     '../../../../components/private/LN/common/utils/getGameProperties',
@@ -18,8 +27,11 @@ jest.mock(
     })
 );
 
+const mockContextValue = {
+    isAdmin: true
+};
 jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(() => ({ isAdmin: true }))
+    useAppContext: jest.fn(() => mockContextValue)
 }));
 
 const getAssetsPath = contextPath => deployment => path =>
@@ -33,23 +45,15 @@ getGameProperties.mockReturnValue({
     borderColor: 'bg-criptograma'
 });
 
-const baseCustomFields = {
-    sectionId: '/juegos/crucigrama',
-    gameType: 'Interno',
-    isNewGame: 'NO',
-    forSubscriber: false
-};
+describe('Game Component', () => {
+    Context.useAppContext = jest.fn(() => ({}));
 
-describe('Component - Features - LN Common - Game', () => {
-    const renderComponent = (customFieldsOverrides = {}) => {
-        const customFields = { ...baseCustomFields, ...customFieldsOverrides };
-        render(<Game customFields={customFields} />);
-        return customFields;
-    };
-
-    it('renders warning message when sectionId is falsy and isAdmin is true', () => {
-        const customFields = renderComponent({ sectionId: '' });
-
+    it('renders warning message when sectionId is falsy and isAdmin is true ', () => {
+        const customFields = {
+            sectionId: '',
+            gameType: 'SomeType',
+            subscriber: true
+        };
         render(
             <Game
                 id="test-feature"
@@ -65,11 +69,12 @@ describe('Component - Features - LN Common - Game', () => {
     });
 
     it('does not render warning message when sectionId is falsy and isAdmin is false', () => {
-        jest.mock('fusion:context', () => ({
-            useAppContext: jest.fn(() => ({ isAdmin: false }))
-        }));
-
-        const customFields = renderComponent({ sectionId: '' });
+        const customFields = {
+            sectionId: '',
+            gameType: 'SomeType',
+            isAdmin: false,
+            forSubscriber: true
+        };
         render(<Game customFields={customFields} />);
 
         expect(
@@ -78,15 +83,16 @@ describe('Component - Features - LN Common - Game', () => {
     });
 
     it('renders GameCard with href as sectionId when gameType is Externo', () => {
-        const customFields = renderComponent({
+        const customFields = {
             sectionId: '/juegos/criptograma',
-            gameType: 'Externo'
-        });
-        const gameCardLink = screen.getByRole('link', {
-            name: /Criptograma/
-        });
+            gameType: 'Externo',
+            forSubscriber: false
+        };
+        render(<Game customFields={customFields} />);
 
+        const gameCardLink = screen.getByRole('link', { name: /Criptograma/ });
         expect(gameCardLink).toHaveAttribute('href', '/juegos/criptograma');
+
         expect(screen.getByText('Criptograma')).toBeInTheDocument();
 
         const gameCardDiv = gameCardLink.querySelector('div');
@@ -107,24 +113,15 @@ describe('Component - Features - LN Common - Game', () => {
     });
 
     it('does not render "Nuevo" badge when isNewGame is NO', () => {
-        const customFields = renderComponent({ isNewGame: 'NO' });
+        const customFields = {
+            sectionId: '/juegos/criptograma',
+            gameType: 'Externo',
+            isNewGame: 'NO',
+            forSubscriber: false
+        };
         render(<Game customFields={customFields} />);
 
         const newBadge = screen.queryByText('nuevo');
         expect(newBadge).not.toBeInTheDocument();
-    });
-
-    it('renders Game when sectionId "/juegos/cruciexpress/"', () => {
-        const customFields = renderComponent({
-            sectionId: '/juegos/cruciexpress/'
-        });
-        render(<Game customFields={customFields} />);
-    });
-
-    it('returns "crucigrama" when sectionId is "/juegos/crucigrama"', () => {
-        const customFields = renderComponent({
-            sectionId: '/juegos/crucigrama'
-        });
-        render(<Game customFields={customFields} />);
     });
 });
