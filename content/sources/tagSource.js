@@ -107,18 +107,23 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
         arcSite: 'la-nacion-ar'
     };
 
-    const imageId = extractIdFromImageUrl(wikiTagData.image.url);
+    const image = get(wikiTagData, 'image', {});
+    const imageUrl = get(image, 'url', '');
+    const imageId = extractIdFromImageUrl(imageUrl);
     const signingResponse = await signingServiceCachedCall(imageId, cachedCall);
 
     const imageProps = {
         auth: { 1: get(signingResponse, 'hash', '') },
         _id: imageId,
-        additional_properties: { originalUrl: wikiTagData.image.url }
+        additional_properties: { originalUrl: imageUrl }
     };
 
-    wikiTagData.image = { ...wikiTagData.image, ...imageProps };
+    const updatedWikiTagData = {
+        ...wikiTagData,
+        image: { ...image, ...imageProps }
+    };
     const wikiDataTransformed =
-        transformWikiTagData(wikiTagData, siteProps) || {};
+        transformWikiTagData(updatedWikiTagData, siteProps) || {};
 
     const response = {
         ...data,
