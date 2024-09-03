@@ -23,7 +23,10 @@ export const useGetRelatedArticles = ({
         staticMode
     });
 
-    return get(articleList, 'content_elements', []);
+    return {
+        articleList,
+        articles: get(articleList, 'content_elements', [])
+    };
 };
 
 export default useGetRelatedArticles;
