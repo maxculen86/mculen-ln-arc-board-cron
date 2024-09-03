@@ -24,11 +24,7 @@ const {
     ...cajaTemaCustomFields
 } = cajaTemasCustomsFields('cajaManual');
 
-const TimelineFeature = ({
-    id: featureId,
-    customFields = {},
-    ...restProps
-}) => {
+const TimelineFeature = ({ id: featureId, customFields = {} }) => {
     const {
         title: roof,
         url,

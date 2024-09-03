@@ -107,6 +107,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --m-l --regular"
         >
@@ -188,6 +192,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --m-l --regular"
         >
@@ -256,6 +264,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --m-l --regular"
         >
@@ -324,6 +336,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --m-l --regular"
         >
@@ -392,6 +408,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --m-l --regular"
         >
@@ -460,6 +480,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --m-l --regular"
         >
@@ -511,6 +535,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --7 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --m-l --regular --no-media"
         >
@@ -561,9 +589,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           </a>
         </article>
       </div>
-      <div
-        class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-      />
     </div>
   </section>
 </div>
@@ -698,6 +723,10 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
         >
@@ -762,6 +791,10 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
         >
@@ -813,6 +846,10 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
         >
@@ -864,6 +901,10 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
         >
@@ -915,6 +956,10 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
         >
@@ -966,6 +1011,10 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             </section>
           </a>
         </article>
+      </div>
+      <div
+        class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
         <article
           class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
         >
@@ -1018,9 +1067,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           </a>
         </article>
       </div>
-      <div
-        class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-      />
     </div>
   </div>
 </div>
