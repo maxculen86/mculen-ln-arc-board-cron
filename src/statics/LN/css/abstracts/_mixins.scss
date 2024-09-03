@@ -353,7 +353,9 @@ $guion: '-';
                 'salud': $salud,
                 'autos': $autos,
                 'campo': $campo,
-                'propiedades': $propiedades
+                'propiedades': $propiedades,
+                'futuria': $futuria,
+                'que-sale': $que-sale
             )
     {
         .acumulado.#{$section} {
