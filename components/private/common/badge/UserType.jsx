@@ -5,6 +5,8 @@ import Icon from '../icon';
 import Text from '../text';
 import Badge from './Badge';
 
+// TODO: Componente reemplazado por libreria, ELIMINAR EN OTRA ITERACION
+
 const BadgeUsertype = ({ icon, text, title, dark, className, type }) => {
     const typeClass = type ? `--${type}` : '';
     const darkClass = dark ? '--dark' : '';

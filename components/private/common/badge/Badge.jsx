@@ -2,8 +2,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/components/badge.css';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import Live from '../live';
-import Icon from '../icon';
 import {
     A_FONDO,
     LIVEBLOG,
@@ -11,6 +12,8 @@ import {
     SPONSORED,
     EXCLUSIVE_LN
 } from './types';
+
+// TODO: Componente reemplazado por libreria, ELIMINAR EN OTRA ITERACION
 
 const Badge = ({ children, className, type }) => {
     const classType = [
@@ -23,11 +26,13 @@ const Badge = ({ children, className, type }) => {
         ? `--${type}`
         : '';
     return (
-        <span className={`badge --sixxs --arial ${className} ${classType}`}>
+        <span className={`badge text-12 --arial ${className} ${classType}`}>
             {type === LIVEBLOG && <Live />}
             {type === EXCLUSIVE_LN ? (
                 <>
-                    <Icon name="exclusive-ln" />
+                    <Icon size={16}>
+                        <IconSprite name="subscriber" color />
+                    </Icon>
                     <span title="Este es un contenido cerrado a Suscriptores">
                         Suscriptores
                     </span>

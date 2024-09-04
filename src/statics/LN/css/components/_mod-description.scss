@@ -1,17 +1,20 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.com-label {
-    position: absolute;
-    top: px(-39);
-    left: px(-8);
-    &.--exclusive-ln {
-        top: px(-44);
-    }
-    @media ($media-m) {
-        left: px(8);
+.mod-description {
+    .ln-badge {
+        position: absolute;
+        top: px(-39);
+        left: px(-8);
+        &.--exclusive-ln {
+            top: px(-44);
+        }
+        @media ($media-m) {
+            left: px(8);
+        }
     }
 }
+
 .com-subhead {
     &.--bajada {
         margin-bottom: $spacing;

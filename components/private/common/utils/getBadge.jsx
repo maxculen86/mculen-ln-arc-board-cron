@@ -1,6 +1,6 @@
 import React from 'react';
-import Badge from '../badge/Badge';
-import { EXCLUSIVE_LN } from '../badge/types';
+import { Badge } from '@ln/contenidos-ui-badge';
+import { SUBSCRIBER } from '../badge/types';
 import get from './get';
 
 const getBadge = (contentCode, label) => {
@@ -12,14 +12,14 @@ const getBadge = (contentCode, label) => {
         comun: () => {
             return (
                 (text && text.trim() && (
-                    <Badge className={`com-label ${className}`} type={style}>
+                    <Badge className={className} type={style}>
                         {text.trim()}
                     </Badge>
                 )) || <></>
             );
         },
         cerrada: () => {
-            return <Badge className="com-label" type={EXCLUSIVE_LN} />;
+            return <Badge type={SUBSCRIBER}>Suscriptores</Badge>;
         }
     };
 

@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
-import Icon from '../../../common/icon';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import classNames from 'classnames';
 
 const DetalleReceta = props => {
     const {
@@ -12,15 +14,14 @@ const DetalleReceta = props => {
         }
     } = props;
 
-    const DetailsTag = ({ icon, children }) => {
+    const DetailsTag = ({ icon, children, className }) => {
+        const classes = classNames('inline-flex ai-center gap-8', className);
         return (
-            <div className="row tag">
-                <div className="col-2 col-tablet-1">
-                    <Icon name={icon} />
-                </div>
-                <div className="time-number col-10 col-tablet-11">
-                    <span>{children}</span>
-                </div>
+            <div className={classes}>
+                <Icon size={24}>
+                    <IconSprite name={icon} fill="#272727" />
+                </Icon>
+                <span>{children}</span>
             </div>
         );
     };
@@ -28,7 +29,7 @@ const DetalleReceta = props => {
     return (
         <Fragment>
             {subtype === 'custom-detalle-receta' ? (
-                <div className="cont_tags tags">
+                <section className="flex flex-column gap-8 pb-20 mb-20 border border-bottom border-thin border-neutral-light-200">
                     {cookTime && (
                         <DetailsTag icon="fire">
                             <strong>Tiempo de cocción:</strong> {cookTime} min.
@@ -41,7 +42,7 @@ const DetalleReceta = props => {
                         </DetailsTag>
                     )}
                     {counterTime && (
-                        <DetailsTag icon="timer">
+                        <DetailsTag icon="timer" className="mb-16">
                             <strong>Tiempo total:</strong> {counterTime} min.
                         </DetailsTag>
                     )}
@@ -50,7 +51,7 @@ const DetalleReceta = props => {
                             <strong>Porciones:</strong> {counterPortion}
                         </DetailsTag>
                     )}
-                </div>
+                </section>
             ) : null}
         </Fragment>
     );

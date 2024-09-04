@@ -2,87 +2,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/* TODO: Hacer code-split  de los SVG */
+/* TODO: Terminar de eliminar Iconos y reemplazar por IconSprite */
 
 import {
-    ExclusiveLn,
-    Home,
-    Sections,
-    ClubCard,
-    User,
-    Search,
-    Menu,
-    Close,
+    Alert,
     ArrowDown,
-    ArrowUp,
     ArrowLeft,
     ArrowRight,
     Comment,
-    Timer,
-    Group,
-    Zoom,
-    Copy,
-    Chat,
     Bookmark,
     BookmarkFilled,
-    Download,
-    Filter,
-    Fire,
-    Knife,
-    ShareAndroid,
-    Share,
-    Ln,
+    Close,
     Lamp,
-    Alert,
-    Info,
-    Checkmark,
-    ErrorWarning,
-    TenBackSecs,
-    TenForwardSecs,
-    Pause,
-    Play,
-    Headset
+    Zoom
 } from './index';
 
 const listIcons = {
     // System icons
-    home: Home,
-    sections: Sections,
-    'club-card': ClubCard,
-    user: User,
-    search: Search,
-    menu: Menu,
-    close: Close,
-    'arrow-down': ArrowDown,
-    'arrow-up': ArrowUp,
-    'arrow-right': ArrowRight,
-    'arrow-left': ArrowLeft,
-    'exclusive-ln': ExclusiveLn,
-    comment: Comment,
-    chat: Chat,
-    bookmark: Bookmark,
-    'bookmark-filled': BookmarkFilled,
-    timer: Timer,
-    group: Group,
-    zoom: Zoom,
-    copy: Copy,
-    download: Download,
-    fire: Fire,
-    filter: Filter,
-    knife: Knife,
-    'share-android': ShareAndroid,
-    share: Share,
-    ln: Ln,
-    lamp: Lamp,
-    alert: Alert,
-    info: Info,
-    checkmark: Checkmark,
-    'error-warning': ErrorWarning,
-    'ten-back-secs': TenBackSecs,
-    'ten-forward-secs': TenForwardSecs,
-    pause: Pause,
-    play: Play,
-    headset: Headset
+    'arrow-down': ArrowDown, // impacto
+    'arrow-left': ArrowLeft, // impacto
+    'arrow-right': ArrowRight, // impacto
+    'bookmark-filled': BookmarkFilled, //impacto
+    alert: Alert, // impacto
+    bookmark: Bookmark, // impacto
+    close: Close, // impacto
+    comment: Comment, // impacto
+    lamp: Lamp, // impacto
+    zoom: Zoom // impacto media
 };
 
 const MapperIcon = ({ name = '', extraProps = {} }) => {
