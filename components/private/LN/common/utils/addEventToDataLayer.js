@@ -14,7 +14,8 @@ const addEventToDataLayer = ({
     notificationsCategory,
     button,
     page_notification,
-    identifier
+    identifier,
+    contentType
 } = {}) => {
     !isSSR() &&
         window.dataLayer &&
@@ -26,6 +27,7 @@ const addEventToDataLayer = ({
             ...(title && { title }),
             ...(articleId && { nota_id_arc: articleId }),
             ...(type && { type }),
+            ...(contentType && { content_type: contentType }),
             ...(detail && { detail }),
             ...(code && { code }),
             ...(button && { button }),
@@ -50,7 +52,8 @@ export const addEventToDataLayerV2 = ({
     notificationsCategory,
     button,
     page_notification,
-    identifier
+    identifier,
+    contentType
 } = {}) => {
     if (!isSSR() && window.dataLayer) {
         scheduleTask(() => {
@@ -62,6 +65,7 @@ export const addEventToDataLayerV2 = ({
                 ...(title && { title }),
                 ...(articleId && { nota_id_arc: articleId }),
                 ...(type && { type }),
+                ...(contentType && { content_type: contentType }),
                 ...(detail && { detail }),
                 ...(code && { code }),
                 ...(button && { button }),

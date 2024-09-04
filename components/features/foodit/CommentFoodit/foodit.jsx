@@ -4,8 +4,13 @@
 import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import { HeaderComments } from '../../foodit-global/common/headerComments/foodit';
-import { loginViafoura, useValidateComments } from './_helper';
+import {
+    getCommentsDataLayerInfo,
+    loginViafoura,
+    useValidateComments
+} from './_helper';
 import useGetUserConfig from '../../foodit-global/hooks/useGetUserConfig';
 import LazyLoad from '../../foodit-global/common/LazyLoad/foodit';
 import LoadingFoodit from '../../foodit-global/common/Loading/foodit';
@@ -16,8 +21,11 @@ import { getVariantBarrier } from '../../foodit-global/common/emptyState/helpers
 const CommentFoodit = props => {
     const {
         outputType,
-        customFields: { hideCaja }
+        customFields: { hideCaja },
+        globalContent = {}
     } = props;
+    const { layout } = useAppContext();
+
     const { isSubscribed: subscription, userType } = useGetUserConfig();
 
     const { showComments, allowComments } = useValidateComments(props);
@@ -27,7 +35,12 @@ const CommentFoodit = props => {
 
     useEffect(() => {
         if (isVisible) {
-            loginViafoura({ outputType, setIsReady, subscription });
+            loginViafoura({
+                outputType,
+                setIsReady,
+                subscription,
+                dataLayerInfo: getCommentsDataLayerInfo(globalContent, layout)
+            });
         }
     }, [isVisible]);
 
