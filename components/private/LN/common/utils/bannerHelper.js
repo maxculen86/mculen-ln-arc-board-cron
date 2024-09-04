@@ -81,20 +81,23 @@ export const getBannerConfigFromSiteService = ({
     slotId,
     section
 }) => {
+    const slotName = `${slotGroup}_${slotId}`;
+
+    const defaultDimensions = getBannerSectionDimensions(section, slotName)
+        ? parseDimensionsBanners(getBannerSectionDimensions(section, slotName))
+        : bannerConfiguration.dimensions;
+
     if (bannersSiteConfig) {
         return {
             ...bannerConfiguration,
             bidding: setPrebidBanners(bannerConfiguration, section),
             dimensions:
-                getDimsFromSiteService(
-                    bannersSiteConfig,
-                    `${slotGroup}_${slotId}`,
-                    section
-                ) || bannerConfiguration.dimensions
+                getDimsFromSiteService(bannersSiteConfig, slotName, section) ||
+                defaultDimensions
         };
     }
 
-    return bannerConfiguration;
+    return { ...bannerConfiguration, dimensions: defaultDimensions };
 };
 
 export const getBannerConfiguration = (
@@ -247,6 +250,14 @@ export const buildBannerClasses = (config, customFields) => {
 export const getDimsFromSiteService = (config, slotName, section) => {
     if (!config || !slotName) return null;
 
+    const specificSectionDimensions = getBannerSectionDimensions(
+        section,
+        slotName
+    );
+    if (specificSectionDimensions) {
+        return parseDimensionsBanners(specificSectionDimensions);
+    }
+
     const position = config.find(item => item.adunit === slotName);
 
     if (!position || !position.dimensions || position.dimensions === '')
@@ -254,17 +265,12 @@ export const getDimsFromSiteService = (config, slotName, section) => {
 
     // TODO: hacerlo dinamico
     if (
-        ['propiedades', 'campo', 'salud', 'autos', 'la_nacion_usa'].includes(
-            section
-        ) &&
+        ['salud', 'autos', 'la_nacion_usa'].includes(section) &&
         (slotName === 'nota_caja1_dsk' || slotName === 'acumulado_caja1_dsk')
     )
         position.dimensions = '120x600,160x600,300x600';
 
-    const dimensions = position.dimensions.split(',');
-    return dimensions.map(dimension =>
-        dimension.split('x').map(size => parseInt(size, 10) || size)
-    );
+    return parseDimensionsBanners(position.dimensions);
 };
 
 export const handleCanchallenaException = (subSections = []) => {
@@ -434,11 +440,11 @@ export const queueGoogletagCommand = bannersToLoad => {
             .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
                 const banner = document.getElementById(slot.getSlotElementId());
 
-                const shouldShowBanner =
+                const isBannerVisible =
                     !isEmpty &&
                     !bannersWithoutHide.includes(slot.getSlotElementId());
 
-                if (shouldShowBanner) {
+                if (isBannerVisible) {
                     banner.parentNode.classList.remove('none');
                 }
             });
@@ -457,4 +463,31 @@ export const setPrebidBanners = (_bannerConfig, section) => {
             }
         }
     );
+};
+
+export const parseDimensionsBanners = dimensionsString => {
+    if (!dimensionsString || typeof dimensionsString !== 'string') {
+        return null;
+    }
+
+    const dimensions = dimensionsString.split(',');
+    return dimensions.map(dimension =>
+        dimension.split('x').map(size => parseInt(size, 10) || size)
+    );
+};
+
+export const getBannerSectionDimensions = (section, slotName) => {
+    if (!section || !slotName) return null;
+
+    const defaultSlotDimensions = {
+        nota_caja1_dsk: '300x250,300x600,120x600,160x600',
+        acumulado_caja1_dsk: '300x250,300x600'
+    };
+
+    const sectionSlotDimensions = {
+        propiedades: defaultSlotDimensions,
+        campo: defaultSlotDimensions
+    };
+
+    return sectionSlotDimensions[section]?.[slotName];
 };

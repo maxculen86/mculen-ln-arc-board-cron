@@ -6,6 +6,7 @@ import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import { configClassName } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
+import getSourcesJw from '../../LN/common/utils/getSourcesJw';
 
 const videoPlayerJW = ({
     data,
@@ -36,6 +37,8 @@ const videoPlayerJW = ({
         videoPlayer,
         facade
     } = get(configClassName, arcSite, {});
+
+    const minStream = video && getSourcesJw(get(video, 'sources', []));
 
     return (
         <Static id={mediaid}>
@@ -73,7 +76,7 @@ const videoPlayerJW = ({
                             paragraph={parrafo || description}
                             noteTitle={tituloNota}
                             mediaData={video}
-                            minStream={{ url: get(video, 'link', '') }}
+                            minStream={{ url: get(minStream, 'file', '') }}
                         />
                     )}
                 </section>

@@ -31,7 +31,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1920,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/b8eyQFt3iUEHMhCM_w3JrWCrM04=/1920x1280/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1920&quality=70&smart=false",
             },
             {
               "option": {
@@ -42,7 +42,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1200,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/H8KJSh2nYOGrPMIeP_Pa_sBa-1o=/1200x800/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1200&quality=70&smart=false",
             },
             {
               "option": {
@@ -53,7 +53,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1023,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/keFjJnKBYvX9QzdsthS2LVWKRNM=/1023x682/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1023&quality=70&smart=false",
             },
             {
               "option": {
@@ -64,7 +64,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1276,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/0Pvk4l1Z0kIuLouqlHWU5eF5MrQ=/1276x1914/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1276&quality=70&smart=false",
             },
             {
               "option": {
@@ -75,7 +75,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 768,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/_909z_943GSVvBTBrpZmD_fJLog=/768x1152/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=768&quality=70&smart=false",
             },
             {
               "option": {
@@ -86,7 +86,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 360,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/E7x0z-aKGdI4ttZy0uwuBieSVdA=/360x540/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=360&quality=70&smart=false",
             },
           ],
           "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
@@ -130,7 +130,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1920,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.webp?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1920&quality=70&smart=false",
             },
             {
               "option": {
@@ -141,7 +141,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1200,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/6jimcP3NOzDQ4c2vJHoouem7_E0=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.webp?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1200&quality=70&smart=false",
             },
             {
               "option": {
@@ -152,7 +152,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1023,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/86dgBzw50r_QMKKnX-2ZErlN9OI=/1023x682/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.webp?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1023&quality=70&smart=false",
             },
             {
               "option": {
@@ -163,7 +163,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1276,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/TdlfKCiPYMkn8-Kt0G4fybf56bM=/1276x1914/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.webp?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1276&quality=70&smart=false",
             },
             {
               "option": {
@@ -174,7 +174,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 768,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/CUTkAotu5yItLluqV8d0RbDXBh4=/768x1152/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.webp?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=768&quality=70&smart=false",
             },
             {
               "option": {
@@ -185,7 +185,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 360,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/dK5Lo0Qyt7roZeN230StVLRwqPQ=/360x540/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.webp?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=360&quality=70&smart=false",
             },
           ],
           "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
@@ -229,7 +229,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1920,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/dvqAreT3rtcrMrCrpAxGKVpFvNM=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1920&quality=70&smart=false",
             },
             {
               "option": {
@@ -240,7 +240,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1200,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/kX-n6YZPumMS84YarW8cLltZr_Y=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1200&quality=70&smart=false",
             },
             {
               "option": {
@@ -251,7 +251,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1023,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/iPlMJB1klENGVNq54jCtjc0WEyU=/1023x682/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1023&quality=70&smart=false",
             },
             {
               "option": {
@@ -262,7 +262,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 1276,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/4K_iQacum3DGiT1gIBnWjPrMp4s=/1276x1914/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=1276&quality=70&smart=false",
             },
             {
               "option": {
@@ -273,7 +273,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 768,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/6q1cXb8B4FTWKFinsRFETcbKMTI=/768x1152/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=768&quality=70&smart=false",
             },
             {
               "option": {
@@ -284,7 +284,7 @@ exports[`Article source nota - addParallaxData addParallaxData must return paral
                 "useFullSize": true,
                 "width": 360,
               },
-              "resizedUrl": "https://resizer.glanacion.com/resizer/B94TugB7YlN-H1sprKmJVy6jtLE=/360x540/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+              "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=360&quality=70&smart=false",
             },
           ],
           "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",

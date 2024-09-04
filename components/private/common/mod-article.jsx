@@ -91,6 +91,9 @@ const ModArticle = forwardRef((props, ref) => {
     );
 
     const isBookmark = typeArticle === 'Bookmark';
+    const hasAuthorName =
+        (isRenderAuthor && classCondition !== '--columnista') ||
+        isRenderAuthorOpinion;
     const dataAuthors = isBookmark && get(articleData, 'credits.by', []);
     const categoryNote = get(articleData, 'category', '');
 
@@ -105,8 +108,7 @@ const ModArticle = forwardRef((props, ref) => {
             className={setArticleClassName({
                 classCondition,
                 withMedia,
-                isRenderAuthor,
-                isRenderAuthorOpinion
+                hasAuthorName
             })}
             {...extraOpts}
             onClick={onCLick}
@@ -128,10 +130,9 @@ const ModArticle = forwardRef((props, ref) => {
                     // TODO: Eliminar estas propiedades cuando se implemente carga de imagen con picture en todo el sitio.
                     layoutPageBuilder={layoutPageBuilder}
                     globalContent={globalContent}
-                    // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
+                    authors={hasAuthorName && authors}
                 />
             )}
-
             <ModDescription
                 link={link}
                 titleTag={titleTag}

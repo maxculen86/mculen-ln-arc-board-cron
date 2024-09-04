@@ -13,7 +13,6 @@ import {
     authorSocialNetworks,
     authorExpertise
 } from '../../../../../components/private/common/utils/wikiAuthorHelper';
-
 jest.mock(
     '../../../../../components/private/common/com-container',
     () => 'mock-com-container'
@@ -258,19 +257,15 @@ describe('WIkiAuthorHelper functions test', () => {
     });
 
     it('Checking authorSocialNetworks', () => {
-        const { container } = render(
+        const { container, getByTestId, getByText } = render(
             authorSocialNetworks(socialNetworks, data)
         );
-        const containerElement = container.getElementsByTagName(
-            'mock-com-container'
-        );
-        const subTitleElement = container.getElementsByTagName(
-            'mock-com-subtitle'
-        );
+        const containerElement = getByTestId('wiki-social-container');
+        const subTitleElement = getByText('Conectar');
         const socialIcons = container.getElementsByTagName('mock-social-icons');
 
-        expect(containerElement[0]).toBeVisible();
-        expect(subTitleElement[0]).toBeVisible();
+        expect(containerElement).toBeVisible();
+        expect(subTitleElement).toBeVisible();
         expect(socialIcons[0]).toBeVisible();
         expect(authorSocialNetworks([])).toBe(null);
         expect(container).toMatchSnapshot();

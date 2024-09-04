@@ -3,6 +3,7 @@ import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/components/chains/LN10/getCajaManual';
 import validateCajaManual from './common/_helper-WebApi';
 import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
+import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 
 class CajaManual extends GetCajaManual {
     constructor(props) {
@@ -10,6 +11,7 @@ class CajaManual extends GetCajaManual {
     }
 
     validate = propsValidate => {
+        const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
         const {
             id: chainId,
             customFields: { layout = '', chainStyle },
@@ -20,9 +22,18 @@ class CajaManual extends GetCajaManual {
             x => get(x, 'props.id', null) === chainId
         );
 
+        const isGrid6MasTimeline =
+            get(childrenRenders, 'props.customFields.layout', '') ===
+            BN_6_GRID_MAS_TIMELINE;
+
         childrenRenders = childrenRenders && childrenRenders.children;
 
-        return validateCajaManual(layout, childrenRenders, chainStyle);
+        return validateCajaManual(
+            layout,
+            childrenRenders,
+            chainStyle,
+            isGrid6MasTimeline
+        );
     };
 
     render() {

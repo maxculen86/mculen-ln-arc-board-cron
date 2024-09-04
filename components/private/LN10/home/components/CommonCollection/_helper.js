@@ -3,7 +3,6 @@ import { SITE_FOODIT } from 'fusion:environment';
 import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
-import { CHAIN_STYLE } from '../../../../../chains/utils/common/_helpers-WebApi';
 import { LIVEBLOG } from '../../../../common/utils/subtypes/subtypeHelper';
 
 const getCardConfig = (config, articleData) => {

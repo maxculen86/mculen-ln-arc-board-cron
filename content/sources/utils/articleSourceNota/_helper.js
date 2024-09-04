@@ -253,7 +253,8 @@ const transformContentElements = async ({
     result,
     siteProperties,
     cachedCall,
-    aditionalProps
+    aditionalProps,
+    arcSite
 }) => {
     const contentElementTransformed = await Promise.all(
         transformElementsBasedOnType({
@@ -273,7 +274,8 @@ const transformContentElements = async ({
         return addParallaxData(
             contentElementTransformed,
             cachedCall,
-            presetsPromoItemsFotoAl100
+            presetsPromoItemsFotoAl100,
+            arcSite
         );
     }
     //TODO: Eliminar cuando salga FOODIT!!!
@@ -356,7 +358,8 @@ export const transform = async (response, query, cachedCall) => {
             result,
             cachedCall,
             siteProperties,
-            aditionalProps
+            aditionalProps,
+            arcSite
         }),
         Promise.all(
             transformElementsBasedOnType({

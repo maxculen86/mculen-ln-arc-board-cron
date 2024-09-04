@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features- foodit-global - schemas - AcuSchema renders the correct number of schema script tags 1`] = `
+<div>
+  <script
+    id="acu-schema"
+    type="application/ld+json"
+  >
+    {
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  "name": "Acumulado - Saladas",
+  "url": "https://foodit.lanacion.com.ar/recetas/saladas",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Foodit",
+    "url": "https://foodit.lanacion.com.ar/",
+    "logo": {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "url": "https://foodit.lanacion.com.ar/pf/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "height": 112,
+      "width": 112
+    }
+  }
+}
+  </script>
+  <script
+    id="breadcrumb-schema"
+    type="application/ld+json"
+  >
+    {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 0,
+      "item": {
+        "@id": "https://foodit.lanacion.com.ar",
+        "name": "Foodit"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@id": "https://foodit.lanacion.com.ar/recetas/",
+        "name": "Recetas"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@id": "https://foodit.lanacion.com.ar/recetas/saladas/",
+        "name": "Saladas"
+      }
+    }
+  ]
+}
+  </script>
+</div>
+`;

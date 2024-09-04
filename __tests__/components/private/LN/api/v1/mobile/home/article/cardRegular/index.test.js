@@ -5,6 +5,7 @@ import {
     getArticleVideos,
     getYouTubeVideoLink
 } from '../../../../../../../../../../components/private/LN/api/common/article/elements/video/index';
+import { getEmbed } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/embed/index';
 import { getBadgebyConfig } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/chapita/index';
 import { CardBasic } from '../../../../../../../../../../components/private/LN/api/common/article/cardBasic/index';
 
@@ -14,6 +15,9 @@ jest.mock(
 );
 jest.mock(
     '../../../../../../../../../../components/private/LN/api/common/article/elements/video/index'
+);
+jest.mock(
+    '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/embed/index'
 );
 jest.mock(
     '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/chapita/index'
@@ -40,26 +44,42 @@ describe('cardRegular', () => {
         getArticleImage.mockReturnValueOnce('image');
         getArticleVideos.mockReturnValueOnce('videos');
         getYouTubeVideoLink.mockReturnValueOnce('youtubeLink');
+        getEmbed.mockReturnValueOnce('iframe');
         getBadgebyConfig.mockReturnValueOnce(objbadget);
         CardBasic.mockReturnValueOnce({ title: article.title });
 
         const expectedCardRegular = {
-            title: article.title,
-            bajada: 'subheadline',
-            ...objbadget,
+            categoria: {
+                slug: undefined,
+                valor: undefined
+            },
+            title: 'Test article',
+            autor: null,
+            autores: null,
+            marquesina: null,
+            volanta: null,
+            bajada: undefined,
             imagen: 'image',
-            video: 'videos',
-            videoYouTube: 'youtubeLink'
+            videoYouTube: 'youtubeLink',
+            embed: 'iframe',
+            chapita: 'VIDEO',
+            badge: 'VIDEO',
+            badgeStyle: 'positive',
+            opinion: false,
+            isListenable: undefined
         };
 
         // Act
         const result = CardRegular(article);
 
         // Assert
+        expect(result).toStrictEqual(expectedCardRegular);
         expect(getArticleImage).toHaveBeenCalledTimes(1);
         expect(getArticleImage).toHaveBeenCalledWith(article);
         expect(getYouTubeVideoLink).toHaveBeenCalledTimes(1);
         expect(getYouTubeVideoLink).toHaveBeenCalledWith(article);
+        expect(getEmbed).toHaveBeenCalledTimes(1);
+        expect(getEmbed).toHaveBeenCalledWith(article);
         expect(getBadgebyConfig).toHaveBeenCalledTimes(1);
         expect(getBadgebyConfig).toHaveBeenCalledWith(article);
         expect(CardBasic).toHaveBeenCalledTimes(1);

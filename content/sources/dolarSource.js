@@ -9,7 +9,6 @@ import {
 import getRequest from './utils/getRequest';
 import filter from '../filters/LN/services/dolar';
 import logger from '../../components/private/common/utils/logger';
-import { createResizer } from '../../components/private/common/utils/image/resizer';
 
 const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
     const endpoint = {
@@ -78,15 +77,6 @@ const transform = data => {
         euro: '/tema/euro-hoy-tid66142/',
         dmep: '/tema/dolar-mep/'
     };
-    const imageUrl = createResizer().resizeUrl({
-        originalUrl: 'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',
-        originalWidth: 49,
-        originalHeight: 60,
-        resizeOptions: {
-            height: 76,
-            width: 314
-        }
-    });
 
     return {
         data:
@@ -115,8 +105,7 @@ const transform = data => {
                             link: baseUrl + linkDictionary[sourceName]
                         })
                     };
-                }),
-        imageUrl
+                })
     };
 };
 

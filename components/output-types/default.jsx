@@ -131,12 +131,12 @@ const Default = props => {
         metaTitle
     });
 
-    const Scripts = buildScriptComponent(
+    const Scripts = buildScriptComponent({
         renderables,
-        siteProperties.scripts,
+        sitePropertiesScripts: siteProperties?.scripts,
         globalContent,
         globalContentConfig
-    );
+    });
 
     const metaDescription = getMetaDescriptionDefault(
         metaValue('description'),

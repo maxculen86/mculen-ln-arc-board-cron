@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render BN_12_GRID layout with articles 1`] = `
 <div>
   <div
     class="flex ai-end jc-between gap-24 mb-24"
@@ -800,7 +800,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
-      data-test-id="card-recipe--AAABBBCCC888"
+      data-test-id="card-recipe--AAABBBCCC999"
       data-variant="recipe"
     >
       <a
@@ -878,9 +878,9 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             </div>
             <button
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="AAABBBCCC888"
+              data-id="AAABBBCCC999"
               data-modal="open-modal"
-              data-test-id="button-bookmark-AAABBBCCC888"
+              data-test-id="button-bookmark-AAABBBCCC999"
               data-variant="link"
               title="Guardar receta"
             >
@@ -904,7 +904,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
-      data-test-id="card---AAABBBCCC999"
+      data-test-id="card---AAABBBCCC0000"
       data-variant=""
     >
       <a
@@ -982,9 +982,9 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
             </div>
             <button
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="AAABBBCCC999"
+              data-id="AAABBBCCC0000"
               data-modal="open-modal"
-              data-test-id="button-bookmark-AAABBBCCC999"
+              data-test-id="button-bookmark-AAABBBCCC0000"
               data-variant="link"
               title="Guardar receta"
             >
@@ -1228,7 +1228,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
 </div>
 `;
 
-exports[`RenderCollection should render Carousel layout with title and link 1`] = `
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render Carousel layout with title and link 1`] = `
 <div>
   <div
     class="carousel-container"
@@ -1257,7 +1257,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <mock-icon
             critical="false"
-            name="bookmark-plus"
+            name="bookmark-filled"
           />
         </i>
         <span
@@ -1370,8 +1370,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -1478,8 +1478,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -1570,8 +1570,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -1678,8 +1678,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -1786,8 +1786,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -1894,8 +1894,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -1986,8 +1986,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -2078,8 +2078,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -2098,7 +2098,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
-            data-test-id="card-recipe--AAABBBCCC888"
+            data-test-id="card-recipe--AAABBBCCC999"
             data-variant="recipe"
           >
             <a
@@ -2176,9 +2176,9 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   </div>
                   <button
                     class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-id="AAABBBCCC888"
+                    data-id="AAABBBCCC999"
                     data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC888"
+                    data-test-id="button-bookmark-AAABBBCCC999"
                     data-variant="link"
                     title="Guardar receta"
                   >
@@ -2186,8 +2186,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -2206,7 +2206,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
-            data-test-id="card---AAABBBCCC999"
+            data-test-id="card---AAABBBCCC0000"
             data-variant=""
           >
             <a
@@ -2284,9 +2284,9 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                   </div>
                   <button
                     class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-id="AAABBBCCC999"
+                    data-id="AAABBBCCC0000"
                     data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC999"
+                    data-test-id="button-bookmark-AAABBBCCC0000"
                     data-variant="link"
                     title="Guardar receta"
                   >
@@ -2294,8 +2294,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -2407,8 +2407,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -2520,8 +2520,8 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="true"
-                        name="bookmark"
+                        critical="false"
+                        name="bookmark-filled"
                       />
                     </i>
                     <span
@@ -2604,4 +2604,117 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
 </div>
 `;
 
-exports[`RenderCollection should render nothing when hideCaja is true 1`] = `<div />`;
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render nothing when articles array is empty 1`] = `
+<div>
+  <div
+    class="carousel-container"
+  >
+    <div
+      class="flex ai-end jc-between gap-24 mb-24"
+    >
+      <h2
+        class="text prumo prumo-light text-24 text-32_md text-36_lg"
+      >
+        Empty Articles Test
+      </h2>
+      <button
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto"
+        data-collectionid=""
+        data-variant="link"
+        text="Guardar todo"
+        title="Guardar todo"
+      >
+        <i
+          class="icon w-24 w-20_md --dark"
+        >
+          <mock-icon
+            critical="false"
+            name="bookmark-plus"
+          />
+        </i>
+        <span
+          class="text text-12 sm-none uppercase"
+        >
+          Guardar todo
+        </span>
+      </button>
+    </div>
+    <div
+      class="media-scroller relative flex flex-column gap-16 hide-mobile"
+      data-scroller="container"
+    >
+      <ul
+        class="relative --full-width"
+        data-scroller="track"
+        data-scroller-elements="0"
+        data-test-id="container-cards-carousel"
+      />
+      <button
+        aria-label="Ir una slide hacia la izquierda"
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-circle text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover p-12 absolute z-1 rounded-circle visibility-hidden bg-light-1"
+        data-scroller="arrow"
+        data-scroller-direction="prev"
+        data-variant="secondary"
+        title="Ver anterior"
+      >
+        <i
+          class="icon --icon-16 --inherit"
+        >
+          <svg
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10.828 12.364L15.071 16.607C15.4615 16.9975 15.4615 17.6305 15.071 18.021C14.6805 18.4115 14.0475 18.4115 13.657 18.021L8.70711 13.0711C8.31658 12.6806 8.31658 12.0474 8.70711 11.6569L13.657 6.707C14.0475 6.31653 14.6805 6.31653 15.071 6.707C15.4615 7.09747 15.4615 7.73053 15.071 8.121L10.828 12.364Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </button>
+      <button
+        aria-label="Ir una slide hacia la derecha"
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-circle text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover p-12 absolute z-1 rounded-circle bg-light-1"
+        data-scroller="arrow"
+        data-scroller-direction="next"
+        data-variant="secondary"
+        title="Ver siguiente"
+      >
+        <i
+          class="icon --icon-16 --inherit"
+        >
+          <svg
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929 11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92898 17.657C8.53852 17.2665 8.53852 16.6335 8.92899 16.243L13.172 12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </button>
+      <div
+        class="progress-bar overflow-hidden w-144 h-5 mx-auto bg-light-100 rounded-24"
+        data-scroller="progress"
+      >
+        <div
+          class="progress-bar-status h-100 max-w-100 bg-primary-positive rounded-24 transition-linear"
+          style="width: 0%;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render nothing when hideCaja is true 1`] = `<div />`;

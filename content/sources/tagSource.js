@@ -12,6 +12,9 @@ import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
 import transformWikiTagData from './utils/transformWikiTagData';
 import getRequestWithJSON from './utils/getRequestWithJson';
+import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
+import get from '../../components/private/common/utils/get';
+import { extractIdFromImageUrl } from './utils/tagSource/_helper';
 
 const resolve = key => {
     const { slug } = key;
@@ -104,10 +107,25 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
         arcSite: 'la-nacion-ar'
     };
 
-    const wikiDataTransformed =
-        transformWikiTagData(wikiTagData, siteProps) || {};
+    const image = get(wikiTagData, 'image', {});
+    const imageUrl = get(image, 'url', '');
+    const imageId = extractIdFromImageUrl(imageUrl);
+    const signingResponse = await signingServiceCachedCall(imageId, cachedCall);
 
-    return {
+    const imageProps = {
+        auth: { 1: get(signingResponse, 'hash', '') },
+        _id: imageId,
+        additional_properties: { originalUrl: imageUrl }
+    };
+
+    const updatedWikiTagData = {
+        ...wikiTagData,
+        image: { ...image, ...imageProps }
+    };
+    const wikiDataTransformed =
+        transformWikiTagData(updatedWikiTagData, siteProps) || {};
+
+    const response = {
         ...data,
         node_type: 'tags',
         name: data.Payload.items[0].name,
@@ -117,6 +135,8 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
         isWiki,
         ...(isWiki && { wikiSourceData: wikiDataTransformed })
     };
+
+    return response;
 };
 
 const getDataForTag = (allTagsData, slug) => {

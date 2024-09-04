@@ -1,6 +1,9 @@
 export const validateValueText = value => {
-    if (typeof value === 'string' || value instanceof String) return false;
-    return true;
+    if (typeof value === 'string' || value instanceof String) {
+        return false;
+    } else {
+        return true;
+    }
 };
 export const validateArrayNull = array => {
     let containNull = true;

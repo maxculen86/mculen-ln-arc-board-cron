@@ -231,10 +231,10 @@ describe('Test acumulados transformation with V2 Format', () => {
             banners: [],
             category: {
                 slug: '/suscriptores',
-                value: 'Exclusivo suscriptores'
+                value: 'Suscriptores'
             },
             paginate: true,
-            title: 'Exclusivo suscriptores',
+            title: 'Suscriptores',
             total: 1
         });
     });

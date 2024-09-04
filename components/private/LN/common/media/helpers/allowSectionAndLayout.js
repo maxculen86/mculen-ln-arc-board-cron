@@ -1,6 +1,8 @@
 import {
     AGENCIA,
     FOTOAL100,
+    INFOGRAFIA,
+    LIVEBLOG,
     NOTICIA,
     RECETA,
     STORYTELLING,
@@ -34,7 +36,9 @@ const allowSectionAndLayout = [
     { subtype: STORYTELLING },
     { subtype: FOTOAL100 },
     { subtype: AGENCIA },
-    { subtype: RECETA }
+    { subtype: RECETA },
+    { subtype: LIVEBLOG },
+    { subtype: INFOGRAFIA }
 ];
 
 export default allowSectionAndLayout;

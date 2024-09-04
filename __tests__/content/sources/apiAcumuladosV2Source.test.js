@@ -316,10 +316,10 @@ describe('content source apiAcumuladosV2Source integration test', () => {
         expect(result.metadata).toEqual({
             category: {
                 slug: '/suscriptores',
-                value: 'Exclusivo suscriptores'
+                value: 'Suscriptores'
             },
             paginate: true,
-            title: 'Exclusivo suscriptores',
+            title: 'Suscriptores',
             total: 10000,
             banners: [
                 {

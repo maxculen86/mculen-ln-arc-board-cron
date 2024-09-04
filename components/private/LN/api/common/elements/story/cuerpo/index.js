@@ -143,7 +143,7 @@ const summaryToContentElements = summary => {
 const storyBody = (dataNota, storyBodyElements) => {
     const { _id } = dataNota || {};
     const subtype = get(dataNota, 'subtype', '');
-    const hide_articles_summary =
+    const hideArticlesSummary =
         get(
             dataNota,
             'navigationTreeSource.Termicas.hide_articles_summary',
@@ -160,7 +160,7 @@ const storyBody = (dataNota, storyBodyElements) => {
         get(dataNota, 'promo_items.summary', {}),
         subtype,
         contentElements,
-        hide_articles_summary
+        hideArticlesSummary
     );
 
     contentElements = getElementsWithHtmlPromoItems(

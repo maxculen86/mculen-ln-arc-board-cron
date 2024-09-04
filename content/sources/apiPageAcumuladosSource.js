@@ -45,7 +45,7 @@ const fetch = async (query, { cachedCall }) => {
         let { title } = fetchSectionSourceResult;
 
         if (query.sectionId === '/suscriptores') {
-            title = 'Exclusivo suscriptores';
+            title = 'Suscriptores';
         }
 
         // Para revisar la data cruda que viene del Layout

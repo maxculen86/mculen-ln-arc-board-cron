@@ -28,7 +28,7 @@ const CajaDolar = ({ id: featureId }) => {
             staticMode: true
         }) || {};
 
-    const { data, imageUrl } = response;
+    const { data } = response;
     const oddOrEven = data && (data.length % 2 ? '--odd' : '--even');
     const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
 
@@ -42,7 +42,6 @@ const CajaDolar = ({ id: featureId }) => {
     const dolarComponent = data ? (
         <ModDolar
             _id={_id}
-            imageUrl={imageUrl}
             data={data}
             oddOrEven={oddOrEven}
             fillClass={fillClass}

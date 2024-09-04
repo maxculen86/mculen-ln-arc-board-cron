@@ -4,7 +4,7 @@ import {
     shouldBeExcluded
 } from '../../../../../components/private/common/utils/metarefreshHelper';
 
-describe('findTemplate func', () => {
+describe('Components - private- common - utils - metarefreshHelper - findTemplate', () => {
     it('should return "nota" for type "story" or "results"', () => {
         expect(findTemplate('story')).toBe('nota');
         expect(findTemplate('results')).toBe('nota');
@@ -17,9 +17,16 @@ describe('findTemplate func', () => {
     it('should return "home" for any other type', () => {
         expect(findTemplate('other')).toBe('home');
     });
+
+    it('should use _id when type is not provided', () => {
+        const _id = '/deportes';
+        const type = null;
+        const identifier = type || _id;
+        expect(findTemplate(identifier)).toBe('home_deportes');
+    });
 });
 
-describe('getInterval func', () => {
+describe('Components - private- common - utils - metarefreshHelper - getInterval', () => {
     it('should return the correct interval for "Estados Unidos" category', () => {
         const type = 'story';
         const resolution = 'tablet';
@@ -59,7 +66,7 @@ describe('getInterval func', () => {
     });
 });
 
-describe('shouldBeExcluded func', () => {
+describe('Components - private- common - utils - metarefreshHelper - shouldBeExcluded', () => {
     it('should return true if content_elements contains raw_html, oembed_response, or video', () => {
         const globalContent = {
             content_elements: [{ type: 'raw_html' }]

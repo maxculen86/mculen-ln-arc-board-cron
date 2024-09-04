@@ -34,19 +34,19 @@ const Media = ({
     withMobileImage,
     searchableField,
     layoutPageBuilder,
-    globalContent
+    globalContent,
+    authors
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
     const { height = 0, width = 0, type, _id: idMedia } = mediaData || {};
     const isVertical = height > width;
     let item = null;
-    const { subtipo } = useSubtype();
-    const subtype = subtipo.id;
+    const { subtype } = useSubtype();
     const idForMedia = isApertura ? idMedia : undefined;
 
     const isValidSection = isAllowedSection({
-        noteType: subtype,
+        noteType: subtype.id,
         globalContent,
         listOfAllowedSection,
         layout: layoutPageBuilder
@@ -56,7 +56,7 @@ const Media = ({
         !itsGallery &&
             withZoom &&
             setZoom(
-                [FOTOAL100, STORYTELLING].includes(subtype)
+                [FOTOAL100, STORYTELLING].includes(subtype.id)
                     ? refContainer.current.clientWidth <= 768
                     : width > refContainer.current.clientWidth
             );
@@ -83,7 +83,7 @@ const Media = ({
             image: (
                 <ComFigure
                     classCondition={setClassCondition({
-                        subtipo,
+                        subtype,
                         withZoom,
                         active,
                         isApertura,
@@ -105,6 +105,7 @@ const Media = ({
                         isApertura={isApertura}
                         searchableField={searchableField}
                         isValidSection={isValidSection}
+                        authors={authors}
                     />
                     {children}
                     {(zoom || itsGallery) && (
@@ -194,7 +195,8 @@ Media.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string
     }).isRequired,
-    layoutPageBuilder: PropTypes.string.isRequired
+    layoutPageBuilder: PropTypes.string.isRequired,
+    authors: PropTypes.string
 };
 
 Media.defaultProps = {

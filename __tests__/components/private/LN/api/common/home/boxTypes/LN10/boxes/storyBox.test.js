@@ -121,7 +121,8 @@ describe('storyBox LN10', () => {
                             }
                         ]
                     },
-                    videoYouTube: null
+                    videoYouTube: null,
+                    embed: null
                 }
             ]
         });

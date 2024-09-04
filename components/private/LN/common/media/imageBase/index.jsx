@@ -19,7 +19,8 @@ const ImageArticle = props => {
         isVertical,
         isApertura,
         isValidSection,
-        searchableField
+        searchableField,
+        authors
     } = props;
     const wwwImage = isApertura ? replaceUrlResizerToWWW(image) : image;
     const {
@@ -68,7 +69,7 @@ const ImageArticle = props => {
                     srcset={srcset}
                     sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
                     src={resizedUrl || url}
-                    alt={altBasic}
+                    alt={authors || altBasic}
                     height={height}
                     width={width}
                     isApertura={isApertura}
@@ -96,7 +97,8 @@ ImageArticle.propTypes = {
     isVertical: PropTypes.bool,
     href: PropTypes.string,
     isApertura: PropTypes.bool,
-    isValidSection: PropTypes.bool
+    isValidSection: PropTypes.bool,
+    authors: PropTypes.string
 };
 
 ImageArticle.defaultProps = {

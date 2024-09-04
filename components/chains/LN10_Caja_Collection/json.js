@@ -3,7 +3,7 @@ import get from '../../private/common/utils/get';
 import GetCajaCollection from '../../private/LN/api/global/components/chains/LN10/getCajaCollection';
 import checkChildInSection from '../utils/checkChildBySection';
 import { validateChain, getBreakingChildren } from './common/_helper-WebApi';
-
+import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 class CajaCollection extends GetCajaCollection {
     constructor(props) {
         super(props, null);
@@ -18,6 +18,8 @@ class CajaCollection extends GetCajaCollection {
 
         const breakingsChildren = getBreakingChildren(renderables);
         const isInBreakings = checkChildInSection(chainId, breakingsChildren);
+        const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
+        const isGrid6MasTimeline = layout === BN_6_GRID_MAS_TIMELINE;
 
         return validateChain({
             idCollection,
@@ -26,7 +28,8 @@ class CajaCollection extends GetCajaCollection {
             renderables,
             chainId,
             isInBreakings,
-            chainStyle
+            chainStyle,
+            isGrid6MasTimeline
         });
     };
 

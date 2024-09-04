@@ -96,7 +96,7 @@ const getName = element => {
 export const productClickFromClient = (element = {}) => {
     const { item } = getDataSetProps(element.currentTarget);
     if (item.item_id) {
-        window.dataLayer.push({
+        window?.dataLayer?.push({
             event: `productClickScore`,
             item
         });

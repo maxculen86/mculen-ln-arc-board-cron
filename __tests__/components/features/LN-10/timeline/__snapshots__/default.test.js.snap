@@ -40,7 +40,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-notaid="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-pos="tl01"
@@ -83,7 +83,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-notaid="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-pos="tl02"
@@ -126,7 +126,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-notaid="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-pos="tl03"
@@ -169,7 +169,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-notaid="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-pos="tl04"
@@ -212,7 +212,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="SUW6AQPARNCGLBDM2YOUGGC474"
             data-notaid="SUW6AQPARNCGLBDM2YOUGGC474"
             data-pos="tl05"
@@ -281,7 +281,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-notaid="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-pos="tl01"
@@ -324,7 +324,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-notaid="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-pos="tl02"
@@ -367,7 +367,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-notaid="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-pos="tl03"
@@ -410,7 +410,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-notaid="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-pos="tl04"
@@ -453,7 +453,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
             </span>
           </time>
           <article
-            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start card-ln-timeline --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="SUW6AQPARNCGLBDM2YOUGGC474"
             data-notaid="SUW6AQPARNCGLBDM2YOUGGC474"
             data-pos="tl05"

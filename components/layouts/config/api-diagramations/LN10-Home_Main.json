@@ -860,5 +860,38 @@
                 "imagePosition": "Right"
             }
         }
+    ],
+    "bn_6_timeline": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Right"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T6": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T7": {
+                "size": "L",
+                "imagePosition": "Right"
+            }
+        }
     ]
 }

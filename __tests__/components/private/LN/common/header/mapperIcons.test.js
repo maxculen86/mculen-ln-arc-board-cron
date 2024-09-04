@@ -5,8 +5,8 @@ import MapperIcon from '../../../../../../components/private/common/icons/mapper
 
 describe('Private -LN -COMMON - ICONS', () => {
     describe('MapperIcons tests with data', () => {
-        const { container } = render(<MapperIcon name="facebook" />);
-        it('Should render the facebook icon', () => {
+        const { container } = render(<MapperIcon name="home" />);
+        it('Should render the home icon', () => {
             expect(container).toMatchSnapshot();
         });
     });

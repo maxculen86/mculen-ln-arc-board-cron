@@ -5,26 +5,7 @@ import PropTypes from 'prop-types';
 /* TODO: Hacer code-split  de los SVG */
 
 import {
-    FacebookFilled,
-    Facebook,
-    TwitterFilled,
-    Twitter,
-    Rss,
-    RssFilled,
-    Email,
-    EmailFilled,
     ExclusiveLn,
-    Whatsapp,
-    WhatsappFilled,
-    YoutubeFilled,
-    InstagramFilled,
-    Instagram,
-    MediumFilled,
-    PinterestFilled,
-    SoundcloudFilled,
-    SnapchatFilled,
-    TumblrFilled,
-    LinkedinFilled,
     Home,
     Sections,
     ClubCard,
@@ -64,27 +45,6 @@ import {
 } from './index';
 
 const listIcons = {
-    // Social icons
-    facebook: Facebook,
-    twitter: Twitter,
-    instagram: Instagram,
-    whatsapp: Whatsapp,
-    email: Email,
-    rss: Rss,
-    'rss-filled': RssFilled,
-    'facebook-filled': FacebookFilled,
-    'twitter-filled': TwitterFilled,
-    'instagram-filled': InstagramFilled,
-    'whatsapp-filled': WhatsappFilled,
-    'email-filled': EmailFilled,
-    'youtube-filled': YoutubeFilled,
-    'medium-filled': MediumFilled,
-    'pinterest-filled': PinterestFilled,
-    'soundcloud-filled': SoundcloudFilled,
-    'snapchat-filled': SnapchatFilled,
-    'tumblr-filled': TumblrFilled,
-    'linkedin-filled': LinkedinFilled,
-
     // System icons
     home: Home,
     sections: Sections,

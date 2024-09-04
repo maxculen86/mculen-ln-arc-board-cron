@@ -15,11 +15,10 @@ const index = acuData => {
     delete indexAcuV1Result[0].titulo;
     delete indexAcuV1Result[0].autores;
 
-    const response = {
+    return {
         metadata,
         items: [...indexAcuV1Result]
     };
-    return response;
 };
 
 export default index;

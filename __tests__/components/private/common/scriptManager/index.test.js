@@ -57,7 +57,18 @@ describe('ScriptManager genera un builder', () => {
         }
     }
 
-    const components = { ScriptMock, OtroScriptMock };
+    // eslint-disable-next-line react/prefer-stateless-function
+    class DontRenderOnPreviewMock extends Component {
+        render() {
+            const { location } = this.props;
+
+            if (location !== 'not-arc-preview') return '';
+
+            return <script {...this.props}>DontRenderOnPreviewMock</script>;
+        }
+    }
+
+    const components = { ScriptMock, OtroScriptMock, DontRenderOnPreviewMock };
     const rnd = Math.floor(Math.random() * 1000);
     const config = {
         ScriptMock: {
@@ -66,10 +77,15 @@ describe('ScriptManager genera un builder', () => {
         },
         OtroScriptMock: {
             location: ['OK', 'foo']
+        },
+        DontRenderOnPreviewMock: {
+            location: ['not-arc-preview'],
+            props: { excludeInArcPreview: true }
         }
     };
 
-    const Script = ScriptManager(components, config, null);
+    const Script = ScriptManager(components, config, null, false);
+    const InArcPreviewScript = ScriptManager(components, config, null, true);
 
     it('al que debe indicarse nombre o posicion', () => {
         const error = 'Debe especificar props: location o name';
@@ -96,6 +112,22 @@ describe('ScriptManager genera un builder', () => {
         expect(otroScript).toBeInTheDocument();
         expect(otroScript).toHaveAttribute('location', LOCATION);
         expect(otroScript).toHaveTextContent('OtroScriptMock');
+    });
+    describe('diferencia carga de script que deben ser exlcuidos desde el preview de Arc', () => {
+        it('Should not render "DontRenderOnPreviewMock" if isArcPreview prop in ScriptManager is true ', () => {
+            render(<InArcPreviewScript location={'not-arc-preview'} />);
+            const dontRenderOnPreviewMock = document.querySelector('script');
+            expect(dontRenderOnPreviewMock).not.toBeInTheDocument();
+        });
+
+        it('Should render "DontRenderOnPreviewMock" if isArcPreview prop in ScriptManager is false ', () => {
+            render(<Script location={'not-arc-preview'} />);
+            const dontRenderOnPreviewMock = document.querySelector('script');
+            expect(dontRenderOnPreviewMock).toBeInTheDocument();
+            expect(dontRenderOnPreviewMock).toHaveTextContent(
+                'DontRenderOnPreviewMock'
+            );
+        });
     });
 });
 

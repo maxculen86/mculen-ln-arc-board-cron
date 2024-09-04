@@ -19,8 +19,10 @@ import {
     checkVariants,
     setStaticDynamically
 } from '../utils/_helpers';
-import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
+import { LAYOUTS, setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
+
+const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
 const CajaManual = props => {
     const {
@@ -40,9 +42,16 @@ const CajaManual = props => {
         ...propsForRoof
     } = customFields;
 
+    const isGrid6MasTimeline = layout === BN_6_GRID_MAS_TIMELINE;
+
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const error = validateCajaManual(layout, childProps, chainStyle);
+    const error = validateCajaManual(
+        layout,
+        childProps,
+        chainStyle,
+        isGrid6MasTimeline
+    );
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
@@ -53,7 +62,7 @@ const CajaManual = props => {
     );
 
     const articles = setSlicedChildren({
-        config: { layout },
+        config: { layout, countTimeline: isGrid6MasTimeline },
         children
     });
 
