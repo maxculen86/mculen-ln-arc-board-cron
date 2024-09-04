@@ -174,7 +174,11 @@ export const formatInterstitialLink = (interstitialLink = '') => {
 
 export const injectGlossaryInText = (text, glossary) => {
     let foundGlossaryWord = false;
-    if (!(glossary && glossary.length)) return { text, foundGlossaryWord };
+    // noHighlighting se debe pasar a true si se necesita apagar el subrayado azul y el tooltip en todas las notas que contengan glosario.
+    const noHighlighting = false;
+
+    if (!(glossary && glossary.length) || noHighlighting)
+        return { text, foundGlossaryWord };
 
     const parts = text.split(/(<a[^>]*>.*?<\/a>)/g);
     const processedParts = parts.map(part => {

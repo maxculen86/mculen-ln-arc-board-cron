@@ -4,6 +4,7 @@ import { Collapse } from './collapse';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import { useAppContext } from 'fusion:context';
 import get from '../../../private/common/utils/get';
+import useTermica from '../../../private/common/hooks/useTermica';
 
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
@@ -16,7 +17,9 @@ const Glossary = ({ customFields: { hide } = {} }) => {
         []
     );
 
-    if (hide || !glossaryData.length) {
+    const termicaGlossary = useTermica('glosario');
+
+    if (hide || !glossaryData.length || !termicaGlossary) {
         return null;
     }
 
