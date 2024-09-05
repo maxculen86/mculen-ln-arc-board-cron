@@ -14,7 +14,12 @@ import { CHAIN_STYLE, LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import checkChildInSection from '../utils/checkChildBySection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
-import { validateChain, getBreakingChildren } from './common/_helper-WebApi';
+import {
+    validateChain,
+    getBreakingChildren,
+    filteredChildren,
+    assignPropsToChildren
+} from './common/_helper-WebApi';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
 import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';
@@ -38,7 +43,8 @@ const CajaCollection = props => {
         renderables = [],
         tree = {},
         layout: pageLayout,
-        children
+        children,
+        childProps
     } = props;
 
     const {
@@ -138,6 +144,10 @@ const CajaCollection = props => {
 
     const ContainerCards = getComponent(chainStyle, layout);
 
+    const filterTimeline = filteredChildren(
+        assignPropsToChildren(children, childProps)
+    );
+
     return (
         <StaticContentV2 {...{ ...extraOptsDiv, id: chainId }}>
             {setRender({
@@ -165,7 +175,11 @@ const CajaCollection = props => {
                                 )}
                                 isExclusiveSub={isExclusiveSub}
                                 isFoodit={isFoodit}
-                                children={isGrid6MasTimeline ? children : null}
+                                children={
+                                    isGrid6MasTimeline
+                                        ? filterTimeline?.nodo
+                                        : null
+                                }
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>
