@@ -1,4 +1,6 @@
+import { adjustImageDimensions } from './adjustImageDimensions';
 import getBiggestImage from './getBiggestImage';
+import { updateResizedUrl } from './updateResizedUrl';
 
 export const urlShema = 'https://schema.org';
 
@@ -17,14 +19,19 @@ export const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
 
     if (promoItems && isImage) {
         const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(basic);
+        const { newWidth, newHeight } = adjustImageDimensions(
+            bigWidth,
+            bigHeight
+        );
+        const newResizedUrl = updateResizedUrl(resizedUrl, newWidth, newHeight);
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
             '@context': urlShema,
             '@type': 'ImageObject',
-            url: resizedUrl ? `${resizedUrl}` : `${pathImagen}`,
-            height: bigHeight ? `${bigHeight}` : `${height}`,
-            width: bigWidth ? `${bigWidth}` : `${width}`
+            url: newResizedUrl ? `${newResizedUrl}` : `${pathImagen}`,
+            height: newHeight ? newHeight : height,
+            width: newWidth ? newWidth : width
         };
     }
 

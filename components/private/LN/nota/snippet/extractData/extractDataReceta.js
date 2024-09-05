@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 import get from '../../../../common/utils/get';
+import { adjustImageDimensions } from '../../../common/utils/adjustImageDimensions';
 import getBiggestImage from '../../../common/utils/getBiggestImage';
+import { updateResizedUrl } from '../../../common/utils/updateResizedUrl';
 
 export const extractDataFromContentElements = contentElements => {
     const instructions = [];
@@ -87,13 +89,18 @@ export const extractDataFromPromoItems = (promoItems, PLACERHOLDER) => {
         const { basic = {}, receta } = promoItems;
         const { type, url, height, width } = basic;
         const { bigWidth, bigHeight } = getBiggestImage(basic);
+        const { newWidth, newHeight } = adjustImageDimensions(
+            bigWidth,
+            bigHeight
+        );
+        const newResizedUrl = updateResizedUrl(url, newWidth, newHeight);
 
         if (type === 'image') {
             image = {
                 ...image,
-                url,
-                height: bigHeight ? `${bigHeight}` : `${height}`,
-                width: bigWidth ? `${bigWidth}` : `${width}`
+                url: newResizedUrl || url,
+                height: newHeight ? newHeight : height,
+                width: newWidth ? newWidth : width
             };
         }
 
