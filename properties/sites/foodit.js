@@ -1,8 +1,6 @@
 import imageConfig from './helperConfigFoodit/imageConfig';
 import scripts from './helperConfigFoodit/scriptConfig';
 
-// TODO: Base de propiedades del sitio RECETAS, mientras tanto usa el mismo imageConfig de LN, queda pendiente armar nuevas configuraciones de ser necesario. El titulo y descripcion son de ejemplo.
-// TODO: host deberia ser url productiva, de momento utilizo url sandbox
 export default {
     longTitle: 'Foodit, recetas faciles y rapidas.',
     title: 'FOODIT',
@@ -26,6 +24,7 @@ export default {
         FooditListadoCompras: 'Foodit-compras',
         FooditAcumuladoChef: 'Foodit-acumulado-chef',
         FooditChef: 'Foodit-chef',
-        Foodit404: 'Foodit-404'
+        Foodit404: 'Foodit-404',
+        FooditRecipePaywall: 'Foodit-recipe-paywall'
     }
 };

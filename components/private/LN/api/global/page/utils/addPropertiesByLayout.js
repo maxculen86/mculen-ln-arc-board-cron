@@ -129,13 +129,49 @@ const addPropertiesChilds = (
     diagramations,
     positionsArticlesbyDiagramation
 ) => {
+    const typeEspecialChains = ['ln10_caja_collection', 'caja_canal'];
+    const typeEspecialLayoutFeature = [
+        { customLayout: 'timeline', matchLayout: 'LN-10/timeline' }
+    ];
+    const typeEspecialLayoutChain = ['bn_6_timeline', 'bn_6_timelinev2'];
+
     return moveElementByPosition(
         articles.map((a, index) => {
+            let newIndex = index;
+            const customLayout = get(a, 'information.layout', '-');
+            const indexCustomLayout = typeEspecialLayoutFeature.findIndex(
+                l => get(l, 'customLayout') === customLayout
+            );
+            const childrensSectionChildren = get(
+                sectionChildrenItem,
+                'children'
+            );
+            if (
+                typeEspecialChains.includes(
+                    get(sectionChildrenItem, 'type', '').toLowerCase()
+                )
+            ) {
+                newIndex = -1;
+                if (
+                    Array.isArray(childrensSectionChildren) &&
+                    typeEspecialLayoutFeature.length >= indexCustomLayout &&
+                    indexCustomLayout > -1 &&
+                    typeEspecialLayoutChain.includes(
+                        get(sectionChildrenItem, 'props.customFields.layout')
+                    )
+                ) {
+                    newIndex = childrensSectionChildren.findIndex(
+                        c =>
+                            get(c, 'type') ===
+                            typeEspecialLayoutFeature[indexCustomLayout]
+                                .matchLayout
+                    );
+                }
+            }
             // Add properties of the chain's children such as layouts and important fields
             const childrenArticle =
-                sectionChildrenItem &&
-                sectionChildrenItem.children &&
-                sectionChildrenItem.children[index];
+                childrensSectionChildren &&
+                sectionChildrenItem.children[newIndex];
             const nameIndexforDiagrmation = 'T'.concat((index + 1).toString());
 
             // Matches the diagrmation of the article or child

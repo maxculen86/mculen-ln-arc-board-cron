@@ -8,36 +8,43 @@ import getGameProperties from '../../../private/LN/common/utils/getGamePropertie
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import checkSection from '../../../private/LN/common/utils/checkSection';
 import { addInitialSlash } from '../../../private/LN/common/utils/addInitialSlash';
+import addForwardSlash from '../../../private/LN/common/utils/addForwardSlash';
 
 const Game = ({ id: featureId, customFields, isAdmin }) => {
     const { contextPath, deployment, arcSite, globalContent } =
         useAppContext() || {};
 
-    const { sectionId, gameType, subscriber, isNewGame } = customFields;
+    const {
+        sectionId: originalSectionId = '',
+        gameType,
+        subscriber,
+        isNewGame
+    } = customFields;
     const primarySection = checkSection(globalContent, '/juegos');
-    const parsedSectionId = sectionId.endsWith('/')
-        ? sectionId.slice(0, -1)
-        : sectionId;
+
+    const sectionId = originalSectionId.endsWith('/')
+        ? originalSectionId.slice(0, -1)
+        : originalSectionId;
 
     const { name: sectionTitle } =
         useContent({
             source: 'sectionSource',
             query: {
-                id: addInitialSlash(parsedSectionId),
+                id: addInitialSlash(sectionId),
                 website: arcSite
             }
         }) || {};
 
     const gameProperties = getGameProperties(
         sectionTitle,
-        parsedSectionId,
+        sectionId,
         contextPath,
         deployment
     );
 
     const newGame = isNewGame === 'SI';
 
-    if (!parsedSectionId && isAdmin) {
+    if (!sectionId && isAdmin) {
         return (
             <div
                 style={{
@@ -75,7 +82,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
         return (
             <GameCard
                 {...gameProperties}
-                href={parsedSectionId}
+                href={addForwardSlash(sectionId)}
                 forSubscriber={forSubscriber}
                 newGame={newGame}
             />
@@ -86,7 +93,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
         useContent({
             source: 'lnAcuSource',
             query: {
-                parsedSectionId,
+                sectionId,
                 size: 1,
                 website: arcSite
             }
@@ -97,7 +104,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
     return (
         <GameCard
             {...gameProperties}
-            href={articleLink}
+            href={addForwardSlash(articleLink)}
             forSubscriber={forSubscriber}
             newGame={newGame}
         />

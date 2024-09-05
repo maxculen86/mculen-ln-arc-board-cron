@@ -1526,26 +1526,18 @@
   .ln-bngrid.--bn_6_timeline .grid .--3 article::before {
     content: "";
     height: 0.03125rem;
-    width: calc(300% + 23.75rem);
+    width: calc(300% + 4.5rem);
     position: absolute;
     background-color: #e4e4e4;
     left: 0rem;
     bottom: 0rem;
   }
 }
-@media (min-width: 83.75rem) {
-  .ln-bngrid.--bn_6_timeline .grid .--3 article::before {
-    content: "";
-    height: 0.03125rem;
-    width: calc(300% + 19.25rem);
-    position: absolute;
-    background-color: #e4e4e4;
-    left: 0rem;
-    bottom: 0rem;
-  }
+.ln-bngrid.--bn_6_timeline .grid .--6 {
+  padding-bottom: 0.28125rem;
 }
 @media (min-width: 48rem) {
-  .ln-bngrid.--bn_6_timeline .grid .--6::after {
+  .ln-bngrid.--bn_6_timeline .grid .--6.grid-item::after {
     content: "";
     height: 0.0625rem;
     width: 100%;

@@ -117,3 +117,15 @@ export const getBreakingChildren = renderables =>
             })
         )
         .flat();
+
+export const assignPropsToChildren = (children = [], childProps = []) => {
+    return children.map((child, index) => ({
+        nodo: child,
+        ...(childProps[index] || {})
+    }));
+};
+
+export const filteredChildren = children =>
+    children.find(child => {
+        return child.type === LN_TIMELINE;
+    });

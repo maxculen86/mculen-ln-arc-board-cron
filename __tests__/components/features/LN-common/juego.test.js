@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Game from '../../../../components/features/LN-common/juego/default';
+import Game from '../../../../components/features/LN-common/Juego/default';
 import '@testing-library/jest-dom';
 import getGameProperties from '../../../../components/private/LN/common/utils/getGameProperties';
 
@@ -17,10 +17,6 @@ jest.mock(
         default: jest.fn()
     })
 );
-
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(() => ({ isAdmin: true }))
-}));
 
 const getAssetsPath = contextPath => deployment => path =>
     `${contextPath}/${deployment}/${path}`;
@@ -86,7 +82,7 @@ describe('Component - Features - LN Common - Game', () => {
             name: /Criptograma/
         });
 
-        expect(gameCardLink).toHaveAttribute('href', '/juegos/criptograma');
+        expect(gameCardLink).toHaveAttribute('href', '/juegos/criptograma/');
         expect(screen.getByText('Criptograma')).toBeInTheDocument();
 
         const gameCardDiv = gameCardLink.querySelector('div');

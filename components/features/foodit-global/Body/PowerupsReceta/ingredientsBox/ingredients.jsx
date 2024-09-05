@@ -11,7 +11,8 @@ export const Ingredients = ({
     articleId,
     ingredientsLists = [],
     title,
-    portions
+    portions,
+    showButton = true
 }) => {
     return (
         <div className="flex flex-column gap-24">
@@ -64,11 +65,13 @@ export const Ingredients = ({
                     );
                 })}
             </Static>
-            <ShoppingListButton
-                ingredientsLists={ingredientsLists}
-                title={title}
-                articleId={articleId}
-            />
+            {showButton && (
+                <ShoppingListButton
+                    ingredientsLists={ingredientsLists}
+                    title={title}
+                    articleId={articleId}
+                />
+            )}
         </div>
     );
 };

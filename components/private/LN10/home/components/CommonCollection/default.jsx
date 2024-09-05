@@ -44,6 +44,7 @@ export default function CommonCollection({
                 hrefButton={hrefButtonFoodit}
                 hrefLink={titleLink}
                 targetButton={targetButton}
+                timeline={children}
             >
                 {articles.map((article, index) => {
                     const {
@@ -100,7 +101,6 @@ export default function CommonCollection({
                     );
                 })}
             </ContainerCards>
-            {children}
         </>
     );
 }
