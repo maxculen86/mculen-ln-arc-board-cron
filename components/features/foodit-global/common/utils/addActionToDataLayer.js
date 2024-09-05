@@ -1,4 +1,4 @@
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import get from '../../../../private/common/utils/get';
 
 const addActionToDataLayer = (article, action) => {
@@ -7,7 +7,7 @@ const addActionToDataLayer = (article, action) => {
         4: 'nota'
     };
 
-    addEventToDataLayer({
+    addEventToDataLayerV2({
         event: 'e_linkclick',
         category: 'interaction',
         label: TYPES_LABEL[get(article, 'subtype', '')] || '',

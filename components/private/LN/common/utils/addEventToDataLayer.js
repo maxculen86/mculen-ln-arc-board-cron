@@ -1,6 +1,7 @@
 import isSSR from './isSSR';
 import { scheduleTask } from '../../../common/utils/scheduleTask';
 
+//TODO: Eliminar funcion cuando se migren todos los usos al V2
 const addEventToDataLayer = ({
     category,
     label,

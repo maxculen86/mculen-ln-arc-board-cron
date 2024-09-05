@@ -2,14 +2,14 @@ import React from 'react';
 import { MY_ACCOUNT_URL, SITE_FOODIT } from 'fusion:environment';
 import { logout } from '../../../../../auth/helper/loginHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const menuUser = [
     {
         text: 'Mi cuenta',
         icon: <IconSprite name="profile" critical />,
         onClick: () => {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -22,7 +22,7 @@ export const menuUser = [
         text: 'Mis recetas',
         icon: <IconSprite name="bookmark" critical />,
         onClick: () => {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -35,7 +35,7 @@ export const menuUser = [
         text: 'Lista de compras',
         icon: <IconSprite name="shopping-list" critical />,
         onClick: () => {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -48,7 +48,7 @@ export const menuUser = [
         text: 'Newsletters',
         icon: <IconSprite name="newsletter" critical />,
         onClick: () => {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -63,7 +63,7 @@ export const menuUser = [
         text: '¿Cómo podemos ayudarte?',
         icon: <IconSprite name="custom-service" />,
         onClick: () => {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'ayuda',
@@ -78,7 +78,7 @@ export const menuUser = [
         text: 'Cerrar sesión',
         icon: <IconSprite name="exit" />,
         onClick: () => {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'logout'
             });
             logout(() => {

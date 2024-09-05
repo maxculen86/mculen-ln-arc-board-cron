@@ -1,6 +1,6 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const getBookmarkGroups = async () => {
     const { token, accessToken } = await getAuthTokens();
@@ -20,7 +20,7 @@ const getBookmarkGroups = async () => {
         );
 
         if (!response.ok) {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'erros_ms',
                 type: 'failed_request',
                 detail: 'get_bookmark_groups',

@@ -3,7 +3,7 @@ import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyL
 import get from '../../../private/common/utils/get';
 import { getAuthTokens } from '../../../../auth/helper/loginHelper';
 import { TRANSLATE_LAYOUTS } from '../../foodit-global/common/dataLayer/_helpers';
-import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 export const loginViafoura = async ({
     outputType,
@@ -21,10 +21,10 @@ export const loginViafoura = async ({
                     setIsReady(true);
                 });
                 window.vf.$subscribe('comment', 'created', () =>
-                    addEventToDataLayer(dataLayerInfo)
+                    addEventToDataLayerV2(dataLayerInfo)
                 );
                 window.vf.$subscribe('comment-reply', 'posted', () =>
-                    addEventToDataLayer(dataLayerInfo)
+                    addEventToDataLayerV2(dataLayerInfo)
                 );
                 subscription &&
                     token &&

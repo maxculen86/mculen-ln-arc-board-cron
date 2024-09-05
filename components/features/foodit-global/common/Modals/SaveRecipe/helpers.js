@@ -1,4 +1,4 @@
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
 import { fillBookmarks } from '../../bookmark/iconHelper';
@@ -49,7 +49,7 @@ const addSavedBookmarksToDataLayer = (
             get(firstArticle, 'content.headlines.basic') ||
             get(firstArticle, 'content.headlines.mobile', '');
 
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'e_linkclick',
             category: 'interaction',
             action: 'guardar',

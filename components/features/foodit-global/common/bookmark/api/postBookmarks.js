@@ -4,7 +4,7 @@ import { unfillBookmarks } from '../iconHelper';
 import { addErrorToast, addToast, TOAST } from './_helper';
 import { addStorageFolder } from '../foldersHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const postBookmarks = async (articlesDetails, folderName = '') => {
     const { token, accessToken } = await getAuthTokens();
@@ -47,7 +47,7 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
                     `No se pudo guardar ${id}, HTTP error! status: ${response.status}`
                 );
 
-                addEventToDataLayer({
+                addEventToDataLayerV2({
                     event: 'erros_ms',
                     type: 'failed_request',
                     detail: 'post_bookmark',

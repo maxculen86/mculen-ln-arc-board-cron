@@ -1,6 +1,6 @@
 import { API_ENV, FOODIT_LOGIN_URL } from 'fusion:environment';
 
-import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const getPropsBellDefault = () => {
     const loginHrefLocation =
@@ -20,7 +20,7 @@ export const getPropsBellDefault = () => {
 export const getPropsBellEvents = ({ hideTooltip }) => {
     const handleBellClick = () => {
         hideTooltip();
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'e_linkclick',
             category: 'campanita',
             label: 'campanita',
@@ -29,7 +29,7 @@ export const getPropsBellEvents = ({ hideTooltip }) => {
     };
 
     const handleNotificationsClick = notif => {
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'e_linkclick',
             category: 'campanita',
             label: 'notificacion',

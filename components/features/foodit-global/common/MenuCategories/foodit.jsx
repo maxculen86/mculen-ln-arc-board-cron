@@ -28,10 +28,10 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                 })}
                                 data-test-id={`header-link-${title?.text}`}
                                 data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="header"
-                                data-dynamic-label={title.text}
-                                data-dynamic-action="N/A"
+                                data-event="e_linkclick"
+                                data-category="header"
+                                data-label={title.text}
+                                data-action="N/A"
                             />
                         </li>
                     )}
@@ -52,10 +52,10 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                     fullWidth={fullWidth}
                                     icon={<IconSprite name="bullet-xs" />}
                                     data-interaction="dataLayerInteraction"
-                                    data-event-data-layer="e_linkclick"
-                                    data-dynamic-category="header"
-                                    data-dynamic-label={label}
-                                    data-dynamic-action={dataLayerText}
+                                    data-event="e_linkclick"
+                                    data-category="header"
+                                    data-label={label}
+                                    data-action={dataLayerText}
                                     data-test-id={`header-link-${text}`}
                                 />
                             </li>
