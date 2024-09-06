@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { removeAccents } from './utils/dailyHoroscopeHelper';
 import getAssetsPath from './utils/getAssetsPath';
 import Text from './text/index';
 import Link from './com-link';
@@ -15,19 +16,14 @@ const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
         detalle = '',
         elementos = {}
     } = data;
-    const quitarTildes = string => {
-        return string
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '');
-    };
+
     return (
         <article className={`daily-horoscope ${classCondition}`}>
             <header className="daily-horoscope-header">
                 <div className="container-svg">
                     <Image
                         src={getAssetsPath(contextPath)(deployment)(
-                            `horoscope-logos/${quitarTildes(nombre)}.svg`
+                            `horoscope-logos/${removeAccents(nombre)}.svg`
                         )}
                         alt={nombre}
                         width="100%"
@@ -47,16 +43,18 @@ const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
                     <Text tag="time" extraClass="text periodo" size="--twoxs">
                         {periodo}
                     </Text>
-                    <Text tag="p" extraClass="text" size="--fourxs">
-                        Por{' '}
-                        <Link
-                            link="https://www.lanacion.com.ar/autor/renata-dossi-11743/"
-                            title=""
-                            classCondition="--author"
-                        >
-                            {autor}
-                        </Link>
-                    </Text>
+                    {autor && (
+                        <Text tag="p" extraClass="text" size="--fourxs">
+                            Por{' '}
+                            <Link
+                                link="https://www.lanacion.com.ar/autor/renata-dossi-11743/"
+                                title=""
+                                classCondition="--author"
+                            >
+                                {autor}
+                            </Link>
+                        </Text>
+                    )}
                 </div>
             </header>
             <main className="daily-horoscope-main">
