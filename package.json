@@ -113,7 +113,7 @@
         "@ln/foodit-ui-toast": "0.0.18",
         "@ln/foodit-ui-topnavigationbar": "0.0.2",
         "@ln/hooks": "1.1.2",
-        "@ln/lib-newsletter": "0.0.12",
+        "@ln/lib-newsletter": "1.1.0",
         "@ln/lib-personalizacion": "0.0.2-beta.36",
         "@ln/ott-ui-sass": "0.0.3",
         "classnames": "2.3.2",
