@@ -23,11 +23,12 @@ const SingWall = () => {
                             as="h2"
                             className="prumo prumo-semibold text-light-800 text-28 text-36_md text-40_lg"
                         >
-                            Suscribite para ver la receta completa
+                            Suscribite para ver la receta completa.
+                            <span className="block">Primer mes sin cargo</span>
                         </Text>
                         <Text
                             as="p"
-                            className="prumo text-light-600 promo-medium text-24"
+                            className="prumo text-light-600 promo-medium text-20"
                         >
                             Además podrás armar tu recetario y lista de compras,
                             acceder a Masterclass y guías de cocina.
