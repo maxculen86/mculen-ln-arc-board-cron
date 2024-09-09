@@ -1119,6 +1119,12 @@
 .ln-bngrid.--campo .lead {
   color: var(--ln-campo);
 }
+.ln-bngrid.--que-sale .lead {
+  color: var(--ln-que-sale);
+}
+.ln-bngrid.--futuria .lead {
+  color: var(--ln-futuria);
+}
 .ln-bngrid .grid .grid-item {
   position: relative;
   border-bottom: 0.0625rem solid var(--light-neutral-300);
@@ -1534,7 +1540,7 @@
   }
 }
 .ln-bngrid.--bn_6_timeline .grid .--6 {
-  padding-bottom: 0.28125rem;
+  padding-top: 0.28125rem;
 }
 @media (min-width: 48rem) {
   .ln-bngrid.--bn_6_timeline .grid .--6.grid-item::after {
@@ -4562,6 +4568,8 @@ a {
   --ln-movilidad: #c54f00;
   --ln-bienestar: #7267c3;
   --ln-propiedades: #0074c4;
+  --ln-que-sale: #BB3B80;
+  --ln-futuria: #E6232A;
   --hashtag: #dbff00;
   --hashtag-dark: #475300;
   --webstorys: #ffc6f9;
