@@ -4,7 +4,6 @@ import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import classNames from 'classnames';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 
-// TODO: Estas secciones son a modo orientativo, pueden cambiar en base a definiciones de producto.
 const pageBuilderSections = ['Apertura', 'Bloque-1', 'Bloque-2'];
 
 const HomeFoodit = ({ children }) => {

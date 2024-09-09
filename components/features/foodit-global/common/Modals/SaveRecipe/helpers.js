@@ -95,29 +95,29 @@ export const actionButtons = ({
     return actions[action] && actions[action]();
 };
 
-export const getConfig = (saveRecipeConfig, indexStep) => {
+export const getConfig = (saveRecipeConfigs, indexStep) => {
     const stepIndex = `step-${indexStep}`;
     const saveFolderKey = 'save-folder';
 
     return {
-        title: get(saveRecipeConfig[saveFolderKey], `${stepIndex}.title`, ''),
+        title: get(saveRecipeConfigs[saveFolderKey], `${stepIndex}.title`, ''),
         leftButton: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.leftButton`,
             {}
         ),
         rightButton: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.rightButton`,
             {}
         ),
         showSelect: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.showSelect`,
             false
         ),
         showInputFolder: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.showInputFolder`,
             false
         )
