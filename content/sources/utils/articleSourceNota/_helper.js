@@ -97,8 +97,16 @@ export const transformPromoItems = async ({
     arcSite,
     configCallbacks,
     promoItemObject = {},
-    showGlossary
+    showGlossary,
+    sections
 }) => {
+    const isValidSectionForIA = isValidSectionIA(sections);
+
+    if (!isValidSectionForIA) {
+        delete promoItemObject.glossary;
+        delete promoItemObject.summary;
+    }
+
     if (!showGlossary) {
         delete promoItemObject.glossary;
     }
@@ -286,12 +294,12 @@ const transformContentElements = async ({
     return contentElementTransformed;
 };
 
-export const isValidSectionGlossary = (sections, notShowGlossary) => {
+export const isValidSectionIA = sections => {
     const section = get(sections, '[0].path', '');
 
     const validSections = ['/sociedad', '/espectaculos', '/tecnologia'];
 
-    return validSections.includes(section) && !notShowGlossary;
+    return validSections.includes(section);
 };
 
 export const transform = async (response, query, cachedCall) => {
@@ -337,9 +345,14 @@ export const transform = async (response, query, cachedCall) => {
         cachedCall,
         subtype,
         arcSite,
-        glossary: isValidSectionGlossary(sections, notShowGlossary)
-            ? get(response, 'promo_items.glossary.embed.config.arrayData', [])
-            : []
+        glossary:
+            !notShowGlossary && isValidSectionIA(sections)
+                ? get(
+                      response,
+                      'promo_items.glossary.embed.config.arrayData',
+                      []
+                  )
+                : []
     };
 
     const [
@@ -352,7 +365,8 @@ export const transform = async (response, query, cachedCall) => {
             arcSite,
             configCallbacks: configPromoItems,
             promoItemObject: get(result, 'promo_items', {}),
-            showGlossary: isValidSectionGlossary(sections, notShowGlossary)
+            showGlossary: !notShowGlossary,
+            sections
         }),
         transformContentElements({
             result,
