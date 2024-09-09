@@ -112,8 +112,7 @@ export const getBannerConfiguration = (
 
     if (!slotId || !slotGroup) return null;
 
-    const { label, taxonomy, type } = globalContent;
-    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
+    const { label, type } = globalContent;
 
     const getSiteService = () => {
         const gc = useContext(GlobalContext);
