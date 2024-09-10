@@ -8,7 +8,6 @@ import {
     hasFutureDisplayDate,
     isOlderThanXHoursAgo
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
-//import { getAllImagesAuth } from '../../signingServiceSource/getImagesAuth';
 
 const transformLnAcuApi = async (
     data = {},
@@ -26,51 +25,6 @@ const transformLnAcuApi = async (
             hasCollectionApertura
         } = siteProps;
 
-        const { content_elements: contentElements = [] } = data;
-
-        const { presets, presetsDefault } = getPresets(siteProps);
-        const presetsPromoItems = get(presets, 'promo_items', null);
-
-        /*         respData.content_elements = await Promise.all(
-            contentElements.map(async (elem, index) => {
-                const newElem = await getAllImagesAuth(elem, cachedCall);
-                Object.assign(elem, newElem);
-
-                const isInApertura =
-                    !hasCollectionApertura && !excludePreload && index === 0;
-                const promoItems = get(elem, 'promo_items', null);
-                const subtype = get(elem, 'subtype', null);
-                const presetsCredits = get(presets, 'credits', null);
-                const credits = get(elem, 'credits', null);
-
-                return {
-                    ...elem,
-                    ...addResizedUrls(
-                        {
-                            ...(promoItems && { promo_items: promoItems }),
-                            ...(credits && { credits })
-                        },
-                        {
-                            presets: {
-                                promoItems: presetsPromoItems,
-                                ...(credits && { credits: presetsCredits }),
-                                presetsDefault
-                            },
-                            // Se pasa el subtype para que las notas de foto al 100
-                            // y storytelling no sean excluidas de las validaciones del resizer
-                            // y pueda aplicarse 3:2, focal point o smartcrop
-                            subtype: isFotoAl100orStorytelling(subtype)
-                                ? '-1'
-                                : subtype,
-                            shouldUseV2: true,
-                            isInApertura,
-                            arcSite: siteProps['arc-site']
-                        }
-                    )
-                };
-            })
-        );
- */
         // Si viene de mas notas return solo las necesarias mas 1 por si se excluye misma nota
         if (type === 'story') {
             const originalSize = Math.floor(size / 1.5);

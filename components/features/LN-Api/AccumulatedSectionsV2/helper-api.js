@@ -19,6 +19,28 @@ const getAuthImage = async query => {
     return resp.json();
 };
 
+export const setAuthCredits = async (credits = {}, arcSite) => {
+    await Promise.all(
+        credits.by.map(async credit => {
+            if (credit.image && !credit.image.auth) {
+                const imageId = get(credit, 'image.url', null);
+                const authImage =
+                    (imageId || '').length > 0
+                        ? await getAuthImage({ imageId, arcSite })
+                        : null;
+                if (authImage) {
+                    credit.image = {
+                        ...credit.image,
+                        auth: {
+                            1: authImage.hash
+                        }
+                    };
+                }
+            }
+        })
+    );
+};
+
 export const setAuthPromoItem = async (promoItems, arcSite) => {
     await Promise.all(
         Object.keys(promoItems || {}).map(async key => {
