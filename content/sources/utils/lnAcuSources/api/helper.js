@@ -8,7 +8,7 @@ import {
     hasFutureDisplayDate,
     isOlderThanXHoursAgo
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
-import { getAllImagesAuth } from '../../signingServiceSource/getImagesAuth';
+//import { getAllImagesAuth } from '../../signingServiceSource/getImagesAuth';
 
 const transformLnAcuApi = async (
     data = {},
@@ -31,7 +31,7 @@ const transformLnAcuApi = async (
         const { presets, presetsDefault } = getPresets(siteProps);
         const presetsPromoItems = get(presets, 'promo_items', null);
 
-        respData.content_elements = await Promise.all(
+        /*         respData.content_elements = await Promise.all(
             contentElements.map(async (elem, index) => {
                 const newElem = await getAllImagesAuth(elem, cachedCall);
                 Object.assign(elem, newElem);
@@ -70,7 +70,7 @@ const transformLnAcuApi = async (
                 };
             })
         );
-
+ */
         // Si viene de mas notas return solo las necesarias mas 1 por si se excluye misma nota
         if (type === 'story') {
             const originalSize = Math.floor(size / 1.5);
@@ -111,7 +111,7 @@ const transformLnAcuApi = async (
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
-            `Error Transform - content/acuArticlesSourceV2 - api - helper : ${JSON.stringify(
+            `Error Transform - content/sources/utils/lnAcuSources - api - helper : ${JSON.stringify(
                 data
             )} - siteprops: ${JSON.stringify(siteProps)} - errorMsj:${
                 error.message
