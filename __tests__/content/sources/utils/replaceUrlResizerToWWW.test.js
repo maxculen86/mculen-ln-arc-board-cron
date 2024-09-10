@@ -16,13 +16,6 @@ jest.mock('fusion:environment', () => ({
 
 describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
     describe('Content - sources - utils - replaceUrlResizerToWWW function - When API_ENV is set to prod', () => {
-        test('Should replace RESIZER_URL_PUBLIC with provided host for resizer v1', () => {
-            const result = replaceUrlResizerToWWW(MOCK_PROMO_V1);
-
-            expect(result.url).toBe(
-                'https://www.hostlanacion.com.ar/resizer/hTRLcNaCThdI-Uhvqu7bHplK88E=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg'
-            );
-        });
         test('Should replace RESIZER_URL_PUBLIC with provided host for resizer v2', () => {
             const result = replaceUrlResizerToWWW(MOCK_PROMO_V2);
 
@@ -33,16 +26,6 @@ describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
     });
 
     describe('Content - sources - utils - replaceUrlResizerToWWW function - When API_ENV is set to sandbox', () => {
-        test('Should replace RESIZER_URL_PUBLIC with provided host for resizer v1', () => {
-            env.API_ENV = 'sandbox';
-
-            const result = replaceUrlResizerToWWW(MOCK_PROMO_V1);
-
-            expect(result.url).toBe(
-                'https://www.hostlanacion.com.ar/resizer/hTRLcNaCThdI-Uhvqu7bHplK88E=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg'
-            );
-        });
-
         test('Should replace RESIZER_URL_PUBLIC with provided SITE_LANACION for resizer v2', () => {
             env.API_ENV = 'sandbox';
 

@@ -1,5 +1,9 @@
-import * as resizerV2 from './v2/resizerFactory';
-import * as resizerV1 from '../resizer';
+import { getDefaultSize } from './v2/resizerHelper';
+import {
+    resizeContentElements,
+    resizeCredits,
+    resizePromoItems
+} from './v2/resizerFactory';
 import { isFotoAl100orStorytelling } from '../../subtypes/subtypeHelper';
 
 export const addResizedUrls = (ansDoc, options) => {
@@ -14,114 +18,53 @@ export const addResizedUrls = (ansDoc, options) => {
         presetsDefault,
         subtype,
         isInApertura,
-        isAdmin,
-        shouldUseV2 = false,
-        shouldUseV1,
         arcSite = 'lanacionar'
     } = options;
 
     const {
         promo_items: promoItems,
         content_elements: contentElements,
-        credits,
-        taxonomy: { primary_section: { _id: section = '' } = {} } = {}
+        credits
     } = ansDoc;
 
     if (!presets)
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
-    const presetsContentOrDefault = presetsContentElements || presetsDefault;
-    const presetPromoOrDefault = presetsPromoItems || presetsDefault;
 
-    const resizer = resizerV1.createResizer(isInApertura, isAdmin);
+    const presetPromoOrDefault = presetsPromoItems || presetsDefault;
     const avatarWWW = !isFotoAl100orStorytelling(subtype);
-    const resizerCreditsV1 = resizerV1.createResizer(avatarWWW, isAdmin);
-    const { defaultResize } = resizerV1.getDefaultSize(subtype);
+    const { defaultResize } = getDefaultSize(subtype);
 
     return {
         ...ansDoc,
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
-                if (!shouldUseV1 || shouldUseV2) {
-                    return resizerV2.resizeContentElements(
-                        elem,
-                        presetsContentElements || presetsDefault,
-                        zoomSizes,
-                        defaultResize,
-                        arcSite
-                    );
-                }
-                const { type } = elem;
-                return (
-                    (type === 'image' &&
-                        resizerV1.resizeArcImage(
-                            elem,
-                            presetsContentOrDefault,
-                            resizer,
-                            zoomSizes,
-                            true,
-                            defaultResize
-                        )) ||
-                    (type === 'gallery' &&
-                        resizerV1.resizeArcGallery(
-                            elem,
-                            presetsContentOrDefault,
-                            resizer,
-                            zoomSizes,
-                            true
-                        )) ||
-                    (type === 'video' && {
-                        ...elem,
-                        promo_items: {
-                            basic: {
-                                ...resizerV1.resizeArcImage(
-                                    elem.promo_items.basic,
-                                    presetsContentOrDefault,
-                                    resizer,
-                                    zoomSizes,
-                                    true,
-                                    defaultResize
-                                )
-                            }
-                        }
-                    }) ||
-                    elem
+                return resizeContentElements(
+                    elem,
+                    presetsContentElements || presetsDefault,
+                    zoomSizes,
+                    defaultResize,
+                    arcSite
                 );
             })
         }),
         ...(promoItems && {
-            promo_items:
-                !shouldUseV1 || shouldUseV2
-                    ? resizerV2.resizePromoItems(
-                          presetPromoOrDefault,
-                          zoomSizes,
-                          subtype,
-                          promoItems,
-                          isInApertura,
-                          arcSite
-                      )
-                    : resizerV1.resizePromoItems(
-                          promoItems,
-                          presetPromoOrDefault,
-                          resizer,
-                          zoomSizes,
-                          subtype
-                      )
+            promo_items: resizePromoItems(
+                presetPromoOrDefault,
+                zoomSizes,
+                subtype,
+                promoItems,
+                isInApertura,
+                arcSite
+            )
         }),
         ...(credits && {
-            credits:
-                !shouldUseV1 || shouldUseV2
-                    ? resizerV2.resizeCredits({
-                          credits,
-                          resizeOptions: presetsCredits || presetsDefault,
-                          isInApertura: avatarWWW
-                      })
-                    : resizerV1.resizeCredits({
-                          credits,
-                          resizeOptions: presetsCredits || presetsDefault,
-                          resizer: resizerCreditsV1
-                      })
+            credits: resizeCredits({
+                credits,
+                resizeOptions: presetsCredits || presetsDefault,
+                isInApertura: avatarWWW
+            })
         })
     };
 };

@@ -21,14 +21,6 @@ import {
 
 const MEDIAMINWIDTH = '(min-width: 768px)';
 
-export const isResizerV2 = url =>
-    isValidString(url) ? new RegExp(/\/resizer\/v2\//).test(url) : false;
-
-export const isResizerV1 = url =>
-    isValidString(url)
-        ? new RegExp(/\/resizer\/(.+)\/filters:format(.+)/).test(url)
-        : false;
-
 // TODO: Optener la config  por default
 export const getDefaultSize = subtype => {
     const defaultResize =
@@ -119,8 +111,6 @@ export const buildQueryParams = ({
     newHeight,
     filterQuality = 70,
     focalPoint = [],
-    smartCropExcluded,
-    crop = null,
     arcImage
 }) => {
     const imgAuth = get(arcImage, 'auth.1', '');
@@ -219,15 +209,6 @@ export const resizeImgUrl = ({
 
     if (newHeight === 0 && (focalPoint.length > 1 || smartCropExcluded)) {
         newHeight = autoHeight(originalHeight, originalWidth, newWidth);
-    }
-
-    // TODO: quitar este early return, solo cumple funcion temporal para que no fallen imagenes con url v1 de liftigniter te puede interesar
-    const imageUrl = get(arcImage, 'url', '');
-    if (
-        !get(arcImage, '_id', '') &&
-        (isResizerV1(imageUrl) || isResizerV2(imageUrl))
-    ) {
-        return imageUrl;
     }
 
     return `${baseUrl({

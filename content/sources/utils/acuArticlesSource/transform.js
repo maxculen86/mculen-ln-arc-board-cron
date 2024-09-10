@@ -59,7 +59,6 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
                             subtype: isFotoAl100orStorytelling(subtype)
                                 ? '-1'
                                 : subtype,
-                            shouldUseV2: true,
                             isInApertura,
                             arcSite: siteProps['arc-site']
                         }

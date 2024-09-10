@@ -80,7 +80,7 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.autores[0].slug).toBe(articleAuthor.slug);
         expect(resp.autores[0].valor).toBe(articleAuthor.name);
         expect(resp.autores[0].imagen).toBe(
-            '/resizer/qd_3dkJemiLUloOXwofkHeixPiU=/80x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
+            'https://resizer.glanacion.com/resizer/qd_3dkJemiLUloOXwofkHeixPiU=/80x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
         );
         expect(resp.autores[0].tipo).toBe(1);
     });
@@ -113,14 +113,7 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0]['_t']).toBe('img');
         expect(resp.imagenes[0].id).toBe(imageData._id);
         expect(resp.imagenes[0].baseUrl).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg'
-        );
-        expect(resp.imagenes[0].parametros[0].ancho).toBe(1260);
-        expect(resp.imagenes[0].parametros[0].firma).toBe(
-            'll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart'
-        );
-        expect(resp.imagenes[0].parametros[1].firma).toBe(
-            'vtffL1SBl_VEgLefu5k5MrXVvzg=/768x512/smart'
+            '/resizer/ll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg'
         );
         expect(resp.imagenes[0].epigrafe).toBe(imageData.caption);
     });
@@ -132,11 +125,7 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0]['_t']).toBe('img');
         expect(resp.imagenes[0].id).toBe(imageData._id);
         expect(resp.imagenes[0].baseUrl).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg'
-        );
-        expect(resp.imagenes[0].parametros[1].ancho).toBe(1120);
-        expect(resp.imagenes[0].parametros[1].firma).toBe(
-            'jyC1dEvJPV9p1vrfUcw79zvPx2A=/0x1120/filters:quality(70)'
+            '/resizer/g6OS3FXUAFmIOTNg2qOQSqWv5Uo=/0x878/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg'
         );
         expect(resp.imagenes[0].epigrafe).toBeUndefined();
     });
@@ -149,11 +138,7 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0]['_t']).toBe('img');
         expect(resp.imagenes[0].id).toBe(imageData._id);
         expect(resp.imagenes[0].baseUrl).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ORVQL3YRTFENDJCHJRLAWVD7EM.jpg'
-        );
-        expect(resp.imagenes[0].parametros[1].ancho).toBe(1200);
-        expect(resp.imagenes[0].parametros[1].firma).toBe(
-            'P9espymFgLMpoy3MSeSvKvwl8kI=/1200x800/filters:quality(100)'
+            'https://resizer.glanacion.com/resizer/EJUJck87eRqluxxFdXt8CwfBp8A=/1920x1280/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ORVQL3YRTFENDJCHJRLAWVD7EM.jpg'
         );
         expect(resp.imagenes[0].epigrafe).toBe(
             'Esquiadores en el centro de Madrid'

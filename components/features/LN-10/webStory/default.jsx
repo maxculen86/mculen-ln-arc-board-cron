@@ -12,20 +12,14 @@ import {
     getMediaData
 } from '../article/_helper';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getChainConfig } from '../article/common/_helper-WebApi';
 import { filterWebStoriesRenderables } from '../../../chains/LN10_Caja_WebStories/common/_helper-WebApi';
 
 const WebStoryFeature = props => {
     const { customFields, id: featureId, renderables } = props;
     const { title, lead, link, imageId } = customFields;
-    const { isAdmin, arcSite, layout: layoutPageBuilder } = useAppContext();
-
-    const { layoutsName = {} } = siteConfig || {};
-
+    const { isAdmin, arcSite } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
-
-    const shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
 
     const image = GetImage({
         imageId,
@@ -33,8 +27,7 @@ const WebStoryFeature = props => {
         id: '',
         onlyOneApeturaValidateForWWW: false,
         isAdmin,
-        filterImage,
-        shouldUseV2
+        filterImage
     });
 
     const mediaData = getMediaData({
@@ -44,7 +37,6 @@ const WebStoryFeature = props => {
         image,
         layout: '',
         renderables,
-        shouldUseV2: true,
         isLoadWithPicture: true
     });
 

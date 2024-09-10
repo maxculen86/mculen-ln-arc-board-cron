@@ -9,11 +9,13 @@ import dateAndTimeUtil, {
     dateAndTimeForAppsUtil
 } from '../../../../../../../components/private/common/utils/dateAndTimeUtil';
 import { cardRegular } from '../../../../../../../components/private/LN/api/common/article/cardRegular/index';
+
 const AcuList = (type, articles) => {
     return articles.map(v => {
         return type(v);
     });
 };
+
 describe('Test de index en Json', () => {
     const respRanking = AcuList(Article, articlesRanking.content_elements);
     const respAcumulado = AcuList(Article, articlesAcumulado.content_elements);
@@ -51,23 +53,7 @@ describe('Test de index en Json', () => {
     test('Imagenes del articulo', () => {
         expect(respTPInteresar[0].imagen['_t']).toBe('img');
         expect(respTPInteresar[0].imagen.baseUrl).toBe(
-            '/resizer/{{param}}/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg'
-        );
-        expect(respTPInteresar[0].imagen.parametros[0].ancho).toBe(360);
-        expect(respTPInteresar[0].imagen.parametros[0].firma).toBe(
-            '2Rifu6S-2jyVOQlG4gkWJPDFkxQ=/360x240/filters:quality(70)'
-        );
-        expect(respTPInteresar[0].imagen.parametros[1].ancho).toBe(768);
-        expect(respTPInteresar[0].imagen.parametros[1].firma).toBe(
-            'Ovvdkcs13HUJ7VQysRS-3JO1NIo=/768x513/smart/filters:quality(70)'
-        );
-        expect(respTPInteresar[0].imagen.parametros[2].ancho).toBe(350);
-        expect(respTPInteresar[0].imagen.parametros[2].firma).toBe(
-            'Ryh_P4HUvecHEPdFYHIh8EqdDM4=/350x234/smart/filters:quality(70)'
-        );
-        expect(respTPInteresar[0].imagen.parametros[3].ancho).toBe(360);
-        expect(respTPInteresar[0].imagen.parametros[3].firma).toBe(
-            'foWiBsfin59DMdAtjiMek7UTDTE=/360x234/smart/filters:quality(70)'
+            'https://resizer.glanacion.com/resizer/2Rifu6S-2jyVOQlG4gkWJPDFkxQ=/360x240/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg'
         );
     });
 
@@ -128,27 +114,7 @@ describe('Test de index en Json', () => {
         expect(respAcumulado[9].imagen.id).toBe('LGFOVH6SFFGZVP5V3V7NOW2KFY');
         expect(respAcumulado[9].imagen['_t']).toBe('img');
         expect(respAcumulado[9].imagen.baseUrl).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
-        );
-        expect(respAcumulado[9].imagen.parametros[0].ancho).toBe(278);
-        expect(respAcumulado[9].imagen.parametros[0].firma).toBe(
-            'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart'
-        );
-        expect(respAcumulado[9].imagen.parametros[1].ancho).toBe(344);
-        expect(respAcumulado[9].imagen.parametros[1].firma).toBe(
-            'HU7HHdAlJjMA1Wo_zPVxdiJEJg8=/344x230/smart'
-        );
-        expect(respAcumulado[9].imagen.parametros[2].ancho).toBe(768);
-        expect(respAcumulado[9].imagen.parametros[2].firma).toBe(
-            'RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart'
-        );
-        expect(respAcumulado[9].imagen.parametros[3].ancho).toBe(350);
-        expect(respAcumulado[9].imagen.parametros[3].firma).toBe(
-            'Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234/smart'
-        );
-        expect(respAcumulado[9].imagen.parametros[4].ancho).toBe(360);
-        expect(respAcumulado[9].imagen.parametros[4].firma).toBe(
-            'Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234/smart'
+            'https://resizer.glanacion.com/resizer/xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
         );
     });
 
@@ -190,27 +156,7 @@ describe('Test de index en Json', () => {
     test('Imagenes del articulo', () => {
         expect(respRanking[0].imagen['_t']).toBe('img');
         expect(respRanking[0].imagen.baseUrl).toBe(
-            '/resizer/{{param}}/www.lanacion.com.ar/resizer/YcJ0gmw6h3B4fXhg5pbuZ8H1uzg=/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg'
-        );
-        expect(respRanking[0].imagen.parametros[0].ancho).toBe(278);
-        expect(respRanking[0].imagen.parametros[0].firma).toBe(
-            'LQ03Y-iOcWjwQct4YQRLT0jJrT8=/278x186/smart'
-        );
-        expect(respRanking[0].imagen.parametros[1].ancho).toBe(344);
-        expect(respRanking[0].imagen.parametros[1].firma).toBe(
-            'u7prcuGJ9u3mTD7wHR1Bsfghsds=/344x230/smart'
-        );
-        expect(respRanking[0].imagen.parametros[2].ancho).toBe(768);
-        expect(respRanking[0].imagen.parametros[2].firma).toBe(
-            '3rTgc9lUK5alrZXDhSplwsoCIKY=/768x513/smart'
-        );
-        expect(respRanking[0].imagen.parametros[3].ancho).toBe(350);
-        expect(respRanking[0].imagen.parametros[3].firma).toBe(
-            '-DltLyGogW8thkDsacSPwDsL5Vg=/350x234/smart'
-        );
-        expect(respRanking[0].imagen.parametros[4].ancho).toBe(360);
-        expect(respRanking[0].imagen.parametros[4].firma).toBe(
-            'rOip72RROban7m1g3eTptCLHu2A=/360x234/smart'
+            'https://resizer.glanacion.com/resizer/LQ03Y-iOcWjwQct4YQRLT0jJrT8=/278x186/smart/www.lanacion.com.ar/resizer/YcJ0gmw6h3B4fXhg5pbuZ8H1uzg=/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg'
         );
     });
 

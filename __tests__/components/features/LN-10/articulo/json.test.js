@@ -180,13 +180,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         });
 
         expect(Object.keys(resultFeature).sort()).toEqual(
-            [
-                'configs',
-                'onlyOneApeturaValidateForWWW',
-                'props',
-                'shouldUseV2',
-                'state'
-            ].sort()
+            ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
 
@@ -202,13 +196,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         expect(resultArticle).toBeNull();
 
         expect(Object.keys(resultFeature).sort()).toEqual(
-            [
-                'configs',
-                'onlyOneApeturaValidateForWWW',
-                'props',
-                'shouldUseV2',
-                'state'
-            ].sort()
+            ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
 
@@ -237,13 +225,7 @@ describe('components - feature - LN10 Articulo - json', () => {
                 '/sociedad/coronavirus-en-argentina-casos-en-vera-santa-fe-al-29-de-junio-nid29062021/'
         });
         expect(Object.keys(resultFeature).sort()).toEqual(
-            [
-                'configs',
-                'onlyOneApeturaValidateForWWW',
-                'props',
-                'shouldUseV2',
-                'state'
-            ].sort()
+            ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
 
@@ -265,13 +247,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         expect(resultArticle).toBeNull();
 
         expect(Object.keys(resultFeature).sort()).toEqual(
-            [
-                'configs',
-                'onlyOneApeturaValidateForWWW',
-                'props',
-                'shouldUseV2',
-                'state'
-            ].sort()
+            ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
 
@@ -300,13 +276,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         expect(resultArticle).toBeNull();
 
         expect(Object.keys(resultFeature).sort()).toEqual(
-            [
-                'configs',
-                'onlyOneApeturaValidateForWWW',
-                'props',
-                'shouldUseV2',
-                'state'
-            ].sort()
+            ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
 
@@ -334,13 +304,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         expect(resultArticle.Success).toBe(false);
 
         expect(Object.keys(resultFeature).sort()).toEqual(
-            [
-                'configs',
-                'onlyOneApeturaValidateForWWW',
-                'props',
-                'shouldUseV2',
-                'state'
-            ].sort()
+            ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
 });

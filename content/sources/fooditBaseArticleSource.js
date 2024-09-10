@@ -41,8 +41,6 @@ const fetch = (query, { cachedCall } = {}) => {
                     subtype,
                     isInApertura: get(query, 'isInApertura', false),
                     isAdmin: get(query, 'isAdmin', false),
-                    shouldUseV1: false,
-                    shouldUseV2: true,
                     arcSite
                 })
             };

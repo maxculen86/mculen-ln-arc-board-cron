@@ -10,6 +10,7 @@ import { validatePropsChains } from '../common/props/validatePropsChains';
 import diagramationRules from '../../../../../../common/utils/diagramationRules';
 import { LAYOUTS } from '../../../../../../../chains/utils/common/_helpers-WebApi';
 import respChain from '../common/respChildrens/index';
+
 class GetCajaCollection {
     constructor(props, typeChain) {
         this.props = validatePropsChains(props, typeChain, 'LN10');
@@ -86,8 +87,7 @@ class GetCajaCollection {
             layout,
             diagramation: layout,
             imageConfig: 'm',
-            isFocal: layout && layout.includes('focal'),
-            shouldUseV2: true
+            isFocal: layout && layout.includes('focal')
         };
     };
 

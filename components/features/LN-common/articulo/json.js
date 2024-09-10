@@ -49,7 +49,6 @@ class ArticleFeature {
                         imageConfig,
                         published: true,
                         checkExclusiveAccess: false,
-                        shouldUseV1: true,
                         sourceInclude
                     }
                 }

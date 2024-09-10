@@ -1,7 +1,5 @@
 import { useContent } from 'fusion:content';
-
 import filter from '../../../../../content/filters/foodit/home/collectionFoodit';
-
 import get from '../../../../private/common/utils/get';
 
 export const useGetArticleInCollectionFoodit = ({
@@ -20,8 +18,7 @@ export const useGetArticleInCollectionFoodit = ({
             size,
             website: 'foodit',
             from: initialPosition,
-            imageConfig,
-            shouldUseV2: true
+            imageConfig
         },
         staticMode,
         filter

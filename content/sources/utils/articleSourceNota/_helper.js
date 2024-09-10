@@ -334,9 +334,7 @@ export const transform = async (response, query, cachedCall) => {
             ...getImageConfig({ response, siteProperties, imageConfig }),
             subtype,
             isInApertura,
-            isAdmin,
-            shouldUseV1: false,
-            shouldUseV2: true
+            isAdmin
         })
     };
 

@@ -22,18 +22,6 @@ jest.mock(
     }
 );
 
-jest.mock(
-    '../../../components/private/common/utils/image/resizer/v2/resizerHelper',
-    () => {
-        return {
-            __esModule: true,
-            isResizerV2: (x, y) => {
-                return true;
-            }
-        };
-    }
-);
-
 jest.mock('fusion:environment', () => {
     return {
         RESIZER_URL: 'https://resizer.glanacion.com/resizer',

@@ -31,7 +31,6 @@ const transformLnAcu = async (data = {}, siteProps = {}, cachedCall) => {
                                 presetsDefault
                             },
                             subtype,
-                            shouldUseV2: true,
                             arcSite: siteProps['arc-site']
                         }
                     )

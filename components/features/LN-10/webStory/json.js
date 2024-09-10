@@ -1,5 +1,4 @@
 import Consumer from 'fusion:consumer';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getChainConfig } from '../article/common/_helper-WebApi';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
@@ -11,18 +10,14 @@ class WebStoryFeature {
         const {
             customFields: { imageId },
             id: featureId,
-            renderables = [],
-            layout: layoutPageBuilder
+            renderables = []
         } = props;
 
-        const { layoutsName = {} } = siteConfig || {};
         this.configs =
             getChainConfig({
                 featureId,
                 renderables: filterWebStoriesRenderables(renderables)
             }) || {};
-
-        this.shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
 
         this.props = validateProps(props, this.configs);
 
@@ -35,8 +30,7 @@ class WebStoryFeature {
                         imageConfig: 'webStories',
                         id: imageId.trim(),
                         onlyOneApeturaValidateForWWW: false,
-                        isAdmin: false,
-                        shouldUseV2: this.shouldUseV2
+                        isAdmin: false
                     },
                     filter: filterImage
                 }
