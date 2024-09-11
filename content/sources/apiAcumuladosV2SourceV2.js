@@ -4,8 +4,6 @@ import ultimasNoticiasSectionsSource from './utils/acuArticlesSource/ultimasNoti
 import sectionSource from './sectionSource';
 import sectionsDataJson from './utils/pageSource/pageAcumulados/config/configSectionPage.json';
 import transformAcu from './utils/pageSource/acumulados/common/transformAcuV2';
-import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
-import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 import NotFoundError from './utils/notFoundError';
 
 const fetch = async (query, { cachedCall } = {}) => {
@@ -79,18 +77,6 @@ const fetch = async (query, { cachedCall } = {}) => {
         const transformedAcu = await transformAcu(queryParams, { cachedCall });
 
         return transformedAcu;
-        /* 
-        if (page * size - size > 16) {
-            delete transformedAcu[0].banners;
-        }
-
-        const paginationValue = calculatePaginationValue(
-            transformedAcu[0].acumuladoTotal,
-            size,
-            page
-        );
-        return acuTransformV2Format(transformedAcu, slug, paginationValue);
- */
     } catch (error) {
         if (error instanceof NotFoundError) {
             throw new NotFoundError(

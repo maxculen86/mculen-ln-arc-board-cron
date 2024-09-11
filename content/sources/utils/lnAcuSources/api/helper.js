@@ -1,7 +1,5 @@
 import getPresets from '../../presets';
 import get from '../../../../../components/private/common/utils/get';
-import { addResizedUrls } from '../../../../../components/private/common/utils/image/resizer/addResizerUrls';
-import { isFotoAl100orStorytelling } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import { isNotRecommend } from '../../collectionsHelper';
 import {
     addHoursAndFormat,

@@ -1,4 +1,3 @@
-import transformAcu from './transform';
 import getArticlesAcumulados from './getArticlesAcumulados';
 
 const getAcumulado = async (queryParams, { cachedCall } = {}) => {
