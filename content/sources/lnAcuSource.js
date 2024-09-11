@@ -57,7 +57,8 @@ export default {
         type: 'text',
         promoItemsOnly: 'text',
         excludePreload: 'bool',
-        apiTransform: 'text'
+        apiTransform: 'text',
+        page: 'text'
     },
     ttl: 120
 };

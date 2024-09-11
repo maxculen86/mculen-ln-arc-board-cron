@@ -14,11 +14,13 @@ const getParamsAcus = query => {
     const website = get(query, 'website', '');
     const tagId = get(query, 'tagId', null);
     const authorId = get(query, 'authorId', null);
+    const apiTransform = get(query, 'apiTransform', null);
 
     const resp = {
         page,
         imageConfig: 'm',
-        api: true
+        api: true,
+        apiTransform
     };
 
     if (sections && sections.length && sections.length > 0) {
@@ -31,8 +33,7 @@ const getParamsAcus = query => {
                 .replace(']', ')'),
             sourceOrigin: 'composer',
             size,
-            website,
-            apiTransform: 'transformLnAcuApi'
+            website
         };
     }
 
@@ -48,14 +49,17 @@ const getParamsAcus = query => {
         excludeSourceOrigin,
         'arc-site': website,
         tagId,
-        authorId,
-        apiTransform: 'transformLnAcuApi'
+        authorId
     };
 };
 
 const getArticlesAcumulados = async (params, { cachedCall } = {}) => {
     try {
         const queryParams = getParamsAcus(params);
+        const apiTransform = get(params, 'apiTransform', null);
+        if (apiTransform) {
+            return await lnAcuSource.fetch(queryParams, { cachedCall });
+        }
         return await acuArticlesSource.fetch(queryParams, { cachedCall });
     } catch (error) {
         // eslint-disable-next-line no-console

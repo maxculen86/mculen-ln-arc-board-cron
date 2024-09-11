@@ -3,6 +3,7 @@ import nodeFetch from 'node-fetch';
 import get from '../../../private/common/utils/get';
 import { isFotoAl100orStorytelling } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
+import getPresets from '../../../../content/sources/utils/presets';
 
 const resolve = query => {
     const { imageId, arcSite, ticksCache, versionDeploy } = query;
@@ -96,4 +97,41 @@ export const setResizerv2 = (
             }
         )
     };
+};
+
+export const getNewAcuElements = async (
+    newAcuArticlesSourceSection,
+    oldAcuArticlesSourceSection,
+    query,
+    arcSite
+) => {
+    const { presets, presetsDefault } = getPresets(query);
+    const presetsPromoItems = get(presets, 'promo_items', null);
+
+    newAcuArticlesSourceSection.content_elements = await Promise.all(
+        oldAcuArticlesSourceSection.content_elements.map(async (elem, i) => {
+            let isInApertura = false;
+            if (i === 0) {
+                const imageId = get(elem.promo_items.basic, '_id');
+                elem.promo_items.basic.auth = null;
+                isInApertura = true;
+                //elem.promo_items.basic.auth=await getAuthImage({imageId});
+            }
+            if (elem.promo_items) {
+                await setAuthPromoItem(elem.promo_items, arcSite);
+            }
+            if (elem.credits) {
+                await setAuthCredits(elem.credits, arcSite);
+            }
+            return setResizerv2(
+                elem,
+                presets,
+                isInApertura,
+                presetsPromoItems,
+                presetsDefault,
+                arcSite
+            );
+        })
+    );
+    return newAcuArticlesSourceSection;
 };
