@@ -1,35 +1,17 @@
-import { PERSONALIZACION_APIV2 } from 'fusion:environment';
+import { PERSONALIZACION_APIV2, SITE_LANACION } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
 import { getAuthTokens } from '../../../../auth/helper/loginHelper';
 
 export default function toggleBookmark({
-    accessToken,
-    token,
     isDelete,
     setBookmark,
     dispatch = () => {},
-    _globalContent = {},
-    isValidSectionForMVP2Auth0 = false
+    _globalContent = {}
 } = {}) {
     const getDataFromAPI = async () => {
-        let headers = {
-            Authorization: `Bearer ${accessToken}`,
-            'X-Token': token
-        };
-        // TODO: Una vez se habiliten todas las secciones a Auth0V2, eliminar esta logica y dejar obtencion de tokens por getAuthTokens
-        if (isValidSectionForMVP2Auth0) {
-            const {
-                token: tokenV2,
-                accessToken: accessTokenV2
-            } = await getAuthTokens();
-
-            headers = {
-                Authorization: accessTokenV2,
-                'X-Token': tokenV2
-            };
-        }
+        const { token, accessToken } = await getAuthTokens();
 
         const fetchBookmarkPath = isDelete ? `/${isDelete}` : '';
         const { _id: noteId = '' } = _globalContent;
@@ -64,7 +46,10 @@ export default function toggleBookmark({
                     `${PERSONALIZACION_APIV2}bookmarks${fetchBookmarkPath}`,
                     {
                         method: isDelete ? 'DELETE' : 'POST',
-                        headers,
+                        headers: {
+                            Authorization: accessToken,
+                            'X-Token': token
+                        },
                         body: JSON.stringify(bookmarkRequestBody)
                     }
                 );
@@ -91,8 +76,7 @@ export default function toggleBookmark({
         }
     };
 
-    const shouldCallApi =
-        token && (isDelete || Object.keys(_globalContent).length);
+    const shouldCallApi = isDelete || Object.keys(_globalContent).length;
 
     return shouldCallApi ? getDataFromAPI() : null;
 }
@@ -113,7 +97,7 @@ const statusActions = {
                           description: 'Se borró de "Mis notas"',
                           timeout: 2750,
                           buttonLabel: 'Mis Notas',
-                          href: 'https://www.lanacion.com.ar/mis-notas/',
+                          href: `${SITE_LANACION}/mis-notas/`,
                           closable: true,
                           pauseOnHover: true
                       }
@@ -123,7 +107,7 @@ const statusActions = {
                           description: 'Podés acceder desde "Menú de usuario"',
                           timeout: 2750,
                           buttonLabel: 'Mis Notas',
-                          href: 'https://www.lanacion.com.ar/mis-notas/',
+                          href: `${SITE_LANACION}/mis-notas/`,
                           closable: true,
                           pauseOnHover: true
                       }
@@ -143,7 +127,7 @@ const statusActions = {
                         'No se pudo guardar porque llegaste al límite permitido.',
                     timeout: 2750,
                     buttonLabel: 'Mis Notas',
-                    href: 'https://www.lanacion.com.ar/mis-notas/',
+                    href: `${SITE_LANACION}/mis-notas/`,
                     closable: true,
                     pauseOnHover: true
                 }

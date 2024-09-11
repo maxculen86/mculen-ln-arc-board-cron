@@ -1,10 +1,14 @@
 import 'regenerator-runtime/runtime';
 import env from '../../../../../__mocks__/fusion:environment';
+import { act } from '@testing-library/react';
 import toggleBookmark, {
     getBookmarkContent
 } from '../../../../../components/private/common/utils/bookmarkHelper';
 import notaExample from '../../../../../__mocks__/data/nota/body/globalContent.json';
 import BookmarkApiNoteFormat from '../../../../../__mocks__/data/bookmark/APINoteData.json';
+import { getAuthTokens } from '../../../../../auth/helper/loginHelper';
+
+jest.mock('../../../../../auth/helper/loginHelper');
 
 describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
     describe('toggleBookmark', () => {
@@ -20,6 +24,13 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             })
         );
 
+        beforeEach(() => {
+            getAuthTokens.mockImplementation(() => ({
+                token,
+                accessToken: `Bearer ${accessToken}`
+            }));
+        });
+
         afterEach(() => {
             fetch.mockClear();
         });
@@ -28,8 +39,6 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(toggleBookmark()).toBeNull();
             expect(
                 toggleBookmark({
-                    accessToken,
-                    token,
                     isDelete: null,
                     setBookmark,
                     dispatch: setToast
@@ -37,16 +46,15 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             ).toBeNull();
             expect(fetch).not.toBeCalled();
         });
-        it('Should call fetch with proper endpoint, token and DELETE method when bookmarkId is defined (bookmark already saved -> action delete bookmark)', () => {
-            expect(
+        it('Should call fetch with proper endpoint, token and DELETE method when bookmarkId is defined (bookmark already saved -> action delete bookmark)', async () => {
+            await act(async () => {
                 toggleBookmark({
-                    accessToken,
-                    token,
                     isDelete: bookmarkId,
                     setBookmark,
                     dispatch: setToast
-                })
-            ).toBeTruthy();
+                });
+            });
+
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks/${bookmarkId}`,
                 {
@@ -60,17 +68,15 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             );
         });
 
-        it('Should call fetch with proper endpoint, token and POST method when bookmarkId is not defined (bookmark not saved -> action create bookmark)', () => {
-            expect(
+        it('Should call fetch with proper endpoint, token and POST method when bookmarkId is not defined (bookmark not saved -> action create bookmark)', async () => {
+            await act(async () => {
                 toggleBookmark({
-                    accessToken,
-                    token,
                     isDelete: null,
                     setBookmark,
                     setToast,
                     _globalContent: notaExample
-                })
-            ).toBeTruthy();
+                });
+            });
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks`,
                 {

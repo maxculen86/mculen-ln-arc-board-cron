@@ -64,7 +64,7 @@ const BuildAudioPlayer = ({
                 if (!playerRef.current) {
                     playerRef.current = new BeyondWords.Player({
                         target: '.audio-player',
-                        projectId: BEYONDWORDS_PROJECT_ID,
+                        projectId: 38983,
                         sourceId: noteId,
                         playbackRates: [1, 1.25, 1.5, 1.7, 2],
                         playbackState: 'playing',

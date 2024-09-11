@@ -3,10 +3,13 @@ import { useContent as getContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import Lazy from 'lazy-child';
 import useViewportSize from '../../private/common/hooks/useViewportSize';
-import { isSubscribed } from '../../private/LN/common/utils/contextHelper';
 import get from '../../private/common/utils/get';
 import StickyMobile from '../../private/LN/nota/StickyMobile';
 import { crtViewTracker } from '../../private/common/utils/noteTracker/ctrTracker';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../auth/helper/loginHelper';
 
 export const ctrRecommendNote = (
     articleList,
@@ -55,7 +58,7 @@ const CTRNota = () => {
     }, [trigger]);
 
     const device = useViewportSize();
-    const showCtr = !isSubscribed() && device === 'mobile';
+    const showCtr = !isSubscribed(SUBSCRIBED_HELPER.LN) && device === 'mobile';
 
     const { articles = [] } =
         getContent({

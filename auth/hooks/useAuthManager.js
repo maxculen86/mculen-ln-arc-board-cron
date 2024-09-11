@@ -1,36 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
-import { useAppContext } from 'fusion:context';
-import isAllowedSection from '../../components/private/LN/common/utils/isAllowedSection';
-import {
-    listValidSectionsForMvp2Auth0,
-    getAuthTokens
-} from '../helper/loginHelper';
-import getToken from '../../components/private/common/utils/getToken';
+import { getAuthTokens } from '../helper/loginHelper';
 import { AuthContext } from '../AuthInitializer';
-import { getSectionOfRequestUri } from '../../components/private/common/utils/outputTypeHelper';
 
-// TODO: Remover logica que valida secciones habilitadas cuando se implemente MVP2 de auth0 en todo LN
 const useAuthManager = () => {
     const isFinishRotation = useContext(AuthContext);
     const [tokens, setTokens] = useState({});
-    const { globalContent, arcSite, requestUri } = useAppContext();
-    const isValidSectionForMVP2Auth0 =
-        isAllowedSection({
-            globalContent,
-            listOfAllowedSection: listValidSectionsForMvp2Auth0
-        }) ||
-        arcSite === 'foodit' ||
-        getSectionOfRequestUri(requestUri) === 'mis-notas';
 
     useEffect(() => {
-        if (isValidSectionForMVP2Auth0 && isFinishRotation) {
+        if (isFinishRotation) {
             const getTokens = async () => {
                 try {
                     const { token, accessToken } = await getAuthTokens();
                     setTokens({
                         token,
-                        accessToken,
-                        isValidSectionForMVP2Auth0
+                        accessToken
                     });
                 } catch (error) {
                     console.error('Error during getTokens');
@@ -40,14 +23,6 @@ const useAuthManager = () => {
             getTokens();
         }
     }, [isFinishRotation]);
-
-    if (!isValidSectionForMVP2Auth0) {
-        return {
-            token: getToken(),
-            accessToken: `Bearer ${getToken('access-token')}`,
-            isValidSectionForMVP2Auth0
-        };
-    }
 
     return tokens;
 };
