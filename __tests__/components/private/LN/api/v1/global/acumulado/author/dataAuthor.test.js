@@ -6,7 +6,7 @@ describe('Json que valida data del Autor', () => {
         expect(resp.id).toBe(9110);
         expect(resp.valor).toBe('Vinciane Smeets');
         expect(resp.imagen).toBe(
-            '/resizer/sZs50EMtDoyumsGsL1Hlp6g08S0=/280x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/33/3121633.png'
+            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/sZs50EMtDoyumsGsL1Hlp6g08S0=/280x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/33/3121633.png'
         );
         expect(resp.mail).toBe('');
         expect(resp.twitter).toBe('');

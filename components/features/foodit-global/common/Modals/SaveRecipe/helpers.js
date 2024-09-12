@@ -1,4 +1,4 @@
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
 import { fillBookmarks } from '../../bookmark/iconHelper';
@@ -49,7 +49,7 @@ const addSavedBookmarksToDataLayer = (
             get(firstArticle, 'content.headlines.basic') ||
             get(firstArticle, 'content.headlines.mobile', '');
 
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'e_linkclick',
             category: 'interaction',
             action: 'guardar',
@@ -95,29 +95,29 @@ export const actionButtons = ({
     return actions[action] && actions[action]();
 };
 
-export const getConfig = (saveRecipeConfig, indexStep) => {
+export const getConfig = (saveRecipeConfigs, indexStep) => {
     const stepIndex = `step-${indexStep}`;
     const saveFolderKey = 'save-folder';
 
     return {
-        title: get(saveRecipeConfig[saveFolderKey], `${stepIndex}.title`, ''),
+        title: get(saveRecipeConfigs[saveFolderKey], `${stepIndex}.title`, ''),
         leftButton: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.leftButton`,
             {}
         ),
         rightButton: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.rightButton`,
             {}
         ),
         showSelect: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.showSelect`,
             false
         ),
         showInputFolder: get(
-            saveRecipeConfig[saveFolderKey],
+            saveRecipeConfigs[saveFolderKey],
             `${stepIndex}.showInputFolder`,
             false
         )

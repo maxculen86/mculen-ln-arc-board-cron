@@ -1,3 +1,10 @@
+.button.foodit-button.button-nota {
+  text-align: center;
+  width: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  white-space: normal;
+}
 .button.foodit-button.--full-width {
   width: 100%;
 }

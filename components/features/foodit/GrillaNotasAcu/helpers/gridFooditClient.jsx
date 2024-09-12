@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GridArticlesFoodit } from './gridArticles';
 import { LoadMoreButton } from './loadMoreButton';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
-import isSSR from '../../../../private/LN/common/utils/isSSR';
 import safeJSONParse from '../../../private-global/common/utils/safeJSONParse';
 
 const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
     const [loading, setLoading] = useState(false);
     const [bookmarkedArticlesIds, setBookmarkedArticlesIds] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalArticles, setTotalArticles] = useState([]);
+    const [clientArticles, setClientArticles] = useState([]);
     const [pageLoaded, setPageLoaded] = useState({});
+    const [totalArticlesLength, setTotalArticlesLength] = useState(0);
+
+    useEffect(() => {
+        const serverArticlesLength = document.getElementsByTagName('article')
+            .length;
+        setTotalArticlesLength(serverArticlesLength);
+    }, []);
 
     const { idArticleList, articles, count } = useGridArticlesFoodit({
         id,
@@ -23,25 +29,24 @@ const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
         idArticleList
     );
 
-    if (articles.length > 0 && articleListIsLoaded) {
-        const bookmarkedItems = safeJSONParse(
-            localStorage?.getItem('bookmarkedItems')
-        );
-        setBookmarkedArticlesIds(
-            bookmarkedItems.map(({ bookmarkTypeId = '' }) => bookmarkTypeId)
-        );
-        setPageLoaded(prev => ({ ...prev, [currentPage]: idArticleList }));
-        setTotalArticles(prev => [...prev, ...articles]);
-        setLoading(false);
-    }
+    useEffect(() => {
+        if (articles.length > 0 && articleListIsLoaded) {
+            const bookmarkedItems = safeJSONParse(
+                localStorage?.getItem('bookmarkedItems')
+            );
+            setBookmarkedArticlesIds(
+                bookmarkedItems.map(({ bookmarkTypeId = '' }) => bookmarkTypeId)
+            );
+            setPageLoaded(prev => ({ ...prev, [currentPage]: idArticleList }));
+            setTotalArticlesLength(prev => prev + articles.length);
+            setClientArticles(prev => [...prev, ...articles]);
+            setLoading(false);
+        }
+    }, [articles, articleListIsLoaded]);
 
-    //TODO: revisar posible mejora de logica para boton ver mas
     const showButton =
-        !isSSR() &&
-        document.getElementsByTagName('article').length >= maxArticles &&
-        count !== maxArticles;
-
-    const hasMoreArticles = totalArticles.length + maxArticles < count;
+        totalArticlesLength >= maxArticles && count !== maxArticles;
+    const hasMoreArticles = clientArticles.length + maxArticles < count;
 
     const clickMoreArticle = () => {
         setLoading(true);
@@ -50,9 +55,9 @@ const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
 
     return (
         <>
-            {totalArticles.length > 0 && (
+            {clientArticles.length > 0 && (
                 <GridArticlesFoodit
-                    articles={totalArticles}
+                    articles={clientArticles}
                     bookmarkedArticlesIds={bookmarkedArticlesIds}
                 />
             )}

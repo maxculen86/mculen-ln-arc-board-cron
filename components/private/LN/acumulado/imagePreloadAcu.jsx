@@ -2,8 +2,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useContent } from 'fusion:content';
 import { LinkImagePreload } from '../common/utils/mediaHelper';
-import useGetArticlesFromAcumSource from '../common/hooks/useGetArticlesFromAcumSource';
 import setArticleQueryAcu from '../common/utils/setArticleQueryAcu';
 import get from '../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
@@ -22,17 +22,27 @@ const ImagePreloadlAcu = ({
         ? { sectionsIds }
         : setArticleQueryAcu(nodeType, accumulated);
 
-    const [firstArticle] =
-        useGetArticlesFromAcumSource({
-            typesOfQuery,
-            filter,
+    const imagePreloadArticlesList = useContent({
+        source: Boolean(typesOfQuery?.sectionsIds || typesOfQuery?.sectionId)
+            ? 'lnAcuSource'
+            : 'collectionsSource',
+        query: {
+            ...typesOfQuery,
+            ...(collectionId && { id: collectionId }),
+            website: arcSite || 'la-nacion-ar',
             imageConfig,
             size: 1,
-            website: arcSite || 'la-nacion-ar',
-            staticMode: true,
-            collectionId,
             sourceOrigin: sectionsIds ? 'composer' : ''
-        }) || [];
+        },
+        filter,
+        staticMode: true
+    });
+
+    const [firstArticle] = get(
+        imagePreloadArticlesList,
+        'content_elements',
+        []
+    );
 
     const basic = get(firstArticle, 'promo_items.basic', {});
     const promoItemsWWW = replaceUrlResizerToWWW(basic) || {};

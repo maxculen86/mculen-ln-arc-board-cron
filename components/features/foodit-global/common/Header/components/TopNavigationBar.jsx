@@ -22,10 +22,10 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         title="Ir a mis recetas"
                         className="gap-8"
                         data-interaction="dataLayerInteraction"
-                        data-event-data-layer="e_linkclick"
-                        data-dynamic-category="header"
-                        data-dynamic-label={'Recetario'}
-                        data-dynamic-action="N/A"
+                        data-event="e_linkclick"
+                        data-category="header"
+                        data-label={'Recetario'}
+                        data-action="N/A"
                     >
                         <Icon size={20}>
                             <IconSprite name="bookmark" critical />
@@ -38,10 +38,10 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         title="Ir a lista de compras"
                         className="gap-8"
                         data-interaction="dataLayerInteraction"
-                        data-event-data-layer="e_linkclick"
-                        data-dynamic-category="header"
-                        data-dynamic-label={'Lista de compras'}
-                        data-dynamic-action="N/A"
+                        data-event="e_linkclick"
+                        data-category="header"
+                        data-label={'Lista de compras'}
+                        data-action="N/A"
                     >
                         <Icon size={20}>
                             <IconSprite name="shopping-list" critical />
@@ -54,10 +54,10 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         title="Ir a newsletter"
                         className="gap-8"
                         data-interaction="dataLayerInteraction"
-                        data-event-data-layer="e_linkclick"
-                        data-dynamic-category="header"
-                        data-dynamic-label="newsletter"
-                        data-dynamic-action="N/A"
+                        data-event="e_linkclick"
+                        data-category="header"
+                        data-label="newsletter"
+                        data-action="N/A"
                     >
                         <Icon size={20}>
                             <IconSprite name="newsletter" critical />

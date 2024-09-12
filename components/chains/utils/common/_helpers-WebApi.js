@@ -26,16 +26,25 @@ export const LAYOUTS = {
     FOODIT_3_GRID: 'foodit_3_grid'
 };
 
-export const VERTICALS = ['bienestar', 'campo', 'movilidad', 'propiedades'];
+export const VERTICALS = [
+    'bienestar',
+    'campo',
+    'movilidad',
+    'propiedades',
+    'que-sale',
+    'futuria'
+];
 
 export const CHAIN_STYLE = {
-    HASHTAG: 'Hashtag',
-    PROPIEDADES: 'propiedades',
-    CAMPO: 'campo',
     BIENESTAR: 'bienestar',
+    CAMPO: 'campo',
+    FOODIT: 'foodit',
+    FUTURIA: 'futuria',
+    HASHTAG: 'Hashtag',
     MOVILIDAD: 'movilidad',
-    SUB_EXCLUSIVE: 'sub-exclusive',
-    FOODIT: 'foodit'
+    PROPIEDADES: 'propiedades',
+    QUE_SALE: 'que-sale',
+    SUB_EXCLUSIVE: 'sub-exclusive'
 };
 
 const {

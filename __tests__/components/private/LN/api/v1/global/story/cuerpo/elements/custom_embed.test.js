@@ -20,7 +20,7 @@ describe('Test de los elementos parallax en el cuerpo de una nota', () => {
         expect(resp[1]['_t']).toBe('p');
         expect(resp[1]['valor']['_t']).toBe('img');
         expect(resp[1]['valor']['baseUrl']).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp'
+            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp'
         );
         expect(resp[2]['_t']).toBe('p');
         expect(resp[2]['valor']).toBe(
@@ -43,7 +43,7 @@ describe('Test de los elementos parallax en el cuerpo de una nota', () => {
         expect(resp[0]['_t']).toBe('p');
         expect(resp[0]['valor']['_t']).toBe('img');
         expect(resp[0]['valor']['baseUrl']).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp'
+            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp'
         );
         expect(resp[1]['_t']).toBe('p');
         expect(resp[1]['valor']).toBe(
@@ -58,7 +58,7 @@ describe('Test de los elementos parallax en el cuerpo de una nota', () => {
         expect(resp[1]['_t']).toBe('p');
         expect(resp[1]['valor']['_t']).toBe('img');
         expect(resp[1]['valor']['baseUrl']).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp'
+            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp'
         );
     });
 

@@ -35,7 +35,7 @@ describe('storyBox LN9', () => {
                         rol: '',
                         tipo: 1,
                         imagen:
-                            '/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
+                            'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                         absoluteUrl:
                             'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                         mail: undefined,
@@ -50,7 +50,7 @@ describe('storyBox LN9', () => {
                             rol: '',
                             tipo: 1,
                             imagen:
-                                '/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
+                                'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                             absoluteUrl:
                                 'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                             mail: undefined,
@@ -69,46 +69,10 @@ describe('storyBox LN9', () => {
                         id: 'TR5C3TK6F5BWRCYRR3AUO4RMQ4',
                         _t: 'img',
                         baseUrl:
-                            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg',
+                            'https://resizer.glanacion.com/resizer/YUOnmEFPRR24kgOY_cF3pZN5fPA=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg',
                         absoluteUrl:
-                            'https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg',
-                        parametros: [
-                            {
-                                media: 1280,
-                                ancho: 1920,
-                                alto: 1280,
-                                firma:
-                                    'YUOnmEFPRR24kgOY_cF3pZN5fPA=/1920x1280/smart/filters:format(webp):quality(80)'
-                            },
-                            {
-                                media: 1200,
-                                ancho: 1200,
-                                alto: 800,
-                                firma:
-                                    'LC_AjK6-A7-Q6HFI0uKohSnCWUw=/1200x800/smart/filters:format(webp):quality(80)'
-                            },
-                            {
-                                media: 1023,
-                                ancho: 1023,
-                                alto: 682,
-                                firma:
-                                    'hdl5k-EyrHaSqvQEEUoyAK2jIcU=/1023x682/smart/filters:format(webp):quality(80)'
-                            },
-                            {
-                                media: 768,
-                                ancho: 768,
-                                alto: 512,
-                                firma:
-                                    'RbVoad92IQhS9y3Sw8TmeT3d9do=/768x512/smart/filters:format(webp):quality(80)'
-                            },
-                            {
-                                media: 360,
-                                ancho: 360,
-                                alto: 240,
-                                firma:
-                                    '0CSnmJ249VR0iqxE0TcXbqQORsM=/360x240/smart/filters:format(webp):quality(80)'
-                            }
-                        ]
+                            'https://resizer.glanacion.com/resizer/YUOnmEFPRR24kgOY_cF3pZN5fPA=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg',
+                        parametros: []
                     },
                     video: null,
                     videos: null,

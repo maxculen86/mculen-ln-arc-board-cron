@@ -6,16 +6,6 @@
     min-height: 60vh;
     .bookmark-header {
         @include flex(flex, row, space-between, center);
-        .help {
-            background: $light-neutral-200;
-            border-radius: px(4);
-            padding: px(12) $spacing-sm;
-            .icon-lamp {
-                width: px(10);
-                height: px(14);
-                margin: 0 px(10) 0 px(2);
-            }
-        }
     }
     .empty-bookmark {
         @include flex(flex, column, center);
@@ -30,20 +20,9 @@
         .instruction {
             display: inline-flex;
             text-align: center;
-            .icon-bookmark {
-                display: inline-flex;
-                width: px(10);
-                height: px(14);
-            }
         }
     }
     .helper-bookmark {
-        position: relative;
-        @include flex(flex, column);
-        height: 100vh;
-        background-color: $light-neutral-50;
-        padding: $spacing-md;
-        padding-bottom: $spacing-lg;
         max-width: px(576);
         overflow-y: scroll;
         animation: fadeInAnimation 0.2s;
@@ -54,50 +33,6 @@
             }
             100% {
                 right: 0;
-            }
-        }
-
-        .helper-header {
-            @include flex(flex, column);
-            width: 100%;
-            .--line {
-                padding-bottom: $spacing-sm;
-                margin-bottom: $spacing-md;
-            }
-            .com-button {
-                position: absolute;
-                top: px(18);
-                right: px(18);
-                padding: 0;
-            }
-        }
-        .helper-main {
-            position: relative;
-            .--italic {
-                font-style: italic;
-            }
-            p {
-                margin-bottom: $spacing-md;
-            }
-            .accordion-content {
-                .placeholder-bookmark {
-                    margin-bottom: $spacing-sm;
-                }
-                .com-icon {
-                    display: inline-flex;
-                    width: px(15);
-                    height: px(15);
-                }
-                :last-child {
-                    margin-bottom: 0;
-                }
-                p {
-                    margin-bottom: $spacing-sm;
-                }
-                li {
-                    list-style: disc;
-                    margin-left: $spacing-sm;
-                }
             }
         }
     }
@@ -124,21 +59,6 @@
             }
             &:last-child {
                 margin-bottom: $spacing-lg;
-            }
-            .com-button {
-                background-color: $blue-500;
-                width: $spacing-lg;
-                height: $spacing-lg;
-                .icon-bookmark-filled {
-                    width: px(18);
-                    svg {
-                        width: px(18);
-                        height: px(18);
-                        path {
-                            fill: $light-neutral-50;
-                        }
-                    }
-                }
             }
             .com-title {
                 font-weight: 400;

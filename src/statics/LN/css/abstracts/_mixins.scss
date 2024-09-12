@@ -353,7 +353,9 @@ $guion: '-';
                 'salud': $salud,
                 'autos': $autos,
                 'campo': $campo,
-                'propiedades': $propiedades
+                'propiedades': $propiedades,
+                'futuria': $futuria,
+                'que-sale': $que-sale
             )
     {
         .acumulado.#{$section} {
@@ -557,7 +559,7 @@ $guion: '-';
             align-items: center;
             bottom: 0;
         }
-        .com-label {
+        .ln-badge {
             display: none;
             &.--exclusive-ln {
                 display: inline-flex;

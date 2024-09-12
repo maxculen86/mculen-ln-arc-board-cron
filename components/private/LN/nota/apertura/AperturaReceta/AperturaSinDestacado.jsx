@@ -11,7 +11,7 @@ const AperturaSinDestacado = props => {
 
     return (
         <div className="col-desksm-12 cont-aper">
-            <div className="row">
+            <div className="flex flex-column flex-row_l gap-24_l">
                 {receta && (
                     <div className="col-desksm-3">
                         <DetalleReceta receta={receta} />

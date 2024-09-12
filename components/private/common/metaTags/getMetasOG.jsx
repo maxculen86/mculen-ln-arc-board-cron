@@ -7,6 +7,10 @@ import {
 import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
 import { RECETA } from '../utils/subtypes/subtypeHelper';
 import config from '../../../../properties/sites/la-nacion-ar';
+import {
+    getModifiedDate,
+    getPublishDate
+} from '../utils/schema/liveBlog/generatePostObject';
 
 const getMetasOG = props => {
     const {
@@ -25,6 +29,8 @@ const getMetasOG = props => {
     const { layoutsName = {} } = config || {};
 
     const data = getData(props);
+    const { displayDate, firstPublishDate, lastUpdatedDate } = data;
+
     const metaTitleFromPB =
         subtype === RECETA ? title : metaValue('title') || '';
 
@@ -82,10 +88,16 @@ const getMetasOG = props => {
         }
     ];
     if (data.isArticle) {
-        metas.push({
-            property: 'article:published_time',
-            content: data.publishDate
-        });
+        metas.push(
+            {
+                property: 'article:published_time',
+                content: getPublishDate(firstPublishDate, displayDate)
+            },
+            {
+                property: 'article:modified_time',
+                content: getModifiedDate(lastUpdatedDate, displayDate)
+            }
+        );
     }
     if (
         ['home', 'nota', 'acumulado'].includes(section) ||

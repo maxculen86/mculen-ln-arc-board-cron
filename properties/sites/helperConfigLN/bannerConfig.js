@@ -15,6 +15,11 @@ export default {
     dfp_id: 133919216,
     nota: {
         desktop: {
+            logo_header_dsk_sticky: {
+                slotName: 'la_nacion_desktop/logo_header_dsk_sticky',
+                dimensions: [[305, 32]],
+                targeting: targetingNota
+            },
             adhesion_dsk: {
                 slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
                 dimensions: [
@@ -203,6 +208,11 @@ export default {
             }
         },
         mobile: {
+            logo_header_mob: {
+                slotName: 'la_nacion_mobile/logo_header_mob',
+                dimensions: [[172, 19]],
+                targeting: targetingNota
+            },
             adhesion_mob: {
                 slotName: 'la_nacion_mobile/Nota/adhesion_mob',
                 dimensions: [[320, 50]],
@@ -437,6 +447,11 @@ export default {
             }
         },
         tablet: {
+            logo_header_tab: {
+                slotName: 'la_nacion_tablet/logo_header_tab',
+                dimensions: [[172, 19]],
+                targeting: targetingNota
+            },
             '1x1_tab': {
                 device: 'tab',
                 slotName: 'la_nacion_tablet/Nota/1x1_tab',
@@ -567,6 +582,11 @@ export default {
     },
     acumulado: {
         desktop: {
+            logo_header_dsk_sticky: {
+                slotName: 'la_nacion_desktop/logo_header_dsk_sticky',
+                dimensions: [[305, 32]],
+                targeting: targetingAcumulado
+            },
             megatop_dsk: {
                 slotName: `la_nacion_desktop/Acumulado/megatop_dsk`,
                 dimensions: [[800, 600]],
@@ -702,6 +722,11 @@ export default {
             }
         },
         mobile: {
+            logo_header_mob: {
+                slotName: 'la_nacion_mobile/logo_header_mob',
+                dimensions: [[172, 19]],
+                targeting: targetingAcumulado
+            },
             megatop_mob: {
                 slotName: `la_nacion_mobile/Acumulado/megatop_mob`,
                 dimensions: [[320, 480]],
@@ -837,6 +862,11 @@ export default {
             }
         },
         tablet: {
+            logo_header_tab: {
+                slotName: 'la_nacion_tablet/logo_header_tab',
+                dimensions: [[172, 19]],
+                targeting: targetingAcumulado
+            },
             cabezal_tab: {
                 slotName: `la_nacion_tablet/Acumulado/cabezal_tab`,
                 dimensions: [[728, 90]],

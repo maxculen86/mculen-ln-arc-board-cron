@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import ContainerValidation from '../../private/common/containerValidation';
 import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
-import BadgeUsertype from '../../private/common/badge/UserType';
+import { Badge } from '@ln/contenidos-ui-badge';
 import BajadaNota from '../../private/LN/nota/bajada';
 
 const bajadaNota = props => {
@@ -15,13 +15,16 @@ const bajadaNota = props => {
         },
         layout
     } = props;
-
+    const badgeTypeByVideo =
+        subtype === VIDEO ? 'subscriberNegative' : 'subscriber';
     return (
         <>
             <BajadaNota {...props} />
             {contentCode === 'cerrada' && (
                 <ContainerValidation layout={layout}>
-                    <BadgeUsertype dark={VIDEO === subtype} />
+                    <Badge className="mb-24" type={badgeTypeByVideo}>
+                        Suscriptores
+                    </Badge>
                 </ContainerValidation>
             )}
         </>

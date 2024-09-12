@@ -39,7 +39,9 @@ const sections = [
     'salud',
     'autos',
     'campo',
-    'propiedades'
+    'propiedades',
+    'futuria',
+    'que-sale'
 ];
 
 const acumToSearchAperturaChain = ['tags'];

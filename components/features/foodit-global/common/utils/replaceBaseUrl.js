@@ -7,8 +7,8 @@ const replaceBaseUrl = promoItem => {
 
     const replaceUrl = _url => _url.replace(RESIZER_URL_PUBLIC, SITE_FOODIT);
 
-    const transformResizedUrls = (resizedUrls = []) =>
-        resizedUrls.map(item => {
+    const transformResizedUrls = (resizedUrlsArray = []) =>
+        resizedUrlsArray.map(item => {
             return { ...item, resizedUrl: replaceUrl(item.resizedUrl) };
         });
 

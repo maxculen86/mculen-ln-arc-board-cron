@@ -257,20 +257,16 @@ export const getDynamicStreamOperator = (sizes, cardSize, middleSize = 'l') => {
     return OPERATORS.LOWER;
 };
 
-export const transformVideoData = (
-    videoData,
-    shouldUseV2,
-    cardSize,
-    isAdmin = false
-) => {
+export const transformVideoData = (videoData, cardSize, isAdmin = false) => {
     // TODO: Quitar logica de videocenter una vez que se pase a JW tanto en LN como en OTT
     const streams = get(videoData, 'streams', []);
     const sources = get(videoData, 'sources', []);
     const poster = get(videoData, 'poster', '');
-    // TODO: Quitar validacion de shouldUseV2 cuando salga resizer 2 por completo. Mantener la constante con: "get(videoData, 'promo_items.basic.resized_urls', [])"
-    const videoImagesResized = shouldUseV2
-        ? get(videoData, 'promo_items.basic.resized_urls', [])
-        : get(videoData, 'resizedUrl', []);
+    const videoImagesResized = get(
+        videoData,
+        'promo_items.basic.resized_urls',
+        []
+    );
     const type = get(videoData, 'type', '');
     const { resizedUrl } = getShortestImage(videoImagesResized);
     const streamOperator = getDynamicStreamOperator(size, cardSize);
@@ -290,7 +286,6 @@ export const getMediaData = ({
     image,
     renderables = [],
     customFields = {},
-    shouldUseV2 = false,
     config = {},
     isAdmin = false,
     isLoadWithPicture
@@ -318,12 +313,7 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(
-                video,
-                shouldUseV2,
-                config.cardSize,
-                isAdmin
-            )
+            data: transformVideoData(video, config.cardSize, isAdmin)
         },
         {
             validation: imageId && image,

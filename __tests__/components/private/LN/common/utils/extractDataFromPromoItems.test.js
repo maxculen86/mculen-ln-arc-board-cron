@@ -56,10 +56,10 @@ describe('Test function extractDataFromPromoItems', () => {
             image: {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                height: '746',
+                height: 796,
                 url:
                     'https://resizer.glanacion.com/resizer/Fh6Ak-C6J7j34qoFkkstylQIlGQ=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PDGFPZHDQZFPFJS5T7OODPTM2Y.png',
-                width: '1200'
+                width: 1280
             },
             thumbnailUrl:
                 'https://resizer.glanacion.com/resizer/w7O_gR-MENRvEiU2q-vXFHLcH-A=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PDGFPZHDQZFPFJS5T7OODPTM2Y.png'

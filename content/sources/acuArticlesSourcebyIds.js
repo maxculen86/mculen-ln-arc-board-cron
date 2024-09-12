@@ -1,10 +1,5 @@
 import request from 'request-promise-native';
-import {
-    CONTENT_BASE,
-    ARC_ACCESS_TOKEN,
-    RESIZER_KEY,
-    RESIZER_URL
-} from 'fusion:environment';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import {
     FOTOAL100,
     STORYTELLING
@@ -12,7 +7,7 @@ import {
 import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 import getPresets from './utils/presets';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 
 const resolve = key => {
     const { Ids, website } = key;
@@ -113,8 +108,6 @@ const transform = (data, siteProps, resultsIds) => {
                         ...(credits && { credits })
                     },
                     {
-                        resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL,
                         presets: {
                             promoItems: presetsPromoItems,
                             ...(credits && { credits: presetsCredits }),

@@ -30,39 +30,44 @@ const iconList = [
 const setPageUrl = (path = '') => `${SITE_FOODIT}${path}/`;
 
 const transformSubategorie = (subcategoryList = []) => {
-    return subcategoryList.map(({ name, _id, children = [] } = {}) => {
-        const subCategorysWithoutUrl = [
-            '/recetas/dietas',
-            '/recetas/dieta',
-            '/recetas/que-cocinar-hoy'
-        ];
-        const newElement = {
-            title: {
-                text: name,
-                href: subCategorysWithoutUrl.includes(_id)
-                    ? null
-                    : setPageUrl(_id),
-                icon: iconList.find(icon => _id.includes(icon.section)).icon
-            },
-            items: children.map(({ name, _id } = {}) => {
-                return {
-                    text: name,
-                    href: setPageUrl(_id)
-                };
-            })
-        };
-        return newElement;
-    });
+    return subcategoryList.map(
+        ({ name: nameSubcategory, _id: idSubcategory, children = [] } = {}) => {
+            const subCategorysWithoutUrl = [
+                '/recetas/dietas',
+                '/recetas/dieta',
+                '/recetas/que-cocinar-hoy'
+            ];
+            return {
+                title: {
+                    text: nameSubcategory,
+                    href: subCategorysWithoutUrl.includes(idSubcategory)
+                        ? null
+                        : setPageUrl(idSubcategory),
+                    icon: iconList.find(icon =>
+                        idSubcategory.includes(icon.section)
+                    ).icon
+                },
+                items: children.map(
+                    ({ name: nameChildren, _id: idChildren } = {}) => {
+                        return {
+                            text: nameChildren,
+                            href: setPageUrl(idChildren)
+                        };
+                    }
+                )
+            };
+        }
+    );
 };
 
 export default function transformMenuData({ children = [] } = {}) {
     return children.reduce(
         (acc, category) => {
-            const { name, _id, children } = category || {};
+            const { name, _id, children: childrenCategory } = category || {};
             const pageUrl = setPageUrl(_id);
 
-            if (children.length) {
-                const dataSections = transformSubategorie(children);
+            if (childrenCategory.length) {
+                const dataSections = transformSubategorie(childrenCategory);
                 acc[0].data = dataSections;
             } else if (listDescubrir.includes(_id)) {
                 acc[1].data[0].items.push({

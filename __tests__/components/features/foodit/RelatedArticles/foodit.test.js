@@ -71,7 +71,8 @@ describe('Components - features - Foodit - RelatedArticles', () => {
             const customFields = {
                 idSectionOrAuthor: '12345',
                 filterBy: 'section',
-                layout: 'carousel'
+                layout: 'carousel',
+                customMaxArticles: 2
             };
             const props = {
                 id: '12345',
@@ -86,21 +87,29 @@ describe('Components - features - Foodit - RelatedArticles', () => {
         });
 
         test('should show required minArticles for carousel layout', () => {
-            useGetRelatedArticles.mockImplementation(() => [
-                {
-                    title: 'Una comida si saludable',
-                    author: 'Por Maru Botana',
-                    image: {
-                        alt_text: 'Hamburguesa de carne vacuna (Pixabay)',
-                        height: 340,
-                        url:
-                            'https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg',
-                        width: 453
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: {
+                        content_elements: []
                     },
-                    tag: '',
-                    href: '/dieta/una-comida-si-saludable-nid06092023/'
-                }
-            ]);
+                    articles: [
+                        {
+                            title: 'Una comida si saludable',
+                            author: 'Por Maru Botana',
+                            image: {
+                                alt_text:
+                                    'Hamburguesa de carne vacuna (Pixabay)',
+                                height: 340,
+                                url:
+                                    'https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg',
+                                width: 453
+                            },
+                            tag: '',
+                            href: '/dieta/una-comida-si-saludable-nid06092023/'
+                        }
+                    ]
+                };
+            });
 
             const customFields = {
                 idSectionOrAuthor: '12345',
@@ -121,7 +130,12 @@ describe('Components - features - Foodit - RelatedArticles', () => {
         });
 
         test('should show error layout not found', () => {
-            useGetRelatedArticles.mockImplementation(() => []);
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: undefined,
+                    articles: []
+                };
+            });
 
             const customFields = {
                 idSectionOrAuthor: '',
@@ -144,8 +158,14 @@ describe('Components - features - Foodit - RelatedArticles', () => {
 
     describe('Tests cases for RelatedArticles', () => {
         test('should show articles carousel', () => {
-            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
-
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: {
+                        content_elements: relatedArticlesMock
+                    },
+                    articles: relatedArticlesMock
+                };
+            });
             const customFields = {
                 idSectionOrAuthor: '',
                 filterBy: 'relatedArticles',
@@ -176,8 +196,14 @@ describe('Components - features - Foodit - RelatedArticles', () => {
         });
 
         test('should show articles grid 12', () => {
-            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
-
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: {
+                        content_elements: relatedArticlesMock
+                    },
+                    articles: relatedArticlesMock
+                };
+            });
             const customFields = {
                 idSectionOrAuthor: '',
                 filterBy: 'relatedArticles',
@@ -210,7 +236,14 @@ describe('Components - features - Foodit - RelatedArticles', () => {
         });
 
         test('should show articles grid 12 and not show the article', () => {
-            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: {
+                        content_elements: relatedArticlesMock
+                    },
+                    articles: relatedArticlesMock
+                };
+            });
 
             const customFields = {
                 idSectionOrAuthor: '',
@@ -242,7 +275,14 @@ describe('Components - features - Foodit - RelatedArticles', () => {
         });
 
         test('Should show title by section', () => {
-            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: {
+                        content_elements: relatedArticlesMock
+                    },
+                    articles: relatedArticlesMock
+                };
+            });
 
             const customFields = {
                 idSectionOrAuthor: '/recetas/saladas/pizza',
@@ -269,9 +309,14 @@ describe('Components - features - Foodit - RelatedArticles', () => {
         });
 
         test('Should show title by author', () => {
-            useGetRelatedArticles.mockImplementation(
-                () => relatedArticlesByAuthorMock
-            );
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: {
+                        content_elements: relatedArticlesByAuthorMock
+                    },
+                    articles: relatedArticlesByAuthorMock
+                };
+            });
 
             const customFields = {
                 idSectionOrAuthor: 'maru-botana-3363', // Mocked response made from this author Id
@@ -301,7 +346,14 @@ describe('Components - features - Foodit - RelatedArticles', () => {
         });
 
         test('Should show title by customTitle field', () => {
-            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+            useGetRelatedArticles.mockImplementation(() => {
+                return {
+                    articleList: {
+                        content_elements: relatedArticlesMock
+                    },
+                    articles: relatedArticlesMock
+                };
+            });
 
             const customFields = {
                 customTitle: 'This component has a custom title',

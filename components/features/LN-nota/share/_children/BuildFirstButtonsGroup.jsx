@@ -21,7 +21,7 @@ import eventHandler from '../../../../private/common/audioNews/trackerAudioNews'
 import useTermica from '../../../../private/common/hooks/useTermica';
 import getToken from '../../../../private/common/utils/getToken';
 import classNames from 'classnames';
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -132,7 +132,7 @@ const BuildFirtsButtonsGroup = ({
                     dataSection="CompartirNotaLN"
                     onClick={() => {
                         scrollToComments();
-                        addEventToDataLayer({
+                        addEventToDataLayerV2({
                             event: 'e_linkclick',
                             action: 'toolbard',
                             category: 'nota_ln9',

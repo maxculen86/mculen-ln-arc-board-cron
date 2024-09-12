@@ -64,7 +64,9 @@ export const getData = ({
         publish_date: publishDate,
         subtype,
         acuOgImg = '',
-        display_date: displayDate
+        display_date: displayDate = '',
+        first_publish_date: firstPublishDate = '',
+        last_updated_date: lastUpdatedDate = ''
     } = addRelatedImage(globalContent) || {};
 
     const { basic: headlinesBasic } = headlines;
@@ -95,9 +97,13 @@ export const getData = ({
         url: getUrl(url, domain),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
-        ...(isArticle && { publishDate }),
-        ...(isArticle && { displayDate }),
-        ...(isArticle && { tier: 'metered' }),
+        ...(isArticle && {
+            publishDate,
+            displayDate,
+            firstPublishDate,
+            lastUpdatedDate,
+            tier: 'metered'
+        }),
         subtype
     };
 };

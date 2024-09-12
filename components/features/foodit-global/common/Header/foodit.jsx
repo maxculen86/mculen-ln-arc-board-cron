@@ -19,6 +19,7 @@ import transformMenuData from './_helpers';
 import { useContent } from 'fusion:content';
 import filterMenuSections from '../../../../../content/filters/foodit/filterMenuSections';
 import get from '../../../../private/common/utils/get';
+import BellButton from './components/rightOptions/bellButton';
 
 const HeaderFoodit = () => {
     const { siteProperties, layout, globalContent } = useAppContext();
@@ -102,6 +103,7 @@ const HeaderFoodit = () => {
                         </MainHeader.Content.Center>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
                             <LoginSubscribeButtons classNameButtons="lg-only" />
+                            <BellButton />
                             <RenderUserOptions />
                         </MainHeader.Content.Right>
                         <MainHeader.Content.Search>

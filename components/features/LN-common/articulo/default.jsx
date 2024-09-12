@@ -50,8 +50,7 @@ const ArticleFeature = ({
             published: true,
             imageConfig,
             checkExclusiveAccess: false,
-            isAdmin,
-            shouldUseV1: true
+            isAdmin
         },
         staticMode: isSSR(),
         filter

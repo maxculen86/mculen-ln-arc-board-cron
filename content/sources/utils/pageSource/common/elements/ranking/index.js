@@ -1,9 +1,7 @@
-import get from '../../../../../../../components/private/common/utils/get';
 import {
     getRankingProps,
     RANKING_LAYOUT
 } from '../../../../../../../components/features/LN-10/ranking/common/_helper-WebApi';
-import siteConfig from '../../../../../../../properties/sites/la-nacion-ar';
 import rankingArticlesSource from '../../../../../rankingArticlesSource';
 import configRankingPositionbySection from './config/configRankingPositionbySection';
 import { addElementsByKey } from '../../../../../../../components/private/LN/api/global/page/common/utils/addElements';
@@ -25,8 +23,7 @@ export const getRankingInfo = async props => {
         sectionId,
         imageConfig: 'boxArticles',
         'arc-site': website,
-        layout,
-        shouldUseV2: layout === get(siteConfig, 'layoutsName.HomeLN10', '')
+        layout
     };
 
     const articles = (await getRankingArticles(query)) || [];

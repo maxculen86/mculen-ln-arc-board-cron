@@ -16,7 +16,8 @@ import getDynamicBanners from '../../../private/common/banners/dynamicBanners/ge
 import setRender from '../../../chains/utils/setRender';
 import {
     findPositionInsideSection,
-    getMarkupForDatalayer
+    getMarkupForDatalayer,
+    isInApertura
 } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { getDataAttributesForViewability } from '../../../features/LN-10/article/_helper';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
@@ -88,6 +89,9 @@ const EnVivo = ({ customFields, id: featureId }) => {
                                 }
                                 badgeType={typeBadge[chapitaStyle]}
                                 data-testid="live-component"
+                                section={
+                                    isInApertura ? 'apertura' : 'pre-apertura'
+                                }
                             >
                                 {topics.length !== 0 ? (
                                     <Live.Topics tags={topics} />

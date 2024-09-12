@@ -1,7 +1,6 @@
 import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import { getRankingProps, getSectionParentId } from './common/_helper-WebApi';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
 
 class RankingFeature {
     constructor(props) {
@@ -23,8 +22,7 @@ class RankingFeature {
             sectionId,
             imageConfig: 'boxArticles',
             website: website || arcSite,
-            layout,
-            shouldUseV2: layout === get(siteConfig, 'layoutsName.HomeLN10', '')
+            layout
         };
         this.fetch(query);
         query.sectionId = sectionParentId;

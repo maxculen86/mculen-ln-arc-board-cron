@@ -19,10 +19,21 @@ export const createISODate = (date, time = '') => {
         return '';
     }
 
-    const isoString = dateTime.toISOString();
-    const randomMs = (Math.floor(Math.random() * 900) + 100).toString();
+    return dateTime.toISOString();
+};
 
-    return `${isoString.slice(0, -4) + randomMs}Z`;
+export const getPublishDate = (firstPublishedDate, displayDate) => {
+    if (!firstPublishedDate) return displayDate;
+    return new Date(displayDate) <= new Date(firstPublishedDate)
+        ? displayDate
+        : firstPublishedDate;
+};
+
+export const getModifiedDate = (lastUpdatedDate, displayDate) => {
+    if (!lastUpdatedDate) return displayDate;
+    return new Date(displayDate) >= new Date(lastUpdatedDate)
+        ? displayDate
+        : lastUpdatedDate;
 };
 
 const concatenateBullets = (bullets = []) => {

@@ -1,6 +1,5 @@
 import get from '../../../../../common/utils/get';
 import epigrafeAndCreditsData from '../../../../../common/utils/epigrafeAndCreditsData';
-import { isResizerV2 } from '../../../../../common/utils/image/resizer/v2/resizerHelper';
 
 const imageCommon = image => {
     if (!image) return null;
@@ -20,31 +19,20 @@ const imageCommon = image => {
         resizedUrl: removeInvisibleChracters(x.resizedUrl)
     }));
 
-    const newRegex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
     const urlv2 = /.*\/resizer\/v2\/[a-zA-Z0-9-]+.*[?](auth=.*)/;
-    const hrefRegex = new RegExp(
-        /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
-    );
     const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.*[?]auth=(.*))/;
-    const isV2 = isResizerV2(url);
     const absoluteUrl = resizedUrls[0].resizedUrl.replace(
-        isV2 ? urlv2 : newRegex,
+        urlv2,
         (str, match) => {
             return str.replace(match, '{{param}}');
         }
     );
     let baseUrl;
-    if (isV2) {
-        const urlResult = hrefRegexV2.exec(resizedUrls[0].resizedUrl);
-        baseUrl = urlResult
-            ? urlResult[1].replace(urlResult[2], '{{param}}')
-            : resizedUrls[0].resizedUrl;
-    } else {
-        const regexResult = hrefRegex.exec(resizedUrls[0].resizedUrl);
-        baseUrl = regexResult
-            ? regexResult[0].replace(regexResult[1], '{{param}}')
-            : resizedUrls[0].resizedUrl;
-    }
+    const urlResult = hrefRegexV2.exec(resizedUrls[0].resizedUrl);
+    baseUrl = urlResult
+        ? urlResult[1].replace(urlResult[2], '{{param}}')
+        : resizedUrls[0].resizedUrl;
+
     const resp = {
         id,
         _t: 'img',
@@ -52,7 +40,7 @@ const imageCommon = image => {
         absoluteUrl,
         parametros: []
     };
-    const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
+
     Object.keys(resizedUrls)
         .sort(function orderPhotos(a, b) {
             const mediaA = get(resizedUrls, `[${a}].option.width`, 0);
@@ -69,22 +57,14 @@ const imageCommon = image => {
             const ancho = get(resizedUrls, `[${index}].option.width`, 0);
             const alto = get(resizedUrls, `[${index}].option.height`, 0);
             let firma;
-            if (isV2) {
-                const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9-]+.*[?](auth=.*)/;
-                firma =
-                    (resizedUrls[index] &&
-                        resizedUrls[index].resizedUrl &&
-                        resizedUrls[index].resizedUrl.match(regexUrl) &&
-                        resizedUrls[index].resizedUrl.match(regexUrl)['1']) ||
-                    '';
-            } else {
-                firma =
-                    (resizedUrls[index] &&
-                        resizedUrls[index].resizedUrl &&
-                        resizedUrls[index].resizedUrl.match(regex) &&
-                        resizedUrls[index].resizedUrl.replace(regex, '$1')) ||
-                    '';
-            }
+            const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9-]+.*[?](auth=.*)/;
+            firma =
+                (resizedUrls[index] &&
+                    resizedUrls[index].resizedUrl &&
+                    resizedUrls[index].resizedUrl.match(regexUrl) &&
+                    resizedUrls[index].resizedUrl.match(regexUrl)['1']) ||
+                '';
+
             if (firma) {
                 resp.parametros.push({
                     media,
@@ -110,9 +90,7 @@ export const getImageUrlResizerV2 = url => {
 };
 
 export const getImageUrlBasedOnResizerVersion = url => {
-    const imageUrl = isResizerV2(url)
-        ? getImageUrlResizerV2(url)
-        : getImageUrl(url);
+    const imageUrl = getImageUrlResizerV2(url);
 
     if (imageUrl) {
         return updateUrlWithResizerBase(imageUrl[0]);

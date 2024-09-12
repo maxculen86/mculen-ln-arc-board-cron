@@ -112,8 +112,7 @@ export const getBannerConfiguration = (
 
     if (!slotId || !slotGroup) return null;
 
-    const { label, taxonomy, type } = globalContent;
-    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
+    const { label, type } = globalContent;
 
     const getSiteService = () => {
         const gc = useContext(GlobalContext);
@@ -311,13 +310,19 @@ export const isPrimarySectionInBannerSegments = primarySection => (
     const EXCEPTIONS = {
         'estados-unidos': 'la_nacion_usa',
         salud: 'bienestar',
-        autos: 'movilidad'
+        autos: 'movilidad',
+        IA: 'futuria'
+    };
+
+    const subSectionExceptions = {
+        futuria: true
     };
 
     const base = primarySection.split('/').filter(Boolean);
     const section = base.find(x => segments.includes(x)) || base.shift();
     const hardSection = EXCEPTIONS[section] || section;
-    const included = segments.includes(hardSection);
+    const included =
+        subSectionExceptions[hardSection] || segments.includes(hardSection);
 
     return [included, hardSection];
 };
@@ -486,7 +491,8 @@ export const getBannerSectionDimensions = (section, slotName) => {
 
     const sectionSlotDimensions = {
         propiedades: defaultSlotDimensions,
-        campo: defaultSlotDimensions
+        campo: defaultSlotDimensions,
+        futuria: defaultSlotDimensions
     };
 
     return sectionSlotDimensions[section]?.[slotName];

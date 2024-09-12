@@ -2007,6 +2007,61 @@ b, strong {
   --accent-color: var(--primary-positive);
 }
 
+:root {
+  --notification-header-font-family: Roboto, Arial, sans-serif;
+  --notification-header-line-height: 120%;
+  --notification-header-font-weight: 700;
+  --notification-header-font-size: 1.75rem;
+  --notification-drawer-scrollbar-color: #333333;
+  --notification-drawer-scrollbar-radius: 0.5rem;
+  --notification-card-title-font-size: 1rem;
+  --notification-card-title-line-height: 150%;
+  --notification-card-title-font-weight: 700;
+  --notification-card-button-padding: 0.5rem 1rem;
+  --notification-card-button-border-radius: 0.25rem;
+  --notification-card-button-font-family: Roboto, Arial, sans-serif;
+  --notification-card-button-font-size: 0.75rem;
+  --notification-card-button-line-height: 1rem;
+  --notification-card-button-font-weight: 700;
+  --notification-card-time-font-size: 0.75rem;
+  --notification-drawer-empty-state-title-font-family: Prumo, Georgia, serif;
+  --notification-drawer-empty-state-title-font-size: 1.5rem;
+  --notification-drawer-empty-state-title-font-weight: 600;
+  --notification-drawer-empty-state-title-line-height: 116%;
+  --notification-drawer-empty-state-description-font-family: Roboto, Arial, sans-serif;
+  --notification-drawer-empty-state-description-font-weight: 400;
+  --notification-drawer-empty-state-description-font-size: 1rem;
+  --notification-drawer-empty-state-description-line-height: 150%;
+  --notification-drawer-empty-state-illustration: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="148" height="152" fill="none"><g clip-path="url(%23a)"><path fill="%23143318" d="M5.26 151.71c-3.57-1.29-4.95-3.89-4.74-7.59.14-2.46.01-4.94.03-7.41.01-1.72.87-2.75 2.23-2.75 1.36 0 2.2 1.03 2.21 2.75.01 2.77 0 5.53 0 8.3 0 1.79.48 2.26 2.3 2.26h133.48c1.73 0 2.24-.49 2.24-2.17v-31.41c0-1.71-.51-2.23-2.19-2.23-8.84-.01-17.68 0-26.52-.02-1.21 0-1.89.5-2.4 1.56-1.56 3.3-3.22 6.55-4.78 9.85-1.3 2.75-3.36 4.05-6.44 4.05-17.78-.04-35.55-.04-53.33 0-3.07 0-5.16-1.26-6.46-4.02-1.56-3.3-3.22-6.55-4.78-9.85-.53-1.13-1.27-1.6-2.53-1.6-8.74.03-17.48.02-26.22.02-1.91 0-2.38.47-2.38 2.34v10.81c0 1.79-.76 2.76-2.14 2.8-1.43.04-2.29-.99-2.3-2.82-.01-4.94-.04-9.88.02-14.81.01-1.06.26-2.16.59-3.18C7.31 87.81 13.51 69.04 19.7 50.27c1.17-3.54 3.06-4.89 6.82-4.89 10.32 0 20.64.01 30.96-.03.83 0 1.75-.26 2.49-.66 9.23-4.98 18.45-5.02 27.74-.18.95.5 2.11.82 3.18.83 10.12.06 20.25.03 30.37.04 4.02 0 5.84 1.32 7.1 5.14 1.65 5.01 3.32 10.01 4.91 15.04.22.7.35 1.68.02 2.24-.35.6-1.26 1.1-1.98 1.19-1.2.15-1.81-.78-2.16-1.84l-4.2-12.78c-.34-1.03-.67-2.06-1.01-3.09-.36-1.09-1.09-1.59-2.48-1.32v1.54c0 6.57-.01 13.14.02 19.7 0 .77.1 1.58.34 2.32 3.51 10.73 7.06 21.44 10.55 32.18.34 1.03.8 1.36 1.87 1.33 2.61-.08 5.22-.03 8.01-.03-.29-.94-.52-1.73-.78-2.52l-8.43-25.56c-.12-.37-.28-.75-.34-1.13-.19-1.22.22-2.16 1.44-2.58 1.22-.41 2.12.07 2.7 1.17.2.39.33.82.47 1.24 3.18 9.64 6.37 19.28 9.5 28.94.4 1.24.61 2.6.61 3.91.05 11.21-.05 22.42.07 33.63.04 3.7-1.19 6.3-4.76 7.59H5.26v.02Zm40.6-79.15c-4.02 0-8.26.07-12.5-.03-1.62-.04-2.39.54-2.88 2.06-3.33 10.27-6.72 20.52-10.09 30.77-.16.49-.28 1-.46 1.65h13.93c2.85 0 4.89 1.23 6.13 3.83 1.61 3.38 3.31 6.72 4.92 10.11.48 1 1.1 1.51 2.26 1.5 17.88-.02 35.75-.02 53.63 0 1.15 0 1.81-.45 2.29-1.47 1.63-3.43 3.33-6.82 4.98-10.24 1.23-2.54 3.26-3.73 6.04-3.73h13.91c-.06-.39-.06-.59-.12-.77-3.53-10.72-7.07-21.44-10.58-32.17-.37-1.12-1.04-1.53-2.19-1.52-4.05.04-8.1.04-12.15 0-.92-.01-1.25.27-1.44 1.19-2.26 11.27-8.94 18.62-19.84 22.15-.79.26-1.63.43-2.46.46-1.06.04-1.77-.58-2.01-1.62-.25-1.08.11-1.97 1.12-2.49.43-.22.94-.29 1.41-.41 9.32-2.37 16.64-10.68 17.62-19.98C99 56.35 86.61 43.98 71.11 45.6c-12.97 1.36-22.69 14.13-20.37 26.98 1.8 9.99 7.76 16.35 17.47 19.23 1.91.57 2.67 1.54 2.24 2.99-.39 1.32-1.57 1.79-3.42 1.29-8.39-2.28-14.59-7.29-18.29-15.16-1.22-2.6-1.91-5.45-2.9-8.36l.02-.01ZM26.53 49.97c-1.71-.37-2.24.56-2.65 1.81-4.82 14.7-9.66 29.4-14.5 44.1-1.2 3.64-2.4 7.28-3.67 11.12 2.8 0 5.4-.07 8 .03 1.15.04 1.6-.38 1.94-1.43 3.46-10.64 6.97-21.26 10.45-31.89.25-.78.41-1.63.42-2.45.03-6.62.02-13.23.02-19.85v-1.44h-.01Zm90.4 18.09V49.92H94.56c4.69 5.29 7.13 11.29 7.46 18.14h14.91Zm-70.92.01c.28-6.97 2.83-12.9 7.38-18.13H31.08v18.13h14.93Z"/><path fill="%23143318" d="M18.2 130.08c1.33 0 2.66-.04 3.99.01 1.36.05 2.3 1 2.3 2.21s-.95 2.18-2.31 2.2c-2.66.05-5.32.05-7.98 0-1.36-.02-2.29-.99-2.29-2.21 0-1.23.92-2.15 2.3-2.2 1.33-.05 2.66-.01 3.99 0v-.01ZM18.23 141.43c-1.33 0-2.66.04-3.98 0-1.42-.05-2.3-.91-2.33-2.15-.02-1.23.86-2.21 2.25-2.24 2.7-.07 5.41-.07 8.11 0 1.35.04 2.31 1.12 2.18 2.3-.14 1.3-.91 2.05-2.25 2.08-1.33.03-2.66 0-3.98 0v.01Z"/><path fill="%23846B05" d="M61.03 24.63c.34.27 1.12.67 1.54 1.3 1.15 1.72 2.18 3.52 3.21 5.32.75 1.32.48 2.56-.61 3.22-1.09.66-2.38.32-3.16-.93-1.12-1.8-2.23-3.61-3.26-5.46-.9-1.62.1-3.42 2.28-3.44v-.01ZM89.64 26.7c-.31.77-.42 1.21-.64 1.58-1.05 1.78-2.11 3.56-3.22 5.31-.83 1.3-2.02 1.65-3.14 1-1.15-.66-1.42-1.98-.62-3.34 1.08-1.83 2.18-3.64 3.31-5.43.6-.95 1.58-1.37 2.55-.89.73.36 1.22 1.2 1.76 1.76v.01ZM76.09 26.45c0 1.04.02 2.07 0 3.11-.04 1.48-.94 2.44-2.22 2.43-1.27 0-2.18-.97-2.21-2.46-.03-2.07-.04-4.15.02-6.22.04-1.49.98-2.37 2.31-2.33 1.27.04 2.06.9 2.11 2.36.03 1.04 0 2.07 0 3.11h-.01Z"/><path fill="%23143318" d="M73.74 72.55c2.4-.01 4.57.66 6.47 2.14 1.22.94 1.46 2.15.71 3.22-.74 1.06-2.01 1.24-3.26.39-2.68-1.82-5.32-1.78-7.99 0-1.2.8-2.39.63-3.15-.37-.8-1.06-.59-2.31.6-3.23 1.94-1.5 4.16-2.2 6.62-2.16v.01ZM88.5 66.35c.02 1.17-.93 2.18-2.11 2.24-1.25.06-2.29-.91-2.32-2.16-.02-1.21.87-2.16 2.09-2.21 1.27-.05 2.32.9 2.34 2.13ZM61.7 64.21c1.28-.02 2.26.95 2.24 2.21-.02 1.2-.95 2.15-2.15 2.17-1.23.02-2.29-1.01-2.27-2.22.01-1.16.99-2.13 2.18-2.15v-.01Z"/><path fill="%23787932" d="M60.59 8.079c-3.51 2.265-4.514 2.499-5.353 1.151-1.563-2.54 1.045-3.22 2.48-4.883-.512-.534-1.164-1.064-1.64-1.724-.834-1.125-.636-2.38.37-3.148.963-.733 2.157-.612 3.036.388.514.594.905 1.295 1.704 2.456.74-.799 1.234-1.496 1.887-1.993 1.106-.846 2.382-.645 3.14.35.733.963.633 2.15-.36 3.05-.585.524-1.266.927-2.455 1.784.765.684 1.474 1.16 1.971 1.813.855 1.118.657 2.373-.37 3.139-.96.722-2.177.619-3.046-.38-.515-.584-.895-1.293-1.374-2.014l.01.01ZM110.897 23c1.596-.09 2.97-.252 4.336-.186.358.017.893.705.986 1.16.581 2.862-1.97 2.771-3.606 3.64.209 1.785 2.236 4.153-.726 5.13-2.749.9-2.74-1.945-3.604-3.567-1.776.214-3.899 2.169-5.173-.703-.624-1.408.213-2.182 3.619-3.622-.227-1.795-2.295-4.215.825-5.15 2.652-.791 2.619 1.987 3.33 3.303l.013-.005Z"/><path fill="%23F4CA5F" d="M91.489 21.98c-1.011 1.144-2.6-3.21-3.602-3.21-.999 0-1.202.6-2.401-.803-1.2-1.405-1.361-2.39-1.8-2.606-.441-.219-1.734.023-2.403.198-.669.176-1.17-.342-1.4-.805-.231-.462 9.569-3.316 10.007-3.993.439-.676.406-11.21.406-11.21s1 .002 1.2.401l.8 1.604s1.202-.6 1.801-.398c.6.202 1.2 2.404 1.2 2.404l2.203-.598s.6.201 1.001 1.004l1.2 2.404s1 .003 1.199.402l.2.401c-4.715 2.065-9.047 4.128-9.405 4.693-.357.564.8 8.967-.209 10.11l.003.001ZM52.027 22.382c-.57-.232-1.575-.846-1.575-.846s-1.626 1.55-2.497.782c-.871-.769-1.058-2.018-.934-2.452.124-.434.653-1.325.653-1.325l-7.545-6.658-2.29 2.595s1.181 1.586.778 2.044c-.404.458-1.885 2.136-2.32 1.752l-1.161-1.024-3.2 4.505 11.45 9.834s9.21-8.975 8.64-9.207Zm-9.72 2.825c-1.076 1.221-1.388.403-2.227.478-.84.074-1.161-1.024-1.161-1.024-.166-.69.33-2.423.88-2.752.549-.33 1.078-1.221 2.373-.35 1.296.87 1.213 2.427.136 3.648Z"/></g><defs><clipPath id="a"><path fill="%23fff" d="M.5 0h147v151.71H.5z"/></clipPath></defs></svg>');
+  --notification-drawer-empty-state-illustration-width: 9.1875rem;
+  --notification-drawer-empty-state-illustration-height: 9.5rem;
+  --notification-drawer-login-incentive-title-font-family: Prumo, Georgia, serif;
+  --notification-drawer-login-incentive-title-font-size: 1.5rem;
+  --notification-drawer-login-incentive-title-font-weight: 600;
+  --notification-drawer-login-incentive-title-line-height: 116%;
+  --notification-drawer-login-incentive-description-font-family: Roboto, Arial, sans-serif;
+  --notification-drawer-login-incentive-description-line-height: 150%;
+  --notification-drawer-login-incentive-button-font-family: Roboto, Arial, sans-serif;
+  --notification-drawer-login-incentive-button-font-size: 0.75rem;
+  --notification-drawer-login-incentive-button-font-weight: 700;
+  --notification-drawer-login-incentive-button-padding: 0.75rem 1rem;
+  --notification-drawer-login-incentive-button-bg-color: #333333;
+  --notification-drawer-login-incentive-button-color: #fefefe;
+  --notification-drawer-login-incentive-button-border-radius: 0.25rem;
+  --notification-card-info-button-background-color: #333333;
+  --notification-card-info-button-color: #fefefe;
+  --notification-card-warning-button-background-color: #333333;
+  --notification-card-warning-button-color: #fefefe;
+  --notification-card-danger-button-background-color: #333333;
+  --notification-card-danger-button-color: #fefefe;
+  --notification-drawer-tooltip-background: #846b05;
+  --notification-drawer-tooltip-color: #fefefe;
+  --notification-drawer-tooltip-border-radius: 0.25rem;
+  --notification-drawer-tooltip-font-family: Roboto, Arial, sans-serif;
+  --notification-drawer-tooltip-line-height: 1rem;
+  --notification-drawer-tooltip-padding: 0.25rem 0.5rem;
+}
+
 hr {
   border: thin solid var(--neutral-light-100);
 }

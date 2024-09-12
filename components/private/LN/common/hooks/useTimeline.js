@@ -1,10 +1,13 @@
-import useGetArticlesFromAcumSource from './useGetArticlesFromAcumSource';
+import { useContent } from 'fusion:content';
 import sectionsFormated from '../../../common/utils/sectionsFormated';
 import {
     setTLQuantity,
     setTLArticles,
-    setTypeOfQuery
+    setTypeOfQuery,
+    transformLastNewsContent
 } from '../utils/timeline';
+import { setSource } from '../utils/setSource';
+import get from '../../../common/utils/get';
 
 const useTimeline = ({
     sections,
@@ -27,16 +30,32 @@ const useTimeline = ({
         sectionsIds
     });
 
-    const response = useGetArticlesFromAcumSource({
-        typesOfQuery,
+    const tlArticlesList = useContent({
+        source: setSource({ ...typesOfQuery, collectionId }),
+        query: {
+            ...(collectionId && { id: collectionId }),
+            ...typesOfQuery,
+            website: arcSite,
+            imageConfig: 'm',
+            size: articlesQuantityBackup,
+            sourceOrigin: 'composer',
+            excludeSectionId: false,
+            promoItemsOnly: false,
+            type: '',
+            shouldNotFilter: false,
+            hasCollectionApertura: false,
+            excludePreload: false
+        },
         filter,
-        imageConfig: 'm',
-        size: articlesQuantityBackup,
-        sourceOrigin: 'composer',
-        website: arcSite,
         staticMode: isSSR,
-        collectionId
+        ...(source === 'byLastNews' && {
+            transform(data) {
+                return transformLastNewsContent(data);
+            }
+        })
     });
+
+    const response = get(tlArticlesList, 'content_elements', []);
 
     const justCommonArticles = response
         .filter(

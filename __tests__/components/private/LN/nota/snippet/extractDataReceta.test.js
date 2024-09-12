@@ -202,8 +202,8 @@ describe('Test function extractDataFromPromoItems', () => {
                 '@type': 'ImageObject',
                 url:
                     'https://resizer.glanacion.com/resizer/bHB42cAZV3OwE8ahuR1PL-RL9DM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q6R6LDNENRHUNHYFTJIO4U4RAQ.jpg',
-                height: '746',
-                width: '1200'
+                height: 796,
+                width: 1280
             },
             prepTime: ''
         });

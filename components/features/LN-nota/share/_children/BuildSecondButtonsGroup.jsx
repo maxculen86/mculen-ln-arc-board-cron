@@ -12,7 +12,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import classNames from 'classnames';
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const BuildSecondButtonsGroup = ({
     requestUri,
@@ -60,7 +60,7 @@ const BuildSecondButtonsGroup = ({
                 isNegative={subtypeVideo}
                 onClick={() => {
                     shareButton();
-                    addEventToDataLayer({
+                    addEventToDataLayerV2({
                         event: 'e_linkclick',
                         action: 'toolbard',
                         category: 'nota_ln9',
@@ -83,7 +83,7 @@ const BuildSecondButtonsGroup = ({
                 target="_blank"
                 onClick={() => {
                     shareWhatsAppDesktop(requestUri, host);
-                    addEventToDataLayer({
+                    addEventToDataLayerV2({
                         event: 'e_linkclick',
                         action: 'toolbard',
                         category: 'nota_ln9',
@@ -122,7 +122,7 @@ const BuildSecondButtonsGroup = ({
                                         setCopy,
                                         mobileTitle
                                     });
-                                    addEventToDataLayer({
+                                    addEventToDataLayerV2({
                                         event: 'e_linkclick',
                                         action: 'toolbard',
                                         category: 'nota_ln9',

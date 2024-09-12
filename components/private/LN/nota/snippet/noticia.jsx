@@ -15,7 +15,11 @@ import {
     extractDataFromPromoItems,
     urlShema
 } from '../../common/utils/extractDataFromPromoItems';
-import { createISODate } from '../../../common/utils/schema/liveBlog/generatePostObject';
+import {
+    createISODate,
+    getModifiedDate,
+    getPublishDate
+} from '../../../common/utils/schema/liveBlog/generatePostObject';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -123,6 +127,7 @@ const SnippetNoticia = props => {
             distributor = { name: 'LA NACION' },
             created_date: createdDate = '',
             first_publish_date: firstPublishDate = '',
+            last_updated_date: lastUpdatedDate = '',
             display_date: displayDate = '',
             content_restrictions: { content_code: contentCode } = {},
             label,
@@ -160,8 +165,12 @@ const SnippetNoticia = props => {
     const trust = get(label, 'trust.text', 'Noticia Original');
     const creators = authors.map(a => a.name);
     const articleBody = getFirstParagraph(contentElements);
-    const datePublishedISO = createISODate(firstPublishDate);
-    const dateModifiedISO = createISODate(displayDate);
+    const datePublishedISO = createISODate(
+        getPublishDate(firstPublishDate, displayDate)
+    );
+    const dateModifiedISO = createISODate(
+        getModifiedDate(lastUpdatedDate, displayDate)
+    );
 
     let data = {
         '@context': urlShema,

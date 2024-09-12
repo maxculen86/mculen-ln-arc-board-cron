@@ -5,13 +5,11 @@ import {
     addErrorToast,
     TOAST
 } from '../../../common/bookmark/api/_helper';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import deleteIngredientList from '../../../common/bookmark/api/deleteIngredientList';
 
 export const saveIngredientsList = async ({ text, sections, id }) => {
     const response = await postIngredientsList({ text, sections, id });
-    // TODO: hacer dinamico el message con el nombre de la receta que se elimina de la lista de compras
-    // `${recipeName} ${TOAST.SUCCESS.MESSAGE.SAVE_INGREDIENTS}`
 
     if (response && response.bookmarkId) {
         addToast({
@@ -23,6 +21,7 @@ export const saveIngredientsList = async ({ text, sections, id }) => {
         return response.bookmarkId;
     } else {
         addErrorToast();
+        return '';
     }
 };
 
@@ -59,7 +58,7 @@ export const ingredientsListReduce = (accumulator, currentList) => {
     return accumulator;
 };
 
-export const handleIgredientListButton = async ({
+export const handleIngredientListButton = async ({
     isSuscriptor,
     title,
     articleId,
@@ -68,7 +67,7 @@ export const handleIgredientListButton = async ({
     ingredientsLists
 }) => {
     if (isSuscriptor) {
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'e_linkclick',
             category: 'interaction',
             label: 'receta',

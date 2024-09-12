@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import ModMedia from '../mod-media';
 import CarousellNextButton from './carousellNextButton';
 import CarousellPrevButton from './carousellPrevButton';
-import ComButton from '../com-button';
 import withSlider from '../hocs/withSlider';
+import classNames from 'classnames';
 
 const DEFAULT_PAGESIZE = 4;
 
@@ -30,22 +33,38 @@ const Carousell = ({ slider, children, itsGallery, active, arcSite }) => {
             <div className="slide">
                 {slider.hasPrevPage() && (
                     // <CarousellPrevButton onClick={slider.prevButtonHandler} />
-                    <ComButton
+                    <Button
                         onClick={slider.prevButtonHandler}
-                        classCondition="icon-arrow-left"
-                        iconName="arrow-left"
-                        size="--sixxs"
-                    />
+                        className={classNames(
+                            'absolute  bottom-50 bg-black p-8 z-1',
+                            active ? 'left-0' : 'left--16 left-0_md'
+                        )}
+                        variant="custom"
+                        size="inherit"
+                        iconOnly
+                    >
+                        <Icon>
+                            <IconSprite name="arrowLeft" fill="#fff" />
+                        </Icon>
+                    </Button>
                 )}
                 {children}
                 {slider.hasNextPage() && (
                     // <CarousellNextButton onClick={slider.nextButtonHandler} />
-                    <ComButton
+                    <Button
                         onClick={slider.nextButtonHandler}
-                        classCondition="icon-arrow-right"
-                        iconName="arrow-right"
-                        size="--sixxs"
-                    />
+                        className={classNames(
+                            'absolute  bottom-50 bg-black p-8 z-1',
+                            active ? 'right-0' : 'right--16 right-0_md'
+                        )}
+                        variant="custom"
+                        size="inherit"
+                        iconOnly
+                    >
+                        <Icon>
+                            <IconSprite name="arrowRight" fill="#fff" />
+                        </Icon>
+                    </Button>
                 )}
             </div>
         </ModMedia>

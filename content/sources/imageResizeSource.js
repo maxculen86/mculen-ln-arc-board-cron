@@ -4,8 +4,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
-
-import { createResizer } from '../../components/private/common/utils/image/resizer';
+import { createResizer } from '../../components/private/common/utils/image/resizer/v1/resizerHelper';
 
 const fetch = key => {
     const { url, subtype = '1' } = key;

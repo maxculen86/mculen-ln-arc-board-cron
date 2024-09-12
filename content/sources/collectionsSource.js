@@ -122,8 +122,7 @@ const transform = async (data, siteProps, cachedCall) => {
                         // Se pasa el subtype para que las notas de foto al 100
                         // y storytelling no sean excluidas de las validaciones del resizer
                         // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype,
-                        shouldUseV2: true
+                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
                     }),
                     ...(elem.canonical_url && {
                         website_url: elem.canonical_url
@@ -183,8 +182,7 @@ export default {
         diagramation: 'text',
         filterFutureDisplayDate: 'bool',
         notesQuantity: 'text',
-        isFocal: 'bool',
-        shouldUseV2: 'bool'
+        isFocal: 'bool'
     },
     ttl: 120
 };

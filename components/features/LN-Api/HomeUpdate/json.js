@@ -25,7 +25,7 @@ const getContentPage = async (query, cookie) => {
         };
     }
 
-    return await nodeFetch(resolve(query), opt);
+    return nodeFetch(resolve(query), opt);
 };
 
 class HomeUpdate {

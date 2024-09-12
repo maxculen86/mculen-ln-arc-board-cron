@@ -1,13 +1,8 @@
 import request from 'request-promise-native';
-import {
-    CONTENT_BASE,
-    RESIZER_KEY,
-    RESIZER_URL,
-    ARC_ACCESS_TOKEN
-} from 'fusion:environment';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import filter from '../filters/LN/nota/article';
 import Redirect from './utils/redirect';
 
@@ -54,8 +49,6 @@ const transform = (data, siteProps) => {
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
     return addResizedUrls(data, {
-        resizerSecret: RESIZER_KEY,
-        resizerUrl: RESIZER_URL,
         presets: {
             promoItems: presetsXL.promo_items || presetsDefault,
             contentElements: presetsL.content_elements || presetsDefault,

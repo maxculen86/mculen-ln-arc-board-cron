@@ -34,10 +34,10 @@ const DrawerMenu = ({ categories = [] }) => {
                                 arrowIcon={<IconSprite name="arrow-right" />}
                                 data-test-id={`header-menu-${title}`}
                                 data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="header"
-                                data-dynamic-label={dynamicLabel}
-                                data-dynamic-action={
+                                data-event="e_linkclick"
+                                data-category="header"
+                                data-label={dynamicLabel}
+                                data-action={
                                     (DESCUBRIR_SECTIONS.includes(
                                         dynamicLabel
                                     ) &&

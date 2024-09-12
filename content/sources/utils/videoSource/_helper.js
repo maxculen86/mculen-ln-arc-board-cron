@@ -33,7 +33,6 @@ export const resizeVideoImagesV2 = async ({
                 },
                 isInApertura,
                 isAdmin,
-                shouldUseV2: true,
                 isVideoSource: true
             }
         )

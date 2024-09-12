@@ -1,5 +1,5 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const getBookmarks = async (token, accessToken, bookmarkType = 'article') => {
     if (!token || !accessToken) return {};
@@ -17,7 +17,7 @@ const getBookmarks = async (token, accessToken, bookmarkType = 'article') => {
         );
 
         if (!response.ok) {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'erros_ms',
                 type: 'failed_request',
                 detail: 'get_bookmarks',
