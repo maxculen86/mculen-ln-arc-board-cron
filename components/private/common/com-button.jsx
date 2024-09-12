@@ -1,16 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../../resources/dist/css/ln/components/com-button.css';
-import ComIcon from './icon';
 import ComText from './text';
-import setBtnClassName from './utils/setBtnClassName';
+import classNames from 'classnames';
+
+import '../../../resources/dist/css/ln/components/com-button.css';
 
 const ComButton = props => {
     const {
         id,
         children,
-        classCondition,
         dataEvent,
         dataSection,
         onClick,
@@ -18,10 +17,10 @@ const ComButton = props => {
         on,
         tabIndex,
         classesNames,
+        classCondition,
         textname,
-        iconName,
-        iconPosition,
-        iconExtraClass,
+        iconStart,
+        iconEnd,
         size,
         title,
         style,
@@ -29,15 +28,9 @@ const ComButton = props => {
     } = props;
 
     const conditionalProps = {
-        ...(iconName && !children && { onMouseDown }),
-        ...(iconName && !children && { tabIndex }),
-        className: setBtnClassName({
-            children,
-            iconName,
-            iconPosition,
-            classesNames,
-            classCondition
-        })
+        ...((iconStart || iconEnd) && !children && { onMouseDown }),
+        ...((iconStart || iconEnd) && !children && { tabIndex }),
+        className: classNames('com-button', classesNames, classCondition)
     };
 
     return (
@@ -53,15 +46,14 @@ const ComButton = props => {
             disabled={disabled}
             {...conditionalProps}
         >
-            {iconName && (
-                <ComIcon name={iconName} extraClass={iconExtraClass} />
-            )}
+            {iconStart}
             {(children || textname) && (
                 <ComText size={size || ''}>
                     {children || ''}
                     {textname || ''}
                 </ComText>
             )}
+            {iconEnd}
         </button>
     );
 };
@@ -73,8 +65,8 @@ ComButton.propTypes = {
     textname: PropTypes.string,
     onClick: PropTypes.func,
     onMouseDown: PropTypes.func,
-    iconName: PropTypes.string,
-    iconPosition: PropTypes.string,
+    iconStart: PropTypes.node,
+    iconEnd: PropTypes.node,
     size: PropTypes.string,
     title: PropTypes.string,
     id: PropTypes.string,
@@ -83,7 +75,6 @@ ComButton.propTypes = {
     dataSection: PropTypes.string,
     tabIndex: PropTypes.string,
     style: PropTypes.node,
-    iconExtraClass: PropTypes.string,
     disabled: PropTypes.bool
 };
 
@@ -95,8 +86,8 @@ ComButton.defaultProps = {
     title: '',
     size: '',
     on: '',
-    iconPosition: '',
-    iconName: '',
+    iconStart: null,
+    iconEnd: null,
     textname: '',
     classesNames: '',
     classCondition: '',
@@ -104,7 +95,6 @@ ComButton.defaultProps = {
     onClick: () => {},
     onMouseDown: () => {},
     children: undefined,
-    iconExtraClass: '',
     disabled: false
 };
 

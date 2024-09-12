@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import Text from '../text';
 import Link from '../com-link';
-import Icon from '../icon';
 import ComTitle from '../com-title';
 import { Badge } from '@ln/contenidos-ui-badge';
 
@@ -29,7 +30,9 @@ const Message = props => {
                     <Badge type="subscriberNegative" text="Suscriptores" />
                 ) : (
                     <Text tag="strong" extraClass="text" size="--twoxs">
-                        <Icon name={icon} size="--xs" />
+                        <Icon>
+                            <IconSprite name={icon} />
+                        </Icon>
                         {text}
                     </Text>
                 )}

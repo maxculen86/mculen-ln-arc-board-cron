@@ -3,7 +3,8 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../utils/getAssetsPath';
 import Text from '../text';
-import Icon from '../icon';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import ComImage from '../com-image';
 
 const EmptyBookmark = () => {
@@ -23,8 +24,11 @@ const EmptyBookmark = () => {
                 </Text>
                 <Text extraClass="instruction" size="--twoxs" font="--arial">
                     <Text>
-                        Presioná en el botón <Icon name="bookmark" /> dentro de
-                        la nota y listo.
+                        Presioná en el botón{' '}
+                        <Icon size={12}>
+                            <IconSprite name="bookmark" />
+                        </Icon>{' '}
+                        dentro de la nota y listo.
                     </Text>
                 </Text>
             </div>

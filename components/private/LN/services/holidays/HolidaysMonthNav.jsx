@@ -1,9 +1,10 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import HolidaysCardCalendar from './HolidaysCardCalendar';
 import Link from '../../../common/com-link';
-import Icon from '../../../common/icon';
 import get from '../../../common/utils/get';
 import setClassName from '../../../common/utils/setClassName';
 import '../../../../../resources/dist/css/ln/components/holidays-month-nav.css';
@@ -39,7 +40,9 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
                     <Link link={link('previous')} title={title('previous')}>
                         <div className="interaction-container">
                             <div className="circle">
-                                <Icon name="arrow-left" />
+                                <Icon size={32}>
+                                    <IconSprite name="arrowLeft" />
+                                </Icon>
                             </div>
                             <span className="--fivexs">{text('previous')}</span>
                         </div>
@@ -60,7 +63,9 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
                     <Link link={link('next')} title={title('next')}>
                         <div className="interaction-container">
                             <div className="circle">
-                                <Icon name="arrow-right" />
+                                <Icon size={32}>
+                                    <IconSprite name="arrowRight" />
+                                </Icon>
                             </div>
                             <span className="--fivexs">{text('next')}</span>
                         </div>

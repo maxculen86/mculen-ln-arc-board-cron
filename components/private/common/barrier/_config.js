@@ -2,22 +2,18 @@ import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 
 const CONFIG = {
     'delete-note': {
-        className: '--delete-note',
         title: '<strong>Borrar nota guardada</strong>',
         subTitle: 'La nota se eliminará del listado.',
         buttons: {
             cancel: {
-                label: 'cancelar',
-                style: '--secondary'
+                label: 'cancelar'
             },
             confirm: {
-                label: 'confimar',
-                style: '--primary'
+                label: 'confimar'
             }
         }
     },
     'exclusive-ln': {
-        className: '--exclusive-ln',
         title:
             'Para realizar esta acción adquirí una <strong> suscripción.</strong>',
         buttons: {

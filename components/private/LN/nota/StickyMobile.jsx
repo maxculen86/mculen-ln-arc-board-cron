@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/components/sticky-mobile.css';
+import { Icon } from '@ln/common-ui-icon';
+import { Button } from '@ln/contenidos-ui-button';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import Text from '../../common/text';
-import Icon from '../../common/icon';
 import ComLink from '../../common/com-link';
 import ModPicture from '../../common/mod-picture';
 import { handleClickForCTRcomponent } from '../../common/utils/noteTracker/ctrTracker';
@@ -32,15 +34,20 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
                 <Text font="arial" size="2xs" weight="bold" tag="h3">
                     {headerText}
                 </Text>
-                <div
+                <Button
                     onClick={() => {
                         setDisplaySticky(false);
                         handleClickForCTRcomponent('close');
                     }}
+                    iconOnly
+                    size="inherit"
                     aria-hidden="true"
+                    className="absolute top-0 right-0"
                 >
-                    <Icon name="close" size="--xs" />
-                </div>
+                    <Icon size={24}>
+                        <IconSprite name="close" />
+                    </Icon>
+                </Button>
             </div>
             <div
                 aria-hidden="true"

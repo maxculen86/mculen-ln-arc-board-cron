@@ -18,11 +18,6 @@ jest.mock('../../../../components/private/common/com-tag.jsx', () => props => (
     <div data-testid="com-tag-mock" {...props} />
 ));
 
-jest.mock(
-    '../../../../components/private/common/badge/Badge.jsx',
-    () => props => <div data-testid="com-badge-mock" {...props} />
-);
-
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;

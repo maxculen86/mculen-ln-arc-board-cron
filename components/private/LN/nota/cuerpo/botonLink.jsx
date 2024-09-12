@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import ComLink from '../../../common/com-link';
 import ComButton from '../../../common/com-button';
 import ComContainer from '../../../common/com-container';
@@ -7,16 +9,20 @@ import ComContainer from '../../../common/com-container';
 const BotonLink = ({ data }) => {
     const { url, content } = data || {};
 
+    const iconEnd = (
+        <Icon size={20}>
+            <IconSprite name="arrowRight" />
+        </Icon>
+    );
+
     return (
         <ComContainer classesNames="--button">
             {url && content ? (
                 <ComLink link={url} target="_blank" title={content}>
                     <ComButton
                         classesNames="--secondary"
-                        //classCondition="--compact"
-                        iconName="arrow-right"
-                        iconPosition="--right"
                         size="--fivexs"
+                        iconEnd={iconEnd}
                     >
                         {content.toUpperCase()}
                     </ComButton>

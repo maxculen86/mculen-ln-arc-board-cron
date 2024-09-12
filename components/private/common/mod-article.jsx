@@ -3,15 +3,17 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useContext, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import getMediaData from '../LN/common/utils/modArticleHelper';
+import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import { useAppContext } from 'fusion:context';
-import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import setArticleClassName from './utils/setArticleClassName';
-import ComButton from './com-button';
 import { GlobalContext } from './context/globalContext';
-import getMediaData from '../LN/common/utils/modArticleHelper';
+import '../../../resources/dist/css/ln/modules/mod-article.css';
 
 const ModArticle = forwardRef((props, ref) => {
     const {
@@ -158,7 +160,7 @@ const ModArticle = forwardRef((props, ref) => {
             />
 
             {isBookmark && (
-                <ComButton
+                <Button
                     onClick={() => {
                         dispatch({
                             type: 'SHOW_MODAL',
@@ -171,8 +173,15 @@ const ModArticle = forwardRef((props, ref) => {
                             }
                         });
                     }}
-                    iconName="bookmark-filled"
-                />
+                    title="Quitar de mis notas"
+                    variant="primary"
+                    size={32}
+                    iconOnly
+                >
+                    <Icon size={16}>
+                        <IconSprite name="bookmarkFilled" />
+                    </Icon>
+                </Button>
             )}
         </article>
     );

@@ -7,7 +7,7 @@ export const setupScroll = () => {
         categories.scrollLeft + categories.offsetWidth <
         categories.scrollWidth
     ) {
-        rightArrow.classList.remove('hlp-none');
+        rightArrow.classList.remove('none');
     }
     document.querySelector('#right-arrow').addEventListener('click', () => {
         const scrollPixel = categories.scrollLeft + 150;
@@ -16,17 +16,17 @@ export const setupScroll = () => {
             categories.scrollLeft + categories.offsetWidth >=
             categories.scrollWidth
         ) {
-            rightArrow.classList.add('hlp-none');
+            rightArrow.classList.add('none');
         }
-        leftArrow.classList.remove('hlp-none');
+        leftArrow.classList.remove('none');
     });
     document.querySelector('#left-arrow').addEventListener('click', () => {
         const scrollPixel = categories.scrollLeft - 150;
         categories.scroll({ left: scrollPixel, behavior: 'smooth' });
         if (categories.scrollLeft === 0) {
-            leftArrow.classList.add('hlp-none');
+            leftArrow.classList.add('none');
         }
-        rightArrow.classList.remove('hlp-none');
+        rightArrow.classList.remove('none');
     });
 };
 
