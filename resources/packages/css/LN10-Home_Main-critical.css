@@ -2961,9 +2961,6 @@
     text-align: left;
   }
 }
-.container-op.--focal-100 .title .lead {
-  display: block;
-}
 .container-op.--focal-100 .--0 .ln-card .media-container {
   overflow: visible;
 }
