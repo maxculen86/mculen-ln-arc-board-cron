@@ -1,12 +1,9 @@
 /* eslint-disable camelcase */
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadcrumbComponent from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 import getDomain from '../../../common/utils/getDomain';
-import get from '../../../common/utils/get';
-import getTooltip from '../../common/utils/getTooltip';
-import { GlobalContext } from '../../../common/context/globalContext';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     if (section) {
@@ -29,15 +26,10 @@ const BreadcrumbArticle = ({
     globalContent: {
         taxonomy: { primary_section, sections },
         website_url,
-        _id,
-        label,
-        owner
+        _id
     } = {},
     siteProperties: { title: siteTitle, host }
 }) => {
-    const gc = useContext(GlobalContext);
-    const siteService = get(gc, 'state.siteService', {});
-
     let allSections = [];
     if (primary_section) {
         getPrimaryTree(sections, primary_section, allSections);
@@ -48,10 +40,6 @@ const BreadcrumbArticle = ({
     });
     allSections = allSections.reverse();
     const domainForRecetas = getDomain({ _id, website_url });
-    const trust = get(label, 'trust.text', '');
-    const tooltip = getTooltip(trust, siteService);
-    const sponsored = get(owner, 'sponsored', false);
-    const advertiser = get(label, 'marca_anunciante.text', null);
 
     return (
         <>
@@ -60,7 +48,6 @@ const BreadcrumbArticle = ({
                 sections={allSections}
                 lastLinked
                 host={host}
-                tooltip={sponsored || advertiser ? null : tooltip}
             />
             <BreadCrumbSchema sections={allSections} host={domainForRecetas} />
         </>
@@ -75,14 +62,6 @@ BreadcrumbArticle.propTypes = {
         }).isRequired,
         website_url: PropTypes.string.isRequired,
         _id: PropTypes.string.isRequired,
-        label: PropTypes.shape({
-            trust: PropTypes.shape({
-                text: PropTypes.string
-            }),
-            marca_anunciante: PropTypes.shape({
-                text: PropTypes.string
-            })
-        }),
         siteService: PropTypes.shape({
             tooltips: PropTypes.arrayOf(
                 PropTypes.shape({
@@ -90,9 +69,6 @@ BreadcrumbArticle.propTypes = {
                     label: PropTypes.string
                 })
             )
-        }),
-        owner: PropTypes.shape({
-            sponsored: PropTypes.boolean
         })
     }).isRequired,
     siteProperties: PropTypes.shape({

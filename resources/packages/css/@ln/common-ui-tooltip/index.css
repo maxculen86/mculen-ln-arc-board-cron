@@ -80,3 +80,8 @@
   bottom: 50%;
   transform: rotate(135deg) translate(0, -50%);
 }
+
+.tooltip-sibling-hover:hover ~ .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
