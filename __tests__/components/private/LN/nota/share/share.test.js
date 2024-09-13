@@ -55,7 +55,8 @@ const props = {
             display_comments: true
         },
         first_publish_date: 'firstPublishDate',
-        subtype: ''
+        subtype: '',
+        promo_items: { glossary: {} }
     },
     requestUri: '/economia/dolar-hoy/'
 };

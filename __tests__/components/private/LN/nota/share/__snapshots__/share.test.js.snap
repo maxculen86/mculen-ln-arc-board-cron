@@ -16,7 +16,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
         >
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 ia --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -24,7 +24,15 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             title="IA"
             type="button"
           >
-            IA
+            <i
+              class="icon --icon-40 --inherit"
+            >
+              <mock-icon
+                default="true"
+                fill="#FFFFFF"
+                name="iaGeneric"
+              />
+            </i>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -198,7 +206,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 9 butto
           class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
         >
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 ia --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -206,7 +214,15 @@ exports[`components - private - LN - nota - share Snapshot - Should show 9 butto
             title="IA"
             type="button"
           >
-            IA
+            <i
+              class="icon --icon-40 --inherit"
+            >
+              <mock-icon
+                default="true"
+                fill="#FFFFFF"
+                name="iaGeneric"
+              />
+            </i>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -397,7 +413,7 @@ exports[`components - private - LN - nota - share Test click button bookmark 1`]
           class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
         >
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 ia --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -405,7 +421,15 @@ exports[`components - private - LN - nota - share Test click button bookmark 1`]
             title="IA"
             type="button"
           >
-            IA
+            <i
+              class="icon --icon-40 --inherit"
+            >
+              <mock-icon
+                default="true"
+                fill="#FFFFFF"
+                name="iaGeneric"
+              />
+            </i>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"

@@ -1,5 +1,5 @@
-/* eslint-disable react/require-default-props */
 import React, { useContext, useState } from 'react';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { VIAFOURA_UUID } from 'fusion:environment';
 import { Button } from '@ln/contenidos-ui-button';
@@ -11,7 +11,8 @@ import {
     scrollToComments,
     onButtonClicked,
     getClassAndIconByBookmark,
-    getFirstGroupClassNames
+    getFirstGroupClassNames,
+    isLN10IAHidden
 } from '../../../../private/LN/common/utils/shareHelper';
 import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
 import useFetch from '../../../../private/common/hooks/useFetch';
@@ -38,12 +39,16 @@ const BuildFirtsButtonsGroup = ({
     isValidSectionForMVP2Auth0
 } = {}) => {
     const { dispatch, state } = useContext(GlobalContext) || {};
+
+    const { renderables = [] } = useAppContext();
+
     const {
         _id: id,
         comments: { display_comments: displayComments = true } = {},
         first_publish_date: firstPublishDate,
         isListenable
     } = globalContent;
+
     const { data } = useFetch({
         url: conditionallyCallViafoura(firstPublishDate)
             ? `https://livecomments.viafoura.co/v4/livecomments/${VIAFOURA_UUID}/contentcontainer/id?container_id=${id}`
@@ -55,6 +60,7 @@ const BuildFirtsButtonsGroup = ({
             }
         }
     });
+
     const totalVisibleContent = get(data, 'total_visible_content', '');
     const accessToken = getToken('access-token');
 
@@ -64,26 +70,40 @@ const BuildFirtsButtonsGroup = ({
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
+    const glossary = get(globalContent, 'promo_items.glossary', null);
+    const isThermalGlossaryEnabled = useTermica('glosario');
+
+    const summary = get(globalContent, 'promo_items.summary', null);
+    const isThermalSummaryEnabled = useTermica('resumen_nota');
+
+    const showIAButton =
+        !isLN10IAHidden(renderables) &&
+        ((summary && isThermalSummaryEnabled) ||
+            (glossary && isThermalGlossaryEnabled));
+
     const classes = getFirstGroupClassNames({ subtypeVideo });
 
     const [isIaVisible, setIsIaVisible] = useState(false);
 
+    // TODO: Abstraer botones para que el componente sea más prolijo y modular
     return (
         <div className={classes.firstGroupClasses}>
-            {/*TODO: CAMBIAR BOTÓN POR EL DE IA */}
-            <Button
-                id="btnIA"
-                title="IA"
-                variant="secondary"
-                iconOnly
-                dataEvent="LinkClick"
-                dataSection="IA"
-                onClick={() => {
-                    handleIaToggle(isIaVisible, setIsIaVisible);
-                }}
-            >
-                IA
-            </Button>
+            {showIAButton && (
+                <Button
+                    id="btnIA"
+                    title="IA"
+                    variant="secondary"
+                    iconOnly
+                    dataEvent="LinkClick"
+                    dataSection="IA"
+                    className="ia"
+                    onClick={() => handleIaToggle(isIaVisible, setIsIaVisible)}
+                >
+                    <Icon size={40} color="inherit">
+                        <IconSprite name="iaGeneric" default fill="#FFFFFF" />
+                    </Icon>
+                </Button>
+            )}
             {showListenButton && (
                 <Button
                     id="btnAudio"

@@ -17,6 +17,7 @@ describe('Components - Features - LN-nota - share', () => {
     const globalContent = (isListenable, comments) => ({
         _id: '7ZDIHMQHDRDNNMJDSUWQXWPWZU',
         isListenable,
+        promo_items: { glossary: {} },
         comments: { display_comments: comments }
     });
     useFetch.mockImplementation(() => ({
@@ -83,6 +84,8 @@ describe('Components - Features - LN-nota - share', () => {
     });
 
     it('should run a snapshot', () => {
+        // TODO: Corregir Snapshots cuando se separen botones y cada uno tenga su termica asociada
+        useTermica.mockImplementation(() => true);
         const comp = render(
             <BuildFirtsButtonsGroup
                 termicaBookmark={true}
@@ -93,6 +96,7 @@ describe('Components - Features - LN-nota - share', () => {
     });
 
     it('should render IA button', () => {
+        useTermica.mockImplementation(() => true);
         render(<BuildFirtsButtonsGroup globalContent={globalContent()} />);
 
         expect(screen.getByTitle('IA')).toBeInTheDocument();
