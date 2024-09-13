@@ -10,17 +10,6 @@ import { getNewAcuElements } from '../AccumulatedSectionsV1/helper-api';
 class AccumulatedSectionsMobileV2 {
     constructor(props) {
         this.props = props;
-        const {
-            arcSite,
-            globalContent: { _id: id },
-            isAdmin,
-            customFields: {
-                size: sizeCf = 30,
-                page: pageCf = 1,
-                paramUrlId = 'params',
-                sections
-            }
-        } = props;
 
         this.apiData = {
             mobile: {
@@ -61,19 +50,20 @@ class AccumulatedSectionsMobileV2 {
                 categoryUri,
                 versionUri,
                 page,
-                size
+                size,
+                tag
             } = params;
 
             const indexAcu = this.apiData[categoryUri][versionUri];
 
             const acuData = {
                 tipoAcumulado: 1,
-                name: params.title,
+                name: title,
                 articles: newAcuArticlesSourceSection.content_elements,
                 paginator: newAcuArticlesSourceSection.next,
                 total: newAcuArticlesSourceSection.count,
-                configuration: params.configuration,
-                tag: params.tag
+                configuration: configuration,
+                tag
             };
 
             const transformedAcu = indexAcu(acuData);
