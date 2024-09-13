@@ -1,9 +1,6 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
-import browser from '../../../private/common/utils/browser';
-import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import get from '../../../private/common/utils/get';
-import nodeFetch from 'node-fetch';
 import calculatePaginationValue from '../../../../content/sources/utils/pageSource/acumulados/common/calculatePaginationValue';
 import acuTransformV2Format from '../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
 import { getNewAcuElements } from '../AccumulatedSectionsV1/helper-api';

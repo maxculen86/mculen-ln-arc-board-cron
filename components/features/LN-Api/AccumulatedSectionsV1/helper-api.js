@@ -115,7 +115,6 @@ export const getNewAcuElements = async (
                 const imageId = get(elem.promo_items.basic, '_id');
                 elem.promo_items.basic.auth = null;
                 isInApertura = true;
-                //elem.promo_items.basic.auth=await getAuthImage({imageId});
             }
             if (elem.promo_items) {
                 await setAuthPromoItem(elem.promo_items, arcSite);
