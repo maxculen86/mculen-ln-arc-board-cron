@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
@@ -11,6 +11,22 @@ import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
 const LnIa = ({ customFields: { hideSummary, hideGlossary } = {} }) => {
     const { globalContent } = useAppContext();
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleShowIa = data => {
+            setIsVisible(data?.show || false);
+        };
+
+        window.LN.observable.subscribe('showIa', handleShowIa);
+
+        return () => {
+            window.LN.observable.unsubscribe('showIa', handleShowIa);
+        };
+    }, []);
+
+    if (!isVisible) return null;
 
     const glossaryData = get(
         globalContent,

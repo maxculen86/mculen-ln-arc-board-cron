@@ -46,6 +46,17 @@ describe('features - LN-common - IA - default', () => {
                 }
             }
         });
+
+        window.LN = {
+            observable: {
+                subscribe: jest.fn((event, callback) => {
+                    if (event === 'showIa') {
+                        callback({ show: true });
+                    }
+                }),
+                unsubscribe: jest.fn()
+            }
+        };
     });
 
     afterEach(() => {

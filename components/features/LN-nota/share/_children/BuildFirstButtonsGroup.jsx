@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { VIAFOURA_UUID } from 'fusion:environment';
 import { Button } from '@ln/contenidos-ui-button';
@@ -22,6 +22,7 @@ import useTermica from '../../../../private/common/hooks/useTermica';
 import getToken from '../../../../private/common/utils/getToken';
 import classNames from 'classnames';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { handleIaToggle } from './helper';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -65,8 +66,24 @@ const BuildFirtsButtonsGroup = ({
 
     const classes = getFirstGroupClassNames({ subtypeVideo });
 
+    const [isIaVisible, setIsIaVisible] = useState(false);
+
     return (
         <div className={classes.firstGroupClasses}>
+            {/*TODO: CAMBIAR BOTÓN POR EL DE IA */}
+            <Button
+                id="btnIA"
+                title="IA"
+                variant="secondary"
+                iconOnly
+                dataEvent="LinkClick"
+                dataSection="IA"
+                onClick={() => {
+                    handleIaToggle(isIaVisible, setIsIaVisible);
+                }}
+            >
+                IA
+            </Button>
             {showListenButton && (
                 <Button
                     id="btnAudio"

@@ -9,6 +9,17 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
         class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
       >
         <button
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+          data-event="LinkClick"
+          data-section="IA"
+          data-variant="secondary"
+          id="btnIA"
+          title="IA"
+          type="button"
+        >
+          IA
+        </button>
+        <button
           class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-blue-500 text-light-0 h-40 w-40 p-12 l-none --primary"
           data-event="LinkClick"
           data-section="Escuchar Nota"
@@ -72,6 +83,17 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
     <div
       class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
     >
+      <button
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+        data-event="LinkClick"
+        data-section="IA"
+        data-variant="secondary"
+        id="btnIA"
+        title="IA"
+        type="button"
+      >
+        IA
+      </button>
       <button
         class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-blue-500 text-light-0 h-40 w-40 p-12 l-none --primary"
         data-event="LinkClick"

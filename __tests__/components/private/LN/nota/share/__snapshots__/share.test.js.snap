@@ -16,6 +16,17 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
         >
           <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+            data-event="LinkClick"
+            data-section="IA"
+            data-variant="secondary"
+            id="btnIA"
+            title="IA"
+            type="button"
+          >
+            IA
+          </button>
+          <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
             data-event="LinkClick"
             data-section="Guardar Nota"
@@ -171,7 +182,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
 </div>
 `;
 
-exports[`components - private - LN - nota - share Snapshot - Should show 8 buttons  1`] = `
+exports[`components - private - LN - nota - share Snapshot - Should show 9 buttons  1`] = `
 <div>
   <div
     class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
@@ -186,6 +197,17 @@ exports[`components - private - LN - nota - share Snapshot - Should show 8 butto
         <div
           class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
         >
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+            data-event="LinkClick"
+            data-section="IA"
+            data-variant="secondary"
+            id="btnIA"
+            title="IA"
+            type="button"
+          >
+            IA
+          </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
             data-event="LinkClick"
@@ -374,6 +396,17 @@ exports[`components - private - LN - nota - share Test click button bookmark 1`]
         <div
           class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
         >
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
+            data-event="LinkClick"
+            data-section="IA"
+            data-variant="secondary"
+            id="btnIA"
+            title="IA"
+            type="button"
+          >
+            IA
+          </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
             data-event="LinkClick"

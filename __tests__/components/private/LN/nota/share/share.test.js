@@ -110,9 +110,9 @@ describe('components - private - LN - nota - share', () => {
         component = null;
     });
 
-    test('Snapshot - Should show 8 buttons ', () => {
+    test('Snapshot - Should show 9 buttons ', () => {
         const { container } = component;
-        expect(screen.getAllByRole('button').length).toStrictEqual(9);
+        expect(screen.getAllByRole('button').length).toStrictEqual(10);
         expect(container).toMatchSnapshot();
     });
 
@@ -275,7 +275,7 @@ describe('Note display comment in false ', () => {
     });
     test('Matches snapshot when the note is not comments', () => {
         const { container } = render(<Share />);
-        expect(screen.getAllByRole('button').length).toStrictEqual(8);
+        expect(screen.getAllByRole('button').length).toStrictEqual(9);
         expect(container).toMatchSnapshot();
     });
 });

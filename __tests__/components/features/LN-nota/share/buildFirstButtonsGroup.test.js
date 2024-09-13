@@ -24,10 +24,12 @@ describe('Components - Features - LN-nota - share', () => {
             total_visible_content: 1
         }
     }));
+
     it('should call useFetch hook in component', () => {
         render(<BuildFirtsButtonsGroup globalContent={globalContent()} />);
         expect(useFetch).toBeCalledTimes(1);
     });
+
     it('should not render isListenable button if termica returns true', () => {
         useTermica.mockImplementation(() => true);
 
@@ -39,7 +41,7 @@ describe('Components - Features - LN-nota - share', () => {
 
         expect(useTermica).toHaveBeenCalledWith('hide_listening_articles');
         expect(screen.queryByText('escuchar')).not.toBeInTheDocument();
-        expect(screen.queryByRole('button')).not.toBeInTheDocument();
+        expect(screen.queryByTitle('Escuchar nota')).not.toBeInTheDocument();
     });
 
     it('should render isListenable button', () => {
@@ -52,11 +54,9 @@ describe('Components - Features - LN-nota - share', () => {
         );
 
         expect(useTermica).toHaveBeenCalled();
-        expect(screen.getByTitle('Escuchar nota')).toBeInTheDocument();
-        expect(screen.getByRole('button')).toHaveAttribute(
-            'title',
-            'Escuchar nota'
-        );
+        const listenButton = screen.getByTitle('Escuchar nota');
+        expect(listenButton).toBeInTheDocument();
+        expect(listenButton).toHaveAttribute('title', 'Escuchar nota');
     });
 
     it('should render bookmark button', () => {
@@ -66,12 +66,10 @@ describe('Components - Features - LN-nota - share', () => {
                 globalContent={globalContent(false, false)}
             />
         );
-        expect(screen.getByRole('button')).toHaveAttribute(
-            'title',
-            'Notas guardadas'
-        );
+        expect(screen.getByTitle('Notas guardadas')).toBeInTheDocument();
         expect(container.querySelector('i')).toBeInTheDocument();
     });
+
     it('should render comments button', () => {
         render(
             <BuildFirtsButtonsGroup
@@ -79,11 +77,11 @@ describe('Components - Features - LN-nota - share', () => {
             />
         );
         expect(screen.getByText('1')).toBeInTheDocument();
-        expect(screen.getByRole('button')).toHaveAttribute(
-            'title',
-            'Ir a los comentarios de la nota'
-        );
+        expect(
+            screen.getByTitle('Ir a los comentarios de la nota')
+        ).toBeInTheDocument();
     });
+
     it('should run a snapshot', () => {
         const comp = render(
             <BuildFirtsButtonsGroup
@@ -92,5 +90,11 @@ describe('Components - Features - LN-nota - share', () => {
             />
         );
         expect(comp).toMatchSnapshot();
+    });
+
+    it('should render IA button', () => {
+        render(<BuildFirtsButtonsGroup globalContent={globalContent()} />);
+
+        expect(screen.getByTitle('IA')).toBeInTheDocument();
     });
 });
