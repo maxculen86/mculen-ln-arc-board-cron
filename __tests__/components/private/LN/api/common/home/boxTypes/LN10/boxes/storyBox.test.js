@@ -86,7 +86,7 @@ describe('storyBox LN10', () => {
                         parametros: []
                     },
                     videoYouTube: null,
-                    embed: null
+                    embed: ''
                 }
             ]
         });
