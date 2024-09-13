@@ -36,31 +36,23 @@ const defaultButtons = [
     }
 ];
 
+const defaultConfig = {
+    observerSelector: '.header-sentinel',
+    className: defaultClassName,
+    buttons: defaultButtons
+};
+
 export const floatingButtonConfig = {
-    [layoutsName.FooditHome]: {
-        observerSelector: '.header-sentinel',
-        className: defaultClassName,
-        buttons: defaultButtons
-    },
-    [layoutsName.FooditFichaReceta]: {
-        observerSelector: '.recipe',
-        className: defaultClassName,
-        buttons: defaultButtons
-    },
-    [layoutsName.FooditFichaNota]: {
-        observerSelector: '.note-article-container',
-        className: defaultClassName,
-        buttons: defaultButtons
-    },
-    [layoutsName.FooditAcumulado]: {
-        observerSelector: '.card',
-        className: defaultClassName,
-        buttons: defaultButtons
-    },
+    [layoutsName.FooditHome]: defaultConfig,
+    [layoutsName.FooditFichaReceta]: defaultConfig,
+    [layoutsName.FooditFichaNota]: defaultConfig,
+    [layoutsName.FooditAcumulado]: defaultConfig,
+    [layoutsName.FooditAcumuladoChef]: defaultConfig,
+    [layoutsName.FooditChef]: defaultConfig,
     [layoutsName.FooditRecetario]: (callbacks = []) => {
         const [toggleDrawer = () => null] = callbacks;
         return {
-            observerSelector: FLOATING_BUTTON_SENTINEL,
+            observerSelector: '.header-sentinel',
             className: 'sm-only',
             buttons: [
                 {
@@ -70,16 +62,6 @@ export const floatingButtonConfig = {
                 }
             ]
         };
-    },
-    [layoutsName.FooditAcumuladoChef]: {
-        observerSelector: FLOATING_BUTTON_SENTINEL,
-        className: defaultClassName,
-        buttons: defaultButtons
-    },
-    [layoutsName.FooditChef]: {
-        observerSelector: FLOATING_BUTTON_SENTINEL,
-        className: defaultClassName,
-        buttons: defaultButtons
     }
 };
 

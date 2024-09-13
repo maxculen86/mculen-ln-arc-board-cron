@@ -41,7 +41,9 @@ const HeaderFoodit = () => {
         layoutsName.FooditRecetario,
         layoutsName.FooditAcumulado,
         layoutsName.FooditListadoCompras,
-        layoutsName.FooditAcumuladoChef
+        layoutsName.FooditAcumuladoChef,
+        layoutsName.FooditRecipePaywall,
+        layoutsName.FooditChef
     ];
 
     const showSubheaderInSheet = layoutSheets.includes(layout) && isOpen;
@@ -50,6 +52,7 @@ const HeaderFoodit = () => {
     const marginByLayouts = {
         [layoutsName.FooditHome]: 'mb-12 mb-40_lg',
         [layoutsName.FooditFichaReceta]: 'mb-12 mb-40_lg',
+        [layoutsName.FooditRecipePaywall]: 'mb-12 mb-40_lg',
         [layoutsName.FooditFichaNota]: 'mb-0',
         default: 'mb-40'
     };
