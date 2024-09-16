@@ -1,7 +1,7 @@
 import { useAppContext } from 'fusion:context';
+import { useContent } from 'fusion:content';
 import getTitleText from './getTitleText';
 import filter from '../../../../content/filters/LN/acumulado/articleAcuTitles';
-import useGetArticlesFromAcumSource from '../../LN/common/hooks/useGetArticlesFromAcumSource';
 import get from './get';
 
 export const extractDataFromTags = payload => {
@@ -92,20 +92,27 @@ const useGetMetaDescriptionForAcum = (
     const { globalContent = {} } = useAppContext();
     const { expertise = '' } = globalContent;
     const { tagId } = extractDataFromTags(payload);
-    const articles = useGetArticlesFromAcumSource({
-        typesOfQuery: {
-            sectionId: nodeType === 'section' ? _id : null,
-            authorId: nodeType === 'author' ? _id : null,
-            distributorId: nodeType === 'distributor' ? name : null,
-            tagId: nodeType === 'tags' ? tagId : null
+
+    const typesOfQuery = {
+        sectionId: nodeType === 'section' ? _id : null,
+        authorId: nodeType === 'author' ? _id : null,
+        distributorId: nodeType === 'distributor' ? name : null,
+        tagId: nodeType === 'tags' ? tagId : null
+    };
+
+    const contentElements = useContent({
+        source: 'acuArticlesSourceV2',
+        query: {
+            ...typesOfQuery,
+            size: 2,
+            type: 'acumulado',
+            website: arcSite
         },
         filter,
-        imageConfig: 'm',
-        size: 2,
-        type: 'acumulado',
-        _website: arcSite
+        staticMode: true
     });
 
+    const articles = get(contentElements, 'content_elements', []);
     const articlesTitles = articles.map(
         art => ` ${getTitleText(art.headlines)}`
     );

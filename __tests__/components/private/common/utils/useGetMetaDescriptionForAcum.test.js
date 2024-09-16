@@ -1,5 +1,5 @@
 import Context from 'fusion:context';
-import useGetArticlesFromAcumSource from '../../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource';
+import { useContent } from 'fusion:content';
 import useGetMetaDescriptionForAcum, {
     isInPVS,
     extractDataFromTags
@@ -28,15 +28,19 @@ const mockArticles = [
     }
 ];
 
-jest.mock(
-    '../../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource',
-    () => jest.fn()
-);
-
-useGetArticlesFromAcumSource.mockImplementation(() => mockArticles);
+jest.mock('fusion:content', () => ({
+    useContent: jest.fn()
+}));
 
 describe('Components - private - common - utils - useGetMetaDescriptionForAcum', () => {
-    describe('useGetMetaDescriptionForAcum should return the correct description according the acu', () => {
+    describe('useGetMetaDescriptionForAcum should return the correct description according to acu', () => {
+        beforeEach(() => {
+            // Mock useContent to return mockArticles for all calls
+            useContent.mockImplementation(() => ({
+                content_elements: mockArticles
+            }));
+        });
+
         it('useGetMetaDescriptionForAcum for acu author with expertise areas', () => {
             Context.useAppContext = jest.fn(() => ({
                 globalContent: {
@@ -60,6 +64,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
                 'Accedé a todas las publicaciones de Javier Blanco para La Nación. Columnista de Politica. Ingresá a su perfil en esta página.'
             );
         });
+
         it('useGetMetaDescriptionForAcum for acu author without expertise areas', () => {
             Context.useAppContext = jest.fn(() => ({
                 globalContent: {}
@@ -142,6 +147,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
                 )
             ).toBe(description);
         });
+
         it('useGetMetaDescriptionForAcum for receta', () => {
             Context.useAppContext = jest.fn(() => ({
                 globalContent: {}
@@ -168,6 +174,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
             }));
             const description = 'Ultimas noticias de economia:';
             const _id = '/economia';
+
             expect(
                 useGetMetaDescriptionForAcum(
                     description,
@@ -181,6 +188,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
             ).toBe(
                 'Ultimas noticias de economia: ¿La jubilación mínima le gana a la inflación?, Tras el viaje de Massa a EE.UU., el Gobierno ultima detalles sobre abastecimiento energético'
             );
+
             expect(
                 useGetMetaDescriptionForAcum(
                     undefined,
@@ -213,6 +221,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
                 'Encontrá las últimas noticias de Lionel Messi:';
             const _id =
                 'e94f3981d06f2b9137192843b344673ec72c21de22ee74c0d96098c083f695cb';
+
             expect(
                 useGetMetaDescriptionForAcum(
                     description,
@@ -232,7 +241,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
             Context.useAppContext = jest.fn(() => ({
                 globalContent: {}
             }));
-            useGetArticlesFromAcumSource.mockImplementation(() => []);
+            useContent.mockImplementation(() => []);
             expect(
                 useGetMetaDescriptionForAcum(
                     undefined,
@@ -256,6 +265,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
             expect(isInPVS()).toBe(false);
             expect(isInPVS('/')).toBe(false);
         });
+
         it('Check extractDataFromTags function', () => {
             const payload = {
                 items: [
