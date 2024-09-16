@@ -7,18 +7,38 @@ import BuildRoof from '../utils/_BuildRoof/default';
 import { useRoofData } from '../utils/_helpers';
 import config from '../../../properties/sites/la-nacion-ar';
 import GameEventScript from '../../private/common/scriptManager/GameEventsScript';
+import { typesButtonStyle } from '../utils/setCommonCustomFields';
+
+import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
 const { layoutsName = {} } = config || {};
 
 const CajaJuegos = ({ customFields, children }) => {
     const { globalContent = {}, layout } = useAppContext() || {};
-    const { logoId, link, hideTitle, hideCaja, title } = customFields;
+    const {
+        logoId,
+        link,
+        hideTitle,
+        hideCaja,
+        title,
+        navigator,
+        buttonLogo,
+        buttonText,
+        linkButton,
+        buttonStyle
+    } = customFields;
 
     const roofData = useRoofData({
         logoId,
         link,
         hideTitle,
-        title
+        hideCaja,
+        title,
+        navigator,
+        buttonLogo,
+        buttonText,
+        linkButton,
+        buttonStyle
     });
 
     const shouldShowGame =
@@ -73,6 +93,43 @@ CajaJuegos.propTypes = {
             name: 'Ocultar Caja',
             description: 'Marque para ocultar la caja',
             defaultValue: false,
+            hidden: false
+        }),
+        navigator: PropTypes.string.tag({
+            name: 'Navegador',
+            description:
+                'Ingrese aquí el nombre de una navegación creada en site services',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        buttonLogo: PropTypes.string.tag({
+            name: 'Logo Boton',
+            description: 'Ingrese aquí el id del botón',
+            defaultValue: '',
+            group: 'Techo',
+            hidden: false
+        }),
+        buttonText: PropTypes.string.tag({
+            name: 'Texto del botón',
+            description: 'Ingrese aquí el texto del botón',
+            defaultValue: '',
+            group: 'Techo',
+            hidden: false
+        }),
+        linkButton: PropTypes.string.tag({
+            name: 'Url del botón',
+            description:
+                'Ingrese la url que redirige al hacer click al botón. El formato debe empezar con https://',
+            defaultValue: '',
+            group: 'Techo',
+            hidden: false
+        }),
+        buttonStyle: PropTypes.oneOf(Object.keys(typesButtonStyle)).tag({
+            label: 'Estilo del boton',
+            defaultValue: 'generic',
+            description: 'Cambiar el diseño de la caja',
+            group: 'Techo',
+            labels: typesButtonStyle,
             hidden: false
         })
     })
