@@ -41,7 +41,7 @@ const getMetasOG = props => {
 
     const metas = [
         {
-            property: 'fb_app_id',
+            property: 'fb:app_id',
             content: data.fbAppId
         },
         {
@@ -72,15 +72,15 @@ const getMetasOG = props => {
         },
         {
             property: 'og:image',
-            content: data.image
+            content: data.image.url
         },
         {
             property: 'og:image:width',
-            content: '512'
+            content: data.image.width
         },
         {
             property: 'og:image:height',
-            content: '768'
+            content: data.image.height
         },
         {
             property: 'og:url',
@@ -111,7 +111,7 @@ const getMetasOG = props => {
 
     metas.push({
         property: 'twitter:image',
-        content: data.image
+        content: data.image.url
     });
 
     return metas;

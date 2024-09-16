@@ -4,7 +4,8 @@ import {
     setMetaDescription,
     getData,
     validateTitle,
-    getDescription
+    getDescription,
+    getImageProps
 } from '../../../../../components/private/common/utils/getMetasOGHelper';
 
 jest.mock('fusion:context', () => ({
@@ -228,8 +229,12 @@ describe('Case return getData', () => {
             title: 'Arroz chaufa de mariscos',
             description: '',
             displayDate: '2021-01-08T15:24:00.940Z',
-            image:
-                'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
+            image: {
+                url:
+                    'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
+                width: '768',
+                height: '512'
+            },
             url:
                 'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
             fbAppId: '154042854349421',
@@ -262,7 +267,11 @@ describe('Case return getData', () => {
             type: 'website',
             title: 'La Nacion',
             description: 'Ultimas noticias de Argentina y el mundo',
-            image: 'undefined$LATEST',
+            image: {
+                url: 'undefined$LATEST',
+                width: '192',
+                height: '192'
+            },
             url: 'https://www.lanacion.com.arEZYG5OEVH5HSJJCUMJO5XAHTTA/',
             fbAppId: '154042854349421',
             isArticle: false,
@@ -290,12 +299,54 @@ describe('Case return getData', () => {
         expect(getData(props)).toStrictEqual({
             description: undefined,
             fbAppId: '',
-            image: 'undefined$LATEST',
+            image: {
+                url: 'undefined$LATEST',
+                width: '192',
+                height: '192'
+            },
             isArticle: false,
             subtype: undefined,
             title: 'Noticias en La Nacion',
             type: 'website',
             url: 'https://www.lanacion.com.ar'
         });
+    });
+});
+
+describe('Case return getImageProps', () => {
+    it('if acuOgImage object exists', () => {
+        const acuOgImg = {
+            url:
+                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+            height: '800',
+            width: '800'
+        };
+
+        expect(getImageProps(acuOgImg, {}, '')).toEqual(acuOgImg);
+    });
+
+    it('if acuOgImage object does not exist and promoItemsBasic exists', () => {
+        const promoItemsBasic = {
+            url:
+                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+            type: 'image',
+            height: '800',
+            width: '800'
+        };
+        const output = {
+            url: promoItemsBasic.url,
+            width: '768',
+            height: '512'
+        };
+        expect(getImageProps({}, promoItemsBasic, '')).toEqual(output);
+    });
+
+    it('by default, it returns the placeholder', () => {
+        const output = {
+            url: 'placeholder',
+            width: '192',
+            height: '192'
+        };
+        expect(getImageProps({}, {}, 'placeholder')).toEqual(output);
     });
 });

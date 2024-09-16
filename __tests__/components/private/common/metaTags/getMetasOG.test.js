@@ -96,7 +96,7 @@ describe('Metas OTT', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: ''
             },
             {
@@ -121,11 +121,11 @@ describe('Metas OTT', () => {
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '192'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '192'
             },
             {
                 property: 'og:url',
@@ -207,7 +207,7 @@ describe('Common - getMetasOG function', () => {
         };
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -228,11 +228,11 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '768'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '512'
             },
             {
                 property: 'og:url',
@@ -287,7 +287,7 @@ describe('Common - getMetasOG function', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -310,11 +310,11 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '192'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '192'
             },
             {
                 property: 'og:url',
@@ -367,7 +367,7 @@ describe('Common - getMetasOG function', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -390,11 +390,11 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '192'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '192'
             },
             {
                 property: 'og:url',
@@ -467,7 +467,7 @@ describe('Metas home', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -490,11 +490,11 @@ describe('Metas home', () => {
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '192'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '192'
             },
             {
                 property: 'og:url',

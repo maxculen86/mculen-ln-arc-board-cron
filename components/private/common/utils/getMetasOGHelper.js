@@ -4,6 +4,7 @@ import getDomain from './getDomain';
 import { getSectionOfRequestUri } from './outputTypeHelper';
 import get from './get';
 import transformISODate from './transformISODate';
+import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
 
 export const getAppId = siteProperties =>
@@ -36,6 +37,22 @@ export const getUrl = (url, domain) => {
 export const validateTitle = (section, longTitle, titleDefault) =>
     section === 'home' ? longTitle : titleDefault;
 
+export const getImageProps = (acuOgImg, promoItemsBasic, placeholder) => {
+    if (acuOgImg?.url) {
+        const { url, height = '', width = '' } = acuOgImg;
+        return { url, height, width };
+    }
+
+    if (!isEmptyObject(promoItemsBasic)) {
+        const { type, url } = promoItemsBasic;
+        if (type === 'image') {
+            return { url, height: '512', width: '768' };
+        }
+    }
+
+    return { url: placeholder, height: '192', width: '192' };
+};
+
 export const getData = ({
     siteProperties,
     metaValue,
@@ -63,7 +80,7 @@ export const getData = ({
         _id,
         publish_date: publishDate,
         subtype,
-        acuOgImg = '',
+        acuOgImg = {},
         display_date: displayDate = '',
         first_publish_date: firstPublishDate = '',
         last_updated_date: lastUpdatedDate = ''
@@ -72,9 +89,7 @@ export const getData = ({
     const { basic: headlinesBasic } = headlines;
     const { basic: subheadlinesBasic } = subheadlines;
     const { basic: promoItemsBasic = {} } = promoItems;
-    const { type: typeBasicPI, url: urlBasicPI } = promoItemsBasic;
 
-    const pathImagen = urlBasicPI;
     const url = canonicalUrl || _id;
     const description = getDescription({
         isArticle,
@@ -91,9 +106,7 @@ export const getData = ({
             : metaValue('title') ||
               validateTitle(section, longTitle, titleDefault),
         description,
-        image:
-            acuOgImg.url ||
-            (typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER),
+        image: getImageProps(acuOgImg, promoItemsBasic, PLACEHOLDER),
         url: getUrl(url, domain),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,

@@ -43,7 +43,7 @@ export const MetaFoodit = ({
             content: descriptionMeta
         },
         {
-            property: 'fb_app_id',
+            property: 'fb:app_id',
             content: getAppId(siteProperties) || ''
         },
         {
