@@ -20,10 +20,14 @@ import {
 import setRender from '../utils/setRender';
 import {
     setSlicedChildren,
-    setQuantityByLayout
+    setQuantityByLayout,
+    LAYOUTS
 } from '../utils/common/_helpers-WebApi';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
+import { reorderArticlesWithTimeline } from '../utils/reorderArticlesWithTimeline';
+
+const { FOCAL_LEFT } = LAYOUTS;
 
 const CajaApertura = props => {
     const {
@@ -46,6 +50,8 @@ const CajaApertura = props => {
         callbackValidation: isInOpening =>
             validateChain(childProps, layout, isInOpening)
     });
+
+    const isFocalLeft = layout === FOCAL_LEFT;
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -104,7 +110,12 @@ const CajaApertura = props => {
                         {...viewabilityData}
                         focalType={layout}
                     >
-                        {slicedChildren}
+                        {isFocalLeft
+                            ? reorderArticlesWithTimeline(
+                                  slicedChildren,
+                                  childProps
+                              )
+                            : slicedChildren}
                     </Opening>
                     {bannerMob}
                 </>
