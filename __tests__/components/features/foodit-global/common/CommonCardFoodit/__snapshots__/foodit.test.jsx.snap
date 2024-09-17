@@ -3,7 +3,7 @@
 exports[`CommonCardFoodit should render the card with the correct data 1`] = `
 <div>
   <article
-    class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+    class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
     data-test-id="card-recipe-undefined-TDEG3VTIAFEW7BKS676OUVQAVE"
     data-variant="recipe"
   >
@@ -42,7 +42,7 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
         </span>
       </div>
       <div
-        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
+        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
       >
         <div
           class="flex flex-column gap-12"

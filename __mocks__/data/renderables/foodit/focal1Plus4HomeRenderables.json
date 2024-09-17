@@ -1,0 +1,882 @@
+[
+    {
+        "collection": "layouts",
+        "type": "Foodit-home",
+        "props": {
+            "collection": "layouts",
+            "type": "Foodit-home",
+            "id": "Foodit-home",
+            "childProps": [
+                {
+                    "collection": "sections",
+                    "id": 0
+                },
+                {
+                    "collection": "sections",
+                    "id": 1
+                },
+                {
+                    "collection": "sections",
+                    "id": 2
+                }
+            ]
+        },
+        "children": [
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 0
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "foodit_Caja_Apertura",
+                        "props": {
+                            "collection": "chains",
+                            "type": "foodit_Caja_Apertura",
+                            "id": "c0f65IHCThFrlx",
+                            "name": null,
+                            "customFields": {
+                                "idCollection": "",
+                                "layout": "bn_1_4_grid",
+                                "initialPosition": 1,
+                                "title": "",
+                                "link": ""
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": [
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0fujPmnOyutm2Tj",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                                        "isDayRecipe": false
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0fRWbWvSCIuXg",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "QYAPJRHQAVAZLKJO5KGT62M4DM",
+                                        "isDayRecipe": false,
+                                        "pbInternal_cloneId": "f0fRWbWvSCIuXg"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0frJI4cdQDtsi",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "X6GVLFEV6BF77PREHQOEH3AVBI",
+                                        "isDayRecipe": true,
+                                        "pbInternal_cloneId": "f0frJI4cdQDtsi"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0fQbNbQ4S9A1XQ",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "G3RXP4QNH5HWRJ664Y5OACWV24",
+                                        "isDayRecipe": false,
+                                        "pbInternal_cloneId": "f0fQbNbQ4S9A1XQ"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0fOtSF1xJRtJH",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "FJ5UOR2HONA5RGOM226UQF24MI",
+                                        "isDayRecipe": false,
+                                        "pbInternal_cloneId": "f0fOtSF1xJRtJH"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 1
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "foodit_Caja_Manual",
+                        "props": {
+                            "collection": "chains",
+                            "type": "foodit_Caja_Manual",
+                            "id": "c0fT6wwOKkwd6rH",
+                            "name": null,
+                            "customFields": {
+                                "idCollection": "",
+                                "layout": "bn_2_grid",
+                                "initialPosition": 1,
+                                "title": "",
+                                "link": ""
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": [
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0fNlLh3Be6e6vA",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "IDEDE5L2YZB7ZMS3QLBZMAYXJM"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0f4Diz2Uy1e6NR",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "GHNN6DCX5ZA2LH22L2QGFTPEZM"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 2
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "foodit_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "foodit_Caja_Collection",
+                            "id": "c0fbxLokbJSo6mE",
+                            "name": null,
+                            "customFields": {
+                                "idCollection": "7NGXR5R46VBZNHQRIKTUXA6OVE",
+                                "layout": "carousel",
+                                "initialPosition": 1,
+                                "title": "",
+                                "link": ""
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "foodit_Caja_Apertura",
+                "props": {
+                    "collection": "chains",
+                    "type": "foodit_Caja_Apertura",
+                    "id": "c0f65IHCThFrlx",
+                    "name": null,
+                    "customFields": {
+                        "idCollection": "",
+                        "layout": "bn_1_4_grid",
+                        "initialPosition": 1,
+                        "title": "",
+                        "link": ""
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fujPmnOyutm2Tj",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                                "isDayRecipe": false
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fRWbWvSCIuXg",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "QYAPJRHQAVAZLKJO5KGT62M4DM",
+                                "isDayRecipe": false,
+                                "pbInternal_cloneId": "f0fRWbWvSCIuXg"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0frJI4cdQDtsi",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "X6GVLFEV6BF77PREHQOEH3AVBI",
+                                "isDayRecipe": true,
+                                "pbInternal_cloneId": "f0frJI4cdQDtsi"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fQbNbQ4S9A1XQ",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "G3RXP4QNH5HWRJ664Y5OACWV24",
+                                "isDayRecipe": false,
+                                "pbInternal_cloneId": "f0fQbNbQ4S9A1XQ"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fOtSF1xJRtJH",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "FJ5UOR2HONA5RGOM226UQF24MI",
+                                "isDayRecipe": false,
+                                "pbInternal_cloneId": "f0fOtSF1xJRtJH"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "foodit_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "foodit_Caja_Manual",
+                    "id": "c0fT6wwOKkwd6rH",
+                    "name": null,
+                    "customFields": {
+                        "idCollection": "",
+                        "layout": "bn_2_grid",
+                        "initialPosition": 1,
+                        "title": "",
+                        "link": ""
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fNlLh3Be6e6vA",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "IDEDE5L2YZB7ZMS3QLBZMAYXJM"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0f4Diz2Uy1e6NR",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "GHNN6DCX5ZA2LH22L2QGFTPEZM"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "foodit_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "foodit_Caja_Collection",
+                    "id": "c0fbxLokbJSo6mE",
+                    "name": null,
+                    "customFields": {
+                        "idCollection": "7NGXR5R46VBZNHQRIKTUXA6OVE",
+                        "layout": "carousel",
+                        "initialPosition": 1,
+                        "title": "",
+                        "link": ""
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "chains",
+        "type": "foodit_Caja_Apertura",
+        "props": {
+            "collection": "chains",
+            "type": "foodit_Caja_Apertura",
+            "id": "c0f65IHCThFrlx",
+            "name": null,
+            "customFields": {
+                "idCollection": "",
+                "layout": "bn_1_4_grid",
+                "initialPosition": 1,
+                "title": "",
+                "link": ""
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fujPmnOyutm2Tj",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                        "isDayRecipe": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fRWbWvSCIuXg",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "QYAPJRHQAVAZLKJO5KGT62M4DM",
+                        "isDayRecipe": false,
+                        "pbInternal_cloneId": "f0fRWbWvSCIuXg"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0frJI4cdQDtsi",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "X6GVLFEV6BF77PREHQOEH3AVBI",
+                        "isDayRecipe": true,
+                        "pbInternal_cloneId": "f0frJI4cdQDtsi"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fQbNbQ4S9A1XQ",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "G3RXP4QNH5HWRJ664Y5OACWV24",
+                        "isDayRecipe": false,
+                        "pbInternal_cloneId": "f0fQbNbQ4S9A1XQ"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fOtSF1xJRtJH",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "FJ5UOR2HONA5RGOM226UQF24MI",
+                        "isDayRecipe": false,
+                        "pbInternal_cloneId": "f0fOtSF1xJRtJH"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fujPmnOyutm2Tj",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                "isDayRecipe": false
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fRWbWvSCIuXg",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "QYAPJRHQAVAZLKJO5KGT62M4DM",
+                "isDayRecipe": false,
+                "pbInternal_cloneId": "f0fRWbWvSCIuXg"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0frJI4cdQDtsi",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "X6GVLFEV6BF77PREHQOEH3AVBI",
+                "isDayRecipe": true,
+                "pbInternal_cloneId": "f0frJI4cdQDtsi"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fQbNbQ4S9A1XQ",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "G3RXP4QNH5HWRJ664Y5OACWV24",
+                "isDayRecipe": false,
+                "pbInternal_cloneId": "f0fQbNbQ4S9A1XQ"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fOtSF1xJRtJH",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "FJ5UOR2HONA5RGOM226UQF24MI",
+                "isDayRecipe": false,
+                "pbInternal_cloneId": "f0fOtSF1xJRtJH"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "foodit_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "foodit_Caja_Manual",
+            "id": "c0fT6wwOKkwd6rH",
+            "name": null,
+            "customFields": {
+                "idCollection": "",
+                "layout": "bn_2_grid",
+                "initialPosition": 1,
+                "title": "",
+                "link": ""
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fNlLh3Be6e6vA",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "IDEDE5L2YZB7ZMS3QLBZMAYXJM"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0f4Diz2Uy1e6NR",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "GHNN6DCX5ZA2LH22L2QGFTPEZM"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fNlLh3Be6e6vA",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "IDEDE5L2YZB7ZMS3QLBZMAYXJM"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0f4Diz2Uy1e6NR",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "GHNN6DCX5ZA2LH22L2QGFTPEZM"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "foodit_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "foodit_Caja_Collection",
+            "id": "c0fbxLokbJSo6mE",
+            "name": null,
+            "customFields": {
+                "idCollection": "7NGXR5R46VBZNHQRIKTUXA6OVE",
+                "layout": "carousel",
+                "initialPosition": 1,
+                "title": "",
+                "link": ""
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    }
+]

@@ -10,7 +10,7 @@ import RoofFoodit from '../../features/foodit-global/common/RoofFoodit/foodit';
 import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
 
 import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
-import fooditRules from '../../features/foodit-global/common/utils/fooditRules';
+import RenderManualBox from '../foodit-global/common/RenderManualBox/foodit';
 
 const CajaManual = props => {
     const {
@@ -30,8 +30,6 @@ const CajaManual = props => {
     } = customFields;
 
     const error = validateCajaManual(layout, childProps);
-
-    const { classNameParent } = fooditRules(layout);
 
     const cards = setSlicedChildren({
         config: { layout },
@@ -53,7 +51,7 @@ const CajaManual = props => {
                                 hide={hideTitle}
                                 linkProps={{ href: link, text: title }}
                             />
-                            <div className={classNameParent}>{cards}</div>
+                            <RenderManualBox layout={layout} cards={cards} />
                         </div>
                     )
                 }

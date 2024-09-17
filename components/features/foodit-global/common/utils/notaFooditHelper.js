@@ -81,13 +81,21 @@ export const validateArticleFoodit = ({ id, content }) => {
     return pageBuilderValidator(rules);
 };
 
-export const getRenderablesData = (renderables, featureId) => {
-    // TODO: pendiente config para el layout de home foodit, para utilizar getElementsFromRenderables
+export const getOpeningProps = (renderables = []) => {
     const aperturaSection = renderables.find(
         item => item.collection === 'sections'
     );
-    const children = get(aperturaSection, 'children', []);
 
+    const [cajaApertura] = get(aperturaSection, 'children', []);
+
+    return {
+        id: get(cajaApertura, 'children[0].props.id', ''),
+        noteId: get(cajaApertura, 'children[0].props.customFields.noteId', ''),
+        openingLayout: get(cajaApertura, 'props.customFields.layout', '')
+    };
+};
+
+export const getManualParentLayout = (renderables, featureId) => {
     const parent = renderables.find(
         elem =>
             get(elem, 'collection') === 'chains' &&
@@ -97,11 +105,20 @@ export const getRenderablesData = (renderables, featureId) => {
             )
     );
 
+    return get(parent, 'props.customFields.layout', '');
+};
+
+export const getRenderablesData = (renderables, featureId) => {
+    const { id = '', openingLayout = '' } = getOpeningProps(renderables);
+    const isOpening = id === featureId;
+
+    const layout =
+        (isOpening && openingLayout) ||
+        getManualParentLayout(renderables, featureId);
+
     return {
-        isOpening: children.some(
-            child => child.props && child.props.id === featureId
-        ),
-        layout: get(parent, 'props.customFields.layout', '')
+        isOpening,
+        layout
     };
 };
 
