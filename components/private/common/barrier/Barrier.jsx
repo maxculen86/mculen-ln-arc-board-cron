@@ -116,12 +116,8 @@ const Barrier = ({
                                 title="Confirmar"
                                 onClick={() => {
                                     toggleBookmark({
-                                        accessToken: getToken('access-token'),
-                                        token: getToken('token'),
                                         isDelete: bookmarkId,
-                                        dispatch,
-                                        // Se envia en true siempre porque el el barrier de alerta al eliminar una nota se dispara solo en /mis-notas (Ya habilitado al MVP2 de auth0)
-                                        isValidSectionForMVP2Auth0: true
+                                        dispatch
                                     }).then(response => {
                                         if (response === 200) {
                                             deleteArticle(bookmarkId);

@@ -33,7 +33,7 @@ const Share = () => {
     const [openPlayer, setOpenPlayer] = useState(false);
     const [enableButton, setEnableButton] = useState(false);
 
-    const { token, accessToken, isValidSectionForMVP2Auth0 } = useAuthManager();
+    const { token, accessToken } = useAuthManager();
     const termicaBookmark = useTermica('bookmark_web');
     const subtypeVideo = getClassCondition(subtype);
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
@@ -92,7 +92,6 @@ const Share = () => {
                         enableButton={enableButton}
                         setOpenPlayer={setOpenPlayer}
                         subtypeVideo={subtypeVideo}
-                        isValidSectionForMVP2Auth0={isValidSectionForMVP2Auth0}
                     />
 
                     <hr className={hrVideoClasses} />

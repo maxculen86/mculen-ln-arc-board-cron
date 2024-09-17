@@ -5,7 +5,6 @@ import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import toggleBookmark from '../../../common/utils/bookmarkHelper';
-import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from './addEventToDataLayer';
@@ -120,8 +119,6 @@ export const copyToClipboard = () => {
 export const getClassCondition = subtype =>
     subtype === VIDEO ? ' --video' : '';
 
-export const isSuscription = token => (token ? isSubscribed() : false);
-
 export const getTwitterTitle = (mobileTitle, title) =>
     !mobileTitle ? title : mobileTitle;
 
@@ -155,15 +152,12 @@ export const getFirstGroupClassNames = ({ subtypeVideo }) => {
 };
 
 export const onButtonClicked = (
-    token,
     suscription,
     globalContent,
     bookmark,
     setBookmark,
     dispatch,
-    state,
-    accessToken,
-    isValidSectionForMVP2Auth0
+    state
 ) => {
     addEventToDataLayerV2({
         event: 'e_linkclick',
@@ -174,13 +168,10 @@ export const onButtonClicked = (
     const { open } = get(state, 'showModal', {});
     if (suscription && !open) {
         toggleBookmark({
-            accessToken,
-            token,
             isDelete: bookmark,
             setBookmark,
             dispatch,
-            _globalContent: globalContent,
-            isValidSectionForMVP2Auth0
+            _globalContent: globalContent
         });
     }
 

@@ -10,7 +10,6 @@ import { validatePropsChains } from '../common/props/validatePropsChains';
 import diagramationRules from '../../../../../../common/utils/diagramationRules';
 import { LAYOUTS } from '../../../../../../../chains/utils/common/_helpers-WebApi';
 import respChain from '../common/respChildrens/index';
-
 class GetCajaCollection {
     constructor(props, typeChain) {
         this.props = validatePropsChains(props, typeChain, 'LN10');
@@ -107,11 +106,18 @@ class GetCajaCollection {
             articles.slice(0, storiesQuantity || articles.length);
             if (layout === BN_6_GRID_MAS_TIMELINE) {
                 const childrenTimeline = respChain(props, image);
-                const timeline = childrenTimeline.articles && {
-                    ...childrenTimeline.articles[0],
-                    sectionAliasMobile: 'ln-10/timeline'
-                };
-                if (timeline) articles.push(timeline);
+                const index =
+                    childrenTimeline.articles &&
+                    childrenTimeline.articles.findIndex(
+                        obj => obj?.information?.layout === 'timeline'
+                    );
+                if (index > -1) {
+                    const timeline = childrenTimeline.articles && {
+                        ...childrenTimeline.articles[index],
+                        sectionAliasMobile: 'ln-10/timeline'
+                    };
+                    if (timeline) articles.push(timeline);
+                }
             }
         }
 

@@ -1,16 +1,18 @@
 import React, { useState, useContext } from 'react';
+import { LOGIN_URL } from 'fusion:environment';
 import { useHeaderVariants } from './useHeaderVariants';
-import { getUserType, getUserData } from './_helper';
-
+import useGetUserData from '../../../../auth/hooks/useGetUserData';
+import { SUBSCRIBED_HELPER } from '../../../../auth/helper/loginHelper';
 export const HeaderContext = React.createContext({});
 
 export const HeaderProvider = ({ children, ...headerVariantProps }) => {
     const [showMenu, setShowMenu] = useState(false);
     const toggleDesplegable = () => setShowMenu(prev => !prev);
 
-    const loginData = getUserData();
-    const { isSubscribed, userEmail } = loginData || {};
-    const userType = getUserType(isSubscribed, userEmail);
+    const loginData = useGetUserData(SUBSCRIBED_HELPER.LN);
+    const goToLoginUrl = () => {
+        location.href = LOGIN_URL + window.btoa(location.href);
+    };
 
     const headerVariants = useHeaderVariants({ ...headerVariantProps });
 
@@ -19,7 +21,7 @@ export const HeaderProvider = ({ children, ...headerVariantProps }) => {
             value={{
                 showMenu,
                 toggleDesplegable,
-                userType,
+                goToLoginUrl,
                 ...loginData,
                 ...headerVariants
             }}

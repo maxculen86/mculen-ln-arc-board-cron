@@ -35,8 +35,7 @@ const BuildFirtsButtonsGroup = ({
     setOpenPlayer,
     enableButton,
     bookmark = '',
-    subtypeVideo,
-    isValidSectionForMVP2Auth0
+    subtypeVideo
 } = {}) => {
     const { dispatch, state } = useContext(GlobalContext) || {};
 
@@ -140,15 +139,12 @@ const BuildFirtsButtonsGroup = ({
                     dataSection="Guardar Nota"
                     onClick={() => {
                         onButtonClicked(
-                            token,
                             suscription,
                             globalContent,
                             bookmark,
                             setBookmark,
                             dispatch,
-                            state,
-                            accessToken,
-                            isValidSectionForMVP2Auth0
+                            state
                         );
                     }}
                     variant="secondary"

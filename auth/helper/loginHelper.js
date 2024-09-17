@@ -129,24 +129,10 @@ const initializeAuth = async callback => {
     try {
         await _UserClientLibs('GetAccessTokenValidatedAsync')();
         await setUserData();
-
         return callback && callback(true);
     } catch (error) {
         console.error('Error occurred while executing token rotation', error);
     }
 };
-
-export const listValidSectionsForMvp2Auth0 = [
-    {
-        section: '/espectaculos'
-    },
-    { section: '/sociedad' },
-    { section: '/tecnologia' },
-    { section: '/lifestyle' },
-    { section: '/autos' },
-    { section: '/el-mundo' },
-    { section: '/seguridad' },
-    { section: '/opinion' }
-];
 
 export default initializeAuth;

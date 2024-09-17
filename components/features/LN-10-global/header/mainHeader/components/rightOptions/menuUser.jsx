@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../../../../../../private/common/context/globalContext';
+import React from 'react';
 import { Avatar } from '@ln/contenidos-ui-avatar';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { getMenuUser } from '../../_helper';
 import { Link } from '@ln/contenidos-ui-link';
-import { goToLogout } from '../../../../../../private/LN/common/utils/loginHelper';
 import { useHeaderContext } from '../../../context';
 import getUserInitials from '../../../../../../private/common/utils/getUserInitials';
 import classNames from 'classnames';
-
 import '../../../../../../../resources/packages/css/@ln/common-ui-dropdown/index.css';
 
 export const MenuUser = () => {
@@ -20,10 +17,8 @@ export const MenuUser = () => {
         userLastName
     } = useHeaderContext();
 
-    const { dispatch } = useContext(GlobalContext);
-    const logout = () => goToLogout(dispatch);
     const initials = getUserInitials(userName, userLastName, userEmail);
-    const menuUserData = getMenuUser(logout) || [];
+    const menuUserData = getMenuUser() || [];
 
     const iconProps = {
         className: classNames(

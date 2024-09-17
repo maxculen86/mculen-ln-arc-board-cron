@@ -4,8 +4,12 @@ import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToD
 import { GlobalContext } from '../../../../private/common/context/globalContext';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import get from '../../../../private/common/utils/get';
+import { logout } from '../../../../../auth/helper/loginHelper';
+import handleCookie from '../../../../private/LN/common/utils/handleCookie';
 
-export const getMenuUser = (goToLogout = () => {}) => {
+const { eraseCookie } = handleCookie();
+
+export const getMenuUser = () => {
     const LogoutText = 'Cerrar sesión';
     const commonClassName = 'text-blue-500 p-12 bg-blue-100__hover rounded-4';
     const defaultOptions = [
@@ -56,7 +60,11 @@ export const getMenuUser = (goToLogout = () => {}) => {
                 category: 'home_ln10',
                 label: option.text
             });
-            option.text === LogoutText && goToLogout();
+            option.text === LogoutText &&
+                logout(() => {
+                    eraseCookie('contentVariant');
+                    if (['undefined'].indexOf(typeof fyre)) fyre.conv.logout();
+                });
         }
     }));
 };
