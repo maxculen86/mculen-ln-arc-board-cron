@@ -27,7 +27,6 @@ export const transformFooditAcu = async (response, query = {}, cachedCall) => {
                             subtype: getArticleSubtype(
                                 get(elem, 'subtype', null)
                             ),
-                            shouldUseV2: true,
                             arcSite: query['arc-site']
                         }
                     )

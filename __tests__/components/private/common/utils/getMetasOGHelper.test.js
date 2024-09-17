@@ -204,6 +204,8 @@ describe('Case return getData', () => {
             },
             publish_date: '2021-01-08T15:24:00.940Z',
             display_date: '2021-01-08T15:24:00.940Z',
+            first_publish_date: '2021-01-08T15:24:00.940Z',
+            last_updated_date: '2021-01-08T15:24:00.940Z',
             subheadlines: { basic: '' },
             subtype: '7',
             type: 'story',
@@ -233,6 +235,8 @@ describe('Case return getData', () => {
             fbAppId: '154042854349421',
             isArticle: true,
             publishDate: '2021-01-08T15:24:00.940Z',
+            firstPublishDate: '2021-01-08T15:24:00.940Z',
+            lastUpdatedDate: '2021-01-08T15:24:00.940Z',
             tier: 'metered',
             subtype: '7'
         });

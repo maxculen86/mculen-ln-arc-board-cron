@@ -39,11 +39,7 @@ const aperturaReceta = props => {
 
     return (
         <>
-            <div
-                className={`row aper-receta w-100-mobile ${
-                    hasMultimedia ? '' : 'sin-foto'
-                }`}
-            >
+            <div className="row aper-receta w-100-mobile">
                 {hasMultimedia ? (
                     <AperturaConDestacado {...props} />
                 ) : (

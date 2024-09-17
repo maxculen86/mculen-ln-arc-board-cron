@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComButton from './com-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Button } from '@ln/contenidos-ui-button';
+import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import ComLinkList from './com-link-list';
 import { useAppContext } from 'fusion:context';
 
@@ -13,19 +15,31 @@ const ModNavigation = props => {
 
     return (
         <>
-            <ComButton
+            <Button
                 id="left-arrow"
-                classCondition="--left hlp-none"
-                iconName="arrow-left"
+                className="absolute none mb-16 bottom-0 left--16 bg-white"
+                variant="custom"
                 style={style}
-            />
+                size="inherit"
+                iconOnly
+            >
+                <Icon>
+                    <IconSprite name="arrowLeft" />
+                </Icon>
+            </Button>
             <ComLinkList list={navigation} extraClass={EXTRA_CLASS} />
-            <ComButton
+            <Button
                 id="right-arrow"
-                iconName="arrow-right"
                 style={style}
-                classCondition="hlp-none"
-            />
+                className="absolute none mb-16 bottom-0 right--16 bg-white"
+                variant="custom"
+                size="inherit"
+                iconOnly
+            >
+                <Icon>
+                    <IconSprite name="arrowRight" />
+                </Icon>
+            </Button>
             <script
                 async
                 id="mod-navigation"

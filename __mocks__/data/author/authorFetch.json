@@ -6,7 +6,25 @@
     "byline": "Juan Pravata",
     "role": "Programador",
     "image": {
-        "url": "https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=820fe21613127ce5fb08247616be9addc1ba894dcfdc5a76e10b06014f66dca1&width=280&quality=70&smart=false"
+        "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+        "auth": {
+                "1": "1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9"
+        },
+        "_id": "J43DRG7ZGZCANB6PYJG2VQ35QY",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+                "galleries": [],
+                "mime_type": "image/jpeg",
+                "originalName": "https://c.files.bbci.co.uk/AD33/production/_126593344_mediaitem126593343.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+                "proxyUrl": "/resizer/rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/XariBOP5f8WS-4e1CqTTHBx9m8Q=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+                "version": 0
+            }
+
     },
     "email": "pravata.juan@gmail.com",
     "affiliations": "Afiliacion profesional random",

@@ -1,5 +1,4 @@
 import Consumer from 'fusion:consumer';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { renderProps } from '../../../private/LN/api/global/components/features/article/LN10/renderProps';
 import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
@@ -11,7 +10,6 @@ import {
     checkForId
 } from './common/_helper-WebApi';
 import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
-import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 
 class ArticleFeature {
     constructor(props) {
@@ -22,7 +20,6 @@ class ArticleFeature {
             renderables = [],
             layout: layoutPageBuilder
         } = props;
-        const { layoutsName = {} } = siteConfig || {};
 
         this.configs = getChainConfig({ featureId, renderables }) || {};
         const { config = {}, index } = this.configs;
@@ -33,7 +30,6 @@ class ArticleFeature {
             config,
             articlePosition: index
         });
-        this.shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
 
         const imageConfig = this.configs && this.configs.imageConfig;
         const typeCard = variant || 'default';
@@ -51,10 +47,9 @@ class ArticleFeature {
                         website,
                         imageConfig,
                         isInApertura: this.onlyOneApeturaValidateForWWW,
-                        arcSite: website,
-                        shouldUseV2: this.shouldUseV2
+                        arcSite: website
                     },
-                    filter: this.shouldUseV2 ? videoFilterLN10 : filterVideo
+                    filter: videoFilterLN10
                 }
             });
 
@@ -68,8 +63,6 @@ class ArticleFeature {
                         published: true,
                         checkExclusiveAccess: false,
                         isInApertura: this.onlyOneApeturaValidateForWWW,
-                        shouldUseV2: this.shouldUseV2,
-                        shouldUseV1: !this.shouldUseV2,
                         sourceInclude
                     }
                 }
@@ -87,8 +80,7 @@ class ArticleFeature {
                         'arc-site': website,
                         nid: noteId,
                         boxType: 'ArticleFeature',
-                        isInApertura: this.onlyOneApeturaValidateForWWW,
-                        shouldUseV2: this.shouldUseV2
+                        isInApertura: this.onlyOneApeturaValidateForWWW
                     }
                 }
             });

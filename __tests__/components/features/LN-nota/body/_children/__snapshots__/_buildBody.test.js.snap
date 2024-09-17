@@ -1269,41 +1269,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -1583,41 +1554,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -1763,41 +1705,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -1831,41 +1744,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -1909,41 +1793,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </div>
@@ -1996,41 +1851,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -2064,41 +1890,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -2142,41 +1939,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </div>
@@ -2224,41 +1992,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -2302,41 +2041,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -2375,41 +2085,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -2443,70 +2124,26 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <button
-        class="com-button icon-arrow-right --icon"
-        data-event=""
-        data-section=""
-        id=""
-        on=""
-        tabindex=""
-        title=""
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent absolute  bottom-50 bg-black p-8 z-1 right--16 right-0_md --custom"
+        data-variant="custom"
         type="button"
       >
         <i
-          class="com-icon icon-arrow-right"
+          class="icon"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="arrowRight"
+          />
         </i>
       </button>
     </div>
@@ -2521,7 +2158,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
     >
       <button
-        class="com-button --secondary --icon arrow-right --right"
+        class="com-button --secondary"
         data-event=""
         data-section=""
         id=""
@@ -2529,29 +2166,18 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         title=""
         type="button"
       >
-        <i
-          class="com-icon icon-arrow-right"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
         <span
           class="com-text --fivexs"
         >
           DÓLAR BLUE HOY: A CUÁNTO COTIZA EL LUNES 8 DE JUNIO
         </span>
+        <i
+          class="icon --icon-20"
+        >
+          <mock-icon
+            name="arrowRight"
+          />
+        </i>
       </button>
     </a>
   </div>
@@ -2596,41 +2222,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -3910,41 +3507,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -4224,41 +3792,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -4404,41 +3943,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -4472,41 +3982,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -4550,41 +4031,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </div>
@@ -4637,41 +4089,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -4705,41 +4128,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -4783,41 +4177,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </div>
@@ -4865,41 +4230,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -4943,41 +4279,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -5016,41 +4323,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -5084,70 +4362,26 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <button
-        class="com-button icon-arrow-right --icon"
-        data-event=""
-        data-section=""
-        id=""
-        on=""
-        tabindex=""
-        title=""
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent absolute  bottom-50 bg-black p-8 z-1 right--16 right-0_md --custom"
+        data-variant="custom"
         type="button"
       >
         <i
-          class="com-icon icon-arrow-right"
+          class="icon"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="arrowRight"
+          />
         </i>
       </button>
     </div>
@@ -5162,7 +4396,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
     >
       <button
-        class="com-button --secondary --icon arrow-right --right"
+        class="com-button --secondary"
         data-event=""
         data-section=""
         id=""
@@ -5170,29 +4404,18 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         title=""
         type="button"
       >
-        <i
-          class="com-icon icon-arrow-right"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
         <span
           class="com-text --fivexs"
         >
           DÓLAR BLUE HOY: A CUÁNTO COTIZA EL LUNES 8 DE JUNIO
         </span>
+        <i
+          class="icon --icon-20"
+        >
+          <mock-icon
+            name="arrowRight"
+          />
+        </i>
       </button>
     </a>
   </div>
@@ -5237,41 +4460,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -6699,41 +5893,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -7013,41 +6178,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>
@@ -7193,41 +6329,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -7261,41 +6368,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -7339,41 +6417,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </div>
@@ -7426,41 +6475,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -7494,41 +6514,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -7572,41 +6563,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </div>
@@ -7654,41 +6616,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -7732,41 +6665,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -7805,41 +6709,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <figure
@@ -7873,70 +6748,26 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
       <button
-        class="com-button icon-arrow-right --icon"
-        data-event=""
-        data-section=""
-        id=""
-        on=""
-        tabindex=""
-        title=""
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent absolute  bottom-50 bg-black p-8 z-1 right--16 right-0_md --custom"
+        data-variant="custom"
         type="button"
       >
         <i
-          class="com-icon icon-arrow-right"
+          class="icon"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="arrowRight"
+          />
         </i>
       </button>
     </div>
@@ -8218,7 +7049,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
     >
       <button
-        class="com-button --secondary --icon arrow-right --right"
+        class="com-button --secondary"
         data-event=""
         data-section=""
         id=""
@@ -8226,29 +7057,18 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         title=""
         type="button"
       >
-        <i
-          class="com-icon icon-arrow-right"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
         <span
           class="com-text --fivexs"
         >
           DÓLAR BLUE HOY: A CUÁNTO COTIZA EL LUNES 8 DE JUNIO
         </span>
+        <i
+          class="icon --icon-20"
+        >
+          <mock-icon
+            name="arrowRight"
+          />
+        </i>
       </button>
     </a>
   </div>
@@ -8329,41 +7149,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           </span>
         </figcaption>
         <i
-          class="com-icon icon-close  --negative"
+          class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-              fill="#272727"
-              fill-rule="evenodd"
-              xmlns="http://www.w3.org/2000/svg"
-            />
-          </svg>
-        </i>
-        <i
-          class="com-icon icon-zoom  --negative"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-              fill="#272727"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            fill="#fff"
+            name="fullscreen"
+          />
         </i>
       </figure>
     </section>

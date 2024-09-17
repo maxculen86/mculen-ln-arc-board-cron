@@ -18,10 +18,7 @@ jest.mock(
     '../../../../components/private/common/containerValidation',
     () => ({ children }) => <div>ContainerValidation {children}</div>
 );
-jest.mock(
-    '../../../../components/private/common/badge/UserType',
-    () => ({ dark }) => <div>BadgeUsertype {dark ? 'dark' : 'light'}</div>
-);
+
 jest.mock(
     '../../../../components/private/common/utils/subtypes/subtypeHelper',
     () => ({

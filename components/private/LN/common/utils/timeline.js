@@ -1,8 +1,12 @@
 import React from 'react';
-import { addHours } from '../../../common/utils/dateAndTimeUtil';
+import {
+    addHours,
+    addHoursAndFormat,
+    hasFutureDisplayDate,
+    isOlderThanXHoursAgo
+} from '../../../common/utils/dateAndTimeUtil';
 import { LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import ComHour from '../../../common/com-hour';
-import get from '../../../common/utils/get';
 
 export const tlSources = {
     byLastNews: 'Últimas Noticias',
@@ -132,4 +136,24 @@ export const setTLValidationRules = ({
             message: 'No se encontraron notas'
         }
     ];
+};
+
+export const transformLastNewsContent = data => {
+    if (data && data.content_elements) {
+        return {
+            content_elements: data.content_elements.reduce((acc, story) => {
+                if (
+                    !isOlderThanXHoursAgo(story.display_date, 24) &&
+                    !hasFutureDisplayDate(story.display_date)
+                ) {
+                    acc.push({
+                        ...story,
+                        display_date: addHoursAndFormat(-3, story.display_date),
+                        website_url: story.canonical_url
+                    });
+                }
+                return acc;
+            }, [])
+        };
+    }
 };

@@ -1,6 +1,8 @@
-import { setSlicedChildren } from '../../../../../../../../../chains/utils/common/_helpers-WebApi';
+import {
+    setSlicedChildren,
+    LAYOUTS
+} from '../../../../../../../../../chains/utils/common/_helpers-WebApi';
 import { validateChildrensApi } from '../../../../common/utils/_helpers';
-import { LAYOUTS } from '../../../../../../../../../chains/utils/common/_helpers-WebApi';
 export const respChildrens = props => {
     const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 

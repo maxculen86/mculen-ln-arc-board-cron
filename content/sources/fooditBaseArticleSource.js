@@ -4,9 +4,11 @@ import get from '../../components/private/common/utils/get.js';
 import logger from '../../components/private/common/utils/logger.js';
 import { getUrlQuery } from './utils/articleSourceNota/_helper.js';
 import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth.js';
-import { getArticleSubtype } from './utils/fooditSources/fooditArticleSource/index.js';
+import {
+    getArticleSubtype,
+    getImageConfig
+} from './utils/fooditSources/fooditArticleSource/index.js';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls.js';
-import { getImageConfig } from './utils/fooditSources/fooditArticleSource/index.js';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
@@ -30,7 +32,7 @@ const fetch = (query, { cachedCall } = {}) => {
 
             const subtype = getArticleSubtype(get(response, 'subtype', null));
 
-            const result = {
+            return {
                 ...response,
                 ...addResizedUrls(response, {
                     presets: {
@@ -39,13 +41,9 @@ const fetch = (query, { cachedCall } = {}) => {
                     subtype,
                     isInApertura: get(query, 'isInApertura', false),
                     isAdmin: get(query, 'isAdmin', false),
-                    shouldUseV1: false,
-                    shouldUseV2: true,
                     arcSite
                 })
             };
-
-            return result;
         } catch (error) {
             logger.push(
                 error,

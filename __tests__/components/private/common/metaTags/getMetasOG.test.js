@@ -171,6 +171,8 @@ describe('Common - getMetasOG function', () => {
                     receta: {}
                 },
                 publish_date: '2021-01-08T15:24:00.940Z',
+                first_publish_date: '2021-01-08T15:24:00.940Z',
+                last_updated_date: '2021-01-08T15:24:00.940Z',
                 subheadlines: { basic: '' },
                 subtype: '7',
                 type: 'story',
@@ -238,6 +240,10 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'article:published_time',
+                content: '2021-01-08T15:24:00.940Z'
+            },
+            {
+                property: 'article:modified_time',
                 content: '2021-01-08T15:24:00.940Z'
             },
             {

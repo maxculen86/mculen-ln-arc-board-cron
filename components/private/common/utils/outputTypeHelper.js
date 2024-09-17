@@ -148,7 +148,8 @@ export const addMetaNoIndexNoFollow = ({
         'cajaafondo',
         'home-webstories',
         'home-juegos',
-        'preview-arc'
+        'preview-arc',
+        'home-content'
     ].includes(getSectionOfRequestUri(requestUri)) ||
         ['opta', 'widgets'].includes(outputType) ? (
         <meta name="robots" content="noindex, nofollow" />

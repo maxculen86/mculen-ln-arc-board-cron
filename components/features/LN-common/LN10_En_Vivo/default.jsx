@@ -20,6 +20,7 @@ import {
 } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { getDataAttributesForViewability } from '../../../features/LN-10/article/_helper';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
+import { isInSection } from '../anexo/common/_helper-WebApi';
 
 const EnVivo = ({ customFields, id: featureId }) => {
     const { isAdmin, renderables } = useAppContext() || {};
@@ -69,6 +70,12 @@ const EnVivo = ({ customFields, id: featureId }) => {
 
     const topics = getTopicsFromCustomFields(customFields);
 
+    const isApertura = isInSection({
+        sectionName: 'Apertura',
+        id: featureId,
+        renderables
+    });
+
     return (
         <StaticContentV2 {...{ ...extraOptsDiv, id: featureId }}>
             {setRender({
@@ -88,6 +95,11 @@ const EnVivo = ({ customFields, id: featureId }) => {
                                 }
                                 badgeType={typeBadge[chapitaStyle]}
                                 data-testid="live-component"
+                                // TODO: Solo funciona cuando se ubica debajo de comoponentes de 32px:
+                                // FIXEAR SEGUN REGLAS DE LAYOUT para que sea mas dinamico
+                                section={
+                                    isApertura ? 'apertura' : 'pre-apertura'
+                                }
                             >
                                 {topics.length !== 0 ? (
                                     <Live.Topics tags={topics} />

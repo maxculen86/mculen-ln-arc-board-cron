@@ -3,7 +3,7 @@
 exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - anexo con destacado 1`] = `
 <div>
   <div
-    class="row aper-receta w-100-mobile "
+    class="row aper-receta w-100-mobile"
   >
     <mock-apertura-con-destacado
       globalcontent="[object Object]"
@@ -15,7 +15,7 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
 exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - sin promo_items basic debe renderizar correctamente, sin destacado 1`] = `
 <div>
   <div
-    class="row aper-receta w-100-mobile sin-foto"
+    class="row aper-receta w-100-mobile"
   >
     <mock-apertura-sin-destacado
       receta="[object Object]"

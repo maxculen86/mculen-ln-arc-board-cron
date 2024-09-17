@@ -35,7 +35,7 @@
             .mod-article:not(:last-child) {
                 margin-bottom: px(32);
             }
-            .com-label {
+            .ln-badge {
                 &.--exclusive-ln {
                     top: px(-44);
                 }
@@ -63,7 +63,7 @@
                         position: static;
                         order: 1;
                         margin-bottom: px(16);
-                        .com-label {
+                        .ln-badge {
                             top: auto;
                             bottom: px(8);
                         }
@@ -137,7 +137,7 @@
                     display: none;
                 }
                 .mod-description {
-                    .com-label {
+                    .ln-badge {
                         display: none;
                     }
                 }
@@ -196,7 +196,7 @@
                 padding: px(8) px(16);
                 width: calc(100% + 2rem);
                 margin-left: -1rem;
-                .com-label {
+                .ln-badge {
                     top: px(-30);
                     left: px(8);
                 }
@@ -418,7 +418,7 @@
             width: calc(100% + 2rem);
             margin-left: -1rem;
 
-            .com-label {
+            .ln-badge {
                 top: px(-30);
                 left: px(8);
                 &.--exclusive-ln {
@@ -467,7 +467,7 @@
                     }
                 }
                 .mod-description {
-                    .com-label {
+                    .ln-badge {
                         position: relative;
                         top: auto;
                         left: auto;
@@ -604,7 +604,7 @@
                 background: $neutral-white;
                 z-index: 3;
 
-                .com-label {
+                .ln-badge {
                     left: 0;
                     &.--exclusive-ln {
                         top: (-35px);

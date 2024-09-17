@@ -39,8 +39,8 @@ exports[`components - private - LN - Nota - Receta  Test Recipient Receta 1`] = 
     "@context": "https://schema.org",
     "@type": "ImageObject",
     "url": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
-    "height": "513",
-    "width": "768"
+    "height": 855,
+    "width": 1280
   }
 }
   </script>

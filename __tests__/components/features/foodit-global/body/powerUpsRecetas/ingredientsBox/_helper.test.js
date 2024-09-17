@@ -13,7 +13,6 @@ describe('component - features - foodit-global - body - ingredientsListReduce', 
             }
         ];
         const result = input.reduce(ingredientsListReduce, []);
-        console.log(result); // Agregar log para depurar
         expect(result).toEqual([
             {
                 typeList: 'ingredientes',
@@ -33,7 +32,6 @@ describe('component - features - foodit-global - body - ingredientsListReduce', 
             }
         ];
         const result = input.reduce(ingredientsListReduce, []);
-        console.log(result); // Agregar log para depurar
         expect(result).toEqual([
             {
                 typeList: 'otros',
@@ -50,7 +48,6 @@ describe('component - features - foodit-global - body - ingredientsListReduce', 
             }
         ];
         const result = input.reduce(ingredientsListReduce, []);
-        console.log(result); // Agregar log para depurar
         expect(result).toEqual([]);
     });
 });

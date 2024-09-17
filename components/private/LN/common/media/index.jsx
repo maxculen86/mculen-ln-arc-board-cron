@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Image from './imageBase';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import IconsFullScreen from './iconsFullScreen';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import ComPicture from '../../../common/com-picture';
@@ -9,7 +12,6 @@ import {
     STORYTELLING
 } from '../../../common/utils/subtypes/subtypeHelper';
 import useSubtype from '../../../common/hooks/useSubtype';
-import Icon from '../../../common/icon';
 import setClassCondition from './helpers/indexHelper';
 import listOfAllowedSection from './helpers/allowSectionAndLayout';
 import isAllowedSection from '../utils/isAllowedSection';
@@ -78,6 +80,8 @@ const Media = ({
                   // This is intentional
               };
 
+    // TODO: eliminar las props que estan recibiendo los componente de abajo que no se esta usando. \
+
     if (mediaData) {
         const mediaTypeComponents = {
             image: (
@@ -108,12 +112,12 @@ const Media = ({
                         authors={authors}
                     />
                     {children}
-                    {(zoom || itsGallery) && (
-                        <>
-                            <Icon name="close" negative />
-                            <Icon name="zoom" negative />
-                        </>
-                    )}
+                    <IconsFullScreen
+                        active={active}
+                        zoom={zoom}
+                        itsGallery={itsGallery}
+                        isApertura={isApertura}
+                    />
                 </ComFigure>
             ),
             video_jw: (

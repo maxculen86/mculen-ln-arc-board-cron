@@ -37,10 +37,10 @@ const FooterFoodit = () => {
                                 size={32}
                                 target="_blank"
                                 data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="interaction"
-                                data-dynamic-label={'social'}
-                                data-dynamic-action={'instagram'}
+                                data-event="e_linkclick"
+                                data-category="interaction"
+                                data-label={'social'}
+                                data-action={'instagram'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="instagram" />
@@ -54,10 +54,10 @@ const FooterFoodit = () => {
                                 size={32}
                                 target="_blank"
                                 data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="interaction"
-                                data-dynamic-label={'social'}
-                                data-dynamic-action={'x'}
+                                data-event="e_linkclick"
+                                data-category="interaction"
+                                data-label={'social'}
+                                data-action={'x'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="twitter" />
@@ -71,10 +71,10 @@ const FooterFoodit = () => {
                                 size={32}
                                 target="_blank"
                                 data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="interaction"
-                                data-dynamic-label={'social'}
-                                data-dynamic-action={'facebook'}
+                                data-event="e_linkclick"
+                                data-category="interaction"
+                                data-label={'social'}
+                                data-action={'facebook'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="facebook" />
@@ -88,10 +88,10 @@ const FooterFoodit = () => {
                                 size={32}
                                 target="_blank"
                                 data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="interaction"
-                                data-dynamic-label={'social'}
-                                data-dynamic-action={'tiktok'}
+                                data-event="e_linkclick"
+                                data-category="interaction"
+                                data-label={'social'}
+                                data-action={'tiktok'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="tiktok" />
@@ -108,10 +108,10 @@ const FooterFoodit = () => {
                             title="Ir a la página principal de LA NACION"
                             target="_blank"
                             data-interaction="dataLayerInteraction"
-                            data-event-data-layer="e_linkclick"
-                            data-dynamic-category="footer"
-                            data-dynamic-label={'pagina_principal'}
-                            data-dynamic-action={'la_nacion'}
+                            data-event="e_linkclick"
+                            data-category="footer"
+                            data-label={'pagina_principal'}
+                            data-action={'la_nacion'}
                         >
                             <Adaptableimage
                                 width={151}

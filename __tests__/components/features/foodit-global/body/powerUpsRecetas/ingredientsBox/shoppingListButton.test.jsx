@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import ShoppingListButton from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/shoppingListButton';
-import { handleIgredientListButton } from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/_helper';
+import { handleIngredientListButton } from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/_helper';
 import { useIsInShoppingList } from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList';
 import { isSubscribed } from '../../../../../../../auth/helper/loginHelper';
 import getToken from '../../../../../../../components/private/common/utils/getToken';
@@ -51,7 +51,7 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
         expect(screen.getByText('ELIMINAR DE LISTA')).toBeInTheDocument();
     });
 
-    it('should call handleIgredientListButton with correct parameters when clicked', () => {
+    it('should call handleIngredientListButton with correct parameters when clicked', () => {
         const setBookmarkIdMock = jest.fn();
         useIsInShoppingList.mockReturnValue({
             setBookmarkId: setBookmarkIdMock,
@@ -62,7 +62,7 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
 
         fireEvent.click(screen.getByText('AGREGAR A LISTA'));
 
-        expect(handleIgredientListButton).toHaveBeenCalledWith({
+        expect(handleIngredientListButton).toHaveBeenCalledWith({
             isSuscriptor: true,
             title: 'Test Recipe',
             articleId: '12345',

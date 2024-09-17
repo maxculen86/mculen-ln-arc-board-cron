@@ -31,7 +31,7 @@ afterEach(() => {
 describe('Components - features - helpers - gridFooditClient', () => {
     it('should render gridFooditClient', () => {
         useGridArticlesFoodit.mockImplementation(() => {
-            return { articles: articlesFoodit, hasMoreArticle: false };
+            return { articles: articlesFoodit, count: 24 };
         });
 
         const { container } = render(

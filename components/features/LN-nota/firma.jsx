@@ -30,6 +30,9 @@ const FirmaFeature = props => {
         }
     } = props;
     const { name } = distributor;
+
+    if (name && name === 'lanacionar') return null;
+
     const constructProps =
         by && by.length
             ? getPropsBuilder(position)

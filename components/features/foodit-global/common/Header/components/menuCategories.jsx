@@ -36,10 +36,10 @@ const Categories = ({ title, href, data }) => {
             title={`Ir a ${title}`}
             data-test-id={`header-link-${title}`}
             data-interaction="dataLayerInteraction"
-            data-event-data-layer="e_linkclick"
-            data-dynamic-category="header"
-            data-dynamic-label={title}
-            data-dynamic-action="N/A"
+            data-event="e_linkclick"
+            data-category="header"
+            data-label={title}
+            data-action="N/A"
         />
     );
 };

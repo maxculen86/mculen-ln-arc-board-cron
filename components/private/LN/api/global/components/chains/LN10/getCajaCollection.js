@@ -86,8 +86,7 @@ class GetCajaCollection {
             layout,
             diagramation: layout,
             imageConfig: 'm',
-            isFocal: layout && layout.includes('focal'),
-            shouldUseV2: true
+            isFocal: layout && layout.includes('focal')
         };
     };
 

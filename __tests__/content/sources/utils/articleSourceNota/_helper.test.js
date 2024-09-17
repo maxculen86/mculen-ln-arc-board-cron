@@ -5,7 +5,7 @@ import {
     transformAuthors,
     transformElementsBasedOnType,
     setRedirect,
-    isValidSectionGlossary,
+    isValidSectionIA,
     updateUrlIfMatch
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
@@ -1003,40 +1003,30 @@ describe('Tests articleSourceNota - _helper', () => {
         });
     });
 
-    describe('isValidSectionGlossary', () => {
+    describe('isValidSectionIA', () => {
         it('should return false if sections is not an array', () => {
-            expect(isValidSectionGlossary(null, false)).toBe(false);
-            expect(isValidSectionGlossary(undefined, false)).toBe(false);
-            expect(isValidSectionGlossary({}, false)).toBe(false);
+            expect(isValidSectionIA(null)).toBe(false);
+            expect(isValidSectionIA(undefined)).toBe(false);
+            expect(isValidSectionIA({})).toBe(false);
         });
 
         it('should return false if sections is an empty array', () => {
-            expect(isValidSectionGlossary([], false)).toBe(false);
+            expect(isValidSectionIA([])).toBe(false);
         });
 
         it('should return false if section path is not in validSections', () => {
             const sections = [{ path: '/deportes' }];
-            expect(isValidSectionGlossary(sections, false)).toBe(false);
+            expect(isValidSectionIA(sections)).toBe(false);
         });
 
-        it('should return true if section path is in validSections and notShowGlossary is false', () => {
+        it('should return true if section path is in validSections', () => {
             const sections = [{ path: '/sociedad' }];
-            expect(isValidSectionGlossary(sections, false)).toBe(true);
-        });
-
-        it('should return false if section path is in validSections but notShowGlossary is true', () => {
-            const sections = [{ path: '/sociedad' }];
-            expect(isValidSectionGlossary(sections, true)).toBe(false);
-        });
-
-        it('should handle missing path property in sections', () => {
-            const sections = [{}];
-            expect(isValidSectionGlossary(sections, false)).toBe(false);
+            expect(isValidSectionIA(sections)).toBe(true);
         });
 
         it('should handle sections with path as an empty string', () => {
             const sections = [{ path: '' }];
-            expect(isValidSectionGlossary(sections, false)).toBe(false);
+            expect(isValidSectionIA(sections)).toBe(false);
         });
     });
 

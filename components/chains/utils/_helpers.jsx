@@ -5,7 +5,6 @@ import useGetLogoImage from '../../private/common/hooks/useGetLogoImage';
 import get from '../../private/common/utils/get';
 import { setSlicedChildren } from './common/_helpers-WebApi';
 import StaticContentV2 from '../LN10-global/staticContentV2';
-// TODO agregar tests a estos helpers
 
 export const checkChangeChildrenForPB = ({
     features,

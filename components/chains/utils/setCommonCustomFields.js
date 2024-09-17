@@ -10,18 +10,20 @@ export const typesButtonStyle = {
 const ajustCollection = 'Ajuste Collection';
 
 const typeStylesChain = {
-    foodit: 'Foodit',
-    propiedades: 'Propiedades',
-    campo: 'Campo',
     bienestar: 'Bienestar',
-    movilidad: 'Movilidad',
-    'sub-exclusive': 'Exclusivo Suscriptor',
-    Hashtag: 'Hashtag',
-    yellow: 'A Fondo (Amarillo)',
-    white: 'A Fondo (Blanco)',
-    red: 'A Fondo (Rojo)',
+    campo: 'Campo',
+    foodit: 'Foodit',
+    futuria: 'FUTURIA',
     green: 'A Fondo (Verde)',
-    lightblue: 'A Fondo (Celeste)'
+    Hashtag: 'Hashtag',
+    lightblue: 'A Fondo (Celeste)',
+    movilidad: 'Movilidad',
+    propiedades: 'Propiedades',
+    'que-sale': 'Qué Sale',
+    red: 'A Fondo (Rojo)',
+    'sub-exclusive': 'Exclusivo Suscriptor',
+    white: 'A Fondo (Blanco)',
+    yellow: 'A Fondo (Amarillo)'
 };
 
 const customFieldsRules = {

@@ -27,7 +27,7 @@ const RelatedArticles = ({
         layout = '',
         filterBy,
         idSectionOrAuthor = '',
-        customMaxArticles = null,
+        customMaxArticles: customFieldMaxArticle = null,
         customTitle
     } = customFields;
 
@@ -46,6 +46,10 @@ const RelatedArticles = ({
 
     const { minRelatedArticles, maxRelatedArticles, size, isStatic } = rules;
 
+    const customMaxArticles = Number.isInteger(customFieldMaxArticle)
+        ? customFieldMaxArticle
+        : maxRelatedArticles;
+
     const sourceMaxARticles =
         customMaxArticles &&
         customMaxArticles >= minRelatedArticles &&
@@ -53,7 +57,7 @@ const RelatedArticles = ({
             ? customMaxArticles
             : maxRelatedArticles;
 
-    const articles = useGetRelatedArticles({
+    const { articles, articleList } = useGetRelatedArticles({
         filterBy,
         id,
         maxArticles: sourceMaxARticles,
@@ -61,6 +65,7 @@ const RelatedArticles = ({
     });
 
     const error = validateRelatedArticlesFeature({
+        articleList,
         customMaxArticles,
         minArticles: minRelatedArticles,
         layout,

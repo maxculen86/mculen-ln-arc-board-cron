@@ -1,6 +1,5 @@
 import { useContent as getContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
 
 export const hasArticles = data => !!get(data, 'articles', []).length;
 
@@ -12,9 +11,7 @@ export const getDataContent = (sectionId, sectionParentId, website, layout) => {
                 sectionId: section,
                 imageConfig: 'boxArticles',
                 website,
-                layout,
-                shouldUseV2:
-                    layout === get(siteConfig, 'layoutsName.HomeLN10', '')
+                layout
             }
         });
 

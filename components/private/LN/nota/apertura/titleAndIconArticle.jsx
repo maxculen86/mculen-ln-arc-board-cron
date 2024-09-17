@@ -7,7 +7,8 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 import getTooltip from '../../common/utils/getTooltip';
 import { GlobalContext } from '../../../common/context/globalContext';
 import { VIDEO, LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
-import Badge from '../../../common/badge/Badge';
+import { LIVE } from '../../../common/badge/types';
+import { Badge } from '@ln/contenidos-ui-badge';
 import { isOlderThanXHoursAgo } from '../../../common/utils/dateAndTimeUtil';
 
 const TitleAndIconArticle = ({
@@ -46,7 +47,9 @@ const TitleAndIconArticle = ({
             />
             {subtype === LIVEBLOG && coverageEndTime && (
                 <div className="badge-container">
-                    <Badge type="liveblog-red">EN VIVO</Badge>
+                    <Badge type={LIVE} className="mb-16">
+                        EN VIVO
+                    </Badge>
                 </div>
             )}
             <TitleArticle

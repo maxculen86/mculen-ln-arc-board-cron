@@ -3,7 +3,6 @@ import filterArticle from '../../../../../../../../content/filters/LN/nota/artic
 import useGetVideoPosterResized from './useGetVideoPosterResizer';
 import isSSR from '../../../../../../LN/common/utils/isSSR';
 import { checkForId } from '../index';
-import { isHomeLN10 } from '../common/helper-WebApi';
 
 const conditionallyCallSource = (
     id,
@@ -20,7 +19,6 @@ const conditionallyCallSource = (
     null;
 
 const useGetMediaData = ({
-    layout,
     noteID,
     isAdmin,
     videoID,
@@ -30,15 +28,12 @@ const useGetMediaData = ({
     isInApertura = true,
     arcSite
 }) => {
-    const shouldUseV2 = isHomeLN10(layout);
-
     const videoData = useGetVideoPosterResized({
         videoID,
         imageConfig,
         isInApertura,
         isAdmin,
-        arcSite,
-        shouldUseV2
+        arcSite
     });
 
     const imageByCustomField = useContent({
@@ -54,8 +49,7 @@ const useGetMediaData = ({
             imageConfig,
             isInApertura,
             isAdmin,
-            arcSite,
-            shouldUseV2
+            arcSite
         },
         staticMode: isSSR()
     });
@@ -73,9 +67,7 @@ const useGetMediaData = ({
             imageConfig,
             isInApertura,
             isAdmin,
-            arcSite,
-            shouldUseV2,
-            shouldUseV1: !shouldUseV2
+            arcSite
         },
         filter: filterArticle,
         staticMode: isSSR()

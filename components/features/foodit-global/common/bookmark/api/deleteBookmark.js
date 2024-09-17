@@ -3,7 +3,7 @@ import { addToast, TOAST, addErrorToast } from './_helper';
 import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
 import { fillBookmarks } from '../iconHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const deleteBookmark = async bookmarks => {
     const { token, accessToken } = await getAuthTokens();
@@ -31,7 +31,7 @@ const deleteBookmark = async bookmarks => {
             );
 
             if (!response.ok) {
-                addEventToDataLayer({
+                addEventToDataLayerV2({
                     event: 'erros_ms',
                     type: 'failed_request',
                     detail: 'delete_bookmark',

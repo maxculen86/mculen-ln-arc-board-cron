@@ -9,6 +9,7 @@ export default `
         }
         display_date
         website_url
+        canonical_url
         content_restrictions {
             content_code
         }

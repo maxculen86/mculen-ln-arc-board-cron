@@ -4,7 +4,7 @@ import {
     FOODIT_LOGIN_URL,
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 
 const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
@@ -21,12 +21,12 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     size={{ sm: 32, md: 32, lg: 40 }}
                     data-test-id="button-suscribe"
                     data-interaction="dataLayerInteraction"
-                    data-event-data-layer="subscription_start"
+                    data-event="subscription_start"
                     data-button="buttonSubscribeText"
                     href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window &&
                         window.btoa(window.location.href)}`}
                     onClick={() => {
-                        addEventToDataLayer({
+                        addEventToDataLayerV2({
                             event: 'subscription_start',
                             button: buttonSubscribeText
                         });

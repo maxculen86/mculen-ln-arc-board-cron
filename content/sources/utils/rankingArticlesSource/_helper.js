@@ -120,15 +120,13 @@ export const getQuery = (sectionId, layout) => {
 };
 
 export const transformData = (data, query, cachedCall) => {
-    const { presets, presetsDefault, shouldUseV2 } = getPresets(query);
+    const { presets, presetsDefault } = getPresets(query);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     return Promise.all(
         data.map(async elem => {
-            if (shouldUseV2) {
-                const newElem = await getAllImagesAuth(elem, cachedCall);
-                Object.assign(elem, newElem);
-            }
+            const newElem = await getAllImagesAuth(elem, cachedCall);
+            Object.assign(elem, newElem);
 
             const headlines = get(elem, `headlines`, {});
             const promoItems = get(elem, `promo_items`);
@@ -156,8 +154,7 @@ export const transformData = (data, query, cachedCall) => {
                         // Se pasa el subtype para que las notas de foto al 100
                         // y storytelling no sean excluidas de las validaciones del resizer
                         // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype,
-                        shouldUseV2
+                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
                     }
                 ),
                 headlines,

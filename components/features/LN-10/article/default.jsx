@@ -32,7 +32,6 @@ import {
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
-import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
 import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
@@ -72,7 +71,7 @@ const ArticleFeature = ({
     } = useAppContext();
 
     const { layoutsName = {} } = siteConfig || {};
-    const shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
+
     const {
         config: initialConfig = {},
         index,
@@ -113,9 +112,7 @@ const ArticleFeature = ({
             checkExclusiveAccess: false,
             isInApertura: onlyOneApeturaValidateForWWW,
             isAdmin,
-            variant,
-            shouldUseV2,
-            shouldUseV1: !shouldUseV2
+            variant
         },
         staticMode: isSSR() && !hasVariants,
         filter: isLiveblog ? liveblogFilter : filter
@@ -127,8 +124,7 @@ const ArticleFeature = ({
         id,
         onlyOneApeturaValidateForWWW,
         isAdmin,
-        filterImage,
-        shouldUseV2
+        filterImage
     });
 
     const promoItems = image && image.promo_items;
@@ -155,10 +151,9 @@ const ArticleFeature = ({
                 imageConfig,
                 isInApertura: onlyOneApeturaValidateForWWW,
                 isAdmin,
-                arcSite,
-                shouldUseV2
+                arcSite
             },
-            filter: shouldUseV2 ? videoFilterLN10 : filterVideo
+            filter: videoFilterLN10
         }) || null;
 
     const {
@@ -201,7 +196,6 @@ const ArticleFeature = ({
         image,
         layout,
         renderables,
-        shouldUseV2: true,
         config,
         isAdmin,
         isLoadWithPicture

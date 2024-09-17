@@ -34,20 +34,13 @@ import { size } from '../../../../../components/private/common/utils/diagramatio
 import { getMockRenderables } from '../../../../../__mocks__/data/renderables/renderablesForPreload';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
-    const getProps = ({
-        video,
-        image,
-        customFields,
-        renderables,
-        shouldUseV2 = false
-    } = {}) => {
+    const getProps = ({ video, image, customFields, renderables } = {}) => {
         return {
             article: responseArticleSourceNota,
             video,
             image,
             customFields,
-            renderables,
-            shouldUseV2
+            renderables
         };
     };
 
@@ -373,8 +366,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                             imageId
                         },
                         video: responseVideoSource,
-                        image: responseRelatedImageSource,
-                        shouldUseV2: true
+                        image: responseRelatedImageSource
                     })
                 )
             ).toStrictEqual({
@@ -1118,58 +1110,40 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         };
 
         it('result should have src property when isAdmin is true', () => {
-            const shouldUseV2 = false;
             const cardSize = '4-xl';
             const isAdmin = true;
 
-            const result = transformVideoData(
-                videoData,
-                shouldUseV2,
-                cardSize,
-                isAdmin
-            );
+            const result = transformVideoData(videoData, cardSize, isAdmin);
 
             const expectedResult = {
                 type: 'video',
                 src: 'https://example.com/video_low.mp4',
-                poster: 'https://example.com/image_low.jpg'
+                poster: 'https://example.com/promo_items_image_low.jpg'
             };
 
             expect(result).toStrictEqual(expectedResult);
         });
 
         it('result should have dataSrc property when isAdmin is false', () => {
-            const shouldUseV2 = false;
             const cardSize = 'm-l';
             const isAdmin = false;
 
-            const result = transformVideoData(
-                videoData,
-                shouldUseV2,
-                cardSize,
-                isAdmin
-            );
+            const result = transformVideoData(videoData, cardSize, isAdmin);
 
             const expectedResult = {
                 type: 'video',
                 dataSrc: 'https://example.com/video_low.mp4',
-                poster: 'https://example.com/image_low.jpg'
+                poster: 'https://example.com/promo_items_image_low.jpg'
             };
 
             expect(result).toStrictEqual(expectedResult);
         });
 
         it('should return the correct transformed video data when shouldUseV2 is true', () => {
-            const shouldUseV2 = true;
             const cardSize = '4-xl';
             const isAdmin = true;
 
-            const result = transformVideoData(
-                videoData,
-                shouldUseV2,
-                cardSize,
-                isAdmin
-            );
+            const result = transformVideoData(videoData, cardSize, isAdmin);
 
             const expectedResult = {
                 type: 'video',

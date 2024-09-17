@@ -53,12 +53,10 @@ const fetch = (query, { cachedCall } = {}) => {
 };
 
 const transform = async (data, siteProps, cachedCall) => {
-    const { presets, presetsDefault, shouldUseV2 } = getPresets(siteProps);
+    const { presets, presetsDefault } = getPresets(siteProps);
+    const newData = await getAllImagesAuth(data, cachedCall);
+    Object.assign(data, newData);
 
-    if (shouldUseV2) {
-        const newData = await getAllImagesAuth(data, cachedCall);
-        Object.assign(data, newData);
-    }
     const { height, width } = data;
     const useDataSizes =
         height && width && get(siteProps, 'useDataSizes', false);
@@ -91,8 +89,7 @@ const transform = async (data, siteProps, cachedCall) => {
                 // y pueda aplicarse 3:2, focal point o smartcrop
                 subtype: isFotoAl100orStorytelling ? '-1' : subtype,
                 isInApertura,
-                isAdmin,
-                shouldUseV2
+                isAdmin
             }
         )
     };

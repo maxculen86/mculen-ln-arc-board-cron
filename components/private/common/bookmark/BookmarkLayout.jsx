@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
+import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import Text from '../text';
-import ComButton from '../com-button';
 import BookmarkList from './BookmarkList';
 import HelperBookmark from './HelperBookmark';
 import useListBookmarks from '../hooks/bookmark/useListBookmarks';
@@ -53,15 +55,16 @@ const BookmarkLayout = () => {
                             : ' notas guardadas'}
                     </span>
                 </Text>
-                <ComButton
-                    classCondition="help"
-                    iconName="lamp"
-                    size="--fivexs"
-                    weight="bold"
+                <Button
                     onClick={() => setShowHelper(!showHelper)}
+                    title="Mostrar guía de ayuda"
+                    variant="secondary"
                 >
+                    <Icon size={16}>
+                        <IconSprite name="lightbulb" />
+                    </Icon>
                     AYUDA
-                </ComButton>
+                </Button>
             </div>
             <HelperBookmark
                 show={showHelper}

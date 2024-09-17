@@ -212,6 +212,26 @@
             height: px(30);
         }
     }
+    &.futuria {
+        &.--xs {
+            height: px(22);
+            width: inherit;
+        }
+        &.--sm {
+            height: px(32);
+            width: inherit;
+        }
+    }
+    &.que-sale {
+        &.--xs {
+            height: px(22);
+            width: inherit;
+        }
+        &.--sm {
+            height: px(32);
+            width: inherit;
+        }
+    }
 
     .ln-logo {
         &.--xs {
