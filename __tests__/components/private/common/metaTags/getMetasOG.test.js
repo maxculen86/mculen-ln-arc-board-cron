@@ -116,16 +116,16 @@ describe('Metas OTT', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '192'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '192'
+                content: '630'
             },
             {
                 property: 'og:url',
@@ -139,7 +139,7 @@ describe('Metas OTT', () => {
             {
                 property: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-513x50.jpg'
                 )
             }
         ];
@@ -305,16 +305,16 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '192'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '192'
+                content: '630'
             },
             {
                 property: 'og:url',
@@ -327,7 +327,7 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-513x50.jpg'
                 )
             }
         ];
@@ -385,16 +385,16 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '192'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '192'
+                content: '630'
             },
             {
                 property: 'og:url',
@@ -403,7 +403,7 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             }
         ];
@@ -485,16 +485,16 @@ describe('Metas home', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '192'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '192'
+                content: '630'
             },
             {
                 property: 'og:url',
@@ -507,7 +507,7 @@ describe('Metas home', () => {
             {
                 property: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-513x50.jpg'
                 )
             }
         ];

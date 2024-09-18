@@ -36,7 +36,7 @@ const snippet = props => {
     } = props;
 
     const PLACERHOLDER = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN-1080.jpg'
+        'placeholderLN-1200x800.jpg'
     );
 
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');

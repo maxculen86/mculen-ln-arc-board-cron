@@ -269,8 +269,8 @@ describe('Case return getData', () => {
             description: 'Ultimas noticias de Argentina y el mundo',
             image: {
                 url: 'undefined$LATEST',
-                width: '192',
-                height: '192'
+                width: '1200',
+                height: '630'
             },
             url: 'https://www.lanacion.com.arEZYG5OEVH5HSJJCUMJO5XAHTTA/',
             fbAppId: '154042854349421',
@@ -301,8 +301,8 @@ describe('Case return getData', () => {
             fbAppId: '',
             image: {
                 url: 'undefined$LATEST',
-                width: '192',
-                height: '192'
+                width: '1200',
+                height: '630'
             },
             isArticle: false,
             subtype: undefined,
@@ -344,8 +344,8 @@ describe('Case return getImageProps', () => {
     it('by default, it returns the placeholder', () => {
         const output = {
             url: 'placeholder',
-            width: '192',
-            height: '192'
+            width: '1200',
+            height: '630'
         };
         expect(getImageProps({}, {}, 'placeholder')).toEqual(output);
     });

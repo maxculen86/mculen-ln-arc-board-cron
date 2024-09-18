@@ -399,7 +399,7 @@ const transform = (data, siteProps) => {
 
         return {
             ...elem,
-            ...(!promoImage.includes('placeholderLN.jpg')
+            ...(!promoImage.includes('placeholderLN-513x50.jpg')
                 ? addResizedUrls(
                       {
                           ...(promoItems && {

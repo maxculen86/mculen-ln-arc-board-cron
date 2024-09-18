@@ -29,7 +29,7 @@ const SnippetLiveblog = props => {
     const { promo_items: promoItems } = addRelatedImage(globalContent);
 
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN-600_amp.jpg'
+        'placeholderLN-600x60.jpg'
     );
 
     const checkForLiveBlogElements = contentElements.findIndex(elem => {

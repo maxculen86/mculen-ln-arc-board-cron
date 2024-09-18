@@ -142,10 +142,10 @@ const SnippetNoticia = props => {
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
 
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN-600_amp.jpg'
+        'placeholderLN-600x60.jpg'
     );
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN-1080.jpg'
+        'placeholderLN-1200x800.jpg'
     );
 
     const { name } = primarySection;

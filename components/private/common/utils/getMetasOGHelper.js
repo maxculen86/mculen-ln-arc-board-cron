@@ -50,7 +50,7 @@ export const getImageProps = (acuOgImg, promoItemsBasic, placeholder) => {
         }
     }
 
-    return { url: placeholder, height: '192', width: '192' };
+    return { url: placeholder, height: '630', width: '1200' };
 };
 
 export const getData = ({
@@ -64,7 +64,7 @@ export const getData = ({
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const imagePath = `${contextPath}/resources/images/favicon-192.png`;
+    const imagePath = `${contextPath}/resources/images/placeholderLN-1200x630.png`;
     const PLACEHOLDER = `${ARC_STATIC}${deployment(imagePath)}`;
     const {
         title: titleDefault,
