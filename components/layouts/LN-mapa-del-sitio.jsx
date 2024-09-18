@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import Copyright from '../private/LN/common/footer/copyright';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import '../../resources/dist/css/ln/pages/sitemap.css';
@@ -18,7 +19,7 @@ const LNMapaDelSitio = ({ children }) => {
                     <div className="lay">
                         <ComLogo
                             logoName="la-nacion"
-                            href="SITE_LANACION/"
+                            href={`${SITE_LANACION}/`}
                             title="LA NACION"
                         />
                     </div>

@@ -22,7 +22,7 @@
                     },
                     {
                         "text": "Economía",
-                        "href": "SITE_LANACION/economía/"
+                        "href": "SITE_LANACION/economia/"
                     },
                     {
                         "text": "El mundo",
@@ -54,7 +54,8 @@
                     },
                     {
                         "text": "Club LA NACION",
-                        "href": "https://club.lanacion.com.ar/"
+                        "href": "https://club.lanacion.com.ar/",
+                        "target": "_blank"
                     }
                 ]
             },
@@ -64,10 +65,13 @@
                 "titleTag": "h2",
                 "mod": "",
                 "list": [
-                    { "text": "LN+", "href": "https://lnmas.lanacion.com.ar/" },
+                    {
+                        "text": "LN+",
+                        "href": "https://lnmas.lanacion.com.ar/"
+                    },
                     {
                         "text": "Suscribite",
-                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme/"
+                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme"
                     },
                     {
                         "text": "Acceso a PDF",
@@ -90,8 +94,8 @@
                 "mod": "",
                 "list": [
                     {
-                        "text": "Twitter",
-                        "href": "https://twitter.com/LANACION/",
+                        "text": "X",
+                        "href": "https://x.com/LANACION/",
                         "rel": "nofollow",
                         "target": "_blank"
                     },
@@ -197,27 +201,29 @@
                 "list": [
                     {
                         "text": "OHLALÁ!",
-                        "href": "https://www.somosohlala.com/"
+                        "href": "https://www.somosohlala.com/",
+                        "target": "_blank"
                     },
                     {
                         "text": "¡HOLA! Argentina",
-                        "href": "{SITE_LANACION}/revista-hola/"
+                        "href": "SITE_LANACION/revista-hola/"
                     },
                     {
                         "text": "Rolling Stone",
-                        "href": "{SITE_LANACION}/revista-rolling-stone/"
+                        "href": "https://es.rollingstone.com/arg/",
+                        "target": "_blank"
                     },
                     {
                         "text": "Lugares",
-                        "href": "{SITE_LANACION}/revista-lugares/"
+                        "href": "SITE_LANACION/revista-lugares/"
                     },
                     {
                         "text": "Living",
-                        "href": "{SITE_LANACION}/revista-living/"
+                        "href": "SITE_LANACION/revista-living/"
                     },
                     {
                         "text": "Jardín",
-                        "href": "{SITE_LANACION}/revista-jardin/"
+                        "href": "SITE_LANACION/revista-jardin/"
                     }
                 ]
             },
@@ -229,51 +235,62 @@
                 "list": [
                     {
                         "text": "Inicio",
-                        "href": "https://club.lanacion.com.ar/"
+                        "href": "https://club.lanacion.com.ar/",
+                        "target": "_blank"
                     },
                     {
                         "text": "Gastronomía",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Gastronom%C3%ADa/"
+                        "href": "https://club.lanacion.com.ar/beneficios/gastronomia",
+                        "target": "_blank"
                     },
                     {
                         "text": "Entretenimiento",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Entretenimiento/"
+                        "href": "https://club.lanacion.com.ar/beneficios/entretenimiento",
+                        "target": "_blank"
                     },
                     {
                         "text": "Turismo",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Viajes/"
+                        "href": "https://club.lanacion.com.ar/beneficios/viajes",
+                        "target": "_blank"
                     },
                     {
                         "text": "Moda",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Moda/"
+                        "href": "https://club.lanacion.com.ar/beneficios/moda",
+                        "target": "_blank"
                     },
                     {
                         "text": "Belleza",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Bienestar/"
+                        "href": "https://club.lanacion.com.ar/beneficios/bienestar",
+                        "target": "_blank"
                     },
                     {
                         "text": "Deco y Hogar",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Deco%20%26%20Hogar/"
+                        "href": "https://club.lanacion.com.ar/beneficios/deco-y-hogar",
+                        "target": "_blank"
                     },
                     {
                         "text": "Automóvil",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Autom%C3%B3vil/"
+                        "href": "https://club.lanacion.com.ar/beneficios/automovil",
+                        "target": "_blank"
                     },
                     {
                         "text": "ECO Sustentable",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=ECO%20Sustentable/"
+                        "href": "https://club.lanacion.com.ar/beneficios/eco-sustentable",
+                        "target": "_blank"
                     },
                     {
                         "text": "Supermercados",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Supermercados/"
+                        "href": "https://club.lanacion.com.ar/beneficios/supermercados",
+                        "target": "_blank"
                     },
                     {
                         "text": "Otros beneficios",
-                        "href": "https://club.lanacion.com.ar/search?benefits.category.keyword=Otros%20beneficios/"
+                        "href": "https://club.lanacion.com.ar/beneficios/otros-beneficios",
+                        "target": "_blank"
                     },
                     {
                         "text": "Pedí tu tarjeta",
-                        "href": "https://miclub.lanacion.com.ar/?utm_source=sitio%20club&utm_medium=organico%20-%20boton&utm_term=peditutarjeta&utm_campaign=autogestion/"
+                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme"
                     }
                 ]
             }
@@ -344,18 +361,34 @@
                 "titleTag": "h2",
                 "mod": "",
                 "list": [
-                    { "text": "Bonvivir", "href": "https://www.bonvivir.com/" },
+                    {
+                        "text": "canchallena",
+                        "href": "https://canchallena.lanacion.com.ar/",
+                        "target": "_blank"
+                    },
+                    {
+                        "text": "Foodit",
+                        "href": "https://foodit.lanacion.com.ar/",
+                        "target": "_blank"
+                    },
+                    {
+                        "text": "Bonvivir",
+                        "href": "https://www.bonvivir.com/",
+                        "target": "_blank"
+                    },
                     {
                         "text": "Colecciones",
-                        "href": "https://colecciones.lanacion.com.ar/"
+                        "href": "https://colecciones.lanacion.com.ar/",
+                        "target": "_blank"
                     },
                     {
                         "text": "Máster en periodismo",
-                        "href": "https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/"
+                        "href": "https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327",
+                        "target": "_blank"
                     },
                     {
                         "text": "Suscripciones y promociones",
-                        "href": "SITE_LANACION/suscripciones/"
+                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme"
                     }
                 ]
             }
