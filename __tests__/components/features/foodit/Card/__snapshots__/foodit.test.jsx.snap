@@ -59,7 +59,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 Receta del día
               </span>
               <h1
-                class="text card-title prumo transition-regular prumo-medium prumo-book text-28 text-40_md text-48_lg"
+                class="text card-title prumo transition-regular  prumo-book text-28 text-40_md text-48_lg"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </h1>
@@ -172,7 +172,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               class="flex flex-column gap-4"
             >
               <h2
-                class="text card-title prumo transition-regular text-ellipsis-3 prumo-semibold text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-semibold prumo-medium text-20"
               >
                 Ficha nota FOODIT
               </h2>
@@ -290,7 +290,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               class="flex flex-column gap-4"
             >
               <h2
-                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3  prumo-medium text-20"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </h2>

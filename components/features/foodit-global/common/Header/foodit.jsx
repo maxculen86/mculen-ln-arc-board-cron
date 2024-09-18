@@ -103,7 +103,7 @@ const HeaderFoodit = () => {
                         </MainHeader.Content.Center>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
                             <LoginSubscribeButtons classNameButtons="lg-only" />
-                            {/* <BellButton /> */}
+                            <BellButton />
                             <RenderUserOptions />
                         </MainHeader.Content.Right>
                         <MainHeader.Content.Search>
