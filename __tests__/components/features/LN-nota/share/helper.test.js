@@ -16,17 +16,23 @@ describe('components - features - LN-nota - share - helper', () => {
         });
 
         it('should display the AI component when the button is clicked and the state becomes true', () => {
-            handleIaToggle(false, setIsIaVisible);
+            handleIaToggle({ isIaVisible: false, setIsIaVisible });
 
             expect(setIsIaVisible).toHaveBeenCalledWith(true);
             expect(publish).toHaveBeenCalledWith('showIa', { show: true });
         });
 
         it('should hide the AI component when the button is clicked and the state becomes false', () => {
-            handleIaToggle(true, setIsIaVisible);
+            handleIaToggle({ isIaVisible: true, setIsIaVisible });
 
             expect(setIsIaVisible).toHaveBeenCalledWith(false);
             expect(publish).toHaveBeenCalledWith('showIa', { show: false });
+        });
+        it('should execute callback correctly', () => {
+            const callback = jest.fn();
+            handleIaToggle({ isIaVisible: true, setIsIaVisible, callback });
+
+            expect(callback).toBeCalled();
         });
     });
 });
