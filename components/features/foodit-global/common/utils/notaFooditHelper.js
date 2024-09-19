@@ -97,24 +97,21 @@ export const getOpeningProps = (renderables = []) => {
 
 export const getManualParentLayout = (renderables, featureId) => {
     const parent = renderables.find(
-        elem =>
-            get(elem, 'collection') === 'chains' &&
-            get(elem, 'type', '') === 'foodit_Caja_Manual' &&
-            get(elem, 'children', []).some(
-                child => get(child, 'props.id') === featureId
-            )
+        ({ type = '', children = [], collection }) =>
+            collection === 'chains' &&
+            (type === 'foodit_Caja_Manual' ||
+                type === 'foodit_Caja_Apertura') &&
+            children.some(child => get(child, 'props.id') === featureId)
     );
 
     return get(parent, 'props.customFields.layout', '');
 };
 
 export const getRenderablesData = (renderables, featureId) => {
-    const { id = '', openingLayout = '' } = getOpeningProps(renderables);
+    const { id = '' } = getOpeningProps(renderables);
     const isOpening = id === featureId;
 
-    const layout =
-        (isOpening && openingLayout) ||
-        getManualParentLayout(renderables, featureId);
+    const layout = getManualParentLayout(renderables, featureId);
 
     return {
         isOpening,

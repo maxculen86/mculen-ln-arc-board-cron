@@ -115,6 +115,7 @@ const CardFoodit = ({ id: featureId, customFields }) => {
                         isOpening && get(articleContent, 'subheadlines.basic')
                     }
                     contentCode={contentCode}
+                    isOpening={isOpening}
                 />
             )}
         </div>

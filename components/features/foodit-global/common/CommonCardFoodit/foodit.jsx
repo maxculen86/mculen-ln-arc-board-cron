@@ -24,11 +24,14 @@ const CommonCardFoodit = ({
     container,
     className = '',
     bookmarkAction = null,
-    fill = false
+    fill = false,
+    isOpening = false
 }) => {
     return (
         <Card
-            data-test-id={`card-${variant}-${contentCode}-${articleId}`}
+            data-test-id={`${
+                isOpening ? 'opening-' : ''
+            }card-${variant}-${contentCode}-${articleId}`}
             linkProps={linksProps}
             size={size}
             variant={variant}
@@ -48,7 +51,7 @@ const CommonCardFoodit = ({
             </Card.Top>
             <Card.Main
                 title={title}
-                titleTag={variant === 'day-recipe' ? 'h1' : 'h2'}
+                titleTag={isOpening ? 'h1' : 'h2'}
                 subtitle={subtitle}
                 titleEllipsis={titleEllipsis}
             >
