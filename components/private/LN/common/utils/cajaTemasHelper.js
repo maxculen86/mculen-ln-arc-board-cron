@@ -226,7 +226,8 @@ export const customHeading = {
     OtrasNoticias: 'h3',
     UltimasNoticias: 'h3',
     TePuedeInteresar: 'h3',
-    Ranking: 'h3'
+    Ranking: 'h3',
+    SeguiLeyendo: 'h3'
 };
 
 export const getCommonProps = props => {
