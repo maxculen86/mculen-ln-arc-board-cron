@@ -116,7 +116,8 @@ describe('common - utils - bannerHelper', () => {
                 [300, 250],
                 [300, 600],
                 [120, 600],
-                [160, 600]
+                [160, 600],
+                [300, 450]
             ]);
         });
 
@@ -127,7 +128,8 @@ describe('common - utils - bannerHelper', () => {
                 [300, 250],
                 [300, 600],
                 [120, 600],
-                [160, 600]
+                [160, 600],
+                [300, 450]
             ]);
         });
 
@@ -180,7 +182,7 @@ describe('common - utils - bannerHelper', () => {
                 'propiedades',
                 'nota_caja1_dsk'
             );
-            expect(result).toBe('300x250,300x600,120x600,160x600');
+            expect(result).toBe('300x250,300x600,120x600,160x600,300x450');
         });
 
         it('should return the correct dimensions for section "propiedades" and slot "acumulado_caja1_dsk"', () => {
@@ -212,7 +214,7 @@ describe('common - utils - bannerHelper', () => {
                 'campo',
                 'nota_caja1_dsk'
             );
-            expect(result).toBe('300x250,300x600,120x600,160x600');
+            expect(result).toBe('300x250,300x600,120x600,160x600,300x450');
         });
 
         it('should return the correct dimensions for section "campo" and slot "acumulado_caja1_dsk"', () => {

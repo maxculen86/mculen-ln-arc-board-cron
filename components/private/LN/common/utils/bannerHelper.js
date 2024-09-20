@@ -247,6 +247,13 @@ export const buildBannerClasses = (config, customFields) => {
 };
 
 export const getDimsFromSiteService = (config, slotName, section) => {
+    const dynamicSlotDimensions = {
+        la_nacion_usa: {
+            nota_caja1_dsk: ['120x600', '160x600', '300x600'],
+            acumulado_caja1_dsk: ['120x600', '160x600', '300x600']
+        }
+    };
+
     if (!config || !slotName) return null;
 
     const specificSectionDimensions = getBannerSectionDimensions(
@@ -262,12 +269,11 @@ export const getDimsFromSiteService = (config, slotName, section) => {
     if (!position || !position.dimensions || position.dimensions === '')
         return null;
 
-    // TODO: hacerlo dinamico
-    if (
-        ['salud', 'autos', 'la_nacion_usa'].includes(section) &&
-        (slotName === 'nota_caja1_dsk' || slotName === 'acumulado_caja1_dsk')
-    )
-        position.dimensions = '120x600,160x600,300x600';
+    if (dynamicSlotDimensions[section]?.[slotName]) {
+        position.dimensions = dynamicSlotDimensions[section][slotName].join(
+            ','
+        );
+    }
 
     return parseDimensionsBanners(position.dimensions);
 };
@@ -485,14 +491,19 @@ export const getBannerSectionDimensions = (section, slotName) => {
     if (!section || !slotName) return null;
 
     const defaultSlotDimensions = {
-        nota_caja1_dsk: '300x250,300x600,120x600,160x600',
+        nota_caja1_dsk: '300x250,300x600,120x600,160x600,300x450',
+        nota_caja4_dsk: '300x250,300x600,300x450',
+        nota_caja5_dsk: '300x250,300x600,120x600,160x600,300x450',
         acumulado_caja1_dsk: '300x250,300x600'
     };
 
     const sectionSlotDimensions = {
         propiedades: defaultSlotDimensions,
         campo: defaultSlotDimensions,
-        futuria: defaultSlotDimensions
+        futuria: defaultSlotDimensions,
+        bienestar: defaultSlotDimensions,
+        movilidad: defaultSlotDimensions,
+        quesale: defaultSlotDimensions
     };
 
     return sectionSlotDimensions[section]?.[slotName];
