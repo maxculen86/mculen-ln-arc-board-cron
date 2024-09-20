@@ -547,13 +547,13 @@
   }
 }
 .ln-caja-ranking .--0 .description-container::after {
-  font-size: 1.75rem;
-  line-height: 120%;
   content: "1";
   position: absolute;
   left: -1.8125rem;
   font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
+  font-size: 1.75rem;
+  line-height: 120%;
 }
 @media (min-width: 48rem) {
   .ln-caja-ranking .--0 .description-container::after {
@@ -571,13 +571,13 @@
   }
 }
 .ln-caja-ranking .--1 .description-container::after {
-  font-size: 1.75rem;
-  line-height: 120%;
   content: "2";
   position: absolute;
   left: -1.8125rem;
   font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
+  font-size: 1.75rem;
+  line-height: 120%;
 }
 @media (min-width: 48rem) {
   .ln-caja-ranking .--1 .description-container::after {
@@ -595,13 +595,13 @@
   }
 }
 .ln-caja-ranking .--2 .description-container::after {
-  font-size: 1.75rem;
-  line-height: 120%;
   content: "3";
   position: absolute;
   left: -1.8125rem;
   font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
+  font-size: 1.75rem;
+  line-height: 120%;
 }
 @media (min-width: 48rem) {
   .ln-caja-ranking .--2 .description-container::after {
@@ -619,13 +619,13 @@
   }
 }
 .ln-caja-ranking .--3 .description-container::after {
-  font-size: 1.75rem;
-  line-height: 120%;
   content: "4";
   position: absolute;
   left: -1.8125rem;
   font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
+  font-size: 1.75rem;
+  line-height: 120%;
 }
 @media (min-width: 48rem) {
   .ln-caja-ranking .--3 .description-container::after {
@@ -643,13 +643,13 @@
   }
 }
 .ln-caja-ranking .--4 .description-container::after {
-  font-size: 1.75rem;
-  line-height: 120%;
   content: "5";
   position: absolute;
   left: -1.8125rem;
   font-family: Prumo, georgia, serif;
   font-variation-settings: "wght" 90;
+  font-size: 1.75rem;
+  line-height: 120%;
 }
 @media (min-width: 48rem) {
   .ln-caja-ranking .--4 .description-container::after {

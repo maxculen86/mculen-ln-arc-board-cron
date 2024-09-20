@@ -1328,6 +1328,9 @@ a {
     }
   }
 }
+.common-main-header .right-options .ln-button {
+  transition: none;
+}
 @media (width <= 22.375rem) {
   .common-main-header .right-options .ln-button[data-variant=subscribe] {
     background: none;
@@ -1338,9 +1341,6 @@ a {
   .common-main-header .right-options .ln-button.--negative {
     color: var(--light-neutral-50);
   }
-}
-.common-main-header .ln-button {
-  transition: none;
 }
 .common-main-header .ln-button .icon {
   transition: none;

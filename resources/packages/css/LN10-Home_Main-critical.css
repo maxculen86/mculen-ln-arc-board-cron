@@ -794,13 +794,13 @@
   top: 0;
   margin: 0;
 }
-.ln-banner-container.--comercial:before {
-  display: none;
-}
 .ln-banner-container.--comercial .ln-button {
   position: absolute;
   top: 1rem;
   right: 1rem;
+}
+.ln-banner-container.--comercial:before {
+  display: none;
 }
 .ln-banner-container.--sticky {
   position: sticky;
@@ -2642,16 +2642,6 @@
   position: fixed;
   overflow-y: scroll;
 }
-.wrapper-dropdown.--dd-active {
-  visibility: visible;
-}
-.wrapper-dropdown.--dd-active .ln-dropdown {
-  left: 0;
-}
-.wrapper-dropdown.--dd-active .ln-dropdown > header .button,
-.wrapper-dropdown.--dd-active .ln-dropdown > nav .button {
-  display: flex;
-}
 .wrapper-dropdown .overlay {
   display: flex;
   background: rgba(0, 0, 0, 0.3);
@@ -2711,13 +2701,6 @@
   margin: 0;
   border-bottom: 0.0625rem solid #e4e4e4;
 }
-.wrapper-dropdown .ln-dropdown > nav ul li:hover {
-  background: #f2f2f2;
-}
-.wrapper-dropdown .ln-dropdown > nav ul li:hover > a .menu-item-title {
-  color: #0250c9;
-  text-decoration: underline;
-}
 .wrapper-dropdown .ln-dropdown > nav ul li a {
   font-size: 0.875rem;
   color: #000000;
@@ -2730,6 +2713,13 @@
 }
 .wrapper-dropdown .ln-dropdown > nav ul li .button {
   display: none;
+}
+.wrapper-dropdown .ln-dropdown > nav ul li:hover {
+  background: #f2f2f2;
+}
+.wrapper-dropdown .ln-dropdown > nav ul li:hover > a .menu-item-title {
+  color: #0250c9;
+  text-decoration: underline;
 }
 .wrapper-dropdown .ln-dropdown > nav ul li.--more {
   justify-content: center;
@@ -2836,6 +2826,16 @@
     top: auto;
     bottom: 0.6875rem;
   }
+}
+.wrapper-dropdown.--dd-active {
+  visibility: visible;
+}
+.wrapper-dropdown.--dd-active .ln-dropdown {
+  left: 0;
+}
+.wrapper-dropdown.--dd-active .ln-dropdown > header .button,
+.wrapper-dropdown.--dd-active .ln-dropdown > nav .button {
+  display: flex;
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) and (max-height: 950px) {
@@ -4659,6 +4659,9 @@ a {
     }
   }
 }
+.common-main-header .right-options .ln-button {
+  transition: none;
+}
 @media (width <= 22.375rem) {
   .common-main-header .right-options .ln-button[data-variant=subscribe] {
     background: none;
@@ -4669,9 +4672,6 @@ a {
   .common-main-header .right-options .ln-button.--negative {
     color: var(--light-neutral-50);
   }
-}
-.common-main-header .ln-button {
-  transition: none;
 }
 .common-main-header .ln-button .icon {
   transition: none;
