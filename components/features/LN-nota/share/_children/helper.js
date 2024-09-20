@@ -1,19 +1,23 @@
 import React, { Suspense, lazy } from 'react';
 import IconSprite from '../../../../../components/features/private-global/common/iconSprite/IconSprite';
 import '../../../../../resources/packages/css/@ln/contenidos-ui-animatedicons/index.css';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const AnimatedIcons = lazy(() => import('./AnimatedLogo'));
 
 export const handleIaToggle = ({
-    isIaVisible,
-    setIsIaVisible,
+    defaultTab,
     setIaButtonIsClicked,
     callback = () => null
 }) => {
-    const shouldShowIa = !isIaVisible;
-    setIsIaVisible(shouldShowIa);
+    window.LN.observable.publish('showIa', { show: true });
+    addEventToDataLayerV2({
+        event: 'e_linkclick',
+        action: 'IA',
+        category: 'nota_ln9',
+        label: defaultTab
+    });
     setIaButtonIsClicked(prev => !prev);
-    window.LN.observable.publish('showIa', { show: shouldShowIa });
     localStorage.setItem('IA-feature-tracking', 'wasDisplayed');
     callback?.();
 };

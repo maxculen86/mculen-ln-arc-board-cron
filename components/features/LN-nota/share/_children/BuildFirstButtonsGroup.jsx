@@ -122,6 +122,9 @@ const BuildFirtsButtonsGroup = ({
 
     const classes = getFirstGroupClassNames({ subtypeVideo });
 
+    const defaultTab =
+        summary && isThermalSummaryEnabled ? 'resumen_nota' : 'glosario';
+
     // TODO: Abstraer botones para que el componente sea más prolijo y modular
 
     return (
@@ -142,8 +145,7 @@ const BuildFirtsButtonsGroup = ({
                         className={iaButtonClass}
                         onClick={() => {
                             handleIaToggle({
-                                isIaVisible,
-                                setIsIaVisible,
+                                defaultTab,
                                 setIaButtonIsClicked,
                                 callback: closeTooltip
                             });

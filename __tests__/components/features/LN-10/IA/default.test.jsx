@@ -4,6 +4,7 @@ import { useAppContext } from 'fusion:context';
 import arrayData from '../../../../../__mocks__/data/glossary/arrayWords.json';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
 import LnIa from '../../../../../components/features/LN-10/IA/default';
+import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
@@ -18,6 +19,13 @@ jest.mock('../../../../../components/features/LN-10/glossary/collapse', () => ({
         <div data-testid="collapse">{glossaryData.length}</div>
     )
 }));
+
+jest.mock(
+    '../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        addEventToDataLayerV2: jest.fn()
+    })
+);
 
 describe('features - LN-common - IA - default', () => {
     beforeEach(() => {
@@ -117,5 +125,53 @@ describe('features - LN-common - IA - default', () => {
         fireEvent.click(getByText('Resumen de la nota'));
         expect(queryByTestId('summary-note')).toBeInTheDocument();
         expect(queryByTestId('collapse')).toBeNull();
+    });
+
+    it('should fire a dataLayer event when clicking on the summary button', () => {
+        useTermica.mockReturnValue(true);
+        const { getByRole } = render(
+            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
+        );
+
+        fireEvent.click(getByRole('button', { name: 'Resumen de la nota' }));
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            action: 'IA',
+            category: 'nota_ln9',
+            label: 'resumen_nota'
+        });
+    });
+
+    it('should fire a dataLayer event when clicking on the glossary button', () => {
+        useTermica.mockReturnValue(true);
+        const { getByRole } = render(
+            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
+        );
+
+        fireEvent.click(getByRole('button', { name: 'Glosario' }));
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            action: 'IA',
+            category: 'nota_ln9',
+            label: 'glosario'
+        });
+    });
+
+    it('should fire a dataLayer event when clicking on the close button', () => {
+        useTermica.mockReturnValue(true);
+        const { getByRole } = render(
+            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
+        );
+
+        fireEvent.click(getByRole('button', { name: 'Close' }));
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            action: 'IA',
+            category: 'nota_ln9',
+            label: 'cerrar_ia'
+        });
     });
 });
