@@ -311,6 +311,7 @@ export const isPrimarySectionInBannerSegments = primarySection => (
         'estados-unidos': 'la_nacion_usa',
         salud: 'bienestar',
         autos: 'movilidad',
+        quesale: 'quesale',
         IA: 'futuria'
     };
 
@@ -492,7 +493,8 @@ export const getBannerSectionDimensions = (section, slotName) => {
     const sectionSlotDimensions = {
         propiedades: defaultSlotDimensions,
         campo: defaultSlotDimensions,
-        futuria: defaultSlotDimensions
+        futuria: defaultSlotDimensions,
+        quesale: defaultSlotDimensions
     };
 
     return sectionSlotDimensions[section]?.[slotName];
