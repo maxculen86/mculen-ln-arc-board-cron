@@ -23,16 +23,20 @@ import getImageAltText from '../../foodit-global/common/utils/getImageAltText.js
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
 
-const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
+const CardFoodit = ({ id: featureId, customFields }) => {
+    const { noteId: id, isDayRecipe } = customFields;
     const articleId = checkForId(id);
 
     const { isAdmin, arcSite, renderables } = useAppContext();
 
     const { isOpening, layout } = getRenderablesData(renderables, featureId);
+
     const {
+        openingImgConfig,
+        layoutImgConfig,
+        containerConfig,
         size = 'small',
-        classNameChildren = '',
-        layoutImgConfig
+        classNameChildren = ''
     } = fooditRules(layout);
 
     const articleContent = useContent({
@@ -43,7 +47,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
             website: arcSite,
             isInApertura: isOpening,
             isAdmin,
-            imageConfig: isOpening ? 'recipeDay' : layoutImgConfig,
+            imageConfig: isOpening ? openingImgConfig : layoutImgConfig,
             checkExclusiveAccess: false
         },
         staticMode: true,
@@ -93,7 +97,12 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                     time={time}
                     linksProps={{ href, title }}
                     size={!isOpening && size}
-                    variant={isOpening ? 'day-recipe' : variant}
+                    container={isOpening && containerConfig}
+                    variant={
+                        isDayRecipe || layout === 'bn_1_grid'
+                            ? 'day-recipe'
+                            : variant
+                    }
                     src={resizedUrl || url}
                     alt={getImageAltText(image)}
                     sources={getImagesToLoadWithPicture(resized_urls)}
@@ -119,7 +128,12 @@ CardFoodit.propTypes = {
             name: 'ID de la nota',
             description: 'Ingrese aquí el id de la nota',
             default: ''
-        }).isRequired
+        }).isRequired,
+        isDayRecipe: PropTypes.boolean.tag({
+            name: 'Receta del día',
+            description: 'Marque para seleccionar la receta del dia',
+            defaultValue: false
+        })
     })
 };
 

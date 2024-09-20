@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 
 import CardFoodit from '../../../../../components/features/foodit/Card/foodit.jsx';
 
-import renderables from '../../../../../__mocks__/data/renderables/foodit/fooditRenderables.json';
+import renderables from '../../../../../__mocks__/data/renderables/foodit/focal1HomeRenderables.json';
 import articleFoodit from '../../../../../__mocks__/data/articlesFoodit/D3SATI3N45FQTB5PYSC7TRFTTU.json';
 import articleFooditNota from '../../../../../__mocks__/data/articlesFoodit/FMLGIYTL2ZBCRAKQTSO27CCQ6U.json';
 
@@ -34,9 +34,10 @@ describe('Components - features - CardFoodit', () => {
         }));
 
         const props = {
-            id: 'f0fJFPMkar6s1FK',
+            id: 'f0fujPmnOyutm2Tj',
             customFields: {
-                noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU'
+                noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
+                isDayRecipe: false
             }
         };
 

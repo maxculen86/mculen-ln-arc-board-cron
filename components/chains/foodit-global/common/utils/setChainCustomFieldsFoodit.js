@@ -1,7 +1,13 @@
 import PropTypes from 'fusion:prop-types';
 import { LAYOUTS } from './helper-WebApi';
 
-const { CAROUSEL, BN_12_GRID, BN_2_GRID } = LAYOUTS;
+const {
+    CAROUSEL,
+    BN_12_GRID,
+    BN_2_GRID,
+    BN_FOCAL_1,
+    BN_FOCAL_1_MAS_4
+} = LAYOUTS;
 
 const customFieldsRules = {
     cajaManual: {
@@ -9,6 +15,7 @@ const customFieldsRules = {
         hideIdCollection: true,
         hideHideCaja: false,
         hideButton: false,
+        hideRoofProps: false,
         groupName: 'Ajuste Manual',
         layouts: {
             [BN_2_GRID]: 'BN Grilla 2'
@@ -20,12 +27,26 @@ const customFieldsRules = {
         hideIdCollection: false,
         hideHideCaja: false,
         hideButton: false,
+        hideRoofProps: false,
         groupName: 'Ajuste Collection',
         layouts: {
             [CAROUSEL]: 'Carrusel',
             [BN_12_GRID]: 'Grilla 12'
         },
         defaultLayout: BN_12_GRID
+    },
+    cajaApertura: {
+        hideInitialPosition: true,
+        hideIdCollection: true,
+        hideHideCaja: true,
+        hideButton: true,
+        hideRoofProps: true,
+        groupName: 'Ajuste Apertura',
+        layouts: {
+            [BN_FOCAL_1]: 'Focal 1',
+            [BN_FOCAL_1_MAS_4]: 'Focal 1 más 4'
+        },
+        defaultLayout: BN_FOCAL_1
     }
 };
 
@@ -58,12 +79,14 @@ const setChainFooditCustomFields = featuredName => {
             name: 'Ocultar Caja',
             description: 'Marque para ocultar la caja',
             defaultValue: false,
-            group: customFieldsRules[featuredName].groupName
+            group: customFieldsRules[featuredName].groupName,
+            hidden: customFieldsRules[featuredName].hideHideCaja
         }),
         title: PropTypes.string.tag({
             name: 'Texto',
             description: 'Ingrese aquí el título de la caja.',
             defaultValue: '',
+            hidden: customFieldsRules[featuredName].hideRoofProps,
             group: 'Techo'
         }),
         link: PropTypes.url.tag({
@@ -71,12 +94,14 @@ const setChainFooditCustomFields = featuredName => {
             description:
                 'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
             defaultValue: '',
+            hidden: customFieldsRules[featuredName].hideRoofProps,
             group: 'Techo'
         }),
         hideTitle: PropTypes.boolean.tag({
             name: 'Ocultar techo',
             description: 'Marque para ocultar el techo',
             defaultValue: false,
+            hidden: customFieldsRules[featuredName].hideRoofProps,
             group: 'Techo'
         })
     };

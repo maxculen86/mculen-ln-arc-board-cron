@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RenderManualBox should render a single card when layout is BN_FOCAL_1 with 1 card 1`] = `
+<div>
+  <div>
+    Card 
+    1
+  </div>
+</div>
+`;

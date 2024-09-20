@@ -2,10 +2,12 @@ import {
     getHighestPriorityTag,
     validateArticleFoodit,
     getRenderablesData,
-    getFooditAuthor
+    getFooditAuthor,
+    getOpeningProps
 } from '../../../../../../components/features/foodit-global/common/utils/notaFooditHelper';
 
-import renderables from '../../../../../../__mocks__/data/renderables/foodit/fooditRenderables2';
+import renderables from '../../../../../../__mocks__/data/renderables/foodit/focal1Plus4HomeRenderables.json';
+import focal1HomeRenderables from '../../../../../../__mocks__/data/renderables/foodit/focal1HomeRenderables.json';
 import noTypeAuthorMock from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/withVideoOpening.json';
 
 const authorTypeUserMock = {
@@ -99,7 +101,7 @@ describe('Foodit - notaFooditHelper', () => {
 
     describe('getRenderablesData', () => {
         it('should return isOpening true if featureId is present in children', () => {
-            const featureId = 'f0f5gjwJmp3u2hM';
+            const featureId = 'f0fujPmnOyutm2Tj';
             const result = getRenderablesData(renderables, featureId);
             expect(result.isOpening).toBe(true);
         });
@@ -111,15 +113,40 @@ describe('Foodit - notaFooditHelper', () => {
         });
 
         it('should return the correct layout value if featureId is present in children', () => {
-            const featureId = 'f0feV8KtsvPmtxw';
+            const featureId = 'f0fujPmnOyutm2Tj';
             const result = getRenderablesData(renderables, featureId);
-            expect(result.layout).toEqual('bn_2_grid');
+            expect(result.layout).toEqual('bn_1_4_grid');
         });
 
         it('should return an empty layout value if featureId is not present in children', () => {
             const featureId = 'fakeFeatureId';
             const result = getRenderablesData(renderables, featureId);
             expect(result.layout).toEqual('');
+        });
+    });
+
+    describe('getOpeningProps', () => {
+        it('should return opening props for focal 1 plus 4 opening', () => {
+            expect(getOpeningProps()).toEqual({
+                id: '',
+                noteId: '',
+                openingLayout: ''
+            });
+        });
+        it('should return opening props for focal 1 plus 4 opening', () => {
+            expect(getOpeningProps(renderables)).toEqual({
+                id: 'f0fujPmnOyutm2Tj',
+                noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
+                openingLayout: 'bn_1_4_grid'
+            });
+        });
+
+        it('should return opening props for focal 1 opening', () => {
+            expect(getOpeningProps(focal1HomeRenderables)).toEqual({
+                id: 'f0fujPmnOyutm2Tj',
+                noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
+                openingLayout: 'bn_1_grid'
+            });
         });
     });
 

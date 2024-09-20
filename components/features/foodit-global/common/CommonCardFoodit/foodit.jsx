@@ -6,7 +6,6 @@ import { BOOKMARK_FILLED } from '../bookmark/iconHelper';
 const CommonCardFoodit = ({
     articleId,
     linksProps,
-    className = '',
     showTime,
     time,
     size,
@@ -17,13 +16,15 @@ const CommonCardFoodit = ({
     loading,
     fetchPriority,
     tag,
-    fill = false,
     title,
     author,
     subtitle,
-    bookmarkAction = null,
     titleEllipsis,
-    contentCode
+    contentCode,
+    container,
+    className = '',
+    bookmarkAction = null,
+    fill = false
 }) => {
     return (
         <Card
@@ -32,6 +33,7 @@ const CommonCardFoodit = ({
             size={size}
             variant={variant}
             className={className}
+            {...(container && { container })}
         >
             <Card.Top>
                 <Card.Image

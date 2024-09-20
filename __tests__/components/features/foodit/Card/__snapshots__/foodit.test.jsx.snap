@@ -6,7 +6,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
     class="hidden"
   >
     <article
-      class="card relative h-100 w-100 max-w-1366 mx-auto --day-recipe bg-light-1"
+      class="card relative w-100 max-w-1366 mx-auto h-100 --day-recipe bg-light-1"
       data-test-id="card-day-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
       data-variant="day-recipe"
     >
@@ -45,7 +45,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 max-w-483_lg pt-16 pt-0_lg"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 max-w-483_lg pt-16 pt-0_lg"
         >
           <div
             class="flex flex-column gap-12"
@@ -59,7 +59,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 Receta del día
               </span>
               <h1
-                class="text card-title prumo transition-regular prumo-book text-28 text-40_md text-48_lg"
+                class="text card-title prumo transition-regular  prumo-book text-28 text-40_md text-48_lg"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </h1>
@@ -129,7 +129,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
     class="hidden"
   >
     <article
-      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-positive"
+      class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive"
       data-test-id="card-note--FMLGIYTL2ZBCRAKQTSO27CCQ6U"
       data-variant="note"
     >
@@ -163,7 +163,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -172,7 +172,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               class="flex flex-column gap-4"
             >
               <h2
-                class="text card-title prumo transition-regular text-ellipsis-3 prumo-semibold text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-semibold prumo-medium text-20"
               >
                 Ficha nota FOODIT
               </h2>
@@ -242,7 +242,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
     class="hidden"
   >
     <article
-      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+      class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
       data-test-id="card-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
       data-variant="recipe"
     >
@@ -281,7 +281,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -290,7 +290,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               class="flex flex-column gap-4"
             >
               <h2
-                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3  prumo-medium text-20"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </h2>

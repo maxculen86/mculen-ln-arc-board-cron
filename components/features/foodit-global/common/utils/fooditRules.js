@@ -1,6 +1,12 @@
 import { LAYOUTS } from '../../../../chains/foodit-global/common/utils/helper-WebApi';
 
-const { BN_12_GRID, CAROUSEL, BN_2_GRID } = LAYOUTS;
+const {
+    BN_12_GRID,
+    CAROUSEL,
+    BN_2_GRID,
+    BN_FOCAL_1_MAS_4,
+    BN_FOCAL_1
+} = LAYOUTS;
 
 const fooditRules = diagramation => {
     const size = {
@@ -46,6 +52,17 @@ const fooditRules = diagramation => {
             classNameChildren: 'col-span-8 col-span-6_md col-span-8_lg',
             classNameRoof: 'mb-24',
             layoutImgConfig: 'grid2Notes'
+        },
+        [BN_FOCAL_1_MAS_4]: {
+            minArticles: 5,
+            size: size.small,
+            openingImgConfig: 'grid2Notes',
+            containerConfig: 'opening-grid',
+            layoutImgConfig: 'm'
+        },
+        [BN_FOCAL_1]: {
+            containerConfig: 'opening-alone',
+            openingImgConfig: 'recipeDay'
         }
     };
 

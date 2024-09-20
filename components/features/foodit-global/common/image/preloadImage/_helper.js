@@ -7,14 +7,14 @@ import { getVideoData } from '../../../../private-global/common/utils/getVideoDa
 
 import filter from '../../../../../../content/filters/foodit/home/articleFoodit.js';
 import replaceBaseUrl from '../../utils/replaceBaseUrl.js';
+import { getOpeningProps } from '../../utils/notaFooditHelper.js';
+import fooditRules from '../../utils/fooditRules.js';
 
 export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
-    const aperturaSection = renderables.find(
-        item => item.collection === 'sections'
-    );
-    const children = get(aperturaSection, 'children', []);
-    const { noteId = '' } = get(children, '[0].props.customFields', {});
+    const { noteId = '', openingLayout = '' } = getOpeningProps(renderables);
     const id = checkForId(noteId);
+
+    const { openingImgConfig = 'recipeDay' } = fooditRules(openingLayout);
 
     const { promo_items = {} } =
         useContent({
@@ -25,7 +25,7 @@ export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
                 website: 'foodit',
                 isInApertura: true,
                 isAdmin,
-                imageConfig: 'recipeDay',
+                imageConfig: openingImgConfig,
                 checkExclusiveAccess: false
             },
             staticMode: true,
