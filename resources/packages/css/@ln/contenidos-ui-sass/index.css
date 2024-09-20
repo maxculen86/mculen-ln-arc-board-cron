@@ -3844,3 +3844,10 @@ body:has(.disable-body-scroll) {
   top: 2rem;
   left: 9rem;
 }
+
+@media (max-width: 767px) {
+  .p-overflow_max767.p-overflow_max767 {
+    margin-left: -1rem;
+    width: calc(100% + 32px);
+  }
+}
