@@ -5103,6 +5103,10 @@ a {
   background: rgba(26, 26, 26, 0.64);
 }
 
+.bg-primary-ai {
+  background: var(--primary-ia);
+}
+
 .bg-nunca-cuatro__hover:hover {
   background: var(--nunca-cuatro);
 }
@@ -5165,6 +5169,10 @@ a {
 
 .bg-blue-100__hover:hover {
   background: var(--blue-100);
+}
+
+.bg-ai-active__hover:hover {
+  background: var(--primary-ia);
 }
 
 .cardGames__hover:hover .border-neutral-light-700 {

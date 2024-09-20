@@ -24,10 +24,13 @@ import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 import eventHandler from '../../../../private/common/audioNews/trackerAudioNews';
 import useTermica from '../../../../private/common/hooks/useTermica';
-import getToken from '../../../../private/common/utils/getToken';
 import classNames from 'classnames';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
-import { handleIaToggle, IA_FEATURE_TRACKING_STORAGE } from './helper';
+import {
+    getClassAndIconByClick,
+    handleIaToggle,
+    IA_FEATURE_TRACKING_STORAGE
+} from './helper';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
@@ -45,6 +48,7 @@ const BuildFirtsButtonsGroup = ({
 } = {}) => {
     const [isIaVisible, setIsIaVisible] = useState(false);
     const [tooltipWasClosed, setTooltipWasClosed] = useState(false);
+    const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
     const { dispatch, state } = useContext(GlobalContext) || {};
 
@@ -108,10 +112,10 @@ const BuildFirtsButtonsGroup = ({
     });
 
     const totalVisibleContent = get(data, 'total_visible_content', '');
-    const accessToken = getToken('access-token');
 
     const { bookmarkClass, bookmarkIcon } = getClassAndIconByBookmark(bookmark);
     const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
+    const { iaLogo, iaButtonClass } = getClassAndIconByClick(iaButtonIsClicked);
 
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
@@ -135,18 +139,17 @@ const BuildFirtsButtonsGroup = ({
                         iconOnly
                         dataEvent="LinkClick"
                         dataSection="IA"
-                        className="ia"
+                        className={iaButtonClass}
                         onClick={() => {
                             handleIaToggle({
                                 isIaVisible,
                                 setIsIaVisible,
+                                setIaButtonIsClicked,
                                 callback: closeTooltip
                             });
                         }}
                     >
-                        <Icon size={40} color="inherit">
-                            <IconSprite name="iaGeneric" fill="#FFF" />
-                        </Icon>
+                        <Icon size={32}>{iaLogo}</Icon>
                     </Button>
                     <Tooltip
                         visible={tooltipVisible}
