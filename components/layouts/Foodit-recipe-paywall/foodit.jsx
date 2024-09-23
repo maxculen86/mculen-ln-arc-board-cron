@@ -23,7 +23,10 @@ const FooditRecipePaywallLayout = ({ children = [], globalContent = {} }) => {
                 />
                 <OpeningRecipe article={globalContent} isPrivate />
             </section>
-            <section id="recipe-paywall-body">
+            <section
+                id="recipe-paywall-body"
+                className="flex flex-column gap-40"
+            >
                 <Static htmlOnly persistent id="recipe-paywall-subtitle">
                     <Subtitle
                         globalContent={globalContent}
