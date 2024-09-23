@@ -68,7 +68,8 @@ export default {
         published: 'text',
         outputType: 'text',
         sourceInclude: 'text',
-        isInApertura: 'bool'
+        isInApertura: 'bool',
+        imageConfig: 'text'
     },
     ttl: 600
 };

@@ -37,7 +37,13 @@ const OpeningRecipeBox = props => {
                 error,
                 hideBox: false,
                 extraOptions: {
-                    default: <RenderManualBox layout={layout} cards={cards} />
+                    default: (
+                        <RenderManualBox
+                            layout={layout}
+                            cards={cards}
+                            boxType={'opening'}
+                        />
+                    )
                 }
             })}
         </Static>

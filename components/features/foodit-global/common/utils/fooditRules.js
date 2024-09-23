@@ -58,6 +58,7 @@ const fooditRules = diagramation => {
             size: size.small,
             openingImgConfig: 'grid2Notes',
             containerConfig: 'opening-grid',
+            classNameChildren: 'w-100',
             layoutImgConfig: 'm'
         },
         [BN_FOCAL_1]: {

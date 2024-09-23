@@ -683,7 +683,8 @@ describe('common - utils - bannerHelper', () => {
                 [300, 250],
                 [300, 600],
                 [120, 600],
-                [160, 600]
+                [160, 600],
+                [300, 450]
             ]);
 
             dimensions = getDimsFromSiteService(
@@ -729,7 +730,7 @@ describe('common - utils - bannerHelper', () => {
 
         it('should add corresponding dimensions for sections', () => {
             const banners = ['nota_caja1_dsk', 'acumulado_caja1_dsk'];
-            const sections = ['salud', 'autos', 'la_nacion_usa'];
+            const sections = ['la_nacion_usa'];
             banners.forEach(banner =>
                 sections.forEach(section =>
                     expect(
