@@ -345,6 +345,12 @@
             "_id": "RJUZ6P6CMFCWXIDG22L3DRWSFQ",
             "content": "el contenido del html",
             "type": "raw_html"
+        },
+        "basic": {
+            "originalSizes": {
+                "width": 0,
+                "height": 0
+            }
         }
     },
     "related_content": {

@@ -5,7 +5,8 @@ import {
     getData,
     validateTitle,
     getDescription,
-    getImageProps
+    getImageProps,
+    modifyUrlParam
 } from '../../../../../components/private/common/utils/getMetasOGHelper';
 
 jest.mock('fusion:context', () => ({
@@ -199,7 +200,13 @@ describe('Case return getData', () => {
                 basic: {
                     type: 'image',
                     url:
-                        'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
+                        'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1024&height=576&quality=70&smart=true',
+                    width: '1024',
+                    height: '576',
+                    originalSizes: {
+                        width: 2121,
+                        height: 1193
+                    }
                 },
                 receta: {}
             },
@@ -231,9 +238,9 @@ describe('Case return getData', () => {
             displayDate: '2021-01-08T15:24:00.940Z',
             image: {
                 url:
-                    'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
-                width: '768',
-                height: '512'
+                    'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1200&height=675&quality=70&smart=true',
+                width: '1200',
+                height: '675'
             },
             url:
                 'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
@@ -328,15 +335,20 @@ describe('Case return getImageProps', () => {
     it('if acuOgImage object does not exist and promoItemsBasic exists', () => {
         const promoItemsBasic = {
             url:
-                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+                'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1024&height=576&quality=70&smart=true',
             type: 'image',
-            height: '800',
-            width: '800'
+            height: '576',
+            width: '1024',
+            originalSizes: {
+                width: 2121,
+                height: 1193
+            }
         };
         const output = {
-            url: promoItemsBasic.url,
-            width: '768',
-            height: '512'
+            url:
+                'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1200&height=675&quality=70&smart=true',
+            width: '1200',
+            height: '675'
         };
         expect(getImageProps({}, promoItemsBasic, '')).toEqual(output);
     });
@@ -348,5 +360,18 @@ describe('Case return getImageProps', () => {
             height: '630'
         };
         expect(getImageProps({}, {}, 'placeholder')).toEqual(output);
+    });
+});
+
+describe('modifyUrlParam function', () => {
+    it('should modify an existing parameter in the URL', () => {
+        const url = 'https://example.com?foo=1&bar=2';
+        const result = modifyUrlParam(url, 'foo', '42');
+        expect(result).toBe('https://example.com/?foo=42&bar=2');
+    });
+    it('should handle invalid URLs and return the original URL', () => {
+        const url = 'invalid-url';
+        const result = modifyUrlParam(url, 'foo', '42');
+        expect(result).toBe(url);
     });
 });
