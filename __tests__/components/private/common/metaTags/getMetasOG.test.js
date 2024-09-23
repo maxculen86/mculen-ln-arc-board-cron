@@ -137,7 +137,7 @@ describe('Metas OTT', () => {
                 content: 'LN+ Mirá todos los programas y videos online'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-513x50.jpg'
                 )
@@ -257,7 +257,7 @@ describe('Common - getMetasOG function', () => {
                 property: 'og:site_name'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content:
                     'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1200&height=675&quality=70&smart=true'
             }
@@ -331,7 +331,7 @@ describe('Common - getMetasOG function', () => {
                 property: 'og:site_name'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-513x50.jpg'
                 )
@@ -407,7 +407,7 @@ describe('Common - getMetasOG function', () => {
                 content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
@@ -511,7 +511,7 @@ describe('Metas home', () => {
                 property: 'og:site_name'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-513x50.jpg'
                 )

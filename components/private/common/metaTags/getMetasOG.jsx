@@ -110,7 +110,7 @@ const getMetasOG = props => {
     }
 
     metas.push({
-        property: 'twitter:image',
+        name: 'twitter:image',
         content: data.image.url
     });
 
