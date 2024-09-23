@@ -266,13 +266,16 @@ export const buttonsList = [
 ];
 
 export function isLN10IAHidden(renderables) {
-    for (const item of renderables) {
-        if (item.collection === 'features' && item.type === 'LN-10/IA') {
-            const { hideGlossary, hideSummary } = item.props.customFields;
-            if (hideGlossary === true && hideSummary === true) {
-                return true;
-            }
-        }
+    const filteredItems = renderables.filter(
+        item => item.collection === 'features' && item.type === 'LN-10/IA'
+    );
+
+    if (filteredItems.length === 0) {
+        return true;
     }
-    return false;
+
+    return filteredItems.every(item => {
+        const { hideGlossary, hideSummary } = item.props.customFields;
+        return hideGlossary === true && hideSummary === true;
+    });
 }

@@ -1,9 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import BuildFirtsButtonsGroup from '../../../../../components/features/LN-nota/share/_children/BuildFirstButtonsGroup';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -13,6 +20,23 @@ jest.mock('../../../../../components/private/common/hooks/useFetch', () =>
     jest.fn()
 );
 
+const props = {
+    renderables: [
+        {
+            collection: 'features',
+            type: 'LN-10/IA',
+            props: {
+                customFields: {
+                    hideGlossary: false,
+                    hideSummary: false
+                }
+            }
+        }
+    ]
+};
+
+Context.useAppContext = jest.fn(() => props);
+
 describe('Components - Features - LN-nota - share', () => {
     const globalContent = (isListenable, comments) => ({
         _id: '7ZDIHMQHDRDNNMJDSUWQXWPWZU',
@@ -20,6 +44,7 @@ describe('Components - Features - LN-nota - share', () => {
         promo_items: { glossary: {} },
         comments: { display_comments: comments }
     });
+
     useFetch.mockImplementation(() => ({
         data: {
             total_visible_content: 1

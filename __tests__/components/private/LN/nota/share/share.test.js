@@ -58,7 +58,19 @@ const props = {
         subtype: '',
         promo_items: { glossary: {} }
     },
-    requestUri: '/economia/dolar-hoy/'
+    requestUri: '/economia/dolar-hoy/',
+    renderables: [
+        {
+            collection: 'features',
+            type: 'LN-10/IA',
+            props: {
+                customFields: {
+                    hideGlossary: false,
+                    hideSummary: false
+                }
+            }
+        }
+    ]
 };
 
 Context.useAppContext = jest.fn(() => props);

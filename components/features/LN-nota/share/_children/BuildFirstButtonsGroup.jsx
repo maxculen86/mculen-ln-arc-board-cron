@@ -46,7 +46,6 @@ const BuildFirtsButtonsGroup = ({
     bookmark = '',
     subtypeVideo
 } = {}) => {
-    const [isIaVisible, setIsIaVisible] = useState(false);
     const [tooltipWasClosed, setTooltipWasClosed] = useState(false);
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 

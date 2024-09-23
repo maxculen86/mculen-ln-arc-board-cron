@@ -112,7 +112,7 @@ describe('isLN10IAHidden', () => {
         expect(isLN10IAHidden(renderables)).toBe(false);
     });
 
-    it('should return false when the type is not LN-10/IA', () => {
+    it('should return true when the type is not LN-10/IA', () => {
         const renderables = [
             {
                 collection: 'features',
@@ -126,10 +126,10 @@ describe('isLN10IAHidden', () => {
             }
         ];
 
-        expect(isLN10IAHidden(renderables)).toBe(false);
+        expect(isLN10IAHidden(renderables)).toBe(true);
     });
 
-    it('should return false when the collection is not features', () => {
+    it('should return true when the collection is not features', () => {
         const renderables = [
             {
                 collection: 'non-features',
@@ -143,12 +143,12 @@ describe('isLN10IAHidden', () => {
             }
         ];
 
-        expect(isLN10IAHidden(renderables)).toBe(false);
+        expect(isLN10IAHidden(renderables)).toBe(true);
     });
 
-    it('should return false when renderables is an empty array', () => {
+    it('should return true when renderables is an empty array, does not have the IA feature', () => {
         const renderables = [];
 
-        expect(isLN10IAHidden(renderables)).toBe(false);
+        expect(isLN10IAHidden(renderables)).toBe(true);
     });
 });
