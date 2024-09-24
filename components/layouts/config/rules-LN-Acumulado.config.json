@@ -9,6 +9,8 @@
         "quantity": 5,
         "operatorToUse": "<=",
         "types": [
+            "LN-acumulado/titulo",
+            "LN-acumulado/breadcrumb",
             "Ln_Caja_Manual",
             "LN-common/bannerRefactor",
             "Ln_Caja_Collection",
