@@ -1,6 +1,7 @@
 import cuerpo from './cuerpo/index';
 import { storyTitleAndResume } from '../../../common/elements/story/apertura/aperturaArticle';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { isCustomVoice } from '../../../../../../../content/sources/utils/audioNews/helper';
 
 const indexNotaText = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
@@ -10,6 +11,7 @@ const indexNotaText = dataNota => {
             dataNota.Termicas.hide_listening_articles === 'true') ||
         ![6, 7].includes(audio_status)
     ) {
+        dataNota.audio_id = undefined;
         dataNota.audio_url = undefined;
     }
 
@@ -36,6 +38,8 @@ const indexNotaText = dataNota => {
               contenido: content.concat('Fin de la nota').join('\n'),
               audio_url: dataNota.audio_url,
               audio_summary_url: dataNota.audio_summary_url,
+              audio_custom_voice: isCustomVoice(dataNota),
+              audio_id: dataNota.audio_id,
               categoria: dataNota.category,
               authors
           }

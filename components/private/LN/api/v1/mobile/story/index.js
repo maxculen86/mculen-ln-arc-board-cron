@@ -7,7 +7,10 @@ import { validateIdsPromoItems } from '../../../common/elements/story/apertura/u
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
-import { isNoteListenableHome as isNoteListenable } from '../../../../../../../content/sources/utils/audioNews/helper';
+import {
+    isNoteListenableHome as isNoteListenable,
+    isCustomVoice
+} from '../../../../../../../content/sources/utils/audioNews/helper';
 
 const indexNota = dataNotaParam => {
     if (!dataNotaParam) throw new Error(`La información de la nota esta vacia`);
@@ -21,7 +24,8 @@ const indexNota = dataNotaParam => {
         ...storyCommon(dataNota, elements.elements),
         ...storyHeadline(dataNota, 'mobile'),
         apertura: apertura(dataNota, elements.idsElements),
-        isListenable: isNoteListenable(dataNota)
+        isListenable: isNoteListenable(dataNota),
+        audio_custom_voice: isCustomVoice(dataNota)
     };
 
     let elmentsAdd = 0;

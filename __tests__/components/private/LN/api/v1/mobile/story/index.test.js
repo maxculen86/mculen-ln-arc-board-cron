@@ -220,7 +220,8 @@ describe('Test json integracion Article', () => {
                 'fechaActualizacion',
                 'fecha',
                 'apertura',
-                'isListenable'
+                'isListenable',
+                'audio_custom_voice'
             ].sort()
         );
     });
