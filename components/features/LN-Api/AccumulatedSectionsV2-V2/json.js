@@ -3,12 +3,14 @@ import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import get from '../../../private/common/utils/get';
-import { getNewAcuElements } from './helper-api';
-import nodeFetch from 'node-fetch';
+import { getNewAcuElements } from '../AccumulatedSectionsV1/helper-api';
+import calculatePaginationValue from '../../../../content/sources/utils/pageSource/acumulados/common/calculatePaginationValue';
+import acuTransformV2Format from '../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
 
-// URL de ejemplo: http://localhost/api/mobile/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
-// Resolver: ^\/api\/mobile\/v1\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
-class AccumulatedSectionsMobileV1 {
+
+// URL de ejemplo: http://localhost/api/mobile/v2/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
+// Resolver: ^\/api\/mobile\/v2\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
+class AccumulatedSectionsMobileV2V2 {
     constructor(props) {
         this.props = props;
         const {
@@ -49,7 +51,6 @@ class AccumulatedSectionsMobileV1 {
             arcSite
         );
 
-
         this.fetch(this.query);
 
         this.apiData = {
@@ -71,7 +72,14 @@ class AccumulatedSectionsMobileV1 {
         });
     }
 
-    getQueryElement = (sectionId,size,page,sections,restriction,arcSite) => {
+    getQueryElement = (
+        sectionId,
+        size,
+        page,
+        sections,
+        restriction,
+        arcSite
+    ) => {
         const resp = {
             page,
             imageConfig: 'm',
@@ -132,14 +140,18 @@ class AccumulatedSectionsMobileV1 {
                 return null;
             }
 
-            let newAcuArticlesSourceSection = { ...acuArticlesSourceSection };
+          
 
+            let newAcuArticlesSourceSection = { ...acuArticlesSourceSection };
+            
             newAcuArticlesSourceSection = await getNewAcuElements(
                 newAcuArticlesSourceSection,
                 acuArticlesSourceSection,
                 this.query,
                 arcSite
             );
+
+
 
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
@@ -164,10 +176,22 @@ class AccumulatedSectionsMobileV1 {
                 acuData.name = 'Suscriptores';
             }
 
-            return indexAcu(acuData);
+            const transformedAcu = indexAcu(acuData);
+
+            if (this.query.page * this.query.size - this.query.size > 16) {
+                delete transformedAcu[0].banners;
+            }
+
+            const paginationValue = calculatePaginationValue(
+                transformedAcu[0].acumuladoTotal,
+                this.query.size,
+                this.query.page
+            );
+            return acuTransformV2Format(transformedAcu, this.query.sectionId, paginationValue);
+
         } catch (err) {
             return { Success: false, Message: err.message };
         }
     }
 }
-export default Consumer(AccumulatedSectionsMobileV1);
+export default Consumer(AccumulatedSectionsMobileV2V2);

@@ -6,7 +6,7 @@ import { addResizedUrls } from '../../../../components/private/common/utils/imag
 import getPresets from '../../../../content/sources/utils/presets';
 
 const resolve = query => {
-    const { imageId, arcSite, ticksCache, versionDeploy } = query;
+    const { imageId, arcSite } = query;
     const newArcSite = arcSite || 'la-nacion-ar';
     return `${SITE_LANACION}/pf/api/v3/content/fetch/signingServiceSource?query={"imageId":"${imageId}"}&_website=${newArcSite}`;
 };
@@ -20,7 +20,7 @@ const getAuthImage = async query => {
     return resp.json();
 };
 
-export const setAuthCredits = async (credits = {}, arcSite) => {
+export const setAuthCredits = async (credits = {}, arcSite='la-nacion-ar') => {
     await Promise.all(
         credits.by.map(async credit => {
             if (credit.image && !credit.image.auth) {
@@ -30,12 +30,14 @@ export const setAuthCredits = async (credits = {}, arcSite) => {
                         ? await getAuthImage({ imageId, arcSite })
                         : null;
                 if (authImage) {
+                    /* eslint-disable no-param-reassign */
                     credit.image = {
                         ...credit.image,
                         auth: {
                             1: authImage.hash
                         }
                     };
+                    /* eslint-disable no-param-reassign */
                 }
             }
         })
@@ -110,10 +112,12 @@ export const getNewAcuElements = async (
 
     newAcuArticlesSourceSection.content_elements = await Promise.all(
         oldAcuArticlesSourceSection.content_elements.map(async (elem, i) => {
+            
             let isInApertura = false;
+            if(!elem){
+                return elem;
+            }
             if (i === 0) {
-                const imageId = get(elem.promo_items.basic, '_id');
-                elem.promo_items.basic.auth = null;
                 isInApertura = true;
             }
             if (elem.promo_items) {
