@@ -1,8 +1,8 @@
 import { SITE_LANACION } from 'fusion:environment';
 import nodeFetch from 'node-fetch';
 import get from '../../../private/common/utils/get';
-import { isFotoAl100orStorytelling } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
-import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
+import { isFotoAl100orStorytelling } from '../../../private/common/utils/subtypes/subtypeHelper';
+import { addResizedUrls } from '../../../private/common/utils/image/resizer/addResizerUrls';
 import getPresets from '../../../../content/sources/utils/presets';
 
 const resolve = query => {
@@ -20,9 +20,13 @@ const getAuthImage = async query => {
     return resp.json();
 };
 
-export const setAuthCredits = async (credits = {}, arcSite='la-nacion-ar') => {
+export const setAuthCredits = async (
+    credits = {},
+    arcSite = 'la-nacion-ar'
+) => {
+    const objCredits = { ...credits };
     await Promise.all(
-        credits.by.map(async credit => {
+        objCredits.by.map(async (credit, i) => {
             if (credit.image && !credit.image.auth) {
                 const imageId = get(credit, 'image.url', null);
                 const authImage =
@@ -30,14 +34,12 @@ export const setAuthCredits = async (credits = {}, arcSite='la-nacion-ar') => {
                         ? await getAuthImage({ imageId, arcSite })
                         : null;
                 if (authImage) {
-                    /* eslint-disable no-param-reassign */
-                    credit.image = {
+                    objCredits.by[i].image = {
                         ...credit.image,
                         auth: {
                             1: authImage.hash
                         }
                     };
-                    /* eslint-disable no-param-reassign */
                 }
             }
         })
@@ -45,14 +47,16 @@ export const setAuthCredits = async (credits = {}, arcSite='la-nacion-ar') => {
 };
 
 export const setAuthPromoItem = async (promoItems, arcSite) => {
+    const objPromoItems = promoItems;
+
     await Promise.all(
         Object.keys(promoItems || {}).map(async key => {
             if (promoItems[key].type === 'image' && !promoItems[key].auth) {
                 const imageId = get(promoItems[key], '_id', null);
                 const authImage = await getAuthImage({ imageId, arcSite });
                 if (authImage) {
-                    promoItems[key] = {
-                        ...promoItems[key],
+                    objPromoItems[key] = {
+                        ...objPromoItems[key],
                         auth: {
                             1: authImage.hash
                         }
@@ -110,11 +114,11 @@ export const getNewAcuElements = async (
     const { presets, presetsDefault } = getPresets(query);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
-    newAcuArticlesSourceSection.content_elements = await Promise.all(
+    const newObjAcuArticlesSourceSection = newAcuArticlesSourceSection;
+    newObjAcuArticlesSourceSection.content_elements = await Promise.all(
         oldAcuArticlesSourceSection.content_elements.map(async (elem, i) => {
-            
             let isInApertura = false;
-            if(!elem){
+            if (!elem) {
                 return elem;
             }
             if (i === 0) {
