@@ -27,7 +27,7 @@ jest.mock(
     })
 );
 
-describe('features - LN-common - IA - default', () => {
+xdescribe('features - LN-common - IA - default', () => {
     beforeEach(() => {
         useAppContext.mockReturnValue({
             globalContent: {

@@ -1,0 +1,23 @@
+.horizontal-scroller {
+  gap: inherit;
+}
+.horizontal-scroller .track {
+  gap: inherit;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+}
+.horizontal-scroller .track > * {
+  scroll-snap-align: start;
+}
+.horizontal-scroller .horizontal-scroller-button {
+  -webkit-mask-image: linear-gradient(to var(--_direction), transparent 0%, black 65%);
+          mask-image: linear-gradient(to var(--_direction), transparent 0%, black 65%);
+}
+.horizontal-scroller .horizontal-scroller-button.--left {
+  --_direction: left;
+}
+.horizontal-scroller .horizontal-scroller-button.--right {
+  --_direction: right;
+}
