@@ -7,7 +7,7 @@ import transformLnAcuApi from './utils/lnAcuSources/api/helper';
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
     const apiTransform = {
-        transformLnAcuApi: transformLnAcuApi
+        transformLnAcuApi
     };
 
     const resolveData = async () => {
@@ -46,7 +46,10 @@ export default {
     fetch,
     params: {
         sectionId: 'text',
+        authorId: 'text',
+        sectionsIds: 'text',
         tagId: 'text',
+        distributorId: 'text',
         subtype: 'text',
         excludeSectionId: 'text',
         shouldNotFilter: 'text',
@@ -58,7 +61,8 @@ export default {
         promoItemsOnly: 'text',
         excludePreload: 'bool',
         apiTransform: 'text',
-        page: 'text'
+        page: 'text',
+        hasCollectionApertura: 'bool'
     },
     ttl: 120
 };

@@ -8,17 +8,7 @@ import { useContent } from 'fusion:content';
 import taxonomySection from '../../../../__mocks__/data/masNotas/taxonomySection';
 import taxonomyTags from '../../../../__mocks__/data/masNotas/taxonomyTags';
 import mockArticles from '../../../../__mocks__/data/masNotas/articles';
-import useGetArticlesFromAcumSource from '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource';
 import '@testing-library/jest-dom';
-
-jest.mock(
-    '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource',
-    () => jest.fn()
-);
-
-useGetArticlesFromAcumSource.mockImplementation(
-    () => mockArticles.content_elements
-);
 
 jest.mock('react', () => {
     const ActualReact = jest.requireActual('react');
@@ -29,13 +19,13 @@ jest.mock('react', () => {
 });
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -178,13 +168,6 @@ describe('masNotas feature Test', () => {
             'El mundo'
         );
         expect(screen.getAllByRole('article').length).toStrictEqual(4);
-    });
-
-    it('should not render feature', () => {
-        useGetArticlesFromAcumSource.mockImplementation(() => [undefined]);
-        const props = getMasNotasProps(30, 'byLastNews', '1', taxonomySection);
-        render(<MasNotas {...props} />);
-        expect(screen.queryByTestId('mas-notas')).toBeNull();
     });
 
     describe('should not render feature: data is undefined', () => {
