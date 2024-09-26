@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
+import { useEffect } from 'react';
+import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 
 const NewsLetterEventsScript = () => {
     useEffect(() => {
@@ -15,7 +15,7 @@ const NewsLetterEventsScript = () => {
                     ? titleElement.textContent.trim()
                     : '';
 
-                addEventToDataLayer({
+                addEventToDataLayerV2({
                     event: 'e_linkclick',
                     action: 'newsletter',
                     category: 'nota_ln9',

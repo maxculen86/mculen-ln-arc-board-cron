@@ -1,19 +1,11 @@
 import { handleToggleCollapse } from '../../../../../components/features/LN-10/glossary/helpers';
-import { scheduleTask } from '../../../../../components/private/common/utils/scheduleTask';
-import addEventToDataLayer from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
-
-jest.mock(
-    '../../../../../components/private/common/utils/scheduleTask',
-    () => ({
-        scheduleTask: jest.fn()
-    })
-);
+import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
     '../../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
         __esModule: true,
-        default: jest.fn()
+        addEventToDataLayerV2: jest.fn()
     })
 );
 
@@ -24,8 +16,7 @@ describe('features - LN-10 - glossary - helpers - handleToggleCollapse', () => {
         handleToggleCollapse(onToggle, false);
 
         expect(onToggle).toHaveBeenCalled();
-        expect(scheduleTask).not.toHaveBeenCalled();
-        expect(addEventToDataLayer).not.toHaveBeenCalled();
+        expect(addEventToDataLayerV2).not.toHaveBeenCalled();
     });
 
     it('should call scheduleTask and addEventToDataLayer when isOpen is true', () => {
@@ -34,12 +25,8 @@ describe('features - LN-10 - glossary - helpers - handleToggleCollapse', () => {
         handleToggleCollapse(onToggle, true);
 
         expect(onToggle).toHaveBeenCalled();
-        expect(scheduleTask).toHaveBeenCalledWith(expect.any(Function));
 
-        const scheduledTask = scheduleTask.mock.calls[0][0];
-        scheduledTask();
-
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'IA',
             category: 'nota_ln9',

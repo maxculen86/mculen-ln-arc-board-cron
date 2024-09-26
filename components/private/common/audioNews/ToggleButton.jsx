@@ -3,7 +3,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import classNames from 'classnames';
 
 const ToggleButton = ({ contentVariant, handleToggle }) => {
@@ -16,7 +16,7 @@ const ToggleButton = ({ contentVariant, handleToggle }) => {
 
     const handleClick = (variant, label) => {
         handleToggle(variant);
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'e_linkclick',
             action: 'escuchar',
             category: 'nota_ln9',

@@ -2,22 +2,14 @@ import {
     handleEventWords,
     registeredKeys
 } from '../../../../../components/features/LN-10-global/glossary/helpers';
-import { scheduleTask } from '../../../../../components/private/common/utils/scheduleTask';
 import { getLocationTooltip } from '../../../../../components/features/LN-10-global/glossary/helpers';
-import addEventToDataLayer from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
-
-jest.mock(
-    '../../../../../components/private/common/utils/scheduleTask',
-    () => ({
-        scheduleTask: jest.fn()
-    })
-);
+import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
     '../../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
         __esModule: true,
-        default: jest.fn()
+        addEventToDataLayerV2: jest.fn()
     })
 );
 
@@ -32,26 +24,13 @@ describe('features - LN-10-GLOBAL - glossary - helpers', () => {
             handleEventWords(key);
 
             expect(registeredKeys.has(key)).toBe(true);
-            expect(scheduleTask).toHaveBeenCalledTimes(1);
-            expect(scheduleTask).toHaveBeenCalledWith(expect.any(Function));
 
-            const scheduledFunction = scheduleTask.mock.calls[0][0];
-            scheduledFunction();
-
-            expect(addEventToDataLayer).toHaveBeenCalledWith({
+            expect(addEventToDataLayerV2).toHaveBeenCalledWith({
                 event: 'e_linkclick',
                 action: 'IA',
                 category: 'nota_ln9',
                 label: 'palabra_glosario'
             });
-        });
-
-        it('should not schedule a task if the key is already registered', () => {
-            const key = 'testKey';
-            registeredKeys.add(key);
-            handleEventWords(key);
-
-            expect(scheduleTask).not.toHaveBeenCalled();
         });
     });
 
