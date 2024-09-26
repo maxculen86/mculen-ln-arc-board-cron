@@ -85,7 +85,7 @@ class AccumulatedSectionsMobileV1 {
                 ...resp,
                 tagId: 'la-nacion-cerca',
                 sourceOrigin: 'composer',
-                size: this.sizeCf || 30
+                size: size || 30
             };
         }
 
@@ -99,7 +99,7 @@ class AccumulatedSectionsMobileV1 {
                 ...resp,
                 sectionsIds: sectionsFormated,
                 sourceOrigin: 'composer',
-                size: this.sizeCf || 30
+                size: size || 30
             };
         }
 

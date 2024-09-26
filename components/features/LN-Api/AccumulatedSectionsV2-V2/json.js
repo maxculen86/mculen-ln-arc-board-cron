@@ -1,5 +1,7 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import get from '../../../private/common/utils/get';
@@ -28,6 +30,7 @@ class AccumulatedSectionsMobileV2V2 {
         this.state = {};
         this.sizeCf = sizeCf;
 
+
         const { size, page } = getSizesFrom(
             isAdmin,
             sizeCf,
@@ -51,9 +54,16 @@ class AccumulatedSectionsMobileV2V2 {
             arcSite
         );
 
+        
+        this.sectionId=id;
+
         this.fetch(this.query);
 
         this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
             mobile: {
                 1: IndexAcuV1Mobile,
                 2: IndexAcuV1Mobile
@@ -93,11 +103,12 @@ class AccumulatedSectionsMobileV2V2 {
                 ...resp,
                 tagId: 'la-nacion-cerca',
                 sourceOrigin: 'composer',
-                size: this.sizeCf || 30
+                size: size || 30
             };
         }
 
-        if (sectionId.toLowerCase() === '/ultimas-noticias') {
+        if (sectionId.toLowerCase() === '/ultimas-noticias' && sections) {
+
             const sectionsFormated = JSON.stringify(sections)
                 .replace(/,/g, '+OR+')
                 .replace('[', '(')
@@ -107,7 +118,7 @@ class AccumulatedSectionsMobileV2V2 {
                 ...resp,
                 sectionsIds: sectionsFormated,
                 sourceOrigin: 'composer',
-                size: this.sizeCf || 30
+                size: size || 30
             };
         }
 
@@ -153,7 +164,7 @@ class AccumulatedSectionsMobileV2V2 {
 
 
 
-            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+            const indexAcu = this.apiData['global'][
                 browser.getApiVersion(requestUri)
             ];
 
@@ -164,7 +175,6 @@ class AccumulatedSectionsMobileV2V2 {
             );
             if (title == null) title = name;
             const acuData = {
-                slug: get(this.props.globalContent, '_id'),
                 tipoAcumulado: 1,
                 name: title,
                 articles: newAcuArticlesSourceSection.content_elements,
@@ -187,7 +197,7 @@ class AccumulatedSectionsMobileV2V2 {
                 this.query.size,
                 this.query.page
             );
-            return acuTransformV2Format(transformedAcu, this.query.sectionId, paginationValue);
+            return acuTransformV2Format(transformedAcu, this.sectionId, paginationValue);
 
         } catch (err) {
             return { Success: false, Message: err.message };

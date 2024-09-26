@@ -1,5 +1,7 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import get from '../../../private/common/utils/get';
 import calculatePaginationValue from '../../../../content/sources/utils/pageSource/acumulados/common/calculatePaginationValue';
 import acuTransformV2Format from '../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
@@ -12,6 +14,10 @@ class AccumulatedSectionsMobileV2 {
         this.props = props;
 
         this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
             mobile: {
                 1: IndexAcuV1Mobile,
                 2: IndexAcuV1Mobile
@@ -23,8 +29,11 @@ class AccumulatedSectionsMobileV2 {
 
     async render() {
         try {
-            const { arcSite, globalContent, globalContentConfig = {} } =
-                this.props || {};
+            const {
+                arcSite,
+                globalContent,
+                globalContentConfig = {}
+            } = this.props || {};
 
             const slug = get(globalContentConfig, 'query.sectionId', '');
             const params = get(globalContent, 'query', {});
@@ -44,7 +53,6 @@ class AccumulatedSectionsMobileV2 {
             );
 
             const {
-                uri,
                 title,
                 configuration,
                 categoryUri,
@@ -54,7 +62,9 @@ class AccumulatedSectionsMobileV2 {
                 tag
             } = params;
 
-            const indexAcu = this.apiData[categoryUri][versionUri];
+            
+            const category = categoryUri ? categoryUri : 'global';
+            const indexAcu = this.apiData[category][versionUri];
 
             const acuData = {
                 tipoAcumulado: 1,
