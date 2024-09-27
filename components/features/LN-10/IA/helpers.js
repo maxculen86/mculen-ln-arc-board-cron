@@ -16,6 +16,7 @@ export const handleIaVisibility = observable => {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleClose = () => {
+        observable.publish('iaClosed', { closed: true });
         addEventToDataLayerV2({
             event: 'e_linkclick',
             action: 'IA',

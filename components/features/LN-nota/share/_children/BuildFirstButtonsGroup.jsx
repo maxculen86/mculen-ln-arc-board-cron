@@ -8,6 +8,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import { Tooltip } from '@ln/common-ui-tooltip';
+import classNames from 'classnames';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { GlobalContext } from '../../../../private/common/context/globalContext';
@@ -24,7 +25,6 @@ import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 import eventHandler from '../../../../private/common/audioNews/trackerAudioNews';
 import useTermica from '../../../../private/common/hooks/useTermica';
-import classNames from 'classnames';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import {
     getClassAndIconByClick,
@@ -34,7 +34,7 @@ import {
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
-const BuildFirtsButtonsGroup = ({
+function BuildFirtsButtonsGroup({
     termicaBookmark,
     globalContent,
     token,
@@ -45,7 +45,7 @@ const BuildFirtsButtonsGroup = ({
     enableButton,
     bookmark = '',
     subtypeVideo
-} = {}) => {
+} = {}) {
     const [tooltipWasClosed, setTooltipWasClosed] = useState(false);
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
@@ -142,6 +142,7 @@ const BuildFirtsButtonsGroup = ({
                         dataEvent="LinkClick"
                         dataSection="IA"
                         className={iaButtonClass}
+                        disabled={iaButtonIsClicked}
                         onClick={() => {
                             handleIaToggle({
                                 defaultTab,
@@ -264,7 +265,7 @@ const BuildFirtsButtonsGroup = ({
             )}
         </div>
     );
-};
+}
 
 BuildFirtsButtonsGroup.propTypes = {
     globalContent: PropTypes.shape({
