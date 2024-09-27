@@ -76,7 +76,7 @@ class AccumulatedSectionsMobileV2V2 {
     fetch(query) {
         this.fetchContent({
             acuArticlesSourceSection: {
-                source: 'lnAcuSource',
+                source: 'apiLnAcuSource',
                 query
             }
         });

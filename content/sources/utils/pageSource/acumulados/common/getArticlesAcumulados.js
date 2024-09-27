@@ -1,6 +1,6 @@
 import get from '../../../../../../components/private/common/utils/get';
 import acuArticlesSource from '../../../../acuArticlesSource';
-import lnAcuSource from '../../../../lnAcuSource';
+import lnAcuSource from '../../../../apiLnAcuSource';
 
 const getParamsAcus = query => {
     const sectionId =
