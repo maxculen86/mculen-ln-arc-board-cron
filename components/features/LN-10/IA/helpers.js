@@ -67,13 +67,13 @@ export const useIaData = (globalContent, hideSummary, hideGlossary) => {
                 shouldShowSummary && {
                     id: 'summary',
                     title: 'Resumen de lectura',
-                    callback: () => handleTabsEvent('summary'),
+                    callback: () => handleTabsEvent('resumen_nota'),
                     data: summaryData
                 },
                 shouldShowGlossary && {
                     id: 'glossary',
                     title: 'Glosario',
-                    callback: () => handleTabsEvent('glossary'),
+                    callback: () => handleTabsEvent('glosario'),
                     data: glossaryData
                 }
             ].filter(Boolean),

@@ -40,13 +40,12 @@ export function IaTools({ iaData = [], handleClose = () => {} }) {
                                 id={id}
                                 key={id}
                                 color="ia-tools"
-                                onClick={callback}
                                 // eslint-disable-next-line react/no-children-prop
                                 children={
                                     <IaTab
                                         id={id}
                                         title={title}
-                                        onClick={callback}
+                                        callback={callback}
                                     />
                                 }
                             />
