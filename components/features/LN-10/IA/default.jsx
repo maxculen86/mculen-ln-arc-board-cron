@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
-import { handleIaVisibility, useIaData } from './helpers';
+import { handleIaVisibility } from './helpers';
 import { IaTools } from './common/iaTools';
+import useIaData from './hooks/useIaData';
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
 function LnIa({
