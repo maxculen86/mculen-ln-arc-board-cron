@@ -93,6 +93,7 @@ const fetchSectionSource = async (
     let sectionSourceResult = null;
     const sectionsTitlesCustom = [
         '/economia/inteligencia-artificial',
+        '/economia/IA',
         '/quesale',
     ];
 
