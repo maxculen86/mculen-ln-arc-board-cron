@@ -1,6 +1,6 @@
 import get from '../../../../private/common/utils/get';
 import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
-import pageBuilderValidator from '../../../../private/common/utils/pageBuilderValidator.js';
+import pageBuilderValidator from '../../../../private/common/utils/pageBuilderValidator';
 import {
     RECETA,
     STORYTELLING
@@ -42,6 +42,20 @@ export const getHighestPriorityTag = (sections = []) => {
     }, '');
 };
 
+const articleHasVideo = article => {
+    const videoContentElement = article?.content_elements?.find(
+        contentElement => contentElement?.subtype === 'video_jw'
+    );
+
+    const videoPromoItems = get(article, 'promo_items.video_jw');
+
+    return videoContentElement || videoPromoItems || get(article, 'hasVideo');
+};
+export const getFooditAuthor = (article, getOnlyAuthorName = false) =>
+    get(article, 'label.autor.text') === 'Usuario'
+        ? ''
+        : getAuthorsAsString(article, getOnlyAuthorName) || 'Por Foodit';
+
 export const transformArticleFoodit = article => {
     const highestPriorityTag = getHighestPriorityTag(
         get(article, 'taxonomy.sections', [])
@@ -62,7 +76,8 @@ export const transformArticleFoodit = article => {
         primarySection: get(article, 'taxonomy.primary_section.name', ''),
         canonicalUrl: get(article, 'canonical_url', ''),
         credits: get(article, 'credits', {}),
-        contentCode: get(article, 'content_restrictions.content_code', '')
+        contentCode: get(article, 'content_restrictions.content_code', ''),
+        hasVideo: articleHasVideo(article)
     };
 };
 
@@ -118,8 +133,3 @@ export const getRenderablesData = (renderables, featureId) => {
         layout
     };
 };
-
-export const getFooditAuthor = (article, getOnlyAuthorName = false) =>
-    get(article, 'label.autor.text') === 'Usuario'
-        ? ''
-        : getAuthorsAsString(article, getOnlyAuthorName) || 'Por Foodit';

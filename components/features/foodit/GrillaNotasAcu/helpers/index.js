@@ -10,8 +10,8 @@ import getImageAltText from '../../../foodit-global/common/utils/getImageAltText
 export const createArticleList = ({
     articles = [],
     bookmarkedArticlesIds = []
-} = {}) => {
-    return articles.map(article => {
+} = {}) =>
+    articles.map(article => {
         const {
             articleId,
             author,
@@ -22,10 +22,11 @@ export const createArticleList = ({
             title,
             variant,
             image = {},
-            contentCode = ''
+            contentCode = '',
+            hasVideo
         } = transformArticleFoodit(article);
-        const { resized_urls, url } = image;
-        const { resizedUrl = '' } = getShortestImage(resized_urls);
+        const { resized_urls: resizedUrls, url } = image;
+        const { resizedUrl = '' } = getShortestImage(resizedUrls);
 
         return (
             <CommonCardFoodit
@@ -37,9 +38,9 @@ export const createArticleList = ({
                 variant={variant}
                 src={resizedUrl || url}
                 alt={getImageAltText(image)}
-                sources={getImagesToLoadWithPicture(resized_urls)}
-                loading={'lazy'}
-                fetchPriority={'low'}
+                sources={getImagesToLoadWithPicture(resizedUrls)}
+                loading="lazy"
+                fetchPriority="low"
                 tag={tag}
                 title={title}
                 author={author}
@@ -50,7 +51,7 @@ export const createArticleList = ({
                     bookmarkedArticlesIds.includes(articleId)
                 }
                 contentCode={contentCode}
+                hasVideo={hasVideo}
             />
         );
     });
-};

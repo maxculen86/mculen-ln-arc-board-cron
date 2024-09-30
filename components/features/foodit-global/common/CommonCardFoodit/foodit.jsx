@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { Card } from '@ln/foodit-ui-card';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { BOOKMARK_FILLED } from '../bookmark/iconHelper';
 
-const CommonCardFoodit = ({
+function CommonCardFoodit({
     articleId,
     linksProps,
     showTime,
@@ -25,8 +26,11 @@ const CommonCardFoodit = ({
     className = '',
     bookmarkAction = null,
     fill = false,
-    isOpening = false
-}) => {
+    isOpening = false,
+    hasVideo,
+    hasVideobackground = false
+}) {
+    const showIconVideo = hasVideo && !hasVideobackground;
     return (
         <Card
             data-test-id={`${
@@ -46,7 +50,7 @@ const CommonCardFoodit = ({
                     loading={loading}
                     fetchPriority={fetchPriority}
                 />
-
+                {showIconVideo && <Card.BadgeIcon />}
                 {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
             <Card.Main
@@ -58,7 +62,7 @@ const CommonCardFoodit = ({
                 <Card.Footer
                     author={author}
                     showTime={Boolean(time) && showTime}
-                    time={time + ' min'}
+                    time={`${time} min`}
                     icon={<IconSprite name="timer" />}
                     buttonProps={{
                         title: 'Guardar receta',
@@ -89,6 +93,32 @@ const CommonCardFoodit = ({
             </Card.Main>
         </Card>
     );
-};
+}
 
+CommonCardFoodit.propTypes = {
+    articleId: PropTypes.string.isRequired,
+    linksProps: PropTypes.isRequired,
+    showTime: PropTypes.isRequired,
+    time: PropTypes.isRequired,
+    size: PropTypes.isRequired,
+    variant: PropTypes.isRequired,
+    src: PropTypes.isRequired,
+    alt: PropTypes.isRequired,
+    sources: PropTypes.isRequired,
+    loading: PropTypes.isRequired,
+    fetchPriority: PropTypes.isRequired,
+    tag: PropTypes.isRequired,
+    title: PropTypes.isRequired,
+    author: PropTypes.isRequired,
+    subtitle: PropTypes.isRequired,
+    titleEllipsis: PropTypes.isRequired,
+    contentCode: PropTypes.isRequired,
+    container: PropTypes.isRequired,
+    className: PropTypes.isRequired,
+    bookmarkAction: PropTypes.isRequired,
+    fill: PropTypes.isRequired,
+    isOpening: PropTypes.isRequired,
+    hasVideo: PropTypes.isRequired,
+    hasVideobackground: PropTypes.isRequired
+};
 export default CommonCardFoodit;

@@ -113,3 +113,251 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
   </article>
 </div>
 `;
+
+exports[`CommonCardFoodit should render the card with video icon 1`] = `
+<div>
+  <article
+    class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+    data-test-id="card-recipe-undefined-TDEG3VTIAFEW7BKS676OUVQAVE"
+    data-variant="recipe"
+  >
+    <a
+      class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+      data-variant="primary"
+      href="/rapidas-y-faciles/prueba-nota-recetas-nuevo-nid04092023/"
+      target="_self"
+      title="Prueba nota recetas nuevo"
+    >
+      <div
+        class="relative w-100"
+      >
+        <div
+          class="foodit-placeholder card-image ratio-3-2 w-100"
+        >
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=420&height=280&quality=70&smart=true"
+            />
+            <img
+              alt="Tortilla de patatas"
+              class="image flex card-image ratio-3-2 w-100 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=768&height=432&quality=70&smart=true"
+            />
+          </picture>
+        </div>
+        <span
+          class="inline-flex ai-center jc-center w-32 h-32 bg-light-1 m-8 rounded-circle absolute border border-all border-thin border-light-300 bottom-0 right-0"
+        >
+          <i
+            class="icon --icon-12"
+          >
+            <svg
+              fill="none"
+              height="11"
+              viewBox="0 0 9 11"
+              width="9"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.9295 5.66297L1.66683 2.82097V8.50497L5.9295 5.66297ZM7.9175 5.9403L0.851496 10.651C0.8013 10.6844 0.742983 10.7035 0.682757 10.7064C0.622531 10.7093 0.562651 10.6958 0.509495 10.6673C0.45634 10.6389 0.411899 10.5965 0.380905 10.5448C0.349912 10.4931 0.333527 10.4339 0.333496 10.3736V0.952302C0.333527 0.892007 0.349912 0.83285 0.380905 0.781131C0.411899 0.729412 0.45634 0.687067 0.509495 0.658608C0.562651 0.630149 0.622531 0.61664 0.682757 0.619521C0.742983 0.622403 0.8013 0.641565 0.851496 0.674969L7.9175 5.38563C7.96315 5.41608 8.00058 5.45732 8.02647 5.5057C8.05236 5.55408 8.0659 5.6081 8.0659 5.66297C8.0659 5.71784 8.05236 5.77186 8.02647 5.82024C8.00058 5.86862 7.96315 5.90986 7.9175 5.9403Z"
+                fill="#333333"
+              />
+            </svg>
+          </i>
+        </span>
+        <span
+          class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
+        >
+          rica
+        </span>
+      </div>
+      <div
+        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+      >
+        <div
+          class="flex flex-column gap-12"
+        >
+          <div
+            class="flex flex-column gap-4"
+          >
+            <h2
+              class="text card-title prumo transition-regular text-ellipsis-3  prumo-medium text-20"
+            >
+              Prueba nota recetas nuevo
+            </h2>
+          </div>
+        </div>
+        <div
+          class="flex gap-16 text-light-800 ai-center"
+        >
+          <div
+            class="flex flex-column gap-8 flex-grow-1"
+          >
+            <span
+              class="text text-14"
+            >
+              Por Carlos Pagni
+            </span>
+            <div
+              class="flex ai-center gap-4"
+            >
+              <i
+                class="icon --icon-12 --inherit"
+              >
+                <mock-icon
+                  name="timer"
+                />
+              </i>
+              <span
+                class="text text-12 roboto-light"
+              >
+                30 min
+              </span>
+            </div>
+          </div>
+          <button
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-variant="link"
+            title="Guardar receta"
+          >
+            <i
+              class="icon w-24 --dark"
+            >
+              <mock-icon
+                critical="true"
+                name="bookmark"
+              />
+            </i>
+            <span
+              class="uppercase none"
+            >
+              Guardar
+            </span>
+          </button>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
+`;
+
+exports[`CommonCardFoodit should render the card without video icon (has videoBackground)  1`] = `
+<div>
+  <article
+    class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+    data-test-id="card-recipe-undefined-TDEG3VTIAFEW7BKS676OUVQAVE"
+    data-variant="recipe"
+  >
+    <a
+      class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+      data-variant="primary"
+      href="/rapidas-y-faciles/prueba-nota-recetas-nuevo-nid04092023/"
+      target="_self"
+      title="Prueba nota recetas nuevo"
+    >
+      <div
+        class="relative w-100"
+      >
+        <div
+          class="foodit-placeholder card-image ratio-3-2 w-100"
+        >
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=420&height=280&quality=70&smart=true"
+            />
+            <img
+              alt="Tortilla de patatas"
+              class="image flex card-image ratio-3-2 w-100 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=768&height=432&quality=70&smart=true"
+            />
+          </picture>
+        </div>
+        <span
+          class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
+        >
+          rica
+        </span>
+      </div>
+      <div
+        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+      >
+        <div
+          class="flex flex-column gap-12"
+        >
+          <div
+            class="flex flex-column gap-4"
+          >
+            <h2
+              class="text card-title prumo transition-regular text-ellipsis-3  prumo-medium text-20"
+            >
+              Prueba nota recetas nuevo
+            </h2>
+          </div>
+        </div>
+        <div
+          class="flex gap-16 text-light-800 ai-center"
+        >
+          <div
+            class="flex flex-column gap-8 flex-grow-1"
+          >
+            <span
+              class="text text-14"
+            >
+              Por Carlos Pagni
+            </span>
+            <div
+              class="flex ai-center gap-4"
+            >
+              <i
+                class="icon --icon-12 --inherit"
+              >
+                <mock-icon
+                  name="timer"
+                />
+              </i>
+              <span
+                class="text text-12 roboto-light"
+              >
+                30 min
+              </span>
+            </div>
+          </div>
+          <button
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-variant="link"
+            title="Guardar receta"
+          >
+            <i
+              class="icon w-24 --dark"
+            >
+              <mock-icon
+                critical="true"
+                name="bookmark"
+              />
+            </i>
+            <span
+              class="uppercase none"
+            >
+              Guardar
+            </span>
+          </button>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
+`;

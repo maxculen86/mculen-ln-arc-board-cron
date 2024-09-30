@@ -17,6 +17,12 @@ export default `
     _id
     website_url
     canonical_url
+    hasVideo
+    content_elements {
+        _id
+        type
+        subtype
+    }
     promo_items {
         basic {
             ${image}
@@ -27,6 +33,11 @@ export default `
                     counterTime
                 }
             }
+        }
+        video_jw {
+            _id
+           subtype
+           type
         }
     }
     subtype

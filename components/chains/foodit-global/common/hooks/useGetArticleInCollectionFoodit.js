@@ -12,12 +12,12 @@ export const useGetArticleInCollectionFoodit = ({
     const checkIdCollection =
         idCollection && idCollection.trim() && idCollection;
     const articleList = useContent({
-        source: (checkIdCollection && 'collectionsSource') || null,
+        source: (checkIdCollection && 'fooditCollectionsSource') || null,
         query: {
             id: checkIdCollection,
             size,
-            website: 'foodit',
             from: initialPosition,
+            website: 'foodit',
             imageConfig
         },
         staticMode,

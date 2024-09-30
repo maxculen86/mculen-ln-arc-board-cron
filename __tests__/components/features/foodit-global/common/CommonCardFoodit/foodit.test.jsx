@@ -35,8 +35,7 @@ describe('CommonCardFoodit', () => {
                         'https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=238&height=158&quality=70&smart=true'
                 }
             ],
-            url:
-                'https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=768&height=432&quality=70&smart=true',
+            url: 'https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=768&height=432&quality=70&smart=true',
             width: 1600
         },
         href: '/rapidas-y-faciles/prueba-nota-recetas-nuevo-nid04092023/',
@@ -59,7 +58,7 @@ describe('CommonCardFoodit', () => {
     const { alt_text, resized_urls, url } = article.image;
 
     it('should render the card with the correct data', () => {
-        const { container, debug } = render(
+        const { container } = render(
             <CommonCardFoodit
                 articleId={articleId}
                 showTime={Boolean(time)}
@@ -76,15 +75,68 @@ describe('CommonCardFoodit', () => {
                 title={title}
                 author={author}
                 key={articleId}
-                fill={false} // TODO: boolean receta guardada
+                fill={false}
             />
         );
-        debug();
         expect(screen.getByText('rica')).toBeTruthy();
         expect(screen.getByAltText('Tortilla de patatas')).toBeTruthy();
         expect(screen.getByText('30 min')).toBeTruthy();
         expect(screen.getByRole('button', { name: 'Guardar' })).toBeTruthy();
         expect(screen.getByRole('link')).toHaveAttribute('href', article.href);
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should render the card with video icon', () => {
+        const { container } = render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime={Boolean(time)}
+                time={time}
+                linksProps={{ href, title }}
+                size={size}
+                variant={variant}
+                src={url}
+                alt={alt_text}
+                sources={getImagesToLoadWithPicture(resized_urls)}
+                loading={'lazy'}
+                fetchPriority={'low'}
+                tag={tag}
+                title={title}
+                author={author}
+                key={articleId}
+                fill={false}
+                hasVideo={true}
+                hasVideobackground={false}
+            />
+        );
+
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should render the card without video icon (has videoBackground) ', () => {
+        const { container } = render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime={Boolean(time)}
+                time={time}
+                linksProps={{ href, title }}
+                size={size}
+                variant={variant}
+                src={url}
+                alt={alt_text}
+                sources={getImagesToLoadWithPicture(resized_urls)}
+                loading={'lazy'}
+                fetchPriority={'low'}
+                tag={tag}
+                title={title}
+                author={author}
+                key={articleId}
+                fill={false}
+                hasVideo={true}
+                hasVideobackground={true}
+            />
+        );
+
         expect(container).toMatchSnapshot();
     });
 });

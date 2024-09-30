@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import {
     getImagesToLoadWithPicture,
@@ -9,8 +10,8 @@ import getImageAltText from '../../../../features/foodit-global/common/utils/get
 
 import { LAYOUTS } from '../utils/helper-WebApi';
 
-import Carousel from '../Carousel/foodit';
-import RoofFoodit from '../../../../features/foodit-global/common/RoofFoodit/foodit';
+import { Carousel } from '../Carousel/foodit';
+import { RoofFoodit } from '../../../../features/foodit-global/common/RoofFoodit/foodit';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import {
@@ -20,7 +21,7 @@ import {
 
 const { CAROUSEL, BN_12_GRID } = LAYOUTS;
 
-export const RenderCollection = ({
+export function RenderCollection({
     rules,
     title,
     hideCaja,
@@ -30,7 +31,7 @@ export const RenderCollection = ({
     link = '',
     collectionId = '',
     articles = []
-}) => {
+}) {
     const bookmarkedArticles = filterBookmarksByArticledIs(articles);
     const fill =
         bookmarkedArticles.length &&
@@ -72,10 +73,11 @@ export const RenderCollection = ({
             title: titleArticle,
             variant,
             image = {},
-            contentCode = ''
+            contentCode = '',
+            hasVideo
         }) => {
-            const { resized_urls, url } = image;
-            const { resizedUrl = '' } = getShortestImage(resized_urls);
+            const { resized_urls: resizedUrlImage, url } = image;
+            const { resizedUrl = '' } = getShortestImage(resizedUrlImage);
 
             return (
                 <CommonCardFoodit
@@ -87,15 +89,16 @@ export const RenderCollection = ({
                     variant={variant}
                     src={resizedUrl || url}
                     alt={getImageAltText(image)}
-                    sources={getImagesToLoadWithPicture(resized_urls)}
-                    loading={'lazy'}
-                    fetchPriority={'low'}
+                    sources={getImagesToLoadWithPicture(resizedUrlImage)}
+                    loading="lazy"
+                    fetchPriority="low"
                     tag={tag}
                     title={titleArticle}
                     author={author}
                     className={classNameChildren}
                     key={articleId}
                     contentCode={contentCode}
+                    hasVideo={hasVideo}
                 />
             );
         }
@@ -136,7 +139,21 @@ export const RenderCollection = ({
         )
     };
 
-    return hideCaja || (error && error.message) ? <></> : options[layout];
+    return hideCaja || (error && error.message) ? null : options[layout];
+}
+
+RenderCollection.propTypes = {
+    rules: PropTypes.isRequired,
+    title: PropTypes.isRequired,
+    hideCaja: PropTypes.isRequired,
+    hideTitle: PropTypes.isRequired,
+    layout: PropTypes.isRequired,
+    error: PropTypes.shape({
+        message: PropTypes.string
+    }).isRequired,
+    link: PropTypes.isRequired,
+    collectionId: PropTypes.isRequired,
+    articles: PropTypes.isRequired
 };
 
 export default RenderCollection;

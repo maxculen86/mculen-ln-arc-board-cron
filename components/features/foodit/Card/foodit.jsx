@@ -4,26 +4,26 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 
-import { checkForId } from '../../LN-10/article/common/_helper-WebApi.js';
+import classNames from 'classnames';
+import { checkForId } from '../../LN-10/article/common/_helper-WebApi';
 import {
     getRenderablesData,
     transformArticleFoodit,
     validateArticleFoodit
-} from '../../foodit-global/common/utils/notaFooditHelper.js';
-import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
+} from '../../foodit-global/common/utils/notaFooditHelper';
+import filter from '../../../../content/filters/foodit/home/articleFoodit';
 import {
     getImagesToLoadWithPicture,
     getShortestImage
 } from '../../../private/LN/common/utils/mediaHelper';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
-import classNames from 'classnames';
-import get from '../../../private/common/utils/get.js';
-import getImageAltText from '../../foodit-global/common/utils/getImageAltText.js';
+import get from '../../../private/common/utils/get';
+import getImageAltText from '../../foodit-global/common/utils/getImageAltText';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
+import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit';
 
-const CardFoodit = ({ id: featureId, customFields }) => {
+function CardFoodit({ id: featureId, customFields }) {
     const { noteId: id, isDayRecipe } = customFields;
     const articleId = checkForId(id);
 
@@ -81,12 +81,13 @@ const CardFoodit = ({ id: featureId, customFields }) => {
         tag,
         variant,
         href,
-        contentCode = ''
+        contentCode = '',
+        hasVideo
     } = transformArticleFoodit(articleContent);
 
-    const { url = '', resized_urls = [] } = image;
+    const { url = '', resized_urls: resizedUrlImage = [] } = image;
 
-    const { resizedUrl = '' } = getShortestImage(resized_urls);
+    const { resizedUrl = '' } = getShortestImage(resizedUrlImage);
 
     return (
         <div className={staticContentClassName} key={featureId}>
@@ -105,7 +106,7 @@ const CardFoodit = ({ id: featureId, customFields }) => {
                     }
                     src={resizedUrl || url}
                     alt={getImageAltText(image)}
-                    sources={getImagesToLoadWithPicture(resized_urls)}
+                    sources={getImagesToLoadWithPicture(resizedUrlImage)}
                     loading={isOpening ? 'eager' : 'lazy'}
                     fetchPriority={isOpening ? 'high' : 'low'}
                     tag={tag}
@@ -116,11 +117,12 @@ const CardFoodit = ({ id: featureId, customFields }) => {
                     }
                     contentCode={contentCode}
                     isOpening={isOpening}
+                    hasVideo={hasVideo}
                 />
             )}
         </div>
     );
-};
+}
 
 CardFoodit.propTypes = {
     id: PropTypes.string.isRequired,
@@ -135,7 +137,7 @@ CardFoodit.propTypes = {
             description: 'Marque para seleccionar la receta del dia',
             defaultValue: false
         })
-    })
+    }).isRequired
 };
 
 export default Consumer(CardFoodit);
