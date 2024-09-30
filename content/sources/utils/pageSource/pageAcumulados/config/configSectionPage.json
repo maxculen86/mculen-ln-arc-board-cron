@@ -129,7 +129,6 @@
         "slug": "/que-sale",
         "aliasTitle": "Que Sale",
         "isPage": true,
-        "isCustom": false,
-        "namePage": "quesale"
+        "isCustom": false
     }
 ]
