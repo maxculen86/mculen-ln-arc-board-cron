@@ -15,7 +15,7 @@ import CommonCollection from '../../../private/LN10/home/components/CommonCollec
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
 
-const RankingFeature = ({ id: featureId }) => {
+function RankingFeature({ id: featureId }) {
     const { website, arcSite, layout, globalContent = {} } = useAppContext();
 
     const { title, sectionId, rankingLayout } = getRankingProps(
@@ -57,16 +57,14 @@ const RankingFeature = ({ id: featureId }) => {
                 />
             </section>
         </div>
-    ) : (
-        <></>
-    );
+    ) : null;
 
     return (
         <Static id={featureId} htmlOnly>
             {component}
         </Static>
     );
-};
+}
 
 RankingFeature.label = 'LN10 Ranking';
 
