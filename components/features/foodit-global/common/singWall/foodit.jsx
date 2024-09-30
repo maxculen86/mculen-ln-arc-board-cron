@@ -1,18 +1,19 @@
+import React from 'react';
 import Static from 'fusion:static';
 import {
     FOODIT_LOGIN_URL,
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 
-import useGetUserData from '../../../../../auth/hooks/useGetUserData';
-import { SUBSCRIBED_HELPER } from '../../../../../auth/helper/loginHelper';
-
 import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
+
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
-const SingWall = () => {
-    const { userType = 'loading' } = useGetUserData(SUBSCRIBED_HELPER.FOODIT);
+function SingWall() {
+    const { userType = 'loading', promotions } = useGetUserConfig();
+    const { buttonSubscribeText } = promotions;
 
     return (
         <section className="bg-neutral-light-100 relative w-100vw as-center shadow-top">
@@ -42,7 +43,7 @@ const SingWall = () => {
                             data-test-id="button-suscribe-signwall"
                             variant="accent"
                             href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=800&fc=825&callback=${window?.btoa(
-                                location?.href
+                                window.location?.href
                             )}`}
                             onClick={() => {
                                 addEventToDataLayer({
@@ -60,7 +61,7 @@ const SingWall = () => {
                                 variant="link"
                                 data-variant="link"
                                 href={`${FOODIT_LOGIN_URL}${window?.btoa(
-                                    location?.href
+                                    window.location?.href
                                 )}`}
                             >
                                 <span className="uppercase">inicia sesión</span>
@@ -72,6 +73,6 @@ const SingWall = () => {
             <div className="bg-subscription-positive h-5" />
         </section>
     );
-};
+}
 
 export default SingWall;
