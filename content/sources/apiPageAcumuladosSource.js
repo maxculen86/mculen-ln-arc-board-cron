@@ -44,6 +44,7 @@ const fetchSectionSource = async (query, cachedCall) => {
         '/economia/inteligencia-artificial',
         '/economia/IA',
         '/quesale',
+        '/que-sale',
     ];
 
     const queryParams = {
