@@ -283,7 +283,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <button
                       class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover gap-8"
                       data-test-id="header-button-dropdown-Recetas"
-                      title="Ir a Recetas"
                     >
                       Recetas
                       <i
@@ -1134,7 +1133,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <button
                       class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover gap-8"
                       data-test-id="header-button-dropdown-Descubrir"
-                      title="Ir a Descubrir"
                     >
                       Descubrir
                       <i
