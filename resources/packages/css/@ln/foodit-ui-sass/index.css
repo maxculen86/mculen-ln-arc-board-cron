@@ -1083,6 +1083,10 @@ b, strong {
   overflow-x: clip;
 }
 
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
 .top-0 {
   top: 0;
 }
@@ -1254,6 +1258,10 @@ b, strong {
 
 .shadow-float {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.32), 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
+}
+
+.shadow-modal {
+  box-shadow: 0px 16px 32px 0px rgba(16, 16, 16, 0.08);
 }
 
 .w-0 {
@@ -1510,6 +1518,10 @@ b, strong {
 
 .max-h-196 {
   max-height: 12.25rem;
+}
+
+.max-h-198 {
+  max-height: 12.375rem;
 }
 
 .min-h-344 {
