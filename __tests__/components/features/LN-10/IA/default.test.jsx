@@ -2,16 +2,20 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
 import LnIa from '../../../../../components/features/LN-10/IA/default';
-import { handleIaVisibility } from '../../../../../components/features/LN-10/IA/helpers';
+import useIaVisibility from '../../../../../components/features/LN-10/IA/hooks/useIaVisibility';
 import useIaData from '../../../../../components/features/LN-10/IA/hooks/useIaData';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
-jest.mock('../../../../../components/features/LN-10/IA/helpers', () => ({
-    handleIaVisibility: jest.fn()
-}));
+jest.mock(
+    '../../../../../components/features/LN-10/IA/hooks/useIaVisibility',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
+);
 
 jest.mock(
     '../../../../../components/features/LN-10/IA/hooks/useIaData',
@@ -43,7 +47,7 @@ describe('features - LN-common - IA - default', () => {
     });
 
     it('does not render IaTools when visibility is false', () => {
-        handleIaVisibility.mockReturnValue({
+        useIaVisibility.mockReturnValue({
             isVisible: false,
             handleClose: jest.fn()
         });
@@ -61,7 +65,7 @@ describe('features - LN-common - IA - default', () => {
     });
 
     it('does not render IaTools when both summary and glossary are hidden', () => {
-        handleIaVisibility.mockReturnValue({
+        useIaVisibility.mockReturnValue({
             isVisible: true,
             handleClose: jest.fn()
         });
@@ -78,7 +82,7 @@ describe('features - LN-common - IA - default', () => {
     });
 
     it('renders IaTools when visibility is true and summary section is visible', () => {
-        handleIaVisibility.mockReturnValue({
+        useIaVisibility.mockReturnValue({
             isVisible: true,
             handleClose: jest.fn()
         });
@@ -96,7 +100,7 @@ describe('features - LN-common - IA - default', () => {
     });
 
     it('renders IaTools when visibility is true and glossary section is visible', () => {
-        handleIaVisibility.mockReturnValue({
+        useIaVisibility.mockReturnValue({
             isVisible: true,
             handleClose: jest.fn()
         });
@@ -114,7 +118,7 @@ describe('features - LN-common - IA - default', () => {
     });
 
     it('should match the snapshot when IaTools is rendered', () => {
-        handleIaVisibility.mockReturnValue({
+        useIaVisibility.mockReturnValue({
             isVisible: true,
             handleClose: jest.fn()
         });

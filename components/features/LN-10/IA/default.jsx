@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
-import { handleIaVisibility } from './helpers';
 import { IaTools } from './common/iaTools';
 import useIaData from './hooks/useIaData';
+import useIaVisibility from './hooks/useIaVisibility';
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
 function LnIa({
     customFields: { hideSummary = false, hideGlossary = false } = {}
 }) {
     const { globalContent } = useAppContext();
-    const { isVisible, handleClose } = handleIaVisibility(window.LN.observable);
+    const { isVisible, handleClose } = useIaVisibility(window.LN.observable);
     const { iaData, shouldShowSummary, shouldShowGlossary } = useIaData(
         globalContent,
         hideSummary,
