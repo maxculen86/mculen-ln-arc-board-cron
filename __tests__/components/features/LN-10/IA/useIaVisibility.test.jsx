@@ -18,9 +18,15 @@ const mockObservable = {
 
 describe('features - LN-common - IA - hooks - useIaVisibility', () => {
     const TestComponent = () => {
-        useIaVisibility(mockObservable);
+        useIaVisibility();
         return null;
     };
+
+    beforeEach(() => {
+        window.LN = {
+            observable: mockObservable
+        };
+    });
 
     afterEach(() => {
         jest.clearAllMocks();

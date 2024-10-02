@@ -11,7 +11,7 @@ function LnIa({
     customFields: { hideSummary = false, hideGlossary = false } = {}
 }) {
     const { globalContent } = useAppContext();
-    const { isVisible, handleClose } = useIaVisibility(window.LN.observable);
+    const { isVisible, handleClose } = useIaVisibility();
     const { iaData, shouldShowSummary, shouldShowGlossary } = useIaData(
         globalContent,
         hideSummary,
