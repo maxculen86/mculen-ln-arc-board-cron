@@ -1,12 +1,12 @@
 import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
-import { getTypeOfDevice } from '@ln/hooks';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 const listDescubrir = [
     '/restaurantes',
     '/nutricion',
-    '/novedades-y-tendencias'
+    '/novedades-y-tendencias',
+    '/club-la-nacion'
 ];
 
 const iconList = [
@@ -58,17 +58,7 @@ const transformSubategorie = (subcategoryList = []) =>
         }
     );
 
-const isMobile = () =>
-    getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile';
-const descubrirOnlyMobile = id => {
-    const listDescubrirMobile = ['/club-la-nacion'];
-    return isMobile() && listDescubrirMobile.includes(id);
-};
 const orderChildrens = children => {
-    if (!isMobile()) {
-        return children;
-    }
-
     const filteredChildren = children.filter(
         ({ _id: id }) => id !== '/club-la-nacion'
     );
@@ -84,46 +74,42 @@ export default function transformMenuData({
     children: childrenProp = []
 } = {}) {
     const children = orderChildrens(childrenProp);
-    return children.reduce(
-        (acc, category) => {
-            const { name, _id, children: childrenCategory } = category || {};
-            const pageUrl = setPageUrl(_id);
-
-            if (childrenCategory.length) {
-                const dataSections = transformSubategorie(childrenCategory);
-                acc[0].data = dataSections;
-            } else if (
-                listDescubrir.includes(_id) ||
-                descubrirOnlyMobile(_id)
-            ) {
-                acc[1].data[0].items.push({
-                    text: name,
-                    href: pageUrl
-                });
-            } else {
-                acc.push({
-                    title: name,
-                    href: pageUrl
-                });
-            }
-
-            return acc;
+    const initialMenu = [
+        { title: 'Recetas', data: [] },
+        {
+            title: 'Descubrir',
+            data: [
+                {
+                    items: [
+                        {
+                            text: 'Chefs protagonistas',
+                            href: `${SITE_FOODIT}/chefs-protagonistas/`
+                        }
+                    ]
+                }
+            ]
         },
-        [
-            { title: 'Recetas', data: [] },
-            {
-                title: 'Descubrir',
-                data: [
-                    {
-                        items: [
-                            {
-                                text: 'Chefs protagonistas',
-                                href: `${SITE_FOODIT}/chefs-protagonistas/`
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    );
+        { title: 'Conocenos', href: `https://conocenos.foodit.com.ar/` }
+    ];
+    return children.reduce((acc, category) => {
+        const { name, _id, children: childrenCategory } = category || {};
+        const pageUrl = setPageUrl(_id);
+
+        if (childrenCategory.length) {
+            const dataSections = transformSubategorie(childrenCategory);
+            acc[0].data = dataSections;
+        } else if (listDescubrir.includes(_id)) {
+            acc[1].data[0].items.push({
+                text: name,
+                href: pageUrl
+            });
+        } else {
+            acc.push({
+                title: name,
+                href: pageUrl
+            });
+        }
+
+        return acc;
+    }, initialMenu);
 }
