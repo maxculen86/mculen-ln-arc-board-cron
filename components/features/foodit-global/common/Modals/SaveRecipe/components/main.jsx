@@ -98,8 +98,8 @@ const MainSaveRecipe = props => {
                         }}
                         error={Boolean(error?.hasError)}
                         errorClassName="border-danger-600"
+                        errorMessage={<ErrorMessage message={error?.message} />}
                     />
-                    <ErrorMessage message={error?.message} />
                 </div>
             )}
         </div>

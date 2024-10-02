@@ -2,7 +2,7 @@ import { generatePostObject } from '../../../../../components/private/common/uti
 import mockLiveBlogGlobalContent from '../../../../../__mocks__/data/articles/6IDQHDUT6RB6XEHG2F424TMNXI.json';
 import { createISODate } from '../../../../../components/private/common/utils/schema/liveBlog/generatePostObject';
 
-const PLACEHOLDER = 'placeholderLN-600_amp.jpg';
+const PLACEHOLDER = 'placeholderLN-600x60.jpg';
 const urlNota =
     'https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022/';
 const postObjects = generatePostObject(

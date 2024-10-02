@@ -12,7 +12,7 @@ const demoBranchPrefixes = [
     'master',
     'feature',
     'fix',
-    'core',
+    'chore',
     'upgrade',
     'update',
     'hotfix',
@@ -37,7 +37,7 @@ async function commitChanges() {
             type: 'input',
             name: 'commitMessage',
             message: 'Ingresa la descripción del commit:',
-            when: answers => answers.commitChanges
+            when: response => response.commitChanges
         }
     ]);
 
@@ -73,10 +73,10 @@ async function runTests() {
         const testProcess = spawn('npm', ['run', 'test'], { stdio: 'inherit' });
 
         const handleSigint = () => {
-            console.log('\nCancelación detectada. Limpiando...');
+            console.warn('\nCancelación detectada. Limpiando...');
             testProcess.kill(); // Mata el proceso de los tests
             spinner.stop(true);
-            reject('Tests cancelados por el usuario');
+            reject(new Error('Tests cancelados por el usuario'));
         };
 
         process.on('SIGINT', handleSigint);
@@ -87,7 +87,7 @@ async function runTests() {
             if (code === 0) {
                 resolve();
             } else {
-                reject(`Test process exited with code ${code}`);
+                reject(new Error(`Test process exited with code ${code}`));
             }
         });
     });
@@ -108,7 +108,7 @@ async function createDemoBranch() {
                 originalBranch.startsWith(prefix)
             )
         ) {
-            console.log(
+            console.error(
                 `La rama actual no cumple con el criterio de prefijos validos: ${demoBranchPrefixes.join(
                     ' '
                 )}.`
@@ -129,7 +129,7 @@ async function createDemoBranch() {
             await runTests();
         }
 
-        const username = os.userInfo().username;
+        const { username } = os.userInfo();
         const timestamp = new Date().toISOString().replace(/[-:.]/g, '');
         const newBranch = `${demoBranchSuffix}/${timestamp}/${username}/${originalBranch}`;
 
@@ -141,20 +141,20 @@ async function createDemoBranch() {
 
         await git.push('origin', newBranch);
         spinner.stop(true);
-        console.log(`Push realizado con éxito`);
+        console.info(`Push realizado con éxito`);
 
         // Regresar a la rama original y eliminar la rama de demostración
         await git.checkout(originalBranch);
         await git.branch(['-d', newBranch]); // Cambiado para eliminar la rama local
-        console.log(
+        console.info(
             `Regresado a la rama original ${originalBranch} y eliminada la rama de demostración local ${newBranch}`
         );
     } catch (error) {
         console.error('Error:', error);
         if (originalBranch) {
-            console.log(`Regresando a la rama original ${originalBranch}...`);
+            console.error(`Regresando a la rama original ${originalBranch}...`);
             await git.checkout(originalBranch);
-            console.log(`Eliminando la rama de demostración...`);
+            console.error(`Eliminando la rama de demostración...`);
         }
     }
 }

@@ -1,9 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import BuildFirtsButtonsGroup from '../../../../../components/features/LN-nota/share/_children/BuildFirstButtonsGroup';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -13,21 +20,42 @@ jest.mock('../../../../../components/private/common/hooks/useFetch', () =>
     jest.fn()
 );
 
+const props = {
+    renderables: [
+        {
+            collection: 'features',
+            type: 'LN-10/IA',
+            props: {
+                customFields: {
+                    hideGlossary: false,
+                    hideSummary: false
+                }
+            }
+        }
+    ]
+};
+
+Context.useAppContext = jest.fn(() => props);
+
 describe('Components - Features - LN-nota - share', () => {
     const globalContent = (isListenable, comments) => ({
         _id: '7ZDIHMQHDRDNNMJDSUWQXWPWZU',
         isListenable,
+        promo_items: { glossary: {} },
         comments: { display_comments: comments }
     });
+
     useFetch.mockImplementation(() => ({
         data: {
             total_visible_content: 1
         }
     }));
+
     it('should call useFetch hook in component', () => {
         render(<BuildFirtsButtonsGroup globalContent={globalContent()} />);
         expect(useFetch).toBeCalledTimes(1);
     });
+
     it('should not render isListenable button if termica returns true', () => {
         useTermica.mockImplementation(() => true);
 
@@ -39,7 +67,7 @@ describe('Components - Features - LN-nota - share', () => {
 
         expect(useTermica).toHaveBeenCalledWith('hide_listening_articles');
         expect(screen.queryByText('escuchar')).not.toBeInTheDocument();
-        expect(screen.queryByRole('button')).not.toBeInTheDocument();
+        expect(screen.queryByTitle('Escuchar nota')).not.toBeInTheDocument();
     });
 
     it('should render isListenable button', () => {
@@ -52,11 +80,9 @@ describe('Components - Features - LN-nota - share', () => {
         );
 
         expect(useTermica).toHaveBeenCalled();
-        expect(screen.getByTitle('Escuchar nota')).toBeInTheDocument();
-        expect(screen.getByRole('button')).toHaveAttribute(
-            'title',
-            'Escuchar nota'
-        );
+        const listenButton = screen.getByTitle('Escuchar nota');
+        expect(listenButton).toBeInTheDocument();
+        expect(listenButton).toHaveAttribute('title', 'Escuchar nota');
     });
 
     it('should render bookmark button', () => {
@@ -66,12 +92,10 @@ describe('Components - Features - LN-nota - share', () => {
                 globalContent={globalContent(false, false)}
             />
         );
-        expect(screen.getByRole('button')).toHaveAttribute(
-            'title',
-            'Notas guardadas'
-        );
+        expect(screen.getByTitle('Notas guardadas')).toBeInTheDocument();
         expect(container.querySelector('i')).toBeInTheDocument();
     });
+
     it('should render comments button', () => {
         render(
             <BuildFirtsButtonsGroup
@@ -79,12 +103,14 @@ describe('Components - Features - LN-nota - share', () => {
             />
         );
         expect(screen.getByText('1')).toBeInTheDocument();
-        expect(screen.getByRole('button')).toHaveAttribute(
-            'title',
-            'Ir a los comentarios de la nota'
-        );
+        expect(
+            screen.getByTitle('Ir a los comentarios de la nota')
+        ).toBeInTheDocument();
     });
+
     it('should run a snapshot', () => {
+        // TODO: Corregir Snapshots cuando se separen botones y cada uno tenga su termica asociada
+        useTermica.mockImplementation(() => true);
         const comp = render(
             <BuildFirtsButtonsGroup
                 termicaBookmark={true}
@@ -92,5 +118,12 @@ describe('Components - Features - LN-nota - share', () => {
             />
         );
         expect(comp).toMatchSnapshot();
+    });
+
+    it('should render IA button', () => {
+        useTermica.mockImplementation(() => true);
+        render(<BuildFirtsButtonsGroup globalContent={globalContent()} />);
+
+        expect(screen.getByTitle('IA')).toBeInTheDocument();
     });
 });

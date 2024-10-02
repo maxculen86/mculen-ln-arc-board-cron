@@ -54,3 +54,8 @@ export const getCookie = name => {
         return parts[0] === name ? decodeURIComponent(parts[1]) : r;
     }, '');
 };
+
+export const IA_AUDIO_SUMMARY_TRACKING_STORAGE = {
+    key: 'IA-audio-summary-tracking',
+    value: 'wasDisplayed'
+};

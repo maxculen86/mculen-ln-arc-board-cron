@@ -5,6 +5,7 @@ describe('components - features - LN-common - LN10_Anticipo - json.js', () => {
         customFields: {
             hide: false,
             title: 'Probamos la nueva home',
+            url: 'https://www.youtube.com/embed/0ib0IQf3_8M',
             textBadge: 'Ultimo MOmento',
             video:
                 '<iframe width="560" height="150" src="https://www.youtube.com/embed/0ib0IQf3_8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
@@ -17,7 +18,7 @@ describe('components - features - LN-common - LN10_Anticipo - json.js', () => {
                 information: {
                     hideCaja: false,
                     title: 'Probamos la nueva home',
-                    url: undefined,
+                    url: 'https://www.youtube.com/embed/0ib0IQf3_8M',
                     textBadge: 'Ultimo MOmento',
                     lead: undefined,
                     video:
@@ -34,6 +35,47 @@ describe('components - features - LN-common - LN10_Anticipo - json.js', () => {
 
             const objAnticipo = Anticipo(newProps);
             expect(objAnticipo).toBeNull();
+        });
+
+        it('When url contains leading or trailing spaces', () => {
+            props.customFields = {
+                ...props.customFields,
+                url: ' https://www.youtube.com/embed/0ib0IQf3_8M '
+            };
+            const objAnticipo = Anticipo(props);
+
+            expect(objAnticipo).toMatchObject({
+                information: {
+                    hideCaja: false,
+                    title: 'Probamos la nueva home',
+                    url: 'https://www.youtube.com/embed/0ib0IQf3_8M',
+                    textBadge: 'Ultimo MOmento',
+                    lead: undefined,
+                    video:
+                        '<iframe width="560" height="150" src="https://www.youtube.com/embed/0ib0IQf3_8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+                }
+            });
+        });
+
+        it('When video html atributtes contains leading or trailing spaces', () => {
+            props.customFields = {
+                ...props.customFields,
+                video:
+                    '<iframe width=" 560" height=" 150" src=" https://www.youtube.com/embed/0ib0IQf3_8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+            };
+            const objAnticipo = Anticipo(props);
+
+            expect(objAnticipo).toMatchObject({
+                information: {
+                    hideCaja: false,
+                    title: 'Probamos la nueva home',
+                    url: 'https://www.youtube.com/embed/0ib0IQf3_8M',
+                    textBadge: 'Ultimo MOmento',
+                    lead: undefined,
+                    video:
+                        '<iframe width="560" height="150" src="https://www.youtube.com/embed/0ib0IQf3_8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+                }
+            });
         });
     });
 });

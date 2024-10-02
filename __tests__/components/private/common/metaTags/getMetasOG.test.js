@@ -96,7 +96,7 @@ describe('Metas OTT', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: ''
             },
             {
@@ -116,16 +116,16 @@ describe('Metas OTT', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '630'
             },
             {
                 property: 'og:url',
@@ -137,9 +137,9 @@ describe('Metas OTT', () => {
                 content: 'LN+ Mirá todos los programas y videos online'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-513x50.jpg'
                 )
             }
         ];
@@ -166,7 +166,13 @@ describe('Common - getMetasOG function', () => {
                     basic: {
                         type: 'image',
                         url:
-                            'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
+                            'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1024&height=576&quality=70&smart=true',
+                        width: '1024',
+                        height: '576',
+                        originalSizes: {
+                            width: 2121,
+                            height: 1193
+                        }
                     },
                     receta: {}
                 },
@@ -207,7 +213,7 @@ describe('Common - getMetasOG function', () => {
         };
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -224,15 +230,15 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image',
-                content: `https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
+                content: `https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1200&height=675&quality=70&smart=true`
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '675'
             },
             {
                 property: 'og:url',
@@ -251,9 +257,9 @@ describe('Common - getMetasOG function', () => {
                 property: 'og:site_name'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content:
-                    'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
+                    'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1200&height=675&quality=70&smart=true'
             }
         ];
 
@@ -287,7 +293,7 @@ describe('Common - getMetasOG function', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -305,16 +311,16 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '630'
             },
             {
                 property: 'og:url',
@@ -325,9 +331,9 @@ describe('Common - getMetasOG function', () => {
                 property: 'og:site_name'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-513x50.jpg'
                 )
             }
         ];
@@ -367,7 +373,7 @@ describe('Common - getMetasOG function', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -385,25 +391,25 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '630'
             },
             {
                 property: 'og:url',
                 content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             }
         ];
@@ -467,7 +473,7 @@ describe('Metas home', () => {
 
         const metas = [
             {
-                property: 'fb_app_id',
+                property: 'fb:app_id',
                 content: '154042854349421'
             },
             {
@@ -485,16 +491,16 @@ describe('Metas home', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-1200x630.jpg'
                 )
             },
             {
                 property: 'og:image:width',
-                content: '512'
+                content: '1200'
             },
             {
                 property: 'og:image:height',
-                content: '768'
+                content: '630'
             },
             {
                 property: 'og:url',
@@ -505,9 +511,9 @@ describe('Metas home', () => {
                 property: 'og:site_name'
             },
             {
-                property: 'twitter:image',
+                name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
+                    'placeholderLN-513x50.jpg'
                 )
             }
         ];

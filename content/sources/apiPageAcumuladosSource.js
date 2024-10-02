@@ -6,6 +6,76 @@ import home from '../../components/private/LN/api/v2/mobile/homeAccumulated';
 import pageTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySection/pageTransformV2Format';
 import NotFoundError from './utils/notFoundError';
 import sectionSource from './sectionSource';
+import sectionsDataJson from './utils/pageSource/pageAcumulados/config/configSectionPage.json';
+
+
+
+const getParamsFromQuery = (query) => {
+    const { uri = '', website, versionUri } = query;
+    const ticksCache = get(query, 'ticks', null);
+    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
+    const turnOffFlag = get(query, 'apagarApi', '');
+    const sectionId = get(query, 'sectionId', null);
+
+    const sectionData = sectionsDataJson?.find(
+        (e) => get(e, 'slug') === sectionId,
+    );
+    let namePage = get(sectionData, 'namePage', null);
+    namePage = namePage? ('/').concat(namePage) : sectionId;
+
+    if (!versionUri) {
+        throw new Error('The api page must have a version');
+    }
+
+    return {
+        uri,
+        website,
+        versionUri,
+        ticksCache,
+        categoryUri,
+        turnOffFlag,
+        namePage
+    };
+};
+
+const fetchSectionSource = async (query, cachedCall) => {
+    let sectionSourceResult = null;
+    const sectionsTitlesCustom = [
+        '/economia/inteligencia-artificial',
+        '/economia/IA',
+        '/quesale',
+        '/que-sale',
+    ];
+
+    const queryParams = {
+        id: query.sectionId,
+        website: query.website,
+        api: 'true',
+    };
+
+    const sectionData = sectionsDataJson?.find(
+        (e) => get(e, 'slug') === query.sectionId,
+    );
+    if (sectionsTitlesCustom.includes(query.sectionId) && sectionData) {
+        return { title: sectionData.aliasTitle };
+    }
+
+    sectionSourceResult = await cachedCall(
+        'sectionSource',
+        sectionSource.fetch,
+        {
+            query: queryParams,
+        },
+    );
+
+    const title = get(
+        sectionSourceResult,
+        'acumuladoGeneral.hierarchy_navigation',
+        get(sectionSourceResult, 'name', null),
+    );
+
+    return { title };
+};
 
 const fetch = async (query, { cachedCall }) => {
     try {
@@ -15,31 +85,32 @@ const fetch = async (query, { cachedCall }) => {
             versionUri,
             ticksCache,
             categoryUri,
-            turnOffFlag
+            turnOffFlag,
+            namePage
         } = getParamsFromQuery(query);
 
         if (turnOffFlag && turnOffFlag === 'true') {
             return {
                 metadata: {},
-                items: []
+                items: [],
             };
         }
 
         const queryParams = {
-            rootPath: `${SITE_LANACION}${query.sectionId}`,
+            rootPath: `${SITE_LANACION}${namePage}`,
             website,
             uri,
             categoryUri,
             versionUri,
-            cookie: query.cookie
+            cookie: query.cookie,
         };
 
         const [resultPage, fetchSectionSourceResult] = await Promise.all([
             cachedCall('ApiPageAcumulados', pages.fetch, {
                 query: queryParams,
-                ttl: 300
+                ttl: 300,
             }),
-            fetchSectionSource(query, cachedCall)
+            fetchSectionSource(query, cachedCall),
         ]);
 
         let { title } = fetchSectionSourceResult;
@@ -65,69 +136,23 @@ const fetch = async (query, { cachedCall }) => {
             : {};
         return pageTransformV2Format(resultPageData, {
             title,
-            slug: query.sectionId
+            slug: query.sectionId,
         });
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
             `Error in content/apiPageAcumuladoSource : 
             query parameters: ${JSON.stringify(query)} 
-            - errorMsj: ${error.message}`
+            - errorMsj: ${error.message}`,
         );
 
         if (error instanceof NotFoundError) {
             throw new NotFoundError(
-                `seccion no encontrada: ${query.sectionId}`
+                `seccion no encontrada: ${query.sectionId}`,
             );
         }
         throw new Error(error);
     }
-};
-
-const getParamsFromQuery = query => {
-    const { uri = '', website, versionUri } = query;
-    const ticksCache = get(query, 'ticks', null);
-    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
-    const turnOffFlag = get(query, 'apagarApi', '');
-
-    if (!versionUri) {
-        throw new Error('The api page must have a version');
-    }
-
-    return {
-        uri,
-        website,
-        versionUri,
-        ticksCache,
-        categoryUri,
-        turnOffFlag
-    };
-};
-
-const fetchSectionSource = async (query, cachedCall) => {
-    let sectionSourceResult = null;
-
-    const queryParams = {
-        id: query.sectionId,
-        website: query.website,
-        api: 'true'
-    };
-
-    sectionSourceResult = await cachedCall(
-        'sectionSource',
-        sectionSource.fetch,
-        {
-            query: queryParams
-        }
-    );
-
-    const title = get(
-        sectionSourceResult,
-        'acumuladoGeneral.hierarchy_navigation',
-        get(sectionSourceResult, 'name', null)
-    );
-
-    return { title };
 };
 
 export default {
@@ -141,7 +166,7 @@ export default {
         versionUri: 'text',
         ticks: 'text',
         cookie: 'text',
-        apagarApi: 'text'
+        apagarApi: 'text',
     },
-    ttl: 120
+    ttl: 120,
 };

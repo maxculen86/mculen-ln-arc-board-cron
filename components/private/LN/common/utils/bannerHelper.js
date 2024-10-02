@@ -270,9 +270,8 @@ export const getDimsFromSiteService = (config, slotName, section) => {
         return null;
 
     if (dynamicSlotDimensions[section]?.[slotName]) {
-        position.dimensions = dynamicSlotDimensions[section][slotName].join(
-            ','
-        );
+        position.dimensions =
+            dynamicSlotDimensions[section][slotName].join(',');
     }
 
     return parseDimensionsBanners(position.dimensions);
@@ -296,42 +295,42 @@ export const handleUnitedStatesLabelException = () => {
     return isUnitedStates ? [true, UNITEDSTATES] : false;
 };
 
-export const isPrimarySectionInBannerSegments = primarySection => (
-    segments,
-    subSections = []
-) => {
-    if (!segments || !primarySection) return [false, null];
-    const canchallenaException = handleCanchallenaException(subSections);
+export const isPrimarySectionInBannerSegments =
+    primarySection =>
+    (segments, subSections = []) => {
+        if (!segments || !primarySection) return [false, null];
+        const canchallenaException = handleCanchallenaException(subSections);
 
-    if (canchallenaException) {
-        return canchallenaException;
-    }
+        if (canchallenaException) {
+            return canchallenaException;
+        }
 
-    const unitedStatesFromLabel = handleUnitedStatesLabelException();
+        const unitedStatesFromLabel = handleUnitedStatesLabelException();
 
-    if (unitedStatesFromLabel) {
-        return unitedStatesFromLabel;
-    }
+        if (unitedStatesFromLabel) {
+            return unitedStatesFromLabel;
+        }
 
-    const EXCEPTIONS = {
-        'estados-unidos': 'la_nacion_usa',
-        salud: 'bienestar',
-        autos: 'movilidad',
-        IA: 'futuria'
+        const EXCEPTIONS = {
+            'estados-unidos': 'la_nacion_usa',
+            salud: 'bienestar',
+            autos: 'movilidad',
+            'que-sale': 'que-sale',
+            IA: 'futuria'
+        };
+
+        const subSectionExceptions = {
+            futuria: true
+        };
+
+        const base = primarySection.split('/').filter(Boolean);
+        const section = base.find(x => segments.includes(x)) || base.shift();
+        const hardSection = EXCEPTIONS[section] || section;
+        const included =
+            subSectionExceptions[hardSection] || segments.includes(hardSection);
+
+        return [included, hardSection];
     };
-
-    const subSectionExceptions = {
-        futuria: true
-    };
-
-    const base = primarySection.split('/').filter(Boolean);
-    const section = base.find(x => segments.includes(x)) || base.shift();
-    const hardSection = EXCEPTIONS[section] || section;
-    const included =
-        subSectionExceptions[hardSection] || segments.includes(hardSection);
-
-    return [included, hardSection];
-};
 
 export const getSlotForDevice = device => slots =>
     slots.find(slot => slot.name === device)
@@ -352,10 +351,7 @@ export const setCustomAdUnit = (slotName, unit) => {
 
 export const changeSegmentAdUnit = (section, device, slotName = '') => {
     const stringToReplace = slotName
-        ? slotName
-              .split('/')
-              .filter(Boolean)
-              .shift()
+        ? slotName.split('/').filter(Boolean).shift()
         : '';
 
     return slotName.replace(stringToReplace, `${section}_${device}`);
@@ -407,7 +403,7 @@ export const queueGoogletagCommand = bannersToLoad => {
                 {
                     ...slotAPS
                 },
-                function(bids) {
+                function (bids) {
                     // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
                     if (pbjs.adserverRequestSent) return;
                     apstag.setDisplayBids();
@@ -425,7 +421,7 @@ export const queueGoogletagCommand = bannersToLoad => {
 
             !isWebview(navigator.userAgent) &&
                 hastSlotswithBids &&
-                pbjs.que.push(function() {
+                pbjs.que.push(function () {
                     pbjs.rp.requestBids({
                         callback: callAdserver,
                         gptSlotObjects: headerBiddingSlots
@@ -503,7 +499,7 @@ export const getBannerSectionDimensions = (section, slotName) => {
         futuria: defaultSlotDimensions,
         bienestar: defaultSlotDimensions,
         movilidad: defaultSlotDimensions,
-        quesale: defaultSlotDimensions
+        'que-sale': defaultSlotDimensions
     };
 
     return sectionSlotDimensions[section]?.[slotName];

@@ -7,6 +7,10 @@ class Story {
     constructor(props) {
         this.props = props;
 
+        const {
+            globalContent: { _id: storyId, isListenable: isListenableValue }
+        } = props;
+
         // Responde al resolver que permite pasar las versiones existentes
         // Regex actual: ^/api/v([1]+)/notas/byId/(.+)/$
 
@@ -29,6 +33,18 @@ class Story {
                          }`
             }
         });
+
+        if (isListenableValue) {
+            this.fetchContent({
+                audionewsSource: {
+                    source: 'audionewsSource',
+                    query: {
+                        id: storyId
+                    }
+                }
+            });
+        }
+
         this.apiData = {
             global: {
                 1: IndexNotaV1
@@ -43,12 +59,13 @@ class Story {
         const indexNota = this.apiData[
             browser.getApiType(this.props.requestUri)
         ][browser.getApiVersion(this.props.requestUri)];
-        const { navigationTreeSource } = this.state || {};
+        const { navigationTreeSource, audionewsSource } = this.state || {};
         const { globalContent } = this.props;
         try {
             return indexNota({
                 ...globalContent,
-                navigationTreeSource
+                navigationTreeSource,
+                ...audionewsSource
             });
         } catch (err) {
             return { Success: false, Message: err.message };

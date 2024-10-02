@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Schemas = ({ section }) => {
     const { contextPath, deployment } = useAppContext();
-    const _deployment = `${contextPath}/resources/images/placeholderLN-1280.jpg`;
+    const _deployment = `${contextPath}/resources/images/placeholderLN-1280x1280.jpg`;
     const logoUrl = `${ARC_STATIC}${deployment(_deployment)}`;
 
     const newsMedia = `{

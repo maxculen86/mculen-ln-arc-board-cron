@@ -111,6 +111,7 @@ const Barrier = ({
                                 {buttons.cancel.label}
                             </Button>
                             <Button
+                                id="confirm-button-note"
                                 variant="primary"
                                 title="Confirmar"
                                 onClick={() => {

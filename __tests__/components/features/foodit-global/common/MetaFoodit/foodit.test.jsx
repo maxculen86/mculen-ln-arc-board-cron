@@ -64,7 +64,7 @@ describe('components - feature - foodit-glogal - common - MetaFoodit', () => {
         expect(metaOGDescription).toBeTruthy();
 
         const fbApp = container.querySelector(
-            'meta[property="fb_app_id"][content="11111112222222333333"]'
+            'meta[property="fb:app_id"][content="11111112222222333333"]'
         );
         expect(fbApp).toBeTruthy();
 
@@ -141,7 +141,7 @@ describe('components - feature - foodit-glogal - common - MetaFoodit', () => {
         expect(metaOGDescription).toBeTruthy();
 
         const fbApp = container.querySelector(
-            'meta[property="fb_app_id"][content="11111112222222333333"]'
+            'meta[property="fb:app_id"][content="11111112222222333333"]'
         );
         expect(fbApp).toBeTruthy();
 

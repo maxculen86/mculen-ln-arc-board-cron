@@ -2,7 +2,7 @@ import { extractDataFromPromoItems } from '../../../../../../components/private/
 
 describe('Test function extractDataFromPromoItems', () => {
     const PLACEHOLDER =
-        'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1080.jpg?d=748';
+        'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg?d=748';
 
     test('Return test of the function when it has an image', () => {
         const promoItems = {

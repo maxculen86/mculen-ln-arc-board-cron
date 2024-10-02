@@ -41,7 +41,9 @@ const HeaderFoodit = () => {
         layoutsName.FooditRecetario,
         layoutsName.FooditAcumulado,
         layoutsName.FooditListadoCompras,
-        layoutsName.FooditAcumuladoChef
+        layoutsName.FooditAcumuladoChef,
+        layoutsName.FooditRecipePaywall,
+        layoutsName.FooditChef
     ];
 
     const showSubheaderInSheet = layoutSheets.includes(layout) && isOpen;
@@ -50,6 +52,7 @@ const HeaderFoodit = () => {
     const marginByLayouts = {
         [layoutsName.FooditHome]: 'mb-12 mb-40_lg',
         [layoutsName.FooditFichaReceta]: 'mb-12 mb-40_lg',
+        [layoutsName.FooditRecipePaywall]: 'mb-12 mb-40_lg',
         [layoutsName.FooditFichaNota]: 'mb-0',
         default: 'mb-40'
     };
@@ -90,15 +93,20 @@ const HeaderFoodit = () => {
                             <MainHeader.Brand
                                 data-test-id="header-link-inicio"
                                 href="/"
-                                title="Ir a inicio"
+                                title="Ir a Foodit"
                                 className="flex"
                             >
-                                <Logo
-                                    variant="row"
-                                    classNameSvgAnimated="h-32 h-44_md h-52_lg"
-                                    classNameSvgText="h-20 h-24_md h-28_lg"
-                                    enabledAnimation
-                                />
+                                <h1 className="flex relative">
+                                    <span className="visibility-hidden absolute">
+                                        Foodit
+                                    </span>
+                                    <Logo
+                                        variant="row"
+                                        classNameSvgAnimated="h-32 h-44_md h-52_lg"
+                                        classNameSvgText="h-20 h-24_md h-28_lg"
+                                        enabledAnimation
+                                    />
+                                </h1>
                             </MainHeader.Brand>
                         </MainHeader.Content.Center>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">

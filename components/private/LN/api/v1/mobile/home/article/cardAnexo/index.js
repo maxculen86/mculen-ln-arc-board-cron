@@ -1,10 +1,12 @@
 import { parse } from 'node-html-parser';
 import get from '../../../../../../../common/utils/get';
+import trimIfNotEmpty from '../../../../../../../common/utils/trimIfNotEmpty';
+import cleanHtmlAttributes from '../../../../../../../common/utils/cleanHtmlAttributes';
 
 export const CardAnexo = article => {
-    const url = get(article[0], 'url', null);
     const alto = get(article[0], 'alto', null);
-    const html = get(article[0], 'html', null);
+    const url = trimIfNotEmpty(get(article[0], 'url', null));
+    const html = cleanHtmlAttributes(get(article[0], 'html', null));
 
     if (url && alto) return [{ src: url, url, alto }];
 
@@ -43,7 +45,7 @@ export const CardAnexo = article => {
                 return [
                     {
                         src: html,
-                        url: srcAtributte,
+                        url: trimIfNotEmpty(srcAtributte),
                         alto: heightMobile ?? height ?? 300
                     }
                 ];

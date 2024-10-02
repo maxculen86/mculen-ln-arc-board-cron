@@ -1,0 +1,68 @@
+.logo-ai .star {
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: fill 0.5s linear, stroke 0.5s linear;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.logo-ai .star.big {
+  animation-name: big-star-animation;
+}
+.logo-ai .star.small {
+  animation-name: small-star-animation;
+}
+@keyframes big-star-animation {
+  0%, 85%, 100% {
+    transform: rotate(0deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  20% {
+    transform: rotate(-180deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  40% {
+    transform: rotate(-180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  50%, 55%, 60% {
+    transform: rotate(-180deg) scale(1.1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  65% {
+    transform: rotate(-180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+}
+@keyframes small-star-animation {
+  0%, 85%, 100% {
+    transform: rotate(0deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  20% {
+    transform: rotate(180deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  40% {
+    transform: rotate(180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  50%, 55%, 60% {
+    transform: rotate(180deg) scale(1.1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  65% {
+    transform: rotate(180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+}

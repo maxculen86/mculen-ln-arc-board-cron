@@ -11,10 +11,11 @@ class AnexoFeature {
         const {
             hideByHtml = false,
             hideByUrl = false,
+            hideByVivoYoutube = false,
             url,
             heightMobile,
             html,
-
+            vivoYoutube,
             // Roof properties
             title,
             link,
@@ -32,7 +33,7 @@ class AnexoFeature {
             customFields
         });
 
-        if (errorMessage || (hideByHtml && hideByUrl)) {
+        if (errorMessage || (hideByHtml && hideByUrl && hideByVivoYoutube)) {
             return null;
         }
 
@@ -55,6 +56,15 @@ class AnexoFeature {
         if (!hideByHtml && html) {
             information.hideCaja = false;
             articles = [{ html }];
+            return {
+                information,
+                articles
+            };
+        }
+
+        if (!hideByVivoYoutube && vivoYoutube) {
+            information.hideCaja = false;
+            articles = [{ html: vivoYoutube }];
             return {
                 information,
                 articles

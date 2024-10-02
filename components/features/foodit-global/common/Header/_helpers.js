@@ -1,6 +1,7 @@
 import React from 'react';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { SITE_FOODIT } from 'fusion:environment';
+import { getTypeOfDevice } from '@ln/hooks';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 const listDescubrir = [
     '/restaurantes',
@@ -29,8 +30,8 @@ const iconList = [
 
 const setPageUrl = (path = '') => `${SITE_FOODIT}${path}/`;
 
-const transformSubategorie = (subcategoryList = []) => {
-    return subcategoryList.map(
+const transformSubategorie = (subcategoryList = []) =>
+    subcategoryList.map(
         ({ name: nameSubcategory, _id: idSubcategory, children = [] } = {}) => {
             const subCategorysWithoutUrl = [
                 '/recetas/dietas',
@@ -48,19 +49,41 @@ const transformSubategorie = (subcategoryList = []) => {
                     ).icon
                 },
                 items: children.map(
-                    ({ name: nameChildren, _id: idChildren } = {}) => {
-                        return {
-                            text: nameChildren,
-                            href: setPageUrl(idChildren)
-                        };
-                    }
+                    ({ name: nameChildren, _id: idChildren } = {}) => ({
+                        text: nameChildren,
+                        href: setPageUrl(idChildren)
+                    })
                 )
             };
         }
     );
+
+const isMobile = () =>
+    getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile';
+const descubrirOnlyMobile = id => {
+    const listDescubrirMobile = ['/club-la-nacion'];
+    return isMobile() && listDescubrirMobile.includes(id);
+};
+const orderChildrens = children => {
+    if (!isMobile()) {
+        return children;
+    }
+
+    const filteredChildren = children.filter(
+        ({ _id: id }) => id !== '/club-la-nacion'
+    );
+
+    const clubLaNacion = children.find(
+        ({ _id: id }) => id === '/club-la-nacion'
+    );
+
+    return clubLaNacion ? [...filteredChildren, clubLaNacion] : children;
 };
 
-export default function transformMenuData({ children = [] } = {}) {
+export default function transformMenuData({
+    children: childrenProp = []
+} = {}) {
+    const children = orderChildrens(childrenProp);
     return children.reduce(
         (acc, category) => {
             const { name, _id, children: childrenCategory } = category || {};
@@ -69,7 +92,10 @@ export default function transformMenuData({ children = [] } = {}) {
             if (childrenCategory.length) {
                 const dataSections = transformSubategorie(childrenCategory);
                 acc[0].data = dataSections;
-            } else if (listDescubrir.includes(_id)) {
+            } else if (
+                listDescubrir.includes(_id) ||
+                descubrirOnlyMobile(_id)
+            ) {
                 acc[1].data[0].items.push({
                     text: name,
                     href: pageUrl

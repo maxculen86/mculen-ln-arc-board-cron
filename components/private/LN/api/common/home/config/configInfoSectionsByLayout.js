@@ -42,6 +42,8 @@ export const infoLNMainLN10 = {
     campo: { tipoSeccion: 'campo', idSeccion: 305 },
     bienestar: { tipoSeccion: 'bienestar', idSeccion: 305 },
     movilidad: { tipoSeccion: 'movilidad', idSeccion: 305 },
+    futuria: { tipoSeccion: 'futuria', idSeccion: 305 },
+    'que-sale': { tipoSeccion: 'que-sale', idSeccion: 305 },
     welfare: { tipoSeccion: 'bienestar', idSeccion: 305 },
     title: { tipoSeccion: 'title', idSeccion: 704 },
     ranking: { tipoSeccion: 'ranking', idSeccion: 701 },

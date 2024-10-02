@@ -55,6 +55,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'audio_summary_url',
+                    'audio_id',
+                    'audio_custom_voice',
                     'authors',
                     'bajada',
                     'categoria',
@@ -76,7 +78,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
         });
     });
 
-    describe('Check audionews field', () => {
+    describe('Check audionews field and audio_custom_voice', () => {
         it('when is listenable', () => {
             const props = {
                 arcSite: 'la-nacion-ar',
@@ -92,13 +94,17 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             const objArticle = new storyText.default(props);
             objArticle.state.audionewsSource = {
                 audio_status: 7,
-                audio_url: 'url'
+                audio_url: 'url',
+                audio_id: 'id',
+                voice: 1
             };
 
             const result = objArticle.render();
 
             expect(Object.keys(result).sort()).toEqual(
                 [
+                    'audio_id',
+                    'audio_custom_voice',
                     'audio_url',
                     'audio_summary_url',
                     'authors',
@@ -111,6 +117,50 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             );
 
             expect(result.audio_url).toEqual('url');
+            expect(result.audio_id).toEqual('id');
+            expect(result.audio_custom_voice).toBeTruthy();
+        });
+
+        it('when is listenable and audio_custom_voice is false', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                children: [],
+                collection: 'features',
+                id: 'f0fbqPGS59PM2x',
+                outputType: 'json',
+                globalContent: storyWithAudio,
+                requestUri:
+                    '/api/mobile/v1/notas/text/byId/UK57ZJT3DJGPRFTACPR7KTFUWA/?_website=la-nacion-ar&outputType=json'
+            };
+
+            const objArticle = new storyText.default(props);
+            objArticle.state.audionewsSource = {
+                audio_status: 7,
+                audio_url: 'url',
+                audio_id: 'id',
+                voice: undefined
+            };
+
+            const result = objArticle.render();
+
+            expect(Object.keys(result).sort()).toEqual(
+                [
+                    'audio_id',
+                    'audio_custom_voice',
+                    'audio_url',
+                    'audio_summary_url',
+                    'authors',
+                    'bajada',
+                    'categoria',
+                    'contenido',
+                    'titulo',
+                    'tituloMobile'
+                ].sort()
+            );
+
+            expect(result.audio_url).toEqual('url');
+            expect(result.audio_id).toEqual('id');
+            expect(result.audio_custom_voice).toBeFalsy();
         });
 
         it('when is not listenable', () => {
@@ -138,6 +188,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'audio_summary_url',
+                    'audio_custom_voice',
+                    'audio_id',
                     'authors',
                     'bajada',
                     'categoria',
@@ -182,6 +234,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'audio_summary_url',
+                    'audio_id',
+                    'audio_custom_voice',
                     'authors',
                     'bajada',
                     'categoria',
@@ -223,6 +277,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'audio_summary_url',
+                    'audio_id',
+                    'audio_custom_voice',
                     'authors',
                     'bajada',
                     'categoria',
@@ -233,6 +289,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             );
 
             expect(result.audio_url).toEqual(undefined);
+            expect(result.audio_id).toEqual(undefined);
         });
     });
 
@@ -268,6 +325,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'audio_summary_url',
+                    'audio_id',
+                    'audio_custom_voice',
                     'authors',
                     'bajada',
                     'categoria',
@@ -311,6 +370,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'audio_summary_url',
+                    'audio_id',
+                    'audio_custom_voice',
                     'authors',
                     'bajada',
                     'categoria',

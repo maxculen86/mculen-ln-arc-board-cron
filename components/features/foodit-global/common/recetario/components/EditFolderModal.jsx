@@ -21,8 +21,14 @@ const EditFolderModal = ({
     const {
         onChange: onInputFolderChange,
         value: inputValue,
-        error: inputError
+        error: inputError,
+        restoreInputValue
     } = useInputListener(folderId);
+
+    const handleClose = () => {
+        restoreInputValue();
+        onClose();
+    };
 
     return (
         <Animate
@@ -38,7 +44,7 @@ const EditFolderModal = ({
                 }
                 classNameWrapper="px-16"
                 id="modal-save"
-                onClose={onClose}
+                onClose={handleClose}
                 show
             >
                 <header className="border border-bottom border-thin border-light-100 flex gap-16">
@@ -64,8 +70,10 @@ const EditFolderModal = ({
                         inputRef={inputRef}
                         error={Boolean(inputError?.hasError)}
                         errorClassName="border-danger-600"
+                        errorMessage={
+                            <ErrorMessage message={inputError?.message} />
+                        }
                     />
-                    <ErrorMessage message={inputError?.message} />
                 </div>
                 <hr />
                 <footer className="flex gap-16">
@@ -92,7 +100,7 @@ const EditFolderModal = ({
                         title={'Cancelar'}
                         size={40}
                         fullWidth
-                        onClick={onClose}
+                        onClick={handleClose}
                     >
                         Cancelar
                     </Button>

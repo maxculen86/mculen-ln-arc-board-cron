@@ -1,7 +1,7 @@
 import {
-    setEventShare,
     shareWhatsAppDesktop,
-    shareWhatsAppMobile
+    shareWhatsAppMobile,
+    isLN10IAHidden
 } from '../../../../../../components/private/LN/common/utils/shareHelper';
 
 const windowOpenMock = jest.fn();
@@ -74,5 +74,81 @@ describe('shareWhatsAppMobile', () => {
         } finally {
             consoleWarnMock.mockRestore();
         }
+    });
+});
+
+describe('isLN10IAHidden', () => {
+    it('should return true when hideGlossary and hideSummary are both true for LN-10/IA feature', () => {
+        const renderables = [
+            {
+                collection: 'features',
+                type: 'LN-10/IA',
+                props: {
+                    customFields: {
+                        hideGlossary: true,
+                        hideSummary: true
+                    }
+                }
+            }
+        ];
+
+        expect(isLN10IAHidden(renderables)).toBe(true);
+    });
+
+    it('should return false when hideGlossary or hideSummary is not true', () => {
+        const renderables = [
+            {
+                collection: 'features',
+                type: 'LN-10/IA',
+                props: {
+                    customFields: {
+                        hideGlossary: true,
+                        hideSummary: false
+                    }
+                }
+            }
+        ];
+
+        expect(isLN10IAHidden(renderables)).toBe(false);
+    });
+
+    it('should return true when the type is not LN-10/IA', () => {
+        const renderables = [
+            {
+                collection: 'features',
+                type: 'LN-10/Other',
+                props: {
+                    customFields: {
+                        hideGlossary: true,
+                        hideSummary: true
+                    }
+                }
+            }
+        ];
+
+        expect(isLN10IAHidden(renderables)).toBe(true);
+    });
+
+    it('should return true when the collection is not features', () => {
+        const renderables = [
+            {
+                collection: 'non-features',
+                type: 'LN-10/IA',
+                props: {
+                    customFields: {
+                        hideGlossary: true,
+                        hideSummary: true
+                    }
+                }
+            }
+        ];
+
+        expect(isLN10IAHidden(renderables)).toBe(true);
+    });
+
+    it('should return true when renderables is an empty array, does not have the IA feature', () => {
+        const renderables = [];
+
+        expect(isLN10IAHidden(renderables)).toBe(true);
     });
 });

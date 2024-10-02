@@ -9,7 +9,8 @@ import {
 const sectionConfig = {
     '+ Nación': { pageLimit: 24, filter: true },
     'El noticiero': { pageLimit: 24, filter: true },
-    '+ Noticias': { pageLimit: 12, filter: true }
+    '+ Noticias': { pageLimit: 12, filter: true },
+    '+ Verdad': { pageLimit: 12, filter: true }
 };
 
 // TODO: revisar query con custom_params: ( name: "abc" AND value: "123" ), mandar mail a soporte JW para buscar otra solución

@@ -1,5 +1,6 @@
 import get from '../../../../../../components/private/common/utils/get';
 import acuArticlesSource from '../../../../acuArticlesSource';
+import lnAcuSource from '../../../../apiLnAcuSource';
 
 const getParamsAcus = query => {
     const sectionId =
@@ -13,11 +14,13 @@ const getParamsAcus = query => {
     const website = get(query, 'website', '');
     const tagId = get(query, 'tagId', null);
     const authorId = get(query, 'authorId', null);
+    const apiTransform = get(query, 'apiTransform', null);
 
     const resp = {
         page,
         imageConfig: 'm',
-        api: true
+        api: true,
+        apiTransform
     };
 
     if (sections && sections.length && sections.length > 0) {
@@ -53,6 +56,10 @@ const getParamsAcus = query => {
 const getArticlesAcumulados = async (params, { cachedCall } = {}) => {
     try {
         const queryParams = getParamsAcus(params);
+        const apiTransform = get(params, 'apiTransform', null);
+        if (apiTransform) {
+            return await lnAcuSource.fetch(queryParams, { cachedCall });
+        }
         return await acuArticlesSource.fetch(queryParams, { cachedCall });
     } catch (error) {
         // eslint-disable-next-line no-console

@@ -2,51 +2,28 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
-import { Collapse } from '../glossary/collapse';
-import SummaryNote from '../../../private/LN/common/summaryNote';
-import useTermica from '../../../private/common/hooks/useTermica';
-import get from '../../../private/common/utils/get';
-
+import { IaTools } from './common/iaTools';
+import useIaData from './hooks/useIaData';
+import useIaVisibility from './hooks/useIaVisibility';
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
-const LnIa = ({ customFields: { hideSummary, hideGlossary } = {} }) => {
+function LnIa({
+    customFields: { hideSummary = false, hideGlossary = false } = {}
+}) {
     const { globalContent } = useAppContext();
-
-    const glossaryData = get(
+    const { isVisible, handleClose } = useIaVisibility(window.LN.observable);
+    const { iaData, shouldShowSummary, shouldShowGlossary } = useIaData(
         globalContent,
-        'promo_items.glossary.embed.config.arrayData',
-        []
+        hideSummary,
+        hideGlossary
     );
-    const isThermalGlossaryEnabled = useTermica('glosario');
 
-    const arrayBullets = get(
-        globalContent,
-        'promo_items.summary.embed.config.arrayBullets',
-        []
-    );
-    const isThermalSummaryEnabled = useTermica('resumen_nota');
-
-    if (
-        (hideGlossary || !glossaryData.length || !isThermalGlossaryEnabled) &&
-        (hideSummary || !isThermalSummaryEnabled)
-    ) {
+    if (!isVisible || (!shouldShowSummary && !shouldShowGlossary)) {
         return null;
     }
 
-    return (
-        <>
-            {!hideGlossary &&
-            glossaryData.length &&
-            isThermalGlossaryEnabled ? (
-                <Collapse glossaryData={glossaryData} />
-            ) : null}
-
-            {!hideSummary && isThermalSummaryEnabled ? (
-                <SummaryNote paragraphs={arrayBullets} className="mb-32" />
-            ) : null}
-        </>
-    );
-};
+    return <IaTools iaData={iaData} handleClose={handleClose} />;
+}
 
 LnIa.label = 'LN-IA';
 

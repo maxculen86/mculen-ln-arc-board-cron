@@ -395,7 +395,16 @@ export const transform = async (response, query, cachedCall) => {
             authors,
             sponsored
         ),
-        promo_items,
+        promo_items: {
+            ...promo_items,
+            basic: {
+                ...promo_items.basic,
+                originalSizes: {
+                    height: get(response, 'promo_items.basic.height', 0),
+                    width: get(response, 'promo_items.basic.width', 0)
+                }
+            }
+        },
         content_elements,
         related_content: {
             ...get(result, 'related_content', {}),

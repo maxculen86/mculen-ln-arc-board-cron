@@ -13,18 +13,24 @@ const useInputListener = (initialValue = '') => {
         } else {
             setError({
                 hasError: true,
-                message: inputValue.length > 45 && 'Máximo 45 caracteres'
+                message:
+                    inputValue.length > 45
+                        ? 'Máximo 45 caracteres'
+                        : 'Completa el nombre de la colección para continuar'
             });
         }
     };
 
-    const restoreInputValue = () => setValue(initialValue);
+    const restoreInputValue = () => {
+        setValue(initialValue);
+        setError({ hasError: false, message: '' });
+    };
 
     useEffect(() => {
         return () => restoreInputValue();
     }, []);
 
-    return { value, onChange: handleInputChange, error };
+    return { value, onChange: handleInputChange, error, restoreInputValue };
 };
 
 export default useInputListener;

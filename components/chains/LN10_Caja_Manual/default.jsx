@@ -21,6 +21,7 @@ import {
 } from '../utils/_helpers';
 import { LAYOUTS, setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
+import { reorderArticlesWithTimeline } from '../utils/reorderArticlesWithTimeline';
 
 const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
@@ -97,7 +98,9 @@ const CajaManual = props => {
                         gridType={getGridType(layout)}
                         gridStyle={chainStyle}
                     >
-                        {articles}
+                        {isGrid6MasTimeline
+                            ? reorderArticlesWithTimeline(articles, childProps)
+                            : articles}
                     </ContainerCards>
                     {bannerMob}
                 </>

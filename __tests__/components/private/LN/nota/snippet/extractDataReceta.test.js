@@ -110,7 +110,7 @@ describe('Tests extractDataReceta() function', () => {
 
 describe('Test function extractDataFromPromoItems', () => {
     const PLACERHOLDER =
-        'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1080.jpg?d=748';
+        'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg?d=748';
     const promoItems = {
         basic: {
             _id: 'Q6R6LDNENRHUNHYFTJIO4U4RAQ',

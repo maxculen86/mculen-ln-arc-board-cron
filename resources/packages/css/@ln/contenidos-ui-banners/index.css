@@ -48,13 +48,13 @@
   top: 0;
   margin: 0;
 }
-.ln-banner-container.--comercial:before {
-  display: none;
-}
 .ln-banner-container.--comercial .ln-button {
   position: absolute;
   top: 1rem;
   right: 1rem;
+}
+.ln-banner-container.--comercial:before {
+  display: none;
 }
 .ln-banner-container.--sticky {
   position: sticky;

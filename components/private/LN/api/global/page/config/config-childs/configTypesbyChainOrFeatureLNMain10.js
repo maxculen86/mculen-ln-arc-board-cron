@@ -23,6 +23,8 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'propiedades',
             'campo',
             'movilidad',
+            'que-sale',
+            'futuria',
             'canal',
             'Ln_Caja_Manual',
             'Ln_Caja_Collection',

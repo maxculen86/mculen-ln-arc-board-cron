@@ -65,6 +65,10 @@ class EnVivo {
             articles:
                 (acuArticlesENVIVO.content_elements &&
                     acuArticlesENVIVO.content_elements.map(x => {
+                        const note =
+                            this.notes.find(
+                                y => get(y, 'noteId', null) === get(x, '_id')
+                            ) || {};
                         return {
                             ...x,
                             additionalProperties: {
@@ -75,8 +79,7 @@ class EnVivo {
                                     // eslint-disable-next-line no-underscore-dangle
                                     x._id &&
                                     // eslint-disable-next-line no-underscore-dangle
-                                    this.notes.find(y => y.noteId === x._id)
-                                        .title
+                                    note.title
                             }
                         };
                     })) ||

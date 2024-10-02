@@ -55,9 +55,22 @@ const props = {
             display_comments: true
         },
         first_publish_date: 'firstPublishDate',
-        subtype: ''
+        subtype: '',
+        promo_items: { glossary: {} }
     },
-    requestUri: '/economia/dolar-hoy/'
+    requestUri: '/economia/dolar-hoy/',
+    renderables: [
+        {
+            collection: 'features',
+            type: 'LN-10/IA',
+            props: {
+                customFields: {
+                    hideGlossary: false,
+                    hideSummary: false
+                }
+            }
+        }
+    ]
 };
 
 Context.useAppContext = jest.fn(() => props);
@@ -110,9 +123,9 @@ describe('components - private - LN - nota - share', () => {
         component = null;
     });
 
-    test('Snapshot - Should show 8 buttons ', () => {
+    test('Snapshot - Should show 11 buttons ', () => {
         const { container } = component;
-        expect(screen.getAllByRole('button').length).toStrictEqual(9);
+        expect(screen.getAllByRole('button').length).toStrictEqual(11);
         expect(container).toMatchSnapshot();
     });
 
@@ -275,7 +288,7 @@ describe('Note display comment in false ', () => {
     });
     test('Matches snapshot when the note is not comments', () => {
         const { container } = render(<Share />);
-        expect(screen.getAllByRole('button').length).toStrictEqual(8);
+        expect(screen.getAllByRole('button').length).toStrictEqual(10);
         expect(container).toMatchSnapshot();
     });
 });

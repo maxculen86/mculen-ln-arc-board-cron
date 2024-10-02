@@ -1,93 +1,137 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
-import arrayData from '../../../../../__mocks__/data/glossary/arrayWords.json';
-import useTermica from '../../../../../components/private/common/hooks/useTermica';
 import LnIa from '../../../../../components/features/LN-10/IA/default';
+import useIaVisibility from '../../../../../components/features/LN-10/IA/hooks/useIaVisibility';
+import useIaData from '../../../../../components/features/LN-10/IA/hooks/useIaData';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
-jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
-    jest.fn()
+jest.mock(
+    '../../../../../components/features/LN-10/IA/hooks/useIaVisibility',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
 );
 
-jest.mock('../../../../../components/features/LN-10/glossary/collapse', () => ({
-    Collapse: ({ glossaryData }) => (
-        <div data-testid="collapse">{glossaryData.length}</div>
-    )
+jest.mock(
+    '../../../../../components/features/LN-10/IA/hooks/useIaData',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
+);
+
+jest.mock('../../../../../components/features/LN-10/IA/common/iaTools', () => ({
+    IaTools: jest.fn(({ iaData, handleClose }) => <div>IaTools</div>)
 }));
 
 describe('features - LN-common - IA - default', () => {
+    const mockGlobalContent = {};
+
     beforeEach(() => {
-        useAppContext.mockReturnValue({
-            globalContent: {
-                promo_items: {
-                    glossary: {
-                        embed: {
-                            config: {
-                                arrayData: arrayData
-                            }
-                        }
-                    },
-                    summary: {
-                        embed: {
-                            config: {
-                                arrayBullets: [
-                                    'This',
-                                    'array',
-                                    'bullets',
-                                    'here'
-                                ]
-                            }
-                        }
+        useAppContext.mockReturnValue({ globalContent: mockGlobalContent });
+        window.LN = {
+            observable: {
+                subscribe: jest.fn((event, callback) => {
+                    if (event === 'showIa') {
+                        callback({ show: true });
                     }
-                }
+                }),
+                unsubscribe: jest.fn()
             }
+        };
+    });
+
+    it('does not render IaTools when visibility is false', () => {
+        useIaVisibility.mockReturnValue({
+            isVisible: false,
+            handleClose: jest.fn()
         });
-    });
+        useIaData.mockReturnValue({
+            iaData: {},
+            shouldShowSummary: true,
+            shouldShowGlossary: true
+        });
 
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
-
-    it('renders glossary and summary when both are enabled', () => {
-        useTermica.mockReturnValue(true);
-        const { getByTestId } = render(
+        render(
             <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
         );
 
-        expect(screen.getByTestId('collapse')).toBeInTheDocument();
-        expect(getByTestId('summary-note')).toBeInTheDocument();
+        expect(screen.queryByText('IaTools')).toBeNull();
     });
 
-    it('does not render glossary when hideGlossary is true', () => {
-        useTermica.mockImplementation(feature => feature === 'resumen_nota');
-        const { queryByTestId } = render(
-            <LnIa customFields={{ hideSummary: false, hideGlossary: true }} />
+    it('does not render IaTools when both summary and glossary are hidden', () => {
+        useIaVisibility.mockReturnValue({
+            isVisible: true,
+            handleClose: jest.fn()
+        });
+        useIaData.mockReturnValue({
+            shouldShowSummary: false,
+            shouldShowGlossary: false
+        });
+
+        render(
+            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
         );
 
-        expect(queryByTestId('collapse')).toBeNull();
-        expect(queryByTestId('summary-note')).toBeInTheDocument();
+        expect(screen.queryByText('IaTools')).toBeNull();
     });
 
-    it('does not render summary when hideSummary is true', () => {
-        useTermica.mockImplementation(feature => feature === 'glosario');
-        const { queryByTestId } = render(
-            <LnIa customFields={{ hideSummary: true, hideGlossary: false }} />
+    it('renders IaTools when visibility is true and summary section is visible', () => {
+        useIaVisibility.mockReturnValue({
+            isVisible: true,
+            handleClose: jest.fn()
+        });
+        useIaData.mockReturnValue({
+            iaData: {},
+            shouldShowSummary: true,
+            shouldShowGlossary: false
+        });
+
+        render(
+            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
         );
 
-        expect(queryByTestId('collapse')).toBeInTheDocument();
-        expect(queryByTestId('summary-note')).toBeNull();
+        expect(screen.getByText('IaTools')).toBeInTheDocument();
     });
 
-    it('renders nothing when both hideSummary and hideGlossary are true', () => {
-        useTermica.mockReturnValue(true);
-        const { container } = render(
-            <LnIa customFields={{ hideSummary: true, hideGlossary: true }} />
+    it('renders IaTools when visibility is true and glossary section is visible', () => {
+        useIaVisibility.mockReturnValue({
+            isVisible: true,
+            handleClose: jest.fn()
+        });
+        useIaData.mockReturnValue({
+            iaData: {},
+            shouldShowSummary: false,
+            shouldShowGlossary: true
+        });
+
+        render(
+            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
         );
 
-        expect(container).toBeEmptyDOMElement();
+        expect(screen.getByText('IaTools')).toBeInTheDocument();
+    });
+
+    it('should match the snapshot when IaTools is rendered', () => {
+        useIaVisibility.mockReturnValue({
+            isVisible: true,
+            handleClose: jest.fn()
+        });
+        useIaData.mockReturnValue({
+            iaData: {},
+            shouldShowSummary: true,
+            shouldShowGlossary: false
+        });
+
+        const { asFragment } = render(
+            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
+        );
+
+        expect(asFragment()).toMatchSnapshot();
     });
 });

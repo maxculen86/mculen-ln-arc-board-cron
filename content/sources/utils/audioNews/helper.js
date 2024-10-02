@@ -66,4 +66,8 @@ export const isNoteListenableHome = data => {
     return false;
 };
 
+export const isCustomVoice = data => {
+    return data?.voice != undefined && data?.voice != null;
+};
+
 export default isNoteListenable;

@@ -8,113 +8,22 @@ import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySect
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 import NotFoundError from './utils/notFoundError';
 
-const fetch = async (query, { cachedCall } = {}) => {
-    let restriction = 'true';
-    let configuration = null;
 
-    try {
-        const {
-            uri,
-            website,
-            versionUri,
-            categoryUri,
-            sectionId,
-            sectionIdParam,
-            sectionData,
-            sectioninPage,
-            customSectionsIds,
-            size,
-            page,
-            isCustomPage,
-            ticksCache,
-            slug
-        } = getParamsFromQuery(query);
-
-        const sectionSourceResult = await fetchSectionSource(
-            sectionIdParam,
-            query,
-            isCustomPage,
-            cachedCall
-        );
-
-        let title = sectionSourceResult.title;
-
-        restriction = get(sectionSourceResult, 'restriction', true);
-        configuration = get(sectionSourceResult, 'configuration', null);
-
-        const queryParams = {
-            sectionId: customSectionsIds?.includes(sectionId)
-                ? null
-                : sectionIdParam,
-            size,
-            restriction,
-            website,
-            uri,
-            title,
-            page: page >= 1 ? page : 1,
-            configuration,
-            categoryUri,
-            versionUri,
-            featureInPage: sectionData?.featureAcumuladosInPage
-        };
-
-        if (sectionId === 'ultimas-noticias') {
-            const ultimasNoticiasSectionsResult = await ultimasNoticiasSectionsSource.fetch(
-                {
-                    rootPath: `${SITE_LANACION}/${sectioninPage}`,
-                    website,
-                    ticksCache,
-                    cookie: query.cookie
-                }
-            );
-            queryParams.sections = ultimasNoticiasSectionsResult;
-        }
-
-        if (sectionId === 'suscriptores') {
-            queryParams.tagId = 'la-nacion-cerca';
-        }
-
-        const transformedAcu = await transformAcu(queryParams, { cachedCall });
-
-        if (page * size - size > 16) {
-            delete transformedAcu[0].banners;
-        }
-
-        const paginationValue = calculatePaginationValue(
-            transformedAcu[0].acumuladoTotal,
-            size,
-            page
-        );
-        return acuTransformV2Format(transformedAcu, slug, paginationValue);
-    } catch (error) {
-        if (error instanceof NotFoundError) {
-            throw new NotFoundError(
-                `Seccion no encontrada: ${query.sectionId}`
-            );
-        }
-        // eslint-disable-next-line no-console
-        console.warn(
-            `Error in content/apiAcumuladosV2Source : 
-            query parameters: ${JSON.stringify(query)} 
-            - errorMsj: ${error.message}`
-        );
-        throw new Error(error);
-    }
-};
-
-const getSizeParamFromQuery = query => {
-    const regexForSizeParam = new RegExp(/size:(\d+)/);
+const getSizeParamFromQuery = (query) => {
+    const pattern=/size:(\d+)/;
+    const regexForSizeParam = new RegExp(pattern);
     const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
     return matchForSize && matchForSize.length > 1 ? matchForSize[1] : 30;
 };
 
-const getPageParamFromQuery = query => {
-    const regexForPageParam = new RegExp(/page:(\d+)/);
+const getPageParamFromQuery = (query) => {
+    const pattern=/page:(\d+)/;
+    const regexForPageParam = new RegExp(pattern);
     const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
 
     const page =
         matchForPageParam && matchForPageParam.length > 1
-            ? parseInt(matchForPageParam[1])
+            ? parseInt(matchForPageParam[1],10)
             : 1;
 
     if (page < 1) {
@@ -124,7 +33,7 @@ const getPageParamFromQuery = query => {
     return page;
 };
 
-const getParamsFromQuery = query => {
+const getParamsFromQuery = (query) => {
     const { uri = '', website, versionUri } = query;
     const ticksCache = get(query, 'ticks', '').replace('/', '');
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
@@ -137,14 +46,16 @@ const getParamsFromQuery = query => {
         ? sectionId
         : `${''}`.concat(`/${sectionId || ''}`);
 
-    const sectionData = sectionsDataJson?.find(e => e.sectionId === sectionId);
+    const sectionData = sectionsDataJson?.find(
+        (e) => e.sectionId === sectionId,
+    );
 
     const sectioninPage =
         sectionData && sectionData.namePage ? sectionData.namePage : sectionId;
 
     const customSectionsIds = sectionsDataJson
-        ?.filter(e => e.isCustom)
-        ?.map(e => e.sectionId);
+        ?.filter((e) => e.isCustom)
+        ?.map((e) => e.sectionId);
 
     if (!versionUri) {
         throw new Error('The api page must have a version');
@@ -171,7 +82,7 @@ const getParamsFromQuery = query => {
         size,
         page,
         isCustomPage,
-        slug
+        slug,
     };
 };
 
@@ -179,14 +90,21 @@ const fetchSectionSource = async (
     sectionIdParam,
     query,
     isCustomPage,
-    cachedCall
+    cachedCall,
 ) => {
     let sectionSourceResult = null;
+
+    const sectionsTitlesCustom = [
+        '/economia/inteligencia-artificial',
+        '/economia/IA',
+        '/quesale',
+        '/que-sale',
+    ];
 
     const queryParams = {
         id: sectionIdParam,
         website: query?.website,
-        api: 'true'
+        api: 'true',
     };
 
     if (!isCustomPage) {
@@ -194,8 +112,8 @@ const fetchSectionSource = async (
             'apiPageSectionSource',
             sectionSource.fetch,
             {
-                query: queryParams
-            }
+                query: queryParams,
+            },
         );
     }
 
@@ -203,16 +121,118 @@ const fetchSectionSource = async (
         sectionSourceResult?.acumuladoGeneral?.hierarchy_navigation;
     const sectionName = sectionSourceResult?.name;
 
-    const title = sectionTitle ? sectionTitle : sectionName;
+    let title = sectionTitle ? sectionTitle : sectionName;
+    const sectionData = sectionsDataJson?.find(
+        (e) => get(e, 'slug') === sectionIdParam,
+    );
+    if (sectionsTitlesCustom.includes(sectionIdParam) && sectionData) {
+        title = sectionData.aliasTitle;
+    }
 
     const restriction = get(
         sectionSourceResult,
         'acumuladoGeneral.mostrar_en_acu_apps',
-        'true'
+        'true',
     );
     const configuration = get(sectionSourceResult, 'configuration', null);
+
     return { title, restriction, configuration };
 };
+
+
+const fetch = async (query, { cachedCall } = {}) => {
+    let restriction = 'true';
+    let configuration = null;
+
+    try {
+        const {
+            uri,
+            website,
+            versionUri,
+            categoryUri,
+            sectionId,
+            sectionIdParam,
+            sectionData,
+            sectioninPage,
+            customSectionsIds,
+            size,
+            page,
+            isCustomPage,
+            ticksCache,
+            slug,
+        } = getParamsFromQuery(query);
+
+        const sectionSourceResult = await fetchSectionSource(
+            sectionIdParam,
+            query,
+            isCustomPage,
+            cachedCall,
+        );
+
+        let title = sectionSourceResult.title;
+
+        restriction = get(sectionSourceResult, 'restriction', true);
+        configuration = get(sectionSourceResult, 'configuration', null);
+
+        const queryParams = {
+            sectionId: customSectionsIds?.includes(sectionId)
+                ? null
+                : sectionIdParam,
+            size,
+            restriction,
+            website,
+            uri,
+            title,
+            page: page >= 1 ? page : 1,
+            configuration,
+            categoryUri,
+            versionUri,
+            featureInPage: sectionData?.featureAcumuladosInPage,
+        };
+
+        if (sectionId === 'ultimas-noticias') {
+            const ultimasNoticiasSectionsResult =
+                await ultimasNoticiasSectionsSource.fetch({
+                    rootPath: `${SITE_LANACION}/${sectioninPage}`,
+                    website,
+                    ticksCache,
+                    cookie: query.cookie,
+                });
+            queryParams.sections = ultimasNoticiasSectionsResult;
+        }
+
+        if (sectionId === 'suscriptores') {
+            queryParams.tagId = 'la-nacion-cerca';
+        }
+
+        const transformedAcu = await transformAcu(queryParams, { cachedCall });
+
+        if (page * size - size > 16) {
+            delete transformedAcu[0].banners;
+        }
+
+        const paginationValue = calculatePaginationValue(
+            transformedAcu[0].acumuladoTotal,
+            size,
+            page,
+        );
+        return acuTransformV2Format(transformedAcu, slug, paginationValue);
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            throw new NotFoundError(
+                `Seccion no encontrada: ${query.sectionId}`,
+            );
+        }
+        // eslint-disable-next-line no-console
+        console.warn(
+            `Error in content/apiAcumuladosV2Source : 
+            query parameters: ${JSON.stringify(query)} 
+            - errorMsj: ${error.message}`,
+        );
+        throw new Error(error);
+    }
+};
+
 
 export default {
     fetch,
@@ -224,7 +244,7 @@ export default {
         categoryUri: 'text',
         versionUri: 'text',
         ticks: 'text',
-        cookie: 'text'
+        cookie: 'text',
     },
-    ttl: 120
+    ttl: 120,
 };

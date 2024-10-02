@@ -4,7 +4,9 @@ import getDomain from './getDomain';
 import { getSectionOfRequestUri } from './outputTypeHelper';
 import get from './get';
 import transformISODate from './transformISODate';
+import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
+import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -36,6 +38,57 @@ export const getUrl = (url, domain) => {
 export const validateTitle = (section, longTitle, titleDefault) =>
     section === 'home' ? longTitle : titleDefault;
 
+export const modifyUrlParam = (url, paramName, newValue) => {
+    try {
+        const parsedUrl = new URL(url);
+        const params = new URLSearchParams(parsedUrl.search);
+
+        params.set(paramName, newValue);
+        parsedUrl.search = params.toString();
+
+        return parsedUrl.toString();
+    } catch (error) {
+        return url;
+    }
+};
+
+export const getImageProps = (acuOgImg, promoItemsBasic, placeholder) => {
+    const defaultHeight = '630';
+    const defaultWidth = '1200';
+
+    if (acuOgImg?.url) {
+        const { url, height = '', width = '' } = acuOgImg;
+        return { url, height, width };
+    }
+
+    if (!isEmptyObject(promoItemsBasic)) {
+        const {
+            type,
+            url,
+            originalSizes: { width, height }
+        } = promoItemsBasic;
+        const { newHeight } = adjustImageDimensions(
+            width,
+            height,
+            defaultWidth
+        );
+
+        if (type === 'image') {
+            let newUrl;
+            newUrl = modifyUrlParam(url, 'width', defaultWidth);
+            newUrl = modifyUrlParam(newUrl, 'height', newHeight);
+
+            return {
+                url: newUrl,
+                height: String(newHeight),
+                width: defaultWidth
+            };
+        }
+    }
+
+    return { url: placeholder, height: defaultHeight, width: defaultWidth };
+};
+
 export const getData = ({
     siteProperties,
     metaValue,
@@ -47,7 +100,7 @@ export const getData = ({
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const imagePath = `${contextPath}/resources/images/favicon-192.png`;
+    const imagePath = `${contextPath}/resources/images/placeholderLN-1200x630.png`;
     const PLACEHOLDER = `${ARC_STATIC}${deployment(imagePath)}`;
     const {
         title: titleDefault,
@@ -63,7 +116,7 @@ export const getData = ({
         _id,
         publish_date: publishDate,
         subtype,
-        acuOgImg = '',
+        acuOgImg = {},
         display_date: displayDate = '',
         first_publish_date: firstPublishDate = '',
         last_updated_date: lastUpdatedDate = ''
@@ -72,9 +125,7 @@ export const getData = ({
     const { basic: headlinesBasic } = headlines;
     const { basic: subheadlinesBasic } = subheadlines;
     const { basic: promoItemsBasic = {} } = promoItems;
-    const { type: typeBasicPI, url: urlBasicPI } = promoItemsBasic;
 
-    const pathImagen = urlBasicPI;
     const url = canonicalUrl || _id;
     const description = getDescription({
         isArticle,
@@ -91,9 +142,7 @@ export const getData = ({
             : metaValue('title') ||
               validateTitle(section, longTitle, titleDefault),
         description,
-        image:
-            acuOgImg.url ||
-            (typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER),
+        image: getImageProps(acuOgImg, promoItemsBasic, PLACEHOLDER),
         url: getUrl(url, domain),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
