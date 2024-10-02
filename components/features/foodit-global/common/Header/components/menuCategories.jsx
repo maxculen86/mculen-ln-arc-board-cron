@@ -11,8 +11,7 @@ function Categories({ title, href, data }) {
                 <>
                     <Dropdown.Toggle
                         iconProps={{ color: 'inherit' }}
-                        // eslint-disable-next-line no-console
-                        onClick={() => console.log(title)}
+                        onClick={() => {}}
                         className="ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover"
                         gap={8}
                         data-test-id={`header-button-dropdown-${title}`}
