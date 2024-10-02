@@ -6,8 +6,8 @@ import { CommonTabs as Tabs } from '@ln/common-ui-tabs';
 import { Closebutton } from '@ln/common-ui-closebutton';
 import { IaTab } from './iaTab';
 import { IaContent } from './iaContent';
+
 import '../../../../../resources/packages/css/@ln/common-ui-horizontalscroller/index.css';
-import './iaTools.scss';
 
 export function IaTools({ iaData = [], handleClose = () => {} }) {
     if (!iaData.length) return null;
