@@ -6,7 +6,6 @@ import get from './get';
 import transformISODate from './transformISODate';
 import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
-import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -38,55 +37,20 @@ export const getUrl = (url, domain) => {
 export const validateTitle = (section, longTitle, titleDefault) =>
     section === 'home' ? longTitle : titleDefault;
 
-export const modifyUrlParam = (url, paramName, newValue) => {
-    try {
-        const parsedUrl = new URL(url);
-        const params = new URLSearchParams(parsedUrl.search);
-
-        params.set(paramName, newValue);
-        parsedUrl.search = params.toString();
-
-        return parsedUrl.toString();
-    } catch (error) {
-        return url;
-    }
-};
-
 export const getImageProps = (acuOgImg, promoItemsBasic, placeholder) => {
-    const defaultHeight = '630';
-    const defaultWidth = '1200';
-
     if (acuOgImg?.url) {
         const { url, height = '', width = '' } = acuOgImg;
         return { url, height, width };
     }
 
     if (!isEmptyObject(promoItemsBasic)) {
-        const {
-            type,
-            url,
-            originalSizes: { width, height }
-        } = promoItemsBasic;
-        const { newHeight } = adjustImageDimensions(
-            width,
-            height,
-            defaultWidth
-        );
-
+        const { type, url } = promoItemsBasic;
         if (type === 'image') {
-            let newUrl;
-            newUrl = modifyUrlParam(url, 'width', defaultWidth);
-            newUrl = modifyUrlParam(newUrl, 'height', newHeight);
-
-            return {
-                url: newUrl,
-                height: String(newHeight),
-                width: defaultWidth
-            };
+            return { url, height: '512', width: '768' };
         }
     }
 
-    return { url: placeholder, height: defaultHeight, width: defaultWidth };
+    return { url: placeholder, height: '630', width: '1200' };
 };
 
 export const getData = ({
