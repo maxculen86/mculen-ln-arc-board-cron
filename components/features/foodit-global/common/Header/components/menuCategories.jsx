@@ -1,16 +1,17 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { Dropdown } from '@ln/common-ui-dropdown';
-import { MenuCategories } from '../../MenuCategories/foodit';
 import { Link } from '@ln/foodit-ui-link';
+import { MenuCategories } from '../../MenuCategories/foodit';
 
-const Categories = ({ title, href, data }) => {
+function Categories({ title, href, data }) {
     if (data) {
         return (
             <Dropdown toggleOn="hover" key={title} className="flex ai-center">
                 <>
                     <Dropdown.Toggle
                         iconProps={{ color: 'inherit' }}
-                        onClick={() => console.log(title)}
+                        onClick={() => {}}
                         className="ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover"
                         gap={8}
                         data-test-id={`header-button-dropdown-${title}`}
@@ -31,7 +32,8 @@ const Categories = ({ title, href, data }) => {
         <Link
             href={href}
             className="text-12 roboto-bold uppercase"
-            text={title}
+            text={`${title}`}
+            target={title === 'Conocenos' ? '_blank' : '_self'}
             title={`Ir a ${title}`}
             data-test-id={`header-link-${title}`}
             data-interaction="dataLayerInteraction"
@@ -41,6 +43,12 @@ const Categories = ({ title, href, data }) => {
             data-action="N/A"
         />
     );
+}
+
+Categories.propTypes = {
+    title: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+    data: PropTypes.string.isRequired
 };
 
 export default Categories;

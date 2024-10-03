@@ -1,16 +1,16 @@
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useEffect } from 'react';
 import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useDisclosure } from '@ln/hooks';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
-import { IA_AUDIO_SUMMARY_TRACKING_STORAGE } from './helpers';
 import classNames from 'classnames';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
+import { IA_AUDIO_SUMMARY_TRACKING_STORAGE } from './helpers';
 
-const ToggleButton = ({ contentVariant, handleToggle }) => {
+function ToggleButton({ contentVariant, handleToggle }) {
     const {
         isOpen: tooltipVisible,
         onClose: closeTooltip,
@@ -34,11 +34,11 @@ const ToggleButton = ({ contentVariant, handleToggle }) => {
 
     const handleClick = (variant, label) => {
         handleToggle(variant);
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'e_linkclick',
             action: 'escuchar',
             category: 'nota_ln9',
-            label: label
+            label
         });
         if (tooltipVisible) {
             closeTooltip();
@@ -120,7 +120,7 @@ const ToggleButton = ({ contentVariant, handleToggle }) => {
             </div>
         </div>
     );
-};
+}
 
 ToggleButton.propTypes = {
     contentVariant: PropTypes.string.isRequired,

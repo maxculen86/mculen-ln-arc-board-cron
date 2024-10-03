@@ -53,14 +53,7 @@ exports[`Article source nota - validateExclusiveAccess validateExclusive access 
   "last_updated_date": "2020-05-22T17:00:32.832Z",
   "owner": {},
   "paywallEnabled": "",
-  "promo_items": {
-    "basic": {
-      "originalSizes": {
-        "height": 0,
-        "width": 0,
-      },
-    },
-  },
+  "promo_items": {},
   "publish_date": "2004-02-04T03:00:00Z",
   "related_content": {
     "basic": [],

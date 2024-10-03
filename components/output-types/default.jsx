@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
@@ -24,8 +23,7 @@ import {
     getMetaDescriptionDefault,
     metasFromSiteServices,
     getTagTitle,
-    addMetaNoIndexNoFollow,
-    isUSALangHtml
+    addMetaNoIndexNoFollow
 } from '../private/common/utils/outputTypeHelper';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
@@ -42,7 +40,7 @@ const getBodyClass = props => {
     return undefined;
 };
 
-const Default = props => {
+function Default(props) {
     const {
         arcSite,
         children,
@@ -62,7 +60,7 @@ const Default = props => {
         template,
         Resource,
         globalContentConfig = {}
-    } = props;
+    } = props ?? {};
 
     const {
         canonical_url: canonicalUrl,
@@ -85,8 +83,11 @@ const Default = props => {
         site = {}
     } = globalContent;
 
-    const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
-        headlines || {};
+    const {
+        meta_title: metaTitle,
+        basic: basicTitle,
+        mobile: mobileTitle
+    } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
     const {
@@ -108,16 +109,14 @@ const Default = props => {
         subtype
     });
 
-    const {
-        title: ottMetaTitle,
-        description: ottMetaDescription
-    } = setMetasOtt({
-        date: firstPublishDate,
-        acumulado: name,
-        title: metaTitleBasic,
-        section: _nodeType,
-        siteProperties
-    });
+    const { title: ottMetaTitle, description: ottMetaDescription } =
+        setMetasOtt({
+            date: firstPublishDate,
+            acumulado: name,
+            title: metaTitleBasic,
+            section: _nodeType,
+            siteProperties
+        });
 
     const tagTitle = getTagTitle({
         PBTitle: metaValue('title'),
@@ -313,7 +312,7 @@ const Default = props => {
             </body>
         </html>
     );
-};
+}
 
 Default.propTypes = {
     arcSite: PropTypes.string.isRequired,
@@ -330,7 +329,28 @@ Default.propTypes = {
     siteProperties: PropTypes.isRequired,
     layout: PropTypes.string.isRequired,
     requestUri: PropTypes.string.isRequired,
-    isAdmin: PropTypes.boolean.isRequired
+    isAdmin: PropTypes.boolean.isRequired,
+    template: PropTypes.string.isRequired,
+    Resource: PropTypes.func.isRequired,
+    globalContentConfig: PropTypes.shape({
+        source: PropTypes.string.isRequired,
+        query: PropTypes.shape({
+            id: PropTypes.string,
+            website: PropTypes.string,
+            'arc-site': PropTypes.string.isRequired,
+            url: PropTypes.string,
+            uri: PropTypes.string,
+            meteringVariant: PropTypes.string,
+            paywallUrl: PropTypes.string,
+            paywallEnabled: PropTypes.string,
+            outputType: PropTypes.string,
+            utm_source: PropTypes.string,
+            utm_campaign: PropTypes.string,
+            utm_medium: PropTypes.string,
+            utm_term: PropTypes.string,
+            utm_content: PropTypes.string
+        })
+    }).isRequired
 };
 
 export default Default;

@@ -166,13 +166,7 @@ describe('Common - getMetasOG function', () => {
                     basic: {
                         type: 'image',
                         url:
-                            'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1024&height=576&quality=70&smart=true',
-                        width: '1024',
-                        height: '576',
-                        originalSizes: {
-                            width: 2121,
-                            height: 1193
-                        }
+                            'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
                     },
                     receta: {}
                 },
@@ -230,15 +224,15 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image',
-                content: `https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1200&height=675&quality=70&smart=true`
+                content: `https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
             },
             {
                 property: 'og:image:width',
-                content: '1200'
+                content: '768'
             },
             {
                 property: 'og:image:height',
-                content: '675'
+                content: '512'
             },
             {
                 property: 'og:url',
@@ -259,7 +253,7 @@ describe('Common - getMetasOG function', () => {
             {
                 name: 'twitter:image',
                 content:
-                    'https://sandbox-resizer.glanacion.com/resizer/v2/ademas-de-los-3-galardones-que-recibio-en-la-gala-3MQMBT4KTVAIZN4IAYBFVB624I.jpg?auth=5b146884abfda6ed50e9d403013fd54c503bbad53474739d63d1238289ec6d57&width=1200&height=675&quality=70&smart=true'
+                    'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
             }
         ];
 

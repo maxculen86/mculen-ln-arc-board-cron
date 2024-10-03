@@ -9,7 +9,7 @@
         "uri": "https://api.sandbox.lanacionar.arcpublishing.com/content/v4/stories/?website=la-nacion-ar&_id=GYKI2Q22GRE2HKGL4PGNGOXA6Y&included_fields=headlines,label,website_url,type",
         "json": true,
         "auth": {
-            "bearer": "70J379V39ESH46J6BPMNI7BM7440LQRO6eSpBXP/j70KfRJTQWNrYq8g6WH/jtjLZOF0eAjy"
+            "bearer": "MOCK_BEARER_TOKEN"
         },
         "simple": true,
         "resolveWithFullResponse": false,
@@ -47,7 +47,7 @@
             },
             "method": "GET",
             "headers": {
-                "authorization": "Bearer 70J379V39ESH46J6BPMNI7BM7440LQRO6eSpBXP/j70KfRJTQWNrYq8g6WH/jtjLZOF0eAjy",
+                "authorization": "Bearer MOCK_BEARER_TOKEN",
                 "accept": "application/json"
             }
         }

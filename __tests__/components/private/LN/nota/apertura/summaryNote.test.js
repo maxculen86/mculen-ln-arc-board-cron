@@ -1,11 +1,14 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import SummaryNote from '../../../../../../components/private/LN/common/summaryNote';
-import addEventToDataLayer from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
     '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
-    () => jest.fn()
+    () => ({
+        __esModule: true,
+        addEventToDataLayerV2: jest.fn()
+    })
 );
 
 describe('SummaryNote =>', () => {
@@ -28,11 +31,11 @@ describe('SummaryNote =>', () => {
         const { container } = render(<SummaryNote paragraphs={Paragraphs} />);
         expect(container).toMatchSnapshot();
     });
-    it('calls addEventToDataLayer when collapsed is true', () => {
+    it('calls addEventToDataLayerV2 when collapsed is true', () => {
         render(<SummaryNote paragraphs={Paragraphs} />);
 
         fireEvent.click(screen.getByText('Ver más'));
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'IA',
             category: 'nota_ln9',

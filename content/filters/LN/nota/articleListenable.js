@@ -435,10 +435,6 @@ export default `
             auth {
                 1
             }
-            originalSizes {
-                height
-                width
-            }
         }
         glossary {          
             ${customGlossary}

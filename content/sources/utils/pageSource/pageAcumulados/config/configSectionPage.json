@@ -111,8 +111,22 @@
         "isCustom": false
     },
     {
+        "sectionId": "economia/IA",
+        "slug": "/economia/IA",
+        "aliasTitle": "FuturIA",
+        "isPage": true,
+        "isCustom": false
+    },
+    {
         "sectionId": "quesale",
         "slug": "/quesale",
+        "aliasTitle": "Que Sale",
+        "isPage": true,
+        "isCustom": false
+    },
+    {
+        "sectionId": "que-sale",
+        "slug": "/que-sale",
         "aliasTitle": "Que Sale",
         "isPage": true,
         "isCustom": false

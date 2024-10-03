@@ -8,6 +8,138 @@ import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySect
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 import NotFoundError from './utils/notFoundError';
 
+
+const getSizeParamFromQuery = (query) => {
+    const pattern=/size:(\d+)/;
+    const regexForSizeParam = new RegExp(pattern);
+    const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
+    return matchForSize && matchForSize.length > 1 ? matchForSize[1] : 30;
+};
+
+const getPageParamFromQuery = (query) => {
+    const pattern=/page:(\d+)/;
+    const regexForPageParam = new RegExp(pattern);
+    const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
+
+    const page =
+        matchForPageParam && matchForPageParam.length > 1
+            ? parseInt(matchForPageParam[1],10)
+            : 1;
+
+    if (page < 1) {
+        throw new Error('Page parameter should not be less than 1');
+    }
+
+    return page;
+};
+
+const getParamsFromQuery = (query) => {
+    const { uri = '', website, versionUri } = query;
+    const ticksCache = get(query, 'ticks', '').replace('/', '');
+    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
+
+    const slug = get(query, 'sectionId', '');
+
+    const sectionId = get(query, 'sectionId', '').replace('/', '');
+
+    const sectionIdParam = sectionId.substring(0, 2).includes('/')
+        ? sectionId
+        : `${''}`.concat(`/${sectionId || ''}`);
+
+    const sectionData = sectionsDataJson?.find(
+        (e) => e.sectionId === sectionId,
+    );
+
+    const sectioninPage =
+        sectionData && sectionData.namePage ? sectionData.namePage : sectionId;
+
+    const customSectionsIds = sectionsDataJson
+        ?.filter((e) => e.isCustom)
+        ?.map((e) => e.sectionId);
+
+    if (!versionUri) {
+        throw new Error('The api page must have a version');
+    }
+
+    const size = getSizeParamFromQuery(query);
+
+    const page = getPageParamFromQuery(query);
+
+    const isCustomPage =
+        sectionData && sectionData.isCustom ? sectionData.isCustom : false;
+
+    return {
+        uri,
+        website,
+        versionUri,
+        ticksCache,
+        categoryUri,
+        sectionId,
+        sectionIdParam,
+        sectionData,
+        sectioninPage,
+        customSectionsIds,
+        size,
+        page,
+        isCustomPage,
+        slug,
+    };
+};
+
+const fetchSectionSource = async (
+    sectionIdParam,
+    query,
+    isCustomPage,
+    cachedCall,
+) => {
+    let sectionSourceResult = null;
+
+    const sectionsTitlesCustom = [
+        '/economia/inteligencia-artificial',
+        '/economia/IA',
+        '/quesale',
+        '/que-sale',
+    ];
+
+    const queryParams = {
+        id: sectionIdParam,
+        website: query?.website,
+        api: 'true',
+    };
+
+    if (!isCustomPage) {
+        sectionSourceResult = await cachedCall(
+            'apiPageSectionSource',
+            sectionSource.fetch,
+            {
+                query: queryParams,
+            },
+        );
+    }
+
+    const sectionTitle =
+        sectionSourceResult?.acumuladoGeneral?.hierarchy_navigation;
+    const sectionName = sectionSourceResult?.name;
+
+    let title = sectionTitle ? sectionTitle : sectionName;
+    const sectionData = sectionsDataJson?.find(
+        (e) => get(e, 'slug') === sectionIdParam,
+    );
+    if (sectionsTitlesCustom.includes(sectionIdParam) && sectionData) {
+        title = sectionData.aliasTitle;
+    }
+
+    const restriction = get(
+        sectionSourceResult,
+        'acumuladoGeneral.mostrar_en_acu_apps',
+        'true',
+    );
+    const configuration = get(sectionSourceResult, 'configuration', null);
+
+    return { title, restriction, configuration };
+};
+
+
 const fetch = async (query, { cachedCall } = {}) => {
     let restriction = 'true';
     let configuration = null;
@@ -101,131 +233,6 @@ const fetch = async (query, { cachedCall } = {}) => {
     }
 };
 
-const getSizeParamFromQuery = (query) => {
-    const regexForSizeParam = new RegExp(/size:(\d+)/);
-    const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
-    return matchForSize && matchForSize.length > 1 ? matchForSize[1] : 30;
-};
-
-const getPageParamFromQuery = (query) => {
-    const regexForPageParam = new RegExp(/page:(\d+)/);
-    const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
-
-    const page =
-        matchForPageParam && matchForPageParam.length > 1
-            ? parseInt(matchForPageParam[1])
-            : 1;
-
-    if (page < 1) {
-        throw new Error('Page parameter should not be less than 1');
-    }
-
-    return page;
-};
-
-const getParamsFromQuery = (query) => {
-    const { uri = '', website, versionUri } = query;
-    const ticksCache = get(query, 'ticks', '').replace('/', '');
-    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
-
-    const slug = get(query, 'sectionId', '');
-
-    const sectionId = get(query, 'sectionId', '').replace('/', '');
-
-    const sectionIdParam = sectionId.substring(0, 2).includes('/')
-        ? sectionId
-        : `${''}`.concat(`/${sectionId || ''}`);
-
-    const sectionData = sectionsDataJson?.find(
-        (e) => e.sectionId === sectionId,
-    );
-
-    const sectioninPage =
-        sectionData && sectionData.namePage ? sectionData.namePage : sectionId;
-
-    const customSectionsIds = sectionsDataJson
-        ?.filter((e) => e.isCustom)
-        ?.map((e) => e.sectionId);
-
-    if (!versionUri) {
-        throw new Error('The api page must have a version');
-    }
-
-    const size = getSizeParamFromQuery(query);
-
-    const page = getPageParamFromQuery(query);
-
-    const isCustomPage =
-        sectionData && sectionData.isCustom ? sectionData.isCustom : false;
-
-    return {
-        uri,
-        website,
-        versionUri,
-        ticksCache,
-        categoryUri,
-        sectionId,
-        sectionIdParam,
-        sectionData,
-        sectioninPage,
-        customSectionsIds,
-        size,
-        page,
-        isCustomPage,
-        slug,
-    };
-};
-
-const fetchSectionSource = async (
-    sectionIdParam,
-    query,
-    isCustomPage,
-    cachedCall,
-) => {
-    let sectionSourceResult = null;
-
-    const sectionsTitlesCustom = [
-        '/economia/inteligencia-artificial',
-        '/quesale',
-    ];
-
-    const queryParams = {
-        id: sectionIdParam,
-        website: query?.website,
-        api: 'true',
-    };
-
-    if (!isCustomPage) {
-        sectionSourceResult = await cachedCall(
-            'apiPageSectionSource',
-            sectionSource.fetch,
-            {
-                query: queryParams,
-            },
-        );
-    }
-
-    const sectionTitle =
-        sectionSourceResult?.acumuladoGeneral?.hierarchy_navigation;
-    const sectionName = sectionSourceResult?.name;
-
-    let title = sectionTitle ? sectionTitle : sectionName;
-    const sectionData = sectionsDataJson?.find(
-        (e) => get(e, 'slug') === sectionIdParam,
-    );
-    if (sectionsTitlesCustom.includes(sectionIdParam) && sectionData) {
-        title = sectionData.aliasTitle;
-    }
-
-    const restriction = get(
-        sectionSourceResult,
-        'acumuladoGeneral.mostrar_en_acu_apps',
-        'true',
-    );
-    const configuration = get(sectionSourceResult, 'configuration', null);
-
-    return { title, restriction, configuration };
-};
 
 export default {
     fetch,

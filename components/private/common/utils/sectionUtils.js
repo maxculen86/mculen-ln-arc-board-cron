@@ -25,7 +25,7 @@ export const getRegex = sectionId => {
         /^\/(canchallena)(?:\/.+)?/,
         /^\/(deportes\/canchallena)(?:\/.+)?/,
         /^\/(economia\/IA)(?:\/.+)?/,
-        /^\/(quesale)(?:\/.+)?/,
+        /^\/(que-sale)(?:\/.+)?/,
         /\/revista-(.\w+[^\W]?)/
     ];
 
@@ -34,6 +34,19 @@ export const getRegex = sectionId => {
         // Se necesita que match.length > 1 para que traiga grupo $1 y tomar de ahí el nombre del logo
         return match && match.length > 1;
     });
+};
+
+export const generatePath = (sectionId, regex, fullMatch, $1) => {
+    if (sectionId === '/deportes/canchallena') {
+        return 'https://canchallena.lanacion.com.ar';
+    }
+    return (
+        sectionId &&
+        sectionId.replace(
+            regex,
+            (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
+        )
+    );
 };
 
 export const getLogoData = sections => {
@@ -51,7 +64,7 @@ export const getLogoData = sections => {
             ($1 === 'economia/campo' && 'campo') ||
             ($1 === 'deportes/canchallena' && 'canchallena') ||
             ($1 === 'economia/IA' && 'futuria') ||
-            ($1 === 'quesale' && 'que-sale') ||
+            ($1 === 'que-sale' && 'que-sale') ||
             $1;
         const path = generatePath(sectionId, regex, fullMatch, $1);
         return (
@@ -65,20 +78,6 @@ export const getLogoData = sections => {
     });
 
     return resp;
-};
-
-export const generatePath = (sectionId, regex, fullMatch, $1) => {
-    if (sectionId === '/deportes/canchallena') {
-        return 'https://canchallena.lanacion.com.ar';
-    } else {
-        return (
-            sectionId &&
-            sectionId.replace(
-                regex,
-                (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
-            )
-        );
-    }
 };
 
 export const dictionaryAlt = {
@@ -133,9 +132,8 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     );
 };
 
-export const formatText = (str = '') => {
-    return str
+export const formatText = (str = '') =>
+    str
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '');
-};

@@ -12,13 +12,19 @@ describe('components - features - LN-nota - share - helper', () => {
     describe('handleIaToggle', () => {
         let setIaButtonIsClicked;
         let publish;
+        let subscribe;
+        let unsubscribe;
 
         beforeEach(() => {
             setIaButtonIsClicked = jest.fn();
             publish = jest.fn();
+            subscribe = jest.fn();
+            unsubscribe = jest.fn();
             window.LN = {
                 observable: {
-                    publish
+                    publish,
+                    subscribe,
+                    unsubscribe
                 }
             };
 
@@ -44,6 +50,10 @@ describe('components - features - LN-nota - share - helper', () => {
                 expect.any(Function)
             );
             expect(publish).toHaveBeenCalledWith('showIa', { show: true });
+            expect(subscribe).toHaveBeenCalledWith(
+                'iaClosed',
+                expect.any(Function)
+            );
 
             expect(localStorage.setItem).toHaveBeenCalledWith(
                 'IA-feature-tracking',
@@ -60,6 +70,21 @@ describe('components - features - LN-nota - share - helper', () => {
             });
 
             expect(callback).toHaveBeenCalled();
+        });
+
+        it('should unsubscribe from iaClosed event on cleanup', () => {
+            const defaultTab = 'summary';
+            const cleanup = handleIaToggle({
+                defaultTab,
+                setIaButtonIsClicked
+            });
+
+            cleanup();
+
+            expect(unsubscribe).toHaveBeenCalledWith(
+                'iaClosed',
+                expect.any(Function)
+            );
         });
     });
 });

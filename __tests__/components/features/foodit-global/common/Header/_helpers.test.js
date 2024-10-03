@@ -19,12 +19,15 @@ describe('transformMenuData function', () => {
                         items: [
                             {
                                 text: 'Chefs protagonistas',
-                                href:
-                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
                 ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                title: 'Conocenos'
             }
         ]);
     });
@@ -50,8 +53,7 @@ describe('transformMenuData function', () => {
                     {
                         title: {
                             text: 'Dulces',
-                            href:
-                                'https://foodit.lanacion.com.ar/recetas/dulces/',
+                            href: 'https://foodit.lanacion.com.ar/recetas/dulces/',
                             icon: <mock-icon name="ice-cream" />
                         },
                         items: []
@@ -65,12 +67,15 @@ describe('transformMenuData function', () => {
                         items: [
                             {
                                 text: 'Chefs protagonistas',
-                                href:
-                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
                 ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                title: 'Conocenos'
             }
         ]);
     });
@@ -92,17 +97,19 @@ describe('transformMenuData function', () => {
                         items: [
                             {
                                 text: 'Chefs protagonistas',
-                                href:
-                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             },
                             {
                                 text: 'Restaurantes',
-                                href:
-                                    'https://foodit.lanacion.com.ar/restaurantes/'
+                                href: 'https://foodit.lanacion.com.ar/restaurantes/'
                             }
                         ]
                     }
                 ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                title: 'Conocenos'
             }
         ]);
     });
@@ -138,13 +145,11 @@ describe('transformMenuData function', () => {
                         title: {
                             text: 'Saladas',
                             icon: <mock-icon name="salty" />,
-                            href:
-                                'https://foodit.lanacion.com.ar/recetas/saladas/'
+                            href: 'https://foodit.lanacion.com.ar/recetas/saladas/'
                         },
                         items: [
                             {
-                                href:
-                                    'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
+                                href: 'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
                                 text: 'Arroz'
                             }
                         ]
@@ -158,12 +163,15 @@ describe('transformMenuData function', () => {
                         items: [
                             {
                                 text: 'Chefs protagonistas',
-                                href:
-                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
                 ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                title: 'Conocenos'
             }
         ]);
     });
@@ -213,8 +221,7 @@ describe('transformMenuData function', () => {
                         },
                         items: [
                             {
-                                href:
-                                    'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
+                                href: 'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
                                 text: 'Arroz'
                             }
                         ]
@@ -227,8 +234,7 @@ describe('transformMenuData function', () => {
                         },
                         items: [
                             {
-                                href:
-                                    'https://foodit.lanacion.com.ar/recetas/saladas/pastas/',
+                                href: 'https://foodit.lanacion.com.ar/recetas/saladas/pastas/',
                                 text: 'Pastas'
                             }
                         ]
@@ -242,12 +248,15 @@ describe('transformMenuData function', () => {
                         items: [
                             {
                                 text: 'Chefs protagonistas',
-                                href:
-                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
                 ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                title: 'Conocenos'
             }
         ]);
     });
@@ -276,12 +285,15 @@ describe('transformMenuData function', () => {
                         items: [
                             {
                                 text: 'Chefs protagonistas',
-                                href:
-                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
                 ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                title: 'Conocenos'
             },
             {
                 href: 'https://foodit.lanacion.com.ar/masterclass/',

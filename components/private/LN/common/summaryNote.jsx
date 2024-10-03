@@ -4,7 +4,7 @@ import { Icon } from '@ln/common-ui-icon';
 import { Collapse, useCollapse } from '@ln/common-ui-collapse';
 import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from './utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from './utils/addEventToDataLayer';
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
 const SummaryNote = ({ paragraphs = [], className }) => {
@@ -21,7 +21,7 @@ const SummaryNote = ({ paragraphs = [], className }) => {
 
     const handleCollapsedClick = () => {
         if (collapsed) {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'e_linkclick',
                 action: 'IA',
                 category: 'nota_ln9',

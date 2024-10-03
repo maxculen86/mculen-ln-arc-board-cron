@@ -6,8 +6,8 @@ import { CommonTabs as Tabs } from '@ln/common-ui-tabs';
 import { Closebutton } from '@ln/common-ui-closebutton';
 import { IaTab } from './iaTab';
 import { IaContent } from './iaContent';
+
 import '../../../../../resources/packages/css/@ln/common-ui-horizontalscroller/index.css';
-import './iaTools.scss';
 
 export function IaTools({ iaData = [], handleClose = () => {} }) {
     if (!iaData.length) return null;
@@ -40,13 +40,12 @@ export function IaTools({ iaData = [], handleClose = () => {} }) {
                                 id={id}
                                 key={id}
                                 color="ia-tools"
-                                onClick={callback}
                                 // eslint-disable-next-line react/no-children-prop
                                 children={
                                     <IaTab
                                         id={id}
                                         title={title}
-                                        onClick={callback}
+                                        callback={callback}
                                     />
                                 }
                             />

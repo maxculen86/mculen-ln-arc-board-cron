@@ -1,11 +1,12 @@
 import React from 'react';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { SITE_FOODIT } from 'fusion:environment';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 const listDescubrir = [
     '/restaurantes',
     '/nutricion',
-    '/novedades-y-tendencias'
+    '/novedades-y-tendencias',
+    '/club-la-nacion'
 ];
 
 const iconList = [
@@ -29,8 +30,8 @@ const iconList = [
 
 const setPageUrl = (path = '') => `${SITE_FOODIT}${path}/`;
 
-const transformSubategorie = (subcategoryList = []) => {
-    return subcategoryList.map(
+const transformSubategorie = (subcategoryList = []) =>
+    subcategoryList.map(
         ({ name: nameSubcategory, _id: idSubcategory, children = [] } = {}) => {
             const subCategorysWithoutUrl = [
                 '/recetas/dietas',
@@ -48,56 +49,67 @@ const transformSubategorie = (subcategoryList = []) => {
                     ).icon
                 },
                 items: children.map(
-                    ({ name: nameChildren, _id: idChildren } = {}) => {
-                        return {
-                            text: nameChildren,
-                            href: setPageUrl(idChildren)
-                        };
-                    }
+                    ({ name: nameChildren, _id: idChildren } = {}) => ({
+                        text: nameChildren,
+                        href: setPageUrl(idChildren)
+                    })
                 )
             };
         }
     );
+
+const orderChildrens = children => {
+    const filteredChildren = children.filter(
+        ({ _id: id }) => id !== '/club-la-nacion'
+    );
+
+    const clubLaNacion = children.find(
+        ({ _id: id }) => id === '/club-la-nacion'
+    );
+
+    return clubLaNacion ? [...filteredChildren, clubLaNacion] : children;
 };
 
-export default function transformMenuData({ children = [] } = {}) {
-    return children.reduce(
-        (acc, category) => {
-            const { name, _id, children: childrenCategory } = category || {};
-            const pageUrl = setPageUrl(_id);
-
-            if (childrenCategory.length) {
-                const dataSections = transformSubategorie(childrenCategory);
-                acc[0].data = dataSections;
-            } else if (listDescubrir.includes(_id)) {
-                acc[1].data[0].items.push({
-                    text: name,
-                    href: pageUrl
-                });
-            } else {
-                acc.push({
-                    title: name,
-                    href: pageUrl
-                });
-            }
-
-            return acc;
+export default function transformMenuData({
+    children: childrenProp = []
+} = {}) {
+    const children = orderChildrens(childrenProp);
+    const initialMenu = [
+        { title: 'Recetas', data: [] },
+        {
+            title: 'Descubrir',
+            data: [
+                {
+                    items: [
+                        {
+                            text: 'Chefs protagonistas',
+                            href: `${SITE_FOODIT}/chefs-protagonistas/`
+                        }
+                    ]
+                }
+            ]
         },
-        [
-            { title: 'Recetas', data: [] },
-            {
-                title: 'Descubrir',
-                data: [
-                    {
-                        items: [
-                            {
-                                text: 'Chefs protagonistas',
-                                href: `${SITE_FOODIT}/chefs-protagonistas/`
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    );
+        { title: 'Conocenos', href: `https://conocenos.foodit.com.ar/` }
+    ];
+    return children.reduce((acc, category) => {
+        const { name, _id, children: childrenCategory } = category || {};
+        const pageUrl = setPageUrl(_id);
+
+        if (childrenCategory.length) {
+            const dataSections = transformSubategorie(childrenCategory);
+            acc[0].data = dataSections;
+        } else if (listDescubrir.includes(_id)) {
+            acc[1].data[0].items.push({
+                text: name,
+                href: pageUrl
+            });
+        } else {
+            acc.push({
+                title: name,
+                href: pageUrl
+            });
+        }
+
+        return acc;
+    }, initialMenu);
 }

@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import IconSprite from '../../../../../components/features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import '../../../../../resources/packages/css/@ln/contenidos-ui-animatedicons/index.css';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
@@ -10,6 +10,8 @@ export const handleIaToggle = ({
     setIaButtonIsClicked,
     callback = () => null
 }) => {
+    const handleIaClosed = data => data.closed && setIaButtonIsClicked(false);
+    window.LN.observable.subscribe('iaClosed', handleIaClosed);
     window.LN.observable.publish('showIa', { show: true });
     addEventToDataLayerV2({
         event: 'e_linkclick',
@@ -20,6 +22,10 @@ export const handleIaToggle = ({
     setIaButtonIsClicked(prev => !prev);
     localStorage.setItem('IA-feature-tracking', 'wasDisplayed');
     callback?.();
+
+    return () => {
+        window.LN.observable.unsubscribe('iaClosed', handleIaClosed);
+    };
 };
 
 export const IA_FEATURE_TRACKING_STORAGE = {

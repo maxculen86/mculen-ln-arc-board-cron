@@ -107,7 +107,8 @@ export function IaTab({ id = '', title = '', callback = () => {} }) {
     );
 
     return (
-        <button onClick={callback} type="button">
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+        <div onClick={callback}>
             <Icon size={24}>
                 {glossary}
                 {summary}
@@ -117,7 +118,7 @@ export function IaTab({ id = '', title = '', callback = () => {} }) {
                 className="--font-bold --font-m as-flex-end"
                 text={title}
             />
-        </button>
+        </div>
     );
 }
 

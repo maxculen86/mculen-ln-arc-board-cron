@@ -8,6 +8,75 @@ import NotFoundError from './utils/notFoundError';
 import sectionSource from './sectionSource';
 import sectionsDataJson from './utils/pageSource/pageAcumulados/config/configSectionPage.json';
 
+
+
+const getParamsFromQuery = (query) => {
+    const { uri = '', website, versionUri } = query;
+    const ticksCache = get(query, 'ticks', null);
+    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
+    const turnOffFlag = get(query, 'apagarApi', '');
+    const sectionId = get(query, 'sectionId', null);
+
+    const sectionData = sectionsDataJson?.find(
+        (e) => get(e, 'slug') === sectionId,
+    );
+    let namePage = get(sectionData, 'namePage', null);
+    namePage = namePage? ('/').concat(namePage) : sectionId;
+
+    if (!versionUri) {
+        throw new Error('The api page must have a version');
+    }
+
+    return {
+        uri,
+        website,
+        versionUri,
+        ticksCache,
+        categoryUri,
+        turnOffFlag,
+        namePage
+    };
+};
+
+const fetchSectionSource = async (query, cachedCall) => {
+    let sectionSourceResult = null;
+    const sectionsTitlesCustom = [
+        '/economia/inteligencia-artificial',
+        '/economia/IA',
+        '/quesale',
+        '/que-sale',
+    ];
+
+    const queryParams = {
+        id: query.sectionId,
+        website: query.website,
+        api: 'true',
+    };
+
+    const sectionData = sectionsDataJson?.find(
+        (e) => get(e, 'slug') === query.sectionId,
+    );
+    if (sectionsTitlesCustom.includes(query.sectionId) && sectionData) {
+        return { title: sectionData.aliasTitle };
+    }
+
+    sectionSourceResult = await cachedCall(
+        'sectionSource',
+        sectionSource.fetch,
+        {
+            query: queryParams,
+        },
+    );
+
+    const title = get(
+        sectionSourceResult,
+        'acumuladoGeneral.hierarchy_navigation',
+        get(sectionSourceResult, 'name', null),
+    );
+
+    return { title };
+};
+
 const fetch = async (query, { cachedCall }) => {
     try {
         const {
@@ -17,6 +86,7 @@ const fetch = async (query, { cachedCall }) => {
             ticksCache,
             categoryUri,
             turnOffFlag,
+            namePage
         } = getParamsFromQuery(query);
 
         if (turnOffFlag && turnOffFlag === 'true') {
@@ -27,7 +97,7 @@ const fetch = async (query, { cachedCall }) => {
         }
 
         const queryParams = {
-            rootPath: `${SITE_LANACION}${query.sectionId}`,
+            rootPath: `${SITE_LANACION}${namePage}`,
             website,
             uri,
             categoryUri,
@@ -83,63 +153,6 @@ const fetch = async (query, { cachedCall }) => {
         }
         throw new Error(error);
     }
-};
-
-const getParamsFromQuery = (query) => {
-    const { uri = '', website, versionUri } = query;
-    const ticksCache = get(query, 'ticks', null);
-    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
-    const turnOffFlag = get(query, 'apagarApi', '');
-
-    if (!versionUri) {
-        throw new Error('The api page must have a version');
-    }
-
-    return {
-        uri,
-        website,
-        versionUri,
-        ticksCache,
-        categoryUri,
-        turnOffFlag,
-    };
-};
-
-const fetchSectionSource = async (query, cachedCall) => {
-    let sectionSourceResult = null;
-    const sectionsTitlesCustom = [
-        '/economia/inteligencia-artificial',
-        '/quesale',
-    ];
-
-    const queryParams = {
-        id: query.sectionId,
-        website: query.website,
-        api: 'true',
-    };
-
-    const sectionData = sectionsDataJson?.find(
-        (e) => get(e, 'slug') === query.sectionId,
-    );
-    if (sectionsTitlesCustom.includes(query.sectionId) && sectionData) {
-        return { title: sectionData.aliasTitle };
-    }
-
-    sectionSourceResult = await cachedCall(
-        'sectionSource',
-        sectionSource.fetch,
-        {
-            query: queryParams,
-        },
-    );
-
-    const title = get(
-        sectionSourceResult,
-        'acumuladoGeneral.hierarchy_navigation',
-        get(sectionSourceResult, 'name', null),
-    );
-
-    return { title };
 };
 
 export default {

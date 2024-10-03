@@ -1,5 +1,4 @@
-import { scheduleTask } from '../../../private/common/utils/scheduleTask';
-import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 // Ensures `registeredKeys` is not accidentally deleted or reassigned,
 // as it maintains state across function calls to prevent duplicate event registration.
@@ -10,13 +9,11 @@ export const handleEventWords = (key = '') => {
     }
     registeredKeys.add(key);
 
-    scheduleTask(() => {
-        addEventToDataLayer({
-            event: 'e_linkclick',
-            action: 'IA',
-            category: 'nota_ln9',
-            label: 'palabra_glosario'
-        });
+    addEventToDataLayerV2({
+        event: 'e_linkclick',
+        action: 'IA',
+        category: 'nota_ln9',
+        label: 'palabra_glosario'
     });
 };
 
