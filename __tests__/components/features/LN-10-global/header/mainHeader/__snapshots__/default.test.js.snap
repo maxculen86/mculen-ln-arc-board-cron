@@ -119,6 +119,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 class="flex relative"
               >
                 <svg
+                  class="w-100"
                   fill="inherit"
                   viewBox="0 0 380 40"
                   xmlns="http://www.w3.org/2000/svg"

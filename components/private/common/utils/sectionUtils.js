@@ -88,13 +88,17 @@ export const dictionaryAlt = {
     lugares: 'Revista Lugares',
     rolling: 'Revista Rolling Stone',
     ohlala: 'Revista Ohlalá',
+    futuria: 'Futuria',
+    'que-sale': 'Qué Sale',
     'hola-blanco': 'Revista Hola',
     'jardin-blanco': 'Revista Jardin',
     'brando-blanco': 'Revista Brando',
     'living-blanco': 'Revista Living',
     'lugares-blanco': 'Revista Lugares',
     'rolling-blanco': 'Revista Rolling Stone',
-    'ohlala-blanco': 'Revista Ohlalá'
+    'ohlala-blanco': 'Revista Ohlalá',
+    'que-sale-blanco': 'Qué Sale',
+    'futuria-blanco': 'Futuria'
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
