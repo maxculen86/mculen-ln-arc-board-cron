@@ -132,6 +132,8 @@ export const getBannerConfiguration = (
     const sponsored = get(globalContent, 'owner.sponsored');
     const advertiser = get(globalContent, 'label.marca_anunciante.text');
     const subSections = get(globalContent, 'taxonomy.sections', []);
+    const tags = get(globalContent, 'taxonomy.tags', []);
+
     const primarySection =
         type && type === 'story'
             ? get(globalContent, 'taxonomy.primary_section._id', '')
@@ -177,10 +179,9 @@ export const getBannerConfiguration = (
     };
 
     // Si en adServer hay una seccion (ej: campo) para segmentar banner, se cambia el slotName
-    const [present, section] = isPrimarySectionInBannerSegments(primarySection)(
-        segments,
-        subSections
-    );
+    const [present, section] = isPrimarySectionInBannerSegments(tags)(
+        primarySection
+    )(segments, subSections);
 
     if (present) {
         bannerConfiguration = {
@@ -296,9 +297,20 @@ export const handleUnitedStatesLabelException = () => {
 };
 
 export const isPrimarySectionInBannerSegments =
+    tags =>
     primarySection =>
     (segments, subSections = []) => {
         if (!segments || !primarySection) return [false, null];
+
+        const tagsExceptions = ['que-sale', 'futuria'];
+        const replaceTagAdserver = tags.find(tag =>
+            tagsExceptions.includes(tag.slug)
+        );
+
+        if (replaceTagAdserver) {
+            primarySection = replaceTagAdserver.slug;
+        }
+
         const canchallenaException = handleCanchallenaException(subSections);
 
         if (canchallenaException) {

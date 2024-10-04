@@ -20,7 +20,7 @@ jest.mock(
 );
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -589,14 +589,31 @@ describe('common - utils - bannerHelper', () => {
             deployment: jest.fn(),
             contextPath: '/pf'
         }));
-        const segments = ['campo', 'propiedades', 'IA'];
+        const segments = ['campo', 'propiedades', 'IA', 'que-sale'];
 
-        const evalSectionInBanner = (section, equal) => {
-            const result = isPrimarySectionInBannerSegments(section)(segments);
+        const evalSectionInBanner = (section, equal, tags = []) => {
+            const result =
+                isPrimarySectionInBannerSegments(tags)(section)(segments);
             expect(result).toEqual(equal);
             expect(result).toBeInstanceOf(Array);
             expect(result).toHaveLength(2);
         };
+
+        it('should test the tag que-sale', () => {
+            evalSectionInBanner(
+                '/anysection/',
+                [true, 'que-sale'],
+                [{ slug: 'que-sale' }]
+            );
+        });
+
+        it('should test the tag futuria', () => {
+            evalSectionInBanner(
+                '/anysection/',
+                [true, 'futuria'],
+                [{ slug: 'futuria' }]
+            );
+        });
 
         it('it should be campo included =>', () =>
             evalSectionInBanner('/economia/campo/', [true, 'campo']));
@@ -630,16 +647,16 @@ describe('common - utils - bannerHelper', () => {
             ];
             exceptions.forEach(element =>
                 expect(
-                    isPrimarySectionInBannerSegments(element.primarySection)([
-                        element.segment
-                    ])
+                    isPrimarySectionInBannerSegments([])(
+                        element.primarySection
+                    )([element.segment])
                 ).toStrictEqual([true, element.segment])
             );
         });
 
         it('should be canchallena exception', () => {
             expect(
-                isPrimarySectionInBannerSegments('deportes')(
+                isPrimarySectionInBannerSegments([])('deportes')(
                     segments,
                     subSections
                 )
