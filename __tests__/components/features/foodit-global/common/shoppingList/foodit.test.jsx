@@ -40,7 +40,7 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
         }));
         getToken.mockReturnValue('10');
         const { getByText } = render(<ShoppingList />);
-        expect(getByText('¡Exclusivo suscriptor!')).toBeInTheDocument();
+        expect(getByText('¡Exclusivo suscriptores!')).toBeInTheDocument();
     });
 
     test('Should render shoppingList', () => {

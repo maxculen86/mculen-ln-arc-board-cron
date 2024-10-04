@@ -21,7 +21,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
       <p
         class="text prumo prumo-semibold text-24 text-28_md text-32_lg"
       >
-        ¡Exclusivo suscriptor!
+        ¡Exclusivo suscriptores!
       </p>
       <p
         class="text text-16 text-light-600"
@@ -29,14 +29,30 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
         Para realizar esta acción es necesario que tengas una suscripción.
       </p>
     </div>
-    <a
-      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
-      data-variant="accent"
-      href="https://ingresar.lanacion.com.ar/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
-      target="_self"
+    <div
+      class="flex gap-24 ai-center"
     >
-      Suscribite
-    </a>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+        data-variant="accent"
+        href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+        target="_self"
+      >
+        Suscribite
+      </a>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+        data-variant="link"
+        href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
+        target="_self"
+      >
+        <span
+          class="uppercase"
+        >
+          Inicia sesión
+        </span>
+      </a>
+    </div>
   </section>
 </div>
 `;
@@ -47,7 +63,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
     class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
   >
     <img
-      alt="Para realizar esta acción es necesario que inicies sesión."
+      alt="Para realizar esta acción es necesario que tengas una suscripción."
       class="image flex --fill"
       decoding="async"
       fetchpriority="low"
@@ -62,22 +78,38 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
       <p
         class="text prumo prumo-semibold text-24 text-28_md text-32_lg"
       >
-        ¡Exclusivo suscriptor!
+        ¡Exclusivo suscriptores!
       </p>
       <p
         class="text text-16 text-light-600"
       >
-        Para realizar esta acción es necesario que inicies sesión.
+        Para realizar esta acción es necesario que tengas una suscripción.
       </p>
     </div>
-    <a
-      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover px-16 py-12"
-      data-variant="primary"
-      href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
-      target="_self"
+    <div
+      class="flex gap-24 ai-center"
     >
-      Inicia sesión
-    </a>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+        data-variant="accent"
+        href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+        target="_self"
+      >
+        Suscribite
+      </a>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+        data-variant="link"
+        href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
+        target="_self"
+      >
+        <span
+          class="uppercase"
+        >
+          Inicia sesión
+        </span>
+      </a>
+    </div>
   </section>
 </div>
 `;
@@ -121,6 +153,30 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
           para guardar el contenido que te gusta y ¡Listo!
         </span>
       </p>
+    </div>
+    <div
+      class="flex gap-24 ai-center"
+    >
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+        data-variant="accent"
+        href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+        target="_self"
+      >
+        Suscribite
+      </a>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+        data-variant="link"
+        href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
+        target="_self"
+      >
+        <span
+          class="uppercase"
+        >
+          Inicia sesión
+        </span>
+      </a>
     </div>
   </section>
 </div>

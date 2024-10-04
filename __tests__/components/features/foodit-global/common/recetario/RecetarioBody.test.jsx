@@ -29,8 +29,9 @@ jest.mock('../../../../../../components/private/common/utils/getToken');
 
 jest.mock(
     '../../../../../../components/features/foodit-global/common/recetario/components/EditFolderModal',
-    () => ({ isOpen }) =>
-        isOpen ? <div role="dialog">Edit Folder Modal</div> : null
+    () =>
+        ({ isOpen }) =>
+            isOpen ? <div role="dialog">Edit Folder Modal</div> : null
 );
 
 describe('Components - Features - Foodit-global - Common - Recetario - RecetarioBody', () => {
@@ -62,10 +63,12 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
         });
         render(<RecetarioBody />);
 
-        expect(screen.getByText('¡Exclusivo suscriptor!')).toBeInTheDocument(),
+        expect(
+            screen.getByText('¡Exclusivo suscriptores!')
+        ).toBeInTheDocument(),
             expect(
                 screen.getByText(
-                    'Para realizar esta acción es necesario que inicies sesión.'
+                    'Para realizar esta acción es necesario que tengas una suscripción.'
                 )
             ).toBeInTheDocument();
     });
@@ -81,7 +84,9 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
         });
 
         render(<RecetarioBody />);
-        expect(screen.getByText('¡Exclusivo suscriptor!')).toBeInTheDocument(),
+        expect(
+            screen.getByText('¡Exclusivo suscriptores!')
+        ).toBeInTheDocument(),
             expect(
                 screen.getByText(
                     'Para realizar esta acción es necesario que tengas una suscripción.'
