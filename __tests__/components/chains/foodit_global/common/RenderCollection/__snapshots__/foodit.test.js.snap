@@ -16,6 +16,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
   >
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC111"
       data-variant="recipe"
     >
@@ -30,7 +31,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -39,7 +40,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -120,6 +121,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC222"
       data-variant="recipe"
     >
@@ -134,7 +136,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -143,7 +145,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -224,6 +226,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC333"
       data-variant="recipe"
     >
@@ -238,7 +241,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -247,7 +250,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -312,6 +315,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC444"
       data-variant="recipe"
     >
@@ -326,7 +330,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -335,7 +339,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Acompañá las patas de pollo con zucchinis"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -416,6 +420,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-note--AAABBBCCC555"
       data-variant="note"
     >
@@ -430,7 +435,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100 px-16 pt-16 pb-4"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -439,7 +444,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Pie de foto"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -520,6 +525,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-note--AAABBBCCC666"
       data-variant="note"
     >
@@ -534,7 +540,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100 px-16 pt-16 pb-4"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -543,7 +549,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Acompañá las patas de pollo con zucchinis"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -624,6 +630,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC777"
       data-variant="recipe"
     >
@@ -638,7 +645,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -647,7 +654,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -712,6 +719,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC888"
       data-variant="recipe"
     >
@@ -726,7 +734,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -735,7 +743,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Subtitle"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -800,6 +808,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC999"
       data-variant="recipe"
     >
@@ -814,7 +823,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -823,7 +832,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt=""
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -904,6 +913,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card---AAABBBCCC0000"
       data-variant=""
     >
@@ -918,7 +928,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -927,7 +937,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt=""
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -1008,6 +1018,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCC000"
       data-variant="recipe"
     >
@@ -1022,7 +1033,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -1031,7 +1042,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt=""
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -1117,6 +1128,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     </article>
     <article
       class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
+      data-container="grid"
       data-test-id="card-recipe--AAABBBCCD111"
       data-variant="recipe"
     >
@@ -1131,7 +1143,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           class="relative w-100"
         >
           <div
-            class="foodit-placeholder card-image ratio-3-2 w-100"
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
           >
             <picture>
               <source
@@ -1140,7 +1152,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
               />
               <img
                 alt="Provoleta con vegetales"
-                class="image flex card-image ratio-3-2 w-100 --cover"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -1282,6 +1294,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC111"
             data-variant="recipe"
           >
@@ -1296,7 +1309,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -1305,7 +1318,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1390,6 +1403,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC222"
             data-variant="recipe"
           >
@@ -1404,7 +1418,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -1413,7 +1427,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1498,6 +1512,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC333"
             data-variant="recipe"
           >
@@ -1512,7 +1527,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -1521,7 +1536,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1590,6 +1605,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC444"
             data-variant="recipe"
           >
@@ -1604,7 +1620,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -1613,7 +1629,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Acompañá las patas de pollo con zucchinis"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1698,6 +1714,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive"
+            data-container="grid"
             data-test-id="card-note--AAABBBCCC555"
             data-variant="note"
           >
@@ -1712,7 +1729,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100 px-16 pt-16 pb-4"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -1721,7 +1738,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Pie de foto"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1806,6 +1823,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive"
+            data-container="grid"
             data-test-id="card-note--AAABBBCCC666"
             data-variant="note"
           >
@@ -1820,7 +1838,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100 px-16 pt-16 pb-4"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -1829,7 +1847,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Acompañá las patas de pollo con zucchinis"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1914,6 +1932,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC777"
             data-variant="recipe"
           >
@@ -1928,7 +1947,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -1937,7 +1956,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2006,6 +2025,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC888"
             data-variant="recipe"
           >
@@ -2020,7 +2040,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -2029,7 +2049,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Subtitle"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2098,6 +2118,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC999"
             data-variant="recipe"
           >
@@ -2112,7 +2133,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -2121,7 +2142,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt=""
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2206,6 +2227,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card---AAABBBCCC0000"
             data-variant=""
           >
@@ -2220,7 +2242,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -2229,7 +2251,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt=""
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2314,6 +2336,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCC000"
             data-variant="recipe"
           >
@@ -2328,7 +2351,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -2337,7 +2360,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt=""
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2427,6 +2450,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         >
           <article
             class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+            data-container="grid"
             data-test-id="card-recipe--AAABBBCCD111"
             data-variant="recipe"
           >
@@ -2441,7 +2465,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 class="relative w-100"
               >
                 <div
-                  class="foodit-placeholder card-image ratio-3-2 w-100"
+                  class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
                 >
                   <picture>
                     <source
@@ -2450,7 +2474,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                     />
                     <img
                       alt="Provoleta con vegetales"
-                      class="image flex card-image ratio-3-2 w-100 --cover"
+                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"

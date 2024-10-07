@@ -5,6 +5,8 @@ import {
     RECETA,
     STORYTELLING
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import getSourcesJw from '../../../../private/LN/common/utils/getSourcesJw';
+import { MAX_VIDEO_SIZE } from './mediaHelper';
 
 const PRIORITY_SORTED_TAGS = [
     'Fácil',
@@ -81,7 +83,12 @@ export const transformArticleFoodit = article => {
     };
 };
 
-export const validateArticleFoodit = ({ id, content }) => {
+export const validateArticleFoodit = ({ id, content, videoId, video }) => {
+    const { sources } = video || {};
+    const filesize = get(getSourcesJw(sources, '>'), 'filesize', null);
+
+    const oneMegabyte = 1048576;
+
     const rules = [
         {
             validation: !id,
@@ -90,6 +97,16 @@ export const validateArticleFoodit = ({ id, content }) => {
         {
             validation: !content,
             message: 'El ID de la nota es incorrecto.'
+        },
+        {
+            validation: videoId && !video,
+            message: 'El ID del video es incorrecto'
+        },
+        {
+            validation: filesize && filesize > MAX_VIDEO_SIZE,
+            message: `El tamaño del video debe ser inferior a 3 MB. Peso actual ${(
+                filesize / oneMegabyte
+            ).toFixed(2)} MB`
         }
     ];
 
@@ -106,6 +123,7 @@ export const getOpeningProps = (renderables = []) => {
     return {
         id: get(cajaApertura, 'children[0].props.id', ''),
         noteId: get(cajaApertura, 'children[0].props.customFields.noteId', ''),
+        videoId: get(cajaApertura, 'children[0].props.customFields.videoId'),
         openingLayout: get(cajaApertura, 'props.customFields.layout', '')
     };
 };

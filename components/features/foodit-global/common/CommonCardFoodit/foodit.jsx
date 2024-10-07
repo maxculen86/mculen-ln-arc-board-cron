@@ -23,14 +23,16 @@ function CommonCardFoodit({
     titleEllipsis,
     contentCode,
     container,
+    poster,
     className = '',
     bookmarkAction = null,
     fill = false,
     isOpening = false,
-    hasVideo,
-    hasVideobackground = false
+    hasVideo = false,
+    mediaVariant = 'image'
 }) {
-    const showIconVideo = hasVideo && !hasVideobackground;
+    const showIconVideo = hasVideo && mediaVariant !== 'video';
+
     return (
         <Card
             data-test-id={`${
@@ -43,12 +45,19 @@ function CommonCardFoodit({
             {...(container && { container })}
         >
             <Card.Top>
-                <Card.Image
-                    src={src}
+                <Card.Media
+                    variant={mediaVariant}
                     alt={alt}
                     sources={sources}
                     loading={loading}
                     fetchPriority={fetchPriority}
+                    src={src}
+                    {...(mediaVariant === 'video' && {
+                        dataSrc: src,
+                        poster,
+                        muted: true,
+                        loop: true
+                    })}
                 />
                 {showIconVideo && <Card.BadgeIcon />}
                 {tag && <Card.Badge>{tag}</Card.Badge>}
@@ -97,28 +106,62 @@ function CommonCardFoodit({
 
 CommonCardFoodit.propTypes = {
     articleId: PropTypes.string.isRequired,
-    linksProps: PropTypes.isRequired,
-    showTime: PropTypes.isRequired,
-    time: PropTypes.isRequired,
-    size: PropTypes.isRequired,
-    variant: PropTypes.isRequired,
-    src: PropTypes.isRequired,
-    alt: PropTypes.isRequired,
-    sources: PropTypes.isRequired,
-    loading: PropTypes.isRequired,
-    fetchPriority: PropTypes.isRequired,
-    tag: PropTypes.isRequired,
-    title: PropTypes.isRequired,
-    author: PropTypes.isRequired,
-    subtitle: PropTypes.isRequired,
-    titleEllipsis: PropTypes.isRequired,
-    contentCode: PropTypes.isRequired,
-    container: PropTypes.isRequired,
-    className: PropTypes.isRequired,
-    bookmarkAction: PropTypes.isRequired,
-    fill: PropTypes.isRequired,
-    isOpening: PropTypes.isRequired,
-    hasVideo: PropTypes.isRequired,
-    hasVideobackground: PropTypes.isRequired
+    linksProps: PropTypes.shape({
+        href: PropTypes.string,
+        title: PropTypes.string
+    }).isRequired,
+    showTime: PropTypes.bool,
+    time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    size: PropTypes.string,
+    variant: PropTypes.string,
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    sources: PropTypes.arrayOf(
+        PropTypes.shape({
+            url: PropTypes.string
+        })
+    ),
+    loading: PropTypes.oneOf(['eager', 'lazy']),
+    fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
+    tag: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string,
+    subtitle: PropTypes.string,
+    titleEllipsis: PropTypes.number,
+    contentCode: PropTypes.string,
+    container: PropTypes.string,
+    className: PropTypes.string,
+    bookmarkAction: PropTypes.func,
+    fill: PropTypes.bool,
+    isOpening: PropTypes.bool,
+    poster: PropTypes.string,
+    mediaVariant: PropTypes.oneOf(['image', 'video']),
+    hasVideo: PropTypes.bool
 };
+
+CommonCardFoodit.defaultProps = {
+    showTime: false,
+    time: '',
+    size: '',
+    variant: '',
+    src: '',
+    alt: '',
+    sources: [],
+    loading: 'lazy',
+    fetchPriority: 'low',
+    tag: '',
+    author: '',
+    subtitle: '',
+    titleEllipsis: 3,
+    contentCode: '',
+    container: '',
+    className: '',
+    bookmarkAction: null,
+    fill: false,
+    isOpening: false,
+    poster: '',
+    mediaVariant: 'image',
+    hasVideo: null
+};
+
 export default CommonCardFoodit;

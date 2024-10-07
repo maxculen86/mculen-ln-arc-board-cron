@@ -11,21 +11,22 @@ import {
     transformArticleFoodit,
     validateArticleFoodit
 } from '../../foodit-global/common/utils/notaFooditHelper';
-import filter from '../../../../content/filters/foodit/home/articleFoodit';
-import {
-    getImagesToLoadWithPicture,
-    getShortestImage
-} from '../../../private/LN/common/utils/mediaHelper';
+import imageFilter from '../../../../content/filters/foodit/home/articleFoodit';
+import videoFilter from '../../../../content/filters/foodit/home/videoArticleFoodit';
+import videoJwFilter from '../../../../content/filters/foodit/videoJwFilter';
+
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
 import get from '../../../private/common/utils/get';
-import getImageAltText from '../../foodit-global/common/utils/getImageAltText';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit';
+import getFooditMediaContent from '../../foodit-global/common/utils/mediaHelper';
 
 function CardFoodit({ id: featureId, customFields }) {
-    const { noteId: id, isDayRecipe } = customFields;
+    const { noteId: id, isDayRecipe, videoId } = customFields;
+
     const articleId = checkForId(id);
+    const validVideoId = checkForId(videoId);
 
     const { isAdmin, arcSite, renderables } = useAppContext();
 
@@ -39,24 +40,39 @@ function CardFoodit({ id: featureId, customFields }) {
         classNameChildren = ''
     } = fooditRules(layout);
 
+    const imageConfig = isOpening ? openingImgConfig : layoutImgConfig;
+
     const articleContent = useContent({
         source: articleId ? 'fooditBaseArticleSource' : null,
         query: {
             id: articleId,
             published: true,
             website: arcSite,
+            imageConfig,
             isInApertura: isOpening,
             isAdmin,
-            imageConfig: isOpening ? openingImgConfig : layoutImgConfig,
             checkExclusiveAccess: false
         },
         staticMode: true,
-        filter
+        filter: validVideoId ? videoFilter : imageFilter
+    });
+
+    const videoBackground = useContent({
+        source: validVideoId ? 'fooditVideoSource' : null,
+        query: {
+            id: validVideoId,
+            imageConfig
+        },
+        staticMode: true,
+        filter: videoJwFilter
     });
 
     const error = validateArticleFoodit({
         id,
-        content: articleContent
+        content: articleContent,
+        videoId: validVideoId,
+        imageConfig,
+        video: videoBackground
     });
 
     if (isAdmin && !!error) {
@@ -85,9 +101,12 @@ function CardFoodit({ id: featureId, customFields }) {
         hasVideo
     } = transformArticleFoodit(articleContent);
 
-    const { url = '', resized_urls: resizedUrlImage = [] } = image;
-
-    const { resizedUrl = '' } = getShortestImage(resizedUrlImage);
+    const media = getFooditMediaContent({
+        image,
+        video: validVideoId && videoBackground,
+        isOpening,
+        isAdmin
+    });
 
     return (
         <div className={staticContentClassName} key={featureId}>
@@ -104,9 +123,6 @@ function CardFoodit({ id: featureId, customFields }) {
                             ? 'day-recipe'
                             : variant
                     }
-                    src={resizedUrl || url}
-                    alt={getImageAltText(image)}
-                    sources={getImagesToLoadWithPicture(resizedUrlImage)}
                     loading={isOpening ? 'eager' : 'lazy'}
                     fetchPriority={isOpening ? 'high' : 'low'}
                     tag={tag}
@@ -118,6 +134,7 @@ function CardFoodit({ id: featureId, customFields }) {
                     contentCode={contentCode}
                     isOpening={isOpening}
                     hasVideo={hasVideo}
+                    {...media}
                 />
             )}
         </div>
@@ -136,6 +153,11 @@ CardFoodit.propTypes = {
             name: 'Receta del día',
             description: 'Marque para seleccionar la receta del dia',
             defaultValue: false
+        }),
+        videoId: PropTypes.string.tag({
+            name: 'VideoJW',
+            description: 'Ingrese aquí el ID del video',
+            default: ''
         })
     }).isRequired
 };

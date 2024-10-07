@@ -11,14 +11,14 @@ import articleFoodit from '../../../../../__mocks__/data/articlesFoodit/D3SATI3N
 import articleFooditNota from '../../../../../__mocks__/data/articlesFoodit/FMLGIYTL2ZBCRAKQTSO27CCQ6U.json';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
 
 jest.mock('fusion:context', Component => {
     return {
-        default: function(Component) {
+        default: function (Component) {
             return props => <Component {...props} />;
         },
         useComponentContext: jest.fn(() => ({}))
@@ -37,6 +37,8 @@ describe('Components - features - CardFoodit', () => {
             id: 'f0fujPmnOyutm2Tj',
             customFields: {
                 noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
+                isDayRecipe: true,
+                videoId: '',
                 isDayRecipe: false
             }
         };
@@ -74,7 +76,7 @@ describe('Components - features - CardFoodit', () => {
         const { container } = render(<CardFoodit {...props} />);
         expect(container).toMatchSnapshot();
 
-        // expect(screen.getByRole('div')).toHaveClass('bg-light-1'); pendiente definicion
+        expect(screen.getByRole('article')).toHaveClass('bg-light-1');
         expect(screen.getByRole('article')).not.toHaveClass('--day-recipe');
 
         expect(screen.getByRole('img').getAttribute('loading')).toBe('lazy');
@@ -84,7 +86,6 @@ describe('Components - features - CardFoodit', () => {
     });
 
     it('should test CardFoodit - variant note', () => {
-        // TODO: test no apertura
         Context.useAppContext = jest.fn(() => ({
             isAdmin: false,
             renderables,
@@ -103,7 +104,7 @@ describe('Components - features - CardFoodit', () => {
         const { container } = render(<CardFoodit {...props} />);
         expect(container).toMatchSnapshot();
 
-        // expect(screen.getByRole('article')).toHaveClass('bg-light-100'); pendiente definicion
+        expect(screen.getByRole('article')).toHaveClass('bg-positive');
         expect(screen.getByRole('img').getAttribute('loading')).toBe('lazy');
         expect(screen.getByRole('img').getAttribute('fetchPriority')).toBe(
             'low'
