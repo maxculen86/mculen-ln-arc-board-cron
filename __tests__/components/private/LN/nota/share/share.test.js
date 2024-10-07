@@ -8,9 +8,12 @@ import toggleBookmark from '../../../../../../components/private/common/utils/bo
 import useCheckBookmark from '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark';
 import useFetch from '../../../../../../components/private/common/hooks/useFetch';
 import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { getSectionOfRequestUri } from '../../../../../../components/private/common/utils/outputTypeHelper';
+
+getSectionOfRequestUri;
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -22,6 +25,13 @@ jest.mock('../../../../../../components/private/common/utils/getToken', () =>
 jest.mock(
     '../../../../../../components/private/common/utils/bookmarkHelper',
     () => jest.fn()
+);
+
+jest.mock(
+    '../../../../../../components/private/common/utils/outputTypeHelper',
+    () => ({
+        getSectionOfRequestUri: jest.fn()
+    })
 );
 
 jest.mock(
@@ -70,7 +80,12 @@ const props = {
                 }
             }
         }
-    ]
+    ],
+    globalContentConfig: {
+        query: {
+            uri: '/economia/dolar-hoy/'
+        }
+    }
 };
 
 Context.useAppContext = jest.fn(() => props);

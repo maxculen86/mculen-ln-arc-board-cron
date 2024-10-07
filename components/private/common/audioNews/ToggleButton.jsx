@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
@@ -9,8 +10,11 @@ import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import { IA_AUDIO_SUMMARY_TRACKING_STORAGE } from './helpers';
+import getAudioEvents from '../../LN/common/utils/getAudioEvents';
 
 function ToggleButton({ contentVariant, handleToggle }) {
+    const { globalContent = {}, globalContentConfig = {} } = useAppContext();
+
     const {
         isOpen: tooltipVisible,
         onClose: closeTooltip,
@@ -32,14 +36,9 @@ function ToggleButton({ contentVariant, handleToggle }) {
         'audio-toggle-right border-neutral-light-200 rounded-top-right-4 rounded-bottom-right-4 rounded-top-left-0 rounded-bottom-left-0'
     );
 
-    const handleClick = (variant, label) => {
+    const handleClick = variant => {
         handleToggle(variant);
-        addEventToDataLayerV2({
-            event: 'e_linkclick',
-            action: 'escuchar',
-            category: 'nota_ln9',
-            label
-        });
+
         if (tooltipVisible) {
             closeTooltip();
             localStorage.setItem(
@@ -48,6 +47,18 @@ function ToggleButton({ contentVariant, handleToggle }) {
             );
         }
     };
+
+    const eventSummary = getAudioEvents(
+        globalContent,
+        globalContentConfig,
+        'summary'
+    );
+
+    const eventArticle = getAudioEvents(
+        globalContent,
+        globalContentConfig,
+        'article'
+    );
 
     return (
         <div className="toggle-bttn-audio flex ai-center mt-20 mt-0_l mb-16_l ai-start_l">
@@ -59,7 +70,13 @@ function ToggleButton({ contentVariant, handleToggle }) {
                 dataSection="Nota Completa"
                 dataEvent="LinkClick"
                 onClick={() => {
-                    handleClick('article', 'escuchar_completo');
+                    handleClick('article');
+                    if (contentVariant !== 'article') {
+                        addEventToDataLayerV2({
+                            event: 'page_listened',
+                            rest: eventArticle
+                        });
+                    }
                 }}
             >
                 <Icon
@@ -82,7 +99,13 @@ function ToggleButton({ contentVariant, handleToggle }) {
                     dataSection="Resumen con IA"
                     dataEvent="LinkClick"
                     onClick={() => {
-                        handleClick('summary', 'escuchar_resumen');
+                        handleClick('summary');
+                        if (contentVariant !== 'summary') {
+                            addEventToDataLayerV2({
+                                event: 'page_listened',
+                                rest: eventSummary
+                            });
+                        }
                     }}
                 >
                     <Icon

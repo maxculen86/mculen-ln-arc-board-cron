@@ -1,29 +1,19 @@
+import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import { checkUserRealoadAction } from '../utils/noteTracker/ctrTracker';
 
-const checkExistenceInDataLayer = (layer, label) => {
-    return layer.some(elem => {
-        const { dynamic_label: dynamicLabel = '' } = elem;
-        return dynamicLabel === label;
-    });
-};
+const checkExistenceInDataLayer = (layer, eventName) =>
+    layer.some(elem => elem.event === eventName);
 
-const eventHandler = ({ activeWindow, action, eventLabel }) => {
+const eventHandler = ({ activeWindow, eventName, audioNewsActions }) => {
     const { dataLayer } = activeWindow;
-    const sentEvent = checkExistenceInDataLayer(dataLayer, eventLabel);
+    const sentEvent = checkExistenceInDataLayer(dataLayer, eventName);
     const refresh = checkUserRealoadAction(activeWindow);
+    const event = addEventToDataLayerV2({
+        event: eventName,
+        rest: audioNewsActions
+    });
 
-    return !sentEvent && !refresh && audioNewsActions[action](dataLayer);
-};
-
-const audioNewsActions = {
-    listenButton: layer => {
-        return layer.push({
-            event: 'e_linkclick',
-            dynamic_action: 'escuchar',
-            dynamic_category: 'nota_ln9',
-            dynamic_label: 'escuchar'
-        });
-    }
+    return !sentEvent && !refresh && event;
 };
 
 export default eventHandler;

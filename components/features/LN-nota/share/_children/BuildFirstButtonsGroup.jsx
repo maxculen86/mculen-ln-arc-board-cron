@@ -19,7 +19,10 @@ import {
     getFirstGroupClassNames,
     isLN10IAHidden
 } from '../../../../private/LN/common/utils/shareHelper';
-import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
+import {
+    getCookie,
+    handleClickAudioNews
+} from '../../../../private/common/audioNews/helpers';
 import useFetch from '../../../../private/common/hooks/useFetch';
 import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
@@ -31,6 +34,7 @@ import {
     handleIaToggle,
     IA_FEATURE_TRACKING_STORAGE
 } from './helper';
+import getAudioEvents from '../../../../private/LN/common/utils/getAudioEvents';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
@@ -49,11 +53,19 @@ function BuildFirtsButtonsGroup({
     const [tooltipWasClosed, setTooltipWasClosed] = useState(false);
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
+    const [contentVariant] = useState(getCookie('contentVariant') || 'article');
+
     const { dispatch, state } = useContext(GlobalContext) || {};
 
-    const { renderables = [] } = useAppContext();
+    const { renderables = [], globalContentConfig = {} } = useAppContext();
 
     const shareRef = useRef(null);
+
+    const event = getAudioEvents(
+        globalContent,
+        globalContentConfig,
+        contentVariant
+    );
 
     const summary = get(globalContent, 'promo_items.summary', null);
     const isThermalSummaryEnabled = useTermica('resumen_nota');
@@ -200,8 +212,8 @@ function BuildFirtsButtonsGroup({
                         );
                         eventHandler({
                             activeWindow: window,
-                            action: 'listenButton',
-                            eventLabel: 'escuchar'
+                            eventName: 'page_listened',
+                            audioNewsActions: event
                         });
                     }}
                     disabled={openPlayer || enableButton}
@@ -280,6 +292,11 @@ BuildFirtsButtonsGroup.propTypes = {
             display_comments: PropTypes.bool
         }),
         isListenable: PropTypes.bool
+    }),
+    globalContentConfig: PropTypes.shape({
+        query: PropTypes.shape({
+            uri: PropTypes.string
+        })
     }),
     token: PropTypes.string,
     bookmark: PropTypes.string,

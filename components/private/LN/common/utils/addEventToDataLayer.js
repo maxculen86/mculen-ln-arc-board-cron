@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable camelcase */
 import isSSR from './isSSR';
 import { scheduleTask } from '../../../common/utils/scheduleTask';
 
-//TODO: Eliminar funcion cuando se migren todos los usos al V2
+// TODO: Eliminar funcion cuando se migren todos los usos al V2
 const addEventToDataLayer = ({
     category,
     label,
@@ -54,7 +56,8 @@ export const addEventToDataLayerV2 = ({
     button,
     page_notification,
     identifier,
-    contentType
+    contentType,
+    rest = {}
 } = {}) => {
     if (!isSSR() && window.dataLayer) {
         scheduleTask(() => {
@@ -74,7 +77,8 @@ export const addEventToDataLayerV2 = ({
                     notifications_category: notificationsCategory
                 }),
                 ...(page_notification && { page_notification }),
-                ...(identifier && { identifier })
+                ...(identifier && { identifier }),
+                ...(rest && { ...rest })
             });
         });
     }
