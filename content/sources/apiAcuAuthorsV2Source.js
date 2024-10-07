@@ -1,12 +1,35 @@
 import get from '../../components/private/common/utils/get';
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/byAuthor/acuTransformV2Format';
 import transformAcu from './utils/pageSource/acumulados/common/transformAcuV1';
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 import authorSource from './authorSource';
-import request from 'request-promise-native';
 import NotFoundError from './utils/notFoundError';
 import logger from '../../components/private/common/utils/logger';
+
+const getSizeParamFromQuery = query => {
+    const regexForSizeParam = /size:(\d+)/;
+    const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
+    if (matchForSize) {
+        return matchForSize.length > 1 ? parseInt(matchForSize[1], 10) : 30;
+    }
+    return 30;
+};
+
+const getPageParamFromQuery = query => {
+    const regexForPageParam = /page:(\d+)/;
+    const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
+
+    const page =
+        matchForPageParam && matchForPageParam.length > 1
+            ? parseInt(matchForPageParam[1], 10)
+            : 1;
+
+    if (page < 1) {
+        throw new Error('Page parameter should be more than 1');
+    }
+
+    return page;
+};
 
 const fetch = async (query, { cachedCall } = {}) => {
     try {
@@ -31,9 +54,7 @@ const fetch = async (query, { cachedCall } = {}) => {
                 },
                 { cachedCall }
             )
-            .then(resp => {
-                return resp;
-            })
+            .then(resp => resp)
             .catch(error => {
                 logger.push(
                     error,
@@ -71,31 +92,6 @@ const fetch = async (query, { cachedCall } = {}) => {
         );
         throw new Error(error);
     }
-};
-
-const getSizeParamFromQuery = query => {
-    const regexForSizeParam = new RegExp(/size:(\d+)/);
-    const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
-    if (matchForSize) {
-        return matchForSize.length > 1 ? matchForSize[1] : 30;
-    }
-    return 30;
-};
-
-const getPageParamFromQuery = query => {
-    const regexForPageParam = new RegExp(/page:(\d+)/);
-    const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
-
-    const page =
-        matchForPageParam && matchForPageParam.length > 1
-            ? parseInt(matchForPageParam[1])
-            : 1;
-
-    if (page < 1) {
-        throw new Error('Page parameter should be more than 1');
-    }
-
-    return page;
 };
 
 export default {
