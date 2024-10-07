@@ -73,7 +73,9 @@ export const addEventToDataLayerV2 = ({
                 ...(notificationsCategory && {
                     notifications_category: notificationsCategory
                 }),
-                ...(pageNotification && { pageNotification }),
+                ...(pageNotification && {
+                    page_notification: pageNotification
+                }),
                 ...(identifier && { identifier }),
                 ...(origin && { origin })
             });
