@@ -51,7 +51,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
         const { container } = render(<HeaderFoodit />);
 
-        expect(screen.getAllByText('INICIA SESIÓN')).toHaveLength(2);
+        expect(screen.getAllByText('INICIÁ SESIÓN')).toHaveLength(2);
         expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
         expect(container).toMatchSnapshot();
     });
