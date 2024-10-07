@@ -4,9 +4,18 @@ import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import EmptyState from '../../../../../../components/features/foodit-global/common/emptyState/foodit';
 import { titleByVariant } from '../../../../../../components/features/foodit-global/common/emptyState/helpers';
+import {
+    SITIO_SEGURO_REGISTRACION,
+    FOODIT_LOGIN_URL
+} from 'fusion:environment';
+
+jest.mock('fusion:environment', () => ({
+    SITIO_SEGURO_REGISTRACION: 'https://mocked-registro.com',
+    FOODIT_LOGIN_URL: 'https://mocked-login.com/'
+}));
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -24,18 +33,26 @@ describe('EmptyState component', () => {
     it('should render title and button "accent" for variant "barrier-logged"', () => {
         render(<EmptyState variant="barrier-logged" />);
         const title = screen.getByText(titleByVariant['barrier-logged']);
-        const button = screen.getByRole('link');
-        expect(button).toHaveAttribute('data-variant', 'accent');
-        expect(button).toHaveTextContent('Suscribite');
+        const buttons = screen.getAllByRole('link');
+        const suscribeButton = buttons.find(
+            button => button.getAttribute('data-variant') === 'accent'
+        );
+
+        expect(suscribeButton).toHaveAttribute('data-variant', 'accent');
+        expect(suscribeButton).toHaveTextContent('Suscribite');
         expect(title).toBeInTheDocument();
     });
-    it('should render title, button "primary" for variant "barrier-unlogged"', () => {
+    it('should render title, button "link" for variant "barrier-unlogged"', () => {
         render(<EmptyState variant="barrier-unlogged" />);
         const title = screen.getByText(titleByVariant['barrier-unlogged']);
-        const button = screen.getByRole('link');
+        const buttons = screen.getAllByRole('link');
+        const loginButton = buttons.find(button =>
+            button.textContent.includes('Inicia sesión')
+        );
+
         expect(title).toBeInTheDocument();
-        expect(button).toHaveAttribute('data-variant', 'primary');
-        expect(button).toHaveTextContent('Inicia sesión');
+        expect(loginButton).toHaveAttribute('data-variant', 'link');
+        expect(loginButton).toHaveTextContent('Inicia sesión');
     });
     it('should match snapshot with variant "barrier-logged"', () => {
         const { container } = render(<EmptyState variant="barrier-logged" />);

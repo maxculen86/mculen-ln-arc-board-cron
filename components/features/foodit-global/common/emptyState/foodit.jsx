@@ -1,19 +1,21 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import classNames from 'classnames';
 import {
     titleByVariant,
     descriptionByVariant,
     buttonPropsByVariant,
     imagePropsByVariant
 } from './helpers';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
+import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 
-import classNames from 'classnames';
-
-const EmptyState = ({ variant, className, direction = 'row' }) => {
+function EmptyState({ variant, className, direction = 'row' }) {
+    const { userType } = useGetUserConfig();
     const { contextPath, deployment, layout } = useAppContext();
 
     const containerClassNames = classNames(
@@ -34,10 +36,13 @@ const EmptyState = ({ variant, className, direction = 'row' }) => {
         }
     );
 
-    const { label, href, variant: buttonVariant } =
-        buttonPropsByVariant[variant] || {};
+    const {
+        label,
+        href,
+        variant: buttonVariant
+    } = buttonPropsByVariant[variant] || {};
 
-    if (!variant) return <></>;
+    if (!variant) return null;
     return (
         <section className={containerClassNames}>
             <Adaptableimage
@@ -60,13 +65,38 @@ const EmptyState = ({ variant, className, direction = 'row' }) => {
                     {descriptionByVariant({ layout, variant })}
                 </Text>
             </div>
-            {label && (
+            {userType === 'unlogged' ? (
+                <div className="flex gap-24 ai-center">
+                    <Button
+                        variant={buttonPropsByVariant['barrier-logged'].variant}
+                        href={buttonPropsByVariant['barrier-logged'].href}
+                    >
+                        {buttonPropsByVariant['barrier-logged'].label}
+                    </Button>
+                    <Button
+                        variant={
+                            buttonPropsByVariant['barrier-unlogged'].variant
+                        }
+                        href={buttonPropsByVariant['barrier-unlogged'].href}
+                    >
+                        <span className="uppercase">
+                            {buttonPropsByVariant['barrier-unlogged'].label}
+                        </span>
+                    </Button>
+                </div>
+            ) : (
                 <Button variant={buttonVariant} href={href}>
                     {label}
                 </Button>
             )}
         </section>
     );
+}
+
+EmptyState.propTypes = {
+    variant: PropTypes.isRequired,
+    direction: PropTypes.isRequired,
+    className: PropTypes.isRequired
 };
 
 export default EmptyState;

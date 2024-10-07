@@ -15,7 +15,7 @@ window.IntersectionObserver = jest.fn(() => ({
 }));
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -52,7 +52,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         const { container } = render(<HeaderFoodit />);
 
         expect(screen.getAllByText('INICIA SESIÓN')).toHaveLength(2);
-        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
         expect(container).toMatchSnapshot();
     });
 
@@ -84,6 +84,6 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         render(<HeaderFoodit />);
 
         expect(screen.getAllByText('HO')).toHaveLength(1);
-        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
     });
 });

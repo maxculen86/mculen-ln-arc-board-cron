@@ -10,6 +10,17 @@
             margin-bottom: 0;
         }
     }
+    .ln-logo {
+        &.--xs {
+            width: px(34);
+            height: px(16);
+        }
+        &.--sm {
+            width: px(44);
+            height: px(21);
+        }
+    }
+    
     &.ln-nota-logo {
         margin-bottom: 20px;
     }
@@ -212,35 +223,26 @@
             height: px(30);
         }
     }
-    &.futuria {
+    &.futuria,
+    &.futuria-blanco {
         &.--xs {
             height: px(22);
             width: inherit;
         }
         &.--sm {
-            height: px(32);
+            height: px(48);
             width: inherit;
         }
     }
-    &.que-sale {
+    &.que-sale,
+    &.que-sale-blanco {
         &.--xs {
             height: px(22);
             width: inherit;
         }
         &.--sm {
-            height: px(32);
+            height: px(48);
             width: inherit;
-        }
-    }
-
-    .ln-logo {
-        &.--xs {
-            width: px(34);
-            height: px(16);
-        }
-        &.--sm {
-            width: px(44);
-            height: px(21);
         }
     }
 

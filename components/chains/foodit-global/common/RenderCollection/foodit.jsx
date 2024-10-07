@@ -76,11 +76,12 @@ export function RenderCollection({
             contentCode = '',
             hasVideo
         }) => {
-            const { resized_urls: resizedUrlImage, url } = image;
-            const { resizedUrl = '' } = getShortestImage(resizedUrlImage);
+            const { resized_urls: resizedUrls, url } = image;
+            const { resizedUrl = '' } = getShortestImage(resizedUrls);
 
             return (
                 <CommonCardFoodit
+                    fatherType={layout}
                     articleId={articleId}
                     showTime={Boolean(time)}
                     time={time}
@@ -89,7 +90,7 @@ export function RenderCollection({
                     variant={variant}
                     src={resizedUrl || url}
                     alt={getImageAltText(image)}
-                    sources={getImagesToLoadWithPicture(resizedUrlImage)}
+                    sources={getImagesToLoadWithPicture(resizedUrls)}
                     loading="lazy"
                     fetchPriority="low"
                     tag={tag}
@@ -139,21 +140,58 @@ export function RenderCollection({
         )
     };
 
-    return hideCaja || (error && error.message) ? null : options[layout];
+    return hideCaja || (error && error.message)
+        ? React.Fragment
+        : options[layout];
 }
 
 RenderCollection.propTypes = {
-    rules: PropTypes.isRequired,
-    title: PropTypes.isRequired,
-    hideCaja: PropTypes.isRequired,
-    hideTitle: PropTypes.isRequired,
-    layout: PropTypes.isRequired,
+    rules: PropTypes.shape({
+        roofAs: PropTypes.string,
+        classNameParent: PropTypes.string,
+        classNameChildren: PropTypes.string,
+        classNameRoof: PropTypes.string
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    hideCaja: PropTypes.bool,
+    hideTitle: PropTypes.bool,
+    layout: PropTypes.oneOf([CAROUSEL, BN_12_GRID]).isRequired,
     error: PropTypes.shape({
         message: PropTypes.string
-    }).isRequired,
-    link: PropTypes.isRequired,
-    collectionId: PropTypes.isRequired,
-    articles: PropTypes.isRequired
+    }),
+    link: PropTypes.string,
+    collectionId: PropTypes.string,
+    articles: PropTypes.arrayOf(
+        PropTypes.shape({
+            articleId: PropTypes.string.isRequired,
+            author: PropTypes.string,
+            href: PropTypes.string,
+            size: PropTypes.string,
+            tag: PropTypes.string,
+            time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            title: PropTypes.string.isRequired,
+            variant: PropTypes.string,
+            image: PropTypes.shape({
+                resized_urls: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        url: PropTypes.string
+                    })
+                ),
+                url: PropTypes.string
+            }),
+            contentCode: PropTypes.string
+        })
+    ).isRequired,
+    type: PropTypes.string
+};
+
+RenderCollection.defaultProps = {
+    hideCaja: false,
+    hideTitle: false,
+    link: '',
+    collectionId: '',
+    error: null,
+    type: ''
 };
 
 export default RenderCollection;

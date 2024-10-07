@@ -1,7 +1,164 @@
 import {
+    dataLayerLayoutDictionary,
+    dataLayerContainerDictionary
+} from '../../../../../../../components/features/foodit-global/common/dataLayer/_helpers';
+import {
     getConfig,
-    saveRecipeConfig
+    saveRecipeConfig,
+    addSavedBookmarksToDataLayer
 } from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/helpers';
+import { addEventToDataLayerV2 } from '../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+
+jest.mock(
+    '../../../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        addEventToDataLayerV2: jest.fn()
+    })
+);
+
+describe('components - features - foodit-global - common - Modals - SaveRecipe - addSavedBookmarksToDataLayer', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should not call addEventToDataLayerV2 when articlesDetails is empty', () => {
+        addSavedBookmarksToDataLayer({
+            articlesDetails: [],
+            carouselTitle: 'carouselTitle',
+            layout: 'layout',
+            fatherType: 'fatherType'
+        });
+        expect(addEventToDataLayerV2).not.toHaveBeenCalled();
+    });
+
+    it('should call addEventToDataLayerV2 with correct parameters for a single article', () => {
+        const articlesDetails = [
+            {
+                content: {
+                    variant: 'note',
+                    headlines: {
+                        basic: 'Test Article',
+                        mobile: 'Test Article Mobile'
+                    },
+                    id: '123'
+                }
+            }
+        ];
+        addSavedBookmarksToDataLayer({
+            articlesDetails,
+            carouselTitle: 'carouselTitle',
+            layout: 'Foodit-home',
+            fatherType: ''
+        });
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            category: 'interaction',
+            origin: dataLayerLayoutDictionary['Foodit-home'],
+            action: 'guardar',
+            title: 'Test Article',
+            label: 'nota',
+            articleId: '123'
+        });
+    });
+
+    it('should call addEventToDataLayerV2 with correct parameters for multiple articles', () => {
+        const articlesDetails = [
+            {
+                content: {
+                    variant: 'recipe',
+                    headlines: {
+                        basic: 'Test Recipe',
+                        mobile: 'Test Recipe Mobile'
+                    },
+                    id: '456'
+                }
+            },
+            {
+                content: {
+                    variant: 'recipe',
+                    headlines: {
+                        basic: 'Another Recipe',
+                        mobile: 'Another Recipe Mobile'
+                    },
+                    id: '789'
+                }
+            }
+        ];
+        addSavedBookmarksToDataLayer({
+            articlesDetails,
+            carouselTitle: 'Carousel Header Title',
+            layout: 'Foodit-home',
+            fatherType: ''
+        });
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            category: 'interaction',
+            origin: dataLayerLayoutDictionary['Foodit-home'],
+            action: 'guardar_todo',
+            title: 'Carousel Header Title'
+        });
+    });
+
+    it('origin should be "recomendaciones" with fatherType and ficha-receta layout', () => {
+        const articlesDetails = [
+            {
+                content: {
+                    variant: 'recipe',
+                    headlines: {
+                        basic: 'Recipe Title',
+                        mobile: 'Recipe Title Mobile'
+                    },
+                    id: '123'
+                }
+            }
+        ];
+        addSavedBookmarksToDataLayer({
+            articlesDetails,
+            carouselTitle: '',
+            layout: 'Foodit-ficha-receta',
+            fatherType: 'carousel'
+        });
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            category: 'interaction',
+            origin: 'recomendaciones',
+            action: 'guardar',
+            title: 'Recipe Title',
+            label: 'receta',
+            articleId: '123'
+        });
+    });
+
+    it('should handle missing headline title gracefully', () => {
+        const articlesDetails = [
+            {
+                content: {
+                    variant: 'note',
+                    id: '987'
+                }
+            }
+        ];
+        addSavedBookmarksToDataLayer({
+            articlesDetails,
+            carouselTitle: 'Some Title',
+            layout: 'Foodit-home',
+            fatherType: ''
+        });
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            category: 'interaction',
+            origin: dataLayerLayoutDictionary['Foodit-home'],
+            action: 'guardar',
+            title: '',
+            label: 'nota',
+            articleId: '987'
+        });
+    });
+});
 
 describe('getConfig', () => {
     const mockSaveRecipeConfigs = { ...saveRecipeConfig };

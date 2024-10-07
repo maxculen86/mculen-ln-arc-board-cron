@@ -1,19 +1,18 @@
 import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Link } from '@ln/foodit-ui-link';
-import siteProperties from '../../../../../properties/sites/foodit';
-
 import {
     SITIO_SEGURO_REGISTRACION,
     FOODIT_LOGIN_URL
 } from 'fusion:environment';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import siteProperties from '../../../../../properties/sites/foodit';
 
 export const titleByVariant = {
-    'barrier-unlogged': '¡Exclusivo suscriptor!',
-    'barrier-logged': '¡Exclusivo suscriptor!',
+    'barrier-unlogged': '¡Exclusivo suscriptores!',
+    'barrier-logged': '¡Exclusivo suscriptores!',
     'empty-state': '¡Aún no hay nada por acá!',
-    '404': '¡Uppps! Contenido en preparación'
+    404: '¡Uppps! Contenido en preparación'
 };
 
 export const descriptionByVariant = ({ layout, variant }) => {
@@ -24,7 +23,7 @@ export const descriptionByVariant = ({ layout, variant }) => {
         'barrier-logged':
             'Para realizar esta acción es necesario que tengas una suscripción.',
         'barrier-unlogged':
-            'Para realizar esta acción es necesario que inicies sesión.',
+            'Para realizar esta acción es necesario que tengas una suscripción.',
         'empty-state': isLayoutShoppingList ? (
             <span>
                 Presioná el botón
@@ -43,7 +42,7 @@ export const descriptionByVariant = ({ layout, variant }) => {
                 para guardar el contenido que te gusta y ¡Listo!
             </span>
         ),
-        '404': (
+        404: (
             <span>
                 <span>Mientras te invitamos a seguir navegando en </span>
                 <Link
@@ -72,7 +71,7 @@ export const buttonPropsByVariant = {
     },
     'barrier-unlogged': {
         label: 'Inicia sesión',
-        variant: 'primary',
+        variant: 'link',
         href:
             FOODIT_LOGIN_URL +
             (typeof window !== 'undefined'
@@ -87,14 +86,13 @@ export const buttonPropsByVariant = {
 export const imagePropsByVariant = {
     'barrier-unlogged': {
         asset: 'barrier-state.webp',
-        alt: 'Para realizar esta acción es necesario que inicies sesión.',
+        alt: 'Para realizar esta acción es necesario que tengas una suscripción.',
         width: 147,
         height: 110
     },
     'barrier-logged': {
         asset: 'barrier-state.webp',
-        alt:
-            'Para realizar esta acción es necesario que tengas una suscripción.',
+        alt: 'Para realizar esta acción es necesario que tengas una suscripción.',
         width: 147,
         height: 110
     },
@@ -104,7 +102,7 @@ export const imagePropsByVariant = {
         width: 147,
         height: 152
     },
-    '404': {
+    404: {
         asset: 'logo-404.png',
         alt: 'Logo Foodit',
         width: 91,

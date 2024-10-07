@@ -22,6 +22,7 @@ function CommonCardFoodit({
     subtitle,
     titleEllipsis,
     contentCode,
+    fatherType,
     container,
     poster,
     className = '',
@@ -78,6 +79,7 @@ function CommonCardFoodit({
                         'data-id': articleId,
                         'data-modal': 'open-modal',
                         'data-test-id': `button-bookmark-${articleId}`,
+                        ...(fatherType && { 'data-father-type': fatherType }),
                         text: 'Guardar',
                         icon: (
                             <IconSprite
@@ -93,7 +95,8 @@ function CommonCardFoodit({
                                 bookmarkAction();
                             } else {
                                 window?.LN?.observable?.publish('openModal', {
-                                    ids: [articleId]
+                                    ids: [articleId],
+                                    fatherType
                                 });
                             }
                         }
@@ -136,7 +139,8 @@ CommonCardFoodit.propTypes = {
     isOpening: PropTypes.bool,
     poster: PropTypes.string,
     mediaVariant: PropTypes.oneOf(['image', 'video']),
-    hasVideo: PropTypes.bool
+    hasVideo: PropTypes.bool,
+    fatherType: PropTypes.string
 };
 
 CommonCardFoodit.defaultProps = {
@@ -161,7 +165,8 @@ CommonCardFoodit.defaultProps = {
     isOpening: false,
     poster: '',
     mediaVariant: 'image',
-    hasVideo: null
+    hasVideo: null,
+    fatherType: ''
 };
 
 export default CommonCardFoodit;

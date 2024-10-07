@@ -16,12 +16,11 @@ const addEventToDataLayer = ({
     code,
     notificationsCategory,
     button,
-    page_notification,
+    page_notification: pageNotification,
     identifier,
     contentType
 } = {}) => {
-    !isSSR() &&
-        window.dataLayer &&
+    if (!isSSR() && window.dataLayer)
         window.dataLayer.push({
             ...(event && { event }),
             ...(action && { dynamic_action: action }),
@@ -37,7 +36,7 @@ const addEventToDataLayer = ({
             ...(notificationsCategory && {
                 notifications_category: notificationsCategory
             }),
-            ...(page_notification && { page_notification }),
+            ...(pageNotification && { pageNotification }),
             ...(identifier && { identifier })
         });
 };
@@ -54,10 +53,11 @@ export const addEventToDataLayerV2 = ({
     code,
     notificationsCategory,
     button,
-    page_notification,
+    page_notification: pageNotification,
     identifier,
     contentType,
-    rest = {}
+    rest = {},
+    origin
 } = {}) => {
     if (!isSSR() && window.dataLayer) {
         scheduleTask(() => {
@@ -76,8 +76,12 @@ export const addEventToDataLayerV2 = ({
                 ...(notificationsCategory && {
                     notifications_category: notificationsCategory
                 }),
-                ...(page_notification && { page_notification }),
                 ...(identifier && { identifier }),
+                ...(pageNotification && {
+                    page_notification: pageNotification
+                }),
+                ...(identifier && { identifier }),
+                ...(origin && { origin }),
                 ...(rest && { ...rest })
             });
         });

@@ -2,7 +2,11 @@ import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/ad
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
 import { fillBookmarks } from '../../bookmark/iconHelper';
-import { dataLayerDictionary } from '../../dataLayer/_helpers';
+import {
+    dataLayerContainerDictionary,
+    dataLayerDictionary,
+    dataLayerLayoutDictionary
+} from '../../dataLayer/_helpers';
 
 export const saveRecipeConfig = {
     'save-folder': {
@@ -37,10 +41,12 @@ export const saveRecipeConfig = {
     }
 };
 
-const addSavedBookmarksToDataLayer = (
+export const addSavedBookmarksToDataLayer = ({
     articlesDetails = [],
-    carouselTitle = ''
-) => {
+    carouselTitle = '',
+    layout = '',
+    fatherType = ''
+}) => {
     if (articlesDetails.length) {
         const [firstArticle] = articlesDetails;
         const label =
@@ -49,11 +55,19 @@ const addSavedBookmarksToDataLayer = (
             get(firstArticle, 'content.headlines.basic') ||
             get(firstArticle, 'content.headlines.mobile', '');
 
+        const isFromCarouselHeader = articlesDetails.length > 1;
+
+        const origin =
+            fatherType && dataLayerContainerDictionary[layout]
+                ? dataLayerContainerDictionary[layout]
+                : dataLayerLayoutDictionary[layout] || '';
+
         addEventToDataLayerV2({
             event: 'e_linkclick',
             category: 'interaction',
-            action: 'guardar',
-            ...(articlesDetails.length > 1
+            origin,
+            action: isFromCarouselHeader ? 'guardar_todo' : 'guardar',
+            ...(isFromCarouselHeader
                 ? { title: carouselTitle }
                 : {
                       title,
@@ -72,7 +86,9 @@ export const actionButtons = ({
     selectedFolder,
     setIndexStep,
     articlesDetails,
-    carouselTitle = ''
+    layout,
+    carouselTitle = '',
+    fatherType
 }) => {
     const actions = {
         close,
@@ -83,7 +99,12 @@ export const actionButtons = ({
             );
             close();
 
-            addSavedBookmarksToDataLayer(articlesDetails, carouselTitle);
+            addSavedBookmarksToDataLayer({
+                articlesDetails,
+                carouselTitle,
+                layout,
+                fatherType
+            });
 
             const addFolder = selectedFolder.value === 'new';
 

@@ -1,9 +1,12 @@
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
+import { Button } from '@ln/foodit-ui-button';
 import { transformBookmarkContent } from '../../../bookmark/_helper';
 import { useGetFooditArticles } from '../../../bookmark/hooks/useGetFooditArticle';
 import { actionButtons } from '../helpers';
-import { Button } from '@ln/foodit-ui-button';
 
-const FooterSaveRecipe = ({
+function FooterSaveRecipe({
     hasInputError,
     close,
     indexStep,
@@ -13,9 +16,11 @@ const FooterSaveRecipe = ({
     selectedFolder,
     setIndexStep,
     ids,
+    layout,
     collectionArticles = [],
-    carouselTitle = ''
-}) => {
+    carouselTitle = '',
+    fatherType
+}) {
     const articles = useGetFooditArticles(
         (!collectionArticles.length && ids) || []
     );
@@ -43,7 +48,9 @@ const FooterSaveRecipe = ({
                         selectedFolder,
                         setIndexStep,
                         articlesDetails,
-                        carouselTitle
+                        carouselTitle,
+                        layout,
+                        fatherType
                     })
                 }
                 disabled={
@@ -76,6 +83,41 @@ const FooterSaveRecipe = ({
             </Button>
         </footer>
     );
+}
+
+FooterSaveRecipe.propTypes = {
+    hasInputError: PropTypes.bool.isRequired,
+    close: PropTypes.func.isRequired,
+    indexStep: PropTypes.number.isRequired,
+    leftButton: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        action: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
+    }).isRequired,
+    newFolder: PropTypes.string,
+    rightButton: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        action: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
+    }).isRequired,
+    selectedFolder: PropTypes.shape({
+        value: PropTypes.string
+    }).isRequired,
+    setIndexStep: PropTypes.func.isRequired,
+    ids: PropTypes.arrayOf(PropTypes.string),
+    layout: PropTypes.string,
+    collectionArticles: PropTypes.arrayOf(PropTypes.object),
+    carouselTitle: PropTypes.string,
+    fatherType: PropTypes.string
+};
+
+FooterSaveRecipe.defaultProps = {
+    newFolder: '',
+    ids: [],
+    layout: '',
+    collectionArticles: [],
+    carouselTitle: '',
+    fatherType: ''
 };
 
 export default FooterSaveRecipe;

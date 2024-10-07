@@ -9,9 +9,9 @@ import {
 } from '../../../../private/LN/common/utils/mediaHelper';
 import getImageAltText from '../../../../features/foodit-global/common/utils/getImageAltText';
 
-function ButtonTagComponent(props) {
-    return <Button variant="secondary" rounded="rounded-circle" {...props} />;
-}
+const CustomButtonTag = React.forwardRef((props, ref) => (
+    <Button variant="secondary" rounded="rounded-circle" ref={ref} {...props} />
+));
 
 export function Carousel({ articles = [], bookmarkedArticlesIds = [] }) {
     return (
@@ -30,16 +30,17 @@ export function Carousel({ articles = [], bookmarkedArticlesIds = [] }) {
                         time,
                         title,
                         variant,
-                        hasVideo,
                         image = {},
-                        contentCode = ''
+                        contentCode = '',
+                        hasVideo
                     }) => {
-                        const { resized_urls: resizedUrlImage, url } = image;
+                        const { resized_urls: resizedUrls, url } = image;
                         const { resizedUrl = '' } =
-                            getShortestImage(resizedUrlImage);
+                            getShortestImage(resizedUrls);
 
                         return (
                             <CommonCardFoodit
+                                fatherType="carousel"
                                 articleId={articleId}
                                 showTime={Boolean(time)}
                                 time={time}
@@ -49,7 +50,7 @@ export function Carousel({ articles = [], bookmarkedArticlesIds = [] }) {
                                 src={resizedUrl || url}
                                 alt={getImageAltText(image)}
                                 sources={getImagesToLoadWithPicture(
-                                    resizedUrlImage
+                                    resizedUrls
                                 )}
                                 loading="lazy"
                                 fetchPriority="low"
@@ -69,7 +70,7 @@ export function Carousel({ articles = [], bookmarkedArticlesIds = [] }) {
             <Mediascroller.Arrows
                 arrowSize={16}
                 className="bg-light-1"
-                buttonTag={ButtonTagComponent}
+                buttonTag={CustomButtonTag}
             />
             <Mediascroller.Progress
                 containerClassName="w-144 h-5 mx-auto bg-light-100 rounded-24"
@@ -80,8 +81,32 @@ export function Carousel({ articles = [], bookmarkedArticlesIds = [] }) {
 }
 
 Carousel.propTypes = {
-    articles: PropTypes.isRequired,
-    bookmarkedArticlesIds: PropTypes.isRequired
+    articles: PropTypes.arrayOf(
+        PropTypes.shape({
+            articleId: PropTypes.string.isRequired,
+            author: PropTypes.string,
+            href: PropTypes.string,
+            size: PropTypes.string,
+            tag: PropTypes.string,
+            time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            title: PropTypes.string.isRequired,
+            variant: PropTypes.string,
+            image: PropTypes.shape({
+                resized_urls: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        url: PropTypes.string
+                    })
+                ),
+                url: PropTypes.string
+            }),
+            contentCode: PropTypes.string
+        })
+    ).isRequired,
+    bookmarkedArticlesIds: PropTypes.arrayOf(PropTypes.string)
+};
+
+Carousel.defaultProps = {
+    bookmarkedArticlesIds: []
 };
 
 export default Carousel;

@@ -26,7 +26,7 @@ export const setAuthCredits = async (
 ) => {
     const objCredits = { ...credits };
     await Promise.all(
-        objCredits.by.map(async (credit, i) => {
+        (objCredits.by || []).map(async (credit, i) => {
             if (credit.image && !credit.image.auth) {
                 const imageId = get(credit, 'image.url', null);
                 const authImage =

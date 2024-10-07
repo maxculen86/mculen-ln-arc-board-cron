@@ -56,16 +56,19 @@ class Story {
     }
 
     render() {
-        const indexNota = this.apiData[
-            browser.getApiType(this.props.requestUri)
-        ][browser.getApiVersion(this.props.requestUri)];
+        const indexNota =
+            this.apiData[browser.getApiType(this.props.requestUri)][
+                browser.getApiVersion(this.props.requestUri)
+            ];
         const { navigationTreeSource, audionewsSource } = this.state || {};
         const { globalContent } = this.props;
+        const { _id, ...restAudioNewsSource } = audionewsSource || {};
+
         try {
             return indexNota({
                 ...globalContent,
                 navigationTreeSource,
-                ...audionewsSource
+                ...restAudioNewsSource
             });
         } catch (err) {
             return { Success: false, Message: err.message };

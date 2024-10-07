@@ -4,9 +4,9 @@ import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { Image } from '@ln/common-ui-image';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import {
     mockBenefits,
     imgsIngredientsBackground,
@@ -14,7 +14,7 @@ import {
 } from './helper';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
 
-export const SaleBox = ({ ...props }) => {
+export function SaleBox({ ...props }) {
     const { deployment, contextPath } = useAppContext();
 
     const assetsPath = file =>
@@ -48,7 +48,7 @@ export const SaleBox = ({ ...props }) => {
                         exclusivo para suscriptores
                     </Text>
                     <div>
-                        {mockBenefits.map((beneficts, i) => (
+                        {mockBenefits.map(beneficts => (
                             <div
                                 key={useId()}
                                 className="flex ai-center gap-4 mb-12"
@@ -71,7 +71,7 @@ export const SaleBox = ({ ...props }) => {
                         variant="accent"
                         href={paywallUrl}
                     >
-                        ¡suscribite gratis!
+                        ¡suscribite!
                     </Button>
                 </div>
                 <div className="col-span-8 col-span-5_md col-span-7_lg js-center as-end">
@@ -95,4 +95,4 @@ export const SaleBox = ({ ...props }) => {
             ))}
         </section>
     );
-};
+}

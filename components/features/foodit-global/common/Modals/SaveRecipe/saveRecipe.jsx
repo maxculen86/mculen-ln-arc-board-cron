@@ -1,4 +1,7 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
+import useSelectListener from './hooks/useSelectListener';
 import useInputListener from './hooks/useInputListener';
 
 import HeaderSaveRecipe from './components/header';
@@ -6,17 +9,17 @@ import MainSaveRecipe from './components/main';
 import FooterSaveRecipe from './components/footer';
 
 import { getConfig, saveRecipeConfig } from './helpers';
-import useSelectListener from './hooks/useSelectListener';
 
-const SaveRecipe = props => {
-    const {
-        close,
-        ids,
-        indexStep,
-        setIndexStep,
-        collectionArticles,
-        carouselTitle
-    } = props;
+function SaveRecipe({
+    close,
+    ids,
+    indexStep,
+    setIndexStep,
+    collectionArticles,
+    carouselTitle,
+    fatherType
+}) {
+    const { layout } = useAppContext() || {};
     const inputRef = useRef(null);
 
     const {
@@ -27,13 +30,8 @@ const SaveRecipe = props => {
 
     const { onSelectChange, selectValue = {} } = useSelectListener({});
 
-    const {
-        leftButton,
-        rightButton,
-        showInputFolder,
-        showSelect,
-        title
-    } = getConfig(saveRecipeConfig, indexStep);
+    const { leftButton, rightButton, showInputFolder, showSelect, title } =
+        getConfig(saveRecipeConfig, indexStep);
 
     useEffect(() => {
         if (selectValue.value === 'new') {
@@ -67,9 +65,27 @@ const SaveRecipe = props => {
                 ids={ids}
                 collectionArticles={collectionArticles}
                 carouselTitle={carouselTitle}
+                layout={layout}
+                fatherType={fatherType}
             />
         </>
     );
+}
+
+SaveRecipe.propTypes = {
+    close: PropTypes.func.isRequired,
+    ids: PropTypes.arrayOf(PropTypes.string).isRequired,
+    indexStep: PropTypes.number.isRequired,
+    setIndexStep: PropTypes.func.isRequired,
+    collectionArticles: PropTypes.arrayOf(PropTypes.object),
+    carouselTitle: PropTypes.string,
+    fatherType: PropTypes.string
+};
+
+SaveRecipe.defaultProps = {
+    collectionArticles: [],
+    carouselTitle: '',
+    fatherType: ''
 };
 
 export default SaveRecipe;
