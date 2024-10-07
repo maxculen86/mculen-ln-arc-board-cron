@@ -3,7 +3,7 @@ __tests__/
 .fusion/
 dist/
 resources/dist/
-resources/common/js/
+**/*.min.*
 _ignore_
 _ignore_*.*  
 .vscode/

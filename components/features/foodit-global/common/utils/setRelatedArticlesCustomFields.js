@@ -18,40 +18,38 @@ const customFieldsRules = {
     groupName: 'Ajuste Notas Relacionadas'
 };
 
-const setRelatedArticlesCustomFields = () => {
-    return {
-        layout: PropTypes.oneOf(Object.keys(customFieldsRules.layouts)).tag({
-            label: 'Diagramación',
-            defaultValue: customFieldsRules.defaultLayout,
-            description: 'Cambiar la diagramación',
-            group: customFieldsRules.groupName,
-            labels: customFieldsRules.layouts
-        }).isRequired,
-        customMaxArticles: PropTypes.number.tag({
-            label: 'Cantidad de Notas',
-            group: customFieldsRules.groupName
-        }),
-        customTitle: PropTypes.string.tag({
-            name: 'Título manual',
-            description: 'Ingrese aqui el título manual',
-            defaultValue: '',
-            group: customFieldsRules.groupName
-        }),
-        filterBy: PropTypes.oneOf(Object.keys(customFieldsRules.filterBy)).tag({
-            label: 'Filtrar por',
-            defaultValue: customFieldsRules.defaultFilterBy,
-            description: 'Cambiar tipo de filtro',
-            group: customFieldsRules.groupName,
-            labels: customFieldsRules.filterBy
-        }).isRequired,
-        idSectionOrAuthor: PropTypes.string.tag({
-            label: 'ID seccion o autor',
-            description:
-                'ID de la seccion o autor segun "Filtrar por" seleccionado',
-            defaultValue: '',
-            group: customFieldsRules.groupName
-        }).isRequired
-    };
-};
+const setRelatedArticlesCustomFields = () => ({
+    layout: PropTypes.oneOf(Object.keys(customFieldsRules.layouts)).tag({
+        label: 'Diagramación',
+        defaultValue: customFieldsRules.defaultLayout,
+        description: 'Cambiar la diagramación',
+        group: customFieldsRules.groupName,
+        labels: customFieldsRules.layouts
+    }).isRequired,
+    customMaxArticles: PropTypes.number.tag({
+        label: 'Cantidad de Notas',
+        group: customFieldsRules.groupName
+    }),
+    customTitle: PropTypes.string.tag({
+        name: 'Título manual',
+        description: 'Ingrese aqui el título manual',
+        defaultValue: '',
+        group: customFieldsRules.groupName
+    }),
+    filterBy: PropTypes.oneOf(Object.keys(customFieldsRules.filterBy)).tag({
+        label: 'Filtrar por',
+        defaultValue: customFieldsRules.defaultFilterBy,
+        description: 'Cambiar tipo de filtro',
+        group: customFieldsRules.groupName,
+        labels: customFieldsRules.filterBy
+    }).isRequired,
+    idSectionOrAuthor: PropTypes.string.tag({
+        label: 'ID seccion o autor',
+        description:
+            'ID de la seccion o autor segun "Filtrar por" seleccionado',
+        defaultValue: '',
+        group: customFieldsRules.groupName
+    }).isRequired
+});
 
 export default setRelatedArticlesCustomFields;

@@ -1,28 +1,30 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
-import RenderCollection from '../../../chains/foodit-global/common/RenderCollection/foodit';
-import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-
+import classNames from 'classnames';
 import useGetRelatedArticles from '../../foodit-global/hooks/useGetRelatedArticles';
+
 import { transformArticleFoodit } from '../../foodit-global/common/utils/notaFooditHelper';
 import setRelatedArticlesCustomFields from '../../foodit-global/common/utils/setRelatedArticlesCustomFields';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
 import { validateRelatedArticlesFeature } from './validateRelatedArticlesFeature';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
-import classNames from 'classnames';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
-import LazyLoad from '../../foodit-global/common/LazyLoad/foodit';
 
-const RelatedArticles = ({
+import { RenderCollection } from '../../../chains/foodit-global/common/RenderCollection/foodit';
+import { LazyLoad } from '../../foodit-global/common/LazyLoad/foodit';
+import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+
+function RelatedArticles({
     isAdmin,
     customFields,
     globalContent,
     id: featureId
-}) => {
+}) {
     const {
         layout = '',
         filterBy,
@@ -93,17 +95,15 @@ const RelatedArticles = ({
         }
     };
 
-    const conditionalTitle = customTitle
-        ? customTitle
-        : `Más recetas: ${(titleByFilter[filterBy] &&
-              titleByFilter[filterBy]()) ||
-              ''}`;
+    const conditionalTitle =
+        customTitle ||
+        `Más recetas: ${
+            (titleByFilter[filterBy] && titleByFilter[filterBy]()) || ''
+        }`;
 
     const articlesWithSize = articles
         .filter(article => article._id !== idArticle)
-        .map(article => {
-            return { ...transformArticleFoodit(article), size };
-        });
+        .map(article => ({ ...transformArticleFoodit(article), size }));
 
     const articlesTransformed = articlesWithSize.filter(
         article => article.href
@@ -137,17 +137,27 @@ const RelatedArticles = ({
             <div className={staticContentClassName}>{Component}</div>
         </Static>
     );
-};
+}
 
 RelatedArticles.propTypes = {
-    id: PropTypes.string,
+    id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool,
     customFields: PropTypes.shape({
         ...setRelatedArticlesCustomFields()
-    }),
+    }).isRequired,
     globalContent: PropTypes.shape({
-        taxonomy: PropTypes.object
-    })
+        _id: PropTypes.string,
+        taxonomy: PropTypes.shape({
+            primary_section: PropTypes.shape({
+                _id: PropTypes.string,
+                name: PropTypes.string
+            })
+        })
+    }).isRequired
+};
+
+RelatedArticles.defaultProps = {
+    isAdmin: false
 };
 
 export default Consumer(RelatedArticles);

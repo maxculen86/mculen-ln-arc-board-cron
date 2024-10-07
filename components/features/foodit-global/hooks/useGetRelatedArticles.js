@@ -2,7 +2,7 @@ import { useContent } from 'fusion:content';
 import filter from '../../../../content/filters/foodit/relatedArticles';
 import get from '../../../private/common/utils/get';
 
-export const useGetRelatedArticles = ({
+const useGetRelatedArticles = ({
     filterBy = '',
     id = '',
     maxArticles = 0,

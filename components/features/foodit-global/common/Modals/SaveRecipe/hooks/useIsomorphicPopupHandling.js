@@ -9,8 +9,12 @@ export default function useIsomorphicPopupHandling() {
     });
 
     const handleData = data => {
-        const { ids = [], collectionArticles = [], carouselTitle = '' } =
-            data || {};
+        const {
+            ids = [],
+            collectionArticles = [],
+            carouselTitle = '',
+            fatherType = ''
+        } = data || {};
 
         const idSet = new Set(ids);
         const allArticles = safeJSONParse(
@@ -49,7 +53,8 @@ export default function useIsomorphicPopupHandling() {
                     : { noBookmarkedArticles }),
                 ...((collectionArticles.length && { collectionArticles }) ||
                     {}),
-                carouselTitle
+                carouselTitle,
+                fatherType
             }
         });
     };

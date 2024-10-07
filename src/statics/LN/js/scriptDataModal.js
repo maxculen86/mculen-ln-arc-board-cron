@@ -4,7 +4,8 @@ window.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', e => {
             e.preventDefault();
             window?.LN?.observable?.publish('openModal', {
-                ids: button.dataset.id.split(',')
+                ids: button.dataset.id.split(','),
+                fatherType: button.dataset.fatherType || ''
             });
         });
     });

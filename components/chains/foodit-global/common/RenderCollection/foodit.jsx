@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import {
     getImagesToLoadWithPicture,
@@ -9,8 +10,8 @@ import getImageAltText from '../../../../features/foodit-global/common/utils/get
 
 import { LAYOUTS } from '../utils/helper-WebApi';
 
-import Carousel from '../Carousel/foodit';
-import RoofFoodit from '../../../../features/foodit-global/common/RoofFoodit/foodit';
+import { Carousel } from '../Carousel/foodit';
+import { RoofFoodit } from '../../../../features/foodit-global/common/RoofFoodit/foodit';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import {
@@ -20,7 +21,7 @@ import {
 
 const { CAROUSEL, BN_12_GRID } = LAYOUTS;
 
-export const RenderCollection = ({
+export function RenderCollection({
     rules,
     title,
     hideCaja,
@@ -30,7 +31,7 @@ export const RenderCollection = ({
     link = '',
     collectionId = '',
     articles = []
-}) => {
+}) {
     const bookmarkedArticles = filterBookmarksByArticledIs(articles);
     const fill =
         bookmarkedArticles.length &&
@@ -74,11 +75,12 @@ export const RenderCollection = ({
             image = {},
             contentCode = ''
         }) => {
-            const { resized_urls, url } = image;
-            const { resizedUrl = '' } = getShortestImage(resized_urls);
+            const { resized_urls: resizedUrls, url } = image;
+            const { resizedUrl = '' } = getShortestImage(resizedUrls);
 
             return (
                 <CommonCardFoodit
+                    fatherType={layout}
                     articleId={articleId}
                     showTime={Boolean(time)}
                     time={time}
@@ -87,9 +89,9 @@ export const RenderCollection = ({
                     variant={variant}
                     src={resizedUrl || url}
                     alt={getImageAltText(image)}
-                    sources={getImagesToLoadWithPicture(resized_urls)}
-                    loading={'lazy'}
-                    fetchPriority={'low'}
+                    sources={getImagesToLoadWithPicture(resizedUrls)}
+                    loading="lazy"
+                    fetchPriority="low"
                     tag={tag}
                     title={titleArticle}
                     author={author}
@@ -136,7 +138,58 @@ export const RenderCollection = ({
         )
     };
 
-    return hideCaja || (error && error.message) ? <></> : options[layout];
+    return hideCaja || (error && error.message)
+        ? React.Fragment
+        : options[layout];
+}
+
+RenderCollection.propTypes = {
+    rules: PropTypes.shape({
+        roofAs: PropTypes.string,
+        classNameParent: PropTypes.string,
+        classNameChildren: PropTypes.string,
+        classNameRoof: PropTypes.string
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    hideCaja: PropTypes.bool,
+    hideTitle: PropTypes.bool,
+    layout: PropTypes.oneOf([CAROUSEL, BN_12_GRID]).isRequired,
+    error: PropTypes.shape({
+        message: PropTypes.string
+    }),
+    link: PropTypes.string,
+    collectionId: PropTypes.string,
+    articles: PropTypes.arrayOf(
+        PropTypes.shape({
+            articleId: PropTypes.string.isRequired,
+            author: PropTypes.string,
+            href: PropTypes.string,
+            size: PropTypes.string,
+            tag: PropTypes.string,
+            time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            title: PropTypes.string.isRequired,
+            variant: PropTypes.string,
+            image: PropTypes.shape({
+                resized_urls: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        url: PropTypes.string
+                    })
+                ),
+                url: PropTypes.string
+            }),
+            contentCode: PropTypes.string
+        })
+    ).isRequired,
+    type: PropTypes.string
+};
+
+RenderCollection.defaultProps = {
+    hideCaja: false,
+    hideTitle: false,
+    link: '',
+    collectionId: '',
+    error: null,
+    type: ''
 };
 
 export default RenderCollection;

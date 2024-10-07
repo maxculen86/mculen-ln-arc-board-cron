@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Animate } from '@ln/common-ui-animate';
 import { Modal as ModalFoodit } from '@ln/foodit-ui-modal';
+import classNames from 'classnames';
 import SaveRecipe from './saveRecipe';
 import useIsomorphicPopupHandling from './hooks/useIsomorphicPopupHandling';
 import get from '../../../../../private/common/utils/get';
@@ -9,9 +10,16 @@ import { unfillBookmarks } from '../../bookmark/iconHelper';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
-import classNames from 'classnames';
 
-export const Modal = () => {
+const classNameModal = userType =>
+    classNames(
+        'rounded-4 h-fit p-16 p-24_md p-32_lg flex gap-16 gap-24_md gap-32_lg',
+        userType === 'subscribed'
+            ? 'bg-light-1 max-w-328'
+            : 'w-100 min-w-360 min-w-720_md min-w-944_lg bg-positive'
+    );
+
+export function Modal() {
     const { close, modalData } = useIsomorphicPopupHandling();
     const showModal = get(modalData, 'isVisible', false);
     const { userType } = useGetUserConfig();
@@ -20,7 +28,8 @@ export const Modal = () => {
         bookmarkedArticles = [],
         noBookmarkedArticles = [],
         collectionArticles = [],
-        carouselTitle = ''
+        carouselTitle = '',
+        fatherType = ''
     } = get(modalData, 'data', {});
 
     useEffect(() => {
@@ -41,14 +50,6 @@ export const Modal = () => {
     const restoreIndex = () => {
         setIndexStep(1);
     };
-
-    const classNameModal = userType =>
-        classNames(
-            'rounded-4 h-fit p-16 p-24_md p-32_lg flex gap-16 gap-24_md gap-32_lg',
-            userType === 'subscribed'
-                ? 'bg-light-1 max-w-328'
-                : 'w-100 min-w-360 min-w-720_md min-w-944_lg bg-positive'
-        );
 
     return (
         <Animate
@@ -73,6 +74,7 @@ export const Modal = () => {
                         carouselTitle={carouselTitle}
                         indexStep={indexStep}
                         setIndexStep={setIndexStep}
+                        fatherType={fatherType}
                     />
                 ) : (
                     <EmptyState
@@ -84,6 +86,6 @@ export const Modal = () => {
             </ModalFoodit>
         </Animate>
     );
-};
+}
 
 export default Modal;

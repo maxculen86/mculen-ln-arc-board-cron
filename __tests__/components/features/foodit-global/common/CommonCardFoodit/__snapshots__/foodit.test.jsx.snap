@@ -4,7 +4,7 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
 <div>
   <article
     class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
-    data-test-id="card-recipe-undefined-TDEG3VTIAFEW7BKS676OUVQAVE"
+    data-test-id="card-recipe--TDEG3VTIAFEW7BKS676OUVQAVE"
     data-variant="recipe"
   >
     <a

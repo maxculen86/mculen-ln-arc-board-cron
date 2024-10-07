@@ -18,11 +18,22 @@ export const DESCUBRIR_SECTIONS = [
 ];
 
 export const transformDataLayerString = (text = '') =>
-    removeAccents(text)
-        .replace(/ /g, '_')
-        .toLowerCase();
+    removeAccents(text).replace(/ /g, '_').toLowerCase();
 
 export const dataLayerDictionary = {
     note: 'nota',
     recipe: 'receta'
+};
+
+export const dataLayerLayoutDictionary = {
+    'Foodit-home': 'home',
+    'Foodit-acumulado': 'acumulados',
+    'Foodit-ficha-receta': 'ficha_receta',
+    'Foodit-ficha-nota': 'ficha_nota',
+    'Foodit-buscador': 'buscador'
+};
+
+export const dataLayerContainerDictionary = {
+    'Foodit-ficha-nota': 'recomendaciones',
+    'Foodit-ficha-receta': 'recomendaciones'
 };
