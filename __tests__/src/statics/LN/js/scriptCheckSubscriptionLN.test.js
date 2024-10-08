@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { handleScriptBtnSuscription } from '../../../../../src/statics/LN/js/scriptBuildRoof';
+import { handleButtonSubscriptionLN } from '../../../../../src/statics/LN/js/scriptCheckSubscriptionLN';
+
 describe('scr - statics - LN - js', () => {
     Object.defineProperty(document, 'cookie', {
         writable: true,
@@ -12,7 +13,7 @@ describe('scr - statics - LN - js', () => {
         remove: jest.fn() // Mocking remove method
     });
     test('hides button when premium product is in the cookie', () => {
-        handleScriptBtnSuscription();
+        handleButtonSubscriptionLN();
         expect(document.querySelector).toHaveBeenCalledWith(
             'a.--roof-button.--subscribe'
         );

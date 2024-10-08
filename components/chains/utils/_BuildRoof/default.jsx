@@ -76,17 +76,26 @@ export default function BuildRoof(props) {
         assets: getAssetsRight
     };
 
-    const scriptBtnSuscription = isSubExclusive ? (
+    const scriptCheckSubscriptionLN = isSubExclusive && (
         <script
             async
-            id="scriptBtnSuscriptionRoof"
+            id="scriptCheckSubscriptionLN"
             type="text/javascript"
             src={deployment(
-                `${contextPath}/resources/js/LN/scriptBuildRoof.min.js`
+                `${contextPath}/resources/js/LN/scriptCheckSubscriptionLN.min.js`
             )}
         />
-    ) : (
-        <></>
+    );
+
+    const scriptCheckSubscriptionFoodit = isFoodit && (
+        <script
+            async
+            id="scriptCheckSubscriptionFoodit"
+            type="text/javascript"
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptCheckSubscriptionFoodit.min.js`
+            )}
+        />
     );
 
     return setRender({
@@ -101,7 +110,8 @@ export default function BuildRoof(props) {
                         <Roof.Left {...propsLeft} />
                         <Roof.Right {...propsRight} />
                     </Roof>
-                    {scriptBtnSuscription}
+                    {scriptCheckSubscriptionLN}
+                    {scriptCheckSubscriptionFoodit}
                 </>
             )
         }
