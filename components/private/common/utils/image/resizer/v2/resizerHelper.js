@@ -131,14 +131,16 @@ export const baseUrl = ({
     arcSite = 'lanacionar',
     resizerUrl
 }) => {
+    if (isValidString(resizerUrl) && resizerUrl.length) return resizerUrl;
+
     const SITE_URL = {
         foodit: SITE_FOODIT,
         lanacionar: SITE_LANACION
     };
 
     return isInApertura && !isAdmin
-        ? SITE_URL[arcSite]
-        : resizerUrl || RESIZER_URL_PUBLIC;
+        ? SITE_URL[arcSite] || SITE_LANACION
+        : RESIZER_URL_PUBLIC;
 };
 
 export const buildQueryParams = ({
