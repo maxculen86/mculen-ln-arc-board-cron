@@ -468,7 +468,11 @@
         "basic": {
             "_id": "7V6VWM4V55A7BHXDKJ7GA3FJCE",
             "content": "Solo basic",
-            "type": "raw_html"
+            "type": "raw_html",
+            "originalSizes": {
+                "width": 0,
+                "height": 0
+            }
         }
     },
     "related_content": {
