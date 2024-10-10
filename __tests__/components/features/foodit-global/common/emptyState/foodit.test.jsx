@@ -47,12 +47,12 @@ describe('EmptyState component', () => {
         const title = screen.getByText(titleByVariant['barrier-unlogged']);
         const buttons = screen.getAllByRole('link');
         const loginButton = buttons.find(button =>
-            button.textContent.includes('Inicia sesión')
+            button.textContent.includes('Iniciá sesión')
         );
 
         expect(title).toBeInTheDocument();
         expect(loginButton).toHaveAttribute('data-variant', 'link');
-        expect(loginButton).toHaveTextContent('Inicia sesión');
+        expect(loginButton).toHaveTextContent('Iniciá sesión');
     });
     it('should match snapshot with variant "barrier-logged"', () => {
         const { container } = render(<EmptyState variant="barrier-logged" />);

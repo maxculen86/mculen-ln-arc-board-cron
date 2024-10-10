@@ -1083,6 +1083,10 @@ b, strong {
   overflow-x: clip;
 }
 
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
 .top-0 {
   top: 0;
 }
@@ -1095,16 +1099,32 @@ b, strong {
   bottom: 0;
 }
 
+.bottom-5 {
+  bottom: 0.3125rem;
+}
+
 .bottom-16 {
   bottom: 1rem;
+}
+
+.bottom-100 {
+  bottom: 100%;
 }
 
 .right-0 {
   right: 0;
 }
 
+.right-16 {
+  right: 1rem;
+}
+
 .right-24 {
   right: 1.5rem;
+}
+
+.right-100 {
+  right: 100%;
 }
 
 .left-0 {
@@ -1117,6 +1137,10 @@ b, strong {
 
 .left-56 {
   left: 3.5rem;
+}
+
+.left-100 {
+  left: 100%;
 }
 
 .absolute {
@@ -1146,6 +1170,22 @@ b, strong {
   .fixed_md {
     position: fixed;
   }
+}
+
+.center-x {
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.center-y {
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+.center-x-y {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
 }
 
 @media (max-width: 767.9px) {
@@ -1220,6 +1260,10 @@ b, strong {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.32), 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
 }
 
+.shadow-modal {
+  box-shadow: 0px 16px 32px 0px rgba(16, 16, 16, 0.08);
+}
+
 .w-0 {
   width: 0rem;
 }
@@ -1234,6 +1278,10 @@ b, strong {
 
 .w-24 {
   width: 1.5rem;
+}
+
+.w-32 {
+  width: 2rem;
 }
 
 .w-40 {
@@ -1470,6 +1518,10 @@ b, strong {
 
 .max-h-196 {
   max-height: 12.25rem;
+}
+
+.max-h-198 {
+  max-height: 12.375rem;
 }
 
 .min-h-344 {

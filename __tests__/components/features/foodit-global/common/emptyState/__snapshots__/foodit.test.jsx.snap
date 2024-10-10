@@ -49,7 +49,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
         <span
           class="uppercase"
         >
-          Inicia sesión
+          Iniciá sesión
         </span>
       </a>
     </div>
@@ -106,7 +106,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
         <span
           class="uppercase"
         >
-          Inicia sesión
+          Iniciá sesión
         </span>
       </a>
     </div>
@@ -174,7 +174,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
         <span
           class="uppercase"
         >
-          Inicia sesión
+          Iniciá sesión
         </span>
       </a>
     </div>

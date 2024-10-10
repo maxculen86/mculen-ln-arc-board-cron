@@ -119,7 +119,17 @@ export default {
                     }
                 ]
             },
-            credits: creditsSizes
+            credits: creditsSizes,
+            poster: {
+                sizes: {
+                    width: 880,
+                    height: 587,
+                    minScreenWidth: 768,
+                    media_preload: setMediaCondition({ minWidth: 768 }),
+                    useFullSize: true,
+                    proportion: '3:2'
+                }
+            }
         },
         grid2Notes: {
             promo_items: {
@@ -141,7 +151,17 @@ export default {
                     }
                 ]
             },
-            credits: creditsSizes
+            credits: creditsSizes,
+            poster: {
+                sizes: {
+                    width: 610,
+                    height: 407,
+                    minScreenWidth: 1024,
+                    media_preload: setMediaCondition({ minWidth: 1024 }),
+                    useFullSize: true,
+                    proportion: '3:2'
+                }
+            }
         },
         m: {
             promo_items: {

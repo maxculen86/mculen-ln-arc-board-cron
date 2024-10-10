@@ -1,4 +1,4 @@
-import { RESIZER_KEY, RESIZER_URL, CONTENT_BASE } from 'fusion:environment';
+import { RESIZER_KEY } from 'fusion:environment';
 import {
     FOTOAL100,
     STORYTELLING
@@ -10,6 +10,8 @@ import getPresets from '../presets';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 
+const CONTENT_BASE_PROD = 'https://api.lanacionar.arcpublishing.com';
+const RESIZER_URL_PUBLIC_PROD = 'https://resizer.glanacion.com';
 const STORY_QUERY_LIMIT = 30;
 export const MINIMUM_ITEMS = 4;
 
@@ -19,9 +21,11 @@ export const getAnalitycUrls = (data = {}) => {
 
     return stories.reduce((r, e) => {
         if (e && e.url) {
-            const regexResult = /\/www.lanacion.com.ar(\/.*\/+.*nid\d{8}[^\?]+)(\?.*)?$/.exec(
-                e.url.replace('#', '?')
-            );
+            const regexResult =
+                // eslint-disable-next-line no-useless-escape
+                /\/www.lanacion.com.ar(\/.*\/+.*nid\d{8}[^\?]+)(\?.*)?$/.exec(
+                    e.url.replace('#', '?')
+                );
             if (regexResult && regexResult[1] && !r.includes(regexResult[1])) {
                 const lastChar = regexResult[1].substring(
                     regexResult[1].length - 1
@@ -51,8 +55,13 @@ export const resolveUri = key => {
     const stories = get(key, 'stories', []);
     const endDate = new Date();
     const startDate = Object.assign(new Date(), endDate);
-    days && startDate.setDate(startDate.getDate() - days);
-    const requestUri = `${CONTENT_BASE}/content/v4/search/published`;
+
+    if (days) {
+        startDate.setDate(startDate.getDate() - days);
+    }
+
+    const requestUri = `${CONTENT_BASE_PROD}/content/v4/search/published`;
+
     const includeFields =
         '_id,subtype,promo_items.basic,headlines.basic,headlines.mobile,subheadlines,canonical_url,body,related_content,website_url,label';
     const uriParams = [
@@ -109,8 +118,13 @@ export const getQuery = (sectionId, layout) => {
     const finalSize =
         layoutsName.HomeLN10 === layout ? MINIMUM_ITEMS + 1 : MINIMUM_ITEMS;
 
-    const { type, endpoint, days, name = '', size = finalSize } =
-        config[sectionId] || config.home;
+    const {
+        type,
+        endpoint,
+        days,
+        name = '',
+        size = finalSize
+    } = config[sectionId] || config.home;
     return {
         endpoint: endpoint || `/most-readed-by-sections?Sections=${sectionId}`,
         days: days || daysBySection[type],
@@ -136,6 +150,7 @@ export const transformData = (data, query, cachedCall) => {
             const volanta = get(elem, `label.volanta`);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
+
             return {
                 ...elem,
                 ...addResizedUrls(
@@ -146,7 +161,7 @@ export const transformData = (data, query, cachedCall) => {
                     },
                     {
                         resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL,
+                        resizerUrl: RESIZER_URL_PUBLIC_PROD,
                         presets: {
                             promoItems: presetsPromoItems,
                             presetsDefault

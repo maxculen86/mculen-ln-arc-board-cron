@@ -175,12 +175,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 data-variant="link"
                 href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
                 target="_self"
-                title="INICIA SESIÓN"
+                title="INICIÁ SESIÓN"
               >
                 <span
                   class="roboto-regular"
                 >
-                  INICIA SESIÓN
+                  INICIÁ SESIÓN
                 </span>
               </a>
               <button
@@ -283,7 +283,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <button
                       class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover gap-8"
                       data-test-id="header-button-dropdown-Recetas"
-                      title="Ir a Recetas"
                     >
                       Recetas
                       <i
@@ -1134,7 +1133,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <button
                       class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover gap-8"
                       data-test-id="header-button-dropdown-Descubrir"
-                      title="Ir a Descubrir"
                     >
                       Descubrir
                       <i
@@ -1438,12 +1436,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             data-variant="link"
             href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
             target="_self"
-            title="INICIA SESIÓN"
+            title="INICIÁ SESIÓN"
           >
             <span
               class="roboto-regular"
             >
-              INICIA SESIÓN
+              INICIÁ SESIÓN
             </span>
           </a>
         </div>

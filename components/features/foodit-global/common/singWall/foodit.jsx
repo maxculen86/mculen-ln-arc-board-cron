@@ -66,7 +66,7 @@ function SingWall() {
                                     window.location?.href
                                 )}`}
                             >
-                                <span className="uppercase">inicia sesión</span>
+                                <span className="uppercase">iniciá sesión</span>
                             </Button>
                         )}
                     </div>

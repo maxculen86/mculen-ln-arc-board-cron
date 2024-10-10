@@ -1,13 +1,30 @@
 import get from '../../../../../common/utils/get';
 import epigrafeAndCreditsData from '../../../../../common/utils/epigrafeAndCreditsData';
 
+const removeInvisibleChracters = textToFix => {
+    let textFixed = (textToFix || '').toString();
+
+    textFixed = textFixed.replace(/\u200E/, '');
+    textFixed = textFixed.replace('\u0200E', '');
+    return textFixed;
+};
+
+const orderPattern = (a, b) => {
+    if (a < b) {
+        return 1;
+    }
+    if (a === b) {
+        if (a < b) {
+            return 1;
+        }
+        return -1;
+    }
+    return -1;
+};
+
 const imageCommon = image => {
     if (!image) return null;
-    const {
-        _id: id,
-        resized_urls: resizedUrlsWithInvisibleChracters,
-        url
-    } = image;
+    const { _id: id, resized_urls: resizedUrlsWithInvisibleChracters } = image;
     if (
         !resizedUrlsWithInvisibleChracters ||
         resizedUrlsWithInvisibleChracters.length === 0
@@ -21,15 +38,11 @@ const imageCommon = image => {
 
     const urlv2 = /.*\/resizer\/v2\/[a-zA-Z0-9-]+.*[?](auth=.*)/;
     const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.*[?]auth=(.*))/;
-    const absoluteUrl = resizedUrls[0].resizedUrl.replace(
-        urlv2,
-        (str, match) => {
-            return str.replace(match, '{{param}}');
-        }
+    const absoluteUrl = resizedUrls[0].resizedUrl.replace(urlv2, (str, match) =>
+        str.replace(match, '{{param}}')
     );
-    let baseUrl;
     const urlResult = hrefRegexV2.exec(resizedUrls[0].resizedUrl);
-    baseUrl = urlResult
+    const baseUrl = urlResult
         ? urlResult[1].replace(urlResult[2], '{{param}}')
         : resizedUrls[0].resizedUrl;
 
@@ -42,7 +55,7 @@ const imageCommon = image => {
     };
 
     Object.keys(resizedUrls)
-        .sort(function orderPhotos(a, b) {
+        .sort((a, b) => {
             const mediaA = get(resizedUrls, `[${a}].option.width`, 0);
             const mediaB = get(resizedUrls, `[${b}].option.width`, 0);
             return orderPattern(mediaA, mediaB);
@@ -56,9 +69,8 @@ const imageCommon = image => {
             }
             const ancho = get(resizedUrls, `[${index}].option.width`, 0);
             const alto = get(resizedUrls, `[${index}].option.height`, 0);
-            let firma;
             const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9-]+.*[?](auth=.*)/;
-            firma =
+            const firma =
                 (resizedUrls[index] &&
                     resizedUrls[index].resizedUrl &&
                     resizedUrls[index].resizedUrl.match(regexUrl) &&
@@ -78,15 +90,20 @@ const imageCommon = image => {
 };
 
 export const getImageUrl = url => {
-    const hrefRegex = new RegExp(
-        /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
-    );
+    const hrefRegex =
+        /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
     return hrefRegex.exec(url);
 };
 
 export const getImageUrlResizerV2 = url => {
     const regexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9-]+.*[?]auth=(.*))/;
     return regexV2.exec(url);
+};
+
+export const updateUrlWithResizerBase = url => {
+    if (!url) return url;
+
+    return url.replace(/.*\/resizer\//, '/resizer/')?.trim();
 };
 
 export const getImageUrlBasedOnResizerVersion = url => {
@@ -99,25 +116,17 @@ export const getImageUrlBasedOnResizerVersion = url => {
     return url;
 };
 
-export const updateUrlWithResizerBase = url => {
-    if (!url) return url;
-
-    return url.replace(/.*\/resizer\//, '/resizer/')?.trim();
-};
-
 export const imageMobile = imageData => {
     const image = imageCommon(imageData);
     const resp = {
         _t: 'image',
         url: image.absoluteUrl,
-        parameters: image.parametros.map(e => {
-            return {
-                media: e.media,
-                height: e.alto,
-                width: e.ancho,
-                signature: e.firma
-            };
-        })
+        parameters: image.parametros.map(e => ({
+            media: e.media,
+            height: e.alto,
+            width: e.ancho,
+            signature: e.firma
+        }))
     };
     const credits = epigrafeAndCreditsData(imageData);
     if (credits) resp.credits = credits;
@@ -128,27 +137,6 @@ export const imageMobile = imageData => {
         resp.epigraph = imageData.caption;
     }
     return resp;
-};
-
-const orderPattern = (a, b) => {
-    if (a < b) {
-        return 1;
-    }
-    if (a === b) {
-        if (a < b) {
-            return 1;
-        }
-        return -1;
-    }
-    return -1;
-};
-
-const removeInvisibleChracters = textToFix => {
-    let textFixed = (textToFix || '').toString();
-
-    textFixed = textFixed.replace(/\u200E/, '');
-    textFixed = textFixed.replace('\u0200E', '');
-    return textFixed;
 };
 
 export default imageCommon;

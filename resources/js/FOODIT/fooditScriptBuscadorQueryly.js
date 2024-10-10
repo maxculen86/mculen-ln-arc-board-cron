@@ -85,7 +85,7 @@ var searchPage = {
                     </div>
                     <div class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20">
                         <div class="flex flex-column gap-12">
-                            <div class="flex flex-column gap-4"><span class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20 <%=!queryly.data.subtype ? 'text-center' : ''%>"><%=queryly.data.title%></span></div>
+                            <div class="flex flex-column gap-4"><span class="text card-title prumo transition-regular text-ellipsis-3 <%=queryly.data.subtype === '4' ? 'prumo-semibold' : 'prumo-medium'%> text-20 <%=!queryly.data.subtype ? 'text-center' : ''%>"><%=queryly.data.title%></span></div>
                         </div>
                         <%if (queryly.data.subtype) {%>
                             <div class="flex gap-16 text-light-800 ai-center">

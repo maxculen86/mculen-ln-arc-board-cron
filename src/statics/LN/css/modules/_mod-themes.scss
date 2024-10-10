@@ -3,6 +3,9 @@
 
 .mod-themes {
     margin-bottom: $spacing-sm;
+    &.collapsible {
+        margin-bottom: 0;
+    }
     .com-link {
         &.com-button {
             margin-right: $spacing-sm;
@@ -16,34 +19,33 @@
         }
     }
 
-    .nota.recetas & {
-        .com-link.com-button.--tag {
-            margin: 0;
-            margin-bottom: $spacing;
-            padding: 0;
-            border: none;
-            background: none;
-            text-transform: inherit;
-            font-weight: 100;
-            font-size: 1rem;
-            line-height: 1.5rem;
-            display: inline-block;
+    .nota.recetas & .com-link.com-button.--tag,
+    &.collapsible .com-link.com-button {
+        margin: 0;
+        margin-bottom: $spacing;
+        padding: 0;
+        border: none;
+        background: none;
+        text-transform: inherit;
+        font-weight: 100;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        display: inline-block;
 
-            &:first-letter {
-                text-transform: capitalize;
-            }
+        &:first-letter {
+            text-transform: capitalize;
+        }
 
-            &:hover {
-                color: $blue-500;
-            }
+        &:hover {
+            color: $blue-500;
+        }
 
-            &:not(:last-child):after {
-                position: relative;
-                content: '•';
-                font-size: px(14);
-                color: $light-neutral-400;
-                margin: auto px(8);
-            }
+        &:not(:last-child):after {
+            position: relative;
+            content: '•';
+            font-size: px(14);
+            color: $light-neutral-400;
+            margin: auto px(8);
         }
     }
 

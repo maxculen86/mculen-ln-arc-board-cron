@@ -28,7 +28,7 @@ describe('buttonPropsByVariant', () => {
 
         const buttonProps = buttonPropsByVariant[variant];
 
-        expect(buttonProps.label).toBe('Inicia sesión');
+        expect(buttonProps.label).toBe('Iniciá sesión');
         expect(buttonProps.variant).toBe('link');
         expect(buttonProps.href).toContain(FOODIT_LOGIN_URL);
     });

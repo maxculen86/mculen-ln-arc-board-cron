@@ -1,48 +1,66 @@
 import { useContent } from 'fusion:content';
 
 import get from '../../../../../private/common/utils/get';
-import { checkForId } from '../../../../LN-10/article/common/_helper-WebApi.js';
-import { filterImagesByDevice } from '../../../../private-global/common/utils/filterImagesByDevice.js';
-import { getVideoData } from '../../../../private-global/common/utils/getVideoData.js';
+import { checkForId } from '../../../../LN-10/article/common/_helper-WebApi';
+import { filterImagesByDevice } from '../../../../private-global/common/utils/filterImagesByDevice';
+import { getVideoData } from '../../../../private-global/common/utils/getVideoData';
 
-import filter from '../../../../../../content/filters/foodit/home/articleFoodit.js';
-import replaceBaseUrl from '../../utils/replaceBaseUrl.js';
-import { getOpeningProps } from '../../utils/notaFooditHelper.js';
-import fooditRules from '../../utils/fooditRules.js';
+import filter from '../../../../../../content/filters/foodit/home/articleFoodit';
+import videoJwFilter from '../../../../../../content/filters/foodit/videoJwFilter';
+
+import replaceBaseUrl from '../../utils/replaceBaseUrl';
+import { getOpeningProps } from '../../utils/notaFooditHelper';
+import fooditRules from '../../utils/fooditRules';
 
 export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
-    const { noteId = '', openingLayout = '' } = getOpeningProps(renderables);
+    const {
+        noteId = '',
+        openingLayout = '',
+        videoId
+    } = getOpeningProps(renderables);
     const id = checkForId(noteId);
+    const validVideoId = checkForId(videoId);
 
     const { openingImgConfig = 'recipeDay' } = fooditRules(openingLayout);
 
-    const { promo_items = {} } =
-        useContent({
-            source: id ? 'fooditBaseArticleSource' : null,
-            query: {
-                id,
-                published: true,
-                website: 'foodit',
-                isInApertura: true,
-                isAdmin,
-                imageConfig: openingImgConfig,
-                checkExclusiveAccess: false
-            },
-            staticMode: true,
-            filter
-        }) || {};
+    const source =
+        (validVideoId && 'fooditVideoSource') ||
+        (id && 'fooditBaseArticleSource') ||
+        null;
 
-    return get(promo_items, 'basic.resized_urls', []);
+    const queryConfig = {
+        imageConfig: openingImgConfig,
+        id: validVideoId || id,
+        ...(!validVideoId && {
+            published: true,
+            isInApertura: true,
+            isAdmin,
+            checkExclusiveAccess: false
+        })
+    };
+
+    const preloadContent = useContent({
+        source,
+        query: queryConfig,
+        staticMode: true,
+        filter: validVideoId ? videoJwFilter : filter
+    });
+
+    if (validVideoId) {
+        return [{ resizedUrl: get(preloadContent, 'poster', '') }];
+    }
+
+    return get(preloadContent, 'promo_items.basic.resized_urls', []);
 };
 
 export const getPromoItemsImages = (article = {}, layout = '') => {
-    const { promo_items } = article;
+    const { promo_items: promoItems = {} } = article;
 
-    const videoJw = get(promo_items, 'video_jw', null);
-    const basicImage = replaceBaseUrl(get(promo_items, 'basic', {}));
+    const videoJw = get(promoItems, 'video_jw', null);
+    const basicImage = replaceBaseUrl(get(promoItems, 'basic', {}));
     const basicImageMobile =
         layout === 'Foodit-ficha-nota' &&
-        replaceBaseUrl(get(promo_items, 'storytelling_mobile', null));
+        replaceBaseUrl(get(promoItems, 'storytelling_mobile', null));
 
     if (videoJw && layout !== 'Foodit-recipe-paywall') {
         const { posterUrl = '' } = getVideoData(videoJw);

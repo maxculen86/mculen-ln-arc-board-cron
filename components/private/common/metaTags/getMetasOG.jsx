@@ -78,10 +78,14 @@ const getMetasOG = props => {
             property: 'og:image:width',
             content: data.image.width
         },
-        {
-            property: 'og:image:height',
-            content: data.image.height
-        },
+        ...(data.image.height
+            ? [
+                  {
+                      property: 'og:image:height',
+                      content: data.image.height
+                  }
+              ]
+            : []),
         {
             property: 'og:url',
             content: addForwardSlash(data.url)

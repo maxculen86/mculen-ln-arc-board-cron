@@ -4,6 +4,27 @@ import { adjustImageDimensions } from '../../../common/utils/adjustImageDimensio
 import getBiggestImage from '../../../common/utils/getBiggestImage';
 import { updateResizedUrl } from '../../../common/utils/updateResizedUrl';
 
+const nutritionInfo = [
+    { name: 'Tamaño de porcion', property: 'servingSize' },
+    { name: 'Carbohidratos', property: 'carbohydrateContent' },
+    { name: 'Proteínas', property: 'proteinContent' },
+    { name: 'Grasas', property: 'fatContent' },
+    {
+        name: 'Grasas saturadas',
+        property: 'saturatedFatContent'
+    },
+    {
+        name: 'Grasas insaturadas',
+        property: 'unsaturatedFatContent'
+    },
+    { name: 'Grasas trans', property: 'transFatContent' },
+    { name: 'Fibras', property: 'fiberContent' },
+    { name: 'Colesterol', property: 'cholesterolContent' },
+    { name: 'Sodio', property: 'sodiumContent' },
+    { name: 'Azúcar', property: 'sugarContent' },
+    { name: 'Calorías', property: 'calories' }
+];
+
 export const extractDataFromContentElements = contentElements => {
     const instructions = [];
     const embedConfigTypeList = 'embed.config.typeList';
@@ -17,30 +38,29 @@ export const extractDataFromContentElements = contentElements => {
             e => e.subtype === 'power-up-receta'
         );
 
-        element &&
+        if (element) {
             element.powerUp.forEach(e => {
-                get(e, `${embedConfigTypeList}`, '') === 'ingredientes' &&
+                if (get(e, `${embedConfigTypeList}`, '') === 'ingredientes') {
                     ingredients.push(...e.embed.config.items);
+                }
 
-                get(e, `${embedConfigTypeList}`, '') === 'preparacion' &&
+                if (get(e, `${embedConfigTypeList}`, '') === 'preparacion') {
                     instructions.push({
                         '@type': 'HowToSection',
-
                         name:
                             e.embed.config.titleList !== ''
                                 ? e.embed.config.titleList
                                 : 'Preparación de la receta',
-
-                        itemListElement: e.embed.config.items.map(item => {
-                            return {
-                                '@type': 'HowToStep',
-                                text: item
-                            };
-                        })
+                        itemListElement: e.embed.config.items.map(item => ({
+                            '@type': 'HowToStep',
+                            text: item
+                        }))
                     });
+                }
 
-                get(e, 'subtype', '') === 'custom-nutrition' &&
+                if (get(e, 'subtype', '') === 'custom-nutrition') {
                     nutritionItems.push(...e.rows);
+                }
 
                 nutritionItems.forEach(item => {
                     newProperty = `${item[1].content}`;
@@ -51,6 +71,7 @@ export const extractDataFromContentElements = contentElements => {
                     });
                 });
             });
+        }
     }
 
     return {
@@ -65,7 +86,7 @@ export const extractDataFromCredits = by => {
     if (by) {
         autores = by
             .filter(v => v.type === 'author')
-            .map(v => v.name.replace(/[^a-zA-Z ]+/g, ''))
+            .map(v => v.name)
             .join(', ');
     }
 
@@ -99,8 +120,8 @@ export const extractDataFromPromoItems = (promoItems, PLACERHOLDER) => {
             image = {
                 ...image,
                 url: newResizedUrl || url,
-                height: newHeight ? newHeight : height,
-                width: newWidth ? newWidth : width
+                height: newHeight || height,
+                width: newWidth || width
             };
         }
 
@@ -134,24 +155,3 @@ export const extractDataFromTags = tags => {
 
     return { keywords };
 };
-
-const nutritionInfo = [
-    { name: 'Tamaño de porcion', property: 'servingSize' },
-    { name: 'Carbohidratos', property: 'carbohydrateContent' },
-    { name: 'Proteínas', property: 'proteinContent' },
-    { name: 'Grasas', property: 'fatContent' },
-    {
-        name: 'Grasas saturadas',
-        property: 'saturatedFatContent'
-    },
-    {
-        name: 'Grasas insaturadas',
-        property: 'unsaturatedFatContent'
-    },
-    { name: 'Grasas trans', property: 'transFatContent' },
-    { name: 'Fibras', property: 'fiberContent' },
-    { name: 'Colesterol', property: 'cholesterolContent' },
-    { name: 'Sodio', property: 'sodiumContent' },
-    { name: 'Azúcar', property: 'sugarContent' },
-    { name: 'Calorías', property: 'calories' }
-];

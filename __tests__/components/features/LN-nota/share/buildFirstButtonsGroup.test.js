@@ -7,7 +7,7 @@ import useFetch from '../../../../../components/private/common/hooks/useFetch';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -32,7 +32,12 @@ const props = {
                 }
             }
         }
-    ]
+    ],
+    globalContentConfig: {
+        query: {
+            uri: '/sociedad/hola/'
+        }
+    }
 };
 
 Context.useAppContext = jest.fn(() => props);

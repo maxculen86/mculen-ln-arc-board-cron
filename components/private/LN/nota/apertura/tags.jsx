@@ -48,12 +48,17 @@ const Tags = ({ tags = [], sections, destacado, temas, showItems }) => {
                 <div className="row">
                     <div className="col-12">
                         {listTags.length > 0 && (
-                            <HeaderSection tag="h3" title="Temas" />
+                            <HeaderSection
+                                tag="h3"
+                                title="Temas"
+                                line={false}
+                            />
                         )}
                         {listTags && (
                             <TaxonomyComponent
                                 list={listTags}
                                 destacado={destacado}
+                                collapsible
                             />
                         )}
                     </div>

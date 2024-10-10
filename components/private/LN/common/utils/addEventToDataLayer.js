@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable camelcase */
 import isSSR from './isSSR';
 import { scheduleTask } from '../../../common/utils/scheduleTask';
 
@@ -54,6 +56,7 @@ export const addEventToDataLayerV2 = ({
     page_notification: pageNotification,
     identifier,
     contentType,
+    rest = {},
     origin
 } = {}) => {
     if (!isSSR() && window.dataLayer) {
@@ -73,11 +76,13 @@ export const addEventToDataLayerV2 = ({
                 ...(notificationsCategory && {
                     notifications_category: notificationsCategory
                 }),
+                ...(identifier && { identifier }),
                 ...(pageNotification && {
                     page_notification: pageNotification
                 }),
                 ...(identifier && { identifier }),
-                ...(origin && { origin })
+                ...(origin && { origin }),
+                ...(rest && { ...rest })
             });
         });
     }
