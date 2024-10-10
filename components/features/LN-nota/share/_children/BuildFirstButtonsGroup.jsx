@@ -34,9 +34,9 @@ import {
     handleIaToggle,
     IA_FEATURE_TRACKING_STORAGE
 } from './helper';
-import getAudioEvents from '../../../../private/LN/common/utils/getAudioEvents';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
+import getAudioEvents from '../../../LN-10-global/common/utils/getAudioEvents';
 
 function BuildFirtsButtonsGroup({
     termicaBookmark,

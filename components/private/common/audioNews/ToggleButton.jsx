@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import { IA_AUDIO_SUMMARY_TRACKING_STORAGE } from './helpers';
-import getAudioEvents from '../../LN/common/utils/getAudioEvents';
+import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
 
 function ToggleButton({ contentVariant, handleToggle }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();

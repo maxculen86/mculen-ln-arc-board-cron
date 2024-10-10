@@ -17,7 +17,7 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../../auth/helper/loginHelper';
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
-import getAudioEvents from '../../LN/common/utils/getAudioEvents';
+import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
 
 function AudioPlayerDesktop({ noteId = '', isListenable, className }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
