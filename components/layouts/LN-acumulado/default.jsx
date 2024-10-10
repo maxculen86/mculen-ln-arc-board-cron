@@ -16,9 +16,9 @@ import '../../../resources/dist/css/ln/pages/wiki-tags.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
-import { formatText } from '../../private/common/utils/sectionUtils';
+import { toKebabCase } from '../../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
-import PwaModal from '../../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 
@@ -46,7 +46,7 @@ const sections = [
 
 const acumToSearchAperturaChain = ['tags'];
 
-const LNAcumuladoLayout = props => {
+function LNAcumuladoLayout(props) {
     const {
         children: [
             bannerMegatop,
@@ -76,7 +76,7 @@ const LNAcumuladoLayout = props => {
 
     const classMisNotas = requestUri.includes('/mis-notas/') && 'mis-notas';
     const sectionClass =
-        sections.find(sec => sec === formatText(name)) || classMisNotas || '';
+        sections.find(sec => sec === toKebabCase(name)) || classMisNotas || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
 
     const {
@@ -92,8 +92,7 @@ const LNAcumuladoLayout = props => {
 
     const {
         background_color: backgroundCategory,
-        navigation_color_tags: colorTags,
-        header_class_name: headerDark
+        navigation_color_tags: colorTags
     } = acumuladoColor;
 
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
@@ -189,9 +188,7 @@ const LNAcumuladoLayout = props => {
                                             url: anexoSuperiorConfig.anexoUrl
                                         }}
                                     />
-                                ) : (
-                                    <></>
-                                )}
+                                ) : null}
                             </div>
                         </div>
                         <div className="lay">
@@ -217,9 +214,7 @@ const LNAcumuladoLayout = props => {
                                             url: anexoInferiorConfig.anexoUrl
                                         }}
                                     />
-                                ) : (
-                                    <></>
-                                )}
+                                ) : null}
                                 {/* NOTAS */}
                                 {notas}
                             </div>
@@ -244,15 +239,13 @@ const LNAcumuladoLayout = props => {
             </GlobalProviderAcu>
         </GlobalProvider>
     );
-};
+}
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node,
-    outputType: PropTypes.string,
     requestUri: PropTypes.string,
-    tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
-    isAdmin: PropTypes.bool,
     renderables: PropTypes.arrayOf(PropTypes.node),
+    layout: PropTypes.string,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
