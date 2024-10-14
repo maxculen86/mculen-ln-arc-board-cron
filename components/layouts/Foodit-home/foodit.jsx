@@ -24,7 +24,6 @@ function HomeFoodit({ children, isAdmin }) {
             <Static id="opening-home">
                 <section>{opening}</section>
             </Static>
-            <hr className="lg-none" />
             <section className={sectionClasses}>{bloque1}</section>
             <section className={sectionClasses}>{bloque2}</section>
         </BaseLayout>

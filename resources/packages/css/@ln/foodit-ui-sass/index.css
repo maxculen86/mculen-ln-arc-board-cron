@@ -135,6 +135,20 @@ input[type=checkbox]:hover {
   }
 }
 
+.media-scroller.--carousel-category [data-scroller=track] {
+  --scroller-element-columns: 3;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .media-scroller.--carousel-category [data-scroller=track] {
+    grid-auto-columns: 147px;
+  }
+}
+@media (min-width: 80rem) {
+  .media-scroller.--carousel-category [data-scroller=track] {
+    --scroller-element-columns: 2;
+  }
+}
+
 .jc-center {
   justify-content: center;
 }
@@ -321,6 +335,9 @@ input[type=checkbox]:hover {
 }
 .border.border-light-100 {
   border-color: var(--neutral-light-100);
+}
+.border.border-light-200 {
+  border-color: var(--neutral-light-200);
 }
 .border.border-light-300 {
   border-color: var(--neutral-light-300);
@@ -667,6 +684,11 @@ input[type=checkbox]:hover {
 }
 .prumo-semibold {
   --prumo-font-variation: 130;
+}
+.prumo.text-14 {
+  font-size: 0.875rem;
+  line-height: 130%;
+  --prumo-letter-spacing: -0.16px;
 }
 .prumo.text-16 {
   font-size: 1rem;

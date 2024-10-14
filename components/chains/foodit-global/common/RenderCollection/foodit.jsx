@@ -79,6 +79,15 @@ export function RenderCollection({
             const { resized_urls: resizedUrls, url } = image;
             const { resizedUrl = '' } = getShortestImage(resizedUrls);
 
+            const propsCard = {
+                [CAROUSEL]: {
+                    fill: bookmarkedArticles.includes(articleId),
+                    titleEllipsis: 2
+                },
+                [BN_12_GRID]: {
+                    className: classNameChildren
+                }
+            };
             return (
                 <CommonCardFoodit
                     fatherType={layout}
@@ -96,10 +105,10 @@ export function RenderCollection({
                     tag={tag}
                     title={titleArticle}
                     author={author}
-                    className={classNameChildren}
                     key={articleId}
                     contentCode={contentCode}
                     hasVideo={hasVideo}
+                    {...propsCard[layout]}
                 />
             );
         }
@@ -121,10 +130,7 @@ export function RenderCollection({
                         />
                     }
                 />
-                <Carousel
-                    articles={articles}
-                    bookmarkedArticlesIds={bookmarkedArticles}
-                />
+                <Carousel type="collection">{renderArticles}</Carousel>
             </div>
         ),
         [BN_12_GRID]: (
