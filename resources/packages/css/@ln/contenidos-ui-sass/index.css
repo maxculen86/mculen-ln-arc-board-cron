@@ -1259,6 +1259,7 @@ a {
   --palabra-oculta: #97c7ff;
   --diferencias: #ed933f;
   --crucimini: #6781c8;
+  --cruci-tematico: #B09C03;
   --line-100: 100%;
   --line-110: 110%;
   --line-116: 116%;
@@ -1755,6 +1756,10 @@ a {
   background: var(--crucimini);
 }
 
+.bg-cruci-tematico {
+  background: var(--cruci-tematico);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1833,6 +1838,10 @@ a {
 
 .bg-crucimini__hover:hover {
   background: var(--crucimini);
+}
+
+.bg-cruci-tematico__hover:hover {
+  background: var(--cruci-tematico);
 }
 
 .bg-secondary__hover:hover {

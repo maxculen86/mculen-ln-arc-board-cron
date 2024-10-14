@@ -111,7 +111,6 @@
             #audio-player-desktop {
                 @include padding_rl;
                 @media ($media-l) {
-                    display: flex;
                     width: 100%;
                     margin-right: auto;
                     margin-left: auto;
