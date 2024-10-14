@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-danger */
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import get from '../../../common/utils/get';
@@ -74,6 +73,116 @@ export const BANNERS_TABLET = [
 export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
     soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
 
+export const getBannerSectionDimensions = (section, slotName) => {
+    if (!section || !slotName) return null;
+
+    const defaultSlotDimensions = {
+        nota_caja1_dsk: '300x250,300x600,120x600,160x600,300x450',
+        nota_caja4_dsk: '300x250,300x600,300x450',
+        nota_caja5_dsk: '300x250,300x600,120x600,160x600,300x450',
+        acumulado_caja1_dsk: '300x250,300x600'
+    };
+
+    const sectionSlotDimensions = {
+        propiedades: defaultSlotDimensions,
+        campo: defaultSlotDimensions,
+        futuria: defaultSlotDimensions,
+        bienestar: defaultSlotDimensions,
+        movilidad: defaultSlotDimensions,
+        'que-sale': defaultSlotDimensions,
+        juegos: defaultSlotDimensions
+    };
+
+    return sectionSlotDimensions[section]?.[slotName];
+};
+
+export const parseDimensionsBanners = dimensionsString => {
+    if (!dimensionsString || typeof dimensionsString !== 'string') {
+        return null;
+    }
+
+    const dimensions = dimensionsString.split(',');
+    return dimensions.map(dimension =>
+        dimension.split('x').map(size => parseInt(size, 10) || size)
+    );
+};
+
+export const setPrebidBanners = (_bannerConfig, section) => {
+    const bannerConfig = { ..._bannerConfig };
+    if (['propiedades', 'campo', 'bienestar', 'movilidad'].includes(section)) {
+        bannerConfig.bidding = { prebid: { enabled: true } };
+    }
+    return (
+        bannerConfig.bidding || {
+            prebid: {
+                enabled: false
+            }
+        }
+    );
+};
+
+export const getDimsFromSiteService = (config, slotName, section) => {
+    const dynamicSlotDimensions = {
+        la_nacion_usa: {
+            nota_caja1_dsk: ['120x600', '160x600', '300x600'],
+            acumulado_caja1_dsk: ['120x600', '160x600', '300x600']
+        }
+    };
+
+    if (!config || !slotName) return null;
+
+    const specificSectionDimensions = getBannerSectionDimensions(
+        section,
+        slotName
+    );
+    if (specificSectionDimensions) {
+        return parseDimensionsBanners(specificSectionDimensions);
+    }
+
+    const position = config.find(item => item.adunit === slotName);
+
+    if (!position || !position.dimensions || position.dimensions === '')
+        return null;
+
+    if (dynamicSlotDimensions[section]?.[slotName]) {
+        position.dimensions =
+            dynamicSlotDimensions[section][slotName].join(',');
+    }
+
+    return parseDimensionsBanners(position.dimensions);
+};
+
+export const shouldShow = (hideBanners, label, termicas = []) => {
+    // Si la termica banner esta en false o si en la seccion esta tildado hideBanner o en composer tiene no mostrar, no se muestra
+    const element = termicas.find(ter => ter.key === 'banners') || {
+        value: 'true'
+    };
+    const { mostrar_banners: mostrarBanners } = label || {};
+    const { text: mostrarBannersValue } = mostrarBanners || {};
+
+    return (
+        element &&
+        element.value &&
+        element.value.toString() === 'true' &&
+        hideBanners !== 'true' &&
+        mostrarBannersValue !== 'No'
+    );
+};
+
+export const buildBannerClasses = (config, customFields) => {
+    const { slotName = '', withoutHide, closeButton } = config || {};
+    const { background, sticky, fixed } = customFields || {};
+    let classes = '';
+    if (background) classes += '--bg-banner ';
+    if (sticky) classes += '--sticky ';
+    if (fixed) classes += '--fixed ';
+    if (closeButton) classes += '--close ';
+    if (!withoutHide) classes += 'none ';
+    if (slotName.includes('comercial')) classes += '--comercial ';
+
+    return classes;
+};
+
 export const getBannerConfigFromSiteService = ({
     bannersSiteConfig,
     bannerConfiguration,
@@ -98,6 +207,95 @@ export const getBannerConfigFromSiteService = ({
     }
 
     return { ...bannerConfiguration, dimensions: defaultDimensions };
+};
+
+export const handleCanchallenaException = (subSections = []) => {
+    const CANCHALLENA = 'Canchallena';
+    const isCanchallena = subSections.some(
+        (section = {}) => section.name === CANCHALLENA
+    );
+
+    return isCanchallena ? [true, CANCHALLENA.toLowerCase()] : false;
+};
+
+export const handleUnitedStatesLabelException = () => {
+    const { globalContent } = useAppContext();
+    const UNITEDSTATES = 'la_nacion_usa';
+    const isUnitedStates =
+        get(globalContent, 'label.eje_subeje.text', '') === 'Estados-Unidos';
+
+    return isUnitedStates ? [true, UNITEDSTATES] : false;
+};
+
+export const isPrimarySectionInBannerSegments =
+    tags =>
+    primarySection =>
+    (segments, subSections = []) => {
+        if (!segments || !primarySection) return [false, null];
+
+        const tagsExceptions = ['que-sale', 'futuria'];
+        const replaceTagAdserver = tags.find(tag =>
+            tagsExceptions.includes(tag.slug)
+        );
+
+        let adjustedPrimarySection = primarySection;
+
+        if (replaceTagAdserver) {
+            adjustedPrimarySection = replaceTagAdserver.slug;
+        }
+
+        const canchallenaException = handleCanchallenaException(subSections);
+
+        if (canchallenaException) {
+            return canchallenaException;
+        }
+
+        const unitedStatesFromLabel = handleUnitedStatesLabelException();
+
+        if (unitedStatesFromLabel) {
+            return unitedStatesFromLabel;
+        }
+
+        const EXCEPTIONS = {
+            'estados-unidos': 'la_nacion_usa',
+            salud: 'bienestar',
+            autos: 'movilidad',
+            'que-sale': 'que-sale',
+            IA: 'futuria',
+            juegos: 'juegos'
+        };
+
+        const subSectionExceptions = {
+            futuria: true
+        };
+
+        const base = adjustedPrimarySection.split('/').filter(Boolean);
+        const section = base.find(x => segments.includes(x)) || base.shift();
+        const hardSection = EXCEPTIONS[section] || section;
+        const included =
+            subSectionExceptions[hardSection] || segments.includes(hardSection);
+
+        return [included, hardSection];
+    };
+
+export const changeSegmentAdUnit = (section, device, slotName = '') => {
+    const stringToReplace = slotName
+        ? slotName.split('/').filter(Boolean).shift()
+        : '';
+
+    return slotName.replace(stringToReplace, `${section}_${device}`);
+};
+
+export const setCustomAdUnit = (slotName, unit) => {
+    const slotNameSections = slotName && slotName.split('/').filter(Boolean);
+
+    const stringToReplace =
+        (slotNameSections &&
+            slotNameSections.length > 2 &&
+            slotNameSections.slice(1, slotNameSections.length - 1).join('/')) ||
+        '';
+
+    return slotName.replace(stringToReplace, unit);
 };
 
 export const getBannerConfiguration = (
@@ -216,160 +414,23 @@ export const getBannerConfiguration = (
     });
 };
 
-export const shouldShow = (hideBanners, label, termicas = []) => {
-    // Si la termica banner esta en false o si en la seccion esta tildado hideBanner o en composer tiene no mostrar, no se muestra
-    const element = termicas.find(ter => ter.key === 'banners') || {
-        value: 'true'
-    };
-    const { mostrar_banners: mostrarBanners } = label || {};
-    const { text: mostrarBannersValue } = mostrarBanners || {};
-
-    return (
-        element &&
-        element.value &&
-        element.value.toString() === 'true' &&
-        hideBanners !== 'true' &&
-        mostrarBannersValue !== 'No'
-    );
-};
-
-export const buildBannerClasses = (config, customFields) => {
-    const { slotName = '', withoutHide, closeButton } = config || {};
-    const { background, sticky, fixed } = customFields || {};
-    let classes = '';
-    if (background) classes += '--bg-banner ';
-    if (sticky) classes += '--sticky ';
-    if (fixed) classes += '--fixed ';
-    if (closeButton) classes += '--close ';
-    if (!withoutHide) classes += 'none ';
-    if (slotName.includes('comercial')) classes += '--comercial ';
-
-    return classes;
-};
-
-export const getDimsFromSiteService = (config, slotName, section) => {
-    const dynamicSlotDimensions = {
-        la_nacion_usa: {
-            nota_caja1_dsk: ['120x600', '160x600', '300x600'],
-            acumulado_caja1_dsk: ['120x600', '160x600', '300x600']
-        }
-    };
-
-    if (!config || !slotName) return null;
-
-    const specificSectionDimensions = getBannerSectionDimensions(
-        section,
-        slotName
-    );
-    if (specificSectionDimensions) {
-        return parseDimensionsBanners(specificSectionDimensions);
-    }
-
-    const position = config.find(item => item.adunit === slotName);
-
-    if (!position || !position.dimensions || position.dimensions === '')
-        return null;
-
-    if (dynamicSlotDimensions[section]?.[slotName]) {
-        position.dimensions =
-            dynamicSlotDimensions[section][slotName].join(',');
-    }
-
-    return parseDimensionsBanners(position.dimensions);
-};
-
-export const handleCanchallenaException = (subSections = []) => {
-    const CANCHALLENA = 'Canchallena';
-    const isCanchallena = subSections.some(
-        (section = {}) => section.name === CANCHALLENA
-    );
-
-    return isCanchallena ? [true, CANCHALLENA.toLowerCase()] : false;
-};
-
-export const handleUnitedStatesLabelException = () => {
-    const { globalContent } = useAppContext();
-    const UNITEDSTATES = 'la_nacion_usa';
-    const isUnitedStates =
-        get(globalContent, 'label.eje_subeje.text', '') === 'Estados-Unidos';
-
-    return isUnitedStates ? [true, UNITEDSTATES] : false;
-};
-
-export const isPrimarySectionInBannerSegments =
-    tags =>
-    primarySection =>
-    (segments, subSections = []) => {
-        if (!segments || !primarySection) return [false, null];
-
-        const tagsExceptions = ['que-sale', 'futuria'];
-        const replaceTagAdserver = tags.find(tag =>
-            tagsExceptions.includes(tag.slug)
-        );
-
-        if (replaceTagAdserver) {
-            primarySection = replaceTagAdserver.slug;
-        }
-
-        const canchallenaException = handleCanchallenaException(subSections);
-
-        if (canchallenaException) {
-            return canchallenaException;
-        }
-
-        const unitedStatesFromLabel = handleUnitedStatesLabelException();
-
-        if (unitedStatesFromLabel) {
-            return unitedStatesFromLabel;
-        }
-
-        const EXCEPTIONS = {
-            'estados-unidos': 'la_nacion_usa',
-            salud: 'bienestar',
-            autos: 'movilidad',
-            'que-sale': 'que-sale',
-            IA: 'futuria'
-        };
-
-        const subSectionExceptions = {
-            futuria: true
-        };
-
-        const base = primarySection.split('/').filter(Boolean);
-        const section = base.find(x => segments.includes(x)) || base.shift();
-        const hardSection = EXCEPTIONS[section] || section;
-        const included =
-            subSectionExceptions[hardSection] || segments.includes(hardSection);
-
-        return [included, hardSection];
-    };
-
 export const getSlotForDevice = device => slots =>
     slots.find(slot => slot.name === device)
         ? slots.find(slot => slot.name === device).slot || null
         : null;
 
-export const setCustomAdUnit = (slotName, unit) => {
-    const slotNameSections = slotName && slotName.split('/').filter(Boolean);
-
-    const stringToReplace =
-        (slotNameSections &&
-            slotNameSections.length > 2 &&
-            slotNameSections.slice(1, slotNameSections.length - 1).join('/')) ||
-        '';
-
-    return slotName.replace(stringToReplace, unit);
-};
-
-export const changeSegmentAdUnit = (section, device, slotName = '') => {
-    const stringToReplace = slotName
-        ? slotName.split('/').filter(Boolean).shift()
-        : '';
-
-    return slotName.replace(stringToReplace, `${section}_${device}`);
-};
-
 export const queueGoogletagCommand = bannersToLoad => {
+    function callAdserver(_headerBiddingSlots, fallback = false) {
+        if (pbjs.adserverCalled) return;
+        /* eslint-disable no-console */
+        if (fallback) {
+            console.log('🚀 ~ callAdserver ~ fallback:', fallback);
+        }
+        /* eslint-enable no-console */
+        pbjs.adserverCalled = true;
+        googletag.pubads().refresh(_headerBiddingSlots);
+    }
+
     googletag.cmd.push(() => {
         const defineSlot = ({
             adUnitPath,
@@ -415,7 +476,7 @@ export const queueGoogletagCommand = bannersToLoad => {
                 {
                     ...slotAPS
                 },
-                function (bids) {
+                () => {
                     // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
                     if (pbjs.adserverRequestSent) return;
                     apstag.setDisplayBids();
@@ -423,22 +484,15 @@ export const queueGoogletagCommand = bannersToLoad => {
             );
 
             // function that calls the ad-server
-            function callAdserver(_headerBiddingSlots, fallback = false) {
-                if (pbjs.adserverCalled) return;
-                fallback &&
-                    console.log('🚀 ~ callAdserver ~ fallback:', fallback);
-                pbjs.adserverCalled = true;
-                googletag.pubads().refresh(_headerBiddingSlots);
-            }
 
-            !isWebview(navigator.userAgent) &&
-                hastSlotswithBids &&
-                pbjs.que.push(function () {
+            if (!isWebview(navigator.userAgent) && hastSlotswithBids) {
+                pbjs.que.push(() => {
                     pbjs.rp.requestBids({
                         callback: callAdserver,
                         gptSlotObjects: headerBiddingSlots
                     });
                 });
+            }
 
             // this timeout is a failsafe
             // the ad ops team can set lower thresholds that will be respected by Prebid
@@ -468,51 +522,4 @@ export const queueGoogletagCommand = bannersToLoad => {
                 }
             });
     });
-};
-
-export const setPrebidBanners = (_bannerConfig, section) => {
-    const bannerConfig = { ..._bannerConfig };
-    if (['propiedades', 'campo', 'bienestar', 'movilidad'].includes(section)) {
-        bannerConfig.bidding = { prebid: { enabled: true } };
-    }
-    return (
-        bannerConfig.bidding || {
-            prebid: {
-                enabled: false
-            }
-        }
-    );
-};
-
-export const parseDimensionsBanners = dimensionsString => {
-    if (!dimensionsString || typeof dimensionsString !== 'string') {
-        return null;
-    }
-
-    const dimensions = dimensionsString.split(',');
-    return dimensions.map(dimension =>
-        dimension.split('x').map(size => parseInt(size, 10) || size)
-    );
-};
-
-export const getBannerSectionDimensions = (section, slotName) => {
-    if (!section || !slotName) return null;
-
-    const defaultSlotDimensions = {
-        nota_caja1_dsk: '300x250,300x600,120x600,160x600,300x450',
-        nota_caja4_dsk: '300x250,300x600,300x450',
-        nota_caja5_dsk: '300x250,300x600,120x600,160x600,300x450',
-        acumulado_caja1_dsk: '300x250,300x600'
-    };
-
-    const sectionSlotDimensions = {
-        propiedades: defaultSlotDimensions,
-        campo: defaultSlotDimensions,
-        futuria: defaultSlotDimensions,
-        bienestar: defaultSlotDimensions,
-        movilidad: defaultSlotDimensions,
-        'que-sale': defaultSlotDimensions
-    };
-
-    return sectionSlotDimensions[section]?.[slotName];
 };
