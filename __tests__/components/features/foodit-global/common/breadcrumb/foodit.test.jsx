@@ -90,4 +90,38 @@ describe('BreadcrumbFoodit', () => {
         );
         expect(tooltip).toBeVisible();
     });
+
+    it('Exclude sections dietas and que cocinar hoy in breadcrumb', () => {
+        const { container: containerSaladas } = render(
+            <BreadcrumbFoodit
+                globalContent={{
+                    _id: '/recetas/saladas/pollo'
+                }}
+            />
+        );
+
+        expect(containerSaladas.getElementsByTagName('li')).toHaveLength(4);
+
+        const { container: containerDieta } = render(
+            <BreadcrumbFoodit
+                globalContent={{
+                    _id: '/recetas/dietas/sin-gluten'
+                }}
+            />
+        );
+
+        expect(containerDieta.getElementsByTagName('li')).toHaveLength(3);
+
+        const { container: containerQueCocinarHoy } = render(
+            <BreadcrumbFoodit
+                globalContent={{
+                    _id: '/recetas/dietas/sin-gluten'
+                }}
+            />
+        );
+
+        expect(containerQueCocinarHoy.getElementsByTagName('li')).toHaveLength(
+            3
+        );
+    });
 });
