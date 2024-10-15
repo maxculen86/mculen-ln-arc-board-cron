@@ -5,6 +5,7 @@ import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import { copyListToClipboard } from '../../shoppingList/_helpers';
+import PropTypes from 'fusion:prop-types';
 
 export const RecipeOptions = ({ list, bookmarkId, setShoppingList }) => {
     const handleClick = e => {
@@ -51,6 +52,12 @@ export const RecipeOptions = ({ list, bookmarkId, setShoppingList }) => {
                         type="button"
                     />
                     <Itemcard
+                        icon={<IconSprite name={'share'} />}
+                        text="Compartir"
+                        variant="default"
+                        type="button"
+                    />
+                    <Itemcard
                         key={`delete-${bookmarkId}`}
                         icon={<IconSprite name={'delete'} />}
                         onClick={() =>
@@ -74,4 +81,10 @@ export const RecipeOptions = ({ list, bookmarkId, setShoppingList }) => {
             </Dropdown.Menu>
         </Dropdown>
     );
+};
+
+RecipeOptions.propTypes = {
+    list: PropTypes.isRequired,
+    bookmarkId: PropTypes.isRequired,
+    setShoppingList: PropTypes.isRequired
 };
