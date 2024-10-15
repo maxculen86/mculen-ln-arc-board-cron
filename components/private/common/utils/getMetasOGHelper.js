@@ -7,6 +7,7 @@ import transformISODate from './transformISODate';
 import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
 import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
+import getImageAltText from '../../../features/foodit-global/common/utils/getImageAltText';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -54,13 +55,34 @@ export const modifyUrlParam = (url, paramName, newValue) => {
     }
 };
 
-export const getImageProps = (acuOgImg, promoItemsBasic, placeholder) => {
-    const defaultHeight = '630';
-    const defaultWidth = '1200';
+export const getImageProps = (
+    acuOgImg,
+    promoItemsBasic,
+    placeholder,
+    section
+) => {
+    const DEFAULTS = {
+        height: '630',
+        width: '1200',
+        mimeType: 'image/png',
+        alt: 'Placeholder de LA NACION'
+    };
 
     if (acuOgImg?.url) {
-        const { url, height = '', width = '' } = acuOgImg;
-        return { url, height, width };
+        const {
+            url,
+            height = '',
+            width = '',
+            additional_properties: { mime_type: mimeType = '' } = {}
+        } = acuOgImg;
+
+        return {
+            url,
+            height,
+            width,
+            type: mimeType,
+            alt: `Placeholder de ${section?.slice(1)} en LA NACION`
+        };
     }
 
     if (!isEmptyObject(promoItemsBasic)) {
@@ -71,45 +93,58 @@ export const getImageProps = (acuOgImg, promoItemsBasic, placeholder) => {
                 height = promoItemsBasic.height,
                 width = promoItemsBasic.width
             } = {},
-            embed = {}
+            embed = {},
+            additional_properties: { mime_type: mimeType = '' } = {}
         } = promoItemsBasic;
 
         const { newHeight } = adjustImageDimensions(
             width,
             height,
-            defaultWidth
+            DEFAULTS.width
         );
 
         if (type === 'image' && isEmptyObject(embed)) {
             let newUrl;
-            newUrl = modifyUrlParam(url, 'width', defaultWidth);
+            newUrl = modifyUrlParam(url, 'width', DEFAULTS.width);
             newUrl = modifyUrlParam(newUrl, 'height', newHeight);
-
             return {
                 url: newUrl,
                 height: String(newHeight),
-                width: defaultWidth
+                width: DEFAULTS.width,
+                type: mimeType,
+                alt: getImageAltText(promoItemsBasic)
             };
         }
 
         if (!isEmptyObject(embed)) {
             const jwPosterDefaultWidth = '1280';
+            const jwPosterDefaultMimeType = 'image/jpeg';
             const newUrl = modifyUrlParam(url, 'width', jwPosterDefaultWidth);
 
             return {
                 url: newUrl,
                 height: undefined,
-                width: jwPosterDefaultWidth
+                width: jwPosterDefaultWidth,
+                type: jwPosterDefaultMimeType,
+                alt: getImageAltText(embed?.config?.videoJw)
             };
         }
     }
-    return { url: placeholder, height: defaultHeight, width: defaultWidth };
+
+    return {
+        url: placeholder,
+        height: DEFAULTS.height,
+        width: DEFAULTS.width,
+        type: DEFAULTS.mimeType,
+        alt: DEFAULTS.alt
+    };
 };
 
 export const getData = ({
     siteProperties,
     metaValue,
     globalContent,
+    globalContentConfig,
     contextPath,
     deployment,
     section,
@@ -152,14 +187,19 @@ export const getData = ({
         metaDescription
     });
 
-    return {
+    const response = {
         type: isArticle ? 'article' : 'website',
         title: isArticle
             ? headlinesBasic || titleDefault
             : metaValue('title') ||
               validateTitle(section, longTitle, titleDefault),
         description,
-        image: getImageProps(acuOgImg, promoItemsBasic, PLACEHOLDER),
+        image: getImageProps(
+            acuOgImg,
+            promoItemsBasic,
+            PLACEHOLDER,
+            globalContentConfig?.query?.id
+        ),
         url: getUrl(url, domain),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
@@ -172,6 +212,8 @@ export const getData = ({
         }),
         subtype
     };
+
+    return response;
 };
 
 export const setMetaDescription = ({

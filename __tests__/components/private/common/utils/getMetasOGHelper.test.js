@@ -233,7 +233,9 @@ describe('Case return getData', () => {
             image: {
                 url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800',
                 width: '1200',
-                height: '800'
+                height: '800',
+                alt: '',
+                type: ''
             },
             url: 'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
             fbAppId: '154042854349421',
@@ -269,7 +271,9 @@ describe('Case return getData', () => {
             image: {
                 url: 'undefined$LATEST',
                 width: '1200',
-                height: '630'
+                height: '630',
+                alt: 'Placeholder de LA NACION',
+                type: 'image/png'
             },
             url: 'https://www.lanacion.com.arEZYG5OEVH5HSJJCUMJO5XAHTTA/',
             fbAppId: '154042854349421',
@@ -292,6 +296,11 @@ describe('Case return getData', () => {
 
             deployment: function deployment() {
                 return '$LATEST';
+            },
+            globalContentConfig: {
+                query: {
+                    id: '/'
+                }
             }
         };
 
@@ -301,7 +310,9 @@ describe('Case return getData', () => {
             image: {
                 url: 'undefined$LATEST',
                 width: '1200',
-                height: '630'
+                height: '630',
+                alt: 'Placeholder de LA NACION',
+                type: 'image/png'
             },
             isArticle: false,
             subtype: undefined,
@@ -317,10 +328,19 @@ describe('Case return getImageProps', () => {
         const acuOgImg = {
             url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
             height: '800',
-            width: '800'
+            width: '800',
+            additional_properties: { mime_type: 'image/png' }
+        };
+        const section = '/deportes';
+        const output = {
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+            height: '800',
+            width: '800',
+            alt: `Placeholder de ${section.slice(1)} en LA NACION`,
+            type: 'image/png'
         };
 
-        expect(getImageProps(acuOgImg, {}, '')).toEqual(acuOgImg);
+        expect(getImageProps(acuOgImg, {}, '', section)).toEqual(output);
     });
 
     it('if acuOgImage object does not exist and promoItemsBasic exists', () => {
@@ -328,14 +348,19 @@ describe('Case return getImageProps', () => {
             url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
             type: 'image',
             height: '800',
-            width: '800'
+            width: '800',
+            additional_properties: { mime_type: 'image/png' },
+            embed: {},
+            caption: 'image description'
         };
         const output = {
             url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?width=1200&height=1200',
             width: '1200',
-            height: '1200'
+            height: '1200',
+            alt: 'image description',
+            type: 'image/png'
         };
-        expect(getImageProps({}, promoItemsBasic, '')).toEqual(output);
+        expect(getImageProps({}, promoItemsBasic, '', '')).toEqual(output);
     });
 
     it('if the promoItemsBasic object exists and includes the embed object, it is a JW video and should return the poster', () => {
@@ -353,7 +378,9 @@ describe('Case return getImageProps', () => {
         const output = {
             url: 'https://cdn.jwplayer.com/v2/media/fSuIciiV/poster.jpg?width=1280',
             width: '1280',
-            height: undefined
+            height: undefined,
+            alt: 'video title',
+            type: 'image/jpeg'
         };
         expect(getImageProps({}, promoItemsBasicWithJwVideo, '')).toEqual(
             output
@@ -364,7 +391,9 @@ describe('Case return getImageProps', () => {
         const output = {
             url: 'placeholder',
             width: '1200',
-            height: '630'
+            height: '630',
+            alt: 'Placeholder de LA NACION',
+            type: 'image/png'
         };
         expect(getImageProps({}, {}, 'placeholder')).toEqual(output);
     });
