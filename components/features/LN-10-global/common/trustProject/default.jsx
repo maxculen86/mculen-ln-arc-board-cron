@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
@@ -25,6 +26,7 @@ function TrustProject({ tooltipData }) {
                             src={deployment(
                                 `${contextPath}/resources/images/the-trust-project.webp`
                             )}
+                            alt="The Trust Project"
                         />
                         {tooltipData?.text && (
                             <Text className="font-16 --font-regular relative --tooltip-container-test">

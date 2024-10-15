@@ -19,10 +19,7 @@ import {
     getFirstGroupClassNames,
     isLN10IAHidden
 } from '../../../../private/LN/common/utils/shareHelper';
-import {
-    getCookie,
-    handleClickAudioNews
-} from '../../../../private/common/audioNews/helpers';
+import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
 import useFetch from '../../../../private/common/hooks/useFetch';
 import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
@@ -37,6 +34,7 @@ import {
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 import getAudioEvents from '../../../LN-10-global/common/utils/getAudioEvents';
+import handleCookie from '../../../../private/LN/common/utils/handleCookie';
 
 function BuildFirtsButtonsGroup({
     termicaBookmark,
@@ -53,6 +51,7 @@ function BuildFirtsButtonsGroup({
     const [tooltipWasClosed, setTooltipWasClosed] = useState(false);
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
+    const { getCookie } = handleCookie();
     const [contentVariant] = useState(getCookie('contentVariant') || 'article');
 
     const { dispatch, state } = useContext(GlobalContext) || {};
@@ -60,12 +59,6 @@ function BuildFirtsButtonsGroup({
     const { renderables = [], globalContentConfig = {} } = useAppContext();
 
     const shareRef = useRef(null);
-
-    const event = getAudioEvents(
-        globalContent,
-        globalContentConfig,
-        contentVariant
-    );
 
     const summary = get(globalContent, 'promo_items.summary', null);
     const isThermalSummaryEnabled = useTermica('resumen_nota');
@@ -130,6 +123,10 @@ function BuildFirtsButtonsGroup({
 
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
+
+    const event =
+        showListenButton &&
+        getAudioEvents(globalContent, globalContentConfig, contentVariant);
 
     const classes = getFirstGroupClassNames({ subtypeVideo });
 

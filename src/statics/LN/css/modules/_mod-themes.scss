@@ -5,6 +5,10 @@
     margin-bottom: $spacing-sm;
     &.collapsible {
         margin-bottom: 0;
+        .nota #content .cuerpo__nota & .com-button.--secondary:hover {
+            background-color: transparent;
+            color: $blue-500;
+        }
     }
     .com-link {
         &.com-button {
