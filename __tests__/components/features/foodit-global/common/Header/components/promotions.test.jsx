@@ -34,7 +34,7 @@ describe('Components - Features - foodit-global - common - Header - components -
         );
 
         expect(PromotionContainer).toHaveClass('jc-center');
-        expect(screen.getByText('INICIA SESIÓN')).toBeInTheDocument();
+        expect(screen.getByText('INICIÁ SESIÓN')).toBeInTheDocument();
         expect(screen.getByText('SUSCRIBITE')).toBeInTheDocument();
     });
     it('renders correctly for user type "logged"', () => {

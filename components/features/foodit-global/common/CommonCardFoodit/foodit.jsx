@@ -24,11 +24,16 @@ function CommonCardFoodit({
     contentCode,
     fatherType,
     container,
+    poster,
     className = '',
     bookmarkAction = null,
     fill = false,
-    isOpening = false
+    isOpening = false,
+    hasVideo = false,
+    mediaVariant = 'image'
 }) {
+    const showIconVideo = hasVideo && mediaVariant !== 'video';
+
     return (
         <Card
             data-test-id={`${
@@ -41,14 +46,21 @@ function CommonCardFoodit({
             {...(container && { container })}
         >
             <Card.Top>
-                <Card.Image
-                    src={src}
+                <Card.Media
+                    variant={mediaVariant}
                     alt={alt}
                     sources={sources}
                     loading={loading}
                     fetchPriority={fetchPriority}
+                    src={src}
+                    {...(mediaVariant === 'video' && {
+                        dataSrc: src,
+                        poster,
+                        muted: true,
+                        loop: true
+                    })}
                 />
-
+                {showIconVideo && <Card.BadgeIcon />}
                 {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
             <Card.Main
@@ -120,12 +132,15 @@ CommonCardFoodit.propTypes = {
     subtitle: PropTypes.string,
     titleEllipsis: PropTypes.number,
     contentCode: PropTypes.string,
-    container: PropTypes.bool,
+    container: PropTypes.string,
     className: PropTypes.string,
     bookmarkAction: PropTypes.func,
     fill: PropTypes.bool,
-    fatherType: PropTypes.string,
-    isOpening: PropTypes.bool
+    isOpening: PropTypes.bool,
+    poster: PropTypes.string,
+    mediaVariant: PropTypes.oneOf(['image', 'video']),
+    hasVideo: PropTypes.bool,
+    fatherType: PropTypes.string
 };
 
 CommonCardFoodit.defaultProps = {
@@ -143,12 +158,15 @@ CommonCardFoodit.defaultProps = {
     subtitle: '',
     titleEllipsis: 3,
     contentCode: '',
-    container: false,
+    container: '',
     className: '',
     bookmarkAction: null,
     fill: false,
-    fatherType: '',
-    isOpening: false
+    isOpening: false,
+    poster: '',
+    mediaVariant: 'image',
+    hasVideo: null,
+    fatherType: ''
 };
 
 export default CommonCardFoodit;

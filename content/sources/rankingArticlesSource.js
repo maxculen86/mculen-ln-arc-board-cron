@@ -1,7 +1,7 @@
 import {
     API_ENV,
     API_KEY_ARC_SERVICES_PROD,
-    ARC_ACCESS_TOKEN
+    ARC_ACCESS_TOKEN_PROD
 } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
@@ -16,6 +16,15 @@ import {
     sortData,
     MINIMUM_ITEMS
 } from './utils/rankingArticlesSource/_helper';
+
+const transform = async (data, query, cachedCall) => {
+    const { sectionId = '', layout } = query;
+    const { size, name } = getQuery(sectionId, layout);
+
+    return data.length === size
+        ? { articles: await transformData(data, query, cachedCall), size, name }
+        : {};
+};
 
 const fetch = (query, { cachedCall } = {}) => {
     const { sectionId, arcSite, layout } = query;
@@ -43,9 +52,9 @@ const fetch = (query, { cachedCall } = {}) => {
                 json: true
             };
 
-            if (ARC_ACCESS_TOKEN) {
+            if (ARC_ACCESS_TOKEN_PROD) {
                 opt.auth = {
-                    bearer: ARC_ACCESS_TOKEN
+                    bearer: ARC_ACCESS_TOKEN_PROD
                 };
             }
 
@@ -67,20 +76,13 @@ const fetch = (query, { cachedCall } = {}) => {
                       .catch(error => {
                           logger.push(error, { source, uri }, arcSite);
                       })
-                : new Promise(resolve => resolve([]));
+                : new Promise(resolve => {
+                      resolve([]);
+                  });
         })
         .catch(error => {
             logger.push(error, { source, uri: uriArcServicesAPI }, arcSite);
         });
-};
-
-const transform = async (data, query, cachedCall) => {
-    const { sectionId = '', layout } = query;
-    const { size, name } = getQuery(sectionId, layout);
-
-    return data.length === size
-        ? { articles: await transformData(data, query, cachedCall), size, name }
-        : {};
 };
 
 export default {

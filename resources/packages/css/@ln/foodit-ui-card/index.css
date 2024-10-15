@@ -1,11 +1,11 @@
 .card a:hover {
   opacity: inherit;
 }
-.card:not([data-variant=day-recipe]) a:hover .card-title {
+.card[data-container=grid] a:hover .card-title {
   color: var(--accent-lechuga);
   opacity: 0.8;
 }
-.card[data-variant=day-recipe] .card-title:hover {
+.card[data-container=opening-grid] .card-title:hover, .card[data-container=opening-alone] .card-title:hover {
   color: var(--accent-lechuga);
   opacity: 0.8;
 }
@@ -26,5 +26,14 @@
 @media (min-width: 48rem) {
   .card .--img-full-width_max768 {
     --_spacing: 0;
+  }
+}
+.card .--img-full-width_max768:not([data-container=opening-grid]) {
+  width: calc(100% + var(--_spacing));
+}
+@media (min-width: 80rem) {
+  .card .--img-full-width_max768:not([data-container=opening-grid]) {
+    --_spacing: 0;
+    width: 100%;
   }
 }

@@ -31,7 +31,8 @@ export function Carousel({ articles = [], bookmarkedArticlesIds = [] }) {
                         title,
                         variant,
                         image = {},
-                        contentCode = ''
+                        contentCode = '',
+                        hasVideo
                     }) => {
                         const { resized_urls: resizedUrls, url } = image;
                         const { resizedUrl = '' } =
@@ -60,6 +61,7 @@ export function Carousel({ articles = [], bookmarkedArticlesIds = [] }) {
                                 fill={bookmarkedArticlesIds.includes(articleId)}
                                 titleEllipsis={2}
                                 contentCode={contentCode}
+                                hasVideo={hasVideo}
                             />
                         );
                     }

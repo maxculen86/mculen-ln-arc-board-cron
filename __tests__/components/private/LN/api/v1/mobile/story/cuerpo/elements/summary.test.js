@@ -1,14 +1,17 @@
 import summary from '../../../../../../../../../../components/private/LN/api/v1/mobile/story/cuerpo/elements/summary';
 
 describe('components - private - LN - api - v1 - mobile - story - cuerpo - elements - summary', () => {
+    const title = 'Resumen de lectura';
+    const disclaimer = 'Realizado con Inteligencia Artificial';
+
     describe('summary tests for correct output expected', () => {
         it.each([
             [
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
                     _t: 'article_summary',
-                    title: 'Lo que tenés que saber',
-                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
+                    title: title,
+                    disclaimer: disclaimer,
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -21,8 +24,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 { items: ['Item 1', 'Item 2', 'Item 3'], type: 'ol' },
                 {
                     _t: 'article_summary',
-                    title: 'Lo que tenés que saber',
-                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
+                    title: title,
+                    disclaimer: disclaimer,
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -41,8 +44,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 },
                 {
                     _t: 'article_summary',
-                    title: 'Lo que tenés que saber',
-                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
+                    title: title,
+                    disclaimer: disclaimer,
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -58,8 +61,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
                     _t: 'article_summary',
-                    title: 'Lo que tenés que saber',
-                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
+                    title: title,
+                    disclaimer: disclaimer,
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -72,8 +75,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
                     _t: 'article_summary',
-                    title: 'Lo que tenés que saber',
-                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
+                    title: title,
+                    disclaimer: disclaimer,
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },

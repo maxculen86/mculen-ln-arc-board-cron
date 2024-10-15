@@ -73,7 +73,8 @@ export function RenderCollection({
             title: titleArticle,
             variant,
             image = {},
-            contentCode = ''
+            contentCode = '',
+            hasVideo
         }) => {
             const { resized_urls: resizedUrls, url } = image;
             const { resizedUrl = '' } = getShortestImage(resizedUrls);
@@ -98,6 +99,7 @@ export function RenderCollection({
                     className={classNameChildren}
                     key={articleId}
                     contentCode={contentCode}
+                    hasVideo={hasVideo}
                 />
             );
         }

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Inputfield } from '@ln/common-ui-inputfield';
 import { Select } from '@ln/common-ui-select';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
@@ -45,41 +46,43 @@ const MainSaveRecipe = props => {
                     label="Colección"
                     openClassName="border-secondary-positive"
                     hoverClassName="border-accent-lechuga__hover"
-                    listClassName="foodit-scrollbar shadow-down-lg bg-white px-16 pb-16 rounden-4"
+                    listClassName="shadow-modal bg-white p-16 rounded-8 border border-all border-thin border-light-100"
                     onChange={onSelectChange}
                     floatingLabelProps={{
                         className: 'bg-white'
                     }}
                 >
-                    {folders.map(({ bookmarkGroup, value }) => (
-                        <Select.Options
-                            key={value || bookmarkGroup}
-                            value={value || bookmarkGroup}
-                            label={bookmarkGroup}
-                            as={propsAs => {
-                                return (
-                                    <>
-                                        {value === 'new' ? (
-                                            <span
-                                                className="flex ai-center roboto-bold py-8 text-14 gap-8 border border-bottom border-thin border-light-100"
-                                                data-test-id="button-bookmark-create-collection"
-                                            >
-                                                <Icon size={16}>
-                                                    <IconSprite name="plus" />
-                                                </Icon>
-                                                {bookmarkGroup}
-                                            </span>
-                                        ) : (
-                                            <Itemcard
-                                                type="button"
-                                                {...propsAs}
-                                            />
-                                        )}
-                                    </>
-                                );
-                            }}
-                        />
-                    ))}
+                    <div className="foodit-scrollbar max-h-198 overflow-y-auto">
+                        {folders.map(({ bookmarkGroup, value }) => (
+                            <Select.Options
+                                key={value || bookmarkGroup}
+                                value={value || bookmarkGroup}
+                                label={bookmarkGroup}
+                                as={propsAs => {
+                                    return (
+                                        <>
+                                            {value === 'new' ? (
+                                                <span
+                                                    className="flex ai-center roboto-bold py-8 text-14 gap-8 border border-bottom border-thin border-light-100"
+                                                    data-test-id="button-bookmark-create-collection"
+                                                >
+                                                    <Icon size={16}>
+                                                        <IconSprite name="plus" />
+                                                    </Icon>
+                                                    {bookmarkGroup}
+                                                </span>
+                                            ) : (
+                                                <Itemcard
+                                                    type="button"
+                                                    {...propsAs}
+                                                />
+                                            )}
+                                        </>
+                                    );
+                                }}
+                            />
+                        ))}
+                    </div>
                 </Select>
             )}
             {showInputFolder && (

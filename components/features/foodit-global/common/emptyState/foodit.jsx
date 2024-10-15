@@ -2,17 +2,16 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Text } from '@ln/common-ui-text';
-import { Button } from '@ln/foodit-ui-button';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import classNames from 'classnames';
 import {
     titleByVariant,
     descriptionByVariant,
-    buttonPropsByVariant,
     imagePropsByVariant
 } from './helpers';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
+import RenderButtons from './ButtonEmptyState';
 
 function EmptyState({ variant, className, direction = 'row' }) {
     const { userType } = useGetUserConfig();
@@ -36,13 +35,10 @@ function EmptyState({ variant, className, direction = 'row' }) {
         }
     );
 
-    const {
-        label,
-        href,
-        variant: buttonVariant
-    } = buttonPropsByVariant[variant] || {};
-
     if (!variant) return null;
+
+    const buttons = RenderButtons({ variant, userType });
+
     return (
         <section className={containerClassNames}>
             <Adaptableimage
@@ -65,30 +61,7 @@ function EmptyState({ variant, className, direction = 'row' }) {
                     {descriptionByVariant({ layout, variant })}
                 </Text>
             </div>
-            {userType === 'unlogged' ? (
-                <div className="flex gap-24 ai-center">
-                    <Button
-                        variant={buttonPropsByVariant['barrier-logged'].variant}
-                        href={buttonPropsByVariant['barrier-logged'].href}
-                    >
-                        {buttonPropsByVariant['barrier-logged'].label}
-                    </Button>
-                    <Button
-                        variant={
-                            buttonPropsByVariant['barrier-unlogged'].variant
-                        }
-                        href={buttonPropsByVariant['barrier-unlogged'].href}
-                    >
-                        <span className="uppercase">
-                            {buttonPropsByVariant['barrier-unlogged'].label}
-                        </span>
-                    </Button>
-                </div>
-            ) : (
-                <Button variant={buttonVariant} href={href}>
-                    {label}
-                </Button>
-            )}
+            {buttons && <div className="flex gap-24 ai-center">{buttons}</div>}
         </section>
     );
 }

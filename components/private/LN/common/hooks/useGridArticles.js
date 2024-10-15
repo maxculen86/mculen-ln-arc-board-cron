@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import useGetArticlesFromAcuSource from './useGetArticlesFromAcumSource';
+import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import { getIdsArticlesFromOtherCollections } from '../utils/cajaTemasValidators';
 import excludeUrlNacion from '../utils/excludeUrlNacion';
@@ -7,6 +7,8 @@ import getIdsArticlesFromCajaManual from '../../../../chains/utils/getIdsArticle
 import { SUSCRIPTOR_SECTION } from '../../../common/utils/subtypes/subtypeHelper';
 import isAllowedSection from '../utils/isAllowedSection';
 import allowSectionAndLayout from '../media/helpers/allowSectionAndLayout';
+import get from '../../../common/utils/get';
+import { transformLastNewsContent } from '../utils/timeline';
 
 const useGridArticles = props => {
     const {
@@ -15,7 +17,7 @@ const useGridArticles = props => {
         sectionsIds,
         distributorId,
         nodeType,
-        type,
+        type = '',
         renderables,
         acumuladoGeneral = {},
         collectionsInPage = {},
@@ -32,9 +34,8 @@ const useGridArticles = props => {
 
     const DEFAULT_QUANTITY = 30;
 
-    const {
-        cantidad_notas: articlesQuantity = DEFAULT_QUANTITY
-    } = acumuladoGeneral;
+    const { cantidad_notas: articlesQuantity = DEFAULT_QUANTITY } =
+        acumuladoGeneral;
 
     const tagId =
         payload && payload.items && payload.items.length
@@ -77,27 +78,40 @@ const useGridArticles = props => {
     const isServerSide = typeof window === 'undefined' && page === 1;
 
     const searchArgs = {
-        typesOfQuery: {
+        source: 'lnAcuSource',
+        query: {
             sectionId,
             authorId,
             tagId,
             distributorId,
-            sectionsIds
+            sectionsIds,
+            imageConfig,
+            size: articlesQuantity.tripleSize || articlesQuantity,
+            type,
+            page,
+            hasCollectionApertura,
+            sourceOrigin,
+            excludePreload: excludeUrl,
+            promoItemsOnly: false,
+            shouldNotFilter: false,
+            website: 'la-nacion-ar'
         },
         filter,
-        imageConfig,
-        size: articlesQuantity.tripleSize || articlesQuantity,
-        type,
         staticMode: isServerSide,
-        withPagination: true,
-        page,
-        hasCollectionApertura,
-        sourceOrigin,
-        excludePreload: excludeUrl
+        ...(sectionsIds && {
+            transform(data) {
+                return {
+                    ...data,
+                    ...transformLastNewsContent(data)
+                };
+            }
+        })
     };
 
-    const { articles, moreArticles } =
-        useGetArticlesFromAcuSource(searchArgs) || {};
+    const contentElements = useContent(searchArgs);
+
+    const articles = get(contentElements, 'content_elements', []);
+    const moreArticles = get(contentElements, 'next', 0);
 
     const articlesInNoCollection =
         (articles &&

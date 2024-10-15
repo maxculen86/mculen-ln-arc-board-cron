@@ -2,14 +2,11 @@
 @import '../abstracts/mixins';
 
 .mod-trust {
-    border-top: 1px solid $light-neutral-400;
     border-bottom: 1px solid $light-neutral-400;
     padding-top: $spacing-md;
     padding-bottom: $spacing-md;
     margin-bottom: $spacing-lg;
-    //@include flex(flex, row, between, center);
     .com-container {
-        //@include flex(flex, column, center, start);
         .com-text {
             display: block;
             margin-right: px(4);

@@ -70,7 +70,7 @@ export const buttonPropsByVariant = {
         }`
     },
     'barrier-unlogged': {
-        label: 'Inicia sesión',
+        label: 'Iniciá sesión',
         variant: 'link',
         href:
             FOODIT_LOGIN_URL +

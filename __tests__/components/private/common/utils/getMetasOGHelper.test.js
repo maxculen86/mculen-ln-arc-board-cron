@@ -198,8 +198,9 @@ describe('Case return getData', () => {
             promo_items: {
                 basic: {
                     type: 'image',
-                    url:
-                        'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
+                    url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
+                    width: 768,
+                    height: 512
                 },
                 receta: {}
             },
@@ -230,13 +231,11 @@ describe('Case return getData', () => {
             description: '',
             displayDate: '2021-01-08T15:24:00.940Z',
             image: {
-                url:
-                    'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
-                width: '768',
-                height: '512'
+                url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800',
+                width: '1200',
+                height: '800'
             },
-            url:
-                'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
+            url: 'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
             fbAppId: '154042854349421',
             isArticle: true,
             publishDate: '2021-01-08T15:24:00.940Z',
@@ -316,8 +315,7 @@ describe('Case return getData', () => {
 describe('Case return getImageProps', () => {
     it('if acuOgImage object exists', () => {
         const acuOgImg = {
-            url:
-                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
             height: '800',
             width: '800'
         };
@@ -327,18 +325,39 @@ describe('Case return getImageProps', () => {
 
     it('if acuOgImage object does not exist and promoItemsBasic exists', () => {
         const promoItemsBasic = {
-            url:
-                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
             type: 'image',
             height: '800',
             width: '800'
         };
         const output = {
-            url: promoItemsBasic.url,
-            width: '768',
-            height: '512'
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?width=1200&height=1200',
+            width: '1200',
+            height: '1200'
         };
         expect(getImageProps({}, promoItemsBasic, '')).toEqual(output);
+    });
+
+    it('if the promoItemsBasic object exists and includes the embed object, it is a JW video and should return the poster', () => {
+        const promoItemsBasicWithJwVideo = {
+            url: 'https://cdn.jwplayer.com/v2/media/fSuIciiV/poster.jpg?width=720',
+            embed: {
+                config: {
+                    videoJw: {
+                        title: 'video title',
+                        playlist: []
+                    }
+                }
+            }
+        };
+        const output = {
+            url: 'https://cdn.jwplayer.com/v2/media/fSuIciiV/poster.jpg?width=1280',
+            width: '1280',
+            height: undefined
+        };
+        expect(getImageProps({}, promoItemsBasicWithJwVideo, '')).toEqual(
+            output
+        );
     });
 
     it('by default, it returns the placeholder', () => {

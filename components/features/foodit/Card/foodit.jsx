@@ -4,28 +4,29 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 
-import { checkForId } from '../../LN-10/article/common/_helper-WebApi.js';
+import classNames from 'classnames';
+import { checkForId } from '../../LN-10/article/common/_helper-WebApi';
 import {
     getRenderablesData,
     transformArticleFoodit,
     validateArticleFoodit
-} from '../../foodit-global/common/utils/notaFooditHelper.js';
-import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
-import {
-    getImagesToLoadWithPicture,
-    getShortestImage
-} from '../../../private/LN/common/utils/mediaHelper';
+} from '../../foodit-global/common/utils/notaFooditHelper';
+import imageFilter from '../../../../content/filters/foodit/home/articleFoodit';
+import videoFilter from '../../../../content/filters/foodit/home/videoArticleFoodit';
+import videoJwFilter from '../../../../content/filters/foodit/videoJwFilter';
+
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
-import classNames from 'classnames';
-import get from '../../../private/common/utils/get.js';
-import getImageAltText from '../../foodit-global/common/utils/getImageAltText.js';
+import get from '../../../private/common/utils/get';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
+import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit';
+import getFooditMediaContent from '../../foodit-global/common/utils/mediaHelper';
 
-const CardFoodit = ({ id: featureId, customFields }) => {
-    const { noteId: id, isDayRecipe } = customFields;
+function CardFoodit({ id: featureId, customFields }) {
+    const { noteId: id, isDayRecipe, videoId } = customFields;
+
     const articleId = checkForId(id);
+    const validVideoId = checkForId(videoId);
 
     const { isAdmin, arcSite, renderables } = useAppContext();
 
@@ -39,24 +40,39 @@ const CardFoodit = ({ id: featureId, customFields }) => {
         classNameChildren = ''
     } = fooditRules(layout);
 
+    const imageConfig = isOpening ? openingImgConfig : layoutImgConfig;
+
     const articleContent = useContent({
         source: articleId ? 'fooditBaseArticleSource' : null,
         query: {
             id: articleId,
             published: true,
             website: arcSite,
+            imageConfig,
             isInApertura: isOpening,
             isAdmin,
-            imageConfig: isOpening ? openingImgConfig : layoutImgConfig,
             checkExclusiveAccess: false
         },
         staticMode: true,
-        filter
+        filter: validVideoId ? videoFilter : imageFilter
+    });
+
+    const videoBackground = useContent({
+        source: validVideoId ? 'fooditVideoSource' : null,
+        query: {
+            id: validVideoId,
+            imageConfig
+        },
+        staticMode: true,
+        filter: videoJwFilter
     });
 
     const error = validateArticleFoodit({
         id,
-        content: articleContent
+        content: articleContent,
+        videoId: validVideoId,
+        imageConfig,
+        video: videoBackground
     });
 
     if (isAdmin && !!error) {
@@ -81,12 +97,16 @@ const CardFoodit = ({ id: featureId, customFields }) => {
         tag,
         variant,
         href,
-        contentCode = ''
+        contentCode = '',
+        hasVideo
     } = transformArticleFoodit(articleContent);
 
-    const { url = '', resized_urls = [] } = image;
-
-    const { resizedUrl = '' } = getShortestImage(resized_urls);
+    const media = getFooditMediaContent({
+        image,
+        video: validVideoId && videoBackground,
+        isOpening,
+        isAdmin
+    });
 
     return (
         <div className={staticContentClassName} key={featureId}>
@@ -103,9 +123,6 @@ const CardFoodit = ({ id: featureId, customFields }) => {
                             ? 'day-recipe'
                             : variant
                     }
-                    src={resizedUrl || url}
-                    alt={getImageAltText(image)}
-                    sources={getImagesToLoadWithPicture(resized_urls)}
                     loading={isOpening ? 'eager' : 'lazy'}
                     fetchPriority={isOpening ? 'high' : 'low'}
                     tag={tag}
@@ -116,11 +133,13 @@ const CardFoodit = ({ id: featureId, customFields }) => {
                     }
                     contentCode={contentCode}
                     isOpening={isOpening}
+                    hasVideo={hasVideo}
+                    {...media}
                 />
             )}
         </div>
     );
-};
+}
 
 CardFoodit.propTypes = {
     id: PropTypes.string.isRequired,
@@ -134,8 +153,13 @@ CardFoodit.propTypes = {
             name: 'Receta del día',
             description: 'Marque para seleccionar la receta del dia',
             defaultValue: false
+        }),
+        videoId: PropTypes.string.tag({
+            name: 'VideoJW',
+            description: 'Ingrese aquí el ID del video',
+            default: ''
         })
-    })
+    }).isRequired
 };
 
 export default Consumer(CardFoodit);

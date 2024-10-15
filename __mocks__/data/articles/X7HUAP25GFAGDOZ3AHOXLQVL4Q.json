@@ -321,7 +321,11 @@
         "basic": {
             "_id": "PVJUSGM6B5B3FJYLREASJPNEG4",
             "content": "Basic",
-            "type": "raw_html"
+            "type": "raw_html",
+            "originalSizes": {
+                "width": 0,
+                "height": 0
+            }
         }
     },
     "related_content": {

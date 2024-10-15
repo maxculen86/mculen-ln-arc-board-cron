@@ -9,7 +9,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const aliasPage = '/homepage';
     try {
-        const regexVersionDeploy = new RegExp('[0-9]+');
+        const regexVersionDeploy = /[0-9]+/;
         let versionDeploy = get(query, 'versionDeploy', null);
         versionDeploy =
             regexVersionDeploy.exec(versionDeploy) &&
@@ -32,7 +32,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             throw new Error('content version is required');
         }
 
-        if (alias != 'home' || version != 2) {
+        if (alias !== 'home' || version !== 2) {
             throw new Error('content version not implemented for this case.');
         }
 
@@ -54,7 +54,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             cookie
         };
 
-        //siempre se obtiene la ultima version de la home
+        // siempre se obtiene la ultima version de la home
         const resultPage = await cachedCall(keyCachedCall, pages.fetch, {
             query: queryParams,
             ttl: 120,
@@ -76,8 +76,11 @@ const fetch = async (query, { cachedCall } = {}) => {
 
         if (
             Array.isArray(resultHome) &&
-            resultHome[0].hasOwnProperty('metadata') &&
-            resultHome[0].metadata.hasOwnProperty('contentVersion')
+            Object.prototype.hasOwnProperty.call(resultHome[0], 'metadata') &&
+            Object.prototype.hasOwnProperty.call(
+                resultHome[0].metadata,
+                'contentVersion'
+            )
         ) {
             hashContentVersion = resultHome[0].metadata.contentVersion;
             return {

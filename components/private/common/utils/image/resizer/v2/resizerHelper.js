@@ -23,11 +23,33 @@ const MEDIAMINWIDTH = '(min-width: 768px)';
 
 export const isResizerV1 = url =>
     isValidString(url)
-        ? new RegExp(/\/resizer\/(.+)\/filters:format(.+)/).test(url)
+        ? /\/resizer\/(.+)\/filters:format(.+)/.test(url)
         : false;
 
 export const isResizerV2 = url =>
-    isValidString(url) ? new RegExp(/\/resizer\/v2\//).test(url) : false;
+    isValidString(url) ? /\/resizer\/v2\//.test(url) : false;
+
+export const getSlugForImage = imageData => {
+    const textToBuildSlug =
+        get(imageData, 'alt_text', '') ||
+        get(imageData, 'caption', '') ||
+        get(imageData, 'subtitle', '');
+
+    if (!textToBuildSlug) return '';
+
+    const slugifySeoFriendly = slugify(`${textToBuildSlug}`, {
+        remove: /[<>_(){}[\]\\*+=~.,'`"¡!¿?|;:@$&%/#]/g,
+        lower: true,
+        strict: false
+    });
+    const shorterSlug = isValidString(slugifySeoFriendly)
+        ? slugifySeoFriendly.slice(0, 50)
+        : '';
+
+    return shorterSlug.charAt(shorterSlug.length - 1) === '-'
+        ? shorterSlug
+        : `${`${shorterSlug.slice(0, shorterSlug.lastIndexOf('-'))}-`}`;
+};
 
 // TODO: Optener la config  por default
 export const getDefaultSize = subtype => {
@@ -45,6 +67,9 @@ export const getDefaultSize = subtype => {
 
     return { defaultResize, shouldExcludeCrop };
 };
+
+export const setStrFocal = (x = 5, y = 5) =>
+    `${x - 5},${y + 5}:${x + 5},${y - 5}`;
 
 export const setCropMethod = ({
     originalWidth,
@@ -69,9 +94,6 @@ export const setCropMethod = ({
     }
     return null;
 };
-
-export const setStrFocal = (x = 5, y = 5) =>
-    `${x - 5},${y + 5}:${x + 5},${y - 5}`;
 
 export const setHeight = (width, height, proportion) => {
     const [axisX, axisY] = proportion.split(':');
@@ -103,7 +125,14 @@ export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
 
 // URl Logic
 
-export const baseUrl = ({ isInApertura, isAdmin, arcSite = 'lanacionar' }) => {
+export const baseUrl = ({
+    isInApertura,
+    isAdmin,
+    arcSite = 'lanacionar',
+    resizerUrl
+}) => {
+    if (isValidString(resizerUrl) && resizerUrl.length) return resizerUrl;
+
     const SITE_URL = {
         foodit: SITE_FOODIT,
         lanacionar: SITE_LANACION
@@ -192,7 +221,8 @@ export const resizeImgUrl = ({
     isInApertura = false,
     isAdmin = false,
     arcImage,
-    arcSite
+    arcSite,
+    resizerUrl
 }) => {
     const {
         useFullSize,
@@ -213,7 +243,9 @@ export const resizeImgUrl = ({
         focalPoint
     });
 
-    proportion && (newHeight = setHeight(newWidth, newHeight, proportion));
+    if (proportion) {
+        newHeight = setHeight(newWidth, newHeight, proportion);
+    }
 
     if (newHeight === 0 && (focalPoint.length > 1 || smartCropExcluded)) {
         newHeight = autoHeight(originalHeight, originalWidth, newWidth);
@@ -230,7 +262,8 @@ export const resizeImgUrl = ({
     return `${baseUrl({
         isInApertura,
         isAdmin,
-        arcSite
+        arcSite,
+        resizerUrl
     })}/resizer/v2/${buildQueryParams({
         originalUrl,
         newWidth,
@@ -241,6 +274,45 @@ export const resizeImgUrl = ({
         arcImage,
         crop
     })}`;
+};
+
+export const resizeUrlCollection = ({
+    originalUrl,
+    originalWidth,
+    originalHeight,
+    defaultResizeWithSmart,
+    focalPoint = [],
+    smartCropExcluded,
+    arcImage,
+    isInApertura,
+    arcSite,
+    resizerUrl
+}) => {
+    const resp = [];
+    const finalPreset = defaultResizeWithSmart;
+    finalPreset?.forEach(opt => {
+        const resizedUrl = resizeImgUrl({
+            originalUrl,
+            originalWidth,
+            originalHeight,
+            defaultResizeWithSmart: opt,
+            focalPoint,
+            smartCropExcluded,
+            arcImage,
+            isInApertura,
+            arcSite,
+            resizerUrl
+        });
+        resp.push({
+            resizedUrl,
+            option: {
+                ...opt,
+                height: updateHeight(originalHeight, originalWidth, opt)
+            }
+        });
+    });
+
+    return resp;
 };
 
 // TODO: Exceso de complejida ciclomatica
@@ -255,7 +327,8 @@ export const resizeArcImage = ({
         media: MEDIAMINWIDTH
     },
     isInApertura = false,
-    arcSite
+    arcSite,
+    resizerUrl
 }) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
@@ -298,7 +371,8 @@ export const resizeArcImage = ({
             smartCropExcluded,
             arcImage,
             isInApertura,
-            arcSite
+            arcSite,
+            resizerUrl
         }),
         // TODO: Hacer logica del resizerUrls
         resized_urls: resizeUrlCollection({
@@ -310,7 +384,8 @@ export const resizeArcImage = ({
             smartCropExcluded,
             arcImage,
             isInApertura,
-            arcSite
+            arcSite,
+            resizerUrl
         }),
         resized_urls_zoom: resizeUrlCollection({
             originalUrl: arcImage.url,
@@ -320,47 +395,10 @@ export const resizeArcImage = ({
             focalPoint: fp,
             smartCropExcluded,
             arcImage,
-            arcSite
+            arcSite,
+            resizerUrl
         })
     };
-};
-
-export const resizeUrlCollection = ({
-    originalUrl,
-    originalWidth,
-    originalHeight,
-    defaultResizeWithSmart,
-    focalPoint = [],
-    smartCropExcluded,
-    arcImage,
-    isInApertura,
-    arcSite
-}) => {
-    const resp = [];
-    const finalPreset = defaultResizeWithSmart;
-    finalPreset &&
-        finalPreset.forEach(opt => {
-            const resizedUrl = resizeImgUrl({
-                originalUrl,
-                originalWidth,
-                originalHeight,
-                defaultResizeWithSmart: opt,
-                focalPoint,
-                smartCropExcluded,
-                arcImage,
-                isInApertura,
-                arcSite
-            });
-            resp.push({
-                resizedUrl,
-                option: {
-                    ...opt,
-                    height: updateHeight(originalHeight, originalWidth, opt)
-                }
-            });
-        });
-
-    return resp;
 };
 
 export const resizeArcGallery = (
@@ -389,26 +427,4 @@ export const resizeArcGallery = (
                 })
             )
     };
-};
-
-export const getSlugForImage = imageData => {
-    const textToBuildSlug =
-        get(imageData, 'alt_text', '') ||
-        get(imageData, 'caption', '') ||
-        get(imageData, 'subtitle', '');
-
-    if (!textToBuildSlug) return '';
-
-    const slugifySeoFriendly = slugify(`${textToBuildSlug}`, {
-        remove: /[<>_(){}[\]\\*+=~.,'`"¡!¿?|;:@$&%/#]/g,
-        lower: true,
-        strict: false
-    });
-    const shorterSlug = isValidString(slugifySeoFriendly)
-        ? slugifySeoFriendly.slice(0, 50)
-        : '';
-
-    return shorterSlug.charAt(shorterSlug.length - 1) === '-'
-        ? shorterSlug
-        : `${shorterSlug.slice(0, shorterSlug.lastIndexOf('-')) + '-'}`;
 };

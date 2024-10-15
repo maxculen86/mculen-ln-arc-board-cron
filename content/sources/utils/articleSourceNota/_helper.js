@@ -1,3 +1,4 @@
+import getProperties from 'fusion:properties';
 import get from '../../../../components/private/common/utils/get';
 import Redirect from '../redirect';
 import validateExclusiveAccess from '../validateExclusiveAccess';
@@ -8,10 +9,9 @@ import {
     configCallbackContentElements,
     configCallbacksRelatedContent
 } from './_configs';
-import getProperties from 'fusion:properties';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
-import validateSponsoredLink from '../../utils/validateSponsoredLink';
+import validateSponsoredLink from '../validateSponsoredLink';
 import isNoteListenable from '../audioNews/helper';
 import {
     FOTOAL100,
@@ -42,8 +42,10 @@ export const getUrlQuery = key => {
 
     if (url) {
         let urlClear = url;
-        const regexUrl = /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
+        const regexUrl =
+            /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
         const groups = regexUrl.exec(url);
+        // eslint-disable-next-line prefer-destructuring
         if (groups) urlClear = groups[3];
         return `${basePath}&website_url=${urlClear}`;
     }
@@ -65,7 +67,8 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
         'related_content.redirect[0].redirect_url'
     );
 
-    const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+    const regExp =
+        /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/;
 
     if (forwardUrl && regExp.test(forwardUrl)) {
         throw new Redirect(forwardUrl, 301);
@@ -84,12 +87,21 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
         });
     }
 
-    isNotShowcase(response) &&
+    if (isNotShowcase(response)) {
         paywallUtils.checkPaywall({
             queryData: query,
             urlBase: siteUrl,
             responseData: response
         });
+    }
+};
+
+export const isValidSectionIA = sections => {
+    const section = get(sections, '[0].path', '');
+
+    const validSections = ['/sociedad', '/espectaculos', '/tecnologia'];
+
+    return validSections.includes(section);
 };
 
 export const transformPromoItems = async ({
@@ -101,36 +113,52 @@ export const transformPromoItems = async ({
     sections
 }) => {
     const isValidSectionForIA = isValidSectionIA(sections);
+    const promoItemObjectCopy = { ...promoItemObject };
 
     if (!isValidSectionForIA) {
-        delete promoItemObject.glossary;
-        delete promoItemObject.summary;
+        delete promoItemObjectCopy.glossary;
+        delete promoItemObjectCopy.summary;
     }
 
     if (!showGlossary) {
-        delete promoItemObject.glossary;
+        delete promoItemObjectCopy.glossary;
     }
 
     const promiseArr = [];
 
-    for (let property in promoItemObject) {
+    Object.keys(promoItemObjectCopy).forEach(property => {
         const callabckSelected =
-            configCallbacks[get(promoItemObject, `${property}.type`, '')];
+            configCallbacks[get(promoItemObjectCopy, `${property}.type`, '')];
 
         if (callabckSelected) {
             promiseArr.push(
                 callabckSelected({
-                    element: promoItemObject[property],
+                    element: promoItemObjectCopy[property],
                     cachedCall,
                     arcSite
                 }).then(newValue => ({ [property]: newValue }))
             );
         }
-    }
+    });
+
+    // for (const property in promoItemObjectCopy) {
+    //     const callabckSelected =
+    //         configCallbacks[get(promoItemObjectCopy, `${property}.type`, '')];
+
+    //     if (callabckSelected) {
+    //         promiseArr.push(
+    //             callabckSelected({
+    //                 element: promoItemObjectCopy[property],
+    //                 cachedCall,
+    //                 arcSite
+    //             }).then(newValue => ({ [property]: newValue }))
+    //         );
+    //     }
+    // }
 
     const results = await Promise.all(promiseArr);
 
-    return Object.assign({ ...promoItemObject }, ...results);
+    return Object.assign({ ...promoItemObjectCopy }, ...results);
 };
 
 export const filterSections = (response = {}) => {
@@ -143,20 +171,17 @@ export const filterSections = (response = {}) => {
     };
 };
 
-export const transformAuthors = (authorList = []) => {
-    return authorList.map(author => {
-        return {
-            ...author,
-            additional_properties: {
-                ...get(author, 'additional_properties', {}),
-                original: {
-                    ...get(author, 'additional_properties.original', {}),
-                    image: get(author, 'image.resized_urls[0].resizedUrl', '')
-                }
+export const transformAuthors = (authorList = []) =>
+    authorList.map(author => ({
+        ...author,
+        additional_properties: {
+            ...get(author, 'additional_properties', {}),
+            original: {
+                ...get(author, 'additional_properties.original', {}),
+                image: get(author, 'image.resized_urls[0].resizedUrl', '')
             }
-        };
-    });
-};
+        }
+    }));
 
 export const transformElementsBasedOnType = ({
     arrayElements = [],
@@ -176,7 +201,7 @@ export const transformElementsBasedOnType = ({
                         ? selectedCallback({ ...aditionalProps, element })
                         : element;
 
-                    newElement && acc.push(newElement);
+                    if (newElement) acc.push(newElement);
                 }
             } catch (err) {
                 console.error('Ocurrio un error en el elemento', err, element);
@@ -286,20 +311,12 @@ const transformContentElements = async ({
             arcSite
         );
     }
-    //TODO: Eliminar cuando salga FOODIT!!!
+    // TODO: Eliminar cuando salga FOODIT!!!
     if (get(result, 'subtype', '') === RECETA) {
         return recipePowerUps(contentElementTransformed);
     }
 
     return contentElementTransformed;
-};
-
-export const isValidSectionIA = sections => {
-    const section = get(sections, '[0].path', '');
-
-    const validSections = ['/sociedad', '/espectaculos', '/tecnologia'];
-
-    return validSections.includes(section);
 };
 
 export const transform = async (response, query, cachedCall) => {
@@ -353,35 +370,32 @@ export const transform = async (response, query, cachedCall) => {
                 : []
     };
 
-    const [
-        promo_items,
-        content_elements,
-        relatedContentBasic
-    ] = await Promise.all([
-        transformPromoItems({
-            cachedCall,
-            arcSite,
-            configCallbacks: configPromoItems,
-            promoItemObject: get(result, 'promo_items', {}),
-            showGlossary: !notShowGlossary,
-            sections
-        }),
-        transformContentElements({
-            result,
-            cachedCall,
-            siteProperties,
-            aditionalProps,
-            arcSite
-        }),
-        Promise.all(
-            transformElementsBasedOnType({
-                arrayElements: get(result, 'related_content.basic', []),
-                configCallbacks: configCallbacksRelatedContent,
-                searchPropertyOnElem: 'type',
-                aditionalProps
-            })
-        )
-    ]);
+    const [promoItems, contentElements, relatedContentBasic] =
+        await Promise.all([
+            transformPromoItems({
+                cachedCall,
+                arcSite,
+                configCallbacks: configPromoItems,
+                promoItemObject: get(result, 'promo_items', {}),
+                showGlossary: !notShowGlossary,
+                sections
+            }),
+            transformContentElements({
+                result,
+                cachedCall,
+                siteProperties,
+                aditionalProps,
+                arcSite
+            }),
+            Promise.all(
+                transformElementsBasedOnType({
+                    arrayElements: get(result, 'related_content.basic', []),
+                    configCallbacks: configCallbacksRelatedContent,
+                    searchPropertyOnElem: 'type',
+                    aditionalProps
+                })
+            )
+        ]);
 
     return {
         ...result,
@@ -395,8 +409,20 @@ export const transform = async (response, query, cachedCall) => {
             authors,
             sponsored
         ),
-        promo_items,
-        content_elements,
+        promo_items: {
+            ...promoItems,
+            ...(promoItems.basic && {
+                basic: {
+                    ...promoItems.basic,
+                    originalSizes: {
+                        height: get(response, 'promo_items.basic.height', 0),
+
+                        width: get(response, 'promo_items.basic.width', 0)
+                    }
+                }
+            })
+        },
+        content_elements: [...contentElements],
         related_content: {
             ...get(result, 'related_content', {}),
             basic: relatedContentBasic

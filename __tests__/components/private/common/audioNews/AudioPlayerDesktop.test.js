@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { useAppContext } from 'fusion:context';
 import AudioPlayerDesktop from '../../../../../components/private/common/audioNews/AudioPlayerDesktop';
 import getToken from '../../../../../components/private/common/utils/getToken';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
@@ -16,6 +17,10 @@ jest.mock('../../../../../components/private/common/utils/getToken', () =>
 jest.mock('../../../../../components/private/common/hooks/useFetch', () =>
     jest.fn()
 );
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
 
 jest.mock('react', () => {
     const ActualReact = jest.requireActual('react');
@@ -48,6 +53,20 @@ describe('components - private - common -audioNews - AudioPlayerDesktop', () => 
     };
 
     getToken.mockImplementation(() => '9B979333-C7F4-4F46-8EA8-8BBCBB3F14DF');
+
+    beforeEach(() => {
+        useAppContext.mockReturnValue({
+            globalContent: {
+                _id: 'TG4KFKTNOFH53CM6B6OFKOGSGQ',
+                credits: { by: [{ name: 'José María Costa' }] }
+            },
+            globalContentConfig: {
+                query: {
+                    uri: '/economia/dolar-hoy/'
+                }
+            }
+        });
+    });
 
     test('Test when the note is not listenable', () => {
         const { container } = render(<AudioPlayerDesktop {...props} />);

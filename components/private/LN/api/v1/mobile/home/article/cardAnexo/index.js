@@ -3,16 +3,27 @@ import get from '../../../../../../../common/utils/get';
 import trimIfNotEmpty from '../../../../../../../common/utils/trimIfNotEmpty';
 import cleanHtmlAttributes from '../../../../../../../common/utils/cleanHtmlAttributes';
 
-export const CardAnexo = article => {
-    const alto = get(article[0], 'alto', null);
-    const url = trimIfNotEmpty(get(article[0], 'url', null));
-    const html = cleanHtmlAttributes(get(article[0], 'html', null));
+const validateYoutubeUrl = url => {
+    const isYoutubeUrlRegex =
+        /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    if (url.match(isYoutubeUrlRegex)) {
+        return url.match(isYoutubeUrlRegex)[1];
+    }
+    return false;
+};
 
-    if (url && alto) return [{ src: url, url, alto }];
+export function CardAnexo([articleData]) {
+    const alto = get(articleData, 'alto', null);
+    const url = trimIfNotEmpty(get(articleData, 'url', null));
+    const html = cleanHtmlAttributes(get(articleData, 'html', null));
+    const excludedUrl = 'https://carrousel.lanacion.com.ar/web_stories/';
+
+    if (url && alto && !url.includes(excludedUrl))
+        return [{ src: url, url, alto }];
 
     if (html) {
         const root = parse(html);
-        const structure = root.structure;
+        const { structure } = root;
         const isIframe = structure.includes('iframe');
         const isDiv = structure.includes('div');
 
@@ -28,9 +39,11 @@ export const CardAnexo = article => {
             const heightMobileAttribute =
                 element.getAttribute('height-mobile') ?? null;
 
-            const height = heightAttribute ? parseInt(heightAttribute) : null;
+            const height = heightAttribute
+                ? parseInt(heightAttribute, 10)
+                : null;
             const heightMobile = heightMobileAttribute
-                ? parseInt(heightMobileAttribute)
+                ? parseInt(heightMobileAttribute, 10)
                 : null;
 
             if (isIframe) {
@@ -65,14 +78,6 @@ export const CardAnexo = article => {
     }
 
     return null;
-};
-
-const validateYoutubeUrl = url => {
-    const isYoutubeUrlRegex = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-    if (url.match(isYoutubeUrlRegex)) {
-        return url.match(isYoutubeUrlRegex)[1];
-    }
-    return false;
-};
+}
 
 export default CardAnexo;

@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
 import useGridArticlesFoodit from '../../../../../foodit/GrillaNotasAcu/hooks/useGridArticles';
 import PreloadImages from '../../../../../private-global/common/preloadImage/preloadImages';
 import get from '../../../../../../private/common/utils/get';
 
-export const PreloadAcuFirstImage = ({ id = '', layout = '' }) => {
+export function PreloadAcuFirstImage({ id = '', layout = '' }) {
     const { articles = [] } = useGridArticlesFoodit({
         id,
         layout,
@@ -15,4 +17,9 @@ export const PreloadAcuFirstImage = ({ id = '', layout = '' }) => {
     const resizedUrls = get(article, 'promo_items.basic.resized_urls', []);
 
     return <PreloadImages resizedUrls={resizedUrls} />;
+}
+
+PreloadAcuFirstImage.propTypes = {
+    id: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired
 };

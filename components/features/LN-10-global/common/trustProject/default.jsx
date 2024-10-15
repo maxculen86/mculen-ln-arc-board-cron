@@ -1,18 +1,18 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
-const TrustProject = ({ tooltipData }) => {
+function TrustProject({ tooltipData }) {
     const { deployment, contextPath } = useAppContext();
 
     return (
-        <section className="border border-top border-bottom border-thin border-neutral-light-100 py-24 mb-32">
+        <section className="border border-bottom border-thin border-neutral-light-100 py-24 mb-32">
             <div className="w-100 flex flex-column gap-4">
                 <Text className="text-12">
                     Conforme a <strong> los criterios de</strong>
@@ -59,6 +59,6 @@ const TrustProject = ({ tooltipData }) => {
             </div>
         </section>
     );
-};
+}
 
 export default TrustProject;

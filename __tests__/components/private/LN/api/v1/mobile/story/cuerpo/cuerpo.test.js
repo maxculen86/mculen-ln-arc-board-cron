@@ -60,6 +60,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
         });
         // '1', '10' Noticias, Agencia
         const testData = [1, 10];
+        const title = 'Resumen de lectura';
         it.each(testData)(
             'should return summary as second element with subtype %p and has apertura',
             subtype => {
@@ -68,12 +69,8 @@ describe('Test Json Text del cuerpo de la nota', () => {
                 const resp = Cuerpo(ArticleCuerpoConSummary);
 
                 expect(resp.elements).not.toBeNull();
-                expect(
-                    resp.elements.some(
-                        x => x.title === 'Lo que tenés que saber'
-                    )
-                ).toBe(true);
-                expect(resp.elements[1].title).toBe('Lo que tenés que saber');
+                expect(resp.elements.some(x => x.title === title)).toBe(true);
+                expect(resp.elements[1].title).toBe(title);
             }
         );
 
@@ -87,11 +84,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
                 const resp = Cuerpo(ArticleCuerpoConSummary);
 
                 expect(resp.elements).not.toBeNull();
-                expect(
-                    resp.elements.some(
-                        x => x.title === 'Lo que tenés que saber'
-                    )
-                ).toBe(true);
+                expect(resp.elements.some(x => x.title === title)).toBe(true);
             }
         );
     });

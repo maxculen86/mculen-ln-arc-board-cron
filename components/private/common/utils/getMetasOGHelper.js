@@ -6,6 +6,7 @@ import get from './get';
 import transformISODate from './transformISODate';
 import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
+import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -37,20 +38,72 @@ export const getUrl = (url, domain) => {
 export const validateTitle = (section, longTitle, titleDefault) =>
     section === 'home' ? longTitle : titleDefault;
 
+export const modifyUrlParam = (url, paramName, newValue) => {
+    try {
+        const parsedUrl = new URL(url);
+        const params = new URLSearchParams(parsedUrl.search);
+
+        if (newValue) {
+            params.set(paramName, newValue);
+        }
+
+        parsedUrl.search = params.toString();
+        return parsedUrl.toString();
+    } catch (error) {
+        return url;
+    }
+};
+
 export const getImageProps = (acuOgImg, promoItemsBasic, placeholder) => {
+    const defaultHeight = '630';
+    const defaultWidth = '1200';
+
     if (acuOgImg?.url) {
         const { url, height = '', width = '' } = acuOgImg;
         return { url, height, width };
     }
 
     if (!isEmptyObject(promoItemsBasic)) {
-        const { type, url } = promoItemsBasic;
-        if (type === 'image') {
-            return { url, height: '512', width: '768' };
+        const {
+            type,
+            url,
+            originalSizes: {
+                height = promoItemsBasic.height,
+                width = promoItemsBasic.width
+            } = {},
+            embed = {}
+        } = promoItemsBasic;
+
+        const { newHeight } = adjustImageDimensions(
+            width,
+            height,
+            defaultWidth
+        );
+
+        if (type === 'image' && isEmptyObject(embed)) {
+            let newUrl;
+            newUrl = modifyUrlParam(url, 'width', defaultWidth);
+            newUrl = modifyUrlParam(newUrl, 'height', newHeight);
+
+            return {
+                url: newUrl,
+                height: String(newHeight),
+                width: defaultWidth
+            };
+        }
+
+        if (!isEmptyObject(embed)) {
+            const jwPosterDefaultWidth = '1280';
+            const newUrl = modifyUrlParam(url, 'width', jwPosterDefaultWidth);
+
+            return {
+                url: newUrl,
+                height: undefined,
+                width: jwPosterDefaultWidth
+            };
         }
     }
-
-    return { url: placeholder, height: '630', width: '1200' };
+    return { url: placeholder, height: defaultHeight, width: defaultWidth };
 };
 
 export const getData = ({
@@ -137,20 +190,18 @@ export const setMetaDescription = ({
 
             if (section === 'nota') {
                 const optionsNote = {
-                    '5': () => {
-                        return !isEmptyString(data.description)
+                    5: () =>
+                        !isEmptyString(data.description)
                             ? data.description
                             : `Video de ${data.title} - ${transformISODate(
                                   data.displayDate
-                              )}`;
-                    },
-                    '7': () => {
-                        return !isEmptyString(data.description)
+                              )}`,
+                    7: () =>
+                        !isEmptyString(data.description)
                             ? `${
                                   data.description.split('.', 1)[0]
                               }. Encontrá acá la receta de ${data.title}`
-                            : `Encontrá acá la receta de ${data.title}`;
-                    },
+                            : `Encontrá acá la receta de ${data.title}`,
                     default: () => defaultDescription
                 };
 
