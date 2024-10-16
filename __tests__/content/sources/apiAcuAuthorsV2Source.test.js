@@ -1,5 +1,5 @@
+import 'node-fetch';
 import apiAcuAuthorsV2Source from '../../../content/sources/apiAcuAuthorsV2Source';
-
 import acuArticleSourceResponseMock from '../../../__mocks__/data/acuArticleByAuthor/articleSourceAuthor.json';
 import acuArticlesSource from '../../../content/sources/acuArticlesSource';
 import authorSource from '../../../content/sources/authorSource';
@@ -10,51 +10,53 @@ const mockNotFoundError = NotFoundError;
 acuArticlesSource.fetch = jest.fn();
 acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
 
+jest.mock('fusion:environment', () => ({
+    ARC_ACCESS_TOKEN: '1111324234234324',
+    CONTENT_BASE: 'https://wwww.lalalal.com'
+}));
 const { fetch: autorSourceFetch } = authorSource;
 
 const cachedCall = async (nameOfCall, callbackFunc, params) => {
-    return await callbackFunc(params);
+    return callbackFunc(params);
 };
+jest.mock('node-fetch', () =>
+    jest.fn(uri => {
+        if (uri.includes('not-exists')) {
+            throw new mockNotFoundError();
+        }
+        const authorDataMock = {
+            _id: 'alfredo-leuco-330',
+            byline: 'Alfredo Leuco',
+            firstName: 'Alfredo',
+            lastName: 'Leuco',
+            author_type: 'Estándar',
+            email: '',
+            image: '',
+            status: true,
+            role: 'PARA LA NACION',
+            longBio: '',
+            slug: 'alfredo-leuco-330',
+            bio_page: '/autor/alfredo-leuco-330/',
+            last_updated_date: '2021-02-25T10:53:27.226Z',
+            books: [],
+            podcasts: [],
+            education: [],
+            awards: []
+        };
 
-jest.mock('request-promise-native', () => {
-    const mock = {
-        __esModule: true,
-        default: opt => {
-            if (opt.uri.includes('not-exists')) {
-                throw new mockNotFoundError();
-            }
-            const authorDataMock = {
-                _id: 'alfredo-leuco-330',
-                byline: 'Alfredo Leuco',
-                firstName: 'Alfredo',
-                lastName: 'Leuco',
-                author_type: 'Estándar',
-                email: '',
-                image: '',
-                status: true,
-                role: 'PARA LA NACION',
-                longBio: '',
-                slug: 'alfredo-leuco-330',
-                bio_page: '/autor/alfredo-leuco-330/',
-                last_updated_date: '2021-02-25T10:53:27.226Z',
-                books: [],
-                podcasts: [],
-                education: [],
-                awards: []
-            };
-            return Promise.resolve(authorDataMock);
-        },
-        defaults: () => mock.default
-    };
-
-    return mock;
-});
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+            statusText: 'OK',
+            json: () => Promise.resolve(authorDataMock)
+        });
+    })
+);
 
 describe('content source apiAcuAuthorsV2Source integration test', () => {
     test('should return right output if notes exists', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byAuthor/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byAuthor/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             authorId: 'slug-example-221',
             params: 'params=size:30;page:1',
@@ -85,8 +87,7 @@ describe('content source apiAcuAuthorsV2Source integration test', () => {
 
     test('should return 404 if author does not exists', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byAuthor/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byAuthor/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             authorId: 'slug-example-221',
             params: 'params=size:30;page:1',
