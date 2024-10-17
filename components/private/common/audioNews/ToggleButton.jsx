@@ -88,7 +88,38 @@ function ToggleButton({ contentVariant, handleToggle }) {
                 </Icon>
                 <Text>nota completa</Text>
             </Button>
-            <div className="relative flex">
+            <Tooltip
+                visible={tooltipVisible}
+                position="top-center"
+                classnames={{
+                    tooltip:
+                        'flex rounded-4 text-12_130 px-8 py-12 text-light-50 bg-blue-500 w-max z-101'
+                }}
+                style={{ maxWidth: '218px' }}
+                content={
+                    <>
+                        <Icon size={16}>
+                            <IconSprite name="iaTools" />
+                        </Icon>
+                        <Text className="text-12_130">
+                            Escuchar el resumen de la nota generado por la
+                            inteligencia artificial
+                        </Text>
+                        <Button
+                            onClick={closeTooltip}
+                            iconOnly
+                            size="inherit"
+                            variant="custom"
+                            className="js-start"
+                        >
+                            <Icon size={20}>
+                                <IconSprite name="close" fill="#fff" />
+                            </Icon>
+                        </Button>
+                    </>
+                }
+                disableTrigger
+            >
                 <Button
                     id="resumenConIA"
                     variant={
@@ -117,30 +148,7 @@ function ToggleButton({ contentVariant, handleToggle }) {
                     </Icon>
                     <Text>resumen con ia</Text>
                 </Button>
-                <Tooltip
-                    visible={tooltipVisible}
-                    position="top"
-                    className="rounded-4 text-12_130 px-8 py-12 text-light-50 bg-blue-500 w-max z-101"
-                    style={{ maxWidth: '218px' }}
-                >
-                    <Icon size={16}>
-                        <IconSprite name="iaTools" />
-                    </Icon>
-                    Escuchar el resumen de la nota generado por la inteligencia
-                    artificial
-                    <Button
-                        onClick={closeTooltip}
-                        iconOnly
-                        size="inherit"
-                        variant="custom"
-                        className="js-start"
-                    >
-                        <Icon size={20}>
-                            <IconSprite name="close" fill="#fff" />
-                        </Icon>
-                    </Button>
-                </Tooltip>
-            </div>
+            </Tooltip>
         </div>
     );
 }

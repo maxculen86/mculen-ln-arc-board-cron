@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
@@ -27,22 +28,26 @@ function TrustProject({ tooltipData }) {
                             )}
                         />
                         {tooltipData?.text && (
-                            <Text className="font-16 --font-regular relative --tooltip-container-test">
-                                {'Tipo de trabajo: '}
-                                <strong className="tooltip-sibling-hover">
-                                    {tooltipData.text.toLowerCase()}
-                                </strong>
-                                {tooltipData?.label && (
-                                    <Tooltip
-                                        position="bottom"
-                                        className="trust-project bg-white shadow-xs w-250 rounded-4 border border-all border-neutral-light-100 border-thin z-2"
-                                    >
+                            <div className="inline-flex gap-2">
+                                <Text>Tipo de trabajo:</Text>
+                                <Tooltip
+                                    toggleOn="hover"
+                                    position="bottom-center"
+                                    className="bg-white shadow-xs w-250 rounded-4 border border-all border-neutral-light-100 border-thin z-2"
+                                    content={
                                         <Text className="text-12_130">
-                                            {tooltipData.label}
+                                            {tooltipData?.label}
                                         </Text>
-                                    </Tooltip>
-                                )}
-                            </Text>
+                                    }
+                                    disableTrigger={Boolean(
+                                        !tooltipData?.label
+                                    )}
+                                >
+                                    <strong className="tooltip-sibling-hover">
+                                        {tooltipData?.text?.toLowerCase()}
+                                    </strong>
+                                </Tooltip>
+                            </div>
                         )}
                     </div>
                     <Link
@@ -60,5 +65,19 @@ function TrustProject({ tooltipData }) {
         </section>
     );
 }
+
+TrustProject.propTypes = {
+    tooltipData: PropTypes.shape({
+        text: PropTypes.func.string,
+        label: PropTypes.func.string
+    })
+};
+
+TrustProject.defaultProps = {
+    tooltipData: {
+        text: '',
+        label: ''
+    }
+};
 
 export default TrustProject;

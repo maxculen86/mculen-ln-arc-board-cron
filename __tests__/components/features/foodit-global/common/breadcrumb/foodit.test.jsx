@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import BreadcrumbFoodit from '../../../../../../components/features/foodit-global/common/breadcrumb/foodit';
 
@@ -68,7 +68,7 @@ describe('BreadcrumbFoodit', () => {
         expect(container.querySelector('.--disabled')).toBeTruthy();
     });
 
-    it('Should show the tooltip when the recipe contains the /gluten-free/ section', () => {
+    it('Should show the tooltip when the recipe contains the /gluten-free/ section, and button "Mostrar tooltip" is clicked', () => {
         const globalContent = {
             _id: 'SUYAOIFGEYUWIOBF',
             taxonomy: {
@@ -82,12 +82,12 @@ describe('BreadcrumbFoodit', () => {
                 ]
             }
         };
-
         render(<BreadcrumbFoodit globalContent={globalContent} />);
 
-        const tooltip = screen.getByText(
-            'Esta receta la pueden consumir los celíacos si se controla que todos los ingredientes envasados que se vayan a utilizar tengan el sello Sin tacc.'
-        );
+        const Button = screen.getByTitle('Mostrar tooltip');
+        fireEvent.click(Button);
+
+        const tooltip = screen.getByRole('tooltip');
         expect(tooltip).toBeVisible();
     });
 

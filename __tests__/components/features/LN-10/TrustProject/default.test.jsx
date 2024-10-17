@@ -1,10 +1,10 @@
 import React from 'react';
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, within, fireEvent } from '@testing-library/react';
 import TrustFeature from '../../../../../components/features/LN-10/trustProject/default';
 import Context from 'fusion:context';
 
 jest.mock('fusion:context', () => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -64,9 +64,9 @@ describe('features - LN10 - TrustFeature', () => {
         expect(screen.getByText('los criterios de')).toBeInTheDocument();
 
         expect(screen.getByText('Tipo de trabajo:')).toBeInTheDocument();
-        expect(
-            screen.getByText('Mostrar Trust'.toLowerCase())
-        ).toBeInTheDocument();
+
+        const tooltipTrigger = screen.getByText('Mostrar Trust'.toLowerCase());
+        fireEvent.mouseEnter(tooltipTrigger);
         expect(
             screen.getByText('Texto que se muestra en el tooltip')
         ).toBeInTheDocument();

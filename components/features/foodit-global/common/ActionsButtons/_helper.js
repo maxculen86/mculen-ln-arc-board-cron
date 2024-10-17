@@ -1,12 +1,13 @@
-import React from 'react';
-import get from '../../../../private/common/utils/get';
-
+import React, { useEffect } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import ShareFoodit from '../ShareFoodit/foodit';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import { Tooltip } from '@ln/common-ui-tooltip';
+import { useDisclosure } from '@ln/hooks';
+import get from '../../../../private/common/utils/get';
+
+import { ShareFoodit } from '../ShareFoodit/foodit';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
-import { Tooltip, useTooltip } from '@ln/common-ui-tooltip';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -21,7 +22,9 @@ const buttonShare = article => {
 };
 const buttonComment = () => {
     const commentsBox = document.querySelector('#viafoura-comments');
-    commentsBox && commentsBox.scrollIntoView({ behavior: 'smooth' });
+    if (commentsBox) {
+        commentsBox.scrollIntoView({ behavior: 'smooth' });
+    }
 };
 const buttonPrint = () => {
     window.print();
@@ -111,28 +114,36 @@ const renderCopyButton = ({
     type,
     article
 }) => {
-    const { tooltipVisible, openTooltip, closeTooltip } = useTooltip();
+    const { isOpen, onClose, onOpen } = useDisclosure();
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        setTimeout(() => {
+            onClose();
+        }, 3000);
+    }, [isOpen, onClose]);
 
     return (
         <div className="relative">
-            <Button
-                key={type}
-                title={description}
-                variant="link"
-                onClick={() => {
-                    openTooltip();
-                    handleClick(article);
-                }}
-            >
-                <Icon size={24}>{IconButton}</Icon>
-            </Button>
             <Tooltip
-                autoClose={2800}
-                closeTooltip={closeTooltip}
-                visible={tooltipVisible}
-                className="rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100 z-5 w-max max-w-248"
+                toggleOn="click"
+                content={<span className="text-12">Copiado</span>}
+                className="flex rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100 z-5 w-max max-w-248"
+                disableTrigger
+                visible={isOpen}
             >
-                Copiado
+                <Button
+                    key={type}
+                    title={description}
+                    variant="link"
+                    onClick={() => {
+                        onOpen();
+                        handleClick(article);
+                    }}
+                >
+                    <Icon size={24}>{IconButton}</Icon>
+                </Button>
             </Tooltip>
         </div>
     );

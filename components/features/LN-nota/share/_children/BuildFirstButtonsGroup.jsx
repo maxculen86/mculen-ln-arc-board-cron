@@ -145,7 +145,42 @@ function BuildFirtsButtonsGroup({
             ref={shareRef}
         >
             {showIAButton && (
-                <div className="relative flex">
+                <Tooltip
+                    visible={tooltipVisible}
+                    position="right-center"
+                    classnames={{
+                        container: 'flex',
+                        tooltip:
+                            'rounded-4 gap-4 px-8 py-12 text-light-50 bg-blue-500 z-10 flex'
+                    }}
+                    style={{ maxWidth: '272px' }}
+                    disableTrigger
+                    content={
+                        <>
+                            <Icon size={16}>
+                                <IconSprite name="iaTools" />
+                            </Icon>
+                            <Text className="text-12_130">
+                                Leer el resumen y glosario generados por la
+                                inteligencia artificial
+                            </Text>
+                            <Button
+                                onClick={() => {
+                                    closeTooltip();
+                                    setTooltipWasClosed(true);
+                                }}
+                                iconOnly
+                                size="inherit"
+                                variant="custom"
+                                className="js-start"
+                            >
+                                <Icon size={20}>
+                                    <IconSprite name="close" fill="#fff" />
+                                </Icon>
+                            </Button>
+                        </>
+                    }
+                >
                     <Button
                         id="btnIA"
                         title="IA"
@@ -165,33 +200,7 @@ function BuildFirtsButtonsGroup({
                     >
                         <Icon size={32}>{iaLogo}</Icon>
                     </Button>
-                    <Tooltip
-                        visible={tooltipVisible}
-                        position="right"
-                        className="rounded-4 text-12 px-8 py-12 line-height-130 text-light-50 bg-blue-500 w-max 2 z-10"
-                        style={{ maxWidth: '272px' }}
-                    >
-                        <Icon size={16}>
-                            <IconSprite name="iaTools" />
-                        </Icon>
-                        Leer el resumen y glosario generados por la inteligencia
-                        artificial
-                        <Button
-                            onClick={() => {
-                                closeTooltip();
-                                setTooltipWasClosed(true);
-                            }}
-                            iconOnly
-                            size="inherit"
-                            variant="custom"
-                            className="js-start"
-                        >
-                            <Icon size={20}>
-                                <IconSprite name="close" fill="#fff" />
-                            </Icon>
-                        </Button>
-                    </Tooltip>
-                </div>
+                </Tooltip>
             )}
 
             {showListenButton && (

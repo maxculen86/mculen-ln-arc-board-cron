@@ -17,7 +17,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           id="first-button-group"
         >
           <div
-            class="relative flex"
+            class="relative w-max flex"
           >
             <button
               class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
@@ -56,36 +56,6 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
                 </svg>
               </i>
             </button>
-            <div
-              class="tooltip absolute p-12 flex gap-4 rounded-4 text-12 px-8 py-12 line-height-130 text-light-50 bg-blue-500 w-max 2 z-10"
-              data-position="right"
-              data-visible="false"
-              role="tooltip"
-              style="max-width: 272px;"
-            >
-              <i
-                class="icon --icon-16"
-              >
-                <mock-icon
-                  name="iaTools"
-                />
-              </i>
-              Leer el resumen y glosario generados por la inteligencia artificial
-              <button
-                class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent js-start --custom"
-                data-variant="custom"
-                type="button"
-              >
-                <i
-                  class="icon --icon-20"
-                >
-                  <mock-icon
-                    fill="#fff"
-                    name="close"
-                  />
-                </i>
-              </button>
-            </div>
           </div>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -243,7 +213,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
 </div>
 `;
 
-exports[`components - private - LN - nota - share Snapshot - Should show 11 buttons  1`] = `
+exports[`components - private - LN - nota - share Snapshot - Should show 10 buttons  1`] = `
 <div>
   <div
     class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
@@ -260,7 +230,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 11 butt
           id="first-button-group"
         >
           <div
-            class="relative flex"
+            class="relative w-max flex"
           >
             <button
               class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
@@ -281,36 +251,6 @@ exports[`components - private - LN - nota - share Snapshot - Should show 11 butt
                 />
               </i>
             </button>
-            <div
-              class="tooltip absolute p-12 flex gap-4 rounded-4 text-12 px-8 py-12 line-height-130 text-light-50 bg-blue-500 w-max 2 z-10"
-              data-position="right"
-              data-visible="false"
-              role="tooltip"
-              style="max-width: 272px;"
-            >
-              <i
-                class="icon --icon-16"
-              >
-                <mock-icon
-                  name="iaTools"
-                />
-              </i>
-              Leer el resumen y glosario generados por la inteligencia artificial
-              <button
-                class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent js-start --custom"
-                data-variant="custom"
-                type="button"
-              >
-                <i
-                  class="icon --icon-20"
-                >
-                  <mock-icon
-                    fill="#fff"
-                    name="close"
-                  />
-                </i>
-              </button>
-            </div>
           </div>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -502,7 +442,7 @@ exports[`components - private - LN - nota - share Test click button bookmark 1`]
           id="first-button-group"
         >
           <div
-            class="relative flex"
+            class="relative w-max flex"
           >
             <button
               class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
@@ -541,36 +481,6 @@ exports[`components - private - LN - nota - share Test click button bookmark 1`]
                 </svg>
               </i>
             </button>
-            <div
-              class="tooltip absolute p-12 flex gap-4 rounded-4 text-12 px-8 py-12 line-height-130 text-light-50 bg-blue-500 w-max 2 z-10"
-              data-position="right"
-              data-visible="false"
-              role="tooltip"
-              style="max-width: 272px;"
-            >
-              <i
-                class="icon --icon-16"
-              >
-                <mock-icon
-                  name="iaTools"
-                />
-              </i>
-              Leer el resumen y glosario generados por la inteligencia artificial
-              <button
-                class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent js-start --custom"
-                data-variant="custom"
-                type="button"
-              >
-                <i
-                  class="icon --icon-20"
-                >
-                  <mock-icon
-                    fill="#fff"
-                    name="close"
-                  />
-                </i>
-              </button>
-            </div>
           </div>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
