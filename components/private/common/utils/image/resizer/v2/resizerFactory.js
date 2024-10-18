@@ -1,19 +1,15 @@
 import get from '../../../get';
-import {
-    getDefaultSize,
-    resizeArcGallery,
-    resizeArcImage
-} from './resizerHelper';
+import { getDefaultSize, resizeArcGallery } from './resizerHelper';
+import { resizeArcImage } from './resizerHelper';
 
-export const resizePromoItems = ({
+export const resizePromoItems = (
     resizeOptions,
     zoomSizes,
     subtype,
     promoItems = {},
     isInApertura = false,
-    arcSite = 'lanacionar',
-    resizerUrl
-}) => {
+    arcSite = 'lanacionar'
+) => {
     const resp = {};
 
     const { defaultResize, shouldExcludeCrop } = getDefaultSize(subtype);
@@ -30,8 +26,7 @@ export const resizePromoItems = ({
                 smartCropExcluded: shouldExcludeCrop,
                 defaultResize,
                 isInApertura,
-                arcSite,
-                resizerUrl
+                arcSite
             });
         } else if (promoItem.type === 'video') {
             resp[key] = {
@@ -45,8 +40,7 @@ export const resizePromoItems = ({
                             smartCropExcluded: shouldExcludeCrop,
                             defaultResize,
                             isInApertura,
-                            arcSite,
-                            resizerUrl
+                            arcSite
                         })
                     }
                 }

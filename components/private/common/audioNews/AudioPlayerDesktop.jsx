@@ -7,7 +7,7 @@ import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import classNames from 'classnames';
 import getToken from '../utils/getToken';
-import { getCookie, handleClickAudioNews } from './helpers';
+import { handleClickAudioNews } from './helpers';
 import BuildAudioPlayer from './BuildAudioPlayer';
 import { GlobalContext } from '../context/globalContext';
 import useTermica from '../hooks/useTermica';
@@ -18,12 +18,14 @@ import {
 } from '../../../../auth/helper/loginHelper';
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
+import handleCookie from '../../LN/common/utils/handleCookie';
 
 function AudioPlayerDesktop({ noteId = '', isListenable, className }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
     const { dispatch } = useContext(GlobalContext) || {};
     const [openPlayer, setOpenPlayer] = useState(false);
     const [enableButton, setEnableButton] = useState(false);
+    const { getCookie } = handleCookie();
     const [contentVariant] = useState(getCookie('contentVariant') || 'article');
     const token = getToken();
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
@@ -31,11 +33,9 @@ function AudioPlayerDesktop({ noteId = '', isListenable, className }) {
         !useTermica('hide_listening_articles') && isListenable;
 
     const _class = classNames('mr-16 ai-start_l', className);
-    const event = getAudioEvents(
-        globalContent,
-        globalContentConfig,
-        contentVariant
-    );
+    const event =
+        showListenButton &&
+        getAudioEvents(globalContent, globalContentConfig, contentVariant);
     if (!showListenButton) return null;
     return (
         <div
