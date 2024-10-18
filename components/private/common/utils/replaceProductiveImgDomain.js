@@ -1,13 +1,9 @@
-import { API_ENV } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC, API_ENV } from 'fusion:environment';
 import { isEmptyString } from './dataValidation';
 import get from './get';
 
-const RESIZER_URL_PUBLIC_PROD = 'https://resizer.glanacion.com';
-
 const replaceProductiveImgDomain = (url = '') =>
-    !isEmptyString(url)
-        ? url.replace(/^.*\/\/[^\\/]+/, RESIZER_URL_PUBLIC_PROD)
-        : '';
+    !isEmptyString(url) ? url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC) : '';
 
 export const replaceUrlsByEnvironment = (articles = []) => {
     if (['sandbox', 'dev'].includes(API_ENV)) {

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
@@ -26,6 +27,7 @@ function TrustProject({ tooltipData }) {
                             src={deployment(
                                 `${contextPath}/resources/images/the-trust-project.webp`
                             )}
+                            alt="The Trust Project"
                         />
                         {tooltipData?.text && (
                             <div className="inline-flex gap-2">
