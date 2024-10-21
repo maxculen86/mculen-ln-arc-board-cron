@@ -124,10 +124,6 @@ function BuildFirtsButtonsGroup({
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
-    const event =
-        showListenButton &&
-        getAudioEvents(globalContent, globalContentConfig, contentVariant);
-
     const classes = getFirstGroupClassNames({ subtypeVideo });
 
     const defaultTab =
@@ -210,7 +206,11 @@ function BuildFirtsButtonsGroup({
                         eventHandler({
                             activeWindow: window,
                             eventName: 'page_listened',
-                            audioNewsActions: event
+                            audioNewsActions: getAudioEvents(
+                                globalContent,
+                                globalContentConfig,
+                                contentVariant
+                            )
                         });
                     }}
                     disabled={openPlayer || enableButton}

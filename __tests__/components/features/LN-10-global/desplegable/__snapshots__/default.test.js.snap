@@ -239,6 +239,18 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
+                    href="https://www.lanacion.com.ar/economia/IA/"
+                    target="_self"
+                    title="Futuria"
+                  >
+                    Futuria
+                  </a>
+                </li>
+                <li
+                  class=""
+                >
+                  <a
+                    class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/dolar-hoy/"
                     target="_self"
                     title="Dólar Hoy"
@@ -864,6 +876,18 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
               <ul
                 class="list --sub"
               >
+                <li
+                  class=""
+                >
+                  <a
+                    class="link ln-link dd-link"
+                    href="https://www.lanacion.com.ar/que-sale/"
+                    target="_self"
+                    title="Qué sale?"
+                  >
+                    Qué sale?
+                  </a>
+                </li>
                 <li
                   class=""
                 >
