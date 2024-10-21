@@ -33,9 +33,7 @@ function AudioPlayerDesktop({ noteId = '', isListenable, className }) {
         !useTermica('hide_listening_articles') && isListenable;
 
     const _class = classNames('mr-16 ai-start_l', className);
-    const event =
-        showListenButton &&
-        getAudioEvents(globalContent, globalContentConfig, contentVariant);
+
     if (!showListenButton) return null;
     return (
         <div
@@ -58,7 +56,11 @@ function AudioPlayerDesktop({ noteId = '', isListenable, className }) {
                     );
                     addEventToDataLayerV2({
                         event: 'page_listened',
-                        rest: event
+                        rest: getAudioEvents(
+                            globalContent,
+                            globalContentConfig,
+                            contentVariant
+                        )
                     });
                 }}
                 disabled={enableButton || openPlayer}
