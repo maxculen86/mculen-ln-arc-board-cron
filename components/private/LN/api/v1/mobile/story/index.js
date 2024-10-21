@@ -7,8 +7,7 @@ import { validateIdsPromoItems } from '../../../common/elements/story/apertura/u
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
-import {
-    isNoteListenableHome as isNoteListenable,
+import isNoteListenable, {
     isCustomVoice
 } from '../../../../../../../content/sources/utils/audioNews/helper';
 
@@ -32,7 +31,7 @@ const indexNota = dataNotaParam => {
     const boxElements = [0, 3, 6, 8, 10];
     if (resp.contenido) {
         const { length } = resp.contenido;
-        boxElements.forEach((boxElement, index) => {
+        boxElements.forEach(boxElement => {
             let boxElementValidate = boxElement + elmentsAdd;
             resp.contenido.every((element, i) => {
                 const banner = { _t: 'banner' };

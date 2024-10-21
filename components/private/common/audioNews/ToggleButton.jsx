@@ -48,18 +48,6 @@ function ToggleButton({ contentVariant, handleToggle }) {
         }
     };
 
-    const eventSummary = getAudioEvents(
-        globalContent,
-        globalContentConfig,
-        'summary'
-    );
-
-    const eventArticle = getAudioEvents(
-        globalContent,
-        globalContentConfig,
-        'article'
-    );
-
     return (
         <div className="toggle-bttn-audio flex ai-center mt-20 mt-0_l mb-16_l ai-start_l">
             <Button
@@ -74,7 +62,11 @@ function ToggleButton({ contentVariant, handleToggle }) {
                     if (contentVariant !== 'article') {
                         addEventToDataLayerV2({
                             event: 'page_listened',
-                            rest: eventArticle
+                            rest: getAudioEvents(
+                                globalContent,
+                                globalContentConfig,
+                                'article'
+                            )
                         });
                     }
                 }}
@@ -134,7 +126,11 @@ function ToggleButton({ contentVariant, handleToggle }) {
                         if (contentVariant !== 'summary') {
                             addEventToDataLayerV2({
                                 event: 'page_listened',
-                                rest: eventSummary
+                                rest: getAudioEvents(
+                                    globalContent,
+                                    globalContentConfig,
+                                    'summary'
+                                )
                             });
                         }
                     }}
