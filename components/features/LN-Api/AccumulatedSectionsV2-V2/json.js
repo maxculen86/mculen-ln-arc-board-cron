@@ -8,7 +8,8 @@ import get from '../../../private/common/utils/get';
 import { getNewAcuElements } from '../AccumulatedSectionsV1/helper-api';
 import calculatePaginationValue from '../../../../content/sources/utils/pageSource/acumulados/common/calculatePaginationValue';
 import acuTransformV2Format from '../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
-
+import BackendLnError from '../../../private/LN/api/common/models/backendLnError';
+import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
 
 // URL de ejemplo: http://localhost/api/mobile/v2/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/mobile\/v2\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -17,7 +18,7 @@ class AccumulatedSectionsMobileV2V2 {
         this.props = props;
         const {
             arcSite,
-            globalContent: { _id: id },
+            globalContent,
             isAdmin,
             customFields: {
                 size: sizeCf = 30,
@@ -30,7 +31,15 @@ class AccumulatedSectionsMobileV2V2 {
         this.state = {};
         this.sizeCf = sizeCf;
 
-
+        const id= get(globalContent,'_id',null);
+        if(!id){
+            console.warn(
+                new BackendLnError(
+                    `AccumulatedSectionsV2-V2 - msj: No existe Id de Seccion - GlobalContent: ${JSON.stringify(globalContent || {})}`,
+                    enumTypeError.featureError
+                )
+            );
+        }
         const { size, page } = getSizesFrom(
             isAdmin,
             sizeCf,
@@ -136,6 +145,7 @@ class AccumulatedSectionsMobileV2V2 {
 
     async render() {
         try {
+            
             const { acuArticlesSourceSection, globalContent: configuration } =
                 this.state || {};
             const {
@@ -200,6 +210,14 @@ class AccumulatedSectionsMobileV2V2 {
             return acuTransformV2Format(transformedAcu, this.sectionId, paginationValue);
 
         } catch (err) {
+            console.error(
+                new BackendLnError(
+                    `AccumulatedSectionsV2-V2 - msj: ${
+                        err.message
+                    } - Error: ${JSON.stringify(err || {})}`,
+                    enumTypeError.featureError
+                )
+            );
             return { Success: false, Message: err.message };
         }
     }
