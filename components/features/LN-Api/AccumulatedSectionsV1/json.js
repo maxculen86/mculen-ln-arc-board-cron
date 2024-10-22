@@ -28,7 +28,7 @@ class AccumulatedSectionsMobileV1 {
         this.state = {};
         this.sizeCf = sizeCf;
 
-        const id= get(globalContent,'_id',null);
+        const id = get(globalContent,'_id',null);
         if(!id){
             console.warn(
                 new BackendLnError(
