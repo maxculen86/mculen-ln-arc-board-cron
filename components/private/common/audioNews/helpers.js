@@ -1,22 +1,14 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable */
-import React from 'react';
 import { DOMINIO_COOKIE } from 'fusion:environment';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
-
-export const getIconByOpenPlayer = enableButton =>
-    enableButton
-        ? { headphoneIcon: <IconSprite name="headphoneFilled" /> }
-        : { headphoneIcon: <IconSprite name="headphone" /> };
 
 export const handleClickAudioNews = (
     token,
     suscription,
-    setOpenPlayer,
+    onOpenAudioPlayer,
     dispatch
 ) => {
-    if (token && suscription) setOpenPlayer(true);
-
+    if (token && suscription) onOpenAudioPlayer();
     (!suscription || !token) &&
         dispatch({
             type: 'SHOW_MODAL',
@@ -49,7 +41,38 @@ export const getCookie = name => {
     }, '');
 };
 
-export const IA_AUDIO_SUMMARY_TRACKING_STORAGE = {
-    key: 'IA-audio-summary-tracking',
-    value: 'wasDisplayed'
+export const getTextAndIconColor = variant =>
+    variant === 'ia'
+        ? { text: 'Escuchando al autor', iconColor: '#27D2BE' }
+        : { text: 'Escuchando', iconColor: '#808080' };
+
+export const getAuthorsNameAndLink = authors => {
+    const author =
+        authors.length === 1
+            ? authors.reduce((acc, val) => ({ name: val.name, link: val.link }))
+            : authors.map(author => author.name);
+    return { author };
 };
+
+export const IA_AUDIO_AUTHOR_TRACKING = {
+    key: 'iaAudioAuthorTracking',
+    value: 'wasClicked'
+};
+
+export function getTextDisclaimer({
+    contentVariant = '',
+    showVariantIa = false
+}) {
+    const textDisclaimer = {
+        article: 'Voz realizada con IA',
+        summary: 'Resumen realizado con IA',
+        author: 'Voz de autor realizada con IA'
+    };
+    if (contentVariant === 'summary') {
+        return textDisclaimer.summary;
+    }
+    if (showVariantIa) {
+        return textDisclaimer.author;
+    }
+    return textDisclaimer.article;
+}

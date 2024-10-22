@@ -45,7 +45,7 @@ export const getClassAndIconByClick = iaButtonIsClicked =>
                   <Suspense
                       fallback={<IconSprite name="ai" default fill="#27D2BE" />}
                   >
-                      <AnimatedIcons />
+                      <AnimatedIcons name="logo-ai" />
                   </Suspense>
               ),
               iaButtonClass: 'p-0'
