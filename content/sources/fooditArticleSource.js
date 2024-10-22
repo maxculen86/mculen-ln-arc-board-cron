@@ -1,12 +1,12 @@
 import { SITE_FOODIT, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { transform } from './utils/fooditSources/fooditArticleSource';
 import get from '../../components/private/common/utils/get';
-import logger from '../../components/private/common/utils/logger.js';
+import logger from '../../components/private/common/utils/logger';
 import { setRedirect } from './utils/articleSourceNota/_helper';
-import fooditBaseArticleSource from './fooditBaseArticleSource.js';
-import filter from '../filters/foodit/article/articleFilterNota.js';
-import { RECETA } from '../../components/private/common/utils/subtypes/subtypeHelper.js';
-import { recipePaywallConfigCallbackContentElements } from './utils/fooditSources/fooditArticleSource/_configs.js';
+import fooditBaseArticleSource from './fooditBaseArticleSource';
+import filter from '../filters/foodit/article/articleFilterNota';
+import { RECETA } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import { recipePaywallConfigCallbackContentElements } from './utils/fooditSources/fooditArticleSource/_configs';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
@@ -22,7 +22,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 }
             );
 
-            const isReceta = get(response, 'subtype', null) == RECETA;
+            const isReceta = get(response, 'subtype', null) === RECETA;
             const isPaywallSoftEnabled =
                 get(query, 'paywallSoftEnabled') === '1';
 
@@ -36,7 +36,8 @@ const fetch = (query, { cachedCall } = {}) => {
             const customCallbacksConfig = isExclusiveSuscriptor
                 ? {
                       isExclusiveSuscriptor,
-                      customConfigCallbackContentElements: recipePaywallConfigCallbackContentElements
+                      customConfigCallbackContentElements:
+                          recipePaywallConfigCallbackContentElements
                   }
                 : {};
 

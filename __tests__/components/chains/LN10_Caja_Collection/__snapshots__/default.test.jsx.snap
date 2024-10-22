@@ -232,8 +232,8 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         </div>
         <script
           async=""
-          id="scriptBtnSuscriptionRoof"
-          src="pathDeployment/pf//resources/js/LN/scriptBuildRoof.min.js"
+          id="scriptCheckSubscriptionLN"
+          src="pathDeployment/pf//resources/js/LN/scriptCheckSubscriptionLN.min.js"
           type="text/javascript"
         />
         <section

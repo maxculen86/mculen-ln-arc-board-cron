@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { GlobalContext } from '../context/globalContext';
-import get from '../utils/get';
 import { ToastContainer } from '@ln/common-ui-toast';
 import { Toast } from '@ln/contenidos-ui-toast';
+import { GlobalContext } from '../context/globalContext';
+import get from '../utils/get';
 
-const ShowToast = () => {
+function ShowToast() {
     const { state, dispatch } = useContext(GlobalContext) || {};
     const { open, typeModal, data } = get(state, 'showModal', {});
 
@@ -38,17 +38,16 @@ const ShowToast = () => {
         <ToastContainer
             newToast={<Toast {...propsToast} />}
             transitionIn={['fade-in-up']}
-            hPosition={'center'}
-            vPosition={'bottom'}
-            className="bottom-64 z-110 bottom-100_md"
+            hPosition="center"
+            vPosition="bottom"
+            className="bottom-64 z-100000 bottom-100_md"
             duration={timeout}
             onAnimationEnd={() => {
                 dispatch({ type: 'SHOW_MODAL', payload: { open: false } });
             }}
+            style={{ zIndex: 100000 }}
         />
-    ) : (
-        <></>
-    );
-};
+    ) : null;
+}
 
 export default ShowToast;

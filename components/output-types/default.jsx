@@ -268,7 +268,9 @@ function Default(props) {
                 />
                 <Schemas section={_nodeType} />
                 <Favicon />
-                <link rel="manifest" href="/manifest.json" />
+                {arcSite !== 'ott' && (
+                    <link rel="manifest" href="/manifest.json" />
+                )}
                 <MetasFBNews
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}

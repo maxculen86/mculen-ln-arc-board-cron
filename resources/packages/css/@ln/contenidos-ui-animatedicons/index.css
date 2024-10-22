@@ -66,3 +66,41 @@
     stroke: var(--primary-ia);
   }
 }
+
+.logo-listen .bar {
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform-origin: bottom;
+}
+.logo-listen .bar.first-bar {
+  animation-delay: -2.2s;
+}
+.logo-listen .bar.second-bar {
+  animation-delay: -3.7s;
+}
+.logo-listen .bar.third-bar {
+  animation-delay: -1.5s;
+}
+.logo-listen .bar.fourth-bar {
+  animation-delay: -2.5s;
+}
+@keyframes bounce {
+  10% {
+    transform: scaleY(0.3);
+  }
+  30% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(0.5);
+  }
+  80% {
+    transform: scaleY(0.75);
+  }
+  100% {
+    transform: scaleY(0.6);
+  }
+}

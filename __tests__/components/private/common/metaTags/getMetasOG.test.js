@@ -114,10 +114,22 @@ describe('Metas OTT', () => {
                     'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
             },
             {
+                property: 'og:locale',
+                content: 'es_AR'
+            },
+            {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
+            },
+            {
+                property: 'og:image:type',
+                content: 'image/png'
+            },
+            {
+                property: 'og:image:alt',
+                content: 'Placeholder de LA NACION'
             },
             {
                 property: 'og:image:width',
@@ -167,7 +179,11 @@ describe('Common - getMetasOG function', () => {
                         type: 'image',
                         url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
                         width: 768,
-                        height: 512
+                        height: 512,
+                        additional_properties: {
+                            mime_type: 'image/png'
+                        },
+                        caption: 'Receta de arroz chaufa de mariscos'
                     },
                     receta: {}
                 },
@@ -224,9 +240,22 @@ describe('Common - getMetasOG function', () => {
                 content: 'Encontrá acá la receta de Arroz chaufa de mariscos'
             },
             {
+                property: 'og:locale',
+                content: 'es_AR'
+            },
+            {
                 property: 'og:image',
                 content:
                     'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800'
+            },
+
+            {
+                property: 'og:image:type',
+                content: 'image/png'
+            },
+            {
+                property: 'og:image:alt',
+                content: 'Receta de arroz chaufa de mariscos'
             },
             {
                 property: 'og:image:width',
@@ -241,16 +270,16 @@ describe('Common - getMetasOG function', () => {
                 content: `https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
             },
             {
+                content: 'LA NACION',
+                property: 'og:site_name'
+            },
+            {
                 property: 'article:published_time',
                 content: '2021-01-08T15:24:00.940Z'
             },
             {
                 property: 'article:modified_time',
                 content: '2021-01-08T15:24:00.940Z'
-            },
-            {
-                content: 'LA NACION',
-                property: 'og:site_name'
             },
             {
                 name: 'twitter:image',
@@ -284,7 +313,12 @@ describe('Common - getMetasOG function', () => {
             },
             section: 'acumulado',
             arcSite: 'la-nacion-ar',
-            metaDescription: 'Últimas Noticias de LA NACION'
+            metaDescription: 'Últimas Noticias de LA NACION',
+            globalContentConfig: {
+                query: {
+                    id: '/'
+                }
+            }
         };
 
         const metas = [
@@ -305,10 +339,22 @@ describe('Common - getMetasOG function', () => {
                 content: 'Últimas Noticias de LA NACION'
             },
             {
+                property: 'og:locale',
+                content: 'es_AR'
+            },
+            {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
+            },
+            {
+                property: 'og:image:type',
+                content: 'image/png'
+            },
+            {
+                property: 'og:image:alt',
+                content: 'Placeholder de LA NACION'
             },
             {
                 property: 'og:image:width',
@@ -385,10 +431,22 @@ describe('Common - getMetasOG function', () => {
                 content: 'Últimas Noticias de Javier Blanco'
             },
             {
+                property: 'og:locale',
+                content: 'es_AR'
+            },
+            {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
+            },
+            {
+                property: 'og:image:type',
+                content: 'image/png'
+            },
+            {
+                property: 'og:image:alt',
+                content: 'Placeholder de LA NACION'
             },
             {
                 property: 'og:image:width',
@@ -464,7 +522,12 @@ describe('Metas home', () => {
                 return '$LATEST';
             },
             section: 'home',
-            arcSite: 'la-nacion-ar'
+            arcSite: 'la-nacion-ar',
+            globalContentConfig: {
+                query: {
+                    id: '/'
+                }
+            }
         };
 
         const metas = [
@@ -485,10 +548,22 @@ describe('Metas home', () => {
                 content: 'Últimas Noticias de LA NACION'
             },
             {
+                property: 'og:locale',
+                content: 'es_AR'
+            },
+            {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
+            },
+            {
+                property: 'og:image:type',
+                content: 'image/png'
+            },
+            {
+                property: 'og:image:alt',
+                content: 'Placeholder de LA NACION'
             },
             {
                 property: 'og:image:width',

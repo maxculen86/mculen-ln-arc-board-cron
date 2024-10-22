@@ -1,4 +1,4 @@
-import request from 'request-promise-native';
+import nodeFetch from 'node-fetch';
 import getProperties from 'fusion:properties';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
@@ -6,6 +6,7 @@ import filter from '../filters/LN/acumulado/author';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
 import { isEmptyString } from '../../components/private/common/utils/dataValidation';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
@@ -17,43 +18,10 @@ const resolve = key => {
     return `/author/v1/author-service?website=${website || arcSite}&_id=${_id}`;
 };
 
-const fetch = (query, { cachedCall } = {}) => {
-    const arcSite = query['arc-site'];
-
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-    return request(opt)
-        .then(async response => {
-            const image = get(response, 'image', '');
-            let signingResponse = null;
-            !isEmptyString(image) &&
-                (signingResponse = await signingServiceCachedCall(
-                    image,
-                    cachedCall
-                ));
-            return transform(response, query, get(signingResponse, 'hash'));
-        })
-        .catch(error => {
-            logger.push(
-                error,
-                {
-                    source: 'content/sources/authorSource',
-                    url: resolve(query)
-                },
-                arcSite
-            );
-        });
-};
-const transform = (data, query, creditHash) => {
+const transform = (authorsData, query, creditHash) => {
     const { meteringVariant, imageConfig = '' } = query || {};
     const arcSite = query['arc-site'];
+    const { _id: authorId = '' } = authorsData || '';
     const properties = getProperties(arcSite);
     const imagePreset = get(
         properties,
@@ -66,10 +34,11 @@ const transform = (data, query, creditHash) => {
             type: 'image'
         }
     );
-    let imageUrl = get(data, 'image.url', '') || get(data, 'image', '');
+    const imageUrl =
+        get(authorsData, 'image.url', '') || get(authorsData, 'image', '');
 
     return {
-        ...data,
+        ...authorsData,
         ...(imageUrl && {
             image: {
                 url: resizeImgUrl({
@@ -83,10 +52,50 @@ const transform = (data, query, creditHash) => {
             }
         }),
         node_type: 'author',
-        name: data.byline,
-        canonical_url: encodeURI(`/autor/${data?._id || ''}/`),
+        name: authorsData.byline,
+        canonical_url: encodeURI(`/autor/${authorId}/`),
         subscription: meteringVariant
     };
+};
+
+const fetch = async (query, { cachedCall } = {}) => {
+    const arcSite = query['arc-site'];
+
+    const opt = {
+        method: 'GET'
+    };
+    try {
+        if (ARC_ACCESS_TOKEN)
+            opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
+
+        const response = await nodeFetch(
+            `${CONTENT_BASE}${resolve(query)}`,
+            opt
+        );
+
+        handleHttpError(response);
+
+        const authorsData = await response.json();
+        const image = get(authorsData, 'image', '');
+
+        let signingResponse = null;
+
+        if (!isEmptyString(image))
+            signingResponse = await signingServiceCachedCall(image, cachedCall);
+
+        return transform(authorsData, query, get(signingResponse, 'hash'));
+    } catch (error) {
+        logger.push(
+            error,
+            {
+                source: 'content/sources/authorSource',
+                url: resolve(query)
+            },
+            arcSite
+        );
+
+        return {};
+    }
 };
 
 export default {

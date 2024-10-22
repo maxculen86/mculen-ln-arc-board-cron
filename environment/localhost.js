@@ -5,10 +5,10 @@ export default {
      */
     // ** 🚀 Variables de producción (descomentar para usar):
     // IS_SANDBOX: 'false',
-    // API_ENV: "prod",
-    // SITE_LANACION: "https://www.lanacion.com.ar",
-    // RESIZER_URL: "https://resizer.glanacion.com/resizer",
-    // RESIZER_URL_PUBLIC: "https://resizer.glanacion.com",
+    // API_ENV: 'prod',
+    // SITE_LANACION: 'https://www.lanacion.com.ar',
+    // RESIZER_URL: 'https://resizer.glanacion.com/resizer',
+    // RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
     // ** 🏖️ Variables de entorno actuales para sandbox:
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',

@@ -61,35 +61,6 @@ describe('Components - Features - LN-nota - share', () => {
         expect(useFetch).toBeCalledTimes(1);
     });
 
-    it('should not render isListenable button if termica returns true', () => {
-        useTermica.mockImplementation(() => true);
-
-        render(
-            <BuildFirtsButtonsGroup
-                globalContent={globalContent(true, false)}
-            />
-        );
-
-        expect(useTermica).toHaveBeenCalledWith('hide_listening_articles');
-        expect(screen.queryByText('escuchar')).not.toBeInTheDocument();
-        expect(screen.queryByTitle('Escuchar nota')).not.toBeInTheDocument();
-    });
-
-    it('should render isListenable button', () => {
-        useTermica.mockImplementation(() => false);
-
-        render(
-            <BuildFirtsButtonsGroup
-                globalContent={globalContent(true, false)}
-            />
-        );
-
-        expect(useTermica).toHaveBeenCalled();
-        const listenButton = screen.getByTitle('Escuchar nota');
-        expect(listenButton).toBeInTheDocument();
-        expect(listenButton).toHaveAttribute('title', 'Escuchar nota');
-    });
-
     it('should render bookmark button', () => {
         const { container } = render(
             <BuildFirtsButtonsGroup
