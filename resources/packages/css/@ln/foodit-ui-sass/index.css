@@ -98,6 +98,7 @@ input[type=checkbox]:hover {
   --neutral-light-200: #CCCCCC;
   --neutral-light-300: #B3B3B3;
   --neutral-light-600: #666666;
+  --neutral-light-700: #4D4D4D;
   --neutral-light-800: #333333;
   --neutral-light-900: #1A1A1A;
   --neutral-dark-800: #CCCCCC;
@@ -342,6 +343,9 @@ input[type=checkbox]:hover {
 .border.border-light-300 {
   border-color: var(--neutral-light-300);
 }
+.border.border-light-700 {
+  border-color: var(--neutral-light-700);
+}
 .border.border-light-800 {
   border-color: var(--neutral-light-800);
 }
@@ -408,6 +412,10 @@ input[type=checkbox]:hover {
 
 .text-light-600 {
   color: var(--neutral-light-600);
+}
+
+.text-light-700 {
+  color: var(--neutral-light-700);
 }
 
 .text-light-800 {
@@ -1105,6 +1113,10 @@ b, strong {
   overflow-x: clip;
 }
 
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -1396,6 +1408,10 @@ b, strong {
   min-width: 22.5rem;
 }
 
+.min-w-116 {
+  min-width: 7.25rem;
+}
+
 @media (min-width: 48rem) {
   .min-w-720_md {
     min-width: 45rem;
@@ -1464,6 +1480,10 @@ b, strong {
 
 .h-56 {
   height: 3.5rem;
+}
+
+.h-72 {
+  height: 4.5rem;
 }
 
 .h-250 {
@@ -2122,8 +2142,8 @@ b, strong {
   --notification-drawer-login-incentive-button-bg-color: #333333;
   --notification-drawer-login-incentive-button-color: #fefefe;
   --notification-drawer-login-incentive-button-border-radius: 0.25rem;
-  --notification-card-info-button-background-color: #333333;
-  --notification-card-info-button-color: #fefefe;
+  --notification-card-info-button-background-color: #f3f0eb;
+  --notification-card-info-button-color: #333333;
   --notification-card-warning-button-background-color: #333333;
   --notification-card-warning-button-color: #fefefe;
   --notification-card-danger-button-background-color: #333333;
@@ -2234,6 +2254,12 @@ hr {
 
 .white-space-nowrap {
   white-space: nowrap;
+}
+
+@media (min-width: 48rem) {
+  .white-space-normal_md {
+    white-space: normal;
+  }
 }
 
 @media (min-width: 80rem) {
