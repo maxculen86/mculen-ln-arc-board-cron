@@ -6,7 +6,7 @@ exports[`features - LN-10-GLOBAL - glossary - components- Dialog should match sn
   <dialog
     aria-describedby="dialog-description-drawer-glossary"
     aria-labelledby="dialog-title-drawer-glossary"
-    class="dialog disable-body-scroll w-100 rounded-4 p-16 flex flex-column gap-8"
+    class="dialog disable-body-scroll w-100 rounded-4 p-16 gap-8"
     data-overlay="true"
     data-position="bottom"
     id="drawer-glossary"

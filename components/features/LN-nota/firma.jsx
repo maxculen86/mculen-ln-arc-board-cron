@@ -51,10 +51,13 @@ function FirmaFeature(props) {
             ? getPropsBuilder(position)
             : getPropsBuilderFromContentElements(position);
 
-    const { photo, medio, authors } =
-        creditsBy && creditsBy.length
-            ? compose(constructProps, filterByAuthor)(creditsBy)
-            : compose(constructProps)(contentElements);
+    const {
+        photo,
+        medio,
+        authors = []
+    } = creditsBy && creditsBy.length
+        ? compose(constructProps, filterByAuthor)(creditsBy)
+        : compose(constructProps)(contentElements);
 
     // TODO: repasar logica para que lo resuelva el componente de la lib Author
     const firmaDistributorHtml = nombre =>
@@ -78,7 +81,7 @@ function FirmaFeature(props) {
             variant={showVariantIa ? 'ia' : 'default'}
             audioPlayerProps={audioPlayerProps}
             withAudio={withAudio}
-            authorNames={author.name}
+            authorNames={author?.name}
             showTooltipVariantIA={showVariantIa}
         />
     );
@@ -95,9 +98,9 @@ function FirmaFeature(props) {
                     key={author.name}
                     variant={showVariantIa ? 'ia' : 'default'}
                     size={16}
-                    author={author.name || author}
+                    author={author.name || authors?.map(a => a.name)}
                     imageSrc={photo}
-                    href={author.link}
+                    href={author.link || authors?.map(a => a.link)}
                     section={medio}
                     icon={
                         showVariantIa && <IconSprite name="ai" fill="#FEFEFE" />
