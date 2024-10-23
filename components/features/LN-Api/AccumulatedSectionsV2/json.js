@@ -3,6 +3,8 @@ import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
 import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import get from '../../../private/common/utils/get';
+import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
+import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
 import calculatePaginationValue from '../../../../content/sources/utils/pageSource/acumulados/common/calculatePaginationValue';
 import acuTransformV2Format from '../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
 import { getNewAcuElements } from '../AccumulatedSectionsV1/helper-api';
@@ -62,8 +64,7 @@ class AccumulatedSectionsMobileV2 {
                 tag
             } = params;
 
-            
-            const category = categoryUri ? categoryUri : 'global';
+            const category = categoryUri || 'global';
             const indexAcu = this.apiData[category][versionUri];
 
             const acuData = {
@@ -72,7 +73,7 @@ class AccumulatedSectionsMobileV2 {
                 articles: newAcuArticlesSourceSection.content_elements,
                 paginator: newAcuArticlesSourceSection.next,
                 total: newAcuArticlesSourceSection.count,
-                configuration: configuration,
+                configuration,
                 tag
             };
 
@@ -89,6 +90,14 @@ class AccumulatedSectionsMobileV2 {
             );
             return acuTransformV2Format(transformedAcu, slug, paginationValue);
         } catch (err) {
+            console.error(
+                new BackendLnError(
+                    `AccumulatedSectionsV2 - msj: ${
+                        err.message
+                    } - Error: ${JSON.stringify(err || {})}`,
+                    enumTypeError.featureError
+                )
+            );
             return { Success: false, Message: err.message };
         }
     }
