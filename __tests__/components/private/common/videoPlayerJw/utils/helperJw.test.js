@@ -1,3 +1,4 @@
+import { scheduleTask } from '../../../../../../components/private/common/utils/scheduleTask';
 import {
     transformImages,
     formatJwPlayerDate,
@@ -5,6 +6,8 @@ import {
     handleVideoEventsScript,
     getAlternativeDescription
 } from '../../../../../../components/private/common/videoPlayerJw/utils/helperJw';
+
+jest.mock('../../../../../../components/private/common/utils/scheduleTask');
 
 describe('Components - Private - Common - videoPlayerJw - Utils', () => {
     it('transforms images correctly', () => {
@@ -54,7 +57,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             on: jest.fn()
         });
         window.isInDatalayerEvent = jest.fn(() => false);
-        window.addToDataLayer = jest.fn();
+        window.addEventToDataLayerV2 = jest.fn();
 
         const title = 'Test Title';
         const idVideo = 'testId';
@@ -107,11 +110,10 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
         window.isInDatalayerEvent = jest.fn(() => false);
 
-        window.addToDataLayer = jest.fn();
-
         beforeEach(() => {
             jest.clearAllMocks();
         });
+
         it('should setup JWPlayer and handle video events on click', () => {
             const title = 'Test Title';
             const player = 'testPlayer';
@@ -119,6 +121,9 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             const hasAutoplay = true;
             const idVideo = 'testId';
             const tagsUrl = 'testUrl';
+
+            const mockScheduleTask = jest.fn(callback => callback());
+            scheduleTask.mockImplementation(mockScheduleTask);
 
             getJWScript(title, player, playlist, hasAutoplay, idVideo, tagsUrl);
 

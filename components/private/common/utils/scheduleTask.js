@@ -3,7 +3,7 @@ export const scheduleTask = callback => {
 
     if (typeof requestIdleCallback === 'function') {
         return window.requestIdleCallback(callback);
-    } else {
-        return fallback();
     }
+
+    return fallback();
 };
