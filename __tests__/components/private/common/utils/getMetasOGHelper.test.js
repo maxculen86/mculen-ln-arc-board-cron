@@ -5,14 +5,31 @@ import {
     getData,
     validateTitle,
     getDescription,
-    getImageProps
+    getImageProps,
+    buildOgMetas,
+    setMetaTitle,
+    buildArticleMetas,
+    buildFbMetas,
+    buildTwitterMetas
 } from '../../../../../components/private/common/utils/getMetasOGHelper';
+import {
+    getModifiedDate,
+    getPublishDate
+} from '../../../../../components/private/common/utils/schema/liveBlog/generatePostObject';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn(() => ({
         arcSite: 'la-nacion-ar'
     }))
 }));
+
+jest.mock(
+    '../../../../../components/private/common/utils/schema/liveBlog/generatePostObject',
+    () => ({
+        getPublishDate: jest.fn(),
+        getModifiedDate: jest.fn()
+    })
+);
 
 describe('Test return functions by getMetasOGHelper', () => {
     it('Test return default function getAppId', () => {
@@ -212,7 +229,14 @@ describe('Case return getData', () => {
             subtype: '7',
             type: 'story',
             website_url:
-                '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
+                '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
+            credits: {
+                by: [{ name: 'Carlos Pagni' }]
+            },
+            taxonomy: {
+                tags: [{ text: 'Odisea Argentina' }],
+                primary_section: { name: 'Receta' }
+            }
         },
         metaValue: function metaValue(name) {
             return name === 'title' ? 'Arroz chaufa de mariscos' : '';
@@ -244,7 +268,10 @@ describe('Case return getData', () => {
             firstPublishDate: '2021-01-08T15:24:00.940Z',
             lastUpdatedDate: '2021-01-08T15:24:00.940Z',
             tier: 'metered',
-            subtype: '7'
+            subtype: '7',
+            authors: [{ name: 'Carlos Pagni' }],
+            primarySection: 'Receta',
+            tags: [{ text: 'Odisea Argentina' }]
         });
     });
 
@@ -396,5 +423,186 @@ describe('Case return getImageProps', () => {
             type: 'image/png'
         };
         expect(getImageProps({}, {}, 'placeholder')).toEqual(output);
+    });
+});
+
+describe('Case return buildOgMetas', () => {
+    const params = {
+        type: 'website',
+        arcSite: 'la-nacion-ar',
+        pageBuilderTitle: 'Test Title',
+        section: 'home',
+        siteProperties: { title: 'My Website' },
+        ottMetaTitle: 'OTT Title',
+        data: { description: 'text description' },
+        ottMetaDescription: 'OTT Description',
+        requestUri: '/test-uri',
+        metaValue: 'testMetaValue',
+        image: {
+            url: 'https://example.com/image.jpg',
+            type: 'image/jpeg',
+            alt: 'Example Image',
+            width: '1200',
+            height: '630'
+        },
+        url: 'https://example.com',
+        layout: 'default',
+        layoutsName: { OttFicha: 'ottFicha' }
+    };
+
+    it('should return the OG meta tags correctly', () => {
+        const result = buildOgMetas(params);
+
+        expect(result).toEqual([
+            { property: 'og:type', content: 'website' },
+            {
+                property: 'og:title',
+                content: setMetaTitle({
+                    arcSite: 'la-nacion-ar',
+                    pageBuilderTitle: 'Test Title',
+                    section: 'home',
+                    siteProperties: { title: 'My Website' },
+                    ottMetaTitle: 'OTT Title'
+                })
+            },
+            {
+                property: 'og:description',
+                content: setMetaDescription({
+                    data: { description: 'text description' },
+                    section: 'home',
+                    arcSite: 'la-nacion-ar',
+                    ottMetaDescription: 'OTT Description',
+                    requestUri: '/',
+                    metaValue: '/'
+                })
+            },
+            { property: 'og:locale', content: 'es_AR' },
+            { property: 'og:image', content: 'https://example.com/image.jpg' },
+            { property: 'og:image:type', content: 'image/jpeg' },
+            { property: 'og:image:alt', content: 'Example Image' },
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:image:height', content: '630' },
+            { property: 'og:url', content: 'https://example.com/' },
+            { property: 'og:site_name', content: 'My Website' }
+        ]);
+    });
+
+    it('If any attribute of the image or section object does not exist, it should return the OG meta tags correctly', () => {
+        const copyParams = { ...params, image: { ...params.image } };
+        copyParams.image.alt = undefined;
+        copyParams.image.height = undefined;
+        copyParams.section = 'other';
+
+        const result = buildOgMetas(copyParams);
+
+        expect(result).toEqual([
+            { property: 'og:type', content: 'website' },
+            {
+                property: 'og:title',
+                content: setMetaTitle({
+                    arcSite: 'la-nacion-ar',
+                    pageBuilderTitle: 'Test Title',
+                    section: 'home',
+                    siteProperties: { title: 'My Website' },
+                    ottMetaTitle: 'OTT Title'
+                })
+            },
+            {
+                property: 'og:description',
+                content: setMetaDescription({
+                    data: { description: 'text description' },
+                    section: 'home',
+                    arcSite: 'la-nacion-ar',
+                    ottMetaDescription: 'OTT Description',
+                    requestUri: '/',
+                    metaValue: '/'
+                })
+            },
+            { property: 'og:locale', content: 'es_AR' },
+            { property: 'og:image', content: 'https://example.com/image.jpg' },
+            { property: 'og:image:type', content: 'image/jpeg' },
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:url', content: 'https://example.com/' }
+        ]);
+    });
+});
+
+describe('Case return buildArticleMetas', () => {
+    const params = {
+        firstPublishDate: '2023-01-01T00:00:00Z',
+        displayDate: '2023-01-01T12:00:00Z',
+        lastUpdatedDate: '2023-01-02T00:00:00Z',
+        primarySection: 'News',
+        authors: [{ name: 'John Doe' }, { name: 'Jane Doe' }],
+        tags: [{ text: 'Tech' }, { text: 'Science' }]
+    };
+
+    it('should return an empty array if isArticle is false', () => {
+        const result = buildArticleMetas(false, {});
+        expect(result).toEqual([]);
+    });
+
+    it('should return the OG article meta tags correctly', () => {
+        getPublishDate.mockReturnValue('2023-01-01T12:00:00Z');
+        getModifiedDate.mockReturnValue('2023-01-02T00:00:00Z');
+
+        const result = buildArticleMetas(true, params);
+
+        expect(result).toEqual([
+            {
+                property: 'article:published_time',
+                content: '2023-01-01T12:00:00Z'
+            },
+            {
+                property: 'article:modified_time',
+                content: '2023-01-02T00:00:00Z'
+            },
+            { property: 'article:section', content: 'News' },
+            { property: 'article:author', content: 'John Doe' },
+            { property: 'article:author', content: 'Jane Doe' },
+            { property: 'article:tag', content: 'Tech' },
+            { property: 'article:tag', content: 'Science' }
+        ]);
+    });
+
+    it('If the article has no defined tags or authors, it should return the OG article meta tags correctly', () => {
+        getPublishDate.mockReturnValue('2023-01-01T12:00:00Z');
+        getModifiedDate.mockReturnValue('2023-01-02T00:00:00Z');
+
+        const copyParams = { ...params };
+        copyParams.authors = [];
+        copyParams.tags = [];
+
+        const result = buildArticleMetas(true, copyParams);
+
+        expect(result).toEqual([
+            {
+                property: 'article:published_time',
+                content: '2023-01-01T12:00:00Z'
+            },
+            {
+                property: 'article:modified_time',
+                content: '2023-01-02T00:00:00Z'
+            },
+            { property: 'article:section', content: 'News' }
+        ]);
+    });
+});
+
+describe('Case return buildFbMetas', () => {
+    it('should return an array with the correct fb:app_id object', () => {
+        const fbAppId = '123456789';
+        const result = buildFbMetas(fbAppId);
+
+        expect(result).toEqual([{ property: 'fb:app_id', content: fbAppId }]);
+    });
+});
+
+describe('Case return buildTwitterMetas', () => {
+    it('should return an array with the correct twitter:image object', () => {
+        const image = { url: 'https://example.com/image.jpg' };
+        const result = buildTwitterMetas(image);
+
+        expect(result).toEqual([{ name: 'twitter:image', content: image.url }]);
     });
 });

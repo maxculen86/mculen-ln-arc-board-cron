@@ -8,6 +8,11 @@ import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
 import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
 import getImageAltText from '../../../features/foodit-global/common/utils/getImageAltText';
+import addForwardSlash from '../../LN/common/utils/addForwardSlash';
+import {
+    getModifiedDate,
+    getPublishDate
+} from './schema/liveBlog/generatePostObject';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -208,7 +213,14 @@ export const getData = ({
             displayDate,
             firstPublishDate,
             lastUpdatedDate,
-            tier: 'metered'
+            tier: 'metered',
+            authors: get(globalContent, 'credits.by', []),
+            tags: get(globalContent, 'taxonomy.tags', []),
+            primarySection: get(
+                globalContent,
+                'taxonomy.primary_section.name',
+                ''
+            )
         }),
         subtype
     };
@@ -277,3 +289,105 @@ export const setMetaTitle = ({
 
     return options[arcSite]();
 };
+
+export const buildOgMetas = params => {
+    const {
+        type,
+        arcSite,
+        pageBuilderTitle,
+        section,
+        siteProperties,
+        ottMetaTitle,
+        data,
+        ottMetaDescription,
+        requestUri,
+        metaValue,
+        image,
+        url,
+        layout,
+        layoutsName
+    } = params;
+
+    return [
+        { property: 'og:type', content: type },
+        {
+            property: 'og:title',
+            content: setMetaTitle({
+                arcSite,
+                pageBuilderTitle,
+                section,
+                siteProperties,
+                ottMetaTitle
+            })
+        },
+        {
+            property: 'og:description',
+            content: setMetaDescription({
+                data,
+                section,
+                siteProperties,
+                arcSite,
+                ottMetaDescription,
+                requestUri,
+                metaValue
+            })
+        },
+        { property: 'og:locale', content: 'es_AR' },
+        { property: 'og:image', content: image.url },
+        { property: 'og:image:type', content: image.type },
+        ...(image.alt
+            ? [{ property: 'og:image:alt', content: image.alt }]
+            : []),
+        { property: 'og:image:width', content: image.width },
+        ...(image.height
+            ? [{ property: 'og:image:height', content: image.height }]
+            : []),
+        { property: 'og:url', content: addForwardSlash(url) },
+        ...(['home', 'nota', 'acumulado'].includes(section) ||
+        (arcSite === 'ott' && layout === layoutsName.OttFicha)
+            ? [{ property: 'og:site_name', content: siteProperties.title }]
+            : [])
+    ];
+};
+
+export const buildArticleMetas = (isArticle, params) => {
+    if (!isArticle) return [];
+
+    const {
+        firstPublishDate,
+        displayDate,
+        lastUpdatedDate,
+        primarySection,
+        authors,
+        tags
+    } = params;
+
+    return [
+        {
+            property: 'article:published_time',
+            content: getPublishDate(firstPublishDate, displayDate)
+        },
+        {
+            property: 'article:modified_time',
+            content: getModifiedDate(lastUpdatedDate, displayDate)
+        },
+        { property: 'article:section', content: primarySection },
+        ...(authors.length
+            ? authors.map(author => ({
+                  property: 'article:author',
+                  content: author.name
+              }))
+            : []),
+        ...(tags.length
+            ? tags.map(tag => ({ property: 'article:tag', content: tag.text }))
+            : [])
+    ];
+};
+
+export const buildFbMetas = fbAppId => [
+    { property: 'fb:app_id', content: fbAppId }
+];
+
+export const buildTwitterMetas = image => [
+    { name: 'twitter:image', content: image.url }
+];

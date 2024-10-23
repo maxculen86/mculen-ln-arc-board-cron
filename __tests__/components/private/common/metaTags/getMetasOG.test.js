@@ -194,7 +194,14 @@ describe('Common - getMetasOG function', () => {
                 subtype: '7',
                 type: 'story',
                 website_url:
-                    '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
+                    '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
+                credits: {
+                    by: [{ name: 'Carlos Pagni' }]
+                },
+                taxonomy: {
+                    tags: [{ text: 'Odisea Argentina' }],
+                    primary_section: { name: 'Receta' }
+                }
             },
 
             siteProperties: {
@@ -222,6 +229,7 @@ describe('Common - getMetasOG function', () => {
             },
             section: 'nota'
         };
+
         const metas = [
             {
                 property: 'fb:app_id',
@@ -280,6 +288,18 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'article:modified_time',
                 content: '2021-01-08T15:24:00.940Z'
+            },
+            {
+                property: 'article:section',
+                content: 'Receta'
+            },
+            {
+                property: 'article:author',
+                content: 'Carlos Pagni'
+            },
+            {
+                property: 'article:tag',
+                content: 'Odisea Argentina'
             },
             {
                 name: 'twitter:image',
