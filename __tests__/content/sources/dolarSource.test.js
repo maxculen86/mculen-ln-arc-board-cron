@@ -1,10 +1,14 @@
+import nodeFetch from 'node-fetch';
 import 'regenerator-runtime/runtime';
-import { LANACION_SERVICES_URL } from 'fusion:environment';
 import dolarSource from '../../../content/sources/dolarSource';
 import logger from '../../../components/private/common/utils/logger';
 import MOCK_API_RESPONSE from '../../../__mocks__/data/apiDolar/apiDolares.json';
 import MOCK_DOLAR_FULL_RESPONSE from '../../../__mocks__/data/apiDolar/sourceFullResponse.json';
 import MOCK_DOLAR_PARTIAL_RESPONSE from '../../../__mocks__/data/apiDolar/sourcePartialResponse.json';
+
+jest.mock('fusion:environment', () => ({
+    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
+}));
 
 jest.mock('../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
@@ -12,13 +16,15 @@ jest.mock('../../../components/private/common/utils/logger', () => {
 });
 const loggerPush = jest.spyOn(logger, 'push');
 
-const mockRequestResponse = jest.fn().mockReturnValue(MOCK_API_RESPONSE);
-jest.mock('request-promise-native', () => {
-    return {
-        __esModule: true,
-        default: async () => mockRequestResponse()
-    };
-});
+jest.mock('node-fetch', () =>
+    jest.fn(() => {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: () => Promise.resolve(MOCK_API_RESPONSE)
+        });
+    })
+);
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -44,22 +50,15 @@ describe('Content Sources - Dolar Source', () => {
         ];
 
         const response = await fetch(query, {
-            cachedCall: jest.fn(async () => ({
-                Termicas: {
-                    dolares: termicasDolar
-                }
-            }))
+            cachedCall: jest.fn(() =>
+                Promise.resolve({ Termicas: { dolares: termicasDolar } })
+            )
         });
 
-        const { data: dolaresData } = response;
         expect(response).toStrictEqual(MOCK_DOLAR_FULL_RESPONSE);
-
-        dolaresData.forEach((dolar, index) => {
-            expect(dolar.sourceName).toStrictEqual(termicasDolar[index]);
-        });
     });
 
-    it('Should return data in the correct order acording to termicas order and missing dolars types', async () => {
+    it('Should return data in the correct order according to termicas order and missing dolars types', async () => {
         const termicasDolar = [
             'dbna',
             'dblue',
@@ -70,24 +69,17 @@ describe('Content Sources - Dolar Source', () => {
         ];
 
         const response = await fetch(query, {
-            cachedCall: jest.fn(async () => ({
-                Termicas: {
-                    dolares: termicasDolar
-                }
-            }))
+            cachedCall: jest.fn(() =>
+                Promise.resolve({ Termicas: { dolares: termicasDolar } })
+            )
         });
 
-        const { data: dolaresData } = response;
         expect(response).toStrictEqual(MOCK_DOLAR_PARTIAL_RESPONSE);
-
-        dolaresData.forEach((dolar, index) => {
-            expect(dolar.sourceName).toStrictEqual(termicasDolar[index]);
-        });
     });
 
     it('Should catch error when cachedCall request for termicas data is rejected', async () => {
         await fetch(query, {
-            cachedCall: jest.fn(async () => Promise.reject('Mocked Error'))
+            cachedCall: jest.fn(() => Promise.reject('Mocked Error'))
         });
 
         expect(loggerPush).toBeCalledTimes(1);
@@ -102,19 +94,19 @@ describe('Content Sources - Dolar Source', () => {
     });
 
     it('Should catch error when request for dolar data is rejected', async () => {
-        mockRequestResponse.mockReturnValueOnce(Promise.reject('Mocked Error'));
+        nodeFetch.mockImplementationOnce(() =>
+            Promise.reject(new Error('Mocked Error'))
+        );
 
         await fetch(query, {
-            cachedCall: jest.fn(async () => ({
-                Termicas: {
-                    dolares: ['dbna', 'dblue']
-                }
-            }))
+            cachedCall: jest.fn(() =>
+                Promise.resolve({ Termicas: { dolares: ['dbna', 'dblue'] } })
+            )
         });
 
         expect(loggerPush).toBeCalledTimes(1);
         expect(loggerPush).toBeCalledWith(
-            'Mocked Error',
+            new Error('Mocked Error'),
             {
                 source: 'content/sources/dolarSource',
                 url: 'https://arcservices.lanacion.com.ar/api/v1/quotations'

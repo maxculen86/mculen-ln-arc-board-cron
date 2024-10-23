@@ -1,4 +1,4 @@
-import request from 'request-promise-native';
+import nodeFetch from 'node-fetch';
 import {
     SITE_LANACION,
     CONTENT_BASE,
@@ -9,61 +9,7 @@ import {
 import getRequest from './utils/getRequest';
 import filter from '../filters/LN/services/dolar';
 import logger from '../../components/private/common/utils/logger';
-
-const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
-    const endpoint = {
-        uri: `${LANACION_SERVICES_URL}/api/v1/quotations`,
-        json: true,
-        headers: {
-            Referer: API_ENV,
-            'api-key': API_KEY_ARC_SERVICES
-        }
-    };
-
-    const promiseTermicasDolar = await cachedCall(
-        'navigationTreeSource',
-        getRequest,
-        {
-            query: `${CONTENT_BASE}/site/v3/navigation/${arcSite}/`,
-            independent: true
-        }
-    )
-        .then(data => {
-            const { Termicas: { dolares = [] } = {} } = data;
-            return dolares;
-        })
-        .catch(error => {
-            logger.push(
-                error,
-                {
-                    source: 'content/sources/dolarSource',
-                    data: 'navigationTreeSource cachedCall'
-                },
-                arcSite
-            );
-        });
-
-    const promiseDolarData = request(endpoint)
-        .then(response => ({
-            ...response,
-            sourceName: 'dolarSource',
-            endpoint: endpoint.uri
-        }))
-        .catch(error => {
-            logger.push(
-                error,
-                {
-                    source: 'content/sources/dolarSource',
-                    url: endpoint.uri
-                },
-                arcSite
-            );
-        });
-
-    return Promise.all([promiseTermicasDolar, promiseDolarData]).then(resp =>
-        transform(resp)
-    );
-};
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const transform = data => {
     const [termicas = [], datos = {}] = data;
@@ -107,6 +53,69 @@ const transform = data => {
                     };
                 })
     };
+};
+
+const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
+    const endpoint = {
+        uri: `${LANACION_SERVICES_URL}/api/v1/quotations`,
+        headers: {
+            Referer: API_ENV,
+            'api-key': API_KEY_ARC_SERVICES
+        }
+    };
+
+    const promiseTermicasDolar = await cachedCall(
+        'navigationTreeSource',
+        getRequest,
+        {
+            query: `${CONTENT_BASE}/site/v3/navigation/${arcSite}/`,
+            independent: true
+        }
+    )
+        .then(data => {
+            const { Termicas: { dolares = [] } = {} } = data;
+            return dolares;
+        })
+        .catch(error => {
+            logger.push(
+                error,
+                {
+                    source: 'content/sources/dolarSource',
+                    data: 'navigationTreeSource cachedCall'
+                },
+                arcSite
+            );
+        });
+
+    const opt = {
+        method: 'GET',
+        headers: endpoint.headers
+    };
+
+    const promiseDolarData = nodeFetch(endpoint.uri, opt)
+        .then(response => {
+            handleHttpError(response);
+            return response.json();
+        })
+        .then(response => ({
+            ...response,
+            sourceName: 'dolarSource',
+            endpoint: endpoint.uri
+        }))
+        .catch(error => {
+            logger.push(
+                error,
+                {
+                    source: 'content/sources/dolarSource',
+                    url: endpoint.uri
+                },
+                arcSite
+            );
+        });
+
+    return Promise.all([promiseTermicasDolar, promiseDolarData]).then(resp =>
+        transform(resp)
+    );
 };
 
 export default {
