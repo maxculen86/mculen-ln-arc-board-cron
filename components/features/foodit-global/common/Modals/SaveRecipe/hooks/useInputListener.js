@@ -26,11 +26,15 @@ const useInputListener = (initialValue = '') => {
         setError({ hasError: false, message: '' });
     };
 
-    useEffect(() => {
-        return () => restoreInputValue();
-    }, []);
+    useEffect(() => () => restoreInputValue(), []);
 
-    return { value, onChange: handleInputChange, error, restoreInputValue };
+    return {
+        value,
+        onChange: handleInputChange,
+        error,
+        restoreInputValue,
+        setValue
+    };
 };
 
 export default useInputListener;
