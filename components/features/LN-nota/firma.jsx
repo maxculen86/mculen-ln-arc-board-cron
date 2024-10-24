@@ -5,8 +5,8 @@ import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { Author } from '@ln/contenidos-ui-author';
 import classNames from 'classnames';
-import ComPartner from '../../private/common/com-partner';
-import ComLink from '../../private/common/com-link';
+import { Text } from '@ln/contenidos-ui-text';
+import { Link } from '@ln/contenidos-ui-link';
 import {
     place,
     filterByAuthor,
@@ -59,18 +59,19 @@ function FirmaFeature(props) {
         ? compose(constructProps, filterByAuthor)(creditsBy)
         : compose(constructProps)(contentElements);
 
-    // TODO: repasar logica para que lo resuelva el componente de la lib Author
+    // TODO: repasar logica para que lo resuelva el componente de la lib Author y reemplazar --xs / --twoxs por text-number
     const firmaDistributorHtml = nombre =>
         nombre === 'LA NACION' ? (
-            <ComPartner size="--xs">{nombre}</ComPartner>
+            <Text className="font-bold --xs">{nombre}</Text>
         ) : (
-            <ComLink
-                link={`${SITE_LANACION}/distributor/${formatDistributorName(
+            <Link
+                href={`${SITE_LANACION}/distributor/${formatDistributorName(
                     nombre
                 )}/`}
+                title={nombre}
             >
-                <ComPartner size="--twoxs">{nombre}</ComPartner>
-            </ComLink>
+                <Text className="font-bold --twoxs">{nombre}</Text>
+            </Link>
         );
 
     const showVariantIa = customVoice && thermicalAudio;
@@ -92,8 +93,8 @@ function FirmaFeature(props) {
             {audioButton}
         </div>
     ) : (
-        <div className="row FirmaAutor">
-            <div className="flex flex-column mb-16 gap-16 w-100 flex-row_m ai-center_m ai-start">
+        <div className="row">
+            <div className="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start">
                 <Author
                     key={author.name}
                     variant={showVariantIa ? 'ia' : 'default'}
@@ -126,8 +127,8 @@ function FirmaFeature(props) {
     ) : null;
 
     const classNameContainer = classNames(
-        'flex flex-column',
-        !showVariantIa && 'mb-16 mb-32_l'
+        'flex flex-column feature-firma',
+        position === place.Top ? 'mb-16 mb-24_m' : 'mb-32'
     );
 
     return (
