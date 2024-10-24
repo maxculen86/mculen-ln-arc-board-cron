@@ -1,7 +1,7 @@
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
-import { fillBookmarks } from '../../bookmark/iconHelper';
+import { toggleBookmarks } from '../../bookmark/iconHelper';
 import {
     dataLayerContainerDictionary,
     dataLayerDictionary,
@@ -94,8 +94,9 @@ export const actionButtons = ({
         close,
         nextStep: () => setIndexStep(indexStep + 1),
         save: async () => {
-            fillBookmarks(
-                articlesDetails.map(({ content = {} }) => content.id)
+            toggleBookmarks(
+                articlesDetails.map(({ content = {} }) => content.id),
+                true
             );
             close();
 

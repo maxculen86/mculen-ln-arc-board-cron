@@ -1,7 +1,7 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import { addToast, TOAST, addErrorToast } from './_helper';
 import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
-import { fillBookmarks } from '../iconHelper';
+import { toggleBookmarks } from '../iconHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
@@ -76,8 +76,7 @@ const setClientSideBookmarks = ({
                 !successfullResponses.includes(bookmarkTypeId)
         )
     );
-    setSelectedItem &&
-        userBookmarksQuantity &&
+    if (setSelectedItem && userBookmarksQuantity)
         setSelectedItem(({ id: prevId, quantity: prevQuantity }) => {
             const quantity = prevQuantity - successfullResponses.length;
 
@@ -117,9 +116,8 @@ const fetchDeleteBookmark = async (
     setSelectedItem,
     userBookmarksQuantity = 0
 ) => {
-    const { successfullResponses, failureResponses } = await deleteBookmark(
-        bookmarkedArticles
-    );
+    const { successfullResponses, failureResponses } =
+        await deleteBookmark(bookmarkedArticles);
 
     if (successfullResponses && successfullResponses.length) {
         if (setUserBookmarks)
@@ -145,7 +143,7 @@ const fetchDeleteBookmark = async (
     }
 
     if (!setUserBookmarks && failureResponses && failureResponses.length) {
-        fillBookmarks(failureResponses);
+        toggleBookmarks(failureResponses, true);
     }
 };
 

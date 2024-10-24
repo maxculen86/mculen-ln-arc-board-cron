@@ -1,16 +1,16 @@
 import React, { memo } from 'react';
-
-import useBookmarkedArticles from '../hooks/useBookmarkedArticles';
+import PropTypes from 'fusion:prop-types';
 
 import { Button } from '@ln/foodit-ui-button';
+import useBookmarkedArticles from '../hooks/useBookmarkedArticles';
 
-const BookmarkedArticles = ({
+function BookmarkedArticles({
     userBookmarks,
     selectedItemId,
     selectedItemQuantity,
     setSelectedItem,
     setUserBookmarks
-}) => {
+}) {
     const {
         displayArticlesNum,
         setDisplayArticlesNum,
@@ -43,11 +43,19 @@ const BookmarkedArticles = ({
             )}
         </>
     );
+}
+
+BookmarkedArticles.propTypes = {
+    userBookmarks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    selectedItemId: PropTypes.string.isRequired,
+    selectedItemQuantity: PropTypes.number.isRequired,
+    setSelectedItem: PropTypes.func.isRequired,
+    setUserBookmarks: PropTypes.func.isRequired
 };
 
-export default memo(BookmarkedArticles, (prevProps, nextProps) => {
-    return (
+export default memo(
+    BookmarkedArticles,
+    (prevProps, nextProps) =>
         prevProps.userBookmarks === nextProps.userBookmarks &&
         prevProps.selectedItemId === nextProps.selectedItemId
-    );
-});
+);

@@ -1,6 +1,6 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
-import { unfillBookmarks } from '../iconHelper';
+import { toggleBookmarks } from '../iconHelper';
 import { addErrorToast, addToast, TOAST } from './_helper';
 import { addStorageFolder } from '../foldersHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
@@ -13,9 +13,9 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
 
     const results = await Promise.all(
         articlesDetails.map(async ({ content = {}, primarySection = '' }) => {
-            const { id, canonical_url } = content;
+            const { id, canonical_url: canonicalUrl } = content;
 
-            if (!id || !canonical_url || !primarySection || !folderName) {
+            if (!id || !canonicalUrl || !primarySection || !folderName) {
                 console.error(
                     `No se pudo guardar, HTTP error! status: 401, datos requeridos insuficientes`
                 );
@@ -116,8 +116,9 @@ const saveBookmarks = async (articlesDetails, nameFolder, newFolder) => {
     }
 
     if (failureResponses && failureResponses.length) {
-        unfillBookmarks(
-            failureResponses.map(response => response.bookmarkTypeId)
+        toggleBookmarks(
+            failureResponses.map(response => response.bookmarkTypeId),
+            false
         );
     }
 };

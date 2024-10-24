@@ -28,54 +28,49 @@ const checkCarouselsRoofBookmark = () => {
     carousels.forEach(checkBookmarksInCarousel);
 };
 
-export const fillBookmarks = articleIds => {
-    const elements = Array.from(document.querySelectorAll('svg'));
+export const toggleBookmarks = (articleIds, shouldFill = true) => {
+    // Encuentra todos los botones que tienen un atributo data-id
+    const elements = Array.from(document.querySelectorAll('button[data-id]'));
 
     articleIds.forEach(bookmarkTypeId => {
-        const articleIdElements = elements.flatMap(el =>
-            Array.from(el.querySelectorAll(`[data-id="${bookmarkTypeId}"] use`))
+        // Encuentra los botones que coinciden con el data-id del artículo
+        const buttons = elements.flatMap(el =>
+            el.getAttribute('data-id') === bookmarkTypeId ? [el] : []
         );
 
-        const svg = articleIdElements.map(el => el.closest('svg'));
+        buttons.forEach(button => {
+            // Cambiar el ícono SVG dentro del botón
+            const svgElement = button.querySelector('svg');
+            if (svgElement) {
+                const icon = svgElement.querySelector('use');
+                if (!icon) return;
 
-        svg.forEach(svgElement => {
-            const icon = svgElement.querySelector('use');
-            if (!icon) return;
+                const href = icon.getAttribute('href');
 
-            const href = icon.getAttribute('href');
-            if (href.includes(BOOKMARK_FILLED)) return;
+                if (shouldFill) {
+                    if (href.includes(BOOKMARK_FILLED)) return;
+                    const newHref = href
+                        .replace('bookmark', BOOKMARK_FILLED)
+                        .replace('critical', 'default');
+                    icon.setAttribute('href', newHref);
+                } else {
+                    if (!href.includes(BOOKMARK_FILLED)) return;
+                    const newHref = href
+                        .replace(BOOKMARK_FILLED, 'bookmark')
+                        .replace('default', 'critical');
+                    icon.setAttribute('href', newHref);
+                }
+            }
 
-            const newHref = href
-                .replace('bookmark', BOOKMARK_FILLED)
-                .replace('critical', 'default');
-
-            icon.setAttribute('href', newHref);
-        });
-    });
-
-    checkCarouselsRoofBookmark();
-};
-
-export const unfillBookmarks = articleIds => {
-    const elements = Array.from(document.querySelectorAll('svg'));
-
-    articleIds.forEach(bookmarkTypeId => {
-        const articleIdElements = elements.flatMap(el =>
-            Array.from(el.querySelectorAll(`[data-id="${bookmarkTypeId}"] use`))
-        );
-
-        const svg = articleIdElements.map(el => el.closest('svg'));
-
-        svg.forEach(svgElement => {
-            const icon = svgElement.querySelector('use');
-            if (!icon) return;
-
-            const href = icon.getAttribute('href');
-            const newHref = href
-                .replace(BOOKMARK_FILLED, 'bookmark')
-                .replace('default', 'critical');
-
-            icon.setAttribute('href', newHref);
+            const textNode = Array.from(button.childNodes).find(
+                node =>
+                    node.nodeType === Node.TEXT_NODE &&
+                    node.nodeValue.trim() ===
+                        (shouldFill ? 'Guardar' : 'Guardado')
+            );
+            if (textNode) {
+                textNode.nodeValue = shouldFill ? 'Guardado' : 'Guardar';
+            }
         });
     });
 

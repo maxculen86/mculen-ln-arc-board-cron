@@ -1,15 +1,16 @@
 import React from 'react';
 import Static from 'fusion:static';
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Button } from '@ln/foodit-ui-button';
-import ActionsButtons from '../ActionsButtons/foodit';
+
+import ButtonsGroup from '../ActionsButtons/foodit';
 import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 import {
     getFooditAuthor,
@@ -23,17 +24,23 @@ import get from '../../../../private/common/utils/get';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
 
-export const OpeningRecipe = ({ article = {}, isPrivate = false }) => {
-    const { promo_items = {}, headlines = {}, taxonomy, _id = '' } = article;
+export function OpeningRecipe({ article = {}, isPrivate = false }) {
+    const {
+        promo_items: promoItems = {},
+        headlines = {},
+        taxonomy,
+        _id = ''
+    } = article;
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
     const title = get(headlines, 'basic', '');
 
-    const videoJW = get(promo_items, 'video_jw', null);
-    const imageData = get(promo_items, 'basic', {});
-    const { resized_urls = [], url = '' } = replaceBaseUrl(imageData);
+    const videoJW = get(promoItems, 'video_jw', null);
+    const imageData = get(promoItems, 'basic', {});
+    const { resized_urls: resizedUrls = [], url = '' } =
+        replaceBaseUrl(imageData);
 
-    const { resizedUrl = '' } = getShortestImage(resized_urls);
+    const { resizedUrl = '' } = getShortestImage(resizedUrls);
 
     return (
         <Recipe>
@@ -53,7 +60,7 @@ export const OpeningRecipe = ({ article = {}, isPrivate = false }) => {
                         className="w-100 ratio-3-2"
                         fetchPriority="high"
                         loading="eager"
-                        sources={getImagesToLoadWithPicture(resized_urls)}
+                        sources={getImagesToLoadWithPicture(resizedUrls)}
                     />
                 )}
                 {badge && (
@@ -83,7 +90,7 @@ export const OpeningRecipe = ({ article = {}, isPrivate = false }) => {
                         <Button
                             title="Guardar"
                             size={{ sm: 32, lg: 40 }}
-                            data-modal={'open-modal'}
+                            data-modal="open-modal"
                             data-id={_id}
                         >
                             <Icon size={16} className="sm-none">
@@ -95,7 +102,7 @@ export const OpeningRecipe = ({ article = {}, isPrivate = false }) => {
                     <hr className="h-100 lg-only" />
                     <div className="flex ai-center gap-16 gap-24_md">
                         {article && (
-                            <ActionsButtons
+                            <ButtonsGroup
                                 article={article}
                                 isPrivate={isPrivate}
                             />
@@ -105,10 +112,46 @@ export const OpeningRecipe = ({ article = {}, isPrivate = false }) => {
             </Recipe.Body>
         </Recipe>
     );
-};
+}
 
 OpeningRecipe.propTypes = {
-    article: PropTypes.object
+    article: PropTypes.shape({
+        promo_items: PropTypes.shape({
+            video_jw: PropTypes.object,
+            basic: PropTypes.shape({
+                resized_urls: PropTypes.arrayOf(PropTypes.string),
+                url: PropTypes.string
+            })
+        }),
+        headlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        taxonomy: PropTypes.shape({
+            sections: PropTypes.arrayOf(PropTypes.object)
+        }),
+        _id: PropTypes.string
+    }),
+    isPrivate: PropTypes.bool
+};
+
+OpeningRecipe.defaultProps = {
+    article: {
+        promo_items: {
+            video_jw: null,
+            basic: {
+                resized_urls: [],
+                url: ''
+            }
+        },
+        headlines: {
+            basic: ''
+        },
+        taxonomy: {
+            sections: []
+        },
+        _id: ''
+    },
+    isPrivate: false
 };
 
 export default OpeningRecipe;

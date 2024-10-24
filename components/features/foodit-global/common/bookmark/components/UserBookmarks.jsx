@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import getBookmarks from '../api/getBookmarks';
-import { fillBookmarks } from '../iconHelper';
+import { toggleBookmarks } from '../iconHelper';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../../../../auth/helper/loginHelper';
 import useAuthManager from '../../../../../../auth/hooks/useAuthManager';
 
-export const UserBookmarks = () => {
+export function UserBookmarks() {
     const { token, accessToken } = useAuthManager();
 
     useEffect(() => {
@@ -17,14 +17,16 @@ export const UserBookmarks = () => {
         const fetchUserBookmarks = async () => {
             const { data = [] } = await getBookmarks(token, accessToken);
 
-            const bookmarks = data.map(({ bookmarkTypeId, bookmarkId }) => {
-                return { bookmarkTypeId, bookmarkId };
-            });
+            const bookmarks = data.map(({ bookmarkTypeId, bookmarkId }) => ({
+                bookmarkTypeId,
+                bookmarkId
+            }));
             localStorage.setItem('bookmarkedItems', JSON.stringify(bookmarks));
 
             if (bookmarks.length) {
-                fillBookmarks(
-                    bookmarks.map(bookmark => bookmark.bookmarkTypeId)
+                toggleBookmarks(
+                    bookmarks.map(bookmark => bookmark.bookmarkTypeId),
+                    true
                 );
             }
         };
@@ -33,4 +35,4 @@ export const UserBookmarks = () => {
     }, [token, accessToken]);
 
     return null;
-};
+}
