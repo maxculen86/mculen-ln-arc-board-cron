@@ -28,10 +28,11 @@ class AccumulatedSectionsMobileV1 {
         this.sizeCf = sizeCf;
 
         const id = get(globalContent, '_id', null);
-        if (!id) {
+        const site = get(globalContent, 'site', null);
+        if (!site) {
             console.warn(
                 new BackendLnError(
-                    `AccumulatedSectionsV1 - msj: No existe Id de Seccion - GlobalContent: ${JSON.stringify(globalContent || {})}`,
+                    `AccumulatedSectionsV1 - msj: No existe data esperada en el globalContent de Seccion - GlobalContent: ${JSON.stringify(globalContent || {})}`,
                     enumTypeError.featureError
                 )
             );
