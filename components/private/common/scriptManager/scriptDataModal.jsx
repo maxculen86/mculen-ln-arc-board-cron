@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 
-const ScriptDataModal = () => {
+function ScriptDataModal() {
     const { contextPath, deployment } = useAppContext();
     return (
         <script
@@ -11,6 +11,6 @@ const ScriptDataModal = () => {
             )}
         />
     );
-};
+}
 
 export default ScriptDataModal;
