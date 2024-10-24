@@ -67,6 +67,7 @@ describe('components - feature - LN-nota - firma', () => {
                     }
                 ]
             },
+            withFirmaDistributor: false,
             distributor: {
                 name: 'LA NACION'
             },
@@ -82,9 +83,17 @@ describe('components - feature - LN-nota - firma', () => {
     });
 
     it('renders correctly with default props', () => {
-        render(<FirmaFeature {...defaultProps} />);
+        const props = {
+            ...defaultProps,
+            globalContent: {
+                ...defaultProps.globalContent,
+                withFirmaDistributor: true
+            }
+        };
 
-        expect(screen.getByText('Author Component')).toBeInTheDocument();
+        render(<FirmaFeature {...props} />);
+
+        expect(screen.getByText('LA NACION')).toBeInTheDocument();
         expect(screen.getByText('Audio Button')).toBeInTheDocument();
     });
 
@@ -106,7 +115,8 @@ describe('components - feature - LN-nota - firma', () => {
             ...defaultProps,
             globalContent: {
                 ...defaultProps.globalContent,
-                distributor: { name: 'reuters' }
+                distributor: { name: 'reuters' },
+                withFirmaDistributor: true
             }
         };
 

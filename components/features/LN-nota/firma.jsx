@@ -104,7 +104,7 @@ function FirmaFeature(props) {
                     key={author.name}
                     variant={showVariantIa ? 'ia' : 'default'}
                     size={16}
-                    author={author.name || authors?.map(a => a.name)}
+                    author={author?.name || authors?.map(a => a.name)}
                     imageSrc={photo}
                     href={author.link || authors?.map(a => a.link)}
                     section={medio}
@@ -113,8 +113,11 @@ function FirmaFeature(props) {
                     }
                     prefix={
                         position === place.Bottom ||
-                        (Array.isArray(authors) && authors.length > 1)
+                        (Array.isArray(authors) && authors?.length > 1)
                     }
+                    classnames={{
+                        authorSection: 'uppercase'
+                    }}
                 />
                 {audioButton}
             </div>
@@ -136,6 +139,8 @@ function FirmaFeature(props) {
         position === place.Top ? 'mb-16 mb-24_m' : 'mb-32'
     );
 
+    if (!withFirmaDistributor && !authors?.length && !author?.length)
+        return null;
     return (
         <div className={classNameContainer}>
             {content}
