@@ -1,12 +1,35 @@
-import { formatInterstitialLink } from '../../articleSourceNota/_configs';
 import convertVideoArcToJw from '../../articleSourceNota/cachedCalls/convertVideoArcToJW';
 import addFollowAnotherNoteData from '../../articleSourceNota/cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../../components/private/common/utils/get';
 import { addForwardSlashInParagraphsLinks } from '../../../../../components/private/LN/common/utils/addForwardSlash';
 import { compose } from '../../../../../components/private/common/utils/functional';
 
+import {
+    addHttpsInterstitialLink,
+    removeErrosInterstitialLink
+} from '../../articleSourceNota/_configs';
+
+export const fooditFormatInterstitialLink = (interstitialLink = '') => {
+    const secureInterstitialLink = addHttpsInterstitialLink(interstitialLink);
+
+    // Regex para verificar si hay un # después de la última /
+    const regex = /\/[^/]*#.*$/;
+
+    if (regex.test(secureInterstitialLink)) {
+        return removeErrosInterstitialLink(secureInterstitialLink);
+    }
+
+    if (secureInterstitialLink.endsWith('/')) {
+        return removeErrosInterstitialLink(secureInterstitialLink);
+    }
+
+    const formatUrl = `${secureInterstitialLink}/`;
+    return removeErrosInterstitialLink(formatUrl);
+};
+
 export const configPromoItems = {
-    video: ({ element }) => convertVideoArcToJw(element, arcSite, cachedCall)
+    video: ({ element, arcSite, cachedCall }) =>
+        convertVideoArcToJw(element, arcSite, cachedCall)
 };
 
 export const setOtherChar = (text = '') =>
@@ -41,17 +64,18 @@ export const getMalformedAnchorTags = (textContent = '') => {
     const linkList =
         textContent.match(
             // Este regex busca dentro del texto elementos HTML: <a/>
-            new RegExp(/<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/, 'gim')
+            /<a[\s]+([^>]+)>((?:.(?!\\<\/a\\>))*.)<\/a>/gim
         ) || [];
 
-    return linkList.filter(e => {
-        return !new RegExp(
-            // Este regex es un formato de URL valido. Aca lo que se hace es validar que la url que venga en el href del tag A sea valido.
-            `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z]+)(?:\\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*` +
-                `(?:\\.(?:[a-z]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?||\\/[a-z-0-9\\S]+)\\1)`,
-            'gim'
-        ).test(e);
-    });
+    return linkList.filter(
+        e =>
+            !new RegExp(
+                // Este regex es un formato de URL valido. Aca lo que se hace es validar que la url que venga en el href del tag A sea valido.
+                `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z]+)(?:\\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*` +
+                    `(?:\\.(?:[a-z]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?||\\/[a-z-0-9\\S]+)\\1)`,
+                'gim'
+            ).test(e)
+    );
 };
 
 export const replaceMalformedAnchorTags = ({ textTypeElement, newValue }) => {
@@ -103,7 +127,7 @@ export const addAttribute = ({ attributes, text = '' }) => {
 export const transformLinks = ({ content, withSponsoredLink } = {}) => {
     if (content) {
         return content.replace(
-            /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
+            /<a[\s]+([^>]+)>((?:.(?!\\<\/a\\>))*.)<\/a>/g,
             (match, attributes, string) => {
                 let newText = addAttribute({
                     attributes: [
@@ -167,28 +191,36 @@ export const configCallbackContentElements = {
     text: props => transformElementText(props),
     interstitial_link: ({ element = {} } = {}) => {
         const interstitialLink = get(element, 'url', '');
-        const validUrl = formatInterstitialLink(interstitialLink);
+        const validUrl = fooditFormatInterstitialLink(interstitialLink);
 
         return validUrl && { ...element, url: validUrl };
     },
     custom_embed: ({ element }) =>
         get(element, 'subtype', '') !== 'custom-parallax' && element,
-    video: ({ element, arcSite, cachedCall } = {}) => {
-        return convertVideoArcToJw(element, arcSite, cachedCall);
-    },
-    list: ({ element, withSponsoredLink } = {}) => {
-        return {
-            ...element,
-            items: get(element, 'items', []).map(item =>
-                transformElementText({
-                    element: item,
-                    withSponsoredLink
-                })
-            )
-        };
-    },
+    video: ({ element, arcSite, cachedCall } = {}) =>
+        convertVideoArcToJw(element, arcSite, cachedCall),
+    list: ({ element, withSponsoredLink } = {}) => ({
+        ...element,
+        items: get(element, 'items', []).map(item =>
+            transformElementText({
+                element: item,
+                withSponsoredLink
+            })
+        )
+    }),
     header: props => transformElementText(props)
 };
+
+export const filterCustomPreparacion = (element = {}) => ({
+    ...element,
+    embed: {
+        ...element?.embed,
+        config: {
+            ...element?.embed?.config,
+            items: element?.embed?.config?.items?.slice(0, 3) || []
+        }
+    }
+});
 
 export const recipePaywallConfigCallbackContentElements = {
     custom_embed: ({ element }) => {
@@ -217,21 +249,9 @@ export const recipePaywallConfigCallbackContentElements = {
     divider: () => null
 };
 
-export const filterCustomPreparacion = (element = {}) => ({
-    ...element,
-    embed: {
-        ...element?.embed,
-        config: {
-            ...element?.embed?.config,
-            items: element?.embed?.config?.items?.slice(0, 3) || []
-        }
-    }
-});
-
 const callbacksByTypeReference = {
-    story: ({ cachedCall, element, arcSite } = {}) => {
-        return addFollowAnotherNoteData(cachedCall, element, arcSite);
-    }
+    story: ({ cachedCall, element, arcSite } = {}) =>
+        addFollowAnotherNoteData(cachedCall, element, arcSite)
 };
 
 export const configCallbacksRelatedContent = {

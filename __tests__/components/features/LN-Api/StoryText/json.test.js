@@ -3,7 +3,7 @@ import resultsArticle from '../../../../../__mocks__/data/articles/2KOBND62KNFVV
 import storyWithAudio from '../../../../../__mocks__/data/articles/UK57ZJT3DJGPRFTACPR7KTFUWA.json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return class extends component {
             constructor(props) {
                 super(props);
@@ -58,6 +58,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_id',
                     'audio_custom_voice',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -108,6 +109,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_url',
                     'audio_summary_url',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -150,6 +152,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_url',
                     'audio_summary_url',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -191,6 +194,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_custom_voice',
                     'audio_id',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -237,6 +241,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_id',
                     'audio_custom_voice',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -280,6 +285,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_id',
                     'audio_custom_voice',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -328,6 +334,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_id',
                     'audio_custom_voice',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -373,6 +380,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                     'audio_id',
                     'audio_custom_voice',
                     'authors',
+                    'autores',
                     'bajada',
                     'categoria',
                     'contenido',

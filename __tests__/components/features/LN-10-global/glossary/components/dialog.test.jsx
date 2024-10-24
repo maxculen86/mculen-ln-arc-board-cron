@@ -13,7 +13,7 @@ jest.mock(
 );
 
 describe('features - LN-10-GLOBAL - glossary - components- Dialog', () => {
-    let container;
+    let baseElement;
     useDialog.mockReturnValue({
         key: arrayData[0].key,
         value: arrayData[0].value,
@@ -21,11 +21,12 @@ describe('features - LN-10-GLOBAL - glossary - components- Dialog', () => {
         onClose: jest.fn()
     });
     beforeEach(() => {
-        ({ container } = render(<Dialog glossaryData={arrayData} />));
+        ({ baseElement } = render(<Dialog glossaryData={arrayData} />));
     });
     afterEach(() => {
         jest.clearAllMocks();
     });
+
     const capitalizeKeyMock = capitalizeFirstLetter(arrayData[0].key);
     it('should render key and value correctly', async () => {
         expect(screen.getByText(capitalizeKeyMock)).toBeInTheDocument();
@@ -34,19 +35,17 @@ describe('features - LN-10-GLOBAL - glossary - components- Dialog', () => {
 
     it('should render attributes correctly', async () => {
         const id = 'drawer-glossary';
-        expect(container.firstChild).toHaveAttribute('id', id);
-        expect(container.firstChild).toHaveAttribute('data-position', 'bottom');
-        expect(container.firstChild).toHaveAttribute(
+        const dialog = document.getElementById('drawer-glossary');
+        expect(dialog).toHaveAttribute('id', id);
+        expect(dialog).toHaveAttribute('data-position', 'bottom');
+        expect(dialog).toHaveAttribute(
             'aria-describedby',
             `dialog-description-${id}`
         );
-        expect(container.firstChild).toHaveAttribute(
-            'aria-labelledby',
-            `dialog-title-${id}`
-        );
+        expect(dialog).toHaveAttribute('aria-labelledby', `dialog-title-${id}`);
     });
 
     it('should match snapshot', () => {
-        expect(container).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
     });
 });

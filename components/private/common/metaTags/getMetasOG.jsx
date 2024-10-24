@@ -27,26 +27,32 @@ const getMetasOG = props => {
     } = props;
 
     const { layoutsName = {} } = config || {};
-
     const data = getData(props);
-    const { displayDate, firstPublishDate, lastUpdatedDate } = data;
+    const {
+        displayDate,
+        firstPublishDate,
+        lastUpdatedDate,
+        image,
+        fbAppId,
+        type,
+        url,
+        isArticle
+    } = data;
 
-    const metaTitleFromPB =
-        subtype === RECETA ? title : metaValue('title') || '';
+    const isReceta = subtype === RECETA;
+    const isRecetaOrMisNotas =
+        getSectionOfRequestUri(requestUri) === 'mis-notas' || isReceta;
 
-    const pageBuilderTitle =
-        getSectionOfRequestUri(requestUri) === 'mis-notas' || subtype === RECETA
-            ? metaTitleFromPB
-            : metaTitleFromPB.replace(' - LA NACION', '');
+    const metaTitleFromPB = isReceta ? title : metaValue('title') || '';
 
-    const metas = [
-        {
-            property: 'fb:app_id',
-            content: data.fbAppId
-        },
+    const pageBuilderTitle = isRecetaOrMisNotas
+        ? metaTitleFromPB
+        : metaTitleFromPB.replace(' - LA NACION', '');
+
+    const ogMetas = [
         {
             property: 'og:type',
-            content: data.type
+            content: type
         },
         {
             property: 'og:title',
@@ -71,54 +77,65 @@ const getMetasOG = props => {
             })
         },
         {
-            property: 'og:image',
-            content: data.image.url
+            property: 'og:locale',
+            content: 'es_AR'
         },
         {
-            property: 'og:image:width',
-            content: data.image.width
+            property: 'og:image',
+            content: image.url
         },
-        ...(data.image.height
-            ? [
-                  {
-                      property: 'og:image:height',
-                      content: data.image.height
-                  }
-              ]
+        {
+            property: 'og:image:type',
+            content: image.type
+        },
+        ...(image.alt
+            ? [{ property: 'og:image:alt', content: image.alt }]
+            : []),
+        {
+            property: 'og:image:width',
+            content: image.width
+        },
+        ...(image.height
+            ? [{ property: 'og:image:height', content: image.height }]
             : []),
         {
             property: 'og:url',
-            content: addForwardSlash(data.url)
+            content: addForwardSlash(url)
+        },
+        ...(['home', 'nota', 'acumulado'].includes(section) ||
+        (arcSite === 'ott' && layout === layoutsName.OttFicha)
+            ? [{ property: 'og:site_name', content: siteProperties.title }]
+            : [])
+    ];
+
+    const fbMetas = [
+        {
+            property: 'fb:app_id',
+            content: fbAppId
         }
     ];
-    if (data.isArticle) {
-        metas.push(
-            {
-                property: 'article:published_time',
-                content: getPublishDate(firstPublishDate, displayDate)
-            },
-            {
-                property: 'article:modified_time',
-                content: getModifiedDate(lastUpdatedDate, displayDate)
-            }
-        );
-    }
-    if (
-        ['home', 'nota', 'acumulado'].includes(section) ||
-        (arcSite === 'ott' && layout === layoutsName.OttFicha)
-    ) {
-        metas.push({
-            property: 'og:site_name',
-            content: siteProperties.title
-        });
-    }
 
-    metas.push({
-        name: 'twitter:image',
-        content: data.image.url
-    });
+    const twitterMetas = [
+        {
+            name: 'twitter:image',
+            content: image.url
+        }
+    ];
 
-    return metas;
+    const articleMetas = isArticle
+        ? [
+              {
+                  property: 'article:published_time',
+                  content: getPublishDate(firstPublishDate, displayDate)
+              },
+              {
+                  property: 'article:modified_time',
+                  content: getModifiedDate(lastUpdatedDate, displayDate)
+              }
+          ]
+        : [];
+
+    return [...fbMetas, ...ogMetas, ...articleMetas, ...twitterMetas];
 };
 
 export default getMetasOG;

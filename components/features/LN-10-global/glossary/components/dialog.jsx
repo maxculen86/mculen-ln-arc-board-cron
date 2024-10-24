@@ -1,13 +1,14 @@
 import React from 'react';
-import { useDialog } from '../hooks/useDialog';
 import { Text } from '@ln/common-ui-text';
+import { Dialog as DialogLib } from '@ln/common-ui-dialog';
+import { useDialog } from '../hooks/useDialog';
 import { Header } from './header';
 import { Disclaimer } from './disclaimer';
-import { Dialog as DialogLib } from '@ln/common-ui-dialog';
 
 import '../../../../../resources/packages/css/@ln/common-ui-dialog/index.css';
 
-export const Dialog = ({ glossaryData = [] }) => {
+// eslint-disable-next-line react/prop-types
+export function Dialog({ glossaryData = [] }) {
     const { key, value, isOpen, onClose } = useDialog(glossaryData);
 
     return (
@@ -15,10 +16,12 @@ export const Dialog = ({ glossaryData = [] }) => {
             position="bottom"
             isOpen={isOpen}
             onClose={onClose}
-            classnames={{
-                base: 'w-100 rounded-4 p-16 flex flex-column gap-8'
-            }}
             id="drawer-glossary"
+            classnames={{
+                base: 'w-100 rounded-4 p-16 gap-8'
+            }}
+            overlay
+            disabeBodyScroll
         >
             <DialogLib.Header
                 className="flex-column gap-16"
@@ -39,6 +42,6 @@ export const Dialog = ({ glossaryData = [] }) => {
             </DialogLib.Footer>
         </DialogLib>
     );
-};
+}
 
 export default Dialog;

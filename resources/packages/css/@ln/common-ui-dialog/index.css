@@ -25,3 +25,6 @@
 .dialog[data-position=top] {
   inset-block-start: 0;
 }
+.dialog[data-overlay=false] {
+  position: fixed;
+}

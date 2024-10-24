@@ -1,8 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/require-default-props */
 import React, { useEffect, useState, useRef } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import classNames from 'classnames';
 import config from '../../../../properties/sites/la-nacion-ar';
 import useTermica from '../../../private/common/hooks/useTermica';
 import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBookmark';
@@ -10,7 +9,6 @@ import { getClassCondition } from '../../../private/LN/common/utils/shareHelper'
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
 import ShowBarrier from '../../../private/common/barrier/showBarrier';
-import BuildAudioPlayer from '../../../private/common/audioNews/BuildAudioPlayer';
 import ShowToast from '../../../private/common/toast/showToast';
 import {
     isSubscribed,
@@ -18,20 +16,16 @@ import {
 } from '../../../../auth/helper/loginHelper';
 import useAuthManager from '../../../../auth/hooks/useAuthManager';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
-import classNames from 'classnames';
 
-const Share = () => {
+function Share() {
     const { globalContent, requestUri } = useAppContext() || {};
     const {
         _id: id,
         headlines: { basic: title, mobile: mobileTitle } = {},
-        subtype,
-        last_updated_date: date
+        subtype
     } = globalContent;
 
     const [bookmark, setBookmark] = useState('');
-    const [openPlayer, setOpenPlayer] = useState(false);
-    const [enableButton, setEnableButton] = useState(false);
 
     const { token, accessToken } = useAuthManager();
     const termicaBookmark = useTermica('bookmark_web');
@@ -47,7 +41,7 @@ const Share = () => {
     );
 
     useEffect(() => {
-        termicaBookmark && setBookmark(checkBookmarkId);
+        if (termicaBookmark) setBookmark(checkBookmarkId);
     }, [termicaBookmark, checkBookmarkId]);
 
     const shareContainer = useRef();
@@ -86,11 +80,7 @@ const Share = () => {
                         setBookmark={setBookmark}
                         termicaBookmark={termicaBookmark}
                         globalContent={globalContent}
-                        token={token}
                         suscription={suscription}
-                        openPlayer={openPlayer}
-                        enableButton={enableButton}
-                        setOpenPlayer={setOpenPlayer}
                         subtypeVideo={subtypeVideo}
                     />
 
@@ -105,17 +95,9 @@ const Share = () => {
                     />
                 </div>
             </div>
-            {openPlayer && (
-                <BuildAudioPlayer
-                    setEnableButton={setEnableButton}
-                    setOpenPlayer={setOpenPlayer}
-                    publishDate={date}
-                    noteId={id}
-                />
-            )}
         </div>
     );
-};
+}
 
 Share.label = 'LN-Nota-Share';
 
@@ -131,7 +113,7 @@ Share.propTypes = {
         comments: PropTypes.shape({
             display_comments: PropTypes.bool
         })
-    })
+    }).isRequired
 };
 
 export default Share;

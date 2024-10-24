@@ -10,6 +10,9 @@ const image = `
     resized_urls {
         ${imageResizedUrl}               
     }
+    additional_properties {
+        mime_type
+    }
 `;
 
 export default `

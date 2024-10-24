@@ -163,6 +163,17 @@ export default {
                 }
             }
         },
+        category: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 174,
+                        height: 116,
+                        proportion: '3:2'
+                    }
+                ]
+            }
+        },
         m: {
             promo_items: {
                 sizes: [

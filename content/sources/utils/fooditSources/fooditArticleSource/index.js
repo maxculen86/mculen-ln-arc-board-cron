@@ -1,3 +1,4 @@
+import getProperties from 'fusion:properties';
 import {
     STORYTELLING,
     RECETA,
@@ -5,7 +6,6 @@ import {
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../../../../components/private/common/utils/get';
 import validateSponsoredLink from '../../validateSponsoredLink';
-import getProperties from 'fusion:properties';
 import {
     configCallbacksRelatedContent,
     configCallbackContentElements,
@@ -130,36 +130,33 @@ export const transform = async (
         arcSite
     };
 
-    const [
-        promoItems,
-        contentElements,
-        relatedContentBasic
-    ] = await Promise.all([
-        transformPromoItems({
-            cachedCall,
-            arcSite,
-            configCallbacks: configPromoItems,
-            promoItemObject: get(result, 'promo_items', {})
-        }),
-        Promise.all(
-            transformElementsBasedOnType({
-                arrayElements: get(result, 'content_elements', []),
-                configCallbacks:
-                    customConfigCallbackContentElements ||
-                    configCallbackContentElements,
-                searchPropertyOnElem: 'type',
-                aditionalProps
-            })
-        ),
-        Promise.all(
-            transformElementsBasedOnType({
-                arrayElements: get(result, 'related_content.basic', []),
-                configCallbacks: configCallbacksRelatedContent,
-                searchPropertyOnElem: 'type',
-                aditionalProps
-            })
-        )
-    ]);
+    const [promoItems, contentElements, relatedContentBasic] =
+        await Promise.all([
+            transformPromoItems({
+                cachedCall,
+                arcSite,
+                configCallbacks: configPromoItems,
+                promoItemObject: get(result, 'promo_items', {})
+            }),
+            Promise.all(
+                transformElementsBasedOnType({
+                    arrayElements: get(result, 'content_elements', []),
+                    configCallbacks:
+                        customConfigCallbackContentElements ||
+                        configCallbackContentElements,
+                    searchPropertyOnElem: 'type',
+                    aditionalProps
+                })
+            ),
+            Promise.all(
+                transformElementsBasedOnType({
+                    arrayElements: get(result, 'related_content.basic', []),
+                    configCallbacks: configCallbacksRelatedContent,
+                    searchPropertyOnElem: 'type',
+                    aditionalProps
+                })
+            )
+        ]);
 
     return {
         ...result,

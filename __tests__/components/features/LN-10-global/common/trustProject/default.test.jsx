@@ -1,11 +1,10 @@
 import React from 'react';
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import TrustProject from '../../../../../../components/features/LN-10-global/common/trustProject/default';
 
 const mockTooltipData = {
     text: 'Opinión',
-    label:
-        'Basada en la interpretación y juicio de hechos y datos realizados por el autor.'
+    label: 'Basada en la interpretación y juicio de hechos y datos realizados por el autor.'
 };
 
 describe('features - LN10-global - TrustProject', () => {
@@ -26,10 +25,15 @@ describe('features - LN10-global - TrustProject', () => {
         expect(screen.getByText('Conforme a')).toBeInTheDocument();
         expect(screen.getByText('los criterios de')).toBeInTheDocument();
         expect(screen.getByText('Tipo de trabajo:')).toBeInTheDocument();
-        expect(
-            screen.getByText(mockTooltipData.text.toLowerCase())
-        ).toBeInTheDocument();
+
+        const textTriggerTooltip = screen.getByText(
+            mockTooltipData.text.toLowerCase()
+        );
+        expect(textTriggerTooltip).toBeInTheDocument();
+
+        fireEvent.mouseEnter(textTriggerTooltip);
         expect(screen.getByText(mockTooltipData.label)).toBeInTheDocument();
+
         const link = screen.getByRole('link');
         expect(link).toBeInTheDocument();
         expect(link).toHaveAttribute(

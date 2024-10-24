@@ -3,19 +3,23 @@ import PropTypes from 'fusion:prop-types';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import { GlobalContext } from '../context/globalContext';
-import { setCookie, getCookie } from './helpers';
 import ToggleButton from './ToggleButton';
-import { Disclaimer } from '../../../features/LN-10-global/glossary/components/disclaimer';
+import DisclaimerIa from '../../../features/LN-10-global/common/disclaimerIa/default';
+import handleCookie from '../../LN/common/utils/handleCookie';
+import { getTextDisclaimer } from './helpers';
 
-const BuildAudioPlayer = ({
-    setOpenPlayer,
+function BuildAudioPlayer({
     setEnableButton,
+    onCloseAudioPlayer,
     noteId = '',
-    loaderClass = ''
-}) => {
+    loaderClass = '',
+    playbackState,
+    showVariantIa
+}) {
     const { dispatch } = useContext(GlobalContext) || {};
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [errorAudio, setErrorAudio] = useState(false);
+    const { getCookie, setCookie } = handleCookie();
     const [contentVariant, setContentVariant] = useState(
         getCookie('contentVariant') || 'article'
     );
@@ -23,7 +27,7 @@ const BuildAudioPlayer = ({
     const playerRef = useRef(null);
 
     useEffect(() => {
-        if (error) {
+        if (errorAudio) {
             dispatch({
                 type: 'SHOW_MODAL',
                 payload: {
@@ -37,9 +41,9 @@ const BuildAudioPlayer = ({
                 }
             });
             setEnableButton(true);
-            setOpenPlayer(false);
+            onCloseAudioPlayer();
         }
-    }, [error, dispatch, setEnableButton, setOpenPlayer]);
+    }, [errorAudio, dispatch, setEnableButton]);
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -62,12 +66,13 @@ const BuildAudioPlayer = ({
         if (!isLoading && document.querySelector('.audio-player')) {
             try {
                 if (!playerRef.current) {
+                    // eslint-disable-next-line no-undef
                     playerRef.current = new BeyondWords.Player({
                         target: '.audio-player',
                         projectId: BEYONDWORDS_PROJECT_ID,
                         sourceId: noteId,
                         playbackRates: [1, 1.25, 1.5, 1.7, 2],
-                        playbackState: 'playing',
+                        playbackState,
                         skipButtonStyle: 'seconds',
                         logoIconEnabled: false,
                         widgetWidth: '40rem'
@@ -77,64 +82,64 @@ const BuildAudioPlayer = ({
 
                     playerRef.current.addEventListener(
                         'NoContentAvailable',
-                        handleNoContentAvailable
+                        () => setErrorAudio(true)
                     );
                 } else {
                     playerRef.current.contentVariant = contentVariant;
+                    playerRef.current.playbackState = playbackState;
                 }
             } catch (error) {
                 console.error(
                     'Failed to initialize the BeyondWords player:',
                     error
                 );
-                setError(true);
+                setErrorAudio(true);
             }
         }
 
         return () => {
-            playerRef.current?.removeEventListener(
-                'NoContentAvailable',
-                handleNoContentAvailable
-            );
+            playerRef.current?.removeEventListener('NoContentAvailable', () => {
+                setErrorAudio(true);
+                onCloseAudioPlayer();
+            });
+            if (playerRef.current) {
+                playerRef.current.playbackState = 'stopped';
+            }
         };
-    }, [isLoading, noteId, contentVariant]);
+    }, [isLoading, noteId, contentVariant, playbackState]);
 
     const handleToggleChange = newContentVariant => {
         setContentVariant(newContentVariant);
         setCookie('contentVariant', newContentVariant, 7);
     };
 
-    const handleNoContentAvailable = () => {
-        setError(true);
-    };
-
-    return (
-        <>
-            {!isLoading && !error ? (
-                <section className="audio-player-container contents">
-                    <ToggleButton
-                        handleToggle={handleToggleChange}
-                        contentVariant={contentVariant}
-                    />
-                    <div className="audio-player w-100 mt-12 mb-0_l mt-0_l as-start_l" />
-                    {contentVariant === 'summary' && (
-                        <div className="disclaimer-container mt-8 as-start_l">
-                            <Disclaimer />
-                        </div>
-                    )}
-                </section>
-            ) : (
-                <LoadingIcon className={loaderClass} />
-            )}
-        </>
+    return !isLoading && !errorAudio ? (
+        <section className="flex flex-column gap-16 pb-16_lg mb-12_lg border border-bottom_lg border-thin border-neutral-light-100">
+            <div className="flex flex-column flex-row-reverse_lg gap-12 gap-16_lg">
+                <ToggleButton
+                    handleToggle={handleToggleChange}
+                    contentVariant={contentVariant}
+                />
+                <div className="audio-player w-100 as-start_l h-48" />
+            </div>
+            <div className="disclaimer-container as-start_l mt-8 mt-0_lg">
+                <DisclaimerIa
+                    text={getTextDisclaimer({ contentVariant, showVariantIa })}
+                />
+            </div>
+        </section>
+    ) : (
+        <LoadingIcon className={loaderClass} />
     );
-};
+}
 
 BuildAudioPlayer.propTypes = {
-    noteId: PropTypes.string,
-    setOpenPlayer: PropTypes.func,
-    setEnableButton: PropTypes.func,
-    loaderClass: PropTypes.string
+    loaderClass: PropTypes.string.isRequired,
+    noteId: PropTypes.string.isRequired,
+    playbackState: PropTypes.string.isRequired,
+    setEnableButton: PropTypes.func.isRequired,
+    onCloseAudioPlayer: PropTypes.func.isRequired,
+    showVariantIa: PropTypes.bool.isRequired
 };
 
 export default BuildAudioPlayer;

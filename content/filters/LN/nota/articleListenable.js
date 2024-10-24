@@ -103,6 +103,7 @@ const video = `
     additional_properties {
         iptc_source
         nodeType
+        mime_type
         advertising {
             playAds
         }
@@ -439,6 +440,9 @@ export default `
                 height
                 width
             }
+            subtitle
+            caption
+            alt_text
         }
         glossary {          
             ${customGlossary}

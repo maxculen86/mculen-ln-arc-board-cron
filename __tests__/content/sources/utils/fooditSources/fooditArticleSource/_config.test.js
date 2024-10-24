@@ -1,4 +1,7 @@
-import { filterCustomPreparacion } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource/_configs';
+import {
+    filterCustomPreparacion,
+    fooditFormatInterstitialLink
+} from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource/_configs';
 
 const mockIngredients = {
     _id: '4EZ3Y5WDI5HBREEAZ2ID64C4EY',
@@ -39,5 +42,61 @@ describe('filterCustomPreparacion', () => {
             'Paso 3',
             'Paso 2'
         ]);
+    });
+});
+
+describe('Sources - Utils - fooditSources - fooditFormatInterstitialLink', () => {
+    it('should NOT add a slash when there is a # after the last /', () => {
+        const inputUrl = 'https://example.com/page/#section';
+        const expectedUrl = 'https://example.com/page/#section'; // No se agrega la barra
+
+        const result = fooditFormatInterstitialLink(inputUrl);
+
+        expect(result).toBe(expectedUrl);
+    });
+
+    it('should add a slash if there is no # after the last /', () => {
+        const inputUrl = 'https://example.com/page';
+        const expectedUrl = 'https://example.com/page/'; // Se agrega la barra al final
+
+        const result = fooditFormatInterstitialLink(inputUrl);
+
+        expect(result).toBe(expectedUrl);
+    });
+
+    it('should add https to a URL missing protocol and format correctly', () => {
+        const inputUrl = 'http://example.com/page';
+        const expectedUrl = 'https://example.com/page/';
+
+        const result = fooditFormatInterstitialLink(inputUrl);
+
+        expect(result).toBe(expectedUrl);
+    });
+
+    it('should return an empty string for invalid URLs', () => {
+        const invalidUrl = 'ht@tp://invalid-url';
+        const expectedUrl = '';
+
+        const result = fooditFormatInterstitialLink(invalidUrl);
+
+        expect(result).toBe(expectedUrl);
+    });
+
+    it('should handle URLs without forward slashes or hash symbols correctly', () => {
+        const inputUrl = 'https://example.com';
+        const expectedUrl = 'https://example.com/'; // Se agrega la barra al final
+
+        const result = fooditFormatInterstitialLink(inputUrl);
+
+        expect(result).toBe(expectedUrl);
+    });
+
+    it('should not add a slash if the URL ends with a hash fragment', () => {
+        const inputUrl = 'https://example.com/#section';
+        const expectedUrl = 'https://example.com/#section'; // No se agrega la barra
+
+        const result = fooditFormatInterstitialLink(inputUrl);
+
+        expect(result).toBe(expectedUrl);
     });
 });

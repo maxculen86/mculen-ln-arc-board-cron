@@ -3,6 +3,12 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import articlesTransformed from '../../../../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed';
 import Carousel from '../../../../../../components/chains/foodit-global/common/Carousel/foodit';
+import CommonCardFoodit from '../../../../../../components/features/foodit-global/common/CommonCardFoodit/foodit';
+import {
+    getImagesToLoadWithPicture,
+    getShortestImage
+} from '../../../../../../components/private/LN/common/utils/mediaHelper';
+import getImageAltText from '../../../../../../components/features/foodit-global/common/utils/getImageAltText';
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -14,8 +20,50 @@ window.IntersectionObserver = jest.fn(() => ({
 
 describe('Tests Carousel', () => {
     test('Render component with articles', () => {
+        const renderArticles = articlesTransformed.map(
+            ({
+                articleId,
+                author,
+                href,
+                size,
+                tag,
+                time,
+                title: titleArticle,
+                variant,
+                image = {},
+                contentCode = '',
+                hasVideo
+            }) => {
+                const { resized_urls: resizedUrlImage, url } = image;
+                const { resizedUrl = '' } = getShortestImage(resizedUrlImage);
+
+                return (
+                    <CommonCardFoodit
+                        fatherType="carousel"
+                        articleId={articleId}
+                        showTime={Boolean(time)}
+                        time={time}
+                        linksProps={{ href, title: titleArticle }}
+                        size={size}
+                        variant={variant}
+                        src={resizedUrl || url}
+                        alt={getImageAltText(image)}
+                        sources={getImagesToLoadWithPicture(resizedUrlImage)}
+                        loading="lazy"
+                        fetchPriority="low"
+                        tag={tag}
+                        title={titleArticle}
+                        author={author}
+                        key={articleId}
+                        contentCode={contentCode}
+                        hasVideo={hasVideo}
+                        titleEllipsis={2}
+                    />
+                );
+            }
+        );
         const { container } = render(
-            <Carousel articles={articlesTransformed} />
+            <Carousel type="collection">{renderArticles}</Carousel>
         );
         const divElement = container.querySelector('div');
 

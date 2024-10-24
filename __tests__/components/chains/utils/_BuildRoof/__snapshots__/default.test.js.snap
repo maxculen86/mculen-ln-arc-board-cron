@@ -66,8 +66,8 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
   </div>
   <script
     async=""
-    id="scriptBtnSuscriptionRoof"
-    src="/pf/resources/js/LN/scriptBuildRoof.min.js"
+    id="scriptCheckSubscriptionLN"
+    src="/pf/resources/js/LN/scriptCheckSubscriptionLN.min.js"
     type="text/javascript"
   />
 </div>

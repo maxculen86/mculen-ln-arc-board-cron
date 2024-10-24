@@ -8,7 +8,7 @@ import get from '../../../private/common/utils/get';
 import { getNewAcuElements } from '../AccumulatedSectionsV1/helper-api';
 import calculatePaginationValue from '../../../../content/sources/utils/pageSource/acumulados/common/calculatePaginationValue';
 import acuTransformV2Format from '../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
-import BackendLnError from '../../../private/LN/api/common/models/backendLnError';
+import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
 import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
 
 // URL de ejemplo: http://localhost/api/mobile/v2/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
@@ -31,11 +31,12 @@ class AccumulatedSectionsMobileV2V2 {
         this.state = {};
         this.sizeCf = sizeCf;
 
-        const id = get(globalContent,'_id',null);
-        if(!id){
+        const id = get(globalContent, '_id', null);
+        const site = get(globalContent, 'site', null);
+        if (!site) {
             console.warn(
                 new BackendLnError(
-                    `AccumulatedSectionsV2-V2 - msj: No existe Id de Seccion - GlobalContent: ${JSON.stringify(globalContent || {})}`,
+                    `AccumulatedSectionsV2-V2 - msj: No existe data esperada en el globalContent de Seccion - GlobalContent: ${JSON.stringify(globalContent || {})}`,
                     enumTypeError.featureError
                 )
             );
@@ -54,7 +55,58 @@ class AccumulatedSectionsMobileV2V2 {
             'true'
         );
 
-        this.query = this.getQueryElement(
+        const getQueryElement = (
+            sectionIdP,
+            sizeP,
+            pageP,
+            sectionsP,
+            restrictionP,
+            arcSiteP
+        ) => {
+            const resp = {
+                page: pageP,
+                imageConfig: 'm',
+                api: true,
+                'arc-site': arcSiteP,
+                apiTransform: 'transformLnAcuApi'
+            };
+
+            if (sectionIdP.toLowerCase() === '/suscriptores') {
+                return {
+                    ...resp,
+                    tagId: 'la-nacion-cerca',
+                    sourceOrigin: 'composer',
+                    size: sizeP || 30
+                };
+            }
+
+            if (sectionIdP.toLowerCase() === '/ultimas-noticias' && sectionsP) {
+                const sectionsFormated = JSON.stringify(sectionsP)
+                    .replace(/,/g, '+OR+')
+                    .replace('[', '(')
+                    .replace(']', ')');
+
+                return {
+                    ...resp,
+                    sectionsIds: sectionsFormated,
+                    sourceOrigin: 'composer',
+                    size: sizeP || 30
+                };
+            }
+
+            let excludeSourceOrigin = '';
+            if (restrictionP && restrictionP === 'false')
+                excludeSourceOrigin = 'ArcImporter-LnData';
+
+            return {
+                ...resp,
+                sectionId: sectionIdP,
+                size: sizeP,
+                excludeSourceOrigin
+            };
+        };
+
+        this.query = getQueryElement(
             id,
             size,
             page,
@@ -63,8 +115,7 @@ class AccumulatedSectionsMobileV2V2 {
             arcSite
         );
 
-        
-        this.sectionId=id;
+        this.sectionId = id;
 
         this.fetch(this.query);
 
@@ -91,61 +142,8 @@ class AccumulatedSectionsMobileV2V2 {
         });
     }
 
-    getQueryElement = (
-        sectionId,
-        size,
-        page,
-        sections,
-        restriction,
-        arcSite
-    ) => {
-        const resp = {
-            page,
-            imageConfig: 'm',
-            api: true,
-            'arc-site': arcSite,
-            apiTransform: 'transformLnAcuApi'
-        };
-
-        if (sectionId.toLowerCase() === '/suscriptores') {
-            return {
-                ...resp,
-                tagId: 'la-nacion-cerca',
-                sourceOrigin: 'composer',
-                size: size || 30
-            };
-        }
-
-        if (sectionId.toLowerCase() === '/ultimas-noticias' && sections) {
-
-            const sectionsFormated = JSON.stringify(sections)
-                .replace(/,/g, '+OR+')
-                .replace('[', '(')
-                .replace(']', ')');
-
-            return {
-                ...resp,
-                sectionsIds: sectionsFormated,
-                sourceOrigin: 'composer',
-                size: size || 30
-            };
-        }
-
-        let excludeSourceOrigin = '';
-        if (restriction && restriction === 'false')
-            excludeSourceOrigin = 'ArcImporter-LnData';
-
-        return {
-            ...resp,
-            sectionId,
-            size,
-            excludeSourceOrigin
-        };
-    };
-
     async render() {
         try {
-            
             const { acuArticlesSourceSection, globalContent: configuration } =
                 this.state || {};
             const {
@@ -161,10 +159,8 @@ class AccumulatedSectionsMobileV2V2 {
                 return null;
             }
 
-          
-
             let newAcuArticlesSourceSection = { ...acuArticlesSourceSection };
-            
+
             newAcuArticlesSourceSection = await getNewAcuElements(
                 newAcuArticlesSourceSection,
                 acuArticlesSourceSection,
@@ -172,11 +168,8 @@ class AccumulatedSectionsMobileV2V2 {
                 arcSite
             );
 
-
-
-            const indexAcu = this.apiData['global'][
-                browser.getApiVersion(requestUri)
-            ];
+            const indexAcu =
+                this.apiData.global[browser.getApiVersion(requestUri)];
 
             let title = get(
                 this.props.globalContent,
@@ -207,8 +200,11 @@ class AccumulatedSectionsMobileV2V2 {
                 this.query.size,
                 this.query.page
             );
-            return acuTransformV2Format(transformedAcu, this.sectionId, paginationValue);
-
+            return acuTransformV2Format(
+                transformedAcu,
+                this.sectionId,
+                paginationValue
+            );
         } catch (err) {
             console.error(
                 new BackendLnError(
