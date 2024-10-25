@@ -32,7 +32,7 @@ exports[`components - private - common - audioNews - components - AudioButton re
       data-position="right-center"
       data-visible="1"
       role="tooltip"
-      style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 200ms;"
+      style="max-width: 165px; animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 200ms;"
     >
       <span
         class="text text-12_130 block"
