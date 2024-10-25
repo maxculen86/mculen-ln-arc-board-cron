@@ -7,6 +7,7 @@ import ToggleButton from './ToggleButton';
 import DisclaimerIa from '../../../features/LN-10-global/common/disclaimerIa/default';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import { getTextDisclaimer } from './helpers';
+import { useSignatureContext } from './hooks/SignatureContext';
 
 function BuildAudioPlayer({
     setEnableButton,
@@ -19,10 +20,8 @@ function BuildAudioPlayer({
     const { dispatch } = useContext(GlobalContext) || {};
     const [isLoading, setIsLoading] = useState(true);
     const [errorAudio, setErrorAudio] = useState(false);
-    const { getCookie, setCookie } = handleCookie();
-    const [contentVariant, setContentVariant] = useState(
-        getCookie('contentVariant') || 'article'
-    );
+    const { setCookie } = handleCookie();
+    const { contentVariant, setContentVariant } = useSignatureContext();
 
     const playerRef = useRef(null);
 
