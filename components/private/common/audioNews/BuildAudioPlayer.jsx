@@ -127,6 +127,7 @@ function BuildAudioPlayer({
     const handleToggleChange = newContentVariant => {
         setContentVariant(newContentVariant);
         setCookie('contentVariant', newContentVariant, 7);
+        setIsAudioPlaying(true);
     };
 
     return !isLoading && !errorAudio ? (
