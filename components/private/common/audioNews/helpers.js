@@ -21,10 +21,17 @@ export const handleClickAudioNews = (
         });
 };
 
-export const getTextAndIconColor = variant =>
-    variant === 'ia'
-        ? { text: 'Escuchando al autor', iconColor: '#27D2BE' }
-        : { text: 'Escuchando', iconColor: '#808080' };
+export const getTextAndIconColor = (contentVariant, variant) => {
+    const defaultText = 'Escuchando';
+
+    if (variant === 'ia') {
+        const text =
+            contentVariant === 'article' ? 'Escuchando al autor' : defaultText;
+        return { text, iconColor: '#27D2BE' };
+    }
+
+    return { text: defaultText, iconColor: '#808080' };
+};
 
 export const getAuthorsNameAndLink = authors => {
     const author =

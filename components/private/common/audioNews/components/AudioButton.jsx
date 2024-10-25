@@ -24,7 +24,8 @@ export function AudioButton({
     audioPlayerProps = {},
     withAudio,
     authorNames = [],
-    showTooltipVariantIA
+    showTooltipVariantIA,
+    variant
 }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
     const { isListenable } = globalContent;
@@ -56,7 +57,7 @@ export function AudioButton({
         closeTooltipIAAuthor();
     };
 
-    const { text, iconColor } = getTextAndIconColor(contentVariant);
+    const { text, iconColor } = getTextAndIconColor(contentVariant, variant);
 
     if (!showListenButton || !withAudio) return null;
 
@@ -67,7 +68,7 @@ export function AudioButton({
                 height={20}
                 width={20}
                 fill={iconColor}
-                isAudioPlaying={isAudioPlaying}
+                stopAnimation={!isAudioPlaying}
             />
             <Text className="text-12 text-neutral-light-600">
                 <strong>{text}</strong>
@@ -114,5 +115,6 @@ AudioButton.propTypes = {
     }).isRequired,
     withAudio: PropTypes.bool.isRequired,
     authorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
-    showTooltipVariantIA: PropTypes.bool.isRequired
+    showTooltipVariantIA: PropTypes.bool.isRequired,
+    variant: PropTypes.oneOf(['ia', 'default']).isRequired
 };
