@@ -41,7 +41,7 @@ export function AudioButton({
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const token = getToken();
     const { dispatch } = useContext(GlobalContext) || {};
-    const { contentVariant } = useSignatureContext();
+    const { contentVariant, isAudioPlaying } = useSignatureContext();
 
     const handleClickAudioButton = () => {
         handleClickAudioNews(token, subscription, onOpenAudioPlayer, dispatch);
@@ -67,6 +67,7 @@ export function AudioButton({
                 height={20}
                 width={20}
                 fill={iconColor}
+                isAudioPlaying={isAudioPlaying}
             />
             <Text className="text-12 text-neutral-light-600">
                 <strong>{text}</strong>

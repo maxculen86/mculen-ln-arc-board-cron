@@ -21,7 +21,8 @@ function BuildAudioPlayer({
     const [isLoading, setIsLoading] = useState(true);
     const [errorAudio, setErrorAudio] = useState(false);
     const { setCookie } = handleCookie();
-    const { contentVariant, setContentVariant } = useSignatureContext();
+    const { contentVariant, setContentVariant, setIsAudioPlaying } =
+        useSignatureContext();
 
     const playerRef = useRef(null);
 
@@ -83,6 +84,14 @@ function BuildAudioPlayer({
                         'NoContentAvailable',
                         () => setErrorAudio(true)
                     );
+
+                    playerRef.current.addEventListener('PressedPause', () => {
+                        setIsAudioPlaying(false);
+                    });
+
+                    playerRef.current.addEventListener('PressedPlay', () => {
+                        setIsAudioPlaying(true);
+                    });
                 } else {
                     playerRef.current.contentVariant = contentVariant;
                     playerRef.current.playbackState = playbackState;
@@ -97,10 +106,18 @@ function BuildAudioPlayer({
         }
 
         return () => {
-            playerRef.current?.removeEventListener('NoContentAvailable', () => {
-                setErrorAudio(true);
-                onCloseAudioPlayer();
+            playerRef.current?.removeEventListener('NoContentAvailable', () =>
+                setErrorAudio(true)
+            );
+
+            playerRef.current?.removeEventListener('PressedPause', () => {
+                setIsAudioPlaying(false);
             });
+
+            playerRef.current?.removeEventListener('PressedPlay', () => {
+                setIsAudioPlaying(true);
+            });
+
             if (playerRef.current) {
                 playerRef.current.playbackState = 'stopped';
             }
