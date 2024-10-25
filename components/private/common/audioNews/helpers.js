@@ -48,9 +48,8 @@ export const getTextAndIconColor = variant =>
 
 export const getAuthorsNameAndLink = authors => {
     const author =
-        authors.length === 1
-            ? authors.reduce((acc, val) => ({ name: val.name, link: val.link }))
-            : authors.map(author => author.name);
+        authors.length === 1 &&
+        authors.reduce((acc, val) => ({ name: val.name, link: val.link }));
     return { author };
 };
 

@@ -18,7 +18,7 @@ export function Dialog({ glossaryData = [] }) {
             onClose={onClose}
             id="drawer-glossary"
             classnames={{
-                base: 'w-100 rounded-4 p-16 flex flex-column gap-8'
+                base: 'w-100 rounded-4 p-16 gap-8'
             }}
             overlay
             disabeBodyScroll

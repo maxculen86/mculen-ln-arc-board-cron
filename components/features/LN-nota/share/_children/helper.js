@@ -3,7 +3,7 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import '../../../../../resources/packages/css/@ln/contenidos-ui-animatedicons/index.css';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
-const AnimatedIcons = lazy(() => import('./AnimatedLogo'));
+const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
 
 export const handleIaToggle = ({
     defaultTab,
@@ -45,7 +45,7 @@ export const getClassAndIconByClick = iaButtonIsClicked =>
                   <Suspense
                       fallback={<IconSprite name="ai" default fill="#27D2BE" />}
                   >
-                      <AnimatedIcons name="logo-ai" />
+                      <AnimatedIconsLazy logo="logo-ai" />
                   </Suspense>
               ),
               iaButtonClass: 'p-0'

@@ -4,7 +4,8 @@ import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import get from '../../../private/common/utils/get';
 import { getNewAcuElements } from './helper-api';
-import nodeFetch from 'node-fetch';
+import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
+import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
 
 // URL de ejemplo: http://localhost/api/mobile/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/mobile\/v1\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -13,7 +14,7 @@ class AccumulatedSectionsMobileV1 {
         this.props = props;
         const {
             arcSite,
-            globalContent: { _id: id },
+            globalContent,
             isAdmin,
             customFields: {
                 size: sizeCf = 30,
@@ -26,6 +27,16 @@ class AccumulatedSectionsMobileV1 {
         this.state = {};
         this.sizeCf = sizeCf;
 
+        const id = get(globalContent, '_id', null);
+        const site = get(globalContent, 'site', null);
+        if (!site) {
+            console.warn(
+                new BackendLnError(
+                    `AccumulatedSectionsV1 - msj: No existe data esperada en el globalContent de Seccion - GlobalContent: ${JSON.stringify(globalContent || {})}`,
+                    enumTypeError.featureError
+                )
+            );
+        }
         const { size, page } = getSizesFrom(
             isAdmin,
             sizeCf,
@@ -40,7 +51,58 @@ class AccumulatedSectionsMobileV1 {
             'true'
         );
 
-        this.query = this.getQueryElement(
+        const getQueryElement = (
+            sectionIdP,
+            sizeP,
+            pageP,
+            sectionsP,
+            restrictionP,
+            arcSiteP
+        ) => {
+            const resp = {
+                page: pageP,
+                imageConfig: 'm',
+                api: true,
+                'arc-site': arcSiteP,
+                apiTransform: 'transformLnAcuApi'
+            };
+
+            if (sectionIdP.toLowerCase() === '/suscriptores') {
+                return {
+                    ...resp,
+                    tagId: 'la-nacion-cerca',
+                    sourceOrigin: 'composer',
+                    size: sizeP || 30
+                };
+            }
+
+            if (sectionIdP.toLowerCase() === '/ultimas-noticias' && sectionsP) {
+                const sectionsFormated = JSON.stringify(sectionsP)
+                    .replace(/,/g, '+OR+')
+                    .replace('[', '(')
+                    .replace(']', ')');
+
+                return {
+                    ...resp,
+                    sectionsIds: sectionsFormated,
+                    sourceOrigin: 'composer',
+                    size: sizeP || 30
+                };
+            }
+
+            let excludeSourceOrigin = '';
+            if (restrictionP && restrictionP === 'false')
+                excludeSourceOrigin = 'ArcImporter-LnData';
+
+            return {
+                ...resp,
+                sectionId: sectionIdP,
+                size: sizeP,
+                excludeSourceOrigin
+            };
+        };
+
+        this.query = getQueryElement(
             id,
             size,
             page,
@@ -48,7 +110,6 @@ class AccumulatedSectionsMobileV1 {
             restriction,
             arcSite
         );
-
 
         this.fetch(this.query);
 
@@ -70,50 +131,6 @@ class AccumulatedSectionsMobileV1 {
             }
         });
     }
-
-    getQueryElement = (sectionId,size,page,sections,restriction,arcSite) => {
-        const resp = {
-            page,
-            imageConfig: 'm',
-            api: true,
-            'arc-site': arcSite,
-            apiTransform: 'transformLnAcuApi'
-        };
-
-        if (sectionId.toLowerCase() === '/suscriptores') {
-            return {
-                ...resp,
-                tagId: 'la-nacion-cerca',
-                sourceOrigin: 'composer',
-                size: size || 30
-            };
-        }
-
-        if (sectionId.toLowerCase() === '/ultimas-noticias') {
-            const sectionsFormated = JSON.stringify(sections)
-                .replace(/,/g, '+OR+')
-                .replace('[', '(')
-                .replace(']', ')');
-
-            return {
-                ...resp,
-                sectionsIds: sectionsFormated,
-                sourceOrigin: 'composer',
-                size: size || 30
-            };
-        }
-
-        let excludeSourceOrigin = '';
-        if (restriction && restriction === 'false')
-            excludeSourceOrigin = 'ArcImporter-LnData';
-
-        return {
-            ...resp,
-            sectionId,
-            size,
-            excludeSourceOrigin
-        };
-    };
 
     async render() {
         try {
@@ -141,9 +158,10 @@ class AccumulatedSectionsMobileV1 {
                 arcSite
             );
 
-            const indexAcu = this.apiData[browser.getApiType(requestUri)][
-                browser.getApiVersion(requestUri)
-            ];
+            const indexAcu =
+                this.apiData[browser.getApiType(requestUri)][
+                    browser.getApiVersion(requestUri)
+                ];
 
             let title = get(
                 this.props.globalContent,
@@ -166,6 +184,14 @@ class AccumulatedSectionsMobileV1 {
 
             return indexAcu(acuData);
         } catch (err) {
+            console.error(
+                new BackendLnError(
+                    `AccumulatedSectionsV1 - msj: ${
+                        err.message
+                    } - Error: ${JSON.stringify(err || {})}`,
+                    enumTypeError.featureError
+                )
+            );
             return { Success: false, Message: err.message };
         }
     }

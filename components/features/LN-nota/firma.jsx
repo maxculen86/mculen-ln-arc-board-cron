@@ -5,8 +5,8 @@ import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { Author } from '@ln/contenidos-ui-author';
 import classNames from 'classnames';
-import ComPartner from '../../private/common/com-partner';
-import ComLink from '../../private/common/com-link';
+import { Text } from '@ln/contenidos-ui-text';
+import { Link } from '@ln/contenidos-ui-link';
 import {
     place,
     filterByAuthor,
@@ -51,23 +51,27 @@ function FirmaFeature(props) {
             ? getPropsBuilder(position)
             : getPropsBuilderFromContentElements(position);
 
-    const { photo, medio, authors } =
-        creditsBy && creditsBy.length
-            ? compose(constructProps, filterByAuthor)(creditsBy)
-            : compose(constructProps)(contentElements);
+    const {
+        photo,
+        medio,
+        authors = []
+    } = creditsBy && creditsBy.length
+        ? compose(constructProps, filterByAuthor)(creditsBy)
+        : compose(constructProps)(contentElements);
 
-    // TODO: repasar logica para que lo resuelva el componente de la lib Author
+    // TODO: repasar logica para que lo resuelva el componente de la lib Author y reemplazar --xs / --twoxs por text-number
     const firmaDistributorHtml = nombre =>
         nombre === 'LA NACION' ? (
-            <ComPartner size="--xs">{nombre}</ComPartner>
+            <Text className="font-bold --xs">{nombre}</Text>
         ) : (
-            <ComLink
-                link={`${SITE_LANACION}/distributor/${formatDistributorName(
+            <Link
+                href={`${SITE_LANACION}/distributor/${formatDistributorName(
                     nombre
                 )}/`}
+                title={nombre}
             >
-                <ComPartner size="--twoxs">{nombre}</ComPartner>
-            </ComLink>
+                <Text className="font-bold --twoxs">{nombre}</Text>
+            </Link>
         );
 
     const showVariantIa = customVoice && thermicalAudio;
@@ -78,7 +82,7 @@ function FirmaFeature(props) {
             variant={showVariantIa ? 'ia' : 'default'}
             audioPlayerProps={audioPlayerProps}
             withAudio={withAudio}
-            authorNames={author.name}
+            authorNames={author?.name}
             showTooltipVariantIA={showVariantIa}
         />
     );
@@ -89,23 +93,31 @@ function FirmaFeature(props) {
             {audioButton}
         </div>
     ) : (
-        <div className="row FirmaAutor">
-            <div className="flex flex-column mb-16 gap-16 w-100 flex-row_m ai-center_m ai-start">
+        <div className="row">
+            <div
+                className={classNames(
+                    'flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start',
+                    position === place.Top && 'mb-16'
+                )}
+            >
                 <Author
                     key={author.name}
                     variant={showVariantIa ? 'ia' : 'default'}
                     size={16}
-                    author={author.name || author}
+                    author={author?.name || authors?.map(a => a.name)}
                     imageSrc={photo}
-                    href={author.link}
+                    href={author.link || authors?.map(a => a.link)}
                     section={medio}
                     icon={
                         showVariantIa && <IconSprite name="ai" fill="#FEFEFE" />
                     }
                     prefix={
                         position === place.Bottom ||
-                        (Array.isArray(authors) && authors.length > 1)
+                        (Array.isArray(authors) && authors?.length > 1)
                     }
+                    classnames={{
+                        authorSection: 'uppercase'
+                    }}
                 />
                 {audioButton}
             </div>
@@ -123,10 +135,12 @@ function FirmaFeature(props) {
     ) : null;
 
     const classNameContainer = classNames(
-        'flex flex-column',
-        !showVariantIa && 'mb-16 mb-32_l'
+        'flex flex-column feature-firma',
+        position === place.Top ? 'mb-16 mb-24_m' : 'mb-32'
     );
 
+    if (!withFirmaDistributor && !authors?.length && !author?.length)
+        return null;
     return (
         <div className={classNameContainer}>
             {content}
