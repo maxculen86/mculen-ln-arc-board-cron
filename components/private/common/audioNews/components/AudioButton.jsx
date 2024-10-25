@@ -6,11 +6,8 @@ import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { AnimatedIcons } from '@ln/contenidos-ui-animatedicons';
 import { Tooltip } from '@ln/common-ui-tooltip';
-import {
-    getTextAndIconColor,
-    handleClickAudioNews,
-    IA_AUDIO_AUTHOR_TRACKING
-} from '../helpers';
+import { useDisclosure } from '@ln/hooks';
+import { getTextAndIconColor, handleClickAudioNews } from '../helpers';
 import getToken from '../../utils/getToken';
 import {
     isSubscribed,
@@ -22,7 +19,6 @@ import getAudioEvents from '../../../../features/LN-10-global/common/utils/getAu
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import handleCookie from '../../../LN/common/utils/handleCookie';
 import useTermica from '../../hooks/useTermica';
-import isSSR from '../../../LN/common/utils/isSSR';
 
 export function AudioButton({
     variant,
@@ -33,6 +29,9 @@ export function AudioButton({
 }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
     const { isListenable } = globalContent;
+
+    const { isOpen: showTooltipIAAuthor, onClose: closeTooltipIAAuthor } =
+        useDisclosure(showTooltipVariantIA && authorNames?.length);
 
     const { enableButton, onOpenAudioPlayer, isOpenAudioPlayer } =
         audioPlayerProps;
@@ -56,22 +55,10 @@ export function AudioButton({
                 contentVariant
             )
         });
-        localStorage.setItem(
-            IA_AUDIO_AUTHOR_TRACKING.key,
-            IA_AUDIO_AUTHOR_TRACKING.value
-        );
+        closeTooltipIAAuthor();
     };
 
     const { text, iconColor } = getTextAndIconColor(variant);
-
-    const showTooltip = () => {
-        if (isSSR() || !showTooltipVariantIA) return false;
-        const iaAudioAuthorTracking = localStorage.getItem(
-            IA_AUDIO_AUTHOR_TRACKING.key,
-            IA_AUDIO_AUTHOR_TRACKING.value
-        );
-        return !iaAudioAuthorTracking && authorNames.length;
-    };
 
     if (!showListenButton || !withAudio) return null;
 
@@ -91,7 +78,7 @@ export function AudioButton({
         <Tooltip
             className="border border-all border-thin border-primary-ia shadow-xs rounded-4 bg-light-50"
             position="right-center"
-            visible={showTooltip()}
+            visible={showTooltipIAAuthor}
             disableTrigger
             content={
                 <>
@@ -99,6 +86,7 @@ export function AudioButton({
                     <Text className="text-12_130 block">{authorNames}</Text>
                 </>
             }
+            style={{ maxWidth: '165px' }}
         >
             <Button
                 id="btnAudioDesktop"

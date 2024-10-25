@@ -53,11 +53,6 @@ export const getAuthorsNameAndLink = authors => {
     return { author };
 };
 
-export const IA_AUDIO_AUTHOR_TRACKING = {
-    key: 'iaAudioAuthorTracking',
-    value: 'wasClicked'
-};
-
 export function getTextDisclaimer({
     contentVariant = '',
     showVariantIa = false
