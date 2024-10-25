@@ -2,7 +2,7 @@ import get from '../../../../components/private/common/utils/get';
 import config from './config';
 
 const isValidDate = (publishDate = '') => {
-    const formatDate = publishDate.replace(/-|[a-z][^\/]+/gi, '');
+    const formatDate = publishDate.replace(/-|[a-z][^/]+/gi, '');
     const releaseDateInAllSections = 20231123;
 
     return Number(formatDate) >= releaseDateInAllSections;
@@ -13,7 +13,7 @@ const hasParagraphs = contentElements =>
 
 const isSectionNoListenable = data => {
     const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
-    const regex = new RegExp('^/(estados-unidos|juegos|newsletters)', 'i');
+    const regex = /^\/(estados-unidos|juegos|newsletters)/i;
     return regex.test(primarySectionId);
 };
 
@@ -66,8 +66,7 @@ export const isNoteListenableHome = data => {
     return false;
 };
 
-export const isCustomVoice = data => {
-    return data?.voice != undefined && data?.voice != null;
-};
+export const isCustomVoice = data =>
+    data?.voice !== undefined && data?.voice != null;
 
 export default isNoteListenable;
