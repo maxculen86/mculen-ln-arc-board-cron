@@ -17,11 +17,10 @@ import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLa
 import { GlobalContext } from '../../context/globalContext';
 import getAudioEvents from '../../../../features/LN-10-global/common/utils/getAudioEvents';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import handleCookie from '../../../LN/common/utils/handleCookie';
 import useTermica from '../../hooks/useTermica';
+import { useSignatureContext } from '../hooks/SignatureContext';
 
 export function AudioButton({
-    variant,
     audioPlayerProps = {},
     withAudio,
     authorNames = [],
@@ -42,8 +41,7 @@ export function AudioButton({
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const token = getToken();
     const { dispatch } = useContext(GlobalContext) || {};
-    const { getCookie } = handleCookie();
-    const contentVariant = getCookie('contentVariant') || 'article';
+    const { contentVariant } = useSignatureContext();
 
     const handleClickAudioButton = () => {
         handleClickAudioNews(token, subscription, onOpenAudioPlayer, dispatch);
@@ -58,7 +56,7 @@ export function AudioButton({
         closeTooltipIAAuthor();
     };
 
-    const { text, iconColor } = getTextAndIconColor(variant);
+    const { text, iconColor } = getTextAndIconColor(contentVariant);
 
     if (!showListenButton || !withAudio) return null;
 
@@ -108,7 +106,6 @@ export function AudioButton({
 }
 
 AudioButton.propTypes = {
-    variant: PropTypes.string.isRequired,
     audioPlayerProps: PropTypes.shape({
         enableButton: PropTypes.bool.isRequired,
         onOpenAudioPlayer: PropTypes.func.isRequired,
