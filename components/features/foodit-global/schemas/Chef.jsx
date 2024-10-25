@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { SITE_FOODIT } from 'fusion:environment';
-import { useAppContext } from 'fusion:context';
 
-import transformSocial from '../../private-global/common/utils/transformSocial';
+import PropTypes from 'fusion:prop-types';
+import { transformSocial } from '../../private-global/common/utils/transformSocial';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 
-export const ChefSchema = ({ globalContent = {} }) => {
+export function ChefSchema({ globalContent = {} }) {
     const {
         byline = '',
-        bio_page = '',
+        bio_page: bioPage = '',
         image: { url: imageUrl = '' } = {},
         email = '',
         location = '',
@@ -29,30 +29,31 @@ export const ChefSchema = ({ globalContent = {} }) => {
         .filter(social => Boolean(social.name))
         .map(social => social?.href || '');
 
-    const { contextPath, deployment } = useAppContext();
-    const chefUrl = deployment(
-        `${SITE_FOODIT}${contextPath}${bio_page.replace(
-            'author',
-            'chefs-protagonistas'
-        )}`
-    );
+    const chefUrl = `${SITE_FOODIT}${bioPage.replace(
+        'autor',
+        'chefs-protagonistas'
+    )}`;
 
     const chefSchema = {
         '@context': 'http://schema.org',
         '@type': 'Person',
         name: byline,
-        url: bio_page,
+        url: bioPage.replace('autor', 'chefs-protagonistas'),
         image: imageUrl,
         jobTitle: role,
         contactPoint: {
             '@type': 'ContactPoint',
             contactType: role,
             url: chefUrl,
-            email: email
+            email
         },
         sameAs: socialNetworks,
         nationality: location
     };
 
     return <SnippetRender id="chef-schema" data={chefSchema} />;
+}
+
+ChefSchema.propTypes = {
+    globalContent: PropTypes.object.isRequired
 };

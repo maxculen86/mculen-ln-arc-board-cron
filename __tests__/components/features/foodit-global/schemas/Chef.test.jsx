@@ -16,7 +16,7 @@ jest.mock('fusion:environment', () => {
 });
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -33,8 +33,7 @@ describe('components - features- foodit-global - schemas - ChefSchema', () => {
             byline: 'Juan Pravata',
             role: 'Programador',
             image: {
-                url:
-                    'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=820fe21613127ce5fb08247616be9addc1ba894dcfdc5a76e10b06014f66dca1&width=280&quality=70&smart=false'
+                url: 'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=820fe21613127ce5fb08247616be9addc1ba894dcfdc5a76e10b06014f66dca1&width=280&quality=70&smart=false'
             },
             email: 'pravata.juan@gmail.com',
             facebook: 'facebook.com.ar',
@@ -64,7 +63,7 @@ describe('components - features- foodit-global - schemas - ChefSchema', () => {
 
         expect(scripts).toBeInTheDocument();
         expect(name).toEqual('Juan Pravata');
-        expect(url).toEqual('/autor/juan-pravata-666/');
+        expect(url).toEqual('/chefs-protagonistas/juan-pravata-666/');
 
         expect(container).toMatchSnapshot();
     });
