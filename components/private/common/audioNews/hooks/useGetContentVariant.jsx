@@ -8,7 +8,7 @@ const useGetContentVariant = initialValue => {
     );
 
     useEffect(() => {
-        setContentVariant(initialValue);
+        setContentVariant(getCookie('contentVariant') || initialValue);
     }, []);
 
     return { contentVariant, setContentVariant };
