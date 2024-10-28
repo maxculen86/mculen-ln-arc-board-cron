@@ -5,13 +5,26 @@
     margin-bottom: $spacing-sm;
     &.collapsible {
         margin-bottom: 0;
-        .nota #content .cuerpo__nota & .com-button.--secondary:hover {
-            background-color: transparent;
-            color: $blue-500;
+        @media (max-width: 767px) {
+            &.collapsed {
+                .themes-note {
+                    &:nth-child(4)::after,
+                    &:nth-child(n + 5) {
+                        display: none;
+                    }
+                }
+            }
         }
     }
-    .com-link {
+    .ln-link {
         &.com-button {
+            &.collapsible {
+                color: $blue-500;
+                &:hover,
+                &:active {
+                    opacity: 0.8;
+                }
+            }
             margin-right: $spacing-sm;
             margin-bottom: $spacing-sm;
             white-space: nowrap;
@@ -23,8 +36,8 @@
         }
     }
 
-    .nota.recetas & .com-link.com-button.--tag,
-    &.collapsible .com-link.com-button {
+    .nota.recetas & .ln-link.com-button.--tag,
+    &.collapsible .ln-link.com-button {
         margin: 0;
         margin-bottom: $spacing;
         padding: 0;

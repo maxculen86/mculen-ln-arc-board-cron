@@ -35,6 +35,17 @@
             align-items: center;
             padding-top: $picture;
 
+            .nota.noticia [data-block-name='n_otras_noticias'] &,
+            .nota.noticia [data-block-name='h_SeguiLeyendotema-toi'] &,
+            .nota.noticia [data-block-name='n_te_puede_interesar'] &,
+            .nota.noticia [data-block-name='n_ultimas_noticias'] & {
+                @media (max-width: 767px) {
+                    padding-top: 0;
+                    height: auto;
+                    aspect-ratio: 21/9;
+                }
+            }
+
             .com-image,
             .mod-video {
                 display: block;

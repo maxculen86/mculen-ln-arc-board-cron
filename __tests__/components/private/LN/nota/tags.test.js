@@ -7,12 +7,6 @@ describe('components - private - LN - nota', () => {
     describe('In Notas', () => {
         const propsNota = propsForTagsSections.nota;
 
-        it('listTags should return 4 tags maximum', () => {
-            render(<Tags {...propsNota} />);
-            const listTags = screen.getAllByRole('link');
-            expect(listTags.length).toBe(4);
-        });
-
         it('List tags in Nota should return tags without main sections', () => {
             render(<Tags {...propsNota} />);
             const listTags = screen.getAllByRole('link');
