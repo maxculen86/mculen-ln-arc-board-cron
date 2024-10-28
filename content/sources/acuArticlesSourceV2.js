@@ -2,6 +2,7 @@ import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import getQueryParams from './utils/acuArticleSourceV2/getQueryParams';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const fetch = async query => {
     const opt = {
@@ -18,6 +19,7 @@ const fetch = async query => {
                 `${CONTENT_BASE}${getQueryParams(query)}`,
                 opt
             );
+            handleHttpError(response);
             const data = await response.json();
             return data;
         } catch (error) {
@@ -35,7 +37,7 @@ const fetch = async query => {
         }
     };
 
-    return await resolveData();
+    return resolveData();
 };
 
 export default {
