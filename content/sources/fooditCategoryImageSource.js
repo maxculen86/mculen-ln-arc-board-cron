@@ -5,8 +5,12 @@ import get from '../../components/private/common/utils/get';
 import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import logger from '../../components/private/common/utils/logger';
+import { getCategoryImageAuth } from './utils/fooditSources/utils/authImage';
 
-const transform = async (data, siteProps) => {
+const transform = async (data, siteProps, cachedCall) => {
+    const newData = await getCategoryImageAuth(data, cachedCall);
+    Object.assign(data, newData);
+
     const { presets } = getPresets(siteProps);
 
     const presetsPromoItems = get(presets, 'promo_items', null);
