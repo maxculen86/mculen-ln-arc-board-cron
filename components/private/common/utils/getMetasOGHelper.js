@@ -13,6 +13,7 @@ import {
     getModifiedDate,
     getPublishDate
 } from './schema/liveBlog/generatePostObject';
+import removeExtraSpaces from './removeExtraSpaces';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -283,7 +284,7 @@ export const setMetaTitle = ({
     ottMetaTitle
 }) => {
     const options = {
-        'la-nacion-ar': () => pageBuilderTitle,
+        'la-nacion-ar': () => removeExtraSpaces(pageBuilderTitle),
         ott: () => ottMetaTitle
     };
 
@@ -315,8 +316,6 @@ export const buildOgMetas = params => {
             content: setMetaTitle({
                 arcSite,
                 pageBuilderTitle,
-                section,
-                siteProperties,
                 ottMetaTitle
             })
         },
