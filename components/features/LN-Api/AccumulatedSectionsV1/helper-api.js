@@ -4,6 +4,8 @@ import get from '../../../private/common/utils/get';
 import { isFotoAl100orStorytelling } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { addResizedUrls } from '../../../private/common/utils/image/resizer/addResizerUrls';
 import getPresets from '../../../../content/sources/utils/presets';
+import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
+import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
 
 const resolve = query => {
     const { imageId, arcSite } = query;
@@ -17,6 +19,16 @@ const getAuthImage = async query => {
     };
 
     const resp = await nodeFetch(resolve(query), opt);
+
+    if (resp && !resp.ok) {
+        console.warn(
+            new BackendLnError(
+                `getAuthImage - msj: ${resp.status} ${resp.statusText} - query: ${JSON.stringify(query || {})}`,
+                enumTypeError.featureError
+            )
+        );
+        return null;
+    }
     return resp.json();
 };
 
@@ -40,6 +52,8 @@ export const setAuthCredits = async (
                             1: authImage.hash
                         }
                     };
+                } else {
+                    objCredits.by[i].image = null;
                 }
             }
         })
@@ -51,9 +65,14 @@ export const setAuthPromoItem = async (promoItems, arcSite) => {
 
     await Promise.all(
         Object.keys(promoItems || {}).map(async key => {
-            if (promoItems[key].type === 'image' && !promoItems[key].auth) {
+            if (
+                promoItems[key] &&
+                promoItems[key].type === 'image' &&
+                !promoItems[key].auth
+            ) {
                 const imageId = get(promoItems[key], '_id', null);
                 const authImage = await getAuthImage({ imageId, arcSite });
+
                 if (authImage) {
                     objPromoItems[key] = {
                         ...objPromoItems[key],
@@ -61,6 +80,8 @@ export const setAuthPromoItem = async (promoItems, arcSite) => {
                             1: authImage.hash
                         }
                     };
+                } else {
+                    objPromoItems[key] = {};
                 }
             }
         })
