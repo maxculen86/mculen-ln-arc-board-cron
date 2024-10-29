@@ -31,9 +31,12 @@ class AccumulatedSectionsMobileV2V2 {
         this.state = {};
         this.sizeCf = sizeCf;
 
+        const sectionSuscriptores = '/suscriptores';
+        const listSectionsException = [sectionSuscriptores];
+
         const id = get(globalContent, '_id', null);
         const site = get(globalContent, 'site', null);
-        if (!site) {
+        if (!site && !listSectionsException.includes(id)) {
             console.warn(
                 new BackendLnError(
                     `AccumulatedSectionsV2-V2 - msj: No existe data esperada en el globalContent de Seccion - GlobalContent: ${JSON.stringify(globalContent || {})}`,
@@ -71,7 +74,7 @@ class AccumulatedSectionsMobileV2V2 {
                 apiTransform: 'transformLnAcuApi'
             };
 
-            if (sectionIdP.toLowerCase() === '/suscriptores') {
+            if (sectionIdP.toLowerCase() === sectionSuscriptores) {
                 return {
                     ...resp,
                     tagId: 'la-nacion-cerca',
