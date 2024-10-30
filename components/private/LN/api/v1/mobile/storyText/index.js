@@ -1,37 +1,34 @@
 import cuerpo from './cuerpo/index';
 import { storyTitleAndResume } from '../../../common/elements/story/apertura/aperturaArticle';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
-import { isCustomVoice } from '../../../../../../../content/sources/utils/audioNews/helper';
-import {
-    authorCommon as Author
-} from '../../../common/elements/author/index';
+import { authorCommon as Author } from '../../../common/elements/author/index';
 
 const indexNotaText = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
-    const { audio_status } = dataNota;
+    const nota = { ...dataNota };
+    const { audio_status: audioStatus } = nota;
     if (
-        (dataNota.Termicas &&
-            dataNota.Termicas.hide_listening_articles === 'true') ||
-        ![6, 7].includes(audio_status)
+        (nota.Termicas && nota.Termicas.hide_listening_articles === 'true') ||
+        ![6, 7].includes(audioStatus)
     ) {
-        dataNota.audio_id = undefined;
-        dataNota.audio_url = undefined;
+        nota.audio_id = undefined;
+        nota.audio_url = undefined;
     }
 
     if (
-        (dataNota.Termicas &&
-            dataNota.Termicas.hide_listening_articles_summary === 'true') ||
-        ![6, 7].includes(audio_status)
+        (nota.Termicas &&
+            nota.Termicas.hide_listening_articles_summary === 'true') ||
+        ![6, 7].includes(audioStatus)
     ) {
-        dataNota.audio_summary_url = undefined;
+        nota.audio_summary_url = undefined;
     }
 
-    const content = removeEmptyItems(cuerpo(dataNota));
+    const content = removeEmptyItems(cuerpo(nota));
 
     const authors = [];
     const autores = [];
-    if (dataNota.credits && dataNota.credits.by?.length > 0) {
-        dataNota.credits.by.forEach(author => {
+    if (nota.credits && nota.credits.by?.length > 0) {
+        nota.credits.by.forEach(author => {
             autores.push(Author(author));
             authors.push(author.name);
         });
@@ -39,16 +36,16 @@ const indexNotaText = dataNota => {
 
     return content && content.length > 0
         ? {
-            ...storyTitleAndResume(dataNota),
-            contenido: content.concat('Fin de la nota').join('\n'),
-            audio_url: dataNota.audio_url,
-            audio_summary_url: dataNota.audio_summary_url,
-            audio_custom_voice: isCustomVoice(dataNota),
-            audio_id: dataNota.audio_id,
-            categoria: dataNota.category,
-            authors,
-            autores
-        }
+              ...storyTitleAndResume(nota),
+              contenido: content.concat('Fin de la nota').join('\n'),
+              audio_url: nota.audio_url,
+              audio_summary_url: nota.audio_summary_url,
+              audio_custom_voice: nota.audio_custom_voice,
+              audio_id: nota.audio_id,
+              categoria: nota.category,
+              authors,
+              autores
+          }
         : {};
 };
 

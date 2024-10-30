@@ -2,21 +2,11 @@ import { AUDIONEWS_URL, AUDIONEWS_APIKEY } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
-import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
+import { BackendLnError } from '../../components/private/LN/api/common/models/backendLnError';
+import { isCustomVoice } from './utils/audioNews/helper';
+import get from '../../components/private/common/utils/get';
 
-const convertLastUpdated = date => {
-    const dateFormated = new Date(date);
-
-    if (isNaN(dateFormated)) {
-        throw new Error(
-            `El campo date con valor ${date} no es valido para convertir a fecha`
-        );
-    }
-
-    return dateFormated.getTime();
-};
-
-const isValidStory = (id, date) => {
+const isValidStory = id => {
     if (!id) {
         throw new Error('El campo id es obligatorio');
     }
@@ -56,7 +46,10 @@ const fetch = query => {
                 );
             }
 
-            return resp;
+            if (get(resp, 'audio_url', null))
+                return { ...resp, audio_custom_voice: isCustomVoice(resp) };
+
+            return {};
         })
         .catch(error => {
             console.warn(
