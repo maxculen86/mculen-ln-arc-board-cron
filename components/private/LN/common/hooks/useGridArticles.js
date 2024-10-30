@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { useContent } from 'fusion:content';
+import useGetArticlesFromAcuSource from './useGetArticlesFromAcumSource';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import { getIdsArticlesFromOtherCollections } from '../utils/cajaTemasValidators';
 import excludeUrlNacion from '../utils/excludeUrlNacion';
@@ -7,8 +7,6 @@ import getIdsArticlesFromCajaManual from '../../../../chains/utils/getIdsArticle
 import { SUSCRIPTOR_SECTION } from '../../../common/utils/subtypes/subtypeHelper';
 import isAllowedSection from '../utils/isAllowedSection';
 import allowSectionAndLayout from '../media/helpers/allowSectionAndLayout';
-import get from '../../../common/utils/get';
-import { transformLastNewsContent } from '../utils/timeline';
 
 const useGridArticles = props => {
     const {
@@ -17,7 +15,7 @@ const useGridArticles = props => {
         sectionsIds,
         distributorId,
         nodeType,
-        type = '',
+        type,
         renderables,
         acumuladoGeneral = {},
         collectionsInPage = {},
@@ -78,40 +76,27 @@ const useGridArticles = props => {
     const isServerSide = typeof window === 'undefined' && page === 1;
 
     const searchArgs = {
-        source: 'lnAcuSource',
-        query: {
+        typesOfQuery: {
             sectionId,
             authorId,
             tagId,
             distributorId,
-            sectionsIds,
-            imageConfig,
-            size: articlesQuantity.tripleSize || articlesQuantity,
-            type,
-            page,
-            hasCollectionApertura,
-            sourceOrigin,
-            excludePreload: excludeUrl,
-            promoItemsOnly: false,
-            shouldNotFilter: false,
-            website: 'la-nacion-ar'
+            sectionsIds
         },
         filter,
+        imageConfig,
+        size: articlesQuantity.tripleSize || articlesQuantity,
+        type,
         staticMode: isServerSide,
-        ...(sectionsIds && {
-            transform(data) {
-                return {
-                    ...data,
-                    ...transformLastNewsContent(data)
-                };
-            }
-        })
+        withPagination: true,
+        page,
+        hasCollectionApertura,
+        sourceOrigin,
+        excludePreload: excludeUrl
     };
 
-    const contentElements = useContent(searchArgs);
-
-    const articles = get(contentElements, 'content_elements', []);
-    const moreArticles = get(contentElements, 'next', 0);
+    const { articles, moreArticles } =
+        useGetArticlesFromAcuSource(searchArgs) || {};
 
     const articlesInNoCollection =
         (articles &&
