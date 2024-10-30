@@ -35,10 +35,17 @@ function PreloadFooditImages({
 }
 
 PreloadFooditImages.propTypes = {
-    layout: PropTypes.string.isRequired,
-    renderables: PropTypes.isRequired,
-    globalContent: PropTypes.isRequired,
-    isAdmin: PropTypes.bool.isRequired
+    layout: PropTypes.string,
+    renderables: PropTypes.array,
+    globalContent: PropTypes.object,
+    isAdmin: PropTypes.bool
+};
+
+PreloadFooditImages.defaultProps = {
+    layout: '',
+    renderables: [],
+    globalContent: {},
+    isAdmin: false
 };
 
 export default PreloadFooditImages;

@@ -1,7 +1,4 @@
-import {
-    dataLayerLayoutDictionary,
-    dataLayerContainerDictionary
-} from '../../../../../../../components/features/foodit-global/common/dataLayer/_helpers';
+import { dataLayerLayoutDictionary } from '../../../../../../../components/features/foodit-global/common/dataLayer/_helpers';
 import {
     getConfig,
     saveRecipeConfig,
@@ -19,6 +16,75 @@ jest.mock(
 describe('components - features - foodit-global - common - Modals - SaveRecipe - addSavedBookmarksToDataLayer', () => {
     beforeEach(() => {
         jest.clearAllMocks();
+    });
+
+    it('should not call addEventToDataLayerV2 when articlesDetails is empty', () => {
+        addSavedBookmarksToDataLayer({
+            articlesDetails: [],
+            carouselTitle: 'carouselTitle',
+            layout: 'layout',
+            fatherType: 'fatherType'
+        });
+        expect(addEventToDataLayerV2).not.toHaveBeenCalled();
+    });
+
+    it('should call addEventToDataLayerV2 with default origin if layout is not in dictionary', () => {
+        const articlesDetails = [
+            {
+                content: {
+                    variant: 'note',
+                    headlines: {
+                        basic: 'Unknown Layout Article'
+                    },
+                    id: '999'
+                }
+            }
+        ];
+        addSavedBookmarksToDataLayer({
+            articlesDetails,
+            carouselTitle: 'carouselTitle',
+            layout: 'Unknown-layout',
+            fatherType: ''
+        });
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            category: 'interaction',
+            origin: '',
+            action: 'guardar',
+            title: 'Unknown Layout Article',
+            label: 'nota',
+            articleId: '999'
+        });
+    });
+
+    it('should handle missing variant gracefully in addSavedBookmarksToDataLayer', () => {
+        const articlesDetails = [
+            {
+                content: {
+                    headlines: {
+                        basic: 'Missing Variant Article'
+                    },
+                    id: '555'
+                }
+            }
+        ];
+        addSavedBookmarksToDataLayer({
+            articlesDetails,
+            carouselTitle: 'carouselTitle',
+            layout: 'Foodit-home',
+            fatherType: ''
+        });
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            category: 'interaction',
+            origin: dataLayerLayoutDictionary['Foodit-home'],
+            action: 'guardar',
+            title: 'Missing Variant Article',
+            label: '',
+            articleId: '555'
+        });
     });
 
     it('should not call addEventToDataLayerV2 when articlesDetails is empty', () => {
@@ -162,6 +228,46 @@ describe('components - features - foodit-global - common - Modals - SaveRecipe -
 
 describe('getConfig', () => {
     const mockSaveRecipeConfigs = { ...saveRecipeConfig };
+
+    it('should return the correct configuration for the first step (boundary case)', () => {
+        const indexStep = 0;
+        const result = getConfig(mockSaveRecipeConfigs, indexStep);
+
+        expect(result).toEqual({
+            title: '',
+            leftButton: {},
+            rightButton: {},
+            showSelect: false,
+            showInputFolder: false
+        });
+    });
+
+    it('should return default values when indexStep is negative', () => {
+        const indexStep = -1;
+        const result = getConfig(mockSaveRecipeConfigs, indexStep);
+
+        expect(result).toEqual({
+            title: '',
+            leftButton: {},
+            rightButton: {},
+            showSelect: false,
+            showInputFolder: false
+        });
+    });
+
+    it('should handle empty configuration object for getConfig gracefully', () => {
+        const emptyConfig = {};
+        const indexStep = 2;
+        const result = getConfig(emptyConfig, indexStep);
+
+        expect(result).toEqual({
+            title: '',
+            leftButton: {},
+            rightButton: {},
+            showSelect: false,
+            showInputFolder: false
+        });
+    });
 
     it('should return the correct configuration for a given step', () => {
         const indexStep = 1;
