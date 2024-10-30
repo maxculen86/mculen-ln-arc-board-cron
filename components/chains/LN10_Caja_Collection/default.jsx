@@ -35,7 +35,7 @@ import CajaFooditEventScript from '../../private/common/scriptManager/scriptData
 
 const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
-const CajaCollection = props => {
+function CajaCollection(props) {
     const {
         id: chainId,
         isAdmin,
@@ -175,12 +175,11 @@ const CajaCollection = props => {
                                 )}
                                 isExclusiveSub={isExclusiveSub}
                                 isFoodit={isFoodit}
-                                children={
-                                    isGrid6MasTimeline
-                                        ? filterTimeline?.nodo
-                                        : null
-                                }
-                            />
+                            >
+                                {isGrid6MasTimeline
+                                    ? filterTimeline?.nodo
+                                    : null}
+                            </CommonCollection>
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>
                                     {bannersHome.suscriptor}
@@ -194,14 +193,13 @@ const CajaCollection = props => {
             {isFoodit && <CajaFooditEventScript />}
         </StaticContentV2>
     );
-};
+}
 
 CajaCollection.label = 'LN10 Caja Collection';
 
 CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool,
-    outputType: PropTypes.string,
     renderables: PropTypes.arrayOf(
         PropTypes.shape({
             type: PropTypes.string,
