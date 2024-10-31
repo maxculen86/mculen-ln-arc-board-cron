@@ -7,6 +7,7 @@ import ToggleButton from './ToggleButton';
 import DisclaimerIa from '../../../features/LN-10-global/common/disclaimerIa/default';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import { getTextDisclaimer } from './helpers';
+import { useSignatureContext } from './hooks/SignatureContext';
 
 function BuildAudioPlayer({
     setEnableButton,
@@ -19,10 +20,9 @@ function BuildAudioPlayer({
     const { dispatch } = useContext(GlobalContext) || {};
     const [isLoading, setIsLoading] = useState(true);
     const [errorAudio, setErrorAudio] = useState(false);
-    const { getCookie, setCookie } = handleCookie();
-    const [contentVariant, setContentVariant] = useState(
-        getCookie('contentVariant') || 'article'
-    );
+    const { setCookie } = handleCookie();
+    const { contentVariant, setContentVariant, setIsAudioPlaying } =
+        useSignatureContext();
 
     const playerRef = useRef(null);
 
@@ -84,6 +84,14 @@ function BuildAudioPlayer({
                         'NoContentAvailable',
                         () => setErrorAudio(true)
                     );
+
+                    playerRef.current.addEventListener('PressedPause', () => {
+                        setIsAudioPlaying(false);
+                    });
+
+                    playerRef.current.addEventListener('PressedPlay', () => {
+                        setIsAudioPlaying(true);
+                    });
                 } else {
                     playerRef.current.contentVariant = contentVariant;
                     playerRef.current.playbackState = playbackState;
@@ -98,10 +106,18 @@ function BuildAudioPlayer({
         }
 
         return () => {
-            playerRef.current?.removeEventListener('NoContentAvailable', () => {
-                setErrorAudio(true);
-                onCloseAudioPlayer();
+            playerRef.current?.removeEventListener('NoContentAvailable', () =>
+                setErrorAudio(true)
+            );
+
+            playerRef.current?.removeEventListener('PressedPause', () => {
+                setIsAudioPlaying(false);
             });
+
+            playerRef.current?.removeEventListener('PressedPlay', () => {
+                setIsAudioPlaying(true);
+            });
+
             if (playerRef.current) {
                 playerRef.current.playbackState = 'stopped';
             }
@@ -111,6 +127,7 @@ function BuildAudioPlayer({
     const handleToggleChange = newContentVariant => {
         setContentVariant(newContentVariant);
         setCookie('contentVariant', newContentVariant, 7);
+        setIsAudioPlaying(true);
     };
 
     return !isLoading && !errorAudio ? (

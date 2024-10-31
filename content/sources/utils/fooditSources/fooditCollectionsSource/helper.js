@@ -4,6 +4,7 @@ import logger from '../../../../../components/private/common/utils/logger';
 import fooditHasVideoSource from '../../../fooditHasVideoSource';
 import getPresets from '../../presets';
 import { hasVideo } from '../../hasVideo';
+import { getImagesAuth } from '../utils/authImage';
 
 export const resolve = key => {
     const { id, size, from = 0 } = key;
@@ -63,6 +64,9 @@ export const transform = async (data, siteProps, cachedCall) => {
         contentElements &&
         (await Promise.all(
             contentElements.map(async elem => {
+                const newData = await getImagesAuth(elem, cachedCall);
+                Object.assign(elem, newData);
+
                 const articleHasVideo = await getArticleHasVideo(
                     elem,
                     cachedCall

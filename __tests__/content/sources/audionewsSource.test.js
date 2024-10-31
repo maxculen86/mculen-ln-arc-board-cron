@@ -16,11 +16,16 @@ jest.mock('request-promise-native', () => {
             if (path.includes('123ASD123ASD')) {
                 return Promise.resolve({
                     ...{
-                        statusCode: 200,
-                        body: {
-                            audio_status: 'audio_sarasa',
-                            audio_url: 'url'
-                        }
+                        audio_status: 'audio_sarasa',
+                        audio_url: 'url'
+                    }
+                });
+            }
+
+            if (path.includes('456ASD456ASD')) {
+                return Promise.resolve({
+                    ...{
+                        audio_status: '3'
                     }
                 });
             }
@@ -37,11 +42,9 @@ describe('Audionews content sources Unit Tests', () => {
         const query = { id: '123ASD123ASD', date: '2022-09-29T20:37:24.108Z' };
 
         const mockResp = {
-            statusCode: 200,
-            body: {
-                audio_status: 'audio_sarasa',
-                audio_url: 'url'
-            }
+            audio_custom_voice: false,
+            audio_status: 'audio_sarasa',
+            audio_url: 'url'
         };
 
         fetchContent(query)
@@ -51,6 +54,15 @@ describe('Audionews content sources Unit Tests', () => {
             .then(done);
     });
 
+    it('Should return a empty response', done => {
+        const query = { id: '456ASD456ASD', date: '2022-09-29T20:37:24.108Z' };
+
+        fetchContent(query)
+            .then(response => {
+                expect(response).toEqual({});
+            })
+            .then(done);
+    });
     it('Should reject by has not field id', async () => {
         const query = {};
 

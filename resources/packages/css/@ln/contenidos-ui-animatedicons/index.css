@@ -87,6 +87,9 @@
 .logo-listen .bar.fourth-bar {
   animation-delay: -2.5s;
 }
+.logo-listen .bar.pause {
+  animation-play-state: paused;
+}
 @keyframes bounce {
   10% {
     transform: scaleY(0.3);
