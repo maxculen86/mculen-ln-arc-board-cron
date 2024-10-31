@@ -97,7 +97,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 audio_status: 7,
                 audio_url: 'url',
                 audio_id: 'id',
-                voice: 1
+                voice: 1,
+                audio_custom_voice: true
             };
 
             const result = objArticle.render();

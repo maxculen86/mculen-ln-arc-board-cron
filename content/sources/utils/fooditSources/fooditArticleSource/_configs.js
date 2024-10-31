@@ -127,7 +127,7 @@ export const addAttribute = ({ attributes, text = '' }) => {
 export const transformLinks = ({ content, withSponsoredLink } = {}) => {
     if (content) {
         return content.replace(
-            /<a[\s]+([^>]+)>((?:.(?!\\<\/a\\>))*.)<\/a>/g,
+            /<a\s+([^>]+)>(.+?)<\/a>/g,
             (match, attributes, string) => {
                 let newText = addAttribute({
                     attributes: [

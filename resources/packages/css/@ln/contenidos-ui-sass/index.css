@@ -1260,6 +1260,7 @@ a {
   --diferencias: #ed933f;
   --crucimini: #6781c8;
   --cruci-tematico: #B09C03;
+  --panal-de-letras: #DCE11F;
   --line-100: 100%;
   --line-110: 110%;
   --line-116: 116%;
@@ -1766,6 +1767,10 @@ a {
   background: var(--cruci-tematico);
 }
 
+.bg-panal-de-letras {
+  background: var(--panal-de-letras);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1796,6 +1801,10 @@ a {
 
 .bg-primary-ai {
   background: var(--primary-ia);
+}
+
+.bg-panal-de-letras__hover:hover {
+  background: var(--panal-de-letras);
 }
 
 .bg-nunca-cuatro__hover:hover {

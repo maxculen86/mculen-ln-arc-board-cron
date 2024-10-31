@@ -23,6 +23,7 @@ import { useAudioPlayer } from '../../private/common/audioNews/hooks/useAudioPla
 import get from '../../private/common/utils/get';
 import { isCustomVoice } from '../../../content/sources/utils/audioNews/helper';
 import { getAuthorsNameAndLink } from '../../private/common/audioNews/helpers';
+import { SignatureContextProvider } from '../../private/common/audioNews/hooks/SignatureContext';
 
 function FirmaFeature(props) {
     const {
@@ -141,11 +142,14 @@ function FirmaFeature(props) {
 
     if (!withFirmaDistributor && !authors?.length && !author?.length)
         return null;
+
     return (
-        <div className={classNameContainer}>
-            {content}
-            {withAudio && audioPlayer}
-        </div>
+        <SignatureContextProvider>
+            <div className={classNameContainer}>
+                {content}
+                {withAudio && audioPlayer}
+            </div>
+        </SignatureContextProvider>
     );
 }
 

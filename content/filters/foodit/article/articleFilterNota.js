@@ -492,6 +492,9 @@ export default `
     content_restrictions {
         content_code
     }
+    revision {
+        published
+    }
     subscription,
     paywallEnabled,
     withSponsoredLink
