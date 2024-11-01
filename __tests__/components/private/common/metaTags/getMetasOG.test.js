@@ -82,8 +82,8 @@ describe('Metas OTT', () => {
                     return 'LN+ Mirá todos los programas y videos online';
             },
             contextPath: '/pf',
-            deployment: function deployment() {
-                return '$LATEST';
+            deployment: function deployment(value) {
+                return value;
             },
             section: 'video',
             arcSite: 'ott',
@@ -120,7 +120,7 @@ describe('Metas OTT', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             },
             {
@@ -151,7 +151,7 @@ describe('Metas OTT', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-513x50.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             }
         ];
@@ -328,8 +328,8 @@ describe('Common - getMetasOG function', () => {
                 return '';
             },
             contextPath: '/pf',
-            deployment: function deployment() {
-                return '$LATEST';
+            deployment: function deployment(value) {
+                return value;
             },
             section: 'acumulado',
             arcSite: 'la-nacion-ar',
@@ -365,7 +365,7 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             },
             {
@@ -395,7 +395,7 @@ describe('Common - getMetasOG function', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-513x50.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             }
         ];
