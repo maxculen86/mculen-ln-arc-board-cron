@@ -32,11 +32,12 @@ const config = {
         'Foodit-compras': AutogestionPageView,
         'Foodit-recetario': AutogestionPageView,
         'Foodit-acumulado': AcusPageView,
+        'Foodit-buscador': AcusPageView,
         'Foodit-acumulado-chef': ChefsPageView
     }
 };
 
-const dataLayerIndex = props => {
+function dataLayerIndex(props) {
     const { arcSite, layout } = props;
 
     const sitio = config[arcSite];
@@ -47,7 +48,7 @@ const dataLayerIndex = props => {
     if (!DataLayer) return null;
 
     return <DataLayer {...props} />;
-};
+}
 
 dataLayerIndex.propTypes = {
     arcSite: PropTypes.string.isRequired,
