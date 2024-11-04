@@ -776,5 +776,13 @@
         }
     },
     "website": "la-nacion-ar",
-    "website_url": "/politica/cuales-son-los-planes-del-gobierno-para-avanzar-con-la-primera-privatizacion-de-milei-nid07062024/"
+    "website_url": "/politica/cuales-son-los-planes-del-gobierno-para-avanzar-con-la-primera-privatizacion-de-milei-nid07062024/",
+    "audio_id": "a98a8780-2cd1-485f-8307-115e2d28acea",
+    "audio_status": 7,
+    "audio_url": "https://d22tbkdovk5ea2.cloudfront.net/audio/projects/38983/podcasts/a98a8780-2cd1-485f-8307-115e2d28acea/versions/1727960832/media/c9bc8f691ed96a56b2a963c48c74157e.mp3",
+    "audio_summary_url": "https://d22tbkdovk5ea2.cloudfront.net/audio/projects/38983/podcasts/a98a8780-2cd1-485f-8307-115e2d28acea/versions/1727960832/media/18f5b661e12a94b50d137e817bc4a679.mp3",
+    "createAt": "2024-06-07T14:58:04Z",
+    "updateAt": "2024-06-13T12:25:18Z",
+    "voice": 1234,
+    "audio_custom_voice": true
 }

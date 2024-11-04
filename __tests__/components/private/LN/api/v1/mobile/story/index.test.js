@@ -182,6 +182,7 @@ describe('Test json integracion Article', () => {
             'https://especialeslntools.lanacion.com.ar/generic-precios-temporada-2021/index.html'
         );
         expect(resp.contenido[0].id).toBe('ifrme');
+        expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
     });
 
     it('test no key volanta', () => {
@@ -191,6 +192,7 @@ describe('Test json integracion Article', () => {
             volanta: null
         };
         const resp = NotaIndex(articleNoVolanta);
+        expect(resp.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
         expect(Object.keys(resp.apertura).sort()).toEqual(
             [
                 'autores',
@@ -204,6 +206,7 @@ describe('Test json integracion Article', () => {
     });
     it('test keys expected', () => {
         const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA4);
+        expect(resp.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
         expect(Object.keys(resp).sort()).toEqual(
             [
                 'id',
@@ -227,11 +230,26 @@ describe('Test json integracion Article', () => {
 
     it('test isListenable false', () => {
         const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
         expect(resp.isListenable).toBe(false);
+        expect(resp.audio_custom_voice).toBeUndefined();
     });
 
     it('test isListenable', () => {
         const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
+        expect(resp.id).toBe('PWMLKBWMCVCIFLKOPVUVHURDAM');
         expect(resp.isListenable).toBe(true);
+    });
+
+    it('test is custom voice', () => {
+        const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
+        expect(resp.id).toBe('PWMLKBWMCVCIFLKOPVUVHURDAM');
+        expect(resp.audio_custom_voice).toBe(true);
+    });
+
+    it('test is not custom voice', () => {
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
+        expect(resp.audio_custom_voice).toBeUndefined();
     });
 });
