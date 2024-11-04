@@ -2959,14 +2959,6 @@
 }.container-op {
   margin-bottom: 1rem;
 }
-@media (min-width: 48rem) {
-  .container-op.--center-focal .--1 .ln-card .description-container .marquee-container {
-    justify-content: center;
-  }
-  .container-op.--center-focal .--1 .ln-card .description-container .marquee-container .marquee-text {
-    text-align: left;
-  }
-}
 .container-op.--focal-100 .--0 .ln-card .media-container {
   overflow: visible;
 }
@@ -2981,12 +2973,16 @@
     margin-left: 0;
   }
 }
-.container-op.--focal-100 .--0 .ln-card .subhead {
-  font-size: 1.125rem;
-}
-@media (max-width: 47.9375rem) {
-  .container-op.--focal-100 .--0 .ln-card .subhead {
-    font-size: 1rem;
+@media (max-width: 31.9375rem) {
+  .container-op.--focal-100 .--0 .ln-card .ln-placeholder {
+    aspect-ratio: 1/1;
+  }
+  .container-op.--focal-100 .--0 .ln-card .description-container {
+    text-align: center;
+    align-items: center;
+  }
+  .container-op.--focal-100 .--0 .ln-card .description-container .title {
+    font-size: 1.5rem;
   }
 }
 .container-op.--left-focal .--0 .ln-card .media-container, .container-op.--center-focal .--0 .ln-card .media-container, .container-op.--focal-70 .--0 .ln-card .media-container {
@@ -3211,6 +3207,15 @@
   }
   .container-op.--focal-100 .grid .--0 {
     padding-bottom: 2rem;
+  }
+  .container-op.--focal-100 .grid .--0 .ln-card .description-container .subhead {
+    font-size: 1.125rem;
+  }
+  .container-op.--center-focal .--1 .ln-card .description-container .marquee-container {
+    justify-content: center;
+  }
+  .container-op.--center-focal .--1 .ln-card .description-container .marquee-container .marquee-text {
+    text-align: left;
   }
 }
 @media (min-width: 80rem) {
@@ -4591,6 +4596,7 @@ a {
   --diferencias: #ed933f;
   --crucimini: #6781c8;
   --cruci-tematico: #B09C03;
+  --panal-de-letras: #DCE11F;
   --line-100: 100%;
   --line-110: 110%;
   --line-116: 116%;
@@ -5097,6 +5103,10 @@ a {
   background: var(--cruci-tematico);
 }
 
+.bg-panal-de-letras {
+  background: var(--panal-de-letras);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -5127,6 +5137,10 @@ a {
 
 .bg-primary-ai {
   background: var(--primary-ia);
+}
+
+.bg-panal-de-letras__hover:hover {
+  background: var(--panal-de-letras);
 }
 
 .bg-nunca-cuatro__hover:hover {
