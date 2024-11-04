@@ -1,10 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
+import { cx } from '@ln/cva';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import get from '../../../private/common/utils/get';
 import {
@@ -18,117 +18,9 @@ import SetFixedHeight from '../../../private/common/SetFixedHeight';
 import '../../../../resources/dist/css/ln/modules/skeleton-box.css';
 import { useRoofData } from '../../../chains/utils/_helpers';
 import BuildRoof from '../../../chains/utils/_BuildRoof/default';
-import classNames from 'classnames';
 import { typesButtonStyle } from '../../../chains/utils/setCommonCustomFields';
 import { setupIntersectionObserver } from '../../LN-10-global/common/utils/intersectionObserver';
 import { handleIframeProps } from './helpers/iframeHelper';
-
-const AnexoFeature = props => {
-    const { id, customFields = {} } = props;
-    const {
-        renderables = [],
-        isAdmin,
-        layout,
-        siteProperties
-    } = useAppContext();
-
-    const {
-        url,
-        isGame,
-        heightDesktop,
-        heightTablet,
-        heightMobile,
-        logoId,
-        link,
-        hideTitle,
-        title,
-        navigator,
-        buttonText,
-        linkButton,
-        buttonStyle
-    } = customFields;
-
-    const isPreApertura = isInSection({
-        sectionName: 'Pre_Apertura',
-        id,
-        renderables
-    });
-
-    const classNameRoof = classNames({ 'lay-container': isPreApertura });
-
-    const roofData = useRoofData({
-        logoId,
-        link,
-        hideTitle,
-        title,
-        navigator,
-        buttonText,
-        linkButton,
-        buttonStyle
-    });
-
-    const errorMessage = getErrorMessage({ isPreApertura, customFields });
-
-    const _type = getComponentType({ ...props, isAdmin, errorMessage });
-
-    // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
-    const EXTRA_CLASS = ((isPreApertura && '--anexo-1 ') || '').concat(
-        (!isAdmin && _type === 'Iframe' && 'skeleton-box') || ''
-    );
-
-    const { bannerMob = undefined, bannerDsk = undefined } =
-        layout === get(siteProperties, 'layoutsName.HomeLN10') &&
-        getDynamicBanners({ renderables, featureId: id });
-
-    const comp = () =>
-        getComponentFromConfig(
-            _type,
-            {
-                ...props,
-                errorMessage,
-                extraClass: EXTRA_CLASS,
-                isAdmin
-            },
-            bannerMob,
-            bannerDsk,
-            roofData,
-            classNameRoof
-        );
-
-    const anexoId = `anexo-responsive-${id}`;
-
-    useEffect(() => {
-        handleIframeProps(id, url, isGame);
-    }, [id, comp]);
-
-    const iframeURLContent = (
-        <>
-            <div
-                id={anexoId}
-                className={`com-anexo ${EXTRA_CLASS}`}
-                style={{ overflow: 'hidden', width: '100%' }}
-            >
-                <SetFixedHeight
-                    elementId={anexoId}
-                    heightMobile={heightMobile}
-                    heightTablet={heightTablet}
-                    heightDesktop={heightDesktop}
-                />
-                {comp()}
-            </div>
-            {bannerMob}
-            {bannerDsk}
-        </>
-    );
-
-    const iframeFinal = (
-        <Static id={anexoId} htmlOnly>
-            {iframeURLContent}
-        </Static>
-    );
-
-    return _type === 'Iframe' ? iframeFinal : comp();
-};
 
 export const getComponentFromConfig = (
     _type,
@@ -146,13 +38,13 @@ export const getComponentFromConfig = (
                 message={errorMessage}
             />
         ),
-        Html: ({ customFields: { html = '' }, extraClass }) => (
+        Html: ({ customFields: { html = '' }, anexoBaseClassNames }) => (
             <>
                 <div className={classNameRoof}>
                     <BuildRoof {...roofData} />
                 </div>
                 <div
-                    className={`com-anexo ${extraClass}`}
+                    className={anexoBaseClassNames}
                     dangerouslySetInnerHTML={{
                         __html: html
                     }}
@@ -161,28 +53,29 @@ export const getComponentFromConfig = (
                 {bannerDsk}
             </>
         ),
-        VivoYoutube: ({ customFields: { vivoYoutube = '' }, extraClass }) => {
+        VivoYoutube: ({
+            customFields: { vivoYoutube = '' },
+            anexoBaseClassNames
+        }) => {
             const containerRef = useRef(null);
 
-            useEffect(() => {
-                return setupIntersectionObserver(containerRef, vivoYoutube);
-            }, [vivoYoutube]);
+            useEffect(
+                () => setupIntersectionObserver(containerRef, vivoYoutube),
+                [vivoYoutube]
+            );
 
             return (
                 <>
                     <div className={classNameRoof}>
                         <BuildRoof {...roofData} />
                     </div>
-                    <div
-                        ref={containerRef}
-                        className={`com-anexo ${extraClass}`}
-                    />
+                    <div ref={containerRef} className={anexoBaseClassNames} />
                     {bannerMob}
                     {bannerDsk}
                 </>
             );
         },
-        Iframe: ({ id, customFields: { url = '' } }) => {
+        Iframe: ({ id, customFields: { url = '' }, anexoBaseClassNames }) => {
             const anexoId = `anexo-${id}`;
             return (
                 <>
@@ -197,12 +90,13 @@ export const getComponentFromConfig = (
                         frameBorder="0"
                         width="100%"
                         height="100%"
+                        className={anexoBaseClassNames}
                     />
                 </>
             );
         }
     };
-    return (components[_type] && components[_type](_props)) || <></>;
+    return (components[_type] && components[_type](_props)) || null;
 };
 
 export const getComponentType = ({
@@ -230,6 +124,119 @@ export const getComponentType = ({
         heightTablet &&
         heightMobile &&
         'Iframe');
+
+function AnexoFeature(props) {
+    const { id, customFields = {} } = props;
+    const {
+        renderables = [],
+        isAdmin,
+        layout,
+        siteProperties
+    } = useAppContext();
+
+    const {
+        url,
+        isGame,
+        heightDesktop,
+        heightTablet,
+        heightMobile,
+        logoId,
+        link,
+        hideTitle,
+        title,
+        navigator,
+        buttonText,
+        linkButton,
+        buttonStyle,
+        mobileFullWidth
+    } = customFields;
+
+    const isPreApertura = isInSection({
+        sectionName: 'Pre_Apertura',
+        id,
+        renderables
+    });
+
+    const classNameRoof = cx({ 'lay-container': isPreApertura });
+
+    const roofData = useRoofData({
+        logoId,
+        link,
+        hideTitle,
+        title,
+        navigator,
+        buttonText,
+        linkButton,
+        buttonStyle
+    });
+
+    const errorMessage = getErrorMessage({ isPreApertura, customFields });
+
+    const _type = getComponentType({ ...props, isAdmin, errorMessage });
+
+    // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
+    const anexoClassNames = cx(
+        'com-anexo',
+        isPreApertura && '--anexo-1',
+        !isAdmin && _type === 'Iframe' && 'skeleton-box'
+    );
+    const anexoBaseClassNames = cx(
+        mobileFullWidth ? 'lay-container-100vw_max767 w-100_md' : 'w-100'
+    );
+
+    const { bannerMob = undefined, bannerDsk = undefined } =
+        layout === get(siteProperties, 'layoutsName.HomeLN10') &&
+        getDynamicBanners({ renderables, featureId: id });
+
+    const comp = () =>
+        getComponentFromConfig(
+            _type,
+            {
+                ...props,
+                errorMessage,
+                anexoBaseClassNames,
+                isAdmin
+            },
+            bannerMob,
+            bannerDsk,
+            roofData,
+            classNameRoof
+        );
+
+    const anexoId = `anexo-responsive-${id}`;
+
+    useEffect(() => {
+        handleIframeProps(id, url, isGame);
+    }, [id, comp]);
+
+    const iframeURLContent = (
+        <>
+            <div
+                id={anexoId}
+                className={anexoClassNames}
+                style={{ overflow: 'hidden', width: '100%' }}
+            >
+                <SetFixedHeight
+                    elementId={anexoId}
+                    heightMobile={heightMobile}
+                    heightTablet={heightTablet}
+                    heightDesktop={heightDesktop}
+                />
+                {comp()}
+            </div>
+            {bannerMob}
+            {bannerDsk}
+        </>
+    );
+
+    const iframeFinal = (
+        <Static id={anexoId} htmlOnly>
+            {iframeURLContent}
+        </Static>
+    );
+
+    return _type === 'Iframe' ? iframeFinal : comp();
+}
 
 AnexoFeature.label = 'LN Anexo';
 
@@ -351,6 +358,12 @@ AnexoFeature.propTypes = {
             group: 'Techo',
             labels: typesButtonStyle,
             hidden: false
+        }),
+        mobileFullWidth: PropTypes.bool.tag({
+            label: 'Ancho completo en mobile',
+            description:
+                'Marque para que el anexo ocupe el ancho completo en mobile',
+            defaultValue: false
         })
     }).isRequired
 };
