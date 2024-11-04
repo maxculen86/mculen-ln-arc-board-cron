@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
 import getSectionName from '../../LN/common/utils/getSectionName';
+
 export default class PostBid extends Component {
     constructor(props) {
         super(props);
