@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
-const Favicon = props => {
+function Favicon() {
     const { contextPath, deployment } = useAppContext();
 
     return (
@@ -11,14 +10,6 @@ const Favicon = props => {
                 rel="shortcut icon"
                 type="image/x-icon"
                 href={deployment(`${contextPath}/resources/images/favicon.ico`)}
-            />
-            <link
-                rel="icon"
-                type="image/png"
-                sizes="16x16"
-                href={deployment(
-                    `${contextPath}/resources/images/favicon-16.png`
-                )}
             />
             <link
                 rel="icon"
@@ -59,11 +50,6 @@ const Favicon = props => {
             />
         </>
     );
-};
-
-Favicon.propTypes = {
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired
-};
+}
 
 export default Favicon;

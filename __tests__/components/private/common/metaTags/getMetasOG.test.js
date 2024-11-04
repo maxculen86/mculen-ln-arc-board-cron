@@ -37,9 +37,14 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn()
-}));
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        SITE_OTT: 'https://lnmas.lanacion.com.ar',
+        ARC_STATIC: 'https://arc-static.glanacion.com'
+    };
+});
 
 describe('Metas OTT', () => {
     beforeEach(() => {
@@ -538,8 +543,8 @@ describe('Metas home', () => {
                 undefined;
             },
             contextPath: '/pf',
-            deployment: function deployment() {
-                return '$LATEST';
+            deployment: function deployment(value) {
+                return value;
             },
             section: 'home',
             arcSite: 'la-nacion-ar',
@@ -574,7 +579,7 @@ describe('Metas home', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             },
             {
@@ -604,7 +609,7 @@ describe('Metas home', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-513x50.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             }
         ];
