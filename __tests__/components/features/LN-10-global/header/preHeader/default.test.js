@@ -7,7 +7,7 @@ import { EventsHelper } from '../../../../../../src/statics/common/js/eventsHelp
 import preHeaderEventLogResult from '../../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
 import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 import preHeader from '../../../../../../components/features/LN-10-global/header/preHeader/preHeader.json';
-
+import useTermica from '../../../../../../components/private/common/hooks/useTermica';
 jest.mock('fusion:context', () => ({
     useAppContext: () => {
         return { contextPath: 'pf', deployment: () => {} };
@@ -20,6 +20,8 @@ jest.mock(
         setWeatherData: jest.fn()
     })
 );
+
+jest.mock('../../../../../../components/private/common/hooks/useTermica');
 
 describe('Components - Features - LN-10-global - header - preHeader - default', () => {
     global.window.dataLayer = [];
@@ -88,6 +90,15 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
         expect(weatherIcon).toBeInTheDocument();
         expect(weatherPlace.textContent).toEqual(mock.weather.place);
         expect(getByText(mock.weather.temperature)).toBeInTheDocument();
+    });
+
+    test('If termica is off shouldnt render weather', () => {
+        useTermica.mockReturnValue(false);
+        setWeatherData.mockImplementation(() => {});
+
+        const { container } = render(<PreHeaderLN />);
+
+        expect(container).toMatchSnapshot();
     });
 
     test('should render brands data', () => {

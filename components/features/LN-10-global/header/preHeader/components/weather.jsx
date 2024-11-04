@@ -1,19 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 
-export const Weather = ({ weatherData = [] }) => {
-    if (weatherData.length === 0) return <></>;
-    const { link, dataEvent, dataSection, place, temperature, callback, icon } =
-        weatherData || {};
+function Weather({ weatherData }) {
+    const { link, dataEvent, dataSection, place, temperature, icon } =
+        weatherData ?? {};
+
+    if ((weatherData && Object.keys(weatherData).length === 0) || !temperature)
+        return null;
+
     return (
         <Link
             href={link}
-            className="--weather mr-16"
+            className="--weather mr-16 pr-16 border border-right_md border-thin border-neutral-light-200"
             data-event={dataEvent}
             data-section={dataSection}
-            onClick={callback}
             title="Clima"
         >
             <div className="ln-weather flex ai-center jc-start w-max text-black">
@@ -31,4 +34,24 @@ export const Weather = ({ weatherData = [] }) => {
             </div>
         </Link>
     );
+}
+
+Weather.propTypes = {
+    weatherData: PropTypes.shape({
+        icon: PropTypes.shape({
+            $$typeof: PropTypes.element,
+            type: PropTypes.func,
+            props: PropTypes.shape({
+                _owner: PropTypes.string,
+                _store: PropTypes.shape()
+            })
+        }),
+        temperature: PropTypes.string,
+        place: PropTypes.string,
+        dataEvent: PropTypes.string,
+        dataSection: PropTypes.string,
+        link: PropTypes.string
+    }).isRequired
 };
+
+export default Weather;
