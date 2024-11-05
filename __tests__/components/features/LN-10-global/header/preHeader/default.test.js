@@ -7,6 +7,8 @@ import { EventsHelper } from '../../../../../../src/statics/common/js/eventsHelp
 import preHeaderEventLogResult from '../../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
 import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 import preHeader from '../../../../../../components/features/LN-10-global/header/preHeader/preHeader.json';
+import useTermica from '../../../../../../components/private/common/hooks/useTermica';
+import { useContent } from 'fusion:content';
 
 jest.mock('fusion:context', () => ({
     useAppContext: () => {
@@ -20,6 +22,8 @@ jest.mock(
         setWeatherData: jest.fn()
     })
 );
+
+jest.mock('../../../../../../components/private/common/hooks/useTermica');
 
 describe('Components - Features - LN-10-global - header - preHeader - default', () => {
     global.window.dataLayer = [];
@@ -88,6 +92,26 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
         expect(weatherIcon).toBeInTheDocument();
         expect(weatherPlace.textContent).toEqual(mock.weather.place);
         expect(getByText(mock.weather.temperature)).toBeInTheDocument();
+    });
+
+    test('If termica is off shouldnt call source and render preHeader without weather', () => {
+        useTermica.mockReturnValue(false);
+        setWeatherData.mockImplementation(() => {});
+
+        const { container } = render(<PreHeaderLN />);
+
+        const ulElement = screen.getByRole('list');
+        const liElements = ulElement.querySelectorAll('li');
+        const climaLink = screen.queryByRole('link', { name: /clima/i });
+
+        expect(container).toMatchSnapshot();
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: null
+            })
+        );
+        expect(liElements.length).toBe(5);
+        expect(climaLink).not.toBeInTheDocument();
     });
 
     test('should render brands data', () => {

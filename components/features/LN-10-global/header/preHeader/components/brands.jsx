@@ -1,34 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 
-export const Brands = ({ brandsData = [] }) => {
-    if (brandsData.length === 0) return <></>;
+function Brands({ brandsData }) {
+    if (brandsData?.length === 0) return null;
+
     return (
-        <div className="brands-container flex ai-center pl-16 border border-left border-thin border-neutral-light-200 overflow-hidden relative">
+        <div className="brands-container flex ai-center overflow-hidden relative">
             <nav className="brands flex ai-center --scroll-x pr-60">
                 <ul className="brands-list inline-flex gap-28">
                     {brandsData.map(
-                        (
-                            {
-                                title,
-                                link,
-                                dataEvent,
-                                dataSection,
-                                icon,
-                                iconWidth,
-                                callback,
-                            },
-                            brandIndex,
-                        ) => {
+                        ({
+                            title,
+                            link,
+                            dataEvent,
+                            dataSection,
+                            icon,
+                            iconWidth,
+                            callback
+                        }) => {
                             const relTitle =
                                 title === 'EN VIVO' ? 'LN+ EN VIVO' : title;
 
                             return (
                                 <li
                                     className="w-max flex ai-center text-neutral-light-800"
-                                    key={brandIndex}
+                                    key={title}
                                 >
                                     <Link
                                         className="flex gap-8 uppercase ai-center"
@@ -53,10 +52,23 @@ export const Brands = ({ brandsData = [] }) => {
                                     </Link>
                                 </li>
                             );
-                        },
+                        }
                     )}
                 </ul>
             </nav>
         </div>
     );
+}
+
+Brands.propTypes = {
+    brandsData: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string,
+            link: PropTypes.string,
+            dataEvent: PropTypes.string,
+            icon: PropTypes.string
+        })
+    ).isRequired
 };
+
+export default Brands;

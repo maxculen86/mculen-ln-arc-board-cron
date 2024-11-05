@@ -1,28 +1,29 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
-import { Brands } from './components/brands';
-import { Weather } from './components/weather';
+import Brands from './components/brands';
+import Weather from './components/weather';
 import filterSubHeader from '../../../../../content/filters/LN/home/subHeaderFilter';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import { setWeatherData } from './__helper';
 import PreHeaderEventsScript from '../../../../private/common/scriptManager/PreHeaderEventsScript';
 import preHeader from './preHeader.json';
 
-const PreHeaderLN = () => {
+function PreHeaderLN() {
+    const weatherValue = useTermica('weather');
+
     const weather =
         useContent({
-            source: 'servicesSource',
+            source: weatherValue ? 'servicesSource' : null,
             query: {
                 id: '/clima',
                 service: 'clima'
             },
             staticMode: true,
             filter: filterSubHeader
-        }) || {};
+        }) ?? {};
 
-    const weatherValue = useTermica('weather', weather);
-    const weatherData = setWeatherData(weatherValue);
+    const weatherData = setWeatherData(weather);
 
     return (
         <Static id="clima-Ln10">
@@ -37,6 +38,6 @@ const PreHeaderLN = () => {
             <PreHeaderEventsScript />
         </Static>
     );
-};
+}
 
 export default PreHeaderLN;
