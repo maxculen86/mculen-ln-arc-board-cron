@@ -1410,6 +1410,9 @@ a {
 .border.border-top {
   border-top-style: solid;
 }
+.border.border-right {
+  border-right-style: solid;
+}
 .border.border-light-50 {
   border-color: var(--light-neutral-50);
 }

@@ -169,7 +169,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
       class="flex ai-center"
     >
       <a
-        class="link ln-link --weather mr-16 pr-16 border border-right_md border-thin border-neutral-light-200"
+        class="link ln-link --weather mr-16 pr-16 border border-right border-thin border-neutral-light-200"
         data-event="e_linkclick"
         data-section="MenuLN"
         href="/clima"

@@ -14,7 +14,7 @@ function Weather({ weatherData }) {
     return (
         <Link
             href={link}
-            className="--weather mr-16 pr-16 border border-right_md border-thin border-neutral-light-200"
+            className="--weather mr-16 pr-16 border border-right border-thin border-neutral-light-200"
             data-event={dataEvent}
             data-section={dataSection}
             title="Clima"
