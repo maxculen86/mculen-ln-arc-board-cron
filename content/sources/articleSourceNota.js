@@ -75,7 +75,8 @@ export default {
         isInApertura: 'bool',
         checkExclusiveAccess: 'bool',
         isAdmin: 'bool',
-        uri: 'text'
+        uri: 'text',
+        ticks: 'text'
     },
     filter,
     ttl: 120

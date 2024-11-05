@@ -31,14 +31,14 @@ const fetch = (query, { cachedCall } = {}) => {
                 isPaywallSoftEnabled &&
                 get(query, 'meteringVariant') !== 'S' &&
                 get(response, 'content_restrictions.content_code') ===
-                    'cerrada';
+                'cerrada';
 
             const customCallbacksConfig = isExclusiveSuscriptor
                 ? {
-                      isExclusiveSuscriptor,
-                      customConfigCallbackContentElements:
-                          recipePaywallConfigCallbackContentElements
-                  }
+                    isExclusiveSuscriptor,
+                    customConfigCallbackContentElements:
+                        recipePaywallConfigCallbackContentElements
+                }
                 : {};
 
             if (!isReceta || !isPaywallSoftEnabled)
@@ -88,7 +88,8 @@ export default {
         isInApertura: 'bool',
         checkExclusiveAccess: 'bool',
         isAdmin: 'bool',
-        uri: 'text'
+        uri: 'text',
+        ticks: 'text'
     },
     filter,
     ttl: 600
