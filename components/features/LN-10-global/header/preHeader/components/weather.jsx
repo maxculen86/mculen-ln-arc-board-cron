@@ -39,12 +39,7 @@ function Weather({ weatherData }) {
 Weather.propTypes = {
     weatherData: PropTypes.shape({
         icon: PropTypes.shape({
-            $$typeof: PropTypes.element,
-            type: PropTypes.func,
-            props: PropTypes.shape({
-                _owner: PropTypes.string,
-                _store: PropTypes.shape()
-            })
+            type: PropTypes.func
         }),
         temperature: PropTypes.string,
         place: PropTypes.string,

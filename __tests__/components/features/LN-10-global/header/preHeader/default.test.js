@@ -8,6 +8,8 @@ import preHeaderEventLogResult from '../../../../../../__mocks__/data/preHeader/
 import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 import preHeader from '../../../../../../components/features/LN-10-global/header/preHeader/preHeader.json';
 import useTermica from '../../../../../../components/private/common/hooks/useTermica';
+import { useContent } from 'fusion:content';
+
 jest.mock('fusion:context', () => ({
     useAppContext: () => {
         return { contextPath: 'pf', deployment: () => {} };
@@ -92,13 +94,24 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
         expect(getByText(mock.weather.temperature)).toBeInTheDocument();
     });
 
-    test('If termica is off shouldnt render weather', () => {
+    test('If termica is off shouldnt call source and render preHeader without weather', () => {
         useTermica.mockReturnValue(false);
         setWeatherData.mockImplementation(() => {});
 
         const { container } = render(<PreHeaderLN />);
 
+        const ulElement = screen.getByRole('list');
+        const liElements = ulElement.querySelectorAll('li');
+        const climaLink = screen.queryByRole('link', { name: /clima/i });
+
         expect(container).toMatchSnapshot();
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: null
+            })
+        );
+        expect(liElements.length).toBe(5);
+        expect(climaLink).not.toBeInTheDocument();
     });
 
     test('should render brands data', () => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - Features - LN-10-global - header - preHeader - default If termica is off shouldnt render weather 1`] = `
+exports[`Components - Features - LN-10-global - header - preHeader - default If termica is off shouldnt call source and render preHeader without weather 1`] = `
 <div>
   <div>
     <div
