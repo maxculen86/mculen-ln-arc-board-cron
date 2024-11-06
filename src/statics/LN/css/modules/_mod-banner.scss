@@ -211,7 +211,6 @@
         }
 
         &.--fixed {
-            bottom: 0;
             left: calc((100% - 940px) / 2);
             &.--small {
                 left: calc((100% - 760px) / 2);
@@ -256,6 +255,11 @@
             &.--small {
                 left: calc((100% - 1098px) / 2);
             }
+        }
+    }
+    @media ($media-lg) {
+        &.--fixed.--adhesion_dsk {
+            bottom: 0;
         }
     }
 }
