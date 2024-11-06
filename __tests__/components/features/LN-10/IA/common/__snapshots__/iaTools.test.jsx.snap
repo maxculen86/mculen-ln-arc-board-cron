@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IaTools component should match snapshot 1`] = `
+<div>
+  <div
+    class="bg-neutral-light-50 p-16"
+  >
+    <div
+      class="flex jc-end pb-8"
+    >
+      <button
+        aria-label="Close"
+        class="cursor-pointer transition-regular flex opacity-80_hover button ln-button"
+        id="closeButtonIA"
+        type="button"
+      >
+        <i
+          class="icon icon-close --icon-24 --dark"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657 16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475 6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345 6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </button>
+    </div>
+    <div
+      class="tabs flex flex-column ai-start gap-16"
+    >
+      <div
+        class="tabs-item-container flex ai-center w-100 border border-bottom border-thin border-neutral-light-100 relative overflow-hidden gap-12"
+        role="tablist"
+        style="--_tabLeft: 0px; --_tabWidth: NaN; --_tabColor: var(--ia-tools); --_animationTime: 200ms;"
+      >
+        <div
+          class="horizontal-scroller relative flex max-w-100"
+        >
+          <div
+            class="horizontal-scroller-button absolute h-100 w-48 flex ai-center transition-regular z-1 --left left-0 jc-start opacity-0 visibility-hidden bg-neutral-light-50"
+          >
+            <button
+              class="h-100 text-inherit"
+            >
+              <i
+                class="icon --icon-24"
+              >
+                <svg
+                  fill="none"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10.828 12.864L15.071 17.107C15.4615 17.4975 15.4615 18.1305 15.071 18.521C14.6805 18.9115 14.0475 18.9115 13.657 18.521L8.70711 13.5711C8.31658 13.1806 8.31658 12.5474 8.70711 12.1569L13.657 7.207C14.0475 6.81653 14.6805 6.81653 15.071 7.207C15.4615 7.59747 15.4615 8.23053 15.071 8.621L10.828 12.864Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+            </button>
+          </div>
+          <div
+            class="horizontal-scroller-button absolute h-100 w-48 flex ai-center transition-regular z-1 --right right-0 jc-end opacity-0 visibility-hidden bg-neutral-light-50"
+          >
+            <button
+              class="h-100 text-inherit"
+            >
+              <i
+                class="icon rotate-180 --icon-24"
+              >
+                <svg
+                  fill="none"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10.828 12.864L15.071 17.107C15.4615 17.4975 15.4615 18.1305 15.071 18.521C14.6805 18.9115 14.0475 18.9115 13.657 18.521L8.70711 13.5711C8.31658 13.1806 8.31658 12.5474 8.70711 12.1569L13.657 7.207C14.0475 6.81653 14.6805 6.81653 15.071 7.207C15.4615 7.59747 15.4615 8.23053 15.071 8.621L10.828 12.864Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+            </button>
+          </div>
+          <div
+            class="track flex hide-scrollbar"
+          >
+            <div
+              aria-controls="tab-panel-summary"
+              aria-selected="true"
+              class="tabs-item pb-8 cursor-pointer --selected flex ai-center gap-4 text-wrap cursor-pointer"
+              id="tab-summary"
+              role="tab"
+              tabindex="0"
+            >
+              <i
+                class="icon --icon-24"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="url(#paint0_linear_9754_255)"
+                    height="16.9708"
+                    opacity="0.5"
+                    rx="1"
+                    width="15.1825"
+                    x="4"
+                    y="4.01456"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.70817 5.57191H12.438C12.9111 5.57191 13.2945 5.17957 13.2945 4.69559C13.2945 4.21161 12.9111 3.81927 12.438 3.81927H5.09636C4.48816 3.81927 3.99512 4.32371 3.99512 4.94597V19.9685C3.99512 20.5908 4.48816 21.0952 5.09636 21.0952H18.0666C18.6748 21.0952 19.1678 20.5908 19.1678 19.9685V10.7046C19.1678 10.2206 18.7844 9.8283 18.3113 9.8283C17.8383 9.8283 17.4548 10.2206 17.4548 10.7046V19.3426H5.70817V5.57191Z"
+                    fill="#4D4D4D"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M7.32117 11.6909H15.9586V13.4184H7.32117V11.6909Z"
+                    fill="#4D4D4D"
+                  />
+                  <path
+                    d="M11.6399 9.11311L9.91241 7.3722L9.04866 8.44518L11.6399 10.8272L14.2311 8.44518L13.3674 7.3722L11.6399 9.11311Z"
+                    fill="#4D4D4D"
+                  />
+                  <path
+                    d="M11.6399 15.9963L13.3674 17.7372L14.2311 16.6642L11.6399 14.2822L9.04866 16.6642L9.91241 17.7372L11.6399 15.9963Z"
+                    fill="#4D4D4D"
+                  />
+                  <path
+                    d="M18.5576 8.32585L18.9287 7.45581C19.2589 6.6816 19.8533 6.06527 20.5948 5.72837L21.6162 5.26426C21.9409 5.11671 21.9409 4.63312 21.6162 4.48557L20.6266 4.03595C19.8661 3.69039 19.2611 3.05125 18.9365 2.2506L18.5606 1.32342C18.4211 0.97935 17.9567 0.979351 17.8172 1.32342L17.4413 2.25059C17.1167 3.05125 16.5116 3.69039 15.7511 4.03595L14.7616 4.48557C14.4369 4.63312 14.4369 5.11671 14.7616 5.26426L15.783 5.72837C16.5245 6.06527 17.1189 6.6816 17.4491 7.45581L17.8202 8.32585C17.9628 8.66025 18.4149 8.66025 18.5576 8.32585Z"
+                    fill="#27D2BE"
+                  />
+                  <path
+                    d="M18.5576 8.32585L18.9287 7.45581C19.2589 6.6816 19.8533 6.06527 20.5948 5.72837L21.6162 5.26426C21.9409 5.11671 21.9409 4.63312 21.6162 4.48557L20.6266 4.03595C19.8661 3.69039 19.2611 3.05125 18.9365 2.2506L18.5606 1.32342C18.4211 0.97935 17.9567 0.979351 17.8172 1.32342L17.4413 2.25059C17.1167 3.05125 16.5116 3.69039 15.7511 4.03595L14.7616 4.48557C14.4369 4.63312 14.4369 5.11671 14.7616 5.26426L15.783 5.72837C16.5245 6.06527 17.1189 6.6816 17.4491 7.45581L17.8202 8.32585C17.9628 8.66025 18.4149 8.66025 18.5576 8.32585Z"
+                    fill="#27D2BE"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="paint0_linear_9754_255"
+                      x1="11.5912"
+                      x2="12"
+                      y1="4.01456"
+                      y2="31.5"
+                    >
+                      <stop
+                        stop-color="white"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#27D2BE"
+                      />
+                    </lineargradient>
+                  </defs>
+                </svg>
+              </i>
+              <h2
+                class="text --font-bold --font-m as-flex-end"
+              >
+                Resumen de lectura
+              </h2>
+            </div>
+            <div
+              aria-controls="tab-panel-glossary"
+              aria-selected="false"
+              class="tabs-item pb-8 cursor-pointer flex ai-center gap-4 text-wrap cursor-pointer"
+              id="tab-glossary"
+              role="tab"
+              tabindex="0"
+            >
+              <i
+                class="icon --icon-24"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="url(#paint0_linear_9717_190)"
+                    height="18"
+                    opacity="0.5"
+                    rx="3"
+                    width="15"
+                    x="4"
+                    y="4.11182"
+                  />
+                  <path
+                    d="M18.713 8.96752L19.0841 8.09748C19.4143 7.32326 20.0087 6.70693 20.7502 6.37003L21.7716 5.90592C22.0963 5.75838 22.0963 5.27479 21.7716 5.12724L20.782 4.67762C20.0215 4.33205 19.4165 3.69291 19.0919 2.89226L18.716 1.96508C18.5765 1.62101 18.1121 1.62101 17.9726 1.96508L17.5967 2.89225C17.2721 3.69291 16.667 4.33205 15.9065 4.67762L14.917 5.12724C14.5923 5.27479 14.5923 5.75838 14.917 5.90592L15.9384 6.37003C16.6799 6.70693 17.2743 7.32326 17.6045 8.09748L17.9756 8.96752C18.1182 9.30191 18.5703 9.30191 18.713 8.96752Z"
+                    fill="#27D2BE"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.74484 6.72227C5.74484 6.22111 6.13544 5.81485 6.61726 5.81485H12.6249C13.1068 5.81485 13.5009 5.40858 13.5009 4.90742C13.5009 4.40627 13.1068 4 12.6249 4H6.61726C5.17179 4 4 5.2188 4 6.72227V19.0632C4 19.0855 4.00077 19.1075 4.00228 19.1294C4.00077 19.1674 4 19.2056 4 19.2441C4 20.7475 5.17179 21.9663 6.61726 21.9663H16.9118C17.7791 21.9663 18.4822 21.2351 18.4822 20.333V18.3373C18.964 18.3373 19.3546 17.931 19.3546 17.4299V11.1686C19.3546 10.6675 18.964 10.2612 18.4822 10.2612C18.0003 10.2612 17.6098 10.6675 17.6098 11.1686V16.5218H6.61726C6.59818 16.5218 6.57914 16.522 6.56016 16.5224H6.18105C6.02214 16.5224 5.87316 16.5666 5.74484 16.6438V6.72227ZM6.58431 18.3373H16.7373V20.1515H6.61726C6.13544 20.1515 5.74484 19.7452 5.74484 19.2441C5.74484 18.7544 6.11776 18.3553 6.58431 18.3373Z"
+                    fill="#4D4D4D"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="paint0_linear_9717_190"
+                      x1="11.5"
+                      x2="11.5"
+                      y1="4.11182"
+                      y2="29.1392"
+                    >
+                      <stop
+                        stop-color="white"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#27D2BE"
+                      />
+                    </lineargradient>
+                  </defs>
+                </svg>
+              </i>
+              <h2
+                class="text --font-bold --font-m as-flex-end"
+              >
+                Glosario
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-summary"
+        id="tab-panel-summary"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <div
+          class="flex flex-column gap-24"
+        >
+          <ul
+            class="flex flex-column --list-inherit gap-16 pl-32"
+          >
+            <li
+              class="--font-m --font-regular marker-26"
+            >
+              Counter
+            </li>
+            <li
+              class="--font-m --font-regular marker-26"
+            >
+              strike 2, Dota 2 y Black myth wukong son los títulos más populares en Steam esta semana.
+            </li>
+            <li
+              class="--font-m --font-regular marker-26"
+            >
+              Steam es la plataforma de distribución digital más grande del mundo para videojuegos, con millones de usuarios y una amplia variedad de títulos disponibles.
+            </li>
+            <li
+              class="--font-m --font-regular marker-26"
+            >
+              La plataforma ofrece características como actualizaciones automáticas, comunidades de jugadores y soporte para mods, además de ventas y descuentos que permiten acceder a títulos populares a precios reducidos.
+            </li>
+          </ul>
+          <aside
+            class="flex gap-4"
+          >
+            <i
+              class="icon --icon-12"
+            >
+              <svg
+                fill="none"
+                height="12"
+                viewBox="0 0 12 12"
+                width="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  fill="#27D2BE"
+                  height="12"
+                  rx="2"
+                  width="12"
+                />
+                <path
+                  d="M5.49353 8.10559L5.81444 7.37395C6.10006 6.72288 6.61412 6.20459 7.25535 5.92128L8.13869 5.53099C8.41952 5.40692 8.41952 5.00025 8.13869 4.87617L7.28292 4.49807C6.6252 4.20747 6.10193 3.66999 5.8212 2.9967L5.49612 2.21701C5.37549 1.92766 4.97384 1.92767 4.85321 2.21701L4.52812 2.99669C4.2474 3.66999 3.72411 4.20747 3.0664 4.49807L2.21064 4.87617C1.92979 5.00025 1.92979 5.40692 2.21064 5.53099L3.09399 5.92128C3.73522 6.20459 4.24928 6.72288 4.53488 7.37395L4.85581 8.10559C4.97917 8.3868 5.37015 8.3868 5.49353 8.10559ZM8.70665 9.88696L8.79689 9.68107C8.95779 9.31397 9.24758 9.02166 9.60915 8.86177L9.8872 8.73879C10.0376 8.67229 10.0376 8.45475 9.8872 8.38825L9.62473 8.27215C9.25383 8.10814 8.95885 7.80503 8.80069 7.42545L8.70803 7.20295C8.64342 7.0479 8.42804 7.0479 8.36343 7.20295L8.27077 7.42545C8.11266 7.80503 7.81767 8.10814 7.44678 8.27215L7.18426 8.38825C7.0339 8.45475 7.0339 8.67229 7.18426 8.73879L7.46232 8.86177C7.82392 9.02166 8.11368 9.31397 8.27457 9.68107L8.36486 9.88696C8.4309 10.0377 8.64057 10.0377 8.70665 9.88696Z"
+                  fill="white"
+                />
+              </svg>
+            </i>
+            <p
+              class="text text-neutral-light-800 text-12_130"
+            >
+              Realizado con inteligencia artificial
+            </p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
