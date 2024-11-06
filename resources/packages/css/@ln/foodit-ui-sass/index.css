@@ -187,6 +187,9 @@ input[type=checkbox]:hover {
 }
 
 @media (min-width: 48rem) {
+  .jc-between_md {
+    justify-content: space-between;
+  }
   .ai-end_md {
     align-items: flex-end;
   }
@@ -588,6 +591,10 @@ input[type=checkbox]:hover {
   flex-direction: column;
 }
 
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
 @media (min-width: 48rem) {
   .flex-row_md {
     flex-direction: row;
@@ -778,11 +785,13 @@ input[type=checkbox]:hover {
   }
 }
 
-i, .italic {
+i,
+.italic {
   font-style: italic;
 }
 
-b, strong {
+b,
+strong {
   font-weight: 700;
 }
 
@@ -1658,6 +1667,10 @@ b, strong {
   margin-left: 0.5rem;
 }
 
+.ml-16 {
+  margin-left: 1rem;
+}
+
 .-ml-55 {
   margin-left: -3.4375rem;
 }
@@ -1680,6 +1693,10 @@ b, strong {
 
 .mr-8 {
   margin-right: 0.5rem;
+}
+
+.mr-16 {
+  margin-right: 1rem;
 }
 
 .p-4 {
@@ -1838,6 +1855,12 @@ b, strong {
   .ml-0_md {
     margin-left: 0rem;
   }
+  .mr-0_md {
+    margin-right: 0rem;
+  }
+  .mb-24_md {
+    margin-bottom: 1.5rem;
+  }
   .p-8_md {
     padding: 0.5rem;
   }
@@ -1850,8 +1873,14 @@ b, strong {
   .px-24_md {
     padding-inline: 1.5rem;
   }
+  .py-0_md {
+    padding-block: 0rem;
+  }
   .py-8_md {
     padding-block: 0.5rem;
+  }
+  .py-16_md {
+    padding-block: 1rem;
   }
   .py-12_md {
     padding-block: 0.75rem;
@@ -1873,6 +1902,12 @@ b, strong {
   }
   .pb-56_md {
     padding-bottom: 3.5rem;
+  }
+  .pl-0_md {
+    padding-left: 0rem;
+  }
+  .pr-0_md {
+    padding-right: 0rem;
   }
 }
 @media (max-width:79.99rem) {
@@ -2154,6 +2189,7 @@ b, strong {
   --notification-drawer-tooltip-font-family: Roboto, Arial, sans-serif;
   --notification-drawer-tooltip-line-height: 1rem;
   --notification-drawer-tooltip-padding: 0.25rem 0.5rem;
+  --notification-drawer-tooltip-z-index: 1;
 }
 
 hr {
@@ -2278,20 +2314,41 @@ hr {
   z-index: 100;
 }
 
-.common-header-container .sub-header.show {
-  animation: transitionFrom forwards 500ms;
+.common-header-container {
+  --transition: all 500ms ease;
+  --translate-up: translateY(-100%);
+  --translate-reset: translateY(0);
 }
-@keyframes transitionFrom {
-  from {
-    transform: translateY(-100%);
+.common-header-container .sub-header {
+  transition: var(--transition);
+}
+.common-header-container.--hide-subheader .sub-header {
+  transform: var(--translate-up);
+}
+.common-header-container.--show-subheader .sub-header {
+  transform: var(--translate-reset);
+}
+@media (max-width: 767px) {
+  .common-header-container .common-main-header .content {
+    padding-bottom: 0;
   }
-}
-.common-header-container .sub-header.hide {
-  animation: transitionTo forwards 500ms;
-}
-@keyframes transitionTo {
-  to {
-    transform: translateY(-100%);
+  .common-header-container.--extra-padding .common-main-header .content, .common-header-container.--show-search .common-main-header .content {
+    padding-bottom: 16px;
+  }
+  .common-header-container .search-container {
+    transition: var(--transition);
+  }
+  .common-header-container.--hide-search .search-container {
+    z-index: -1;
+    opacity: 0;
+    margin-bottom: -44px;
+    transform: var(--translate-up);
+  }
+  .common-header-container.--show-search .search-container {
+    z-index: inherit;
+    opacity: 1;
+    margin-bottom: 0;
+    transform: var(--translate-reset);
   }
 }
 
@@ -2316,4 +2373,77 @@ body:has(.disable-body-scroll) {
   max-height: 320px;
   -webkit-mask-image: linear-gradient(to bottom, #fefefe calc(100% - 6rem), transparent 100%);
           mask-image: linear-gradient(to bottom, #fefefe calc(100% - 6rem), transparent 100%);
+}
+
+.roof-sticky {
+  position: sticky;
+  z-index: 5;
+  border-bottom: thin solid var(--neutral-light-100);
+  top: 64px;
+  background-color: var(--neutral-light-1);
+  --_spacing: var(--spacing) * 2;
+  width: calc(100% + var(--_spacing));
+  margin-left: calc(-1 * var(--_spacing) / 2);
+  margin-right: calc(-1 * var(--_spacing) / 2);
+}
+@media (min-width: 48rem) {
+  .roof-sticky {
+    position: static;
+    z-index: 1;
+    border-bottom: none;
+    --_spacing: 0;
+    width: 100%;
+  }
+}
+.roof-sticky .roof-text-sticky {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+}
+@media (min-width: 48rem) {
+  .roof-sticky .roof-text-sticky {
+    font-family: "Prumo", Georgia, serif;
+    font-weight: 70;
+    font-size: 32px;
+    line-height: 116%;
+    font-variation-settings: "wght" 70, "opsz" 0;
+  }
+}
+@media (min-width: 80rem) {
+  .roof-sticky .roof-text-sticky {
+    font-size: 36px;
+  }
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 22px;
+  height: 22px;
+  background-color: var(--neutral-light-1);
+  border: 2px solid var(--neutral-light-600);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+@media (min-width: 80rem) {
+  input[type=checkbox] {
+    background-color: var(--background-positive);
+  }
+}
+
+input[type=checkbox]:checked {
+  background-color: var(--primary-positive);
+}
+
+input[type=checkbox]:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
