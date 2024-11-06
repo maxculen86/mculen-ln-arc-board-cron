@@ -24,9 +24,21 @@ const getTermica = (dataNota, path) =>
     get(dataNota, `navigationTreeSource.Termicas.${path}`, 'false') === 'true';
 
 const getIa = dataNota => {
-    const { glossary } = dataNota?.promo_items || {};
+    const { glossary, summary } = dataNota?.promo_items || {};
+    const hideArticlesSummary = getTermica(
+        dataNota,
+        'hide_articles_summary_apps'
+    );
     const hideGlossary = getTermica(dataNota, 'hide_articles_glossary_apps');
     return {
+        summary: getData(
+            summary,
+            'Resumen de lectura',
+            'Realizado con Inteligencia Artificial',
+            'arrayBullets',
+            bullet => ({ value: bullet }),
+            hideArticlesSummary
+        ),
         glossary: getData(
             glossary,
             'Glosario',
