@@ -11,6 +11,10 @@ trigger:
     - master
     - demo-prod/*
 pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
+
+variables:
+    FUSION_RELEASE: "5.0.7"
+
 jobs:
     - job: BuildArc
       steps:
