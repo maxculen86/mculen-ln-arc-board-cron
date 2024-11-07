@@ -42,10 +42,10 @@ function ChefFoodit(props) {
 
     return (
         <BaseLayout>
-            <div className="flex flex-column gap-40">
+            <div className="grid gap-40">
                 <AuthorBiography {...authorBiography} />
                 <hr className="floating-button-sentinel" />
-                <section className="flex flex-column gap-24_md">
+                <section className="grid gap-24_md">
                     <div className="roof-sticky py-12 py-0_md">
                         <Text
                             as="h1"
@@ -75,20 +75,7 @@ ChefFoodit.propTypes = {
         youtube: PropTypes.string,
         pinterest: PropTypes.string,
         twitter: PropTypes.string
-    })
-};
-ChefFoodit.defaultProps = {
-    globalContent: {
-        byline: '',
-        longBio: '',
-        image: {
-            url: ''
-        },
-        instagram: '',
-        youtube: '',
-        pinterest: '',
-        twitter: ''
-    }
+    }).isRequired
 };
 
 export default Consumer(ChefFoodit);
