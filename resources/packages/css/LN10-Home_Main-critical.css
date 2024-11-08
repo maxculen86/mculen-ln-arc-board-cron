@@ -5259,6 +5259,12 @@ a {
   line-height: 150%;
 }
 
+.text-18 {
+  font-size: 1.125rem;
+  line-height: 150%;
+  letter-spacing: -0.4px;
+}
+
 .text-20 {
   font-size: 1.25rem;
   line-height: 150%;
@@ -5445,8 +5451,8 @@ strong:not(.--font-primary),
   }
 }
 
-.marker-26 ::marker {
-  font-size: 1.625rem;
+.marker-24 ::marker {
+  font-size: 1.5rem;
 }
 
 .m-auto {
@@ -6447,6 +6453,10 @@ strong:not(.--font-primary),
   height: 8.75rem;
 }
 
+.h-303.h-303 {
+  height: 18.9375rem;
+}
+
 .h-fit.h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -7103,6 +7113,16 @@ strong:not(.--font-primary),
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
   }
 }
 @keyframes fade-out {
