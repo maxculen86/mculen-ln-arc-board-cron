@@ -1,9 +1,17 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import IaTools from '../../../../../../components/features/LN-10/IA/common/iaTools';
+import useIaVisibility from '../../../../../../components/features/LN-10/IA/hooks/useIaVisibility';
 
 const observe = jest.fn();
 const unobserve = jest.fn();
+jest.mock(
+    '../../../../../../components/features/LN-10/IA/hooks/useIaVisibility',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
+);
 
 window.IntersectionObserver = jest.fn(() => ({
     observe,
@@ -15,6 +23,10 @@ const handleClose = jest.fn();
 const callback = jest.fn();
 
 describe('IaTools component', () => {
+    useIaVisibility.mockReturnValue({
+        isOpen: true,
+        handleClose
+    });
     const iaDataMock = [
         {
             id: 'summary',
@@ -55,10 +67,18 @@ describe('IaTools component', () => {
             ]
         }
     ];
+    it('should return empty element when isOpen is false', () => {
+        useIaVisibility.mockReturnValueOnce({
+            isOpen: false,
+            handleClose
+        });
+        const { container } = render(<IaTools iaData={iaDataMock} />);
+        expect(container.firstChild).toBeNull();
+    });
 
     it('should render null when iaData is empty', () => {
         const { container } = render(<IaTools iaData={[]} />);
-        expect(container).toBeEmptyDOMElement();
+        expect(container.firstChild).toBeNull();
     });
     it('should render titles correctly', () => {
         render(<IaTools iaData={iaDataMock} />);
@@ -69,18 +89,14 @@ describe('IaTools component', () => {
         expect(glossaryTytle).toBeTruthy();
     });
     it('should execute handleClose correctly', () => {
-        const { container } = render(
-            <IaTools iaData={iaDataMock} handleClose={handleClose} />
-        );
+        const { container } = render(<IaTools iaData={iaDataMock} />);
         const buttonClose = container.querySelector('#closeButtonIA');
         fireEvent.click(buttonClose);
         expect(handleClose).toHaveBeenCalledTimes(1);
     });
     it('should render data glossary correctly', () => {
         const iaDataMockGlossary = [iaDataMock[1]];
-        render(
-            <IaTools iaData={iaDataMockGlossary} handleClose={handleClose} />
-        );
+        render(<IaTools iaData={iaDataMockGlossary} />);
 
         iaDataMockGlossary[0].data.forEach(({ key, value }) => {
             expect(screen.getByText(key)).toBeTruthy();
@@ -89,18 +105,14 @@ describe('IaTools component', () => {
     });
     it('should render data summary correctly', () => {
         const iaDataMockSummary = [iaDataMock[0]];
-        render(
-            <IaTools iaData={iaDataMockSummary} handleClose={handleClose} />
-        );
+        render(<IaTools iaData={iaDataMockSummary} />);
 
         iaDataMockSummary[0].data.forEach(item => {
             expect(screen.getByText(item)).toBeInTheDocument();
         });
     });
     it('should match snapshot', () => {
-        const { container } = render(
-            <IaTools iaData={iaDataMock} handleClose={handleClose} />
-        );
+        const { container } = render(<IaTools iaData={iaDataMock} />);
 
         expect(container).toMatchSnapshot();
     });

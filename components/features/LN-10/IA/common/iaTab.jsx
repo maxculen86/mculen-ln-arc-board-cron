@@ -4,6 +4,8 @@ import { Icon } from '@ln/common-ui-icon';
 import PropTypes from 'prop-types';
 
 export function IaTab({ id = '', title = '' }) {
+    if (!id || !title) return null;
+    // TODO: utilizar SVGS con <IconSprite> y en caso que fallen colores, consumir como asset estatico
     const glossary = id === 'glossary' && (
         <svg
             width="24"

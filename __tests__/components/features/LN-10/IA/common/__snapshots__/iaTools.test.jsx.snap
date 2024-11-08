@@ -3,7 +3,8 @@
 exports[`IaTools component should match snapshot 1`] = `
 <div>
   <div
-    class="bg-neutral-light-50 p-16"
+    class="bg-neutral-light-50 p-16 mb-16 mb-24_m"
+    style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 300ms;"
   >
     <div
       class="flex jc-end pb-8"
@@ -253,25 +254,25 @@ exports[`IaTools component should match snapshot 1`] = `
           class="flex flex-column gap-24"
         >
           <ul
-            class="flex flex-column --list-inherit gap-16 pl-32"
+            class="flex flex-column --list-inherit gap-16 pl-32 marker-24"
           >
             <li
-              class="--font-m --font-regular marker-26"
+              class="text-18"
             >
               Counter
             </li>
             <li
-              class="--font-m --font-regular marker-26"
+              class="text-18"
             >
               strike 2, Dota 2 y Black myth wukong son los títulos más populares en Steam esta semana.
             </li>
             <li
-              class="--font-m --font-regular marker-26"
+              class="text-18"
             >
               Steam es la plataforma de distribución digital más grande del mundo para videojuegos, con millones de usuarios y una amplia variedad de títulos disponibles.
             </li>
             <li
-              class="--font-m --font-regular marker-26"
+              class="text-18"
             >
               La plataforma ofrece características como actualizaciones automáticas, comunidades de jugadores y soporte para mods, además de ventas y descuentos que permiten acceder a títulos populares a precios reducidos.
             </li>

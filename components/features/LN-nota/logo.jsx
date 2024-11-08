@@ -10,7 +10,7 @@ import {
 
 import ComLogo from '../../private/common/com-logo';
 
-const Logo = props => {
+function Logo(props) {
     const {
         globalContent: {
             taxonomy: { sections },
@@ -42,10 +42,8 @@ const Logo = props => {
             title={altLogo}
             classCondition="ln-nota-logo"
         />
-    ) : (
-        <></>
-    );
-};
+    ) : null;
+}
 
 Logo.label = 'LN-Nota-Logo';
 
