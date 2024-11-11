@@ -363,10 +363,10 @@ export const transform = async (response, query, cachedCall) => {
         glossary:
             !notShowGlossary && isValidSectionIA(sections)
                 ? get(
-                      response,
-                      'promo_items.glossary.embed.config.arrayData',
-                      []
-                  )
+                    response,
+                    'promo_items.glossary.embed.config.arrayData',
+                    []
+                )
                 : []
     };
 
@@ -445,4 +445,36 @@ export const updateUrlIfMatch = url => {
 
     const regex = /tests-bannerdisabled\//;
     return regex.test(url) ? url.replace('tests-bannerdisabled/', '') : url;
+};
+
+export const getIncludedFields = (isLiveblog = false) => {
+    const commonFields = [
+        'taxonomy',
+        'distributor.name',
+        'related_content.basic',
+        '_id',
+        'last_updated_date',
+        'headlines',
+        'subheadlines',
+        'description',
+        'label',
+        'promo_items',
+        'canonical_website',
+        'credits',
+        'subtype',
+        'first_publish_date',
+        'publish_date',
+        'website',
+        'website_url',
+        'content_restrictions',
+        'owner',
+        'source',
+        'canonical_url'
+    ];
+
+    const fields = isLiveblog
+        ? [...commonFields, 'content_elements']
+        : commonFields;
+
+    return fields.join(',');
 };

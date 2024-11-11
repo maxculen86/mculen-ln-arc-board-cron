@@ -12,7 +12,8 @@ import {
     getUrlQuery,
     setRedirect,
     transform,
-    updateUrlIfMatch
+    updateUrlIfMatch,
+    getIncludedFields
 } from './utils/articleSourceNota/_helper';
 
 const fetch = (query, { cachedCall } = {}) => {
@@ -20,6 +21,10 @@ const fetch = (query, { cachedCall } = {}) => {
 
     query.url = updateUrlIfMatch(query.url);
     query.uri = updateUrlIfMatch(query.uri);
+
+    if (query.isHome) {
+        query.sourceInclude = getIncludedFields(query.isLiveblog || false);
+    }
 
     const opt = {
         uri: `${CONTENT_BASE}${getUrlQuery(query)}`,
