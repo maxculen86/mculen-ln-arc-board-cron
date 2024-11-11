@@ -72,8 +72,6 @@ export default `
     display_date
     publish_date
     website_url
-    display_date
-    website_url
     marquesina
     label  {
         recomendar {
