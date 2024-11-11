@@ -43,7 +43,7 @@ import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
 
-const ArticleFeature = ({
+function ArticleFeature({
     id: featureId,
     customFields,
     searchableField,
@@ -60,7 +60,7 @@ const ArticleFeature = ({
         hideAuthors,
         variant = 'regular'
     }
-}) => {
+}) {
     const { registerSuccessEvent } = useComponentContext();
     const articleId = checkForId(id);
     const {
@@ -112,7 +112,9 @@ const ArticleFeature = ({
             checkExclusiveAccess: false,
             isInApertura: onlyOneApeturaValidateForWWW,
             isAdmin,
-            variant
+            variant,
+            isLiveblog,
+            isHome: layoutPageBuilder === layoutsName.HomeLN10
         },
         staticMode: isSSR() && !hasVariants,
         filter: isLiveblog ? liveblogFilter : filter
@@ -289,7 +291,7 @@ const ArticleFeature = ({
             </ErrorBoundary>
         )
     );
-};
+}
 
 ArticleFeature.label = 'LN10 Articulo';
 

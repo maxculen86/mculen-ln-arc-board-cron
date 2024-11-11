@@ -6,7 +6,8 @@ import {
     transformElementsBasedOnType,
     setRedirect,
     isValidSectionIA,
-    updateUrlIfMatch
+    updateUrlIfMatch,
+    getIncludedFields
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -1043,6 +1044,68 @@ describe('Tests articleSourceNota - _helper', () => {
             const url =
                 '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid04052023/';
             expect(updateUrlIfMatch(url)).toBe(url);
+        });
+    });
+    describe('getIncludedFields function', () => {
+        it('should return the common fields when isLiveblog is false', () => {
+            const isLiveblog = false;
+            const expectedFields = [
+                'taxonomy',
+                'distributor.name',
+                'related_content.basic',
+                '_id',
+                'last_updated_date',
+                'headlines',
+                'subheadlines',
+                'description',
+                'label',
+                'promo_items',
+                'canonical_website',
+                'credits',
+                'subtype',
+                'first_publish_date',
+                'publish_date',
+                'website',
+                'website_url',
+                'content_restrictions',
+                'owner',
+                'source',
+                'canonical_url'
+            ];
+
+            const result = getIncludedFields(isLiveblog);
+            expect(result).toEqual(expectedFields.join(','));
+        });
+
+        it('should return the common fields plus content_elements when isLiveblog is true', () => {
+            const isLiveblog = true;
+            const expectedFields = [
+                'taxonomy',
+                'distributor.name',
+                'related_content.basic',
+                '_id',
+                'last_updated_date',
+                'headlines',
+                'subheadlines',
+                'description',
+                'label',
+                'promo_items',
+                'canonical_website',
+                'credits',
+                'subtype',
+                'first_publish_date',
+                'publish_date',
+                'website',
+                'website_url',
+                'content_restrictions',
+                'owner',
+                'source',
+                'canonical_url',
+                'content_elements',
+            ];
+
+            const result = getIncludedFields(isLiveblog);
+            expect(result).toEqual(expectedFields.join(','));
         });
     });
 });
