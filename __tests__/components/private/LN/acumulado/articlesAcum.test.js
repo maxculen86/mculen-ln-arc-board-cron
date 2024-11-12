@@ -7,8 +7,12 @@ import ArticlesAcum from '../../../../../components/private/LN/acumulado/article
 import '@testing-library/jest-dom';
 import articles from '../../../../../__mocks__/data/articlesAcum/articles.json';
 
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => []
+}));
+
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
