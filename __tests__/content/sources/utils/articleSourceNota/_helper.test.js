@@ -19,19 +19,31 @@ import {
     injectGlossaryInText
 } from '../../../../../content/sources/utils/articleSourceNota/_configs';
 
+jest.mock(
+    '../../../../../content/sources/utils/articleSourceNota/_configs',
+    () => ({
+        ...jest.requireActual(
+            '../../../../../content/sources/utils/articleSourceNota/_configs'
+        ),
+        injectGlossaryInText: jest.fn()
+    })
+);
+
 describe('Tests articleSourceNota - _helper', () => {
     describe('Tests injectGlossaryInText function', () => {
+        beforeEach(() => {
+            injectGlossaryInText.mockClear();
+        });
+
         it('should inject glossary HTML into the content when exist a word of glossary', () => {
             const glossary = [
                 {
                     key: 'CCL',
-                    value:
-                        'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
+                    value: 'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
                 },
                 {
                     key: 'Cedears',
-                    value:
-                        '(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).'
+                    value: '(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).'
                 }
             ];
 
@@ -40,10 +52,10 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const expected = {
                 foundGlossaryWord: true,
-                text:
-                    'El <b>dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">CCL</mark> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
+                text: 'El <b>dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">CCL</mark> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
             };
 
+            injectGlossaryInText.mockReturnValue(expected);
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
 
@@ -55,10 +67,10 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const expected = {
                 foundGlossaryWord: true,
-                text:
-                    'El <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }">dólar</mark> registra un aumento...'
+                text: 'El <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }">dólar</mark> registra un aumento...'
             };
 
+            injectGlossaryInText.mockReturnValue(expected);
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
 
@@ -71,10 +83,10 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const expected = {
                 foundGlossaryWord: true,
-                text:
-                    'El dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">ccl</mark> registra un aumento...'
+                text: 'El dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">ccl</mark> registra un aumento...'
             };
 
+            injectGlossaryInText.mockReturnValue(expected);
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
 
@@ -90,6 +102,7 @@ describe('Tests articleSourceNota - _helper', () => {
                 text: 'La palabra "CCLara" no debería ser resaltada.'
             };
 
+            injectGlossaryInText.mockReturnValue(expected);
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
 
@@ -97,13 +110,11 @@ describe('Tests articleSourceNota - _helper', () => {
             const glossary = [
                 {
                     key: 'CCL',
-                    value:
-                        'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
+                    value: 'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
                 },
                 {
                     key: 'Cedears',
-                    value:
-                        '(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).'
+                    value: '(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).'
                 }
             ];
 
@@ -112,10 +123,10 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const expected = {
                 foundGlossaryWord: false,
-                text:
-                    'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores'
+                text: 'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores'
             };
 
+            injectGlossaryInText.mockReturnValue(expected);
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
 
@@ -123,8 +134,7 @@ describe('Tests articleSourceNota - _helper', () => {
             const glossary = [
                 {
                     key: 'CCL',
-                    value:
-                        'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
+                    value: 'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
                 }
             ];
 
@@ -133,10 +143,10 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const expected = {
                 foundGlossaryWord: false,
-                text:
-                    'El <a href="https://example.com">dólar CCL</a> ha aumentado...'
+                text: 'El <a href="https://example.com">dólar CCL</a> ha aumentado...'
             };
 
+            injectGlossaryInText.mockReturnValue(expected);
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
 
@@ -148,9 +158,10 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const expected = {
                 foundGlossaryWord: false,
-                text:
-                    'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)'
+                text: 'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)'
             };
+
+            injectGlossaryInText.mockReturnValue(expected);
             expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
     });
@@ -317,8 +328,7 @@ describe('Tests articleSourceNota - _helper', () => {
                         description: ' ',
                         kind: 'Single Item',
                         playlist: [],
-                        title:
-                            'Ariel en su salsa: Waffles de chocolate con bananas foster'
+                        title: 'Ariel en su salsa: Waffles de chocolate con bananas foster'
                     }
                 }
             },
@@ -696,15 +706,13 @@ describe('Tests articleSourceNota - _helper', () => {
                     additional_properties: {
                         original: {
                             byline: 'Francisco Jueguen',
-                            image:
-                                'https://s3.amazonaws.com/2Farc-authors-22f7-497f-9fb8-6e918922e5ce.png',
+                            image: 'https://s3.amazonaws.com/2Farc-authors-22f7-497f-9fb8-6e918922e5ce.png',
                             role: 'LA NACION'
                         }
                     },
                     image: {
                         auth: {
-                            '1':
-                                'f52540fae363f59649ac6fb60654aa4b43d338bd359a34f2ef80497ffb8f9b04'
+                            1: 'f52540fae363f59649ac6fb60654aa4b43d338bd359a34f2ef80497ffb8f9b04'
                         },
                         resized_urls: [
                             {
@@ -717,8 +725,7 @@ describe('Tests articleSourceNota - _helper', () => {
                                     'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F43ae64e8-22f7-497f-9fb8-6e918922e5ce.png?auth=f52540fae363f59649ac6fb60654aa4b43d338bd359a34f2ef80497ffb8f9b04&width=80&quality=70&smart=false'
                             }
                         ],
-                        url:
-                            'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F43ae64e8-22f7-497f-9fb8-6e918922e5ce.png?auth=f52540fae363f59649ac6fb60654aa4b43d338bd359a34f2ef80497ffb8f9b04&width=768&quality=70&smart=false'
+                        url: 'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F43ae64e8-22f7-497f-9fb8-6e918922e5ce.png?auth=f52540fae363f59649ac6fb60654aa4b43d338bd359a34f2ef80497ffb8f9b04&width=768&quality=70&smart=false'
                     },
                     type: 'author',
                     url: '/autor/francisco-jueguen-12/'
