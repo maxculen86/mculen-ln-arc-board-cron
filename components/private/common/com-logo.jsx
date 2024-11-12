@@ -9,8 +9,8 @@ import Image from './com-image';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
 
-//TODO: CREAR ID UNICO PARA STATIC QUE LLEGUE DESDE EL FEATURE QUE SE IMPORTE
-const ComLogo = props => {
+// TODO: CREAR ID UNICO PARA STATIC QUE LLEGUE DESDE EL FEATURE QUE SE IMPORTE
+function ComLogo(props) {
     const {
         logoName,
         size = '',
@@ -52,14 +52,14 @@ const ComLogo = props => {
             title={title}
             rel={rel}
             target={target}
-            classCondition="--logo"
+            classCondition="--logo container-center-100"
         >
             {Logo}
         </ComLink>
     );
 
-    return <>{href ? Link : Logo}</>;
-};
+    return href ? Link : Logo;
+}
 
 ComLogo.propTypes = {
     logoName: PropTypes.string,

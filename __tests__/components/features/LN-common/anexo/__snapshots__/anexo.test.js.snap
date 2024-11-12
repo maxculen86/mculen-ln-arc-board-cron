@@ -1,51 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LN-common - anexo - default With HTML anexo props Should match HTML anexo snapshot 1`] = `
-Array [
-  <div
-    class=""
-  >
-    <div
-      class="ln-roof --generic"
-      roof-container="roof-container"
-    >
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        class="--ln-roof-full pt-24 flex jc-between"
+        class=""
       >
         <div
-          class="--ln-roof-left"
+          class="ln-roof --generic"
+          roof-container="roof-container"
         >
           <div
-            class="flex uppercase ai-center"
-            roof-group="left"
-            target="_blank"
-          />
+            class="--ln-roof-full pt-24 flex jc-between"
+          >
+            <div
+              class="--ln-roof-left"
+            >
+              <div
+                class="flex uppercase ai-center"
+                roof-group="left"
+                target="_blank"
+              />
+            </div>
+            <div
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+              roof-group="right"
+            />
+          </div>
         </div>
-        <div
-          class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
-          roof-group="right"
-          target="_blank"
-        />
+      </div>
+      <div
+        class="lay-container-100vw_max767 w-100_md"
+      >
+        <p>
+          Mock HTML anexo
+        </p>
       </div>
     </div>
-  </div>,
-  <div
-    class="com-anexo "
-  >
-    <p>
-      Mock HTML anexo
-    </p>
-  </div>,
-]
-`;
-
-exports[`features - LN-common - anexo - default With anexo URL props Should match URL anexo snapshot 1`] = `
-<div>
-  <div
-    class="com-anexo skeleton-box"
-    id="anexo-responsive-f0f0raOK8mKx1sc"
-    style="overflow:hidden;width:100%"
-  >
+  </body>,
+  "container": <div>
     <div
       class=""
     >
@@ -54,31 +49,239 @@ exports[`features - LN-common - anexo - default With anexo URL props Should matc
         roof-container="roof-container"
       >
         <div
-          class="--ln-roof-full flex jc-between pt-24"
+          class="--ln-roof-full pt-24 flex jc-between"
         >
           <div
             class="--ln-roof-left"
           >
             <div
-              class="flex ai-center uppercase"
+              class="flex uppercase ai-center"
               roof-group="left"
+              target="_blank"
             />
           </div>
           <div
-            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+            class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
             roof-group="right"
           />
         </div>
       </div>
     </div>
-    <iframe
-      data-src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/"
-      frameborder="0"
-      height="100%"
-      id="anexo-f0f0raOK8mKx1sc"
-      title="anexo-f0f0raOK8mKx1sc"
-      width="100%"
-    />
-  </div>
-</div>
+    <div
+      class="lay-container-100vw_max767 w-100_md"
+    >
+      <p>
+        Mock HTML anexo
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`features - LN-common - anexo - default With anexo URL props Should match URL anexo snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          class="com-anexo"
+          id="anexo-responsive-f0f0raOK8mKx1sc"
+          style="overflow: hidden; width: 100%;"
+        >
+          <style>
+            #anexo-responsive-f0f0raOK8mKx1sc{height:100px}@media(min-width:768px){#anexo-responsive-f0f0raOK8mKx1sc{height:150px}}@media(min-width:1024px){#anexo-responsive-f0f0raOK8mKx1sc{height:300px}}
+          </style>
+          <div
+            class=""
+          >
+            <div
+              class="ln-roof --generic"
+              roof-container="roof-container"
+            >
+              <div
+                class="--ln-roof-full pt-24 flex jc-between"
+              >
+                <div
+                  class="--ln-roof-left"
+                >
+                  <div
+                    class="flex uppercase ai-center"
+                    roof-group="left"
+                    target="_blank"
+                  />
+                </div>
+                <div
+                  class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+                  roof-group="right"
+                />
+              </div>
+            </div>
+          </div>
+          <iframe
+            class="w-100"
+            data-src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/"
+            frameborder="0"
+            height="100%"
+            id="anexo-f0f0raOK8mKx1sc"
+            src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/"
+            title="anexo-f0f0raOK8mKx1sc"
+            width="100%"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        class="com-anexo"
+        id="anexo-responsive-f0f0raOK8mKx1sc"
+        style="overflow: hidden; width: 100%;"
+      >
+        <style>
+          #anexo-responsive-f0f0raOK8mKx1sc{height:100px}@media(min-width:768px){#anexo-responsive-f0f0raOK8mKx1sc{height:150px}}@media(min-width:1024px){#anexo-responsive-f0f0raOK8mKx1sc{height:300px}}
+        </style>
+        <div
+          class=""
+        >
+          <div
+            class="ln-roof --generic"
+            roof-container="roof-container"
+          >
+            <div
+              class="--ln-roof-full pt-24 flex jc-between"
+            >
+              <div
+                class="--ln-roof-left"
+              >
+                <div
+                  class="flex uppercase ai-center"
+                  roof-group="left"
+                  target="_blank"
+                />
+              </div>
+              <div
+                class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+                roof-group="right"
+              />
+            </div>
+          </div>
+        </div>
+        <iframe
+          class="w-100"
+          data-src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/"
+          frameborder="0"
+          height="100%"
+          id="anexo-f0f0raOK8mKx1sc"
+          src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/"
+          title="anexo-f0f0raOK8mKx1sc"
+          width="100%"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

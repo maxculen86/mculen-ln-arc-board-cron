@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useAppContext } from 'fusion:context';
 
+import { Button } from '@ln/foodit-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Spinner } from '@ln/foodit-ui-spinner';
 import { getCustomConfigByLayout } from '../floatingGroupButton/helpers';
 import { useShoppingList } from './hooks/useShoppingList';
 import { copyListToClipboard } from './_helpers';
@@ -10,22 +13,15 @@ import EmptyState from '../emptyState/foodit';
 import CollectionBox from '../collectionBox/foodit';
 import { IngredientsList } from '../ingredientsList/foodit';
 import { ModalRemoveIngredient } from '../Modals/RemoveIngredients/foodit';
-import { Button } from '@ln/foodit-ui-button';
-import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { Spinner } from '@ln/foodit-ui-spinner';
-import FloatingGroupButton from '../floatingGroupButton/foodit';
+import FloatingButtons from '../floatingGroupButton/foodit';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-const ShoppingList = () => {
+function ShoppingList() {
     const { layout } = useAppContext();
 
-    const {
-        loading,
-        isMobile,
-        shoppingList,
-        setShoppingList
-    } = useShoppingList();
+    const { loading, isMobile, shoppingList, setShoppingList } =
+        useShoppingList();
 
     const [selectedItem, setSelectedItem] = useState({ id: 'Todas' });
 
@@ -41,7 +37,6 @@ const ShoppingList = () => {
     if (selectedItem.id !== 'Todas' && !selectedArticle)
         setSelectedItem({ id: 'Todas' });
 
-    // TODO: agregar loader cuando esté definido
     if (loading)
         return (
             <div className="min-h-344 flex jc-center ai-center">
@@ -85,13 +80,13 @@ const ShoppingList = () => {
                 setShoppingList={setShoppingList}
             />
             <ModalRemoveIngredient />
-            <FloatingGroupButton
+            <FloatingButtons
                 {...getCustomConfigByLayout(layout, [
                     () => copyListToClipboard(shoppingList)
                 ])}
             />
         </div>
     );
-};
+}
 
 export default ShoppingList;

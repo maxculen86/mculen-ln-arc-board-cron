@@ -10,7 +10,13 @@
             "additional_properties": {},
             "embed": {
                 "config": {
-                    "items": ["Paso 1", "Paso 2", "Paso 3", "Paso 4", "Paso 5"],
+                    "items": [
+                        "Paso 1",
+                        "Paso 2",
+                        "Paso 3",
+                        "Paso 4",
+                        "Paso 5"
+                    ],
                     "titleList": "Para la carne",
                     "typeList": "preparacion"
                 }
@@ -139,7 +145,13 @@
     "headlines": {
         "basic": "Nota recetas para Api test"
     },
-    "label": {},
+    "label": {
+        "republicar_audio": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        }
+    },
     "promo_items": {
         "basic": {
             "_id": "BLRC5NG5GZBGLHSASLIQI3NABQ",

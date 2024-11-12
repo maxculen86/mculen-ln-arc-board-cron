@@ -1,0 +1,842 @@
+{
+    "_id": "TGGMQVKGX5DZ3OJC43EWRXXPZA",
+    "type": "story",
+    "version": "0.10.10",
+    "content_elements": [
+        {
+            "_id": "LHUWPFNP4ZH25HRU2FYHYAW7YA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058731,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "<a href=\"https://www.lanacion.com.ar/espectaculos/infidelidades-problemas-economicos-y-denuncias-de-corrupcion-las-causas-de-la-crisis-de-pampita-y-nid25092024/\" target=\"_blank\">El fin de su matrimonio con <b>Carolina Pampita Ardohain</b></a> no es el único problema que enfrenta <a href=\"https://www.lanacion.com.ar/espectaculos/se-conocio-la-determinacion-que-tomo-pampita-sobre-su-divorcio-con-roberto-garcia-moritan-nid01102024/\" target=\"_blank\"><b>Roberto García Moritán</b></a>: según contó esta mañana Estefanía Berardi en <i>Mañanísima</i>, trascendieron dos nuevas denuncias contra el ministro de Desarrollo Económico de la Ciudad de Buenos Aires, y en una de esas causas la modelo podría ser citada a declarar. “<mark class=\"hl_yellow\">Cuando estás en el piso, muchas personas quieren aprovechar</mark>”, aseguró Fernando Burlando, amigo de la expareja, cuando le consultaron sobre el tema, buscando relativizar el peso de las denuncias presentadas en contra del empresario gastronómico."
+        },
+        {
+            "_id": "GAIK4EBYNZBHHJD3DWPULOY2VE",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/A2rQs5vWB6RnxmnRuIblUuoNcwo=/arc-anglerfish-arc2-prod-lanacionar/public/GAIK4EBYNZBHHJD3DWPULOY2VE.jpg",
+                "galleries": [],
+                "ingestionMethod": "manual",
+                "keywords": [
+                    ""
+                ],
+                "mime_type": "image/jpeg",
+                "originalName": "278551622_145767354628127_6080429226926001492_n.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GAIK4EBYNZBHHJD3DWPULOY2VE.jpg",
+                "owner": "rsolavaggione@lanacion.com.ar",
+                "proxyUrl": "/resizer/A2rQs5vWB6RnxmnRuIblUuoNcwo=/arc-anglerfish-arc2-prod-lanacionar/public/GAIK4EBYNZBHHJD3DWPULOY2VE.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/A2rQs5vWB6RnxmnRuIblUuoNcwo=/arc-anglerfish-arc2-prod-lanacionar/public/GAIK4EBYNZBHHJD3DWPULOY2VE.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/GoQx4N3u1iPbMkMFj8fDvMSCu5o=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/GAIK4EBYNZBHHJD3DWPULOY2VE.jpg",
+                "usage_instructions": "FBMD23000969010000d05c0000f36f0000dc850000e5d5000043200100c12f0100fcac0100ecda010029e80100",
+                "version": 0,
+                "template_id": 707,
+                "_id": "VFLT3HZRANCVBP6J56PDVTU34M",
+                "comments": []
+            },
+            "address": {},
+            "auth": {
+                "1": "731906f4ee2813af3efb64e0fca05208910ea1db953b82c58a7be52f643c82df"
+            },
+            "caption": "Pampita y Roberto García Moritán se casaron en el 2019",
+            "created_date": "2022-07-06T23:57:35Z",
+            "credits": {
+                "affiliation": [],
+                "by": [
+                    {
+                        "byline": "instagram @pampitaoficial",
+                        "name": "instagram @pampitaoficial",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 1344,
+            "image_type": "photograph",
+            "last_updated_date": "2022-07-06T23:57:35Z",
+            "licensable": false,
+            "owner": {
+                "id": "lanacionar",
+                "sponsored": false
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://lanacionar.arcpublishing.com/photo/GAIK4EBYNZBHHJD3DWPULOY2VE",
+                "system": "photo center"
+            },
+            "taxonomy": {
+                "associated_tasks": []
+            },
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GAIK4EBYNZBHHJD3DWPULOY2VE.jpg",
+            "version": "0.10.9",
+            "width": 1080,
+            "syndication": {}
+        },
+        {
+            "_id": "GAQ4FDFSTZCX7ESQ4AGHWRQYWQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058733,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Berardi arrancó el envío con detalles sobre <a href=\"https://www.lanacion.com.ar/politica/jorge-macri-dilata-la-salida-de-roberto-garcia-moritan-y-crece-la-inquietud-en-la-ciudad-por-el-nid03102024/\" target=\"_blank\">las nuevas acusaciones que pesan sobre el exlegislador porteño.</a> “Ayer ingresaron nuevas denuncias para Roberto García Moritán”, explicó. Una de ellas, compartió, la realizó el abogado Yamil Castro Bianchi, quien acusa al político de “la <mark class=\"hl_yellow\">posible comisión de los delitos de incumplimientos de funcionarios públicos, abuso de autoridad y nombramientos ilegales</mark>” por la contratación irregular de alrededor de 400 empleados en el ministerio que maneja."
+        },
+        {
+            "_id": "EXR66MSN2NHIRC7HWQTNY5R4SU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058734,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "“Este es un tema del que ya se habló pero esta denuncia es nueva porque tiene más detalles”, aclaró la panelista, y explicó que incluye la supuesta lista de contratados y deja ver, entre otras cosas, muchos nombres repetidos. “<mark class=\"hl_yellow\">Se sospecha que estos puestos que él habría otorgado a estas personas le podían dar una comisión a él por otorgarle estos lugares. Ese sería el negocio</mark>”, siguió Berardi, quien también habló de supuestos “ñoquis”."
+        },
+        {
+            "_id": "T4DPXMQMLZGEBLI5CXRG2HFTNE",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/nKv8cpzTQYu64o5h61KKJrHO-fk=/arc-anglerfish-arc2-prod-lanacionar/public/T4DPXMQMLZGEBLI5CXRG2HFTNE.jpg",
+                "galleries": [],
+                "ingestionMethod": "manual",
+                "iptc_source": "Prensa GCBA",
+                "mime_type": "image/jpeg",
+                "originalName": "roberto-garcia-moritan-jorge-macri-y-maria-belen-luduena-en-la-presentacion-de-ba-esta-de-moda-foto-.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/T4DPXMQMLZGEBLI5CXRG2HFTNE.jpg",
+                "owner": "csunico@lanacion.com.ar",
+                "proxyUrl": "/resizer/nKv8cpzTQYu64o5h61KKJrHO-fk=/arc-anglerfish-arc2-prod-lanacionar/public/T4DPXMQMLZGEBLI5CXRG2HFTNE.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/nKv8cpzTQYu64o5h61KKJrHO-fk=/arc-anglerfish-arc2-prod-lanacionar/public/T4DPXMQMLZGEBLI5CXRG2HFTNE.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/peJ6mycLvhMRwy1buDuwo1gzV1Y=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/T4DPXMQMLZGEBLI5CXRG2HFTNE.jpg",
+                "version": 0,
+                "template_id": 707,
+                "_id": "FB2BZSAEAZGEHIDXS4A6NFSTLM",
+                "comments": []
+            },
+            "address": {},
+            "auth": {
+                "1": "697ac310af67c431a7d5a19fdb77a5d3ec44da663495167cb9d3456b2259d750"
+            },
+            "caption": "Roberto García Moritán, Jorge Macri y María Belén Ludueña en la presentación de BA está de Moda",
+            "created_date": "2024-08-21T20:13:49Z",
+            "credits": {
+                "affiliation": []
+            },
+            "height": 958,
+            "image_type": "photograph",
+            "last_updated_date": "2024-08-21T20:13:49Z",
+            "licensable": false,
+            "owner": {
+                "id": "lanacionar",
+                "sponsored": false
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://lanacionar.arcpublishing.com/photo/T4DPXMQMLZGEBLI5CXRG2HFTNE",
+                "system": "photo center"
+            },
+            "subtitle": "",
+            "taxonomy": {
+                "associated_tasks": []
+            },
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/T4DPXMQMLZGEBLI5CXRG2HFTNE.jpg",
+            "version": "0.10.9",
+            "width": 1440,
+            "syndication": {}
+        },
+        {
+            "_id": "ESNXDY7WPBHPLJUR4UA6E4MUIE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058736,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "En relación a la segunda denuncia, trascendió ayer que el funcionario fue acusado ante la justicia de Catamarca por falso testimonio en el marco de una causa que investiga una supuesta estafa piramidal en la que también está involucrado Raúl Jalil, el hermano del gobernador de la provincia. En esa causa, explicó Berardi, <mark class=\"hl_yellow\">Pampita podría ser citada a declarar</mark>."
+        },
+        {
+            "_id": "6FYHPOWUB5EMHDUEUJMOGPOUFQ",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1728056058737,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "La palabra de Burlando"
+        },
+        {
+            "_id": "FDITCZJRJBC5RJPE752YRHLSLU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058738,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Luego de exponer la situación judicial de García Moritán, Barbieri charló con Fernando Burlando, amigo de la expareja. Lo primero que quiso saber la conductora es si le había prestado, como se especuló, un departamento a Moritán. “Nos pusimos a disposición para tratar de ayudar de buena manera”, explicó el letrado, aunque dejó en claro que la información es falsa. “No haría nada para desunir”, agregó, y recordó que Carolina fue “muy generosa” con Barby Franco, su mujer. “<mark class=\"hl_yellow\">Es una persona tan buena y uno le desea única y exclusivamente lo mejor</mark>”."
+        },
+        {
+            "_id": "E6ZXGIK26NG5TDXCICFE3WBMOI",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/GAlBYCslSZcQawd72g_mebaNQQE=/arc-anglerfish-arc2-prod-lanacionar/public/E6ZXGIK26NG5TDXCICFE3WBMOI.JPG",
+                "galleries": [],
+                "ingestionMethod": "manual",
+                "iptc_source": "LA NACION",
+                "keywords": [
+                    "barby franco",
+                    "espectaculos",
+                    "fernando burlando",
+                    "cumpleaños de sarah hija de barby franco y fernando burlando"
+                ],
+                "mime_type": "image/jpeg",
+                "originalName": "Fotos web732.JPG",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/E6ZXGIK26NG5TDXCICFE3WBMOI.JPG",
+                "owner": "fcorbani@lanacion.com.ar",
+                "proxyUrl": "/resizer/GAlBYCslSZcQawd72g_mebaNQQE=/arc-anglerfish-arc2-prod-lanacionar/public/E6ZXGIK26NG5TDXCICFE3WBMOI.JPG",
+                "published": true,
+                "resizeUrl": "/resizer/GAlBYCslSZcQawd72g_mebaNQQE=/arc-anglerfish-arc2-prod-lanacionar/public/E6ZXGIK26NG5TDXCICFE3WBMOI.JPG",
+                "restricted": false,
+                "takenOn": "2023-12-18T01:58:19Z",
+                "thumbnailResizeUrl": "/resizer/jQkqbrO3HnUL-1SKFQ5MQazcFOI=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/E6ZXGIK26NG5TDXCICFE3WBMOI.JPG",
+                "version": 0,
+                "template_id": 706,
+                "_id": "5X6ELCVIHZFMFDOKR3EQHC3HT4",
+                "comments": []
+            },
+            "address": {
+                "locality": "palacio Sans Souci en San Fernan"
+            },
+            "auth": {
+                "1": "4b905179ee1fd55eed2285c116d61a338326b7ea52e29098c0ef45e4c75edc94"
+            },
+            "caption": "Pampita y García Moritán en el cumpleaños de Sarah, la hija de Barby Franco y Fernando Burlando",
+            "created_date": "2023-12-18T14:52:18Z",
+            "credits": {
+                "affiliation": [],
+                "by": [
+                    {
+                        "byline": "Gerardo Viercovich",
+                        "name": "Gerardo Viercovich",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 1333,
+            "image_type": "photograph",
+            "last_updated_date": "2023-12-18T14:52:18Z",
+            "licensable": false,
+            "owner": {
+                "id": "lanacionar",
+                "sponsored": false
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://lanacionar.arcpublishing.com/photo/E6ZXGIK26NG5TDXCICFE3WBMOI",
+                "system": "photo center"
+            },
+            "taxonomy": {},
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/E6ZXGIK26NG5TDXCICFE3WBMOI.JPG",
+            "version": "0.10.9",
+            "width": 2000,
+            "subtitle": ""
+        },
+        {
+            "_id": "HXNK3QLQ6RHBJAJ3LUQMPFGC7Q",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058740,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Sin ánimos de meterse en el escándalo de la separación, Burlando se mostró dolido por lo que viven sus amigos. “Yo quiero ver a Pampita y a Moritán juntos”, aseguró. Luego confirmó que no es el abogado de ninguno de los dos. “¿No creés que le pegan mucho a Moritán?”, quiso saber entonces Carmen. “Y pensé que me llamaban por eso”, reaccionó el letrado y se metió de lleno en el tema de la denuncia por falso testimonio."
+        },
+        {
+            "_id": "P2N4QS265BCQXPKG6GX7B3ACGQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058741,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "“Es muy fácil golpear cuando uno está en el piso, y uno sabe las consecuencias que generan los golpes en el piso. En Catamarca, Roberto declaró como testigo frente a la justicia federal. El juez lo convocó como testigo porque aparecía el nombre de él en un informe de la UIF vinculado a una cuenta que, fijate cómo será la situación de transparente, que él luego de la declaración aclaró que esa cuenta no tiene nada que ver con él. Que no conocía a ninguno de los protagonistas de la causa”, se explayó."
+        },
+        {
+            "_id": "24Q3VD7FXVH5FIJ32R542QE6T4",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1728056058742,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "“Aparentemente por la misma causa la llamaron a Pampita a declarar”, intervino Federico Seeber, otro de los integrantes del magazine de Barbieri. “Creo que no”, respondió el abogado, aunque no descartó que la convoquen. “Están tratando de hacerlo porque acá, vos estás en el piso, y mucha gente quiere aprovechar los nombres de las personalidades como Caro para el bien propio. <mark class=\"hl_yellow\">Carolina no tiene nada que ver con esta empresa, que no era una empresa en realidad, que tiene que ver con una estafa piramidal de años anteriores</mark>”, expresó, y aseguró que en esos casos muchas veces usan a los famosos como “llamadores”. También despegó al gobernador del caso. “Raúl Jalil hace las cosas correctamente”, explicó, y aseveró que sería “descabellado” llamar a declarar a Pampita. “Cuando uno está en el piso es fácil tirarle”, insistió Burlando. “No le perdonan que se casó con Pampita, y algunos quieren sumarse para ser famosos”, ensayó Barbieri."
+        }
+    ],
+    "created_date": "2024-10-04T15:18:41.149Z",
+    "revision": {
+        "revision_id": "C5XELB3ONVAJBMLP2U4RRYRTAM",
+        "parent_id": "M35L424LMVHPTC4NHKGEZ2ULCY",
+        "editions": [
+            "default"
+        ],
+        "branch": "default",
+        "user_id": "ArtigasM@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2024-10-04T15:52:11.879Z",
+    "canonical_website": "la-nacion-ar",
+    "headlines": {
+        "basic": "Fernando Burlando habló de la nueva denuncia contra Roberto García Moritán: “Pampita no tiene nada que ver”",
+        "meta_title": "",
+        "mobile": "Fernando Burlando habló de la nueva denuncia contra Roberto García Moritán",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true,
+        "moderation_required": false
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": "El abogado hizo referencia a la acusación que pesa sobre el funcionario porteño por falso testimonio en una causa por estafa piramidal"
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "autor": {
+            "display": true,
+            "text": "Usuario",
+            "url": ""
+        },
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "republicar_audio": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "resumen_nota": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "showcase": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "sitio": {
+            "display": true,
+            "text": "https://www.lanacion.com.ar",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "Noticia",
+            "url": ""
+        },
+        "volanta": {
+            "display": true,
+            "text": "“Pampita no tiene nada que ver”."
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/espectaculos/personajes",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Personajes",
+            "path": "/espectaculos/personajes",
+            "parent_id": "/espectaculos",
+            "parent": {
+                "default": "/espectaculos"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/espectaculos/personajes",
+                    "site": {
+                        "site_url": "/espectaculos/personajes/"
+                    },
+                    "migration": {
+                        "id_section_ln9": "8010",
+                        "migrated_mob": "false"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Personajes",
+                    "parent": {
+                        "default": "/espectaculos",
+                        "navigationRedaccion": "/espectaculos"
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "ancestors": {
+                        "default": [
+                            "/"
+                        ],
+                        "navigationRedaccion": [
+                            "/"
+                        ]
+                    }
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/espectaculos/personajes",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Personajes",
+            "path": "/espectaculos/personajes",
+            "parent_id": "/espectaculos",
+            "additional_properties": {
+                "original": {
+                    "_id": "/espectaculos/personajes",
+                    "site": {
+                        "site_url": "/espectaculos/personajes/"
+                    },
+                    "migration": {
+                        "id_section_ln9": "8010",
+                        "migrated_mob": "false"
+                    },
+                    "name": "Personajes",
+                    "parent": {
+                        "default": "/espectaculos",
+                        "navigationRedaccion": "/espectaculos"
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "ancestors": {
+                        "default": [
+                            "/"
+                        ],
+                        "navigationRedaccion": [
+                            "/"
+                        ]
+                    }
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/espectaculos/personajes",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Personajes",
+                "path": "/espectaculos/personajes",
+                "parent_id": "/espectaculos",
+                "parent": {
+                    "default": "/espectaculos"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos/personajes",
+                        "site": {
+                            "site_url": "/espectaculos/personajes/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "8010",
+                            "migrated_mob": "false"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Personajes",
+                        "parent": {
+                            "default": "/espectaculos",
+                            "navigationRedaccion": "/espectaculos"
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "ancestors": {
+                            "default": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./espectaculos/personajes"
+            },
+            {
+                "_id": "/espectaculos",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Espectáculos",
+                "path": "/espectaculos",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos",
+                        "site": {
+                            "site_url": "https://www.lanacion.com.ar/espectaculos/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "120",
+                            "migrated_mob": "false"
+                        },
+                        "acumuladoGeneral": {
+                            "hide_banner": null,
+                            "cantidad_notas": "30",
+                            "tipo_acumulado": "Grilla",
+                            "id_collection_promo_items": "KLK5Y4YIU5HRTMZNG6KPQXWCQQ",
+                            "hierarchy_navigation": null,
+                            "hidesectionslist": "false",
+                            "hidetagslist": "false"
+                        },
+                        "acumuladoColor": {
+                            "background_color": null,
+                            "navigation_color": null,
+                            "navigation_color_tags": null,
+                            "header_class_name": "No",
+                            "id_logo_image": null
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Espectáculos",
+                        "order": {
+                            "Header-FirstNav": 1009,
+                            "default": 1016,
+                            "navigationRedaccion": 1019
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/"
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./espectaculos"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/espectaculos/personajes",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Personajes",
+                "path": "/espectaculos/personajes",
+                "parent_id": "/espectaculos",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos/personajes",
+                        "site": {
+                            "site_url": "/espectaculos/personajes/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "8010",
+                            "migrated_mob": "false"
+                        },
+                        "name": "Personajes",
+                        "parent": {
+                            "default": "/espectaculos",
+                            "navigationRedaccion": "/espectaculos"
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "ancestors": {
+                            "default": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "_id": "/espectaculos",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Espectáculos",
+                "path": "/espectaculos",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos",
+                        "site": {
+                            "site_url": "https://www.lanacion.com.ar/espectaculos/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "120",
+                            "migrated_mob": "false"
+                        },
+                        "acumuladoGeneral": {
+                            "hide_banner": null,
+                            "cantidad_notas": "30",
+                            "tipo_acumulado": "Grilla",
+                            "id_collection_promo_items": "KLK5Y4YIU5HRTMZNG6KPQXWCQQ",
+                            "hierarchy_navigation": null,
+                            "hidesectionslist": "false",
+                            "hidetagslist": "false"
+                        },
+                        "acumuladoColor": {
+                            "background_color": null,
+                            "navigation_color": null,
+                            "navigation_color_tags": null,
+                            "header_class_name": "No",
+                            "id_logo_image": null
+                        },
+                        "name": "Espectáculos",
+                        "order": {
+                            "Header-FirstNav": 1009,
+                            "default": 1016,
+                            "navigationRedaccion": 1019
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/"
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                }
+            }
+        ],
+        "tags": [
+            {
+                "description": "Pampita Ardohain",
+                "slug": "pampita-ardohain-tid46917",
+                "text": "Pampita Ardohain"
+            },
+            {
+                "description": "Roberto García Moritán",
+                "slug": "roberto-garcia-moritan-tid67231",
+                "text": "Roberto García Moritán"
+            },
+            {
+                "description": "Fernando Burlando",
+                "slug": "fernando-burlando-tid49922",
+                "text": "Fernando Burlando"
+            }
+        ]
+    },
+    "promo_items": {
+        "basic": {
+            "_id": "J5GBJV37DFHTXECFCGDEWIDQ4E",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/H3-pPk2p6ziaweoQkjRfQEbXV2w=/arc-anglerfish-arc2-prod-lanacionar/public/J5GBJV37DFHTXECFCGDEWIDQ4E.jpg",
+                "galleries": [],
+                "ingestionMethod": "manual",
+                "iptc_source": "(Fuente: Instagram/@burlandofern",
+                "keywords": [
+                    "fernando burlando",
+                    "roberto garcía moritán"
+                ],
+                "mime_type": "image/jpeg",
+                "originalName": "burlando_moritan.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/J5GBJV37DFHTXECFCGDEWIDQ4E.jpg",
+                "owner": "artigasm@lanacion.com.ar",
+                "proxyUrl": "/resizer/H3-pPk2p6ziaweoQkjRfQEbXV2w=/arc-anglerfish-arc2-prod-lanacionar/public/J5GBJV37DFHTXECFCGDEWIDQ4E.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/H3-pPk2p6ziaweoQkjRfQEbXV2w=/arc-anglerfish-arc2-prod-lanacionar/public/J5GBJV37DFHTXECFCGDEWIDQ4E.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/OPN385oGFkmiX2rTitzSlmZoqtA=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/J5GBJV37DFHTXECFCGDEWIDQ4E.jpg",
+                "version": 0,
+                "template_id": 707
+            },
+            "address": {},
+            "auth": {
+                "1": "a6082c71b1fea1d96527b473af2be7333c2cc3e5d67381c0414195bba471412c"
+            },
+            "caption": "Fernando Burlando habló de la nueva denuncia contra Roberto García Moritán: “Pampita no tiene nada que ver”",
+            "created_date": "2024-10-04T15:51:41Z",
+            "credits": {
+                "affiliation": []
+            },
+            "height": 1333,
+            "image_type": "photograph",
+            "last_updated_date": "2024-10-04T15:51:41Z",
+            "licensable": false,
+            "owner": {
+                "id": "lanacionar",
+                "sponsored": false
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://lanacionar.arcpublishing.com/photo/J5GBJV37DFHTXECFCGDEWIDQ4E",
+                "system": "photo center"
+            },
+            "subtitle": "",
+            "taxonomy": {
+                "associated_tasks": []
+            },
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/J5GBJV37DFHTXECFCGDEWIDQ4E.jpg",
+            "version": "0.10.9",
+            "width": 2000,
+            "syndication": {}
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967",
+        "mode": "reference_denormalized"
+    },
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 4313,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 4,
+            "line_count_actual": 26,
+            "word_count_actual": 717
+        }
+    },
+    "display_date": "2024-10-04T15:52:11.366Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "1",
+    "first_publish_date": "2024-10-04T15:52:11.366Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/espectaculos/personajes",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Personajes",
+                "path": "/espectaculos/personajes",
+                "parent_id": "/espectaculos",
+                "parent": {
+                    "default": "/espectaculos"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos/personajes",
+                        "site": {
+                            "site_url": "/espectaculos/personajes/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "8010",
+                            "migrated_mob": "false"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Personajes",
+                        "parent": {
+                            "default": "/espectaculos",
+                            "navigationRedaccion": "/espectaculos"
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "ancestors": {
+                            "default": [
+                                "/"
+                            ],
+                            "navigationRedaccion": [
+                                "/"
+                            ]
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./espectaculos/personajes"
+            },
+            "website_url": "/espectaculos/personajes/fernando-burlando-hablo-de-la-nueva-denuncia-contra-roberto-garcia-moritan-pampita-no-tiene-nada-que-nid04102024/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": false
+    },
+    "publish_date": "2024-10-04T15:52:11.366Z",
+    "canonical_url": "/espectaculos/personajes/fernando-burlando-hablo-de-la-nueva-denuncia-contra-roberto-garcia-moritan-pampita-no-tiene-nada-que-nid04102024/",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/espectaculos/personajes/fernando-burlando-hablo-de-la-nueva-denuncia-contra-roberto-garcia-moritan-pampita-no-tiene-nada-que-nid04102024/"
+}

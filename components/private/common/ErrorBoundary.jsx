@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
+import logger from './utils/logger';
 
 class ErrorBoundary extends Component {
     constructor(props) {
@@ -9,8 +10,9 @@ class ErrorBoundary extends Component {
     }
 
     componentDidCatch(error, errorInfo) {
-        // You can also log the error to an error reporting service
-        // logErrorToMyService(error, errorInfo);
+        logger.push(error, {
+            source: 'Error Boundary - Article Feature LN 10'
+        });
         this.setState({
             error,
             errorInfo

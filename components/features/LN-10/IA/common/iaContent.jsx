@@ -1,23 +1,21 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Text } from '@ln/contenidos-ui-text';
+import PropTypes from 'prop-types';
 import { Disclaimer } from '../../../LN-10-global/glossary/components/disclaimer';
 
-// eslint-disable-next-line react/prop-types
-export function IaContent({ id, contentData = [], className }) {
-    const _classNames = classNames(
-        'flex flex-column gap-24 cursor-pointer',
-        className
-    );
+function IaContent({ id, contentData = [], className = '' }) {
+    const _classNames = classNames('flex flex-column gap-24', className);
+
+    if (!contentData.length || !id) return null;
     return (
         <div className={_classNames}>
             {id === 'summary' && contentData.length > 0 && (
-                <ul className="flex flex-column --list-inherit gap-16 pl-32">
-                    {contentData?.map((paragraph, i) => (
+                <ul className="flex flex-column --list-inherit gap-16 pl-32 marker-24">
+                    {contentData?.map(paragraph => (
                         <li
-                            // eslint-disable-next-line react/no-array-index-key
-                            key={i}
-                            className="--font-m --font-regular marker-26"
+                            key={paragraph}
+                            className="text-18"
                             // eslint-disable-next-line react/no-danger
                             dangerouslySetInnerHTML={{ __html: paragraph }}
                         />
@@ -29,10 +27,8 @@ export function IaContent({ id, contentData = [], className }) {
                 <ul className="flex flex-column --list-inherit gap-12">
                     {contentData?.map(({ key: wordKey, value }) => (
                         <li key={wordKey} className="flex flex-column">
-                            <Text className="--prumo --font-extra --font-m">
-                                {wordKey}
-                            </Text>
-                            <Text>{value}</Text>
+                            <Text className="text-18 font-bold">{wordKey}</Text>
+                            <Text className="text-18">{value}</Text>
                         </li>
                     ))}
                 </ul>
@@ -42,5 +38,21 @@ export function IaContent({ id, contentData = [], className }) {
         </div>
     );
 }
+IaContent.propTypes = {
+    id: PropTypes.string.isRequired,
+    contentData: PropTypes.oneOfType([
+        PropTypes.arrayOf(
+            PropTypes.shape({
+                key: PropTypes.string,
+                value: PropTypes.string
+            })
+        ),
+        PropTypes.arrayOf(PropTypes.string)
+    ]).isRequired,
+    className: PropTypes.string
+};
 
+IaContent.defaultProps = {
+    className: ''
+};
 export default IaContent;

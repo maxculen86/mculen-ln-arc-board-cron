@@ -4,7 +4,6 @@ import Quote from './elements/quote';
 import Embed from './elements/embed';
 import Html from './elements/htmlContent';
 import Button from './elements/button';
-import Summary from './elements/summary';
 import List from './elements/list';
 import Image from './elements/image';
 import Video from './elements/video';
@@ -22,7 +21,6 @@ const cuerpoIndex = dataNota => {
         Html,
         Button,
         List,
-        Summary,
         Image,
         Video,
         VideoJW,

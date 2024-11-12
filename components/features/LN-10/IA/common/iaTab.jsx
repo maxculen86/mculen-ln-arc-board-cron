@@ -1,9 +1,11 @@
 import React from 'react';
 import { Text } from '@ln/common-ui-text';
 import { Icon } from '@ln/common-ui-icon';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
-export function IaTab({ id = '', title = '', callback = () => {} }) {
+export function IaTab({ id = '', title = '' }) {
+    if (!id || !title) return null;
+    // TODO: utilizar SVGS con <IconSprite> y en caso que fallen colores, consumir como asset estatico
     const glossary = id === 'glossary' && (
         <svg
             width="24"
@@ -107,8 +109,7 @@ export function IaTab({ id = '', title = '', callback = () => {} }) {
     );
 
     return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-        <div onClick={callback}>
+        <>
             <Icon size={24}>
                 {glossary}
                 {summary}
@@ -118,8 +119,16 @@ export function IaTab({ id = '', title = '', callback = () => {} }) {
                 className="--font-bold --font-m as-flex-end"
                 text={title}
             />
-        </div>
+        </>
     );
 }
+IaTab.propTypes = {
+    id: PropTypes.string,
+    title: PropTypes.string
+};
+IaTab.defaultProps = {
+    id: '',
+    title: ''
+};
 
 export default IaTab;

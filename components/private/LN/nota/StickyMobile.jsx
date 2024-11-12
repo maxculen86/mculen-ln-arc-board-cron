@@ -4,69 +4,83 @@ import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/components/sticky-mobile.css';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
+import { Link } from '@ln/contenidos-ui-link';
+import { Text } from '@ln/contenidos-ui-text';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
-import Text from '../../common/text';
-import ComLink from '../../common/com-link';
 import ModPicture from '../../common/mod-picture';
 import { handleClickForCTRcomponent } from '../../common/utils/noteTracker/ctrTracker';
 
-const StickyMobile = ({ headerText, alt, articleToShow }) => {
+function StickyMobile({ headerText, alt, articleToShow }) {
     const {
         promo_items: promoItems = {},
         website_url: websiteUrl = '',
         headlines = {}
     } = articleToShow;
 
-    const {
-        basic: { url = '', resized_urls: resizedUrls = [] } = {}
-    } = promoItems;
+    const { basic: { url = '', resized_urls: resizedUrls = [] } = {} } =
+        promoItems;
 
-    const {
-        mobile: headlinesMobile = '',
-        basic: headlinesBasic = ''
-    } = headlines;
+    const { mobile: headlinesMobile = '', basic: headlinesBasic = '' } =
+        headlines;
 
     const headlineToUse = headlinesMobile || headlinesBasic;
     const [displaySticky, setDisplaySticky] = useState(true);
     return (
-        <section className={`sticky-mobile ${!displaySticky && 'hlp-none'}`}>
-            <div className="header-sticky">
-                <Text font="arial" size="2xs" weight="bold" tag="h3">
-                    {headerText}
-                </Text>
-                <Button
-                    onClick={() => {
-                        setDisplaySticky(false);
-                        handleClickForCTRcomponent('close');
-                    }}
-                    iconOnly
-                    size="inherit"
+        <section
+            className={`sticky-mobile flex jc-center${!displaySticky && ' hlp-none'}`}
+        >
+            <div className="sticky-mobile-container flex flex-column gap-8 flex-grow-1">
+                <div className="header-sticky">
+                    <div className="flex gap-16 ai-center">
+                        <div className="flex p-4 rounded-4 bg-la-nacion">
+                            <Icon size={12}>
+                                <IconSprite name="productLn" fill="#fff" />
+                            </Icon>
+                        </div>
+                        <Text
+                            className="--prumo --font-black text-16 flex-grow-1"
+                            tag="h3"
+                        >
+                            {headerText}
+                        </Text>
+                        <Button
+                            onClick={() => {
+                                setDisplaySticky(false);
+                                handleClickForCTRcomponent('close');
+                            }}
+                            iconOnly
+                            size="inherit"
+                            aria-hidden="true"
+                        >
+                            <Icon size={24}>
+                                <IconSprite name="close" />
+                            </Icon>
+                        </Button>
+                    </div>
+                </div>
+                <div
                     aria-hidden="true"
-                    className="absolute top-0 right-0"
+                    onClick={() => handleClickForCTRcomponent('open')}
                 >
-                    <Icon size={24}>
-                        <IconSprite name="close" />
-                    </Icon>
-                </Button>
-            </div>
-            <div
-                aria-hidden="true"
-                onClick={() => handleClickForCTRcomponent('open')}
-            >
-                <ComLink link={websiteUrl} title={headlineToUse}>
-                    <ModPicture
-                        src={url}
-                        alt={alt || headlineToUse}
-                        sources={resizedUrls}
-                    />
-                    <Text font="sueca" size="2xs" weight="regular" tag="h2">
-                        {headlineToUse}
-                    </Text>
-                </ComLink>
+                    <Link
+                        href={websiteUrl}
+                        title={headlineToUse}
+                        className="flex ai-start ml-auto mr-auto gap-8"
+                    >
+                        <ModPicture
+                            src={url}
+                            alt={alt || headlineToUse}
+                            sources={resizedUrls}
+                        />
+                        <Text className="arial text-16 --font-regular" tag="h2">
+                            {headlineToUse}
+                        </Text>
+                    </Link>
+                </div>
             </div>
         </section>
     );
-};
+}
 
 StickyMobile.propTypes = {
     headerText: PropTypes.string,
@@ -75,7 +89,15 @@ StickyMobile.propTypes = {
         promo_items: PropTypes.shape({
             basic: PropTypes.shape({
                 url: PropTypes.string,
-                resized_urls: PropTypes.array
+                resized_urls: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        resizedUrl: PropTypes.string,
+                        option: PropTypes.shape({
+                            width: PropTypes.number,
+                            height: PropTypes.number
+                        })
+                    })
+                )
             })
         }),
         website_url: PropTypes.string,

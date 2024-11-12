@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import useGetRecetarioData from './hooks/useGetRecetarioData';
-import { createSummaryList } from '../utils/recetarioHelper';
-
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
+import { createSummaryList } from '../utils/recetarioHelper';
+import useGetRecetarioData from './hooks/useGetRecetarioData';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import CollectionBox from '../collectionBox/foodit';
 
@@ -15,7 +14,7 @@ import BookmarkedArticles from './components/BookmarkedArticles';
 import EditFolderModal from './components/EditFolderModal';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-const RecetarioBody = () => {
+function RecetarioBody() {
     const { loading, userBookmarks, setUserBookmarks } = useGetRecetarioData();
     const { userType } = useGetUserConfig();
     const [selectedItem, setSelectedItem] = useState({});
@@ -29,6 +28,7 @@ const RecetarioBody = () => {
     useEffect(() => {
         if (userBookmarks.length)
             setSummaryList(createSummaryList(userBookmarks));
+        else setSummaryList([]);
     }, [userBookmarks]);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,7 +38,7 @@ const RecetarioBody = () => {
         <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
             <aside className="sm-none col-span-4 bg-positive p-24 p-32_lg">
                 <CollectionBox
-                    title={'Colecciones'}
+                    title="Colecciones"
                     list={summaryList}
                     onItemSelected={setSelectedItem}
                 />
@@ -65,9 +65,7 @@ const RecetarioBody = () => {
                                 <IconSprite name="edit" />
                             </Icon>
                         </Button>
-                    ) : (
-                        <></>
-                    )}
+                    ) : null}
                 </div>
                 {userBookmarks.length ? (
                     <BookmarkedArticles
@@ -97,6 +95,6 @@ const RecetarioBody = () => {
             />
         </div>
     );
-};
+}
 
 export default RecetarioBody;

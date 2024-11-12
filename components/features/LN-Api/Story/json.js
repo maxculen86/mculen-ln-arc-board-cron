@@ -25,7 +25,8 @@ class Story {
                                 banners,
                                 liftigniter,
                                 livefyre,
-                                hide_articles_summary
+                                hide_articles_summary_apps,
+                                hide_articles_glossary_apps
                             }
                             migration {
                                 deadline_livefyre

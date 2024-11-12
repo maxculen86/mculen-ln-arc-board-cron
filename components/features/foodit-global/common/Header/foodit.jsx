@@ -1,66 +1,32 @@
 import React from 'react';
 import { Logo } from '@ln/foodit-ui-logo';
-import { useAppContext } from 'fusion:context';
 import { useDrawer } from '@ln/common-ui-drawer';
-import { DRAWER } from '../DrawerContainer/constants';
 import { Button } from '@ln/common-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Header, MainHeader } from '@ln/common-ui-header';
+import { useContent } from 'fusion:content';
+import { DRAWER } from '../DrawerContainer/constants';
 import { SubHeader } from './components/subHeader/SubHeader';
 import { Search } from './components/Search';
 import { TopNavigationBar } from './components/TopNavigationBar';
 import { Promotions } from './components/promotions/Promotions';
 import LoginSubscribeButtons from './components/LoginSubscribeButtons';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import classNames from 'classnames';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import DrawerMenu from '../DrawerMenu/foodit';
 import transformMenuData from './_helpers';
-import { useContent } from 'fusion:content';
 import filterMenuSections from '../../../../../content/filters/foodit/filterMenuSections';
-import get from '../../../../private/common/utils/get';
-import BellButton from './components/rightOptions/bellButton';
+import { BellButton } from './components/rightOptions/bellButton';
+import { useLayoutHeader } from './hooks/useLayoutHeader';
 
-const HeaderFoodit = () => {
-    const { siteProperties, layout, globalContent } = useAppContext();
+function HeaderFoodit() {
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
-    const isOpen =
-        get(globalContent, 'content_restrictions.content_code') !== 'cerrada';
 
-    const { layoutsName = {} } = siteProperties || {};
-
-    const layoutSheets = [
-        layoutsName.FooditFichaReceta,
-        layoutsName.FooditFichaNota
-    ];
-
-    const layoutsWithSubheader = [
-        layoutsName.FooditHome,
-        layoutsName.FooditFichaReceta,
-        layoutsName.FooditFichaNota,
-        layoutsName.FooditRecetario,
-        layoutsName.FooditAcumulado,
-        layoutsName.FooditListadoCompras,
-        layoutsName.FooditAcumuladoChef,
-        layoutsName.FooditRecipePaywall,
-        layoutsName.FooditChef
-    ];
-
-    const showSubheaderInSheet = layoutSheets.includes(layout) && isOpen;
-    const showSubheaderInLayout = layoutsWithSubheader.includes(layout);
-
-    const marginByLayouts = {
-        [layoutsName.FooditHome]: 'mb-12 mb-40_lg',
-        [layoutsName.FooditFichaReceta]: 'mb-12 mb-40_lg',
-        [layoutsName.FooditRecipePaywall]: 'mb-12 mb-40_lg',
-        [layoutsName.FooditFichaNota]: 'mb-0',
-        default: 'mb-40'
-    };
-
-    const classNameHeaderContainer = classNames(
-        'z-10 w-100 sticky top-0',
-        marginByLayouts[layout] || marginByLayouts.default
-    );
+    const {
+        classNameHeaderContainer,
+        showSubheaderInLayout,
+        showSubheaderInSheet
+    } = useLayoutHeader();
 
     const categories = useContent({
         source: 'navigationSource',
@@ -76,7 +42,7 @@ const HeaderFoodit = () => {
         <>
             <Header classNameContainer={classNameHeaderContainer}>
                 <MainHeader className="z-1">
-                    <MainHeader.Content containerClassName="bg-positive py-16">
+                    <MainHeader.Content containerClassName="bg-positive py-16 border border-bottom border-thin border-light-100">
                         <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
                             <Button
                                 title="Menu"
@@ -131,6 +97,6 @@ const HeaderFoodit = () => {
             <DrawerMenu categories={categories} />
         </>
     );
-};
+}
 
 export default HeaderFoodit;

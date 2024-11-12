@@ -25,7 +25,7 @@ import { reorderArticlesWithTimeline } from '../utils/reorderArticlesWithTimelin
 
 const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
-const CajaManual = props => {
+function CajaManual(props) {
     const {
         id: chainId,
         isAdmin,
@@ -109,7 +109,7 @@ const CajaManual = props => {
     });
 
     return setStaticDynamically(Component, hasVariants, extraOptsDiv, chainId);
-};
+}
 
 CajaManual.label = 'LN10 Caja Manual';
 

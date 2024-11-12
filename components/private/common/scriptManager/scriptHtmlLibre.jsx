@@ -3,7 +3,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import get from '../utils/get';
 
-const ScriptHtmlLibre = props => {
+function ScriptHtmlLibre(props) {
     const {
         globalContent: {
             type,
@@ -34,7 +34,7 @@ const ScriptHtmlLibre = props => {
         )) ||
         null
     );
-};
+}
 
 ScriptHtmlLibre.propTypes = {
     globalContent: PropTypes.shape({

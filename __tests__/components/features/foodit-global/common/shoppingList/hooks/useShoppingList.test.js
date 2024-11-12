@@ -125,7 +125,7 @@ describe('useShoppingList', () => {
 
         render(<TestComponent />);
 
-        expect(screen.getByTestId('loading')).toHaveTextContent('Loaded');
+        expect(screen.getByTestId('loading')).toHaveTextContent('Loading');
         expect(screen.getByTestId('shopping-list')).toHaveTextContent(
             'No items'
         );

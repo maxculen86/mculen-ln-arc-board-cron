@@ -1,3 +1,4 @@
+/* eslint-disable */
 import addGalleryData from './cachedCalls/addGalleryData';
 import {
     addForwardSlashInInterstitialLink,
@@ -175,7 +176,7 @@ export const formatInterstitialLink = (interstitialLink = '') => {
 export const injectGlossaryInText = (text, glossary) => {
     let foundGlossaryWord = false;
     // noHighlighting se debe pasar a true si se necesita apagar el subrayado azul y el tooltip en todas las notas que contengan glosario.
-    const noHighlighting = false;
+    const noHighlighting = true;
 
     if (!(glossary && glossary.length) || noHighlighting)
         return { text, foundGlossaryWord };

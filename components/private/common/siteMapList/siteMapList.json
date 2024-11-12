@@ -362,11 +362,6 @@
                 "mod": "",
                 "list": [
                     {
-                        "text": "canchallena",
-                        "href": "https://canchallena.lanacion.com.ar/",
-                        "target": "_blank"
-                    },
-                    {
                         "text": "Foodit",
                         "href": "https://foodit.lanacion.com.ar/",
                         "target": "_blank"
@@ -374,6 +369,11 @@
                     {
                         "text": "Bonvivir",
                         "href": "https://www.bonvivir.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "text": "canchallena",
+                        "href": "https://canchallena.lanacion.com.ar/",
                         "target": "_blank"
                     },
                     {

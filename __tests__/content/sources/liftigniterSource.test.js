@@ -1,5 +1,5 @@
-import 'regenerator-runtime/runtime';
-import liftigniterSource from '../../../content/sources/liftigniterSource';
+import liftigniterSource, { transform } from '../../../content/sources/liftigniterSource';
+import { addResizedUrls } from '../../../components/private/common/utils/image/resizer/addResizerUrls';
 
 jest.mock('fusion:properties', () => () => ({
     getProperties: () => []
@@ -10,17 +10,7 @@ jest.mock('../../../components/private/common/utils/logger', () => {
     return { push };
 });
 
-jest.mock(
-    '../../../components/private/common/utils/image/resizer/addResizerUrls',
-    () => {
-        return {
-            __esModule: true,
-            addResizedUrls: (x, y) => {
-                return {};
-            }
-        };
-    }
-);
+jest.mock('../../../components/private/common/utils/image/resizer/addResizerUrls');
 
 jest.mock('fusion:environment', () => {
     return {
@@ -232,7 +222,22 @@ jest.mock('request-promise-native', () => {
     };
 });
 
+const getPromoItemsBasic = (url) => {
+    return {
+        promo_items: { 
+            basic: {
+                type: 'image',
+                url
+            } 
+        }
+    }
+}
+
 describe('liftigniter content sources Unit Tests', () => {
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
     const { fetch: fetchContent } = liftigniterSource;
     const query = {
         uri:
@@ -324,4 +329,40 @@ describe('liftigniter content sources Unit Tests', () => {
         });
         expect(resp).toMatchObject(mockResponse);
     });
+
+    it('transform function with data without static resources, you need to call addResizedUrls function 3 times', () => {
+        const data = [
+            getPromoItemsBasic('https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/DOUALSKOUZHE3KDTM5NBJPLUPE.jpg'),
+            getPromoItemsBasic('https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QWERTYKOUZHE3KDTM5NBJPLUPE.jpg'),
+            getPromoItemsBasic('https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ASDFTYKOUZHE3KDTM5NBJPLUPE.jpg')
+          ];
+
+        transform(data, {});
+        expect(addResizedUrls).toHaveBeenCalledTimes(3);
+    })
+
+    it('transformation function with data with static resources, it should not call the addResizedUrls function and should return empty promo_items.basic', () => {
+        const data = [
+            getPromoItemsBasic('https://example.com/resources/images/promo1.jpg'),
+            getPromoItemsBasic('https://example.com/resources/images/promo2.jpg'),
+        ];
+
+        const response = transform(data,{});
+        expect(addResizedUrls).toHaveBeenCalledTimes(0);
+        expect(response).toStrictEqual([
+            { promo_items: { basic: {} } },
+            { promo_items: { basic: {} } }
+        ])
+    })
+
+    it('transform function with data with static and dynamic resources, you must call the addResizedUrls function 1 time', () => {
+        const data = [
+            getPromoItemsBasic('https://example.com/resources/images/promo1.jpg'),
+            getPromoItemsBasic('https://example.com/resources/images/promo2.jpg'),
+            getPromoItemsBasic('https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ASDFTYKOUZHE3KDTM5NBJPLUPE.jpg')
+        ];
+
+        transform(data, {});
+        expect(addResizedUrls).toHaveBeenCalledTimes(1)
+    })
 });

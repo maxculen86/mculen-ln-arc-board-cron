@@ -8,23 +8,21 @@ import { isSubscribed } from '../../../../auth/helper/loginHelper';
 import { useAppContext } from 'fusion:context';
 import '@testing-library/jest-dom';
 import StickyMobile from '../../../../components/private/LN/nota/StickyMobile';
-import { useContent as getContent } from 'fusion:content';
+import { getDataContent } from '../../../../components/features/LN-10/ranking/_helper';
 
-jest.mock('fusion:content', () => ({
-    useContent: jest.fn(),
-    getContent: jest.fn() // Agregando esta línea
-}));
+const mockSetTrigger = jest.fn();
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn()
-}));
+jest.mock('fusion:context', () => ({ useAppContext: jest.fn() }));
 jest.mock('../../../../components/private/common/hooks/useViewportSize', () =>
     jest.fn()
 );
 jest.mock('../../../../auth/helper/loginHelper');
-
-const mockSetTrigger = jest.fn();
-
+jest.mock('../../../../components/features/LN-10/ranking/_helper', () => ({
+    ...jest.requireActual(
+        '../../../../components/features/LN-10/ranking/_helper'
+    ),
+    getDataContent: jest.fn()
+}));
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
     useState: jest.fn(initial => [initial, mockSetTrigger]),
@@ -64,18 +62,25 @@ describe('CTRNota', () => {
         expect(!!articleToShow).toBe(true);
     });
 
-    it('should call useContent and useAppContext with expected parameters', () => {
-        useAppContext.mockReturnValue({ globalContent: {} });
+    it('should call getDataContent with expected parameters', () => {
+        useAppContext.mockReturnValue({
+            globalContent: {
+                _id: '/sociedad',
+                node_type: 'section'
+            },
+            website: 'la-nacion-ar',
+            arcSite: 'la-nacion-ar'
+        });
         useViewportSize.mockReturnValue('mobile');
         isSubscribed.mockReturnValue(false);
 
         render(<CTRNota />);
 
-        expect(getContent).toHaveBeenCalledWith(
-            expect.objectContaining({
-                source: 'rankingArticlesSource',
-                query: expect.objectContaining({ sectionId: 'inverse-home' })
-            })
+        expect(getDataContent).toHaveBeenCalledWith(
+            'sociedad',
+            '',
+            'la-nacion-ar',
+            ''
         );
     });
 

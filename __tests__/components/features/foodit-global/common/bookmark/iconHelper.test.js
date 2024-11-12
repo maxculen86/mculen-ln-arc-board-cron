@@ -2,10 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RenderCollection from '../../../../../../components/chains/foodit-global/common/RenderCollection/foodit';
-import {
-    fillBookmarks,
-    unfillBookmarks
-} from '../../../../../../components/features/foodit-global/common/bookmark/iconHelper';
+import { toggleBookmarks } from '../../../../../../components/features/foodit-global/common/bookmark/iconHelper';
 
 import articlesTransformed from '../../../../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed';
 
@@ -47,7 +44,7 @@ describe('Bookmark functionality tests', () => {
             'AAABBBCCC000',
             'AAABBBCCD111'
         ];
-        fillBookmarks(articleIds);
+        toggleBookmarks(articleIds, true);
 
         const elements = Array.from(document.querySelectorAll('svg'));
 
@@ -86,7 +83,7 @@ describe('Bookmark functionality tests', () => {
         });
 
         // Finally, i unfill al the bookmarks
-        unfillBookmarks(articleIds);
+        toggleBookmarks(articleIds, false);
 
         articleIds.forEach(bookmarkTypeId => {
             const articleIdElements = elements.flatMap(el =>

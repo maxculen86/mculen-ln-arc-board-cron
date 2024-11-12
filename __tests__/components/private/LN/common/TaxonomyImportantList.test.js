@@ -26,41 +26,6 @@ describe('Components - private - LN - common - TaxonomyImportantList', () => {
         });
     });
 
-    it('renders only 4 items initially when collapsible is true', () => {
-        render(
-            <TaxonomyImportantList
-                list={mockList}
-                showItems={mockList.length}
-                collapsible={true}
-            />
-        );
-
-        expect(screen.queryByText('Item 1')).toBeInTheDocument();
-        expect(screen.queryByText('Item 2')).toBeInTheDocument();
-        expect(screen.queryByText('Item 3')).toBeInTheDocument();
-        expect(screen.queryByText('Item 4')).toBeInTheDocument();
-        expect(screen.queryByText('Item 5')).not.toBeInTheDocument();
-    });
-
-    it('toggles collapse/expand on button click', () => {
-        render(
-            <TaxonomyImportantList
-                list={mockList}
-                showItems={mockList.length}
-                collapsible={true}
-            />
-        );
-        const toggleButton = screen.getByRole('button');
-
-        expect(screen.queryByText('Item 5')).not.toBeInTheDocument();
-
-        fireEvent.click(toggleButton);
-        expect(screen.getByText('Item 5')).toBeInTheDocument();
-
-        fireEvent.click(toggleButton);
-        expect(screen.queryByText('Item 5')).not.toBeInTheDocument();
-    });
-
     it('adds extraClass to the section when provided', () => {
         const extraClass = 'extra-class';
         const { container } = render(

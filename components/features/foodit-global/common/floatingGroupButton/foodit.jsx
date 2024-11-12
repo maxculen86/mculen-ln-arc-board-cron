@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { Groupbutton } from '@ln/common-ui-groupbutton';
 import { Button } from '@ln/foodit-ui-button';
-import { useFloatingGroupButton } from './useFloatingGroupButton';
 import classNames from 'classnames';
+import { useFloatingGroupButton } from './useFloatingGroupButton';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-export const FloatingGroupButton = ({
+export function FloatingGroupButton({
     buttons = [],
     className = '',
     observerSelector
-}) => {
+}) {
     const { visible } = useFloatingGroupButton({ observerSelector });
     const { userType } = useGetUserConfig();
 
@@ -24,6 +25,7 @@ export const FloatingGroupButton = ({
         <Groupbutton className={_className}>
             {buttons.map((button, i) => (
                 <Button
+                    // eslint-disable-next-line react/no-array-index-key
                     key={`button-${i}`}
                     size={32}
                     {...button}
@@ -32,6 +34,24 @@ export const FloatingGroupButton = ({
             ))}
         </Groupbutton>
     );
+}
+
+FloatingGroupButton.propTypes = {
+    buttons: PropTypes.arrayOf(
+        PropTypes.shape({
+            onClick: PropTypes.func,
+            title: PropTypes.string,
+            disabled: PropTypes.bool
+        })
+    ),
+    className: PropTypes.string,
+    observerSelector: PropTypes.string
+};
+
+FloatingGroupButton.defaultProps = {
+    buttons: [],
+    className: '',
+    observerSelector: ''
 };
 
 export default FloatingGroupButton;

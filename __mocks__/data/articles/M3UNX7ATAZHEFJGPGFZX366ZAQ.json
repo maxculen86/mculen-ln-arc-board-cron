@@ -281,6 +281,116 @@
             "type": "image",
             "url": "https://resizer.glanacion.com/resizer/RFCn9Otys9auyof-esX47w0lHP4=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KM3ZL7M3SNEMTJXEYSKCKQOYUA",
             "width": 768
+        },
+        "glossary": {
+            "_id": "ZLOHV44D75PYTKU4PUPKDI332Y",
+            "embed": {
+                "config": {
+                    "arrayData": [
+                        {
+                            "key": "LA NACION",
+                            "value": "Medio de comunicación."
+                        },
+                        {
+                            "key": "MAC",
+                            "value": "Ministerio de Economia."
+                        },
+                        {
+                            "key": "ONU",
+                            "value": "Organización de las Naciones Unidas."
+                        }
+                    ],
+                    "fromComposer": false,
+                    "idArticle": "P26UHA5OCRFNLC6Z3MLSVWCKTU"
+                },
+                "id": "1727114277921",
+                "url": "https://sandbox.lanacion.com.ar"
+            },
+            "subtype": "custom-glossary",
+            "type": "custom_embed"
+        },
+        "summary": {
+            "_id": "5RGG46C3ZBPTNMMHTPOGAL6UYM",
+            "embed": {
+                "config": {
+                    "arrayBullets": [
+                        "<span>Presentación atípica del Presupuesto 2025 por Javier Milei en el Congreso a las 21 del domingo para promover el déficit fiscal cero y advertir que vetará lo que no se ajuste a su visión.</span>",
+                        "<span>Algunos legisladores de la oposición buscarán participar, pero con ausencias, en señal de descontento y rechazo a ser parte de un espectáculo mediático.</span>",
+                        "<span>El mensaje de la Casa Rosada a los libertarios fue claro: deben asistir completos al evento, incluso ante el paro de pilotos que complicará los viajes.</span>"
+                    ],
+                    "editorState": {
+                        "root": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Presentación atípica del Presupuesto 2025 por Javier Milei en el Congreso a las 21 del domingo para promover el déficit fiscal cero y advertir que vetará lo que no se ajuste a su visión.",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Algunos legisladores de la oposición buscarán participar, pero con ausencias, en señal de descontento y rechazo a ser parte de un espectáculo mediático.",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "El mensaje de la Casa Rosada a los libertarios fue claro: deben asistir completos al evento, incluso ante el paro de pilotos que complicará los viajes.",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                }
+                            ],
+                            "direction": "ltr",
+                            "format": "",
+                            "indent": 0,
+                            "type": "root",
+                            "version": 1
+                        }
+                    },
+                    "fromComposer": false,
+                    "idArticle": "CONIZAHYKRBELMJ5JNBO4BJCPE"
+                },
+                "id": "1729803952378",
+                "url": "https://sandbox.lanacion.com.ar"
+            },
+            "subtype": "custom-resumen",
+            "type": "custom_embed"
         }
     },
     "publish_date": "2021-11-10T00:15:13.460Z",

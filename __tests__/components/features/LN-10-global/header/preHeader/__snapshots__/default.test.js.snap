@@ -1,5 +1,163 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Components - Features - LN-10-global - header - preHeader - default If termica is off shouldnt call source and render preHeader without weather 1`] = `
+<div>
+  <div>
+    <div
+      class="ln-pre-header flex ai-center h-48 bg-neutral-light-50 relative --tablet-none"
+    >
+      <div
+        class="lay-container"
+      >
+        <div
+          class="flex ai-center"
+        >
+          <div
+            class="brands-container flex ai-center overflow-hidden relative"
+          >
+            <nav
+              class="brands flex ai-center --scroll-x pr-60"
+            >
+              <ul
+                class="brands-list inline-flex gap-28"
+              >
+                <li
+                  class="w-max flex ai-center text-neutral-light-800"
+                >
+                  <a
+                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    data-event="e_linkclick"
+                    href="https://club.lanacion.com.ar/"
+                    rel="nofollow"
+                    target="_blank"
+                    title="CLUB LN"
+                  >
+                    <i
+                      class="icon"
+                      style="height: 20px;"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="clubLnDefault"
+                      />
+                    </i>
+                    CLUB LN
+                  </a>
+                </li>
+                <li
+                  class="w-max flex ai-center text-neutral-light-800"
+                >
+                  <a
+                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    data-event="e_linkclick"
+                    href="https://lnmas.lanacion.com.ar/"
+                    rel="nofollow"
+                    target="_blank"
+                    title="LN+ EN VIVO"
+                  >
+                    <i
+                      class="icon"
+                      style="height: 20px;"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="lnMas"
+                      />
+                    </i>
+                    EN VIVO
+                  </a>
+                </li>
+                <li
+                  class="w-max flex ai-center text-neutral-light-800"
+                >
+                  <a
+                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    data-event="e_linkclick"
+                    href="https://foodit.lanacion.com.ar/"
+                    rel="nofollow"
+                    target="_blank"
+                    title="FOODIT"
+                  >
+                    <i
+                      class="icon"
+                      style="height: 20px;"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="foodit"
+                        width="17"
+                      />
+                    </i>
+                    FOODIT
+                  </a>
+                </li>
+                <li
+                  class="w-max flex ai-center text-neutral-light-800"
+                >
+                  <a
+                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    data-event="e_linkclick"
+                    href="https://canchallena.lanacion.com.ar/"
+                    rel="nofollow"
+                    target="_blank"
+                    title="CANCHALLENA"
+                  >
+                    <i
+                      class="icon"
+                      style="height: 20px;"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="canchallena"
+                        width="12"
+                      />
+                    </i>
+                    CANCHALLENA
+                  </a>
+                </li>
+                <li
+                  class="w-max flex ai-center text-neutral-light-800"
+                >
+                  <a
+                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    data-event="e_linkclick"
+                    href="https://bonvivir.com/"
+                    rel="nofollow"
+                    target="_blank"
+                    title="BONVIVIR"
+                  >
+                    <i
+                      class="icon"
+                      style="height: 20px;"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="bonvivir"
+                        width="11"
+                      />
+                    </i>
+                    BONVIVIR
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      defer=""
+      id="script-pre-header-event"
+    />
+  </div>
+</div>
+`;
+
 exports[`Components - Features - LN-10-global - header - preHeader - default should match snapshot of PreHeader 1`] = `
 <div
   class="ln-pre-header flex ai-center h-48 bg-neutral-light-50 relative --tablet-none"
@@ -11,7 +169,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
       class="flex ai-center"
     >
       <a
-        class="link ln-link --weather mr-16"
+        class="link ln-link --weather mr-16 pr-16 border border-right border-thin border-neutral-light-200"
         data-event="e_linkclick"
         data-section="MenuLN"
         href="/clima"
@@ -42,7 +200,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
         </div>
       </a>
       <div
-        class="brands-container flex ai-center pl-16 border border-left border-thin border-neutral-light-200 overflow-hidden relative"
+        class="brands-container flex ai-center overflow-hidden relative"
       >
         <nav
           class="brands flex ai-center --scroll-x pr-60"

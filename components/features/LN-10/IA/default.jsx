@@ -4,25 +4,23 @@ import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import { IaTools } from './common/iaTools';
 import useIaData from './hooks/useIaData';
-import useIaVisibility from './hooks/useIaVisibility';
 import '../../../../resources/packages/css/@ln/common-ui-collapse/index.css';
 
 function LnIa({
     customFields: { hideSummary = false, hideGlossary = false } = {}
 }) {
     const { globalContent } = useAppContext();
-    const { isVisible, handleClose } = useIaVisibility();
     const { iaData, shouldShowSummary, shouldShowGlossary } = useIaData(
         globalContent,
         hideSummary,
         hideGlossary
     );
 
-    if (!isVisible || (!shouldShowSummary && !shouldShowGlossary)) {
+    if (!shouldShowSummary && !shouldShowGlossary) {
         return null;
     }
 
-    return <IaTools iaData={iaData} handleClose={handleClose} />;
+    return <IaTools iaData={iaData} />;
 }
 
 LnIa.label = 'LN-IA';

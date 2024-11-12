@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { getSectionOfRequestUri } from './utils/outputTypeHelper';
+import removeExtraSpaces from './utils/removeExtraSpaces';
 
-const MetaTitle = ({
+function MetaTitle({
     arcSite,
     title,
     nodeType,
@@ -10,8 +11,8 @@ const MetaTitle = ({
     defaultTitle,
     ottMetaTitle,
     requestUri
-}) => {
-    if (!['la-nacion-ar', 'ott'].includes(arcSite)) return <></>;
+}) {
+    if (!['la-nacion-ar', 'ott'].includes(arcSite)) return null;
 
     const setContent = () => {
         if (arcSite === 'ott') return ottMetaTitle;
@@ -24,7 +25,7 @@ const MetaTitle = ({
         let metaTitleForAcum = '';
 
         if (acusWithMeta.includes(nodeType)) {
-            metaTitleForAcum = title;
+            metaTitleForAcum = removeExtraSpaces(title);
             metaTitleForStory = undefined;
         }
 
@@ -36,7 +37,7 @@ const MetaTitle = ({
     const content = setContent();
 
     return <meta name="title" content={content} />;
-};
+}
 
 MetaTitle.propTypes = {
     arcSite: PropTypes.string.isRequired,

@@ -1,9 +1,11 @@
 import {
-    addToDataLayer,
-    isInDatalayerEvent
+    isInDatalayerEvent,
+    addVideoDisplayEvent
 } from '../../utils/videoPlayerHelper';
-import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
-import transformISODate from '../../../../private/common/utils/transformISODate';
+
+import { FOTOAL100 } from '../../utils/subtypes/subtypeHelper';
+import transformISODate from '../../utils/transformISODate';
+import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
 
 export const configClassName = {
     'la-nacion-ar': {
@@ -48,7 +50,7 @@ export function formatJwPlayerDate(timestamp) {
     if (!timestamp) return '';
 
     const date = new Date(timestamp * 1000);
-    const formattedDate = date.toISOString().slice(0, -5) + 'Z';
+    const formattedDate = `${date.toISOString().slice(0, -5)}Z`;
 
     return formattedDate;
 }
@@ -80,7 +82,7 @@ export const getJWScript = (
         scriptElement.src = `https://cdn.jwplayer.com/libraries/${player}.js`;
         document.head.appendChild(scriptElement);
 
-        scriptElement.addEventListener('load', function() {
+        scriptElement.addEventListener('load', () => {
             window.jwplayer(`${idVideo}`).setup({
                 playlist,
                 autostart,
@@ -112,12 +114,11 @@ export const getJWScript = (
         ? setJwScript()
         : facadeDiv.addEventListener('click', setJwScript);
 
-    !isInDatalayerEvent('videoDisplay', `${idVideo}`) &&
-        addToDataLayer('videoDisplay', `${title}`, `${idVideo}`);
+    addVideoDisplayEvent({ title, idVideo });
 };
 
 export const handleVideoEventsScript = (title, idVideo) => {
-    window.jwplayer(`${idVideo}`).on('ready', function(e) {
+    window.jwplayer(`${idVideo}`).on('ready', () => {
         const element = document.querySelector('.video-player');
         if (element) element.classList.remove('bg-black');
     });
@@ -128,12 +129,16 @@ export const handleVideoEventsScript = (title, idVideo) => {
     ];
 
     events.forEach(event => {
-        window.jwplayer(`${idVideo}`).on(event.jwEvent, function(e) {
-            addToDataLayer(event.eventName, `${title}`, `${idVideo}`);
+        window.jwplayer(`${idVideo}`).on(event.jwEvent, () => {
+            addEventToDataLayerV2({
+                event: event.eventName,
+                videoName: `${title}`,
+                videoID: `${idVideo}`
+            });
         });
     });
 
-    window.jwplayer(`${idVideo}`).on('time', function(e) {
+    window.jwplayer(`${idVideo}`).on('time', e => {
         const percent = Math.floor((e.currentTime / e.duration) * 100);
         const percentagesToCheck = [25, 50, 75];
 
@@ -142,14 +147,22 @@ export const handleVideoEventsScript = (title, idVideo) => {
                 !isInDatalayerEvent(percentage.toString(), `${idVideo}`) &&
                 percent === percentage
             ) {
-                addToDataLayer(percentage.toString(), `${title}`, `${idVideo}`);
+                addEventToDataLayerV2({
+                    event: percentage.toString(),
+                    videoName: `${title}`,
+                    videoID: `${idVideo}`
+                });
             }
         });
     });
 
-    window.jwplayer(`${idVideo}`).on('complete', function(e) {
+    window.jwplayer(`${idVideo}`).on('complete', () => {
         if (!isInDatalayerEvent('videoComplete', `${idVideo}`)) {
-            addToDataLayer('videoComplete', `${title}`, `${idVideo}`);
+            addEventToDataLayerV2({
+                event: 'videoComplete',
+                videoName: `${title}`,
+                videoID: `${idVideo}`
+            });
         }
     });
 };

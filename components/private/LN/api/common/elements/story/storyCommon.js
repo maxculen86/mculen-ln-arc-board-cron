@@ -2,6 +2,7 @@ import get from '../../../../../common/utils/get';
 import sentToApps from '../label/sentToApps';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
+import getIa from './ia';
 import Metadata from './metadata';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
@@ -27,22 +28,17 @@ export const storyHeadline = (dataNota, type) => {
     if (dataNota.subtype === '9' && type === 'global') return null;
 
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
-    const {
-        first_publish_date: publishDate,
-        display_date: displayDate
-    } = dataNota;
+    const { first_publish_date: publishDate, display_date: displayDate } =
+        dataNota;
 
-    const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
-        publishDate
-    );
+    const { date: formatPublishDate, time: formatUpdateTime } =
+        dateAndTimeUtil(publishDate);
 
     const edition = get(dataNota, 'label.edicion.text', null);
     const isPrintEdition = edition && edition.toLowerCase() === 'impresa';
 
-    const {
-        date: formatDislplayDate,
-        time: formatDislplayTime
-    } = dateAndTimeUtil(displayDate);
+    const { date: formatDislplayDate, time: formatDislplayTime } =
+        dateAndTimeUtil(displayDate);
 
     return {
         fechaActualizacion: `${formatDislplayDate}${
@@ -73,10 +69,7 @@ export const storyCommon = (dataNota, cuerpo) => {
     let isTrust;
     if (trust) {
         isTrust = /nomostrartrust/.test(
-            trust
-                .toLowerCase()
-                .replace(/ /g, '')
-                .trim()
+            trust.toLowerCase().replace(/ /g, '').trim()
         );
     }
 
@@ -111,7 +104,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor),
         trust: !isTrust,
-        metadata: Metadata(dataNota)
+        metadata: Metadata(dataNota),
+        ia: getIa(dataNota, subtype)
     };
 
     if (dataNota.subtype === '9') resp.HTML = cuerpo;

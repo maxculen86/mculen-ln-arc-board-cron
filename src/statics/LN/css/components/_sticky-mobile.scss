@@ -22,28 +22,19 @@
     padding: px(8) px(16) px(16) px(16);
     animation: bottomIn 0.3s ease-in;
 
-    .header-sticky {
-        position: relative;
-        color: $light-neutral-800;
-        margin-bottom: px(8);
-
-        :first-child {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
+    .sticky-mobile-container {
+        max-width: px(500);
     }
 
-    .com-link {
-        display: flex;
-        align-items: start;
-        margin-left: auto;
-        margin-right: auto;
+    .header-sticky {
+        color: $light-neutral-800;
+    }
+
+    .ln-link {
         margin-bottom: px(94);
-        max-width: px(400);
         color: $neutral-black;
 
-        .com-text {
+        .text {
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -54,7 +45,6 @@
 
         .placeholder {
             margin: 0;
-            margin-right: px(8);
             width: fit-content;
 
             .com-image {

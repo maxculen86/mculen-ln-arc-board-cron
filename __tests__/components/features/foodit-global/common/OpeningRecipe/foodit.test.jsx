@@ -7,9 +7,10 @@ import '@testing-library/jest-dom';
 import OpeningRecipe from '../../../../../../components/features/foodit-global/common/OpeningRecipe/foodit';
 import withVideoArticle from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/withVideoOpening.json';
 import Article from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/fichaReceta.json';
+import { toggleBookmarks } from '../../../../../../components/features/foodit-global/common/bookmark/iconHelper';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -33,8 +34,7 @@ describe('OpeningRecipe Component', () => {
         photo: {
             _id: 'QIMN3EHZZBHCFIOTSI6W6YHBJY',
             caption: 'Acompañá las patas de pollo con zucchinis',
-            url:
-                'https://sandbox.lanacion.com.ar/resizer/v2/acompana-las-patas-de-pollo-con-QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg?auth=3ff6e6c5380b892cfea80e335c062ca52c16b8a5e04a5d4635c54f0ac3e3e915&width=768&height=512&quality=70&smart=true',
+            url: 'https://sandbox.lanacion.com.ar/resizer/v2/acompana-las-patas-de-pollo-con-QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg?auth=3ff6e6c5380b892cfea80e335c062ca52c16b8a5e04a5d4635c54f0ac3e3e915&width=768&height=512&quality=70&smart=true',
             resized_urls: [
                 /* array of resized URLs */
             ]
@@ -54,6 +54,29 @@ describe('OpeningRecipe Component', () => {
     it('renders without crashing', () => {
         const { container } = render(<OpeningRecipe article={Article} />);
         expect(container).toBeTruthy();
+    });
+
+    it('Should have the correct text on the save bookmark button', () => {
+        const { container } = render(<OpeningRecipe article={Article} />);
+        expect(container).toBeTruthy();
+        const articleId = '6YTYZNJHLBCKRK3U62UGQCJXFY';
+
+        const button = document.querySelector(`button[data-id="${articleId}"]`);
+        expect(button).toBeDefined();
+
+        // Initially, the button should display "Guardar"
+        expect(button.textContent).toContain('Guardar');
+        expect(button.textContent).not.toContain('Guardado');
+
+        // After saving the article, the button should display "Guardado"
+        toggleBookmarks([articleId], true);
+        expect(button.textContent).not.toContain('Guardar');
+        expect(button.textContent).toContain('Guardado');
+
+        // After removing the bookmark, the button should display "Guardar" again
+        toggleBookmarks([articleId], false);
+        expect(button.textContent).toContain('Guardar');
+        expect(button.textContent).not.toContain('Guardado');
     });
 
     it('displays the headline correctly', () => {

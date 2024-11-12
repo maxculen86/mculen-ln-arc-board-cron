@@ -67,9 +67,15 @@ function EmptyState({ variant, className, direction = 'row' }) {
 }
 
 EmptyState.propTypes = {
-    variant: PropTypes.isRequired,
-    direction: PropTypes.isRequired,
-    className: PropTypes.isRequired
+    variant: PropTypes.string,
+    direction: PropTypes.string,
+    className: PropTypes.string
+};
+
+EmptyState.defaultProps = {
+    variant: '',
+    direction: 'row',
+    className: ''
 };
 
 export default EmptyState;

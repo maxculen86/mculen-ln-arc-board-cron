@@ -4,7 +4,7 @@ export default {
     RESIZER_URL: 'https://resizer.glanacion.com/resizer',
     RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
     RESIZER_KEY:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFBlPZMQdmI1mewscHTzb/BAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAyE1bawAzVQX0z2mAgEQgDsU2eFLGS7c9DKgHAiRtFqUlI1iDycLd4NJQOX7QpYVZjTiLT9AUmFefdVOop88yABc4R+YYCzSh24wCA==}', //NOSONAR
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFBlPZMQdmI1mewscHTzb/BAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAyE1bawAzVQX0z2mAgEQgDsU2eFLGS7c9DKgHAiRtFqUlI1iDycLd4NJQOX7QpYVZjTiLT9AUmFefdVOop88yABc4R+YYCzSh24wCA==}', // NOSONAR
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
     RELOGIN_VALIDATION: '8121600000',
     SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
@@ -13,8 +13,6 @@ export default {
         'https://ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     COOKIE_EXPIRATION: '8640000000',
     DOMINIO_COOKIE: '.lanacion.com.ar',
-    RANKING_URL:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEvVtWN/N+5GpAPlrm4TREvAAAA9DCB8QYJKoZIhvcNAQcGoIHjMIHgAgEAMIHaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDNmt+JpSIOcOFmOzZAIBEICBrLsDCDh1UoBoXtAJWTqpeiqOMFJj821gGFwtbNsuqAshpm/UcBJaF6fGBv1XoDsTRDdayM6pJTVBml+vnRZRaXM361RMuG5PkRHXH0m2p0hxkNyg/QYtTBMfJahKdYuNfCXtj1n+WPQA/YZ+QReY2c8ZZ0ADJ8SxLjTpUboaQtZgjDQ+j5rf+XWg7mVPb9wqzmueNMQa7RHUWNXMBg6Pxz+2NPUo+ZmLjrUfuKE=}', //NOSONAR
     OPTA_WIDGET_URL: 'https://arc-widgets.lanacion.com.ar/opta-embed',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
@@ -22,9 +20,8 @@ export default {
     SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/',
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', //NOSONAR
-    JSK_ID:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH+QyVcvBB00Xwj8urCVYyvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMUYQQ3RWuAEyjE8zpAgEQgCuj3dibucAuSygtWLyaaA65Q5kOwJBTbHqTgWH5Po4ut7uHf7lVCFSm7gwO}', //NOSONAR
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', // NOSONAR
+    JSK_ID: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH+QyVcvBB00Xwj8urCVYyvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMUYQQ3RWuAEyjE8zpAgEQgCuj3dibucAuSygtWLyaaA65Q5kOwJBTbHqTgWH5Po4ut7uHf7lVCFSm7gwO}', // NOSONAR
     DATADOG_CONFIG: {
         ott: {
             clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
@@ -131,5 +128,7 @@ export default {
         storageBucket: 'lanacion-92a91.appspot.com',
         appId: '1:221085116662:web:edf51a66aec1572a2924d7'
     },
-    API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/'
+    API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/',
+    ARC_ACCESS_TOKEN_PROD:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}'
 };

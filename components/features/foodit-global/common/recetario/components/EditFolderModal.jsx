@@ -1,34 +1,41 @@
-import React, { useRef } from 'react';
-
-import useInputListener from '../../Modals/SaveRecipe/hooks/useInputListener';
+import React, { useRef, useEffect } from 'react';
+import PropTypes from 'fusion:prop-types';
 import { Animate } from '@ln/common-ui-animate';
 import { Text } from '@ln/common-ui-text';
 import { Modal as ModalFoodit } from '@ln/foodit-ui-modal';
 import { Inputfield } from '@ln/common-ui-inputfield';
 import { Button } from '@ln/foodit-ui-button';
+import useInputListener from '../../Modals/SaveRecipe/hooks/useInputListener';
 import { renameFolder } from '../helpers/editFolderHelper';
 import { ErrorMessage } from '../../errorMessage/foodit';
 
-const EditFolderModal = ({
+function EditFolderModal({
     onClose,
     setUserBookmarks,
     setSelectedItem,
     folderId = '',
     isOpen
-}) => {
+}) {
     const inputRef = useRef(null);
 
     const {
         onChange: onInputFolderChange,
         value: inputValue,
         error: inputError,
-        restoreInputValue
+        restoreInputValue,
+        setValue
     } = useInputListener(folderId);
 
     const handleClose = () => {
         restoreInputValue();
         onClose();
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            setValue(folderId);
+        }
+    }, [isOpen, folderId, setValue]);
 
     return (
         <Animate
@@ -39,9 +46,7 @@ const EditFolderModal = ({
             show={isOpen}
         >
             <ModalFoodit
-                classNameModal={
-                    'rounded-4 h-fit p-16 p-24_md p-32_lg flex gap-16 gap-24_md gap-32_lg bg-light-1 max-w-328'
-                }
+                classNameModal="rounded-4 h-fit p-16 p-24_md p-32_lg flex gap-16 gap-24_md gap-32_lg bg-light-1 max-w-328"
                 classNameWrapper="px-16"
                 id="modal-save"
                 onClose={handleClose}
@@ -79,7 +84,7 @@ const EditFolderModal = ({
                 <footer className="flex gap-16">
                     <Button
                         variant="primary"
-                        title={'Guardar'}
+                        title="Guardar"
                         fullWidth
                         size={40}
                         onClick={() => {
@@ -91,13 +96,16 @@ const EditFolderModal = ({
                                 setUserBookmarks
                             });
                         }}
-                        disabled={Boolean(inputError?.hasError)}
+                        disabled={
+                            Boolean(inputError?.hasError) ||
+                            inputValue === folderId
+                        }
                     >
                         Guardar
                     </Button>
                     <Button
                         variant="secondary"
-                        title={'Cancelar'}
+                        title="Cancelar"
                         size={40}
                         fullWidth
                         onClick={handleClose}
@@ -108,6 +116,13 @@ const EditFolderModal = ({
             </ModalFoodit>
         </Animate>
     );
-};
+}
 
+EditFolderModal.propTypes = {
+    onClose: PropTypes.isRequired,
+    setUserBookmarks: PropTypes.isRequired,
+    setSelectedItem: PropTypes.isRequired,
+    folderId: PropTypes.isRequired,
+    isOpen: PropTypes.isRequired
+};
 export default EditFolderModal;

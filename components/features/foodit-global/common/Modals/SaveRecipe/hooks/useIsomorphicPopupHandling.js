@@ -67,7 +67,7 @@ export default function useIsomorphicPopupHandling() {
     }, []);
 
     const close = customActions => {
-        if (customActions) {
+        if (typeof customActions === 'function') {
             customActions();
         }
 
