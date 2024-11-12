@@ -2,6 +2,8 @@ export default {
     IS_DEV: 'false',
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
+    RANKING_URL:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHbvhzM7N/1VqWBWWCSB4BkAAAA9DCB8QYJKoZIhvcNAQcGoIHjMIHgAgEAMIHaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCh+jeuLh3vFdbvoZgIBEICBrBfhWaHiwfcVU+lITUpTUEAUw4YrxGgFldk4xQFCU8bR7zjjSm9N44UbwGZoMhvJl2R7d8/sx/iNMOattoU4a3BcSmTTrWruS6XZ0ugsWJsJ+tvb23mA3Ym9AqCGQmgC5aZdd8DD3qdqM/40cnjwIzb0+ZiCy21jH5OitS5OEmb728IIfD0/nqfhW1mquFeV9hjtLFRObJSOXk0Vb04JbVSa4uj/Q692o9r9wgQ=}', //NOSONAR
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     OPTA_WIDGET_URL: 'https://arc-widgets.lanacion.com.ar/opta-embed',
@@ -10,8 +12,9 @@ export default {
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', // NOSONAR
-    JSK_ID: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEVr42BnMp3X/xiq4mYxhNRAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMJkLlbI3ku0UaYK6AgEQgCsYTpwEAAWr+ASzy+7LguXottQzsdBvZxQgd0VZopz3OYzVquvzD0iZ2urE}', // NOSONAR
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', //NOSONAR
+    JSK_ID:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEVr42BnMp3X/xiq4mYxhNRAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMJkLlbI3ku0UaYK6AgEQgCsYTpwEAAWr+ASzy+7LguXottQzsdBvZxQgd0VZopz3OYzVquvzD0iZ2urE}', //NOSONAR
     DATADOG_CONFIG: {
         ott: {
             clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
@@ -118,7 +121,5 @@ export default {
         storageBucket: 'lanaciontest-24eed.appspot.com',
         appId: '1:247148690244:web:067b18e931dd7c55e77511'
     },
-    API_NOTIFICATION: 'https://qa-notificaciones.lanacion.com.ar/api/',
-    ARC_ACCESS_TOKEN_PROD:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}'
+    API_NOTIFICATION: 'https://qa-notificaciones.lanacion.com.ar/api/'
 };

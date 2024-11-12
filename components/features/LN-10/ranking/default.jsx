@@ -15,19 +15,14 @@ import CommonCollection from '../../../private/LN10/home/components/CommonCollec
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
 
-function RankingFeature({ id: featureId }) {
-    const {
-        website,
-        arcSite,
+const RankingFeature = ({ id: featureId }) => {
+    const { website, arcSite, layout, globalContent = {} } = useAppContext();
+
+    const { title, sectionId, rankingLayout } = getRankingProps(
         layout,
-        globalContent = {},
-        isAdmin
-    } = useAppContext();
-    const {
-        title = '',
-        sectionId,
-        rankingLayout
-    } = getRankingProps(layout, featureId, globalContent);
+        featureId,
+        globalContent
+    );
 
     const sectionParentId = getSectionParentId(sectionId);
 
@@ -49,25 +44,29 @@ function RankingFeature({ id: featureId }) {
 
     const rules = diagramationRules(RANKING_LAYOUT) || [];
 
-    if (!articles?.length) return null;
+    const component = articles.length ? (
+        <div {...extraOptsDiv}>
+            <section {...extraOpts}>
+                <CommonCollection
+                    roofData={{ title }}
+                    rules={rules}
+                    position="0190"
+                    articles={replaceUrlsByEnvironment(articles)}
+                    gridType={RANKING_LAYOUT}
+                    ContainerCards={Cajaranking}
+                />
+            </section>
+        </div>
+    ) : (
+        <></>
+    );
 
     return (
         <Static id={featureId} htmlOnly>
-            <div {...extraOptsDiv}>
-                <section {...extraOpts}>
-                    <CommonCollection
-                        roofData={{ title, isAdmin }}
-                        rules={rules}
-                        position="0190"
-                        articles={replaceUrlsByEnvironment(articles)}
-                        gridType={RANKING_LAYOUT}
-                        ContainerCards={Cajaranking}
-                    />
-                </section>
-            </div>
+            {component}
         </Static>
     );
-}
+};
 
 RankingFeature.label = 'LN10 Ranking';
 
