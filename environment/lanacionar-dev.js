@@ -5,17 +5,14 @@ export default {
     IS_DEV: 'true',
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
-    RANKING_URL:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHvArd3vNTVbEIdqek5qVFOAAAA9DCB8QYJKoZIhvcNAQcGoIHjMIHgAgEAMIHaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDGfXmCwlTipuJajo1gIBEICBrDramRDrIg5zeki6aUV1h40ZQlmNVH1jfWZTyJbmdHOMPSBQft2s64nNfhttuktf7+1Sss4g/f0arqUtcmEUTDvOMa2xO8ODNavc8EhYPE0bJpdXgnzKfzw2DyzR2Yumyw88IISoKERQWLv4nbffor8FhyVURwPQ5UBsU/Oq0X5BFNakgho251OeEKBh2ffuNLdFmRRxczyJu75GTYaF+jieSuu3YiPqpVtBm00=}', //NOSONAR
     LANACIONAR_URLASSETS: urlSandboxArcPublishing,
     OPTA_WIDGET_URL: 'https://sandbox.lanacion.com.ar/opta-embed',
     SITE_LANACION: 'https://sandbox.lanacion.com.ar',
     SITE_RECETAS: urlSandboxArcPublishing,
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', //NOSONAR
-    JSK_ID:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHPMCo5X02LqkaZLrXomkFvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM+Gs5pmF0+Umjtjx8AgEQgCs+4a1XWei5yHUiPhGKw2kBOg/pThoXc4ApUTb5YohOvC3E0oV5wFMUlJoo}', //NOSONAR
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', // NOSONAR
+    JSK_ID: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHPMCo5X02LqkaZLrXomkFvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM+Gs5pmF0+Umjtjx8AgEQgCs+4a1XWei5yHUiPhGKw2kBOg/pThoXc4ApUTb5YohOvC3E0oV5wFMUlJoo}', // NOSONAR
     DATADOG_CONFIG: {
         ott: {
             clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
@@ -102,5 +99,7 @@ export default {
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
-    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    ARC_ACCESS_TOKEN_PROD:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}'
 };
