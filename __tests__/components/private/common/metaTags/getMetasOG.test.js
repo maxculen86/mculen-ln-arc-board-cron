@@ -158,6 +158,37 @@ describe('Metas OTT', () => {
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.png'
                 )
+            },
+            {
+                name: 'twitter:card',
+                content: 'summary_large_image'
+            },
+            {
+                name: 'twitter:title',
+                content:
+                    '+ Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023 - LN+'
+            },
+            {
+                name: 'twitter:description',
+                content:
+                    'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
+            },
+            {
+                name: 'twitter:site',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:creator',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:domain',
+                content: 'lanacion.com.ar'
+            },
+            {
+                name: 'twitter:url',
+                content:
+                    'https://lnmas.lanacion.com.ar/video/noticias-fin-de-semana-04-de-febrero-2023-vid21621bbe/'
             }
         ];
 
@@ -310,6 +341,35 @@ describe('Common - getMetasOG function', () => {
                 name: 'twitter:image',
                 content:
                     'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800'
+            },
+            {
+                name: 'twitter:card',
+                content: 'summary_large_image'
+            },
+            {
+                name: 'twitter:title',
+                content: 'Receta de arroz chaufa de mariscos - LA NACION'
+            },
+            {
+                name: 'twitter:description',
+                content: 'Encontrá acá la receta de Arroz chaufa de mariscos'
+            },
+            {
+                name: 'twitter:site',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:creator',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:domain',
+                content: 'lanacion.com.ar'
+            },
+            {
+                name: 'twitter:url',
+                content:
+                    'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             }
         ];
 
@@ -402,6 +462,34 @@ describe('Common - getMetasOG function', () => {
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.png'
                 )
+            },
+            {
+                name: 'twitter:card',
+                content: 'summary_large_image'
+            },
+            {
+                name: 'twitter:title',
+                content: 'LA NACION'
+            },
+            {
+                name: 'twitter:description',
+                content: 'Últimas Noticias de LA NACION'
+            },
+            {
+                name: 'twitter:site',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:creator',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:domain',
+                content: 'lanacion.com.ar'
+            },
+            {
+                name: 'twitter:url',
+                content: 'https://www.lanacion.com.ar/'
             }
         ];
 
@@ -490,6 +578,35 @@ describe('Common - getMetasOG function', () => {
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
+            },
+            {
+                name: 'twitter:card',
+                content: 'summary_large_image'
+            },
+            {
+                name: 'twitter:title',
+                content: 'Javier Blanco'
+            },
+            {
+                name: 'twitter:description',
+                content: 'Últimas Noticias de Javier Blanco'
+            },
+            {
+                name: 'twitter:site',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:creator',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:domain',
+                content: 'lanacion.com.ar'
+            },
+            {
+                name: 'twitter:url',
+                content:
+                    'https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/'
             }
         ];
 
@@ -611,6 +728,34 @@ describe('Metas home', () => {
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.png'
                 )
+            },
+            {
+                name: 'twitter:card',
+                content: 'summary_large_image'
+            },
+            {
+                name: 'twitter:title',
+                content: ''
+            },
+            {
+                name: 'twitter:description',
+                content: 'Últimas Noticias de LA NACION'
+            },
+            {
+                name: 'twitter:site',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:creator',
+                content: '@LANACION'
+            },
+            {
+                name: 'twitter:domain',
+                content: 'lanacion.com.ar'
+            },
+            {
+                name: 'twitter:url',
+                content: 'https://www.lanacion.com.ar/'
             }
         ];
 
