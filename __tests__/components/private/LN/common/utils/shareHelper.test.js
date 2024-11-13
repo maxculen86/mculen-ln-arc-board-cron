@@ -52,13 +52,13 @@ describe('shareWhatsAppMobile', () => {
         try {
             shareWhatsAppMobile(notaId, dominio, title, content);
             expect(windowOpenMock).toHaveBeenCalledWith(expectedUrl, '_blank');
-        } catch (error) {}
+        } catch (error) { }
     });
 
     it('should handle errors and log a warning', () => {
         const consoleWarnMock = jest
             .spyOn(console, 'warn')
-            .mockImplementation(() => {});
+            .mockImplementation(() => { });
         const notaId = '123';
         const dominio = 'example.com';
         const title = 'Title';
@@ -92,24 +92,58 @@ describe('isLN10IAHidden', () => {
             }
         ];
 
-        expect(isLN10IAHidden(renderables)).toBe(true);
+        expect(isLN10IAHidden(renderables)).toBe(true, true, true);
     });
 
-    it('should return false when hideGlossary or hideSummary is not true', () => {
+    it('should return false when hideGlossary and hideSummary are false', () => {
         const renderables = [
             {
                 collection: 'features',
                 type: 'LN-10/IA',
                 props: {
                     customFields: {
-                        hideGlossary: true,
+                        hideGlossary: false,
                         hideSummary: false
                     }
                 }
             }
         ];
 
-        expect(isLN10IAHidden(renderables)).toBe(false);
+        expect(isLN10IAHidden(renderables)).toBe(false, true, true);
+    });
+
+    it('should return true when hideSummary is true and there is no glossary', () => {
+        const renderables = [
+            {
+                collection: 'features',
+                type: 'LN-10/IA',
+                props: {
+                    customFields: {
+                        hideGlossary: false,
+                        hideSummary: false
+                    }
+                }
+            }
+        ];
+
+        expect(isLN10IAHidden(renderables, false, true)).toBe(false);
+    });
+
+    it('should return true when hideGlossary is true and there is no summary', () => {
+        const renderables = [
+            {
+                collection: 'features',
+                type: 'LN-10/IA',
+                props: {
+                    customFields: {
+                        hideGlossary: false,
+                        hideSummary: false
+                    }
+                }
+            }
+        ];
+
+        expect(isLN10IAHidden(renderables, true, false)).toBe(false);
     });
 
     it('should return true when the type is not LN-10/IA', () => {

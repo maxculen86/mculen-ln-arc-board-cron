@@ -55,7 +55,7 @@ function BuildFirtsButtonsGroup({
     const isThermalGlossaryEnabled = useTermica('glosario');
 
     const showIAButton =
-        !isLN10IAHidden(renderables) &&
+        !isLN10IAHidden(renderables, glossary, summary) &&
         ((summary && isThermalSummaryEnabled) ||
             (glossary && isThermalGlossaryEnabled));
 
