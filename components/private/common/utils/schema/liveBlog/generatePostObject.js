@@ -1,6 +1,8 @@
 import getAuthorByline from '../../getAuthorByline';
 import { differenceInMinutes, restMinutes } from '../../dateAndTimeUtil';
 import get from '../../get';
+import removeHtmlTags from '../../removeHtmlTags';
+import createDateObject from '../../createDateObject';
 
 const extracDataFromCredits = by => {
     let authors = [];
@@ -15,7 +17,7 @@ const extracDataFromCredits = by => {
 export const createISODate = (date, time = '') => {
     const dateTime = time !== '' ? new Date(`${date} ${time}`) : new Date(date);
 
-    if (isNaN(dateTime.getTime())) {
+    if (Number.isNaN(dateTime.getTime())) {
         return '';
     }
 
@@ -36,12 +38,11 @@ export const getModifiedDate = (lastUpdatedDate, displayDate) => {
         : lastUpdatedDate;
 };
 
-const concatenateBullets = (bullets = []) => {
-    return bullets.map((bullet = {}) => {
+const concatenateBullets = (bullets = []) =>
+    bullets.map((bullet = {}) => {
         const { content = '' } = bullet;
         return content.replace('\n', '');
     });
-};
 
 const calculateDateModified = (
     lastUpdatedDate,
@@ -83,12 +84,20 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
             if (subtype === 'custom-liveblog') {
                 post = {};
                 description = [];
-            }
-            type === 'list' &&
-                elem.items &&
-                description.push(concatenateBullets(elem.items).join('; '));
 
-            type === 'text' && elem.content && description.push(elem.content);
+                if (elem?.embed?.config?.title?.trim()) {
+                    description.push(elem.embed.config.title);
+                }
+            }
+
+            if (type === 'list' && elem.items) {
+                description.push(concatenateBullets(elem.items).join('; '));
+            }
+
+            if (type === 'text' && elem.content) {
+                description.push(elem.content);
+            }
+
             Object.assign(post, {
                 ...(elem.embed &&
                     elem.embed.config && { config: elem.embed.config }),
@@ -113,7 +122,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     return postElements.map((elem, i) => {
         const { config = {}, content = '', url = '' } = elem;
         const { date = '', time = '' } = config;
-        const isoDate = createISODate(date, time);
+        const dateObject = createDateObject(date, time);
 
         return {
             '@type': 'BlogPosting',
@@ -121,9 +130,9 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
             url: `${urlNota.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },
-            datePublished: isoDate,
-            dateModified: isoDate,
-            articleBody: content.replace(/<[^>]*>/gm, ''),
+            datePublished: dateObject,
+            dateModified: dateObject,
+            articleBody: removeHtmlTags(content),
             image: {
                 '@type': 'ImageObject',
                 url: url || PLACEHOLDER
@@ -180,7 +189,7 @@ export const generatePostObjectWithoutPowerUp = (
             mainEntityOfPage: { '@type': 'WebPage' },
             datePublished: dateModified,
             dateModified,
-            articleBody: elem.content,
+            articleBody: removeHtmlTags(elem.content),
             image: {
                 '@type': 'ImageObject',
                 url: PLACEHOLDER
