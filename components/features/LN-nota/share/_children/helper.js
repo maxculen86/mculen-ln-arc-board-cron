@@ -5,27 +5,25 @@ import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEv
 
 const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
 
-export const handleIaToggle = ({
+export const handleOpenIAFeature = ({
     defaultTab,
+    iaButtonIsClicked,
     setIaButtonIsClicked,
     callback = () => null
 }) => {
-    const handleIaClosed = data => data.closed && setIaButtonIsClicked(false);
-    window.LN.observable.subscribe('iaClosed', handleIaClosed);
-    window.LN.observable.publish('showIa', { show: true });
-    addEventToDataLayerV2({
-        event: 'e_linkclick',
-        action: 'IA',
-        category: 'nota_ln9',
-        label: defaultTab
-    });
-    setIaButtonIsClicked(prev => !prev);
-    localStorage.setItem('IA-feature-tracking', 'wasDisplayed');
-    callback?.();
+    if (!iaButtonIsClicked) {
+        setIaButtonIsClicked(true);
+        window.LN.observable.publish('showIa', { show: true });
+        addEventToDataLayerV2({
+            event: 'e_linkclick',
+            action: 'IA',
+            category: 'nota_ln9',
+            label: defaultTab
+        });
 
-    return () => {
-        window.LN.observable.unsubscribe('iaClosed', handleIaClosed);
-    };
+        localStorage.setItem('IA-feature-tracking', 'wasDisplayed');
+        callback?.();
+    }
 };
 
 export const IA_FEATURE_TRACKING_STORAGE = {

@@ -173,7 +173,7 @@ exports[`IaTools component should match snapshot 1`] = `
                 </svg>
               </i>
               <h2
-                class="text --font-bold --font-m as-flex-end"
+                class="text --font-bold text-20 as-flex-end"
               >
                 Resumen de lectura
               </h2>
@@ -236,7 +236,7 @@ exports[`IaTools component should match snapshot 1`] = `
                 </svg>
               </i>
               <h2
-                class="text --font-bold --font-m as-flex-end"
+                class="text --font-bold text-20 as-flex-end"
               >
                 Glosario
               </h2>
@@ -305,7 +305,7 @@ exports[`IaTools component should match snapshot 1`] = `
             <p
               class="text text-neutral-light-800 text-12_130"
             >
-              Realizado con inteligencia artificial
+              Realizado con IA
             </p>
           </aside>
         </div>

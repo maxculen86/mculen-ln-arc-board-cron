@@ -3,13 +3,6 @@ import { render, screen } from '@testing-library/react';
 import IaContent from '../../../../../../components/features/LN-10/IA/common/iaContent';
 import '@testing-library/jest-dom';
 
-jest.mock(
-    '../../../../../../components/features/LN-10-global/glossary/components/disclaimer',
-    () => ({
-        Disclaimer: () => <div data-testid="disclaimer">Disclaimer</div>
-    })
-);
-
 describe('IaContent Component', () => {
     const contentDataGlossary = [
         { key: 'Word1', value: 'Definition 1' },
@@ -51,9 +44,8 @@ describe('IaContent Component', () => {
 
     it('should render Disclaimer component', () => {
         render(<IaContent id={idGlossary} contentData={contentDataGlossary} />);
-        const disclaimer = screen.getByTestId('disclaimer');
+        const disclaimer = screen.getByText('Realizado con IA');
         expect(disclaimer).toBeInTheDocument();
-        expect(disclaimer).toHaveTextContent('Disclaimer');
     });
 
     it('should apply custom className if provided', () => {
@@ -66,5 +58,12 @@ describe('IaContent Component', () => {
             />
         );
         expect(container.firstChild).toHaveClass(className);
+    });
+
+    it('should match snapshot', () => {
+        const { container } = render(
+            <IaContent id={idGlossary} contentData={contentDataGlossary} />
+        );
+        expect(container).toMatchSnapshot();
     });
 });

@@ -52,7 +52,7 @@ exports[`IaTab component matches snapshot when id is "glossary" 1`] = `
     </svg>
   </i>
   <h2
-    class="text --font-bold --font-m as-flex-end"
+    class="text --font-bold text-20 as-flex-end"
   >
     Glossary
   </h2>
@@ -127,7 +127,7 @@ exports[`IaTab component matches snapshot when id is "summary" 1`] = `
     </svg>
   </i>
   <h2
-    class="text --font-bold --font-m as-flex-end"
+    class="text --font-bold text-20 as-flex-end"
   >
     Summary
   </h2>
