@@ -14,7 +14,7 @@ import {
 import useTermica from '../../../../../../private/common/hooks/useTermica';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
-export const SubscribeButton = () => {
+export function SubscribeButton() {
     const { isHome, sticky, userType, negative } = useHeaderContext();
 
     const termicaSubscribe = useTermica('buttonsuscribe');
@@ -22,22 +22,20 @@ export const SubscribeButton = () => {
     const hasSubscribeButton = showSubscribeButton(subscription);
 
     const {
-        button_text,
-        class_tooltip,
-        sticky_button_text,
-        tooltip_text
+        button_text: buttonText,
+        class_tooltip: classTooltip,
+        sticky_button_text: stickyButtonText,
+        tooltip_text: tooltipText
     } = getTermicaValues(termicaValuesSubscribe);
 
-    const {
-        tooltipClassName,
-        subscribeButtonClassName
-    } = getClassNameButtonSubscribe({
-        class_tooltip,
-        isHome,
-        negative
-    });
+    const { tooltipClassName, subscribeButtonClassName } =
+        getClassNameButtonSubscribe({
+            class_tooltip: classTooltip,
+            isHome,
+            negative
+        });
 
-    if (userType === 'subscribed' || !hasSubscribeButton) return <></>;
+    if (userType === 'subscribed' || !hasSubscribeButton) return null;
     return (
         <Button
             id="btnsuscribite"
@@ -57,19 +55,19 @@ export const SubscribeButton = () => {
                 });
             }}
         >
-            {termicaSubscribe && tooltip_text && (
-                <Tooltip className={tooltipClassName} text={tooltip_text} />
+            {termicaSubscribe && tooltipText && (
+                <Tooltip className={tooltipClassName} text={tooltipText} />
             )}
             <Icon size={16} className="--mobile-none">
-                <IconSprite name="subscriber" color />
+                <IconSprite name="subscriberInverted" color />
             </Icon>
             <FallBackTextButton
-                buttonText={button_text}
+                buttonText={buttonText}
                 isHome={isHome}
                 sticky={sticky}
-                stickyButtonText={sticky_button_text}
+                stickyButtonText={stickyButtonText}
                 termicaSubscribe={termicaSubscribe}
             />
         </Button>
     );
-};
+}
