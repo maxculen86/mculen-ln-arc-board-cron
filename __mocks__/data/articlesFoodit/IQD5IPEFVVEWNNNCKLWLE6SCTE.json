@@ -1,0 +1,1015 @@
+{
+    "_id": "IQD5IPEFVVEWNNNCKLWLE6SCTE",
+    "type": "story",
+    "version": "0.10.10",
+    "content_elements": [
+        {
+            "_id": "KQGX2COEE5A37NGBMT46YBUWLQ",
+            "type": "custom_embed",
+            "subtype": "foodit-ingredientes",
+            "additional_properties": {
+                "_id": "VWCEVY6H7VHM7JO32Q2OY2VR2Q",
+                "comments": []
+            },
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "abbreviation": "g",
+                            "amount": "480",
+                            "fullIngredientString": "480 g de Harina 0000",
+                            "includeInShoppingList": true,
+                            "ingredient": "Harina 0000",
+                            "isMainIngredient": true,
+                            "unit": "Gramo"
+                        },
+                        {
+                            "abbreviation": "ml",
+                            "amount": "120",
+                            "fullIngredientString": "120 ml de Agua",
+                            "includeInShoppingList": true,
+                            "ingredient": "Agua",
+                            "isMainIngredient": false,
+                            "unit": "Mililitro"
+                        },
+                        {
+                            "abbreviation": "cdta.",
+                            "amount": "1 1/2",
+                            "fullIngredientString": "1 1/2 cdta. de Levadura seca",
+                            "includeInShoppingList": true,
+                            "ingredient": "Levadura seca",
+                            "isMainIngredient": false,
+                            "unit": "Cucharadita"
+                        },
+                        {
+                            "abbreviation": "ml",
+                            "amount": "120",
+                            "fullIngredientString": "120 ml de Leche",
+                            "includeInShoppingList": true,
+                            "ingredient": "Leche",
+                            "isMainIngredient": false,
+                            "unit": "Mililitro"
+                        },
+                        {
+                            "abbreviation": "cdas.",
+                            "amount": "2",
+                            "fullIngredientString": "2 cdas. de Azúcar",
+                            "includeInShoppingList": true,
+                            "ingredient": "Azúcar",
+                            "isMainIngredient": false,
+                            "unit": "Cucharadas"
+                        },
+                        {
+                            "abbreviation": "cdas.",
+                            "amount": "2",
+                            "fullIngredientString": "2 cdas. de Manteca",
+                            "includeInShoppingList": true,
+                            "ingredient": "Manteca",
+                            "isMainIngredient": false,
+                            "unit": "Cucharadas"
+                        },
+                        {
+                            "abbreviation": "cdta.",
+                            "amount": "1",
+                            "fullIngredientString": "1 cdta. de Sal",
+                            "includeInShoppingList": true,
+                            "ingredient": "Sal",
+                            "isMainIngredient": false,
+                            "unit": "Cucharadita"
+                        },
+                        {
+                            "abbreviation": "cdas.",
+                            "amount": "2",
+                            "fullIngredientString": "2 cdas. de Harina de maíz",
+                            "includeInShoppingList": true,
+                            "ingredient": "Harina de maíz",
+                            "isMainIngredient": false,
+                            "unit": "Cucharadas"
+                        },
+                        {
+                            "abbreviation": "c/n",
+                            "amount": "",
+                            "fullIngredientString": "Manteca c/n",
+                            "includeInShoppingList": true,
+                            "ingredient": "Manteca",
+                            "isMainIngredient": false,
+                            "unit": "Cantidad necesaria"
+                        }
+                    ],
+                    "titleList": "",
+                    "typeList": "foodit-ingredientes"
+                },
+                "id": "a76f62ba413ed",
+                "url": "https://www.lanacion.com.ar/"
+            }
+        },
+        {
+            "_id": "Z2IMIKUFSFGNBPVJAAEF24FVG4",
+            "type": "custom_embed",
+            "subtype": "custom-preparacion",
+            "additional_properties": {
+                "_id": "BXE7VX6CJNHZZOA6G7XO7WV744",
+                "comments": []
+            },
+            "embed": {
+                "config": {
+                    "items": [
+                        "Preparar la masa inicial: mezclar 120 gr de harina, el agua y 1/2 cdta. de levadura en un tazón pequeño. Mezclar hasta que la masa esté suave y brillante.",
+                        "Dejar reposar la mezcla iniciadora de 1 a 12 horas (el tiempo que se pueda) cubierta con un film o un repasador.",
+                        "Batir la leche, la levadura restante y la masa fermentada con batidora eléctrica o con una espátula. La masa fermentada se tiene que romper dentro de la leche y verse espumosa.",
+                        "Mezclar la masa: agregar el azúcar, la manteca derretida y la sal al bol y mezclar bien para integrar. Agregar 360 gr de harina y revolver con una espátula rígida hasta formar una masa arenosa.",
+                        "Amasar hasta que se forme una bola suave. Si la masa es muy pegajosa agregarle un poco más de harina, según sea necesario, pero de a poco para no pasarse. ",
+                        "Pasar la masa a un bol ligeramente cubierto de aceite. Cubrir y guardar en heladera (puede quedar durante la noche o hasta por 3 días).",
+                        "Dividir y dar forma a los muffins: voltear la masa leudada sobre una superficie de trabajo ligeramente enharinada. Usar un cortante de pastelería para dividir la masa en 12 partes iguales. Enrollar cada pieza suavemente contra la mesada para formar bollos redondos y suaves.",
+                        "Espolvorear la harina de maíz generosamente sobre una fuente y colocar los bollos encima, separados entre sí. Espolvorear la parte superior de los bollos con más harina de maíz. Se los puede dejar levar durante 1/2 a 1 hora más.",
+                        "Calentar una sartén una sartén grande a fuego medio. Derretir una pequeña porción de mantequilla, lo suficiente para cubrir el fondo de la sartén y evitar que se pegue. Cocinar los bollitos 5 minutos de cada lado y servir. Comer tibios con queso, miel, mermelada o lo que se desee."
+                    ],
+                    "titleList": "",
+                    "typeList": "preparacion"
+                },
+                "id": "7d90169d15b9d",
+                "url": "https://www.lanacion.com.ar/"
+            }
+        },
+        {
+            "_id": "AJHMFMNPYJH2VJY3HKJ6N73GUE",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1714400107286,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Tips"
+        },
+        {
+            "_id": "OKSA35ZBAREL3FEKZYYT6DA7DA",
+            "type": "list",
+            "list_type": "unordered",
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
+            "items": [
+                {
+                    "_id": "XZ3MJOOYURBVDEMQE3VHIOOPFY",
+                    "additional_properties": {
+                        "comments": [],
+                        "inline_comments": []
+                    },
+                    "block_properties": {},
+                    "content": "Los muffins ingleses se mantienen perfectamente conservados durante varios días en un recipiente hermético; calentarlos antes de comer en el horno o tostadora.",
+                    "type": "text"
+                },
+                {
+                    "_id": "QYDOU2N5GBGNPLXU3YUO7XQYQI",
+                    "additional_properties": {
+                        "_id": 1626143480853,
+                        "comments": [],
+                        "inline_comments": []
+                    },
+                    "block_properties": {},
+                    "content": "También se pueden guardar frescos en el freezer: hacer los bollos, envolver cada uno en papel film o papel de aluminio y mantener congelados hasta por 3 meses, dentro de una bolsa o de recipiente con tapa.",
+                    "type": "text"
+                },
+                {
+                    "_id": "3QK6TW27AZGO3IGQZESVGI63MY",
+                    "additional_properties": {
+                        "_id": 1626143480854,
+                        "comments": [],
+                        "inline_comments": []
+                    },
+                    "block_properties": {},
+                    "content": "El pan sin horno es el mejor compañero de los huevos benedictinos.",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "created_date": "2023-11-28T01:29:32.955Z",
+    "revision": {
+        "revision_id": "Q3RPISPUTVHLXHKIKA7T3AE2FI",
+        "parent_id": "QD7MIY7RFRBWHBYTKUJD4R4CCM",
+        "editions": [
+            "default"
+        ],
+        "branch": "default",
+        "user_id": "mbarrionuevo@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2024-05-21T18:43:51.873Z",
+    "canonical_website": "foodit",
+    "headlines": {
+        "basic": "Pan sin horno o English Muffin",
+        "meta_title": "Paulina Pan sin horno English Muffins Paulina",
+        "mobile": "Sin horno, cómo hacer los clásicos English Muffins",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "cerrada"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": "Casero y calentito, parece una figacita de manteca, pero es más suave y mullido; para el desayuno o la merienda, para acompañar unos huevos revueltos o hacer un sanguchito para el almuerzo, se hacen en la sartén o en una cacerola en 10 minutos"
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "enviar_a_apps": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "republicar_audio": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "sitio": {
+            "display": true,
+            "text": "https://foodit.lanacion.com.ar",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "No mostrar Trust",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "lanacionar",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/recetas/saladas",
+            "_website": "foodit",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Saladas",
+            "description": null,
+            "path": "/recetas/saladas",
+            "parent_id": "/recetas",
+            "parent": {
+                "default": "/recetas"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas/saladas",
+                    "_website": "foodit",
+                    "name": "Saladas",
+                    "inactive": false,
+                    "ancestors": {
+                        "default": [
+                            "/recetas"
+                        ],
+                        "navigationRedaccion": [
+                            "/",
+                            "/recetas"
+                        ],
+                        "header_menu_foodit": [
+                            "/",
+                            "/recetas"
+                        ]
+                    },
+                    "parent": {
+                        "default": "/recetas",
+                        "navigationRedaccion": "/recetas",
+                        "header_menu_foodit": "/recetas"
+                    },
+                    "order": {
+                        "navigationRedaccion": 2005,
+                        "header_menu_foodit": 2001
+                    },
+                    "Metarefresh": {
+                        "nota_desktop": "0",
+                        "nota_mobile": "0"
+                    },
+                    "Termicas": {
+                        "dolar": null,
+                        "hide_listening_articles": null,
+                        "weather": null
+                    },
+                    "_admin": {
+                        "alias_ids": [
+                            "/recetas/saladas"
+                        ]
+                    },
+                    "acumuladoColor": {
+                        "header_class_name": "false"
+                    },
+                    "acumuladoGeneral": {
+                        "anexoinferior": null,
+                        "anexosuperior": null,
+                        "mostrar_en_acu_apps": "true"
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "site": {
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_about": null,
+                        "site_description": null,
+                        "site_keywords": null,
+                        "site_tagline": null,
+                        "site_title": "Recetas saladas",
+                        "site_url": null
+                    },
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "social": {
+                        "facebook": null,
+                        "instagram": null,
+                        "rss": null,
+                        "twitter": null
+                    },
+                    "node_type": "section"
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/recetas/saladas",
+                "_website": "foodit",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Saladas",
+                "description": null,
+                "path": "/recetas/saladas",
+                "parent_id": "/recetas",
+                "parent": {
+                    "default": "/recetas"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/saladas",
+                        "_website": "foodit",
+                        "name": "Saladas",
+                        "inactive": false,
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ],
+                            "navigationRedaccion": [
+                                "/",
+                                "/recetas"
+                            ],
+                            "header_menu_foodit": [
+                                "/",
+                                "/recetas"
+                            ]
+                        },
+                        "parent": {
+                            "default": "/recetas",
+                            "navigationRedaccion": "/recetas",
+                            "header_menu_foodit": "/recetas"
+                        },
+                        "order": {
+                            "navigationRedaccion": 2005,
+                            "header_menu_foodit": 2001
+                        },
+                        "Metarefresh": {
+                            "nota_desktop": "0",
+                            "nota_mobile": "0"
+                        },
+                        "Termicas": {
+                            "dolar": null,
+                            "hide_listening_articles": null,
+                            "weather": null
+                        },
+                        "_admin": {
+                            "alias_ids": [
+                                "/recetas/saladas"
+                            ]
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "false"
+                        },
+                        "acumuladoGeneral": {
+                            "anexoinferior": null,
+                            "anexosuperior": null,
+                            "mostrar_en_acu_apps": "true"
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site": {
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_about": null,
+                            "site_description": null,
+                            "site_keywords": null,
+                            "site_tagline": null,
+                            "site_title": "Recetas saladas",
+                            "site_url": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "social": {
+                            "facebook": null,
+                            "instagram": null,
+                            "rss": null,
+                            "twitter": null
+                        },
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "foodit./recetas/saladas"
+            },
+            {
+                "_id": "/recetas/que-cocinar-hoy",
+                "_website": "foodit",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "¿Qué cocinar hoy?",
+                "description": null,
+                "path": "/recetas/que-cocinar-hoy",
+                "parent_id": "/recetas",
+                "parent": {
+                    "default": "/recetas"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/que-cocinar-hoy",
+                        "site": {
+                            "site_title": null,
+                            "site_description": null,
+                            "site_tagline": null,
+                            "site_keywords": null,
+                            "site_url": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_about": null
+                        },
+                        "social": {
+                            "instagram": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "rss": null
+                        },
+                        "Metarefresh": {
+                            "nota_desktop": "0",
+                            "nota_mobile": "0"
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoGeneral": {
+                            "mostrar_en_acu_apps": "true",
+                            "anexosuperior": null,
+                            "anexoinferior": null
+                        },
+                        "Termicas": {
+                            "weather": null,
+                            "dolar": null,
+                            "hide_listening_articles": null
+                        },
+                        "_admin": {
+                            "alias_ids": [
+                                "/recetas/que-cocinar-hoy"
+                            ]
+                        },
+                        "_website": "foodit",
+                        "name": "¿Qué cocinar hoy?",
+                        "order": {
+                            "navigationRedaccion": 2004,
+                            "header_menu_foodit": 2004
+                        },
+                        "parent": {
+                            "default": "/recetas",
+                            "navigationRedaccion": "/recetas",
+                            "header_menu_foodit": "/recetas"
+                        },
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ],
+                            "navigationRedaccion": [
+                                "/",
+                                "/recetas"
+                            ],
+                            "header_menu_foodit": [
+                                "/",
+                                "/recetas"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "foodit./recetas/que-cocinar-hoy"
+            },
+            {
+                "_id": "/recetas/que-cocinar-hoy/meal-prep",
+                "_website": "foodit",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Meal prep",
+                "description": null,
+                "path": "/recetas/que-cocinar-hoy/meal-prep",
+                "parent_id": "/recetas/que-cocinar-hoy",
+                "parent": {
+                    "default": "/recetas/que-cocinar-hoy"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/que-cocinar-hoy/meal-prep",
+                        "site": {
+                            "site_title": null,
+                            "site_description": null,
+                            "site_tagline": null,
+                            "site_keywords": null,
+                            "site_url": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_about": null
+                        },
+                        "social": {
+                            "instagram": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "rss": null
+                        },
+                        "Metarefresh": {
+                            "nota_desktop": "0",
+                            "nota_mobile": "0"
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoGeneral": {
+                            "mostrar_en_acu_apps": "true",
+                            "anexosuperior": null,
+                            "anexoinferior": null
+                        },
+                        "Termicas": {
+                            "weather": null,
+                            "dolar": null,
+                            "hide_listening_articles": null
+                        },
+                        "_admin": {
+                            "alias_ids": [
+                                "/recetas/que-cocinar-hoy/meal-prep"
+                            ]
+                        },
+                        "_website": "foodit",
+                        "name": "Meal prep",
+                        "order": {
+                            "navigationRedaccion": 3002
+                        },
+                        "parent": {
+                            "default": "/recetas/que-cocinar-hoy",
+                            "navigationRedaccion": "/recetas/que-cocinar-hoy"
+                        },
+                        "ancestors": {
+                            "default": [
+                                "/recetas",
+                                "/recetas/que-cocinar-hoy"
+                            ],
+                            "navigationRedaccion": [
+                                "/",
+                                "/recetas",
+                                "/recetas/que-cocinar-hoy"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "foodit./recetas/que-cocinar-hoy/meal-prep"
+            },
+            {
+                "_id": "/recetas",
+                "_website": "foodit",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Recetas",
+                "description": null,
+                "path": "/recetas",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas",
+                        "site": {
+                            "site_title": null,
+                            "site_description": null,
+                            "site_tagline": null,
+                            "site_keywords": null,
+                            "site_url": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_about": null
+                        },
+                        "social": {
+                            "instagram": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "rss": null
+                        },
+                        "Metarefresh": {
+                            "nota_desktop": "0",
+                            "nota_mobile": "0"
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoGeneral": {
+                            "mostrar_en_acu_apps": "true",
+                            "anexosuperior": "**",
+                            "anexoinferior": "**"
+                        },
+                        "Termicas": {
+                            "weather": null,
+                            "dolar": null,
+                            "hide_listening_articles": null
+                        },
+                        "name": "Recetas",
+                        "_website": "foodit",
+                        "parent": {
+                            "default": "/",
+                            "navigationRedaccion": "/",
+                            "header_menu_foodit": "/"
+                        },
+                        "ancestors": {
+                            "default": [],
+                            "navigationRedaccion": [
+                                "/"
+                            ],
+                            "header_menu_foodit": [
+                                "/"
+                            ]
+                        },
+                        "_admin": {
+                            "alias_ids": [
+                                "/recetas"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "navigationRedaccion": 1005,
+                            "header_menu_foodit": 1001
+                        }
+                    }
+                },
+                "_website_section_id": "foodit./recetas"
+            },
+            {
+                "_id": "/recetas/dieta",
+                "_website": "foodit",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Dietas",
+                "description": null,
+                "path": "/recetas/dieta",
+                "parent_id": "/recetas",
+                "parent": {
+                    "default": "/recetas"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/dieta",
+                        "site": {
+                            "site_title": null,
+                            "site_description": null,
+                            "site_tagline": null,
+                            "site_keywords": null,
+                            "site_url": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_about": null
+                        },
+                        "social": {
+                            "instagram": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "rss": null
+                        },
+                        "Metarefresh": {
+                            "nota_desktop": "0",
+                            "nota_mobile": "0"
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoGeneral": {
+                            "mostrar_en_acu_apps": "true",
+                            "anexosuperior": null,
+                            "anexoinferior": null
+                        },
+                        "Termicas": {
+                            "weather": null,
+                            "dolar": null,
+                            "hide_listening_articles": null
+                        },
+                        "_admin": {
+                            "alias_ids": [
+                                "/recetas/dieta"
+                            ]
+                        },
+                        "_website": "foodit",
+                        "name": "Dietas",
+                        "order": {
+                            "navigationRedaccion": 2002,
+                            "header_menu_foodit": 2003
+                        },
+                        "parent": {
+                            "default": "/recetas",
+                            "navigationRedaccion": "/recetas",
+                            "header_menu_foodit": "/recetas"
+                        },
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ],
+                            "navigationRedaccion": [
+                                "/",
+                                "/recetas"
+                            ],
+                            "header_menu_foodit": [
+                                "/",
+                                "/recetas"
+                            ]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "foodit./recetas/dieta"
+            }
+        ]
+    },
+    "promo_items": {
+        "basic": {
+            "_id": "FIOFUJW4YVAUFL7JMMHJVSWGEA",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/AUnrSVOgEMmVmwRCjmjeZnHyrtY=/arc-anglerfish-arc2-prod-lanacionar/public/FIOFUJW4YVAUFL7JMMHJVSWGEA.jpg",
+                "galleries": [],
+                "ingestionMethod": "manual",
+                "mime_type": "image/jpeg",
+                "originalName": "english muffins shutter.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FIOFUJW4YVAUFL7JMMHJVSWGEA.jpg",
+                "owner": "danielachueke@saln.onmicrosoft.com",
+                "proxyUrl": "/resizer/AUnrSVOgEMmVmwRCjmjeZnHyrtY=/arc-anglerfish-arc2-prod-lanacionar/public/FIOFUJW4YVAUFL7JMMHJVSWGEA.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/AUnrSVOgEMmVmwRCjmjeZnHyrtY=/arc-anglerfish-arc2-prod-lanacionar/public/FIOFUJW4YVAUFL7JMMHJVSWGEA.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/8TKBLOBCMEwGpeFiZdI6zSevxCw=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/FIOFUJW4YVAUFL7JMMHJVSWGEA.jpg",
+                "version": 0,
+                "template_id": 706
+            },
+            "address": {},
+            "auth": {
+                "1": "9dfb05427df055821de221161311fe73701a4f135ece30602ea0d645347c9965"
+            },
+            "caption": "English muffins para el desayuno",
+            "created_date": "2021-07-13T02:28:40Z",
+            "credits": {
+                "affiliation": [],
+                "by": [
+                    {
+                        "byline": "Shutterstock",
+                        "name": "Shutterstock",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 1333,
+            "image_type": "photograph",
+            "last_updated_date": "2021-07-13T02:28:40Z",
+            "licensable": false,
+            "owner": {
+                "id": "lanacionar",
+                "sponsored": false
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://lanacionar.arcpublishing.com/photo/FIOFUJW4YVAUFL7JMMHJVSWGEA",
+                "system": "photo center"
+            },
+            "taxonomy": {
+                "associated_tasks": []
+            },
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FIOFUJW4YVAUFL7JMMHJVSWGEA.jpg",
+            "version": "0.10.9",
+            "width": 2000,
+            "syndication": {}
+        },
+        "receta": {
+            "_id": "CTKDHY43EFHJDCB66I7MSWA2DU",
+            "embed": {
+                "config": {
+                    "cookTime": 20,
+                    "cookingTypes": [
+                        "A la plancha"
+                    ],
+                    "counterPortion": "12",
+                    "counterTime": 65,
+                    "occasions": [],
+                    "prepTime": 45,
+                    "regions": [
+                        "Inglesa"
+                    ],
+                    "title": "detalle-receta"
+                },
+                "id": "90d23b4061bad",
+                "url": "https://handle-lists.marthyndl.now.sh/"
+            },
+            "subtype": "custom-detalle-receta",
+            "type": "custom_embed"
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "category": "staff",
+        "name": "lanacionar",
+        "subcategory": ""
+    },
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 434,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 1,
+            "line_count_actual": 5,
+            "word_count_actual": 73
+        }
+    },
+    "display_date": "2024-05-21T18:43:51.402Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "7",
+    "first_publish_date": "2024-04-30T19:44:18.096Z",
+    "websites": {
+        "foodit": {
+            "website_section": {
+                "_id": "/recetas/saladas",
+                "_website": "foodit",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Saladas",
+                "description": null,
+                "path": "/recetas/saladas",
+                "parent_id": "/recetas",
+                "parent": {
+                    "default": "/recetas"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/saladas",
+                        "_website": "foodit",
+                        "name": "Saladas",
+                        "inactive": false,
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ],
+                            "navigationRedaccion": [
+                                "/",
+                                "/recetas"
+                            ],
+                            "header_menu_foodit": [
+                                "/",
+                                "/recetas"
+                            ]
+                        },
+                        "parent": {
+                            "default": "/recetas",
+                            "navigationRedaccion": "/recetas",
+                            "header_menu_foodit": "/recetas"
+                        },
+                        "order": {
+                            "navigationRedaccion": 2005,
+                            "header_menu_foodit": 2001
+                        },
+                        "Metarefresh": {
+                            "nota_desktop": "0",
+                            "nota_mobile": "0"
+                        },
+                        "Termicas": {
+                            "dolar": null,
+                            "hide_listening_articles": null,
+                            "weather": null
+                        },
+                        "_admin": {
+                            "alias_ids": [
+                                "/recetas/saladas"
+                            ]
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "false"
+                        },
+                        "acumuladoGeneral": {
+                            "anexoinferior": null,
+                            "anexosuperior": null,
+                            "mostrar_en_acu_apps": "true"
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site": {
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_about": null,
+                            "site_description": null,
+                            "site_keywords": null,
+                            "site_tagline": null,
+                            "site_title": "Recetas saladas",
+                            "site_url": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "social": {
+                            "facebook": null,
+                            "instagram": null,
+                            "rss": null,
+                            "twitter": null
+                        },
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "foodit./recetas/saladas"
+            },
+            "website_url": "/recetas/pan-sin-horno-o-english-muffins-nid30042024/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": false,
+        "publish_date": "2024-04-30T19:45:08.051Z"
+    },
+    "publish_date": "2024-05-21T18:43:51.402Z",
+    "canonical_url": "/recetas/pan-sin-horno-o-english-muffins-nid30042024/",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "foodit",
+    "website_url": "/recetas/pan-sin-horno-o-english-muffins-nid30042024/"
+}

@@ -2,20 +2,11 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
 import LnIa from '../../../../../components/features/LN-10/IA/default';
-import useIaVisibility from '../../../../../components/features/LN-10/IA/hooks/useIaVisibility';
 import useIaData from '../../../../../components/features/LN-10/IA/hooks/useIaData';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
-
-jest.mock(
-    '../../../../../components/features/LN-10/IA/hooks/useIaVisibility',
-    () => ({
-        __esModule: true,
-        default: jest.fn()
-    })
-);
 
 jest.mock(
     '../../../../../components/features/LN-10/IA/hooks/useIaData',
@@ -46,29 +37,7 @@ describe('features - LN-common - IA - default', () => {
         };
     });
 
-    it('does not render IaTools when visibility is false', () => {
-        useIaVisibility.mockReturnValue({
-            isVisible: false,
-            handleClose: jest.fn()
-        });
-        useIaData.mockReturnValue({
-            iaData: {},
-            shouldShowSummary: true,
-            shouldShowGlossary: true
-        });
-
-        render(
-            <LnIa customFields={{ hideSummary: false, hideGlossary: false }} />
-        );
-
-        expect(screen.queryByText('IaTools')).toBeNull();
-    });
-
     it('does not render IaTools when both summary and glossary are hidden', () => {
-        useIaVisibility.mockReturnValue({
-            isVisible: true,
-            handleClose: jest.fn()
-        });
         useIaData.mockReturnValue({
             shouldShowSummary: false,
             shouldShowGlossary: false
@@ -81,11 +50,7 @@ describe('features - LN-common - IA - default', () => {
         expect(screen.queryByText('IaTools')).toBeNull();
     });
 
-    it('renders IaTools when visibility is true and summary section is visible', () => {
-        useIaVisibility.mockReturnValue({
-            isVisible: true,
-            handleClose: jest.fn()
-        });
+    it('renders IaTools when summary section is visible', () => {
         useIaData.mockReturnValue({
             iaData: {},
             shouldShowSummary: true,
@@ -99,11 +64,7 @@ describe('features - LN-common - IA - default', () => {
         expect(screen.getByText('IaTools')).toBeInTheDocument();
     });
 
-    it('renders IaTools when visibility is true and glossary section is visible', () => {
-        useIaVisibility.mockReturnValue({
-            isVisible: true,
-            handleClose: jest.fn()
-        });
+    it('renders IaTools when glossary section is visible', () => {
         useIaData.mockReturnValue({
             iaData: {},
             shouldShowSummary: false,
@@ -118,10 +79,6 @@ describe('features - LN-common - IA - default', () => {
     });
 
     it('should match the snapshot when IaTools is rendered', () => {
-        useIaVisibility.mockReturnValue({
-            isVisible: true,
-            handleClose: jest.fn()
-        });
         useIaData.mockReturnValue({
             iaData: {},
             shouldShowSummary: true,

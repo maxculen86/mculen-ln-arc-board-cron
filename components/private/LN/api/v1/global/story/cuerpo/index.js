@@ -11,7 +11,6 @@ import Html from './elements/htmlContent';
 import Button from './elements/button';
 import CustomEmbed from './elements/custom_embed';
 import StoryBody from '../../../../common/elements/story/cuerpo/index';
-import Summary from './elements/summary';
 
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {
@@ -23,7 +22,6 @@ const cuerpoIndex = dataNota => {
         List,
         Quote,
         Gallery,
-        Summary,
         Embed,
         Html,
         Button,

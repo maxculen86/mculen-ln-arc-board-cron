@@ -1,12 +1,7 @@
 import get from '../../../../../../../../common/utils/get';
 import cleanHtmlAttributes from '../../../../../../../../common/utils/cleanHtmlAttributes';
 
-export const getEmbed = article => {
-    const embed = cleanHtmlAttributes(
-        get(article, 'additionalProperties.html', null)
-    );
-
-    return embed;
-};
+export const getEmbed = article =>
+    cleanHtmlAttributes(get(article, 'additionalProperties.html', null));
 
 export default getEmbed;

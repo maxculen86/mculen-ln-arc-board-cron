@@ -21,12 +21,14 @@ export const transformObjectToText = ({ text = '', sections = [] }) => {
     return `${text}\n\n${sectionDetails}`;
 };
 
-export const copyListToClipboard = async shoppingList => {
-    const text = shoppingList.reduce(
+export const formatShoppingList = shoppingList =>
+    shoppingList.reduce(
         (prev, currentList) =>
             `${prev}${transformObjectToText(currentList)}\n\n`,
         ''
     );
+
+export const copyListToClipboard = async text => {
     try {
         await navigator.clipboard.writeText(text);
         addToast({
@@ -35,6 +37,20 @@ export const copyListToClipboard = async shoppingList => {
             message: TOAST.SUCCESS.MESSAGE.COPY_INGREDIENTS
         });
     } catch (error) {
+        addErrorToast();
+    }
+};
+
+export const shareList = async text => {
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                text
+            });
+        } catch (error) {
+            addErrorToast();
+        }
+    } else {
         addErrorToast();
     }
 };

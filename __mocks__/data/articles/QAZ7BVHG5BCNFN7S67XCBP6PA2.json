@@ -421,6 +421,33 @@
             "type": "image",
             "url": "https://resizer.glanacion.com/resizer/jaiezKdzFhamWbKEWQtQipAmzXs=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5JWZVMKF6FGFLBRUXFYNMABRXY.jpg",
             "width": 768
+        },
+        "glossary": {
+            "_id": "ZLOHV44D75PYTKU4PUPKDI332Y",
+            "embed": {
+                "config": {
+                    "arrayData": [
+                        {
+                            "key": "LA NACION",
+                            "value": "Medio de comunicación."
+                        },
+                        {
+                            "key": "MAC",
+                            "value": "Ministerio de Economia."
+                        },
+                        {
+                            "key": "ONU",
+                            "value": "Organización de las Naciones Unidas."
+                        }
+                    ],
+                    "fromComposer": false,
+                    "idArticle": "P26UHA5OCRFNLC6Z3MLSVWCKTU"
+                },
+                "id": "1727114277921",
+                "url": "https://sandbox.lanacion.com.ar"
+            },
+            "subtype": "custom-glossary",
+            "type": "custom_embed"
         }
     },
     "publish_date": "2022-01-05T14:13:01.667Z",

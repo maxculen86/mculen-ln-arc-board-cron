@@ -15,7 +15,7 @@ import {
     extractDataFromTags
 } from './extractData/extractDataReceta';
 
-const snippet = props => {
+function snippet(props) {
     const {
         globalContent: {
             headlines = {},
@@ -39,7 +39,7 @@ const snippet = props => {
         'placeholderLN-1200x800.jpg'
     );
 
-    const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
+    const LOGO = getAssetsPath(contextPath)(deployment)('logo-ln.png');
 
     const { by = [] } = credits;
 
@@ -53,21 +53,13 @@ const snippet = props => {
 
     const { autores } = extractDataFromCredits(by);
 
-    const {
-        image,
-        counterTime,
-        counterPortion,
-        cookTime,
-        prepTime
-    } = extractDataFromPromoItems(promoItems, PLACERHOLDER);
+    const { image, counterTime, counterPortion, cookTime, prepTime } =
+        extractDataFromPromoItems(promoItems, PLACERHOLDER);
 
     const categoria = primarySection.name;
 
-    const {
-        ingredients,
-        instructions,
-        nutrition
-    } = extractDataFromContentElements(contentElements);
+    const { ingredients, instructions, nutrition } =
+        extractDataFromContentElements(contentElements);
 
     const { keywords } = extractDataFromTags(tags);
 
@@ -76,9 +68,8 @@ const snippet = props => {
     const getRecipeCuisine = recipeSections => {
         if (recipeSections.length) {
             const recipeCuisine =
-                recipeSections.find(e => {
-                    return e.parent_id === '/recetas/cocina';
-                }) || {};
+                recipeSections.find(e => e.parent_id === '/recetas/cocina') ||
+                {};
             return recipeCuisine.name;
         }
         return undefined;
@@ -116,7 +107,7 @@ const snippet = props => {
             logo: {
                 '@context': 'http://schema.org',
                 '@type': 'ImageObject',
-                url: `${LOGO_AMP}`,
+                url: `${LOGO}`,
                 height: 41,
                 width: 391
             }
@@ -124,7 +115,7 @@ const snippet = props => {
         image
     };
     return <SnippetRender data={data} />;
-};
+}
 
 snippet.propTypes = {
     globalContent: PropTypes.shape({

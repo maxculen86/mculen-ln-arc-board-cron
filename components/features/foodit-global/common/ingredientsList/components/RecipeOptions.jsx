@@ -3,33 +3,46 @@ import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
+import PropTypes from 'fusion:prop-types';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
-import { copyListToClipboard } from '../../shoppingList/_helpers';
+import {
+    copyListToClipboard,
+    formatShoppingList,
+    shareList
+} from '../../shoppingList/_helpers';
 
-export const RecipeOptions = ({ list, bookmarkId, setShoppingList }) => {
+function DropdownToggle(props) {
+    return (
+        <Button
+            variant="secondary"
+            size={{ sm: 32, md: 40 }}
+            title="ver opciones"
+            iconOnly
+            {...props}
+        >
+            <Icon size={16}>
+                <IconSprite className="sm-none" name="more-horizontal" />
+                <IconSprite className="sm-only" name="more-vertical" />
+            </Icon>
+        </Button>
+    );
+}
+export function RecipeOptions({ list, bookmarkId, setShoppingList }) {
     const handleClick = e => {
         e.preventDefault();
         e.stopPropagation();
     };
+
+    const formattedShoppingList = formatShoppingList([
+        list.find(articleList => articleList.bookmarkId === bookmarkId)
+    ]);
+
     return (
         <Dropdown hideArrow className="ml-auto ml-0_md" onClick={handleClick}>
             <Dropdown.Toggle
                 className="text-light-800 text-accent-lechuga__hover"
-                as={props => (
-                    <Button
-                        variant="secondary"
-                        size={{ sm: 32, md: 40 }}
-                        title="ver opciones"
-                        iconOnly
-                        {...props}
-                    />
-                )}
-            >
-                <Icon size={16}>
-                    <IconSprite className="sm-none" name="more-horizontal" />
-                    <IconSprite className="sm-only" name="more-vertical" />
-                </Icon>
-            </Dropdown.Toggle>
+                as={DropdownToggle}
+            />
             <Dropdown.Menu
                 alignment="right"
                 className="bg-light-1 p-24 rounded-4 shadow-center"
@@ -37,22 +50,24 @@ export const RecipeOptions = ({ list, bookmarkId, setShoppingList }) => {
                 <ul className="w-202">
                     <Itemcard
                         key={`copy-${bookmarkId}`}
-                        icon={<IconSprite name={'copy'} />}
+                        icon={<IconSprite name="copy" />}
                         onClick={() =>
-                            copyListToClipboard([
-                                list.find(
-                                    articleList =>
-                                        articleList.bookmarkId === bookmarkId
-                                )
-                            ])
+                            copyListToClipboard(formattedShoppingList)
                         }
                         text="copiar"
                         variant="default"
                         type="button"
                     />
                     <Itemcard
+                        icon={<IconSprite name="share" />}
+                        text="Compartir"
+                        variant="default"
+                        type="button"
+                        onClick={() => shareList(formattedShoppingList)}
+                    />
+                    <Itemcard
                         key={`delete-${bookmarkId}`}
-                        icon={<IconSprite name={'delete'} />}
+                        icon={<IconSprite name="delete" />}
                         onClick={() =>
                             window.LN.observable.publish(
                                 'showModalIngredient',
@@ -74,4 +89,10 @@ export const RecipeOptions = ({ list, bookmarkId, setShoppingList }) => {
             </Dropdown.Menu>
         </Dropdown>
     );
+}
+
+RecipeOptions.propTypes = {
+    list: PropTypes.isRequired,
+    bookmarkId: PropTypes.isRequired,
+    setShoppingList: PropTypes.isRequired
 };

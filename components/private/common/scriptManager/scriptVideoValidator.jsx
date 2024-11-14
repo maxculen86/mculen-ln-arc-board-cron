@@ -6,7 +6,7 @@ const videosBody = contentElements =>
     contentElements &&
     contentElements.filter(element => element.type === 'video').length;
 
-const scriptVideoValidator = globalContent => {
+function scriptVideoValidator(globalContent) {
     const contentElements = get(globalContent, 'content_elements');
     const subtype = get(globalContent, 'subtype');
     const promoItems = get(globalContent, 'promo_items');
@@ -21,7 +21,7 @@ const scriptVideoValidator = globalContent => {
             typeBasic === 'video') &&
         subtype !== FOTOAL100
     );
-};
+}
 
 scriptVideoValidator.propTypes = {
     globalContent: PropTypes.shape({

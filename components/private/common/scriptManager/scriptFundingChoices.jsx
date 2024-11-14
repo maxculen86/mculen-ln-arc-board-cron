@@ -1,6 +1,7 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 
-const FundingChoices = () => {
+function FundingChoices() {
     const scriptContent = `
         window.googlefc = window.googlefc || {};
         googlefc.controlledMessagingFunction = function (message) {
@@ -19,6 +20,6 @@ const FundingChoices = () => {
             }}
         />
     );
-};
+}
 
 export default FundingChoices;

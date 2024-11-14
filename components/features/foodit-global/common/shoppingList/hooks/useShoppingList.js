@@ -50,9 +50,13 @@ export const useShoppingList = () => {
 
         const isValidSubsribed = isSubscribed(SUBSCRIBED_HELPER.FOODIT);
 
-        isValidSubsribed && token && accessToken
-            ? fetchUserBookmarks()
-            : setLoading(false);
+        if (isValidSubsribed && accessToken && token) {
+            fetchUserBookmarks();
+        }
+
+        if (!isValidSubsribed) {
+            setLoading(false);
+        }
     }, [token, accessToken]);
 
     return {

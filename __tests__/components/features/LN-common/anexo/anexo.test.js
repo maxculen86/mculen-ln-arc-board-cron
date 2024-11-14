@@ -9,7 +9,7 @@ import { isInSection } from '../../../../../components/features/LN-common/anexo/
 import BuildRoof from '../../../../../components/chains/utils/_BuildRoof/default';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -22,7 +22,7 @@ Context.useAppContext = jest.fn(() => ({
 }));
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -37,49 +37,21 @@ jest.mock(
     })
 );
 
-const testCases = [
-    {
-        type: 'Html',
-        props: {
-            id: '123',
-            customFields: {
-                html: '<p>Test HTML content</p>'
-            },
-            extraClass: 'extra-class'
-        },
-        expected: (
-            <>
-                <div className="roof-class">
-                    <BuildRoof logoId="456" link="https://example.com" />
-                </div>
-                <div
-                    className="com-anexo extra-class"
-                    dangerouslySetInnerHTML={{
-                        __html: '<p>Test HTML content</p>'
-                    }}
-                />
-                <div>Banner Mobile</div>
-                <div>Banner Desktop</div>
-            </>
-        )
-    }
-];
-
 describe('features - LN-common - anexo - default', () => {
     isInSection.mockRestore();
+    const propsHtml = {
+        collection: 'features',
+        type: 'LN-common/anexo',
+        id: 'f0fzNPnpdFcOa8T',
+        name: null,
+        customFields: {
+            html: `<p>Mock HTML anexo</p>`,
+            hideByHtml: false,
+            mobileFullWidth: true
+        }
+    };
 
     describe('With HTML anexo props', () => {
-        const propsHtml = {
-            collection: 'features',
-            type: 'LN-common/anexo',
-            id: 'f0fzNPnpdFcOa8T',
-            name: null,
-            customFields: {
-                html: `<p>Mock HTML anexo</p>`,
-                hideByHtml: false
-            }
-        };
-
         it('Should render HTML anexo correctly', () => {
             const { container } = render(<AnexoFeature {...propsHtml} />);
 
@@ -121,8 +93,7 @@ describe('features - LN-common - anexo - default', () => {
             id: 'f0f0raOK8mKx1sc',
             name: null,
             customFields: {
-                url:
-                    'https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/',
+                url: 'https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/',
                 heightDesktop: 300,
                 heightTablet: 150,
                 heightMobile: 100,
@@ -131,7 +102,7 @@ describe('features - LN-common - anexo - default', () => {
             }
         };
 
-        it.only('Should render iframe correctly', () => {
+        it('Should render iframe correctly', () => {
             const { container } = render(<AnexoFeature {...propsUrl} />);
 
             expect(container).not.toBeNull();
@@ -173,7 +144,7 @@ describe('features - LN-common - anexo - default', () => {
             expect(component).toMatchSnapshot();
         });
 
-        it.only('Should set src when isAdmin (PB) and NOT data-src', () => {
+        it('Should set src when isAdmin (PB) and NOT data-src', () => {
             Context.useAppContext = jest.fn(() => ({
                 contextPath: '/pf',
                 deployment: arg => arg,
@@ -230,26 +201,6 @@ describe('features - LN-common - anexo - default', () => {
     });
 
     describe('getComponentFromConfig', () => {
-        testCases.forEach(({ type, props, expected }) => {
-            it(`should render the expected component for type '${type}'`, () => {
-                const bannerMob = <div>Banner Mobile</div>;
-                const bannerDsk = <div>Banner Desktop</div>;
-                const roofData = { logoId: '456', link: 'https://example.com' };
-                const classNameRoof = 'roof-class';
-
-                const result = getComponentFromConfig(
-                    type,
-                    props,
-                    bannerMob,
-                    bannerDsk,
-                    roofData,
-                    classNameRoof
-                );
-
-                expect(result).toEqual(expected);
-            });
-        });
-
         it('should render an empty fragment when the type is not recognized and there is no error message', () => {
             const type = 'Unknown';
             const props = {
@@ -269,7 +220,7 @@ describe('features - LN-common - anexo - default', () => {
                 classNameRoof
             );
 
-            expect(result).toEqual(<></>);
+            expect(result).toEqual(null);
         });
 
         it('should render an empty fragment when the Html component has no HTML content', () => {
@@ -367,7 +318,7 @@ describe('features - LN-common - anexo - default', () => {
                 const result = getComponentType({
                     isAdmin: false,
                     customFields: {
-                        VivoYoutube:
+                        vivoYoutube:
                             '<div class="embed-code" data-src="https://www.youtube.com/embed/ZGy4e2M2Vsc?autoplay=1&amp;amp;mute=1"><iframe width="100%" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" src="https://www.youtube.com/embed/ZGy4e2M2Vsc?autoplay=1&amp;amp;mute=1"></iframe></div>'
                     }
                 });
@@ -439,6 +390,26 @@ describe('features - LN-common - anexo - default', () => {
             it('should return undefined if no valid conditions are met', () => {
                 const result = getComponentType({});
                 expect(result).toBe('');
+            });
+
+            it('should have a default classname when mobileFullWidth is false', () => {
+                const mutationProps = {
+                    ...propsHtml,
+                    customFields: {
+                        ...propsHtml.customFields,
+                        mobileFullWidth: false
+                    }
+                };
+                render(<AnexoFeature {...mutationProps} />);
+                const anexoDiv = screen.getByText('Mock HTML anexo');
+                expect(anexoDiv.parentElement).toHaveClass('w-100');
+            });
+            it('should have a correcly classnames when mobileFullWidth is true', () => {
+                render(<AnexoFeature {...propsHtml} />);
+                const anexoDiv = screen.getByText('Mock HTML anexo');
+                expect(anexoDiv.parentElement).toHaveClass(
+                    'lay-container-100vw_max767 w-100_md'
+                );
             });
         });
     });

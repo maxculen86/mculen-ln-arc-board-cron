@@ -37,9 +37,14 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn()
-}));
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        SITE_OTT: 'https://lnmas.lanacion.com.ar',
+        ARC_STATIC: 'https://arc-static.glanacion.com'
+    };
+});
 
 describe('Metas OTT', () => {
     beforeEach(() => {
@@ -82,8 +87,8 @@ describe('Metas OTT', () => {
                     return 'LN+ Mirá todos los programas y videos online';
             },
             contextPath: '/pf',
-            deployment: function deployment() {
-                return '$LATEST';
+            deployment: function deployment(value) {
+                return value;
             },
             section: 'video',
             arcSite: 'ott',
@@ -120,7 +125,7 @@ describe('Metas OTT', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             },
             {
@@ -151,7 +156,7 @@ describe('Metas OTT', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-513x50.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             }
         ];
@@ -194,7 +199,14 @@ describe('Common - getMetasOG function', () => {
                 subtype: '7',
                 type: 'story',
                 website_url:
-                    '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
+                    '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
+                credits: {
+                    by: [{ name: 'Carlos Pagni' }]
+                },
+                taxonomy: {
+                    tags: [{ text: 'Odisea Argentina' }],
+                    primary_section: { name: 'Receta' }
+                }
             },
 
             siteProperties: {
@@ -222,6 +234,7 @@ describe('Common - getMetasOG function', () => {
             },
             section: 'nota'
         };
+
         const metas = [
             {
                 property: 'fb:app_id',
@@ -282,6 +295,18 @@ describe('Common - getMetasOG function', () => {
                 content: '2021-01-08T15:24:00.940Z'
             },
             {
+                property: 'article:section',
+                content: 'Receta'
+            },
+            {
+                property: 'article:author',
+                content: 'Carlos Pagni'
+            },
+            {
+                property: 'article:tag',
+                content: 'Odisea Argentina'
+            },
+            {
                 name: 'twitter:image',
                 content:
                     'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800'
@@ -308,8 +333,8 @@ describe('Common - getMetasOG function', () => {
                 return '';
             },
             contextPath: '/pf',
-            deployment: function deployment() {
-                return '$LATEST';
+            deployment: function deployment(value) {
+                return value;
             },
             section: 'acumulado',
             arcSite: 'la-nacion-ar',
@@ -345,7 +370,7 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             },
             {
@@ -375,7 +400,7 @@ describe('Common - getMetasOG function', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-513x50.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             }
         ];
@@ -518,8 +543,8 @@ describe('Metas home', () => {
                 undefined;
             },
             contextPath: '/pf',
-            deployment: function deployment() {
-                return '$LATEST';
+            deployment: function deployment(value) {
+                return value;
             },
             section: 'home',
             arcSite: 'la-nacion-ar',
@@ -554,7 +579,7 @@ describe('Metas home', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             },
             {
@@ -584,7 +609,7 @@ describe('Metas home', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-513x50.jpg'
+                    'placeholderLN-1200x630.png'
                 )
             }
         ];

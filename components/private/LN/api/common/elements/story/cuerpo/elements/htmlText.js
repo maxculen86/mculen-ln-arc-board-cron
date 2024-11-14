@@ -3,7 +3,7 @@ import walkerBuilder from '../../../../../../../common/utils/walker';
 import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
 import unescapeHtml from '../../../../../../../common/utils/unescapeHtml';
 
-const htmlText = (nodo, dataNota) => {
+const htmlText = nodo => {
     if (!nodo) return null;
 
     const rootTagName = 'root';
@@ -25,9 +25,7 @@ const htmlText = (nodo, dataNota) => {
     );
     walker.addCondition(
         node => node.tagName === rootTagName,
-        (data, next) => {
-            return next(data.childNodes);
-        }
+        (data, next) => next(data.childNodes)
     );
 
     walker.addCondition(
@@ -45,11 +43,11 @@ const htmlText = (nodo, dataNota) => {
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName === 'mark',
         (data, next) => {
-            const classRegex = new RegExp('class="hl_(.*)"');
+            const classRegex = /class="hl_(.*)"/;
             const attrs = classRegex.exec(data.rawAttrs);
             return {
                 _t: 'mark',
-                color: attrs[1],
+                color: attrs ? attrs[1] : null,
                 valor: next(data.childNodes)
             };
         }
@@ -57,19 +55,15 @@ const htmlText = (nodo, dataNota) => {
 
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName !== 'br',
-        (data, next) => {
-            return {
-                _t: data.tagName,
-                valor: next(data.childNodes)
-            };
-        }
+        (data, next) => ({
+            _t: data.tagName,
+            valor: next(data.childNodes)
+        })
     );
 
     walker.addCondition(
         node => !!node.rawText,
-        (data, next) => {
-            return unescapeHtml(data.rawText);
-        }
+        data => unescapeHtml(data.rawText)
     );
 
     return walker.parse(html.childNodes);

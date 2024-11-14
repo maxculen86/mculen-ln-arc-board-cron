@@ -6,7 +6,7 @@ import SaveRecipe from './saveRecipe';
 import useIsomorphicPopupHandling from './hooks/useIsomorphicPopupHandling';
 import get from '../../../../../private/common/utils/get';
 import fetchDeleteBookmark from '../../bookmark/api/deleteBookmark';
-import { unfillBookmarks } from '../../bookmark/iconHelper';
+import { toggleBookmarks } from '../../bookmark/iconHelper';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
@@ -34,8 +34,9 @@ export function Modal() {
 
     useEffect(() => {
         if (bookmarkedArticles.length > 0) {
-            unfillBookmarks(
-                bookmarkedArticles.map(article => article.bookmarkTypeId)
+            toggleBookmarks(
+                bookmarkedArticles.map(article => article.bookmarkTypeId),
+                false
             );
 
             const deleteBookmarkedArticles = async () => {

@@ -3,13 +3,17 @@
 exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render BN_12_GRID layout with articles 1`] = `
 <div>
   <div
-    class="flex ai-end jc-between gap-24 mb-24"
+    class="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky"
   >
     <h3
-      class="text prumo prumo-light text-24 text-32_md text-36_lg"
+      class="text roof-text-sticky pl-16 pl-0_md"
     >
       Grid Title
     </h3>
+    <button
+      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto pr-16 pr-0_md"
+      data-variant="link"
+    />
   </div>
   <div
     class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32"
@@ -1258,10 +1262,10 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     class="carousel-container"
   >
     <div
-      class="flex ai-end jc-between gap-24 mb-24"
+      class="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky"
     >
       <a
-        class="link foodit-link flex gap-8 ai-center roboto-regular prumo prumo-light text-24 text-32_md text-36_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-lechuga__hover"
+        class="link foodit-link flex gap-8 ai-center roboto-regular roof-text-sticky ml-16 ml-0_md border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-lechuga__hover"
         data-variant="primary"
         href="https://lanacion.com"
         target="_self"
@@ -1270,7 +1274,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         carousel title
       </a>
       <button
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto"
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto pr-16 pr-0_md"
         data-collectionid=""
         data-variant="link"
         text="Guardar todo"
@@ -2658,15 +2662,15 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
     class="carousel-container"
   >
     <div
-      class="flex ai-end jc-between gap-24 mb-24"
+      class="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky"
     >
       <h2
-        class="text prumo prumo-light text-24 text-32_md text-36_lg"
+        class="text roof-text-sticky pl-16 pl-0_md"
       >
         Empty Articles Test
       </h2>
       <button
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto"
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto pr-16 pr-0_md"
         data-collectionid=""
         data-variant="link"
         text="Guardar todo"

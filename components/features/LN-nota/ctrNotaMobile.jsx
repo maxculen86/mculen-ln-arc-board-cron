@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { useContent as getContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import Lazy from 'lazy-child';
 import useViewportSize from '../../private/common/hooks/useViewportSize';
-import get from '../../private/common/utils/get';
 import StickyMobile from '../../private/LN/nota/StickyMobile';
 import { crtViewTracker } from '../../private/common/utils/noteTracker/ctrTracker';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../auth/helper/loginHelper';
+import { getSectionId } from '../LN-10/ranking/common/_helper-WebApi';
+import { getSectionParentId } from '../LN-common/ranking/_helper';
+import { getDataContent } from '../LN-10/ranking/_helper';
 
 export const ctrRecommendNote = (
     articleList,
     articlesSeen,
     actualArticleId
 ) => {
-    const notCurrent = articleList.filter(art => {
-        return art._id !== actualArticleId;
-    });
+    const notCurrent = articleList?.filter(art => art._id !== actualArticleId);
 
-    const notSeenBefore = notCurrent.filter(art => {
-        return !articlesSeen.includes(art.canonical_url);
-    });
+    const notSeenBefore = notCurrent?.filter(
+        art => !articlesSeen.includes(art.canonical_url)
+    );
 
-    return notSeenBefore.length > 0
+    return notSeenBefore?.length > 0
         ? notSeenBefore[0]
         : notCurrent[Math.round(Math.random() * notCurrent.length)] || {}; // NOSONAR
 };
 
-const CTRNota = () => {
-    const globalContent = get(useAppContext(), 'globalContent', {});
+function CTRNota() {
+    const { website = '', arcSite = '', globalContent = {} } = useAppContext();
     const { _id } = globalContent;
-
+    const sectionId = getSectionId(globalContent) || '';
+    const sectionParentId = getSectionParentId(sectionId) || '';
     const [trigger, setTrigger] = useState(false);
     const [tracked, setTracker] = useState(true);
     const [excludeItems, setExcludeItems] = useState([]);
@@ -51,7 +51,7 @@ const CTRNota = () => {
                 window.removeEventListener('scroll', handleScroll);
             }
         };
-        !trigger && window.addEventListener('scroll', handleScroll);
+        if (!trigger) window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -61,29 +61,18 @@ const CTRNota = () => {
     const showCtr = !isSubscribed(SUBSCRIBED_HELPER.LN) && device === 'mobile';
 
     const { articles = [] } =
-        getContent({
-            source: showCtr ? 'rankingArticlesSource' : null,
-            query: {
-                sectionId: 'inverse-home',
-                imageConfig: 'boxArticles',
-                website: 'la-nacion-ar'
-            }
-        }) || {};
+        getDataContent(sectionId, sectionParentId, website || arcSite, '') ||
+        {};
 
-    if (!showCtr) return null;
+    if (!showCtr || articles?.length === 0) return null;
 
     const articleToShow = ctrRecommendNote(articles, excludeItems, _id);
-
     const showComponent =
-        showCtr && trigger && Object.keys(articleToShow).length > 0;
+        showCtr && trigger && Object.keys(articleToShow)?.length > 0;
+
     return (
         showComponent && (
-            <Lazy
-                renderPlaceholder={ref => {
-                    return <div ref={ref} />;
-                }}
-                offsetTop={8000}
-            >
+            <Lazy renderPlaceholder={ref => <div ref={ref} />} offsetTop={8000}>
                 <StickyMobile
                     headerText="Te puede interesar"
                     articleToShow={articleToShow}
@@ -92,7 +81,7 @@ const CTRNota = () => {
             </Lazy>
         )
     );
-};
+}
 
 CTRNota.label = 'LN-CTR-nota';
 

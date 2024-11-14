@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { useDisclosure } from '@ln/hooks';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const useIaVisibility = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure(false);
+
+    const containerIaToolsRef = useRef(null);
 
     const handleClose = () => {
         if (typeof window !== 'undefined' && window.LN?.observable) {
@@ -13,13 +16,13 @@ const useIaVisibility = () => {
                 category: 'nota_ln9',
                 label: 'cerrar_ia'
             });
-            setIsVisible(false);
+            onClose();
         }
     };
 
     useEffect(() => {
         const handleShowIa = data =>
-            data?.show !== undefined && setIsVisible(data.show || false);
+            data?.show !== undefined && data.show ? onOpen() : onClose();
 
         window?.LN?.observable.subscribe('showIa', handleShowIa);
 
@@ -29,7 +32,16 @@ const useIaVisibility = () => {
         };
     }, []);
 
-    return { isVisible, handleClose };
+    useEffect(() => {
+        if (isOpen && containerIaToolsRef?.current) {
+            containerIaToolsRef?.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }, [isOpen, containerIaToolsRef?.current]);
+
+    return { isOpen, handleClose, containerIaToolsRef };
 };
 
 export default useIaVisibility;

@@ -125,6 +125,28 @@ describe('Test de index en JSON de nota', () => {
         const resp = dateAndTimeForAppsUtil(undefined);
         expect(resp).toBe(undefined);
     });
+    it('the story should have summary property when only summary is present in promo_items', () => {
+        const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
+        expect(resp.ia).not.toBeNull();
+        expect(resp.ia.summary).not.toBeNull();
+        expect(resp.ia.glossary).toBeUndefined();
+    });
+    it('the story must have the glossary property when only glossary is present in promo_items', () => {
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        expect(resp.ia).not.toBeNull();
+        expect(resp.ia.glossary).not.toBeNull();
+        expect(resp.ia.summary).toBeUndefined();
+    });
+    it('the story should not have summary and glossary properties when these are not present in promo_items', () => {
+        const resp = NotaIndex(M3UNX7ATAZHEFJGPGFZX366ZAQ);
+        expect(resp.ia).not.toBeNull();
+        expect(resp.ia.glossary).not.toBeNull();
+        expect(resp.ia.summary).not.toBeNull();
+    });
+    it('the story should not have the ia property when the promo_items object does not have the glossary or summary properties', () => {
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA4);
+        expect(resp.ia).toBeUndefined();
+    });
 });
 describe('Test json integracion Article', () => {
     it('Luego del primer elemento/párrafo. Se dibuja siempre.', () => {
@@ -182,6 +204,7 @@ describe('Test json integracion Article', () => {
             'https://especialeslntools.lanacion.com.ar/generic-precios-temporada-2021/index.html'
         );
         expect(resp.contenido[0].id).toBe('ifrme');
+        expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
     });
 
     it('test no key volanta', () => {
@@ -191,6 +214,7 @@ describe('Test json integracion Article', () => {
             volanta: null
         };
         const resp = NotaIndex(articleNoVolanta);
+        expect(resp.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
         expect(Object.keys(resp.apertura).sort()).toEqual(
             [
                 'autores',
@@ -204,6 +228,7 @@ describe('Test json integracion Article', () => {
     });
     it('test keys expected', () => {
         const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA4);
+        expect(resp.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
         expect(Object.keys(resp).sort()).toEqual(
             [
                 'id',
@@ -227,11 +252,26 @@ describe('Test json integracion Article', () => {
 
     it('test isListenable false', () => {
         const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
         expect(resp.isListenable).toBe(false);
+        expect(resp.audio_custom_voice).toBeUndefined();
     });
 
     it('test isListenable', () => {
         const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
+        expect(resp.id).toBe('PWMLKBWMCVCIFLKOPVUVHURDAM');
         expect(resp.isListenable).toBe(true);
+    });
+
+    it('test is custom voice', () => {
+        const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
+        expect(resp.id).toBe('PWMLKBWMCVCIFLKOPVUVHURDAM');
+        expect(resp.audio_custom_voice).toBe(true);
+    });
+
+    it('test is not custom voice', () => {
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
+        expect(resp.audio_custom_voice).toBeUndefined();
     });
 });

@@ -7,7 +7,7 @@ import {
 } from './_helpers';
 import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
 
-export const BellButton = () => {
+export function BellButton() {
     const isCSR = typeof window !== 'undefined';
     const tooltipStorage = isCSR && localStorage?.getItem('tooltip');
     const initialTooltip = tooltipStorage === 'hide' ? tooltipStorage : 'show';
@@ -38,10 +38,10 @@ export const BellButton = () => {
     }, [token, accessToken, tooltip]);
 
     if (!isCSR) {
-        return <></>;
+        return null;
     }
 
     const propsNotification = token && accessToken ? props : propsDefault;
     return <NotificationsCentre {...propsNotification} />;
-};
+}
 export default BellButton;

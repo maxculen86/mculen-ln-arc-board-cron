@@ -1,0 +1,13 @@
+.tabs .tabs-item-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  transform-origin: left;
+  scale: var(--_tabWidth, 0) 1;
+  translate: var(--_tabLeft, 0) 0;
+  background-color: var(--_tabColor, currentColor);
+  transition: scale var(--_animationTime) linear, translate var(--_animationTime) linear;
+}

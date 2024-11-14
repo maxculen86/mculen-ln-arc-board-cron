@@ -10,7 +10,8 @@ export const size = {
     fourXL: '4xl',
     fiveXL: '5xl',
     sixXL: '6xl',
-    T1: 'T1'
+    T1: 'T1',
+    T1Focal100: 'T1Focal100'
 };
 
 const diagramationRules = diagramation => {
@@ -220,7 +221,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withSubhead: true,
                 cardSize: size.sixXL,
-                imageConfig: size.T1,
+                imageConfig: size.T1Focal100,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.right,

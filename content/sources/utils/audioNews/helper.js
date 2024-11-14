@@ -1,8 +1,30 @@
 import get from '../../../../components/private/common/utils/get';
 import config from './config';
 
-const isValidDate = (publishDate = '') => {
-    const formatDate = publishDate.replace(/-|[a-z][^\/]+/gi, '');
+const { disableSubtypes } = config;
+
+const getCommonProperties = data => {
+    const sourceOrigin = get(data, 'source.system', '');
+    const subtype = get(data, 'subtype', '');
+    const labelAudioNews = get(data, 'label.republicar_audio', null);
+    const textAudioNews = get(data, 'label.republicar_audio.text', '');
+    const date = get(data, 'first_publish_date', '');
+    const contentElements = get(data, 'content_elements', []);
+    const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
+
+    return {
+        sourceOrigin,
+        subtype,
+        labelAudioNews,
+        textAudioNews,
+        date,
+        contentElements,
+        primarySectionId
+    };
+};
+
+const isValidDate = (date = '') => {
+    const formatDate = date.replace(/-|[a-z][^/]+/gi, '');
     const releaseDateInAllSections = 20231123;
 
     return Number(formatDate) >= releaseDateInAllSections;
@@ -11,63 +33,37 @@ const isValidDate = (publishDate = '') => {
 const hasParagraphs = contentElements =>
     contentElements.some(({ type = '' } = {}) => type === 'text');
 
-const isSectionNoListenable = data => {
-    const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
-    const regex = new RegExp('^/(estados-unidos|juegos|newsletters)', 'i');
+const isSectionNoListenable = primarySectionId => {
+    const regex = /^\/(estados-unidos|juegos|newsletters)/i;
     return regex.test(primarySectionId);
 };
 
-const isNoteListenable = data => {
-    const sourceOrigin = get(data, 'source.system', '');
-    const subtype = get(data, 'subtype', '');
-    const labelAudioNews = get(data, 'label.republicar_audio', null);
-    const textAudioNews = get(data, 'label.republicar_audio.text', null);
-    const contentElements = get(data, 'content_elements', []);
+const isListenable = (data, validHasParagraphs = true) => {
+    const {
+        sourceOrigin,
+        subtype,
+        labelAudioNews,
+        textAudioNews,
+        date,
+        contentElements,
+        primarySectionId
+    } = getCommonProperties(data);
 
-    if (
+    return (
         sourceOrigin === 'composer' &&
-        labelAudioNews &&
-        textAudioNews !== 'No mostrar audio' &&
-        hasParagraphs(contentElements) &&
-        !isSectionNoListenable(data)
-    ) {
-        const date = get(data, 'last_updated_date', '');
-        const { disableSubtypes } = config;
-
-        return !disableSubtypes.includes(subtype) && isValidDate(date);
-    }
-
-    return false;
+        (labelAudioNews ? textAudioNews !== 'No mostrar audio' : true) &&
+        !isSectionNoListenable(primarySectionId) &&
+        !disableSubtypes.includes(subtype) &&
+        isValidDate(date) &&
+        (validHasParagraphs ? hasParagraphs(contentElements) : true)
+    );
 };
 
-export const isNoteListenableHome = data => {
-    const sourceOrigin = get(data, 'source.system', '');
-    const subtype = get(data, 'subtype', '');
-    const labelAudioNews = get(data, 'label.republicar_audio', null);
-    const textAudioNews = get(data, 'label.republicar_audio.text', null);
+const isNoteListenable = data => isListenable(data);
 
-    if (
-        (sourceOrigin === 'composer' || sourceOrigin === '') &&
-        labelAudioNews &&
-        textAudioNews !== 'No mostrar audio' &&
-        !isSectionNoListenable(data)
-    ) {
-        const date = get(
-            data,
-            'last_updated_date',
-            get(data, 'display_date', '')
-        );
+export const isNoteListenableHome = data => isListenable(data, false);
 
-        const { disableSubtypes } = config;
-
-        return !disableSubtypes.includes(subtype) && isValidDate(date);
-    }
-
-    return false;
-};
-
-export const isCustomVoice = data => {
-    return data?.voice != undefined && data?.voice != null;
-};
+export const isCustomVoice = data =>
+    data?.voice !== undefined && data?.voice != null;
 
 export default isNoteListenable;

@@ -25,7 +25,7 @@ describe('Test - isNoteListenable', () => {
                 content: 'Un parrafo'
             }
         ],
-        last_updated_date: '2023-11-24T18:06:59.601Z'
+        first_publish_date: '2023-11-24T18:06:59.601Z'
     };
 
     describe('When the note is of spectacles', () => {
@@ -44,6 +44,49 @@ describe('Test - isNoteListenable', () => {
                         }
                     }
                 }
+            ],
+            [
+                'should return true when the prop republicar_audio is not defiend',
+                {
+                    ...data,
+                    label: {}
+                }
+            ],
+            [
+                'Should return false when republicar_audio text is empty ""',
+                {
+                    ...data,
+                    label: {
+                        republicar_audio: {
+                            display: true,
+                            text: ''
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return false when republicar_audio text is empty "No"',
+                {
+                    ...data,
+                    label: {
+                        republicar_audio: {
+                            display: true,
+                            text: 'No'
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return false when republicar_audio text is empty "Si"',
+                {
+                    ...data,
+                    label: {
+                        republicar_audio: {
+                            display: true,
+                            text: 'Si'
+                        }
+                    }
+                }
             ]
         ];
 
@@ -55,7 +98,7 @@ describe('Test - isNoteListenable', () => {
             expect(
                 isNoteListenable({
                     ...data,
-                    last_updated_date: '2022-09-15T18:06:59.601Z'
+                    first_publish_date: '2022-09-15T18:06:59.601Z'
                 })
             ).toBeFalsy();
         });
@@ -69,7 +112,7 @@ describe('Test - isNoteListenable', () => {
                     _id: '/economia'
                 }
             },
-            last_updated_date: '2023-11-24T18:06:59.601Z'
+            first_publish_date: '2023-11-24T18:06:59.601Z'
         };
 
         it('It should return true when the source is composer, the subtype is enabled, and the publish date is 23/11/2023 onwards.', () => {
@@ -81,7 +124,7 @@ describe('Test - isNoteListenable', () => {
                 'Should return false when the publish date is 23/11/2023 before.',
                 {
                     ...response,
-                    last_updated_date: '2022-09-21T18:06:59.601Z'
+                    first_publish_date: '2022-09-21T18:06:59.601Z'
                 }
             ],
             [
@@ -101,13 +144,6 @@ describe('Test - isNoteListenable', () => {
                 }
             ],
             ['Should return false when data is not defined', undefined],
-            [
-                'should return false when the prop republicar_audio is not defiend',
-                {
-                    ...response,
-                    label: {}
-                }
-            ],
             [
                 'Should return false when the note has no paragraphs',
                 {

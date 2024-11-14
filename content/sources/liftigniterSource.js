@@ -74,7 +74,7 @@ const getUrlsbyIds = async (query, cachedCall) => {
             sourceInclude: 'website,website_url,canonical_url'
         };
 
-        //Para pruebas de cache cambiar keyCachedcall por new Date().getTime()
+        // Para pruebas de cache cambiar keyCachedcall por new Date().getTime()
 
         return cachedCall(keyCachedcall, ArticleSourceNotas.fetch, {
             query: {
@@ -168,54 +168,59 @@ const getUrlsbyIds = async (query, cachedCall) => {
     );
 };
 
-const fetch = (query, { cachedCall } = {}) => {
-    const {
-        idArticle,
-        excludeNotas,
-        action,
-        nextIdArticle,
-        listArticles,
-        sizeMax = 20,
-        api = false
-    } = query;
-    const arcSiteStorys = get(query, 'arc-site', null);
-    let allArticles = action === 'activity' ? listArticles : excludeNotas;
-    allArticles = allArticles?.replace('/', '') || '';
-    allArticles = allArticles?.replace('[', '') || '';
-    allArticles = allArticles?.replace(']', '') || '';
+export const transform = (data, siteProps) => {
+    const { presets, presetsDefault } = getPresets(siteProps);
+    const presetsPromoItems = get(presets, 'promo_items', null);
 
-    const nextIdArticleClean = nextIdArticle?.match(/([A-Z0-9]+)/)?.[1];
-    if (nextIdArticleClean && !!nextIdArticleClean) {
-        allArticles = nextIdArticleClean.concat(',', allArticles);
-    }
-    const idArticleClean = idArticle && idArticle.replace('/', '');
-    if (idArticle && !!idArticle) {
-        allArticles = idArticleClean.concat(',', allArticles);
-    }
+    return data.map(elem => {
+        const promoItems = get(elem, `promo_items`, null);
+        const basicUrl = get(promoItems, 'basic.url', '');
+        const subtype = get(elem, `subtype`, null);
+        const isFotoAl100orStorytelling =
+            subtype === FOTOAL100 || subtype === STORYTELLING;
+        const parsedId = basicUrl.match(
+            /[A-Z0-9]{26}(.(jpe?g|tiff?|webp|gif|png|bmp|jfif))?/i
+        );
+        const imageAuth = new URL(basicUrl).searchParams.get('auth');
+        const staticResourceRegex = /\/resources\/images\//;
+        const isStaticResource = staticResourceRegex.test(basicUrl);
 
-    if (api && allArticles && !!allArticles) {
-        const keyCachedcall = [
-            allArticles?.replace(',', '*') || '',
-            (sizeMax || 0).toString(),
-            arcSiteStorys || ''
-        ].join('-');
+        const imageToUse = !isStaticResource
+            ? addResizedUrls(
+                  {
+                      ...(promoItems && {
+                          promo_items: {
+                              ...promoItems,
+                              ...{
+                                  basic: {
+                                      ...get(promoItems, 'basic', {}),
+                                      _id: parsedId ? parsedId[0] : '',
+                                      auth: {
+                                          1: imageAuth
+                                      }
+                                  }
+                              }
+                          }
+                      })
+                  },
+                  {
+                      presets: {
+                          promoItems: presetsPromoItems,
+                          presetsDefault
+                      },
+                      // Se pasa el subtype para que las notas de foto al 100
+                      // y storytelling no sean excluidas de las validaciones del resizer
+                      // y pueda aplicarse 3:2, focal point o smartcrop
+                      subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                  }
+              )
+            : { promo_items: { basic: {} } };
 
-        return Promise.resolve(
-            getUrlsbyIds(
-                {
-                    ...query,
-                    allArticles,
-                    idArticleClean,
-                    keyCachedcall
-                },
-                cachedCall
-            )
-        ).then(resp => {
-            return resolveData(resp);
-        });
-    }
-
-    return resolveData(query);
+        return {
+            ...elem,
+            ...imageToUse
+        };
+    });
 };
 
 const resolveData = query => {
@@ -294,9 +299,7 @@ const resolveData = query => {
                     }
                 ]
             }),
-            resolve: response => {
-                return (response && JSON.parse(response)) || {};
-            },
+            resolve: response => (response && JSON.parse(response)) || {},
             reject: error => {
                 if (api) {
                     console.error(
@@ -382,55 +385,52 @@ const resolveData = query => {
         .catch(error => REQUESTS[action].reject(error));
 };
 
-const transform = (data, siteProps) => {
-    const { presets, presetsDefault } = getPresets(siteProps);
-    const presetsPromoItems = get(presets, 'promo_items', null);
+const fetch = (query, { cachedCall } = {}) => {
+    const {
+        idArticle,
+        excludeNotas,
+        action,
+        nextIdArticle,
+        listArticles,
+        sizeMax = 20,
+        api = false
+    } = query;
+    const arcSiteStorys = get(query, 'arc-site', null);
+    let allArticles = action === 'activity' ? listArticles : excludeNotas;
+    allArticles = allArticles?.replace('/', '') || '';
+    allArticles = allArticles?.replace('[', '') || '';
+    allArticles = allArticles?.replace(']', '') || '';
 
-    return data.map(elem => {
-        const promoItems = get(elem, `promo_items`, null);
-        const promoImage = get(promoItems, 'basic.url', '');
-        const subtype = get(elem, `subtype`, null);
-        const isFotoAl100orStorytelling =
-            subtype === FOTOAL100 || subtype === STORYTELLING;
-        const parsedId = promoImage.match(
-            /[A-Z0-9]{26}(.(jpe?g|tiff?|webp|gif|png|bmp|jfif))?/i
-        );
-        const imageAuth = new URL(promoImage).searchParams.get('auth');
+    const nextIdArticleClean = nextIdArticle?.match(/([A-Z0-9]+)/)?.[1];
+    if (nextIdArticleClean && !!nextIdArticleClean) {
+        allArticles = nextIdArticleClean.concat(',', allArticles);
+    }
+    const idArticleClean = idArticle && idArticle.replace('/', '');
+    if (idArticle && !!idArticle) {
+        allArticles = idArticleClean.concat(',', allArticles);
+    }
 
-        return {
-            ...elem,
-            ...(!promoImage.includes('placeholderLN-513x50.jpg')
-                ? addResizedUrls(
-                      {
-                          ...(promoItems && {
-                              promo_items: {
-                                  ...promoItems,
-                                  ...{
-                                      basic: {
-                                          ...get(promoItems, 'basic', {}),
-                                          _id: parsedId ? parsedId[0] : '',
-                                          auth: {
-                                              1: imageAuth
-                                          }
-                                      }
-                                  }
-                              }
-                          })
-                      },
-                      {
-                          presets: {
-                              promoItems: presetsPromoItems,
-                              presetsDefault
-                          },
-                          // Se pasa el subtype para que las notas de foto al 100
-                          // y storytelling no sean excluidas de las validaciones del resizer
-                          // y pueda aplicarse 3:2, focal point o smartcrop
-                          subtype: isFotoAl100orStorytelling ? '-1' : subtype
-                      }
-                  )
-                : { promo_items: { basic: {} } })
-        };
-    });
+    if (api && allArticles && !!allArticles) {
+        const keyCachedcall = [
+            allArticles?.replace(',', '*') || '',
+            (sizeMax || 0).toString(),
+            arcSiteStorys || ''
+        ].join('-');
+
+        return Promise.resolve(
+            getUrlsbyIds(
+                {
+                    ...query,
+                    allArticles,
+                    idArticleClean,
+                    keyCachedcall
+                },
+                cachedCall
+            )
+        ).then(resp => resolveData(resp));
+    }
+
+    return resolveData(query);
 };
 
 export default {

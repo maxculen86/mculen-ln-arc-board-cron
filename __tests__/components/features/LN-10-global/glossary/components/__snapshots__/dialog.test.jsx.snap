@@ -11,7 +11,9 @@ exports[`features - LN-10-GLOBAL - glossary - components- Dialog should match sn
     data-position="bottom"
     id="drawer-glossary"
   >
-    <div>
+    <div
+      class="grid gap-8"
+    >
       <header
         class="flex flex-column gap-16"
       >

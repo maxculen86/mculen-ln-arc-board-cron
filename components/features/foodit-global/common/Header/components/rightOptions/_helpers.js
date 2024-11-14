@@ -9,7 +9,8 @@ export const hideTooltip = setTooltip => {
 
 export const getPropsBellFoodit = () => {
     const loginHrefLocation =
-        (typeof window !== 'undefined' && window?.btoa(location.href)) || '';
+        (typeof window !== 'undefined' && window?.btoa(window.location.href)) ||
+        '';
     return {
         zone: 'foodit',
         isTestEnvironment: API_ENV !== 'prod',
@@ -35,10 +36,10 @@ export const getPropsBellEvents = ({ setTooltip }) => {
 
     const handleNotificationsClick = notif => {
         addEventToDataLayerV2({
-            event: 'e_linkclick',
-            category: 'campanita',
-            label: 'notificacion',
-            action: 'click',
+            event: 'action_notification',
+            identifier: notif?.id || '',
+            button: 'N/A',
+            page_notification: notif?.url || '',
             title: notif?.title || ''
         });
     };

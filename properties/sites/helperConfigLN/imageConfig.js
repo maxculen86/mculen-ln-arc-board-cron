@@ -1375,6 +1375,46 @@ export default {
             },
             credits: creditsSizes
         },
+        T1Focal100: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 320,
+                        height: 213,
+                        media_preload: setMediaCondition({ maxWidth: 511 }),
+                        proportion: '1:1'
+                    },
+                    {
+                        width: 765,
+                        height: 510,
+                        minScreenWidth: 512,
+                        media_preload: setMediaCondition({
+                            minWidth: 512,
+                            maxWidth: 767
+                        }),
+                        proportion: '3:2'
+                    },
+                    {
+                        height: 395,
+                        width: 342,
+                        minScreenWidth: 768,
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1023
+                        }),
+                        proportion: '3:2'
+                    },
+                    {
+                        height: 423,
+                        width: 635,
+                        minScreenWidth: 1024,
+                        media_preload: setMediaCondition({ minWidth: 1024 }),
+                        proportion: '3:2'
+                    }
+                ]
+            },
+            credits: creditsSizes
+        },
         ranking: {
             promo_items: {
                 sizes: [

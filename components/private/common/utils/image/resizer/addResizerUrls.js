@@ -18,7 +18,8 @@ export const addResizedUrls = (ansDoc, options) => {
         presetsDefault,
         subtype,
         isInApertura,
-        arcSite = 'lanacionar'
+        arcSite = 'lanacionar',
+        resizerUrl
     } = options;
 
     const {
@@ -39,25 +40,26 @@ export const addResizedUrls = (ansDoc, options) => {
     return {
         ...ansDoc,
         ...(contentElements && {
-            content_elements: contentElements.map(elem => {
-                return resizeContentElements(
+            content_elements: contentElements.map(elem =>
+                resizeContentElements(
                     elem,
                     presetsContentElements || presetsDefault,
                     zoomSizes,
                     defaultResize,
                     arcSite
-                );
-            })
+                )
+            )
         }),
         ...(promoItems && {
-            promo_items: resizePromoItems(
-                presetPromoOrDefault,
+            promo_items: resizePromoItems({
+                resizeOptions: presetPromoOrDefault,
                 zoomSizes,
                 subtype,
                 promoItems,
                 isInApertura,
-                arcSite
-            )
+                arcSite,
+                resizerUrl
+            })
         }),
         ...(credits && {
             credits: resizeCredits({

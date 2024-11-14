@@ -9,7 +9,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function SingWall() {
     const { userType = 'loading', promotions } = useGetUserConfig();
@@ -48,7 +48,7 @@ function SingWall() {
                                 window.location?.href
                             )}`}
                             onClick={() => {
-                                addEventToDataLayer({
+                                addEventToDataLayerV2({
                                     event: 'subscription_start',
                                     button: buttonSubscribeText
                                 });

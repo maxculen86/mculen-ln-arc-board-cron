@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
-import ComLink from '../../common/com-link';
+import { Link } from '@ln/contenidos-ui-link';
 import textSelector from '../../common/utils/recetaDictionary';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import ConditionalWrapper from './conditionalWrapper';
@@ -9,7 +9,12 @@ import '../../../../resources/dist/css/ln/modules/mod-themes.css';
 
 function TaxonomyImportantList({ list, showItems, extraClass, collapsible }) {
     const [collapsed, setCollapsed] = useState(true);
-    const _classNames = classNames('mod-themes', extraClass, { collapsible });
+    const _classNames = classNames('mod-themes', extraClass, {
+        collapsible,
+        collapsed: collapsible && collapsed
+    });
+
+    if (!list) return null;
 
     return (
         <ConditionalWrapper
@@ -20,34 +25,34 @@ function TaxonomyImportantList({ list, showItems, extraClass, collapsible }) {
             }}
         >
             <section className={_classNames}>
-                {list
-                    .slice(0, collapsible && collapsed ? 4 : showItems)
-                    .map(item => {
-                        const { type = '', path = '', text = '' } = item;
-                        return (
-                            <ComLink
-                                link={`${type === 'tag' ? '/tema/' : ''}${path}/`}
-                                keytext={text}
-                                classCondition={classNames(
-                                    'com-button --secondary --compact --transparent',
-                                    { '--tag': type === 'tag' }
-                                )}
-                                title={
-                                    path.includes('/recetas')
-                                        ? `Ir a notas de ${textSelector(text)}`
-                                        : `Ir a notas de ${text.charAt(0).toLowerCase() + text.slice(1)}`
-                                }
-                                key={path}
-                            >
-                                {text}
-                            </ComLink>
-                        );
-                    })}
+                {list.slice(0, showItems).map(item => {
+                    const { type = '', path = '', text = '' } = item;
+                    const linkClassNames = classNames(
+                        'themes-note com-button com-link --compact --transparent',
+                        collapsible ? 'collapsible' : '--secondary',
+                        { '--tag': type === 'tag' }
+                    );
+                    const linkTitle = path.includes('/recetas')
+                        ? `Ir a notas de ${textSelector(text)}`
+                        : `Ir a notas de ${text.charAt(0).toLowerCase() + text.slice(1)}`;
+                    return (
+                        <Link
+                            href={`${type === 'tag' ? '/tema/' : ''}${path}/`}
+                            className={linkClassNames}
+                            title={linkTitle}
+                            key={path}
+                            keytext={text}
+                        >
+                            {text}
+                        </Link>
+                    );
+                })}
             </section>
             {Boolean(collapsible && list.length > 4) && (
                 <button
                     type="button"
                     onClick={() => setCollapsed(curr => !curr)}
+                    className="sm-only"
                 >
                     <IconSprite
                         name="arrowDown"
