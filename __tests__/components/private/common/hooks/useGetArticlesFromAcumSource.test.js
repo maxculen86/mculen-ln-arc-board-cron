@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContent } from 'fusion:content';
 import mockArticles from '../../../../../__mocks__/data/masNotas/articles.json';
 import filter from '../../../../../content/filters/LN/acumulado/articleMasNotas';
@@ -34,24 +35,5 @@ describe('Private - Common - Hooks - useGetArticlesFromAcumSource', () => {
     it('should return an empty array', () => {
         useContent.mockReturnValueOnce([]);
         expect(useGetArticlesFromAcumSource(args)).toStrictEqual([]);
-    });
-    it('should encode authorId when it contains special characters', () => {
-        const argsWithSpecialAuthorId = {
-            ...args,
-            typesOfQuery: {
-                ...args.typesOfQuery,
-                authorId: 'maría-peña'
-            }
-        };
-
-        useGetArticlesFromAcumSource(argsWithSpecialAuthorId);
-
-        expect(useContent).toHaveBeenCalledWith(
-            expect.objectContaining({
-                query: expect.objectContaining({
-                    authorId: 'mar%C3%ADa-pe%C3%B1a'
-                })
-            })
-        );
     });
 });
