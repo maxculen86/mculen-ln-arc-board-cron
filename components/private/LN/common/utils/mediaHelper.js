@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { RESIZER_URL_PUBLIC } from 'fusion:environment';
-import getProperties from 'fusion:properties';
+import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
+import PropTypes from 'prop-types';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
@@ -70,15 +70,14 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
     return srcset.length > 0 ? srcset : undefined;
 };
 
-export const getSizes = (sources = []) => {
-    return Array.isArray(sources)
+export const getSizes = (sources = []) =>
+    Array.isArray(sources)
         ? sources
               .map(
                   x => x.option.media && `${x.option.media} ${x.option.width}px`
               )
               .filter(Boolean)
         : [];
-};
 
 export const getShortestImage = (resizedUrls = []) => {
     const result = resizedUrls.reduce(
@@ -108,6 +107,7 @@ const setSourceSet = (
     return urlImage;
 };
 
+// eslint-disable-next-line default-param-last
 export const getImagesToLoadWithPicture = (sourceActive = [], isPreload) => {
     let mediaCondition;
     const srcset = [];
@@ -163,10 +163,11 @@ export const getImagesToLoadWithPicture = (sourceActive = [], isPreload) => {
     }, []);
 };
 
-export const LinkImagePreload = ({
+// TODO: Modularizar este componente y llevarlo a un .jsx
+export function LinkImagePreload({
     resizedUrls = [],
     isLoadWithPicture = false
-}) => {
+}) {
     if (resizedUrls.length === 0) return null;
 
     const fetchPriorityAttr = { fetchPriority: 'high' };
@@ -183,7 +184,7 @@ export const LinkImagePreload = ({
                     as="image"
                     {...fetchPriorityAttr}
                     media={mediaPreload}
-                    imagesrcset={withConfigPixelRatio ? srcSet : undefined}
+                    imageSrcSet={withConfigPixelRatio ? srcSet : undefined}
                     href={href}
                 />
             )
@@ -209,10 +210,28 @@ export const LinkImagePreload = ({
                 as="image"
                 {...fetchPriorityAttr}
                 href={resizedUrl}
-                imagesrcset={imagesrcset}
+                imageSrcSet={imagesrcset}
             />
         )
     );
+}
+
+LinkImagePreload.propTypes = {
+    resizedUrls: PropTypes.arrayOf(
+        PropTypes.shape({
+            resizedUrl: PropTypes.string.isRequired,
+            option: PropTypes.shape({
+                width: PropTypes.number.isRequired,
+                media: PropTypes.string
+            }).isRequired
+        })
+    ),
+    isLoadWithPicture: PropTypes.bool
+};
+
+LinkImagePreload.defaultProps = {
+    resizedUrls: [],
+    isLoadWithPicture: false
 };
 
 export const wikiImagesWithWWW = data => {
@@ -229,17 +248,15 @@ export const wikiImagesWithWWW = data => {
 };
 
 export const replaceAllUrlsResizerObject = (object = {}) => {
-    const { host = 'https://www.lanacion.com.ar' } =
-        getProperties('la-nacion-ar') || {};
+    const host = SITE_LANACION || 'https://www.lanacion.com.ar';
     const resizersReplaced = JSON.stringify(object)
         .split(RESIZER_URL_PUBLIC)
         .join(host);
     return JSON.parse(resizersReplaced);
 };
 
-export const replaceAllUrlsResizerArray = (array = []) => {
-    return array.map(data => replaceAllUrlsResizerObject(data));
-};
+export const replaceAllUrlsResizerArray = (array = []) =>
+    array.map(data => replaceAllUrlsResizerObject(data));
 
 export const getMediaData = (promoItems = {}) => {
     const {
