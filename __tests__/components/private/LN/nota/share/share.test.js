@@ -307,3 +307,13 @@ describe('Note display comment in false ', () => {
         expect(container).toMatchSnapshot();
     });
 });
+
+beforeEach(() => {
+    window.LN = {
+        observable: {
+            publish: jest.fn(),
+            subscribe: jest.fn(),
+            unsubscribe: jest.fn()
+        }
+    };
+});

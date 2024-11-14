@@ -43,6 +43,16 @@ const props = {
 Context.useAppContext = jest.fn(() => props);
 
 describe('Components - Features - LN-nota - share', () => {
+    beforeEach(() => {
+        window.LN = {
+            observable: {
+                publish: jest.fn(),
+                subscribe: jest.fn(),
+                unsubscribe: jest.fn()
+            }
+        };
+    });
+
     const globalContent = (isListenable, comments) => ({
         _id: '7ZDIHMQHDRDNNMJDSUWQXWPWZU',
         isListenable,
