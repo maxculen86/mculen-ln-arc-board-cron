@@ -492,6 +492,10 @@ export default `
             type
             url
             slug
+            social_links {
+                site
+                url
+            }
             image {
                 url
                 resized_urls {

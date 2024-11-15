@@ -146,6 +146,17 @@ export const getImageProps = (
     };
 };
 
+export const ensureAtSymbol = username =>
+    username && !username.startsWith('@') ? `@${username}` : username;
+
+export const getTwitterLink = author => {
+    if (!author || isEmptyObject(author)) return null;
+
+    return author?.social_links?.find(
+        link => link?.site === 'twitter' && link?.url
+    )?.url;
+};
+
 export const getData = ({
     siteProperties,
     metaValue,
@@ -193,6 +204,12 @@ export const getData = ({
         metaDescription
     });
 
+    const authors = get(globalContent, 'credits.by', []);
+
+    const twitterAccount = ensureAtSymbol(
+        getTwitterLink(authors[0]) ?? '@LANACION'
+    );
+
     const response = {
         type: isArticle ? 'article' : 'website',
         title: isArticle
@@ -215,7 +232,7 @@ export const getData = ({
             firstPublishDate,
             lastUpdatedDate,
             tier: 'metered',
-            authors: get(globalContent, 'credits.by', []),
+            authors,
             tags: get(globalContent, 'taxonomy.tags', []),
             primarySection: get(
                 globalContent,
@@ -223,7 +240,8 @@ export const getData = ({
                 ''
             )
         }),
-        subtype
+        subtype,
+        twitterAccount
     };
 
     return response;
@@ -387,6 +405,44 @@ export const buildFbMetas = fbAppId => [
     { property: 'fb:app_id', content: fbAppId }
 ];
 
-export const buildTwitterMetas = image => [
-    { name: 'twitter:image', content: image.url }
+export const buildTwitterMetas = ({
+    image,
+    arcSite,
+    pageBuilderTitle,
+    section,
+    siteProperties,
+    ottMetaTitle,
+    data,
+    ottMetaDescription,
+    requestUri,
+    metaValue,
+    url,
+    twitterAccount
+}) => [
+    { name: 'twitter:image', content: image.url },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+        name: 'twitter:title',
+        content: setMetaTitle({
+            arcSite,
+            pageBuilderTitle,
+            ottMetaTitle
+        })
+    },
+    {
+        name: 'twitter:description',
+        content: setMetaDescription({
+            data,
+            section,
+            siteProperties,
+            arcSite,
+            ottMetaDescription,
+            requestUri,
+            metaValue
+        })
+    },
+    { name: 'twitter:site', content: '@LANACION' },
+    { name: 'twitter:creator', content: twitterAccount },
+    { name: 'twitter:domain', content: 'lanacion.com.ar' },
+    { name: 'twitter:url', content: addForwardSlash(url) }
 ];
