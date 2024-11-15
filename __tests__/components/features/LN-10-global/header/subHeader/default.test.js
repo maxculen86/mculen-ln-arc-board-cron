@@ -13,6 +13,7 @@ import {
 import dollarData from '../../../../../../__mocks__/data/LN10_SubHeader/dollarData.json';
 import subHeaderEventLog from '../../../../../../__mocks__/data/LN10_SubHeader/subHeaderEventLogResult.json';
 import { useHeaderContext } from '../../../../../../components/features/LN-10-global/header/context';
+import { useContent } from 'fusion:content';
 
 jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -30,8 +31,7 @@ const mockAccess = [
     },
     {
         text: 'Newsletters',
-        href:
-            'https://newsletter.lanacion.com.ar/?_ga=2.115587013.2111665650.1713785519-1414281100.1711030569'
+        href: 'https://newsletter.lanacion.com.ar/?_ga=2.115587013.2111665650.1713785519-1414281100.1711030569'
     }
 ];
 
@@ -80,6 +80,42 @@ describe('components - features - LN-10-global - subHeader - default', () => {
         });
     });
 
+    test('termica off in dollar shouldnt render any dollar link and useContent should be called with null', () => {
+        useHeaderContext.mockImplementation(() => ({
+            isHome: true
+        }));
+        setDollarData.mockImplementation(() => []);
+        setAccessData.mockImplementation(() => mockAccess);
+
+        render(<SubHeaderLN />);
+        const dolarOficial = screen.queryByRole('link', {
+            name: /Dólar oficial/i
+        });
+        const dolarBlue = screen.queryByRole('link', {
+            name: /Dólar blue/i
+        });
+        const dolarTurista = screen.queryByRole('link', {
+            name: /Dólar turista/i
+        });
+        const dolarCCL = screen.queryByRole('link', {
+            name: /Dólar CCL/i
+        });
+        const dolarMEP = screen.queryByRole('link', {
+            name: /Dólar MEP/i
+        });
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: null
+            })
+        );
+        expect(dolarOficial).not.toBeInTheDocument();
+        expect(dolarBlue).not.toBeInTheDocument();
+        expect(dolarTurista).not.toBeInTheDocument();
+        expect(dolarCCL).not.toBeInTheDocument();
+        expect(dolarMEP).not.toBeInTheDocument();
+    });
+
     test('should renders with access mock data', () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: true
@@ -100,7 +136,7 @@ describe('components - features - LN-10-global - subHeader - default', () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: true
         }));
-        setDollarData.mockImplementation(() => undefined);
+        setDollarData.mockImplementation(() => []);
         setAccessData.mockImplementation(() => undefined);
         expect(render(<SubHeaderLN />)).toBeTruthy();
     });
