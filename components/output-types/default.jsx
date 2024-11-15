@@ -30,6 +30,7 @@ import CssLinksLn10 from './Helper/cssLinksLn10';
 import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
 import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 import { GetFonts } from './criticalCss/getFonts';
+import removeExtraSpaces from '../private/common/utils/removeExtraSpaces';
 
 const lnBuscador = 'LN-buscador';
 
@@ -159,7 +160,9 @@ function Default(props) {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== lnBuscador && <title>{tagTitle}</title>}
+                {layout !== lnBuscador && (
+                    <title>{removeExtraSpaces(tagTitle)}</title>
+                )}
                 {metasFromSiteServices(metas)}
                 <GetDataToLinkImage
                     data={globalContent}
