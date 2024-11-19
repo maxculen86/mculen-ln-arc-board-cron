@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import classNames from 'classnames';
 
-export function DisclaimerIA({ text = '', className = '' }) {
+function DisclaimerIA({ text = '', className = '' }) {
     if (!text) return null;
 
     return (
@@ -32,13 +32,8 @@ export function DisclaimerIA({ text = '', className = '' }) {
 }
 
 DisclaimerIA.propTypes = {
-    text: PropTypes.string,
-    className: PropTypes.string
-};
-
-DisclaimerIA.defaultProps = {
-    text: '',
-    className: ''
+    text: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired
 };
 
 export default DisclaimerIA;

@@ -4,5 +4,6 @@ export const enumTypeError = {
     audionewsError: 'AudionewsError',
     bitacoraError: 'BitacoraError',
     ln10ArticleError: 'LN10ArticleError',
-    featureError: 'FeatureError'
+    featureError: 'FeatureError',
+    apiSigningServiceError: 'ApiSigningServiceError'
 };

@@ -26,7 +26,7 @@ import useTermica from '../../../../private/common/hooks/useTermica';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import {
     getClassAndIconByClick,
-    handleIaToggle,
+    handleOpenIAFeature,
     IA_FEATURE_TRACKING_STORAGE
 } from './helper';
 
@@ -55,7 +55,7 @@ function BuildFirtsButtonsGroup({
     const isThermalGlossaryEnabled = useTermica('glosario');
 
     const showIAButton =
-        !isLN10IAHidden(renderables) &&
+        !isLN10IAHidden(renderables, glossary, summary) &&
         ((summary && isThermalSummaryEnabled) ||
             (glossary && isThermalGlossaryEnabled));
 
@@ -114,6 +114,16 @@ function BuildFirtsButtonsGroup({
     const defaultTab =
         summary && isThermalSummaryEnabled ? 'resumen_nota' : 'glosario';
 
+    useEffect(() => {
+        const handleIaClosed = arg =>
+            arg?.closed && setIaButtonIsClicked(false);
+        window.LN.observable.subscribe('iaClosed', handleIaClosed);
+
+        return () => {
+            window.LN.observable.unsubscribe('iaClosed', handleIaClosed);
+        };
+    }, []);
+
     // TODO: Abstraer botones para que el componente sea más prolijo y modular
 
     return (
@@ -167,10 +177,10 @@ function BuildFirtsButtonsGroup({
                         dataEvent="LinkClick"
                         dataSection="IA"
                         className={iaButtonClass}
-                        disabled={iaButtonIsClicked}
                         onClick={() => {
-                            handleIaToggle({
+                            handleOpenIAFeature({
                                 defaultTab,
+                                iaButtonIsClicked,
                                 setIaButtonIsClicked,
                                 callback: closeTooltip
                             });

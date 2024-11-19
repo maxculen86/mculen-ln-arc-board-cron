@@ -116,7 +116,7 @@ export function IaTab({ id = '', title = '' }) {
             </Icon>
             <Text
                 as="h2"
-                className="--font-bold --font-m as-flex-end"
+                className="--font-bold text-20 as-flex-end"
                 text={title}
             />
         </>

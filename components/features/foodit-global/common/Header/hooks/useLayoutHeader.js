@@ -52,7 +52,7 @@ export const useLayoutHeader = () => {
         if (layoutsWithoutSearch.includes(layout)) {
             return sticky
                 ? '--show-subheader --show-search'
-                : '--hide-subheader --hide-search pointer-events-none';
+                : '--hide-subheader --hide-search';
         }
         return sticky ? '--show-subheader' : '--hide-subheader';
     };

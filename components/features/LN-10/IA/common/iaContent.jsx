@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Text } from '@ln/contenidos-ui-text';
 import PropTypes from 'prop-types';
-import { Disclaimer } from '../../../LN-10-global/glossary/components/disclaimer';
+import DisclaimerIA from '../../../LN-10-global/common/disclaimerIa/default';
 
 function IaContent({ id, contentData = [], className = '' }) {
     const _classNames = classNames('flex flex-column gap-24', className);
@@ -34,7 +34,7 @@ function IaContent({ id, contentData = [], className = '' }) {
                 </ul>
             )}
 
-            <Disclaimer />
+            <DisclaimerIA text="Realizado con IA" />
         </div>
     );
 }

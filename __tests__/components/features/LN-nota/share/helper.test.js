@@ -1,4 +1,4 @@
-import { handleIaToggle } from '../../../../../components/features/LN-nota/share/_children/helper';
+import { handleOpenIAFeature } from '../../../../../components/features/LN-nota/share/_children/helper';
 import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
@@ -9,14 +9,16 @@ jest.mock(
 );
 
 describe('components - features - LN-nota - share - helper', () => {
-    describe('handleIaToggle', () => {
+    describe('handleOpenIAFeature', () => {
         let setIaButtonIsClicked;
+        let iaButtonIsClicked;
         let publish;
         let subscribe;
         let unsubscribe;
 
         beforeEach(() => {
             setIaButtonIsClicked = jest.fn();
+            iaButtonIsClicked = false;
             publish = jest.fn();
             subscribe = jest.fn();
             unsubscribe = jest.fn();
@@ -37,7 +39,11 @@ describe('components - features - LN-nota - share - helper', () => {
 
         it('should display the AI component, publish an event with defaultTab, and set localStorage', () => {
             const defaultTab = 'summary';
-            handleIaToggle({ defaultTab, setIaButtonIsClicked });
+            handleOpenIAFeature({
+                defaultTab,
+                iaButtonIsClicked,
+                setIaButtonIsClicked
+            });
 
             expect(addEventToDataLayerV2).toHaveBeenCalledWith({
                 event: 'e_linkclick',
@@ -46,14 +52,9 @@ describe('components - features - LN-nota - share - helper', () => {
                 label: defaultTab
             });
 
-            expect(setIaButtonIsClicked).toHaveBeenCalledWith(
-                expect.any(Function)
-            );
+            expect(setIaButtonIsClicked).toHaveBeenCalledWith(true);
+
             expect(publish).toHaveBeenCalledWith('showIa', { show: true });
-            expect(subscribe).toHaveBeenCalledWith(
-                'iaClosed',
-                expect.any(Function)
-            );
 
             expect(localStorage.setItem).toHaveBeenCalledWith(
                 'IA-feature-tracking',
@@ -63,8 +64,9 @@ describe('components - features - LN-nota - share - helper', () => {
 
         it('should execute the callback correctly', () => {
             const callback = jest.fn();
-            handleIaToggle({
+            handleOpenIAFeature({
                 defaultTab: 'summary',
+                iaButtonIsClicked,
                 setIaButtonIsClicked,
                 callback
             });
@@ -72,19 +74,18 @@ describe('components - features - LN-nota - share - helper', () => {
             expect(callback).toHaveBeenCalled();
         });
 
-        it('should unsubscribe from iaClosed event on cleanup', () => {
-            const defaultTab = 'summary';
-            const cleanup = handleIaToggle({
-                defaultTab,
+        it('should not execute any actions if iaButtonIsClicked is true', () => {
+            iaButtonIsClicked = true;
+            handleOpenIAFeature({
+                defaultTab: 'summary',
+                iaButtonIsClicked,
                 setIaButtonIsClicked
             });
 
-            cleanup();
-
-            expect(unsubscribe).toHaveBeenCalledWith(
-                'iaClosed',
-                expect.any(Function)
-            );
+            expect(addEventToDataLayerV2).not.toHaveBeenCalled();
+            expect(setIaButtonIsClicked).not.toHaveBeenCalled();
+            expect(publish).not.toHaveBeenCalled();
+            expect(localStorage.setItem).not.toHaveBeenCalled();
         });
     });
 });

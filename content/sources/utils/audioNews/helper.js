@@ -9,6 +9,7 @@ const getCommonProperties = data => {
     const labelAudioNews = get(data, 'label.republicar_audio', null);
     const textAudioNews = get(data, 'label.republicar_audio.text', '');
     const date = get(data, 'first_publish_date', '');
+    const displayDate = get(data, 'display_date', '');
     const contentElements = get(data, 'content_elements', []);
     const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
 
@@ -19,7 +20,8 @@ const getCommonProperties = data => {
         textAudioNews,
         date,
         contentElements,
-        primarySectionId
+        primarySectionId,
+        displayDate
     };
 };
 
@@ -46,15 +48,16 @@ const isListenable = (data, validHasParagraphs = true) => {
         textAudioNews,
         date,
         contentElements,
-        primarySectionId
+        primarySectionId,
+        displayDate
     } = getCommonProperties(data);
 
     return (
-        sourceOrigin === 'composer' &&
+        (sourceOrigin === 'composer' || sourceOrigin === '') &&
         (labelAudioNews ? textAudioNews !== 'No mostrar audio' : true) &&
         !isSectionNoListenable(primarySectionId) &&
         !disableSubtypes.includes(subtype) &&
-        isValidDate(date) &&
+        (isValidDate(date) || isValidDate(displayDate)) &&
         (validHasParagraphs ? hasParagraphs(contentElements) : true)
     );
 };
