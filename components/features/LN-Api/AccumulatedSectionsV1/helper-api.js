@@ -10,7 +10,8 @@ import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeErro
 const resolve = query => {
     const { imageId, arcSite } = query;
     const newArcSite = arcSite || 'la-nacion-ar';
-    return `${SITE_LANACION}/pf/api/v3/content/fetch/signingServiceSource?query={"imageId":"${imageId}"}&_website=${newArcSite}`;
+
+    return `${SITE_LANACION}/api/signingServiceSource/${imageId}/?_website=${newArcSite}&outputType=json`;
 };
 
 const getAuthImage = async query => {
@@ -18,18 +19,29 @@ const getAuthImage = async query => {
         method: 'GET'
     };
 
-    const resp = await nodeFetch(resolve(query), opt);
-
-    if (resp && !resp.ok) {
-        console.warn(
+    let endpoint = '';
+    try {
+        endpoint = resolve(query);
+        const resp = await nodeFetch(endpoint, opt);
+        if (resp && !resp.ok) {
+            console.warn(
+                new BackendLnError(
+                    `getAuthImage - msj: ${resp.status} ${resp.statusText} - query: ${JSON.stringify(query || {})} - endpoint: ${endpoint}`,
+                    enumTypeError.featureError
+                )
+            );
+            return null;
+        }
+        return resp.json();
+    } catch (err) {
+        console.error(
             new BackendLnError(
-                `getAuthImage - msj: ${resp.status} ${resp.statusText} - query: ${JSON.stringify(query || {})}`,
+                `getAuthImage - msj: Error: ${err.message} - query: ${JSON.stringify(query || {})} - endpoint: ${endpoint}`,
                 enumTypeError.featureError
             )
         );
         return null;
     }
-    return resp.json();
 };
 
 export const setAuthCredits = async (

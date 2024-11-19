@@ -6,21 +6,21 @@ import sectionsDataJson from './utils/pageSource/pageAcumulados/config/configSec
 import transformAcu from './utils/pageSource/acumulados/common/transformAcuV2';
 import NotFoundError from './utils/notFoundError';
 
-const getSizeParamFromQuery = (query) => {
-    const pattern=/size:(\d+)/;
+const getSizeParamFromQuery = query => {
+    const pattern = /size:(\d+)/;
     const regexForSizeParam = new RegExp(pattern);
     const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
     return matchForSize && matchForSize.length > 1 ? matchForSize[1] : 30;
 };
 
-const getPageParamFromQuery = (query) => {
-    const pattern=/page:(\d+)/;
+const getPageParamFromQuery = query => {
+    const pattern = /page:(\d+)/;
     const regexForPageParam = new RegExp(pattern);
     const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
 
     const page =
         matchForPageParam && matchForPageParam.length > 1
-            ? parseInt(matchForPageParam[1],10)
+            ? parseInt(matchForPageParam[1], 10)
             : 1;
 
     if (page < 1) {
@@ -30,8 +30,8 @@ const getPageParamFromQuery = (query) => {
     return page;
 };
 
-const getParamsFromQuery = (query) => {
-    const { uri = '', website, versionUri,apiTransform } = query;
+const getParamsFromQuery = query => {
+    const { uri = '', website, versionUri, apiTransform } = query;
     const ticksCache = get(query, 'ticks', '').replace('/', '');
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
 
@@ -43,16 +43,14 @@ const getParamsFromQuery = (query) => {
         ? sectionId
         : `${''}`.concat(`/${sectionId || ''}`);
 
-    const sectionData = sectionsDataJson?.find(
-        (e) => e.sectionId === sectionId,
-    );
+    const sectionData = sectionsDataJson?.find(e => e.sectionId === sectionId);
 
     const sectioninPage =
         sectionData && sectionData.namePage ? sectionData.namePage : sectionId;
 
     const customSectionsIds = sectionsDataJson
-        ?.filter((e) => e.isCustom)
-        ?.map((e) => e.sectionId);
+        ?.filter(e => e.isCustom)
+        ?.map(e => e.sectionId);
 
     if (!versionUri) {
         throw new Error('The api page must have a version');
@@ -88,20 +86,20 @@ const fetchSectionSource = async (
     sectionIdParam,
     query,
     isCustomPage,
-    cachedCall,
+    cachedCall
 ) => {
     let sectionSourceResult = null;
     const sectionsTitlesCustom = [
         '/economia/inteligencia-artificial',
         '/economia/IA',
         '/quesale',
-        '/que-sale',
+        '/que-sale'
     ];
 
     const queryParams = {
         id: sectionIdParam,
         website: query?.website,
-        api: 'true',
+        api: 'true'
     };
 
     if (!isCustomPage) {
@@ -109,8 +107,8 @@ const fetchSectionSource = async (
             'apiPageSectionSource',
             sectionSource.fetch,
             {
-                query: queryParams,
-            },
+                query: queryParams
+            }
         );
     }
 
@@ -118,10 +116,10 @@ const fetchSectionSource = async (
         sectionSourceResult?.acumuladoGeneral?.hierarchy_navigation;
     const sectionName = sectionSourceResult?.name;
 
-    let title = sectionTitle ? sectionTitle : sectionName;
+    let title = sectionTitle || sectionName;
 
     const sectionData = sectionsDataJson?.find(
-        (e) => get(e, 'slug') === sectionIdParam,
+        e => get(e, 'slug') === sectionIdParam
     );
     if (sectionsTitlesCustom.includes(sectionIdParam) && sectionData) {
         title = sectionData.aliasTitle;
@@ -130,7 +128,7 @@ const fetchSectionSource = async (
     const restriction = get(
         sectionSourceResult,
         'acumuladoGeneral.mostrar_en_acu_apps',
-        'true',
+        'true'
     );
     const configuration = get(sectionSourceResult, 'configuration', null);
     return { title, restriction, configuration };
@@ -155,17 +153,17 @@ const fetch = async (query, { cachedCall } = {}) => {
             page,
             isCustomPage,
             ticksCache,
-            apiTransform,
+            apiTransform
         } = getParamsFromQuery(query);
 
         const sectionSourceResult = await fetchSectionSource(
             sectionIdParam,
             query,
             isCustomPage,
-            cachedCall,
+            cachedCall
         );
 
-        let title = sectionSourceResult.title;
+        const { title } = sectionSourceResult;
 
         restriction = get(sectionSourceResult, 'restriction', true);
         configuration = get(sectionSourceResult, 'configuration', null);
@@ -184,7 +182,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             categoryUri,
             versionUri,
             featureInPage: sectionData?.featureAcumuladosInPage,
-            apiTransform,
+            apiTransform
         };
 
         if (sectionId === 'ultimas-noticias') {
@@ -193,7 +191,7 @@ const fetch = async (query, { cachedCall } = {}) => {
                     rootPath: `${SITE_LANACION}/${sectioninPage}`,
                     website,
                     ticksCache,
-                    cookie: query.cookie,
+                    cookie: query.cookie
                 });
             queryParams.sections = ultimasNoticiasSectionsResult;
         }
@@ -208,22 +206,18 @@ const fetch = async (query, { cachedCall } = {}) => {
     } catch (error) {
         if (error instanceof NotFoundError) {
             throw new NotFoundError(
-                `Seccion no encontrada: ${query.sectionId}`,
+                `Seccion no encontrada: ${query.sectionId}`
             );
         }
         // eslint-disable-next-line no-console
         console.warn(
-            `Error in content/apiAcumuladosV2Source : 
+            `Error in content/apiAcumuladosV2SourceV2 : 
             query parameters: ${JSON.stringify(query)} 
-            - errorMsj: ${error.message}`,
+            - errorMsj: ${error.message}`
         );
         throw new Error(error);
     }
 };
-
-
-
-
 
 export default {
     fetch,
@@ -236,7 +230,7 @@ export default {
         versionUri: 'text',
         ticks: 'text',
         cookie: 'text',
-        apiTransform: 'text',
+        apiTransform: 'text'
     },
-    ttl: 120,
+    ttl: 120
 };
