@@ -6,9 +6,16 @@ import { CardBasic } from '../cardBasic';
 import { isNoteListenableHome } from '../../../../../../../content/sources/utils/audioNews/helper';
 
 export const cardRegular = article => {
+    const hideDescriptionValue = get(
+        article,
+        'additionalProperties.hideDescription'
+    );
+
     return {
         ...CardBasic(article),
-        bajada: get(article, 'subheadlines.basic', null),
+        bajada: hideDescriptionValue
+            ? null
+            : get(article, 'subheadlines.basic'),
         chapita: getArticleTag(article),
         imagen: getArticleImage(article),
         video: getArticleVideos(article),
