@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - feature - LN-nota - signature - signatureWithAuthors should render custom IA variant when showVariantIa is true 1`] = `
+<div>
+  <div
+    class="row"
+  >
+    <div
+      class="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"
+    >
+      <div
+        class="flex w-max inline-flex ai-center text-neutral-light-600 gap-12"
+      >
+        <div
+          class="relative"
+        >
+          <img
+            alt="Ir a notas de Pablo Lisotto"
+            class="image flex rounded-circle bg-neutral-light-50 w-70 h-70 --cover"
+            decoding="async"
+            fetchpriority="low"
+            loading="lazy"
+            src="https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F2771712.png?auth=6697c52758385d28af928d3b17e6a99b7690460e4c150b49c0e80735726ff800&width=80&quality=70&smart=false"
+          />
+          <svg
+            class="absolute"
+            fill="none"
+            height="78"
+            style="top: -4px; right: -5px;"
+            viewBox="0 0 80 78"
+            width="80"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M79.3026 39C79.3026 60.1066 61.7365 77.25 40.0263 77.25C18.3161 77.25 0.75 60.1066 0.75 39C0.75 17.8934 18.3161 0.75 40.0263 0.75C61.7365 0.75 79.3026 17.8934 79.3026 39Z"
+              stroke="url(#paint0_linear_16946_3187)"
+              stroke-width="1.5"
+            />
+            <defs>
+              <lineargradient
+                gradientUnits="userSpaceOnUse"
+                id="paint0_linear_16946_3187"
+                x1="40.0263"
+                x2="40.0263"
+                y1="0"
+                y2="108.452"
+              >
+                <stop
+                  stop-color="white"
+                />
+                <stop
+                  offset="1"
+                  stop-color="#27D2BE"
+                />
+              </lineargradient>
+            </defs>
+          </svg>
+          <div
+            class="absolute bottom-0 right-0 min-w-20 min-h-20 w-20 h-20 bg-primary-ai rounded-circle flex jc-center ai-center z-2"
+          >
+            <i
+              class="icon --icon-12"
+            >
+              <mock-icon
+                fill="#FEFEFE"
+                name="ai"
+              />
+            </i>
+          </div>
+        </div>
+        <div
+          class="flex j-center flex-column-reverse gap-8 py-4"
+        >
+          <span
+            class="text text-14 uppercase"
+          >
+            LA NACION
+          </span>
+          <span>
+            <span>
+              <a
+                class="link ln-link"
+                href="/autor/pablo-lisotto-298/"
+                target="_self"
+                title="Ir a notas de Pablo Lisotto"
+              >
+                <strong>
+                  Pablo Lisotto
+                </strong>
+              </a>
+            </span>
+          </span>
+        </div>
+      </div>
+      <button
+        data-testid="audio-button"
+      >
+        Escuchar Nota
+      </button>
+    </div>
+  </div>
+</div>
+`;
