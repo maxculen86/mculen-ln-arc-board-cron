@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SnippetNoticia should render a script with JSON-LD if the type is "story" 1`] = `
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "articleSection": "Test section",
+  "author": {
+    "@type": "Organization",
+    "name": "LA NACION",
+  },
+  "creator": [],
+  "dateCreated": "2023-01-01T00:00:00.000Z",
+  "dateModified": "2023-01-04T00:00:00.000Z",
+  "datePublished": "2023-01-02T00:00:00.000Z",
+  "hasPart": {
+    "@type": "WebPageElement",
+    "cssSelector": ".nota",
+    "isAccessibleForFree": true,
+  },
+  "headline": "Test title",
+  "image": {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "height": "800",
+    "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+    "width": "1200",
+  },
+  "isAccessibleForFree": true,
+  "isPartOf": {
+    "@type": [
+      "CreativeWork",
+      "Product",
+    ],
+    "name": "Acceso Digital Monthly Test",
+    "productID": "lanacion.com.ar:acceso_digital",
+  },
+  "keywords": [],
+  "mainEntityOfPage": "https://www.lanacion.com.ar/news-test/",
+  "publisher": {
+    "@type": "Organization",
+    "logo": {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "height": 60,
+      "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-600x60.jpg",
+      "width": 600,
+    },
+    "name": "LA NACION",
+    "url": "https://www.lanacion.com.ar",
+  },
+  "publishingPrinciples": "https://www.lanacion.com.ar/tema/the-trust-project-tid68036/",
+  "thumbnailUrl": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+  "url": "https://www.lanacion.com.ar/news-test",
+}
+`;
