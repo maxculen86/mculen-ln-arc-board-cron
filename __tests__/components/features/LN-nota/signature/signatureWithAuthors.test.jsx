@@ -31,6 +31,7 @@ describe('components - feature - LN-nota - signature - signatureWithAuthors', ()
                 audioButton={mockAudioButton}
                 position={'Top'}
                 showSignatureWithAuthors={true}
+                subtype="1"
             />
         );
 
@@ -52,6 +53,7 @@ describe('components - feature - LN-nota - signature - signatureWithAuthors', ()
                 audioButton={mockAudioButton}
                 position={'Top'}
                 showSignatureWithAuthors={true}
+                subtype="1"
             />
         );
 
@@ -75,6 +77,7 @@ describe('components - feature - LN-nota - signature - signatureWithAuthors', ()
                 audioButton={null}
                 position={'Top'}
                 showSignatureWithAuthors={true}
+                subtype="1"
             />
         );
 
@@ -102,6 +105,7 @@ describe('components - feature - LN-nota - signature - signatureWithAuthors', ()
                 audioButton={mockAudioButton}
                 position={'Top'}
                 showSignatureWithAuthors={true}
+                subtype="1"
             />
         );
 
@@ -119,9 +123,42 @@ describe('components - feature - LN-nota - signature - signatureWithAuthors', ()
                 audioButton={mockAudioButton}
                 position={'Top'}
                 showSignatureWithAuthors={false}
+                subtype=""
             />
         );
 
         expect(container.firstChild).toBeNull();
+    });
+
+    it('should render variant negative true when subtype is video ("5")', () => {
+        const { container } = render(
+            <SignatureWithAuthors
+                showVariantIa={false}
+                author={{
+                    name: 'Pablo Lisotto',
+                    link: '/autor/pablo-lisotto-298/'
+                }}
+                authors={[
+                    { name: 'Pablo Lisotto', link: '/autor/pablo-lisotto-298/' }
+                ]}
+                photo="https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F2771712.png?auth=6697c52758385d28af928d3b17e6a99b7690460e4c150b49c0e80735726ff800&width=80&quality=70&smart=false"
+                medio="LA NACION"
+                audioButton={mockAudioButton}
+                position={'Top'}
+                showSignatureWithAuthors={true}
+                subtype="5"
+            />
+        );
+
+        const authorImage = screen.getByRole('img');
+        expect(authorImage).toHaveClass('bg-neutral-dark-50');
+
+        const authorMedio = screen.getByText('LA NACION');
+        expect(authorMedio).toHaveClass('text-neutral-light-100');
+
+        const authorName = screen.getByText('Pablo Lisotto');
+        expect(authorName).toHaveClass('text-blue-300');
+
+        expect(container).toMatchSnapshot();
     });
 });

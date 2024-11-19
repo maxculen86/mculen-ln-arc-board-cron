@@ -23,7 +23,8 @@ function SignatureFeature(props) {
             distributor = { name: 'LA NACION' },
             withFirmaDistributor,
             _id,
-            isListenable
+            isListenable,
+            subtype
         }
     } = props;
 
@@ -94,6 +95,7 @@ function SignatureFeature(props) {
                     photo={photo}
                     medio={medio}
                     showSignatureWithAuthors={hasAuthors}
+                    subtype={subtype}
                 />
                 <WithoutSignature
                     audioButton={audioButton}
@@ -142,7 +144,8 @@ SignatureFeature.propTypes = {
         distributor: PropTypes.shape({
             name: PropTypes.string
         }),
-        withFirmaDistributor: PropTypes.bool
+        withFirmaDistributor: PropTypes.bool,
+        subtype: PropTypes.string
     }).isRequired
 };
 
