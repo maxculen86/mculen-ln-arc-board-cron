@@ -38,7 +38,7 @@ export default function useGetArticlesFromAcumSource({
             ...(collectionId && { id: collectionId }),
             website,
             sectionId,
-            authorId: encodeURIComponent(authorId),
+            authorId,
             tagId,
             subtype,
             size: size.tripleSize || size,
