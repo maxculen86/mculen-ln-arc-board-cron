@@ -8,6 +8,7 @@ import {
 import { getEmbed } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/embed/index';
 import { getBadgebyConfig } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/chapita/index';
 import { CardBasic } from '../../../../../../../../../../components/private/LN/api/common/article/cardBasic/index';
+import { cardRegular } from '../../../../../../../../../../components/private/LN/api/common/article/cardRegular/index.js';
 
 jest.mock('../../../../../../../../../../components/private/common/utils/get');
 jest.mock(
@@ -47,6 +48,12 @@ describe('cardRegular', () => {
         getEmbed.mockReturnValueOnce('iframe');
         getBadgebyConfig.mockReturnValueOnce(objbadget);
         CardBasic.mockReturnValueOnce({ title: article.title });
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path == 'subheadlines.basic') {
+                return 'Sample Subheadline';
+            }
+            return defaultValue;
+        });
 
         const expectedCardRegular = {
             categoria: {
@@ -58,7 +65,7 @@ describe('cardRegular', () => {
             autores: null,
             marquesina: null,
             volanta: null,
-            bajada: undefined,
+            bajada: 'Sample Subheadline',
             imagen: 'image',
             videoYouTube: 'youtubeLink',
             embed: 'iframe',
@@ -84,5 +91,105 @@ describe('cardRegular', () => {
         expect(getBadgebyConfig).toHaveBeenCalledWith(article);
         expect(CardBasic).toHaveBeenCalledTimes(1);
         expect(CardBasic).toHaveBeenCalledWith(article);
+    });
+
+    test('Should return null for bajada when hideDescription property is true', () => {
+        // ARRANGE
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path == 'subheadlines.basic') {
+                return 'Sample Subheadline';
+            }
+            return defaultValue;
+        });
+
+        const expectedCardRegular = {
+            categoria: undefined,
+            embed: undefined,
+            imagen: undefined,
+            videoYouTube: undefined,
+            autor: null,
+            autores: null,
+            marquesina: null,
+            volanta: null,
+            bajada: 'Sample Subheadline',
+            opinion: false,
+            isListenable: undefined
+        };
+
+        // ACT
+        const result = CardRegular(article);
+
+        // ASSERT
+        expect(result).toStrictEqual(expectedCardRegular);
+        expect(CardBasic).toHaveBeenCalledTimes(1);
+        expect(CardBasic).toHaveBeenCalledWith(article);
+    });
+
+    test('Common - CardRegular > Should return null for bajada property when hideDescription is true', () => {
+        // ARRANGE
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path === 'additionalProperties.hideDescription') {
+                return true;
+            }
+            return defaultValue;
+        });
+
+        const article = {
+            additionalProperties: {
+                hideDescription: true
+            },
+            subheadlines: { basic: 'Sample Subheadline' }
+        };
+
+        const expectedCard = {
+            ...CardBasic(article),
+            bajada: null,
+            chapita: null,
+            imagen: undefined,
+            isListenable: false,
+            video: 'videos',
+            videoYouTube: undefined,
+            videos: undefined
+        };
+
+        // ACT
+        const result = cardRegular(article);
+
+        // ASSERT
+        expect(result).toEqual(expectedCard);
+    });
+
+    test('Common - CardRegular > Should return bajada when hideDescription is false', () => {
+        // ARRANGE
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path == 'subheadlines.basic') {
+                return 'Sample Subheadline';
+            }
+            return defaultValue;
+        });
+
+        const articleWithFalseHideDescription = {
+            additionalProperties: {
+                hideDescription: false
+            },
+            subheadlines: { basic: 'Sample Subheadline' }
+        };
+
+        const expectedCardWithFalse = {
+            ...CardBasic(articleWithFalseHideDescription),
+            bajada: 'Sample Subheadline',
+            chapita: null,
+            imagen: undefined,
+            isListenable: false,
+            video: undefined,
+            videoYouTube: undefined,
+            videos: undefined
+        };
+
+        // ACT
+        const resultWithFalse = cardRegular(articleWithFalseHideDescription);
+
+        // ASSERT
+        expect(resultWithFalse).toEqual(expectedCardWithFalse);
     });
 });

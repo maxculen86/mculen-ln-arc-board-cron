@@ -33,6 +33,31 @@ describe('Test-CardLiveblog when size is M', () => {
             ].sort()
         );
     });
+
+    test('Should return bajada when hideDescription property is false', () => {
+        // ARRANGE
+        article.additionalProperties['hideDescription'] = false;
+
+        // ACT
+        const resp = CardLiveblog(article);
+
+        // ASSERT
+        expect(resp).not.toBeUndefined();
+        expect(resp).toHaveProperty('bajada');
+    });
+
+    test('Should return null when hideDescription property is true', () => {
+        // ARRANGE
+        article.additionalProperties['hideDescription'] = true;
+
+        // ACT
+        const resp = CardLiveblog(article);
+
+        // ASSERT
+        expect(resp).not.toBeUndefined();
+        expect(resp).toHaveProperty('bajada');
+        expect(resp.bajada).toBeNull();
+    });
 });
 
 describe('Test-CardLiveblog when size is XL', () => {
@@ -68,13 +93,7 @@ describe('Time Test for liveblog', () => {
         for (let index = 0; index < subtitles.length; index++) {
             const subtitleTime = subtitles[index].time;
 
-            if (
-                subtitleTime !==
-                subtitleTime
-                    .split(':')
-                    .slice(0, 2)
-                    .join(':')
-            )
+            if (subtitleTime !== subtitleTime.split(':').slice(0, 2).join(':'))
                 return false;
         }
         return true;
