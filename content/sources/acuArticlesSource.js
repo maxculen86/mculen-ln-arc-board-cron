@@ -26,8 +26,9 @@ const resolve = key => {
     const arcSite = key['arc-site'];
     const cant = size;
     const from = ((page || 1) - 1) * cant;
-    const basePath = `/content/v4/search/published/?website=${website ||
-        arcSite}`;
+    const basePath = `/content/v4/search/published/?website=${
+        website || arcSite
+    }`;
 
     if (distributorId)
         return `${basePath}&q=type:story&include_distributor_name=${distributorId}&size=${cant}&from=${from}
@@ -35,10 +36,9 @@ const resolve = key => {
 
     if (sectionsIds) {
         const includeField =
-            '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,' +
+            '_id,subtype,promo_items,taxonomy.tags,source.system,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,' +
             'display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,label.republicar_audio.text,label.republicar_audio,related_content,' +
             'content_restrictions.content_code';
-
         const path = `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
             &sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
         return path;
@@ -189,9 +189,7 @@ const fetch = (query, { cachedCall } = {}) => {
         };
     }
     return request(opt)
-        .then(response => {
-            return transform(response, query, cachedCall);
-        })
+        .then(response => transform(response, query, cachedCall))
         .catch(error => {
             // eslint-disable-next-line no-console
             console.warn(
