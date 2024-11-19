@@ -140,6 +140,11 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             const result = translateSectionName('revista-brando');
             expect(result).toBe('Revista Brando');
         });
+
+        it('Should translate sections with custom translations', () => {
+            const result = translateSectionName('lnmas');
+            expect(result).toBe('LN+');
+        });
     });
 
     describe('Test function showSection', () => {
@@ -176,6 +181,23 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 authors: 'Lorem issum'
             });
             expect(result).toBeFalsy();
+        });
+
+        it('should fallback to primarySection.name if translateSectionName cannot handle id', () => {
+            const customArticle = {
+                taxonomy: {
+                    primary_section: {
+                        name: 'LN+'
+                    }
+                }
+            };
+            const result = showSection({
+                withSection: true,
+                article: customArticle,
+                authors: '',
+                authorPhoto: true
+            });
+            expect(result).toBe('LN+');
         });
     });
 
@@ -253,15 +275,12 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
     describe('Test function getMediaData', () => {
         const resultImageArticle = {
-            alt:
-                '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
+            alt: '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
             fetchPriority: 'low',
             height: 513,
             loading: 'lazy',
-            src:
-                'https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif',
-            srcset:
-                'https://resizer.glanacion.com/resizer/ukSW4gU9iBtaPSnmCq696TxMqqQ=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 879w, https://resizer.glanacion.com/resizer/rUtO9Zp3kIlYQscYiKTu-WAmsHE=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 1119w, https://resizer.glanacion.com/resizer/O8Q1PaEr9K7hBEBuOSqnHFtZ3KQ=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 768w, https://resizer.glanacion.com/resizer/DyiPCWqItlg8Q2LbS-quVA7u79U=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 351w, https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 309w',
+            src: 'https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif',
+            srcset: 'https://resizer.glanacion.com/resizer/ukSW4gU9iBtaPSnmCq696TxMqqQ=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 879w, https://resizer.glanacion.com/resizer/rUtO9Zp3kIlYQscYiKTu-WAmsHE=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 1119w, https://resizer.glanacion.com/resizer/O8Q1PaEr9K7hBEBuOSqnHFtZ3KQ=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 768w, https://resizer.glanacion.com/resizer/DyiPCWqItlg8Q2LbS-quVA7u79U=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 351w, https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 309w',
             type: 'image',
             sources: [],
             width: 768
@@ -370,8 +389,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                     })
                 )
             ).toStrictEqual({
-                poster:
-                    'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
+                poster: 'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
                 dataSrc:
                     'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_640x360-600.mp4',
                 type: 'video'
@@ -389,15 +407,12 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                     })
                 )
             ).toStrictEqual({
-                alt:
-                    '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
+                alt: '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
                 fetchPriority: 'low',
                 height: 513,
                 loading: 'lazy',
-                src:
-                    'https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg',
-                srcset:
-                    'https://resizer.glanacion.com/resizer/vjH1_o4q0jC6lH1IpllN2UDmiDE=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 298w, https://resizer.glanacion.com/resizer/DRUkkKA5aC45uO9plJYdGPpsA3c=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 318w, https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 233w, https://resizer.glanacion.com/resizer/g015FBRgOi_TXYHheBdlWv1aikI=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 375w, https://resizer.glanacion.com/resizer/IkSjQ7MFvxSD_9GtTNQ11rKdlas=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 320w',
+                src: 'https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg',
+                srcset: 'https://resizer.glanacion.com/resizer/vjH1_o4q0jC6lH1IpllN2UDmiDE=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 298w, https://resizer.glanacion.com/resizer/DRUkkKA5aC45uO9plJYdGPpsA3c=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 318w, https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 233w, https://resizer.glanacion.com/resizer/g015FBRgOi_TXYHheBdlWv1aikI=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 375w, https://resizer.glanacion.com/resizer/IkSjQ7MFvxSD_9GtTNQ11rKdlas=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 320w',
                 type: 'image',
                 sources: [],
                 width: 768
@@ -867,9 +882,10 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         });
 
         test('should return a empty array when the article data is not defined or no elements of type custom_embed exist', () => {
-            const contentElementsWithoutPowerUps = contentElementesLiveblog.filter(
-                ({ type = '' }) => type !== 'custom_embed'
-            );
+            const contentElementsWithoutPowerUps =
+                contentElementesLiveblog.filter(
+                    ({ type = '' }) => type !== 'custom_embed'
+                );
             expect(getLiveblogTitles()).toStrictEqual([]);
             expect(
                 getLiveblogTitles(contentElementsWithoutPowerUps)
@@ -1158,13 +1174,11 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             const videoJwData = {
                 sources: [
                     {
-                        file:
-                            'https://cdn.jwplayer.com/manifests/bb7snV27.m3u8',
+                        file: 'https://cdn.jwplayer.com/manifests/bb7snV27.m3u8',
                         type: 'application/vnd.apple.mpegurl'
                     },
                     {
-                        file:
-                            'https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4',
+                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4',
                         type: 'video/mp4',
                         height: 180,
                         width: 320,
@@ -1174,8 +1188,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                         framerate: 25
                     },
                     {
-                        file:
-                            'https://cdn.jwplayer.com/videos/bb7snV27-K8B0kybS.mp4',
+                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-K8B0kybS.mp4',
                         type: 'video/mp4',
                         height: 270,
                         width: 480,
@@ -1185,8 +1198,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                         framerate: 25
                     },
                     {
-                        file:
-                            'https://cdn.jwplayer.com/videos/bb7snV27-46NIuRKO.mp4',
+                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-46NIuRKO.mp4',
                         type: 'video/mp4',
                         height: 720,
                         width: 1280,
@@ -1196,16 +1208,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                         framerate: 25
                     },
                     {
-                        file:
-                            'https://cdn.jwplayer.com/videos/bb7snV27-hz5z2Tv4.m4a',
+                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-hz5z2Tv4.m4a',
                         type: 'audio/mp4',
                         label: 'AAC Audio',
                         bitrate: 120009,
                         filesize: 150012
                     },
                     {
-                        file:
-                            'https://cdn.jwplayer.com/videos/bb7snV27-FnZGUVnC.mp4',
+                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-FnZGUVnC.mp4',
                         type: 'video/mp4',
                         height: 360,
                         width: 640,
@@ -1215,8 +1225,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                         framerate: 25
                     },
                     {
-                        file:
-                            'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
+                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
                         type: 'video/mp4',
                         height: 540,
                         width: 960,
@@ -1226,16 +1235,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                         framerate: 25
                     }
                 ],
-                poster:
-                    'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
+                poster: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
                 type: 'video'
             };
 
             expect(transformVideoData(videoJwData)).toStrictEqual({
                 dataSrc:
                     'https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4',
-                poster:
-                    'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
+                poster: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
                 type: 'video'
             });
         });
