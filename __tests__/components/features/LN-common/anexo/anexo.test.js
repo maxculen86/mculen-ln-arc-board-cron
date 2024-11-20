@@ -408,7 +408,7 @@ describe('features - LN-common - anexo - default', () => {
                 render(<AnexoFeature {...propsHtml} />);
                 const anexoDiv = screen.getByText('Mock HTML anexo');
                 expect(anexoDiv.parentElement).toHaveClass(
-                    'lay-container-100vw_max767 w-100_md'
+                    'container-100vw_max767 w-100_md'
                 );
             });
         });
