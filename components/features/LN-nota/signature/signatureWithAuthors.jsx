@@ -14,7 +14,8 @@ function SignatureWithAuthors({
     medio,
     audioButton,
     position,
-    showSignatureWithAuthors
+    showSignatureWithAuthors,
+    subtype
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -27,6 +28,7 @@ function SignatureWithAuthors({
         <IconSprite name="ai" fill="#FEFEFE" />
     ) : null;
     const prefix = position === place.Bottom || hasMultipleAuthors;
+    const isVideoNote = subtype === '5' && position === place.Top;
 
     return (
         <div className="row">
@@ -46,7 +48,11 @@ function SignatureWithAuthors({
                     section={medio}
                     icon={iconAudio}
                     prefix={prefix}
-                    classnames={{ authorSection: 'uppercase' }}
+                    negative={isVideoNote}
+                    classnames={{
+                        authorSection: 'uppercase',
+                        authorName: isVideoNote && 'text-blue-300'
+                    }}
                 />
                 {audioButton}
             </div>
@@ -62,7 +68,8 @@ SignatureWithAuthors.propTypes = {
     medio: PropTypes.string.isRequired,
     audioButton: PropTypes.node.isRequired,
     position: PropTypes.oneOf([place.Top, place.Bottom]).isRequired,
-    showSignatureWithAuthors: PropTypes.bool.isRequired
+    showSignatureWithAuthors: PropTypes.bool.isRequired,
+    subtype: PropTypes.string.isRequired
 };
 
 export default SignatureWithAuthors;
