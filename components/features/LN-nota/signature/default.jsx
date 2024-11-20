@@ -146,6 +146,6 @@ SignatureFeature.propTypes = {
     }).isRequired
 };
 
-SignatureFeature.label = 'LN-Nota-Firma';
+SignatureFeature.label = 'LN-Nota-Firma-V2';
 
 export default Context(SignatureFeature);
