@@ -5,13 +5,15 @@ import get from '../../../../private/common/utils/get';
 export const formatSectionName = (sectionString = '') => {
     if (sectionString === 'club-la-nacion') return 'Club LA NACION';
 
+    // eslint-disable-next-line no-useless-escape
     const sectionFormated = sectionString.replace(/[\/-]/g, ' ').trim();
 
     return capitalizeFirstLetter(sectionFormated);
 };
 
 export const getFooditAcuTitle = globalContent => {
-    const { _id: id = '', name = '' } = globalContent;
+    const { _id: id = '', name = '', title = '' } = globalContent;
+    if (id === '/tema') return formatSectionName(title);
 
     const sectionsArray = id.split('/').filter(Boolean);
     const sectionsTransformed =
@@ -25,22 +27,11 @@ export const getFooditAcuTitle = globalContent => {
         formatSectionName(sectionStringTransformed)
     );
 };
-
-export const getBreadcrumbSections = globalContent => {
-    const acuSection = get(globalContent, '_id', '');
-    const noteSection = get(globalContent, 'taxonomy.primary_section._id', '');
-    const isAcu = acuSection.startsWith('/');
-
-    return isAcu
-        ? setArraySection(acuSection, isAcu)
-        : setArraySection(noteSection);
-};
-
 export const setArraySection = (stringSections = '', isAcu = false) => {
     const arraySections = stringSections.split('/');
-    const sectionsTransformed = arraySections.map((section, index) => {
-        return arraySections.slice(0, index + 1).join('/');
-    });
+    const sectionsTransformed = arraySections.map((section, index) =>
+        arraySections.slice(0, index + 1).join('/')
+    );
 
     return arraySections.map((section, index) => {
         const nameSection = formatSectionName(section);
@@ -52,4 +43,15 @@ export const setArraySection = (stringSections = '', isAcu = false) => {
             disabled: isAcu && index === arraySections.length - 1
         };
     });
+};
+export const getBreadcrumbSections = globalContent => {
+    const titleTema = `/${get(globalContent, 'title', '')}`;
+    const id = get(globalContent, '_id', '');
+    const acuSection = id === '/tema' ? titleTema : id;
+    const noteSection = get(globalContent, 'taxonomy.primary_section._id', '');
+    const isAcu = acuSection.startsWith('/');
+
+    return isAcu
+        ? setArraySection(acuSection, isAcu)
+        : setArraySection(noteSection);
 };

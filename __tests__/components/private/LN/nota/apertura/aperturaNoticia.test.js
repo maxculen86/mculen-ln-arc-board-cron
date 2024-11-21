@@ -3,8 +3,12 @@ import { render, screen } from '@testing-library/react';
 import Context from 'fusion:context';
 import AperturaNoticia from '../../../../../../components/features/LN-nota/aperturaNoticia';
 
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => []
+}));
+
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -22,7 +26,7 @@ jest.mock(
 jest.mock(
     '../../../../../../components/private/common/hocs/withScreenUtils',
     () => {
-        return function(Component) {
+        return function (Component) {
             return props => (
                 <Component {...props} screenUtils={{ device: 'desktop' }} />
             );
@@ -84,8 +88,7 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
                     }
                 ],
                 type: 'image',
-                url:
-                    'https://resizer.glanacion.com/resizer/3IibxbS9Q7-2PL73hRaFQrk5XCA=/768x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg',
+                url: 'https://resizer.glanacion.com/resizer/3IibxbS9Q7-2PL73hRaFQrk5XCA=/768x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg',
                 width: 768
             }
         },
@@ -94,15 +97,13 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             {
                 height: 360,
                 stream_type: 'mp4',
-                url:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/Juan_Cruz_Andrada/20220930/6337417356289817029a90ff/t_4b976608f9a3479591bb935bb39c257e_name_lv_0_20220929224858/file_640x360-600.mp4',
+                url: 'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/Juan_Cruz_Andrada/20220930/6337417356289817029a90ff/t_4b976608f9a3479591bb935bb39c257e_name_lv_0_20220929224858/file_640x360-600.mp4',
                 width: 640
             },
             {
                 height: 720,
                 stream_type: 'mp4',
-                url:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/Juan_Cruz_Andrada/20220930/6337417356289817029a90ff/t_4b976608f9a3479591bb935bb39c257e_name_lv_0_20220929224858/file_1280x720-2000-v3_1.mp4',
+                url: 'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/Juan_Cruz_Andrada/20220930/6337417356289817029a90ff/t_4b976608f9a3479591bb935bb39c257e_name_lv_0_20220929224858/file_1280x720-2000-v3_1.mp4',
                 width: 1280
             }
         ],
@@ -139,8 +140,7 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             }
         ],
         type: 'image',
-        url:
-            'https://resizer.glanacion.com/resizer/-xDflM1Ic1RxJc06uhR2rL-gr8U=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg',
+        url: 'https://resizer.glanacion.com/resizer/-xDflM1Ic1RxJc06uhR2rL-gr8U=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg',
         width: 768
     };
 

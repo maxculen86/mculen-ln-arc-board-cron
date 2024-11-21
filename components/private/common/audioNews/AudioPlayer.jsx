@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Dialog } from '@ln/common-ui-dialog';
 import { useWindowSize } from '@ln/hooks';
 import BuildAudioPlayer from './BuildAudioPlayer';
+import isSSR from '../../LN/common/utils/isSSR';
 
 function AudioPlayer({ noteId = '', audioPlayerProps = {}, showVariantIa }) {
     const { width: viewportWidth } = useWindowSize();
@@ -10,6 +11,8 @@ function AudioPlayer({ noteId = '', audioPlayerProps = {}, showVariantIa }) {
 
     const { onCloseAudioPlayer, isOpenAudioPlayer, setEnableButton } =
         audioPlayerProps;
+
+    if (isSSR()) return null;
 
     const buildAudioPlayer = isOpenAudioPlayer && (
         <BuildAudioPlayer

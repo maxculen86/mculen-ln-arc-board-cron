@@ -83,6 +83,30 @@ export const transformArticleFoodit = article => {
     };
 };
 
+export const transformArticleFooditTema = article => {
+    const sections = get(article, 'section', '')
+        .split('|')
+        .map(section => ({ name: section }));
+    const highestPriorityTag = getHighestPriorityTag(sections) || '';
+    const title = get(article, 'title', '');
+
+    return {
+        articleId: get(article, 'guid', ''),
+        title,
+        mobileTitle: title,
+        author: get(article, 'creator', ''),
+        image: get(article, 'promo_image', ''),
+        href: get(article, 'link', ''),
+        time: get(article, 'counter_time', null),
+        tag: highestPriorityTag.toUpperCase(),
+        variant: getVariantBySubtype(get(article, 'subtype', '')),
+        primarySection: get(article, 'section', ''),
+        canonicalUrl: get(article, 'link', ''),
+        credits: get(article, 'credits', {}),
+        contentCode: get(article, 'content_code', ''),
+        hasVideo: get(article, 'video_jw', '')
+    };
+};
 export const validateArticleFoodit = ({ id, content, videoId, video }) => {
     const { sources } = video || {};
     const filesize = get(getSourcesJw(sources, '>'), 'filesize', null);

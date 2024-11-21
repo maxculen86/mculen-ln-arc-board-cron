@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
@@ -30,6 +28,16 @@ const extractDataFromTags = tags => {
     return { keywords };
 };
 
+const setAuthorSnippetStructure = author => {
+    const bioPage = get(author, 'additional_properties.original.bio_page', '');
+
+    return {
+        '@type': 'Person',
+        name: getAuthorByline(author),
+        url: `${SITE_LANACION}${bioPage}`
+    };
+};
+
 const extracDataFromCredits = (by, config = {}) => {
     let authors = [];
 
@@ -43,16 +51,6 @@ const extracDataFromCredits = (by, config = {}) => {
             );
     }
     return { authors: authors.length ? authors : [] };
-};
-
-const setAuthorSnippetStructure = author => {
-    const bioPage = get(author, 'additional_properties.original.bio_page', '');
-
-    return {
-        '@type': 'Person',
-        name: getAuthorByline(author),
-        url: `${SITE_LANACION}${bioPage}`
-    };
 };
 
 const publishingPrinciples =
@@ -114,32 +112,32 @@ export const getTrustProject = trust => data => sponsored => {
     }
 };
 
-const SnippetNoticia = props => {
+function SnippetNoticia({
+    siteProperties,
+    globalContent,
+    contextPath,
+    deployment
+}) {
     const {
-        siteProperties,
-        globalContent: {
-            canonical_url = '',
-            type,
-            headlines,
-            content_elements: contentElements = '',
-            taxonomy: { primary_section: primarySection = {}, tags },
-            credits: { by },
-            distributor = { name: 'LA NACION' },
-            created_date: createdDate = '',
-            first_publish_date: firstPublishDate = '',
-            last_updated_date: lastUpdatedDate = '',
-            display_date: displayDate = '',
-            content_restrictions: { content_code: contentCode } = {},
-            label,
-            owner: { sponsored }
-        },
-        contextPath,
-        deployment
-    } = props;
+        canonical_url: canonicalUrl = '',
+        type,
+        headlines,
+        content_elements: contentElements = [],
+        taxonomy: { primary_section: primarySection = {}, tags },
+        credits: { by },
+        distributor = { name: 'LA NACION' },
+        created_date: createdDate = '',
+        first_publish_date: firstPublishDate = '',
+        last_updated_date: lastUpdatedDate = '',
+        display_date: displayDate = '',
+        content_restrictions: { content_code: contentCode } = {},
+        label,
+        owner: { sponsored }
+    } = globalContent;
 
     const { name: distributorName } = distributor;
 
-    const { promo_items: promoItems } = addRelatedImage(props.globalContent);
+    const { promo_items: promoItems } = addRelatedImage(globalContent);
 
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600x60.jpg'
@@ -177,12 +175,12 @@ const SnippetNoticia = props => {
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         ...(articleBody && { articleBody }),
-        url: `${siteProperties.host}${canonical_url}`,
-        dateCreated: `${new Date(createdDate).toUTCString()}`,
+        url: `${siteProperties.host}${canonicalUrl}`,
+        dateCreated: createISODate(createdDate),
         datePublished: datePublishedISO,
         dateModified: dateModifiedISO,
         mainEntityOfPage: addForwardSlash(
-            `${siteProperties.host}${canonical_url}`
+            `${siteProperties.host}${canonicalUrl}`
         ),
         articleSection: `${name}`,
         isAccessibleForFree:
@@ -220,9 +218,13 @@ const SnippetNoticia = props => {
     data = getTrustProject(trust)(data)(sponsored);
 
     SnippetNoticia.propTypes = {
-        requestUri: PropTypes.string.isRequired,
-        siteProperties: PropTypes.shape.isRequired,
+        siteProperties: PropTypes.shape({
+            title: PropTypes.string,
+            host: PropTypes.string
+        }).isRequired,
         globalContent: PropTypes.shape({
+            canonical_url: PropTypes.string,
+            type: PropTypes.string,
             headlines: PropTypes.shape({
                 basic: PropTypes.string
             }),
@@ -263,13 +265,30 @@ const SnippetNoticia = props => {
                     })
                 )
             }),
+            content_elements: PropTypes.arrayOf(
+                PropTypes.shape({
+                    type: PropTypes.string
+                })
+            ),
             created_date: PropTypes.string,
             first_publish_date: PropTypes.string,
+            last_updated_date: PropTypes.string,
             display_date: PropTypes.string,
             content_restrictions: PropTypes.shape({
                 content_code: PropTypes.string
             }),
-            subtype: PropTypes.string
+            subtype: PropTypes.string,
+            distributor: PropTypes.shape({
+                name: PropTypes.string
+            }),
+            owner: PropTypes.shape({
+                sponsored: PropTypes.bool
+            }),
+            label: PropTypes.shape({
+                trust: PropTypes.shape({
+                    text: PropTypes.string
+                })
+            })
         }).isRequired,
         deployment: PropTypes.func.isRequired,
         contextPath: PropTypes.string.isRequired
@@ -281,6 +300,6 @@ const SnippetNoticia = props => {
         )) ||
         null
     );
-};
+}
 
 export default SnippetNoticia;

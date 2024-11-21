@@ -1,16 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DollarItem } from './dollarItem';
 
-export const Dollar = ({ dollarData = [] }) => {
-    if (dollarData.length === 0) return <></>;
+function Dollar({ dollarData }) {
+    if (dollarData && dollarData.length === 0) return null;
 
     return (
         <div className="dollar dollar-container flex --scroll-x --degrade-scroll_max1279">
             <ul className="flex --bullet-list_4">
-                {dollarData.map((data, dollarIndex) => (
-                    <DollarItem key={dollarIndex} {...data} />
+                {dollarData.map(dolarType => (
+                    <DollarItem key={dolarType.text} {...dolarType} />
                 ))}
             </ul>
         </div>
     );
+}
+
+Dollar.propTypes = {
+    dollarData: PropTypes.arrayOf(
+        PropTypes.shape({
+            text: PropTypes.string,
+            title: PropTypes.string,
+            venta: PropTypes.string,
+            link: PropTypes.string
+        })
+    ).isRequired
 };
+
+export default Dollar;

@@ -48,6 +48,7 @@ function StickyMobile({ headerText, alt, articleToShow }) {
                                 setDisplaySticky(false);
                                 handleClickForCTRcomponent('close');
                             }}
+                            id="stickyMobileTestId"
                             iconOnly
                             size="inherit"
                             aria-hidden="true"

@@ -11,6 +11,10 @@ import { getYouTubeVideoLink } from '../../../../../common/article/elements/vide
 
 export const CardRegular = article => {
     const primarySection = get(article, 'taxonomy.primary_section');
+    const hideDescriptionValue = get(
+        article,
+        'additionalProperties.hideDescription'
+    );
 
     return {
         categoria: primarySection && getPrincipalCategory(primarySection),
@@ -19,7 +23,7 @@ export const CardRegular = article => {
         autores: getAuthors(article),
         marquesina: getSignature(article),
         volanta: getFlyertext(article),
-        bajada: getDroptext(article),
+        bajada: hideDescriptionValue ? null : getDroptext(article),
         imagen: getArticleImage(article),
         videoYouTube: getYouTubeVideoLink(article),
         embed: getEmbed(article),

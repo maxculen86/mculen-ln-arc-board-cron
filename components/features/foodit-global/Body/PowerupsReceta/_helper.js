@@ -6,7 +6,7 @@ export const setUrlTag = ({
     primarySection = '',
     tagList = []
 } = {}) => {
-    const baseUrl = `${SITE_FOODIT}/buscador/?query=${primarySection}`;
+    const baseUrl = `${SITE_FOODIT}/tema/?query=${primarySection}&title=${primarySection}`;
 
     if (tagList) {
         return tagList.map(tag => {
@@ -15,7 +15,7 @@ export const setUrlTag = ({
             const tagPathValidated =
                 tagPath && (tagPath.endsWith('/') ? tagPath : `${tagPath}/`);
 
-            const tagPathWithQuery = `${baseUrl}&fkey=${nameSection}&fval=${tag}`;
+            const tagPathWithQuery = `${baseUrl}&groups=${nameSection}&itemGroups=${tag}`;
 
             return {
                 text: tag.name || tag,
@@ -27,15 +27,15 @@ export const setUrlTag = ({
     return [];
 };
 
-export const getListsFromPowerup = (content_elements = []) => {
+export const getListsFromPowerup = (contentElements = []) => {
     const {
         'custom-nutrition': nutritionLists,
         'foodit-ingredientes': fooditIngredientsLists,
         'custom-ingrediente': customIngredientsLists
-    } = content_elements.reduce(
+    } = contentElements.reduce(
         (acc, item) => {
             const subtype = get(item, 'subtype', '');
-            if (acc.hasOwnProperty(subtype)) {
+            if (Object.prototype.hasOwnProperty.call(acc, subtype)) {
                 const embed = get(item, 'embed.config');
                 if (embed) {
                     acc[subtype].push(embed);
