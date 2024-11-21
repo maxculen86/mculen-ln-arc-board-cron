@@ -75,6 +75,13 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
                 dataEvent: 'e_linkclick',
                 dataSection: 'MenuLN',
                 icon: 'bonvivir'
+            },
+            {
+                title: 'LN 104.9 + Música',
+                link: 'https://www.lanacionmusica.com.ar/',
+                dataEvent: 'e_linkclick',
+                dataSection: 'MenuLN',
+                icon: 'lnRadio'
             }
         ]
     };
@@ -110,7 +117,7 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
                 source: null
             })
         );
-        expect(liElements.length).toBe(5);
+        expect(liElements.length).toBe(6);
         expect(climaLink).not.toBeInTheDocument();
     });
 
