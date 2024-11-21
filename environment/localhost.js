@@ -14,6 +14,9 @@ export default {
     API_ENV: 'sandbox',
     SITE_LANACION: 'https://sandbox.lanacion.com.ar',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
+    API_QUERYLY: 'https://api.queryly.com',
+    API_KEY_QUERYLY:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygETpekPgwkrTakQkXZdXc92AAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMr5ueS8M5g3CCPaxTAgEQgCtmr4wqCBXW6UGqT2lgM5ngM0Tdpynx/MrDP2PsWMT9a2qdBp61VdkZxDF6}',
     RESIZER_URL: 'https://sandbox-resizer.glanacion.com/resizer',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     // Fin variables de sandbox

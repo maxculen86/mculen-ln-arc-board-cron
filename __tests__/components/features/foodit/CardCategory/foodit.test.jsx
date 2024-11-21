@@ -39,6 +39,27 @@ describe('Components - features - foodit - CardCategory', () => {
         expect(screen.getByRole('link')).toHaveAttribute('href', '/recetas');
     });
 
+    it('renders correctly with valid props - acu tema', () => {
+        useContent.mockReturnValue(fooditCategoryImageSource);
+        const props = {
+            isAdmin: false,
+            customFields: {
+                title: 'Titulo',
+                image: 'E74GZJYWCBEBRBQY4JKVS2UYZA',
+                url: '',
+                query: 'carne'
+            }
+        };
+
+        render(<CardCategory {...props} />);
+        expect(screen.getByText('Titulo')).toBeInTheDocument();
+        expect(screen.getByAltText('Foto de Titulo')).toBeInTheDocument();
+        expect(screen.getByRole('link')).toHaveAttribute(
+            'href',
+            '/tema/?query=carne&title=Titulo'
+        );
+    });
+
     it('renders warnings correctly with invalid props when is Admin - no image found', () => {
         useContent.mockReturnValue({});
         const props = {
