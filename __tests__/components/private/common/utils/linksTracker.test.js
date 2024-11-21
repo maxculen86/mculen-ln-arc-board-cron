@@ -1,7 +1,6 @@
 import { screen, fireEvent } from '@testing-library/react';
 import {
-    addPositionInNote,
-    createIntersectionObserverForLinks
+    addPositionInNote
 } from '../../../../../components/private/common/utils/linksTracker';
 
 global.window.dataLayer = [];
@@ -23,8 +22,6 @@ linkButton.ctr_position = '111101';
 global.document.body.classList.add('cuerpo__nota');
 global.document.body.appendChild(paragraph);
 global.document.body.appendChild(linkButton);
-
-const notaBody = global.document.body;
 
 describe('components - private - common - utils - linksTracker', () => {
     describe('createIntersectionObserverForLinks', () => {
