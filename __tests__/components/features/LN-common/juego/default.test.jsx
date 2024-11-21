@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Game from '../../../../components/features/LN-common/Juego/default';
+import Game from '../../../../../components/features/LN-common/Juego/default';
 import '@testing-library/jest-dom';
-import getGameProperties from '../../../../components/private/LN/common/utils/getGameProperties';
+import getGameProperties from '../../../../../components/private/LN/common/utils/getGameProperties';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn(() => ({ isAdmin: true }))
@@ -11,7 +11,7 @@ jest.mock('fusion:context', () => ({
 jest.mock('fusion:consumer', () => component => component);
 
 jest.mock(
-    '../../../../components/private/LN/common/utils/getGameProperties',
+    '../../../../../components/private/LN/common/utils/getGameProperties',
     () => ({
         __esModule: true,
         default: jest.fn()

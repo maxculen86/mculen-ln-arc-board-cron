@@ -3,9 +3,8 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import ComText from '../../private/common/text';
 import { fonts, sizes, weights } from '../../private/common/text/getFontData';
-import StaticContent from '../../private/common/staticContent';
 
-const Text = props => {
+function Text(props) {
     const {
         type,
         id: featureId,
@@ -26,9 +25,10 @@ const Text = props => {
             />
         </Static>
     );
-};
+}
 
 Text.propTypes = {
+    type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         font: PropTypes.oneOf(Object.keys(fonts)).tag({
