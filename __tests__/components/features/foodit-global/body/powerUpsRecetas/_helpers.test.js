@@ -53,13 +53,11 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(setUrlTag(input)).toEqual([
                 {
                     text: 'Desayunos',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=occasions&fval=Desayunos'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Desayunos'
                 },
                 {
                     text: 'Postres',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=occasions&fval=Postres'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Postres'
                 }
             ]);
         });
@@ -104,8 +102,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Al horno',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=cookingTypes&fval=Al horno'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=cookingTypes&itemGroups=Al horno'
                 }
             ]);
         });
@@ -121,13 +118,11 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Día de la Amistad',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=occasions&fval=Día de la Amistad'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Día de la Amistad'
                 },
                 {
                     text: 'Aniversario',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=occasions&fval=Aniversario'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Aniversario'
                 }
             ]);
         });
@@ -143,13 +138,11 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Italiana',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=regions&fval=Italiana'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=regions&itemGroups=Italiana'
                 },
                 {
                     text: 'Estadounidense',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=regions&fval=Estadounidense'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=regions&itemGroups=Estadounidense'
                 }
             ]);
         });
@@ -185,18 +178,15 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Al horno',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=cookingTypes&fval=Al horno'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=cookingTypes&itemGroups=Al horno'
                 },
                 {
                     text: 'Día de la Amistad',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=occasions&fval=Día de la Amistad'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Día de la Amistad'
                 },
                 {
                     text: 'Italiana',
-                    url:
-                        'https://foodit.lanacion.com.ar/buscador/?query=Recetas&fkey=regions&fval=Italiana'
+                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=regions&itemGroups=Italiana'
                 },
                 { text: 'Postres', url: '/recetas/postres/' }
             ]);

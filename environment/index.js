@@ -111,6 +111,9 @@ export default {
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
     SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+    API_QUERYLY: 'https://api.queryly.com',
+    API_KEY_QUERYLY:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygETpekPgwkrTakQkXZdXc92AAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMr5ueS8M5g3CCPaxTAgEQgCtmr4wqCBXW6UGqT2lgM5ngM0Tdpynx/MrDP2PsWMT9a2qdBp61VdkZxDF6}', // NOSONAR
     //   La API Key de Firebase se encuentra pública en el código de las aplicaciones,
     //   debido a que Firebase utiliza esta clave para identificar tu proyecto en lugar de autenticar peticiones.
     //   Es importante destacar que esta API Key no proporciona acceso directo a los recursos de Firebase sin la configuración adecuada de las reglas de seguridad.
