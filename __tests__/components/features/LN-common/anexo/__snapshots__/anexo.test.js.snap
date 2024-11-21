@@ -32,7 +32,7 @@ exports[`features - LN-common - anexo - default With HTML anexo props Should mat
         </div>
       </div>
       <div
-        class="lay-container-100vw_max767 w-100_md"
+        class="container-100vw_max767 w-100_md"
       >
         <p>
           Mock HTML anexo
@@ -68,7 +68,7 @@ exports[`features - LN-common - anexo - default With HTML anexo props Should mat
       </div>
     </div>
     <div
-      class="lay-container-100vw_max767 w-100_md"
+      class="container-100vw_max767 w-100_md"
     >
       <p>
         Mock HTML anexo
@@ -136,9 +136,9 @@ exports[`features - LN-common - anexo - default With anexo URL props Should matc
     <div>
       <div>
         <div
-          class="com-anexo"
+          class="com-anexo overflow-hidden"
           id="anexo-responsive-f0f0raOK8mKx1sc"
-          style="overflow: hidden; width: 100%;"
+          style="width: 100%;"
         >
           <style>
             #anexo-responsive-f0f0raOK8mKx1sc{height:100px}@media(min-width:768px){#anexo-responsive-f0f0raOK8mKx1sc{height:150px}}@media(min-width:1024px){#anexo-responsive-f0f0raOK8mKx1sc{height:300px}}
@@ -186,9 +186,9 @@ exports[`features - LN-common - anexo - default With anexo URL props Should matc
   "container": <div>
     <div>
       <div
-        class="com-anexo"
+        class="com-anexo overflow-hidden"
         id="anexo-responsive-f0f0raOK8mKx1sc"
-        style="overflow: hidden; width: 100%;"
+        style="width: 100%;"
       >
         <style>
           #anexo-responsive-f0f0raOK8mKx1sc{height:100px}@media(min-width:768px){#anexo-responsive-f0f0raOK8mKx1sc{height:150px}}@media(min-width:1024px){#anexo-responsive-f0f0raOK8mKx1sc{height:300px}}

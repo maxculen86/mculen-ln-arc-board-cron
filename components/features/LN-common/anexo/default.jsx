@@ -178,10 +178,11 @@ function AnexoFeature(props) {
     const anexoClassNames = cx(
         'com-anexo',
         isPreApertura && '--anexo-1',
-        !isAdmin && _type === 'Iframe' && 'skeleton-box'
+        !isAdmin && _type === 'Iframe' && 'skeleton-box',
+        mobileFullWidth ? 'overflow-hidden_md' : 'overflow-hidden'
     );
     const anexoBaseClassNames = cx(
-        mobileFullWidth ? 'lay-container-100vw_max767 w-100_md' : 'w-100'
+        mobileFullWidth ? 'container-100vw_max767 w-100_md' : 'w-100'
     );
 
     const { bannerMob = undefined, bannerDsk = undefined } =
@@ -214,7 +215,7 @@ function AnexoFeature(props) {
             <div
                 id={anexoId}
                 className={anexoClassNames}
-                style={{ overflow: 'hidden', width: '100%' }}
+                style={{ width: '100%' }}
             >
                 <SetFixedHeight
                     elementId={anexoId}
