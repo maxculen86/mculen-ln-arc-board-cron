@@ -1,6 +1,6 @@
-import { Button } from '@ln/contenidos-ui-button';
-import PropTypes from 'fusion:prop-types';
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
+import { Button } from '@ln/contenidos-ui-button';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
@@ -8,12 +8,17 @@ import { AnimatedIcons } from '@ln/contenidos-ui-animatedicons';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useDisclosure } from '@ln/hooks';
 import { Dialog } from '@ln/common-ui-dialog';
-import { getTextAndIconColor, handleClickAudioNews } from '../helpers';
+import {
+    getTextAndIconColor,
+    handleClickAudioNews,
+    a11yAttrsBarrierSub
+} from '../helpers';
 import getToken from '../../utils/getToken';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../../../auth/helper/loginHelper';
+
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import useTermica from '../../hooks/useTermica';
 import { useSignatureContext } from '../hooks/SignatureContext';
@@ -41,8 +46,6 @@ export function AudioButton({
 
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const token = getToken();
-    const typeOfWindow =
-        typeof window !== 'undefined' ? window.btoa(window.location.href) : '';
 
     const {
         isOpen: isBarrierOpen,
@@ -65,6 +68,13 @@ export function AudioButton({
 
     const { text, iconColor } = getTextAndIconColor(contentVariant, variant);
 
+    const TooltipContent = (
+        <>
+            <Text className="text-12_130 block">Con la voz de</Text>
+            <Text className="text-12_130 block">{authorNames}</Text>
+        </>
+    );
+
     if (!showListenButton || !withAudio) return null;
 
     return (
@@ -72,28 +82,22 @@ export function AudioButton({
             <Dialog
                 isOpen={isBarrierOpen}
                 onClose={closeBarrier}
-                position="bottom"
+                position="center"
                 id="audio-player-barrier"
                 classnames={{
-                    base: 'w-100 p-16 w-640_md shadow-up-md center-x',
-                    wrapper: 'flex flex-column gap-12'
+                    base: 'w-100 w-720_md bg-transparent px-16 w-shadow-up-md'
                 }}
-                style={{ zIndex: 15000 }}
+                overlay
+                closeOnClickOutside
+                {...a11yAttrsBarrierSub}
             >
-                <Dialog.Header
-                    className="flex-column"
-                    closeButtonProps={{
-                        className: 'as-flex-end',
-                        title: 'Cerrar'
-                    }}
-                />
                 <BarrierRequiresSubscription
-                    redirectCallback={typeOfWindow}
                     isLogged={!!token}
+                    closeBarrier={closeBarrier}
                 />
             </Dialog>
             {isOpenAudioPlayer ? (
-                <div className="flex py-12 px-16 jc-center ai-center gap-8">
+                <div className="flex py-12 px-16 ai-center gap-8 h-40">
                     <AnimatedIcons
                         name="logo-listen"
                         height={20}
@@ -111,16 +115,7 @@ export function AudioButton({
                     position="right-center"
                     visible={showTooltipIAAuthor}
                     disableTrigger
-                    content={
-                        <>
-                            <Text className="text-12_130 block">
-                                Con la voz de
-                            </Text>
-                            <Text className="text-12_130 block">
-                                {authorNames}
-                            </Text>
-                        </>
-                    }
+                    content={TooltipContent}
                     style={{ maxWidth: '165px' }}
                 >
                     <Button

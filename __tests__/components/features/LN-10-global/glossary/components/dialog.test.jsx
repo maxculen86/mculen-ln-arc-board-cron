@@ -20,29 +20,36 @@ describe('features - LN-10-GLOBAL - glossary - components- Dialog', () => {
         isOpen: true,
         onClose: jest.fn()
     });
+
     beforeEach(() => {
+        HTMLDialogElement.prototype.show = jest.fn();
+        HTMLDialogElement.prototype.showModal = jest.fn();
         ({ baseElement } = render(<Dialog glossaryData={arrayData} />));
     });
+
     afterEach(() => {
         jest.clearAllMocks();
     });
 
     const capitalizeKeyMock = capitalizeFirstLetter(arrayData[0].key);
-    it('should render key and value correctly', async () => {
+    it('should render key and value correctly', () => {
         expect(screen.getByText(capitalizeKeyMock)).toBeInTheDocument();
         expect(screen.getByText(arrayData[0].value)).toBeInTheDocument();
     });
 
-    it('should render attributes correctly', async () => {
+    it('should render attributes correctly', () => {
         const id = 'drawer-glossary';
         const dialog = document.getElementById('drawer-glossary');
         expect(dialog).toHaveAttribute('id', id);
         expect(dialog).toHaveAttribute('data-position', 'bottom');
         expect(dialog).toHaveAttribute(
             'aria-describedby',
-            `dialog-description-${id}`
+            `glossary-dialog-description`
         );
-        expect(dialog).toHaveAttribute('aria-labelledby', `dialog-title-${id}`);
+        expect(dialog).toHaveAttribute(
+            'aria-labelledby',
+            `glossary-dialog-label`
+        );
     });
 
     it('should match snapshot', () => {

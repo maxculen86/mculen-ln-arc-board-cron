@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable */
-import { DOMINIO_COOKIE } from 'fusion:environment';
 import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
 import { scheduleTask } from '../utils/scheduleTask';
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
@@ -67,3 +64,8 @@ export function getTextDisclaimer({
     }
     return textDisclaimer.article;
 }
+
+export const a11yAttrsBarrierSub = {
+    'aria-labelledby': 'barrier-audio-dialog-label',
+    'aria-describedby': 'barrier-dialog-description'
+};
