@@ -1027,10 +1027,24 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(isValidSectionIA(sections)).toBe(false);
         });
 
-        it('should return true if section path is in validSections', () => {
+        it('should return true if the section path exactly matches a valid section', () => {
             const sections = [{ path: '/sociedad' }];
             expect(isValidSectionIA(sections)).toBe(true);
         });
+
+        it.each([
+            { path: '/espectaculos/cine', expected: true },
+            { path: '/tecnologia/ai', expected: true },
+            { path: '/tecnologia/gaming', expected: true },
+            { path: '/sociedad/cultura', expected: true },
+            { path: '/espectaculos/musica', expected: true }
+        ])(
+            'should return $expected if the section path is $path',
+            ({ path, expected }) => {
+                const sections = [{ path }];
+                expect(isValidSectionIA(sections)).toBe(expected);
+            }
+        );
 
         it('should handle sections with path as an empty string', () => {
             const sections = [{ path: '' }];
@@ -1108,7 +1122,7 @@ describe('Tests articleSourceNota - _helper', () => {
                 'owner',
                 'source',
                 'canonical_url',
-                'content_elements',
+                'content_elements'
             ];
 
             const result = getIncludedFields(isLiveblog);
