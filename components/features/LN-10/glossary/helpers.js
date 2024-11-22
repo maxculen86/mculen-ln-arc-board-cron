@@ -1,4 +1,3 @@
-import { scheduleTask } from '../../../private/common/utils/scheduleTask';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 export const handleToggleCollapse = (onToggle, isOpen) => {

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Features - LN Common - juego - GameCard should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="col-span-4 col-span-3_sm"
+  >
+    <article
+      bordercolor="bg-criptograma"
+      class="ln-card-games border border-thin border-all border-light-200 shadow-card-games cardGames__hover"
+    >
+      <a
+        class="link ln-link flex flex-column ai-center opacity-1__hover relative --unstyled"
+        href="/juegos/criptograma/"
+        target="_self"
+        title="Criptograma"
+      >
+        <div
+          class="h-6 w-100"
+        />
+        <div
+          class="flex flex-column px-8 pt-8 pb-12 ai-center w-100 transition transition-all transition-duration-800"
+        >
+          <div
+            class="h-64 w-64 flex ai-center jc-center"
+          >
+            <img
+              alt="Criptograma"
+              class="image flex w-100 h-100 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/pf/assets/games/criptograma.svg"
+            />
+          </div>
+          <div
+            class="flex ai-center h-64 flex-column jc-center mb-10"
+          >
+            <span
+              class="text ln-text --prumo --font-semi text-neutral-light-900 text-center --font-m"
+            >
+              Criptograma
+            </span>
+          </div>
+          <div
+            class="border border-thin border-all border-neutral-light-700 rounded-4 py-8 px-16 --font-2xs --font-bold bg-white transition transition-all transition-duration-800"
+          >
+            JUGAR
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</DocumentFragment>
+`;
