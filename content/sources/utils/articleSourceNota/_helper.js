@@ -101,7 +101,7 @@ export const isValidSectionIA = sections => {
 
     const validSections = ['/sociedad', '/espectaculos', '/tecnologia'];
 
-    return validSections.includes(section);
+    return validSections.some(validSection => section.startsWith(validSection));
 };
 
 export const transformPromoItems = async ({
@@ -363,10 +363,10 @@ export const transform = async (response, query, cachedCall) => {
         glossary:
             !notShowGlossary && isValidSectionIA(sections)
                 ? get(
-                    response,
-                    'promo_items.glossary.embed.config.arrayData',
-                    []
-                )
+                      response,
+                      'promo_items.glossary.embed.config.arrayData',
+                      []
+                  )
                 : []
     };
 
