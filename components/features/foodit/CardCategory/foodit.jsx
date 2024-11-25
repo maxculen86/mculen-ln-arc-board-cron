@@ -13,7 +13,7 @@ import WarningMessage from '../../../private/common/warningMessage/warningMessag
 import { useGetImage } from './hooks/useGetImage';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 
-function CardCategory({ isAdmin, customFields }) {
+function CardCategory({ id: featureId, isAdmin, customFields }) {
     const {
         title = '',
         image = '',
@@ -51,7 +51,8 @@ function CardCategory({ isAdmin, customFields }) {
         query,
         titleAcu: title,
         groups: groupSelecteds,
-        itemGroups: itemGroupSelecteds
+        itemGroups: itemGroupSelecteds,
+        featureId
     });
 
     if (isAdmin && error) {
@@ -73,6 +74,7 @@ function CardCategory({ isAdmin, customFields }) {
 }
 
 CardCategory.propTypes = {
+    id: PropTypes.string.isRequired,
     isAdmin: PropTypes.isRequired,
     customFields: PropTypes.shape({
         title: PropTypes.string.tag({

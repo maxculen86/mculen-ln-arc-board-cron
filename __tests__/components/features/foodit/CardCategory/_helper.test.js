@@ -171,13 +171,14 @@ describe('Components - features - foodit - CardCategory - Helper', () => {
                 query: 'mockQuery',
                 titleAcu: 'Titulo',
                 groups: 'seccion|tipo de coccion',
-                itemGroups: 'item1^item2'
+                itemGroups: 'item1^item2',
+                featureId: '000AAABBBCCC'
             };
 
             const result = resolveUrl(input);
 
             expect(result).toEqual(
-                '/tema/?query=mockQuery&title=Titulo&groups=seccion%7Ctipo%20de%20coccion&itemGroups=item1%5Eitem2'
+                '/tema/titulo-000aaabbbccc/?query=mockQuery&title=Titulo&groups=seccion%7Ctipo%20de%20coccion&itemGroups=item1%5Eitem2'
             );
         });
     });
