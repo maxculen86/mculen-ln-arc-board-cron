@@ -23,10 +23,8 @@ export const articleBoxesTracker = ({
                 if (article.isIntersecting) {
                     const { target } = article;
 
-                    const {
-                        ctr_brand: ctrBrand,
-                        ctr_position: ctrPosition
-                    } = target;
+                    const { ctr_brand: ctrBrand, ctr_position: ctrPosition } =
+                        target;
 
                     dataLayer.push({
                         event: 'impressionNota',
@@ -97,7 +95,7 @@ const boxArticleEventBuilder = {
     },
     ranking: () => {
         const rankingArticles = document.querySelectorAll(
-            '[data-block-name="n_ranking"] div article'
+            '[data-article-box="Ranking"]'
         );
 
         rankingArticles.forEach((rankArt, i) => {
@@ -106,14 +104,8 @@ const boxArticleEventBuilder = {
 
         return rankingArticles;
     },
-    tePuedeInteresar: ({ articles }) => {
-        return articles.map((article, index) => {
-            return addPositionInBox(
-                article,
-                'puedeInteresar_diag15',
-                '1011',
-                index
-            );
-        });
-    }
+    tePuedeInteresar: ({ articles }) =>
+        articles.map((article, index) =>
+            addPositionInBox(article, 'puedeInteresar_diag15', '1011', index)
+        )
 };

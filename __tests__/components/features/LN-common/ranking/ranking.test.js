@@ -33,7 +33,7 @@ global.MutationObserver = class {
     disconnect() {}
     observe(element, initObject) {}
 };
-jest.mock('../../../../../__mocks__/fusion:static', () => 'static');
+jest.mock('../../../../../__mocks__/fusion:static', () => 'Static');
 
 afterEach(() => {
     useContent.mockClear();
@@ -53,9 +53,9 @@ describe('Features - LN - Common - Ranking - default', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {}
         }));
-        const { container } = render(<Ranking />);
+        const { container } = render(<Ranking id="LN-acumulado" />);
         expect(container.innerHTML).toBe(
-            '<static id="common-ranking-undefined"></static>'
+            '<static id="common-ranking-LN-acumulado"><div class="bg-light-0 py-32"><ol></ol></div></static>'
         );
     });
     it('Should render ranking acu politica', async () => {
@@ -68,15 +68,14 @@ describe('Features - LN - Common - Ranking - default', () => {
         useContent.mockImplementationOnce(() => acuResponse);
 
         const { container } = render(<Ranking id="LN-acumulado" />);
-
         const titleElement = await screen.findByText('Más leídas de Política');
         expect(titleElement).toBeInTheDocument();
-
         expect(useContent).toHaveBeenCalledWith({
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: 'politica',
-                website: 'la-nacion-ar'
+                website: 'la-nacion-ar',
+                section: 'commonRanking'
             },
             source: 'rankingArticlesSource',
             staticMode: true
@@ -98,7 +97,8 @@ describe('Features - LN - Common - Ranking - default', () => {
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: '',
-                website: 'la-nacion-ar'
+                website: 'la-nacion-ar',
+                section: 'commonRanking'
             },
             source: 'rankingArticlesSource',
             staticMode: true
@@ -118,14 +118,15 @@ describe('Features - LN - Common - Ranking - default', () => {
 
         const { container } = render(<Ranking id="inverse-home" />);
 
-        const titleElement = await screen.findByText('Te puede interesar');
+        const titleElement = await screen.findByText('Más leídas');
         expect(titleElement).toBeInTheDocument();
 
         expect(useContent).toHaveBeenNthCalledWith(1, {
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: 'inverse-home',
-                website: 'la-nacion-ar'
+                website: 'la-nacion-ar',
+                section: 'commonRanking'
             },
             source: 'rankingArticlesSource',
             staticMode: true

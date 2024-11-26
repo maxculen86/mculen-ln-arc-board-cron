@@ -11,7 +11,7 @@ import {
 } from '../LN/common/utils/mediaHelper';
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
-const ModImage = props => {
+function ModImage(props) {
     const {
         src,
         alt,
@@ -61,7 +61,7 @@ const ModImage = props => {
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
     );
-};
+}
 
 ModImage.propTypes = {
     src: PropTypes.string.isRequired,

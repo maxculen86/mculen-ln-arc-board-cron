@@ -94,7 +94,8 @@ export default {
         imageConfig: 'text',
         website: 'text',
         layout: 'text',
-        sectionId: 'text'
+        sectionId: 'text',
+        section: 'text'
     },
     filter,
     ttl: 300
