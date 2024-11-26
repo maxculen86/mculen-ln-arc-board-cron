@@ -41,7 +41,7 @@ function SignatureFeature(props) {
     const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
     const { thermicalAudio } = audioPlayerProps;
     const customVoice = isCustomVoice(dataAuthor);
-    const showVariantIa = customVoice && thermicalAudio;
+    const showVariantIa = customVoice && thermicalAudio && authors.length <= 1;
 
     const { author } =
         !showSignatureWithDistributor && getAuthorsNameAndLink(authors);
