@@ -1277,6 +1277,13 @@ a {
   --gap-badge: 8px;
   --header-outer-spacing: 2fr;
   --center-options-grid-column: left-start / center-end;
+  --gradient-accent: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 28.67%,
+    rgba(0, 22, 49, 0.4) 53.98%,
+    rgba(0, 22, 49, 0.75) 67.75%,
+    rgba(0, 22, 49, 0.9) 81.15%
+  );
 }
 
 @media (min-width: 768px) {
@@ -1656,6 +1663,10 @@ a {
   border-color: currentColor var(--_secondary-color) var(--_secondary-color);
 }
 
+.-z-1 {
+  z-index: -1;
+}
+
 .z-1 {
   z-index: 1;
 }
@@ -1992,6 +2003,10 @@ a {
   background: var(--info-700);
 }
 
+.bg-gradient-accent {
+  background: var(--gradient-accent);
+}
+
 .bg-panal-de-letras__hover:hover {
   background: var(--panal-de-letras);
 }
@@ -2123,6 +2138,35 @@ a {
     line-height: 100%;
   }
 }
+.prumo {
+  font-family: Prumo, georgia, serif;
+  letter-spacing: var(--prumo-letter-spacing);
+  font-variation-settings: "wght" var(--prumo-font-variation), "opsz" var(--prumo-optical-size, 0);
+}
+.prumo-slab {
+  --prumo-optical-size: 50;
+}
+.prumo-light {
+  --prumo-font-variation: 70;
+}
+.prumo-book {
+  --prumo-font-variation: 90;
+}
+.prumo-medium {
+  --prumo-font-variation: 110;
+}
+.prumo-semibold {
+  --prumo-font-variation: 130;
+}
+.prumo-black {
+  --prumo-font-variation: 190;
+}
+.prumo.text-24 {
+  font-size: 1.5rem;
+  line-height: 110%;
+  --prumo-letter-spacing: -0.3px;
+}
+
 strong:not(.--font-primary),
 .--font-bold:not(.--font-primary),
 .font-bold:not(.--font-primary) {
@@ -2533,6 +2577,10 @@ strong:not(.--font-primary),
 
 .pb-24 {
   padding-bottom: 1.5rem;
+}
+
+.pb-32 {
+  padding-bottom: 2rem;
 }
 
 .pb-64 {

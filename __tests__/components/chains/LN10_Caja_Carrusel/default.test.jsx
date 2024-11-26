@@ -1,0 +1,121 @@
+import React from 'react';
+import { useAppContext } from 'fusion:context';
+import { render, screen } from '@testing-library/react';
+import { validateCarruselChildren } from '../../../../components/chains/utils/validateCarruselChildren';
+import { useRoofData } from '../../../../components/chains/utils/_helpers';
+import CajaCarrusel from '../../../../components/chains/LN10_Caja_Carrusel/default';
+
+jest.mock('fusion:consumer', Component => {
+    return function (Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
+jest.mock(
+    '../../../../components/chains/utils/validateCarruselChildren',
+    () => ({
+        validateCarruselChildren: jest.fn()
+    })
+);
+
+jest.mock('../../../../components/chains/utils/_helpers', () => ({
+    useRoofData: jest.fn()
+}));
+
+describe('components - chains - LN10_Caja_Carrusel', () => {
+    useAppContext.mockReturnValue({
+        contextPath: '/test-path',
+        deployment: jest.fn(path => path)
+    });
+
+    const mockRoofData = {
+        someData: 'mockData'
+    };
+
+    const defaultProps = {
+        children: [<div key="1">Child 1</div>, <div key="2">Child 2</div>],
+        customFields: {
+            hideCarousel: false,
+            roofProp: 'mockRoofProp'
+        },
+        childProps: {}
+    };
+
+    beforeAll(() => {
+        global.IntersectionObserver = jest.fn(() => ({
+            observe: jest.fn(),
+            disconnect: jest.fn(),
+            unobserve: jest.fn()
+        }));
+    });
+
+    beforeEach(() => {
+        useAppContext.mockReturnValue({ isAdmin: false });
+        useRoofData.mockReturnValue(mockRoofData);
+        validateCarruselChildren.mockReturnValue(null);
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('renders a warning message if isAdmin is true and there is an error', () => {
+        useAppContext.mockReturnValue({ isAdmin: true });
+        validateCarruselChildren.mockReturnValue({
+            type: 'error',
+            message: 'Advertencia. Se requiere la carga de 5 items de carrusel.'
+        });
+
+        render(<CajaCarrusel {...defaultProps} />);
+
+        expect(
+            screen.getByText(
+                /Advertencia. Se requiere la carga de 5 items de carrusel./i
+            )
+        ).toBeInTheDocument();
+    });
+
+    it('renders nothing if hideCarousel is true', () => {
+        render(
+            <CajaCarrusel
+                {...defaultProps}
+                customFields={{ hideCarousel: true }}
+            />
+        );
+
+        expect(screen.queryByText(/child 1/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/child 2/i)).not.toBeInTheDocument();
+    });
+
+    it('renders the carousel with children when no error and hideCarousel is false', () => {
+        render(<CajaCarrusel {...defaultProps} />);
+
+        expect(screen.getByText(/child 1/i)).toBeInTheDocument();
+        expect(screen.getByText(/child 2/i)).toBeInTheDocument();
+    });
+
+    it('renders the BuildRoof component with roofData', () => {
+        render(<CajaCarrusel {...defaultProps} />);
+
+        expect(screen.getByText(/child 1/i)).toBeInTheDocument();
+        expect(useRoofData).toHaveBeenCalledWith({
+            roofProp: 'mockRoofProp',
+            isAdmin: false,
+            isStatic: false
+        });
+    });
+
+    it('limits the number of children to 10 in the carousel', () => {
+        const manyChildren = Array.from({ length: 15 }, (_, i) => (
+            <div key={i}>Child {i + 1}</div>
+        ));
+
+        render(<CajaCarrusel {...defaultProps} children={manyChildren} />);
+
+        expect(screen.getAllByText(/child/i)).toHaveLength(10);
+    });
+});

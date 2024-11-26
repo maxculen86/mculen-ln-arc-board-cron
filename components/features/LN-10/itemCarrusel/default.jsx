@@ -1,0 +1,80 @@
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
+import { useContent } from 'fusion:content';
+import { validateItemCarrusel } from './_helper';
+import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import CardVertical from '../../LN-10-global/cardVerticalCarrusel/default';
+import { checkForId } from '../article/common/_helper-WebApi';
+
+function itemCarrusel({
+    isAdmin,
+    id: featureId,
+    customFields: { video: videoId, title, chapita }
+}) {
+    const videoData =
+        useContent({
+            source: checkForId(videoId) ? 'videosJwCarruselSource' : null,
+            query: {
+                id: checkForId(videoId),
+                website: 'la-nacion-ar',
+                isAdmin
+            }
+        }) || null;
+
+    const error = validateItemCarrusel({
+        video: videoData,
+        videoId
+    });
+
+    if (isAdmin && !!error) {
+        return (
+            <article data-feature-id={featureId}>
+                <WarningMessage
+                    key={featureId}
+                    type={error.type}
+                    message={error.message}
+                />
+            </article>
+        );
+    }
+
+    return (
+        !error &&
+        videoData && (
+            <CardVertical
+                title={title}
+                badgeText={chapita}
+                poster={videoData?.poster}
+                src={videoData?.posterVideo}
+                duration={videoData?.duration}
+            />
+        )
+    );
+}
+
+itemCarrusel.label = 'LN10 Item Carrusel';
+
+itemCarrusel.propTypes = {
+    id: PropTypes.string.isRequired,
+    customFields: PropTypes.shape({
+        title: PropTypes.string.tag({
+            name: 'Título',
+            description:
+                'Ingrese el texto del título. Máx: 100 caracteres incluyendo volanta.',
+            default: ''
+        }),
+        video: PropTypes.string.tag({
+            name: 'Video',
+            description: 'Ingrese aquí el ID del video de JW',
+            default: ''
+        }),
+        chapita: PropTypes.string.tag({
+            name: 'Chapita',
+            description: 'Ingrese aquí el texto de la chapita',
+            default: ''
+        })
+    })
+};
+
+export default Consumer(itemCarrusel);

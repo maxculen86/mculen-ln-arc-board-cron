@@ -65,7 +65,12 @@ function CajaCollection(props) {
         positionInsideSection
     } = getCommonProps(props);
 
-    const roofData = useRoofData({ ...propsForRoof, isAdmin, chainStyle });
+    const roofData = useRoofData({
+        ...propsForRoof,
+        isAdmin,
+        chainStyle,
+        isStatic: true
+    });
 
     const viewabilityRoof = getViewabilityRoof(
         chainId,
@@ -101,17 +106,17 @@ function CajaCollection(props) {
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
-            notesQuantity: rules.length || notesQuantity,
-            diagramation,
-            idCollection,
-            size: 20,
-            initialPosition: Number(initialPosition) - 1,
-            idCollectionsInPage: idsArticlesToExclude,
-            filterRecomendar: true,
-            filterRepetead: !isInSiteService,
-            layout,
-            website: isFoodit ? 'foodit' : 'la-nacion-ar'
-        })
+              notesQuantity: rules.length || notesQuantity,
+              diagramation,
+              idCollection,
+              size: 20,
+              initialPosition: Number(initialPosition) - 1,
+              idCollectionsInPage: idsArticlesToExclude,
+              filterRecomendar: true,
+              filterRepetead: !isInSiteService,
+              layout,
+              website: isFoodit ? 'foodit' : 'la-nacion-ar'
+          })
         : [];
 
     const _articles = getArticlesOfChain({

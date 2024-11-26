@@ -41,6 +41,7 @@ const getCssLibsHome = () => {
             file('common-ui-scrollinx'),
             file('common-ui-text'),
             file('common-ui-video'),
+            file('common-ui-mediascroller'),
 
             // CONTENIDOS
             file('contenidos-ui-advance'),

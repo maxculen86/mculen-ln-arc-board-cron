@@ -48,7 +48,8 @@ function Opinion(props) {
         ...propsForRoof,
         title: propsForRoof.title || 'Opinión',
         link: url,
-        isAdmin
+        isAdmin,
+        isStatic: true
     });
 
     const viewabilityRoof = getViewabilityRoof(
