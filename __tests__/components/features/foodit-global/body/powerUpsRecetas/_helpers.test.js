@@ -104,7 +104,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Al horno',
-                    url: 'https://foodit.lanacion.com.ar/tema/al-horno-abc-123/?query=recetas&title=Al horno&groups=cookingTypes&itemGroups=Al horno'
+                    url: 'https://foodit.lanacion.com.ar/tema/al-horno-abc-123/?query=recetas&title=Al horno&groups=cookingtypes&itemGroups=Al horno'
                 }
             ]);
         });
@@ -183,7 +183,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Al horno',
-                    url: 'https://foodit.lanacion.com.ar/tema/al-horno-abc-123/?query=recetas&title=Al horno&groups=cookingTypes&itemGroups=Al horno'
+                    url: 'https://foodit.lanacion.com.ar/tema/al-horno-abc-123/?query=recetas&title=Al horno&groups=cookingtypes&itemGroups=Al horno'
                 },
                 {
                     text: 'Día de la Amistad',

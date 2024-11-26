@@ -88,7 +88,7 @@ const getTagList = ({
     );
 
     const cookingTypesTags = setUrlTag({
-        nameSection: 'cookingTypes',
+        nameSection: 'cookingtypes',
         tagList: cookingTypes,
         idArticle
     });
