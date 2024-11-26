@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - feature - LN-nota - signature - default renders with author signature 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-column feature-firma mb-16 mb-24_m"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"
+      >
+        <div>
+          Mariano Grondona
+        </div>
+        <button>
+          Escuchar Nota
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - feature - LN-nota - signature - default renders with distributor signature 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-column feature-firma mb-16 mb-24_m"
+  >
+    <div
+      class="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start"
+    >
+      <span
+        class="text ln-text font-bold --xs"
+      >
+        LA NACION
+      </span>
+      <button>
+        Escuchar Nota
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - feature - LN-nota - signature - default renders without signature when no authors or distributor 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-column feature-firma mb-16 mb-24_m"
+  >
+    <div
+      class="flex flex-column feature-firma"
+    >
+      <button>
+        Escuchar Nota
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

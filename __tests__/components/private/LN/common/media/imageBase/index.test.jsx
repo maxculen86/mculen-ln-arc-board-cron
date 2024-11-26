@@ -3,6 +3,10 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ImageArticle from '../../../../../../../components/private/LN/common/media/imageBase';
 
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => []
+}));
+
 describe('Tests component - imageBase', () => {
     const props = {
         active: false,
@@ -32,14 +36,12 @@ describe('Tests component - imageBase', () => {
                         'https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
                 }
             ],
-            url:
-                'https://www.lanacion.com.ar/resizer/UQhUqLALzHkgpU5EWwe0ll_g_zk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg',
+            url: 'https://www.lanacion.com.ar/resizer/UQhUqLALzHkgpU5EWwe0ll_g_zk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg',
             width: 768,
             titleText:
                 'Adentro y afuera se confunden en esta casa con gran quincho junto a un jardín semicubierto'
         },
-        href:
-            '/lifestyle/por-mas-verde-interior-y-exterior-se-funden-en-esta-casa-con-una-galeria-fabulosa-nid2436566/',
+        href: '/lifestyle/por-mas-verde-interior-y-exterior-se-funden-en-esta-casa-con-una-galeria-fabulosa-nid2436566/',
         outputType: 'default',
         zoom: false,
         isApertura: true,
@@ -62,13 +64,11 @@ describe('Tests component - imageBase', () => {
             const resultImage = [
                 {
                     media: '(min-width: 1280px)',
-                    srcset:
-                        'https://www.lanacion.com.ar/resizer/9JkXATNcqzYXNsQ2bYSGvpitwUA=/608x405/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
+                    srcset: 'https://www.lanacion.com.ar/resizer/9JkXATNcqzYXNsQ2bYSGvpitwUA=/608x405/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
                 },
                 {
                     media: '(min-width: 375px)',
-                    srcset:
-                        'https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
+                    srcset: 'https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
                 }
             ];
 

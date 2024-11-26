@@ -10,7 +10,9 @@ import {
     setMetaTitle,
     buildArticleMetas,
     buildFbMetas,
-    buildTwitterMetas
+    buildTwitterMetas,
+    ensureAtSymbol,
+    getTwitterLink
 } from '../../../../../components/private/common/utils/getMetasOGHelper';
 import {
     getModifiedDate,
@@ -193,6 +195,66 @@ describe('Test return functions by getMetasOGHelper', () => {
             'La descripcion del video'
         );
     });
+
+    describe('Test return function ensureAtSymbol', () => {
+        it('adds "@" if the username does not start with it', () => {
+            expect(ensureAtSymbol('user')).toBe('@user');
+        });
+
+        it('does not add "@" if the username already starts with it', () => {
+            expect(ensureAtSymbol('@user')).toBe('@user');
+        });
+
+        it('returns undefined if the username is undefined', () => {
+            expect(ensureAtSymbol(undefined)).toBeUndefined();
+        });
+
+        it('returns the username unchanged if it is an empty string', () => {
+            expect(ensureAtSymbol('')).toBe('');
+        });
+    });
+
+    describe('Test return function getTwitterLink', () => {
+        it('returns null if author is undefined', () => {
+            expect(getTwitterLink(undefined)).toBeNull();
+        });
+
+        it('returns null if author is an empty object', () => {
+            expect(getTwitterLink({})).toBeNull();
+        });
+
+        it('returns undefined if author has no social links', () => {
+            const author = { social_links: [] };
+            expect(getTwitterLink(author)).toBeUndefined();
+        });
+
+        it('returns undefined if there is no Twitter link in social links', () => {
+            const author = {
+                social_links: [{ site: 'facebook', url: '@facebookAccount' }]
+            };
+            expect(getTwitterLink(author)).toBeUndefined();
+        });
+
+        it('returns the Twitter account if it exists in social links', () => {
+            const author = {
+                social_links: [
+                    { site: 'twitter', url: '@twitterAccount' },
+                    { site: 'facebook', url: '@facebookAccount' }
+                ]
+            };
+            expect(getTwitterLink(author)).toBe('@twitterAccount');
+        });
+
+        it('handles missing url in a social link gracefully', () => {
+            const author = {
+                social_links: [
+                    { site: 'twitter' },
+                    { site: 'facebook', url: '@facebookAccount' }
+                ]
+            };
+            expect(getTwitterLink(author)).toBeUndefined();
+        });
+    });
 });
 
 describe('Case return getData', () => {
@@ -271,7 +333,8 @@ describe('Case return getData', () => {
             subtype: '7',
             authors: [{ name: 'Carlos Pagni' }],
             primarySection: 'Receta',
-            tags: [{ text: 'Odisea Argentina' }]
+            tags: [{ text: 'Odisea Argentina' }],
+            twitterAccount: '@LANACION'
         });
     });
 
@@ -305,7 +368,8 @@ describe('Case return getData', () => {
             url: 'https://www.lanacion.com.arEZYG5OEVH5HSJJCUMJO5XAHTTA/',
             fbAppId: '154042854349421',
             isArticle: false,
-            subtype: '7'
+            subtype: '7',
+            twitterAccount: '@LANACION'
         });
     });
 
@@ -345,7 +409,54 @@ describe('Case return getData', () => {
             subtype: undefined,
             title: 'Noticias en La Nacion',
             type: 'website',
-            url: 'https://www.lanacion.com.ar'
+            url: 'https://www.lanacion.com.ar',
+            twitterAccount: '@LANACION'
+        });
+    });
+
+    it('Test return getData with author containing social_links', () => {
+        const propsCopy = {
+            ...props
+        };
+
+        propsCopy.globalContent.credits = {
+            by: [
+                {
+                    name: 'Carlos Pagni',
+                    social_links: [{ site: 'twitter', url: '@CarlosPagni' }]
+                }
+            ]
+        };
+
+        expect(getData(propsCopy)).toStrictEqual({
+            type: 'article',
+            title: 'Arroz chaufa de mariscos',
+            description: '',
+            displayDate: '2021-01-08T15:24:00.940Z',
+            image: {
+                url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800',
+                width: '1200',
+                height: '800',
+                alt: '',
+                type: ''
+            },
+            url: 'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
+            fbAppId: '154042854349421',
+            isArticle: true,
+            publishDate: '2021-01-08T15:24:00.940Z',
+            firstPublishDate: '2021-01-08T15:24:00.940Z',
+            lastUpdatedDate: '2021-01-08T15:24:00.940Z',
+            tier: 'metered',
+            subtype: '7',
+            authors: [
+                {
+                    name: 'Carlos Pagni',
+                    social_links: [{ site: 'twitter', url: '@CarlosPagni' }]
+                }
+            ],
+            primarySection: 'Receta',
+            tags: [{ text: 'Odisea Argentina' }],
+            twitterAccount: '@CarlosPagni'
         });
     });
 });
@@ -599,10 +710,38 @@ describe('Case return buildFbMetas', () => {
 });
 
 describe('Case return buildTwitterMetas', () => {
-    it('should return an array with the correct twitter:image object', () => {
-        const image = { url: 'https://example.com/image.jpg' };
-        const result = buildTwitterMetas(image);
+    it('should return the twitter meta tags correctly', () => {
+        const props = {
+            image: { url: 'https://example.com/image.jpg' },
+            arcSite: 'la-nacion-ar',
+            pageBuilderTitle: 'Test Title',
+            section: 'home',
+            siteProperties: { title: 'My Website' },
+            ottMetaTitle: 'OTT Title',
+            data: { description: 'text description' },
+            ottMetaDescription: 'OTT Description',
+            requestUri: '/test-uri',
+            metaValue: 'testMetaValue',
+            url: 'https://example.com',
+            twitterAccount: '@LANACION'
+        };
+        const result = buildTwitterMetas(props);
 
-        expect(result).toEqual([{ name: 'twitter:image', content: image.url }]);
+        expect(result).toEqual([
+            { name: 'twitter:image', content: 'https://example.com/image.jpg' },
+            { name: 'twitter:card', content: 'summary_large_image' },
+            {
+                name: 'twitter:title',
+                content: 'Test Title'
+            },
+            {
+                name: 'twitter:description',
+                content: 'text description'
+            },
+            { name: 'twitter:site', content: '@LANACION' },
+            { name: 'twitter:creator', content: '@LANACION' },
+            { name: 'twitter:domain', content: 'lanacion.com.ar' },
+            { name: 'twitter:url', content: 'https://example.com/' }
+        ]);
     });
 });

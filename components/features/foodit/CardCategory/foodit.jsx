@@ -3,20 +3,57 @@ import Consumer from 'fusion:consumer';
 
 import PropTypes from 'fusion:prop-types';
 import { Category } from '@ln/foodit-ui-category';
-import { validateCardCategory } from './_helper';
+import {
+    groupsParser,
+    itemGroupsParser,
+    resolveUrl,
+    validateCardCategory
+} from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { useGetImage } from './hooks/useGetImage';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 
-function CardCategory({
-    isAdmin,
-    customFields: { title = '', image = '', url = '' }
-}) {
+function CardCategory({ id: featureId, isAdmin, customFields }) {
+    const {
+        title = '',
+        image = '',
+        url = '',
+        query = '',
+        groups = [],
+        itemGroups = []
+    } = customFields;
+
     const { resized_urls: resizedUrls } = useGetImage(image) || {};
 
     const { resizedUrl: imageUrl = '' } = getShortestImage(resizedUrls);
 
-    const error = validateCardCategory({ title, image, url, imageUrl });
+    const error = validateCardCategory({
+        title,
+        image,
+        url,
+        imageUrl,
+        query,
+        groups,
+        itemGroups
+    });
+
+    const groupsParsered = groupsParser(groups);
+    const groupSelecteds = groupsParsered.join('|');
+
+    const itemGroupSelecteds = itemGroupsParser({
+        itemGroups,
+        groups: groupsParsered
+    })
+        .join('|')
+        .replaceAll(',', '^');
+
+    const urlCustom = resolveUrl({
+        query,
+        titleAcu: title,
+        groups: groupSelecteds,
+        itemGroups: itemGroupSelecteds,
+        featureId
+    });
 
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
@@ -29,7 +66,7 @@ function CardCategory({
                 alt: `Foto de ${title}`
             }}
             linkProps={{
-                href: url,
+                href: url || urlCustom,
                 title: `Ir a ${title}`
             }}
         />
@@ -37,6 +74,7 @@ function CardCategory({
 }
 
 CardCategory.propTypes = {
+    id: PropTypes.string.isRequired,
     isAdmin: PropTypes.isRequired,
     customFields: PropTypes.shape({
         title: PropTypes.string.tag({
@@ -53,6 +91,22 @@ CardCategory.propTypes = {
             label: 'URL',
             description: 'Ingrese aquí la url de la categoria',
             defaultValue: ''
+        }),
+        query: PropTypes.string.tag({
+            label: 'Termino a buscar',
+            description: 'Ingrese aquí texto de busqueda',
+            defaultValue: ''
+        }),
+        groups: PropTypes.list.tag({
+            label: 'Grupos de busqueda',
+            description: 'Ingrese aquí los grupos de busqueda',
+            defaultValue: []
+        }),
+        itemGroups: PropTypes.list.tag({
+            label: 'Valores de los grupos de busqueda',
+            description:
+                'Ingrese aquí los datos, si son multiples separe con coma',
+            defaultValue: []
         })
     }).isRequired
 };

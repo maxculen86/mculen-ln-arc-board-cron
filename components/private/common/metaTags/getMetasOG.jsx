@@ -36,7 +36,8 @@ const getMetasOG = props => {
         isArticle,
         authors,
         primarySection,
-        tags
+        tags,
+        twitterAccount
     } = data;
 
     const isReceta = subtype === RECETA;
@@ -66,7 +67,20 @@ const getMetasOG = props => {
         layoutsName
     });
     const fbMetas = buildFbMetas(fbAppId);
-    const twitterMetas = buildTwitterMetas(image);
+    const twitterMetas = buildTwitterMetas({
+        image,
+        arcSite,
+        pageBuilderTitle,
+        section,
+        siteProperties,
+        ottMetaTitle,
+        data,
+        ottMetaDescription,
+        requestUri,
+        metaValue,
+        url,
+        twitterAccount
+    });
     const articleMetas = buildArticleMetas(isArticle, {
         firstPublishDate,
         displayDate,

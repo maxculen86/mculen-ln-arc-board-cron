@@ -46,7 +46,8 @@ export const sectionsTranslate = {
     sabado: 'Sábado',
     tecnologia: 'Tecnología',
     transito: 'Tránsito y transporte',
-    'ultimas-noticias': 'Últimas noticias'
+    'ultimas-noticias': 'Últimas noticias',
+    lnmas: 'LN+'
 };
 
 export const translateSectionName = sectionName => {
@@ -83,26 +84,19 @@ export const showMarqueeImage = ({
 export const showSection = ({ withSection, article, authors, authorPhoto }) => {
     const primarySection = get(article, 'taxonomy.primary_section', {});
     const firstParentSection = getFirstParentSection(primarySection);
-    const sectionName =
+    const sectionKey =
         firstParentSection !== null ? firstParentSection.substring(1) : null;
+    const sectionName =
+        translateSectionName(sectionKey) || primarySection.name || '';
 
-    return (
-        !authors &&
-        authorPhoto &&
-        withSection &&
-        translateSectionName(sectionName)
-    );
+    return !authors && authorPhoto && withSection && sectionName;
 };
 
-export const validateSubhead = (config, withMedia, customFields, variant) => {
-    return (
-        !['author', 'liveblog'].includes(variant) &&
-        get(config, 'withSubheadAndMedia', true) &&
-        ((get(config, 'withSubhead') &&
-            !get(customFields, 'hideDescription')) ||
-            (!get(config, 'withSubhead') && !withMedia))
-    );
-};
+export const validateSubhead = (config, withMedia, customFields, variant) =>
+    !['author', 'liveblog'].includes(variant) &&
+    get(config, 'withSubheadAndMedia', true) &&
+    ((get(config, 'withSubhead') && !get(customFields, 'hideDescription')) ||
+        (!get(config, 'withSubhead') && !withMedia));
 
 export const validateMedia = (customFields, config, article) =>
     !get(customFields, 'hideImage') &&
@@ -158,12 +152,8 @@ export const getBadgetConfig = ({
           }
         : {};
 };
-export const getOnlyHoursMinutes = (time = '') => {
-    return time
-        .split(':')
-        .slice(0, 2)
-        .join(':');
-};
+export const getOnlyHoursMinutes = (time = '') =>
+    time.split(':').slice(0, 2).join(':');
 
 export const getLiveblogTitles = articleData => {
     const contentElements = get(articleData, 'content_elements', []);

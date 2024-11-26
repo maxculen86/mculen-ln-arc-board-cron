@@ -1,13 +1,21 @@
 import { SITE_FOODIT } from 'fusion:environment';
 import get from '../../../../private/common/utils/get';
 
+const generateBaseUrlTag = (
+    tagName = '',
+    primarySection = '',
+    idArticle = ''
+) => {
+    const tagPathTransformed = tagName.replace(/\s/g, '-').trim().toLowerCase();
+    return `${SITE_FOODIT}/tema/${tagPathTransformed}-${idArticle.toLowerCase()}/?query=${primarySection}&title=${primarySection}`;
+};
+
 export const setUrlTag = ({
     nameSection = '',
     primarySection = '',
-    tagList = []
+    tagList = [],
+    idArticle = ''
 } = {}) => {
-    const baseUrl = `${SITE_FOODIT}/buscador/?query=${primarySection}`;
-
     if (tagList) {
         return tagList.map(tag => {
             const tagPath = get(tag, 'path', '');
@@ -15,7 +23,9 @@ export const setUrlTag = ({
             const tagPathValidated =
                 tagPath && (tagPath.endsWith('/') ? tagPath : `${tagPath}/`);
 
-            const tagPathWithQuery = `${baseUrl}&fkey=${nameSection}&fval=${tag}`;
+            const tagPathWithQuery = !tagPath
+                ? `${generateBaseUrlTag(tag, primarySection, idArticle)}&groups=${nameSection}&itemGroups=${tag}`
+                : '';
 
             return {
                 text: tag.name || tag,
@@ -27,15 +37,15 @@ export const setUrlTag = ({
     return [];
 };
 
-export const getListsFromPowerup = (content_elements = []) => {
+export const getListsFromPowerup = (contentElements = []) => {
     const {
         'custom-nutrition': nutritionLists,
         'foodit-ingredientes': fooditIngredientsLists,
         'custom-ingrediente': customIngredientsLists
-    } = content_elements.reduce(
+    } = contentElements.reduce(
         (acc, item) => {
             const subtype = get(item, 'subtype', '');
-            if (acc.hasOwnProperty(subtype)) {
+            if (Object.prototype.hasOwnProperty.call(acc, subtype)) {
                 const embed = get(item, 'embed.config');
                 if (embed) {
                     acc[subtype].push(embed);
@@ -68,12 +78,14 @@ const getTagList = ({
     cookingTypes = [],
     occasions = [],
     taxonomy = {},
-    regions = []
+    regions = [],
+    idArticle
 } = {}) => {
     const primarySection = get(taxonomy, 'primary_section.name', '');
     const sectionsTags = setUrlTag({
         primarySection,
-        tagList: get(taxonomy, 'sections', [])
+        tagList: get(taxonomy, 'sections', []),
+        idArticle
     });
 
     const EXCLUDED_TAGS = ['¿Qué cocinar hoy?', 'Recetas', 'Dietas'];
@@ -85,19 +97,22 @@ const getTagList = ({
     const cookingTypesTags = setUrlTag({
         nameSection: 'cookingTypes',
         primarySection,
-        tagList: cookingTypes
+        tagList: cookingTypes,
+        idArticle
     });
 
     const occasionsTags = setUrlTag({
         nameSection: 'occasions',
         primarySection,
-        tagList: occasions
+        tagList: occasions,
+        idArticle
     });
 
     const regionsTags = setUrlTag({
         nameSection: 'regions',
         primarySection,
-        tagList: regions
+        tagList: regions,
+        idArticle
     });
 
     return [
