@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import logger from './utils/logger';
+import PropTypes from 'prop-types';
 
 class ErrorBoundary extends Component {
     constructor(props) {
@@ -10,9 +8,6 @@ class ErrorBoundary extends Component {
     }
 
     componentDidCatch(error, errorInfo) {
-        logger.push(error, {
-            source: 'Error Boundary - Article Feature LN 10'
-        });
         this.setState({
             error,
             errorInfo
@@ -20,15 +15,27 @@ class ErrorBoundary extends Component {
     }
 
     render() {
-        if (this.state.errorInfo) {
-            // You can render any custom fallback UI
-            // eslint-disable-next-line no-console
+        const { errorInfo } = this.state;
+        const { children, fallback } = this.props;
+
+        if (errorInfo) {
             console.error('LN ErrorBoundary', this.state);
-            return <></>;
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            return fallback || <></>;
         }
 
-        return this.props.children;
+        return children;
     }
 }
+
+ErrorBoundary.propTypes = {
+    children: PropTypes.node,
+    fallback: PropTypes.node
+};
+
+ErrorBoundary.defaultProps = {
+    children: null,
+    fallback: null
+};
 
 export default ErrorBoundary;
