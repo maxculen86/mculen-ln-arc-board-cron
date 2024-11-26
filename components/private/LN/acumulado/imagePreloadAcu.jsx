@@ -9,7 +9,7 @@ import get from '../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
 import filter from '../../../../content/filters/LN/acumulado/articlePreload';
 
-const ImagePreloadlAcu = ({
+function ImagePreloadlAcu({
     arcSite,
     accumulated,
     nodeType,
@@ -17,15 +17,18 @@ const ImagePreloadlAcu = ({
     collectionId = '',
     imageConfig = 'boxArticles',
     sectionsIds = ''
-}) => {
+}) {
     const typesOfQuery = sectionsIds
         ? { sectionsIds }
         : setArticleQueryAcu(nodeType, accumulated);
 
     const imagePreloadArticlesList = useContent({
-        source: Boolean(typesOfQuery?.sectionsIds || typesOfQuery?.sectionId)
-            ? 'lnAcuSource'
-            : 'collectionsSource',
+        source:
+            typesOfQuery?.sectionsIds ||
+            typesOfQuery?.sectionId ||
+            typesOfQuery?.tagId
+                ? 'lnAcuSource'
+                : 'collectionsSource',
         query: {
             ...typesOfQuery,
             ...(collectionId && { id: collectionId }),
@@ -55,7 +58,7 @@ const ImagePreloadlAcu = ({
             resizedUrls={resizedUrls}
         />
     );
-};
+}
 
 ImagePreloadlAcu.propTypes = {
     arcSite: PropTypes.string.isRequired,

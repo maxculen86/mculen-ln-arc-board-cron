@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ImagePreloadAcu from '../../../../../components/private/LN/acumulado/imagePreloadAcu';
-import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import { useContent } from 'fusion:content';
 
 jest.mock('fusion:properties', () => () => ({
@@ -56,8 +55,7 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
                                 }
                             ],
                             type: 'image',
-                            url:
-                                'https://www.lanacion.com.ar/resizer/5QiqWRtDCL79o3YfV575SaET760=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6AOT7FFVEFBGTAHJDGINZ3RHKI.jpg',
+                            url: 'https://www.lanacion.com.ar/resizer/5QiqWRtDCL79o3YfV575SaET760=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6AOT7FFVEFBGTAHJDGINZ3RHKI.jpg',
                             width: 768
                         }
                     }
@@ -73,10 +71,13 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
                 id: '/cultura',
                 name: 'Cultura'
             },
-            nodeType: 'section'
+            nodeType: 'section',
+            sectionsIds: '',
+            collectionId: '',
+            imageConfig: 'boxArticles'
         };
 
-        const { debug, baseElement, asFragment } = render(
+        const { baseElement, asFragment } = render(
             <ImagePreloadAcu {...mockProps} />
         );
 
