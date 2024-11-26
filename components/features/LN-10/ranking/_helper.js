@@ -3,15 +3,23 @@ import get from '../../../private/common/utils/get';
 
 export const hasArticles = data => !!get(data, 'articles', []).length;
 
-export const getDataContent = (sectionId, sectionParentId, website, layout) => {
+export const getDataContent = (
+    sectionId,
+    sectionParentId,
+    website,
+    layout,
+    fromSection
+) => {
     const getRankingData = section =>
         getContent({
             source: 'rankingArticlesSource',
             query: {
                 sectionId: section,
-                imageConfig: 'boxArticles',
+                imageConfig:
+                    fromSection === 'ctrMobile' ? 'ctr' : 'boxArticles',
                 website,
-                layout
+                layout,
+                section: fromSection
             }
         });
 
