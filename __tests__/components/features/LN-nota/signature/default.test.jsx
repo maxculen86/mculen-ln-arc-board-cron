@@ -23,10 +23,6 @@ jest.mock('fusion:context', () => {
     return jest.fn(component => component);
 });
 
-jest.mock('@ln/contenidos-ui-author', () => ({
-    Author: jest.fn(() => <div>Mariano Grondona</div>)
-}));
-
 jest.mock(
     '../../../../../components/private/common/audioNews/hooks/useAudioPlayer',
     () => ({
@@ -100,6 +96,54 @@ describe('components - feature - LN-nota - signature - default', () => {
 
         expect(screen.getByText('Mariano Grondona')).toBeInTheDocument();
         expect(screen.getByText('Escuchar Nota')).toBeInTheDocument();
+        expect(asFragment()).toMatchSnapshot();
+    });
+
+    it('should not render custom voice when there are multiple authors', () => {
+        const props = {
+            ...defaultProps,
+            globalContent: {
+                ...defaultProps.globalContent,
+                credits: {
+                    by: [
+                        {
+                            _id: 'paz-rodriguez-niell-160',
+                            additional_properties: {
+                                original: {
+                                    author_type: 'Estándar',
+                                    bio_page: '/autor/paz-rodriguez-niell-160/',
+                                    byline: 'Paz Rodríguez Niell',
+                                    image: 'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F2166339.png?auth=96e4ce5ca889925d6314c78aebcc719bd10a1c2c76150d8e86323936349c7e31&width=80&quality=70&smart=false',
+                                    role: 'LA NACION',
+                                    voice: '4081'
+                                }
+                            },
+                            name: 'Paz Rodríguez Niell',
+                            type: 'author',
+                            url: '/autor/paz-rodriguez-niell-160/'
+                        },
+                        {
+                            _id: 'maia-jastreblansky-5',
+                            additional_properties: {
+                                original: {
+                                    author_type: 'Estándar',
+                                    bio_page: '/autor/maia-jastreblansky-5/',
+                                    byline: 'Maia Jastreblansky',
+                                    image: 'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F2531113.png?auth=12f64f3706fd89b24569a9e17d1c0f32f5a6c4a1b37b4ada55c8735d858589b7&width=80&quality=70&smart=false',
+                                    role: 'LA NACION',
+                                    voice: '4088'
+                                }
+                            },
+                            name: 'Maia Jastreblansky',
+                            type: 'author',
+                            url: '/autor/maia-jastreblansky-5/'
+                        }
+                    ]
+                }
+            }
+        };
+
+        const { asFragment } = render(<SignatureFeature {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
 
