@@ -1,19 +1,19 @@
 import React from 'react';
 
 import Static from 'fusion:static';
-import PropTypes from 'prop-types';
-import Ingredients from './ingredientsBox/ingredients';
+import PropTypes from 'fusion:prop-types';
+import { Ingredients } from './ingredientsBox/ingredients';
 import { MoreInfo } from './ingredientsBox/moreInfo';
-import Nutritional from './ingredientsBox/nutritional';
-import Tags from './ingredientsBox/tags';
-import SummaryBox from './summaryBox/foodit';
+import { Nutritional } from './ingredientsBox/nutritional';
+import { Tags } from './ingredientsBox/tags';
+import { SummaryBox } from './summaryBox/foodit';
 import get from '../../../../private/common/utils/get';
 import getTagList, { getListsFromPowerup } from './_helper';
 
-export const PowerupsReceta = ({ article = {} }) => {
+export function PowerupsReceta({ article = {} }) {
     const {
-        content_elements = [],
-        promo_items = {},
+        content_elements: contentElements = [],
+        promo_items: promoItems = {},
         taxonomy = {},
         headlines = {},
         _id = ''
@@ -27,18 +27,18 @@ export const PowerupsReceta = ({ article = {} }) => {
         cookingTypes = [],
         occasions = [],
         regions = []
-    } = get(promo_items, 'receta.embed.config', {});
+    } = get(promoItems, 'receta.embed.config', {});
 
     const tags = getTagList({
         cookingTypes,
         occasions,
         taxonomy,
-        regions
+        regions,
+        idArticle: _id
     });
 
-    const { nutritionLists, ingredientsLists } = getListsFromPowerup(
-        content_elements
-    );
+    const { nutritionLists, ingredientsLists } =
+        getListsFromPowerup(contentElements);
 
     return (
         <>
@@ -66,10 +66,10 @@ export const PowerupsReceta = ({ article = {} }) => {
             </div>
         </>
     );
-};
+}
 
 PowerupsReceta.propTypes = {
-    article: PropTypes.object
+    article: PropTypes.object.isRequired
 };
 
 export default PowerupsReceta;

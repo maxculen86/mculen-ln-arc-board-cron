@@ -45,6 +45,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
 
         test('Returns tags with default URLs if no path is provided in the tags', () => {
             const input = {
+                idArticle: 'ABC-123',
                 nameSection: 'occasions',
                 primarySection: 'Recetas',
                 tagList: ['Desayunos', 'Postres']
@@ -53,11 +54,11 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(setUrlTag(input)).toEqual([
                 {
                     text: 'Desayunos',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Desayunos'
+                    url: 'https://foodit.lanacion.com.ar/tema/desayunos-abc-123/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Desayunos'
                 },
                 {
                     text: 'Postres',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Postres'
+                    url: 'https://foodit.lanacion.com.ar/tema/postres-abc-123/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Postres'
                 }
             ]);
         });
@@ -93,6 +94,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
 
         test('Return cookingTypes tags correctly', () => {
             const result = getTagList({
+                idArticle: 'ABC-123',
                 taxonomy: {
                     primary_section: { name: 'Recetas' }
                 },
@@ -102,13 +104,14 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Al horno',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=cookingTypes&itemGroups=Al horno'
+                    url: 'https://foodit.lanacion.com.ar/tema/al-horno-abc-123/?query=Recetas&title=Recetas&groups=cookingTypes&itemGroups=Al horno'
                 }
             ]);
         });
 
         test('Returns occasion tags correctly', () => {
             const result = getTagList({
+                idArticle: 'ABC-123',
                 taxonomy: {
                     primary_section: { name: 'Recetas' }
                 },
@@ -118,17 +121,18 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Día de la Amistad',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Día de la Amistad'
+                    url: 'https://foodit.lanacion.com.ar/tema/día-de-la-amistad-abc-123/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Día de la Amistad'
                 },
                 {
                     text: 'Aniversario',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Aniversario'
+                    url: 'https://foodit.lanacion.com.ar/tema/aniversario-abc-123/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Aniversario'
                 }
             ]);
         });
 
         test('Returns region labels correctly', () => {
             const input = {
+                idArticle: 'ABC-123',
                 taxonomy: {
                     primary_section: { name: 'Recetas' }
                 },
@@ -138,11 +142,11 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Italiana',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=regions&itemGroups=Italiana'
+                    url: 'https://foodit.lanacion.com.ar/tema/italiana-abc-123/?query=Recetas&title=Recetas&groups=regions&itemGroups=Italiana'
                 },
                 {
                     text: 'Estadounidense',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=regions&itemGroups=Estadounidense'
+                    url: 'https://foodit.lanacion.com.ar/tema/estadounidense-abc-123/?query=Recetas&title=Recetas&groups=regions&itemGroups=Estadounidense'
                 }
             ]);
         });
@@ -166,6 +170,7 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
 
         test('Returns a combined list of tags correctly', () => {
             const input = {
+                idArticle: 'ABC-123',
                 cookingTypes: ['Al horno'],
                 occasions: ['Día de la Amistad'],
                 regions: ['Italiana'],
@@ -178,15 +183,15 @@ describe('Tests - body - PowerupsReceta - helpers', () => {
             expect(result).toEqual([
                 {
                     text: 'Al horno',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=cookingTypes&itemGroups=Al horno'
+                    url: 'https://foodit.lanacion.com.ar/tema/al-horno-abc-123/?query=Recetas&title=Recetas&groups=cookingTypes&itemGroups=Al horno'
                 },
                 {
                     text: 'Día de la Amistad',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Día de la Amistad'
+                    url: 'https://foodit.lanacion.com.ar/tema/día-de-la-amistad-abc-123/?query=Recetas&title=Recetas&groups=occasions&itemGroups=Día de la Amistad'
                 },
                 {
                     text: 'Italiana',
-                    url: 'https://foodit.lanacion.com.ar/tema/?query=Recetas&title=Recetas&groups=regions&itemGroups=Italiana'
+                    url: 'https://foodit.lanacion.com.ar/tema/italiana-abc-123/?query=Recetas&title=Recetas&groups=regions&itemGroups=Italiana'
                 },
                 { text: 'Postres', url: '/recetas/postres/' }
             ]);
