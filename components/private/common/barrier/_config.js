@@ -14,8 +14,7 @@ const CONFIG = {
         }
     },
     'exclusive-ln': {
-        title:
-            'Para realizar esta acción adquirí una <strong> suscripción.</strong>',
+        title: 'Para realizar esta acción adquirí una <strong> suscripción.</strong>',
         buttons: {
             label: 'suscribirme',
             style: '--tertiary',
@@ -29,8 +28,7 @@ const CONFIG = {
         logged: {
             text: '¿Tenés Club LA NACION Black o Premium?',
             textLink: 'Vincular credencial',
-            href:
-                'https://checkout.lanacion.com.ar/suscripcion/C/111/?cv=670&fc=744&productCategory=Voluntario&callback='
+            href: 'https://checkout.lanacion.com.ar/suscripcion/C/111/?cv=670&fc=744&productCategory=Voluntario&callback='
         }
     }
 };

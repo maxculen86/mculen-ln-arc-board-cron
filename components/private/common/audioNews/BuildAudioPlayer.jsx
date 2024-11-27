@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
-import LoadingIcon from '../../LN/common/loadingIcon';
+import { Spinner } from '@ln/common-ui-spinner';
 import { GlobalContext } from '../context/globalContext';
 import ToggleButton from './ToggleButton';
 import DisclaimerIa from '../../../features/LN-10-global/common/disclaimerIa/default';
@@ -13,13 +13,13 @@ function BuildAudioPlayer({
     setEnableButton,
     onCloseAudioPlayer,
     noteId = '',
-    loaderClass = '',
     playbackState,
     showVariantIa
 }) {
     const { dispatch } = useContext(GlobalContext) || {};
-    const [isLoading, setIsLoading] = useState(true);
+    const [isScriptLoaded, setIsScriptLoaded] = useState(false);
     const [errorAudio, setErrorAudio] = useState(false);
+    const [contentAvailable, setContentAvailable] = useState(false);
     const { setCookie } = handleCookie();
     const { contentVariant, setContentVariant, setIsAudioPlaying } =
         useSignatureContext();
@@ -52,9 +52,8 @@ function BuildAudioPlayer({
         script.src =
             'https://proxy.beyondwords.io/npm/@beyondwords/player@latest/dist/umd.js';
         document.head.appendChild(script);
-
         script.onload = () => {
-            setIsLoading(false);
+            setIsScriptLoaded(true);
         };
 
         return () => {
@@ -63,7 +62,7 @@ function BuildAudioPlayer({
     }, []);
 
     useEffect(() => {
-        if (!isLoading && document.querySelector('.audio-player')) {
+        if (isScriptLoaded && document.querySelector('.audio-player')) {
             try {
                 if (!playerRef.current) {
                     // eslint-disable-next-line no-undef
@@ -85,13 +84,16 @@ function BuildAudioPlayer({
                         () => setErrorAudio(true)
                     );
 
-                    playerRef.current.addEventListener('PressedPause', () => {
-                        setIsAudioPlaying(false);
-                    });
+                    playerRef.current.addEventListener('ContentAvailable', () =>
+                        setContentAvailable(true)
+                    );
+                    playerRef.current.addEventListener('PlaybackPaused', () =>
+                        setIsAudioPlaying(false)
+                    );
 
-                    playerRef.current.addEventListener('PressedPlay', () => {
-                        setIsAudioPlaying(true);
-                    });
+                    playerRef.current.addEventListener('PlaybackPlaying', () =>
+                        setIsAudioPlaying(true)
+                    );
                 } else {
                     playerRef.current.contentVariant = contentVariant;
                     playerRef.current.playbackState = playbackState;
@@ -110,19 +112,23 @@ function BuildAudioPlayer({
                 setErrorAudio(true)
             );
 
-            playerRef.current?.removeEventListener('PressedPause', () => {
-                setIsAudioPlaying(false);
+            playerRef.current?.removeEventListener('ContentAvailable', () => {
+                setContentAvailable(true);
             });
 
-            playerRef.current?.removeEventListener('PressedPlay', () => {
-                setIsAudioPlaying(true);
-            });
+            playerRef.current?.removeEventListener('PlaybackPaused', () =>
+                setIsAudioPlaying(false)
+            );
+
+            playerRef.current?.removeEventListener('PlaybackPlaying', () =>
+                setIsAudioPlaying(true)
+            );
 
             if (playerRef.current) {
                 playerRef.current.playbackState = 'stopped';
             }
         };
-    }, [isLoading, noteId, contentVariant, playbackState]);
+    }, [isScriptLoaded, noteId, contentVariant, playbackState]);
 
     const handleToggleChange = newContentVariant => {
         setContentVariant(newContentVariant);
@@ -130,14 +136,26 @@ function BuildAudioPlayer({
         setIsAudioPlaying(true);
     };
 
-    return !isLoading && !errorAudio ? (
+    if (errorAudio) return null;
+
+    return (
         <section className="flex flex-column gap-16 pb-16_lg mb-12_lg border border-bottom_lg border-thin border-neutral-light-100">
             <div className="flex flex-column flex-row-reverse_lg gap-12 gap-16_lg">
                 <ToggleButton
                     handleToggle={handleToggleChange}
                     contentVariant={contentVariant}
                 />
-                <div className="audio-player w-100 as-start_l h-48" />
+                <div className="w-100 flex jc-center ai-center h-48 relative">
+                    {!contentAvailable && (
+                        <Spinner
+                            classnames={{
+                                progress: 'w-24 h-24 border-4 text-blue-400'
+                            }}
+                            style={{ position: 'absolute' }}
+                        />
+                    )}
+                    <div className="audio-player w-100" />
+                </div>
             </div>
             <div className="disclaimer-container as-start_l mt-8 mt-0_lg">
                 <DisclaimerIa
@@ -145,13 +163,10 @@ function BuildAudioPlayer({
                 />
             </div>
         </section>
-    ) : (
-        <LoadingIcon className={loaderClass} />
     );
 }
 
 BuildAudioPlayer.propTypes = {
-    loaderClass: PropTypes.string.isRequired,
     noteId: PropTypes.string.isRequired,
     playbackState: PropTypes.string.isRequired,
     setEnableButton: PropTypes.func.isRequired,

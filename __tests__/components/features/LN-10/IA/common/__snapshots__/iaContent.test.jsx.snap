@@ -38,7 +38,7 @@ exports[`IaContent Component should match snapshot 1`] = `
       </li>
     </ul>
     <aside
-      class="flex gap-4"
+      class="flex ai-center gap-4"
     >
       <i
         class="icon --icon-12"

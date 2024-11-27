@@ -38,6 +38,10 @@ export const getLocationTooltip = (tooltipRef, eventTarget) => {
     };
 };
 
-export const findObjectGlossary = (glossaryData = [], key = '') => {
-    return glossaryData.find(element => element.key === key) || {};
+export const findObjectGlossary = (glossaryData = [], key = '') =>
+    glossaryData.find(element => element.key === key) || {};
+
+export const a11yAttrsDialogGlossary = {
+    'aria-labelledby': 'glossary-dialog-label',
+    'aria-describedby': 'glossary-dialog-description'
 };

@@ -107,8 +107,7 @@
                     height: auto;
                 }
             }
-            > .com-link.--logo,
-            #audio-player-desktop {
+            > .com-link.--logo {
                 @include padding_rl;
                 @media ($media-l) {
                     width: 100%;

@@ -4,12 +4,12 @@ exports[`features - LN-10-GLOBAL - glossary - components- Dialog should match sn
 <body>
   <div />
   <dialog
-    aria-describedby="dialog-description-drawer-glossary"
-    aria-labelledby="dialog-title-drawer-glossary"
+    aria-describedby="glossary-dialog-description"
+    aria-labelledby="glossary-dialog-label"
     class="dialog disable-body-scroll w-100 rounded-4 p-16 gap-8"
-    data-overlay="true"
     data-position="bottom"
     id="drawer-glossary"
+    style="animation-name: fade-in-up; animation-fill-mode: forwards; animation-duration: 200ms;"
   >
     <div
       class="grid gap-8"
@@ -17,28 +17,6 @@ exports[`features - LN-10-GLOBAL - glossary - components- Dialog should match sn
       <header
         class="flex flex-column gap-16"
       >
-        <button
-          aria-label="Cerrar"
-          class="cursor-pointer transition-regular flex opacity-80_hover as-flex-end"
-          title="Cerrar"
-        >
-          <i
-            class="icon --icon-24"
-          >
-            <svg
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657 16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475 6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345 6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </i>
-        </button>
         <div
           class="flex gap-4"
         >
@@ -93,17 +71,29 @@ exports[`features - LN-10-GLOBAL - glossary - components- Dialog should match sn
           </i>
           <h3
             class="glossary-title --font-primary --font-bold as-flex-end"
-            id="dialog-title-drawer-glossary"
+            id="glossary-dialog-label"
           >
             Flirteadores
           </h3>
         </div>
+        <button
+          aria-label="Cerrar"
+          class="button as-flex-end"
+          title="Cerrar"
+        >
+          <i
+            class="icon"
+          >
+            <mock-icon
+              name="close"
+            />
+          </i>
+        </button>
       </header>
-      <section
-        id="dialog-description-drawer-glossary"
-      >
+      <section>
         <p
           class="text text-16"
+          id="glossary-dialog-description"
         >
           Coquetear o manifestar interés amoroso o sexual por alguien, sin intención de comprometerse.
         </p>

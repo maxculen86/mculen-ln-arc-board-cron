@@ -1,9 +1,13 @@
 import React from 'react';
 import { Text } from '@ln/common-ui-text';
 import { Dialog as DialogLib } from '@ln/common-ui-dialog';
+import { Icon } from '@ln/common-ui-icon';
+import { Button } from '@ln/common-ui-button';
 import { useDialog } from '../hooks/useDialog';
-import { Header } from './header';
+import Header from './header';
 import { Disclaimer } from './disclaimer';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import { a11yAttrsDialogGlossary } from '../helpers';
 
 import '../../../../../resources/packages/css/@ln/common-ui-dialog/index.css';
 
@@ -22,19 +26,27 @@ export function Dialog({ glossaryData = [] }) {
                 wrapper: 'grid gap-8'
             }}
             overlay
-            disabeBodyScroll
+            {...a11yAttrsDialogGlossary}
         >
-            <DialogLib.Header
-                className="flex-column gap-16"
-                closeButtonProps={{
-                    className: 'as-flex-end',
-                    title: 'Cerrar'
-                }}
-            >
+            <DialogLib.Header className="flex-column gap-16">
                 <Header keyGlossary={key} isDialog />
+                <Button
+                    onClick={onClose}
+                    className="as-flex-end"
+                    aria-label="Cerrar"
+                    title="Cerrar"
+                >
+                    <Icon>
+                        <IconSprite name="close" />
+                    </Icon>
+                </Button>
             </DialogLib.Header>
             <DialogLib.Body>
-                <Text as="p" className="text-16">
+                <Text
+                    as="p"
+                    className="text-16"
+                    id={a11yAttrsDialogGlossary['aria-describedby']}
+                >
                     {value}
                 </Text>
             </DialogLib.Body>
