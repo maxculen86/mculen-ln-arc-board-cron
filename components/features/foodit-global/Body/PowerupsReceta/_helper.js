@@ -1,18 +1,13 @@
 import { SITE_FOODIT } from 'fusion:environment';
 import get from '../../../../private/common/utils/get';
 
-const generateBaseUrlTag = (
-    tagName = '',
-    primarySection = '',
-    idArticle = ''
-) => {
+const generateBaseUrlTag = (tagName = '', idArticle = '') => {
     const tagPathTransformed = tagName.replace(/\s/g, '-').trim().toLowerCase();
-    return `${SITE_FOODIT}/tema/${tagPathTransformed}-${idArticle.toLowerCase()}/?query=${primarySection}&title=${primarySection}`;
+    return `${SITE_FOODIT}/tema/${tagPathTransformed}-${idArticle.toLowerCase()}/?query=recetas&title=${tagName}`;
 };
 
 export const setUrlTag = ({
     nameSection = '',
-    primarySection = '',
     tagList = [],
     idArticle = ''
 } = {}) => {
@@ -24,7 +19,7 @@ export const setUrlTag = ({
                 tagPath && (tagPath.endsWith('/') ? tagPath : `${tagPath}/`);
 
             const tagPathWithQuery = !tagPath
-                ? `${generateBaseUrlTag(tag, primarySection, idArticle)}&groups=${nameSection}&itemGroups=${tag}`
+                ? `${generateBaseUrlTag(tag, idArticle)}&groups=${nameSection}&itemGroups=${tag}`
                 : '';
 
             return {
@@ -81,9 +76,7 @@ const getTagList = ({
     regions = [],
     idArticle
 } = {}) => {
-    const primarySection = get(taxonomy, 'primary_section.name', '');
     const sectionsTags = setUrlTag({
-        primarySection,
         tagList: get(taxonomy, 'sections', []),
         idArticle
     });
@@ -95,22 +88,19 @@ const getTagList = ({
     );
 
     const cookingTypesTags = setUrlTag({
-        nameSection: 'cookingTypes',
-        primarySection,
+        nameSection: 'cookingtypes',
         tagList: cookingTypes,
         idArticle
     });
 
     const occasionsTags = setUrlTag({
         nameSection: 'occasions',
-        primarySection,
         tagList: occasions,
         idArticle
     });
 
     const regionsTags = setUrlTag({
         nameSection: 'regions',
-        primarySection,
         tagList: regions,
         idArticle
     });

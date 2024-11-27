@@ -34,5 +34,11 @@
         "dynamic_category": "home_ln10",
         "dynamic_label": "bonvivir",
         "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "header_marcas",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "ln_104.9_+_musica",
+        "event": "e_linkclick"
     }
 ]
