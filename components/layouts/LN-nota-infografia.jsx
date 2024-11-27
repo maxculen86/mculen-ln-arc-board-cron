@@ -9,9 +9,10 @@ import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import PwaModal from '../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import useInitControlGroup from './helpers/initCtrlGrp';
 
-const lnNotaInfografia = ({
+function lnNotaInfografia({
     children,
     outputType,
     globalContent: {
@@ -19,7 +20,7 @@ const lnNotaInfografia = ({
         distributor: { name }
     },
     layout
-}) => {
+}) {
     const bannerMegatop = children[0];
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
@@ -32,6 +33,8 @@ const lnNotaInfografia = ({
         magazine
     );
 
+    useInitControlGroup();
+
     return (
         <GlobalProvider>
             {bannerMegatop}
@@ -43,7 +46,7 @@ const lnNotaInfografia = ({
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
-};
+}
 
 const pageBuilderSections = [
     'Banner-Megatop',
