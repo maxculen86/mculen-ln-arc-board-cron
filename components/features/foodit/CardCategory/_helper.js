@@ -68,8 +68,18 @@ export const itemGroupsParser = ({ groups = [], itemGroups = [] } = {}) => {
         return itemGroup;
     });
 };
-export const resolveUrl = ({ query, titleAcu, groups, itemGroups } = {}) => {
-    const baseUrl = `/tema/?query=${encodeURIComponent(query)}`;
+export const resolveUrl = ({
+    query,
+    titleAcu = '',
+    groups,
+    itemGroups,
+    featureId = ''
+} = {}) => {
+    const transformTitleToPath = titleAcu
+        .replace(/\s/g, '-')
+        .trim()
+        .toLowerCase();
+    const baseUrl = `/tema/${transformTitleToPath}-${featureId.toLowerCase()}/?query=${encodeURIComponent(query)}`;
 
     const queryParams = [];
 

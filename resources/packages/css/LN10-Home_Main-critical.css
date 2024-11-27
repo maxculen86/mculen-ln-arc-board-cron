@@ -2700,7 +2700,7 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
-  padding: 0.625rem 1.25rem;
+  padding: 0.75rem 1rem;
 }
 .wrapper-dropdown .ln-dropdown > nav ul li .button {
   display: none;
@@ -7471,6 +7471,31 @@ body:has(.disable-body-scroll) {
   width: 4.1875rem;
   height: 4.1875rem;
   content: "";
+}
+
+.contenidos-scrollbar {
+  /* Cambiamos el fondo cuando esté en active */
+  /* Ponemos un color de fondo y redondeamos las esquinas del track */
+  /* Cambiamos el fondo cuando esté en active o hover */
+}
+.contenidos-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  /* Tamaño del scroll en vertical */
+  height: 8px;
+}
+.contenidos-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--blue-400);
+  border-radius: 8px;
+}
+.contenidos-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: var(--blue-400);
+}
+.contenidos-scrollbar::-webkit-scrollbar-track {
+  background: #f7f7f4;
+  border-radius: 8px;
+}
+.contenidos-scrollbar::-webkit-scrollbar-track:hover, .contenidos-scrollbar::-webkit-scrollbar-track:active {
+  background: #e4e4e4;
 }header .text.ln-text {
   color: #000000;
 }.ln-timeline > div .--bbt {

@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import IaTools from '../../../../../../components/features/LN-10/IA/common/iaTools';
 import useIaVisibility from '../../../../../../components/features/LN-10/IA/hooks/useIaVisibility';
+import { useAppContext } from 'fusion:context';
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -12,6 +13,10 @@ jest.mock(
         default: jest.fn()
     })
 );
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
 
 window.IntersectionObserver = jest.fn(() => ({
     observe,
@@ -27,6 +32,8 @@ describe('IaTools component', () => {
         isOpen: true,
         handleClose
     });
+    useAppContext.mockReturnValue({ layout: 'LN-nota-noticia' });
+
     const iaDataMock = [
         {
             id: 'summary',
@@ -110,6 +117,15 @@ describe('IaTools component', () => {
         iaDataMockSummary[0].data.forEach(item => {
             expect(screen.getByText(item)).toBeInTheDocument();
         });
+    });
+    it('should render wrapper container with classname .container-center-100 when layout is "LN-nota-foto-al-100"', () => {
+        useAppContext.mockReturnValueOnce({ layout: 'LN-nota-foto-al-100' });
+        const iaDataMockSummary = [iaDataMock[0]];
+        const { container } = render(<IaTools iaData={iaDataMockSummary} />);
+        const containerCenter100 = container.querySelector(
+            '.container-center-100'
+        );
+        expect(containerCenter100).toBeTruthy();
     });
     it('should match snapshot', () => {
         const { container } = render(<IaTools iaData={iaDataMock} />);

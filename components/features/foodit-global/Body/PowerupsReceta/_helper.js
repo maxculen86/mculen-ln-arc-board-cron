@@ -1,13 +1,16 @@
 import { SITE_FOODIT } from 'fusion:environment';
 import get from '../../../../private/common/utils/get';
 
+const generateBaseUrlTag = (tagName = '', idArticle = '') => {
+    const tagPathTransformed = tagName.replace(/\s/g, '-').trim().toLowerCase();
+    return `${SITE_FOODIT}/tema/${tagPathTransformed}-${idArticle.toLowerCase()}/?query=recetas&title=${tagName}`;
+};
+
 export const setUrlTag = ({
     nameSection = '',
-    primarySection = '',
-    tagList = []
+    tagList = [],
+    idArticle = ''
 } = {}) => {
-    const baseUrl = `${SITE_FOODIT}/tema/?query=${primarySection}&title=${primarySection}`;
-
     if (tagList) {
         return tagList.map(tag => {
             const tagPath = get(tag, 'path', '');
@@ -15,7 +18,9 @@ export const setUrlTag = ({
             const tagPathValidated =
                 tagPath && (tagPath.endsWith('/') ? tagPath : `${tagPath}/`);
 
-            const tagPathWithQuery = `${baseUrl}&groups=${nameSection}&itemGroups=${tag}`;
+            const tagPathWithQuery = !tagPath
+                ? `${generateBaseUrlTag(tag, idArticle)}&groups=${nameSection}&itemGroups=${tag}`
+                : '';
 
             return {
                 text: tag.name || tag,
@@ -68,12 +73,12 @@ const getTagList = ({
     cookingTypes = [],
     occasions = [],
     taxonomy = {},
-    regions = []
+    regions = [],
+    idArticle
 } = {}) => {
-    const primarySection = get(taxonomy, 'primary_section.name', '');
     const sectionsTags = setUrlTag({
-        primarySection,
-        tagList: get(taxonomy, 'sections', [])
+        tagList: get(taxonomy, 'sections', []),
+        idArticle
     });
 
     const EXCLUDED_TAGS = ['¿Qué cocinar hoy?', 'Recetas', 'Dietas'];
@@ -83,21 +88,21 @@ const getTagList = ({
     );
 
     const cookingTypesTags = setUrlTag({
-        nameSection: 'cookingTypes',
-        primarySection,
-        tagList: cookingTypes
+        nameSection: 'cookingtypes',
+        tagList: cookingTypes,
+        idArticle
     });
 
     const occasionsTags = setUrlTag({
         nameSection: 'occasions',
-        primarySection,
-        tagList: occasions
+        tagList: occasions,
+        idArticle
     });
 
     const regionsTags = setUrlTag({
         nameSection: 'regions',
-        primarySection,
-        tagList: regions
+        tagList: regions,
+        idArticle
     });
 
     return [

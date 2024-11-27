@@ -3,13 +3,15 @@
         "title": "CLUB LN",
         "link": "https://club.lanacion.com.ar/",
         "dataEvent": "e_linkclick",
-        "icon": "clubLnDefault"
+        "icon": "clubLnDefault",
+        "iconWidth": 23
     },
     {
         "title": "EN VIVO",
         "link": "https://lnmas.lanacion.com.ar/",
         "dataEvent": "e_linkclick",
-        "icon": "lnMas"
+        "icon": "lnMas",
+        "iconWidth": 23
     },
     {
         "title": "FOODIT",
@@ -31,5 +33,12 @@
         "dataEvent": "e_linkclick",
         "icon": "bonvivir",
         "iconWidth": 11
+    },
+    {
+        "title": "LN 104.9 + Música",
+        "link": "https://www.lanacionmusica.com.ar/",
+        "dataEvent": "e_linkclick",
+        "icon": "lnRadio",
+        "iconWidth": 23
     }
 ]

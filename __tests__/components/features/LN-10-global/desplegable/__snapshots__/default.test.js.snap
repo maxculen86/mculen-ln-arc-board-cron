@@ -1226,7 +1226,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
             </li>
           </ul>
           <ul
-            class="list --fourxs --tertiary --font-bold flex flex-column gap-4 pt-8"
+            class="list --fourxs --tertiary --font-bold flex flex-column gap-4 pt-8 contenidos-scrollbar"
           >
             <li
               class="item --more flex --inactive"
@@ -1316,11 +1316,6 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   </div>
                   Foodit
                 </div>
-                <span
-                  class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-black text-light-0 uppercase py-6 px-8 --negative"
-                >
-                  NUEVO
-                </span>
               </a>
             </li>
             <li
@@ -1351,6 +1346,41 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   </div>
                   Bonvivir
                 </div>
+              </a>
+            </li>
+            <li
+              class="item --more flex --inactive"
+            >
+              <a
+                class="link ln-link dd-link jc-between --font-s"
+                href="https://www.lanacionmusica.com.ar/"
+                rel="nofollow"
+                target="_blank"
+                title="Ir a LN 104.9 + Música"
+              >
+                <div
+                  class="menu-item-title flex gap-8 ai-center"
+                >
+                  <div
+                    class="flex border rounded-circle bg-neutral-light-50 p-8 w-32 h-32 ai-center jc-center"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="lnRadio"
+                      />
+                    </i>
+                  </div>
+                  LN 104.9 + Música
+                </div>
+                <span
+                  class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-black text-light-0 uppercase py-6 px-8 --negative"
+                >
+                  NUEVO
+                </span>
               </a>
             </li>
             <li

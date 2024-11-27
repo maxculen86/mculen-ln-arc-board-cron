@@ -40,7 +40,7 @@ function Brands({ brandsData }) {
                                         target="_blank"
                                         unstyled
                                     >
-                                        <Icon height={20}>
+                                        <Icon height={24}>
                                             <IconSprite
                                                 name={icon}
                                                 critical
