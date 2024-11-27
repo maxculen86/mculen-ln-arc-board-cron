@@ -40,8 +40,9 @@ const useGridArticles = props => {
             ? payload.items[0].slug
             : undefined;
 
-    const authorId = nodeType === 'author' ? _id : null;
-    const sectionId = nodeType === 'section' ? _id : null;
+    const authorId =
+        nodeType === 'author' ? encodeURIComponent(_id) : undefined;
+    const sectionId = nodeType === 'section' ? _id : undefined;
 
     const cajaManualArticles =
         tagId === SUSCRIPTOR_SECTION

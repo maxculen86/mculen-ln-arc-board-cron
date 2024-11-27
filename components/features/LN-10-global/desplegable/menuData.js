@@ -371,7 +371,6 @@ export const menuData = [
             href: 'https://foodit.lanacion.com.ar/',
             title: 'Foodit',
             icon: <IconSprite name="foodit" critical fill="#333333" />,
-            isNew: true,
             target: '_blank'
         },
         {
@@ -379,6 +378,14 @@ export const menuData = [
             href: 'https://bonvivir.com/',
             title: 'Bonvivir',
             icon: <IconSprite name="bonvivir" critical fill="#333333" />,
+            target: '_blank'
+        },
+        {
+            name: 'LN 104.9 + Música',
+            href: 'https://www.lanacionmusica.com.ar/',
+            title: 'LN 104.9 + Música',
+            icon: <IconSprite name="lnRadio" critical fill="#333333" />,
+            isNew: true,
             target: '_blank'
         },
         {

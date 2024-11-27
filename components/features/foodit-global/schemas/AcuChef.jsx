@@ -7,7 +7,7 @@ import { fooditSchemaLogo } from './_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const AcuChefSchema = ({}) => {
+export function AcuChefSchema() {
     const { contextPath, deployment } = useAppContext();
 
     const acuSchema = {
@@ -40,4 +40,4 @@ export const AcuChefSchema = ({}) => {
             />
         </>
     );
-};
+}

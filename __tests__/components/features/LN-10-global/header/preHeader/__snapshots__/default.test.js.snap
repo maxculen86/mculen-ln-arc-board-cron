@@ -34,12 +34,13 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   >
                     <i
                       class="icon"
-                      style="height: 20px;"
+                      style="height: 24px;"
                     >
                       <mock-icon
                         critical="true"
                         fill="#333333"
                         name="clubLnDefault"
+                        width="23"
                       />
                     </i>
                     CLUB LN
@@ -58,12 +59,13 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   >
                     <i
                       class="icon"
-                      style="height: 20px;"
+                      style="height: 24px;"
                     >
                       <mock-icon
                         critical="true"
                         fill="#333333"
                         name="lnMas"
+                        width="23"
                       />
                     </i>
                     EN VIVO
@@ -82,7 +84,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   >
                     <i
                       class="icon"
-                      style="height: 20px;"
+                      style="height: 24px;"
                     >
                       <mock-icon
                         critical="true"
@@ -107,7 +109,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   >
                     <i
                       class="icon"
-                      style="height: 20px;"
+                      style="height: 24px;"
                     >
                       <mock-icon
                         critical="true"
@@ -132,7 +134,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   >
                     <i
                       class="icon"
-                      style="height: 20px;"
+                      style="height: 24px;"
                     >
                       <mock-icon
                         critical="true"
@@ -142,6 +144,31 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                       />
                     </i>
                     BONVIVIR
+                  </a>
+                </li>
+                <li
+                  class="w-max flex ai-center text-neutral-light-800"
+                >
+                  <a
+                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    data-event="e_linkclick"
+                    href="https://www.lanacionmusica.com.ar/"
+                    rel="nofollow"
+                    target="_blank"
+                    title="LN 104.9 + Música"
+                  >
+                    <i
+                      class="icon"
+                      style="height: 24px;"
+                    >
+                      <mock-icon
+                        critical="true"
+                        fill="#333333"
+                        name="lnRadio"
+                        width="23"
+                      />
+                    </i>
+                    LN 104.9 + Música
                   </a>
                 </li>
               </ul>
@@ -221,12 +248,13 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               >
                 <i
                   class="icon"
-                  style="height: 20px;"
+                  style="height: 24px;"
                 >
                   <mock-icon
                     critical="true"
                     fill="#333333"
                     name="clubLnDefault"
+                    width="23"
                   />
                 </i>
                 CLUB LN
@@ -245,12 +273,13 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               >
                 <i
                   class="icon"
-                  style="height: 20px;"
+                  style="height: 24px;"
                 >
                   <mock-icon
                     critical="true"
                     fill="#333333"
                     name="lnMas"
+                    width="23"
                   />
                 </i>
                 EN VIVO
@@ -269,7 +298,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               >
                 <i
                   class="icon"
-                  style="height: 20px;"
+                  style="height: 24px;"
                 >
                   <mock-icon
                     critical="true"
@@ -294,7 +323,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               >
                 <i
                   class="icon"
-                  style="height: 20px;"
+                  style="height: 24px;"
                 >
                   <mock-icon
                     critical="true"
@@ -319,7 +348,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               >
                 <i
                   class="icon"
-                  style="height: 20px;"
+                  style="height: 24px;"
                 >
                   <mock-icon
                     critical="true"
@@ -329,6 +358,31 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                   />
                 </i>
                 BONVIVIR
+              </a>
+            </li>
+            <li
+              class="w-max flex ai-center text-neutral-light-800"
+            >
+              <a
+                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                data-event="e_linkclick"
+                href="https://www.lanacionmusica.com.ar/"
+                rel="nofollow"
+                target="_blank"
+                title="LN 104.9 + Música"
+              >
+                <i
+                  class="icon"
+                  style="height: 24px;"
+                >
+                  <mock-icon
+                    critical="true"
+                    fill="#333333"
+                    name="lnRadio"
+                    width="23"
+                  />
+                </i>
+                LN 104.9 + Música
               </a>
             </li>
           </ul>

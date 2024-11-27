@@ -43,6 +43,7 @@ describe('Components - features - foodit - CardCategory', () => {
         useContent.mockReturnValue(fooditCategoryImageSource);
         const props = {
             isAdmin: false,
+            id: 'ABC-000',
             customFields: {
                 title: 'Titulo',
                 image: 'E74GZJYWCBEBRBQY4JKVS2UYZA',
@@ -56,7 +57,7 @@ describe('Components - features - foodit - CardCategory', () => {
         expect(screen.getByAltText('Foto de Titulo')).toBeInTheDocument();
         expect(screen.getByRole('link')).toHaveAttribute(
             'href',
-            '/tema/?query=carne&title=Titulo'
+            '/tema/titulo-abc-000/?query=carne&title=Titulo'
         );
     });
 
