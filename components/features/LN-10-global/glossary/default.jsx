@@ -5,7 +5,7 @@ import Tooltip from './components/tooltip';
 import Dialog from './components/dialog';
 import HandleGlossaryScript from '../../../private/common/scriptManager/handleGlossary';
 
-const Glossary = () => {
+function Glossary() {
     const { globalContent } = useAppContext();
 
     const glossaryData = get(
@@ -25,6 +25,6 @@ const Glossary = () => {
             <HandleGlossaryScript />
         </>
     );
-};
+}
 
 export default Glossary;

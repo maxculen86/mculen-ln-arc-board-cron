@@ -4,10 +4,10 @@ import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import { Spinner } from '@ln/common-ui-spinner';
 import { GlobalContext } from '../context/globalContext';
 import ToggleButton from './ToggleButton';
-import DisclaimerIa from '../../../features/LN-10-global/common/disclaimerIa/default';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import { getTextDisclaimer } from './helpers';
 import { useSignatureContext } from './hooks/SignatureContext';
+import DisclaimerIA from '../../../features/LN-10-global/common/disclaimerIa/default';
 
 function BuildAudioPlayer({
     setEnableButton,
@@ -158,7 +158,7 @@ function BuildAudioPlayer({
                 </div>
             </div>
             <div className="disclaimer-container as-start_l mt-8 mt-0_lg">
-                <DisclaimerIa
+                <DisclaimerIA
                     text={getTextDisclaimer({ contentVariant, showVariantIa })}
                 />
             </div>

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import { useTooltip } from '../hooks/useTooltip';
 import Header from './header';
-import { Disclaimer } from './disclaimer';
+import DisclaimerIA from '../../common/disclaimerIa/default';
 
-export function Tooltip({ glossaryData = [] }) {
+function Tooltip({ glossaryData = [] }) {
     const { tooltipRef, show, key, value, tooltipLocation } =
         useTooltip(glossaryData);
     const classnames = cx(
@@ -30,7 +30,7 @@ export function Tooltip({ glossaryData = [] }) {
             <Text as="p" className="text-16">
                 {value}
             </Text>
-            <Disclaimer />
+            <DisclaimerIA text="Realizado con IA" />
         </div>
     );
 }

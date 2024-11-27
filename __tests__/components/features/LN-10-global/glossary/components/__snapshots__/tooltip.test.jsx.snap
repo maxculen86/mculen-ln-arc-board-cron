@@ -71,7 +71,7 @@ exports[`features - LN-10-GLOBAL - glossary - components- Tooltip should match s
       Coquetear o manifestar interés amoroso o sexual por alguien, sin intención de comprometerse.
     </p>
     <aside
-      class="flex gap-4"
+      class="flex ai-center gap-4"
     >
       <i
         class="icon --icon-12"
@@ -98,7 +98,7 @@ exports[`features - LN-10-GLOBAL - glossary - components- Tooltip should match s
       <p
         class="text text-neutral-light-800 text-12_130"
       >
-        Realizado con inteligencia artificial
+        Realizado con IA
       </p>
     </aside>
   </div>

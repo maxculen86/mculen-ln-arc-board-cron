@@ -25,22 +25,6 @@
         line-height: 1;
         border-left: solid 1px $light-neutral-600;
     }
-    &.--autor {
-        .mod-autor & {
-            line-height: px(24);
-            font-size: px(16);
-            font-weight: bold;
-            color: $neutral-black;
-        }
-    }
-    &.--medio {
-        .mod-autor & {
-            text-transform: uppercase;
-            font-weight: normal;
-            font-size: px(14);
-            color: #919191;
-        }
-    }
     &.--paginator {
         background: $neutral-black;
         font-family: $font-arial;

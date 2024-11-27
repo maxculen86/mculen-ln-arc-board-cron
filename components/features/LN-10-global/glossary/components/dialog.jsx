@@ -5,14 +5,13 @@ import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/common-ui-button';
 import { useDialog } from '../hooks/useDialog';
 import Header from './header';
-import { Disclaimer } from './disclaimer';
+import DisclaimerIA from '../../common/disclaimerIa/default';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { a11yAttrsDialogGlossary } from '../helpers';
-
 import '../../../../../resources/packages/css/@ln/common-ui-dialog/index.css';
 
 // eslint-disable-next-line react/prop-types
-export function Dialog({ glossaryData = [] }) {
+function Dialog({ glossaryData = [] }) {
     const { key, value, isOpen, onClose } = useDialog(glossaryData);
 
     return (
@@ -51,7 +50,7 @@ export function Dialog({ glossaryData = [] }) {
                 </Text>
             </DialogLib.Body>
             <DialogLib.Footer>
-                <Disclaimer />
+                <DisclaimerIA text="Realizado con IA" />
             </DialogLib.Footer>
         </DialogLib>
     );
