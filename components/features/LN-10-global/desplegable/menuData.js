@@ -382,7 +382,7 @@ export const menuData = [
         },
         {
             name: 'LN 104.9 + Música',
-            href: 'https://www.lanacionmusica.com.ar/',
+            href: 'https://masmusica.lanacion.com.ar/',
             title: 'LN 104.9 + Música',
             icon: <IconSprite name="lnRadio" critical fill="#333333" />,
             isNew: true,
