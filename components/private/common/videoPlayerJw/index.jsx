@@ -1,7 +1,8 @@
 import React from 'react';
-import { Facade } from './utils/facade';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
+import { Text } from '@ln/common-ui-text';
+import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import { configClassName } from './utils/helperJw';
@@ -19,7 +20,12 @@ const videoPlayerJW = ({
         embed: {
             config: {
                 idPlayer,
-                videoJw: { title = '', description = '', playlist = [] } = {}
+                videoJw: {
+                    title = '',
+                    description = '',
+                    playlist = [],
+                    epigraphTitle = ''
+                } = {}
             } = {}
         } = {}
     } = data;
@@ -30,13 +36,8 @@ const videoPlayerJW = ({
     const { arcSite, deployment, contextPath, globalContent } = useAppContext();
     const subtype = get(globalContent, 'subtype', '');
 
-    const {
-        container,
-        mediaContainer,
-        videoContainer,
-        videoPlayer,
-        facade
-    } = get(configClassName, arcSite, {});
+    const { container, mediaContainer, videoContainer, videoPlayer, facade } =
+        get(configClassName, arcSite, {});
 
     const minStream = video && getSourcesJw(get(video, 'sources', []));
 
@@ -71,6 +72,7 @@ const videoPlayerJW = ({
                             />
                         </div>
                     </div>
+                    {epigraphTitle && <Text>{epigraphTitle}</Text>}
                     {!isOtt && (
                         <VideoPlayerSnippet
                             paragraph={parrafo || description}
