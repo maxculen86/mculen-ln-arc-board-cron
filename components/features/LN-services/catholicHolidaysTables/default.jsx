@@ -5,7 +5,7 @@ import get from '../../../private/common/utils/get';
 import Table from '../../../private/LN/nota/cuerpo/table';
 import ModheaderSection from '../../../private/common/mod-headerSection';
 
-const CatholicHolidaysTables = ({ id: _featureId }) => {
+function CatholicHolidaysTables() {
     const tables = get(useAppContext(), 'globalContent.dataService.tables', {});
     const unmovableHolidays = get(tables, 'Inamovible', {});
     const transferableHolidays = get(tables, 'Trasladable', {});
@@ -29,7 +29,7 @@ const CatholicHolidaysTables = ({ id: _featureId }) => {
                     <ModheaderSection
                         tag="h2"
                         font="sueca"
-                        title="Feriados transferibles"
+                        title="Feriados trasladables"
                         line
                     />
                     <Table
@@ -43,7 +43,7 @@ const CatholicHolidaysTables = ({ id: _featureId }) => {
                     <ModheaderSection
                         tag="h2"
                         font="sueca"
-                        title="Feriados puentes"
+                        title="Días no laborables"
                         line
                     />
                     <Table data={bridgeHolidays} extraClass="--holidays" />
@@ -51,7 +51,7 @@ const CatholicHolidaysTables = ({ id: _featureId }) => {
             )}
         </>
     );
-};
+}
 
 CatholicHolidaysTables.label = 'LN Tablas Feriados Católicos';
 CatholicHolidaysTables.propTypes = {

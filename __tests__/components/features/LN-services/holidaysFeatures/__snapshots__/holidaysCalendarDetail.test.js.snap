@@ -17,7 +17,7 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
         <p
           class="com-text --fourxs"
         >
-          Feriados puente
+          Días no laborables
         </p>
         <p
           class="com-text --fourxs"

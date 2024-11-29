@@ -16,7 +16,7 @@ exports[`components - private - holidays - HolidaysNav Should match snapshot Hol
       <p
         class="com-text --fourxs"
       >
-        Feriados puente
+        Días no laborables
       </p>
       <p
         class="com-text --fourxs"
