@@ -7,13 +7,14 @@ import formatDistributorName from '../../../private/LN/common/utils/formatDistri
 
 function SignatureWithDistributor({
     name,
+    mode,
     audioButton,
     showSignatureWithDistributor
 }) {
     if (!showSignatureWithDistributor) return null;
 
     const signatureDistributorHtml = nombre =>
-        nombre === 'LA NACION' ? (
+        nombre === 'LA NACION' || mode === 'custom' ? (
             <Text className="font-bold --xs">{nombre}</Text>
         ) : (
             <Link
@@ -34,6 +35,7 @@ function SignatureWithDistributor({
 
 SignatureWithDistributor.propTypes = {
     name: PropTypes.string.isRequired,
+    mode: PropTypes.string.isRequired,
     audioButton: PropTypes.node.isRequired,
     showSignatureWithDistributor: PropTypes.bool.isRequired
 };

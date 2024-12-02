@@ -28,7 +28,7 @@ function SignatureFeature(props) {
         }
     } = props;
 
-    const { name } = distributor;
+    const { name, mode } = distributor;
     const showSignatureWithDistributor =
         withFirmaDistributor && name !== 'lanacionar';
 
@@ -83,6 +83,7 @@ function SignatureFeature(props) {
             <div className={classNameContainer}>
                 <SignatureWithDistributor
                     name={name}
+                    mode={mode}
                     audioButton={audioButton}
                     showSignatureWithDistributor={showSignatureWithDistributor}
                 />
@@ -142,7 +143,8 @@ SignatureFeature.propTypes = {
             )
         }),
         distributor: PropTypes.shape({
-            name: PropTypes.string
+            name: PropTypes.string,
+            mode: PropTypes.string
         }),
         withFirmaDistributor: PropTypes.bool,
         subtype: PropTypes.string
