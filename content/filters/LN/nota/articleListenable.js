@@ -421,6 +421,7 @@ export default `
         name
         category
         reference_id
+        mode
     }
     promo_items {
         basic {
