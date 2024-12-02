@@ -100,7 +100,7 @@ exports[`features - LN-10-GLOBAL - glossary - components- Dialog should match sn
       </section>
       <footer>
         <aside
-          class="flex gap-4"
+          class="flex ai-center gap-4"
         >
           <i
             class="icon --icon-12"
@@ -127,7 +127,7 @@ exports[`features - LN-10-GLOBAL - glossary - components- Dialog should match sn
           <p
             class="text text-neutral-light-800 text-12_130"
           >
-            Realizado con inteligencia artificial
+            Realizado con IA
           </p>
         </aside>
       </footer>
