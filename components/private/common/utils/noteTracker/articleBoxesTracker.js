@@ -1,51 +1,6 @@
 import { checkUserRealoadAction } from './ctrTracker';
 import { eventListenerAttacher } from '../linksTracker';
-
-export const articleBoxesTracker = ({
-    boxType,
-    diagramation,
-    sectionTitle,
-    articles = []
-}) => {
-    const { dataLayer } = window;
-    const refresh = checkUserRealoadAction(window);
-
-    const articlesToTrack =
-        boxArticleEventBuilder[boxType]({
-            grid: diagramation,
-            sectionTitle,
-            articles
-        }) || [];
-
-    if (!refresh) {
-        const callback = entries => {
-            entries.forEach(article => {
-                if (article.isIntersecting) {
-                    const { target } = article;
-
-                    const {
-                        ctr_brand: ctrBrand,
-                        ctr_position: ctrPosition
-                    } = target;
-
-                    dataLayer.push({
-                        event: 'impressionNota',
-                        ctr_brand: ctrBrand,
-                        ctr_position: ctrPosition
-                    });
-                    observer.unobserve(target);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(callback);
-
-        articlesToTrack.forEach(art => {
-            eventListenerAttacher(art, dataLayer);
-            observer.observe(art);
-        });
-    }
-};
+import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
 
 const addPositionInBox = (elem, brand, elemPosition, indexElem) => {
     const index = indexElem + 1;
@@ -106,14 +61,54 @@ const boxArticleEventBuilder = {
 
         return rankingArticles;
     },
-    tePuedeInteresar: ({ articles }) => {
-        return articles.map((article, index) => {
-            return addPositionInBox(
-                article,
-                'puedeInteresar_diag15',
-                '1011',
-                index
-            );
+    tePuedeInteresar: ({ articles }) =>
+        articles.map((article, index) =>
+            addPositionInBox(article, 'puedeInteresar_diag15', '1011', index)
+        )
+};
+
+export const articleBoxesTracker = ({
+    boxType,
+    diagramation,
+    sectionTitle,
+    articles = []
+}) => {
+    const { dataLayer } = window;
+
+    const refresh = checkUserRealoadAction(window);
+
+    const articlesToTrack =
+        boxArticleEventBuilder[boxType]({
+            grid: diagramation,
+            sectionTitle,
+            articles
+        }) || [];
+
+    if (!refresh) {
+        const callback = entries => {
+            entries.forEach(article => {
+                if (article.isIntersecting) {
+                    const { target } = article;
+
+                    const { ctr_brand: ctrBrand, ctr_position: ctrPosition } =
+                        target;
+
+                    addEventToDataLayerV2({
+                        event: 'impressionNota',
+                        ctr_brand: ctrBrand,
+                        ctr_position: ctrPosition
+                    });
+
+                    observer.unobserve(target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(callback);
+
+        articlesToTrack.forEach(art => {
+            eventListenerAttacher(art, dataLayer);
+            observer.observe(art);
         });
     }
 };
