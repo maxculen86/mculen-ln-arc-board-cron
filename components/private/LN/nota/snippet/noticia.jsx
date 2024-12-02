@@ -74,7 +74,11 @@ export const getTrustProject = trust => data => sponsored => {
         case Trust.TRUST_NOTICIA:
             return {
                 ...data,
-                '@type': 'ReportageNewsArticle',
+                '@type': ['Tecnología', 'Sociedad', 'Espectáculos'].includes(
+                    data.articleSection
+                )
+                    ? 'NewsArticle'
+                    : 'ReportageNewsArticle',
                 publishingPrinciples
             };
         case Trust.TRUST_ANALISIS:

@@ -28,7 +28,48 @@ describe('Tests getTrustProject() function', () => {
         expect(getTrustProject(_trust)(_data)(_sponsored)).toStrictEqual(_data);
     });
 
-    test.each(trust)('Checks the return for each %p case', trust => {
+    it.each(trust)('Checks the return for each %p case', trust => {
         expect(getTrustProject(trust)(data)(sponsored)).toStrictEqual(data);
+    });
+
+    const dataNote = [
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'Espectáculos'
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'Tecnología'
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'Sociedad'
+        }
+    ];
+
+    it.each(dataNote)(
+        'Type for trust noticia and section equals to Sociedad, Tecnología or Espectaculos must be NewsArticle',
+        data => {
+            expect(getTrustProject('Noticia')(data)(false)['@type']).toBe(
+                'NewsArticle'
+            );
+        }
+    );
+
+    it('If another section different from Sociedad, Tecnología or Espectaculos and trust noticia type must be ReportageNewsArticle', () => {
+        expect(
+            getTrustProject('Noticia')({
+                '@type': 'AdvertiserContentArticle',
+                publishingPrinciples:
+                    'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+                articleSection: 'Deportes'
+            })(false)['@type']
+        ).toBe('ReportageNewsArticle');
     });
 });
