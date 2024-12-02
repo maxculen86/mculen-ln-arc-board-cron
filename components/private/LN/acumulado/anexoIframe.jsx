@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import pym from 'pym.js';
-import '../../../../resources/dist/css/ln/pages/acu-revista.css';
 
-const AnexoIframe = ({ url, id, styles, extraClass, _props = {} }) => {
+function AnexoIframe({ url, id, styles, extraClass, _props = {} }) {
     const EXTRA_CLASS = (extraClass && ` ${extraClass}`) || '';
     useEffect(() => {
         if (window && url) {
@@ -19,15 +18,14 @@ const AnexoIframe = ({ url, id, styles, extraClass, _props = {} }) => {
         }
     });
 
-    return url ? (
+    if (!url) return null;
+    return (
         <>
             {styles !== '' && <style>{styles}</style>}
             <div id={`anexo-${id}`} className={`com-anexo pym${EXTRA_CLASS}`} />
         </>
-    ) : (
-        <></>
     );
-};
+}
 
 AnexoIframe.propTypes = {
     id: PropTypes.string.isRequired,

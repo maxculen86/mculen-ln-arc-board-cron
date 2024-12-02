@@ -4,9 +4,7 @@ import AperturaConDestacado from './AperturaConDestacado';
 import AperturaSinDestacado from './AperturaSinDestacado';
 import { getFirstParentSection } from '../../../../common/utils/sectionUtils';
 
-import '../../../../../../resources/dist/css/ln/layouts/grid.css';
-
-const aperturaReceta = props => {
+function aperturaReceta(props) {
     const {
         globalContent: { promo_items: promoItems, taxonomy }
     } = props;
@@ -38,21 +36,19 @@ const aperturaReceta = props => {
     if (aperturaVacio) return null;
 
     return (
-        <>
-            <div className="row aper-receta w-100-mobile">
-                {hasMultimedia ? (
-                    <AperturaConDestacado {...props} />
-                ) : (
-                    <AperturaSinDestacado
-                        tags={tags}
-                        taxonomy={taxonomy}
-                        receta={!!promoItems && promoItems.receta}
-                    />
-                )}
-            </div>
-        </>
+        <div className="row aper-receta w-100-mobile">
+            {hasMultimedia ? (
+                <AperturaConDestacado {...props} />
+            ) : (
+                <AperturaSinDestacado
+                    tags={tags}
+                    taxonomy={taxonomy}
+                    receta={!!promoItems && promoItems.receta}
+                />
+            )}
+        </div>
     );
-};
+}
 
 aperturaReceta.propTypes = {
     globalContent: PropTypes.shape({
@@ -65,11 +61,11 @@ aperturaReceta.propTypes = {
                 })
             ),
             primary_section: PropTypes.shape(),
-            sections: PropTypes.array
+            sections: PropTypes.shape()
         }),
         promo_items: PropTypes.shape({
-            receta: PropTypes.object,
-            basic: PropTypes.object
+            receta: PropTypes.shape({}),
+            basic: PropTypes.shape({})
         }),
         subtype: PropTypes.string
     })
