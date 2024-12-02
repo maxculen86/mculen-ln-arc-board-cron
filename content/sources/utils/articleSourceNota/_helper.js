@@ -58,6 +58,21 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
     const redirectUrl = get(response, 'redirect_url', '');
     const paywallEnabled = get(query, 'paywallEnabled', '');
 
+    const uri = get(query, 'uri', '');
+    if (
+        typeResponse === 'redirect' &&
+        redirectUrl &&
+        uri.startsWith('/api/mobile')
+    ) {
+        const url = get(query, 'url', '');
+        const index = uri.indexOf(url);
+        const prefixMobile = uri.substring(0, index);
+        const newRedirection = `${
+            prefixMobile + redirectUrl
+        }?_website=la-nacion-ar&outputType=json`;
+        throw new Redirect(newRedirection, 301);
+    }
+
     if (typeResponse === 'redirect' && redirectUrl) {
         throw new Redirect(redirectUrl, 301);
     }
