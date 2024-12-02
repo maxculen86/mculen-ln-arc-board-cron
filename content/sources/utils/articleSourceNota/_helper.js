@@ -67,9 +67,7 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
         const url = get(query, 'url', '');
         const index = uri.indexOf(url);
         const prefixMobile = uri.substring(0, index);
-        const newRedirection = `${
-            prefixMobile + redirectUrl
-        }?_website=la-nacion-ar&outputType=json`;
+        const newRedirection = `${prefixMobile + redirectUrl}`;
         throw new Redirect(newRedirection, 301);
     }
 
