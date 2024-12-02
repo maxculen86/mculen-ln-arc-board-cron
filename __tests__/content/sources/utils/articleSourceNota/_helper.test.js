@@ -5,6 +5,7 @@ import {
     transformAuthors,
     transformElementsBasedOnType,
     setRedirect,
+    handleRedirectMobile,
     isValidSectionIA,
     updateUrlIfMatch,
     getIncludedFields
@@ -897,7 +898,26 @@ describe('Tests articleSourceNota - _helper', () => {
                 Redirect
             );
         });
+        it('should throw Redirect exception when redirectMobile', () => {
+            const response = {
+                type: 'redirect',
+                redirect_url: '/autos/clasicos'
+            };
+            const query = {
+                uri: '/api/mobile/v1/clima/cordoba',
+                url: '/clima/cordoba'
+            };
 
+            expect(() => setRedirect({ response, query, siteUrl })).toThrow(
+                Redirect
+            );
+            try {
+                handleRedirectMobile('redirect', response.redirect_url, query);
+            } catch (error) {
+                expect(error.location).toBe('/api/mobile/v1/autos/clasicos');
+                expect(error.statusCode).toBe(301);
+            }
+        });
         it('should throw Redirect exception for forwardUrl with valid URL', () => {
             const response = {
                 related_content: {
@@ -1011,6 +1031,97 @@ describe('Tests articleSourceNota - _helper', () => {
         });
     });
 
+    describe('Test hanldeMobileRedirect', () => {
+        afterEach(() => {
+            jest.clearAllMocks();
+        });
+        it('should throw Redirect with correct URL and status code for valid mobile path', () => {
+            const query = {
+                uri: '/api/mobile/v1/clima/cordoba',
+                url: '/clima/cordoba'
+            };
+
+            expect(() => {
+                handleRedirectMobile('redirect', '/new/path', query);
+            }).toThrow(Redirect);
+
+            try {
+                handleRedirectMobile('redirect', '/new/path', query);
+            } catch (error) {
+                expect(error.location).toBe('/api/mobile/v1/new/path');
+                expect(error.statusCode).toBe(301);
+            }
+        });
+
+        it('should extract mobile prefix and combine with redirect URL correctly', () => {
+            const query = {
+                uri: '/api/mobile/v2/clima/cordoba',
+                url: '/clima/cordoba'
+            };
+
+            try {
+                handleRedirectMobile('redirect', '/clima/cordoba', query);
+            } catch (error) {
+                expect(error.location).toBe('/api/mobile/v2/clima/cordoba');
+            }
+        });
+
+        it('should handle valid query parameters correctly', () => {
+            const query = {
+                uri: '/api/mobile/v2/clima',
+                url: '/clima'
+            };
+
+            try {
+                handleRedirectMobile('redirect', '/clima', query);
+            } catch (error) {
+                expect(error.location).toBe('/api/mobile/v2/clima');
+            }
+        });
+
+        it('should return when redirectUrl is empty or missing', () => {
+            const query = {
+                uri: '/api/mobile/v1/clima',
+                url: '/products'
+            };
+
+            expect(() => {
+                handleRedirectMobile('redirect', '', query);
+            }).not.toThrow();
+
+            expect(() => {
+                handleRedirectMobile('redirect', null, query);
+            }).not.toThrow();
+        });
+
+        it('should return when url in query is empty or missing', () => {
+            const query = {
+                uri: '/api/mobile/v1/clima',
+                url: ''
+            };
+
+            expect(() => {
+                handleRedirectMobile('redirect', '/new-path', query);
+            }).not.toThrow();
+
+            expect(() => {
+                handleRedirectMobile('redirect', '/new-path', {
+                    uri: '/api/mobile/v1/clima'
+                });
+            }).not.toThrow();
+        });
+
+        it('should return when URI does not start with /api/mobile', () => {
+            const query = {
+                uri: '/api/web/products',
+                url: '/products'
+            };
+
+            expect(() => {
+                handleRedirectMobile('redirect', '/new-path', query);
+            }).not.toThrow();
+        });
+    });
     describe('isValidSectionIA', () => {
         it('should return false if sections is not an array', () => {
             expect(isValidSectionIA(null)).toBe(false);
