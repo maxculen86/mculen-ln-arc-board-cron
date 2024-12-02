@@ -52,24 +52,27 @@ export const getUrlQuery = key => {
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
-
-export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
-    const typeResponse = get(response, 'type', '');
-    const redirectUrl = get(response, 'redirect_url', '');
-    const paywallEnabled = get(query, 'paywallEnabled', '');
-
+function handleRedirectMobile(typeResponse, redirectUrl, query) {
     const uri = get(query, 'uri', '');
+    const url = get(query, 'url', '');
     if (
         typeResponse === 'redirect' &&
         redirectUrl &&
-        uri.startsWith('/api/mobile')
+        url &&
+        uri?.startsWith('/api/mobile')
     ) {
-        const url = get(query, 'url', '');
         const index = uri.indexOf(url);
         const prefixMobile = uri.substring(0, index);
         const newRedirection = `${prefixMobile + redirectUrl}`;
         throw new Redirect(newRedirection, 301);
     }
+}
+export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
+    const typeResponse = get(response, 'type', '');
+    const redirectUrl = get(response, 'redirect_url', '');
+    const paywallEnabled = get(query, 'paywallEnabled', '');
+
+    handleRedirectMobile(typeResponse, redirectUrl, query);
 
     if (typeResponse === 'redirect' && redirectUrl) {
         throw new Redirect(redirectUrl, 301);
