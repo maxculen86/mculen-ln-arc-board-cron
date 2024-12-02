@@ -52,21 +52,22 @@ export const getUrlQuery = key => {
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
-function handleRedirectMobile(typeResponse, redirectUrl, query) {
+export const handleRedirectMobile = (typeResponse, redirectUrl, query) => {
     const uri = get(query, 'uri', '');
     const url = get(query, 'url', '');
+
     if (
-        typeResponse === 'redirect' &&
-        redirectUrl &&
-        url &&
-        uri?.startsWith('/api/mobile')
-    ) {
-        const index = uri.indexOf(url);
-        const prefixMobile = uri.substring(0, index);
-        const newRedirection = `${prefixMobile + redirectUrl}`;
-        throw new Redirect(newRedirection, 301);
-    }
-}
+        typeResponse !== 'redirect' ||
+        !redirectUrl ||
+        !url ||
+        !uri.startsWith('/api/mobile')
+    )
+        return;
+
+    const prefixMobile = uri.slice(0, uri.indexOf(url));
+    const newRedirection = `${prefixMobile}${redirectUrl}`;
+    throw new Redirect(newRedirection, 301);
+};
 export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
     const typeResponse = get(response, 'type', '');
     const redirectUrl = get(response, 'redirect_url', '');
