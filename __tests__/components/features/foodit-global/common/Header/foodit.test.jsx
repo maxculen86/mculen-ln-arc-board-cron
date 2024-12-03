@@ -49,7 +49,15 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
             isSubscribed: false
         });
 
-        const { container } = render(<HeaderFoodit />);
+        const { container } = render(
+            <HeaderFoodit
+                layout="Foodit-home"
+                layoutsName={{
+                    FooditHome: 'Foodit-home',
+                    FooditAcumulado: 'Foodit-acumulado'
+                }}
+            />
+        );
 
         expect(screen.getAllByText('INICIÁ SESIÓN')).toHaveLength(2);
         expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
@@ -66,7 +74,15 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
             isSubscribed: true
         });
 
-        render(<HeaderFoodit />);
+        render(
+            <HeaderFoodit
+                layout="Foodit-home"
+                layoutsName={{
+                    FooditHome: 'Foodit-home',
+                    FooditAcumulado: 'Foodit-acumulado'
+                }}
+            />
+        );
 
         expect(screen.getAllByText('HM')).toHaveLength(1);
     });
@@ -81,7 +97,15 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
             isSubscribed: false
         });
 
-        render(<HeaderFoodit />);
+        render(
+            <HeaderFoodit
+                layout="Foodit-home"
+                layoutsName={{
+                    FooditHome: 'Foodit-home',
+                    FooditAcumulado: 'Foodit-acumulado'
+                }}
+            />
+        );
 
         expect(screen.getAllByText('HO')).toHaveLength(1);
         expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);

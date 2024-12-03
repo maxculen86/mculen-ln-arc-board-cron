@@ -1,14 +1,9 @@
-import React from 'react';
 import { useEffect } from 'react';
-import { cssPathsBySiteAndLayout } from './helpers';
-import { createLinkTag } from './helpers';
+import PropTypes from 'fusion:prop-types';
 
-export const DynamicStylesheetLoader = ({
-    contextPath,
-    deployment,
-    layout,
-    arcSite
-}) => {
+import { cssPathsBySiteAndLayout, createLinkTag } from './helpers';
+
+function DynamicStylesheetLoader({ contextPath, deployment, layout, arcSite }) {
     useEffect(() => {
         createLinkTag({
             contextPath,
@@ -18,7 +13,12 @@ export const DynamicStylesheetLoader = ({
             arcSite
         });
     });
-    return <></>;
+    return null;
+}
+DynamicStylesheetLoader.propTypes = {
+    layout: PropTypes.string.isRequired,
+    arcSite: PropTypes.string.isRequired,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired
 };
-
 export default DynamicStylesheetLoader;

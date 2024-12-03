@@ -3,7 +3,7 @@ import { ToastContainer } from '@ln/common-ui-toast';
 import { Toast } from '@ln/foodit-ui-toast';
 import useIsomorphicToastHandling from './hooks/useIsomorphicToastHandling';
 
-export const Toasts = () => {
+function Toasts() {
     const { toasts } = useIsomorphicToastHandling({ component: Toast });
 
     return (
@@ -15,6 +15,6 @@ export const Toasts = () => {
             className="z-15"
         />
     );
-};
+}
 
 export default Toasts;

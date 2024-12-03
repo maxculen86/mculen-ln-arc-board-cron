@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { Logo } from '@ln/foodit-ui-logo';
 import { useDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
@@ -18,9 +19,12 @@ import transformMenuData from './_helpers';
 import filterMenuSections from '../../../../../content/filters/foodit/filterMenuSections';
 import { BellButton } from './components/rightOptions/bellButton';
 import { useLayoutHeader } from './hooks/useLayoutHeader';
+import HeaderTag from './components/HeaderTag';
 
-function HeaderFoodit() {
+function HeaderFoodit({ layout, layoutsName }) {
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
+
+    const isAcu = layout === layoutsName.FooditAcumulado;
 
     const {
         classNameHeaderContainer,
@@ -62,7 +66,10 @@ function HeaderFoodit() {
                                 title="Ir a Foodit"
                                 className="flex"
                             >
-                                <h1 className="flex relative">
+                                <HeaderTag
+                                    isAcu={isAcu}
+                                    className="flex relative"
+                                >
                                     <span className="visibility-hidden absolute">
                                         Foodit
                                     </span>
@@ -72,7 +79,7 @@ function HeaderFoodit() {
                                         classNameSvgText="h-20 h-24_md h-28_lg"
                                         enabledAnimation
                                     />
-                                </h1>
+                                </HeaderTag>
                             </MainHeader.Brand>
                         </MainHeader.Content.Center>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
@@ -98,5 +105,8 @@ function HeaderFoodit() {
         </>
     );
 }
-
+HeaderFoodit.propTypes = {
+    layout: PropTypes.string.isRequired,
+    layoutsName: PropTypes.object.isRequired
+};
 export default HeaderFoodit;
