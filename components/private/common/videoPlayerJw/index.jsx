@@ -1,12 +1,13 @@
 import React from 'react';
-import { Facade } from './utils/facade';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
+import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import { configClassName } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import getSourcesJw from '../../LN/common/utils/getSourcesJw';
+import FigCaption from '../../../features/LN-10-global/common/figCaption/default';
 
 const videoPlayerJW = ({
     data,
@@ -19,7 +20,12 @@ const videoPlayerJW = ({
         embed: {
             config: {
                 idPlayer,
-                videoJw: { title = '', description = '', playlist = [] } = {}
+                videoJw: {
+                    title = '',
+                    description = '',
+                    playlist = [],
+                    epigraphTitle = ''
+                } = {}
             } = {}
         } = {}
     } = data;
@@ -30,13 +36,8 @@ const videoPlayerJW = ({
     const { arcSite, deployment, contextPath, globalContent } = useAppContext();
     const subtype = get(globalContent, 'subtype', '');
 
-    const {
-        container,
-        mediaContainer,
-        videoContainer,
-        videoPlayer,
-        facade
-    } = get(configClassName, arcSite, {});
+    const { container, mediaContainer, videoContainer, videoPlayer, facade } =
+        get(configClassName, arcSite, {});
 
     const minStream = video && getSourcesJw(get(video, 'sources', []));
 
@@ -45,7 +46,7 @@ const videoPlayerJW = ({
             <div className={container}>
                 <section className={mediaContainer}>
                     <div className={videoContainer}>
-                        <div className={videoPlayer}>
+                        <figure className={videoPlayer}>
                             <Facade
                                 id={mediaid}
                                 playlist={playlist}
@@ -54,6 +55,7 @@ const videoPlayerJW = ({
                                 subtype={subtype}
                             />
                             <div id={mediaid} />
+                            <FigCaption epigraphTitle={epigraphTitle} />
                             <script
                                 defer
                                 className="video-jw"
@@ -69,7 +71,7 @@ const videoPlayerJW = ({
                                     `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
                                 )}
                             />
-                        </div>
+                        </figure>
                     </div>
                     {!isOtt && (
                         <VideoPlayerSnippet

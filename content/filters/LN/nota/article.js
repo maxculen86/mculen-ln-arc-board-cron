@@ -224,7 +224,8 @@ const table = `
 `;
 
 const videoJwObject = `
-    title
+    title,
+    epigraphTitle,
     description,
     kind,
     playlist {
