@@ -6,11 +6,7 @@ import {
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../../../../components/private/common/utils/get';
 import validateSponsoredLink from '../../validateSponsoredLink';
-import {
-    configCallbacksRelatedContent,
-    configCallbackContentElements,
-    configPromoItems
-} from './_configs';
+import { configCallbackContentElements, configPromoItems } from './_configs';
 import {
     transformElementsBasedOnType,
     transformPromoItems,
@@ -144,14 +140,6 @@ export const transform = async (
                     configCallbacks:
                         customConfigCallbackContentElements ||
                         configCallbackContentElements,
-                    searchPropertyOnElem: 'type',
-                    aditionalProps
-                })
-            ),
-            Promise.all(
-                transformElementsBasedOnType({
-                    arrayElements: get(result, 'related_content.basic', []),
-                    configCallbacks: configCallbacksRelatedContent,
                     searchPropertyOnElem: 'type',
                     aditionalProps
                 })
