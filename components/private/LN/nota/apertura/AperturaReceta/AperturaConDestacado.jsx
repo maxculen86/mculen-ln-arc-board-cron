@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import Tags from '../tags';
 import Sections from '../sections';
 import DetalleReceta from '../detalleReceta';
-
-import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 import Media from '../../../common/media';
 import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import get from '../../../../common/utils/get';
 
-const AperturaConDestacado = props => {
+function AperturaConDestacado(props) {
     const {
         globalContent: {
             promo_items: promoItems,
@@ -49,13 +47,13 @@ const AperturaConDestacado = props => {
             </div>
         </>
     );
-};
+}
 
 AperturaConDestacado.propTypes = {
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
             primary_section: PropTypes.string,
-            sections: PropTypes.object,
+            sections: PropTypes.shape({}),
             tags: PropTypes.arrayOf(
                 PropTypes.shape({
                     description: PropTypes.string,
@@ -65,8 +63,8 @@ AperturaConDestacado.propTypes = {
             ).isRequired
         }),
         promo_items: PropTypes.shape({
-            receta: PropTypes.object,
-            basic: PropTypes.object
+            receta: PropTypes.shape({}),
+            basic: PropTypes.shape({})
         })
     }).isRequired,
     outputType: PropTypes.string.isRequired,

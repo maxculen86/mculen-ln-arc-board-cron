@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../../../resources/dist/css/ln/modules/wiki-autor.css';
 import '../../../../../resources/dist/css/ln/components/author.css';
-import '../../../../../resources/dist/css/ln/components/link.css';
 import ComTitle from '../../../common/com-title';
 import ComContainer from '../../../common/com-container';
 import ComText from '../../../common/text';
@@ -22,12 +20,7 @@ import {
     authorExpertise
 } from '../../../common/utils/wikiAuthorHelper';
 
-const WikiAuthor = ({
-    data = {},
-    outputType,
-    classesNames,
-    classCondition
-}) => {
+function WikiAuthor({ data = {}, outputType, classesNames, classCondition }) {
     const {
         byline,
         email,
@@ -99,7 +92,7 @@ const WikiAuthor = ({
             </div>
         </section>
     );
-};
+}
 
 WikiAuthor.propTypes = {
     data: PropTypes.shape({
