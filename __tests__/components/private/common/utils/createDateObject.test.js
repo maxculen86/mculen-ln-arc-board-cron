@@ -24,7 +24,7 @@ describe('createDateObject', () => {
         const date = 'invalid-date';
         const result = createDateObject(date);
 
-        expect(result).toBe('');
+        expect(result).toBeNull();
     });
 
     it('should return an empty string when an invalid time is provided', () => {
@@ -32,12 +32,12 @@ describe('createDateObject', () => {
         const time = 'invalid-time';
         const result = createDateObject(date, time);
 
-        expect(result).toBe('');
+        expect(result).toBeNull();
     });
 
     it('should return an empty string when both date and time are empty', () => {
         const result = createDateObject('');
 
-        expect(result).toBe('');
+        expect(result).toBeNull();
     });
 });

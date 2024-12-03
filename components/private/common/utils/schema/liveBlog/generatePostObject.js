@@ -3,6 +3,7 @@ import { differenceInMinutes, restMinutes } from '../../dateAndTimeUtil';
 import get from '../../get';
 import removeHtmlTags from '../../removeHtmlTags';
 import createDateObject from '../../createDateObject';
+import isCustomLiveblog from '../../isCustomLiveblog';
 
 const extracDataFromCredits = by => {
     let authors = [];
@@ -70,18 +71,19 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
         'headlines.basic',
         'LA NACION - Noticia'
     );
-    const postingStart = contentElements.findIndex(elem => {
-        const { subtype = 'default', type = '' } = elem;
-        return type === 'custom_embed' && subtype === 'custom-liveblog';
-    });
+
+    const postingStart = contentElements.findIndex(elem =>
+        isCustomLiveblog(elem)
+    );
+
     let post = {};
     let description = [];
     const postElements = contentElements
         .slice(postingStart)
         .reduce((acc, elem, i) => {
-            const { subtype = 'default', type = '' } = elem;
+            const { type = '' } = elem;
 
-            if (subtype === 'custom-liveblog') {
+            if (isCustomLiveblog(elem)) {
                 post = {};
                 description = [];
 
@@ -99,20 +101,18 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
             }
 
             Object.assign(post, {
-                ...(elem.embed &&
+                ...(isCustomLiveblog(elem) &&
+                    elem.embed &&
                     elem.embed.config && { config: elem.embed.config }),
                 ...(elem.url && { url: elem.url })
             });
 
             if (
                 (contentElements[i + 1] &&
-                    contentElements[i + 1].type === 'custom_embed') ||
+                    isCustomLiveblog(contentElements[i + 1])) ||
                 i + 1 === contentElements.length
             ) {
-                post = {
-                    ...post,
-                    content: description.join(' ')
-                };
+                post = { ...post, content: description.join(' ') };
                 acc.push(post);
             }
 
@@ -122,7 +122,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     return postElements.map((elem, i) => {
         const { config = {}, content = '', url = '' } = elem;
         const { date = '', time = '' } = config;
-        const dateObject = createDateObject(date, time);
+        const dateObject = createDateObject(date, time) || '';
 
         return {
             '@type': 'BlogPosting',

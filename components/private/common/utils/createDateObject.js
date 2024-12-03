@@ -6,7 +6,7 @@ const createDateObject = (date, time = '') => {
         : new Date(`${date} ${time}`);
 
     if (Number.isNaN(dateTime.getTime())) {
-        return '';
+        return null;
     }
 
     return dateTime;
