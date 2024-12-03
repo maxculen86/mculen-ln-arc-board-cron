@@ -1,7 +1,6 @@
 import get from './get';
 import EpigrafeAndCreditsData from './epigrafeAndCreditsData';
 import { getShortestImage } from '../../LN/common/utils/mediaHelper';
-import isSSR from '../../LN/common/utils/isSSR';
 
 export const getImageData = (imageData, proportion) =>
     get(imageData, 'resized_urls', []).filter(
@@ -23,7 +22,59 @@ const getListOfOpeningImages = (video, basicImageMobile, basicImageDsk) => {
     return get(basicImageDsk, 'resized_urls', []);
 };
 
-const getApertura = (
+const extractVideoData = (videoBackground, videoJW) => {
+    const videoJwTransformed =
+        videoBackground?.subtype === 'video_jw' ? videoBackground : null;
+
+    const objectVideo = videoJW || videoJwTransformed || {};
+    const playlist = get(objectVideo, 'embed.config.videoJw.playlist', []);
+    const firstPlaylist = playlist[0] || null;
+
+    const {
+        description = '',
+        image = '',
+        title = '',
+        sources: sourcesObtain = []
+    } = firstPlaylist || {};
+
+    const sources = sourcesObtain.filter(src => src.type === 'video/mp4');
+    const streams = sources.length
+        ? sources
+        : get(videoBackground, 'streams', []);
+
+    const bestStream = streams.reduce(
+        (current, prev) => (current.width > prev.width ? current : prev),
+        {}
+    );
+
+    const video = bestStream.file || bestStream.url || '';
+
+    const dataJw = {
+        alt_text: description,
+        url: image,
+        caption: title,
+        resized_urls: sources.map(source => ({
+            option: { height: source.height, width: source.width },
+            resizedUrl: source.file
+        }))
+    };
+
+    return { video, dataJw, firstPlaylist };
+};
+
+const getImageDataForDevice = (
+    isMobile,
+    basicImageMobile,
+    basicImageDsk,
+    dataJw,
+    videoPromo,
+    firstPlaylist
+) =>
+    isMobile
+        ? basicImageMobile || {}
+        : (firstPlaylist && dataJw) || basicImageDsk || videoPromo || {};
+
+const formatAperturaData = ({
     isMobile,
     basicImageDsk,
     videoBackground,
@@ -31,63 +82,20 @@ const getApertura = (
     isLoadWithPicture,
     device,
     videoJW
-) => {
-    const promoItemsVideo = get(videoBackground, 'promo_items', null);
-    const epigrafe = get(videoBackground, 'headlines.basic', null);
-    const videoJwTransformed =
-        videoBackground && videoBackground.subtype === 'video_jw'
-            ? videoBackground
-            : false;
-    const objectVideo = videoJW || videoJwTransformed || {};
-    const playlistJw = get(objectVideo, 'embed.config.videoJw.playlist', []);
-    const firstPlaylist =
-        Array.isArray(playlistJw) && playlistJw[0] ? playlistJw[0] : null;
-    const {
-        description = '',
-        image = '',
-        title = '',
-        sources: sourcesObtain = []
-    } = firstPlaylist || {};
-    const sources =
-        sourcesObtain.length > 0 &&
-        sourcesObtain.filter(src => src.type === 'video/mp4');
+}) => {
+    const { video, dataJw, firstPlaylist } = extractVideoData(
+        videoBackground,
+        videoJW
+    );
 
-    const streams = sources || get(videoBackground, 'streams', null);
-
-    const objectStream =
-        streams &&
-        streams.length > 1 &&
-        streams.reduce((currentItem, previustem) =>
-            currentItem.width > previustem.width ? currentItem : previustem
-        );
-
-    const video =
-        get(objectStream, 'file', undefined) ||
-        get(objectStream, 'url', undefined) ||
-        '';
-
-    const { basic: basicVideoDsk } = promoItemsVideo || {};
-
-    const dataJw = {
-        alt_text: description,
-        url: image,
-        caption: title,
-        resized_urls:
-            sources &&
-            sources.map(source => {
-                return {
-                    option: {
-                        height: source.height,
-                        width: source.width
-                    },
-                    resizedUrl: source.file
-                };
-            })
-    };
-
-    const data = isMobile
-        ? basicImageMobile || {}
-        : (firstPlaylist && dataJw) || basicImageDsk || basicVideoDsk || {};
+    const data = getImageDataForDevice(
+        isMobile,
+        basicImageMobile,
+        basicImageDsk,
+        dataJw,
+        get(videoBackground, 'promo_items.basic', {}),
+        firstPlaylist
+    );
 
     const {
         alt_text: altText = '',
@@ -96,7 +104,7 @@ const getApertura = (
         resized_urls: resizedUrls = []
     } = data;
 
-    const imageListForPicture = getListOfOpeningImages(
+    const imageList = getListOfOpeningImages(
         video,
         basicImageMobile,
         basicImageDsk
@@ -107,17 +115,32 @@ const getApertura = (
         altText,
         src: url,
         srcset: url,
-        caption: epigrafe || caption || '',
-        credit: data && EpigrafeAndCreditsData(data),
-        resizedUrls: isLoadWithPicture ? imageListForPicture : resizedUrls,
-        imgDefault: get(
-            getShortestImage(imageListForPicture),
-            'resizedUrl',
-            url
-        ),
+        caption: get(videoBackground, 'headlines.basic', '') || caption || '',
+        credit: EpigrafeAndCreditsData(data),
+        resizedUrls: isLoadWithPicture ? imageList : resizedUrls,
+        imgDefault: get(getShortestImage(imageList), 'resizedUrl', url),
         device,
         isMobile
     };
 };
+
+const getApertura = (
+    isMobile,
+    basicImageDsk,
+    videoBackground,
+    basicImageMobile,
+    isLoadWithPicture,
+    device,
+    videoJW
+) =>
+    formatAperturaData({
+        isMobile,
+        basicImageDsk,
+        videoBackground,
+        basicImageMobile,
+        isLoadWithPicture,
+        device,
+        videoJW
+    });
 
 export default getApertura;
