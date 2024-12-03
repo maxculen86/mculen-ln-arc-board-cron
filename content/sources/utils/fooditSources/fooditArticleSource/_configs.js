@@ -1,5 +1,4 @@
 import convertVideoArcToJw from '../../articleSourceNota/cachedCalls/convertVideoArcToJW';
-import addFollowAnotherNoteData from '../../articleSourceNota/cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../../components/private/common/utils/get';
 import { addForwardSlashInParagraphsLinks } from '../../../../../components/private/LN/common/utils/addForwardSlash';
 import { compose } from '../../../../../components/private/common/utils/functional';
@@ -247,22 +246,4 @@ export const recipePaywallConfigCallbackContentElements = {
     blockquote: () => null,
     oembed_response: () => null,
     divider: () => null
-};
-
-const callbacksByTypeReference = {
-    story: ({ cachedCall, element, arcSite } = {}) =>
-        addFollowAnotherNoteData(cachedCall, element, arcSite)
-};
-
-export const configCallbacksRelatedContent = {
-    reference: ({ cachedCall, element, arcSite } = {}) => {
-        const selectedCallback =
-            callbacksByTypeReference[get(element, 'referent.type', '')];
-
-        if (selectedCallback) {
-            return selectedCallback({ cachedCall, element, arcSite });
-        }
-
-        return element;
-    }
 };
