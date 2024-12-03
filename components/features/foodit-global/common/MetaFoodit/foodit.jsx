@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
 import { ARC_STATIC, SITE_FOODIT } from 'fusion:environment';
 import {
     getAppId,
@@ -6,18 +8,26 @@ import {
 } from '../../../../private/common/utils/getMetasOGHelper';
 import get from '../../../../private/common/utils/get';
 
-export const MetaFoodit = ({
+export function MetaFoodit({
     globalContent,
     siteProperties,
     deployment,
     contextPath,
     metaValue
-}) => {
+}) {
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const imagePath = `${contextPath}/resources/foodit/assets/images/placeholderFoodit.jpg`;
     const image = `${ARC_STATIC}${deployment(imagePath)}`;
-    const titleMeta = metaValue('title') || 'Foodit';
-    const descriptionMeta = metaValue('description') || 'Foodit';
+
+    const isRecetas = get(globalContent, '_id', '') === '/recetas';
+    const title = metaValue('title') || 'Foodit';
+    const titleRecetas = 'Las mejores recetas están en Foodit.';
+    const descriptionRecetas =
+        'Encontrá las mejores recetas para todo tipo de platos en Foodit.';
+    const description = metaValue('description') || 'Foodit';
+
+    const titleMeta = isRecetas ? titleRecetas : title;
+    const descriptionMeta = isRecetas ? descriptionRecetas : description;
     const domain = SITE_FOODIT.replace(/\/$/, '');
     const url =
         get(globalContent, 'canonical_url', '') ||
@@ -78,9 +88,7 @@ export const MetaFoodit = ({
     ];
     const metasElement = metas
         .filter(meta => meta && !meta.exclude)
-        .map(meta => {
-            return <meta {...meta} />;
-        });
+        .map(meta => <meta {...meta} />);
 
     return (
         <>
@@ -88,6 +96,12 @@ export const MetaFoodit = ({
             {metasElement}
         </>
     );
+}
+MetaFoodit.propTypes = {
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired,
+    metaValue: PropTypes.func.isRequired,
+    globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
+    siteProperties: PropTypes.isRequired
 };
-
 export default MetaFoodit;

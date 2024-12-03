@@ -1,8 +1,10 @@
 import React from 'react';
 import Static from 'fusion:static';
+import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import { getConfigByLayout } from '../floatingGroupButton/helpers';
 import { useDrawer } from '@ln/common-ui-drawer';
+import classNames from 'classnames';
+import { getConfigByLayout } from '../floatingGroupButton/helpers';
 import { DRAWER } from '../DrawerContainer/constants';
 import Header from '../Header/foodit';
 import Footer from '../Footer/foodit';
@@ -13,16 +15,10 @@ import Toasts from '../toasts/foodit';
 import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 import AuthInitializer from '../../../../../auth/AuthInitializer';
-import classNames from 'classnames';
 
-const BaseLayout = ({ children }) => {
-    const {
-        layout,
-        contextPath,
-        deployment,
-        arcSite,
-        siteProperties
-    } = useAppContext();
+function BaseLayout({ children }) {
+    const { layout, contextPath, deployment, arcSite, siteProperties } =
+        useAppContext();
     const { toggleDrawer } = useDrawer({ id: DRAWER.RECETARIO });
     const { layoutsName } = siteProperties || {};
 
@@ -39,7 +35,7 @@ const BaseLayout = ({ children }) => {
                 arcSite={arcSite}
             />
             <div className="wrapper overflow-x-clip roboto">
-                <Header />
+                <Header layout={layout} layoutsName={layoutsName} />
                 <div className="header-sentinel" />
                 <DrawerMyAccount />
                 <main className={classNameMain}>{children}</main>
@@ -55,6 +51,8 @@ const BaseLayout = ({ children }) => {
             </div>
         </AuthInitializer>
     );
+}
+BaseLayout.propTypes = {
+    children: PropTypes.node.isRequired
 };
-
 export default BaseLayout;
