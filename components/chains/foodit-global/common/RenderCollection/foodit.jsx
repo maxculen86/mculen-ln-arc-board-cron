@@ -43,7 +43,7 @@ export function RenderCollection({
         classNameChildren = '',
         classNameRoof = ''
     } = rules;
-    const tooltipText = 'Guardar todo';
+    const tooltipText = fill ? 'Guardado' : 'Guardar todo';
 
     const buttonsProps = {
         text: tooltipText,

@@ -1277,8 +1277,8 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto pr-16 pr-0_md"
         data-collectionid=""
         data-variant="link"
-        text="Guardar todo"
-        title="Guardar todo"
+        text="Guardado"
+        title="Guardado"
       >
         <i
           class="icon w-24 w-20_md --dark"
@@ -1291,7 +1291,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         <span
           class="text text-12 sm-none uppercase"
         >
-          Guardar todo
+          Guardado
         </span>
       </button>
     </div>
