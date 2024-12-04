@@ -1,5 +1,8 @@
-export const Favicon = ({ contextPath, deployment }) => {
-    if (!contextPath || !deployment) return <></>;
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
+export function Favicon({ contextPath, deployment }) {
+    if (!contextPath || !deployment) return null;
     const assetsPath = asset =>
         deployment(`${contextPath}/resources/foodit/assets/favicon/${asset}`);
 
@@ -9,18 +12,6 @@ export const Favicon = ({ contextPath, deployment }) => {
                 rel="shortcut icon"
                 type="image/x-icon"
                 href={assetsPath('favicon.ico')}
-            />
-            <link
-                rel="shortcut icon"
-                type="image/png"
-                sizes="192x192"
-                href={assetsPath('android-chrome-192x192.png')}
-            />
-            <link
-                rel="shortcut icon"
-                type="image/png"
-                sizes="512x512"
-                href={assetsPath('android-chrome-512x512.png')}
             />
             <link
                 rel="apple-touch-icon"
@@ -48,4 +39,9 @@ export const Favicon = ({ contextPath, deployment }) => {
             <meta name="theme-color" content="#ffffff" />
         </>
     );
+}
+
+Favicon.propTypes = {
+    deployment: PropTypes.func.isRequired,
+    contextPath: PropTypes.string.isRequired
 };

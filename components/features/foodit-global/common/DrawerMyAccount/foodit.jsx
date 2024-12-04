@@ -1,11 +1,11 @@
 import React from 'react';
-import DrawerContainer from '../DrawerContainer/foodit';
-import MyAccount from '../MyAccount/foodit';
+import { DrawerContainer } from '../DrawerContainer/foodit';
+import { MyAccount } from '../MyAccount/foodit';
 import { menuUser } from '../utils/menuUser';
 import { DRAWER } from '../DrawerContainer/constants';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-export const DrawerMyAccount = () => {
+function DrawerMyAccount() {
     const itemsList = menuUser;
 
     const { email, initials, isSubscribed } = useGetUserConfig();
@@ -23,6 +23,6 @@ export const DrawerMyAccount = () => {
             />
         </DrawerContainer>
     );
-};
+}
 
 export default DrawerMyAccount;

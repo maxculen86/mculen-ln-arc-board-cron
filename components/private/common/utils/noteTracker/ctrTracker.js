@@ -4,12 +4,11 @@ const position = '101101';
 const eventClick = 'productClickNota';
 const ctrBrand = 'stickyMobile_diag1';
 
-export const checkUserRealoadAction = activeWindow => {
-    return activeWindow.performance
+export const checkUserRealoadAction = activeWindow =>
+    activeWindow.performance
         .getEntriesByType('navigation')
         .map(nav => nav.type)
         .includes('reload');
-};
 
 export const crtViewTracker = (tracked, trackSetter) => {
     const { dataLayer } = window;
@@ -33,22 +32,20 @@ export const handleClickForCTRcomponent = action => {
 };
 
 const userActions = {
-    close: dataLayer => {
-        return scheduleTask(() =>
+    close: dataLayer =>
+        scheduleTask(() =>
             dataLayer.push({
                 event: eventClick,
                 ctr_brand: 'stickyMobile_close',
                 ctr_position: position
             })
-        );
-    },
-    open: dataLayer => {
-        return scheduleTask(() =>
+        ),
+    open: dataLayer =>
+        scheduleTask(() =>
             dataLayer.push({
                 event: eventClick,
                 ctr_brand: ctrBrand,
                 ctr_position: position
             })
-        );
-    }
+        )
 };
