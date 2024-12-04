@@ -1,3 +1,5 @@
+import { scheduleTask } from './scheduleTask';
+
 export const addPositionInNote = (elem, indexElem) => {
     const { localName = {} } = elem;
     const index = indexElem + 1;
@@ -23,9 +25,13 @@ export const eventListenerAttacher = (element, layer) => {
     };
 
     element.addEventListener('click', () => {
-        layer.push(eventClick);
+        scheduleTask(() => {
+            layer.push(eventClick);
+        });
     });
     element.addEventListener('auxclick', () => {
-        layer.push(eventClick);
+        scheduleTask(() => {
+            layer.push(eventClick);
+        });
     });
 };

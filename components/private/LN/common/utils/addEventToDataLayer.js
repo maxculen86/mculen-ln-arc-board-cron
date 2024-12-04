@@ -59,7 +59,9 @@ export const addEventToDataLayerV2 = ({
     rest = {},
     origin,
     videoName,
-    videoID
+    videoID,
+    ctr_brand,
+    ctr_position
 } = {}) => {
     if (!isSSR() && window.dataLayer) {
         scheduleTask(() => {
@@ -86,6 +88,8 @@ export const addEventToDataLayerV2 = ({
                 ...(origin && { origin }),
                 ...(videoName && { videoName }),
                 ...(videoID && { videoID }),
+                ...(ctr_brand && { ctr_brand }),
+                ...(ctr_position && { ctr_position }),
                 ...(rest && { ...rest })
             });
         });

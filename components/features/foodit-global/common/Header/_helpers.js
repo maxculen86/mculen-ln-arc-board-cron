@@ -5,8 +5,12 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 const listDescubrir = [
     '/restaurantes',
     '/nutricion',
-    '/novedades-y-tendencias',
-    '/club-la-nacion'
+    '/club-la-nacion',
+    '/protocolo',
+    '/tendencias',
+    '/ingredientes',
+    '/trucos',
+    '/chefs'
 ];
 
 const iconList = [

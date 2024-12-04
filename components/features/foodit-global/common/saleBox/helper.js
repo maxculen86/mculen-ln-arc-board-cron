@@ -1,11 +1,10 @@
 export const mockBenefits = [
-    `Una colección de <span class="roboto-bold">recetas curadas</span> por expertos.`,
-    'Todas las <span class="roboto-bold">tendencias alimentarias.</span>',
-    '<span class="roboto-bold">Platos de autor</span> y <span>masterclasses</span> con cocineros referentes.',
-    '<span class="roboto-bold">Guías de cocina</span> para principiantes.',
-    '<span class="roboto-bold">Buscador</span> eficiente, <span>colecciones</span> personalizadas y más <span>funciones.</span>',
-    '<span class="roboto-bold">Soluciones practicas</span> para cocinar todos los días.',
-    '<span class="roboto-bold">Newsletter semanal</span> con ideas inspiradoras y novedades.'
+    '<span class="roboto-bold">Empezá a comer mejor</span> con nuestros menús semanales creados por nutricionistas.',
+    '<span class="roboto-bold">Ahorrá tiempo</span> con una gran variedad de recetas fáciles, rápidas, y ricas. Todo en un solo lugar.',
+    '<span class="roboto-bold">Dejá de cocinar siempre lo mismo.</span> Usá Foodit para conocer nuevos platos y sabores.',
+    '<span class="roboto-bold">Sin complicaciones.</span> Recetas probadas con información clara y simple. Armá tu recetario y listas de compras de ingredientes.',
+    '<span class="roboto-bold">Trucos y secretos.</span>Aprendé con nuestras masterclasses, guías de cocina y notas sobre técnicas, ingredientes y consejos prácticos.',
+    'Con la suscripción de Foodit + Club LA NACION accedé a cientos de descuentos y beneficios y <span class="roboto-bold">ahorrá más de lo que cuesta la suscripción.</span>'
 ];
 
 export const imgsPhoneFoodit = assetsPath => [
@@ -24,15 +23,23 @@ export const imgsPhoneFoodit = assetsPath => [
 
 export const imgsIngredientsBackground = [
     {
-        asset: 'ingredient-background-left-top.webp',
-        className: 'top-0 left-0 absolute'
+        asset: 'ingredient-christmas-bottom-medium.webp',
+        className: 'bottom-0 left-40 sm-none absolute'
     },
     {
-        asset: 'ingredient-background-right-top.webp',
-        className: 'top-0 right-0 absolute'
+        asset: 'ingredient-christmas-bottom-left.webp',
+        className: 'top-40 center-y_md left-48 absolute'
     },
     {
-        asset: 'ingredient-background-middle-bottom.webp',
-        className: 'bottom-0 left-50 absolute'
+        asset: 'ingredient-christmas-bottom-right.webp',
+        className: 'bottom-40 bottom-0_md right-120 absolute'
+    },
+    {
+        asset: 'ingredient-christmas-top-left.webp',
+        className: 'top-36 right-120 absolute'
+    },
+    {
+        asset: 'ingredient-christmas-top-right.webp',
+        className: 'top-36 left-48 absolute'
     }
 ];
