@@ -152,7 +152,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   <a
                     class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
                     data-event="e_linkclick"
-                    href="https://www.lanacionmusica.com.ar/"
+                    href="https://masmusica.lanacion.com.ar/"
                     rel="nofollow"
                     target="_blank"
                     title="LN 104.9 + Música"
@@ -366,7 +366,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               <a
                 class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
                 data-event="e_linkclick"
-                href="https://www.lanacionmusica.com.ar/"
+                href="https://masmusica.lanacion.com.ar/"
                 rel="nofollow"
                 target="_blank"
                 title="LN 104.9 + Música"

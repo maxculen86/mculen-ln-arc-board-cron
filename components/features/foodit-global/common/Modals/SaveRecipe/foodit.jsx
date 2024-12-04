@@ -19,7 +19,7 @@ const classNameModal = userType =>
             : 'w-100 min-w-360 min-w-720_md min-w-944_lg bg-positive'
     );
 
-export function Modal() {
+function Modal() {
     const { close, modalData } = useIsomorphicPopupHandling();
     const showModal = get(modalData, 'isVisible', false);
     const { userType } = useGetUserConfig();

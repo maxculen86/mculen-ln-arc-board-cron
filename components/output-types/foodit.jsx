@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { SITE_FOODIT } from 'fusion:environment';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
@@ -6,15 +7,15 @@ import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import getSectionName from '../private/LN/common/utils/getSectionName';
-import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
-import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
+import { MetaFoodit } from '../features/foodit-global/common/MetaFoodit/foodit';
+import { BuildComments } from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
 import { Favicon } from '../features/foodit-global/common/favicon/foodit';
 import { GetFonts } from './criticalCss/getFonts';
 import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import get from '../private/common/utils/get';
 import FooditSchemas from '../features/foodit-global/schemas/foodit';
 
-const Foodit = ({
+function Foodit({
     children,
     Libs,
     Fusion,
@@ -29,7 +30,7 @@ const Foodit = ({
     isAdmin,
     template,
     requestUri = ''
-} = {}) => {
+} = {}) {
     const {
         node_type: nodeType,
         type,
@@ -83,7 +84,13 @@ const Foodit = ({
                     siteProperties={siteProperties}
                     deployment={deployment}
                 />
-                <FooditSchemas globalContent={globalContent} layout={layout} />
+                <FooditSchemas
+                    metaValue={metaValue}
+                    globalContent={globalContent}
+                    layout={layout}
+                    contextPath={contextPath}
+                    deployment={deployment}
+                />
                 <LinkCanonicalAndAlternate
                     _id={_id}
                     canonicalUrl={canonicalUrl}
@@ -138,6 +145,22 @@ const Foodit = ({
             </body>
         </html>
     );
-};
+}
 
+Foodit.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    Libs: PropTypes.node.isRequired,
+    Fusion: PropTypes.node.isRequired,
+    layout: PropTypes.string.isRequired,
+    renderables: PropTypes.arrayOf(PropTypes.any).isRequired,
+    globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
+    siteProperties: PropTypes.isRequired,
+    arcSite: PropTypes.string.isRequired,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired,
+    metaValue: PropTypes.func.isRequired,
+    isAdmin: PropTypes.boolean.isRequired,
+    template: PropTypes.string.isRequired,
+    requestUri: PropTypes.string.isRequired
+};
 export default Foodit;

@@ -78,7 +78,7 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
             },
             {
                 title: 'LN 104.9 + Música',
-                link: 'https://www.lanacionmusica.com.ar/',
+                link: 'https://masmusica.lanacion.com.ar/',
                 dataEvent: 'e_linkclick',
                 dataSection: 'MenuLN',
                 icon: 'lnRadio'
