@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import { AcuSchema } from './Acu';
 import { HomeSchema } from './Home';
@@ -21,7 +22,7 @@ const schemas = {
     'Foodit-compras': ListaComprasSchema
 };
 
-const FooditSchemas = props => {
+function FooditSchemas(props) {
     const { layout } = props;
 
     const Snippet = schemas[layout];
@@ -29,6 +30,9 @@ const FooditSchemas = props => {
     if (!Snippet) return null;
 
     return <Snippet {...props} />;
+}
+FooditSchemas.propTypes = {
+    layout: PropTypes.string.isRequired
 };
 
 export default FooditSchemas;

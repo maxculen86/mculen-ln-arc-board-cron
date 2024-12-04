@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { useFloatingGroupButton } from './useFloatingGroupButton';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-export function FloatingGroupButton({
+function FloatingGroupButton({
     buttons = [],
     className = '',
     observerSelector

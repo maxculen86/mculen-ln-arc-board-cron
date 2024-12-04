@@ -1,5 +1,11 @@
 import { screen, fireEvent } from '@testing-library/react';
 import { articleBoxesTracker } from '../../../../../components/private/common/utils/noteTracker/articleBoxesTracker';
+import { scheduleTask } from '../../../../../components/private/common/utils/scheduleTask';
+
+jest.mock('../../../../../components/private/common/utils/scheduleTask');
+
+const mockScheduleTask = jest.fn(callback => callback());
+scheduleTask.mockImplementation(mockScheduleTask);
 
 Object.defineProperty(window, 'performance', {
     value: {
