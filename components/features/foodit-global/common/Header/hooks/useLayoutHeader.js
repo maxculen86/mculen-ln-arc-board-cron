@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { useAppContext } from 'fusion:context';
 import get from '../../../../../private/common/utils/get';
 import { useStickyHeader } from './useStickyHeader';
+import useGetUserConfig from '../../../hooks/useGetUserConfig';
 
 export const useLayoutHeader = () => {
     const { siteProperties, layout, globalContent } = useAppContext();
@@ -10,6 +11,7 @@ export const useLayoutHeader = () => {
 
     const { layoutsName = {} } = siteProperties || {};
     const { sticky } = useStickyHeader();
+    const { isSubscribed } = useGetUserConfig();
 
     const layoutSheets = [
         layoutsName.FooditFichaReceta,
@@ -45,14 +47,21 @@ export const useLayoutHeader = () => {
 
     const showSubheaderInSheet = layoutSheets.includes(layout) && isOpen;
     const showSubheaderInLayout = layoutsWithSubheader.includes(layout);
-
     const shouldHaveExtraPadding = !layoutsWithoutSearch.includes(layout);
 
     const getSubheaderSearchClasses = () => {
-        if (layoutsWithoutSearch.includes(layout)) {
-            return sticky
-                ? '--show-subheader --show-search'
-                : '--hide-subheader --hide-search';
+        const SHOW_CLASS = '--show-subheader --show-search';
+        const HIDE_CLASS = '--hide-subheader --hide-search';
+        const withoutSearch = layoutsWithoutSearch.includes(layout);
+
+        if (!withoutSearch && !isSubscribed) {
+            return sticky ? SHOW_CLASS : '';
+        }
+        if (!isSubscribed) {
+            return sticky ? SHOW_CLASS : '--hide-search';
+        }
+        if (withoutSearch) {
+            return sticky ? SHOW_CLASS : HIDE_CLASS;
         }
         return sticky ? '--show-subheader' : '--hide-subheader';
     };
