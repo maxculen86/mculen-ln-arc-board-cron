@@ -47,12 +47,12 @@ function CajaManual(props) {
 
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const error = validateCajaManual(
+    const error = validateCajaManual({
         layout,
         childProps,
         chainStyle,
         isGrid6MasTimeline
-    );
+    });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
