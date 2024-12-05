@@ -10,7 +10,7 @@ import NotaMain from '../private/common/layouts/notaMain';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import { PwaModal } from '../features/LN-10-global/pwaModal/default';
-import useInitControlGroup from './helpers/initCtrlGrp';
+import InitControlGroup from './helpers/initCtrlGrp';
 
 function lnNotaInfografia({
     children,
@@ -33,8 +33,6 @@ function lnNotaInfografia({
         magazine
     );
 
-    useInitControlGroup();
-
     return (
         <GlobalProvider>
             {bannerMegatop}
@@ -43,6 +41,7 @@ function lnNotaInfografia({
             </NotaMain>
             <LoadBannersSSR />
             <PwaModal />
+            <InitControlGroup />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

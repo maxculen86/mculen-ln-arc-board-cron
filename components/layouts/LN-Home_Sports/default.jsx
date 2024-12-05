@@ -11,7 +11,7 @@ import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
-import useInitControlGroup from '../helpers/initCtrlGrp';
+import InitControlGroup from '../helpers/initCtrlGrp';
 
 function LNSportsHome(props) {
     const {
@@ -36,8 +36,6 @@ function LNSportsHome(props) {
         'acumuladoGeneral.colecciones',
         []
     );
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -83,6 +81,7 @@ function LNSportsHome(props) {
                 </div>
                 <LoadBannersSSR />
                 <PwaModal />
+                <InitControlGroup />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

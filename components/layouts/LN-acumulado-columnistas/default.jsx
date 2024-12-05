@@ -9,7 +9,7 @@ import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import ComTitle from '../../private/common/com-title';
-import useInitControlGroup from '../helpers/initCtrlGrp';
+import InitControlGroup from '../helpers/initCtrlGrp';
 
 const layoutItemsColumnistas = [
     'Pre-Apertura',
@@ -20,7 +20,6 @@ const layoutItemsColumnistas = [
 
 function LNAcumuladoColumnistasLayout(props) {
     const { children } = props;
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -69,6 +68,7 @@ function LNAcumuladoColumnistasLayout(props) {
             </div>
             <LoadBannersSSR />
             <PwaModal />
+            <InitControlGroup />
         </GlobalProvider>
     );
 }

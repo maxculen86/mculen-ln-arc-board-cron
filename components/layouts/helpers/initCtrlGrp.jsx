@@ -1,17 +1,15 @@
-import { useEffect } from 'react';
-import { InitCtrlGrp } from '@ln/segmentacion-control-group';
+import React, { useEffect } from 'react';
 import { API_V3_GROUP, DATADOG_CONFIG } from 'fusion:environment';
+import { InitCtrlGrp } from '@ln/segmentacion-control-group';
 
-const useInitControlGroup = () => {
+function InitControlGroup() {
     useEffect(() => {
         const urlApi = API_V3_GROUP;
         const cookieName = 'controlGroupV3';
         const gaIdRetries = null;
         const defaultQuota = null;
-
         const { clientTokenLogs } =
             (DATADOG_CONFIG && DATADOG_CONFIG['la-nacion-ar']) || {};
-
         InitCtrlGrp(
             urlApi,
             clientTokenLogs,
@@ -20,6 +18,7 @@ const useInitControlGroup = () => {
             defaultQuota
         );
     }, []);
-};
 
-export default useInitControlGroup;
+    return <div className="none" />;
+}
+export default InitControlGroup;

@@ -9,7 +9,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { PwaModal } from '../features/LN-10-global/pwaModal/default';
 import createTagsTitleAndMetas from '../private/common/utils/lnBuscadorHelper';
 import getQueryParamValue from '../private/common/utils/getQueryParamValue';
-import useInitControlGroup from './helpers/initCtrlGrp';
+import InitControlGroup from './helpers/initCtrlGrp';
 import '../../resources/dist/css/ln/pages/buscador.css';
 
 function lnBuscador({
@@ -27,8 +27,6 @@ function lnBuscador({
             searchResults
         );
     }
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -50,6 +48,7 @@ function lnBuscador({
                 </div>
             </div>
             <PwaModal />
+            <InitControlGroup />
         </GlobalProvider>
     );
 }

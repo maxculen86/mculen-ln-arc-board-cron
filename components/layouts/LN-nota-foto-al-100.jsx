@@ -15,7 +15,7 @@ import intersectionObserverForRelatedTags from '../private/common/utils/relatedT
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
-import useInitControlGroup from './helpers/initCtrlGrp';
+import InitControlGroup from './helpers/initCtrlGrp';
 
 function lnNotaFotoAl100({
     children: [
@@ -56,8 +56,6 @@ function lnNotaFotoAl100({
         magazine,
         '--photo100'
     );
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -101,6 +99,7 @@ function lnNotaFotoAl100({
             <LoadBannersSSR />
             <PwaModal />
             <Glossary />
+            <InitControlGroup />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

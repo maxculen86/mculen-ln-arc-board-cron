@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
 import { InitCtrlGrp } from '@ln/segmentacion-control-group';
-import useInitControlGroup from '../../../../components/layouts/helpers/initCtrlGrp';
+import InitControlGroup from '../../../../components/layouts/helpers/initCtrlGrp';
 
 jest.mock('@ln/segmentacion-control-group', () => ({
     InitCtrlGrp: jest.fn()
@@ -17,11 +17,11 @@ jest.mock('fusion:environment', () => ({
 }));
 
 const TestComponent = () => {
-    useInitControlGroup();
+    InitControlGroup();
     return null;
 };
 
-describe('useInitControlGroup', () => {
+describe('InitControlGroup', () => {
     beforeEach(() => {
         jest.clearAllMocks();
     });

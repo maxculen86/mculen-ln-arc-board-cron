@@ -9,11 +9,10 @@ import ComLogo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import ListSection from '../private/common/utils/listSection';
 import { siteMapListSectionLink } from '../private/common/siteMapList/siteMapList';
-import useInitControlGroup from './helpers/initCtrlGrp';
 import '../../resources/dist/css/ln/pages/sitemap.css';
+import InitControlGroup from './helpers/initCtrlGrp';
 
 function LNMapaDelSitio({ children }) {
-    useInitControlGroup();
     return (
         <>
             {children[0]}
@@ -66,6 +65,7 @@ function LNMapaDelSitio({ children }) {
                 </footer>
             </div>
             <PwaModal />
+            <InitControlGroup />
         </>
     );
 }

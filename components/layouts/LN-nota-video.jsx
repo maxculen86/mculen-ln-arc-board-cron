@@ -12,7 +12,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import useInitControlGroup from './helpers/initCtrlGrp';
+import InitControlGroup from './helpers/initCtrlGrp';
 
 function lnNotaVideo({ children, outputType }) {
     const bannerMegatop = children[0];
@@ -23,8 +23,6 @@ function lnNotaVideo({ children, outputType }) {
         'nota',
         'video'
     );
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -71,6 +69,7 @@ function lnNotaVideo({ children, outputType }) {
             </div>
             <LoadBannersSSR />
             <PwaModal />
+            <InitControlGroup />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );

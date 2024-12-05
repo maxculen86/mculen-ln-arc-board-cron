@@ -8,7 +8,7 @@ import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 import GlobalProvider from '../private/common/context/globalContext';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import { PwaModal } from '../features/LN-10-global/pwaModal/default';
-import useInitControlGroup from './helpers/initCtrlGrp';
+import InitControlGroup from './helpers/initCtrlGrp';
 
 function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {
     const classNameWrapper = classNames(
@@ -17,8 +17,6 @@ function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {
         'nota',
         'html-libre'
     );
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -52,6 +50,7 @@ function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {
             </div>
             <LoadBannersSSR />
             <PwaModal />
+            <InitControlGroup />
         </GlobalProvider>
     );
 }

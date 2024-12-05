@@ -22,13 +22,13 @@ import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamic
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import ScriptViewability from '../../private/common/utils/ScriptViewability';
-import { DynamicStylesheetLoader } from '../../output-types/criticalCss/dynamicStylesheetLoader';
+import DynamicStylesheetLoader from '../../output-types/criticalCss/dynamicStylesheetLoader';
 import {
     createBannersIntersectionObserver,
     createDifferVideosObserver
 } from '../../private/common/banners/intersectionObservers';
 import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
-import useInitControlGroup from '../helpers/initCtrlGrp';
+import InitControlGroup from '../helpers/initCtrlGrp';
 
 function LN10Home(props) {
     const {
@@ -72,8 +72,6 @@ function LN10Home(props) {
             createDifferVideosObserver();
         }
     }, [isAdmin]);
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -208,6 +206,7 @@ function LN10Home(props) {
             <PwaModal />
             <RoofEventsScript />
             <ScriptViewability />
+            <InitControlGroup />
         </GlobalProvider>
     );
 }

@@ -7,13 +7,10 @@ import GlobalProvider from '../private/common/context/globalContext';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import { PwaModal } from '../features/LN-10-global/pwaModal/default';
-
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-
+import InitControlGroup from './helpers/initCtrlGrp';
 import '../../resources/dist/css/ln/pages/recipe.css';
-import useInitControlGroup from './helpers/initCtrlGrp';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -35,8 +32,6 @@ function LNNotaReceta({ outputType, children }) {
         'recetas',
         '--top-fixed'
     );
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -99,6 +94,7 @@ function LNNotaReceta({ outputType, children }) {
             </div>
             <LoadBannersSSR />
             <PwaModal />
+            <InitControlGroup />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
