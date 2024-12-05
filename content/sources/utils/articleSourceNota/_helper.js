@@ -99,7 +99,15 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
 export const isValidSectionIA = sections => {
     const section = get(sections, '[0].path', '');
 
-    const validSections = ['/sociedad', '/espectaculos', '/tecnologia'];
+    const validSections = [
+        '/sociedad',
+        '/espectaculos',
+        '/tecnologia',
+        '/lifestyle',
+        '/autos',
+        '/el-mundo',
+        '/seguridad'
+    ];
 
     return validSections.includes(section);
 };
@@ -363,10 +371,10 @@ export const transform = async (response, query, cachedCall) => {
         glossary:
             !notShowGlossary && isValidSectionIA(sections)
                 ? get(
-                    response,
-                    'promo_items.glossary.embed.config.arrayData',
-                    []
-                )
+                      response,
+                      'promo_items.glossary.embed.config.arrayData',
+                      []
+                  )
                 : []
     };
 
