@@ -6,17 +6,16 @@ import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import ComTitle from '../private/common/com-title';
 import GlobalProvider from '../private/common/context/globalContext';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import createTagsTitleAndMetas from '../private/common/utils/lnBuscadorHelper';
 import getQueryParamValue from '../private/common/utils/getQueryParamValue';
-import useInitControlGroup from './helpers/initCtrlGrp';
 import '../../resources/dist/css/ln/pages/buscador.css';
 
-function lnBuscador({
+const lnBuscador = ({
     children,
     metaValue,
     siteProperties: { description } = {}
-}) {
+}) => {
     let searchResults = '';
 
     if (typeof window !== 'undefined') {
@@ -27,8 +26,6 @@ function lnBuscador({
             searchResults
         );
     }
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -52,7 +49,7 @@ function lnBuscador({
             <PwaModal />
         </GlobalProvider>
     );
-}
+};
 
 const pageBuilderSections = ['Cuerpo'];
 

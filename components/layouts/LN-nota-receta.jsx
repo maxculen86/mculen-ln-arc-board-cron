@@ -6,14 +6,13 @@ import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 
 import '../../resources/dist/css/ln/pages/recipe.css';
-import useInitControlGroup from './helpers/initCtrlGrp';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -28,15 +27,13 @@ const pageBuilderSections = [
     'Bottom-Tercera'
 ];
 
-function LNNotaReceta({ outputType, children }) {
+const LNNotaReceta = ({ outputType, children }) => {
     const classNameWrapper = classNames(
         'wrapper',
         'nota',
         'recetas',
         '--top-fixed'
     );
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -102,7 +99,7 @@ function LNNotaReceta({ outputType, children }) {
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
-}
+};
 
 LNNotaReceta.propTypes = {
     children: PropTypes.arrayOf(PropTypes.object).isRequired,

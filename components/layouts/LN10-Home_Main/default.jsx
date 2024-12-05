@@ -22,15 +22,14 @@ import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamic
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import ScriptViewability from '../../private/common/utils/ScriptViewability';
-import { DynamicStylesheetLoader } from '../../output-types/criticalCss/dynamicStylesheetLoader';
+import DynamicStylesheetLoader from '../../output-types/criticalCss/dynamicStylesheetLoader';
 import {
     createBannersIntersectionObserver,
     createDifferVideosObserver
 } from '../../private/common/banners/intersectionObservers';
-import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
-import useInitControlGroup from '../helpers/initCtrlGrp';
+import PwaModal from '../../features/LN-10-global/pwaModal/default';
 
-function LN10Home(props) {
+const LN10Home = props => {
     const {
         children,
         outputType,
@@ -54,16 +53,16 @@ function LN10Home(props) {
         canales2,
         appAnexo1,
         appAnexo2
-    ] = pageBuilderSections.map((section, index) =>
-        sectionHelper(
+    ] = pageBuilderSections.map((section, index) => {
+        return sectionHelper(
             children[index],
             section,
             index,
             renderables,
             outputType,
             isAdmin
-        )
-    );
+        );
+    });
 
     useEffect(() => {
         createViewabilityObservers(true);
@@ -72,8 +71,6 @@ function LN10Home(props) {
             createDifferVideosObserver();
         }
     }, [isAdmin]);
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -210,7 +207,7 @@ function LN10Home(props) {
             <ScriptViewability />
         </GlobalProvider>
     );
-}
+};
 
 LN10Home.propTypes = {
     renderables: PropTypes.arrayOf(PropTypes.node),
