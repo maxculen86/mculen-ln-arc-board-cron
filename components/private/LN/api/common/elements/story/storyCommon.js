@@ -12,14 +12,14 @@ import {
     isExcludedSubtype
 } from '../../../../../../features/LN-10-global/common/readingTime/_helpers';
 
-const getPaywallStatus = dataNota => {
+export const getPaywallStatus = dataNota => {
     const paywallStatus = get(
         dataNota,
         'content_restrictions.content_code',
         null
     );
 
-    if (!paywallStatus || paywallStatus === 'cerrada') return 'comun';
+    if (!paywallStatus) return 'comun';
 
     return paywallStatus;
 };

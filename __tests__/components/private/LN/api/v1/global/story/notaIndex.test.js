@@ -29,7 +29,7 @@ describe('Test de index en JSON de nota', () => {
 
     it('Test paywallStatus cerrada', () => {
         const resp = NotaIndex(FO4F7BUAJZBDDLPEMSV5QYDCGM);
-        expect(resp.paywallStatus).toBe('comun');
+        expect(resp.paywallStatus).toBe('cerrada');
     });
 
     it('Test Paywall inexistente', () => {

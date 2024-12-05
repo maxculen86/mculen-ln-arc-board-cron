@@ -52,7 +52,7 @@ const boxArticleEventBuilder = {
     },
     ranking: () => {
         const rankingArticles = document.querySelectorAll(
-            '[data-block-name="n_ranking"] div article'
+            '[data-article-box="Ranking"]'
         );
 
         rankingArticles.forEach((rankArt, i) => {
@@ -99,6 +99,7 @@ export const articleBoxesTracker = ({
                         ctr_position: ctrPosition
                     });
 
+                    // eslint-disable-next-line no-use-before-define
                     observer.unobserve(target);
                 }
             });

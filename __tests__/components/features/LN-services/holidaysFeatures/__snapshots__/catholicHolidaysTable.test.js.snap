@@ -130,7 +130,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
     <h2
       class="com-title --font-primary --xl --font-black"
     >
-      Feriados transferibles
+      Feriados trasladables
     </h2>
   </section>
   <div
@@ -174,7 +174,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
     <h2
       class="com-title --font-primary --xl --font-black"
     >
-      Feriados puentes
+      Días no laborables
     </h2>
   </section>
   <div

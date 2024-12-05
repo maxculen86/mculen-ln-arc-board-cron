@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
-import { Cardgames } from '@ln/contenidos-ui-cardgames';
 import get from '../../../private/common/utils/get';
 import getGameProperties from '../../../private/LN/common/utils/getGameProperties';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import checkSection from '../../../private/LN/common/utils/checkSection';
 import { addInitialSlash } from '../../../private/LN/common/utils/addInitialSlash';
 import addForwardSlash from '../../../private/LN/common/utils/addForwardSlash';
+import GameCard from './gameCard';
 
-const Game = ({ id: featureId, customFields, isAdmin }) => {
+function Game({ id: featureId, customFields, isAdmin }) {
     const { contextPath, deployment, arcSite, globalContent } =
         useAppContext() || {};
 
@@ -62,20 +62,6 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
         );
     }
 
-    const GameCard = (props = {}) => {
-        const { forSubscriber, newGame, ...restProps } = props;
-        return (
-            <div className="col-span-4 col-span-3_sm">
-                <Cardgames
-                    {...restProps}
-                    isHomeGames={primarySection}
-                    forSubscriber={forSubscriber}
-                    newGame={newGame}
-                />
-            </div>
-        );
-    };
-
     const forSubscriber = subscriber === 'SI';
 
     if (gameType === 'Externo') {
@@ -85,6 +71,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
                 href={addForwardSlash(sectionId)}
                 forSubscriber={forSubscriber}
                 newGame={newGame}
+                isHomeGames={primarySection}
             />
         );
     }
@@ -107,13 +94,16 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
             href={addForwardSlash(articleLink)}
             forSubscriber={forSubscriber}
             newGame={newGame}
+            isHomeGames={primarySection}
         />
     );
-};
+}
 
 Game.label = 'LN Juego';
 
 Game.propTypes = {
+    id: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         sectionId: PropTypes.string.tag({
             name: 'sectionId',
@@ -132,7 +122,7 @@ Game.propTypes = {
             defaultValue: 'NO',
             name: 'Es nuevo?'
         }).isRequired
-    })
+    }).isRequired
 };
 
 export default Game;

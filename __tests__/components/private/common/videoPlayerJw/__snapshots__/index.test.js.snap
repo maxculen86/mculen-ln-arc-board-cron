@@ -10,7 +10,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
         class="ratio-16-9"
       >
         <div>
-          <div
+          <figure
             class="video-player bg-black ratio-16-9"
           >
             <div
@@ -68,7 +68,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
               defer=""
               id="scriptVideosJw"
             />
-          </div>
+          </figure>
         </div>
         <script
           type="application/ld+json"

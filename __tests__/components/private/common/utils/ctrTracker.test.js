@@ -16,7 +16,7 @@ describe('CTR tracker util', () => {
                     measure: jest.fn()
                 }
             });
-            crtViewTracker(true, () => { });
+            crtViewTracker(true, () => {});
             expect(window.dataLayer).toStrictEqual([
                 {
                     event: 'impressionNota',
@@ -38,7 +38,7 @@ describe('CTR tracker util', () => {
                     measure: jest.fn()
                 }
             });
-            crtViewTracker(true, () => { });
+            crtViewTracker(true, () => {});
             expect(window.dataLayer).toStrictEqual([]);
         });
     });

@@ -6,18 +6,4 @@
     position: relative;
     transition: all 0.2s ease-in-out;
     margin-bottom: $spacing-xs;
-    .mod-autor & {
-        @include flex(inline);
-        background: $light-neutral-400;
-        width: px(80);
-        max-width: px(80);
-        height: px(80);
-        border-radius: 50%;
-        margin-right: $spacing-sm;
-        overflow: hidden;
-        margin-bottom: 0;
-        // .com-image {
-        //     width: 100%;
-        // }
-    }
 }

@@ -1,31 +1,17 @@
 import React from 'react';
-import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
+import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { Dialog } from '@ln/common-ui-dialog';
-import classNames from 'classnames';
+import { cx } from '@ln/cva';
+import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
+import { a11yAttrsDialogGlossary } from '../helpers';
 
-export const Header = ({ keyGlossary, className, isDialog }) => {
+function Header({ keyGlossary, className, isDialog }) {
     const capitalizeKeyGlossary = capitalizeFirstLetter(keyGlossary);
-    const Title = () => {
-        return isDialog ? (
-            <Dialog.Title
-                as="h3"
-                className="glossary-title --font-primary --font-bold as-flex-end"
-            >
-                {capitalizeKeyGlossary}
-            </Dialog.Title>
-        ) : (
-            <Text
-                as="h3"
-                className="glossary-title --font-primary --font-bold as-flex-end"
-            >
-                {capitalizeKeyGlossary}
-            </Text>
-        );
-    };
+
     return (
-        <div className={classNames('flex gap-4', className)}>
+        <div className={cx('flex gap-4', className)}>
             <Icon size={24}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +54,33 @@ export const Header = ({ keyGlossary, className, isDialog }) => {
                     </defs>
                 </svg>
             </Icon>
-            <Title />
+            {isDialog ? (
+                <Dialog.Title
+                    as="h3"
+                    className="glossary-title --font-primary --font-bold as-flex-end"
+                    id={a11yAttrsDialogGlossary['aria-labelledby']}
+                >
+                    {capitalizeKeyGlossary}
+                </Dialog.Title>
+            ) : (
+                <Text
+                    as="h3"
+                    className="glossary-title --font-primary --font-bold as-flex-end"
+                >
+                    {capitalizeKeyGlossary}
+                </Text>
+            )}
         </div>
     );
+}
+
+Header.propTypes = {
+    keyGlossary: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    isDialog: PropTypes.bool.isRequired
 };
+Header.defaultProps = {
+    className: ''
+};
+
+export default Header;

@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dialog } from '@ln/common-ui-dialog';
 import { useWindowSize } from '@ln/hooks';
+import { Button } from '@ln/common-ui-button';
+import { Icon } from '@ln/common-ui-icon';
 import BuildAudioPlayer from './BuildAudioPlayer';
 import isSSR from '../../LN/common/utils/isSSR';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
 function AudioPlayer({ noteId = '', audioPlayerProps = {}, showVariantIa }) {
     const { width: viewportWidth } = useWindowSize();
@@ -18,40 +21,40 @@ function AudioPlayer({ noteId = '', audioPlayerProps = {}, showVariantIa }) {
         <BuildAudioPlayer
             setEnableButton={setEnableButton}
             noteId={noteId}
-            loaderClass="m-0"
             playbackState="playing"
             onCloseAudioPlayer={onCloseAudioPlayer}
             showVariantIa={showVariantIa}
         />
     );
 
-    return (
-        <div id="audio-player-desktop">
-            {isMobile ? (
-                <Dialog
-                    isOpen={isOpenAudioPlayer}
-                    onClose={onCloseAudioPlayer}
-                    position="bottom"
-                    id="audio-player"
-                    classnames={{
-                        base: 'w-100 p-16 w-640_md shadow-up-md center-x',
-                        wrapper: 'flex flex-column gap-12'
-                    }}
-                    style={{ zIndex: 15000 }}
+    return isMobile ? (
+        <Dialog
+            isOpen={isOpenAudioPlayer}
+            onClose={onCloseAudioPlayer}
+            position="bottom"
+            id="audio-player"
+            classnames={{
+                base: 'w-100 p-16 w-640_md shadow-up-md mx-auto',
+                wrapper: 'flex flex-column gap-12'
+            }}
+            style={{ zIndex: 15000 }}
+        >
+            <Dialog.Header className="flex-column">
+                <Button
+                    onClick={onCloseAudioPlayer}
+                    className="as-flex-end"
+                    aria-label="Cerrar"
+                    title="Cerrar"
                 >
-                    <Dialog.Header
-                        className="flex-column"
-                        closeButtonProps={{
-                            className: 'as-flex-end',
-                            title: 'Cerrar'
-                        }}
-                    />
-                    {buildAudioPlayer}
-                </Dialog>
-            ) : (
-                buildAudioPlayer
-            )}
-        </div>
+                    <Icon>
+                        <IconSprite name="close" />
+                    </Icon>
+                </Button>
+            </Dialog.Header>
+            {buildAudioPlayer}
+        </Dialog>
+    ) : (
+        buildAudioPlayer
     );
 }
 

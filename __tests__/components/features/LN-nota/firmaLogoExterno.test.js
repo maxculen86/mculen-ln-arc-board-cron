@@ -2,8 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import FirmaLogoExterno from '../../../../components/features/LN-nota/firmaLogoExterno';
-import ComPartner from '../../../../components/private/common/com-partner';
-import ComLink from '../../../../components/private/common/com-link';
 import {
     HTMLLIBRE,
     RECETA,
@@ -11,7 +9,7 @@ import {
 } from '..//../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -26,8 +24,7 @@ describe('Test of return FirmaLogoExterno', () => {
                     type: 'author',
                     name: 'Mariano Grondona',
                     image: {
-                        url:
-                            'https://bucket.glanacion.com/anexos/fotos/85/2089285.png',
+                        url: 'https://bucket.glanacion.com/anexos/fotos/85/2089285.png',
                         version: '0.5.8'
                     },
                     slug: 'mariano-grondona',
@@ -43,8 +40,7 @@ describe('Test of return FirmaLogoExterno', () => {
                     type: 'author',
                     name: 'Cristóbal Bellolio Badiola',
                     image: {
-                        url:
-                            'https://s3.amazonaws.com/arc-authors/lanacionar/c780bba1-6787-49f6-86ff-50afad490094.webp',
+                        url: 'https://s3.amazonaws.com/arc-authors/lanacionar/c780bba1-6787-49f6-86ff-50afad490094.webp',
                         version: '0.5.8'
                     },
                     url: '/autor/cristobal-bellolio-badiola-13185/',
@@ -58,27 +54,26 @@ describe('Test of return FirmaLogoExterno', () => {
         withFirmaDistributor: false
     };
 
-    it('Test of return distributor = undefined and by.lenth > 0', () => {
+    it('Test of return distributor = undefined and by.length > 0', () => {
         const { container } = render(
             <FirmaLogoExterno globalContent={props} />
         );
-        // Verifica si el contenedor está vacío
         expect(container).toBeEmptyDOMElement();
     });
 
     it('Test return component ComPartner La Nacion Recetas', () => {
         const properties = {
             ...props,
-            credits: { by: [] }
+            credits: { by: [] },
+            distributor: { name: 'Reuters' }
         };
         render(<FirmaLogoExterno globalContent={properties} />);
 
-        // Buscar por texto específico
         const comPartnerText = screen.getByText('Por LA NACION recetas');
         expect(comPartnerText).toBeInTheDocument();
     });
 
-    it('Test of return subtype = RECETA and by.lenth > 0', () => {
+    it('Test of return subtype = RECETA and by.length > 0', () => {
         const properties = {
             ...props,
             distributor: { name: 'lanacionar' }
@@ -87,7 +82,20 @@ describe('Test of return FirmaLogoExterno', () => {
             <FirmaLogoExterno globalContent={properties} />
         );
 
-        // Verifica si el contenedor está vacío
+        expect(container).toBeEmptyDOMElement();
+    });
+
+    it('Test of return name "LA NACION" and by.length > 0', () => {
+        const properties = {
+            ...props,
+            distributor: { name: 'LA NACION' },
+            subtype: NOTICIA
+        };
+
+        const { container } = render(
+            <FirmaLogoExterno globalContent={properties} />
+        );
+
         expect(container).toBeEmptyDOMElement();
     });
 
@@ -99,7 +107,6 @@ describe('Test of return FirmaLogoExterno', () => {
         };
         render(<FirmaLogoExterno globalContent={properties} />);
 
-        // Buscar por texto específico
         const comPartnerText = screen.getByText('BBC Mundo');
         expect(comPartnerText).toBeInTheDocument();
     });
@@ -111,12 +118,47 @@ describe('Test of return FirmaLogoExterno', () => {
             subtype: NOTICIA
         };
         render(<FirmaLogoExterno globalContent={properties} />);
-
-        // Busca el enlace por su clase CSS o texto visible
-        const comLinkElement = screen.getByText('BBC'); // Asegúrate de usar el texto que corresponde
-        // O si quieres buscar por clase CSS:
-        // const comLinkElement = screen.getByRole('link', { class: 'com-link' });
-
+        const comLinkElement = screen.getByRole('link');
         expect(comLinkElement).toBeInTheDocument();
+    });
+
+    it('Test for withFirmaDistributor in false and name is LA NACION', () => {
+        const properties = {
+            ...props,
+            distributor: { name: 'LA NACION' },
+            credits: { by: [] },
+            subtype: NOTICIA
+        };
+
+        render(<FirmaLogoExterno globalContent={properties} />);
+        const comLinkElement = screen.queryByRole('link');
+        expect(comLinkElement).toBeNull();
+        expect(screen.getByText('LA NACION')).toBeInTheDocument();
+    });
+
+    it('Test for withFirmaDistributor in false and Distributor is Custom', () => {
+        const properties = {
+            ...props,
+            distributor: { name: 'Custom Distributor', mode: 'custom' },
+            credits: { by: [] },
+            subtype: NOTICIA
+        };
+
+        render(<FirmaLogoExterno globalContent={properties} />);
+        const comLinkElement = screen.queryByRole('link');
+        expect(comLinkElement).toBeNull();
+        expect(screen.getByText('Custom Distributor')).toBeInTheDocument();
+    });
+
+    it('Does not render for the distributor "lanacionar"', () => {
+        const properties = {
+            ...props,
+            globalContent: {
+                distributor: { name: 'lanacionar' }
+            }
+        };
+
+        const { container } = render(<FirmaLogoExterno {...properties} />);
+        expect(container).toBeEmptyDOMElement();
     });
 });

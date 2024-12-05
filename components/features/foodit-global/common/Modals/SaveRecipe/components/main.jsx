@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState, HTMLInputElement } from 'react';
+import PropTypes from 'prop-types';
 import { Inputfield } from '@ln/common-ui-inputfield';
 import { Select } from '@ln/common-ui-select';
-import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { loadBookmarkFolders } from '../../../bookmark/foldersHelper';
-import { useEffect, useState } from 'react';
 import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
-import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
-import { Icon } from '@ln/common-ui-icon';
 import { ErrorMessage } from '../../../errorMessage/foodit';
+import RenderOption from './options';
 
-const MainSaveRecipe = props => {
+function MainSaveRecipe(props) {
     const {
         newFolder,
         error,
@@ -58,28 +56,15 @@ const MainSaveRecipe = props => {
                                 key={value || bookmarkGroup}
                                 value={value || bookmarkGroup}
                                 label={bookmarkGroup}
-                                as={propsAs => {
-                                    return (
-                                        <>
-                                            {value === 'new' ? (
-                                                <span
-                                                    className="flex ai-center roboto-bold py-8 text-14 gap-8 border border-bottom border-thin border-light-100"
-                                                    data-test-id="button-bookmark-create-collection"
-                                                >
-                                                    <Icon size={16}>
-                                                        <IconSprite name="plus" />
-                                                    </Icon>
-                                                    {bookmarkGroup}
-                                                </span>
-                                            ) : (
-                                                <Itemcard
-                                                    type="button"
-                                                    {...propsAs}
-                                                />
-                                            )}
-                                        </>
-                                    );
-                                }}
+                                // TODO: Para evitar el disable de la regla se debera modificar la librería Select para soportar children sin romper los estilos actuales del ItemCard.
+                                // eslint-disable-next-line react/no-unstable-nested-components
+                                as={propsAs => (
+                                    <RenderOption
+                                        value={value}
+                                        bookmarkGroup={bookmarkGroup}
+                                        propsAs={propsAs}
+                                    />
+                                )}
                             />
                         ))}
                     </div>
@@ -102,11 +87,27 @@ const MainSaveRecipe = props => {
                         error={Boolean(error?.hasError)}
                         errorClassName="border-danger-600"
                         errorMessage={<ErrorMessage message={error?.message} />}
+                        closable
                     />
                 </div>
             )}
         </div>
     );
+}
+
+MainSaveRecipe.propTypes = {
+    newFolder: PropTypes.string.isRequired,
+    onInputFolderChange: PropTypes.func.isRequired,
+    error: PropTypes.shape({
+        hasError: PropTypes.bool.isRequired,
+        message: PropTypes.string.isRequired
+    }).isRequired,
+    onSelectChange: PropTypes.func.isRequired,
+    showInputFolder: PropTypes.bool.isRequired,
+    showSelect: PropTypes.bool.isRequired,
+    inputRef: PropTypes.shape({
+        current: PropTypes.instanceOf(HTMLInputElement)
+    }).isRequired
 };
 
 export default MainSaveRecipe;
