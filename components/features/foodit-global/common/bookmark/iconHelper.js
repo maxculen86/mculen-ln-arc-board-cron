@@ -13,6 +13,11 @@ const checkBookmarksInCarousel = carousel => {
     const collectionIcon = carousel.querySelector(
         '[data-collectionid] svg use'
     );
+
+    const collectionText = carousel.querySelector('[data-collectionid] span');
+    if (collectionText?.innerText) {
+        collectionText.innerText = allFilled ? 'Guardado' : 'Guardar todo';
+    }
     if (collectionIcon) {
         const href = collectionIcon.getAttribute('href');
         const newHref = allFilled
@@ -61,15 +66,16 @@ export const toggleBookmarks = (articleIds, shouldFill = true) => {
                     icon.setAttribute('href', newHref);
                 }
             }
-
             const textNode = Array.from(button.childNodes).find(
                 node =>
-                    node.nodeType === Node.TEXT_NODE &&
-                    node.nodeValue.trim() ===
-                        (shouldFill ? 'Guardar' : 'Guardado')
+                    (node.nodeType === Node.TEXT_NODE &&
+                        node.nodeValue.trim() ===
+                            (shouldFill ? 'Guardar' : 'Guardado')) ||
+                    node?.innerText?.trim()
             );
             if (textNode) {
                 textNode.nodeValue = shouldFill ? 'Guardado' : 'Guardar';
+                textNode.innerText = shouldFill ? 'Guardado' : 'Guardar';
             }
         });
     });
