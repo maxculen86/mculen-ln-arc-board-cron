@@ -7,8 +7,9 @@ import Footer from '../../private/LN10/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
-import PwaModal from '../../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import ComTitle from '../../private/common/com-title';
+import useInitControlGroup from '../helpers/initCtrlGrp';
 
 const layoutItemsColumnistas = [
     'Pre-Apertura',
@@ -17,8 +18,9 @@ const layoutItemsColumnistas = [
     'Aside'
 ];
 
-const LNAcumuladoColumnistasLayout = props => {
+function LNAcumuladoColumnistasLayout(props) {
     const { children } = props;
+    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -69,7 +71,7 @@ const LNAcumuladoColumnistasLayout = props => {
             <PwaModal />
         </GlobalProvider>
     );
-};
+}
 
 LNAcumuladoColumnistasLayout.propTypes = {
     children: PropTypes.node.isRequired,
