@@ -8,16 +8,15 @@ import '../../resources/dist/css/ln/pages/photo100.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
-import useInitControlGroup from './helpers/initCtrlGrp';
 
-function lnNotaFotoAl100({
+const lnNotaFotoAl100 = ({
     children: [
         bannerMegatop,
         preTitulo,
@@ -37,7 +36,7 @@ function lnNotaFotoAl100({
     },
     layout,
     globalContent
-}) {
+}) => {
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
     const isLoadWithPicture = isAllowedSection({
@@ -45,9 +44,9 @@ function lnNotaFotoAl100({
         listOfAllowedSection,
         noteType: subtype
     });
-    const withoutVideoBackground = !(
+    const withoutVideoBackground = !Boolean(
         get(globalContent, 'promo_items.storytelling', null) ||
-        get(globalContent, 'promo_items.video_jw', null)
+            get(globalContent, 'promo_items.video_jw', null)
     );
     const classNameWrapper = classNames(
         'wrapper',
@@ -57,8 +56,6 @@ function lnNotaFotoAl100({
         '--photo100'
     );
 
-    useInitControlGroup();
-
     return (
         <GlobalProvider>
             {bannerMegatop}
@@ -67,9 +64,11 @@ function lnNotaFotoAl100({
                 <main id="content" className="--header-fixed-margin">
                     {preTitulo}
                     {isLoadWithPicture && withoutVideoBackground ? (
-                        <AperturaStorytelling
-                            isLoadWithPicture={isLoadWithPicture}
-                        />
+                        <>
+                            <AperturaStorytelling
+                                isLoadWithPicture={isLoadWithPicture}
+                            />
+                        </>
                     ) : (
                         <AperturaStorytelling
                             isLoadWithPicture={isLoadWithPicture}
@@ -104,7 +103,7 @@ function lnNotaFotoAl100({
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
-}
+};
 
 const pageBuilderSections = [
     'Banner-Megatop',

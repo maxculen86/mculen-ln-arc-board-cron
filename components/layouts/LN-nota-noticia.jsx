@@ -9,13 +9,12 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 import '../../resources/dist/css/ln/base/helpers.css';
 import '../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
-import useInitControlGroup from './helpers/initCtrlGrp';
 
-function lnNotaNoticia({
+const lnNotaNoticia = ({
     children,
     outputType,
     layout,
@@ -23,7 +22,7 @@ function lnNotaNoticia({
         taxonomy: { sections },
         distributor = { name: 'LA NACION' }
     }
-}) {
+}) => {
     const { name = 'LA NACION' } = distributor;
     const bannerMegatop = children[0];
     const logo = getSectionLogo(sections, layout, name);
@@ -37,7 +36,6 @@ function lnNotaNoticia({
         magazine
     );
 
-    useInitControlGroup();
     return (
         <GlobalProvider>
             {bannerMegatop}
@@ -47,7 +45,7 @@ function lnNotaNoticia({
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
-}
+};
 
 const pageBuilderSections = [
     'Banner-Megatop',

@@ -4,21 +4,18 @@ const props = {
     id: 'LN-acumulado-columnistas',
     isAdmin: false,
     layout: 'LN-acumulado-columnistas',
-    arcSite: 'la-nacion-ar',
-    children: [[], [], ['MockChild1', 'MockChild2'], []]
+    arcSite: 'la-nacion-ar'
 };
 
 jest.mock('fusion:consumer', component => {
-    return function (component) {
+    return function(component) {
         return component;
     };
 });
 
-jest.mock('../../../../components/layouts/helpers/initCtrlGrp', () =>
-    jest.fn()
-);
-
 describe('Components - Layout - LNAcumuladoColumnistasLayout Default', () => {
+    props.children = [[], [], ['MockChild1', 'MockChild2'], []];
+
     test('Should render correct title', () => {
         const component = LayoutAcumColumnistasDefault(props);
 

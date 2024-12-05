@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 
 import '../../resources/dist/css/ln/pages/video.css';
 
@@ -12,9 +12,8 @@ import GlobalProvider from '../private/common/context/globalContext';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import useInitControlGroup from './helpers/initCtrlGrp';
 
-function lnNotaVideo({ children, outputType }) {
+const lnNotaVideo = ({ children, outputType }) => {
     const bannerMegatop = children[0];
 
     const classNameWrapper = classNames(
@@ -23,8 +22,6 @@ function lnNotaVideo({ children, outputType }) {
         'nota',
         'video'
     );
-
-    useInitControlGroup();
 
     return (
         <GlobalProvider>
@@ -74,7 +71,7 @@ function lnNotaVideo({ children, outputType }) {
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
-}
+};
 
 const pageBuilderSections = [
     'Banner-Megatop',
