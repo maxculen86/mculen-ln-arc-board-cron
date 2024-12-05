@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { Horizontalscroller } from '@ln/common-ui-horizontalscroller';
@@ -6,7 +5,7 @@ import { CommonTabs as Tabs } from '@ln/common-ui-tabs';
 import { Closebutton } from '@ln/common-ui-closebutton';
 import PropTypes from 'prop-types';
 import { Motion } from '@ln/common-ui-motion';
-import { IaTab } from './iaTab';
+import IaTab from './iaTab';
 import IaContent from './iaContent';
 import useIaVisibility from '../hooks/useIaVisibility';
 import ContainerValidation from '../../../../private/common/containerValidation';

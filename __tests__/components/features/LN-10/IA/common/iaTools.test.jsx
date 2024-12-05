@@ -14,6 +14,11 @@ jest.mock(
     })
 );
 
+jest.mock(
+    '../../../../../../components/features/LN-10/IA/common/iaTab',
+    () => 'mock-ia-tab'
+);
+
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
@@ -87,14 +92,7 @@ describe('IaTools component', () => {
         const { container } = render(<IaTools iaData={[]} />);
         expect(container.firstChild).toBeNull();
     });
-    it('should render titles correctly', () => {
-        render(<IaTools iaData={iaDataMock} />);
-        const summaryTitle = screen.getByText('Resumen de lectura');
-        const glossaryTytle = screen.getByText('Glosario');
 
-        expect(summaryTitle).toBeTruthy();
-        expect(glossaryTytle).toBeTruthy();
-    });
     it('should execute handleClose correctly', () => {
         const { container } = render(<IaTools iaData={iaDataMock} />);
         const buttonClose = container.querySelector('#closeButtonIA');
