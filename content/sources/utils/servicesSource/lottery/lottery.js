@@ -21,7 +21,7 @@ const getUri = ({ service = '', serviceItem = '' }) => {
     throw new Error('Debe definir un servicio ó servicio e item.');
 };
 
-const lotteryRequest = ({ queryData, auth } = {}) => {
+const lotteryRequest = ({ queryData } = {}) => {
     const opt = {
         uri: getUri(queryData),
         json: true,
@@ -32,8 +32,6 @@ const lotteryRequest = ({ queryData, auth } = {}) => {
     };
     return request(opt).then(data => data);
 };
-
-const resolve = ({ response = {} }) => transform(response);
 
 const reject = ({ error, uri, arcSite }) => {
     logger.push(error, { source: 'serviceSource', url: uri }, arcSite);
@@ -55,10 +53,10 @@ const transform = data => {
         })
     };
 };
+const resolve = ({ response = {} }) => transform(response);
 
-const getTemplates = serviceItem => {
-    return serviceItem ? 'detalle-loterias' : 'home-loterias';
-};
+const getTemplates = serviceItem =>
+    serviceItem ? 'detalle-loterias' : 'home-loterias';
 
 export default {
     getUri,

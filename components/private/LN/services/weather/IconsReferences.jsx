@@ -4,7 +4,7 @@ import Text from '../../../common/text';
 import optionsIcons from './optionsIcons';
 import ModHeaderSection from '../../../common/mod-headerSection';
 
-const IconsReferences = () => {
+function IconsReferences() {
     const listIcons = [
         { id: 'sun', description: 'Despejado (día)' },
         { id: 'clear-night', description: 'Despejado (noche)' },
@@ -19,7 +19,6 @@ const IconsReferences = () => {
         { id: 'snow', description: 'Nevadas Fuertes' },
         { id: 'drop', description: 'Humedad' }
     ];
-    if (!listIcons.length) return <></>;
     return (
         <div className="content-icon flex flex-column jc-center mb-32">
             <ModHeaderSection tag="h3" title="Referencias del clima" />
@@ -45,6 +44,6 @@ const IconsReferences = () => {
             </div>
         </div>
     );
-};
+}
 
 export default IconsReferences;

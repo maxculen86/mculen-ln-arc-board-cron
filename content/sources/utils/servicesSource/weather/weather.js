@@ -24,7 +24,7 @@ const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
         'No esta solicitado ningun clima o el clima que desea solicitar no existe.'
     );
 };
-const weatherRequest = ({ queryData, auth } = {}) => {
+const weatherRequest = ({ queryData } = {}) => {
     const opt = {
         uri: getUri(queryData),
         json: true,
@@ -35,7 +35,6 @@ const weatherRequest = ({ queryData, auth } = {}) => {
     };
     return request(opt).then(data => data);
 };
-const resolve = ({ response = {} }) => transform(response);
 
 const transform = data => {
     const {
@@ -78,16 +77,16 @@ const transform = data => {
         serviceType
     };
 };
+const resolve = ({ response = {} }) => transform(response);
 
 const reject = ({ error, uri, arcSite }) => {
     logger.push(error, { source: 'servicesSource', url: uri }, arcSite);
 };
 
-const getTemplates = (serviceItem, serviceSubItem, sectionChildrens = []) => {
-    return serviceItem && (!sectionChildrens.length || serviceSubItem)
+const getTemplates = (serviceItem, serviceSubItem, sectionChildrens = []) =>
+    serviceItem && (!sectionChildrens.length || serviceSubItem)
         ? 'detalle-clima'
         : 'home-clima';
-};
 
 export default {
     getUri,
