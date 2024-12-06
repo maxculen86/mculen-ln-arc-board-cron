@@ -15,10 +15,9 @@ jest.mock(
     '../../../components/private/LN/common/footer/copyright',
     () => () => <div>Copyright Component</div>
 );
-jest.mock(
-    '../../../components/features/LN-10-global/pwaModal/default',
-    () => () => <div>PwaModal Component</div>
-);
+jest.mock('../../../components/features/LN-10-global/pwaModal/default', () => ({
+    PwaModal: () => <div>PwaModal Component</div>
+}));
 
 describe('Componentes- Layouts - LNMapaDelSitio', () => {
     describe('LNMapaDelSitio', () => {

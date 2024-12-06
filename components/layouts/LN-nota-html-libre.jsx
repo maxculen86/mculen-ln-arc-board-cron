@@ -7,11 +7,10 @@ import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import PwaModal from '../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import InitControlGroup from './helpers/initCtrlGrp';
 
-const lnNotaNoticia = ({
-    children: [bannerMegatop, bottom, bottomTercera]
-}) => {
+function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {
     const classNameWrapper = classNames(
         'wrapper',
         '--top-fixed',
@@ -51,9 +50,10 @@ const lnNotaNoticia = ({
             </div>
             <LoadBannersSSR />
             <PwaModal />
+            <InitControlGroup />
         </GlobalProvider>
     );
-};
+}
 
 lnNotaNoticia.sections = ['Banner-Megatop', 'Bottom', 'Bottom-Tercera'];
 

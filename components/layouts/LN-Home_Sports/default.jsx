@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import Header from '../../features/LN-10-global/header/default';
@@ -9,11 +8,12 @@ import '../../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
-import PwaModal from '../../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
+import InitControlGroup from '../helpers/initCtrlGrp';
 
-const LNSportsHome = props => {
+function LNSportsHome(props) {
     const {
         children: [
             bannerMegatop,
@@ -81,15 +81,13 @@ const LNSportsHome = props => {
                 </div>
                 <LoadBannersSSR />
                 <PwaModal />
+                <InitControlGroup />
             </GlobalProviderAcu>
         </GlobalProvider>
     );
-};
+}
 
 LNSportsHome.propTypes = {
-    outputType: PropTypes.string.isRequired,
-    tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)).isRequired,
-    isAdmin: PropTypes.bool.isRequired,
     ...homeLayoutsPropTypes
 };
 
