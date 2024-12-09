@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
-import OpeningRecipe from '../../features/foodit-global/common/OpeningRecipe/foodit';
-import PowerupsReceta from '../../features/foodit-global/Body/PowerupsReceta/foodit';
+import { OpeningRecipe } from '../../features/foodit-global/common/OpeningRecipe/foodit';
+import { PowerupsReceta } from '../../features/foodit-global/Body/PowerupsReceta/foodit';
 import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
-const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
+function FichaRecetaFoodit({ children = [], globalContent = {} }) {
     const [body, bottom] = children;
 
     return (
@@ -39,9 +39,6 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                             globalContent={globalContent}
                             calssName="lg-only"
                         />
-                        <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
-                            Preparación
-                        </h3>
                     </Static>
                     {body}
                 </div>
@@ -51,13 +48,13 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
-};
+}
 
 FichaRecetaFoodit.sections = pageBuilderSections;
 
 FichaRecetaFoodit.propTypes = {
-    children: PropTypes.array,
-    globalContent: PropTypes.object
+    children: PropTypes.array.isRequired,
+    globalContent: PropTypes.object.isRequired
 };
 
 export default Consumer(FichaRecetaFoodit);
