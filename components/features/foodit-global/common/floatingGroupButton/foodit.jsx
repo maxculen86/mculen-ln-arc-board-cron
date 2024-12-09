@@ -15,7 +15,7 @@ function FloatingGroupButton({
     const { userType } = useGetUserConfig();
 
     const _className = classNames(
-        'inline-flex fixed bottom-0 left-50 -translate-x-50 mb-16 z-5 shadow-down-2xs bg-primary-positive rounded-4 overflow-hidden',
+        'print-hide inline-flex fixed bottom-0 left-50 -translate-x-50 mb-16 z-5 shadow-down-2xs bg-primary-positive rounded-4 overflow-hidden',
         'transition transition-all transition-duration-400 sm-only',
         { 'translate-y-100': !visible },
         className
