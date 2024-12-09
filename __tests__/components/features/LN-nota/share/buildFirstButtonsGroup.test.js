@@ -110,6 +110,10 @@ describe('Components - Features - LN-nota - share', () => {
         useTermica.mockImplementation(() => true);
         render(<BuildFirtsButtonsGroup globalContent={globalContent()} />);
 
-        expect(screen.getByTitle('IA')).toBeInTheDocument();
+        expect(
+            screen.getByTitle(
+                'Leer el resumen y glosario generados por la inteligencia artificial'
+            )
+        ).toBeInTheDocument();
     });
 });

@@ -8,8 +8,7 @@ const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
 export const handleOpenIAFeature = ({
     defaultTab,
     iaButtonIsClicked,
-    setIaButtonIsClicked,
-    callback = () => null
+    setIaButtonIsClicked
 }) => {
     if (!iaButtonIsClicked) {
         setIaButtonIsClicked(true);
@@ -20,15 +19,7 @@ export const handleOpenIAFeature = ({
             category: 'nota_ln9',
             label: defaultTab
         });
-
-        localStorage.setItem('IA-feature-tracking', 'wasDisplayed');
-        callback?.();
     }
-};
-
-export const IA_FEATURE_TRACKING_STORAGE = {
-    key: 'IA-feature-tracking',
-    value: 'wasDisplayed'
 };
 
 export const getClassAndIconByClick = iaButtonIsClicked =>
