@@ -1199,12 +1199,12 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 class="link ln-link dd-link jc-between --font-s"
                 href="/suscriptores/"
                 target="_self"
-                title="Ir a Exclusivo Suscriptores"
+                title="Ir a Suscriptores"
               >
                 <div
                   class="menu-item-title flex gap-8 ai-center"
                 >
-                  Exclusivo Suscriptores
+                  Suscriptores
                 </div>
               </a>
             </li>
