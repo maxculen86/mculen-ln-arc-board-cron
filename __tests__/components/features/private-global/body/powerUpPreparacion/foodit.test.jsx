@@ -15,7 +15,9 @@ describe('PowerUpPreparacion', () => {
         };
 
         render(<PowerUpPreparacion data={data} />);
-        expect(screen.getByText('Título de Prueba')).toBeInTheDocument();
+        const headings = screen.getAllByRole('heading');
+        expect(headings[0].textContent).toEqual('Preparación');
+        expect(headings[1].textContent).toEqual('Título de Prueba');
         expect(
             screen.getByText('Item 1', { selector: 'li' })
         ).toBeInTheDocument();
@@ -52,13 +54,16 @@ describe('PowerUpPreparacion', () => {
             }
         };
 
-        render(<PowerUpPreparacion data={data} />);
-        expect(screen.getByText('Título de Prueba 2')).toBeInTheDocument();
+        const { container } = render(<PowerUpPreparacion data={data} />);
+        const headings = screen.getAllByRole('heading');
+        expect(headings[0].textContent).toEqual('Preparación');
+        expect(headings[1].textContent).toEqual('Título de Prueba 2');
         expect(
             screen.getByText('Item 1', { selector: 'li' })
         ).toBeInTheDocument();
         expect(
             screen.getByText('Item 2', { selector: 'li' })
         ).toBeInTheDocument();
+        expect(container).toMatchSnapshot();
     });
 });
