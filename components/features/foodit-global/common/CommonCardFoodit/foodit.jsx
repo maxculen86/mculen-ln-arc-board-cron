@@ -165,7 +165,7 @@ CommonCardFoodit.defaultProps = {
     isOpening: false,
     poster: '',
     mediaVariant: 'image',
-    hasVideo: null,
+    hasVideo: false,
     fatherType: ''
 };
 

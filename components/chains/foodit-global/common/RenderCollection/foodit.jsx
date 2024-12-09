@@ -185,7 +185,8 @@ RenderCollection.propTypes = {
                 ),
                 url: PropTypes.string
             }),
-            contentCode: PropTypes.string
+            contentCode: PropTypes.string,
+            hasVideo: PropTypes.bool
         })
     ).isRequired,
     type: PropTypes.string
