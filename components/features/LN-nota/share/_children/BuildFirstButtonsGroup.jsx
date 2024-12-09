@@ -3,13 +3,10 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { VIAFOURA_UUID } from 'fusion:environment';
-import { useDisclosure, useIntersectionObserver } from '@ln/hooks';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
-import { Tooltip } from '@ln/common-ui-tooltip';
 import classNames from 'classnames';
-import isSSR from '../../../../private/LN/common/utils/isSSR';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { GlobalContext } from '../../../../private/common/context/globalContext';
 import {
@@ -24,11 +21,7 @@ import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
-import {
-    getClassAndIconByClick,
-    handleOpenIAFeature,
-    IA_FEATURE_TRACKING_STORAGE
-} from './helper';
+import { getClassAndIconByClick, handleOpenIAFeature } from './helper';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
@@ -40,7 +33,6 @@ function BuildFirtsButtonsGroup({
     bookmark = '',
     subtypeVideo
 } = {}) {
-    const [tooltipWasClosed, setTooltipWasClosed] = useState(false);
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
     const { dispatch, state } = useContext(GlobalContext) || {};
@@ -58,32 +50,6 @@ function BuildFirtsButtonsGroup({
         !isLN10IAHidden(renderables, glossary, summary) &&
         ((summary && isThermalSummaryEnabled) ||
             (glossary && isThermalGlossaryEnabled));
-
-    const {
-        isOpen: tooltipVisible,
-        onClose: closeTooltip,
-        onOpen: openTooltip
-    } = useDisclosure(false);
-
-    const aiFeatureWasDisplayed =
-        !isSSR() &&
-        localStorage.getItem(
-            IA_FEATURE_TRACKING_STORAGE.key,
-            IA_FEATURE_TRACKING_STORAGE.value
-        );
-
-    const shouldObserverShare =
-        showIAButton && (aiFeatureWasDisplayed || tooltipWasClosed)
-            ? null
-            : shareRef?.current;
-
-    const entry = useIntersectionObserver(shouldObserverShare, {
-        rootMargin: '0px 0px -20% 0px'
-    });
-
-    useEffect(() => {
-        if (entry?.isIntersecting) openTooltip();
-    }, [entry?.isIntersecting]);
 
     const {
         _id: id,
@@ -133,62 +99,25 @@ function BuildFirtsButtonsGroup({
             ref={shareRef}
         >
             {showIAButton && (
-                <Tooltip
-                    visible={tooltipVisible}
-                    position="right-center"
-                    classnames={{
-                        container: 'flex',
-                        tooltip:
-                            'rounded-4 gap-4 px-8 py-12 text-light-50 bg-blue-500 z-10 flex'
+                <Button
+                    id="btnIA"
+                    title="Leer el resumen y glosario generados por la inteligencia artificial"
+                    aria-label="Leer el resumen y glosario generados por la inteligencia artificial"
+                    variant="secondary"
+                    iconOnly
+                    dataEvent="LinkClick"
+                    dataSection="IA"
+                    className={iaButtonClass}
+                    onClick={() => {
+                        handleOpenIAFeature({
+                            defaultTab,
+                            iaButtonIsClicked,
+                            setIaButtonIsClicked
+                        });
                     }}
-                    style={{ maxWidth: '272px' }}
-                    disableTrigger
-                    content={
-                        <>
-                            <Icon size={16}>
-                                <IconSprite name="iaTools" />
-                            </Icon>
-                            <Text className="text-12_130">
-                                Leer el resumen y glosario generados por la
-                                inteligencia artificial
-                            </Text>
-                            <Button
-                                onClick={() => {
-                                    closeTooltip();
-                                    setTooltipWasClosed(true);
-                                }}
-                                iconOnly
-                                size="inherit"
-                                variant="custom"
-                                className="js-start"
-                            >
-                                <Icon size={20}>
-                                    <IconSprite name="close" fill="#fff" />
-                                </Icon>
-                            </Button>
-                        </>
-                    }
                 >
-                    <Button
-                        id="btnIA"
-                        title="IA"
-                        variant="secondary"
-                        iconOnly
-                        dataEvent="LinkClick"
-                        dataSection="IA"
-                        className={iaButtonClass}
-                        onClick={() => {
-                            handleOpenIAFeature({
-                                defaultTab,
-                                iaButtonIsClicked,
-                                setIaButtonIsClicked,
-                                callback: closeTooltip
-                            });
-                        }}
-                    >
-                        <Icon size={32}>{iaLogo}</Icon>
-                    </Button>
-                </Tooltip>
+                    <Icon size={32}>{iaLogo}</Icon>
+                </Button>
             )}
             {termicaBookmark && (
                 <Button
