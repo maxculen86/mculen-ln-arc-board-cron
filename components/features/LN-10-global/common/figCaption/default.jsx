@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 
-function FigCaption({ epigraphTitle, credit }) {
+function FigureCaption({ epigraphTitle, credit }) {
     if (!epigraphTitle) return null;
 
     return (
@@ -17,14 +17,14 @@ function FigCaption({ epigraphTitle, credit }) {
     );
 }
 
-FigCaption.propTypes = {
+FigureCaption.propTypes = {
     epigraphTitle: PropTypes.string,
     credit: PropTypes.string
 };
 
-FigCaption.defaultProps = {
+FigureCaption.defaultProps = {
     epigraphTitle: '',
     credit: ''
 };
 
-export default FigCaption;
+export default FigureCaption;
