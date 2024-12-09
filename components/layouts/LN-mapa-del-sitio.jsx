@@ -1,15 +1,18 @@
+/* eslint-disable react/no-array-index-key */
+/* TODO: MODIFICAR LAS KEY  */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import Copyright from '../private/LN/common/footer/copyright';
-import PwaModal from '../features/LN-10-global/pwaModal/default';
-import '../../resources/dist/css/ln/pages/sitemap.css';
+import { PwaModal } from '../features/LN-10-global/pwaModal/default';
 import ComLogo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import ListSection from '../private/common/utils/listSection';
 import { siteMapListSectionLink } from '../private/common/siteMapList/siteMapList';
+import InitControlGroup from './helpers/initCtrlGrp';
+import '../../resources/dist/css/ln/pages/sitemap.css';
 
-const LNMapaDelSitio = ({ children }) => {
+function LNMapaDelSitio({ children }) {
     return (
         <>
             {children[0]}
@@ -62,9 +65,10 @@ const LNMapaDelSitio = ({ children }) => {
                 </footer>
             </div>
             <PwaModal />
+            <InitControlGroup />
         </>
     );
-};
+}
 
 const pageBuilderSections = ['Cuerpo'];
 

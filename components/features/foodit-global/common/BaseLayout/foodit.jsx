@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Static from 'fusion:static';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useDrawer } from '@ln/common-ui-drawer';
-import classNames from 'classnames';
+import { cx } from '@ln/cva';
 import { getConfigByLayout } from '../floatingGroupButton/helpers';
 import { DRAWER } from '../DrawerContainer/constants';
 import Header from '../Header/foodit';
@@ -15,6 +15,10 @@ import Toasts from '../toasts/foodit';
 import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 import AuthInitializer from '../../../../../auth/AuthInitializer';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../../auth/helper/loginHelper';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -22,8 +26,12 @@ function BaseLayout({ children }) {
     const { toggleDrawer } = useDrawer({ id: DRAWER.RECETARIO });
     const { layoutsName } = siteProperties || {};
 
-    const classNameMain = classNames('container flex flex-column gap-40', {
+    const classNameMain = cx('container flex flex-column gap-40', {
         'pb-64': !(layoutsName.FooditRecipePaywall === layout)
+    });
+
+    const wrapperClass = cx('wrapper overflow-x-clip roboto', {
+        '--non-subscriber': !isSubscribed(SUBSCRIBED_HELPER.FOODIT)
     });
 
     return (
@@ -34,7 +42,7 @@ function BaseLayout({ children }) {
                 layout={layout}
                 arcSite={arcSite}
             />
-            <div className="wrapper overflow-x-clip roboto">
+            <div className={wrapperClass}>
                 <Header layout={layout} layoutsName={layoutsName} />
                 <div className="header-sentinel" />
                 <DrawerMyAccount />
