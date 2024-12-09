@@ -33,8 +33,12 @@ function HomeFoodit({ children, isAdmin }) {
 HomeFoodit.sections = pageBuilderSections;
 
 HomeFoodit.propTypes = {
-    children: PropTypes.isRequired,
-    isAdmin: PropTypes.bool.isRequired
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    isAdmin: PropTypes.bool
+};
+
+HomeFoodit.defaultProps = {
+    isAdmin: false
 };
 
 export default HomeFoodit;

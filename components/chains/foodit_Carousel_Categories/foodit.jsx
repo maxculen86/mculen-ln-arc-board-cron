@@ -23,15 +23,19 @@ function CarouselCategory({
 CarouselCategory.label = 'foodit Carousel Category';
 
 CarouselCategory.propTypes = {
-    isAdmin: PropTypes.isRequired,
-    children: PropTypes.isRequired,
+    isAdmin: PropTypes.bool,
+    children: PropTypes.node.isRequired,
     customFields: PropTypes.shape({
-        hideCarousel: PropTypes.boolean.tag({
+        hideCarousel: PropTypes.bool.tag({
             name: 'Ocultar Carousel',
             description: 'Marque para ocultar el carousel',
             defaultValue: false
-        }).isRequired
+        })
     }).isRequired
+};
+
+CarouselCategory.defaultProps = {
+    isAdmin: false
 };
 
 export default Consumer(CarouselCategory);
