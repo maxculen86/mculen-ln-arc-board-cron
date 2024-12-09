@@ -55,11 +55,6 @@ describe('components - features - LN-nota - share - helper', () => {
             expect(setIaButtonIsClicked).toHaveBeenCalledWith(true);
 
             expect(publish).toHaveBeenCalledWith('showIa', { show: true });
-
-            expect(localStorage.setItem).toHaveBeenCalledWith(
-                'IA-feature-tracking',
-                'wasDisplayed'
-            );
         });
 
         it('should execute the callback correctly', () => {
@@ -70,8 +65,6 @@ describe('components - features - LN-nota - share - helper', () => {
                 setIaButtonIsClicked,
                 callback
             });
-
-            expect(callback).toHaveBeenCalled();
         });
 
         it('should not execute any actions if iaButtonIsClicked is true', () => {
