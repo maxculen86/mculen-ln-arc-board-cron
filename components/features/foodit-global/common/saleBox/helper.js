@@ -3,7 +3,7 @@ export const mockBenefits = [
     '<span class="roboto-bold">Ahorrá tiempo</span> con una gran variedad de recetas fáciles, rápidas, y ricas. Todo en un solo lugar.',
     '<span class="roboto-bold">Dejá de cocinar siempre lo mismo.</span> Usá Foodit para conocer nuevos platos y sabores.',
     '<span class="roboto-bold">Sin complicaciones.</span> Recetas probadas con información clara y simple. Armá tu recetario y listas de compras de ingredientes.',
-    '<span class="roboto-bold">Trucos y secretos.</span>Aprendé con nuestras masterclasses, guías de cocina y notas sobre técnicas, ingredientes y consejos prácticos.',
+    '<span class="roboto-bold">Trucos y secretos.</span> Aprendé con nuestras masterclasses, guías de cocina y notas sobre técnicas, ingredientes y consejos prácticos.',
     'Con la suscripción de Foodit + Club LA NACION accedé a cientos de descuentos y beneficios y <span class="roboto-bold">ahorrá más de lo que cuesta la suscripción.</span>'
 ];
 
@@ -28,18 +28,18 @@ export const imgsIngredientsBackground = [
     },
     {
         asset: 'ingredient-christmas-bottom-left.webp',
-        className: 'top-40 center-y_md left-48 absolute'
+        className: 'top-60 center-y_md left--48 absolute'
     },
     {
         asset: 'ingredient-christmas-bottom-right.webp',
-        className: 'bottom-40 bottom-0_md right-120 absolute'
+        className: 'bottom-20 bottom-0_md right--120 absolute'
     },
     {
         asset: 'ingredient-christmas-top-left.webp',
-        className: 'top-36 right-120 absolute'
+        className: 'top--36 right--120 absolute'
     },
     {
         asset: 'ingredient-christmas-top-right.webp',
-        className: 'top-36 left-48 absolute'
+        className: 'top--36 left--48 absolute'
     }
 ];

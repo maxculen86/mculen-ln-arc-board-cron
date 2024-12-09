@@ -1137,12 +1137,12 @@ strong {
   top: 0;
 }
 
-.top-36 {
+.top--36 {
   top: -2.25rem;
 }
 
-.top-40 {
-  top: 40%;
+.top-60 {
+  top: 60%;
 }
 
 .top-100 {
@@ -1161,8 +1161,8 @@ strong {
   bottom: 1rem;
 }
 
-.bottom-40 {
-  bottom: 40%;
+.bottom-20 {
+  bottom: 20%;
 }
 
 .bottom-100 {
@@ -1181,7 +1181,7 @@ strong {
   right: 1.5rem;
 }
 
-.right-120 {
+.right--120 {
   right: -7.5rem;
 }
 
@@ -1201,7 +1201,7 @@ strong {
   left: 50%;
 }
 
-.left-48 {
+.left--48 {
   left: -3rem;
 }
 
@@ -2420,7 +2420,7 @@ body:has(.disable-body-scroll) {
   position: sticky;
   z-index: 5;
   border-bottom: thin solid var(--neutral-light-100);
-  top: 64px;
+  top: 4rem;
   background-color: var(--neutral-light-1);
   --_spacing: var(--spacing) * 2;
   width: calc(100% + var(--_spacing));
@@ -2439,21 +2439,26 @@ body:has(.disable-body-scroll) {
 .roof-sticky .roof-text-sticky {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 150%;
 }
 @media (min-width: 48rem) {
   .roof-sticky .roof-text-sticky {
     font-family: "Prumo", Georgia, serif;
     font-weight: 70;
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 116%;
     font-variation-settings: "wght" 70, "opsz" 0;
   }
 }
 @media (min-width: 80rem) {
   .roof-sticky .roof-text-sticky {
-    font-size: 36px;
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 767px) {
+  .--non-subscriber .roof-sticky {
+    top: 7.3125rem;
   }
 }
 
@@ -2461,11 +2466,11 @@ input[type=checkbox] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   background-color: var(--neutral-light-1);
-  border: 2px solid var(--neutral-light-600);
-  border-radius: 4px;
+  border: 0.125rem solid var(--neutral-light-600);
+  border-radius: 0.25rem;
   cursor: pointer;
   position: relative;
 }
@@ -2482,7 +2487,7 @@ input[type=checkbox]:checked {
 input[type=checkbox]:checked::after {
   content: "✔";
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   position: absolute;
   top: 50%;
   left: 50%;

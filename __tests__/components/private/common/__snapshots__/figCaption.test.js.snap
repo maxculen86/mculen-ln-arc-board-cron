@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - Features - LN-10-global - Common - FigCaption should not render figcaption without epigraphTitle 1`] = `<div />`;
+exports[`Components - Features - LN-10-global - Common - FigureCaption should not render figcaption without epigraphTitle 1`] = `<div />`;
 
-exports[`Components - Features - LN-10-global - Common - FigCaption should render figcaption with epigraphTitle but without credit 1`] = `
+exports[`Components - Features - LN-10-global - Common - FigureCaption should render figcaption with epigraphTitle but without credit 1`] = `
 <div>
   <figcaption
     class="border border-1 border-bottom border-light-300 bg-white relative mb-8 px-16 py-8 min-h-36 w-100_md px-0_l"
@@ -16,7 +16,7 @@ exports[`Components - Features - LN-10-global - Common - FigCaption should rende
 </div>
 `;
 
-exports[`Components - Features - LN-10-global - Common - FigCaption should render the figcaption with epigraphTitle 1`] = `
+exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle 1`] = `
 <div>
   <figcaption
     class="border border-1 border-bottom border-light-300 bg-white relative mb-8 px-16 py-8 min-h-36 w-100_md px-0_l"
@@ -30,7 +30,7 @@ exports[`Components - Features - LN-10-global - Common - FigCaption should rende
 </div>
 `;
 
-exports[`Components - Features - LN-10-global - Common - FigCaption should render the figcaption with epigraphTitle and credit 1`] = `
+exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle and credit 1`] = `
 <div>
   <figcaption
     class="border border-1 border-bottom border-light-300 bg-white relative mb-8 px-16 py-8 min-h-36 w-100_md px-0_l"

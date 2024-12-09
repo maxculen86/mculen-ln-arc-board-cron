@@ -27,9 +27,10 @@ import {
     createBannersIntersectionObserver,
     createDifferVideosObserver
 } from '../../private/common/banners/intersectionObservers';
-import PwaModal from '../../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
+import InitControlGroup from '../helpers/initCtrlGrp';
 
-const LN10Home = props => {
+function LN10Home(props) {
     const {
         children,
         outputType,
@@ -53,16 +54,16 @@ const LN10Home = props => {
         canales2,
         appAnexo1,
         appAnexo2
-    ] = pageBuilderSections.map((section, index) => {
-        return sectionHelper(
+    ] = pageBuilderSections.map((section, index) =>
+        sectionHelper(
             children[index],
             section,
             index,
             renderables,
             outputType,
             isAdmin
-        );
-    });
+        )
+    );
 
     useEffect(() => {
         createViewabilityObservers(true);
@@ -205,9 +206,10 @@ const LN10Home = props => {
             <PwaModal />
             <RoofEventsScript />
             <ScriptViewability />
+            <InitControlGroup />
         </GlobalProvider>
     );
-};
+}
 
 LN10Home.propTypes = {
     renderables: PropTypes.arrayOf(PropTypes.node),
