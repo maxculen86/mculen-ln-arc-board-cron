@@ -15,10 +15,11 @@ import '../../../../../resources/packages/css/@ln/common-ui-tabs/index.css';
 import '../../../../../resources/packages/css/@ln/common-ui-horizontalscroller/index.css';
 
 export function IaTools({ iaData = [] }) {
+    const { layout } = useAppContext();
     const { isOpen, containerIaToolsRef, handleClose } = useIaVisibility();
+
     if (!isOpen || !iaData.length) return null;
 
-    const { layout } = useAppContext();
     // TODO: eliminar <ContainerValidation> cuando se implemente el refactor del layout foto al 100%
     return (
         <ContainerValidation layout={layout}>
