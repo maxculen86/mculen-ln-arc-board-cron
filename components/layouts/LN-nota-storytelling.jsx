@@ -1,22 +1,23 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import classNames from 'classnames';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
-import '../../resources/dist/css/ln/pages/storytelling.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import PwaModal from '../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import get from '../private/common/utils/get';
-import classNames from 'classnames';
 import Glossary from '../features/LN-10-global/glossary/default';
+import InitControlGroup from './helpers/initCtrlGrp';
+import '../../resources/dist/css/ln/pages/storytelling.css';
 
-const lnNotaStorytelling = ({
+function lnNotaStorytelling({
     children,
     outputType,
     layout,
@@ -26,15 +27,15 @@ const lnNotaStorytelling = ({
         subtype = ''
     },
     globalContent
-}) => {
+}) {
     const isLoadWithPicture = isAllowedSection({
         globalContent,
         listOfAllowedSection,
         noteType: subtype
     });
-    const withoutVideoBackground = !Boolean(
+    const withoutVideoBackground = !(
         get(globalContent, 'promo_items.storytelling', null) ||
-            get(globalContent, 'promo_items.video_jw', null)
+        get(globalContent, 'promo_items.video_jw', null)
     );
     const bannerMegatop = children[0];
     const logo = getSectionLogo(sections, layout, name);
@@ -57,12 +58,10 @@ const lnNotaStorytelling = ({
                     {children[1]}
 
                     {isLoadWithPicture && withoutVideoBackground ? (
-                        <>
-                            <AperturaStorytelling
-                                isLoadWithPicture={isLoadWithPicture}
-                                withoutVideoBackground={withoutVideoBackground}
-                            />
-                        </>
+                        <AperturaStorytelling
+                            isLoadWithPicture={isLoadWithPicture}
+                            withoutVideoBackground={withoutVideoBackground}
+                        />
                     ) : (
                         <AperturaStorytelling
                             isLoadWithPicture={isLoadWithPicture}
@@ -105,10 +104,11 @@ const lnNotaStorytelling = ({
             <LoadBannersSSR />
             <PwaModal />
             <Glossary />
+            <InitControlGroup />
             {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
-};
+}
 
 const pageBuilderSections = [
     'Banner-Megatop',

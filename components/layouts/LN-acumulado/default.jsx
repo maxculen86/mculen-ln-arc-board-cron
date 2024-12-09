@@ -21,6 +21,7 @@ import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
+import InitControlGroup from '../helpers/initCtrlGrp';
 
 const CLASS_ACU_REVISTA = '';
 const revistas = [
@@ -236,6 +237,7 @@ function LNAcumuladoLayout(props) {
                 </div>
                 <LoadBannersSSR />
                 <PwaModal />
+                <InitControlGroup />
             </GlobalProviderAcu>
         </GlobalProvider>
     );
