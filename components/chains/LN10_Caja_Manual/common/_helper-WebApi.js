@@ -3,14 +3,12 @@ import { setQuantityByLayout } from '../../utils/common/_helpers-WebApi';
 import get from '../../../private/common/utils/get';
 import { validateStyle } from '../../utils/checkValidationStyle';
 
-// TODO: Agrupar validaciones comunes entre chains
-
-const validateCajaManual = (
+const validateCajaManual = ({
     layout,
     childProps = [],
     chainStyle,
     isGrid6MasTimeline = false
-) => {
+}) => {
     const LN_COMMON_ARTICLE = 'LN-10/article';
     const COLLECTION_FEATURES = 'features';
     const LN_CARD_HTML = 'LN-10/CardHtml';
@@ -56,10 +54,9 @@ const validateCajaManual = (
         },
         {
             validation: childrenPropsLength < minimum,
-            message: `Se requiere la carga de ${minimum -
-                childrenPropsLength} artículo${
-                minimum - childrenPropsLength > 1 ? 's' : ''
-            }`
+            message: `Se requiere la carga de ${
+                minimum - childrenPropsLength
+            } artículo${minimum - childrenPropsLength > 1 ? 's' : ''}`
         }
     ];
 
