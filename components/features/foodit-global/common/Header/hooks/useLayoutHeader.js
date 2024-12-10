@@ -67,7 +67,7 @@ export const useLayoutHeader = () => {
     };
 
     const classNameHeaderContainer = classNames(
-        'z-10 w-100 sticky top-0',
+        'z-10 w-100 sticky top-0 print-hide',
         marginByLayouts[layout] || marginByLayouts.default,
         getSubheaderSearchClasses(),
         shouldHaveExtraPadding && '--extra-padding'
