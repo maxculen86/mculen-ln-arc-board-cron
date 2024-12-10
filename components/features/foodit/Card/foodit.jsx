@@ -23,7 +23,7 @@ import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit
 import getFooditMediaContent from '../../foodit-global/common/utils/mediaHelper';
 
 function CardFoodit({ id: featureId, customFields }) {
-    const { noteId: id, isDayRecipe, videoId } = customFields;
+    const { noteId: id, isDayRecipe, videoId, customTitle } = customFields;
 
     const articleId = checkForId(id);
     const validVideoId = checkForId(videoId);
@@ -127,6 +127,7 @@ function CardFoodit({ id: featureId, customFields }) {
                     fetchPriority={isOpening ? 'high' : 'low'}
                     tag={tag}
                     title={title}
+                    customTitle={customTitle}
                     author={author}
                     subtitle={
                         isOpening && get(articleContent, 'subheadlines.basic')
@@ -157,6 +158,11 @@ CardFoodit.propTypes = {
         videoId: PropTypes.string.tag({
             name: 'VideoJW',
             description: 'Ingrese aquí el ID del video',
+            default: ''
+        }),
+        customTitle: PropTypes.string.tag({
+            name: 'Título personalizado',
+            description: 'Ingrese aquí el titulo personalizado',
             default: ''
         })
     }).isRequired

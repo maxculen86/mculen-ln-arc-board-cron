@@ -6,6 +6,7 @@ import '@testing-library/jest-dom';
 describe('Components - Features - Foodit-global - common - CommonCardFoodit', () => {
     const article = {
         articleId: 'TDEG3VTIAFEW7BKS676OUVQAVE',
+        customTitle: 'Prueba nota recetas nuevo (customTitle)',
         title: 'Prueba nota recetas nuevo',
         author: 'Por Carlos Pagni',
         href: '/rapidas-y-faciles/prueba-nota-recetas-nuevo-nid04092023/',
@@ -14,8 +15,17 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
         variant: 'recipe',
         size: 'small'
     };
-    const { articleId, author, href, size, tag, time, title, variant } =
-        article;
+    const {
+        articleId,
+        author,
+        href,
+        size,
+        tag,
+        time,
+        title,
+        customTitle,
+        variant
+    } = article;
 
     const mockResizedImages = [
         {
@@ -43,8 +53,8 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
                 time={time}
                 size={size}
                 variant={variant}
-                loading={'lazy'}
-                fetchPriority={'low'}
+                loading="lazy"
+                fetchPriority="low"
                 tag={tag}
                 title={title}
                 author={author}
@@ -59,6 +69,73 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
         expect(screen.getByRole('button', { name: 'Guardar' })).toBeTruthy();
         expect(screen.getByRole('link')).toHaveAttribute('href', article.href);
         expect(container).toMatchSnapshot();
+    });
+
+    it('should render the card with customTitle if it exists', () => {
+        const media = {
+            mediaVariant: 'image',
+            src: 'https://example.com/image-1.jpg',
+            alt: 'Tortilla de patatas',
+            sources: mockResizedImages,
+            loading: 'lazy',
+            fetchPriority: 'low'
+        };
+
+        render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime={Boolean(time)}
+                linksProps={{ href, title }}
+                time={time}
+                size={size}
+                variant={variant}
+                loading="lazy"
+                fetchPriority="low"
+                tag={tag}
+                title={title}
+                customTitle={customTitle}
+                author={author}
+                key={articleId}
+                fill={false}
+                {...media}
+            />
+        );
+
+        expect(screen.getByText(customTitle)).toBeInTheDocument();
+        expect(screen.queryByText(title)).not.toBeInTheDocument();
+    });
+
+    it('should render the card with title if customTitle is not provided', () => {
+        const media = {
+            mediaVariant: 'image',
+            src: 'https://example.com/image-1.jpg',
+            alt: 'Tortilla de patatas',
+            sources: mockResizedImages,
+            loading: 'lazy',
+            fetchPriority: 'low'
+        };
+
+        render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime={Boolean(time)}
+                linksProps={{ href, title }}
+                time={time}
+                size={size}
+                variant={variant}
+                loading="lazy"
+                fetchPriority="low"
+                tag={tag}
+                title={title}
+                author={author}
+                key={articleId}
+                fill={false}
+                {...media}
+            />
+        );
+
+        expect(screen.getByText(title)).toBeInTheDocument();
+        expect(screen.queryByText(customTitle)).not.toBeInTheDocument();
     });
 
     it('should render the card with video icon', () => {
@@ -79,14 +156,14 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
                 linksProps={{ href, title }}
                 size={size}
                 variant={variant}
-                loading={'lazy'}
-                fetchPriority={'low'}
+                loading="lazy"
+                fetchPriority="low"
                 tag={tag}
                 title={title}
                 author={author}
                 key={articleId}
                 fill={false}
-                hasVideo={true}
+                hasVideo
                 {...media}
             />
         );
@@ -115,7 +192,7 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
                 author={author}
                 key={articleId}
                 fill={false}
-                hasVideo={true}
+                hasVideo
                 {...media}
             />
         );
