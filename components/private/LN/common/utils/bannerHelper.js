@@ -90,7 +90,8 @@ export const getBannerSectionDimensions = (section, slotName) => {
         bienestar: defaultSlotDimensions,
         movilidad: defaultSlotDimensions,
         'que-sale': defaultSlotDimensions,
-        juegos: defaultSlotDimensions
+        juegos: defaultSlotDimensions,
+        horoscopo: defaultSlotDimensions
     };
 
     return sectionSlotDimensions[section]?.[slotName];
@@ -262,7 +263,8 @@ export const isPrimarySectionInBannerSegments =
             autos: 'movilidad',
             'que-sale': 'que-sale',
             IA: 'futuria',
-            juegos: 'juegos'
+            juegos: 'juegos',
+            horoscopo: 'bienestar'
         };
 
         const subSectionExceptions = {
