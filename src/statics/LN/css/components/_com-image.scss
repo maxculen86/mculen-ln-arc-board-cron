@@ -27,10 +27,6 @@
     }
 
     .--vertical & {
-        // .--slider.--slider & {
-        //     object-fit: contain;
-        // }
-
         .--active.--active & {
             max-height: 600px;
             width: 100%;
@@ -48,22 +44,6 @@
             position: absolute;
         }
     }
-
-    // .--horizontal &,
-    // .--vertical & {
-    //     .--zoom.--active & {
-    //         position: relative;
-    //     }
-    // }
-
-    // .placeholder & {
-    //     .mod-caja-nota & {
-    //         position: absolute;
-    //         object-fit: cover;
-    //         height: 100%;
-    //         top: 0;
-    //     }
-    // }
 
     .mod-logo & {
         max-height: px(46);
@@ -83,13 +63,4 @@
     object-fit: contain;
     height: 100%;
     transition: none;
-}
-
-amp-img {
-    img {
-        object-fit: cover;
-        .canchallena & {
-            object-fit: contain;
-        }
-    }
 }
