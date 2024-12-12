@@ -3,7 +3,8 @@ import {
     getCanonicalUrls,
     resolveUri,
     getQuery,
-    sortData
+    sortData,
+    transformData
     // transformData
 } from '../../../../../content/sources/utils/rankingArticlesSource/_helper';
 import config, {
@@ -11,6 +12,8 @@ import config, {
     COLD_SECTION,
     DEFAULT_SECTION
 } from '../../../../../content/sources/utils/rankingArticlesSource/_config';
+import getPresets from '../../../../../content/sources/utils/presets';
+import * as images from '../../../../../content/sources/utils/signingServiceSource/getImagesAuth';
 jest.mock('fusion:environment', () => {
     return {
         CONTENT_BASE: 'https://api.lanacionar.arcpublishing.com'
@@ -30,20 +33,16 @@ describe('function => getAnalitycUrls', () => {
     it('when data has stories should return only valid stories urls (excluding home, acus and query params)', () => {
         const validUrls = [
             {
-                title:
-                    'Horóscopo: las predicciones de Jimena La Torre para la semana del 7 al 13 de febrero - LA NACION',
-                url:
-                    '/www.lanacion.com.ar/horoscopo/horoscopo-las-predicciones-de-jimena-la-torre-para-la-semana-del-7-al-13-de-febrero-nid07022022/'
+                title: 'Horóscopo: las predicciones de Jimena La Torre para la semana del 7 al 13 de febrero - LA NACION',
+                url: '/www.lanacion.com.ar/horoscopo/horoscopo-las-predicciones-de-jimena-la-torre-para-la-semana-del-7-al-13-de-febrero-nid07022022/'
             },
             {
                 title: '(not set)',
-                url:
-                    '/www.lanacion.com.ar/deportes/futbol/joaquin-messi-el-juvenil-al-que-le-sugirieron-cambiar-el-apellido-para-no-cargar-con-tanta-presion-nid08022022/'
+                url: '/www.lanacion.com.ar/deportes/futbol/joaquin-messi-el-juvenil-al-que-le-sugirieron-cambiar-el-apellido-para-no-cargar-con-tanta-presion-nid08022022/'
             },
             {
                 title: '(not set)',
-                url:
-                    'https://www.lanacion.com.ar/economia/el-gobierno-suma-trabas-y-cierra-mas-el-acceso-que-tienen-las-empresas-a-los-dolares-nid07022022/?utm_source=n_&utm_medium=nl_titulares_del_dia&utm_campaign=nota_titulo_1'
+                url: 'https://www.lanacion.com.ar/economia/el-gobierno-suma-trabas-y-cierra-mas-el-acceso-que-tienen-las-empresas-a-los-dolares-nid07022022/?utm_source=n_&utm_medium=nl_titulares_del_dia&utm_campaign=nota_titulo_1'
             }
         ];
         const invalidUrls = [
@@ -57,8 +56,7 @@ describe('function => getAnalitycUrls', () => {
                 url: '/www.lanacion.com.ar/espectaculos/'
             },
             {
-                title:
-                    'https://www.lanacion.com.ar/estados-unidos/semana-del-infierno-el-brutal-entrenamiento-de-los-marines-de-estados-unidos-en-el-que-murio-un-nid07022022/'
+                title: 'https://www.lanacion.com.ar/estados-unidos/semana-del-infierno-el-brutal-entrenamiento-de-los-marines-de-estados-unidos-en-el-que-murio-un-nid07022022/'
             },
             {}
         ];
@@ -88,8 +86,9 @@ describe('function => getCanonicalUrls', () => {
             expect(
                 getCanonicalUrls({
                     stories: Array.from({ length: arg }, (_, i) => ({
-                        url: `https://www.lanacion.com.ar/economia/el-gobierno-suma-trabas-y-cierra-mas-el-acceso-que-tienen-las-empresas-a-los-dolares-nid07022022/${i +
-                            1}/`
+                        url: `https://www.lanacion.com.ar/economia/el-gobierno-suma-trabas-y-cierra-mas-el-acceso-que-tienen-las-empresas-a-los-dolares-nid07022022/${
+                            i + 1
+                        }/`
                     }))
                 })
             ).toHaveLength(expectedResult);
@@ -116,7 +115,7 @@ describe('function => resolveUri', () => {
         };
         const uri = resolveUri(query);
         expect(uri).toBe(
-            'https://api.lanacionar.arcpublishing.com/content/v4/search/published?website=0&size=3&_sourceInclude=_id,subtype,promo_items.basic,headlines.basic,headlines.mobile,subheadlines,canonical_url,body,related_content,website_url,label&body=%7B%22query%22:%7B%22bool%22:%7B%22must%22:%5B%7B%22range%22:%7B%22first_publish_date%22:%7B%22gte%22:%222017-12-08T03:00:00.000Z%22,%22lte%22:%222017-12-08T03:00:00.000Z%22%7D%7D%7D,%7B%22term%22:%7B%22type%22:%22story%22%7D%7D,%7B%22exists%22:%7B%22field%22:%22promo_items.basic%22%7D%7D%5D,%22filter%22:%7B%22terms%22:%7B%22canonical_url%22:%5B%22/horoscopo/horoscopo-las-predicciones-de-jimena-la-torre-para-la-semana-del-7-al-13-de-febrero-nid07022022/%22,%22/deportes/futbol/joaquin-messi-el-juvenil-al-que-le-sugirieron-cambiar-el-apellido-para-no-cargar-con-tanta-presion-nid08022022/%22,%22/economia/el-gobierno-suma-trabas-y-cierra-mas-el-acceso-que-tienen-las-empresas-a-los-dolares-nid07022022/%22%5D%7D%7D%7D%7D%7D'
+            'https://api.lanacionar.arcpublishing.com/content/v4/search/published?website=0&size=3&_sourceInclude=_id,subtype,promo_items.basic,headlines.basic,headlines.mobile,subheadlines,canonical_url,body,related_content,website_url,label,first_publish_date,display_date,source.system,label.republicar_audio, taxonomy.primary_section,content_elements&body=%7B%22query%22:%7B%22bool%22:%7B%22must%22:%5B%7B%22range%22:%7B%22first_publish_date%22:%7B%22gte%22:%222017-12-08T03:00:00.000Z%22,%22lte%22:%222017-12-08T03:00:00.000Z%22%7D%7D%7D,%7B%22term%22:%7B%22type%22:%22story%22%7D%7D,%7B%22exists%22:%7B%22field%22:%22promo_items.basic%22%7D%7D%5D,%22filter%22:%7B%22terms%22:%7B%22canonical_url%22:%5B%22/horoscopo/horoscopo-las-predicciones-de-jimena-la-torre-para-la-semana-del-7-al-13-de-febrero-nid07022022/%22,%22/deportes/futbol/joaquin-messi-el-juvenil-al-que-le-sugirieron-cambiar-el-apellido-para-no-cargar-con-tanta-presion-nid08022022/%22,%22/economia/el-gobierno-suma-trabas-y-cierra-mas-el-acceso-que-tienen-las-empresas-a-los-dolares-nid07022022/%22%5D%7D%7D%7D%7D%7D'
         );
     });
 });
@@ -185,8 +184,129 @@ describe('function => getQuery', () => {
     });
 });
 
+jest.mock('../../../../../content/sources/utils/presets', () => ({
+    __esModule: true,
+    default: jest.fn().mockReturnValue({
+        presets: { promo_items: {} },
+        presetsDefault: {}
+    })
+}));
 describe('function => transformData', () => {
-    it('should return data with images resized', () => {});
+    it('should transform data array with valid inputs', async () => {
+        const mockData = [
+            {
+                headlines: { basic: 'Test' },
+                promo_items: { basic: { url: 'test.jpg' } },
+                website_url: '/test',
+                subtype: 'article',
+                label: {
+                    republicar_audio: 'yes'
+                }
+            }
+        ];
+        const mockQuery = { section: 'commonRanking' };
+        const mockCachedCall = jest.fn();
+
+        const result = await transformData(mockData, mockQuery, mockCachedCall);
+
+        expect(result).toHaveLength(1);
+        expect(result[0].website_url).toBe('/test');
+        expect(result[0].headlines).toBeDefined();
+        expect(result[0].label.republicar_audio).toBe('yes');
+    });
+
+    it('should authenticate and resize images for each element', async () => {
+        const mockData = [
+            {
+                promo_items: { basic: { url: 'test.jpg' } }
+            }
+        ];
+        const mockQuery = { section: 'test' };
+
+        const getAllImagesAuth = jest
+            .spyOn(images, 'getAllImagesAuth')
+            .mockResolvedValue({
+                promo_items: { basic: { url: 'test.jpg', auth: { 1: 'hash' } } }
+            });
+
+        const result = await transformData(mockData, mockQuery, jest.fn());
+
+        expect(result[0].promo_items.basic.auth).toBeDefined();
+        expect(getAllImagesAuth).toHaveBeenCalled();
+    });
+
+    it('should use default presets when section is not commonRanking', async () => {
+        const mockData = [{ promo_items: { basic: {} } }];
+        const mockQuery = { section: 'other' };
+
+        getPresets.mockReturnValueOnce({
+            presets: { promo_items: { default: { sizes: [] } } },
+            presetsDefault: {}
+        });
+
+        const result = await transformData(mockData, mockQuery, jest.fn());
+
+        expect(result[0].promo_items).toBeDefined();
+    });
+
+    it('should return empty array when input data is empty', async () => {
+        const emptyData = [];
+        const mockQuery = { section: 'test' };
+
+        const result = await transformData(emptyData, mockQuery, jest.fn());
+
+        expect(result).toEqual([]);
+        expect(result).toHaveLength(0);
+    });
+
+    it('should handle missing query parameters', async () => {
+        const mockData = [
+            {
+                headlines: { basic: 'Test' },
+                promo_items: [{ text: 'i am a promo_item' }]
+            }
+        ];
+        const emptyQuery = {};
+
+        getPresets.mockReturnValueOnce({
+            presets: { promo_items: { default: { sizes: [] } } },
+            presetsDefault: {}
+        });
+
+        const result = await transformData(mockData, emptyQuery, jest.fn());
+
+        expect(result).toHaveLength(1);
+        expect(result[0].headlines).toBeDefined();
+    });
+
+    it('should handle missing website_url and use canonical_url', async () => {
+        const mockData = [
+            {
+                headlines: { basic: 'Test' },
+                canonical_url: '/canonical'
+            }
+        ];
+        const mockQuery = { section: 'test' };
+
+        const result = await transformData(mockData, mockQuery, jest.fn());
+
+        expect(result[0].website_url).toBe('/canonical');
+    });
+    it('should handle website_url and ignore canonical_url', async () => {
+        const mockData = [
+            {
+                headlines: { basic: 'Test' },
+                canonical_url: '/canonical',
+                website_url: '/originalWebsiteUrl'
+            }
+        ];
+        const mockQuery = { section: 'test' };
+
+        const result = await transformData(mockData, mockQuery, jest.fn());
+
+        expect(result[0].website_url).not.toBe('/canonical');
+        expect(result[0].website_url).toBe('/originalWebsiteUrl');
+    });
 });
 
 describe('Función => sortData', () => {
