@@ -4,6 +4,7 @@ import get from '../../../../../private/common/utils/get';
 import { useStickyHeader } from './useStickyHeader';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 
+const DEFAULT_MARGIN = 'mb-12 mb-40_lg';
 export const useLayoutHeader = () => {
     const { siteProperties, layout, globalContent } = useAppContext();
     const isOpen =
@@ -38,9 +39,9 @@ export const useLayoutHeader = () => {
     ];
 
     const marginByLayouts = {
-        [layoutsName.FooditHome]: 'mb-12 mb-40_lg',
-        [layoutsName.FooditFichaReceta]: 'mb-12 mb-40_lg',
-        [layoutsName.FooditRecipePaywall]: 'mb-12 mb-40_lg',
+        [layoutsName.FooditHome]: DEFAULT_MARGIN,
+        [layoutsName.FooditFichaReceta]: DEFAULT_MARGIN,
+        [layoutsName.FooditRecipePaywall]: DEFAULT_MARGIN,
         [layoutsName.FooditFichaNota]: 'mb-0',
         default: 'mb-40'
     };
