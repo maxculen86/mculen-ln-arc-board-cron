@@ -60,7 +60,7 @@ export const resolveUri = key => {
 
     const requestUri = `${CONTENT_BASE_PROD}/content/v4/search/published`;
     const includeFields =
-        '_id,subtype,promo_items.basic,headlines.basic,headlines.mobile,subheadlines,canonical_url,body,related_content,website_url,label';
+        '_id,subtype,promo_items.basic,headlines.basic,headlines.mobile,subheadlines,canonical_url,body,related_content,website_url,label,first_publish_date,display_date,source.system,label.republicar_audio, taxonomy.primary_section,content_elements';
     const uriParams = [
         `website=${arcSite}`,
         `size=${stories.length}`,
@@ -160,13 +160,14 @@ export const transformData = (data, query, cachedCall) => {
         data.map(async (elem, i) => {
             const newElem = await getAllImagesAuth(elem, cachedCall);
             Object.assign(elem, newElem);
-
             const headlines = get(elem, `headlines`, {});
             const promoItems = get(elem, `promo_items`);
             const websiteUrl = get(elem, `website_url`);
             const canonicalUrl = get(elem, `canonical_url`);
             const subtype = get(elem, `subtype`);
             const volanta = get(elem, `label.volanta`);
+            // eslint-disable-next-line camelcase
+            const republicar_audio = get(elem, `label.republicar_audio`);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
 
@@ -201,7 +202,9 @@ export const transformData = (data, query, cachedCall) => {
                 headlines,
                 website_url: websiteUrl || canonicalUrl,
                 label: {
-                    volanta
+                    volanta,
+                    // eslint-disable-next-line camelcase
+                    republicar_audio
                 }
             };
         })
