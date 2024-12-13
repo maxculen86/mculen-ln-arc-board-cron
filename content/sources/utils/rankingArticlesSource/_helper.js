@@ -160,6 +160,7 @@ export const transformData = (data, query, cachedCall) => {
         data.map(async (elem, i) => {
             const newElem = await getAllImagesAuth(elem, cachedCall);
             Object.assign(elem, newElem);
+
             const headlines = get(elem, `headlines`, {});
             const promoItems = get(elem, `promo_items`);
             const websiteUrl = get(elem, `website_url`);
