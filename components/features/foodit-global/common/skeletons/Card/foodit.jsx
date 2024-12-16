@@ -1,12 +1,9 @@
 import React from 'react';
 import { Skeleton } from '@ln/common-ui-skeleton';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-export const SkeletonCard = ({
-    className = '',
-    variant = 'recipe',
-    isResultdata
-}) => {
+function SkeletonCard({ className = '', variant = 'recipe', isResultdata }) {
     const containerClassName = classNames(
         'border border-all border-thin border-light-100 flex flex-column pb-16',
         { 'bg-positive p-16': variant === 'note' },
@@ -60,6 +57,17 @@ export const SkeletonCard = ({
             </div>
         </div>
     );
+}
+
+SkeletonCard.propTypes = {
+    className: PropTypes.string,
+    variant: PropTypes.oneOf(['recipe', 'note', 'acu']),
+    isResultdata: PropTypes.bool
 };
 
+SkeletonCard.defaultProps = {
+    className: '',
+    variant: 'recipe',
+    isResultdata: false
+};
 export default SkeletonCard;
