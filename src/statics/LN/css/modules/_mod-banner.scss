@@ -132,6 +132,7 @@
     &.--caja1_mob,
     &.--caja2_mob,
     &.--caja3_mob,
+    &.--caja4_mob,
     &.--caja6_mob,
     &.--caja7_mob,
     &.--caja8_mob,
@@ -140,7 +141,6 @@
         height: px(450);
     }
 
-    &.--caja4_mob,
     &.--caja5_mob {
         height: px(250);
     }
