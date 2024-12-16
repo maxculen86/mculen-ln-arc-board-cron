@@ -136,7 +136,7 @@ function AnexoFeature(props) {
 
     const {
         url,
-        isGame,
+        addToken,
         heightDesktop,
         heightTablet,
         heightMobile,
@@ -207,7 +207,7 @@ function AnexoFeature(props) {
     const anexoId = `anexo-responsive-${id}`;
 
     useEffect(() => {
-        handleIframeProps(id, url, isGame);
+        handleIframeProps(id, url, addToken);
     }, [id, comp]);
 
     const iframeURLContent = (
