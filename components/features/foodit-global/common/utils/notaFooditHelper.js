@@ -19,7 +19,7 @@ const PRIORITY_SORTED_TAGS = [
     'Maridaje'
 ];
 
-const getVariantBySubtype = subtype => {
+export const getVariantBySubtype = subtype => {
     const variants = {
         [STORYTELLING]: 'note',
         [RECETA]: 'recipe'

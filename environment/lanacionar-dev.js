@@ -98,8 +98,9 @@ export default {
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     API_QUERYLY: 'https://api.queryly.com',
-    API_KEY_QUERYLY:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygETpekPgwkrTakQkXZdXc92AAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMr5ueS8M5g3CCPaxTAgEQgCtmr4wqCBXW6UGqT2lgM5ngM0Tdpynx/MrDP2PsWMT9a2qdBp61VdkZxDF6}', // NOSONAR
+    // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta
+    // del lado del servidor. De igual forma, esta API key solo permite consultas GET a la API del buscador
+    API_KEY_QUERYLY: '2bf85a66b5f04de9',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',

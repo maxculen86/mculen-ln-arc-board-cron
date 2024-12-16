@@ -1,9 +1,9 @@
 import React from 'react';
 import { Skeleton } from '@ln/common-ui-skeleton';
-import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import classNames from 'classnames';
+import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 
-export const SkeletonFaceteddata = () => {
+export function SkeletonFaceteddata() {
     const dividerClass = classNames(
         'w-100 border border-bottom border-thin border-light-100 my-16'
     );
@@ -11,7 +11,7 @@ export const SkeletonFaceteddata = () => {
 
     const getFilterItems = qty => {
         const filterItemList = [];
-        for (let i = 0; i < qty; i++) {
+        for (let i = 0; i < qty; i += 1) {
             filterItemList.push(
                 <div className="flex gap-8">
                     <Skeleton width={20} height={20} />
@@ -23,7 +23,7 @@ export const SkeletonFaceteddata = () => {
     };
 
     return (
-        <div className="flex flex-column">
+        <div className="flex flex-column" data-testid="skeleton-loader">
             <div className="flex jc-between text-24 pb-24_lg">
                 <span className="prumo">Filtros</span>
                 <IconSprite name="close" className="lg-none" size={24} />
@@ -85,4 +85,4 @@ export const SkeletonFaceteddata = () => {
             <div className={dividerClass} />
         </div>
     );
-};
+}
