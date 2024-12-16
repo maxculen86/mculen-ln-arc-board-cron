@@ -1,5 +1,6 @@
-/* eslint-disable no-restricted-globals */
+/* global FB */
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
@@ -11,6 +12,10 @@ import { addEventToDataLayerV2 } from './addEventToDataLayer';
 
 const noPaddingSmNone = 'p-0 sm-none';
 
+function popUpRedSocial(url) {
+    window.open(url, '', 'top=300,left=550,width=800,height=380');
+}
+
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
         popUpRedSocial(
@@ -21,12 +26,26 @@ export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     }
 }
 
-function popUpRedSocial(url) {
-    open(url, '', 'top=300,left=550,width=800,height=380');
-}
+/* El uso de `FB` se debe a la integración con el SDK de Facebook. 
+Actualmente, `FB` es un objeto global proporcionado por el script del SDK de Facebook, 
+cargado dinámicamente en el navegador. */
+const callFacebookUI = (notaId, dominio) => {
+    if (typeof FB !== 'undefined' && typeof FB.ui === 'function') {
+        FB.ui(
+            {
+                method: 'share',
+                mobile_iframe: true,
+                href: `${dominio}${notaId}`
+            },
+            () => {
+                // NOSONAR - This is intentional
+            }
+        );
+    }
+};
 
 // COMPARTIR EN NOTA
-export function popUpCompartirNotaFB(notaId, dominio, titulo) {
+export function popUpCompartirNotaFB(notaId, dominio) {
     if (notaId.length > 0) {
         dynamicallyLoadScript('//connect.facebook.net/en_US/sdk.js', 'head')
             .then(() => {
@@ -54,23 +73,7 @@ export function popUpCompartirNotaFB(notaId, dominio, titulo) {
     }
 }
 
-const callFacebookUI = (notaId, dominio) => {
-    if (typeof FB !== 'undefined') {
-        FB.ui &&
-            FB.ui(
-                {
-                    method: 'share',
-                    mobile_iframe: true,
-                    href: `${dominio}${notaId}`
-                },
-                response => {
-                    // NOSONAR - This is intentional
-                }
-            );
-    }
-};
-
-export function popUpCompartirNotaGoogle(notaId, dominio, titulo) {
+export function popUpCompartirNotaGoogle(notaId, dominio) {
     if (notaId.length > 0) {
         popUpRedSocial(`//plus.google.com/share?url=${dominio}${notaId}`); // $("#hs-twitter").val());
     } else {
@@ -98,13 +101,15 @@ export const shareWhatsAppDesktop = (notaId, dominio) => {
     window.open(wsShare, '_blank');
 };
 
-export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
+export const shareWhatsAppMobile = (notaId, dominio, title) => {
     try {
         const texto = `${title} : ...`;
         const whatsappUrl = `https://wa.me/?text=${texto} - ${dominio}${notaId}`;
         window.location.href = whatsappUrl;
     } catch (e) {
-        console.warn && console.warn('Initialize: ', e);
+        if (console.warn) {
+            console.warn('Initialize: ', e);
+        }
     }
 };
 
@@ -125,12 +130,12 @@ export const getTwitterTitle = (mobileTitle, title) =>
 export const getClassAndIconByBookmark = bookmark =>
     bookmark
         ? {
-            bookmarkClass: '--is-saved',
-            bookmarkIcon: <IconSprite name="bookmarkFilled" critical />
-        }
+              bookmarkClass: '--is-saved',
+              bookmarkIcon: <IconSprite name="bookmarkFilled" critical />
+          }
         : {
-            bookmarkIcon: <IconSprite name="bookmark" critical />
-        };
+              bookmarkIcon: <IconSprite name="bookmark" critical />
+          };
 
 export const getFirstGroupClassNames = ({ subtypeVideo }) => ({
     firstGroupClasses: classNames(
@@ -154,8 +159,9 @@ export const onButtonClicked = (
     globalContent,
     bookmark,
     setBookmark,
-    dispatch,
-    state
+    openBarrier,
+    openToast,
+    onOperationComplete
 ) => {
     addEventToDataLayerV2({
         event: 'e_linkclick',
@@ -163,26 +169,19 @@ export const onButtonClicked = (
         category: 'nota_ln9',
         label: 'guardar_nota'
     });
-    const { open } = get(state, 'showModal', {});
-    if (suscription && !open) {
+
+    if (suscription) {
         toggleBookmark({
             isDelete: bookmark,
             setBookmark,
-            dispatch,
             _globalContent: globalContent
+        }).then(({ status, bookmarkContent }) => {
+            onOperationComplete(status, bookmarkContent);
+            openToast();
         });
+    } else {
+        openBarrier();
     }
-
-    !suscription &&
-        dispatch({
-            type: 'SHOW_MODAL',
-            payload: {
-                open: true,
-                origin: 'bookmark',
-                typeAlert: 'exclusive-ln',
-                typeModal: 'barrier'
-            }
-        });
 };
 
 export function BtnContainer({ children, withContainer, id }) {
@@ -196,6 +195,12 @@ export function BtnContainer({ children, withContainer, id }) {
 
     return children;
 }
+
+BtnContainer.propTypes = {
+    children: PropTypes.node.isRequired,
+    withContainer: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired
+};
 
 export const buttonsList = [
     {

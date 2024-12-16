@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import { Spinner } from '@ln/common-ui-spinner';
-import { GlobalContext } from '../context/globalContext';
 import ToggleButton from './ToggleButton';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import { getTextDisclaimer } from './helpers';
@@ -14,9 +13,9 @@ function BuildAudioPlayer({
     onCloseAudioPlayer,
     noteId = '',
     playbackState,
-    showVariantIa
+    showVariantIa,
+    openToast
 }) {
-    const { dispatch } = useContext(GlobalContext) || {};
     const [isScriptLoaded, setIsScriptLoaded] = useState(false);
     const [errorAudio, setErrorAudio] = useState(false);
     const [contentAvailable, setContentAvailable] = useState(false);
@@ -28,22 +27,11 @@ function BuildAudioPlayer({
 
     useEffect(() => {
         if (errorAudio) {
-            dispatch({
-                type: 'SHOW_MODAL',
-                payload: {
-                    typeModal: 'toast',
-                    open: true,
-                    data: {
-                        status: 'danger',
-                        description: 'Parece que hubo un problema.',
-                        timeout: 2750
-                    }
-                }
-            });
-            setEnableButton(true);
             onCloseAudioPlayer();
+            setEnableButton(true);
+            openToast();
         }
-    }, [errorAudio, dispatch, setEnableButton]);
+    }, [errorAudio, setEnableButton, openToast]);
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -87,6 +75,7 @@ function BuildAudioPlayer({
                     playerRef.current.addEventListener('ContentAvailable', () =>
                         setContentAvailable(true)
                     );
+
                     playerRef.current.addEventListener('PlaybackPaused', () =>
                         setIsAudioPlaying(false)
                     );
@@ -135,7 +124,6 @@ function BuildAudioPlayer({
         setCookie('contentVariant', newContentVariant, 7);
         setIsAudioPlaying(true);
     };
-
     if (errorAudio) return null;
 
     return (
@@ -171,7 +159,8 @@ BuildAudioPlayer.propTypes = {
     playbackState: PropTypes.string.isRequired,
     setEnableButton: PropTypes.func.isRequired,
     onCloseAudioPlayer: PropTypes.func.isRequired,
-    showVariantIa: PropTypes.bool.isRequired
+    showVariantIa: PropTypes.bool.isRequired,
+    openToast: PropTypes.func.isRequired
 };
 
 export default BuildAudioPlayer;

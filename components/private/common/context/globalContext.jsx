@@ -1,5 +1,4 @@
-/* eslint-disable no-restricted-globals */
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
@@ -8,27 +7,15 @@ import AuthInitializer from '../../../../auth/AuthInitializer';
 export const GlobalContext = React.createContext();
 
 const actionType = {
-    SHOW_MODAL: (state, action) => {
-        const { typeModal, typeAlert, open, origin, data } = action.payload;
-        return {
-            ...state,
-            showModal: {
-                typeModal,
-                typeAlert,
-                open,
-                origin,
-                data
-            }
-        };
-    },
     default: state => state
 };
-const reducer = (state, action) => {
-    return actionType[action.type]
+
+const reducer = (state, action) =>
+    actionType[action.type]
         ? actionType[action.type](state, action)
         : actionType.default(state);
-};
-const GlobalProvider = ({ children }) => {
+
+function GlobalProvider({ children }) {
     const { arcSite: website = 'la-nacion-ar' } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
         siteService: useContent({
@@ -70,23 +57,20 @@ const GlobalProvider = ({ children }) => {
                     notRecommendedSections
                 };
             }
-        }),
-        showModal: {
-            typeModal: '',
-            typeAlert: '',
-            open: false,
-            origin: '',
-            data: undefined
-        }
+        })
     });
 
+    const contextValue = useMemo(() => ({ state, dispatch }), [state]);
+
     return (
-        <GlobalContext.Provider value={{ state, dispatch }}>
+        <GlobalContext.Provider value={contextValue}>
             <AuthInitializer>{children}</AuthInitializer>
         </GlobalContext.Provider>
     );
-};
+}
+
 GlobalProvider.propTypes = {
     children: PropTypes.node.isRequired
 };
+
 export default GlobalProvider;
