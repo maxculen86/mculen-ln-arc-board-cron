@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { checkUserRealoadAction } from './ctrTracker';
 import { eventListenerAttacher } from '../linksTracker';
 import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
@@ -52,7 +53,7 @@ const boxArticleEventBuilder = {
     },
     ranking: () => {
         const rankingArticles = document.querySelectorAll(
-            '[data-article-box="Ranking"]'
+            '[data-block-name="n_ranking"] div article'
         );
 
         rankingArticles.forEach((rankArt, i) => {
@@ -99,7 +100,6 @@ export const articleBoxesTracker = ({
                         ctr_position: ctrPosition
                     });
 
-                    // eslint-disable-next-line no-use-before-define
                     observer.unobserve(target);
                 }
             });

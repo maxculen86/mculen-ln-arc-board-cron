@@ -61,13 +61,8 @@ function CTRNota() {
     const showCtr = !isSubscribed(SUBSCRIBED_HELPER.LN) && device === 'mobile';
 
     const { articles = [] } =
-        getDataContent(
-            sectionId,
-            sectionParentId,
-            website || arcSite,
-            '',
-            'ctrMobile'
-        ) || {};
+        getDataContent(sectionId, sectionParentId, website || arcSite, '') ||
+        {};
 
     if (!showCtr || articles?.length === 0) return null;
 

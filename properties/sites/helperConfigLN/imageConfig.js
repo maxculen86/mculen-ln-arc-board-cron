@@ -1428,17 +1428,6 @@ export default {
                 ]
             }
         },
-        ctr: {
-            promo_items: {
-                sizes: [
-                    {
-                        width: 80,
-                        height: 80,
-                        useFullSize: true
-                    }
-                ]
-            }
-        },
         webStories: {
             promo_items: {
                 sizes: [
