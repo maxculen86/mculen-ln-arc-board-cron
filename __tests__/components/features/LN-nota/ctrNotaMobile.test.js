@@ -80,7 +80,8 @@ describe('CTRNota', () => {
             'sociedad',
             '',
             'la-nacion-ar',
-            ''
+            '',
+            'ctrMobile'
         );
     });
 

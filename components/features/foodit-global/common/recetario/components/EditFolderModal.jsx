@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { Animate } from '@ln/common-ui-animate';
 import { Text } from '@ln/common-ui-text';
 import { Modal as ModalFoodit } from '@ln/foodit-ui-modal';
@@ -78,6 +78,7 @@ function EditFolderModal({
                         errorMessage={
                             <ErrorMessage message={inputError?.message} />
                         }
+                        closable
                     />
                 </div>
                 <hr />
@@ -119,10 +120,10 @@ function EditFolderModal({
 }
 
 EditFolderModal.propTypes = {
-    onClose: PropTypes.isRequired,
-    setUserBookmarks: PropTypes.isRequired,
-    setSelectedItem: PropTypes.isRequired,
-    folderId: PropTypes.isRequired,
-    isOpen: PropTypes.isRequired
+    onClose: PropTypes.func.isRequired,
+    setUserBookmarks: PropTypes.func.isRequired,
+    setSelectedItem: PropTypes.func.isRequired,
+    folderId: PropTypes.string.isRequired,
+    isOpen: PropTypes.bool.isRequired
 };
 export default EditFolderModal;

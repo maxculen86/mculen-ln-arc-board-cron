@@ -52,11 +52,28 @@ export const getUrlQuery = key => {
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
+export const handleRedirectMobile = (typeResponse, redirectUrl, query) => {
+    const uri = get(query, 'uri', '');
+    const url = get(query, 'url', '');
 
+    if (
+        typeResponse !== 'redirect' ||
+        !redirectUrl ||
+        !url ||
+        !uri.startsWith('/api/mobile')
+    )
+        return;
+
+    const prefixMobile = uri.slice(0, uri.indexOf(url));
+    const newRedirection = `${prefixMobile}${redirectUrl}`;
+    throw new Redirect(newRedirection, 301);
+};
 export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
     const typeResponse = get(response, 'type', '');
     const redirectUrl = get(response, 'redirect_url', '');
     const paywallEnabled = get(query, 'paywallEnabled', '');
+
+    handleRedirectMobile(typeResponse, redirectUrl, query);
 
     if (typeResponse === 'redirect' && redirectUrl) {
         throw new Redirect(redirectUrl, 301);
@@ -109,7 +126,7 @@ export const isValidSectionIA = sections => {
         '/seguridad'
     ];
 
-    return validSections.includes(section);
+    return validSections.some(validSection => section.startsWith(validSection));
 };
 
 export const transformPromoItems = async ({

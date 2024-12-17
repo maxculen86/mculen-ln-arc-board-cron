@@ -6,14 +6,13 @@ import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import { getArgentinaYear } from '../../../common/utils/dateAndTimeUtil';
 
-const HolidaysNav = ({ year, layout }) => {
+function HolidaysNav({ year, layout }) {
     const currentYear = Number(getArgentinaYear());
     const previousYear = currentYear - 1;
     const posteriorYear = currentYear + 1;
 
-    const validateYear = valYear => {
-        return year === valYear ? '' : `/feriados/${valYear}/`;
-    };
+    const validateYear = valYear =>
+        year === valYear ? '' : `/feriados/${valYear}/`;
 
     const extraClass = {
         home: '--home',
@@ -31,7 +30,7 @@ const HolidaysNav = ({ year, layout }) => {
                     Feriados inamovibles
                 </Text>
                 <Text tag="p" size="4xs">
-                    Feriados puente
+                    Días no laborables
                 </Text>
                 <Text tag="p" size="4xs">
                     Feriados trasladables
@@ -62,7 +61,7 @@ const HolidaysNav = ({ year, layout }) => {
             </ol>
         </div>
     );
-};
+}
 
 HolidaysNav.propTypes = {
     year: PropTypes.number.isRequired,

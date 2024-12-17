@@ -5,7 +5,7 @@ import get from '../../../private/common/utils/get';
 import HolidaysGridContainer from '../../../private/LN/services/holidays/HolidaysGridContainer';
 import HolidaysNav from '../../../private/LN/services/holidays/HolidaysNav';
 
-const HolidaysHomeCalendar = () => {
+function HolidaysHomeCalendar() {
     const { globalContent = {} } = useAppContext();
     const serviceItem = get(globalContent, 'serviceItem', '');
     const calendars = get(globalContent, 'dataService.calendars', []);
@@ -18,7 +18,7 @@ const HolidaysHomeCalendar = () => {
     ) : (
         <></>
     );
-};
+}
 
 HolidaysHomeCalendar.label = 'LN Calendarios Home Feriados';
 

@@ -233,7 +233,8 @@ const table = `
 `;
 
 const videoJwObject = `
-    title
+    title,
+    epigraphTitle,
     description,
     kind,
     playlist {
@@ -421,6 +422,7 @@ export default `
         name
         category
         reference_id
+        mode
     }
     promo_items {
         basic {

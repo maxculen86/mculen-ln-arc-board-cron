@@ -8,7 +8,7 @@ function DisclaimerIA({ text = '', className = '' }) {
     if (!text) return null;
 
     return (
-        <aside className={classNames('flex gap-4', className)}>
+        <aside className={classNames('flex ai-center gap-4', className)}>
             <Icon size={12}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

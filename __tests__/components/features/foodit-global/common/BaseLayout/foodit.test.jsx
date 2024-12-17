@@ -60,7 +60,8 @@ describe('Components - Features - Foodit-global - Common -BaseLayout', () => {
             arcSite: 'site-test',
             siteProperties: {
                 layoutsName: {
-                    FooditRecipePaywall: 'Foodit-recipe-paywall'
+                    FooditRecipePaywall: 'Foodit-recipe-paywall',
+                    FooditFichaNota: 'Foodit-ficha-nota'
                 }
             }
         });
@@ -118,6 +119,7 @@ describe('Components - Features - Foodit-global - Common -BaseLayout', () => {
         const { getByText } = render(<BaseLayout>Test Children</BaseLayout>);
 
         expect(getConfigByLayout).toHaveBeenCalledWith('Foodit-ficha-nota', [
+            expect.any(Function),
             expect.any(Function)
         ]);
         expect(getByText('FloatingGroupButton')).toBeInTheDocument();

@@ -1,24 +1,31 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable */
-import { DOMINIO_COOKIE } from 'fusion:environment';
+import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
+import { scheduleTask } from '../utils/scheduleTask';
+import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 
 export const handleClickAudioNews = (
-    token,
-    suscription,
     onOpenAudioPlayer,
-    dispatch
+    globalContent,
+    globalContentConfig,
+    contentVariant,
+    closeTooltipIAAuthor,
+    subscription,
+    token,
+    openBarrier
 ) => {
-    if (token && suscription) onOpenAudioPlayer();
-    (!suscription || !token) &&
-        dispatch({
-            type: 'SHOW_MODAL',
-            payload: {
-                open: true,
-                origin: 'audioNews',
-                typeAlert: 'exclusive-ln',
-                typeModal: 'barrier'
-            }
+    if (subscription && token) {
+        onOpenAudioPlayer();
+        addEventToDataLayerV2({
+            event: 'page_listened',
+            rest: getAudioEvents(
+                globalContent,
+                globalContentConfig,
+                contentVariant
+            )
         });
+        scheduleTask(() => closeTooltipIAAuthor());
+    } else {
+        openBarrier();
+    }
 };
 
 export const getTextAndIconColor = (contentVariant, variant) => {
@@ -57,3 +64,8 @@ export function getTextDisclaimer({
     }
     return textDisclaimer.article;
 }
+
+export const a11yAttrsBarrierSub = {
+    'aria-labelledby': 'barrier-audio-dialog-label',
+    'aria-describedby': 'barrier-dialog-description'
+};

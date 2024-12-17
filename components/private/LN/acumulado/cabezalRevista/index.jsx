@@ -3,11 +3,9 @@ import PropTypes from 'fusion:prop-types';
 import LinkList from './linkList';
 import Social from './social';
 
-import '../../../../../resources/dist/css/ln/pages/acu-revista.css';
-
 const HIERARCHY = 'Links-Acumulados';
 
-const Index = props => {
+function Index(props) {
     const {
         children,
         globalContent: {
@@ -39,7 +37,7 @@ const Index = props => {
             </div>
         </div>
     );
-};
+}
 
 Index.propTypes = {
     globalContent: PropTypes.shape({
@@ -55,10 +53,14 @@ Index.propTypes = {
             section_style_name: PropTypes.string.isRequired
         }).isRequired
     }).isRequired,
-    children: PropTypes.oneOf([
+    children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ])
+};
+
+Index.defaultProps = {
+    children: null
 };
 
 export default Index;

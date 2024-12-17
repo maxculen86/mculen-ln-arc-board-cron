@@ -9,6 +9,7 @@ import { Text } from '@ln/contenidos-ui-text';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import ModPicture from '../../common/mod-picture';
 import { handleClickForCTRcomponent } from '../../common/utils/noteTracker/ctrTracker';
+import get from '../../common/utils/get';
 
 function StickyMobile({ headerText, alt, articleToShow }) {
     const {
@@ -69,7 +70,7 @@ function StickyMobile({ headerText, alt, articleToShow }) {
                         className="flex ai-start ml-auto mr-auto gap-8"
                     >
                         <ModPicture
-                            src={url}
+                            src={get(resizedUrls[0], 'resizedUrl', url)}
                             alt={alt || headlineToUse}
                             sources={resizedUrls}
                         />

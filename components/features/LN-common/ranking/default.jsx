@@ -1,17 +1,16 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent as getContent } from 'fusion:content';
 import Static from 'fusion:static';
-import CajaTema from '../../../private/LN/common/cajaTema';
-import {
-    getRankingProps,
-    getSectionParentId,
-    hasArticles,
-    RANKING
-} from './_helper';
-import '../../../../resources/dist/css/ln/components/ranking.css';
+import { Icon } from '@ln/common-ui-icon';
+import { Text } from '@ln/contenidos-ui-text';
+import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
 import { articleBoxesTracker } from '../../../private/common/utils/noteTracker/articleBoxesTracker';
+import IconSprite from '../../private-global/common/iconSprite/IconSprite';
+import CardRanking from '../../LN-10-global/common/cardRanking/default';
+import get from '../../../private/common/utils/get';
 
 const getDataContent = (
     sectionId,
@@ -25,7 +24,8 @@ const getDataContent = (
             query: {
                 sectionId: section,
                 imageConfig: 'boxArticles',
-                website
+                website,
+                section: 'commonRanking'
             },
             staticMode: isStatic
         });
@@ -37,26 +37,12 @@ const getDataContent = (
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };
 
-const RankingFeature = ({ id: featureId }) => {
-    const {
-        outputType,
-        website,
-        arcSite,
-        layout,
-        globalContent = {}
-    } = useAppContext();
+function RankingFeature({ id: featureId }) {
+    const { website, arcSite, layout, globalContent = {} } = useAppContext();
 
     const { type } = globalContent;
 
-    const {
-        title,
-        sectionName,
-        sectionId,
-        isHome,
-        notesQuantity,
-        classCondition,
-        rankingLayout
-    } = getRankingProps(layout, featureId, globalContent);
+    const { sectionId } = getRankingProps(layout, featureId, globalContent);
 
     const sectionParentId = getSectionParentId(sectionId);
     const { name, articles } =
@@ -64,38 +50,64 @@ const RankingFeature = ({ id: featureId }) => {
         {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
+
     useEffect(() => {
-        type === 'story' &&
+        if (type === 'story') {
             articleBoxesTracker({
                 boxType: 'ranking'
             });
+        }
     }, [type]);
 
-    const component =
-        articles && articles.length ? (
-            <CajaTema
-                title={title || customTitle}
-                notesQuantity={notesQuantity}
-                sectionName={sectionName}
-                articles={articles}
-                position={sectionName === RANKING ? '0190' : '0191'}
-                dataSection={sectionId}
-                outputType={outputType}
-                classCondition={classCondition}
-                titleSize="--xs"
-                withVolanta
-                layout={rankingLayout}
-                isHome={isHome}
-            />
-        ) : (
-            <></>
-        );
     return (
         <Static id={`common-ranking-${featureId}`} htmlOnly>
-            {component}
+            <div className="bg-light-0 py-32">
+                {articles?.length > 0 && (
+                    <div className="flex ai-center gap-12 pt-12 mb-8 border border-top border-thin border-light-100">
+                        <Text className="--prumo --font-l --font-medium">
+                            {customTitle}
+                        </Text>
+                        <Icon height={16.8}>
+                            <IconSprite name="arrow" fill="#333" />
+                        </Icon>
+                    </div>
+                )}
+                <ol>
+                    {articles?.map(
+                        (
+                            {
+                                headlines,
+                                website_url: websiteUrl,
+                                promo_items: promoItems
+                            },
+                            i
+                        ) => (
+                            <li
+                                key={headlines?.basic}
+                                className="pb-8 mb-8 border border-bottom border-thin border-neutral-light-100"
+                                data-article-box="Ranking"
+                            >
+                                <CardRanking
+                                    href={websiteUrl}
+                                    title={headlines?.basic}
+                                    mediaData={{
+                                        alt: headlines?.mobile,
+                                        src: get(
+                                            promoItems,
+                                            'basic.resized_urls[0].resizedUrl',
+                                            promoItems?.basic?.url
+                                        )
+                                    }}
+                                    i={i}
+                                />
+                            </li>
+                        )
+                    )}
+                </ol>
+            </div>
         </Static>
     );
-};
+}
 
 RankingFeature.label = 'LN-Common-Ranking';
 

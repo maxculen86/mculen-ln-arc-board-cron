@@ -4,9 +4,7 @@ import Tags from '../tags';
 import Sections from '../sections';
 import DetalleReceta from '../detalleReceta';
 
-import '../../../../../../resources/dist/css/ln/layouts/grid.css';
-
-const AperturaSinDestacado = props => {
+function AperturaSinDestacado(props) {
     const { receta, taxonomy, tags } = props;
 
     return (
@@ -26,7 +24,7 @@ const AperturaSinDestacado = props => {
             </div>
         </div>
     );
-};
+}
 
 AperturaSinDestacado.propTypes = {
     taxonomy: PropTypes.shape({

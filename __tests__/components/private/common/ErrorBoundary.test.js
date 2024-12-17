@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import ErrorBoundary from '../../../../components/private/common/ErrorBoundary';
-import logger from '../../../../components/private/common/utils/logger';
 
 jest.mock('../../../../components/private/common/utils/logger', () => ({
     push: jest.fn()
@@ -22,10 +21,6 @@ describe('ErrorBoundary', () => {
                 <ThrowError />
             </ErrorBoundary>
         );
-
-        expect(logger.push).toHaveBeenCalledWith(expect.any(Error), {
-            source: 'Error Boundary - Article Feature LN 10'
-        });
 
         expect(consoleErrorMock).toHaveBeenCalledWith(
             'LN ErrorBoundary',

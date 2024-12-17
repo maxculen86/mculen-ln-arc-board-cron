@@ -1,5 +1,4 @@
 import React from 'react';
-import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import SignatureWithDistributor from '../../../../../components/features/LN-nota/signature/signatureWithDistributor';
 
@@ -13,6 +12,7 @@ describe('components - feature - LN-nota - signature - signatureWithDistributor'
         render(
             <SignatureWithDistributor
                 name="LA NACION"
+                mode="other"
                 audioButton={mockAudioButton}
                 showSignatureWithDistributor={true}
             />
@@ -21,12 +21,34 @@ describe('components - feature - LN-nota - signature - signatureWithDistributor'
         const distributor = screen.getByText('LA NACION');
         expect(distributor).toBeInTheDocument();
         expect(distributor.tagName).toBe('SPAN');
+
+        const linkElement = screen.queryByRole('link');
+        expect(linkElement).toBeNull();
     });
 
-    it('should display the name as a link to other names', () => {
+    it('should display the name as text if it mode is "custom"', () => {
+        render(
+            <SignatureWithDistributor
+                name="Distributor custom"
+                mode="custom"
+                audioButton={mockAudioButton}
+                showSignatureWithDistributor={true}
+            />
+        );
+
+        const distributor = screen.getByText('Distributor custom');
+        expect(distributor).toBeInTheDocument();
+        expect(distributor.tagName).toBe('SPAN');
+
+        const linkElement = screen.queryByRole('link');
+        expect(linkElement).toBeNull();
+    });
+
+    it('should display the name as a link to names other than "LA NACION" and mode other than "custom"', () => {
         render(
             <SignatureWithDistributor
                 name="New York Times"
+                mode="other"
                 audioButton={mockAudioButton}
                 showSignatureWithDistributor={true}
             />
@@ -46,6 +68,7 @@ describe('components - feature - LN-nota - signature - signatureWithDistributor'
         render(
             <SignatureWithDistributor
                 name="LA NACION"
+                mode="other"
                 audioButton={mockAudioButton}
                 showSignatureWithDistributor={true}
             />
@@ -59,6 +82,7 @@ describe('components - feature - LN-nota - signature - signatureWithDistributor'
         const { container } = render(
             <SignatureWithDistributor
                 name="LA NACION"
+                mode="other"
                 audioButton={mockAudioButton}
                 showSignatureWithDistributor={false}
             />
@@ -71,6 +95,7 @@ describe('components - feature - LN-nota - signature - signatureWithDistributor'
         render(
             <SignatureWithDistributor
                 name="LA NACION"
+                mode="other"
                 showSignatureWithDistributor={true}
             />
         );

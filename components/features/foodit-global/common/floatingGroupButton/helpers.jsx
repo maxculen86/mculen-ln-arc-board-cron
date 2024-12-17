@@ -1,8 +1,8 @@
 import React from 'react';
+import { Icon } from '@ln/common-ui-icon';
 import siteProperties from '../../../../../properties/sites/foodit';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
-import { Icon } from '@ln/common-ui-icon';
 
 const { layoutsName = {} } = siteProperties || {};
 
@@ -50,7 +50,7 @@ export const floatingButtonConfig = {
     [layoutsName.FooditAcumuladoChef]: defaultConfig,
     [layoutsName.FooditChef]: defaultConfig,
     [layoutsName.FooditRecetario]: (callbacks = []) => {
-        const [toggleDrawer = () => null] = callbacks;
+        const [toggleDrawerRecetario = () => null] = callbacks;
         return {
             observerSelector: '.header-sentinel',
             className: 'sm-only',
@@ -58,7 +58,28 @@ export const floatingButtonConfig = {
                 {
                     title: 'Elegir colección',
                     children: 'Elegir colección',
-                    onClick: () => toggleDrawer()
+                    onClick: () => toggleDrawerRecetario()
+                }
+            ]
+        };
+    },
+    [layoutsName.FooditBuscador]: (callbacks = []) => {
+        const [, toggleDrawerBuscador = () => null] = callbacks;
+        return {
+            observerSelector: '.header-sentinel',
+            className: 'lg-none',
+            buttons: [
+                {
+                    title: 'Filtros',
+                    children: (
+                        <>
+                            <Icon size={16}>
+                                <IconSprite fill="#FEFEFE" name="filter" />
+                            </Icon>
+                            Filtros
+                        </>
+                    ),
+                    onClick: () => toggleDrawerBuscador()
                 }
             ]
         };
@@ -79,7 +100,7 @@ export const customFloatingButtonConfig = {
 
         return {
             observerSelector: FLOATING_BUTTON_SENTINEL,
-            className: defaultClassName,
+            className: 'sm-only',
             buttons: [
                 {
                     title: 'Copiar todo',

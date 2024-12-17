@@ -7,7 +7,6 @@ jest.mock('../../../../../components/private/common/utils/scheduleTask');
 const mockScheduleTask = jest.fn(callback => callback());
 scheduleTask.mockImplementation(mockScheduleTask);
 
-
 Object.defineProperty(window, 'performance', {
     value: {
         getEntriesByType: jest.fn().mockReturnValue([{ type: 'navigate' }]),
@@ -17,7 +16,6 @@ Object.defineProperty(window, 'performance', {
 
 window.IntersectionObserver = jest.fn();
 const takeRecords = jest.fn();
-
 
 afterEach(() => {
     jest.restoreAllMocks();

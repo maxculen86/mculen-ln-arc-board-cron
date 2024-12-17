@@ -22,6 +22,8 @@ import { typesButtonStyle } from '../../../chains/utils/setCommonCustomFields';
 import { setupIntersectionObserver } from '../../LN-10-global/common/utils/intersectionObserver';
 import { handleIframeProps } from './helpers/iframeHelper';
 
+const disableAnexo = 'Marque para ocultar el anexo';
+
 export const getComponentFromConfig = (
     _type,
     _props,
@@ -260,7 +262,7 @@ AnexoFeature.propTypes = {
         hideByUrl: PropTypes.bool.tag({
             label: 'Ocultar',
             group: adjustByURL,
-            description: 'Marque para ocultar el anexo',
+            description: disableAnexo,
             defaultValue: false
         }),
         html: PropTypes.richtext.tag({
@@ -296,13 +298,13 @@ AnexoFeature.propTypes = {
         hideByHtml: PropTypes.bool.tag({
             label: 'Ocultar',
             group: adjustByHTML,
-            description: 'Marque para ocultar el anexo',
+            description: disableAnexo,
             defaultValue: false
         }),
         hideByVivoYoutube: PropTypes.bool.tag({
             label: 'Ocultar',
             group: adjustByVivoYoutube,
-            description: 'Marque para ocultar el anexo',
+            description: disableAnexo,
             defaultValue: false
         }),
         title: PropTypes.string.tag({

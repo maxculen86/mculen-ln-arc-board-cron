@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - LN-10-global - Common - FigureCaption should not render figcaption without epigraphTitle 1`] = `<div />`;
+
+exports[`Components - Features - LN-10-global - Common - FigureCaption should render figcaption with epigraphTitle but without credit 1`] = `
+<div>
+  <figcaption
+    class="border border-1 border-bottom border-light-300 bg-white relative mb-8 px-16 py-8 min-h-36 w-100_md px-0_l"
+  >
+    <span
+      class="text ln-text text-16 block"
+    >
+      test content
+    </span>
+  </figcaption>
+</div>
+`;
+
+exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle 1`] = `
+<div>
+  <figcaption
+    class="border border-1 border-bottom border-light-300 bg-white relative mb-8 px-16 py-8 min-h-36 w-100_md px-0_l"
+  >
+    <span
+      class="text ln-text text-16 block"
+    >
+      mocked content
+    </span>
+  </figcaption>
+</div>
+`;
+
+exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle and credit 1`] = `
+<div>
+  <figcaption
+    class="border border-1 border-bottom border-light-300 bg-white relative mb-8 px-16 py-8 min-h-36 w-100_md px-0_l"
+  >
+    <span
+      class="text ln-text text-16 block"
+    >
+      mocked content
+    </span>
+    <span
+      class="text ln-text text-16 text-dark-neutral-400 block"
+    >
+      mocked credit
+    </span>
+  </figcaption>
+</div>
+`;

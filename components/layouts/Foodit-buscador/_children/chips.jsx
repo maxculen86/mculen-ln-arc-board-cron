@@ -1,0 +1,25 @@
+import { Button } from '@ln/foodit-ui-button';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+
+export default function Chips({ text = '', actionClick = () => {} }) {
+    return (
+        <div className="flex flex-wrap row-gap-16">
+            <Button onClick={actionClick} style={{ padding: '8px 12px' }}>
+                <span className="capitalize roboto roboto-bold text-14">
+                    {text}
+                </span>
+                <Icon size={12}>
+                    <IconSprite name="close" />
+                </Icon>
+            </Button>
+        </div>
+    );
+}
+
+Chips.propTypes = {
+    text: PropTypes.string.isRequired,
+    actionClick: PropTypes.func.isRequired
+};

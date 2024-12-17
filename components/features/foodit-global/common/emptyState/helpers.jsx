@@ -12,6 +12,7 @@ export const titleByVariant = {
     'barrier-unlogged': '¡Exclusivo suscriptores!',
     'barrier-logged': '¡Exclusivo suscriptores!',
     'empty-state': '¡Aún no hay nada por acá!',
+    'search-engine': 'Nada por acá',
     404: '¡Uppps! Contenido en preparación'
 };
 
@@ -53,6 +54,11 @@ export const descriptionByVariant = ({ layout, variant }) => {
                 >
                     Foodit
                 </Link>
+            </span>
+        ),
+        'search-engine': (
+            <span className="roboto text-24 text-center">
+                No se encontraron resultados
             </span>
         )
     };
@@ -97,6 +103,12 @@ export const imagePropsByVariant = {
         height: 110
     },
     'empty-state': {
+        asset: 'empty-state-recetario.webp',
+        alt: '¡Aún no hay nada por acá!',
+        width: 147,
+        height: 152
+    },
+    'search-engine': {
         asset: 'empty-state-recetario.webp',
         alt: '¡Aún no hay nada por acá!',
         width: 147,

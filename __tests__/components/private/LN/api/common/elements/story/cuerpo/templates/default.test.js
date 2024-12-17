@@ -24,11 +24,11 @@ describe('errorHandling', () => {
         const current = 'currentData';
         const storyId = '12345';
 
-        console.warn = jest.fn();
+        console.error = jest.fn();
 
         const result = errorHandling(res, selectedComponent, current, storyId);
 
-        expect(console.warn).toHaveBeenCalledWith(expect.any(BackendLnError));
+        expect(console.error).toHaveBeenCalledWith(expect.any(BackendLnError));
     });
 });
 

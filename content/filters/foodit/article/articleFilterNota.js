@@ -389,29 +389,6 @@ export default `
         primary_section ${section}
         seo_keywords
     }
-    related_content {
-        basic {
-            type
-            _id
-            headlines {
-                basic,
-                mobile
-            }
-            ${labels}
-            website_url
-            canonical_url
-            referent {
-                type
-                ${image}
-                auth {
-                    1
-                }
-            }
-        }
-        redirect {
-            redirect_url
-        }
-    }
     content_elements {
         _id
         type

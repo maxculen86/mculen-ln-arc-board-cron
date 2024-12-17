@@ -1,7 +1,5 @@
 import { screen, fireEvent } from '@testing-library/react';
-import {
-    addPositionInNote
-} from '../../../../../components/private/common/utils/linksTracker';
+import { addPositionInNote } from '../../../../../components/private/common/utils/linksTracker';
 
 global.window.dataLayer = [];
 
