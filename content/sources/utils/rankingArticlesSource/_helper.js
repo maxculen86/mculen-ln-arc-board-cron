@@ -130,34 +130,12 @@ export const getQuery = (sectionId, layout) => {
     };
 };
 
-const sizesRankingCommon = {
-    0: {
-        sizes: [
-            {
-                width: 300,
-                height: 130,
-                useFullSize: true
-            }
-        ]
-    },
-    default: {
-        sizes: [
-            {
-                width: 120,
-                height: 120,
-                useFullSize: true
-            }
-        ]
-    }
-};
-
 export const transformData = (data, query, cachedCall) => {
-    const { section = '' } = query;
     const { presets, presetsDefault } = getPresets(query);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     return Promise.all(
-        data.map(async (elem, i) => {
+        data.map(async elem => {
             const newElem = await getAllImagesAuth(elem, cachedCall);
             Object.assign(elem, newElem);
 
@@ -182,14 +160,7 @@ export const transformData = (data, query, cachedCall) => {
                         resizerSecret: RESIZER_KEY,
                         resizerUrl: RESIZER_URL_PUBLIC_PROD,
                         presets: {
-                            promoItems:
-                                section === 'commonRanking'
-                                    ? get(
-                                          sizesRankingCommon,
-                                          i,
-                                          sizesRankingCommon.default
-                                      )
-                                    : presetsPromoItems,
+                            promoItems: presetsPromoItems,
                             presetsDefault
                         },
                         // Se pasa el subtype para que las notas de foto al 100

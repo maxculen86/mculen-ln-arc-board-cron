@@ -36,8 +36,7 @@ function RankingFeature({ id: featureId }) {
             sectionId,
             sectionParentId,
             website || arcSite,
-            layout,
-            ''
+            layout
         ) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
