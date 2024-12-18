@@ -1,19 +1,18 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useContext, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import getMediaData from '../LN/common/utils/modArticleHelper';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import { useAppContext } from 'fusion:context';
+import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
+import getMediaData from '../LN/common/utils/modArticleHelper';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import setArticleClassName from './utils/setArticleClassName';
-import { GlobalContext } from './context/globalContext';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
+import { useBookmarkContext } from './bookmark/hooks/BookmarkContext';
 
 const ModArticle = forwardRef((props, ref) => {
     const {
@@ -54,12 +53,13 @@ const ModArticle = forwardRef((props, ref) => {
         registerSuccessEvent,
         typeArticle,
         mobileImage,
-        searchableField
+        searchableField,
+        openBarrier
     } = props;
 
-    const { dispatch } = useContext(GlobalContext) || {};
-
     const { layout: layoutPageBuilder, globalContent } = useAppContext() || {};
+
+    const { setBookmarkId } = useBookmarkContext();
 
     const {
         _id,
@@ -100,10 +100,14 @@ const ModArticle = forwardRef((props, ref) => {
     const categoryNote = get(articleData, 'category', '');
 
     const onCLick = event => {
-        typeof registerSuccessEvent === 'function' && registerSuccessEvent();
-        typeof handleClick == 'function' && handleClick(event, websiteUrl);
+        if (typeof registerSuccessEvent === 'function') {
+            registerSuccessEvent();
+        }
+        if (typeof handleClick === 'function') {
+            handleClick(event, websiteUrl);
+        }
     };
-
+    // TODO: Reemplazar el elemento <article> por un elemento interactivo semántico (<button> o <a>) cuando sea posible para poder eliminar los comentarios de ESLint.
     return (
         <article
             ref={ref}
@@ -162,16 +166,8 @@ const ModArticle = forwardRef((props, ref) => {
             {isBookmark && (
                 <Button
                     onClick={() => {
-                        dispatch({
-                            type: 'SHOW_MODAL',
-                            payload: {
-                                open: true,
-                                origin: 'bookmark',
-                                typeAlert: 'delete-note',
-                                data: bookmarkId,
-                                typeModal: 'barrier'
-                            }
-                        });
+                        openBarrier();
+                        setBookmarkId(bookmarkId);
                     }}
                     title="Quitar de mis notas"
                     variant="primary"
@@ -193,7 +189,7 @@ ModArticle.propTypes = {
     articleData: PropTypes.shape({
         _id: PropTypes.string,
         promo_items: PropTypes.shape({
-            basic: PropTypes.object
+            basic: PropTypes.shape({ _id: PropTypes.string })
         })
     }).isRequired,
     artPosition: PropTypes.string,
@@ -230,7 +226,14 @@ ModArticle.propTypes = {
     titleWeight: PropTypes.string,
     videoBackground: PropTypes.shape({
         _id: PropTypes.number,
-        streams: PropTypes.array,
+        streams: PropTypes.arrayOf(
+            PropTypes.shape({
+                height: PropTypes.number,
+                stream_type: PropTypes.string,
+                url: PropTypes.string,
+                width: PropTypes.number
+            })
+        ),
         type: PropTypes.string
     }),
     withMedia: PropTypes.bool,
@@ -239,12 +242,13 @@ ModArticle.propTypes = {
     mobileImage: PropTypes.shape({
         _id: PropTypes.string,
         promo_items: PropTypes.shape({
-            basic: PropTypes.object
+            basic: PropTypes.shape({ _id: PropTypes.string })
         })
     }),
     searchableField: PropTypes.shape({
         imageId: PropTypes.string
-    })
+    }),
+    openBarrier: PropTypes.func.isRequired
 };
 
 ModArticle.defaultProps = {

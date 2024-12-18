@@ -1,6 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import { Dialog } from '@ln/common-ui-dialog';
+import { useDisclosure } from '@ln/hooks';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import Text from '../text';
 import BookmarkList from './BookmarkList';
@@ -8,8 +10,6 @@ import HelperBookmark from './HelperBookmark';
 import useListBookmarks from '../hooks/bookmark/useListBookmarks';
 import useCountBookmarks from '../hooks/bookmark/useCountBookmarks';
 import useTermica from '../hooks/useTermica';
-import Barrier from '../barrier/Barrier';
-import { GlobalContext } from '../context/globalContext';
 import ShowToast from '../toast/showToast';
 import {
     isSubscribed,
@@ -17,25 +17,25 @@ import {
 } from '../../../../auth/helper/loginHelper';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 import useAuthManager from '../../../../auth/hooks/useAuthManager';
+import { useToast } from '../toast/hooks/useToast';
+import BarrierDeleteNote from '../../../features/LN-10-global/common/barrierDeleteNote/default';
+import {
+    BookmarkContextProvider,
+    useBookmarkContext
+} from './hooks/BookmarkContext';
 
-const BookmarkLayout = () => {
-    const { state, dispatch } = useContext(GlobalContext);
+function BookmarkLayoutContent() {
     const [showHelper, setShowHelper] = useState(false);
     const termica = useTermica('bookmark_web');
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const { token, accessToken } = useAuthManager();
-    const {
-        bookmarks,
-        morePages,
-        getNextPage,
-        loading,
-        deleteArticle
-    } = useListBookmarks({
-        termicaBookmark: termica,
-        subscription,
-        token,
-        accessToken
-    });
+    const { bookmarks, morePages, getNextPage, loading, deleteArticle } =
+        useListBookmarks({
+            termicaBookmark: termica,
+            subscription,
+            token,
+            accessToken
+        });
 
     const { bookmarkCount, substractOne } = useCountBookmarks({
         termicaBookmark: termica,
@@ -43,6 +43,22 @@ const BookmarkLayout = () => {
         token,
         accessToken
     });
+
+    const {
+        isOpen: isBarrierOpen,
+        onOpen: openBarrier,
+        onClose: closeBarrier
+    } = useDisclosure(false);
+
+    const {
+        isToastOpen,
+        openToast,
+        closeToast,
+        toastData,
+        handleOperationComplete
+    } = useToast();
+
+    const { bookmarkId } = useBookmarkContext();
 
     return (
         <div className="bookmark-layout">
@@ -75,30 +91,44 @@ const BookmarkLayout = () => {
                 morePages={morePages}
                 getNextPage={getNextPage}
                 loading={loading}
+                openBarrier={openBarrier}
             />
             <HelperBookmark />
-
-            {state.showModal.origin === 'bookmark' && (
-                <Barrier
-                    type={state.showModal.typeAlert}
-                    handleBarrier={() => {
-                        dispatch({
-                            type: 'SHOW_MODAL',
-                            payload: {
-                                open: false
-                            }
-                        });
-                    }}
-                    bookmarkId={state.showModal.data}
+            <Dialog
+                isOpen={isBarrierOpen}
+                onClose={closeBarrier}
+                position="center"
+                id="audio-player-barrier"
+                classnames={{
+                    base: 'w-100 w-720_md bg-transparent px-16 w-shadow-up-md'
+                }}
+                overlay
+                closeOnClickOutside
+            >
+                <BarrierDeleteNote
+                    closeBarrier={closeBarrier}
+                    bookmarkId={bookmarkId}
                     deleteArticle={deleteArticle}
                     substractOne={substractOne}
-                    dispatch={dispatch}
+                    onOperationComplete={handleOperationComplete}
+                    openToast={openToast}
                 />
-            )}
-
-            <ShowToast />
+            </Dialog>
+            <ShowToast
+                isOpen={isToastOpen}
+                onClose={closeToast}
+                {...toastData}
+            />
         </div>
     );
-};
+}
+
+function BookmarkLayout() {
+    return (
+        <BookmarkContextProvider>
+            <BookmarkLayoutContent />
+        </BookmarkContextProvider>
+    );
+}
 
 export default BookmarkLayout;

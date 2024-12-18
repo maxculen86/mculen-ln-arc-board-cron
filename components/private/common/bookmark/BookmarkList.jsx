@@ -6,7 +6,7 @@ import ArticlesAcum from '../../LN/acumulado/articlesAcum';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import BtnMasNotas from '../../LN/acumulado/botonVerMasNotas';
 
-const BookmarkList = ({ data, morePages, getNextPage, loading }) => {
+function BookmarkList({ data, morePages, getNextPage, loading, openBarrier }) {
     const { outputType } = useAppContext();
     const [loadingMorePages, setLoadingMorePages] = useState(false);
 
@@ -23,13 +23,16 @@ const BookmarkList = ({ data, morePages, getNextPage, loading }) => {
                         outputType={outputType}
                         typeArticle="Bookmark"
                         classCondition={morePages && 'hlp-degrade'}
+                        openBarrier={openBarrier}
                     />
                     {morePages && (
                         <section className="row">
                             <BtnMasNotas
                                 onClickHandler={() => {
                                     setLoadingMorePages(!loadingMorePages);
-                                    !loadingMorePages && getNextPage();
+                                    if (!loadingMorePages) {
+                                        getNextPage();
+                                    }
                                 }}
                                 loadingIcon={<LoadingIcon />}
                                 loading={loadingMorePages}
@@ -41,7 +44,7 @@ const BookmarkList = ({ data, morePages, getNextPage, loading }) => {
             )}
         </section>
     );
-};
+}
 
 BookmarkList.propTypes = {
     data: PropTypes.arrayOf(
@@ -77,7 +80,8 @@ BookmarkList.propTypes = {
     ),
     morePages: PropTypes.bool,
     getNextPage: PropTypes.func.isRequired,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    openBarrier: PropTypes.func.isRequired
 };
 BookmarkList.defaultProps = {
     data: [],

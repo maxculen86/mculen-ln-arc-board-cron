@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { ToastContainer } from '@ln/common-ui-toast';
 import { Toast } from '@ln/contenidos-ui-toast';
-import { GlobalContext } from '../context/globalContext';
-import get from '../utils/get';
 
-function ShowToast() {
-    const { state, dispatch } = useContext(GlobalContext) || {};
-    const { open, typeModal, data } = get(state, 'showModal', {});
-
+function ShowToast(props) {
     const {
+        isOpen,
+        onClose,
         title,
         buttonLabel,
         description,
@@ -17,7 +14,7 @@ function ShowToast() {
         timeout,
         closable,
         pauseOnHover
-    } = data || {};
+    } = props || {};
 
     const buttonProps = buttonLabel && {
         href,
@@ -34,7 +31,9 @@ function ShowToast() {
         variant: status
     };
 
-    return typeModal === 'toast' && status && open ? (
+    if (!isOpen) return null;
+
+    return (
         <ToastContainer
             newToast={<Toast {...propsToast} />}
             transitionIn={['fade-in-up']}
@@ -42,12 +41,10 @@ function ShowToast() {
             vPosition="bottom"
             className="bottom-64 z-100000 bottom-100_md"
             duration={timeout}
-            onAnimationEnd={() => {
-                dispatch({ type: 'SHOW_MODAL', payload: { open: false } });
-            }}
+            onAnimationEnd={onClose}
             style={{ zIndex: 100000 }}
         />
-    ) : null;
+    );
 }
 
 export default ShowToast;
