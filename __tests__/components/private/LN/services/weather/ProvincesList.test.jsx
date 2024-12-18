@@ -6,7 +6,7 @@ import ProvincesList from '../../../../../../components/private/LN/services/weat
 import weatherHome from '../../../../../../__mocks__/data/weather/weatherHome.json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return class extends component {
             constructor(props) {
                 super(props);
@@ -19,7 +19,7 @@ jest.mock('fusion:consumer', component => {
 
 jest.mock('fusion:context', Component => {
     return {
-        default: function(Component) {
+        default: function (Component) {
             return props => <Component {...props} />;
         },
         useComponentContext: jest.fn(() => ({}))
@@ -66,6 +66,7 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         ).toBe(true);
         expect(container.innerHTML.includes('<a href=')).toBe(true);
         expect(container.getElementsByClassName(expectedClass).length).toBe(1);
+        expect(container.getElementsByClassName('province').length).toBe(4);
         expect(container.getElementsByClassName('com-link').length).toBe(3);
         expect(
             container.getElementsByClassName('com-text --font-bold --md').length
@@ -79,7 +80,6 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
             }
         }));
         const modHeaderSectionClass = 'mod-headersection  --line';
-        const expectedClass = 'province-list';
         const provinces = [
             {
                 id: 1,
@@ -112,12 +112,10 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         expect(container.innerHTML.includes('<span class="com-text">')).toBe(
             true
         );
-        expect(container.getElementsByClassName(expectedClass).length).toBe(1);
         expect(container.getElementsByClassName('com-link').length).toBe(0);
-        expect(
-            container.getElementsByClassName('com-text --font-bold --md').length
-        ).toBe(4);
+        expect(container.getElementsByClassName('province').length).toBe(4);
     });
+
     it('Test when dont have data', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
@@ -127,6 +125,16 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         const provinces = [];
         const { container } = render(<ProvincesList provinces={provinces} />);
         expect(container).toMatchSnapshot();
-        expect(container.innerHTML).toBe('');
+        expect(container.getElementsByClassName('province').length).toBe(0);
+    });
+
+    it('Test when provinces props is undefined by props defaults', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {
+                dataService: weatherHome
+            }
+        }));
+        const { container } = render(<ProvincesList />);
+        expect(container.getElementsByClassName('province').length).toBe(0);
     });
 });
