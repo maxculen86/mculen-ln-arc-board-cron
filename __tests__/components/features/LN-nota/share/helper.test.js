@@ -15,6 +15,7 @@ describe('components - features - LN-nota - share - helper', () => {
         let publish;
         let subscribe;
         let unsubscribe;
+        let openBarrier;
 
         beforeEach(() => {
             setIaButtonIsClicked = jest.fn();
@@ -22,6 +23,7 @@ describe('components - features - LN-nota - share - helper', () => {
             publish = jest.fn();
             subscribe = jest.fn();
             unsubscribe = jest.fn();
+            openBarrier = jest.fn();
             window.LN = {
                 observable: {
                     publish,
@@ -37,12 +39,15 @@ describe('components - features - LN-nota - share - helper', () => {
             jest.clearAllMocks();
         });
 
-        it('should display the AI component, publish an event with defaultTab, and set localStorage', () => {
+        it('should display the AI component, publish an event with defaultTab, and set localStorage when subscribed', () => {
             const defaultTab = 'summary';
+            const suscription = true;
             handleOpenIAFeature({
                 defaultTab,
                 iaButtonIsClicked,
-                setIaButtonIsClicked
+                setIaButtonIsClicked,
+                suscription,
+                openBarrier
             });
 
             expect(addEventToDataLayerV2).toHaveBeenCalledWith({
@@ -57,28 +62,41 @@ describe('components - features - LN-nota - share - helper', () => {
             expect(publish).toHaveBeenCalledWith('showIa', { show: true });
         });
 
-        it('should execute the callback correctly', () => {
-            const callback = jest.fn();
+        it('should call openBarrier when not subscribed', () => {
+            const defaultTab = 'summary';
+            const suscription = false;
+
             handleOpenIAFeature({
-                defaultTab: 'summary',
+                defaultTab,
                 iaButtonIsClicked,
                 setIaButtonIsClicked,
-                callback
+                suscription,
+                openBarrier
             });
+
+            expect(openBarrier).toHaveBeenCalled();
+            expect(addEventToDataLayerV2).not.toHaveBeenCalled();
+            expect(setIaButtonIsClicked).not.toHaveBeenCalled();
+            expect(publish).not.toHaveBeenCalled();
         });
 
         it('should not execute any actions if iaButtonIsClicked is true', () => {
             iaButtonIsClicked = true;
+            const defaultTab = 'summary';
+            const suscription = true;
+
             handleOpenIAFeature({
-                defaultTab: 'summary',
+                defaultTab,
                 iaButtonIsClicked,
-                setIaButtonIsClicked
+                setIaButtonIsClicked,
+                suscription,
+                openBarrier
             });
 
             expect(addEventToDataLayerV2).not.toHaveBeenCalled();
             expect(setIaButtonIsClicked).not.toHaveBeenCalled();
             expect(publish).not.toHaveBeenCalled();
-            expect(localStorage.setItem).not.toHaveBeenCalled();
+            expect(openBarrier).not.toHaveBeenCalled();
         });
     });
 });

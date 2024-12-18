@@ -111,7 +111,9 @@ function BuildFirtsButtonsGroup({
                         handleOpenIAFeature({
                             defaultTab,
                             iaButtonIsClicked,
-                            setIaButtonIsClicked
+                            setIaButtonIsClicked,
+                            suscription,
+                            openBarrier
                         });
                     }}
                 >
