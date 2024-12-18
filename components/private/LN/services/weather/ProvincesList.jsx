@@ -5,8 +5,8 @@ import ComLink from '../../../common/com-link';
 import ModHeaderSection from '../../../common/mod-headerSection';
 import addForwardSlash from '../../common/utils/addForwardSlash';
 
-const ProvincesList = ({ provinces }) => {
-    if (!provinces.length) return <></>;
+function ProvincesList({ provinces }) {
+    if (!provinces.length) return null;
     return (
         <>
             <ModHeaderSection tag="h3" title="Provincias" />
@@ -26,7 +26,7 @@ const ProvincesList = ({ provinces }) => {
             </div>
         </>
     );
-};
+}
 
 ProvincesList.propTypes = {
     provinces: PropTypes.arrayOf(
