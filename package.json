@@ -124,7 +124,6 @@
         "@ln/lib-personalizacion": "1.1.0",
         "@ln/ott-ui-sass": "0.0.3",
         "@ln/segmentacion-control-group": "1.1.0",
-        "@ln/user.client.libs": "6.5.1",
         "classnames": "2.3.2",
         "copyfiles": "2.4.1",
         "html-react-parser": "2.0.0",
