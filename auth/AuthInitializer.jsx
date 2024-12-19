@@ -1,26 +1,20 @@
-import React, { useEffect, useState, createContext, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState, createContext } from 'react';
 import initializeAuth from './helper/loginHelper';
 
 export const AuthContext = createContext();
-export const MethodsAuthContext = createContext();
 
-function AuthInitializer({ children, website = 'la-nacion-ar' }) {
-    const [tokens, setTokens] = useState({});
+const AuthInitializer = ({ children }) => {
+    const [isFinishRotation, setIsFinishRotation] = useState(false);
 
     useEffect(() => {
-        initializeAuth({ setTokens, website });
+        initializeAuth(setIsFinishRotation);
     }, []);
 
-    const values = useMemo(() => tokens, [tokens]);
     return (
-        <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={isFinishRotation}>
+            {children}
+        </AuthContext.Provider>
     );
-}
-
-AuthInitializer.propTypes = {
-    children: PropTypes.node.isRequired,
-    website: PropTypes.string.isRequired
 };
 
 export default AuthInitializer;
