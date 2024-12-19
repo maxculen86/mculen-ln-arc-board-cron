@@ -1159,6 +1159,7 @@ export default {
                     [300, 450],
                     [320, 100],
                     [320, 450],
+                    [360, 450],
                     [1, 1]
                 ],
                 targeting: targetingHome
@@ -1197,6 +1198,7 @@ export default {
                     [300, 450],
                     [320, 100],
                     [320, 450],
+                    [360, 450],
                     [1, 1]
                 ],
                 targeting: targetingHome
