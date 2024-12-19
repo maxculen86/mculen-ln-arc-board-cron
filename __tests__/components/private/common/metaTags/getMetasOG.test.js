@@ -503,6 +503,9 @@ describe('Common - getMetasOG function', () => {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
                 canonical_url: '/recetas/autor/javier-blanco-170/',
                 node_type: 'author',
+                firstName: 'Javier',
+                lastName: 'Blanco',
+                middleName: '',
                 name: 'Javier Blanco',
                 website_url:
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
@@ -523,93 +526,62 @@ describe('Common - getMetasOG function', () => {
             deployment: function deployment() {
                 return '$LATEST';
             },
-            metaDescription: 'Últimas Noticias de Javier Blanco'
+            metaDescription: 'Últimas Noticias de Javier Blanco',
+            globalContentConfig: {
+                query: {
+                    _id: 'javier-blanco-slug'
+                }
+            }
         };
 
         const metas = [
-            {
-                property: 'fb:app_id',
-                content: '154042854349421'
-            },
-            {
-                property: 'og:type',
-                content: 'website'
-            },
-            {
-                property: 'og:title',
-                content: 'Javier Blanco'
-            },
+            { property: 'fb:app_id', content: '154042854349421' },
+            { property: 'og:type', content: 'profile' },
+            { property: 'og:title', content: 'Javier Blanco' },
             {
                 property: 'og:description',
                 content: 'Últimas Noticias de Javier Blanco'
             },
-            {
-                property: 'og:locale',
-                content: 'es_AR'
-            },
+            { property: 'og:locale', content: 'es_AR' },
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
             },
-            {
-                property: 'og:image:type',
-                content: 'image/png'
-            },
-            {
-                property: 'og:image:alt',
-                content: 'Placeholder de LA NACION'
-            },
-            {
-                property: 'og:image:width',
-                content: '1200'
-            },
-            {
-                property: 'og:image:height',
-                content: '630'
-            },
+            { property: 'og:image:type', content: 'image/png' },
+            { property: 'og:image:alt', content: 'Placeholder de LA NACION' },
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:image:height', content: '630' },
             {
                 property: 'og:url',
-                content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
+                content:
+                    'https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/'
             },
+            { property: 'profile:first_name', content: 'Javier' },
+            { property: 'profile:last_name', content: 'Blanco' },
+            { property: 'profile:username', content: 'javier-blanco-slug' },
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN-1200x630.jpg'
                 )
             },
-            {
-                name: 'twitter:card',
-                content: 'summary_large_image'
-            },
-            {
-                name: 'twitter:title',
-                content: 'Javier Blanco'
-            },
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: 'Javier Blanco' },
             {
                 name: 'twitter:description',
                 content: 'Últimas Noticias de Javier Blanco'
             },
-            {
-                name: 'twitter:site',
-                content: '@LANACION'
-            },
-            {
-                name: 'twitter:creator',
-                content: '@LANACION'
-            },
-            {
-                name: 'twitter:domain',
-                content: 'lanacion.com.ar'
-            },
+            { name: 'twitter:site', content: '@LANACION' },
+            { name: 'twitter:creator', content: '@LANACION' },
+            { name: 'twitter:domain', content: 'lanacion.com.ar' },
             {
                 name: 'twitter:url',
                 content:
                     'https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/'
             }
         ];
-
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
 });

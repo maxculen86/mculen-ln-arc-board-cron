@@ -7,6 +7,9 @@ export default `
     canonical_url
     author_type
     byline
+    firstName
+    lastName
+    middleName
     bio_page
     bio
     image {
