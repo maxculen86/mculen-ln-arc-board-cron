@@ -8,7 +8,7 @@ import responseSource from '../../../../__mocks__/data/LN10_Caja_Collection/resp
 import useGetArticleInCollection from '../../../../components/private/LN/common/hooks/useGetArticleInCollection';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -16,6 +16,10 @@ jest.mock('fusion:consumer', Component => {
 jest.mock(
     '../../../../components/private/LN/common/hooks/useGetArticleInCollection',
     () => jest.fn()
+);
+
+jest.mock('../../../../components/chains/utils/getViewabilityRoof', () =>
+    jest.fn()
 );
 
 describe('components - chains - LN10_Caja_canal', () => {
