@@ -52,9 +52,24 @@ export const getUrlQuery = key => {
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
-export const handleRedirectMobile = (typeResponse, redirectUrl, query) => {
+const getUriAndUrl = query => {
     const uri = get(query, 'uri', '');
     const url = get(query, 'url', '');
+    return { url, uri };
+};
+
+export const checkIfExternalRedirect = (typeResponse, redirectUrl, query) => {
+    const { uri } = getUriAndUrl(query);
+    return (
+        typeResponse === 'redirect' &&
+        redirectUrl &&
+        uri?.startsWith('/api/mobile') &&
+        redirectUrl?.startsWith('http')
+    );
+};
+
+export const handleRedirectMobile = (typeResponse, redirectUrl, query) => {
+    const { url, uri } = getUriAndUrl(query);
 
     if (
         typeResponse !== 'redirect' ||
@@ -72,6 +87,13 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
     const typeResponse = get(response, 'type', '');
     const redirectUrl = get(response, 'redirect_url', '');
     const paywallEnabled = get(query, 'paywallEnabled', '');
+
+    const isExternalApiRedirect = checkIfExternalRedirect(
+        typeResponse,
+        redirectUrl,
+        query
+    );
+    if (isExternalApiRedirect) return redirectUrl;
 
     handleRedirectMobile(typeResponse, redirectUrl, query);
 
@@ -111,6 +133,7 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
             responseData: response
         });
     }
+    return {};
 };
 
 export const isValidSectionIA = sections => {

@@ -17,17 +17,19 @@ import {
 } from './utils/articleSourceNota/_helper';
 
 const fetch = (query, { cachedCall } = {}) => {
-    const arcSite = query['arc-site'];
+    const queryAux = query;
+    const arcSite = queryAux['arc-site'];
 
-    query.url = updateUrlIfMatch(query.url);
-    query.uri = updateUrlIfMatch(query.uri);
-
-    if (query.isHome) {
-        query.sourceInclude = getIncludedFields(query.isLiveblog || false);
+    queryAux.url = updateUrlIfMatch(queryAux.url);
+    queryAux.uri = updateUrlIfMatch(queryAux.uri);
+    if (queryAux.isHome) {
+        queryAux.sourceInclude = getIncludedFields(
+            queryAux.isLiveblog || false
+        );
     }
 
     const opt = {
-        uri: `${CONTENT_BASE}${getUrlQuery(query)}`,
+        uri: `${CONTENT_BASE}${getUrlQuery(queryAux)}`,
         json: true
     };
 
@@ -40,21 +42,21 @@ const fetch = (query, { cachedCall } = {}) => {
     const resolveData = async () => {
         try {
             const response = await request(opt);
-
-            setRedirect({
+            const externalApiRedirectUrl = setRedirect({
                 response,
-                query,
+                query: queryAux,
                 siteUrl: SITE_LANACION,
                 paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`
             });
+            if (externalApiRedirectUrl) return { externalApiRedirectUrl };
 
-            return transform(response, query, cachedCall);
+            return transform(response, queryAux, cachedCall);
         } catch (error) {
             return logger.push(
                 error,
                 {
                     source: 'content/source/ArticleSourceNota',
-                    url: get(query, 'url', '')
+                    url: get(queryAux, 'url', '')
                 },
                 arcSite
             );
