@@ -64,7 +64,7 @@ class Story {
         const { navigationTreeSource, audionewsSource } = this.state || {};
         const { globalContent } = this.props;
 
-        const handleExternalStory = () => ({
+        const handleExternalStoryRedirection = () => ({
             id: 'N/A',
             url: globalContent?.externalApiRedirectUrl,
             enviarApps: false,
@@ -77,7 +77,7 @@ class Story {
                 globalContent?.externalApiRedirectUrl &&
                 Object.keys(globalContent?.externalApiRedirectUrl).length !== 0
             )
-                return handleExternalStory();
+                return handleExternalStoryRedirection();
 
             return indexNota({
                 ...globalContent,
