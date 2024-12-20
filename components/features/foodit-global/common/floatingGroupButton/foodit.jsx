@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { Groupbutton } from '@ln/common-ui-groupbutton';
 import { Button } from '@ln/foodit-ui-button';
 import classNames from 'classnames';
+import { useAppContext } from 'fusion:context';
 import { useFloatingGroupButton } from './useFloatingGroupButton';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
@@ -11,6 +12,10 @@ function FloatingGroupButton({
     className = '',
     observerSelector
 }) {
+    const { layout, siteProperties } = useAppContext();
+    const { layoutsName = {} } = siteProperties || {};
+    const isLayoutBuscador = layout === layoutsName.FooditBuscador;
+
     const { visible } = useFloatingGroupButton({ observerSelector });
     const { userType } = useGetUserConfig();
 
@@ -23,13 +28,12 @@ function FloatingGroupButton({
 
     return (
         <Groupbutton className={_className}>
-            {buttons.map((button, i) => (
+            {buttons.map(button => (
                 <Button
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={`button-${i}`}
+                    key={button.title}
                     size={32}
                     {...button}
-                    disabled={userType !== 'subscribed'}
+                    disabled={!isLayoutBuscador && userType !== 'subscribed'}
                 />
             ))}
         </Groupbutton>

@@ -1,7 +1,33 @@
-/* eslint-disable import/prefer-default-export */
+import { isValidString } from '../../../../common/utils/dataValidation';
 import get from '../../../../common/utils/get';
 import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
 import getBajadaOrFirstTextParagraph from '../../../../common/utils/getBajadaOrFirstTextParagraph';
+
+// TODO: testear metodos restantes de logica apertura (fetchPriority high y loading eager) acorde a las diagramaciones y casos de uso
+export const isSameNote = (note, noteId) =>
+    isValidString(note) &&
+    isValidString(noteId) &&
+    note.trim() === noteId.trim();
+
+// TODO: Evaluar usar la misma funcion isInApertura para agregar fetchPriority high y evitar usar renderables
+const extractCommonIsEager = (note, checkEager, element = {}) => {
+    const { props, children = [] } = element;
+
+    const { 0: chainFirstNote } = children;
+
+    const { customFields } = props;
+    const { hideCaja } = customFields;
+
+    const { props: noteProps } = chainFirstNote || {};
+    const { customFields: noteCustomFields } = noteProps || {};
+    const { hideImage, video, html, noteId = '' } = noteCustomFields || {};
+
+    const isFirstViewportNote = isSameNote(note, noteId);
+
+    const hasImage = !html && !video && !hideImage;
+
+    return checkEager ? isFirstViewportNote && hasImage : !hideCaja;
+};
 
 export const transform = (content, customFields, promoItems) => {
     const title = {
@@ -69,24 +95,35 @@ export const getLabel = (article, customFields, withMedia, layout) => {
     };
 };
 
+export const featuresValidator = {
+    'LN-common/bomba': ({ element, checkEager, note = '' }) => {
+        const { props } = element;
+        const { customFields } = props;
+        const {
+            hideFeature,
+            hideImage,
+            video,
+            html,
+            noteId = ''
+        } = customFields;
+
+        const isFirstViewportNote = isSameNote(note, noteId);
+
+        return checkEager
+            ? !video && !html && isFirstViewportNote
+            : !hideFeature && !hideImage;
+    },
+    Ln_Caja_Manual: ({ element, checkEager, note = '' }) =>
+        extractCommonIsEager(note, checkEager, element),
+    LN10_Caja_Apertura: ({ element, checkEager, note = '' }) =>
+        extractCommonIsEager(note, checkEager, element),
+    LN10_Caja_Bomba: ({ element, checkEager, note = '' }) =>
+        extractCommonIsEager(note, checkEager, element),
+    default: () => false
+};
+
 export const getIsRenderAutor = (customFields, layout) =>
     get(customFields, 'opinion', false) || layout === 'author3';
-
-export const isImageEager = (idArticle, renderables) => {
-    const pbFirstElement = initialElementInPB(renderables);
-
-    const { type = '' } = pbFirstElement;
-
-    return get(
-        featuresValidator,
-        type,
-        featuresValidator.default
-    )({
-        element: pbFirstElement,
-        checkEager: true,
-        note: idArticle
-    });
-};
 
 export const initialElementInPB = elementsToRender => {
     const chainsAndFeatures =
@@ -109,50 +146,18 @@ export const initialElementInPB = elementsToRender => {
     return firstVisibleElement || {};
 };
 
-export const featuresValidator = {
-    'LN-common/bomba': ({ element, checkEager, note = '' }) => {
-        const { props } = element;
-        const { customFields } = props;
-        const {
-            hideFeature,
-            hideImage,
-            video,
-            html,
-            noteId = ''
-        } = customFields;
+export const isImageEager = (idArticle, renderables) => {
+    const pbFirstElement = initialElementInPB(renderables);
 
-        const isFirstViewportNote = note === noteId;
+    const { type = '' } = pbFirstElement;
 
-        return checkEager
-            ? !video && !html && isFirstViewportNote
-            : !hideFeature && !hideImage;
-    },
-    Ln_Caja_Manual: ({ element, checkEager, note = '' }) => {
-        return extractCommonIsEager(note, checkEager, element);
-    },
-    LN10_Caja_Apertura: ({ element, checkEager, note = '' }) => {
-        return extractCommonIsEager(note, checkEager, element);
-    },
-    LN10_Caja_Bomba: ({ element, checkEager, note = '' }) => {
-        return extractCommonIsEager(note, checkEager, element);
-    },
-    default: () => false
-};
-// TODO: Evaluar usar la misma funcion isInApertura para agregar fetchPriority high y evitar usar renderables
-const extractCommonIsEager = (note, checkEager, element = {}) => {
-    const { props, children = [] } = element;
-
-    const { 0: chainFirstNote } = children;
-
-    const { customFields } = props;
-    const { hideCaja } = customFields;
-
-    const { props: noteProps } = chainFirstNote || {};
-    const { customFields: noteCustomFields } = noteProps || {};
-    const { hideImage, video, html, noteId = '' } = noteCustomFields || {};
-
-    const isFirstViewportNote = note === noteId;
-    const hasImage = !html && !video && !hideImage;
-
-    return checkEager ? isFirstViewportNote && hasImage : !hideCaja;
+    return get(
+        featuresValidator,
+        type,
+        featuresValidator.default
+    )({
+        element: pbFirstElement,
+        checkEager: true,
+        note: idArticle
+    });
 };

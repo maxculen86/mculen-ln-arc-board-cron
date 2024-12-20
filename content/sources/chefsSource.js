@@ -1,7 +1,8 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import get from '../../components/private/common/utils/get';
 import getProperties from 'fusion:properties';
+import logger from '../../components/private/common/utils/logger';
+import get from '../../components/private/common/utils/get';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 import { isEmptyString } from '../../components/private/common/utils/dataValidation';
 import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
@@ -45,11 +46,12 @@ const fetch = (query, { cachedCall } = {}) => {
             const response = await request(opt);
             const image = get(response, 'image', '');
             let signingResponse = null;
-            !isEmptyString(image) &&
-                (signingResponse = await signingServiceCachedCall(
+            if (!isEmptyString(image)) {
+                signingResponse = await signingServiceCachedCall(
                     image,
                     cachedCall
-                ));
+                );
+            }
 
             const imageUrl =
                 get(response, 'image.url', '') || get(response, 'image', '');
@@ -76,8 +78,9 @@ const fetch = (query, { cachedCall } = {}) => {
                     source: 'content/sources/chefsSource',
                     url: queryResolved
                 },
-                arcSite
+                'foodit'
             );
+            return {};
         }
     };
     return Promise.resolve(resolveData());
