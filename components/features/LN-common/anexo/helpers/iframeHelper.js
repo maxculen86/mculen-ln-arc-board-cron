@@ -9,13 +9,17 @@ export const generateUrlWithToken = async (url = '') => {
     return `${url}?jwt=${token}`;
 };
 
-export const handleIframeProps = async (id = '', url = '', isGame = false) => {
+export const handleIframeProps = async (
+    id = '',
+    url = '',
+    addToken = false
+) => {
     const iframeAnexo = document.getElementById(`anexo-${id}`);
     if (!iframeAnexo) return;
 
     iframeAnexo.parentElement.classList.remove('skeleton-box');
 
-    const finalUrl = isGame ? await generateUrlWithToken(url) : url;
+    const finalUrl = addToken ? await generateUrlWithToken(url) : url;
 
     iframeAnexo.src = finalUrl;
 };
