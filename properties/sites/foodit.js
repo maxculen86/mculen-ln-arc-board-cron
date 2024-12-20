@@ -25,6 +25,7 @@ export default {
         FooditAcumuladoChef: 'Foodit-acumulado-chef',
         FooditChef: 'Foodit-chef',
         Foodit404: 'Foodit-404',
-        FooditRecipePaywall: 'Foodit-recipe-paywall'
+        FooditRecipePaywall: 'Foodit-recipe-paywall',
+        FooditBuscador: 'Foodit-buscador'
     }
 };
