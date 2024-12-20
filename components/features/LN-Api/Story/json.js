@@ -67,13 +67,16 @@ class Story {
         const handleExternalStory = () => ({
             id: 'N/A',
             url: globalContent?.externalApiRedirectUrl,
-            enviarApps: true,
+            enviarApps: false,
             fecha: `${Object.values(dateAndTimeUtil(new Date())).join(' • ')}`
         });
 
         const { _id, ...restAudioNewsSource } = audionewsSource || {};
         try {
-            if (globalContent?.externalApiRedirectUrl)
+            if (
+                globalContent?.externalApiRedirectUrl &&
+                Object.keys(globalContent?.externalApiRedirectUrl).length !== 0
+            )
                 return handleExternalStory();
 
             return indexNota({

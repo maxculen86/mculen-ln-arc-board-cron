@@ -42,13 +42,18 @@ const fetch = (query, { cachedCall } = {}) => {
     const resolveData = async () => {
         try {
             const response = await request(opt);
+
             const externalApiRedirectUrl = setRedirect({
                 response,
                 query: queryAux,
                 siteUrl: SITE_LANACION,
                 paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`
             });
-            if (externalApiRedirectUrl) return { externalApiRedirectUrl };
+            if (
+                externalApiRedirectUrl &&
+                Object.keys(externalApiRedirectUrl).length !== 0
+            )
+                return { externalApiRedirectUrl };
 
             return transform(response, queryAux, cachedCall);
         } catch (error) {
