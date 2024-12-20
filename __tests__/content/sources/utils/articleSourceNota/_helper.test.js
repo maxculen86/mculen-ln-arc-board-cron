@@ -8,7 +8,8 @@ import {
     handleRedirectMobile,
     isValidSectionIA,
     updateUrlIfMatch,
-    getIncludedFields
+    getIncludedFields,
+    checkIfExternalRedirect
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -888,6 +889,29 @@ describe('Tests articleSourceNota - _helper', () => {
 
         const siteUrl = 'https://lanacion.com.ar';
 
+        it('should return the same redirect url as response', () => {
+            const response = {
+                type: 'redirect',
+                redirect_url: 'https://example.com'
+            };
+
+            expect(
+                setRedirect({
+                    response,
+                    query: { uri: '/api/mobile/v1/notas/byUrl' },
+                    siteUrl
+                })
+            ).toBe('https://example.com');
+        });
+        it('should return empty object when no redirect is present in response of content api', () => {
+            const response = {
+                redirect_url: 'https://example.com'
+            };
+
+            expect(
+                setRedirect({ response, query: { uri: '' }, siteUrl })
+            ).toStrictEqual({});
+        });
         it('should throw Redirect exception for response type "redirect" with redirect_url', () => {
             const response = {
                 type: 'redirect',
@@ -1120,6 +1144,47 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(() => {
                 handleRedirectMobile('redirect', '/new-path', query);
             }).not.toThrow();
+        });
+    });
+    describe('Test checkIfExternalRedirect', () => {
+        afterEach(() => {
+            jest.clearAllMocks();
+        });
+        it('should check if story is external', () => {
+            const result = checkIfExternalRedirect(
+                'redirect',
+                'http://google.com',
+                {
+                    uri: '/api/mobile/v1/notas/byUrl/'
+                }
+            );
+            expect(result).not.toBeNull();
+            expect(result).toBeTruthy();
+            expect(result).toBe(true);
+        });
+        it('should check if story is external even redirect is https', () => {
+            const result = checkIfExternalRedirect(
+                'redirect',
+                'https://google.com',
+                {
+                    uri: '/api/mobile/v1/notas/byUrl/'
+                }
+            );
+            expect(result).not.toBeNull();
+            expect(result).toBeTruthy();
+            expect(result).toBe(true);
+        });
+        it('should check if story is not external even redirect is https', () => {
+            const result = checkIfExternalRedirect(
+                'redirect',
+                '/internal/url/nacion',
+                {
+                    uri: '/api/mobile/v1/notas/byUrl/'
+                }
+            );
+            expect(result).not.toBeNull();
+            expect(result).toBeFalsy();
+            expect(result).toBe(false);
         });
     });
     describe('isValidSectionIA', () => {
