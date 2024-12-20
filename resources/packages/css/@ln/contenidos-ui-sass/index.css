@@ -1261,6 +1261,7 @@ a {
   --crucimini: #6781c8;
   --cruci-tematico: #b09c03;
   --panal-de-letras: #dce11f;
+  --memograma: #295DEA;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1939,6 +1940,10 @@ a {
   background: var(--panal-de-letras);
 }
 
+.bg-memograma {
+  background: var(--memograma);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -2041,6 +2046,10 @@ a {
 
 .bg-cruci-tematico__hover:hover {
   background: var(--cruci-tematico);
+}
+
+.bg-memograma__hover:hover {
+  background: var(--memograma);
 }
 
 .bg-secondary__hover:hover {
@@ -3286,6 +3295,10 @@ strong:not(.--font-primary),
 
 .min-w-100.min-w-100 {
   min-width: 100%;
+}
+
+.min-w-170.min-w-170 {
+  min-width: 10.625rem;
 }
 
 .h-100.h-100 {
