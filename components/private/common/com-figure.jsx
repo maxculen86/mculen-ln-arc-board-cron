@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
 
-const ComFigure = ({ classCondition, children, handleClick }) => {
+function ComFigure({ classCondition, children, handleClick }) {
     return children ? (
         <figure
             role="button"
@@ -17,7 +17,7 @@ const ComFigure = ({ classCondition, children, handleClick }) => {
     ) : (
         <></>
     );
-};
+}
 
 ComFigure.propTypes = {
     children: PropTypes.node.isRequired,

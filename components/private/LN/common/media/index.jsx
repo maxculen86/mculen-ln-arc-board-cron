@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+
 import Image from './imageBase';
-import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import IconsFullScreen from './iconsFullScreen';
+
+import { IconsFullScreen } from './iconsFullScreen';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import ComPicture from '../../../common/com-picture';
@@ -17,7 +18,7 @@ import listOfAllowedSection from './helpers/allowSectionAndLayout';
 import isAllowedSection from '../utils/isAllowedSection';
 import VideoPlayerJW from '../../../common/videoPlayerJw';
 
-const Media = ({
+function Media({
     mediaData,
     withZoom,
     itsGallery,
@@ -38,7 +39,7 @@ const Media = ({
     layoutPageBuilder,
     globalContent,
     authors
-}) => {
+}) {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
     const { height = 0, width = 0, type, _id: idMedia } = mediaData || {};
@@ -77,10 +78,8 @@ const Media = ({
         itsGallery || zoom
             ? handleClick
             : () => {
-                  // This is intentional
-              };
-
-    // TODO: eliminar las props que estan recibiendo los componente de abajo que no se esta usando. \
+                // This is intentional
+            };
 
     if (mediaData) {
         const mediaTypeComponents = {
@@ -95,17 +94,12 @@ const Media = ({
                         withMobileImage,
                         isVertical
                     })}
-                    withZoom={withZoom}
-                    width={width}
-                    itsGallery={itsGallery}
                     handleClick={validateHandleClick} // NOSONAR
                 >
                     <Image
                         active={active}
                         image={{ ...mediaData, titleText }}
                         href={href}
-                        outputType={outputType}
-                        zoom={zoom}
                         isApertura={isApertura}
                         searchableField={searchableField}
                         isValidSection={isValidSection}
@@ -125,7 +119,7 @@ const Media = ({
                     data={mediaData}
                     parrafo={parrafo}
                     tituloNota={tituloNota}
-                    hasAutoplay={true}
+                    hasAutoplay
                 />
             )
         };
@@ -161,7 +155,7 @@ const Media = ({
             )}
         </>
     );
-};
+}
 
 Media.propTypes = {
     children: PropTypes.oneOfType([
@@ -171,7 +165,8 @@ Media.propTypes = {
     outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
-        _id: PropTypes.string
+        _id: PropTypes.string,
+        subtype: PropTypes.string
     }),
     itsGallery: PropTypes.bool,
     active: PropTypes.bool,
@@ -189,8 +184,6 @@ Media.propTypes = {
     html: PropTypes.string,
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node,
-    autoplay: PropTypes.bool,
-    isPowa: PropTypes.bool,
     insideBody: PropTypes.bool.isRequired,
     withMobileImage: PropTypes.bool,
     searchableField: PropTypes.shape({
@@ -214,11 +207,9 @@ Media.defaultProps = {
     tituloNota: '',
     outputType: 'default',
     scriptForZoom: undefined,
-    autoplay: false,
     parrafo: undefined,
     active: undefined,
     children: undefined,
-    isPowa: true,
     handleClick: () => {
         // This is intentional
     },

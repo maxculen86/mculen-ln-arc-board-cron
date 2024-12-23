@@ -69,7 +69,6 @@ export default function WithStorytellingData(WrappedComponent) {
             const basicImage = get(promoItems, 'basic', null);
             const videoBackground = get(promoItems, 'storytelling', null);
             const videoJw = get(promoItems, 'video_jw', null);
-            const outputType = get(this, 'props.outputType', null);
             const type = get(this, 'props.globalContent.type', null);
             const subtype = get(this, 'props.globalContent.subtype', null);
             const isLoadWithPicture = get(
@@ -90,14 +89,14 @@ export default function WithStorytellingData(WrappedComponent) {
                 (subtype === STORYTELLING || subtype === FOTOAL100) &&
                 (basicImage || videoBackground || storytellingMobile || videoJw)
                 ? getApertura(
-                      isMobile,
-                      basicImage,
-                      videoBackground,
-                      storytellingMobile,
-                      isLoadWithPicture,
-                      device,
-                      videoJw
-                  )
+                    isMobile,
+                    basicImage,
+                    videoBackground,
+                    storytellingMobile,
+                    isLoadWithPicture,
+                    device,
+                    videoJw
+                )
                 : {};
         };
 

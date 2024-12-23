@@ -64,15 +64,12 @@ function lnNotaFotoAl100({
                 <Header />
                 <main id="content" className="--header-fixed-margin">
                     {preTitulo}
-                    {isLoadWithPicture && withoutVideoBackground ? (
-                        <AperturaStorytelling
-                            isLoadWithPicture={isLoadWithPicture}
-                        />
-                    ) : (
-                        <AperturaStorytelling
-                            isLoadWithPicture={isLoadWithPicture}
-                        />
-                    )}
+                    {isLoadWithPicture &&
+                        withoutVideoBackground(
+                            <AperturaStorytelling
+                                isLoadWithPicture={isLoadWithPicture}
+                            />
+                        )}
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}

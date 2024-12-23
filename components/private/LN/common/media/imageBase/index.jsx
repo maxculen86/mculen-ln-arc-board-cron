@@ -11,7 +11,7 @@ import {
 } from '../../utils/mediaHelper';
 import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
-const ImageArticle = props => {
+function ImageArticle(props) {
     const {
         image,
         href,
@@ -78,10 +78,9 @@ const ImageArticle = props => {
             )}
         </ComPicture>
     );
-};
+}
 
 ImageArticle.propTypes = {
-    outputType: PropTypes.string.isRequired,
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
