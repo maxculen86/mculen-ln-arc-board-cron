@@ -55,19 +55,18 @@ const getCssLibsHome = () => {
             file('contenidos-ui-sass'),
             file('contenidos-ui-text'),
             file('contenidos-ui-timeline'),
-            file('contenidos-ui-tooltip'),
-            file('contenidos-ui-webstories')
+            file('contenidos-ui-tooltip')
         ];
 
-        filesToCopyStyles.forEach(file => {
-            copyFile(file, outputFilePathStyles);
+        filesToCopyStyles.forEach(fileToCopyStyles => {
+            copyFile(fileToCopyStyles, outputFilePathStyles);
         });
-        filesToCopyCriticalStyles.forEach(file => {
-            copyFile(file, outputFilePathCriticalStyles);
+        filesToCopyCriticalStyles.forEach(fileToCopyCritical => {
+            copyFile(fileToCopyCritical, outputFilePathCriticalStyles);
         });
-        console.log('✔️ Css libs Ln10 copied successfully');
+        console.info('✔️ Css libs Ln10 copied successfully');
     } catch (error) {
-        console.log('❌ Something is wrong', error);
+        console.info('❌ Something is wrong', error);
     }
 };
 
