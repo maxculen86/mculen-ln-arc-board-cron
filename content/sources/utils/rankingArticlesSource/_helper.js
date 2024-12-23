@@ -24,7 +24,7 @@ export const getAnalitycUrls = (data = {}) => {
             const regexResult =
                 // eslint-disable-next-line no-useless-escape
                 /\/www.lanacion.com.ar(\/.*\/+.*nid\d{8}[^\?]+)(\?.*)?$/.exec(
-                    e.url.replace('#', '?')
+                    e.url?.replace('#', '?')
                 );
             if (regexResult && regexResult[1] && !r.includes(regexResult[1])) {
                 const lastChar = regexResult[1].substring(

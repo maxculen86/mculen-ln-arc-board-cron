@@ -46,7 +46,7 @@ export function getBookmarkContent(globalContent) {
         alto: size.option.height,
         media: size.option.width,
         ancho: size.option.width,
-        firma: size.resizedUrl.replace(regexResizerUrl, '$4').slice(0, -1)
+        firma: size.resizedUrl?.replace(regexResizerUrl, '$4')?.slice(0, -1)
     }));
 
     const autores = authors.map(autor => {

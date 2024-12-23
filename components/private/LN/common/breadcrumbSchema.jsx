@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
+import { isValidString } from '../../common/utils/dataValidation';
 
 function BreadcrumbSchema({ sections, host }) {
     const parent = [{ ...sections.shift() }].reduce(
@@ -27,7 +28,7 @@ function BreadcrumbSchema({ sections, host }) {
                 {
                     "@type": "ListItem",
                     "position": ${i + 2},
-                    "name": "${el.name ? el.name.replace(/"/g, '\\"') : ''}",
+                    "name": "${isValidString(el.name) ? el.name.replace(/"/g, '\\"') : ''}",
                     "item": "${host + path}"
                 }
             `;

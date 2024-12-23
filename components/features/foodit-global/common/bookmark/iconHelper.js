@@ -19,7 +19,7 @@ const checkBookmarksInCarousel = carousel => {
         collectionText.innerText = allFilled ? 'Guardado' : 'Guardar todo';
     }
     if (collectionIcon) {
-        const href = collectionIcon.getAttribute('href');
+        const href = collectionIcon.getAttribute('href') ?? '';
         const newHref = allFilled
             ? href.replace(BOOKMARK_PLUS, BOOKMARK_FILLED)
             : href.replace(BOOKMARK_FILLED, BOOKMARK_PLUS);
@@ -50,7 +50,7 @@ export const toggleBookmarks = (articleIds, shouldFill = true) => {
                 const icon = svgElement.querySelector('use');
                 if (!icon) return;
 
-                const href = icon.getAttribute('href');
+                const href = icon.getAttribute('href') ?? '';
 
                 if (shouldFill) {
                     if (href.includes(BOOKMARK_FILLED)) return;

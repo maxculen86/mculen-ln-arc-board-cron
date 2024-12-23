@@ -6,13 +6,11 @@ const importer = require('node-sass-glob-importer');
 
 const { isProduction } = require('./aux');
 
-const getPlugins = ({ siteName, settings, isProd, paths }) => {
-    return [
-        new MiniCssExtractPlugin({
-            filename: `${paths.outputPath.css}/[name].css`
-        })
-    ];
-};
+const getPlugins = ({ paths }) => [
+    new MiniCssExtractPlugin({
+        filename: `${paths.outputPath.css}/[name].css`
+    })
+];
 
 const getModule = settings => {
     const { isProd, paths } = settings;
@@ -77,12 +75,9 @@ const getModule = settings => {
         ]
     };
 };
-const getDevtool = settings => {
-    return (
-        settings.devtool ||
-        (settings.isProd ? 'eval' : 'eval-cheap-module-source-map')
-    );
-};
+const getDevtool = settings =>
+    settings.devtool ||
+    (settings.isProd ? 'eval' : 'eval-cheap-module-source-map');
 
 const getMode = settings => (settings.isProd ? 'production' : 'development');
 
@@ -117,7 +112,7 @@ const getEntry = settings => {
                     .replace(/_/gi, '');
 
                 const key = name
-                    .replace(/\[site\]/gi, siteName)
+                    ?.replace(/\[site\]/gi, siteName)
                     .replace(/\[pathbase\]/gi, pathbase)
                     .replace(/\[dirname\]/gi, dirname)
                     .replace(/\[basename\]/gi, basename)

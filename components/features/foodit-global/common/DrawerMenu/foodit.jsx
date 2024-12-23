@@ -1,15 +1,16 @@
 import React from 'react';
-import DrawerContainer from '../DrawerContainer/foodit';
-import MenuCategories from '../MenuCategories/foodit';
+import PropTypes from 'fusion:prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
+import DrawerContainer from '../DrawerContainer/foodit';
+import MenuCategories from '../MenuCategories/foodit';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import removeAccents from '../../../../private/common/utils/removeAccents';
 import { DESCUBRIR_SECTIONS } from '../dataLayer/_helpers';
 import { DRAWER } from '../DrawerContainer/constants';
 
-const DrawerMenu = ({ categories = [] }) => {
-    if (!categories.length) return <></>;
+function DrawerMenu({ categories = [] }) {
+    if (!categories.length) return null;
 
     return (
         <DrawerContainer
@@ -56,6 +57,14 @@ const DrawerMenu = ({ categories = [] }) => {
             })}
         </DrawerContainer>
     );
+}
+
+DrawerMenu.propTypes = {
+    categories: PropTypes.array
+};
+
+DrawerMenu.defaultProps = {
+    categories: []
 };
 
 export default DrawerMenu;

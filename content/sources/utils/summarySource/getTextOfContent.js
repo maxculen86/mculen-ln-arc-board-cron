@@ -9,7 +9,7 @@ const getTextOfContent = (contentElements = []) => {
     return contentFiltered
         .map(content => content.content)
         .join(' ')
-        .replace(/<[^>]+>/g, '');
+        ?.replace(/<[^>]+>/g, '');
 };
 
 export default getTextOfContent;

@@ -5,7 +5,7 @@ import get from '../../components/private/common/utils/get';
 import pages from './utils/pageSource/index';
 import transformBitacorav1 from './utils/pageSource/pageHome/v1/bitacora/transform';
 import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
-import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
+import { BackendLnError } from '../../components/private/LN/api/common/models/backendLnError';
 
 // Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
 const fetch = async (query, { cachedCall } = {}) => {
@@ -46,6 +46,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     };
 
     try {
+        // eslint-disable-next-line prefer-regex-literals
         const regexVersionDeploy = new RegExp('[0-9]+');
         let versionDeploy = get(query, 'versionDeploy', null);
         versionDeploy =
@@ -102,9 +103,9 @@ const fetch = async (query, { cachedCall } = {}) => {
         const { information, homeFetchDate } = resultPage;
         queryParams.information = {
             ...information,
-            homeFetchDate: homeFetchDate,
-            keyCachedCall: keyCachedCall,
-            apiPageHomeSourceFetchDate: apiPageHomeSourceFetchDate
+            homeFetchDate,
+            keyCachedCall,
+            apiPageHomeSourceFetchDate
         };
         // Para revisar la data transformada que viene del Layout
         // return resultPage;

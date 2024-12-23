@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Link } from '@ln/foodit-ui-link';
-import { MenuCategories } from '../../MenuCategories/foodit';
+import MenuCategories from '../../MenuCategories/foodit';
 
 function Categories({ title, href, data = [] }) {
     if (data) {

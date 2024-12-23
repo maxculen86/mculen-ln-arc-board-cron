@@ -5,7 +5,7 @@ import { SITE_FOODIT } from 'fusion:environment';
 import removeAccents from '../../../../private/common/utils/removeAccents';
 import { DESCUBRIR_SECTIONS } from './_helpers';
 
-const AcusPageView = () => {
+function AcusPageView() {
     const { contextPath, deployment, requestUri = '' } = useAppContext();
 
     const params = requestUri.split('?')[0];
@@ -15,7 +15,7 @@ const AcusPageView = () => {
             removeAccents(params)
                 .replace(/^\/|\/$/g, '')
                 .split('/')
-                .map(section => section.replace(/-/g, '_'))) ||
+                .map(section => section?.replace(/-/g, '_'))) ||
         [];
 
     const isDescubrir = DESCUBRIR_SECTIONS.includes(firstSection);
@@ -33,13 +33,13 @@ const AcusPageView = () => {
                 }
                 data-category={thirdSection}
                 data-content-type={firstSection}
-                data-title={'N/A'}
+                data-title="N/A"
                 src={deployment(
                     `${contextPath}/resources/js/LN/dataLayerPageView.min.js`
                 )}
             />
         )
     );
-};
+}
 
 export default AcusPageView;

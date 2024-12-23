@@ -41,28 +41,26 @@ let sourceInclude = [
 ];
 sourceInclude = !sourceExclude.length ? sourceInclude : [];
 
-const mustElements = days => {
-    return [
-        {
-            range: {
-                first_publish_date: {
-                    gte: `now-${(parseInt(days, 0) + 1).toString() || '5'}d`,
-                    lte: 'now'
-                }
-            }
-        },
-        {
-            term: {
-                type: 'story'
-            }
-        },
-        {
-            term: {
-                'revision.published': true
+const mustElements = days => [
+    {
+        range: {
+            first_publish_date: {
+                gte: `now-${(Number(days, 0) + 1).toString() || '5'}d`,
+                lte: 'now'
             }
         }
-    ];
-};
+    },
+    {
+        term: {
+            type: 'story'
+        }
+    },
+    {
+        term: {
+            'revision.published': true
+        }
+    }
+];
 
 const filterByType = (items, topicType) => {
     const selectedTopic = items
@@ -103,14 +101,57 @@ const shouldElements = query => {
         should: []
     };
     const section = filterByType(followedItems, 'seccion');
-    section && elem.should.push(section);
+    if (section) elem.should.push(section);
 
     const tags = filterByType(followedItems, 'tags');
-    tags && elem.should.push(tags);
+    if (tags) elem.should.push(tags);
 
     const autor = filterByType(followedItems, 'autor');
-    autor && elem.should.push(autor);
+    if (autor) elem.should.push(autor);
+
     return elem;
+};
+
+export const generateSectionsToExclude = sections => {
+    if (!Array.isArray(sections)) {
+        return {};
+    }
+
+    const elementsToExclude = sections
+        .filter(section => typeof section === 'string')
+        .map(section => ({
+            term: {
+                [SECTION_ID_FIELD]: section
+            }
+        }));
+
+    return elementsToExclude.length === 0
+        ? {}
+        : {
+              nested: {
+                  path: TAXONOMY_SECTIONS,
+                  query: {
+                      bool: {
+                          must: elementsToExclude
+                      }
+                  }
+              }
+          };
+};
+
+export const createExclusionClauses = sectionsToExcludeParam => {
+    if (!Array.isArray(sectionsToExcludeParam)) {
+        throw new Error('sectionsToExclude must be an array');
+    }
+
+    // This function generates exclusion clauses based on the sections to exclude.
+    const elementsToExclude = generateSectionsToExclude(sectionsToExcludeParam);
+
+    if (elementsToExclude === null || typeof elementsToExclude !== 'object') {
+        throw new Error('generateSectionsToExclude should return an object');
+    }
+
+    return elementsToExclude;
 };
 
 export const resolveUri = query => {
@@ -149,48 +190,6 @@ export const resolveUri = query => {
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
 };
 
-export const createExclusionClauses = sectionsToExclude => {
-    if (!Array.isArray(sectionsToExclude)) {
-        throw new Error('sectionsToExclude must be an array');
-    }
-
-    // This function generates exclusion clauses based on the sections to exclude.
-    const elementsToExclude = generateSectionsToExclude(sectionsToExclude);
-
-    if (elementsToExclude === null || typeof elementsToExclude !== 'object') {
-        throw new Error('generateSectionsToExclude should return an object');
-    }
-
-    return elementsToExclude;
-};
-
-export const generateSectionsToExclude = sections => {
-    if (!Array.isArray(sections)) {
-        return {};
-    }
-
-    const elementsToExclude = sections
-        .filter(section => typeof section === 'string')
-        .map(section => ({
-            term: {
-                [SECTION_ID_FIELD]: section
-            }
-        }));
-
-    return elementsToExclude.length === 0
-        ? {}
-        : {
-              nested: {
-                  path: TAXONOMY_SECTIONS,
-                  query: {
-                      bool: {
-                          must: elementsToExclude
-                      }
-                  }
-              }
-          };
-};
-
 const getElements = async query => {
     const { url = '', followedItems, cachedCall } = query;
 
@@ -225,9 +224,7 @@ const getElements = async query => {
         json: true
     };
     return request(opt)
-        .then(response => {
-            return transform(response, queryTransform, cachedCall);
-        })
+        .then(response => transform(response, queryTransform, cachedCall))
         .catch(err => {
             logger.push(err, { source: 'content/source', url }, arcSite);
         });
@@ -251,7 +248,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     try {
         let seccionField = seccion;
         if (seccionField && seccionField !== '/') {
-            seccionField = seccionField.replace(/\/$/, '');
+            seccionField = seccionField?.replace(/\/$/, '');
             if (!seccionField.startsWith('/')) {
                 seccionField = `/${seccionField}`;
             }
@@ -284,15 +281,13 @@ const fetch = async (query, { cachedCall } = {}) => {
             followedItems = keyQuery;
         }
 
-        followedItems = followedItems.sort(function orderFollow(a, b) {
+        followedItems = followedItems.sort((a, b) => {
             const elemA = a.type.concat(a.slug);
             const elemB = b.type.concat(b.slug);
             return OrderElements(elemA, elemB);
         });
         const keyCacheSeguir = followedItems
-            .map(elem => {
-                return elem.slug;
-            })
+            .map(elem => elem.slug)
             .join('_')
             .replace(/__/, '_')
             .concat('_', page);

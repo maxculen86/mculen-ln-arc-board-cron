@@ -64,7 +64,7 @@ class AccumulatedSections {
         });
     }
 
-    getQueryElement = (sectionId, size, page, sections, restriction) => {
+    getQueryElement(sectionId, size, page, sections, restriction) {
         const resp = {
             page,
             imageConfig: 'm',
@@ -82,9 +82,9 @@ class AccumulatedSections {
 
         if (sectionId.toLowerCase() === '/ultimas-noticias') {
             const sectionsFormated = JSON.stringify(sections)
-                .replace(/,/g, '+OR+')
-                .replace('[', '(')
-                .replace(']', ')');
+                ?.replace(/,/g, '+OR+')
+                ?.replace('[', '(')
+                ?.replace(']', ')');
 
             return {
                 ...resp,
@@ -104,7 +104,7 @@ class AccumulatedSections {
             size,
             excludeSourceOrigin
         };
-    };
+    }
 
     render() {
         try {
@@ -114,9 +114,10 @@ class AccumulatedSections {
                 globalContent: { name },
                 requestUri
             } = this.props;
-            const indexAcu = this.apiData[browser.getApiType(requestUri)][
-                browser.getApiVersion(requestUri)
-            ];
+            const indexAcu =
+                this.apiData[browser.getApiType(requestUri)][
+                    browser.getApiVersion(requestUri)
+                ];
 
             if (
                 !acuArticlesSourceSection ||

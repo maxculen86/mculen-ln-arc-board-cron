@@ -28,7 +28,7 @@ const getParamsAcus = query => {
         return {
             ...resp,
             sectionsIds: JSON.stringify(sectionsFormated)
-                .replace(/,/g, '+OR+')
+                ?.replace(/,/g, '+OR+')
                 .replace('[', '(')
                 .replace(']', ')'),
             sourceOrigin: 'composer',

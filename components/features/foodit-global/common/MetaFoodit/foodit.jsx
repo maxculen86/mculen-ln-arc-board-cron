@@ -28,7 +28,7 @@ export function MetaFoodit({
 
     const titleMeta = isRecetas ? titleRecetas : title;
     const descriptionMeta = isRecetas ? descriptionRecetas : description;
-    const domain = SITE_FOODIT.replace(/\/$/, '');
+    const domain = SITE_FOODIT.replace(/\/$/, '') ?? '';
     const url =
         get(globalContent, 'canonical_url', '') ||
         get(globalContent, '_id', '');

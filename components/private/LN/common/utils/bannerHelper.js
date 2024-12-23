@@ -297,7 +297,7 @@ export const setCustomAdUnit = (slotName, unit) => {
             slotNameSections.slice(1, slotNameSections.length - 1).join('/')) ||
         '';
 
-    return slotName.replace(stringToReplace, unit);
+    return slotName?.replace(stringToReplace, unit);
 };
 
 export const getBannerConfiguration = (

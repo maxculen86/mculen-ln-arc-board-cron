@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import PropTypes from 'fusion:prop-types';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import {
     DESCUBRIR_SECTIONS,
     transformDataLayerString
 } from '../dataLayer/_helpers';
 
-export const MenuCategories = ({ data = [], fullWidth }) => {
+function MenuCategories({ data = [], fullWidth }) {
     return (
         <div className="flex flex-column flex-row_lg">
-            {data.map(({ title, items = [] }, i) => (
-                <ul
-                    className={fullWidth ? 'w-100' : 'w-202'}
-                    key={`section-${i}`}
-                >
+            {data.map(({ title, items = [] }) => (
+                <ul className={fullWidth ? 'w-100' : 'w-202'} key={useId()}>
                     {title && (
                         <li key={title.text}>
                             <Itemcard
@@ -65,6 +63,15 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
             ))}
         </div>
     );
+}
+
+MenuCategories.propTypes = {
+    data: PropTypes.array,
+    fullWidth: PropTypes.boolean.isRequired
+};
+
+MenuCategories.defaultProps = {
+    data: []
 };
 
 export default MenuCategories;

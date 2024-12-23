@@ -39,7 +39,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         const queryParams = {
             size,
             page,
-            authorId: query.authorId.replace('/', ''),
+            authorId: query.authorId?.replace('/', ''),
             categoryUri: get(query, 'categoryUri', '').replace('/', ''),
             versionUri: query.versionUri,
             website: 'la-nacion-ar'
@@ -50,7 +50,7 @@ const fetch = async (query, { cachedCall } = {}) => {
                 {
                     website: 'la-nacion-ar',
                     outputType: 'json',
-                    _id: query.authorId.replace('/', '')
+                    _id: query.authorId?.replace('/', '')
                 },
                 { cachedCall }
             )

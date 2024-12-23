@@ -17,8 +17,8 @@ const fetch = ({ imageId, api }) => {
             !verificacion
         ) {
             newImageId = newImageId
-                .replace('https:/', 'https://')
-                .replace('http:/', 'http://');
+                ?.replace('https:/', 'https://')
+                ?.replace('http:/', 'http://');
         }
     }
 
