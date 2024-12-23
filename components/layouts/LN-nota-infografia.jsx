@@ -8,7 +8,7 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 
 function lnNotaInfografia({

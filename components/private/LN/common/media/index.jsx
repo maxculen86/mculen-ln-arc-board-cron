@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Image from './imageBase';
-import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import IconsFullScreen from './iconsFullScreen';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
@@ -13,11 +11,9 @@ import {
 } from '../../../common/utils/subtypes/subtypeHelper';
 import useSubtype from '../../../common/hooks/useSubtype';
 import setClassCondition from './helpers/indexHelper';
-import listOfAllowedSection from './helpers/allowSectionAndLayout';
-import isAllowedSection from '../utils/isAllowedSection';
 import VideoPlayerJW from '../../../common/videoPlayerJw';
 
-const Media = ({
+function Media({
     mediaData,
     withZoom,
     itsGallery,
@@ -35,10 +31,8 @@ const Media = ({
     insideBody,
     withMobileImage,
     searchableField,
-    layoutPageBuilder,
-    globalContent,
     authors
-}) => {
+}) {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
     const { height = 0, width = 0, type, _id: idMedia } = mediaData || {};
@@ -47,26 +41,19 @@ const Media = ({
     const { subtype } = useSubtype();
     const idForMedia = isApertura ? idMedia : undefined;
 
-    const isValidSection = isAllowedSection({
-        noteType: subtype.id,
-        globalContent,
-        listOfAllowedSection,
-        layout: layoutPageBuilder
-    });
-
     useEffect(() => {
-        !itsGallery &&
-            withZoom &&
+        if (!itsGallery && withZoom) {
             setZoom(
                 [FOTOAL100, STORYTELLING].includes(subtype.id)
                     ? refContainer.current.clientWidth <= 768
                     : width > refContainer.current.clientWidth
             );
+        }
 
         function handleResize() {
-            !itsGallery &&
-                withZoom &&
+            if (!itsGallery && withZoom) {
                 setZoom(width > refContainer.current.clientWidth);
+            }
         }
 
         window.addEventListener('resize', handleResize);
@@ -77,8 +64,8 @@ const Media = ({
         itsGallery || zoom
             ? handleClick
             : () => {
-                  // This is intentional
-              };
+                // This is intentional
+            };
 
     // TODO: eliminar las props que estan recibiendo los componente de abajo que no se esta usando. \
 
@@ -108,7 +95,6 @@ const Media = ({
                         zoom={zoom}
                         isApertura={isApertura}
                         searchableField={searchableField}
-                        isValidSection={isValidSection}
                         authors={authors}
                     />
                     {children}
@@ -125,7 +111,7 @@ const Media = ({
                     data={mediaData}
                     parrafo={parrafo}
                     tituloNota={tituloNota}
-                    hasAutoplay={true}
+                    hasAutoplay
                 />
             )
         };
@@ -161,7 +147,7 @@ const Media = ({
             )}
         </>
     );
-};
+}
 
 Media.propTypes = {
     children: PropTypes.oneOfType([
@@ -171,7 +157,8 @@ Media.propTypes = {
     outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
-        _id: PropTypes.string
+        _id: PropTypes.string,
+        subtype: PropTypes.string
     }),
     itsGallery: PropTypes.bool,
     active: PropTypes.bool,
@@ -189,8 +176,6 @@ Media.propTypes = {
     html: PropTypes.string,
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node,
-    autoplay: PropTypes.bool,
-    isPowa: PropTypes.bool,
     insideBody: PropTypes.bool.isRequired,
     withMobileImage: PropTypes.bool,
     searchableField: PropTypes.shape({
@@ -199,7 +184,6 @@ Media.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string
     }).isRequired,
-    layoutPageBuilder: PropTypes.string.isRequired,
     authors: PropTypes.string
 };
 
@@ -223,7 +207,8 @@ Media.defaultProps = {
         // This is intentional
     },
     withMobileImage: false,
-    searchableField: undefined
+    searchableField: undefined,
+    authors: ''
 };
 
 export default Media;

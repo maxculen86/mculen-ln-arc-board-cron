@@ -27,7 +27,7 @@ import {
     createBannersIntersectionObserver,
     createDifferVideosObserver
 } from '../../private/common/banners/intersectionObservers';
-import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
+import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import InitControlGroup from '../helpers/initCtrlGrp';
 
 function LN10Home(props) {
