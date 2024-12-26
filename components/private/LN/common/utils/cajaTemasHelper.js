@@ -97,14 +97,16 @@ export const getMarkupForDatalayer = (
     sectionName,
     positionInsideSection,
     isExclusiveSub,
-    isFoodit
+    isFoodit,
+    roof
 ) => {
     const extraOptsdefault = {
         'data-diagramacion-id': '0',
         'data-is-block': true,
         ...(positionInsideSection && {
             'data-chain-position': positionInsideSection
-        })
+        }),
+        'data-roof': roof || 'N/A'
     };
     const types = {
         Opinion: {
@@ -204,7 +206,8 @@ export const getMarkupForDatalayer = (
                 }),
                 ...(isFoodit && {
                     'data-is-foodit': true
-                })
+                }),
+                'data-roof': roof || 'N/A'
             };
 
             return {
@@ -265,7 +268,7 @@ export const getCommonProps = props => {
 
     const showDatalayerMark =
         pageBuilderLayout === layoutsName.Home ||
-        pageBuilderLayout === layoutsName.HomeLN10
+            pageBuilderLayout === layoutsName.HomeLN10
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
@@ -296,20 +299,17 @@ export const findPositionInsideSection = (idFeature, renderables = []) => {
 
 export const calculateSizeOfCollection = (collections, notesQuantity) => {
     const totalArticlesInCollections = collections.reduce(
-        (total, currentValue) => {
-            return total + currentValue.articles.length;
-        },
+        (total, currentValue) => total + currentValue.articles.length,
         0
     );
     const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
 };
 
-export const hastVariant = (childProps = []) => {
-    return childProps.some(
+export const hastVariant = (childProps = []) =>
+    childProps.some(
         elem => elem && elem.variants && !!Object.keys(elem.variants).length
     );
-};
 
 export const isInApertura = (idFeature, tree = {}) => {
     const sectionApertura = get(tree, 'children[4].children', []);
@@ -330,62 +330,60 @@ export const getArticlesOfChain = ({
     articlesToShow = []
 }) => (isInSiteService ? articlesFromCollectionSiteService : articlesToShow);
 
-export const cajaTemasCustomsFields = featuredName => {
-    return {
-        idCollection: PropTypes.string.tag({
-            label: 'ID',
-            description: 'Ingrese aquí el ID de la collection',
-            defaultValue: '',
-            group: featuredRules[featuredName].groupName,
-            hidden: featuredRules[featuredName].hideIdCollection
-        }).isRequired,
-        layout: PropTypes.oneOf(
-            Object.keys(featuredRules[featuredName].layouts)
-        ).tag({
-            label: 'Diagramación',
-            defaultValue: featuredRules[featuredName].defaultLayout,
-            description: 'Cambiar el diseño de la caja',
-            group: featuredRules[featuredName].groupName,
-            labels: featuredRules[featuredName].layouts
-        }).isRequired,
-        initialPosition: PropTypes.number.tag({
-            label: 'N° de nota inicial',
-            description: 'Indicar a partir de que nota desea mostrar',
-            defaultValue: 1,
-            group: featuredRules[featuredName].groupName,
-            hidden: featuredRules[featuredName].hideInitialPosition
-        }).isRequired,
-        hideCaja: PropTypes.boolean.tag({
-            name: 'Ocultar Caja',
-            description: 'Marque para ocultar la caja',
-            defaultValue: false,
-            group: featuredRules[featuredName].groupName,
-            hidden: featuredRules[featuredName].hideHideCaja
-        }),
-        url: PropTypes.url.tag({
-            label: 'Link',
-            description:
-                'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
-            defaultValue: '',
-            group: 'Techo'
-        }),
-        imageId: PropTypes.string.tag({
-            name: 'Logo',
-            description: 'Ingrese aquí el id de Photo Center de la imagen',
-            defaultValue: '',
-            group: 'Techo'
-        }),
-        title: PropTypes.string.tag({
-            name: 'Texto',
-            description: 'Ingrese aquí el título de la caja de temas',
-            defaultValue: '',
-            group: 'Techo'
-        }),
-        hideTitle: PropTypes.boolean.tag({
-            name: 'Ocultar techo',
-            description: 'Marque para ocultar el techo',
-            defaultValue: true,
-            group: 'Techo'
-        })
-    };
-};
+export const cajaTemasCustomsFields = featuredName => ({
+    idCollection: PropTypes.string.tag({
+        label: 'ID',
+        description: 'Ingrese aquí el ID de la collection',
+        defaultValue: '',
+        group: featuredRules[featuredName].groupName,
+        hidden: featuredRules[featuredName].hideIdCollection
+    }).isRequired,
+    layout: PropTypes.oneOf(
+        Object.keys(featuredRules[featuredName].layouts)
+    ).tag({
+        label: 'Diagramación',
+        defaultValue: featuredRules[featuredName].defaultLayout,
+        description: 'Cambiar el diseño de la caja',
+        group: featuredRules[featuredName].groupName,
+        labels: featuredRules[featuredName].layouts
+    }).isRequired,
+    initialPosition: PropTypes.number.tag({
+        label: 'N° de nota inicial',
+        description: 'Indicar a partir de que nota desea mostrar',
+        defaultValue: 1,
+        group: featuredRules[featuredName].groupName,
+        hidden: featuredRules[featuredName].hideInitialPosition
+    }).isRequired,
+    hideCaja: PropTypes.boolean.tag({
+        name: 'Ocultar Caja',
+        description: 'Marque para ocultar la caja',
+        defaultValue: false,
+        group: featuredRules[featuredName].groupName,
+        hidden: featuredRules[featuredName].hideHideCaja
+    }),
+    url: PropTypes.url.tag({
+        label: 'Link',
+        description:
+            'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
+        defaultValue: '',
+        group: 'Techo'
+    }),
+    imageId: PropTypes.string.tag({
+        name: 'Logo',
+        description: 'Ingrese aquí el id de Photo Center de la imagen',
+        defaultValue: '',
+        group: 'Techo'
+    }),
+    title: PropTypes.string.tag({
+        name: 'Texto',
+        description: 'Ingrese aquí el título de la caja de temas',
+        defaultValue: '',
+        group: 'Techo'
+    }),
+    hideTitle: PropTypes.boolean.tag({
+        name: 'Ocultar techo',
+        description: 'Marque para ocultar el techo',
+        defaultValue: true,
+        group: 'Techo'
+    })
+});

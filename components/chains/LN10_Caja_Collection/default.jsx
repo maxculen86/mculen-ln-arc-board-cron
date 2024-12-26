@@ -32,6 +32,7 @@ import isContentLabAt100 from '../utils/isContentLabAt100';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import StaticContentV2 from '../LN10-global/staticContentV2';
 import CajaFooditEventScript from '../../private/common/scriptManager/scriptDataLayerCajaFoodit';
+import getViewabilityRoof from '../utils/getViewabilityRoof';
 
 const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
@@ -66,6 +67,12 @@ function CajaCollection(props) {
 
     const roofData = useRoofData({ ...propsForRoof, isAdmin, chainStyle });
 
+    const viewabilityRoof = getViewabilityRoof(
+        chainId,
+        renderables,
+        propsForRoof
+    );
+
     const {
         isInSiteService,
         articlesFromCollectionSiteService,
@@ -94,17 +101,17 @@ function CajaCollection(props) {
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
-              notesQuantity: rules.length || notesQuantity,
-              diagramation,
-              idCollection,
-              size: 20,
-              initialPosition: Number(initialPosition) - 1,
-              idCollectionsInPage: idsArticlesToExclude,
-              filterRecomendar: true,
-              filterRepetead: !isInSiteService,
-              layout,
-              website: isFoodit ? 'foodit' : 'la-nacion-ar'
-          })
+            notesQuantity: rules.length || notesQuantity,
+            diagramation,
+            idCollection,
+            size: 20,
+            initialPosition: Number(initialPosition) - 1,
+            idCollectionsInPage: idsArticlesToExclude,
+            filterRecomendar: true,
+            filterRepetead: !isInSiteService,
+            layout,
+            website: isFoodit ? 'foodit' : 'la-nacion-ar'
+        })
         : [];
 
     const _articles = getArticlesOfChain({
@@ -133,7 +140,8 @@ function CajaCollection(props) {
         '',
         positionInsideSection,
         isExclusiveSub,
-        isFoodit
+        isFoodit,
+        viewabilityRoof
     );
 
     const { bannerMob = undefined, bannerDsk = undefined } =

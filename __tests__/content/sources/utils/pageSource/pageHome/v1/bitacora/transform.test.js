@@ -11,6 +11,7 @@ const queryParams = {
         keyCachedCall: 'ApiPageHomehome_08'
     }
 };
+
 describe('Transform bitacora v1 test', () => {
     test('Test transformacion bitacora', async () => {
         let result = await transform(
@@ -34,6 +35,7 @@ describe('Transform bitacora v1 test', () => {
             visible: true,
             feature: 'tema',
             diagramacion_caja: 'bnGrilla4',
+            item_category: 'N/A',
             notas: [
                 {
                     id_nota: 'WFGEMMXEAREILHY5QNXSETVSBQ',
@@ -71,6 +73,7 @@ describe('Transform bitacora v1 test', () => {
             visible: true,
             feature: 'tema',
             diagramacion_caja: 'bnGrilla4',
+            item_category: 'N/A',
             notas: [
                 {
                     id_nota: 'WFGEMMXEAREILHY5QNXSETVSBQ',

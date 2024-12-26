@@ -4,7 +4,7 @@ import GetCajaManual from '../../private/LN/api/global/components/chains/LN10/ge
 import validateCajaManual from './common/_helper-WebApi';
 import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
-
+import getViewabilityRoof from '../utils/getViewabilityRoof';
 class CajaManual extends GetCajaManual {
     constructor(props) {
         super(props, null);
@@ -46,8 +46,7 @@ class CajaManual extends GetCajaManual {
             const error = this.validate(this.props);
             if (error) {
                 console.warn(
-                    `${layout} - ${
-                        typeof error === 'object' ? JSON.stringify(error) : ''
+                    `${layout} - ${typeof error === 'object' ? JSON.stringify(error) : ''
                     }`
                 );
                 return null;
@@ -59,7 +58,16 @@ class CajaManual extends GetCajaManual {
                 this.props.customFields.hideCaja =
                     this.props.customFields.hideBox || false;
             }
-            return this.renderResponse(this.props, containerImage);
+
+            const { id: chainId, renderables = [], customFields: propsForRoof = {} } = this.props || {};
+
+            const viewabilityRoof = getViewabilityRoof(
+                chainId,
+                renderables,
+                propsForRoof
+            );
+
+            return this.renderResponse({ ...this.props, viewabilityRoof }, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

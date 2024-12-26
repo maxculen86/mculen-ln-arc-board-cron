@@ -108,7 +108,7 @@ class GetOpinionCollection {
     };
 
     renderResponse = (props, articlesOpinion, articlesEditorial, image) => {
-        const { customFields } = props;
+        const { customFields, viewabilityRoof } = props;
 
         if (!articlesOpinion || !articlesEditorial) {
             return null;
@@ -170,7 +170,8 @@ class GetOpinionCollection {
         return {
             information: {
                 ...customFields,
-                image
+                image,
+                viewabilityRoof
             },
             articles: [].concat([boxEditorial], articlesListOpinion)
         };
@@ -180,4 +181,5 @@ class GetOpinionCollection {
         return null;
     }
 }
+
 export default GetOpinionCollection;
