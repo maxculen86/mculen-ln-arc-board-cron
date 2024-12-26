@@ -4,18 +4,15 @@ import classNames from 'classnames';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
-import '../../resources/dist/css/ln/pages/photo100.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
-import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
-import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
+import '../../resources/dist/css/ln/pages/photo100.css';
 
 function lnNotaFotoAl100({
     children: [
@@ -32,23 +29,12 @@ function lnNotaFotoAl100({
     outputType,
     globalContent: {
         taxonomy: { sections },
-        distributor: { name },
-        subtype
+        distributor: { name }
     },
-    layout,
-    globalContent
+    layout
 }) {
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
-    const isLoadWithPicture = isAllowedSection({
-        globalContent,
-        listOfAllowedSection,
-        noteType: subtype
-    });
-    const withoutVideoBackground = !(
-        get(globalContent, 'promo_items.storytelling', null) ||
-        get(globalContent, 'promo_items.video_jw', null)
-    );
     const classNameWrapper = classNames(
         'wrapper',
         '--top-fixed',
@@ -64,15 +50,7 @@ function lnNotaFotoAl100({
                 <Header />
                 <main id="content" className="--header-fixed-margin">
                     {preTitulo}
-                    {isLoadWithPicture && withoutVideoBackground ? (
-                        <AperturaStorytelling
-                            isLoadWithPicture={isLoadWithPicture}
-                        />
-                    ) : (
-                        <AperturaStorytelling
-                            isLoadWithPicture={isLoadWithPicture}
-                        />
-                    )}
+                    <AperturaStorytelling />
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}

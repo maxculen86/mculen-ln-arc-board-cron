@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import InitControlGroup from './helpers/initCtrlGrp';
