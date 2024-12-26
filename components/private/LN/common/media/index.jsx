@@ -3,8 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import Image from './imageBase';
-
-import { IconsFullScreen } from './iconsFullScreen';
+import IconsFullScreen from './iconsFullScreen';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import ComPicture from '../../../common/com-picture';
@@ -14,8 +13,6 @@ import {
 } from '../../../common/utils/subtypes/subtypeHelper';
 import useSubtype from '../../../common/hooks/useSubtype';
 import setClassCondition from './helpers/indexHelper';
-import listOfAllowedSection from './helpers/allowSectionAndLayout';
-import isAllowedSection from '../utils/isAllowedSection';
 import VideoPlayerJW from '../../../common/videoPlayerJw';
 
 function Media({
@@ -36,8 +33,6 @@ function Media({
     insideBody,
     withMobileImage,
     searchableField,
-    layoutPageBuilder,
-    globalContent,
     authors
 }) {
     const refContainer = useRef();
@@ -48,26 +43,19 @@ function Media({
     const { subtype } = useSubtype();
     const idForMedia = isApertura ? idMedia : undefined;
 
-    const isValidSection = isAllowedSection({
-        noteType: subtype.id,
-        globalContent,
-        listOfAllowedSection,
-        layout: layoutPageBuilder
-    });
-
     useEffect(() => {
-        !itsGallery &&
-            withZoom &&
+        if (!itsGallery && withZoom) {
             setZoom(
                 [FOTOAL100, STORYTELLING].includes(subtype.id)
                     ? refContainer.current.clientWidth <= 768
                     : width > refContainer.current.clientWidth
             );
+        }
 
         function handleResize() {
-            !itsGallery &&
-                withZoom &&
+            if (!itsGallery && withZoom) {
                 setZoom(width > refContainer.current.clientWidth);
+            }
         }
 
         window.addEventListener('resize', handleResize);
@@ -78,8 +66,8 @@ function Media({
         itsGallery || zoom
             ? handleClick
             : () => {
-                // This is intentional
-            };
+                  // This is intentional
+              };
 
     if (mediaData) {
         const mediaTypeComponents = {
@@ -102,7 +90,6 @@ function Media({
                         href={href}
                         isApertura={isApertura}
                         searchableField={searchableField}
-                        isValidSection={isValidSection}
                         authors={authors}
                     />
                     {children}
@@ -192,7 +179,6 @@ Media.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string
     }).isRequired,
-    layoutPageBuilder: PropTypes.string.isRequired,
     authors: PropTypes.string
 };
 
@@ -214,7 +200,8 @@ Media.defaultProps = {
         // This is intentional
     },
     withMobileImage: false,
-    searchableField: undefined
+    searchableField: undefined,
+    authors: ''
 };
 
 export default Media;

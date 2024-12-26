@@ -1,7 +1,6 @@
 import get from '../../../../../common/utils/get';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import { Article as ArticleLN10 } from '../../../v1/mobile/home/article/index';
-import { ExternalArticle } from '../../../v1/mobile/home/externalArticle/index';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
 import { cardAnexoItemMobile as CardAnexoLN } from '../../../common/article/cardAnexo/index';
 import { CardAnexo as CardAnexoLN10 } from '../../../v1/mobile/home/article/cardAnexo/index';
@@ -17,23 +16,19 @@ const excludeUrlsInBoxInfo = ['https://www.lanacion.com.ar/suscriptores/'];
 const FunctionsBoxContentsByLayout = {
     'LN-Home_Main': {
         article: Article,
-        anexo: CardAnexoLN,
-        externalArticle: ExternalArticle
+        anexo: CardAnexoLN
     },
     'LN10-Home_Main': {
         article: ArticleLN10,
-        anexo: CardAnexoLN10,
-        externalArticle: ExternalArticle
+        anexo: CardAnexoLN10
     },
     'LN-acumulado': {
         article: Article,
-        anexo: CardAnexoLN,
-        externalArticle: ExternalArticle
+        anexo: CardAnexoLN
     },
     default: {
         article: Article,
-        anexo: CardAnexoLN,
-        externalArticle: ExternalArticle
+        anexo: CardAnexoLN
     }
 };
 
@@ -48,7 +43,11 @@ const validateInfoBox = information => {
     }
     return informationValid;
 };
-
+const addListenableFlagForArticles = articles =>
+    articles.map(x => ({
+        ...x,
+        isListenable: isNoteListenable(x)
+    }));
 const index = (
     children,
     paramsFromPage = {
@@ -70,7 +69,7 @@ const index = (
         return null;
     }
 
-    const ArticlesbyBox = children.reduce((result, f, i) => {
+    const ArticlesbyBox = children.reduce((result, f) => {
         const { information, sectionAliasMobile } = f;
         const sectionBox = f;
         const informationValid = validateInfoBox(information);
@@ -86,8 +85,8 @@ const index = (
             typeSection
         );
 
-        if (f.articles && f.articles.length > 0) {
-            f.articles = addListenableFlagForArticles(f.articles);
+        if (sectionBox.articles && sectionBox.articles.length > 0) {
+            sectionBox.articles = addListenableFlagForArticles(f.articles);
         }
 
         const boxInfo = attachBanners(box, sectionAliasMobile, banners);
@@ -132,15 +131,6 @@ const index = (
         return result;
     }, []);
     return [removeEmptyItems(ArticlesbyBox)];
-};
-
-const addListenableFlagForArticles = articles => {
-    return articles.map(x => {
-        return {
-            ...x,
-            isListenable: isNoteListenable(x)
-        };
-    });
 };
 
 export default index;
