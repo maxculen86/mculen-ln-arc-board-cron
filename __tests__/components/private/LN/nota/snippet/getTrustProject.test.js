@@ -37,19 +37,22 @@ describe('Tests getTrustProject() function', () => {
             '@type': 'AdvertiserContentArticle',
             publishingPrinciples:
                 'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
-            articleSection: 'Espectáculos'
+            articleSection: 'Espectáculos',
+            sections: [{ name: 'Espectáculos' }, { name: 'Show' }]
         },
         {
             '@type': 'AdvertiserContentArticle',
             publishingPrinciples:
                 'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
-            articleSection: 'Tecnología'
+            articleSection: 'Tecnología',
+            sections: [{ name: 'Tecnología' }, { name: 'eaSports' }]
         },
         {
             '@type': 'AdvertiserContentArticle',
             publishingPrinciples:
                 'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
-            articleSection: 'Sociedad'
+            articleSection: 'Sociedad',
+            sections: [{ name: 'Sociedad' }, { name: 'Comunidad' }]
         }
     ];
 
