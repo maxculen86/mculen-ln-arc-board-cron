@@ -5,10 +5,6 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
-import isAllowedSection from '../../common/utils/isAllowedSection';
-import allowSectionAndLayout from '../../common/media/helpers/allowSectionAndLayout';
-import sitesProperties from '../../../../../properties/sites/la-nacion-ar';
-import get from '../../../common/utils/get';
 
 const GlobalContext = React.createContext([]);
 
@@ -34,12 +30,10 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
             source: id ? 'collectionsSource' : null,
             query: collectionsProps,
             filter,
-            transform: response => {
-                return {
-                    idCollection: id,
-                    articles: response ? response.content_elements : []
-                };
-            }
+            transform: response => ({
+                idCollection: id,
+                articles: response ? response.content_elements : []
+            })
         });
 
         listOfCollections.push(collect);
@@ -48,20 +42,14 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
     return listOfCollections;
 };
 
-const getCollectionApertura = (id, globalContent) => {
-    const imageConfig = isAllowedSection({
-        globalContent,
-        listOfAllowedSection: allowSectionAndLayout,
-        layout: get(sitesProperties, 'layoutsName.Acumulado', 'LN-acumulado')
-    })
-        ? 'newAperturaAcu'
-        : 'aperturaAcu';
+const getCollectionApertura = id => {
+    if (!id) return [];
 
     const collectionsProps = {
         id: id && id.trim(),
         size: 2,
         website: 'la-nacion-ar',
-        imageConfig
+        imageConfig: 'newAperturaAcu'
     };
 
     return useContent({
@@ -69,27 +57,20 @@ const getCollectionApertura = (id, globalContent) => {
         query: collectionsProps,
         staticMode: true,
         filter,
-        transform: response => {
-            return response ? response.content_elements : [];
-        }
+        transform: response => (response ? response.content_elements : [])
     });
 };
 
-const GlobalProviderAcu = props => {
+function GlobalProviderAcu(props) {
     const {
         acumuladoGeneral,
         acumuladoColor,
         idCollectionsInPage,
         idCollectionApertura,
-        children,
-        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
-        globalContent
+        children
     } = props;
 
-    const articlesInCollection = idCollectionApertura
-        ? getCollectionApertura(idCollectionApertura, globalContent)
-        : [];
-
+    const articlesInCollection = getCollectionApertura(idCollectionApertura);
     const collectionsInPage = getCollectionsInPage(idCollectionsInPage);
     const [state, dispatch] = useReducer(reducer, {
         acumuladoGeneral,
@@ -99,11 +80,12 @@ const GlobalProviderAcu = props => {
     });
 
     return (
+        // eslint-disable-next-line react/jsx-no-constructed-context-values
         <GlobalContext.Provider value={[state, dispatch]}>
             {children}
         </GlobalContext.Provider>
     );
-};
+}
 
 GlobalProviderAcu.propTypes = {
     children: PropTypes.node.isRequired,

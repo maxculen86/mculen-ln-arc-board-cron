@@ -23,7 +23,15 @@ import {
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
         useAppContext();
-    const { toggleDrawer } = useDrawer({ id: DRAWER.RECETARIO });
+
+    const { toggleDrawer: toggleRecetarioDrawer } = useDrawer({
+        id: DRAWER.RECETARIO
+    });
+
+    const { toggleDrawer: toggleBuscadorDrawer } = useDrawer({
+        id: DRAWER.BUSCADOR
+    });
+
     const { layoutsName } = siteProperties || {};
 
     const classNameMain = cx('container flex flex-column gap-40', {
@@ -54,13 +62,18 @@ function BaseLayout({ children }) {
                 <Modal />
                 <Toasts />
                 <FloatingGroupButton
-                    {...getConfigByLayout(layout, [toggleDrawer])}
+                    {...getConfigByLayout(layout, [
+                        toggleRecetarioDrawer,
+                        toggleBuscadorDrawer
+                    ])}
                 />
             </div>
         </AuthInitializer>
     );
 }
+
 BaseLayout.propTypes = {
     children: PropTypes.node.isRequired
 };
+
 export default BaseLayout;

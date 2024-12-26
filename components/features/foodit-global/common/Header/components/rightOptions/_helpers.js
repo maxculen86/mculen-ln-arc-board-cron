@@ -2,6 +2,18 @@ import { API_ENV, FOODIT_LOGIN_URL } from 'fusion:environment';
 
 import { addEventToDataLayerV2 } from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
+const ANALYTICS_EVENTS = {
+    LINK_CLICK: 'e_linkclick',
+    NOTIFICATION_ACTION: 'action_notification'
+};
+
+const BELL_CONFIG = {
+    ZONE: 'foodit',
+    REQUEST_SIZE: 5,
+    LOGIN_TEXT:
+        'Si formas parte de nuestra comunidad de suscriptores, descubrí todas las novedades que tenemos para vos.'
+};
+
 export const hideTooltip = setTooltip => {
     setTooltip('hide');
     localStorage?.setItem('tooltip', 'hide');
@@ -12,14 +24,13 @@ export const getPropsBellFoodit = () => {
         (typeof window !== 'undefined' && window?.btoa(window.location.href)) ||
         '';
     return {
-        zone: 'foodit',
+        zone: BELL_CONFIG.ZONE,
         isTestEnvironment: API_ENV !== 'prod',
         showTooltip: true,
         loginHref: FOODIT_LOGIN_URL + loginHrefLocation,
-        loginText:
-            'Si formas parte de nuestra comunidad de suscriptores, descubrí todas las novedades que tenemos para vos.',
-        notificationsRequestSize: 5,
-        messagesRequestSize: 5
+        loginText: BELL_CONFIG.LOGIN_TEXT,
+        notificationsRequestSize: BELL_CONFIG.REQUEST_SIZE,
+        messagesRequestSize: BELL_CONFIG.REQUEST_SIZE
     };
 };
 
@@ -27,25 +38,34 @@ export const getPropsBellEvents = ({ setTooltip }) => {
     const handleBellClick = () => {
         hideTooltip(setTooltip);
         addEventToDataLayerV2({
-            event: 'e_linkclick',
+            event: ANALYTICS_EVENTS.LINK_CLICK,
             category: 'campanita',
             label: 'campanita',
             action: 'click'
         });
     };
 
-    const handleNotificationsClick = notif => {
+    const handleItemClick = (item, eventType) => {
         addEventToDataLayerV2({
-            event: 'action_notification',
-            identifier: notif?.id || '',
+            event: eventType,
+            identifier: item?.id || '',
             button: 'N/A',
-            page_notification: notif?.url || '',
-            title: notif?.title || ''
+            page_notification: item?.url || '',
+            title: item?.title || ''
         });
+    };
+
+    const handleNotificationsClick = notif => {
+        handleItemClick(notif, ANALYTICS_EVENTS.NOTIFICATION_ACTION);
+    };
+
+    const handleMessageButtonClick = message => {
+        handleItemClick(message, ANALYTICS_EVENTS.NOTIFICATION_ACTION);
     };
 
     return {
         onBellClick: handleBellClick,
-        onNotificationsClick: handleNotificationsClick
+        onNotificationsClick: handleNotificationsClick,
+        onMessageButtonClick: handleMessageButtonClick
     };
 };

@@ -164,53 +164,21 @@ export const getImagesToLoadWithPicture = (sourceActive = [], isPreload) => {
 };
 
 // TODO: Modularizar este componente y llevarlo a un .jsx
-export function LinkImagePreload({
-    resizedUrls = [],
-    isLoadWithPicture = false
-}) {
+export function LinkImagePreload({ resizedUrls = [] }) {
     if (resizedUrls.length === 0) return null;
 
     const fetchPriorityAttr = { fetchPriority: 'high' };
-    const { resizedUrl } = getShortestImage(resizedUrls);
+    const images = getImagesToLoadWithPicture(resizedUrls, true);
 
-    // TODO: Sacar condicion isLoadWithPicture cuando se implemente carga con picture en todo el sitio.
-    if (isLoadWithPicture) {
-        const images = getImagesToLoadWithPicture(resizedUrls, true);
-
-        return images.map(
-            ({ mediaPreload, srcSet, withConfigPixelRatio, href } = {}) => (
-                <link
-                    rel="preload"
-                    as="image"
-                    {...fetchPriorityAttr}
-                    media={mediaPreload}
-                    imageSrcSet={withConfigPixelRatio ? srcSet : undefined}
-                    href={href}
-                />
-            )
-        );
-    }
-
-    // TODO: Eliminar logica de aca para abajo despues que se haya migrado todo el sitio a carga de imagenes con picture.
-
-    const imagesrcset = [];
-    const imagesizes = [];
-
-    resizedUrls.forEach(url => {
-        imagesrcset.push(`${url.resizedUrl} ${url.option.width}w`);
-        imagesizes.push(
-            url.option.media && `${url.option.media} ${url.option.width}px`
-        );
-    });
-
-    return (
-        imagesrcset.length && (
+    return images.map(
+        ({ mediaPreload, srcSet, withConfigPixelRatio, href } = {}) => (
             <link
                 rel="preload"
                 as="image"
                 {...fetchPriorityAttr}
-                href={resizedUrl}
-                imageSrcSet={imagesrcset}
+                media={mediaPreload}
+                imageSrcSet={withConfigPixelRatio ? srcSet : undefined}
+                href={href}
             />
         )
     );

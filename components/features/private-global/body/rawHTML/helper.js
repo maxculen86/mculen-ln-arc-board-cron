@@ -1,3 +1,5 @@
+export const trim = string => string.replace(/\s{2,}/g, ' ');
+
 export const getModifier = subtype => {
     switch (subtype) {
         case 'facebook-post':

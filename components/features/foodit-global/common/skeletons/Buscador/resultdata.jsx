@@ -1,16 +1,16 @@
 import React from 'react';
-import SkeletonCard from '../Card/foodit';
 import { Skeleton } from '@ln/common-ui-skeleton';
+import SkeletonCard from '../Card/foodit';
 
-export const SkeletonResultdata = () => {
+export function SkeletonResultdata() {
     const cards = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i += 1) {
         cards.push(
             <SkeletonCard className="col-span-4 col-span-4_md" isResultdata />
         );
     }
     return (
-        <div className="flex flex-column gap-24">
+        <div data-testid="skeleton-loader" className="flex flex-column gap-24">
             <div className="flex jc-between">
                 <Skeleton
                     width={178}
@@ -38,4 +38,4 @@ export const SkeletonResultdata = () => {
             </div>
         </div>
     );
-};
+}
