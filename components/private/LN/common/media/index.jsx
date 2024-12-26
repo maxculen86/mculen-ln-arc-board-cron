@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -121,26 +120,22 @@ function Media({
         item = <ComPicture href={href} />;
     }
 
-    return (
-        <>
-            {itsGallery ? (
-                <>{item}</>
-            ) : (
-                <div className="content-media" ref={refContainer}>
-                    <ModMedia
-                        idMedia={idForMedia}
-                        zoom={zoom}
-                        withZoom={withZoom}
-                        active={active}
-                        html={html}
-                        scriptForZoom={!isApertura && scriptForZoom}
-                        outputType={outputType}
-                    >
-                        {item}
-                    </ModMedia>
-                </div>
-            )}
-        </>
+    return itsGallery ? (
+        { item }
+    ) : (
+        <div className="content-media" ref={refContainer}>
+            <ModMedia
+                idMedia={idForMedia}
+                zoom={zoom}
+                withZoom={withZoom}
+                active={active}
+                html={html}
+                scriptForZoom={!isApertura && scriptForZoom}
+                outputType={outputType}
+            >
+                {item}
+            </ModMedia>
+        </div>
     );
 }
 
