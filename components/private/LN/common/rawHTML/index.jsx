@@ -4,9 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 
-const trim = string => {
-    return string.replace(/\s{2,}/g, ' ');
-};
+const trim = (string = '') => string.replace(/\s{2,}/g, ' ');
 
 const getModifier = subtype => {
     switch (subtype) {
@@ -18,7 +16,7 @@ const getModifier = subtype => {
     }
 };
 
-const addPropertyLoading = ({ subtype, tagHtml }) => {
+const addPropertyLoading = ({ subtype, tagHtml = '' }) => {
     const embeds = ['youtube', 'dailymotion', 'vimeo'];
     const element =
         tagHtml.includes('iframe') && embeds.includes(subtype)
@@ -28,13 +26,13 @@ const addPropertyLoading = ({ subtype, tagHtml }) => {
     return { __html: element };
 };
 
-const RawHTML = ({
+function RawHTML({
     data: {
         classes = '',
         raw_oembed: { html = '' },
         subtype
     }
-}) => {
+}) {
     const modifier = subtype ? getModifier(subtype) : '';
 
     return (
@@ -46,7 +44,7 @@ const RawHTML = ({
             })}
         />
     );
-};
+}
 
 RawHTML.arcType = 'oembed_response';
 RawHTML.outputType = 'default';

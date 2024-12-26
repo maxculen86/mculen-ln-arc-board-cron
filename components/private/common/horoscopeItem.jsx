@@ -5,10 +5,11 @@ import getAssetsPath from './utils/getAssetsPath';
 import Link from './link';
 import Text from './text';
 import Image from './com-image';
+import { formatText } from './utils/sectionUtils';
 
 import '../../../resources/dist/css/ln/components/horoscope-item.css';
 
-const HoroscopeItem = ({
+function HoroscopeItem({
     classCondition,
     periodo,
     nombre,
@@ -16,14 +17,8 @@ const HoroscopeItem = ({
     deployment,
     contextPath,
     chineseYear
-}) => {
+}) {
     const baseUrl = `${SITE_LANACION || 'https://www.lanacion.com.ar'}`;
-    const quitarTildes = string => {
-        return string
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '');
-    };
 
     return (
         <article className={`horoscope-item ${classCondition}`}>
@@ -31,14 +26,14 @@ const HoroscopeItem = ({
                 href={
                     nombre === 'Horóscopo Chino'
                         ? `https://www.lanacion.com.ar/horoscopo/horoscopo-chino-${chineseYear}/`
-                        : `${baseUrl}/horoscopo/${quitarTildes(nombre)}/`
+                        : `${baseUrl}/horoscopo/${formatText(nombre)}/`
                 }
                 title={`Ir al horóscopo de ${nombre}`}
             >
                 <div className="container-svg">
                     <Image
                         src={getAssetsPath(contextPath)(deployment)(
-                            `horoscope-logos/${quitarTildes(filenameLogo)}.svg`
+                            `horoscope-logos/${formatText(filenameLogo)}.svg`
                         )}
                         alt={nombre}
                         width="100%"
@@ -58,13 +53,14 @@ const HoroscopeItem = ({
             </Link>
         </article>
     );
-};
+}
 
 HoroscopeItem.propTypes = {
     classCondition: PropTypes.string,
     filenameLogo: PropTypes.string,
     nombre: PropTypes.string,
     periodo: PropTypes.string,
+    chineseYear: PropTypes.string,
     contextPath: PropTypes.string.isRequired,
     deployment: PropTypes.func.isRequired
 };
@@ -73,7 +69,8 @@ HoroscopeItem.defaultProps = {
     classCondition: '',
     filenameLogo: 'cancer',
     nombre: 'cancer',
-    periodo: ''
+    periodo: '',
+    chineseYear: ''
 };
 
 export default HoroscopeItem;

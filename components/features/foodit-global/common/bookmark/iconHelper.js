@@ -66,7 +66,7 @@ const checkBookmarksInCarousel = carousel => {
         collectionText.innerText = allFilled ? 'Guardado' : 'Guardar todo';
     }
     if (collectionIcon) {
-        const href = collectionIcon.getAttribute('href');
+        const href = collectionIcon.getAttribute('href') ?? '';
         const newHref = allFilled
             ? href.replace(BOOKMARK_PLUS, BOOKMARK_FILLED)
             : href.replace(BOOKMARK_FILLED, BOOKMARK_PLUS);

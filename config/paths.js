@@ -17,7 +17,7 @@ const getRelativePath = (...pathSegments) =>
         path.resolve(ROOT, ...pathSegments)
     );
 const getRelativeURL = (urlpath, urlBase = URL_BASE) =>
-    `${urlBase}${path.resolve(DIRNAME_PUBLIC, urlpath).replace(ROOT, '')}`;
+    `${urlBase}${path.resolve(DIRNAME_PUBLIC, urlpath)?.replace(ROOT, '')}`;
 
 const paths = {};
 
@@ -28,7 +28,7 @@ paths.outputPath = {
     base: path.resolve(ROOT, DIRNAME_PUBLIC)
 };
 paths.urlPath = {
-    base: `${URL_BASE}${paths.outputPath.base.replace(ROOT, '')}`
+    base: `${URL_BASE}${paths.outputPath.base?.replace(ROOT, '')}`
 };
 
 // Privados

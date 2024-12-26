@@ -1,6 +1,4 @@
-export const trim = string => {
-    return string.replace(/\s{2,}/g, ' ');
-};
+export const trim = string => string.replace(/\s{2,}/g, ' ');
 
 export const getModifier = subtype => {
     switch (subtype) {
@@ -12,7 +10,7 @@ export const getModifier = subtype => {
     }
 };
 
-export const addPropertyLoading = ({ subtype, tagHtml }) => {
+export const addPropertyLoading = ({ subtype, tagHtml = '' }) => {
     const embeds = ['youtube', 'dailymotion', 'vimeo'];
     const element =
         tagHtml.includes('iframe') && embeds.includes(subtype)

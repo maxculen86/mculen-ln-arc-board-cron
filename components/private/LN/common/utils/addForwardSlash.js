@@ -14,7 +14,7 @@ export const addForwardSlashInParagraphsLinks = content => {
     const newArrayLinks = [...new Set(links)];
 
     newArrayLinks.forEach(etiquetaA => {
-        const link = etiquetaA.replace(regLN, '$1');
+        const link = etiquetaA?.replace(regLN, '$1');
         const re = new RegExp(`"${escapedStringForRegex(link)}"`, 'g');
         newContent = newContent.replace(re, `"${addForwardSlash(link)}"`);
     });

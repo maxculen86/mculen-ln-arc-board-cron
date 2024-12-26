@@ -17,8 +17,8 @@ const getAuthorData = author => {
         null
     );
 
-    const parsedValue = parseInt(voicePropertyValue);
-    const voice = !isNaN(parsedValue) ? parsedValue : null;
+    const parsedValue = Number(voicePropertyValue);
+    const voice = !Number.isNaN(parsedValue) ? parsedValue : null;
 
     const authorData = {
         id: getAutorId(id),
@@ -32,14 +32,8 @@ const getAuthorData = author => {
 };
 
 export const getAuthorBio = author => {
-    const {
-        longBio,
-        location,
-        education,
-        languages,
-        affiliations,
-        books
-    } = author;
+    const { longBio, location, education, languages, affiliations, books } =
+        author;
 
     return {
         longBio,
@@ -59,7 +53,7 @@ export const authorCommon = author => {
     return {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,
-        imagen: image ? image : null
+        imagen: image || null
     };
 };
 
@@ -79,7 +73,7 @@ export const authorAcu = (author, page) => {
     };
 };
 
-export const authorAcuFollow = (authorFollow, page) => {
+export const authorAcuFollow = authorFollow => {
     const author = authorFollow;
     delete author.type;
     return author;
@@ -126,7 +120,7 @@ export const articleSignature = (authors, signature = null) => {
             return resp + author.valor;
         })
         .toString()
-        .replace(/\,(?=[^,][ey])/, '')}`;
+        ?.replace(/,(?=[^,][ey])/, '')}`;
 
     return authorsValue;
 };

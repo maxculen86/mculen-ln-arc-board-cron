@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 import HeaderSection from '../../../common/mod-headerSection';
 
-const getSectionsAsTags = sections => {
-    return sections && sections.length > 0
+const getSectionsAsTags = sections =>
+    sections && sections.length > 0
         ? sections
               .filter(
                   section =>
@@ -14,10 +14,10 @@ const getSectionsAsTags = sections => {
                       !sections[0].parent_id
                           .split('/')
                           .filter(v => v !== '')
-                          .includes(section.path.replace('/', ''))
+                          .includes(section.path?.replace('/', ''))
               )
-              .reduce((accumulator, section, index) => {
-                  return [
+              .reduce(
+                  (accumulator, section) => [
                       ...accumulator,
                       ...[
                           {
@@ -26,56 +26,50 @@ const getSectionsAsTags = sections => {
                               text: section.name
                           }
                       ]
-                  ];
-              }, [])
+                  ],
+                  []
+              )
         : [];
-};
 
-const Tags = ({ tags = [], sections, destacado, temas, showItems }) => {
+function Tags({ tags = [], sections, destacado, temas, showItems }) {
     const categories = getSectionsAsTags(sections);
 
-    const listTags = categories.concat(tags).map(x => {
-        return {
-            type: x.type || 'tag',
-            path: x.slug,
-            text: x.text
-        };
-    });
+    const listTags = categories.concat(tags).map(x => ({
+        type: x.type || 'tag',
+        path: x.slug,
+        text: x.text
+    }));
+
+    if (temas) {
+        return (
+            <div className="row">
+                <div className="col-12">
+                    {listTags.length > 0 && (
+                        <HeaderSection tag="h3" title="Temas" line={false} />
+                    )}
+                    {listTags && (
+                        <TaxonomyComponent
+                            list={listTags}
+                            destacado={destacado}
+                            collapsible
+                        />
+                    )}
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <>
-            {temas ? (
-                <div className="row">
-                    <div className="col-12">
-                        {listTags.length > 0 && (
-                            <HeaderSection
-                                tag="h3"
-                                title="Temas"
-                                line={false}
-                            />
-                        )}
-                        {listTags && (
-                            <TaxonomyComponent
-                                list={listTags}
-                                destacado={destacado}
-                                collapsible
-                            />
-                        )}
-                    </div>
-                </div>
-            ) : (
-                <TaxonomyComponent
-                    list={listTags.map(item => ({
-                        ...item,
-                        text: `Recetas con ${item.text}`
-                    }))}
-                    destacado={destacado}
-                    showItems={showItems}
-                />
-            )}
-        </>
+        <TaxonomyComponent
+            list={listTags.map(item => ({
+                ...item,
+                text: `Recetas con ${item.text}`
+            }))}
+            destacado={destacado}
+            showItems={showItems}
+        />
     );
-};
+}
 
 Tags.propTypes = {
     tags: PropTypes.arrayOf(

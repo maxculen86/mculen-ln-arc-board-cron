@@ -29,9 +29,9 @@ describe('Games test funcion gameProperties', () => {
 
         const result = getGameProperties(
             sectionTitle,
-            sectionId,
             contextPath,
-            deployment
+            deployment,
+            sectionId
         );
 
         expect(result).toEqual(expected);
@@ -41,9 +41,9 @@ describe('Games test funcion gameProperties', () => {
         const sectionId = undefined;
         const result = getGameProperties(
             undefined,
-            sectionId,
             '/contextPath',
-            'deployment'
+            'deployment',
+            sectionId
         );
         expect(result).toBe(false);
     });
@@ -52,9 +52,9 @@ describe('Games test funcion gameProperties', () => {
         const sectionId = null;
         const result = getGameProperties(
             undefined,
-            sectionId,
             '/contextPath',
-            'deployment'
+            'deployment',
+            sectionId
         );
         expect(result).toBe(false);
     });
@@ -63,9 +63,9 @@ describe('Games test funcion gameProperties', () => {
         const sectionId = '';
         const result = getGameProperties(
             undefined,
-            sectionId,
             '/contextPath',
-            'deployment'
+            'deployment',
+            sectionId
         );
         expect(result).toBe(false);
     });

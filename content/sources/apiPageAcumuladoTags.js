@@ -6,16 +6,31 @@ import home from '../../components/private/LN/api/v2/mobile/homeAccumulated';
 import pageTransformV2Format from './utils/pageSource/acumulados/v2/mobile/byTag/pageTransformV2Format';
 import NotFoundError from './utils/notFoundError';
 
+const getParamsFromQuery = query => {
+    const { uri = '', website, versionUri } = query;
+    const ticksCache = get(query, 'ticks', '').replace('/', '');
+    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
+
+    const slug = get(query, 'slug', '').replace('/', '');
+
+    if (!versionUri) {
+        throw new Error('The api page must have a version');
+    }
+
+    return {
+        uri,
+        website,
+        versionUri,
+        ticksCache,
+        categoryUri,
+        slug
+    };
+};
+
 const fetch = async (query, { cachedCall }) => {
     try {
-        const {
-            uri,
-            website,
-            versionUri,
-            ticksCache,
-            categoryUri,
-            slug
-        } = getParamsFromQuery(query);
+        const { uri, website, versionUri, ticksCache, categoryUri, slug } =
+            getParamsFromQuery(query);
 
         const queryParams = {
             rootPath: `${SITE_LANACION}/tema/${slug}`,
@@ -64,27 +79,6 @@ const fetch = async (query, { cachedCall }) => {
 
         throw new Error(error);
     }
-};
-
-const getParamsFromQuery = query => {
-    const { uri = '', website, versionUri } = query;
-    const ticksCache = get(query, 'ticks', '').replace('/', '');
-    const categoryUri = get(query, 'categoryUri', '').replace('/', '');
-
-    const slug = get(query, 'slug', '').replace('/', '');
-
-    if (!versionUri) {
-        throw new Error('The api page must have a version');
-    }
-
-    return {
-        uri,
-        website,
-        versionUri,
-        ticksCache,
-        categoryUri,
-        slug
-    };
 };
 
 export default {

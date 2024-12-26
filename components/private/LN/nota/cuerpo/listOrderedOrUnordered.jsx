@@ -2,25 +2,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const ListOrderedOrUnordered = ({ data }) => {
+function ListOrderedOrUnordered({ data }) {
     const [classList] = useState(
         data.list_type === 'ordered' ? 'com-ordered' : 'com-unordered'
     );
 
     const setExternalLinks = (text = '') => {
-        const regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
+        const regex = /<a[\s]+([^>]+)>((?:.(?!<\/a>))*.)<\/a>/g;
         const classRegex = /(?:<a)(?:.(?!<\/a>))*?class="(link)"/g;
-        const filteredText = text.replace(classRegex, (fullMatch, group) => {
-            return fullMatch.replace(group, 'com-link');
-        });
-        return filteredText.replace(regex, match => {
-            return match.replace(/href=(["'\\])+(.*?)\1/, _match => {
-                return `${_match} class="com-link"`;
-            });
-        });
+        const filteredText = text.replace(classRegex, (fullMatch, group) =>
+            fullMatch.replace(group, 'com-link')
+        );
+        return filteredText.replace(regex, match =>
+            match.replace(
+                /href=(["'\\])+(.*?)\1/,
+                _match => `${_match} class="com-link"`
+            )
+        );
     };
 
     if (!data.items.some(e => e.type === 'text')) {
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         return <></>;
     }
 
@@ -43,7 +45,7 @@ const ListOrderedOrUnordered = ({ data }) => {
             })}
         </ul>
     );
-};
+}
 
 ListOrderedOrUnordered.arcType = 'list';
 ListOrderedOrUnordered.isStatic = true;

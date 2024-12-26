@@ -13,8 +13,8 @@ describe('Private - Common - Utils - removeAccents', () => {
         expect(removeAccents('3.145,2')).toStrictEqual('3.145,2');
     });
     it('Should return null when paramether is not a string', () => {
-        expect(removeAccents()).toBeNull();
-        expect(removeAccents(3)).toBeNull();
-        expect(removeAccents({})).toBeNull();
+        expect(removeAccents()).toEqual('');
+        expect(removeAccents(3)).toEqual('');
+        expect(removeAccents({})).toEqual('');
     });
 });

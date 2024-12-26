@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import {
     RESIZER_URL_PUBLIC,
     SITE_LANACION,
@@ -5,6 +6,57 @@ import {
     RESIZER_URL,
     API_ENV
 } from 'fusion:environment';
+import { getAspectRatio } from '../../../../../../../content/sources/utils/getRatio';
+
+export const setHeight = (width, height, proportion) => {
+    const [axisX, axisY] = proportion.split(':');
+
+    return axisX > axisY ? parseInt((width / axisX) * axisY, 10) : height;
+};
+const setFilter = (thumbor, [type, value]) =>
+    thumbor.filter(`${type}(${value})`);
+
+export const setStrFocal = (x = 5, y = 5) =>
+    `${x - 5}x${y + 5}:${x + 5}x${y - 5}`;
+
+export const setCropMethod = ({
+    thumbor,
+    resizeOptions,
+    originalWidth,
+    originalHeight,
+    focalPoint,
+    smartCropExcluded
+}) => {
+    const { proportion, isNotSmart } = resizeOptions;
+    if (proportion) {
+        const aspectRatio = getAspectRatio(originalWidth, originalHeight);
+        const notEqualProportion = aspectRatio !== proportion;
+
+        if (notEqualProportion) {
+            const [focalX, focalY] = focalPoint;
+            const hasFocalPoint = focalPoint.length === 2;
+            const hasAnyDimensions = originalWidth || originalHeight;
+
+            if (hasFocalPoint && hasAnyDimensions && isNotSmart) {
+                const focalFilter = setStrFocal(focalX, focalY);
+                setFilter(thumbor, ['focal', focalFilter]);
+            } else if (!smartCropExcluded) {
+                thumbor.smartCrop(true);
+            }
+        }
+    }
+};
+
+export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
+    const { proportion } = opt;
+    if (!proportion && originalWidth < originalHeight) {
+        const aspectRatio = getAspectRatio(originalWidth, originalHeight);
+        const [axisXX, axisYY] = aspectRatio.split(':');
+
+        return parseInt((opt.width / axisXX) * axisYY, 10);
+    }
+    return opt.height;
+};
 
 // TODO: Esta funcion solo se usa en content/sources/imageResizeSource.js y aparentemente está en desuso.
 //       El equipo de backend se ocuparía de analizar y eliminarlo.
@@ -12,15 +64,15 @@ export const createResizer = (isInApertura = false, isAdmin = false) => {
     const aperturaUrl =
         API_ENV === 'prod' ? SITE_LANACION : `https://www.lanacion.com.ar`;
     const Thumbor =
-        // eslint-disable-next-line no-eval
         typeof window === 'undefined'
-            ? eval('require("thumbor")')
+            ? // eslint-disable-next-line no-eval
+              eval('require("thumbor")')
             : () => {
                   // NOSONAR - This is intentional
               };
 
     const resizeUrl = ({
-        originalUrl,
+        originalUrl = '',
         originalWidth,
         originalHeight,
         resizeOptions = {},
@@ -78,7 +130,7 @@ export const createResizer = (isInApertura = false, isAdmin = false) => {
     ) => {
         const resp = [];
         const finalPreset = presets;
-        finalPreset &&
+        if (finalPreset) {
             finalPreset.forEach(opt => {
                 const resizedUrl = resizeUrl({
                     originalUrl,
@@ -96,6 +148,7 @@ export const createResizer = (isInApertura = false, isAdmin = false) => {
                     }
                 });
             });
+        }
 
         return resp;
     };
