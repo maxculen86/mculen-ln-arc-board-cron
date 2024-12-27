@@ -1,37 +1,107 @@
-import {
-    API_ENV,
-    API_KEY_ARC_SERVICES_PROD,
-    ARC_ACCESS_TOKEN_PROD
-} from 'fusion:environment';
+import { API_ENV, API_KEY_ARC_SERVICES_PROD } from 'fusion:environment';
 import request from 'request-promise-native';
-import logger from '../../components/private/common/utils/logger';
+import { getSectionParentId } from '../../components/features/LN-common/ranking/_helper';
 import get from '../../components/private/common/utils/get';
-import { isNotRecommend } from './utils/collectionsHelper';
+import logger from '../../components/private/common/utils/logger';
 import filter from '../filters/LN/nota/articleRanking';
+import { isNotRecommend } from './utils/collectionsHelper';
 import {
+    MINIMUM_ITEMS,
     getCanonicalUrls,
-    getQuery,
-    transformData,
-    resolveUri,
+    getQueryData,
+    getServicesRequest,
     sortData,
-    MINIMUM_ITEMS
+    transformData
 } from './utils/rankingArticlesSource/_helper';
 
+const source = 'content/sources/rankingArticlesSource';
 const transform = async (data, query, cachedCall) => {
-    const { sectionId = '', layout } = query;
-    const { size, name } = getQuery(sectionId, layout);
+    const { isApiFetch, size, name } = getQueryData(query);
 
-    return data.length === size
-        ? { articles: await transformData(data, query, cachedCall), size, name }
-        : {};
+    if (isApiFetch && data.length !== size) {
+        return { articles: [], size, name };
+    }
+
+    if (data.length === size)
+        return {
+            articles: await transformData(data, query, cachedCall),
+            size,
+            name
+        };
+
+    return {};
 };
 
-const fetch = (query, { cachedCall } = {}) => {
-    const { sectionId, arcSite, layout } = query;
-    const newQuery = { ...query, ...getQuery(sectionId, layout) };
-    const { endpoint, size } = newQuery;
-    const uriArcServicesAPI = `https://arcservices.lanacion.com.ar/api/v1/analytics${endpoint}`;
-    const source = 'content/sources/rankingArticlesSource';
+const getAsyncRankingStories = async (query, { cachedCall } = {}) => {
+    try {
+        const { newQuery, uriArcServicesAPI, size } = getQueryData(query);
+
+        const storiesUrls = await request({
+            uri: uriArcServicesAPI,
+            json: true,
+            headers: {
+                Referer: API_ENV,
+                'api-key': API_KEY_ARC_SERVICES_PROD
+            }
+        });
+
+        const stories = getCanonicalUrls(storiesUrls);
+
+        if (get(stories, 'length', 0) < MINIMUM_ITEMS)
+            return transform([], query, cachedCall);
+
+        const { servicesRequest } = getServicesRequest(newQuery, stories);
+
+        const articles = await request(servicesRequest);
+
+        const filterArticles = get(articles, 'content_elements', []).filter(
+            art => !isNotRecommend(art)
+        );
+
+        if (filterArticles.length === 0)
+            return transform([], query, cachedCall);
+
+        const response = await transform(
+            sortData(filterArticles, stories, size),
+            query,
+            cachedCall
+        );
+
+        return response;
+    } catch (error) {
+        logger.error(`Error in getRankingStories: ${error.message}`, error);
+        return [];
+    }
+};
+
+const getApiRanking = async (query, { cachedCall } = {}) => {
+    const { sectionId } = query;
+    const parentSectionId = getSectionParentId(sectionId);
+
+    const [rankingSection, rankingSectionParent] = await Promise.all([
+        getAsyncRankingStories(query, cachedCall),
+        getAsyncRankingStories(
+            { ...query, sectionId: parentSectionId },
+            cachedCall
+        )
+    ]);
+
+    if (get(rankingSection?.articles, 'length', 0) > 0) {
+        return rankingSection;
+    }
+
+    return rankingSectionParent;
+};
+
+const fetch = async (query, { cachedCall } = {}) => {
+    const { newQuery, uriArcServicesAPI, size, arcSite, isApiFetch } =
+        getQueryData(query);
+
+    if (isApiFetch) {
+        const ranking = await getApiRanking(query, cachedCall);
+        return ranking;
+    }
+
     return request({
         uri: uriArcServicesAPI,
         json: true,
@@ -42,24 +112,13 @@ const fetch = (query, { cachedCall } = {}) => {
     })
         .then(storiesUrls => {
             const stories = getCanonicalUrls(storiesUrls);
-            const uri = resolveUri({
-                ...newQuery,
+            const { servicesRequest, uri } = getServicesRequest(
+                newQuery,
                 stories
-            });
-
-            const opt = {
-                uri,
-                json: true
-            };
-
-            if (ARC_ACCESS_TOKEN_PROD) {
-                opt.auth = {
-                    bearer: ARC_ACCESS_TOKEN_PROD
-                };
-            }
+            );
 
             return get(stories, 'length', 0) >= MINIMUM_ITEMS
-                ? request(opt)
+                ? request(servicesRequest)
                       .then(articles =>
                           transform(
                               sortData(
@@ -95,7 +154,8 @@ export default {
         website: 'text',
         layout: 'text',
         sectionId: 'text',
-        section: 'text'
+        section: 'text',
+        api: 'bool'
     },
     filter,
     ttl: 300
