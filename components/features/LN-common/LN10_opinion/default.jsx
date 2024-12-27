@@ -22,11 +22,17 @@ import { validateFeatureOpinion } from './_helper-WebApi';
 import { useRoofData } from '../../../chains/utils/_helpers';
 import BuildRoof from '../../../chains/utils/_BuildRoof/default';
 import getGridType from '../../../chains/utils/getGridType';
+import getViewabilityRoof from '../../../chains/utils/getViewabilityRoof';
 
-const Opinion = props => {
+function Opinion(props) {
     const { id: featureId, customFields } = props;
-    const { renderables, layout: pageLayout, tree, website, isAdmin } =
-        useAppContext() || {};
+    const {
+        renderables,
+        layout: pageLayout,
+        tree,
+        website,
+        isAdmin
+    } = useAppContext() || {};
 
     const {
         idCollectionOpinion,
@@ -45,6 +51,12 @@ const Opinion = props => {
         isAdmin
     });
 
+    const viewabilityRoof = getViewabilityRoof(
+        featureId,
+        renderables,
+        propsForRoof
+    );
+
     const {
         collectionsInPage,
         notesQuantity,
@@ -56,21 +68,18 @@ const Opinion = props => {
         renderables
     });
 
-    const {
-        isInSiteService,
-        idsArticlesToExclude,
-        diagramation
-    } = getDataChainCollection({
-        idCollectionOpinion,
-        pageLayout,
-        renderables,
-        layout,
-        initialPosition,
-        collectionsInPage,
-        tree,
-        notesQuantity,
-        featureId
-    });
+    const { isInSiteService, idsArticlesToExclude, diagramation } =
+        getDataChainCollection({
+            idCollectionOpinion,
+            pageLayout,
+            renderables,
+            layout,
+            initialPosition,
+            collectionsInPage,
+            tree,
+            notesQuantity,
+            featureId
+        });
     const rules = diagramationRules(layout) || [];
 
     const { articlesEditorial, articlesOpinion } = getDataOpinion({
@@ -99,7 +108,10 @@ const Opinion = props => {
         layout,
         position,
         '',
-        positionInsideSection
+        positionInsideSection,
+        false,
+        false,
+        viewabilityRoof
     );
     const {
         extraOptsDiv: extraOptsDivEditoriales,
@@ -123,12 +135,8 @@ const Opinion = props => {
 
     const haveCardsBottom = cardsOpinionBottom && cardsOpinionBottom.length > 0;
 
-    const [
-        cardBottom1,
-        cardBottom2,
-        cardBottom3,
-        cardBottom4
-    ] = cardsOpinionBottom;
+    const [cardBottom1, cardBottom2, cardBottom3, cardBottom4] =
+        cardsOpinionBottom;
 
     return (
         <Static id={featureId} htmlOnly>
@@ -171,7 +179,7 @@ const Opinion = props => {
             </div>
         </Static>
     );
-};
+}
 
 Opinion.label = 'LN10 Opinion';
 

@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import GetOpinionCollection from '../../../private/LN/api/global/components/features/opinion/LN10/getOpinionCollection';
 import { validateFeatureOpinion } from './_helper-WebApi';
-
+import getViewabilityRoof from '../../../chains/utils/getViewabilityRoof';
 class Opinion extends GetOpinionCollection {
     constructor(props) {
         super(props, null);
@@ -56,8 +56,17 @@ class Opinion extends GetOpinionCollection {
             if (error) {
                 return null;
             }
+
+            const { id: featureId, renderables = [], customFields: propsForRoof = {} } = this.props || {};
+
+            const viewabilityRoof = getViewabilityRoof(
+                featureId,
+                renderables,
+                propsForRoof
+            );
+
             return this.renderResponse(
-                this.props,
+                { ...this.props, viewabilityRoof },
                 articlesOpinion,
                 articlesEditorial,
                 containerImageOpinion

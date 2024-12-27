@@ -19,8 +19,9 @@ import getGridType from '../utils/getGridType';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import { useRoofData } from '../utils/_helpers';
 import StaticContentV2 from '../LN10-global/staticContentV2';
+import getViewabilityRoof from '../utils/getViewabilityRoof';
 
-const CajaCanal = props => {
+function CajaCanal(props) {
     const {
         id: chainId,
         isAdmin,
@@ -49,6 +50,12 @@ const CajaCanal = props => {
 
     const roofData = useRoofData({ ...propsForRoof, isAdmin, chainStyle });
 
+    const viewabilityRoof = getViewabilityRoof(
+        chainId,
+        renderables,
+        propsForRoof
+    );
+
     const {
         isInSiteService,
         articlesFromCollectionSiteService,
@@ -70,17 +77,17 @@ const CajaCanal = props => {
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
-              notesQuantity: rules.length || notesQuantity,
-              diagramation,
-              idCollection,
-              size: 20,
-              initialPosition: Number(initialPosition) - 1,
-              idCollectionsInPage: idsArticlesToExclude,
-              filterRecomendar: true,
-              filterRepetead: !isInSiteService,
-              layout,
-              website
-          })
+            notesQuantity: rules.length || notesQuantity,
+            diagramation,
+            idCollection,
+            size: 20,
+            initialPosition: Number(initialPosition) - 1,
+            idCollectionsInPage: idsArticlesToExclude,
+            filterRecomendar: true,
+            filterRepetead: !isInSiteService,
+            layout,
+            website
+        })
         : [];
 
     const _articles = getArticlesOfChain({
@@ -103,7 +110,10 @@ const CajaCanal = props => {
         layout,
         position,
         '',
-        positionInsideSection
+        positionInsideSection,
+        false,
+        false,
+        viewabilityRoof
     );
 
     return (
@@ -129,7 +139,7 @@ const CajaCanal = props => {
             })}
         </StaticContentV2>
     );
-};
+}
 
 CajaCanal.label = 'LN10 Caja Canal';
 

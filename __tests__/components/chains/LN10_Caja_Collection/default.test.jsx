@@ -15,7 +15,7 @@ import DivBannerSSR from '../../../../components/private/common/banners/DivBanne
 import { CHAIN_STYLE } from '../../../../components/chains/utils/common/_helpers-WebApi';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -23,6 +23,10 @@ jest.mock('fusion:consumer', Component => {
 jest.mock(
     '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners',
     () => jest.fn()
+);
+
+jest.mock('../../../../components/chains/utils/getViewabilityRoof', () =>
+    jest.fn()
 );
 
 jest.mock(
