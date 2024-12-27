@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+
 import Image from './imageBase';
 import IconsFullScreen from './iconsFullScreen';
 import ComFigure from '../../../common/com-figure';
@@ -64,10 +65,8 @@ function Media({
         itsGallery || zoom
             ? handleClick
             : () => {
-                // This is intentional
-            };
-
-    // TODO: eliminar las props que estan recibiendo los componente de abajo que no se esta usando. \
+                  // This is intentional
+              };
 
     if (mediaData) {
         const mediaTypeComponents = {
@@ -82,17 +81,12 @@ function Media({
                         withMobileImage,
                         isVertical
                     })}
-                    withZoom={withZoom}
-                    width={width}
-                    itsGallery={itsGallery}
                     handleClick={validateHandleClick} // NOSONAR
                 >
                     <Image
                         active={active}
                         image={{ ...mediaData, titleText }}
                         href={href}
-                        outputType={outputType}
-                        zoom={zoom}
                         isApertura={isApertura}
                         searchableField={searchableField}
                         authors={authors}
@@ -126,26 +120,22 @@ function Media({
         item = <ComPicture href={href} />;
     }
 
-    return (
-        <>
-            {itsGallery ? (
-                <>{item}</>
-            ) : (
-                <div className="content-media" ref={refContainer}>
-                    <ModMedia
-                        idMedia={idForMedia}
-                        zoom={zoom}
-                        withZoom={withZoom}
-                        active={active}
-                        html={html}
-                        scriptForZoom={!isApertura && scriptForZoom}
-                        outputType={outputType}
-                    >
-                        {item}
-                    </ModMedia>
-                </div>
-            )}
-        </>
+    return itsGallery ? (
+        item
+    ) : (
+        <div className="content-media" ref={refContainer}>
+            <ModMedia
+                idMedia={idForMedia}
+                zoom={zoom}
+                withZoom={withZoom}
+                active={active}
+                html={html}
+                scriptForZoom={!isApertura && scriptForZoom}
+                outputType={outputType}
+            >
+                {item}
+            </ModMedia>
+        </div>
     );
 }
 
@@ -198,11 +188,9 @@ Media.defaultProps = {
     tituloNota: '',
     outputType: 'default',
     scriptForZoom: undefined,
-    autoplay: false,
     parrafo: undefined,
     active: undefined,
     children: undefined,
-    isPowa: true,
     handleClick: () => {
         // This is intentional
     },

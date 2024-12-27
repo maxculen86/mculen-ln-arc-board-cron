@@ -24,8 +24,8 @@ function ImagePreloadlAcu({
     const imagePreloadArticlesList = useContent({
         source:
             typesOfQuery?.sectionsIds ||
-                typesOfQuery?.sectionId ||
-                typesOfQuery?.tagId
+            typesOfQuery?.sectionId ||
+            typesOfQuery?.tagId
                 ? 'lnAcuSource'
                 : 'collectionsSource',
         query: {

@@ -48,13 +48,13 @@ export default function WithStorytellingData(WrappedComponent) {
                 (subtype === STORYTELLING || subtype === FOTOAL100) &&
                 (basicImage || videoBackground || storytellingMobile || videoJw)
                 ? getApertura(
-                    isMobile,
-                    basicImage,
-                    videoBackground,
-                    storytellingMobile,
-                    device,
-                    videoJw
-                )
+                      isMobile,
+                      basicImage,
+                      videoBackground,
+                      storytellingMobile,
+                      device,
+                      videoJw
+                  )
                 : {};
         }
 
