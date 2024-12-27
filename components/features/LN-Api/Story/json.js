@@ -2,11 +2,11 @@ import Consumer from 'fusion:consumer';
 import IndexNotaV1 from '../../../private/LN/api/v1/global/story';
 import IndexNotaMobileV1 from '../../../private/LN/api/v1/mobile/story';
 import browser from '../../../private/common/utils/browser';
+import dateAndTimeUtil from '../../../private/common/utils/dateAndTimeUtil';
 
 class Story {
     constructor(props) {
         this.props = props;
-
         const {
             globalContent: { _id: storyId, isListenable: isListenableValue }
         } = props;
@@ -63,9 +63,22 @@ class Story {
             ];
         const { navigationTreeSource, audionewsSource } = this.state || {};
         const { globalContent } = this.props;
-        const { _id, ...restAudioNewsSource } = audionewsSource || {};
 
+        const handleExternalStoryRedirection = () => ({
+            id: 'N/A',
+            url: globalContent?.externalApiRedirectUrl,
+            enviarApps: false,
+            fecha: `${Object.values(dateAndTimeUtil(new Date())).join(' • ')}`
+        });
+
+        const { _id, ...restAudioNewsSource } = audionewsSource || {};
         try {
+            if (
+                globalContent?.externalApiRedirectUrl &&
+                Object.keys(globalContent?.externalApiRedirectUrl).length !== 0
+            )
+                return handleExternalStoryRedirection();
+
             return indexNota({
                 ...globalContent,
                 navigationTreeSource,

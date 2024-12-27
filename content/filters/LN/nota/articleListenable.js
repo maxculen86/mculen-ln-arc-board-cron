@@ -393,6 +393,7 @@ const listCommonProps = `
 
 export default `
 {
+    externalApiRedirectUrl
     source {
         system
     }
