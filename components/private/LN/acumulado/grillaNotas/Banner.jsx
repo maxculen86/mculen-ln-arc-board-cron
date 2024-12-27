@@ -6,12 +6,7 @@ import {
 import DivBannerSSR from '../../../common/banners/DivBannerSSR';
 
 const Banner = props => {
-    const {
-        customFields,
-        globalContentConfig,
-        outputType,
-        globalContent
-    } = props;
+    const { customFields, globalContentConfig, globalContent } = props;
 
     const getBannerConfig = () => {
         const optionsSet = Object.keys(customFields);

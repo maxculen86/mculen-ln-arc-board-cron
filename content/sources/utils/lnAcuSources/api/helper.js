@@ -1,4 +1,3 @@
-import getPresets from '../../presets';
 import get from '../../../../../components/private/common/utils/get';
 import { isNotRecommend } from '../../collectionsHelper';
 import {
@@ -7,21 +6,10 @@ import {
     isOlderThanXHoursAgo
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
-const transformLnAcuApi = async (
-    data = {},
-    siteProps = {},
-    cachedCall = {}
-) => {
+const transformLnAcuApi = async (data = {}, siteProps = {}) => {
     try {
         const respData = data;
-        const {
-            sectionsIds,
-            type,
-            size,
-            shouldNotFilter,
-            excludePreload,
-            hasCollectionApertura
-        } = siteProps;
+        const { sectionsIds, type, size, shouldNotFilter } = siteProps;
 
         // Si viene de mas notas return solo las necesarias mas 1 por si se excluye misma nota
         if (type === 'story') {
@@ -47,13 +35,11 @@ const transformLnAcuApi = async (
             respData.content_elements = respData.content_elements
                 .filter(story => !isOlderThanXHoursAgo(story.display_date, 24))
                 .filter(story => !hasFutureDisplayDate(story.display_date))
-                .map(story => {
-                    return {
-                        ...story,
-                        display_date: addHoursAndFormat(-3, story.display_date),
-                        website_url: story.canonical_url
-                    };
-                });
+                .map(story => ({
+                    ...story,
+                    display_date: addHoursAndFormat(-3, story.display_date),
+                    website_url: story.canonical_url
+                }));
             if (!respData.content_elements.length) {
                 respData.next = 0;
             }
