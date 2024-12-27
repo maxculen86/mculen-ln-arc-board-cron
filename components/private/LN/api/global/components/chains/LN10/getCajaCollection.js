@@ -91,7 +91,7 @@ class GetCajaCollection {
     };
 
     renderResponse = (props, articles, image) => {
-        const { customFields, typeChain } = props;
+        const { customFields, typeChain, viewabilityRoof } = props;
         const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
         if (!articles) {
@@ -125,7 +125,8 @@ class GetCajaCollection {
             information: {
                 ...customFields,
                 image,
-                typeChain
+                typeChain,
+                viewabilityRoof
             },
             articles
         };
@@ -135,4 +136,5 @@ class GetCajaCollection {
         return null;
     }
 }
+
 export default GetCajaCollection;
