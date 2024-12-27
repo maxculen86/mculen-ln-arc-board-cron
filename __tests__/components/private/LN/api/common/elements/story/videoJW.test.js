@@ -17,42 +17,35 @@ const elementVideoJW = {
                     {
                         description: '',
                         duration: 18,
-                        image:
-                            'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=720',
+                        image: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=720',
                         images: [
                             {
-                                src:
-                                    'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=320',
+                                src: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=320',
                                 type: 'image/jpeg',
                                 width: 320
                             },
                             {
-                                src:
-                                    'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=480',
+                                src: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=480',
                                 type: 'image/jpeg',
                                 width: 480
                             },
                             {
-                                src:
-                                    'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=640',
+                                src: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=640',
                                 type: 'image/jpeg',
                                 width: 640
                             },
                             {
-                                src:
-                                    'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=720',
+                                src: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=720',
                                 type: 'image/jpeg',
                                 width: 720
                             },
                             {
-                                src:
-                                    'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=1280',
+                                src: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=1280',
                                 type: 'image/jpeg',
                                 width: 1280
                             },
                             {
-                                src:
-                                    'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=1920',
+                                src: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=1920',
                                 type: 'image/jpeg',
                                 width: 1920
                             }
@@ -62,14 +55,12 @@ const elementVideoJW = {
                         pubdate: 1716906719,
                         sources: [
                             {
-                                file:
-                                    'https://cdn.jwplayer.com/manifests/1ryaz60h.m3u8',
+                                file: 'https://cdn.jwplayer.com/manifests/1ryaz60h.m3u8',
                                 type: 'application/vnd.apple.mpegurl'
                             },
                             {
                                 bitrate: 322524,
-                                file:
-                                    'https://cdn.jwplayer.com/videos/1ryaz60h-kTExGaWf.mp4',
+                                file: 'https://cdn.jwplayer.com/videos/1ryaz60h-kTExGaWf.mp4',
                                 filesize: 725680,
                                 framerate: 30,
                                 height: 318,
@@ -79,8 +70,7 @@ const elementVideoJW = {
                             },
                             {
                                 bitrate: 398741,
-                                file:
-                                    'https://cdn.jwplayer.com/videos/1ryaz60h-K8B0kybS.mp4',
+                                file: 'https://cdn.jwplayer.com/videos/1ryaz60h-K8B0kybS.mp4',
                                 filesize: 897168,
                                 framerate: 30,
                                 height: 478,
@@ -90,8 +80,7 @@ const elementVideoJW = {
                             },
                             {
                                 bitrate: 494885,
-                                file:
-                                    'https://cdn.jwplayer.com/videos/1ryaz60h-FnZGUVnC.mp4',
+                                file: 'https://cdn.jwplayer.com/videos/1ryaz60h-FnZGUVnC.mp4',
                                 filesize: 1113493,
                                 framerate: 30,
                                 height: 638,
@@ -100,12 +89,10 @@ const elementVideoJW = {
                                 width: 360
                             }
                         ],
-                        title:
-                            'Las imágenes del camión chocado en Au.25 de Mayo',
+                        title: 'Las imágenes del camión chocado en Au.25 de Mayo',
                         tracks: [
                             {
-                                file:
-                                    'https://cdn.jwplayer.com/strips/1ryaz60h-120.vtt',
+                                file: 'https://cdn.jwplayer.com/strips/1ryaz60h-120.vtt',
                                 kind: 'thumbnails'
                             }
                         ],
@@ -190,7 +177,8 @@ const respExpectedV2 = {
         _t: 'mmi',
         order: 0,
         src: 'https://cdn.jwplayer.com/v2/media/1ryaz60h/poster.jpg?width=720'
-    }
+    },
+    multimediaHls: 'https://cdn.jwplayer.com/manifests/1ryaz60h.m3u8'
 };
 describe('components - private - LN - api - common - elements - story - videoJW', () => {
     beforeEach(() => {
@@ -218,6 +206,24 @@ describe('components - private - LN - api - common - elements - story - videoJW'
     it('videoJWNotaMobile when data is ok', () => {
         const resp = videoJWNotaMobile(elementVideoJW, '123');
         expect(resp).toMatchObject(respExpectedV2);
+    });
+
+    it('videoJWNotaMobile should return title when contains epigraph title', () => {
+        const newElementVideoJW = { ...elementVideoJW };
+        newElementVideoJW.embed.config.videoJw.epigraphTitle =
+            'titulo del video';
+        const resp = videoJWNotaMobile(newElementVideoJW, '123');
+        expect(resp).toStrictEqual({
+            ...respExpectedV2,
+            title: 'titulo del video'
+        });
+    });
+
+    it('videoJWNotaMobile should not return the title when it does not contain the title of the epigraph', () => {
+        const newElementVideoJW = { ...elementVideoJW };
+        newElementVideoJW.embed.config.videoJw.epigraphTitle = '';
+        const resp = videoJWNotaMobile(newElementVideoJW, '123');
+        expect(resp).toStrictEqual(respExpectedV2);
     });
 
     it('videoJWNotaMobile when data missing', () => {
