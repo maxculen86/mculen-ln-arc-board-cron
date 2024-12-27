@@ -1,9 +1,6 @@
 import get from '../../../../../../../../components/private/common/utils/get';
 import { getAuthorId } from './getAuthorId';
-import {
-    getImageUrl,
-    getImageUrlBasedOnResizerVersion
-} from '../../../../../../../../components/private/LN/api/common/elements/image';
+import { getImageUrlBasedOnResizerVersion } from '../../../../../../../../components/private/LN/api/common/elements/image';
 import { removeEmptyItems } from '../../../../../../../../components/private/LN/api/common/utils/responseCleaner';
 
 const acuTransformV2Format = (
@@ -12,6 +9,7 @@ const acuTransformV2Format = (
     paginationValue,
     isFirstPage
 ) => {
+    const transformedAcuAux = [...transformedAcu];
     const image = getImageUrlBasedOnResizerVersion(
         get(authorData, 'image.url', null)
     );
@@ -19,16 +17,18 @@ const acuTransformV2Format = (
     const metadata = {
         paginate: paginationValue,
         title: authorData.name,
-        banners: transformedAcu[0].banners,
-        total: transformedAcu[0].acumuladoTotal
+        banners: transformedAcuAux[0].banners,
+        total: transformedAcuAux[0].acumuladoTotal
     };
+
+    const authorId = get(authorData, '_id');
 
     if (isFirstPage) {
         metadata.author = removeEmptyItems({
-            id: getAuthorId(authorData._id),
-            slug: authorData.slug ? authorData.slug : authorData._id,
+            id: getAuthorId(authorId),
+            slug: authorData.slug ? authorData.slug : authorId,
             value: authorData.name,
-            image: image ? image : null,
+            image: image || null,
             absoluteUrl: get(authorData, 'image.url', null),
             interests: authorData.intereses,
             mail: authorData.email,
@@ -43,13 +43,13 @@ const acuTransformV2Format = (
         });
     }
 
-    delete transformedAcu[0].paginar;
-    delete transformedAcu[0].banners;
-    delete transformedAcu[0].acumuladoTotal;
+    delete transformedAcuAux[0].paginar;
+    delete transformedAcuAux[0].banners;
+    delete transformedAcuAux[0].acumuladoTotal;
 
     return {
         metadata,
-        items: [...transformedAcu]
+        items: transformedAcuAux
     };
 };
 

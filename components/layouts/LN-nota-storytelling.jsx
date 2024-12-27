@@ -9,7 +9,6 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
-import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
@@ -88,7 +87,6 @@ function lnNotaStorytelling({
             <PwaModal />
             <Glossary />
             <InitControlGroup />
-            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 }

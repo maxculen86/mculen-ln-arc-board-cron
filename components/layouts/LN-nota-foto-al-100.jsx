@@ -9,7 +9,6 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
-import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 import '../../resources/dist/css/ln/pages/photo100.css';
@@ -26,7 +25,6 @@ function lnNotaFotoAl100({
         bottom,
         bottomTercera
     ],
-    outputType,
     globalContent: {
         taxonomy: { sections },
         distributor: { name }
@@ -78,7 +76,6 @@ function lnNotaFotoAl100({
             <PwaModal />
             <Glossary />
             <InitControlGroup />
-            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 }
