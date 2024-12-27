@@ -121,7 +121,7 @@ function Media({
     }
 
     return itsGallery ? (
-        { item }
+        item
     ) : (
         <div className="content-media" ref={refContainer}>
             <ModMedia
