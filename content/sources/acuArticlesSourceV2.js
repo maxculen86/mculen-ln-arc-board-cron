@@ -20,8 +20,7 @@ const fetch = async query => {
                 opt
             );
             handleHttpError(response);
-            const data = await response.json();
-            return data;
+            return await response.json();
         } catch (error) {
             console.warn(
                 `content/acuArticlesSourceV2 Error: ${JSON.stringify(

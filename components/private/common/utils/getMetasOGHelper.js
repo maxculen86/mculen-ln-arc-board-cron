@@ -210,7 +210,7 @@ export const getData = ({
         getTwitterLink(authors[0]) ?? '@LANACION'
     );
 
-    const response = {
+    return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
             ? headlinesBasic || titleDefault
@@ -243,8 +243,6 @@ export const getData = ({
         subtype,
         twitterAccount
     };
-
-    return response;
 };
 
 export const setMetaDescription = ({

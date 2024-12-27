@@ -97,7 +97,7 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
     const wikiDataTransformed =
         transformWikiTagData(updatedWikiTagData, siteProps) || {};
 
-    const response = {
+    return {
         ...data,
         node_type: 'tags',
         name: data.Payload.items[0].name,
@@ -107,8 +107,6 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
         isWiki,
         ...(isWiki && { wikiSourceData: wikiDataTransformed })
     };
-
-    return response;
 };
 
 const fetch = async (query, { cachedCall }) => {
