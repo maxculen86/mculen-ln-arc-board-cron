@@ -23,6 +23,10 @@ jest.mock(
     () => jest.fn()
 );
 
+jest.mock('../../../../components/chains/utils/getViewabilityRoof', () =>
+    jest.fn()
+);
+
 jest.mock(
     '../../../../components/private/LN/common/hooks/useGetArticleInCollection',
     () => jest.fn()

@@ -12,6 +12,7 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
         data-block-name="n_te_puede_interesar"
         data-diagramacion-id="0"
         data-is-block="true"
+        data-roof="N/A"
       >
         <section
           class="mod-headersection  --line"

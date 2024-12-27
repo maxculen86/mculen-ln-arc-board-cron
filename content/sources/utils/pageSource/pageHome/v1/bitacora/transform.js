@@ -23,18 +23,20 @@ const specialBoxRoot = {
 const configPositionArticlesByBox = {
     default: { fields: ['_id', 'website_url'], savePosition: true }
 };
-const createNota = (article, index) => ({
-    // eslint-disable-next-line no-underscore-dangle
-    id_nota: article._id,
-    url_nota: article.website_url,
-    posicion: index.toString().padStart(2, '0')
-});
 
-const createBox = (id, visible, feature, layout, notas) => ({
+const createBox = (
+    id,
+    visible,
+    feature,
+    layout,
+    notas,
+    itemCategory = 'N/A'
+) => ({
     id_caja: id,
     visible: visible || true,
     feature,
     diagramacion_caja: layout,
+    item_category: itemCategory,
     notas
 });
 
@@ -46,6 +48,14 @@ const getFeature = sectionAliasMobile => {
     return infoEntry.tipoSeccion;
 };
 
+const createNota = (article, index) => {
+    const { _id: id, website_url: url } = article;
+    return {
+        id_nota: id,
+        url_nota: url,
+        posicion: index.toString().padStart(2, '0')
+    };
+};
 const createNotasArray = elem => {
     const notasArray = [];
     const resp = {};
@@ -65,10 +75,11 @@ const createNotasArray = elem => {
             const notas = createNotasArray(article);
             const box = createBox(
                 specialBox[article.sectionAliasMobile],
-                article.information && article.information.hideCaja,
+                article.information?.hideCaja,
                 getFeature(elem.sectionAliasMobile),
-                article.information && article.information.layout,
-                notas.notasArray
+                article.information?.layout,
+                notas.notasArray,
+                article.information?.viewabilityRoof
             );
             resp.specialBox = box;
             return;
@@ -76,17 +87,16 @@ const createNotasArray = elem => {
         if (
             !article ||
             (configPositionArticles &&
-                configPositionArticles.fields &&
-                configPositionArticles.fields.some(f => !article[f]))
+                configPositionArticles.fields?.some(f => !article[f]))
         ) {
-            if (configPositionArticles && configPositionArticles.savePosition)
-                posicion += 1;
+            if (configPositionArticles?.savePosition) posicion += 1;
             return;
         }
         posicion += 1;
         const nota = createNota(article, posicion);
         notasArray.push(nota);
     });
+
     return {
         ...resp,
         notasArray
@@ -114,11 +124,11 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas) => {
             hideCaja,
             getFeature(sectionAliasMobile),
             layout,
-            notas.notasArray
+            notas.notasArray,
+            information.viewabilityRoof
         );
         cajas.push(caja);
         if (notas.specialBox) cajas.push(notas.specialBox);
-        // eslint-disable-next-line no-param-reassign
         if (!isSpecialBox) cajaCount += 1;
         return cajaCount;
     } catch (error) {
@@ -158,8 +168,6 @@ const transform = async (dataPage, query) => {
             keyCachedCall: query.information.keyCachedCall
         };
     } catch (error) {
-        // eslint-disable-next-line no-console
-
         throw new BackendLnError(
             `Error Transform - v1/bitacora/transform :  layout: ${layoutPage} - 
         query: ${JSON.stringify(query)} - errorMsj:${error.message}`,

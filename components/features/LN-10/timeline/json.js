@@ -3,6 +3,7 @@ import get from '../../../private/common/utils/get';
 import sectionsFormated from '../../../private/common/utils/sectionsFormated';
 import { renderProps } from '../../../private/LN/api/global/components/features/article/LN/renderProps';
 import respChain from '../../../private/LN/api/global/components/chains/common/respChildrens/index';
+import getTimelineViewabilityRoof from '../../../chains/utils/getTimelineViewabilityRoof';
 
 class Timeline {
     constructor(props) {
@@ -97,7 +98,7 @@ class Timeline {
                         article =>
                             article.content_restrictions &&
                             article.content_restrictions.content_code !==
-                                'cerrada'
+                            'cerrada'
                     )
                     .slice(0, size)
                     .map(elem => {
@@ -124,7 +125,14 @@ class Timeline {
                 children: resultArticles || []
             };
 
-            return respChain(props, null);
+            const { id: featureId, renderables = [] } = this.props || {};
+
+            const viewabilityRoof = getTimelineViewabilityRoof(
+                featureId,
+                renderables
+            );
+
+            return respChain({ ...props, viewabilityRoof }, null);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

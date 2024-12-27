@@ -23,7 +23,8 @@ export const getDataSetProps = element => {
             chainPosition,
             diagramacionId,
             blockName,
-            isSubscriptor
+            isSubscriptor,
+            roof
         } = chainDataSet;
         const { section } = sectionDataSet;
         const { pos, id, source } = articleDataSet;
@@ -71,7 +72,7 @@ export const getDataSetProps = element => {
             item_brand: `${itemBrand}_${diagramacionId}`,
             item_list_name: blockName,
             item_name: getName(element),
-            item_category: 'N/A',
+            item_category: roof,
             price: 1,
             index: 1,
             quantity: 1
@@ -213,13 +214,11 @@ const addEventImpressionToDataLayer = (
         sessionStorage.setItem(
             'seenArticlesScore',
             JSON.stringify(
-                articlesSeen.map(art => {
-                    return {
-                        id: art.id,
-                        name: art.name,
-                        list: art.list
-                    };
-                })
+                articlesSeen.map(art => ({
+                    id: art.id,
+                    name: art.name,
+                    list: art.list
+                }))
             )
         );
     }

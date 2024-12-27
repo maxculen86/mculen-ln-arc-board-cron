@@ -22,6 +22,7 @@ import {
 import { LAYOUTS, setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
 import { reorderArticlesWithTimeline } from '../utils/reorderArticlesWithTimeline';
+import getViewabilityRoof from '../utils/getViewabilityRoof';
 
 const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
@@ -54,12 +55,21 @@ function CajaManual(props) {
         isGrid6MasTimeline
     });
 
+    const viewabilityRoof = getViewabilityRoof(
+        chainId,
+        renderables,
+        propsForRoof
+    );
+
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
         layout,
         position,
         '',
-        positionInsideSection
+        positionInsideSection,
+        false,
+        false,
+        viewabilityRoof
     );
 
     const articles = setSlicedChildren({

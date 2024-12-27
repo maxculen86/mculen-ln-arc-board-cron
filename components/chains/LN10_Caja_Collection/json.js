@@ -4,6 +4,7 @@ import GetCajaCollection from '../../private/LN/api/global/components/chains/LN1
 import checkChildInSection from '../utils/checkChildBySection';
 import { validateChain, getBreakingChildren } from './common/_helper-WebApi';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
+import getViewabilityRoof from '../utils/getViewabilityRoof';
 class CajaCollection extends GetCajaCollection {
     constructor(props) {
         super(props, null);
@@ -46,7 +47,16 @@ class CajaCollection extends GetCajaCollection {
             if (error) {
                 return null;
             }
-            return this.renderResponse(this.props, elements, containerImage);
+
+            const { id: chainId, renderables = [], customFields: propsForRoof = {} } = this.props || {};
+
+            const viewabilityRoof = getViewabilityRoof(
+                chainId,
+                renderables,
+                propsForRoof
+            );
+
+            return this.renderResponse({ ...this.props, viewabilityRoof }, elements, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
