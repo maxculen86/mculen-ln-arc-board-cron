@@ -557,7 +557,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <li>
             <a
               class="link"
-              href="https://twitter.com/LANACION"
+              href="https://x.com/LANACION/"
               rel="nofollow"
               target="_blank"
               title="Seguirnos en X"

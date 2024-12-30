@@ -1,7 +1,8 @@
 import {
     shareWhatsAppDesktop,
     shareWhatsAppMobile,
-    isLN10IAHidden
+    isLN10IAHidden,
+    popUpCompartirNotaTW
 } from '../../../../../../components/private/LN/common/utils/shareHelper';
 
 const windowOpenMock = jest.fn();
@@ -52,13 +53,13 @@ describe('shareWhatsAppMobile', () => {
         try {
             shareWhatsAppMobile(notaId, dominio, title, content);
             expect(windowOpenMock).toHaveBeenCalledWith(expectedUrl, '_blank');
-        } catch (error) { }
+        } catch (error) {}
     });
 
     it('should handle errors and log a warning', () => {
         const consoleWarnMock = jest
             .spyOn(console, 'warn')
-            .mockImplementation(() => { });
+            .mockImplementation(() => {});
         const notaId = '123';
         const dominio = 'example.com';
         const title = 'Title';
@@ -184,5 +185,44 @@ describe('isLN10IAHidden', () => {
         const renderables = [];
 
         expect(isLN10IAHidden(renderables)).toBe(true);
+    });
+});
+
+describe('popUpCompartirNotaTW Function', () => {
+    const dominio = 'https://www.lanacion.com.ar/';
+    const titulo = 'This is the title of the note';
+    const mockWindowOpen = jest.fn();
+
+    beforeAll(() => {
+        global.open = mockWindowOpen;
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should open a popup with the correct URL and dimensions when notaId is provided', () => {
+        const notaId = '12345';
+
+        popUpCompartirNotaTW(notaId, dominio, titulo);
+
+        expect(mockWindowOpen).toHaveBeenCalledTimes(1);
+        expect(mockWindowOpen).toHaveBeenCalledWith(
+            `https://x.com/intent/tweet?text=${titulo}&url=${dominio}${notaId}&via=LANACION/`,
+            '',
+            'top=300,left=550,width=800,height=380'
+        );
+    });
+
+    it('should open a new window with the LANACION Twitter page when notaId is empty', () => {
+        const notaId = '';
+
+        popUpCompartirNotaTW(notaId, dominio, titulo);
+
+        expect(mockWindowOpen).toHaveBeenCalledTimes(1);
+        expect(mockWindowOpen).toHaveBeenCalledWith(
+            'https://x.com/LANACION/',
+            '_blank'
+        );
     });
 });
