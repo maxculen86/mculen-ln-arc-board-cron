@@ -6,7 +6,7 @@ export const setDollarData = dollarValue => {
     const INCLUDED_CURRENCIES = [
         'Dólar oficial',
         'Dólar blue',
-        'Dólar turista',
+        'Dólar tarjeta',
         'Dólar CCL',
         'Dólar MEP'
     ];
@@ -27,20 +27,17 @@ export const setDollarData = dollarValue => {
     }));
 };
 
-export const setAccessData = () => {
-    return [
-        {
-            text: 'LN Juegos',
-            href: 'https://www.lanacion.com.ar/juegos/'
-        },
-        {
-            text: 'Suscriptores',
-            href: 'https://www.lanacion.com.ar/suscriptores/'
-        },
-        {
-            text: 'Newsletters',
-            href:
-                'https://newsletter.lanacion.com.ar/?_ga=2.115587013.2111665650.1713785519-1414281100.1711030569'
-        }
-    ];
-};
+export const setAccessData = () => [
+    {
+        text: 'LN Juegos',
+        href: 'https://www.lanacion.com.ar/juegos/'
+    },
+    {
+        text: 'Suscriptores',
+        href: 'https://www.lanacion.com.ar/suscriptores/'
+    },
+    {
+        text: 'Newsletters',
+        href: 'https://newsletter.lanacion.com.ar/?_ga=2.115587013.2111665650.1713785519-1414281100.1711030569'
+    }
+];
