@@ -8,9 +8,15 @@ const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
 export const handleOpenIAFeature = ({
     defaultTab,
     iaButtonIsClicked,
-    setIaButtonIsClicked
+    setIaButtonIsClicked,
+    suscription,
+    openBarrier
 }) => {
-    if (!iaButtonIsClicked) {
+    if (iaButtonIsClicked) {
+        return;
+    }
+
+    if (suscription && !iaButtonIsClicked) {
         setIaButtonIsClicked(true);
         window.LN.observable.publish('showIa', { show: true });
         addEventToDataLayerV2({
@@ -19,6 +25,8 @@ export const handleOpenIAFeature = ({
             category: 'nota_ln9',
             label: defaultTab
         });
+    } else {
+        openBarrier();
     }
 };
 

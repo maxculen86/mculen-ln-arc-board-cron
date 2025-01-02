@@ -5,36 +5,36 @@ import validateCajaManual from './common/_helper-WebApi';
 import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+
+const validate = propsValidate => {
+    const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
+    const {
+        id: chainId,
+        customFields: { layout = '', chainStyle },
+        renderables = []
+    } = propsValidate;
+
+    let childrenRenders = renderables.find(
+        x => get(x, 'props.id', null) === chainId
+    );
+
+    const isGrid6MasTimeline =
+        get(childrenRenders, 'props.customFields.layout', '') ===
+        BN_6_GRID_MAS_TIMELINE;
+
+    childrenRenders = childrenRenders && childrenRenders.children;
+
+    return validateCajaManual({
+        layout,
+        childProps: childrenRenders,
+        chainStyle,
+        isGrid6MasTimeline
+    });
+};
 class CajaManual extends GetCajaManual {
     constructor(props) {
         super(props, null);
     }
-
-    validate = propsValidate => {
-        const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
-        const {
-            id: chainId,
-            customFields: { layout = '', chainStyle },
-            renderables = []
-        } = propsValidate;
-
-        let childrenRenders = renderables.find(
-            x => get(x, 'props.id', null) === chainId
-        );
-
-        const isGrid6MasTimeline =
-            get(childrenRenders, 'props.customFields.layout', '') ===
-            BN_6_GRID_MAS_TIMELINE;
-
-        childrenRenders = childrenRenders && childrenRenders.children;
-
-        return validateCajaManual(
-            layout,
-            childrenRenders,
-            chainStyle,
-            isGrid6MasTimeline
-        );
-    };
 
     render() {
         try {
@@ -43,12 +43,13 @@ class CajaManual extends GetCajaManual {
             if (!validateChildrensApi(children)) {
                 return null;
             }
-            const error = this.validate(this.props);
+            const error = validate(this.props);
             if (error) {
                 console.warn(
                     `${layout} - ${typeof error === 'object' ? JSON.stringify(error) : ''
                     }`
                 );
+
                 return null;
             }
             if (
@@ -59,7 +60,11 @@ class CajaManual extends GetCajaManual {
                     this.props.customFields.hideBox || false;
             }
 
-            const { id: chainId, renderables = [], customFields: propsForRoof = {} } = this.props || {};
+            const {
+                id: chainId,
+                renderables = [],
+                customFields: propsForRoof = {}
+            } = this.props || {};
 
             const viewabilityRoof = getViewabilityRoof(
                 chainId,
@@ -67,7 +72,10 @@ class CajaManual extends GetCajaManual {
                 propsForRoof
             );
 
-            return this.renderResponse({ ...this.props, viewabilityRoof }, containerImage);
+            return this.renderResponse(
+                { ...this.props, viewabilityRoof },
+                containerImage
+            );
         } catch (err) {
             return { Success: false, Message: err.message };
         }

@@ -43,7 +43,7 @@ export function RenderCollection({
         classNameChildren = '',
         classNameRoof = ''
     } = rules;
-    const tooltipText = 'Guardar todo';
+    const tooltipText = fill ? 'Guardado' : 'Guardar todo';
 
     const buttonsProps = {
         text: tooltipText,
@@ -185,7 +185,8 @@ RenderCollection.propTypes = {
                 ),
                 url: PropTypes.string
             }),
-            contentCode: PropTypes.string
+            contentCode: PropTypes.string,
+            hasVideo: PropTypes.bool
         })
     ).isRequired,
     type: PropTypes.string

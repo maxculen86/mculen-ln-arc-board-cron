@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import siteProperties from '../../../../properties/sites/la-nacion-ar';
 
 export const getFirstParentSection = section => {
     if (section && section._id) {
@@ -102,21 +103,23 @@ export const dictionaryAlt = {
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
+    const { layoutsName = {} } = siteProperties || {};
+    const { logoName, path } = getLogoData(sections);
     const color = !(
-        layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100'
+        layout === layoutsName.StoryTelling ||
+        layout === layoutsName.FotoAl100 ||
+        (layout === layoutsName.Video && logoName === 'futuria')
     );
 
     const isBBC = distributorName === 'BBC Mundo';
 
-    const layoutsExcludingLogo = [{ name: 'LN-nota-receta' }];
+    const layoutsExcludingLogo = [{ name: layoutsName.Receta }];
 
     const currentLayoutExcludesLogo = layoutsExcludingLogo.find(
         el => el.name === layout
     );
 
     if (!sections || !layout || currentLayoutExcludesLogo) return null;
-
-    const { logoName, path } = getLogoData(sections);
 
     if (isBBC)
         return {

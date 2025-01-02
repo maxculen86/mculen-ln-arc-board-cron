@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import Consumer from 'fusion:consumer';
-
 import PageBuilderMessage from '../../LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-const WarningMessage = ({ featureId, type, message }) => {
+function WarningMessage({ featureId, type, message }) {
     return (
         <div
             style={{
@@ -17,7 +15,7 @@ const WarningMessage = ({ featureId, type, message }) => {
             <PageBuilderMessage key={featureId} type={type} message={message} />
         </div>
     );
-};
+}
 
 WarningMessage.propTypes = {
     featureId: PropTypes.string.isRequired,

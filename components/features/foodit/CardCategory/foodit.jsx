@@ -75,7 +75,7 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
 
 CardCategory.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.isRequired,
+    isAdmin: PropTypes.bool,
     customFields: PropTypes.shape({
         title: PropTypes.string.tag({
             label: 'Titulo',
@@ -109,6 +109,10 @@ CardCategory.propTypes = {
             defaultValue: []
         })
     }).isRequired
+};
+
+CardCategory.defaultProps = {
+    isAdmin: false
 };
 
 export default Consumer(CardCategory);

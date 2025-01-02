@@ -18,15 +18,16 @@ const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
             serviceSubItem
         )}`;
     if (service)
-        return `${LANACION_SERVICES_URL}/api/v1/feriados/${serviceItem ||
-            Number(getArgentinaYear())}`;
+        return `${LANACION_SERVICES_URL}/api/v1/feriados/${
+            serviceItem || Number(getArgentinaYear())
+        }`;
 
     throw new Error(
         'No está solicitado ningún feriado o el feriado que desea solicitar no existe.'
     );
 };
 
-const holidayRequest = ({ queryData, auth } = {}) => {
+const holidayRequest = ({ queryData } = {}) => {
     const opt = {
         uri: getUri(queryData),
         json: true,
@@ -37,8 +38,6 @@ const holidayRequest = ({ queryData, auth } = {}) => {
     };
     return request(opt).then(data => data);
 };
-
-const resolve = ({ response = {} }) => transform(response);
 
 const transform = data => {
     const {
@@ -67,14 +66,14 @@ const transform = data => {
         )
     };
 };
+const resolve = ({ response = {} }) => transform(response);
 
 const reject = ({ error, uri, arcSite }) => {
     logger.push(error, { source: 'servicesSource', url: uri }, arcSite);
 };
 
-const getTemplates = (serviceItem, serviceSubItem) => {
-    return serviceItem && serviceSubItem ? 'feriados-mes' : 'feriados-año';
-};
+const getTemplates = (serviceItem, serviceSubItem) =>
+    serviceItem && serviceSubItem ? 'feriados-mes' : 'feriados-año';
 
 export default {
     getUri,

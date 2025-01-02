@@ -48,7 +48,12 @@ function CajaCanal(props) {
         positionInsideSection
     } = getCommonProps(props);
 
-    const roofData = useRoofData({ ...propsForRoof, isAdmin, chainStyle });
+    const roofData = useRoofData({
+        ...propsForRoof,
+        isAdmin,
+        chainStyle,
+        isStatic: true
+    });
 
     const viewabilityRoof = getViewabilityRoof(
         chainId,
@@ -77,17 +82,17 @@ function CajaCanal(props) {
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
-            notesQuantity: rules.length || notesQuantity,
-            diagramation,
-            idCollection,
-            size: 20,
-            initialPosition: Number(initialPosition) - 1,
-            idCollectionsInPage: idsArticlesToExclude,
-            filterRecomendar: true,
-            filterRepetead: !isInSiteService,
-            layout,
-            website
-        })
+              notesQuantity: rules.length || notesQuantity,
+              diagramation,
+              idCollection,
+              size: 20,
+              initialPosition: Number(initialPosition) - 1,
+              idCollectionsInPage: idsArticlesToExclude,
+              filterRecomendar: true,
+              filterRepetead: !isInSiteService,
+              layout,
+              website
+          })
         : [];
 
     const _articles = getArticlesOfChain({
@@ -146,7 +151,6 @@ CajaCanal.label = 'LN10 Caja Canal';
 CajaCanal.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool,
-    outputType: PropTypes.string,
     renderables: PropTypes.arrayOf(
         PropTypes.shape({
             type: PropTypes.string,

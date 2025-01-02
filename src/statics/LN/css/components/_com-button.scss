@@ -11,8 +11,6 @@
     font-weight: 700;
     border-radius: px(4);
     outline: none;
-    //white-space: nowrap;
-    //max-width: px(360);
     border: 1px solid transparent;
     cursor: pointer;
     text-transform: uppercase;
@@ -32,15 +30,9 @@
             fill: $blue-500;
         }
     }
-    // &:active {
-    //     background: $ln;
-    //     color: $neutral-white;
-    // }
     &:disabled {
         background: $light-neutral-400;
     }
-
-    //variantes
     &.--primary {
         background: $blue-500;
         border-color: $blue-500;
@@ -79,22 +71,6 @@
             color: $light-neutral-400;
             border-color: $light-neutral-400;
         }
-        .com-usuario & {
-            // .header & {
-            //     display: none;
-            // }
-            .amp.--transparent & {
-                @media ($media-l) {
-                    background: none;
-                    color: $neutral-white;
-                    border-color: $neutral-white;
-                    &:hover {
-                        background: $neutral-white;
-                        color: $light-neutral-700;
-                    }
-                }
-            }
-        }
         .cuerpo__nota & {
             margin-bottom: $spacing-lg;
         }
@@ -120,7 +96,6 @@
             color: $light-neutral-500;
         }
     }
-    //&.--highlight,
     &.--special {
         background: $yellow-500;
         border-color: $light-neutral-400;
@@ -145,19 +120,6 @@
             background: $neutral-white;
             color: $light-neutral-400;
             border-color: $light-neutral-400;
-        }
-        .com-usuario & {
-            .amp.--transparent & {
-                color: $neutral-white;
-                @media ($media-l) {
-                    color: $light-neutral-700;
-                    border-color: $yellow-500;
-                    &:hover {
-                        border-color: $neutral-black;
-                        color: $light-neutral-50;
-                    }
-                }
-            }
         }
     }
     &.--compact {

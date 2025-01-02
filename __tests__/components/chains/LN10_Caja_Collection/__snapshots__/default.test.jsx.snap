@@ -1833,3 +1833,329 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
   </div>
 </div>
 `;
+
+exports[`Tests Chain CajaCollection Tests for Caja Foodit should match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="hidden"
+      id="f0fK3eCMMtV6pi"
+    >
+      <section
+        data-chain-id="f0fK3eCMMtV6pi"
+      >
+        <div>
+          <div
+            class="ln-banner-container --billboard_dsk billboard_dsk"
+            id="billboard_dsk"
+          >
+            <div
+              class="ln-banner lazy"
+              data-prebid-enabled="false"
+              data-size="[]"
+              data-sizemap="[]"
+              data-subscription="false"
+              data-without-hide="true"
+              id="billboard_dsk"
+            />
+          </div>
+        </div>
+        <div
+          class="ln-roof --foodit"
+          roof-container="roof-container"
+        >
+          <div
+            class="--ln-roof-full pt-24 grid grid-cols-8 grid-cols-12_m grid-cols-12_lg grid-cols-16_xl"
+          >
+            <div
+              class="--ln-roof-left absolute_md col-span-3 z-2"
+            >
+              <a
+                class="link ln-link flex uppercase"
+                href="https://www.google.com"
+                rel="nofollow"
+                roof-group="left"
+                target="_blank"
+                title="Ir a Caja Collection"
+              />
+            </div>
+            <div
+              class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico col-span-5 col-span-12_m col-span-16_xl ai-end js-end"
+              roof-group="right"
+            />
+          </div>
+        </div>
+        <script
+          async=""
+          id="scriptCheckSubscriptionFoodit"
+          src="pathDeployment/pf//resources/js/LN/scriptCheckSubscriptionFoodit.min.js"
+          type="text/javascript"
+        />
+        <section
+          class="ln-bngrid pb-16 --foodit_3_grid --foodit"
+        >
+          <div
+            class="grid container-op-top grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          >
+            <div
+              class="grid-item --0 flex ai-end sm-none --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <div
+                class="flex flex-column as-article jc-between pb-12 w-100 h-100 min-h-190"
+              >
+                <a
+                  class="link ln-link flex m-none lowercase"
+                  href="https://www.google.com"
+                  rel="nofollow"
+                  target="_blank"
+                  title="Ir a Foodit"
+                >
+                  <span
+                    class="text foodit-text --prumo flex ai-end text-neutral-light-800 mt-32 max-w-165"
+                  >
+                    <span
+                      class="min-w-170"
+                    >
+                      recetas, menús y tips para cocinar
+                      <i
+                        class="icon ml-4"
+                        style="height: 16.8px;"
+                      >
+                        <svg
+                          fill="none"
+                          height="18"
+                          viewBox="0 0 10 18"
+                          width="10"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 16.335L8.04 8.89504V8.81504L0 1.29504V0.415039L9.88 8.53504V9.17504L0 17.215V16.335Z"
+                            fill="#5A5A5A"
+                          />
+                        </svg>
+                      </i>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --no-media"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="undefined/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  rel="nofollow"
+                  target="_blank"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="undefined/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="undefined/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  rel="nofollow"
+                  target="_blank"
+                  title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                >
+                  <section
+                    class="media-container"
+                    href="undefined/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="undefined/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Carlos Pagni"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Carlos Pagni
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="undefined/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  rel="nofollow"
+                  target="_blank"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <section
+                    class="media-container"
+                    href="undefined/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="undefined/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  >
+                    <span
+                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                    >
+                      <div
+                        class="pulse-animation"
+                      >
+                        <div
+                          class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                          style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        />
+                      </div>
+                      vivo
+                    </span>
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Celina Chatruc"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Celina Chatruc
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m --regular --no-media"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="undefined/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  rel="nofollow"
+                  target="_blank"
+                  title="Bullrich visita El Calafate y presenta libro"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="undefined/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m"
+                    >
+                      Bullrich visita El Calafate y presenta libro
+                    </h2>
+                    <h3
+                      class="text ln-text subhead --font-s"
+                    >
+                      Incidentes frente al hotel donde convocó a militantes 
+                    </h3>
+                  </section>
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
+      <script
+        defer=""
+        id="script-caja-foodit"
+        src="pathDeployment/pf//resources/js/LN/scriptDataLayerCajaFoodit.min.js"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -6,11 +6,10 @@ import {
 import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
 
-export const getUri = ({ service = '', serviceItem = '' }) => {
-    return `${LANACION_SERVICES_URL}/api/v2.0/${service}/`.concat(
+export const getUri = ({ service = '', serviceItem = '' }) =>
+    `${LANACION_SERVICES_URL}/api/v2.0/${service}/`.concat(
         serviceItem ? `${serviceItem}` : ''
     );
-};
 
 const horoscopeRequest = ({ queryData = {} }) => {
     const opt = {
@@ -33,9 +32,9 @@ const reject = ({ error, uri, arcSite }) => {
 };
 const resolve = ({ response = {} }) => response;
 
-const getTemplates = serviceItem => {
-    return serviceItem ? 'detalle-horoscopo' : 'home-horoscopo';
-};
+const getTemplates = serviceItem =>
+    serviceItem ? 'detalle-horoscopo' : 'home-horoscopo';
+
 export default {
     request: horoscopeRequest,
     resolve,

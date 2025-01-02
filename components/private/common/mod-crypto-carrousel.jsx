@@ -1,10 +1,9 @@
 import React from 'react';
-import { SITE_LANACION } from 'fusion:environment';
-import '../../../resources/dist/css/ln/modules/mod-carrousel-crypto.css';
 import Text from './text';
 import ComLink from './com-link';
+import '../../../resources/dist/css/ln/modules/mod-carrousel-crypto.css';
 
-const ModCriptoCarrousel = () => {
+function ModCriptoCarrousel() {
     return (
         <div className="container-widget-carrousel">
             <div className="widget-carrousel-coins">
@@ -44,6 +43,6 @@ const ModCriptoCarrousel = () => {
             </Text>
         </div>
     );
-};
+}
 
 export default ModCriptoCarrousel;

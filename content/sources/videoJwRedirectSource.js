@@ -1,15 +1,16 @@
 import { SITE_OTT } from 'fusion:environment';
 import { replaceVideoId } from './utils/replaceVideoId';
-import apiConvivenciaSource from './apiConvivenciaSource';
+import { fetch as apiConvivenciaSourceFetch } from './apiConvivenciaSource';
 import Redirect from './utils/redirect';
 import logger from '../../components/private/common/utils/logger';
 
 const fetch = async (query, { cachedCall }) => {
+    const { url, 'arc-site': arcSite } = query;
+
     try {
-        const { url } = query;
         const { idJw } = await cachedCall(
             'apiConvivenciaSource',
-            apiConvivenciaSource.fetch,
+            apiConvivenciaSourceFetch,
             { query }
         );
         const newUrl = replaceVideoId(url, idJw);
@@ -20,10 +21,7 @@ const fetch = async (query, { cachedCall }) => {
     } catch (error) {
         logger.push(
             error,
-            {
-                source: 'content/source/videoJwRedirectSource',
-                sectionId
-            },
+            { source: 'content/source/videoJwRedirectSource' },
             arcSite
         );
     }

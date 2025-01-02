@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import ModArticle from '../../common/mod-article';
@@ -58,16 +57,17 @@ const ArticleAcum = forwardRef(
             withCategory,
             withTags,
             handleClick,
-            isApertura
+            isApertura,
+            openBarrier
         },
         ref
     ) => {
         const _article = addRelatedImage(article);
 
         const {
-            display_date,
+            display_date: displayDate,
             headlines,
-            website_url,
+            website_url: websiteUrl,
             label,
             taxonomy: { primary_section: primarySection, tags } = {}
         } = _article;
@@ -89,7 +89,7 @@ const ArticleAcum = forwardRef(
 
         const hourToDisplay = typeAcumRules[typeArticle].withHour && (
             <ComHour
-                display_date={display_date}
+                display_date={displayDate}
                 size={typeAcumRules[typeArticle].dateClassNames || '--twoxs'}
                 isUltimasNoticias={typeArticle === 'Timeline'}
             />
@@ -102,7 +102,7 @@ const ArticleAcum = forwardRef(
                     articleData={_article}
                     dataSection={dataSection}
                     withMedia={typeAcumRules[typeArticle].withMedia}
-                    link={website_url}
+                    link={websiteUrl}
                     titleTag={titleTag}
                     titleSize={titleSize}
                     titleText={
@@ -112,7 +112,7 @@ const ArticleAcum = forwardRef(
                     leadText={titleTextShort !== '' ? leadText : ''}
                     authors={authors}
                     dateText={
-                        !typeAcumRules[typeArticle].withHour && display_date
+                        !typeAcumRules[typeArticle].withHour && displayDate
                     }
                     hour={hourToDisplay}
                     subheadText={subheadText}
@@ -126,6 +126,7 @@ const ArticleAcum = forwardRef(
                     label={{ text: chapita }}
                     handleClick={handleClick}
                     isApertura={isApertura}
+                    openBarrier={openBarrier}
                 />
                 {children}
             </>
@@ -139,7 +140,11 @@ ArticleAcum.propTypes = {
     article: PropTypes.shape({
         _id: PropTypes.string,
         display_date: PropTypes.string,
-        headlines: PropTypes.object,
+        headlines: PropTypes.shape({
+            basic: PropTypes.string,
+            meta_title: PropTypes.string,
+            mobile: PropTypes.string
+        }),
         website_url: PropTypes.string,
         label: PropTypes.shape({
             volanta: PropTypes.shape({
@@ -175,7 +180,7 @@ ArticleAcum.propTypes = {
     artPosition: PropTypes.string,
     isApertura: PropTypes.bool,
     sectionName: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired
+    openBarrier: PropTypes.func.isRequired
 };
 
 ArticleAcum.defaultProps = {

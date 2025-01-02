@@ -21,7 +21,6 @@ const specialBoxRoot = {
 };
 
 const configPositionArticlesByBox = {
-    webstories: { fields: ['_id', 'website_url'], savePosition: false },
     default: { fields: ['_id', 'website_url'], savePosition: true }
 };
 

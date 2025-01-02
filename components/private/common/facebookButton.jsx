@@ -1,9 +1,12 @@
-'use strict';
-
 import React from 'react';
 
-export default ({ onClick }) => {
+export default function ({ onClick }) {
     return (
-        <button className="icon-facebook" id="pie-facebook" onClick={onClick} />
+        <button
+            role="btn-face"
+            className="icon-facebook"
+            id="pie-facebook"
+            onClick={onClick}
+        />
     );
-};
+}

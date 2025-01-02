@@ -1,5 +1,4 @@
-/* eslint-disable react/require-default-props */
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { VIAFOURA_UUID } from 'fusion:environment';
@@ -8,7 +7,6 @@ import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import classNames from 'classnames';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { GlobalContext } from '../../../../private/common/context/globalContext';
 import {
     scrollToComments,
     onButtonClicked,
@@ -31,11 +29,12 @@ function BuildFirtsButtonsGroup({
     setBookmark,
     suscription,
     bookmark = '',
-    subtypeVideo
+    subtypeVideo,
+    openBarrier,
+    openToast,
+    onOperationComplete
 } = {}) {
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
-
-    const { dispatch, state } = useContext(GlobalContext) || {};
 
     const { renderables = [] } = useAppContext();
 
@@ -112,7 +111,9 @@ function BuildFirtsButtonsGroup({
                         handleOpenIAFeature({
                             defaultTab,
                             iaButtonIsClicked,
-                            setIaButtonIsClicked
+                            setIaButtonIsClicked,
+                            suscription,
+                            openBarrier
                         });
                     }}
                 >
@@ -130,8 +131,9 @@ function BuildFirtsButtonsGroup({
                             globalContent,
                             bookmark,
                             setBookmark,
-                            dispatch,
-                            state
+                            openBarrier,
+                            openToast,
+                            onOperationComplete
                         );
                     }}
                     variant="secondary"
@@ -188,17 +190,20 @@ BuildFirtsButtonsGroup.propTypes = {
             display_comments: PropTypes.bool
         }),
         isListenable: PropTypes.bool
-    }),
-    bookmark: PropTypes.string,
-    setBookmark: PropTypes.func,
+    }).isRequired,
+    bookmark: PropTypes.string.isRequired,
+    setBookmark: PropTypes.func.isRequired,
     toast: PropTypes.shape({
         status: PropTypes.string,
         description: PropTypes.string,
         timeout: PropTypes.number
-    }),
-    suscription: PropTypes.bool,
-    termicaBookmark: PropTypes.bool,
-    subtypeVideo: PropTypes.string
+    }).isRequired,
+    suscription: PropTypes.bool.isRequired,
+    termicaBookmark: PropTypes.bool.isRequired,
+    subtypeVideo: PropTypes.string.isRequired,
+    openBarrier: PropTypes.func.isRequired,
+    openToast: PropTypes.func.isRequired,
+    onOperationComplete: PropTypes.func.isRequired
 };
 
 export default BuildFirtsButtonsGroup;

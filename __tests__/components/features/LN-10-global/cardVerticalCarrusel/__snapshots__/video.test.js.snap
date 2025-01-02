@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - cardVerticalCarrusel - video should match snapshot 1`] = `
+<div>
+  <img
+    alt="Imagen poster de video"
+    class="w-100 h-100"
+    data-testid="Adaptableimage"
+    src="poster.jpg"
+  />
+  <video
+    class="w-100 h-100 none"
+    data-testid="video-element"
+    loop=""
+    playsinline=""
+    src="video.mp4"
+    style="object-fit: cover;"
+  />
+</div>
+`;

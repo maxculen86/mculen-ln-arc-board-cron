@@ -24,7 +24,7 @@ const checkPaywall = ({ queryData, urlBase, responseData }) => {
             responseData.content_restrictions.content_code !== 'abierta')
     ) {
         const callback = setCallback(urlBase, url);
-        const finalUrl = paywallUrl.replace('{{callback}}', callback);
+        const finalUrl = paywallUrl?.replace('{{callback}}', callback);
         throw new Redirect(finalUrl, 302);
     }
 };

@@ -14,6 +14,7 @@ import transformWikiTagData from './utils/transformWikiTagData';
 import getRequestWithJSON from './utils/getRequestWithJson';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 import get from '../../components/private/common/utils/get';
+import { isValidString } from '../../components/private/common/utils/dataValidation';
 import { extractIdFromImageUrl } from './utils/tagSource/_helper';
 
 const resolve = key => {
@@ -24,45 +25,16 @@ const resolve = key => {
     return `/tags/v2/search?prefix=${slug}`;
 };
 
-const fetch = async (query, { cachedCall }) => {
-    const { slug, website = 'la-nacion-ar' } = query || {};
+const getDataForTag = (allTagsData, slug) => {
+    let config = '';
 
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-
-    const tagConfigData = await cachedCall('navigationTreeSource', getRequest, {
-        query: `${CONTENT_BASE}/site/v3/navigation/${website}/`,
-        independent: true
+    Object.keys(allTagsData).forEach(tag => {
+        if (tag?.replace(/ /g, '') === slug) {
+            config = allTagsData[tag];
+        }
     });
 
-    return request(opt)
-        .then(resp => {
-            if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
-                if (resp.Payload.items[0].slug !== slug) {
-                    throw new NotFoundError(`Tag no encontrado: ${slug}`);
-                }
-            }
-
-            if (!resp.Payload.items.length) {
-                throw new NotFoundError(`Tag no encontrado: ${slug}`);
-            }
-
-            return transform(resp, query, tagConfigData, cachedCall);
-        })
-        .catch(error => {
-            logger.push(
-                error,
-                { source: 'content/source/tagSource', url: `/tema/${slug}/` },
-                query['arc-site']
-            );
-        });
+    return config;
 };
 
 const transform = async (data, query, tagConfigData, cachedCall) => {
@@ -78,7 +50,7 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
         collections_in_tag_page: collectionsInTagPage = {}
     } = tagConfigGroup || {};
 
-    const colecciones = collectionsInTagPage[slug]
+    const colecciones = isValidString(collectionsInTagPage[slug])
         ? collectionsInTagPage[slug].replace(/ /g, '').split('|')
         : [];
 
@@ -139,16 +111,45 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
     return response;
 };
 
-const getDataForTag = (allTagsData, slug) => {
-    let config = '';
+const fetch = async (query, { cachedCall }) => {
+    const { slug, website = 'la-nacion-ar' } = query || {};
 
-    Object.keys(allTagsData).forEach(tag => {
-        if (tag.replace(/ /g, '') === slug) {
-            config = allTagsData[tag];
-        }
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    const tagConfigData = await cachedCall('navigationTreeSource', getRequest, {
+        query: `${CONTENT_BASE}/site/v3/navigation/${website}/`,
+        independent: true
     });
 
-    return config;
+    return request(opt)
+        .then(resp => {
+            if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
+                if (resp.Payload.items[0].slug !== slug) {
+                    throw new NotFoundError(`Tag no encontrado: ${slug}`);
+                }
+            }
+
+            if (!resp.Payload.items.length) {
+                throw new NotFoundError(`Tag no encontrado: ${slug}`);
+            }
+
+            return transform(resp, query, tagConfigData, cachedCall);
+        })
+        .catch(error => {
+            logger.push(
+                error,
+                { source: 'content/source/tagSource', url: `/tema/${slug}/` },
+                query['arc-site']
+            );
+        });
 };
 
 export default {

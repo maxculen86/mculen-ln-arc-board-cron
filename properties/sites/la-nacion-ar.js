@@ -52,7 +52,8 @@ export default {
         StoryTelling: 'LN-nota-storytelling',
         Video: 'LN-nota-video',
         HtmlLibre: 'LN-nota-html-libre',
-        Infografia: 'LN-nota-infografia'
+        Infografia: 'LN-nota-infografia',
+        Receta: 'LN-nota-receta'
     },
     notRecommendedSections: ['recetas']
 };

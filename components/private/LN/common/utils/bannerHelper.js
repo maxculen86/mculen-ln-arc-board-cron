@@ -90,7 +90,8 @@ export const getBannerSectionDimensions = (section, slotName) => {
         bienestar: defaultSlotDimensions,
         movilidad: defaultSlotDimensions,
         'que-sale': defaultSlotDimensions,
-        juegos: defaultSlotDimensions
+        juegos: defaultSlotDimensions,
+        horoscopo: defaultSlotDimensions
     };
 
     return sectionSlotDimensions[section]?.[slotName];
@@ -262,7 +263,8 @@ export const isPrimarySectionInBannerSegments =
             autos: 'movilidad',
             'que-sale': 'que-sale',
             IA: 'futuria',
-            juegos: 'juegos'
+            juegos: 'juegos',
+            horoscopo: 'bienestar'
         };
 
         const subSectionExceptions = {
@@ -295,7 +297,7 @@ export const setCustomAdUnit = (slotName, unit) => {
             slotNameSections.slice(1, slotNameSections.length - 1).join('/')) ||
         '';
 
-    return slotName.replace(stringToReplace, unit);
+    return slotName?.replace(stringToReplace, unit);
 };
 
 export const getBannerConfiguration = (

@@ -28,7 +28,7 @@ const useIaData = (globalContent, hideSummary, hideGlossary) => {
             [
                 shouldShowSummary && {
                     id: 'summary',
-                    title: 'Resumen de lectura',
+                    title: 'Resumen',
                     callback: () => handleTabsEvent('resumen_nota'),
                     data: summaryData
                 },

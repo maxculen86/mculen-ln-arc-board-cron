@@ -161,6 +161,11 @@ function AnexoFeature(props) {
 
     const classNameRoof = cx({ 'lay-container': isPreApertura });
 
+    const errorMessage = getErrorMessage({ isPreApertura, customFields });
+    const _type = getComponentType({ ...props, isAdmin, errorMessage });
+
+    const isIframe = _type === 'Iframe';
+
     const roofData = useRoofData({
         logoId,
         link,
@@ -169,18 +174,15 @@ function AnexoFeature(props) {
         navigator,
         buttonText,
         linkButton,
-        buttonStyle
+        buttonStyle,
+        isStatic: isIframe
     });
-
-    const errorMessage = getErrorMessage({ isPreApertura, customFields });
-
-    const _type = getComponentType({ ...props, isAdmin, errorMessage });
 
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
     const anexoClassNames = cx(
         'com-anexo',
         isPreApertura && '--anexo-1',
-        !isAdmin && _type === 'Iframe' && 'skeleton-box',
+        !isAdmin && isIframe && 'skeleton-box',
         mobileFullWidth ? 'overflow-hidden_md' : 'overflow-hidden'
     );
     const anexoBaseClassNames = cx(
@@ -238,7 +240,7 @@ function AnexoFeature(props) {
         </Static>
     );
 
-    return _type === 'Iframe' ? iframeFinal : comp();
+    return isIframe ? iframeFinal : comp();
 }
 
 AnexoFeature.label = 'LN Anexo';

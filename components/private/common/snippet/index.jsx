@@ -25,7 +25,7 @@ const config = {
     }
 };
 
-const snippetIndex = props => {
+function snippetIndex(props) {
     const { arcSite, layout, globalContent = {} } = props;
     const { subtype, type } = globalContent;
 
@@ -42,7 +42,7 @@ const snippetIndex = props => {
             {type === 'story' && <PaywallSnippet {...props} />}
         </>
     );
-};
+}
 
 snippetIndex.propTypes = {
     arcSite: PropTypes.string.isRequired,

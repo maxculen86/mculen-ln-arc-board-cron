@@ -2,6 +2,8 @@ import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
+const CLUB_LA_NACION_ROUTE = '/club-la-nacion';
+
 const listDescubrir = [
     '/restaurantes',
     '/nutricion',
@@ -64,11 +66,11 @@ const transformSubategorie = (subcategoryList = []) =>
 
 const orderChildrens = children => {
     const filteredChildren = children.filter(
-        ({ _id: id }) => id !== '/club-la-nacion'
+        ({ _id: id }) => id !== CLUB_LA_NACION_ROUTE
     );
 
     const clubLaNacion = children.find(
-        ({ _id: id }) => id === '/club-la-nacion'
+        ({ _id: id }) => id === CLUB_LA_NACION_ROUTE
     );
 
     return clubLaNacion ? [...filteredChildren, clubLaNacion] : children;

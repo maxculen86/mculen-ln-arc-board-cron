@@ -2,19 +2,23 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
+import { useDisclosure } from '@ln/hooks';
+import { Dialog } from '@ln/common-ui-dialog';
 import config from '../../../../properties/sites/la-nacion-ar';
 import useTermica from '../../../private/common/hooks/useTermica';
 import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBookmark';
 import { getClassCondition } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
-import ShowBarrier from '../../../private/common/barrier/showBarrier';
 import ShowToast from '../../../private/common/toast/showToast';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../../auth/helper/loginHelper';
 import useAuthManager from '../../../../auth/hooks/useAuthManager';
+import BarrierRequiresSubscription from '../../LN-10-global/common/barrierRequiresSubscription/default';
+import { a11yAttrsBarrierSub } from '../../../private/common/audioNews/helpers';
+import { useToast } from '../../../private/common/toast/hooks/useToast';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 
 function Share() {
@@ -39,6 +43,20 @@ function Share() {
         id,
         suscription
     );
+
+    const {
+        isOpen: isBarrierOpen,
+        onOpen: openBarrier,
+        onClose: closeBarrier
+    } = useDisclosure(false);
+
+    const {
+        isToastOpen,
+        openToast,
+        closeToast,
+        toastData,
+        handleOperationComplete
+    } = useToast();
 
     useEffect(() => {
         if (termicaBookmark) setBookmark(checkBookmarkId);
@@ -71,8 +89,28 @@ function Share() {
 
     return (
         <div className={modShareContainerClass}>
-            <ShowToast />
-            <ShowBarrier token={token} />
+            <ShowToast
+                isOpen={isToastOpen}
+                onClose={closeToast}
+                {...toastData}
+            />
+            <Dialog
+                isOpen={isBarrierOpen}
+                onClose={closeBarrier}
+                position="center"
+                id="audio-player-barrier"
+                classnames={{
+                    base: 'w-100 w-720_md bg-transparent px-16 w-shadow-up-md'
+                }}
+                overlay
+                closeOnClickOutside
+                {...a11yAttrsBarrierSub}
+            >
+                <BarrierRequiresSubscription
+                    isLogged={!!token}
+                    closeBarrier={closeBarrier}
+                />
+            </Dialog>
             <div className="mod-share flex mb-0 p-0_l" ref={shareContainer}>
                 <div id="v-share" className={shareClasses} ref={share}>
                     <BuildFirstButtonsGroup
@@ -82,6 +120,9 @@ function Share() {
                         globalContent={globalContent}
                         suscription={suscription}
                         subtypeVideo={subtypeVideo}
+                        openBarrier={openBarrier}
+                        openToast={openToast}
+                        onOperationComplete={handleOperationComplete}
                     />
 
                     <hr className={hrVideoClasses} />

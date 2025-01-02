@@ -2,7 +2,8 @@ import 'regenerator-runtime/runtime';
 import env from '../../../../../__mocks__/fusion:environment';
 import { act } from '@testing-library/react';
 import toggleBookmark, {
-    getBookmarkContent
+    getBookmarkContent,
+    getStatusMessage
 } from '../../../../../components/private/common/utils/bookmarkHelper';
 import notaExample from '../../../../../__mocks__/data/nota/body/globalContent.json';
 import BookmarkApiNoteFormat from '../../../../../__mocks__/data/bookmark/APINoteData.json';
@@ -15,7 +16,6 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
         const accessToken = '469C121D-238F-4447-A656-A32E50DBB997';
         const token = '469C121D-238F-4447-A656-A32E50DBB997';
         const bookmarkId = 'd08588de-88ef-48ca-8254-ee46860f25ee';
-        const setToast = jest.fn();
         const setBookmark = jest.fn();
 
         global.fetch = jest.fn(() =>
@@ -40,18 +40,17 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(
                 toggleBookmark({
                     isDelete: null,
-                    setBookmark,
-                    dispatch: setToast
+                    setBookmark
                 })
             ).toBeNull();
             expect(fetch).not.toBeCalled();
         });
+
         it('Should call fetch with proper endpoint, token and DELETE method when bookmarkId is defined (bookmark already saved -> action delete bookmark)', async () => {
             await act(async () => {
                 toggleBookmark({
                     isDelete: bookmarkId,
-                    setBookmark,
-                    dispatch: setToast
+                    setBookmark
                 });
             });
 
@@ -73,7 +72,6 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
                 toggleBookmark({
                     isDelete: null,
                     setBookmark,
-                    setToast,
                     _globalContent: notaExample
                 });
             });
@@ -90,6 +88,7 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             );
         });
     });
+
     describe('getBookmarkContent', () => {
         it('Should return note data according to personalizacion api structure', () => {
             const dataForApi = getBookmarkContent(notaExample);
@@ -137,6 +136,68 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(absoluteUrl).toBe(
                 'https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg'
             );
+        });
+    });
+
+    describe('getStatusMessage', () => {
+        const SITE_LANACION = 'https://www.lanacion.com.ar';
+
+        it('should return success configuration for status 200 with bookmarkContent', () => {
+            const result = getStatusMessage(200, true);
+            expect(result).toEqual({
+                timeout: 2750,
+                buttonLabel: 'Mis Notas',
+                href: `${SITE_LANACION}/mis-notas/`,
+                closable: true,
+                pauseOnHover: true,
+                title: '¡Listo!',
+                status: 'success',
+                description: 'Podés acceder desde "Menú de usuario"'
+            });
+        });
+
+        it('should return success configuration for status 200 without bookmarkContent', () => {
+            const result = getStatusMessage(200, false);
+            expect(result).toEqual({
+                timeout: 2750,
+                buttonLabel: 'Mis Notas',
+                href: `${SITE_LANACION}/mis-notas/`,
+                closable: true,
+                pauseOnHover: true,
+                title: '¡Listo!',
+                status: 'success',
+                description: 'Se borró de "Mis notas"'
+            });
+        });
+
+        it('should return warning configuration for status 409', () => {
+            const result = getStatusMessage(409, false);
+            expect(result).toEqual({
+                timeout: 2750,
+                buttonLabel: 'Mis Notas',
+                href: `${SITE_LANACION}/mis-notas/`,
+                closable: true,
+                pauseOnHover: true,
+                title: '¡Atención!',
+                status: 'warning',
+                description:
+                    'No se pudo guardar porque llegaste al límite permitido.'
+            });
+        });
+
+        it('should return default configuration for unknown status', () => {
+            const result = getStatusMessage(500, false);
+            expect(result).toEqual({
+                timeout: 2750,
+                buttonLabel: 'Mis Notas',
+                href: `${SITE_LANACION}/mis-notas/`,
+                closable: true,
+                pauseOnHover: true,
+                title: '¡Ups!',
+                status: 'danger',
+                description:
+                    'Hubo un problema de conexión. Reintenta más tarde.'
+            });
         });
     });
 });

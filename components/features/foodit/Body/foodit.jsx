@@ -1,17 +1,14 @@
-/* eslint-disable no-console */
-/* eslint-disable react/require-default-props */
-
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
-
+import PropTypes from 'fusion:prop-types';
 import buildBody from './children/_buildBody';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
 import {
     embedIntersectionObserver,
     takeEmbedScriptToDiffer
-} from '../../../../components/features/LN-nota/body/_utils/_embedHelper';
+} from '../../LN-nota/body/_utils/_embedHelper';
 
-const Body = ({ globalContent = {} }) => {
+function Body({ globalContent = {} }) {
     const { _id, content_elements: contentElements } = globalContent;
 
     useEffect(() => {
@@ -30,7 +27,13 @@ const Body = ({ globalContent = {} }) => {
         globalContent
     });
 
-    return <>{renderComponents}</>;
+    return renderComponents;
+}
+Body.propTypes = {
+    globalContent: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        content_elements: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+    }).isRequired
 };
 
 export default Consumer(Body);

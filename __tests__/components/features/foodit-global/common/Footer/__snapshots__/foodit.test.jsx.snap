@@ -3,7 +3,7 @@
 exports[`Components - Features - foodit-global - Common - FooterFoodit should match snapshot 1`] = `
 <div>
   <div
-    class="hidden"
+    class="hidden print-hide"
   >
     <footer
       class="container"

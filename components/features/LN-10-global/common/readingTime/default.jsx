@@ -1,13 +1,17 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import { isExcludedSubtype, calcReadingMinutes } from './_helpers';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import { isExcludedSubtype, calcReadingMinutes } from './_helpers';
 import get from '../../../../private/common/utils/get';
-import { TimerIaIcon } from './timerIaIcon';
 
-const ReadingTime = () => {
-    const { globalContent = {} } = useAppContext() || {};
+function ReadingTime() {
+    const {
+        deployment,
+        contextPath,
+        globalContent = {}
+    } = useAppContext() || {};
 
     const wordCount = get(
         globalContent,
@@ -22,19 +26,25 @@ const ReadingTime = () => {
 
     const hasReadingTime = readingMinutes !== 0 && !isExcludedSubtype(subtype);
 
-    if (!hasReadingTime) return <></>;
+    if (!hasReadingTime) return null;
     return (
         <li className="reading-time flex bullet-sm-none ml-auto_max767 flex gap-2 ai-center">
             <Icon height={20}>
-                <TimerIaIcon />
+                <Adaptableimage
+                    src={deployment(
+                        `${contextPath}/resources/images/svgDegrade/timer-ia.webp`
+                    )}
+                    height={21}
+                    alt="icono tiempo de lectura"
+                />
             </Icon>
             <Text className="text-neutral-light-700">
                 {formattedReadingTime}{' '}
                 <span className="sm-none">{minuteOrMinutes} de lectura</span>
-                <span className="sm-only">'</span>
+                <span className="sm-only">&apos;</span>
             </Text>
         </li>
     );
-};
+}
 
 export default ReadingTime;

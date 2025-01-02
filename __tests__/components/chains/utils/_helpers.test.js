@@ -116,8 +116,8 @@ describe('Components - Chains - Utils - _helpers', () => {
                 renderable => renderable.props.id === 'c0fyjWb4m4911Q6'
             );
             const children = getParentChildren(
-                renderablesWithVariants,
-                'f0f5lkDRl4911cD'
+                'f0f5lkDRl4911cD',
+                renderablesWithVariants
             );
 
             expect(children).toMatchObject(mockParent.children);
@@ -125,8 +125,8 @@ describe('Components - Chains - Utils - _helpers', () => {
 
         it('should return empty array if the feature id is not inside renderable children list', () => {
             const children = getParentChildren(
-                renderablesWithVariants,
-                'f0f5lkDRl4911cDx'
+                'f0f5lkDRl4911cDx',
+                renderablesWithVariants
             );
             expect(children).toEqual([]);
         });
@@ -138,15 +138,15 @@ describe('Components - Chains - Utils - _helpers', () => {
 
         it('should return empty array when featureId is not found in renderables', () => {
             const children = getParentChildren(
-                renderablesWithVariants,
-                'nonExistentFeatureId'
+                'nonExistentFeatureId',
+                renderablesWithVariants
             );
             expect(children).toEqual([]);
         });
 
         it('should return an empty array when renderables is an empty array', () => {
             const renderables = [];
-            const children = getParentChildren(renderables, 'featureId');
+            const children = getParentChildren('featureId', renderables);
             expect(children).toEqual([]);
         });
     });
@@ -535,7 +535,7 @@ describe('Components - Chains - Utils - _helpers', () => {
 
             const result = setStaticDynamically(Component, exception, props);
 
-            expect(result).toEqual(<>{Component}</>);
+            expect(result).toEqual(<div>{Component}</div>);
         });
 
         it('should render Component wrapped in StaticContent when exception is falsy and props are empty', () => {
@@ -544,7 +544,6 @@ describe('Components - Chains - Utils - _helpers', () => {
             const props = {};
 
             const result = setStaticDynamically(Component, exception, props);
-            console.log('🚀 ~ it ~ result:', result);
 
             expect(result).toEqual(
                 <StaticContentV2 id="">{Component}</StaticContentV2>

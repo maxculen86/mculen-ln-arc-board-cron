@@ -1,15 +1,15 @@
 import get from '../../../../../common/utils/get';
 import { videoJWCommon, videosJW, videoJWM3u8 } from '../videoJW';
 import { videoJWThumbnail, videoJWThumbnailGlobal } from '../videoJW/thumbnail';
-import BackendLnError from '../../../common/models/backendLnError';
-import { enumTypeError } from '../../../common/enums/enumTypeError';
+import { BackendLnError } from '../../models/backendLnError';
+import { enumTypeError } from '../../enums/enumTypeError';
 
 export const videoJWNota = (videoData, notaId = '') => {
     if (!videoData) return null;
 
     try {
         const id =
-            videoData._id ||
+            get(videoData, '_id', null) ||
             get(videoData, 'embed.config.videoJw.playlist.mediaid', null);
 
         if (!id) {
@@ -29,16 +29,13 @@ export const videoJWNota = (videoData, notaId = '') => {
             ? playList[0]
             : playList;
 
-        const {
-            duration,
-            title,
-            sources,
-            image,
-            description
-        } = elementPlayList;
+        const { duration, title, sources, image, description } =
+            elementPlayList;
 
         const duracion =
-            typeof duration == 'number' ? (duration || 0) * 1000 : duration * 1;
+            typeof duration === 'number'
+                ? (duration || 0) * 1000
+                : duration * 1;
 
         const resp = {
             _t: 'vid',
@@ -103,7 +100,9 @@ export const videoJWNotaMobile = (videoData, notaId = '') => {
         const { duration, sources, image } = elementPlayList;
 
         const durationCalculated =
-            typeof duration == 'number' ? (duration || 0) * 1000 : duration * 1;
+            typeof duration === 'number'
+                ? (duration || 0) * 1000
+                : duration * 1;
 
         const resp = {
             _t: 'video',
@@ -128,6 +127,14 @@ export const videoJWNotaMobile = (videoData, notaId = '') => {
         const videoHls = videoJWM3u8(sources);
         if (videoHls) {
             resp.multimediaHls = videoHls;
+        }
+
+        const title =
+            get(videoData, 'epigraphTitle', null) ||
+            get(videoData, 'embed.config.videoJw.epigraphTitle', null);
+
+        if (title?.length > 0) {
+            resp.title = title;
         }
 
         return resp;

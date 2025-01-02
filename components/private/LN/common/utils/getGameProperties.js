@@ -1,11 +1,11 @@
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 
-const getGameProperties = (
+function getGameProperties(
     sectionTitle,
-    sectionId = '',
     contextPath,
-    deployment
-) => {
+    deployment,
+    sectionId = ''
+) {
     if (!sectionId || sectionId.trim() === '') {
         return false;
     }
@@ -23,6 +23,8 @@ const getGameProperties = (
             game: `${gameTitle}`
         };
     }
-};
+
+    return false;
+}
 
 export default getGameProperties;

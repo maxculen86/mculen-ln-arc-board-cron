@@ -85,14 +85,15 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
         const [firstArticle] = contentResponse.content_elements;
 
         expect(baseElement.getElementsByTagName('link')).toHaveLength(
-            contentResponse.content_elements.length
+            contentResponse.content_elements[0].promo_items.basic.resized_urls
+                .length
         );
         expect(linkElement.getAttribute('as')).toBe(
             firstArticle.promo_items.basic.type
         );
         expect(linkElement.getAttribute('rel')).toBe('preload');
         expect(linkElement.getAttribute('href')).toBe(
-            firstArticle.promo_items.basic.resized_urls[2].resizedUrl
+            firstArticle.promo_items.basic.resized_urls[0].resizedUrl
         );
         expect(asFragment()).toMatchSnapshot();
     });

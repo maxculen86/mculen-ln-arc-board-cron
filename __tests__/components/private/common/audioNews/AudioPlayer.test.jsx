@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AudioPlayer from '../../../../../components/private/common/audioNews/AudioPlayer';
-import hooks from '@ln/hooks';
+import hooks, { useDisclosure } from '@ln/hooks';
 import isSSR from '../../../../../components/private/LN/common/utils/isSSR';
 
 jest.mock('../../../../../components/private/LN/common/utils/isSSR', () => {
@@ -11,7 +11,8 @@ jest.mock('../../../../../components/private/LN/common/utils/isSSR', () => {
 jest.mock('@ln/hooks', () => {
     return {
         useWindowSize: jest.fn(),
-        useOnClickOutside: jest.fn()
+        useOnClickOutside: jest.fn(),
+        useDisclosure: jest.fn()
     };
 });
 
@@ -34,6 +35,14 @@ describe('components - private - common - audioNews - AudioPlayer', () => {
         },
         showVariantIa: true
     };
+    const useDisclosureMock = {
+        onOpen: jest.fn(),
+        onClose: jest.fn(),
+        isOpen: false
+    };
+    useDisclosure.mockReturnValue({
+        ...useDisclosureMock
+    });
     beforeAll(() => {
         HTMLDialogElement.prototype.show = jest.fn();
         HTMLDialogElement.prototype.showModal = jest.fn();

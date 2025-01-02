@@ -5,7 +5,7 @@ const getFirstParagraph = contentElements => {
     )
         ? contentElements
               .find(contentElement => contentElement.type === 'text')
-              .content.replace(/<\/?[^>]+(>|$)/g, '')
+              .content?.replace(/<\/?[^>]+(>|$)/g, '')
         : null;
 };
 

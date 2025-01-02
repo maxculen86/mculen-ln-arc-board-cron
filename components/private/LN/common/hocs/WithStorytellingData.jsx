@@ -9,43 +9,7 @@ import {
 } from '../../../common/utils/subtypes/subtypeHelper';
 
 export default function WithStorytellingData(WrappedComponent) {
-    return class extends PureComponent {
-        static get propTypes() {
-            return {
-                globalContent: PropTypes.shape({
-                    promo_items: PropTypes.shape({
-                        basic: PropTypes.object,
-                        storytelling: PropTypes.oneOfType([
-                            PropTypes.arrayOf(PropTypes.node),
-                            PropTypes.object
-                        ]),
-                        storytelling_mobile: PropTypes.oneOfType([
-                            PropTypes.arrayOf(PropTypes.node),
-                            PropTypes.object
-                        ]),
-                        type: PropTypes.string,
-                        subtype: PropTypes.string
-                    })
-                }),
-                isLoadWithPicture: PropTypes.bool
-            };
-        }
-
-        static get defaultProps() {
-            return {
-                globalContent: {
-                    promo_items: {
-                        basic: {},
-                        storytelling: {},
-                        storytelling_mobile: {}
-                    },
-                    type: '',
-                    subtype: ''
-                },
-                isLoadWithPicture: false
-            };
-        }
-
+    class WithStorytellingDataClass extends PureComponent {
         constructor(props) {
             super(props);
             this.getStorytellingData = this.getStorytellingData.bind(this);
@@ -54,7 +18,7 @@ export default function WithStorytellingData(WrappedComponent) {
             };
         }
 
-        getStorytellingData = () => {
+        getStorytellingData() {
             const promoItems = get(
                 this,
                 'props.globalContent.promo_items',
@@ -69,14 +33,8 @@ export default function WithStorytellingData(WrappedComponent) {
             const basicImage = get(promoItems, 'basic', null);
             const videoBackground = get(promoItems, 'storytelling', null);
             const videoJw = get(promoItems, 'video_jw', null);
-            const outputType = get(this, 'props.outputType', null);
             const type = get(this, 'props.globalContent.type', null);
             const subtype = get(this, 'props.globalContent.subtype', null);
-            const isLoadWithPicture = get(
-                this,
-                'props.isLoadWithPicture',
-                false
-            );
             const device = getTypeOfDevice({
                 breakpoints: {
                     mobile: 768,
@@ -94,12 +52,11 @@ export default function WithStorytellingData(WrappedComponent) {
                       basicImage,
                       videoBackground,
                       storytellingMobile,
-                      isLoadWithPicture,
                       device,
                       videoJw
                   )
                 : {};
-        };
+        }
 
         render() {
             const { storytellingData } = this.state;
@@ -110,5 +67,37 @@ export default function WithStorytellingData(WrappedComponent) {
                 />
             );
         }
+    }
+
+    WithStorytellingDataClass.propTypes = {
+        globalContent: PropTypes.shape({
+            promo_items: PropTypes.shape({
+                basic: PropTypes.object,
+                storytelling: PropTypes.oneOfType([
+                    PropTypes.arrayOf(PropTypes.node),
+                    PropTypes.object
+                ]),
+                storytelling_mobile: PropTypes.oneOfType([
+                    PropTypes.arrayOf(PropTypes.node),
+                    PropTypes.object
+                ]),
+                type: PropTypes.string,
+                subtype: PropTypes.string
+            })
+        })
     };
+
+    WithStorytellingDataClass.defaultProps = {
+        globalContent: {
+            promo_items: {
+                basic: {},
+                storytelling: {},
+                storytelling_mobile: {}
+            },
+            type: '',
+            subtype: ''
+        }
+    };
+
+    return WithStorytellingDataClass;
 }

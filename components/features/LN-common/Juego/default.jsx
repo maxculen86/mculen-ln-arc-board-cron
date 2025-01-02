@@ -37,9 +37,9 @@ function Game({ id: featureId, customFields, isAdmin }) {
 
     const gameProperties = getGameProperties(
         sectionTitle,
-        sectionId,
         contextPath,
-        deployment
+        deployment,
+        sectionId
     );
 
     const newGame = isNewGame === 'SI';

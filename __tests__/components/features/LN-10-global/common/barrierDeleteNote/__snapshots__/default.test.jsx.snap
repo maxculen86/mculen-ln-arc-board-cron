@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Features - LN-10-Global - Common - BarrierDeleteNote - default renders correctly 1`] = `
+<div>
+  <div
+    class="barrier flex flex-column jc-center ai-center rounded-4 w-328 bg-light-50 m-16 py-16 px-20"
+  >
+    <button
+      class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 as-flex-end mb-24 --default"
+      data-variant="default"
+      title="Cerrar"
+      type="button"
+    >
+      <mock-icon
+        name="close"
+      />
+    </button>
+    <div
+      class="flex jc-center ai-center rounded-circle w-40 h-40 bg-orange-200 mb-24"
+    >
+      <i
+        class="icon --icon-16"
+      >
+        <mock-icon
+          fill="#C6480C"
+          name="warning"
+        />
+      </i>
+    </div>
+    <div
+      class="description text-center mb-16"
+    >
+      <p
+        class="--font-primary --l --font-medium"
+      >
+        <strong>
+          Borrar nota guardada
+        </strong>
+      </p>
+      <p>
+        La nota se eliminará del listado.
+      </p>
+    </div>
+    <div
+      class="interaction-container w-100 text-center flex jc-between px-8"
+    >
+      <button
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 --secondary"
+        data-variant="secondary"
+        title="Cancelar"
+        type="button"
+      >
+        cancelar
+      </button>
+      <button
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-blue-500 text-light-0 h-40 px-16 py-12 --primary"
+        data-variant="primary"
+        id="confirm-button-note"
+        title="Confirmar"
+        type="button"
+      >
+        confimar
+      </button>
+    </div>
+  </div>
+</div>
+`;

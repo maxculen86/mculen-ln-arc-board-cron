@@ -6,56 +6,6 @@ import get from '../../private/common/utils/get';
 import { setSlicedChildren } from './common/_helpers-WebApi';
 import StaticContentV2 from '../LN10-global/staticContentV2';
 
-export const checkChangeChildrenForPB = ({
-    features,
-    children,
-    setUpdateChildrens,
-    layout
-}) => {
-    if (
-        features.length === 0 ||
-        !children ||
-        children.some(child => !child || !child.key)
-    ) {
-        return;
-    }
-
-    const orderFeaturesInitial = features.map(feature => {
-        return feature.props && feature.props.id;
-    });
-
-    const orderChildrenInitial = children.map(child => {
-        return child.key;
-    });
-
-    const isEqualOrder =
-        JSON.stringify(orderChildrenInitial) ===
-        JSON.stringify(orderFeaturesInitial);
-    if (!isEqualOrder && children.length > 0) {
-        //verificamos que el children no este vacio
-        const featuresUpdated = children.map(child => {
-            return features[
-                features.findIndex(
-                    feature =>
-                        feature &&
-                        feature.props &&
-                        feature.props.id === child.key
-                )
-            ];
-        });
-
-        const featuredChildrenUpdated =
-            setWrappedChildren(featuresUpdated, children) || [];
-
-        const slicedChildrenUpdated = setSlicedChildren({
-            children: featuredChildrenUpdated,
-            config: { layout, countTimeline: true }
-        });
-
-        setUpdateChildrens(slicedChildrenUpdated);
-    }
-};
-
 export const setWrappedChildren = (renderables = [], features = []) => {
     const customWrappers = {
         'LN-acumulado/timeline': content => (
@@ -73,6 +23,54 @@ export const setWrappedChildren = (renderables = [], features = []) => {
                 : feature;
         })
         .filter(Boolean);
+};
+
+export const checkChangeChildrenForPB = ({
+    features,
+    children,
+    setUpdateChildrens,
+    layout
+}) => {
+    if (
+        features.length === 0 ||
+        !children ||
+        children.some(child => !child || !child.key)
+    ) {
+        return;
+    }
+
+    const orderFeaturesInitial = features.map(
+        feature => feature.props && feature.props.id
+    );
+
+    const orderChildrenInitial = children.map(child => child.key);
+
+    const isEqualOrder =
+        JSON.stringify(orderChildrenInitial) ===
+        JSON.stringify(orderFeaturesInitial);
+    if (!isEqualOrder && children.length > 0) {
+        const featuresUpdated = children.map(
+            child =>
+                features[
+                    features.findIndex(
+                        feature =>
+                            feature &&
+                            feature.props &&
+                            feature.props.id === child.key
+                    )
+                ]
+        );
+
+        const featuredChildrenUpdated =
+            setWrappedChildren(featuresUpdated, children) || [];
+
+        const slicedChildrenUpdated = setSlicedChildren({
+            children: featuredChildrenUpdated,
+            config: { layout, countTimeline: true }
+        });
+
+        setUpdateChildrens(slicedChildrenUpdated);
+    }
 };
 
 export const useGetLinks = ({ navigationSection = '' }) => {
@@ -125,9 +123,9 @@ export const useGetLinks = ({ navigationSection = '' }) => {
     );
 };
 
-export const useGetLogo = (logoId, title) => {
+export const useGetLogo = (logoId, title, isStatic) => {
     const id = logoId && logoId.trim() && logoId;
-    const logo = useGetLogoImage(id, true);
+    const logo = useGetLogoImage(id, isStatic);
 
     const [firstResizedUrl] = get(logo, 'resized_urls', []);
     const resizedUrl = get(firstResizedUrl, 'resizedUrl', '');
@@ -160,11 +158,12 @@ export const useRoofData = props => {
         linkButton,
         buttonStyle,
         isAdmin,
-        isManual
+        isManual,
+        isStatic
     } = props;
 
-    const logo = useGetLogo(logoId, title);
-    const buttonLogoData = useGetLogo(buttonLogo, title);
+    const logo = useGetLogo(logoId, title, isStatic);
+    const buttonLogoData = useGetLogo(buttonLogo, title, useGetLogo);
     const links = useGetLinks({ navigationSection: navigator });
 
     return {
@@ -185,7 +184,7 @@ export const useRoofData = props => {
     };
 };
 
-export const getParentChildren = (renderables = [], featureId) => {
+export const getParentChildren = (featureId, renderables = []) => {
     const { children: parentChildren = [] } =
         renderables.find(
             renderable =>
@@ -202,7 +201,7 @@ export const checkVariants = ({
     featureId
 } = {}) => {
     const dynamicChildren = featureId
-        ? getParentChildren(renderables, featureId)
+        ? getParentChildren(featureId, renderables)
         : children;
 
     const featuresIds = dynamicChildren.map(
@@ -219,10 +218,9 @@ export const checkVariants = ({
     });
 };
 
-export const setStaticDynamically = (Component, exception, props, id = '') => {
-    return exception ? (
-        <>{Component}</>
+export const setStaticDynamically = (Component, exception, props, id = '') =>
+    exception ? (
+        <div>{Component}</div>
     ) : (
         <StaticContentV2 {...{ ...props, id }}>{Component}</StaticContentV2>
     );
-};

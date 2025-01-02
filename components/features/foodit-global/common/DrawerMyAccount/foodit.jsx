@@ -1,5 +1,5 @@
 import React from 'react';
-import { DrawerContainer } from '../DrawerContainer/foodit';
+import DrawerContainer from '../DrawerContainer/foodit';
 import { MyAccount } from '../MyAccount/foodit';
 import { menuUser } from '../utils/menuUser';
 import { DRAWER } from '../DrawerContainer/constants';

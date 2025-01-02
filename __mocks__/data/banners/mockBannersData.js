@@ -215,6 +215,7 @@ export const mockSP = {
                         [300, 450],
                         [320, 100],
                         [320, 450],
+                        [360, 450],
                         [1, 1]
                     ],
                     targeting: {
@@ -260,6 +261,7 @@ export const mockSP = {
                         [300, 450],
                         [320, 100],
                         [320, 450],
+                        [360, 450],
                         [1, 1]
                     ],
                     targeting: {
@@ -468,6 +470,7 @@ export const filteredBanners = [
             [300, 450],
             [320, 100],
             [320, 450],
+            [360, 450],
             [1, 1]
         ],
         opt_div: 'caja1_mob',
@@ -525,6 +528,7 @@ export const filteredBanners = [
             [300, 450],
             [320, 100],
             [320, 450],
+            [360, 450],
             [1, 1]
         ],
         opt_div: 'caja4_mob',

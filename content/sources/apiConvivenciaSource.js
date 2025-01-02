@@ -1,11 +1,10 @@
 import request from 'request-promise-native';
-import logger from '../../components/private/common/utils/logger';
 import { API_CONVIVENCIA_TOKEN } from 'fusion:environment';
+import logger from '../../components/private/common/utils/logger';
 
 export const fetch = query => {
-    const { uri, sectionId = '' } = query;
-    const urlSearchIdJw = `https://videomapper.lanacion.com.ar${uri}`;
-    const arcSite = 'la-nacion-ar';
+    const { url, 'arc-site': arcSite } = query;
+    const urlSearchIdJw = `https://videomapper.lanacion.com.ar${url}`;
 
     return request(urlSearchIdJw, {
         headers: {
@@ -20,10 +19,7 @@ export const fetch = query => {
         .catch(error => {
             logger.push(
                 error,
-                {
-                    source: 'content/source/apiConvivenciaSource',
-                    sectionId
-                },
+                { source: 'content/source/apiConvivenciaSource' },
                 arcSite
             );
         });

@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
-const trim = string => {
-    return string.replace(/\s{2,}/g, ' ');
-};
+const trim = (string = '') => string.replace(/\s{2,}/g, ' ');
 
-const ComPicture = props => {
+function ComPicture(props) {
     const { href, classCondition, children, video } = props;
     const className = trim(`placeholder ${video} ${classCondition}`);
     const picture = <div className={className}>{children}</div>;
 
-    return <>{href ? <a href={href}>{picture}</a> : picture}</>;
-};
+    if (href) {
+        return <a href={href}>{picture}</a>;
+    }
+
+    return picture;
+}
 
 ComPicture.propTypes = {
     children: PropTypes.node,

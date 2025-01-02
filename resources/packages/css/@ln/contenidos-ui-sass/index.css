@@ -1261,6 +1261,7 @@ a {
   --crucimini: #6781c8;
   --cruci-tematico: #b09c03;
   --panal-de-letras: #dce11f;
+  --memograma: #295DEA;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1276,6 +1277,13 @@ a {
   --gap-badge: 8px;
   --header-outer-spacing: 2fr;
   --center-options-grid-column: left-start / center-end;
+  --gradient-accent: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 28.67%,
+    rgba(0, 22, 49, 0.4) 53.98%,
+    rgba(0, 22, 49, 0.75) 67.75%,
+    rgba(0, 22, 49, 0.9) 81.15%
+  );
 }
 
 @media (min-width: 768px) {
@@ -1655,6 +1663,10 @@ a {
   border-color: currentColor var(--_secondary-color) var(--_secondary-color);
 }
 
+.-z-1 {
+  z-index: -1;
+}
+
 .z-1 {
   z-index: 1;
 }
@@ -1939,6 +1951,10 @@ a {
   background: var(--panal-de-letras);
 }
 
+.bg-memograma {
+  background: var(--memograma);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1985,6 +2001,10 @@ a {
 
 .bg-info-700 {
   background: var(--info-700);
+}
+
+.bg-gradient-accent {
+  background: var(--gradient-accent);
 }
 
 .bg-panal-de-letras__hover:hover {
@@ -2041,6 +2061,10 @@ a {
 
 .bg-cruci-tematico__hover:hover {
   background: var(--cruci-tematico);
+}
+
+.bg-memograma__hover:hover {
+  background: var(--memograma);
 }
 
 .bg-secondary__hover:hover {
@@ -2114,6 +2138,35 @@ a {
     line-height: 100%;
   }
 }
+.prumo {
+  font-family: Prumo, georgia, serif;
+  letter-spacing: var(--prumo-letter-spacing);
+  font-variation-settings: "wght" var(--prumo-font-variation), "opsz" var(--prumo-optical-size, 0);
+}
+.prumo-slab {
+  --prumo-optical-size: 50;
+}
+.prumo-light {
+  --prumo-font-variation: 70;
+}
+.prumo-book {
+  --prumo-font-variation: 90;
+}
+.prumo-medium {
+  --prumo-font-variation: 110;
+}
+.prumo-semibold {
+  --prumo-font-variation: 130;
+}
+.prumo-black {
+  --prumo-font-variation: 190;
+}
+.prumo.text-24 {
+  font-size: 1.5rem;
+  line-height: 110%;
+  --prumo-letter-spacing: -0.3px;
+}
+
 strong:not(.--font-primary),
 .--font-bold:not(.--font-primary),
 .font-bold:not(.--font-primary) {
@@ -2524,6 +2577,10 @@ strong:not(.--font-primary),
 
 .pb-24 {
   padding-bottom: 1.5rem;
+}
+
+.pb-32 {
+  padding-bottom: 2rem;
 }
 
 .pb-64 {
@@ -3286,6 +3343,10 @@ strong:not(.--font-primary),
 
 .min-w-100.min-w-100 {
   min-width: 100%;
+}
+
+.min-w-170.min-w-170 {
+  min-width: 10.625rem;
 }
 
 .h-100.h-100 {

@@ -14,7 +14,7 @@ export const createAndInsertElementsHtml = array => {
 
 const createTagsTitleAndMetas = (description, url, searchResults) => {
     const constructTitle = `${searchResults}: Resultados de búsqueda para las últimas noticias en LA NACION`;
-    const construcDescription = description.replace(/[+]/, searchResults);
+    const construcDescription = description?.replace(/[+]/, searchResults);
 
     createAndInsertElementsHtml([
         {

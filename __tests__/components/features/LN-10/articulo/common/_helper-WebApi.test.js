@@ -87,7 +87,7 @@ describe('Tests - function - getChainConfig', () => {
                 index: 0,
                 boxPosition: '01',
                 layout: 'grilla3',
-                imageConfig: '',
+                imageConfig: 'boxArticles',
                 chainId: 'c0fVElWb9v7fbgC'
             });
         });
@@ -108,7 +108,7 @@ describe('Tests - function - getChainConfig', () => {
                 index: 1,
                 boxPosition: '01',
                 layout: 'grilla2',
-                imageConfig: '',
+                imageConfig: 'boxArticlesTwoArticles',
                 chainId: 'c0fVElWb9v7fbgC'
             });
         });

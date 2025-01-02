@@ -103,7 +103,7 @@ export default function BuildRoof(props) {
         error,
         withSection: false,
         extraOptions: {
-            isEmpty: hideRoof && <></>,
+            isEmpty: hideRoof && null,
             default: !hideRoof && (
                 <>
                     <Roof roof-container="roof-container" roofType={roofType}>

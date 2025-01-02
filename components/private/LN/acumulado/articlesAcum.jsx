@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
@@ -34,7 +33,7 @@ export const typeAcumRules = {
     }
 };
 
-const ArticlesAcum = ({
+function ArticlesAcum({
     articles = [],
     getBanner,
     typeArticle,
@@ -44,8 +43,9 @@ const ArticlesAcum = ({
     articlesInCollection = [],
     hasCollectionApertura = false,
     hasChainBeforeGrid = false,
-    isWiki = false
-}) => {
+    isWiki = false,
+    openBarrier
+}) {
     return (
         <ModRowGap
             column="3"
@@ -53,7 +53,7 @@ const ArticlesAcum = ({
             typeArticle={typeArticle}
         >
             {articles.map((art, index) => {
-                const banner = getBanner ? getBanner(index) : <></>;
+                const banner = getBanner ? getBanner(index) : null;
                 const isApertura = checkIsApertura({
                     hasCollectionApertura,
                     hasChainBeforeGrid,
@@ -76,6 +76,7 @@ const ArticlesAcum = ({
                         withCategory={typeAcumRules[typeArticle].withCategory}
                         withTags={typeAcumRules[typeArticle].withTags}
                         isApertura={isApertura}
+                        openBarrier={openBarrier}
                     >
                         {banner}
                     </ArticleAcum>
@@ -83,7 +84,7 @@ const ArticlesAcum = ({
             })}
         </ModRowGap>
     );
-};
+}
 
 ArticlesAcum.propTypes = {
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -91,11 +92,12 @@ ArticlesAcum.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string,
     classCondition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    nodeType: PropTypes.string,
-    articlesInCollection: PropTypes.arrayOf(PropTypes.object),
-    hasChainBeforeGrid: PropTypes.bool,
-    hasCollectionApertura: PropTypes.bool,
-    isWiki: PropTypes.bool
+    nodeType: PropTypes.string.isRequired,
+    articlesInCollection: PropTypes.arrayOf(PropTypes.object).isRequired,
+    hasChainBeforeGrid: PropTypes.bool.isRequired,
+    hasCollectionApertura: PropTypes.bool.isRequired,
+    isWiki: PropTypes.bool.isRequired,
+    openBarrier: PropTypes.func.isRequired
 };
 
 ArticlesAcum.defaultProps = {
