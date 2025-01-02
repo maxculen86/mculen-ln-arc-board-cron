@@ -1,17 +1,15 @@
-import handleCookie from '../../components/private/LN/common/utils/handleCookie';
 import { API_INGRESAR } from 'fusion:environment';
+import handleCookie from '../../components/private/LN/common/utils/handleCookie';
 
-const {
-    setCookie,
-    getCookie,
-    eraseCookie,
-    DiccionarioCookiesAGuardar
-} = handleCookie();
+const { setCookie, getCookie, eraseCookie, DiccionarioCookiesAGuardar } =
+    handleCookie();
 
 export const SUBSCRIBED_HELPER = {
     LN: '2',
     FOODIT: '22'
 };
+
+const ACCESS_TOKEN = 'access-token';
 
 export const isSubscribed = valueSuscription => {
     const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
@@ -59,7 +57,7 @@ export const _UserClientLibs = func =>
 
 export const getAuthFromCookie = async (cookie = 'token') => {
     try {
-        if (cookie === 'access-token') {
+        if (cookie === ACCESS_TOKEN) {
             return await _UserClientLibs('BuildBearerAccessTokenAsync')();
         }
         return _UserClientLibs('getIdTokenCookie')();
@@ -71,7 +69,7 @@ export const getAuthFromCookie = async (cookie = 'token') => {
 
 export const getAuthTokens = async () => {
     const token = await getAuthFromCookie();
-    const accessToken = await getAuthFromCookie('access-token');
+    const accessToken = await getAuthFromCookie(ACCESS_TOKEN);
     return {
         token,
         accessToken
@@ -98,7 +96,7 @@ export const setUserData = async () => {
         eraseCookie('ProductoPremiumId');
 
         const newToken = await getAuthFromCookie();
-        const accessToken = await getAuthFromCookie('access-token');
+        const accessToken = await getAuthFromCookie(ACCESS_TOKEN);
 
         try {
             const result = await fetch(`${API_INGRESAR}/UsuarioV1/me`, {

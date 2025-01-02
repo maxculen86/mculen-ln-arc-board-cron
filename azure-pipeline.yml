@@ -13,7 +13,7 @@ trigger:
 pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
 
 variables:
-    FUSION_RELEASE: "5.0.7"
+    FUSION_RELEASE: '5.0.7'
 
 jobs:
     - job: BuildArc
@@ -34,7 +34,7 @@ jobs:
                     sonar.sourceEncoding=UTF-8
                     sonar.sources=./
                     sonar.language=js
-                    sonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules,resources/**
+                    sonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules,resources/**,src/statics/**
                     sonar.tests=./__tests__
                     sonar.test.inclusions=./__tests__/**/*.test.js
                     sonar.javascript.lcov.reportPaths=coverage/lcov.info

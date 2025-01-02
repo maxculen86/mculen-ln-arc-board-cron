@@ -1,3 +1,6 @@
+const DATADOG_DOMAIN = 'datadoghq.com';
+const MASK_USER_INPUT = 'mask-user-input';
+
 export default {
     IS_DEV: 'false',
     IS_SANDBOX: 'true',
@@ -17,7 +20,7 @@ export default {
             clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
             clientTokenRum: 'pub0d012ddef45dd12da168f6a3dfa65e8d',
             applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
-            site: 'datadoghq.com',
+            site: DATADOG_DOMAIN,
             forwardErrorsToLogs: true,
             sampleRateLog: 20,
             sampleRateRum: 20,
@@ -28,13 +31,13 @@ export default {
             trackLongTasks: true,
             trackUserInteractions: true,
             trackSessionAcrossSubdomains: false,
-            defaultPrivacyLevel: 'mask-user-input'
+            defaultPrivacyLevel: MASK_USER_INPUT
         },
         'la-nacion-ar': {
             clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
             clientTokenRum: 'pubaa01cb67f0a687a6eba4718413593f4f',
             applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
-            site: 'datadoghq.com',
+            site: DATADOG_DOMAIN,
             forwardErrorsToLogs: true,
             sampleRateLog: 1,
             sampleRateRum: 0.15,
@@ -45,13 +48,13 @@ export default {
             trackLongTasks: true,
             trackUserInteractions: true,
             trackSessionAcrossSubdomains: false,
-            defaultPrivacyLevel: 'mask-user-input'
+            defaultPrivacyLevel: MASK_USER_INPUT
         },
         foodit: {
             clientTokenLogs: 'pub540b3115d2684163d47c67bcb76097a8',
             clientTokenRum: 'pub1ad54b5c46d268e96bf42a24c15ed5be',
             applicationId: '265afe0d-6798-4354-a3d1-e40ce8840c7a',
-            site: 'datadoghq.com',
+            site: DATADOG_DOMAIN,
             forwardErrorsToLogs: true,
             sampleRateLog: 1,
             sampleRateRum: 0.15,
@@ -62,7 +65,7 @@ export default {
             trackLongTasks: true,
             trackUserInteractions: true,
             trackSessionAcrossSubdomains: false,
-            defaultPrivacyLevel: 'mask-user-input'
+            defaultPrivacyLevel: MASK_USER_INPUT
         }
     },
     ARC_STATIC: 'https://sandbox.lanacion.com.ar',
