@@ -1126,6 +1126,7 @@ export default {
             },
             cajasuscriptores_dsk: {
                 slotName: `la_nacion_desktop/Home/cajasuscriptores_dsk`,
+                withoutHide: true,
                 dimensions: [[920, 120]],
                 targeting: targetingHome
             }
@@ -1280,6 +1281,7 @@ export default {
             },
             cajasuscriptores_mob: {
                 slotName: `la_nacion_mobile/Home/cajasuscriptores_mob`,
+                withoutHide: true,
                 dimensions: [[300, 250]],
                 targeting: targetingHome
             }
@@ -1353,6 +1355,7 @@ export default {
             },
             cajasuscriptores_tab: {
                 slotName: `la_nacion_tablet/Home/cajasuscriptores_tab`,
+                withoutHide: true,
                 dimensions: [[720, 110]],
                 targeting: targetingHome
             }
