@@ -122,7 +122,10 @@ function Opinion(props) {
         layout,
         position,
         '',
-        positionInsideSection
+        positionInsideSection,
+        false,
+        false,
+        viewabilityRoof
     );
 
     const cardsEditoriales = getCardsEditorial(articlesEditorial);
