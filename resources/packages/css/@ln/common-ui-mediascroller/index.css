@@ -16,28 +16,6 @@
 .media-scroller [data-scroller=track] > [data-scroller=element] {
   scroll-snap-align: start;
 }
-.media-scroller [data-scroller=track][data-scroller-elements="1"] ~ [data-scroller=arrow] {
-  display: none;
-}
-.media-scroller [data-scroller=track][data-scroller-elements="1"] ~ [data-scroller=progress] {
-  display: none;
-}
-.media-scroller [data-scroller=track][data-scroller-elements="2"] ~ [data-scroller=arrow] {
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .media-scroller [data-scroller=track][data-scroller-elements="2"] ~ [data-scroller=progress] {
-    display: none;
-  }
-}
-.media-scroller [data-scroller=track][data-scroller-elements="3"] ~ [data-scroller=arrow], .media-scroller [data-scroller=track][data-scroller-elements="4"] ~ [data-scroller=arrow] {
-  display: none;
-}
-@media screen and (min-width: 1279px) {
-  .media-scroller [data-scroller=track][data-scroller-elements="3"] ~ [data-scroller=progress], .media-scroller [data-scroller=track][data-scroller-elements="4"] ~ [data-scroller=progress] {
-    display: none;
-  }
-}
 .media-scroller [data-scroller=track].--full-width {
   width: calc(100% + var(--spacing) * 2);
   padding-inline: var(--spacing);
