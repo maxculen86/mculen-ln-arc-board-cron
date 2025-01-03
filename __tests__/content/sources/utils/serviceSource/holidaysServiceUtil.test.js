@@ -66,8 +66,8 @@ jest.mock(
         datesDiffInDays: jest.fn()
     })
 );
-const currentYear = new Date().getFullYear();
-const previousYear = new Date().getFullYear() - 1;
+const currentYear = 2025;
+const previousYear = 2024;
 
 describe('Test getUri function', () => {
     test('Should return endpoint with the year', () => {
