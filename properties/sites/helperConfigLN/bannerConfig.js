@@ -11,12 +11,16 @@ const targetingHome = {
     seccion: 'home'
 };
 
+const HEADER_ROUTE_DESK = 'la_nacion_desktop/logo_header_dsk_sticky';
+const HEADER_ROUTE_MOBILE = 'la_nacion_mobile/logo_header_mob';
+const HEADER_ROUTE_TAB = 'la_nacion_tablet/logo_header_tab';
+
 export default {
     dfp_id: 133919216,
     nota: {
         desktop: {
             logo_header_dsk_sticky: {
-                slotName: 'la_nacion_desktop/logo_header_dsk_sticky',
+                slotName: HEADER_ROUTE_DESK,
                 dimensions: [[305, 32]],
                 targeting: targetingNota
             },
@@ -209,7 +213,7 @@ export default {
         },
         mobile: {
             logo_header_mob: {
-                slotName: 'la_nacion_mobile/logo_header_mob',
+                slotName: HEADER_ROUTE_MOBILE,
                 dimensions: [[172, 19]],
                 targeting: targetingNota
             },
@@ -448,7 +452,7 @@ export default {
         },
         tablet: {
             logo_header_tab: {
-                slotName: 'la_nacion_tablet/logo_header_tab',
+                slotName: HEADER_ROUTE_TAB,
                 dimensions: [[172, 19]],
                 targeting: targetingNota
             },
@@ -583,7 +587,7 @@ export default {
     acumulado: {
         desktop: {
             logo_header_dsk_sticky: {
-                slotName: 'la_nacion_desktop/logo_header_dsk_sticky',
+                slotName: HEADER_ROUTE_DESK,
                 dimensions: [[305, 32]],
                 targeting: targetingAcumulado
             },
@@ -723,7 +727,7 @@ export default {
         },
         mobile: {
             logo_header_mob: {
-                slotName: 'la_nacion_mobile/logo_header_mob',
+                slotName: HEADER_ROUTE_MOBILE,
                 dimensions: [[172, 19]],
                 targeting: targetingAcumulado
             },
@@ -863,7 +867,7 @@ export default {
         },
         tablet: {
             logo_header_tab: {
-                slotName: 'la_nacion_tablet/logo_header_tab',
+                slotName: HEADER_ROUTE_TAB,
                 dimensions: [[172, 19]],
                 targeting: targetingAcumulado
             },
@@ -921,7 +925,7 @@ export default {
                 dimensions: [[487, 48]]
             },
             logo_header_dsk_sticky: {
-                slotName: 'la_nacion_desktop/logo_header_dsk_sticky',
+                slotName: HEADER_ROUTE_DESK,
                 dimensions: [[305, 32]]
             },
             megatop_dsk: {
@@ -1132,7 +1136,7 @@ export default {
         },
         mobile: {
             logo_header_mob: {
-                slotName: 'la_nacion_mobile/logo_header_mob',
+                slotName: HEADER_ROUTE_MOBILE,
                 dimensions: [[172, 19]]
             },
             sticky2_mob: {
@@ -1286,7 +1290,7 @@ export default {
         },
         tablet: {
             logo_header_tab: {
-                slotName: 'la_nacion_tablet/logo_header_tab',
+                slotName: HEADER_ROUTE_TAB,
                 dimensions: [[305, 32]]
             },
             megatop_tab: {
@@ -1367,13 +1371,13 @@ export default {
         },
         mobile: {
             logo_header_mob: {
-                slotName: 'la_nacion_mobile/logo_header_mob',
+                slotName: HEADER_ROUTE_MOBILE,
                 dimensions: [[170, 17]]
             }
         },
         tablet: {
             logo_header_tab: {
-                slotName: 'la_nacion_tablet/logo_header_tab',
+                slotName: HEADER_ROUTE_TAB,
                 dimensions: [[200, 20]]
             }
         }

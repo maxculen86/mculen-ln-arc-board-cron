@@ -4,8 +4,8 @@ const article = JSON.parse(
 const layout = document
     .getElementById('script-permutive')
     .getAttribute('data-layout');
-const serializedGetCookie = document.getElementById('script-permutive').dataset
-    .getCookie;
+const serializedGetCookie =
+    document.getElementById('script-permutive').dataset.getCookie;
 const permutiveGetCookie = eval(`(${serializedGetCookie})`);
 
 const getTemplateType = layoutName => {
@@ -49,13 +49,13 @@ const conditionalArticleData = (customProperties, articleData) => {
 };
 conditionalArticleData(permutivecustomProperties, article);
 
-!(function(e, o, n, i) {
+!(function (e, o, n, i) {
     if (!e) {
         (e = e || {}), (window.permutive = e), (e.q = []);
-        var t = function() {
+        var t = function () {
             return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(
                 /[018]/g,
-                function(e) {
+                function (e) {
                     return (
                         e ^
                         ((window.crypto || window.msCrypto).getRandomValues(
@@ -91,8 +91,8 @@ conditionalArticleData(permutivecustomProperties, article);
             r++
         ) {
             var w = g[r];
-            e[w] = (function(o) {
-                return function() {
+            e[w] = (function (o) {
+                return function () {
                     var n = Array.prototype.slice.call(arguments, 0);
                     e.q.push({ functionName: o, arguments: n });
                 };
@@ -107,7 +107,7 @@ conditionalArticleData(permutivecustomProperties, article);
 );
 (window.googletag = window.googletag || {}),
     (window.googletag.cmd = window.googletag.cmd || []),
-    window.googletag.cmd.push(function() {
+    window.googletag.cmd.push(function () {
         if (0 === window.googletag.pubads().getTargeting('permutive').length) {
             var e = window.localStorage.getItem('_pdfps');
             window.googletag

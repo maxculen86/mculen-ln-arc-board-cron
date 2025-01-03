@@ -17,7 +17,7 @@ const googleTagSuscriptionType = googleTagUserCookie.includes('2')
     : 'no suscriptor';
 
 window.googletag = window.googletag || { cmd: [] };
-googletag.cmd.push(function() {
+googletag.cmd.push(function () {
     // initialize
     googletag.pubads().disableInitialLoad();
     googletag.pubads().enableSingleRequest();
