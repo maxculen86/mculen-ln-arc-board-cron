@@ -34,13 +34,11 @@ function body({ customFields }) {
         addEventListener('scroll', handleScrollForNota, window);
     }
 
-    const renderComponents = BuildBody({
+    return BuildBody({
         banners,
         outputType,
         globalContent
     });
-
-    return renderComponents;
 }
 
 body.label = 'LN-Nota-Body';

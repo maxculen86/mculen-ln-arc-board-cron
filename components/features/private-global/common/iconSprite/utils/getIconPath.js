@@ -11,7 +11,5 @@ export const getIconPath = ({
         (critical && 'critical') || (color && 'color') || 'default';
     const fileName = `${arcSite}-sprite-${spriteType}.svg`;
     const path = `${contextPath}/resources/images/${fileName}`;
-    const deploymentPath = deployment(path);
-
-    return deploymentPath;
+    return deployment(path);
 };

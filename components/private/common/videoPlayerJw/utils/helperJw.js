@@ -24,7 +24,7 @@ export const configClassName = {
 };
 
 export function transformImages(data, subtype = '') {
-    const transformedImages = data
+    return data
         .filter(item => [480, 720, 1280].includes(item.width))
         .map(item => ({
             srcSet: item.src,
@@ -42,17 +42,13 @@ export function transformImages(data, subtype = '') {
             }
             return true;
         });
-
-    return transformedImages;
 }
 
 export function formatJwPlayerDate(timestamp) {
     if (!timestamp) return '';
 
     const date = new Date(timestamp * 1000);
-    const formattedDate = `${date.toISOString().slice(0, -5)}Z`;
-
-    return formattedDate;
+    return `${date.toISOString().slice(0, -5)}Z`;
 }
 
 export const getAlternativeDescription = (uploadDate, noteTitle) => {

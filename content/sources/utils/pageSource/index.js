@@ -27,13 +27,10 @@ const fetch = async query => {
     }
 
     return request(endpoint)
-        .then(response => {
-            const data = {
-                ...response,
-                homeFetchDate: new Date()
-            };
-            return data;
-        })
+        .then(response => ({
+            ...response,
+            homeFetchDate: new Date()
+        }))
         .catch(error => {
             // eslint-disable-next-line no-console
             console.warn(
