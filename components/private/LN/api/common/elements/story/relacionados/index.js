@@ -11,29 +11,17 @@ const relacionadosIndex = dataArticle => {
     const relatedNotes = get(dataArticle, 'related_content.basic');
 
     if (dataCategories && dataCategories.length > 0) {
-        resp.categorias = dataCategories.map(v => {
-            return getSubCategory(v);
-        });
+        resp.categorias = dataCategories.map(v => getSubCategory(v));
     }
 
     if (dataTags && dataTags.length > 0) {
-        resp.tags = dataTags.map(v => {
-            return getTag(v);
-        });
+        resp.tags = dataTags.map(v => getTag(v));
     }
 
     if (relatedNotes && relatedNotes.length > 0) {
         resp.notas = relatedNotes
-            .filter(v => {
-                if (v && v.type === 'story') {
-                    return true;
-                } else {
-                    return false;
-                }
-            })
-            .map(v => {
-                return NotaRelacionadas(v);
-            });
+            .filter(v => v && v.type === 'story')
+            .map(v => NotaRelacionadas(v));
     }
 
     return resp;

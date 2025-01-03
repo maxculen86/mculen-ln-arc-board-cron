@@ -32,16 +32,14 @@ export function transformImages(data, subtype = '') {
             ...(item.width === 720 && { minWidth: 768 }),
             ...(item.width === 1280 && { minWidth: 1280 })
         }))
-        .filter(item => {
-            if (
-                subtype !== FOTOAL100 &&
-                item.srcSet.includes('1280') &&
-                item.minWidth === 1280
-            ) {
-                return false;
-            }
-            return true;
-        });
+        .filter(
+            item =>
+                !(
+                    subtype !== FOTOAL100 &&
+                    item.srcSet.includes('1280') &&
+                    item.minWidth === 1280
+                )
+        );
 }
 
 export function formatJwPlayerDate(timestamp) {
@@ -59,58 +57,6 @@ export const getAlternativeDescription = (uploadDate, noteTitle) => {
     return noteTitle
         ? `Video de ${noteTitle} publicado el ${formattedDate} por LA NACION`
         : baseDescription;
-};
-
-export const getJWScript = (
-    title,
-    player,
-    playlist,
-    hasAutoplay = false,
-    idVideo,
-    tagsUrl,
-    autostart = true,
-    arcSite = ''
-) => {
-    const facadeDiv = document.getElementById(`facade-${idVideo}`);
-
-    const setJwScript = () => {
-        const scriptElement = document.createElement('script');
-        scriptElement.src = `https://cdn.jwplayer.com/libraries/${player}.js`;
-        document.head.appendChild(scriptElement);
-
-        scriptElement.addEventListener('load', () => {
-            window.jwplayer(`${idVideo}`).setup({
-                playlist,
-                autostart,
-                mute: hasAutoplay || false,
-                ...(arcSite === 'foodit' ? { related: null } : {}),
-                ...(player === 'ih0086X3'
-                    ? {
-                          advertising: {
-                              client: 'googima',
-                              autoplayadsmuted: hasAutoplay || false,
-                              schedule: [
-                                  {
-                                      tag: `"${tagsUrl}"`,
-                                      offset: 'pre'
-                                  }
-                              ]
-                          }
-                      }
-                    : {})
-            });
-
-            handleVideoEventsScript(title, idVideo);
-        });
-
-        if (facadeDiv) facadeDiv.remove();
-    };
-
-    hasAutoplay
-        ? setJwScript()
-        : facadeDiv.addEventListener('click', setJwScript);
-
-    addVideoDisplayEvent({ title, idVideo });
 };
 
 export const handleVideoEventsScript = (title, idVideo) => {
@@ -161,4 +107,58 @@ export const handleVideoEventsScript = (title, idVideo) => {
             });
         }
     });
+};
+
+export const getJWScript = (
+    title,
+    player,
+    playlist,
+    hasAutoplay,
+    idVideo,
+    tagsUrl,
+    autostart = true,
+    arcSite = ''
+) => {
+    const facadeDiv = document.getElementById(`facade-${idVideo}`);
+
+    const setJwScript = () => {
+        const scriptElement = document.createElement('script');
+        scriptElement.src = `https://cdn.jwplayer.com/libraries/${player}.js`;
+        document.head.appendChild(scriptElement);
+
+        scriptElement.addEventListener('load', () => {
+            window.jwplayer(`${idVideo}`).setup({
+                playlist,
+                autostart,
+                mute: hasAutoplay ?? false,
+                ...(arcSite === 'foodit' ? { related: null } : {}),
+                ...(player === 'ih0086X3'
+                    ? {
+                          advertising: {
+                              client: 'googima',
+                              autoplayadsmuted: hasAutoplay ?? false,
+                              schedule: [
+                                  {
+                                      tag: `"${tagsUrl}"`,
+                                      offset: 'pre'
+                                  }
+                              ]
+                          }
+                      }
+                    : {})
+            });
+
+            handleVideoEventsScript(title, idVideo);
+        });
+
+        if (facadeDiv) facadeDiv.remove();
+    };
+
+    if (hasAutoplay) {
+        setJwScript();
+    } else {
+        facadeDiv.addEventListener('click', setJwScript);
+    }
+
+    addVideoDisplayEvent({ title, idVideo });
 };
