@@ -14,13 +14,12 @@ const firmaDistributorValidation = (
     sponsored
 ) => {
     const isBrand = getSectionLogo(sections, layout, name);
-    if (authors.length > 0) return false;
-    if (subtype === RECETA || subtype === AGENCIA || subtype === HTMLLIBRE)
-        return false;
-    if (isBrand !== null) return false;
-    if (sponsored === true) return false;
-
-    return true;
+    return !(
+        authors.length > 0 ||
+        [RECETA, AGENCIA, HTMLLIBRE].includes(subtype) ||
+        isBrand !== null ||
+        sponsored
+    );
 };
 
 export default firmaDistributorValidation;

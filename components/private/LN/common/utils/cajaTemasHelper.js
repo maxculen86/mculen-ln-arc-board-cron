@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
@@ -233,6 +232,18 @@ export const customHeading = {
     SeguiLeyendo: 'h3'
 };
 
+export const findPositionInsideSection = (idFeature, renderables = []) => {
+    const sections = renderables.filter(ren => ren.collection === 'sections');
+    const mySection = sections.find(sec =>
+        sec.children.find(child => child.props.id === idFeature)
+    ) || { children: [] };
+    const position = mySection.children.findIndex(
+        child => child.props.id === idFeature
+    );
+
+    return `0${Number(position) + 1}`.slice(-2);
+};
+
 export const getCommonProps = props => {
     const {
         customFields: { layout = 'grilla3', backgroundColor },
@@ -268,7 +279,7 @@ export const getCommonProps = props => {
 
     const showDatalayerMark =
         pageBuilderLayout === layoutsName.Home ||
-            pageBuilderLayout === layoutsName.HomeLN10
+        pageBuilderLayout === layoutsName.HomeLN10
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
@@ -283,18 +294,6 @@ export const getCommonProps = props => {
         sectionName,
         positionInsideSection
     };
-};
-
-export const findPositionInsideSection = (idFeature, renderables = []) => {
-    const sections = renderables.filter(ren => ren.collection === 'sections');
-    const mySection = sections.find(sec =>
-        sec.children.find(child => child.props.id === idFeature)
-    ) || { children: [] };
-    const position = mySection.children.findIndex(
-        child => child.props.id === idFeature
-    );
-
-    return `0${Number(position) + 1}`.slice(-2);
 };
 
 export const calculateSizeOfCollection = (collections, notesQuantity) => {
@@ -317,11 +316,11 @@ export const isInApertura = (idFeature, tree = {}) => {
 };
 
 export const validateoutItem = itemNota => {
+    // eslint-disable-next-line prefer-regex-literals
     const regex = new RegExp(`/video/`);
     const results = regex.exec(itemNota.url_nota);
-    if (results) return false;
 
-    return true;
+    return !results;
 };
 
 export const getArticlesOfChain = ({
