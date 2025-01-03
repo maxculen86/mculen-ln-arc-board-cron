@@ -61,6 +61,18 @@
         {
             "slotGroup": "home",
             "tablet": "logo_header_tab"
+        },
+        {
+            "slotGroup": "home",
+            "desktop": "cajasuscriptores_dsk"
+        },
+        {
+            "slotGroup": "home",
+            "mobile": "cajasuscriptores_mob"
+        },
+        {
+            "slotGroup": "home",
+            "tablet": "cajasuscriptores_tab"
         }
     ],
     "bannersLazy": [
@@ -170,18 +182,6 @@
         {
             "slotGroup": "home",
             "desktop": "megalateral5_dsk"
-        },
-        {
-            "slotGroup": "home",
-            "desktop": "cajasuscriptores_dsk"
-        },
-        {
-            "slotGroup": "home",
-            "mobile": "cajasuscriptores_mob"
-        },
-        {
-            "slotGroup": "home",
-            "tablet": "cajasuscriptores_tab"
         }
     ]
 }

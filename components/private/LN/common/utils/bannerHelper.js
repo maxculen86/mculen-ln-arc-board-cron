@@ -31,7 +31,8 @@ export const BANNERS_DESKTOP = [
     'middle_2_dsk',
     'middle_3_dsk',
     'middle_teads_dsk',
-    '1x1_signwall_dsk'
+    '1x1_signwall_dsk',
+    'cajasuscriptores_dsk'
 ];
 
 export const BANNERS_MOBILE = [
@@ -52,7 +53,8 @@ export const BANNERS_MOBILE = [
     'caja9_mob',
     'caja10_mob',
     'inread_mob',
-    '1x1_signwall_mob'
+    '1x1_signwall_mob',
+    'cajasuscriptores_mob'
 ];
 
 export const BANNERS_TABLET = [
@@ -67,7 +69,8 @@ export const BANNERS_TABLET = [
     'middle_1_tab',
     'middle_2_tab',
     'middle_teads_tab',
-    '1x1_signwall_tab'
+    '1x1_signwall_tab',
+    'cajasuscriptores_tab'
 ];
 
 export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
