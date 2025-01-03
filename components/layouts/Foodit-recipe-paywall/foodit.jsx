@@ -6,11 +6,11 @@ import Static from 'fusion:static';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
-import OpeningRecipe from '../../features/foodit-global/common/OpeningRecipe/foodit';
+import { OpeningRecipe } from '../../features/foodit-global/common/OpeningRecipe/foodit';
 import { PowerupsRecipePaywall } from '../../features/foodit-global/Body/PowerupsRecipePaywall/foodit';
 import SingWall from '../../features/foodit-global/common/singWall/foodit';
 
-const FooditRecipePaywallLayout = ({ children = [], globalContent = {} }) => {
+function FooditRecipePaywallLayout({ children = [], globalContent = {} }) {
     const [body] = children;
 
     return (
@@ -19,7 +19,7 @@ const FooditRecipePaywallLayout = ({ children = [], globalContent = {} }) => {
                 <Breadcrumb
                     globalContent={globalContent}
                     className="lg-only"
-                    layout={'ficha-receta'}
+                    layout="ficha-receta"
                 />
                 <OpeningRecipe article={globalContent} isPrivate />
             </section>
@@ -51,9 +51,6 @@ const FooditRecipePaywallLayout = ({ children = [], globalContent = {} }) => {
                                     globalContent={globalContent}
                                     calssName="lg-only"
                                 />
-                                <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
-                                    Preparación
-                                </h3>
                                 {body}
                             </div>
                         </section>
@@ -65,13 +62,13 @@ const FooditRecipePaywallLayout = ({ children = [], globalContent = {} }) => {
             </section>
         </BaseLayout>
     );
-};
+}
 
 FooditRecipePaywallLayout.sections = ['Cuerpo'];
 
 FooditRecipePaywallLayout.propTypes = {
-    children: PropTypes.array,
-    globalContent: PropTypes.object
+    children: PropTypes.node.isRequired,
+    globalContent: PropTypes.shape({}).isRequired
 };
 
 export default Consumer(FooditRecipePaywallLayout);
