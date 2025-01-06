@@ -1,8 +1,6 @@
 const validationUrlRepeat = url => {
     const urlArray = url.split('/').filter(item => item !== '');
-    return urlArray.some(
-        (item, index, array) => !(array.indexOf(item) === index)
-    );
+    return urlArray.some((item, index, array) => array.indexOf(item) !== index);
 };
 
 const formatUrl = url => {
