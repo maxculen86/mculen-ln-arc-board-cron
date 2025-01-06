@@ -331,14 +331,14 @@ export const getDataForProfileType = (
         return {
             profileName: `${givenName}${additionalName ? ` ${additionalName}` : ''}`,
             profileLastName: familyName,
-            profileUsername: slug
+            profileUsername: decodeURIComponent(slug)
         };
     }
 
     return {
         profileName: `${firstName}${middleName ? ` ${middleName}` : ''}`,
         profileLastName: lastName,
-        profileUsername: slugAuthor
+        profileUsername: decodeURIComponent(slugAuthor)
     };
 };
 
