@@ -31,7 +31,8 @@ exports[`Features - LaNacion - 10 - Radio should match snapshot 1`] = `
           class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent h-40 px-16 py-12 uppercase bg-neutral-light-999 rounded-80 text-ln-radio text-12 --custom"
           data-variant="custom"
           href="https://masmusica.lanacion.com.ar/"
-          target="_self"
+          rel="nofollow"
+          target="_blank"
           title="Ir a escuchar más música"
           type="button"
         >

@@ -31,6 +31,7 @@ function LnRadio({ id: featureId }) {
                         className="uppercase bg-neutral-light-999 rounded-80 text-ln-radio text-12"
                         variant="custom"
                         href="https://masmusica.lanacion.com.ar/"
+                        target="_blank"
                     >
                         Escuchá + música
                         <Icon size={20} className="sm-none">
