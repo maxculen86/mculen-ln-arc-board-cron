@@ -4592,6 +4592,7 @@ a {
   --neutral-light-700: #4D4D4D;
   --neutral-light-800: #333333;
   --neutral-light-900: #1A1A1A;
+  --neutral-light-999: #010101;
   --neutral-dark-1: #010101;
   --neutral-dark-50: #0D0D0D;
   --neutral-dark-300: #4D4D4D;
@@ -4626,6 +4627,7 @@ a {
   --subscriber-negative: #1e1d1d;
   --opinion: #0074c4;
   --ia-tools: #2d978a;
+  --ln-radio: #d6e903;
   --nunca-cuatro: #74d1e5;
   --criptograma: #a2ce40;
   --sudoku: #ee6ba9;
@@ -4640,7 +4642,7 @@ a {
   --crucimini: #6781c8;
   --cruci-tematico: #b09c03;
   --panal-de-letras: #dce11f;
-  --memograma: #295DEA;
+  --memograma: #295dea;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -4908,6 +4910,10 @@ a {
 
 .rounded-48 {
   border-radius: 3rem;
+}
+
+.rounded-80 {
+  border-radius: 5rem;
 }
 
 .rounded-circle {
@@ -5182,6 +5188,10 @@ a {
   color: var(--ia-tools);
 }
 
+.text-ln-radio {
+  color: var(--ln-radio);
+}
+
 .bg-dark-100 {
   background: var(--dark-neutral-100);
 }
@@ -5232,6 +5242,10 @@ a {
 
 .bg-neutral-light-800 {
   background: var(--neutral-light-800);
+}
+
+.bg-neutral-light-999 {
+  background: var(--neutral-light-999);
 }
 
 .bg-neutral-dark-1 {
@@ -5804,6 +5818,10 @@ strong:not(.--font-primary),
 
 .mt-50 {
   margin-top: 3.125rem;
+}
+
+.mt-72 {
+  margin-top: 4.5rem;
 }
 
 .ml-4 {
