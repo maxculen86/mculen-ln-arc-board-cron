@@ -703,6 +703,76 @@ describe('Case return buildOgMetas', () => {
             { property: 'profile:username', content: 'el-autor-slug' }
         ]);
     });
+
+    it('If the _id contains an accent, it should be displayed correctly', () => {
+        const globalContent = {
+            isWiki: true,
+            firstName: 'Juan',
+            lastName: 'Pravata',
+            middleName: 'Guillermo',
+            node_type: 'author',
+            wikiSourceData: {
+                schemas_info: {
+                    family_name: 'Díaz',
+                    given_name: 'Bruno',
+                    additional_name: ''
+                },
+                type: 1
+            }
+        };
+        const globalContentConfig = {
+            query: {
+                slug: 'bruno-d%C3%ADaz',
+                _id: 'bruno-d%C3%ADaz'
+            }
+        };
+
+        expect(
+            buildOgMetas({ ...params, globalContent, globalContentConfig })
+        ).toEqual([
+            { property: 'og:type', content: 'profile' },
+            { property: 'og:title', content: 'Test Title' },
+            { property: 'og:description', content: 'text description' },
+            { property: 'og:locale', content: 'es_AR' },
+            { property: 'og:image', content: 'https://example.com/image.jpg' },
+            { property: 'og:image:type', content: 'image/jpeg' },
+            { property: 'og:image:alt', content: 'Example Image' },
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:image:height', content: '630' },
+            { property: 'og:url', content: 'https://example.com/' },
+            { property: 'og:site_name', content: 'My Website' },
+            { property: 'profile:first_name', content: 'Bruno' },
+            { property: 'profile:last_name', content: 'Díaz' },
+            { property: 'profile:username', content: 'bruno-díaz' }
+        ]);
+
+        
+        expect(
+            buildOgMetas({
+                ...params,
+                globalContent: { ...globalContent, isWiki: false },
+                globalContentConfig
+            })
+        ).toEqual([
+            { property: 'og:type', content: 'profile' },
+            { property: 'og:title', content: 'Test Title' },
+            { property: 'og:description', content: 'text description' },
+            { property: 'og:locale', content: 'es_AR' },
+            { property: 'og:image', content: 'https://example.com/image.jpg' },
+            { property: 'og:image:type', content: 'image/jpeg' },
+            { property: 'og:image:alt', content: 'Example Image' },
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:image:height', content: '630' },
+            { property: 'og:url', content: 'https://example.com/' },
+            { property: 'og:site_name', content: 'My Website' },
+            { property: 'profile:first_name', content: 'Juan Guillermo' },
+            { property: 'profile:last_name', content: 'Pravata' },
+            { property: 'profile:username', content: 'bruno-díaz' }
+        ]);
+
+    })
+    
+
 });
 
 describe('getDataForProfileType function', () => {
