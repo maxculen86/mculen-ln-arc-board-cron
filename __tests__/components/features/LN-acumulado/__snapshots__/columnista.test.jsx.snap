@@ -22,20 +22,16 @@ exports[`features - LaNacion - Acumulado - columnista should render columnist co
             <div
               class="placeholder "
             >
-              <div
-                class="com-image"
-              >
-                <img
-                  alt="Joaquín Morales Solá"
-                  class="image flex com-image --cover"
-                  decoding="async"
-                  fetchpriority="low"
-                  height="80"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/EtZOBsudn8441bPnB-VpXjl06S0=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/d672e0d3-65df-44ef-8ea4-cdc8ef590296.png"
-                  width="80"
-                />
-              </div>
+              <img
+                alt="Joaquín Morales Solá"
+                class="com-image "
+                decoding="async"
+                fetchpriority="low"
+                height="80"
+                loading="lazy"
+                src="https://resizer.glanacion.com/resizer/EtZOBsudn8441bPnB-VpXjl06S0=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/d672e0d3-65df-44ef-8ea4-cdc8ef590296.png"
+                width="80"
+              />
             </div>
           </a>
         </figure>

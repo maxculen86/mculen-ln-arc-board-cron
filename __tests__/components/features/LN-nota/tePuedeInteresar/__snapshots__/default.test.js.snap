@@ -51,20 +51,17 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
                     <div
                       class="placeholder "
                     >
-                      <div
-                        class="com-image"
-                      >
-                        <img
-                          alt="Las predicciones de Jimena La Torre para la semana del 10 al 16 de enero"
-                          class="image flex com-image --cover"
-                          decoding="async"
-                          fetchpriority="low"
-                          height="513"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/kXV-yoHz3pbiEX4iszzFjsxgp_Q=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg"
-                          width="768"
-                        />
-                      </div>
+                      <img
+                        alt="Las predicciones de Jimena La Torre para la semana del 10 al 16 de enero"
+                        class="com-image "
+                        decoding="async"
+                        fetchpriority="low"
+                        height="513"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/kXV-yoHz3pbiEX4iszzFjsxgp_Q=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg"
+                        srcset="https://resizer.glanacion.com/resizer/t9PS4meryG8Xa9u-mX9jMGbKoyk=/360x240/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg 360w, https://resizer.glanacion.com/resizer/wYKWfLV7Ym4Io9p4A3BA199RrZs=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg 768w, https://resizer.glanacion.com/resizer/kXV-yoHz3pbiEX4iszzFjsxgp_Q=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg 351w, "
+                        width="768"
+                      />
                     </div>
                   </a>
                 </figure>
@@ -116,20 +113,17 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
                     <div
                       class="placeholder "
                     >
-                      <div
-                        class="com-image"
-                      >
-                        <img
-                          alt="¿Cómo será tu año de acuerdo a tu signo ascendente?"
-                          class="image flex com-image --cover"
-                          decoding="async"
-                          fetchpriority="low"
-                          height="513"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/nVubcz7kIn6kgD1w5Lcc8qpBqXU=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg"
-                          width="768"
-                        />
-                      </div>
+                      <img
+                        alt="¿Cómo será tu año de acuerdo a tu signo ascendente?"
+                        class="com-image "
+                        decoding="async"
+                        fetchpriority="low"
+                        height="513"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/nVubcz7kIn6kgD1w5Lcc8qpBqXU=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg"
+                        srcset="https://resizer.glanacion.com/resizer/7eZVUP53DrTU7wFM_yyN43lnk7w=/360x240/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg 360w, https://resizer.glanacion.com/resizer/hk4R-wNu5S-r7g08kazUrRkG1_0=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg 768w, https://resizer.glanacion.com/resizer/nVubcz7kIn6kgD1w5Lcc8qpBqXU=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg 351w, "
+                        width="768"
+                      />
                     </div>
                   </a>
                 </figure>

@@ -29,9 +29,9 @@ jest.mock(
 describe('Common - GetDataToLinkImage', () => {
     describe('When section is note,', () => {
         const expected =
-            '<link rel="preload" as="image" fetchpriority="high" media="(min-width: 1280.1px)" href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 1024.1px and max-width: 1280px)" href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg">';
+            '<link rel="preload" as="image" fetchpriority="high" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg" imagesrcset="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 879w,https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 1119w,https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 768w">';
         const expectedVideoType =
-            '<link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)" href="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=480"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)" href="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=720">';
+            '<link rel="preload" as="image" fetchpriority="high" href="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=480" imagesrcset="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=480 0w,https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=720 768w">';
         const expectedFotoAl100 =
             '<link rel="preload" as="image" fetchpriority="high" media="(min-width: 1280.1px)" href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 1024.1px and max-width: 1280px)" href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg">';
 
@@ -172,6 +172,8 @@ describe('Common - GetDataToLinkImage', () => {
                         }}
                     />
                 );
+
+                screen.debug();
 
                 const linksPreload = container.querySelectorAll('link');
 
