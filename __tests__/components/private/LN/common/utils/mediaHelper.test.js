@@ -92,12 +92,14 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             {
                 minWidth: 375,
                 maxWidth: undefined,
-                srcSet: 'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                srcSet:
+                    'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
             },
             {
                 minWidth: 320,
                 maxWidth: undefined,
-                srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                srcSet:
+                    'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
             }
         ];
 
@@ -126,7 +128,8 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 {
                     minWidth: undefined,
                     maxWidth: 320,
-                    srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet:
+                        'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 }
             ]);
         });
@@ -152,7 +155,8 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             ).toStrictEqual({
                 minWidth: 320,
                 maxWidth: undefined,
-                srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg, https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg 2x'
+                srcSet:
+                    'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg, https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg 2x'
             });
         });
 
@@ -177,7 +181,8 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 {
                     minWidth: 1024,
                     maxWidth: undefined,
-                    srcSet: 'https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet:
+                        'https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 },
                 ...result
             ]);
@@ -200,11 +205,13 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             const resultImages = [
                 {
                     mediaPreload: '(min-width: 320px) and (max-width: 375px)',
-                    srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet:
+                        'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 },
                 {
                     mediaPreload: '(min-width: 375)',
-                    srcSet: 'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet:
+                        'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 }
             ];
 
@@ -225,6 +232,18 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 ).toBeDefined();
             });
 
+            expect(container).toMatchSnapshot();
+        });
+
+        test('Load image without tag picture: Should return only a preload link', () => {
+            const { container } = render(
+                <LinkImagePreload
+                    resizedUrls={mockDataResizedUrls}
+                    isLoadWithPicture={false}
+                />
+            );
+
+            expect(container.querySelectorAll('link')).toHaveLength(1);
             expect(container).toMatchSnapshot();
         });
 

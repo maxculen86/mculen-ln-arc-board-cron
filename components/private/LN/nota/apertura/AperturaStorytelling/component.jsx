@@ -5,6 +5,7 @@ import ComFigure from '../../../../common/com-figure';
 import ModPicture from '../../../../common/mod-picture';
 import ModFigcaption from '../../../../common/mod-figcaption';
 import TitleAndIconArticle from '../titleAndIconArticle';
+
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
 import {
@@ -14,14 +15,17 @@ import {
 import { replaceAllUrlsResizerObject } from '../../../common/utils/mediaHelper';
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
+import useProportions from '../../../../common/hooks/useProportions';
 
-function Component(props) {
+const Component = props => {
     const {
         storytellingData,
         globalContent: { headlines, subtype },
+        isLoadWithPicture,
         withoutVideoBackground
     } = props;
     const isMobile = get(storytellingData, 'apertura.isMobile', false);
+    const device = get(storytellingData, 'apertura.device', 'desktop');
     const [data, setData] = useState(
         isMobile || subtype === FOTOAL100 || withoutVideoBackground
             ? storytellingData
@@ -34,19 +38,38 @@ function Component(props) {
     }, [storytellingData]);
 
     const { apertura = {} } = data;
-    const { src, altText, video, caption, credit, resizedUrls, imgDefault } =
+    const {
+        src,
+        srcset,
+        altText,
+        video,
+        caption,
+        credit,
+        resizedUrls,
+        imgDefault
+    } =
         subtype === STORYTELLING || subtype === FOTOAL100
             ? replaceAllUrlsResizerObject(apertura)
             : apertura;
+
+    const sourcesForDevice = useProportions({
+        resizedUrls,
+        device,
+        subtype
+    });
 
     return (
         <section className="mod-opening">
             <ComFigure>
                 <ModPicture
                     classCondition=""
+                    srcset={srcset || ''}
                     src={src || ''}
                     alt={caption || altText || titleNote || ''}
                     video={video || ''}
+                    sources={sourcesForDevice}
+                    isApertura
+                    isLoadWithPicture={isLoadWithPicture}
                     imageListForPicture={resizedUrls}
                     imgDefault={imgDefault}
                 />
@@ -69,7 +92,7 @@ function Component(props) {
             )}
         </section>
     );
-}
+};
 
 Component.propTypes = {
     outputType: PropTypes.string.isRequired,
@@ -92,7 +115,7 @@ Component.propTypes = {
         }),
         subtype: PropTypes.string
     }).isRequired,
-    withoutVideoBackground: PropTypes.bool
+    isLoadWithPicture: PropTypes.bool
 };
 
 Component.defaultProps = {
@@ -106,7 +129,7 @@ Component.defaultProps = {
             credit: ''
         }
     },
-    withoutVideoBackground: false
+    isLoadWithPicture: false
 };
 
 export default WithStorytellingData(Component);

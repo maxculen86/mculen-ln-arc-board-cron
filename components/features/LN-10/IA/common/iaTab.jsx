@@ -8,7 +8,7 @@ import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 function IaTab({ id = '', title = '' }) {
     const { contextPath, deployment } = useAppContext();
     if (!id || !title) return null;
-    const path = `${contextPath}/resources/images/svgDegrade/${id}.webp`;
+    const path = `${contextPath}/resources/images/svgDegrade/${id}-ia.webp`;
     const deploymentPath = deployment(path);
 
     return (

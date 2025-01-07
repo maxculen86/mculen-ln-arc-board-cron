@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Features - LaNacion - 10 - Radio should match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="mt-72 pt-24 border border-top border-thin border-neutral-light-900"
+    >
+      <div
+        class="flex ai-center jc-between pb-16"
+      >
+        <div
+          class="flex gap-16 ai-center text-20"
+        >
+          <img
+            alt="Imagen de radio"
+            class="image flex --cover"
+            decoding="async"
+            fetchpriority="low"
+            height="71"
+            loading="lazy"
+            src="pathDeployment/contextPath/resources/images/ln-radio.webp"
+          />
+          <span
+            class="sm-none text-neutral-light-900"
+          >
+            El mundo necesita más música
+          </span>
+        </div>
+        <a
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent h-40 px-16 py-12 uppercase bg-neutral-light-999 rounded-80 text-ln-radio text-12 --custom"
+          data-variant="custom"
+          href="https://masmusica.lanacion.com.ar/"
+          rel="nofollow"
+          target="_blank"
+          title="Ir a escuchar más música"
+          type="button"
+        >
+          Escuchá + música
+          <i
+            class="icon sm-none --icon-20"
+          >
+            <mock-icon
+              name="mediaPlay"
+            />
+          </i>
+        </a>
+      </div>
+      <hr
+        class="w-100"
+      />
+    </div>
+  </div>
+</div>
+`;

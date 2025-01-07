@@ -12,7 +12,7 @@ exports[`IaTab component matches snapshot when id is "glossary" 1`] = `
       fetchpriority="low"
       height="24"
       loading="lazy"
-      src="pathDeployment/contextPath/resources/images/svgDegrade/glossary.webp"
+      src="pathDeployment/contextPath/resources/images/svgDegrade/glossary-ia.webp"
     />
   </i>
   <h2
@@ -35,7 +35,7 @@ exports[`IaTab component matches snapshot when id is "summary" 1`] = `
       fetchpriority="low"
       height="24"
       loading="lazy"
-      src="pathDeployment/contextPath/resources/images/svgDegrade/summary.webp"
+      src="pathDeployment/contextPath/resources/images/svgDegrade/summary-ia.webp"
     />
   </i>
   <h2

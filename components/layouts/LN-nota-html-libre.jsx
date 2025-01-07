@@ -7,7 +7,7 @@ import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import PwaModal from '../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../features/LN-10-global/pwaModal/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 
 function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {

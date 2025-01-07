@@ -8,15 +8,16 @@ import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrl
 import filter from '../../../../content/filters/LN/acumulado/articlePreload';
 import useGetArticlesToPreload from '../common/hooks/useGetArticlesToPreload';
 
-function PreloadAcuDeportes({
+const PreloadAcuDeportes = ({
     arcSite,
     imageConfig = '',
     articleId = '',
     imageId = '',
     collectionId = '',
     initialPosition = 0,
-    isFocal = false
-}) {
+    isFocal = false,
+    isLoadWithPicture
+}) => {
     const [firstArticle] =
         useGetArticlesToPreload({
             website: arcSite || 'la-nacion-ar',
@@ -35,8 +36,14 @@ function PreloadAcuDeportes({
     const promoItemsWWW = replaceUrlResizerToWWW(basic) || {};
     const resizedUrls = get(promoItemsWWW, 'resized_urls', []);
 
-    return <LinkImagePreload resizedUrls={resizedUrls} />;
-}
+    return (
+        <LinkImagePreload
+            // TODO: Eliminar esta prop cuando se implemente la carga por picture en todo el sitio.
+            isLoadWithPicture={isLoadWithPicture}
+            resizedUrls={resizedUrls}
+        />
+    );
+};
 
 PreloadAcuDeportes.propTypes = {
     arcSite: PropTypes.string.isRequired,
@@ -45,7 +52,8 @@ PreloadAcuDeportes.propTypes = {
     collectionId: PropTypes.string,
     isFocal: PropTypes.bool,
     initialPosition: PropTypes.number,
-    imageConfig: PropTypes.string
+    imageConfig: PropTypes.string,
+    isLoadWithPicture: PropTypes.bool
 };
 
 export default PreloadAcuDeportes;

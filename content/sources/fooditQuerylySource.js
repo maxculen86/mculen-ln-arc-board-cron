@@ -11,7 +11,7 @@ export const resolve = key => {
             'Debe definir un query (termino de busqueda) para realizar la consulta - Queryly Source Foodit'
         );
 
-    const basePath = `${API_QUERYLY}/json.aspx?queryly_key=${API_KEY_QUERYLY}&query=${query} `;
+    const basePath = `${API_QUERYLY}/json.aspx?queryly_key=${API_KEY_QUERYLY}&sort=date&query=${query} `;
 
     const queryParams = [];
 

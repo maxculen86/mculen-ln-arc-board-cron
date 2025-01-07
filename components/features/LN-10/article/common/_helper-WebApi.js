@@ -25,14 +25,15 @@ export const typeBadge = {
 export const getIsBomba = parent =>
     get(parent, 'type', '') === 'LN10_Caja_Bomba';
 
-const getImageConfig = ({ renderables, layoutsName, config }) =>
-    renderables.some(
+const getImageConfig = ({ renderables, layoutsName, config }) => {
+    return renderables.some(
         elem =>
             get(elem, 'collection') === 'layouts' &&
-            Object.values(layoutsName).includes(get(elem, 'type', ''))
+            get(elem, 'type', '') === layoutsName.HomeLN10
     )
         ? get(config, 'imageConfig', 'boxArticles')
         : '';
+};
 
 export const getChainParentOfFeature = (featureId, renderables) => {
     const chains = [
@@ -53,46 +54,6 @@ export const getChainParentOfFeature = (featureId, renderables) => {
                 child => get(child, 'props.id') === featureId
             )
     );
-};
-
-export const updatesTitleTag = (cardConfig = []) => {
-    const updatedCardConfig = [...cardConfig];
-    const titleTag = get(updatedCardConfig[0], 'titleTag');
-
-    if (titleTag && titleTag !== 'h1') {
-        updatedCardConfig[0].titleTag = 'h1';
-
-        if (get(updatedCardConfig[0], 'subheadTag'))
-            updatedCardConfig[0].subheadTag = 'h2';
-    }
-
-    return updatedCardConfig && updatedCardConfig[0];
-};
-
-export const deleteExtraH1 = (articlePosition = null, cardConfig = []) => {
-    const updatedCardConfig = [...cardConfig];
-    const titleTag = get(updatedCardConfig[articlePosition], 'titleTag');
-
-    if (titleTag === 'h1') {
-        updatedCardConfig[articlePosition].titleTag = 'h2';
-        if (get(updatedCardConfig[articlePosition], 'subheadTag'))
-            updatedCardConfig[articlePosition].subheadTag = 'h3';
-    }
-
-    return updatedCardConfig && updatedCardConfig[articlePosition];
-};
-
-export const handleTagWithBomba = (
-    firstBombaChainId,
-    chainId,
-    cardConfig,
-    articlePosition
-) => {
-    if (firstBombaChainId === chainId && articlePosition === 0) {
-        return updatesTitleTag(cardConfig);
-    }
-
-    return deleteExtraH1(articlePosition, cardConfig);
 };
 
 export const getCardConfig = (
@@ -242,4 +203,46 @@ export const isInApertura = ({
     );
 };
 
-export const checkForId = idValue => idValue && idValue.trim();
+export const updatesTitleTag = (cardConfig = []) => {
+    const updatedCardConfig = [...cardConfig];
+    const titleTag = get(updatedCardConfig[0], 'titleTag');
+
+    if (titleTag && titleTag !== 'h1') {
+        updatedCardConfig[0].titleTag = 'h1';
+
+        if (get(updatedCardConfig[0], 'subheadTag'))
+            updatedCardConfig[0].subheadTag = 'h2';
+    }
+
+    return updatedCardConfig && updatedCardConfig[0];
+};
+
+export const deleteExtraH1 = (articlePosition = null, cardConfig = []) => {
+    const updatedCardConfig = [...cardConfig];
+    const titleTag = get(updatedCardConfig[articlePosition], 'titleTag');
+
+    if (titleTag === 'h1') {
+        updatedCardConfig[articlePosition].titleTag = 'h2';
+        if (get(updatedCardConfig[articlePosition], 'subheadTag'))
+            updatedCardConfig[articlePosition].subheadTag = 'h3';
+    }
+
+    return updatedCardConfig && updatedCardConfig[articlePosition];
+};
+
+export const handleTagWithBomba = (
+    firstBombaChainId,
+    chainId,
+    cardConfig,
+    articlePosition
+) => {
+    if (firstBombaChainId === chainId && articlePosition === 0) {
+        return updatesTitleTag(cardConfig);
+    }
+
+    return deleteExtraH1(articlePosition, cardConfig);
+};
+
+export const checkForId = idValue => {
+    return idValue && idValue.trim();
+};

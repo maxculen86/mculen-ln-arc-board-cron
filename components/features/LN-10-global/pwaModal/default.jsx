@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import classNames from 'classnames';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
@@ -9,7 +8,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import usePwaModal from '../../../private/common/hooks/usePwaModal';
 import startPWASetup from './register';
 
-function PwaModal({ className }) {
+export function PwaModal({ className }) {
     const { isShowModal, handleNoClick, handleYesClick } = usePwaModal();
     const { deployment, contextPath, isAdmin } = useAppContext();
 
@@ -26,7 +25,7 @@ function PwaModal({ className }) {
         startPWASetup(deployment);
     }, [deployment]);
 
-    if (!isShowModal || isAdmin) return null;
+    if (!isShowModal || isAdmin) return <></>;
 
     return (
         <div className={classes} id="notificacion-modal">
@@ -70,12 +69,5 @@ function PwaModal({ className }) {
         </div>
     );
 }
-PwaModal.propTypes = {
-    className: PropTypes.string
-};
-
-PwaModal.defaultProps = {
-    className: ''
-};
 
 export default PwaModal;
