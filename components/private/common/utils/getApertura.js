@@ -79,6 +79,7 @@ const formatAperturaData = ({
     basicImageDsk,
     videoBackground,
     basicImageMobile,
+    isLoadWithPicture,
     device,
     videoJW
 }) => {
@@ -96,7 +97,12 @@ const formatAperturaData = ({
         firstPlaylist
     );
 
-    const { alt_text: altText = '', url = '', caption } = data;
+    const {
+        alt_text: altText = '',
+        url = '',
+        caption,
+        resized_urls: resizedUrls = []
+    } = data;
 
     const imageList = getListOfOpeningImages(
         video,
@@ -111,7 +117,7 @@ const formatAperturaData = ({
         srcset: url,
         caption: get(videoBackground, 'headlines.basic', '') || caption || '',
         credit: EpigrafeAndCreditsData(data),
-        resizedUrls: imageList,
+        resizedUrls: isLoadWithPicture ? imageList : resizedUrls,
         imgDefault: get(getShortestImage(imageList), 'resizedUrl', url),
         device,
         isMobile
@@ -123,6 +129,7 @@ const getApertura = (
     basicImageDsk,
     videoBackground,
     basicImageMobile,
+    isLoadWithPicture,
     device,
     videoJW
 ) =>
@@ -131,6 +138,7 @@ const getApertura = (
         basicImageDsk,
         videoBackground,
         basicImageMobile,
+        isLoadWithPicture,
         device,
         videoJW
     });

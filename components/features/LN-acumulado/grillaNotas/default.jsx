@@ -14,7 +14,7 @@ import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
 
 import { verifyChainsBeforeGrid } from '../../../private/common/utils/preloadHelper';
 
-function GrillaNotasFeature(props) {
+const GrillaNotasFeature = props => {
     const { customFields, globalContentConfig, globalContent, id } = props;
     const globalProviderAcu = useGlobalProviderAcu();
 
@@ -30,7 +30,8 @@ function GrillaNotasFeature(props) {
             serviceType = ''
         } = {},
         outputType = 'default',
-        renderables = []
+        renderables = [],
+        layout: pageLayout
     } = useAppContext();
 
     const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
@@ -53,13 +54,21 @@ function GrillaNotasFeature(props) {
         globalContent
     });
 
-    const { goToNextPage, loading, hasMoreArticles, InitialGrid, NextResults } =
-        useGridPagination({
-            getBanner,
-            ...globalProviderAcu,
-            ...appContextProps,
-            hasChainBeforeGrid
-        });
+    const {
+        goToNextPage,
+        loading,
+        hasMoreArticles,
+        InitialGrid,
+        NextResults
+    } = useGridPagination({
+        getBanner,
+        ...globalProviderAcu,
+        ...appContextProps,
+        hasChainBeforeGrid,
+        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+        globalContent,
+        pageLayout
+    });
 
     return (
         <GrillaNotas
@@ -72,7 +81,7 @@ function GrillaNotasFeature(props) {
             featureId={id}
         />
     );
-}
+};
 
 GrillaNotasFeature.label = 'LN-Acumulado-Grilla-Notas';
 
@@ -87,8 +96,7 @@ GrillaNotasFeature.propTypes = {
         query: PropTypes.shape({
             id: PropTypes.string
         })
-    }).isRequired,
-    id: PropTypes.string.isRequired
+    }).isRequired
 };
 
 export default Consumer(GrillaNotasFeature);

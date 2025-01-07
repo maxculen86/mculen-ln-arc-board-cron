@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
-import PwaModal from '../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../features/LN-10-global/pwaModal/default';
 import GlobalProvider from '../private/common/context/globalContext';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import InitControlGroup from './helpers/initCtrlGrp';

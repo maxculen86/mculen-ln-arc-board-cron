@@ -3,7 +3,7 @@ import Apertura from '../../../../../components/features/LN-acumulado/apertura/j
 import filter from '../../../../../content/filters/LN/acumulado/articleHomeMobile';
 
 jest.mock('fusion:consumer', component => {
-    return function (component) {
+    return function(component) {
         const newComponent = component;
         // Mock fetchContent
         newComponent.prototype.fetchContent = jest.fn();
@@ -78,6 +78,7 @@ describe('Test suite de feature LN-acumulados/apertura', () => {
                 filter,
                 query: {
                     id: 'IDCOLLECTION',
+                    imageConfig: false,
                     size: 2,
                     website: 'la-nacion-ar'
                 },
