@@ -1,6 +1,6 @@
 import { useContent } from 'fusion:content';
 import getProperties from 'fusion:properties';
-import addForwardSlash from '../../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 import capitalizeFirstLetter from './capitalizeFirstLetter';
 import get from './get';
 import filter from '../../../../content/filters/LN/acumulado/articleMasNotas';
@@ -67,14 +67,13 @@ export const getFilteredContentElements = (
     articlesList = {},
     idArticle = '',
     cantidadNotas = 0
-) => {
-    return get(articlesList, 'content_elements', [])
+) =>
+    get(articlesList, 'content_elements', [])
         .filter(
             ({ _id: id = '', promo_items: promoItems = {} } = {}) =>
                 id !== idArticle && get(promoItems, 'basic.type') === 'image'
         )
         .slice(0, Number(cantidadNotas));
-};
 
 export const setSearchParamsByFilterType = {
     byLastNews: ({
@@ -132,14 +131,31 @@ export const setSearchParamsByFilterType = {
     }
 };
 
+export const getLink = (isSearchByTag, sectionOrTag, articles = []) => {
+    const link = sectionOrTag
+        ? {
+              path: sectionOrTag,
+              text: sectionOrTag.replace('/', '')
+          }
+        : {};
+
+    if (sectionOrTag && isSearchByTag) {
+        const tags = get(articles[0], 'taxonomy.tags', []);
+        const { description = '' } =
+            tags.find(({ slug = '' } = {}) => slug === sectionOrTag) || {};
+
+        link.text = description;
+    }
+
+    return link;
+};
+
 export const filterType = {
-    byLastNews: ({ filteredContentElements, isRecetas }) => {
-        return {
-            articles: filteredContentElements,
-            sectionTitle: 'UltimasNoticias',
-            title: isRecetas ? 'Últimas Recetas' : 'Últimas Noticias'
-        };
-    },
+    byLastNews: ({ filteredContentElements, isRecetas }) => ({
+        articles: filteredContentElements,
+        sectionTitle: 'UltimasNoticias',
+        title: isRecetas ? 'Últimas Recetas' : 'Últimas Noticias'
+    }),
 
     byTags: ({
         _website: website,
@@ -217,23 +233,4 @@ export const filterType = {
             title: getTitle(isNoticia, isRecetas, link, isSearchByTag)
         };
     }
-};
-
-export const getLink = (isSearchByTag, sectionOrTag, articles = []) => {
-    const link = sectionOrTag
-        ? {
-              path: sectionOrTag,
-              text: sectionOrTag.replace('/', '')
-          }
-        : {};
-
-    if (sectionOrTag && isSearchByTag) {
-        const tags = get(articles[0], 'taxonomy.tags', []);
-        const { description = '' } =
-            tags.find(({ slug = '' } = {}) => slug === sectionOrTag) || {};
-
-        link.text = description;
-    }
-
-    return link;
 };

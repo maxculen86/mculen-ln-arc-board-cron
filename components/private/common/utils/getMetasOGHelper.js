@@ -8,7 +8,7 @@ import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
 import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
 import getImageAltText from '../../../features/foodit-global/common/utils/getImageAltText';
-import addForwardSlash from '../../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 import {
     getModifiedDate,
     getPublishDate
