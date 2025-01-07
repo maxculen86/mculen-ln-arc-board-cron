@@ -7,7 +7,7 @@ import GlobalProvider from '../../private/common/context/globalContext';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
-import PwaModal from '../../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
 import InitControlGroup from '../helpers/initCtrlGrp';

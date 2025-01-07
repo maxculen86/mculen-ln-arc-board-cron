@@ -71,8 +71,8 @@ function StickyMobile({ headerText, alt, articleToShow }) {
                     >
                         <ModPicture
                             src={get(resizedUrls[0], 'resizedUrl', url)}
-                            imgDefault={get(resizedUrls[0], 'resizedUrl', url)}
                             alt={alt || headlineToUse}
+                            sources={resizedUrls}
                         />
                         <Text className="arial text-16 --font-regular" tag="h2">
                             {headlineToUse}

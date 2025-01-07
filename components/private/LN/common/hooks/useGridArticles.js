@@ -5,6 +5,8 @@ import { getIdsArticlesFromOtherCollections } from '../utils/cajaTemasValidators
 import excludeUrlNacion from '../utils/excludeUrlNacion';
 import getIdsArticlesFromCajaManual from '../../../../chains/utils/getIdsArticlesFromCajaManual';
 import { SUSCRIPTOR_SECTION } from '../../../common/utils/subtypes/subtypeHelper';
+import isAllowedSection from '../utils/isAllowedSection';
+import allowSectionAndLayout from '../media/helpers/allowSectionAndLayout';
 
 const useGridArticles = props => {
     const {
@@ -22,7 +24,10 @@ const useGridArticles = props => {
         hasCollectionApertura = false,
         sourceOrigin = '',
         hasChainBeforeGrid = false,
-        isWiki = false
+        isWiki = false,
+        // TODO: Eliminar esta prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+        globalContent,
+        pageLayout
     } = props || {};
 
     const DEFAULT_QUANTITY = 30;
@@ -35,8 +40,9 @@ const useGridArticles = props => {
             ? payload.items[0].slug
             : undefined;
 
-    const authorId = nodeType === 'author' ? _id : null;
-    const sectionId = nodeType === 'section' ? _id : null;
+    const authorId =
+        nodeType === 'author' ? encodeURIComponent(_id) : undefined;
+    const sectionId = nodeType === 'section' ? _id : undefined;
 
     const cajaManualArticles =
         tagId === SUSCRIPTOR_SECTION
@@ -60,6 +66,14 @@ const useGridArticles = props => {
         isWiki
     });
 
+    const imageConfig = isAllowedSection({
+        globalContent,
+        listOfAllowedSection: allowSectionAndLayout,
+        layout: pageLayout
+    })
+        ? 'newBoxArticles'
+        : 'boxArticles';
+
     const isServerSide = typeof window === 'undefined' && page === 1;
 
     const searchArgs = {
@@ -71,7 +85,7 @@ const useGridArticles = props => {
             sectionsIds
         },
         filter,
-        imageConfig: 'newBoxArticles',
+        imageConfig,
         size: articlesQuantity.tripleSize || articlesQuantity,
         type,
         staticMode: isServerSide,

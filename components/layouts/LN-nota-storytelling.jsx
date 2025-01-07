@@ -7,8 +7,11 @@ import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelli
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import PwaModal from '../features/LN-10-global/pwaModal/default';
+import { PwaModal } from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
+import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
+import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
@@ -20,10 +23,16 @@ function lnNotaStorytelling({
     layout,
     globalContent: {
         taxonomy: { sections },
-        distributor: { name }
+        distributor: { name },
+        subtype = ''
     },
     globalContent
 }) {
+    const isLoadWithPicture = isAllowedSection({
+        globalContent,
+        listOfAllowedSection,
+        noteType: subtype
+    });
     const withoutVideoBackground = !(
         get(globalContent, 'promo_items.storytelling', null) ||
         get(globalContent, 'promo_items.video_jw', null)
@@ -47,9 +56,18 @@ function lnNotaStorytelling({
                 <Header />
                 <main id="content" className="--header-fixed-margin">
                     {children[1]}
-                    <AperturaStorytelling
-                        withoutVideoBackground={withoutVideoBackground}
-                    />
+
+                    {isLoadWithPicture && withoutVideoBackground ? (
+                        <AperturaStorytelling
+                            isLoadWithPicture={isLoadWithPicture}
+                            withoutVideoBackground={withoutVideoBackground}
+                        />
+                    ) : (
+                        <AperturaStorytelling
+                            isLoadWithPicture={isLoadWithPicture}
+                        />
+                    )}
+
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             <section className="cuerpo__nota">

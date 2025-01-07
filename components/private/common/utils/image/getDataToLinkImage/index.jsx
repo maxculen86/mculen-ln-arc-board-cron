@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from '../../get';
 import {
     LinkImagePreload,
@@ -20,32 +19,54 @@ import {
 import { getUltimasNoticiasSectionsIds } from '../../../../../features/LN-acumulado/tagList';
 import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
 import { getResizedUrls } from './_helper';
+import isAllowedSection from '../../../../LN/common/utils/isAllowedSection';
+import allowSectionAndLayout from '../../../../LN/common/media/helpers/allowSectionAndLayout';
 import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
 
-function getSectionData({
-    section,
-    data,
-    renderables,
-    arcSite,
-    isAdmin,
-    layout,
-    basic,
-    isAuthor,
-    isDeportes,
-    canonicalUrl,
-    wikiSourceData,
-    isWiki,
-    nodeType,
-    id,
-    name,
-    subtype,
-    promoItems
-}) {
-    const handlers = {
+const GetDataToLinkImage = ({
+    data = {},
+    section = '',
+    renderables = [],
+    arcSite = '',
+    isAdmin = false,
+    layout
+}) => {
+    const {
+        _id: id,
+        name,
+        subtype,
+        promo_items: promoItems,
+        canonical_url: canonicalUrl,
+        wikiSourceData = {},
+        isWiki = false,
+        node_type: nodeType
+    } = data || {};
+
+    const isValidSection = isAllowedSection({
+        globalContent: data,
+        listOfAllowedSection: allowSectionAndLayout,
+        layout,
+        noteType: subtype
+    });
+
+    const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
+    const isAuthor = nodeType === 'author';
+    const isDeportes = id === '/deportes';
+
+    if (!data) return <></>;
+
+    const sectionData = {
         Nota: () => {
             const resizedUrls = getResizedUrls(subtype, promoItems, basic);
-            return <LinkImagePreload resizedUrls={resizedUrls} />;
+
+            return (
+                <LinkImagePreload
+                    isLoadWithPicture={isValidSection}
+                    resizedUrls={resizedUrls}
+                />
+            );
         },
+
         Acumulado: () => {
             if (isDeportes) {
                 const {
@@ -57,7 +78,7 @@ function getSectionData({
                     imageId = ''
                 } = getFirstChainItem(renderables);
 
-                if (!collectionId && !articleId) return null;
+                if (!collectionId && !articleId) return <></>;
 
                 return (
                     <PreloadAcuDeportes
@@ -70,6 +91,7 @@ function getSectionData({
                             initialPosition > 0 ? initialPosition - 1 : 0
                         }
                         isFocal={isFocal}
+                        isLoadWithPicture={isValidSection}
                     />
                 );
             }
@@ -88,13 +110,14 @@ function getSectionData({
                             as="image"
                             fetchPriority="high"
                             href={urlImage}
-                            imageSrcSet={urlImage}
+                            imagesrcset={urlImage}
                         />
                     )
                 );
             }
-            const hasFeatureAcumuladoApertura =
-                haveFeatureAcumuladoApertura(renderables);
+            const hasFeatureAcumuladoApertura = haveFeatureAcumuladoApertura(
+                renderables
+            );
             const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
             const idCollectionApertura = getIdCollectionFromGC({
                 globalContent: data
@@ -107,7 +130,7 @@ function getSectionData({
                 hasChainBeforeGrid
             });
 
-            if (notPreload) return null;
+            if (notPreload) return <></>;
 
             const sectionsIds =
                 id === '/ultimas-noticias'
@@ -115,7 +138,8 @@ function getSectionData({
                     : '';
             const dataPreloadAcu = getDataPreloadAcu(
                 idCollectionApertura,
-                nodeType
+                nodeType,
+                isValidSection
             );
             return (
                 <ImagePreloadlAcu
@@ -123,83 +147,32 @@ function getSectionData({
                     sectionsIds={sectionsIds}
                     arcSite={arcSite}
                     accumulated={{ id, canonicalUrl, name }}
+                    isLoadWithPicture={isValidSection}
                 />
             );
         },
-        Home: () => (
-            <BuildHomePreloadImages
-                renderables={renderables}
-                arcSite={arcSite}
-                isAdmin={isAdmin}
-                layout={layout}
-            />
-        ),
+        Home: () => {
+            return (
+                <BuildHomePreloadImages
+                    renderables={renderables}
+                    arcSite={arcSite}
+                    isAdmin={isAdmin}
+                    layout={layout}
+                />
+            );
+        },
         Video: () => (
             <LinkImagePreload
                 resizedUrls={getResizedUrls(subtype, promoItems, basic)}
             />
         )
     };
-
-    return handlers[section] || null;
-}
-
-function GetDataToLinkImage({
-    data = {},
-    section = '',
-    renderables = [],
-    arcSite = '',
-    isAdmin = false,
-    layout
-}) {
-    const {
-        _id: id,
-        name,
-        subtype,
-        promo_items: promoItems,
-        canonical_url: canonicalUrl,
-        wikiSourceData = {},
-        isWiki = false,
-        node_type: nodeType
-    } = data || {};
-
-    const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
-    const isAuthor = nodeType === 'author';
-    const isDeportes = id === '/deportes';
-
-    if (!data) return null;
-
     const sectionAsComponent = capitalizeFirstLetter(section);
-    const sectionData = getSectionData({
-        section: sectionAsComponent,
-        data,
-        renderables,
-        arcSite,
-        isAdmin,
-        layout,
-        basic,
-        isAuthor,
-        isDeportes,
-        canonicalUrl,
-        wikiSourceData,
-        isWiki,
-        nodeType,
-        id,
-        name,
-        subtype,
-        promoItems
-    });
 
-    return sectionData && sectionData();
-}
-
-GetDataToLinkImage.propTypes = {
-    data: PropTypes.shape(),
-    section: PropTypes.string,
-    renderables: PropTypes.arrayOf(PropTypes.node),
-    arcSite: PropTypes.string,
-    isAdmin: PropTypes.bool,
-    layout: PropTypes.string
-}.isRequired;
+    return (
+        (sectionData[sectionAsComponent] &&
+            sectionData[sectionAsComponent]()) || <></>
+    );
+};
 
 export default GetDataToLinkImage;

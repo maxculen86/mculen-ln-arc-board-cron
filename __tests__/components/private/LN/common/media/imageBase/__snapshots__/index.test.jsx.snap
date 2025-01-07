@@ -45,30 +45,17 @@ exports[`Tests component - imageBase Cases without tag picture The image should 
     <div
       class="placeholder "
     >
-      <div
-        class="com-image"
-      >
-        <picture>
-          <source
-            media="(min-width: 1280px)"
-            srcset="https://www.lanacion.com.ar/resizer/9JkXATNcqzYXNsQ2bYSGvpitwUA=/608x405/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg"
-          />
-          <source
-            media="(min-width: 375px)"
-            srcset="https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg"
-          />
-          <img
-            alt="Adentro y afuera se confunden en esta casa con gran quincho junto a un jardín semicubierto"
-            class="image flex com-image --cover"
-            decoding="async"
-            fetchpriority="high"
-            height="513"
-            loading="eager"
-            src="https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg"
-            width="768"
-          />
-        </picture>
-      </div>
+      <img
+        alt="Adentro y afuera se confunden en esta casa con gran quincho junto a un jardín semicubierto"
+        class="com-image "
+        decoding="async"
+        fetchpriority="high"
+        height="513"
+        loading="eager"
+        src="https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg"
+        srcset="https://www.lanacion.com.ar/resizer/9JkXATNcqzYXNsQ2bYSGvpitwUA=/608x405/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg 608w, https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg 375w"
+        width="768"
+      />
     </div>
   </a>
 </div>

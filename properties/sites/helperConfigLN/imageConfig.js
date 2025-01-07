@@ -85,7 +85,6 @@ export default {
                         width: 1920,
                         height: 1280,
                         media: minWidth1920,
-                        minScreenWidth: 1920,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: '(min-width: 1920.1px)'
@@ -94,7 +93,6 @@ export default {
                         width: 1280,
                         height: 854,
                         // media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload:
@@ -104,7 +102,6 @@ export default {
                         width: 1024,
                         height: 682,
                         // media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: min1024max1280
@@ -113,7 +110,6 @@ export default {
                         width: 768,
                         height: 512,
                         // media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: min768max1024
@@ -122,7 +118,6 @@ export default {
                         width: 375,
                         height: 562,
                         // media: minWidth375,
-                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '2:3',
                         media_preload: min375max768
@@ -179,7 +174,6 @@ export default {
                         width: 560,
                         height: 373,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: minWidthPreload1280
@@ -188,7 +182,6 @@ export default {
                         width: 637,
                         height: 424,
                         media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: min1024max1280
@@ -197,7 +190,6 @@ export default {
                         width: 465,
                         height: 310,
                         media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: min768max1024
@@ -206,7 +198,6 @@ export default {
                         width: 375,
                         height: 250,
                         // media: minWidth375,
-                        minScreenWidth: 376,
                         useFullSize: true,
                         proportion: '2:3',
                         media_preload: min375max768
@@ -258,7 +249,6 @@ export default {
                         width: 292,
                         height: 194,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -266,7 +256,6 @@ export default {
                         width: 316,
                         height: 210,
                         media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -274,15 +263,13 @@ export default {
                         width: 231,
                         height: 154,
                         media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:2'
                     },
                     {
                         width: 375,
                         height: 229,
-                        media: minWidth375,
-                        minScreenWidth: 375,
+                        // media: minWidth375,
                         useFullSize: true,
                         proportion: '2:3'
                     },
@@ -332,7 +319,6 @@ export default {
                         width: 595,
                         height: 399,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: minWidthPreload1280
@@ -341,7 +327,6 @@ export default {
                         width: 635,
                         height: 424,
                         media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: min1024max1280
@@ -350,7 +335,6 @@ export default {
                         width: 465,
                         height: 311,
                         media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:2',
                         media_preload: min768max1024
@@ -359,7 +343,6 @@ export default {
                         width: 375,
                         height: 229,
                         // media: minWidth375,
-                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '2:3',
                         media_preload: min375max768
@@ -412,7 +395,6 @@ export default {
                         width: 375,
                         height: 229,
                         // media: minWidth375,
-                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '2:3'
                     },
@@ -447,7 +429,6 @@ export default {
                         width: 373,
                         height: 250,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -455,7 +436,6 @@ export default {
                         width: 403,
                         height: 270,
                         media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -463,7 +443,6 @@ export default {
                         width: 297,
                         height: 200,
                         media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -471,7 +450,6 @@ export default {
                         width: 375,
                         height: 229,
                         // media: minWidth375,
-                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -533,7 +511,6 @@ export default {
                         width: 1250,
                         height: 500,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '5:2'
                     },
@@ -541,7 +518,6 @@ export default {
                         width: 1024,
                         height: 682,
                         media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '5:2'
                     },
@@ -549,7 +525,6 @@ export default {
                         width: 736,
                         height: 294,
                         media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '5:2'
                     },
@@ -557,7 +532,6 @@ export default {
                         width: 375,
                         height: 429,
                         // media: minWidth375,
-                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '3:4'
                     },
@@ -607,7 +581,6 @@ export default {
                         width: 449,
                         height: 300,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -615,7 +588,6 @@ export default {
                         width: 486,
                         height: 325,
                         media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -623,7 +595,6 @@ export default {
                         width: 358,
                         height: 240,
                         media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -631,7 +602,6 @@ export default {
                         width: 375,
                         height: 250,
                         // media: minWidth375,
-                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -783,7 +753,6 @@ export default {
                         width: 300,
                         height: 375,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:4'
                     },
@@ -791,7 +760,6 @@ export default {
                         width: 320,
                         height: 400,
                         media: minWidth1024,
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:4'
                     },
@@ -799,7 +767,6 @@ export default {
                         width: 245,
                         height: 293,
                         media: minWidth768,
-                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:4'
                     },
@@ -807,7 +774,6 @@ export default {
                         width: 375,
                         height: 229,
                         // media: minWidth375,
-                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '3:4'
                     },
@@ -892,6 +858,48 @@ export default {
                         width: 420,
                         height: 280,
                         media_preload: setMediaCondition({ maxWidth: 1023 }),
+                        useFullSize: true,
+                        proportion: '3:2'
+                    }
+                ]
+            }
+        },
+        // TODO: Borrar esta config cuando se migren todas las aperturas de Acu a los tamaños nuevos
+        aperturaAcu: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 608,
+                        height: 407,
+                        media: minWidth1280,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 486,
+                        height: 325,
+                        media: minWidth1024,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 358,
+                        height: 240,
+                        media: minWidth768,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 375,
+                        height: 250,
+                        // media: minWidth375,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 320,
+                        height: 213,
+                        // media: minWidth320,
                         useFullSize: true,
                         proportion: '3:2'
                     }
@@ -1227,7 +1235,6 @@ export default {
                         width: 238,
                         height: 159,
                         media_preload: setMediaCondition({ minWidth: 768 }),
-                        minScreenWidth: 768,
                         proportion: '3:2'
                     }
                 ]
