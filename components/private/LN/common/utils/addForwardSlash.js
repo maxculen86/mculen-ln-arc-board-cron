@@ -1,9 +1,13 @@
-import { escapedStringForRegex } from '../../../common/utils/dataValidation';
+import {
+    escapedStringForRegex,
+    isValidString
+} from '../../../common/utils/dataValidation';
 
-const addForwardSlash = str => {
-    if (!str || typeof str !== 'string') return null;
-    if (str.charCodeAt(str.length - 1) === 47) return str;
-    return str.concat('/');
+export const addForwardSlash = input => {
+    if (!isValidString(input) || input.trim() === '') return '';
+
+    const trimmedInput = input.trim();
+    return trimmedInput.endsWith('/') ? trimmedInput : `${trimmedInput}/`;
 };
 
 export const addForwardSlashInParagraphsLinks = content => {
@@ -30,5 +34,3 @@ export const addForwardSlashInInterstitialLink = url => {
     }
     return url;
 };
-
-export default addForwardSlash;

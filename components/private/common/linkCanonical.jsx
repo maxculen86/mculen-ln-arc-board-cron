@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import addForwardSlash from '../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../LN/common/utils/addForwardSlash';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
 import { isUSALangHtml } from './utils/outputTypeHelper';
@@ -36,9 +36,7 @@ function LinkCanonicalAndAlternate(props = {}) {
                 <link rel="alternate" href={canonicalLink} hrefLang="es-US" />
             )}
         </>
-    ) : (
-        <></>
-    );
+    ) : null;
 }
 LinkCanonicalAndAlternate.propTypes = {
     _id: PropTypes.string.isRequired,

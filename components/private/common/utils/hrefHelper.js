@@ -1,5 +1,5 @@
 import Environment from 'fusion:environment';
-import addForwardSlash from '../../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 
 const isTrue = env =>
     env === true || String(env).toLocaleLowerCase() === 'true';

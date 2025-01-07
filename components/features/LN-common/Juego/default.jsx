@@ -7,7 +7,7 @@ import getGameProperties from '../../../private/LN/common/utils/getGamePropertie
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import checkSection from '../../../private/LN/common/utils/checkSection';
 import { addInitialSlash } from '../../../private/LN/common/utils/addInitialSlash';
-import addForwardSlash from '../../../private/LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../../private/LN/common/utils/addForwardSlash';
 import GameCard from './gameCard';
 
 function Game({ id: featureId, customFields, isAdmin }) {
