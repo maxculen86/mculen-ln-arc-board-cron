@@ -824,6 +824,47 @@ describe('getDataForProfileType function', () => {
             profileUsername: 'el-autor-slug'
         });
     });
+
+    it('Should build the correct values for author with wikiSourceData and without additional name', () => {
+        expect(
+            getDataForProfileType(
+                {
+                    isWiki: true,
+                    firstName: 'Juan',
+                    lastName: 'Pravata',
+                    middleName: 'Guillermo',
+                    node_type: 'author',
+                    wikiSourceData: {schemas_info:{additional_name: '', family_name:'Messi', given_name: 'Juan'}}
+                },
+                globalContentConfig
+            )
+        ).toEqual({
+            profileLastName: 'Messi',
+            profileName: 'Juan',
+            profileUsername: 'el-messi-slug'
+        });
+    });
+
+    it('Should build the correct values for author with wikiSourceData correctly', () => {
+        expect(
+            getDataForProfileType(
+                {
+                    isWiki: true,
+                    firstName: 'Juan',
+                    lastName: 'Pravata',
+                    middleName: 'Guillermo',
+                    node_type: 'author',
+                    wikiSourceData: {schemas_info:{additional_name: 'Pedro', family_name:'Messi', given_name: 'Juan'}}
+                },
+                globalContentConfig
+            )
+        ).toEqual({
+            profileLastName: 'Messi',
+            profileName: 'Juan Pedro',
+            profileUsername: 'el-messi-slug'
+        });
+    });
+
 });
 
 describe('Case return buildArticleMetas', () => {

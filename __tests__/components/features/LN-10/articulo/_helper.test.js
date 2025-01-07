@@ -250,7 +250,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         });
     });
     describe('Test function getDataAttributesForViewability', () => {
-        it('should show attributes for viewability', () => {
+        it('should show attributes for viewability when index is lower than 10', () => {
             const result = getDataAttributesForViewability(
                 'KEBYELHATJHPRNAWO24GRV6YCQ',
                 21,
@@ -263,6 +263,21 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 'data-source': 'editor'
             });
         });
+
+        it('should show attributes for viewability when index is greater than 10', () => {
+            const result = getDataAttributesForViewability(
+                'KEBYELHATJHPRNAWO24GRV6YCQ',
+                21,
+                10
+            );
+            expect(result).toEqual({
+                'data-id': 'KEBYELHATJHPRNAWO24GRV6YCQ',
+                'data-notaid': 'KEBYELHATJHPRNAWO24GRV6YCQ',
+                'data-pos': '2111',
+                'data-source': 'editor'
+            });
+        });
+
         it('should return empty boxPosition 0', () => {
             const result = getDataAttributesForViewability(
                 'KEBYELHATJHPRNAWO24GRV6YCQ',
