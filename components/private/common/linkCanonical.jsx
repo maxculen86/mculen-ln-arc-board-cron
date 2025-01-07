@@ -4,6 +4,7 @@ import addForwardSlash from '../LN/common/utils/addForwardSlash';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
 import { isUSALangHtml } from './utils/outputTypeHelper';
+import { addInitialSlash } from '../LN/common/utils/addInitialSlash';
 
 function LinkCanonicalAndAlternate(props = {}) {
     const {
@@ -23,9 +24,7 @@ function LinkCanonicalAndAlternate(props = {}) {
         template.includes('page');
 
     const canonicalId = (!mustUseSiteUrl && canonicalIdChecker(_id)) || '';
-    const canonicalSlash = canonicalId.startsWith('/')
-        ? canonicalId
-        : `/${canonicalId}`;
+    const canonicalSlash = addInitialSlash(canonicalId) ?? '';
     const canonicalLink = mustUseSiteUrl
         ? siteUrl
         : addForwardSlash(`${host}${canonicalUrl || canonicalSlash}`);
