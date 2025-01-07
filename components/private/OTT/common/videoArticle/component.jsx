@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LinkedTitle from '../../../common/linkedTitle';
-import addForwardSlash from '../../../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../../LN/common/utils/addForwardSlash';
 
-export default function VideoArticle({ href, description, imgSrc, date }) {
+function VideoArticle({ href, description, imgSrc }) {
     return (
         <article className="article">
             <a className="figure" href={addForwardSlash(href)}>
@@ -20,3 +21,11 @@ export default function VideoArticle({ href, description, imgSrc, date }) {
         </article>
     );
 }
+
+VideoArticle.propTypes = {
+    href: PropTypes.string,
+    description: PropTypes.string,
+    imgSrc: PropTypes.string
+}.isRequired;
+
+export default VideoArticle;

@@ -7,7 +7,7 @@ import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getDomain from '../../../common/utils/getDomain';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
-import addForwardSlash from '../../common/utils/addForwardSlash';
+import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import {
     extractDataFromContentElements,
     extractDataFromCredits,
@@ -87,9 +87,9 @@ function snippet(props) {
         description: description || undefined,
         nutrition: Object.entries(nutrition).length
             ? {
-                  '@type': 'NutritionInformation',
-                  ...nutrition
-              }
+                '@type': 'NutritionInformation',
+                ...nutrition
+            }
             : undefined,
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',

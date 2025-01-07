@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
 import PictureSource from '../../../common/pictureSource';
-import addForwardSlash from '../../../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../../LN/common/utils/addForwardSlash';
 
-export default function Program({ href, description, image }) {
+function Program({ href, description, image }) {
     const alt = `Ir a ${description}`;
     const imageUrl = get(image, 'url', null);
     return (
@@ -40,3 +41,13 @@ export default function Program({ href, description, image }) {
         </article>
     );
 }
+
+Program.propTypes = {
+    href: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.shape({
+        url: PropTypes.string
+    })
+}.isRequired;
+
+export default Program;

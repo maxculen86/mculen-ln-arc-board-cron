@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import addForwardSlash from '../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../LN/common/utils/addForwardSlash';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
 import { isUSALangHtml } from './utils/outputTypeHelper';
 
-const LinkCanonicalAndAlternate = (props = {}) => {
+function LinkCanonicalAndAlternate(props = {}) {
     const {
         _id = '',
         canonicalUrl = '',
@@ -27,23 +27,22 @@ const LinkCanonicalAndAlternate = (props = {}) => {
     const canonicalLink = mustUseSiteUrl
         ? siteUrl
         : addForwardSlash(
-              `${host}${canonicalUrl ||
-                  (canonicalId.startsWith('/')
-                      ? canonicalId
-                      : `/${canonicalId}`)}`
-          );
+            `${host}${canonicalUrl ||
+            (canonicalId.startsWith('/')
+                ? canonicalId
+                : `/${canonicalId}`)
+            }`
+        );
 
     return host && (canonicalUrl || _id || nodeType === 'home') ? (
         <>
             <link rel="canonical" href={canonicalLink} />
             {isUSALangHtml(_id, canonicalUrl) && (
-                <link rel="alternate" href={canonicalLink} hreflang="es-US" />
+                <link rel="alternate" href={canonicalLink} hrefLang="es-US" />
             )}
         </>
-    ) : (
-        <></>
-    );
-};
+    ) : null;
+}
 LinkCanonicalAndAlternate.propTypes = {
     _id: PropTypes.string.isRequired,
     canonicalUrl: PropTypes.string.isRequired,

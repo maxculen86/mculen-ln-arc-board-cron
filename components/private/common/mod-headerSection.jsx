@@ -5,12 +5,12 @@ import '../../../resources/dist/css/ln/modules/mod-headersection.css';
 import ComTitle from './com-title';
 import ComImage from './com-image';
 import ComLink from './com-link';
-import addForwardSLash from '../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../LN/common/utils/addForwardSlash';
 import useGetLogoImage from './hooks/useGetLogoImage';
 import get from './utils/get';
 import siteConfig from '../../../properties/sites/la-nacion-ar';
 
-const ModheaderSection = props => {
+function ModheaderSection(props) {
     const {
         title,
         tag,
@@ -45,8 +45,8 @@ const ModheaderSection = props => {
 
     return (
         <section
-            className={`mod-headersection ${classCondition} ${line &&
-                '--line'}`}
+            className={`mod-headersection ${classCondition} ${line && '--line'
+                }`}
             role="contentinfo"
         >
             {!Image ? (
@@ -54,7 +54,7 @@ const ModheaderSection = props => {
                     size={size}
                     tag={tag}
                     content={title}
-                    link={addForwardSLash(link)}
+                    link={addForwardSlash(link)}
                     customTitle={customTitle}
                     weight="--font-black"
                 />
@@ -63,7 +63,7 @@ const ModheaderSection = props => {
             )}
         </section>
     );
-};
+}
 
 ModheaderSection.propTypes = {
     imageId: PropTypes.string,
@@ -74,7 +74,6 @@ ModheaderSection.propTypes = {
     tag: PropTypes.string,
     line: PropTypes.bool,
     size: PropTypes.string,
-    outputType: PropTypes.string,
     image: PropTypes.shape({
         caption: PropTypes.string,
         width: PropTypes.number,
@@ -93,7 +92,6 @@ ModheaderSection.defaultProps = {
     size: '--xl',
     tag: 'h3',
     image: {},
-    outputType: 'default',
     customTitle: undefined
 };
 
