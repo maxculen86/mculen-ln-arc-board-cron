@@ -7,8 +7,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import NotaMain from '../private/common/layouts/notaMain';
-import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 
 import '../../resources/dist/css/ln/base/helpers.css';
@@ -17,7 +16,6 @@ import '../../resources/dist/css/ln/pages/magazine.css';
 
 function lnNotaNoticia({
     children,
-    outputType,
     layout,
     globalContent: {
         taxonomy: { sections },
@@ -44,7 +42,6 @@ function lnNotaNoticia({
             <LoadBannersSSR />
             <PwaModal />
             <InitControlGroup />
-            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 }
@@ -67,7 +64,6 @@ lnNotaNoticia.sections = pageBuilderSections;
 
 lnNotaNoticia.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node),
-    outputType: PropTypes.string,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
     isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({

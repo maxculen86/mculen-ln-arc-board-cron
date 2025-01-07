@@ -4,12 +4,12 @@ import { Link } from '@ln/foodit-ui-link';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useAppContext } from 'fusion:context';
-import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import classNames from 'classnames';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
-const FooterFoodit = () => {
+function FooterFoodit() {
     const { contextPath, deployment, layout, siteProperties } = useAppContext();
     const { layoutsName } = siteProperties || {};
 
@@ -17,10 +17,10 @@ const FooterFoodit = () => {
         'fixed_md fixed-center-x_md bottom-0': layout === layoutsName.Foodit404
     });
 
-    if (layoutsName.FooditRecipePaywall === layout) return <></>;
+    if (layoutsName.FooditRecipePaywall === layout) return null;
 
     return (
-        <div className="hidden">
+        <div className="hidden print-hide">
             <footer className={wrapperClassNames}>
                 <div className="grid grid-cols-12_md relative w-100 pb-32 pb-0_lg text-center border border-top border-thin border-light-100">
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12">
@@ -39,8 +39,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event="e_linkclick"
                                 data-category="interaction"
-                                data-label={'social'}
-                                data-action={'instagram'}
+                                data-label="social"
+                                data-action="instagram"
                             >
                                 <Icon size={16}>
                                     <IconSprite name="instagram" />
@@ -56,8 +56,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event="e_linkclick"
                                 data-category="interaction"
-                                data-label={'social'}
-                                data-action={'x'}
+                                data-label="social"
+                                data-action="x"
                             >
                                 <Icon size={16}>
                                     <IconSprite name="twitter" />
@@ -73,8 +73,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event="e_linkclick"
                                 data-category="interaction"
-                                data-label={'social'}
-                                data-action={'facebook'}
+                                data-label="social"
+                                data-action="facebook"
                             >
                                 <Icon size={16}>
                                     <IconSprite name="facebook" />
@@ -90,8 +90,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event="e_linkclick"
                                 data-category="interaction"
-                                data-label={'social'}
-                                data-action={'tiktok'}
+                                data-label="social"
+                                data-action="tiktok"
                             >
                                 <Icon size={16}>
                                     <IconSprite name="tiktok" />
@@ -110,8 +110,8 @@ const FooterFoodit = () => {
                             data-interaction="dataLayerInteraction"
                             data-event="e_linkclick"
                             data-category="footer"
-                            data-label={'pagina_principal'}
-                            data-action={'la_nacion'}
+                            data-label="pagina_principal"
+                            data-action="la_nacion"
                         >
                             <Adaptableimage
                                 width={151}
@@ -125,7 +125,8 @@ const FooterFoodit = () => {
                     </section>
                     <section className="flex flex-column flex-row_lg jc-center ai-center gap-16 text-14 col-span-6_md py-32 border border-top border-thin border-light-100">
                         <Text>
-                            © 2024 S.A. LA NACION. Todos los derechos reservados
+                            © 2024 S.A. LA NACION. Todos los derechos
+                            reservados
                         </Text>
                         <Link
                             data-test-id="footer-link-afip"
@@ -136,8 +137,8 @@ const FooterFoodit = () => {
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"
-                            data-dynamic-label={'legales'}
-                            data-dynamic-action={'data_fiscal'}
+                            data-dynamic-label="legales"
+                            data-dynamic-action="data_fiscal"
                         >
                             <Adaptableimage
                                 width={28}
@@ -164,8 +165,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"
-                                data-dynamic-label={'legales'}
-                                data-dynamic-action={'condiciones'}
+                                data-dynamic-label="legales"
+                                data-dynamic-action="condiciones"
                             >
                                 CONDICIONES
                             </Link>
@@ -182,8 +183,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"
-                                data-dynamic-label={'legales'}
-                                data-dynamic-action={'privacidad'}
+                                data-dynamic-label="legales"
+                                data-dynamic-action="privacidad"
                             >
                                 PRIVACIDAD
                             </Link>
@@ -193,6 +194,6 @@ const FooterFoodit = () => {
             </footer>
         </div>
     );
-};
+}
 
 export default FooterFoodit;

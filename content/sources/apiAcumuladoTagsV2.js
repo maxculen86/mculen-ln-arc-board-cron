@@ -5,21 +5,49 @@ import calculatePaginationValue from './utils/pageSource/acumulados/common/calcu
 import tagSource from './tagSource';
 import NotFoundError from './utils/notFoundError';
 
+const getSizeParamFromQuery = query => {
+    // eslint-disable-next-line prefer-regex-literals
+    const regexForSizeParam = new RegExp(/size:(\d+)/);
+    const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
+    if (matchForSize) {
+        return matchForSize.length > 1 ? matchForSize[1] : 30;
+    }
+    return 30;
+};
+
+const getPageParamFromQuery = query => {
+    // eslint-disable-next-line prefer-regex-literals
+    const regexForPageParam = new RegExp(/page:(\d+)/);
+    const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
+
+    const page =
+        matchForPageParam && matchForPageParam.length > 1
+            ? Number(matchForPageParam[1])
+            : 1;
+
+    if (page < 1) {
+        throw new Error('Page parameter should be more than 1');
+    }
+
+    return page;
+};
+
 const fetch = async (query, { cachedCall } = {}) => {
     try {
-        query.slug = query.slug.replace('/', '');
+        const queryAux = { ...query };
+        queryAux.slug = query.slug?.replace('/', '');
 
-        const size = getSizeParamFromQuery(query);
-        const page = getPageParamFromQuery(query);
+        const size = getSizeParamFromQuery(queryAux);
+        const page = getPageParamFromQuery(queryAux);
 
-        const tagSourceResult = await tagSource.fetch(query, { cachedCall });
+        const tagSourceResult = await tagSource.fetch(queryAux, { cachedCall });
 
         const queryParams = {
             size,
             page,
-            tagId: query.slug.replace('/', ''),
-            categoryUri: get(query, 'categoryUri', '').replace('/', ''),
-            versionUri: query.versionUri,
+            tagId: queryAux.slug?.replace('/', ''),
+            categoryUri: get(queryAux, 'categoryUri', '')?.replace('/', ''),
+            versionUri: queryAux.versionUri,
             website: 'la-nacion-ar',
             tagSourceResult
         };
@@ -45,31 +73,6 @@ const fetch = async (query, { cachedCall } = {}) => {
         );
         throw new Error(error);
     }
-};
-
-const getSizeParamFromQuery = query => {
-    const regexForSizeParam = new RegExp(/size:(\d+)/);
-    const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
-    if (matchForSize) {
-        return matchForSize.length > 1 ? matchForSize[1] : 30;
-    }
-    return 30;
-};
-
-const getPageParamFromQuery = query => {
-    const regexForPageParam = new RegExp(/page:(\d+)/);
-    const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
-
-    const page =
-        matchForPageParam && matchForPageParam.length > 1
-            ? parseInt(matchForPageParam[1])
-            : 1;
-
-    if (page < 1) {
-        throw new Error('Page parameter should be more than 1');
-    }
-
-    return page;
 };
 
 export default {

@@ -85,9 +85,9 @@ class AccumulatedSectionsMobileV2V2 {
 
             if (sectionIdP.toLowerCase() === '/ultimas-noticias' && sectionsP) {
                 const sectionsFormated = JSON.stringify(sectionsP)
-                    .replace(/,/g, '+OR+')
-                    .replace('[', '(')
-                    .replace(']', ')');
+                    ?.replace(/,/g, '+OR+')
+                    ?.replace('[', '(')
+                    ?.replace(']', ')');
 
                 return {
                     ...resp,

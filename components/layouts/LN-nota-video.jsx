@@ -4,14 +4,13 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import GlobalProvider from '../private/common/context/globalContext';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import InitControlGroup from './helpers/initCtrlGrp';
 import '../../resources/dist/css/ln/pages/video.css';
 
-function lnNotaVideo({ children, outputType }) {
+function lnNotaVideo({ children }) {
     const bannerMegatop = children[0];
 
     const classNameWrapper = classNames(
@@ -67,7 +66,6 @@ function lnNotaVideo({ children, outputType }) {
             <LoadBannersSSR />
             <PwaModal />
             <InitControlGroup />
-            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 }
@@ -85,7 +83,6 @@ lnNotaVideo.sections = pageBuilderSections;
 
 lnNotaVideo.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    outputType: PropTypes.string.isRequired,
     tree: PropTypes.arrayOf(PropTypes.node).isRequired,
     isAdmin: PropTypes.bool.isRequired
 };

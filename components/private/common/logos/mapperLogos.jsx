@@ -38,5 +38,6 @@ export const mapperLogos = {
     canchallena: 'canchallena.svg',
     'canchallena-blanco': 'canchallena.svg',
     futuria: 'futuria.svg',
+    'futuria-blanco': 'futuria-blanco.svg',
     'que-sale': 'que-sale.svg'
 };

@@ -2,6 +2,11 @@ import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import { getVideoJwDataHome } from './utils/getVideoJwDataHome';
 
+const transform = data => ({
+    ...getVideoJwDataHome(JSON.parse(data)),
+    type: 'video'
+});
+
 const fetch = query => {
     const { id = '' } = query;
 
@@ -17,13 +22,6 @@ const fetch = query => {
                 query['arc-site']
             );
         });
-};
-
-const transform = data => {
-    return {
-        ...getVideoJwDataHome(JSON.parse(data)),
-        type: 'video'
-    };
 };
 
 export default {

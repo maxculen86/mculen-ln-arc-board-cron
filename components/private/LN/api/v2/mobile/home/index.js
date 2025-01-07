@@ -2,7 +2,6 @@ import get from '../../../../../common/utils/get';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import { generateHashContentVersion } from '../../../common/utils/contentVersionGenerator';
 import { Article as ArticleLN10 } from './article/index';
-import { ExternalArticle } from '../../../v1/mobile/home/externalArticle';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
 import { cardAnexoItemMobile as CardAnexoLN } from '../../../common/article/cardAnexo/index';
 import { CardAnexo as CardAnexoLN10 } from '../../../v1/mobile/home/article/cardAnexo/index';
@@ -18,18 +17,15 @@ const excludeUrlsInBoxInfo = ['https://www.lanacion.com.ar/suscriptores/'];
 const FunctionsBoxContentsByLayout = {
     'LN-Home_Main': {
         article: Article,
-        anexo: CardAnexoLN,
-        externalArticle: ExternalArticle
+        anexo: CardAnexoLN
     },
     'LN10-Home_Main-V2': {
         article: ArticleLN10,
-        anexo: CardAnexoLN10,
-        externalArticle: ExternalArticle
+        anexo: CardAnexoLN10
     },
     default: {
         article: Article,
-        anexo: CardAnexoLN,
-        externalArticle: ExternalArticle
+        anexo: CardAnexoLN
     }
 };
 
@@ -45,6 +41,12 @@ const validateInfoBox = information => {
     return informationValid;
 };
 
+const addListenableFlagForArticles = articles =>
+    articles.map(x => ({
+        ...x,
+        isListenable: isNoteListenable(x)
+    }));
+
 const index = (
     children,
     paramsFromPage = {
@@ -58,8 +60,7 @@ const index = (
         }
     }
 ) => {
-    const layoutPage =
-        get(paramsFromPage, 'information.layoutPage', 'null') + '-V2';
+    const layoutPage = `${get(paramsFromPage, 'information.layoutPage', 'null')}-V2`;
     const typeSection = configInfoSectionsByLayout(layoutPage);
 
     if (!layoutPage || !typeSection) {
@@ -73,14 +74,14 @@ const index = (
         return null;
     }
 
-    const ArticlesbyBox = children.reduce((result, f, i) => {
+    const ArticlesbyBox = children.reduce((result, f) => {
         const { information, sectionAliasMobile } = f;
         const sectionBox = f;
         const informationValid = validateInfoBox(information);
         sectionBox.information = informationValid;
 
-        if (f.articles && f.articles.length > 0) {
-            f.articles = addListenableFlagForArticles(f.articles);
+        if (sectionBox.articles && sectionBox.articles.length > 0) {
+            sectionBox.articles = addListenableFlagForArticles(f.articles);
         }
 
         const boxInfoFunction = boxInfoByLayoutBySectionAlias(
@@ -108,29 +109,6 @@ const index = (
                         get(
                             FunctionsBoxContentsByLayout,
                             `default.article`,
-                            null
-                        );
-                    result.push(
-                        boxTypeByLayout(layoutPage, type)(
-                            sectionBox,
-                            boxInfo,
-                            articleFn,
-                            paramsFromPage
-                        )
-                    );
-                }
-                break;
-            case 7:
-                {
-                    const articleFn =
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `${layoutPage}.externalArticle`,
-                            null
-                        ) ||
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `default.externalArticle`,
                             null
                         );
                     result.push(
@@ -211,15 +189,6 @@ const index = (
             items: resultWithoutEmptyItems
         }
     ];
-};
-
-const addListenableFlagForArticles = articles => {
-    return articles.map(x => {
-        return {
-            ...x,
-            isListenable: isNoteListenable(x)
-        };
-    });
 };
 
 export default index;

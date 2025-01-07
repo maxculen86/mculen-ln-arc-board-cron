@@ -13,7 +13,7 @@ import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
 const { layoutsName = {} } = config || {};
 
-const CajaJuegos = ({ customFields, children }) => {
+function CajaJuegos({ customFields, children }) {
     const { globalContent = {}, layout } = useAppContext() || {};
     const {
         logoId,
@@ -38,7 +38,8 @@ const CajaJuegos = ({ customFields, children }) => {
         buttonLogo,
         buttonText,
         linkButton,
-        buttonStyle
+        buttonStyle,
+        isStatic: true
     });
 
     const shouldShowGame =
@@ -55,10 +56,8 @@ const CajaJuegos = ({ customFields, children }) => {
             </div>
             <GameEventScript />
         </Static>
-    ) : (
-        <></>
-    );
-};
+    ) : null;
+}
 
 CajaJuegos.label = 'LN10 Caja Juegos';
 
@@ -132,7 +131,8 @@ CajaJuegos.propTypes = {
             labels: typesButtonStyle,
             hidden: false
         })
-    })
+    }).isRequired,
+    children: PropTypes.node.isRequired
 };
 
 export default CajaJuegos;

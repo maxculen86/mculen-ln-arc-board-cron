@@ -1,49 +1,46 @@
-const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
+const isValidUrlTagA = contentElements => {
     const typeElement = {
         text: {
             getErrors: current => {
                 const { content } = current;
                 const linkList =
                     content.match(
+                        // eslint-disable-next-line prefer-regex-literals
                         new RegExp(
-                            /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/,
+                            /<a[\s]+([^>]+)>((?:.(?!<\/a>))*.)<\/a>/,
                             'gim'
                         )
                     ) || [];
-                return linkList.filter(e => {
-                    return (
+                return linkList.filter(
+                    e =>
                         !new RegExp(
                             `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z]+)(?:\\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*` +
                                 `(?:\\.(?:[a-z]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?||\\/[a-z-0-9\\S]+)\\1)`,
                             'gim'
                         ).test(e) && e
-                    );
-                });
+                );
             },
-            replace: (current, errors, newValue) => {
-                return errors.reduce((acc, e) => {
+            replace: (current, errors, newValue) =>
+                errors.reduce((acc, e) => {
                     const { content } = acc;
                     return {
                         ...acc,
-                        content: content.replace(
+                        content: content?.replace(
                             e,
-                            e.replace(new RegExp('<[^>]*>', 'gim'), newValue)
+                            // eslint-disable-next-line prefer-regex-literals
+                            e?.replace(new RegExp('<[^>]*>', 'gim'), newValue)
                         )
                     };
-                }, current);
-            }
+                }, current)
         },
         interstitial_link: {
-            getErrors: current => {
-                return (
-                    (!new RegExp(
-                        '^(http|https|:\\/\\/|\\.|@){2,}(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\S*:\\w*@)*([a-zA-Z]|(\\d{1,3}|\\.){7}){1,}' +
-                            '(\\w|\\.{2,}|\\.[a-zA-Z]{2,3}|\\/|\\?|&|:\\d|@|=|\\/|\\(.*\\)|#|-|%)*$',
-                        'gim'
-                    ).test(current.url) && [current.url]) ||
-                    []
-                );
-            }
+            getErrors: current =>
+                (!new RegExp(
+                    '^(http|https|:\\/\\/|\\.|@){2,}(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\S*:\\w*@)*([a-zA-Z]|(\\d{1,3}|\\.){7}){1,}' +
+                        '(\\w|\\.{2,}|\\.[a-zA-Z]{2,3}|\\/|\\?|&|:\\d|@|=|\\/|\\(.*\\)|#|-|%)*$',
+                    'gim'
+                ).test(current.url) && [current.url]) ||
+                []
         }
     };
 
@@ -58,11 +55,12 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
                  */
                 const newElement =
                     errors.length &&
-                    typeElement[type].replace &&
-                    typeElement[type].replace(current, errors, '');
-                !errors.length
-                    ? acc.push(current)
-                    : newElement && acc.push(newElement);
+                    typeElement[type]?.replace(current, errors, '');
+                if (errors.length && newElement) {
+                    acc.push(newElement);
+                } else {
+                    acc.push(current);
+                }
             } else {
                 acc.push(current);
             }

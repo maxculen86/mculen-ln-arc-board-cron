@@ -341,9 +341,9 @@ export const menuData = [
             title: 'LN Juegos'
         },
         {
-            name: 'Exclusivo Suscriptores',
+            name: 'Suscriptores',
             href: '/suscriptores/',
-            title: 'Exclusivo Suscriptores'
+            title: 'Suscriptores'
         },
         {
             name: 'Mis notas',

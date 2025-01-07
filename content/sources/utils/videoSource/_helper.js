@@ -47,7 +47,7 @@ export const updateVideoUrl = videoData => {
 
         return {
             ...elem,
-            url: urlVideo.replace(pattern, VIDEO_CDN_URL)
+            url: urlVideo?.replace(pattern, VIDEO_CDN_URL)
         };
     });
 

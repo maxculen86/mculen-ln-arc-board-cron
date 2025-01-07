@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PowerUpPreparacion Should show title Preparacion 1`] = `
+<div>
+  <h3
+    class="prumo prumo-light text-24 text-32_md text-36_lg"
+  >
+    Preparación
+  </h3>
+  <div
+    class="flex flex-column gap-16"
+  >
+    <h4
+      class="text roboto-bold text-16 text-18_md"
+    >
+      Título de Prueba 2
+    </h4>
+    <ol
+      class="foodit-list relative flex flex-column gap-16 --unordered"
+    >
+      <li
+        class="list-item flex ai-start text-16 text-18_md"
+        data-size="32"
+      >
+        Item 1
+      </li>
+      <li
+        class="list-item flex ai-start text-16 text-18_md"
+        data-size="32"
+      >
+        Item 2
+      </li>
+    </ol>
+  </div>
+</div>
+`;

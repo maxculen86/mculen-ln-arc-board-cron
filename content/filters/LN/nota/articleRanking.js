@@ -31,8 +31,21 @@ export default `{
                 volanta {
                     text
                 }
+                republicar_audio {
+                    text
+                } 
             }
+            display_date
+            first_publish_date
             canonical_url
             website_url
+            source {
+                system
+            }
+            taxonomy {
+                primary_section {
+                    _id
+                }
+            }
         }
 }`;

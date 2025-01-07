@@ -44,8 +44,7 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
                             }
                         ],
                         type: 'image',
-                        url:
-                            'https://resizer.glanacion.com/resizer/bLGgbX9w7lGlT-mI3aj-Sjw7wTc=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg',
+                        url: 'https://resizer.glanacion.com/resizer/bLGgbX9w7lGlT-mI3aj-Sjw7wTc=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg',
                         width: 768
                     }
                 }
@@ -70,7 +69,7 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
         const [firstArticle] = deportesAcu;
 
         expect(baseElement.getElementsByTagName('link')).toHaveLength(
-            deportesAcu.length
+            deportesAcu[0].promo_items.basic.resized_urls.length
         );
         expect(linkElement.getAttribute('as')).toBe(
             firstArticle.promo_items.basic.type
@@ -78,7 +77,7 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
 
         expect(linkElement.getAttribute('rel')).toBe('preload');
         expect(linkElement.getAttribute('href')).toBe(
-            firstArticle.promo_items.basic.resized_urls[1].resizedUrl
+            firstArticle.promo_items.basic.resized_urls[0].resizedUrl
         );
         expect(asFragment()).toMatchSnapshot();
     });

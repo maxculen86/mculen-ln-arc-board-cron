@@ -18,6 +18,7 @@ function CommonCardFoodit({
     fetchPriority,
     tag,
     title,
+    customTitle,
     author,
     subtitle,
     titleEllipsis,
@@ -64,7 +65,7 @@ function CommonCardFoodit({
                 {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
             <Card.Main
-                title={title}
+                title={customTitle || title}
                 titleTag={isOpening ? 'h1' : 'h2'}
                 subtitle={subtitle}
                 titleEllipsis={titleEllipsis}
@@ -128,6 +129,7 @@ CommonCardFoodit.propTypes = {
     fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
     tag: PropTypes.string,
     title: PropTypes.string.isRequired,
+    customTitle: PropTypes.string,
     author: PropTypes.string,
     subtitle: PropTypes.string,
     titleEllipsis: PropTypes.number,
@@ -154,6 +156,7 @@ CommonCardFoodit.defaultProps = {
     loading: 'lazy',
     fetchPriority: 'low',
     tag: '',
+    customTitle: '',
     author: '',
     subtitle: '',
     titleEllipsis: 3,
@@ -165,7 +168,7 @@ CommonCardFoodit.defaultProps = {
     isOpening: false,
     poster: '',
     mediaVariant: 'image',
-    hasVideo: null,
+    hasVideo: false,
     fatherType: ''
 };
 

@@ -206,7 +206,7 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
         );
 
         const buttonElement = screen.getByRole('button', {
-            name: 'Guardar todo'
+            name: 'Guardado'
         });
         fireEvent.click(buttonElement);
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Context from 'fusion:context';
-
 import CajaCollection from '../../../../components/chains/LN10_Caja_Collection/default';
 import renderables from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesGrid8And4.json';
 import responseSource from '../../../../__mocks__/data/LN10_Caja_Collection/responseUseGetArticleInCollection.json';
@@ -41,6 +39,7 @@ describe('Tests Chain CajaCollection', () => {
         hideTitle: false,
         hideCaja: false,
         link: '',
+        titleLink: 'linkfoodit.com',
         linkButton: '',
         chainStyle: '',
         logoId: '',
@@ -567,6 +566,42 @@ describe('Tests Chain CajaCollection', () => {
                     'Esta diagramación requiere el feature LN10 Timeline'
                 )
             ).toBeNull();
+        });
+    });
+
+    describe('Tests for Caja Foodit', () => {
+        const fields = {
+            ...customFields,
+            layout: 'foodit_3_grid',
+            chainStyle: 'foodit',
+            isFoodit: true,
+            idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U',
+            link: 'https://www.google.com'
+        };
+        it('should render FooditBnCard text in ".as-article" div', () => {
+            useGetArticleInCollection.mockImplementation(() => responseSource);
+            render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields,
+                        id: 'f0fK3eCMMtV6pi'
+                    })}
+                />
+            );
+            expect(
+                screen.getByText('recetas, menús y tips para cocinar')
+            ).toBeTruthy();
+        });
+        it('should match snapshot', () => {
+            const { container } = render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields,
+                        id: 'f0fK3eCMMtV6pi'
+                    })}
+                />
+            );
+            expect(container).toMatchSnapshot();
         });
     });
 });

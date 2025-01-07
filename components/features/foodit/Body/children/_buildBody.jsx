@@ -4,6 +4,34 @@ import bodyComponents from '../utils/bodyComponents';
 import { transformEmbedScript } from '../../../LN-nota/body/_utils/_embedHelper';
 import { STORYTELLING } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
+const setDataComponent = ({
+    Component,
+    extraProps,
+    element,
+    currentIndex,
+    capitalIndex,
+    type,
+    subtype,
+    articleSubtype
+}) =>
+    articleSubtype === STORYTELLING ? (
+        <section key={`body-${currentIndex}`} className="content">
+            <Component
+                data={element}
+                capital={currentIndex === capitalIndex}
+                outputType="foodit"
+                {...(extraProps[type] || extraProps[subtype] || {})}
+            />
+        </section>
+    ) : (
+        <Component
+            key={`body-${currentIndex}`}
+            data={element}
+            outputType="foodit"
+            {...(extraProps[type] || extraProps[subtype] || {})}
+        />
+    );
+
 const buildBody = ({ globalContent = {} }) => {
     const {
         content_elements: contentElements = [],
@@ -19,14 +47,14 @@ const buildBody = ({ globalContent = {} }) => {
     };
 
     return contentElements.map((element, currentIndex) => {
-        if (!element) return <></>;
+        if (!element) return null;
 
         const { type, subtype } = element.subtype
             ? transformEmbedScript(element)
             : element;
 
         const capitalIndex = contentElements.findIndex(
-            element => element.type === 'text'
+            el => el.type === 'text'
         );
 
         const Component =
@@ -35,50 +63,19 @@ const buildBody = ({ globalContent = {} }) => {
         const elementData =
             type === 'image' ? { ...element, title: tituloNota } : element;
 
-        return Component ? (
-            setDataComponent({
-                Component,
-                extraProps,
-                element: elementData,
-                currentIndex,
-                capitalIndex,
-                type,
-                subtype,
-                articleSubtype
-            })
-        ) : (
-            <></>
-        );
+        return Component
+            ? setDataComponent({
+                  Component,
+                  extraProps,
+                  element: elementData,
+                  currentIndex,
+                  capitalIndex,
+                  type,
+                  subtype,
+                  articleSubtype
+              })
+            : null;
     });
-};
-
-const setDataComponent = ({
-    Component,
-    extraProps,
-    element,
-    currentIndex,
-    capitalIndex,
-    type,
-    subtype,
-    articleSubtype
-}) => {
-    return articleSubtype === STORYTELLING ? (
-        <section key={`body-${currentIndex}`} className="content">
-            <Component
-                data={element}
-                capital={currentIndex === capitalIndex}
-                outputType={'foodit'}
-                {...(extraProps[type] || extraProps[subtype] || {})}
-            />
-        </section>
-    ) : (
-        <Component
-            key={`body-${currentIndex}`}
-            data={element}
-            outputType={'foodit'}
-            {...(extraProps[type] || extraProps[subtype] || {})}
-        />
-    );
 };
 
 export default buildBody;

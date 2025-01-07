@@ -24,14 +24,19 @@ export const getFirstChainItem = (renderables = []) => {
 
     // TODO: Cambiar types para cajas LN10, actualizar imageConfig cuando se carguen articulos LN10 en caja manual
     if (type === 'Ln_Caja_Manual' && layout !== 'grillaVideo1') {
-        const { noteId, imageId = '', hideImage = false } = get(
-            firstChain,
-            'children[0].props.customFields',
-            {}
-        );
+        const {
+            noteId,
+            imageId = '',
+            hideImage = false
+        } = get(firstChain, 'children[0].props.customFields', {});
 
         return !hideImage
-            ? { articleId: noteId, imageId, imageConfig: '' }
+            ? {
+                  articleId: noteId,
+                  imageId,
+                  // TODO: hacer imageConfig dinámico, contemplando distintos casos que pueden ir en el primer viewport. Solo se usa en /deportes
+                  imageConfig: 'featuredFocalIzquierdo'
+              }
             : {};
     }
 
@@ -57,7 +62,7 @@ export const getFirstChainItem = (renderables = []) => {
 export const verifyChainsBeforeGrid = (renderables = []) => {
     const sectionChildrens = [];
 
-    renderables.forEach(({ collection, children, type }) => {
+    renderables.forEach(({ collection, children }) => {
         if (collection === 'sections') {
             const cleanElements = children.map(child => ({
                 type: child.type,
@@ -88,26 +93,15 @@ export const haveFeatureAcumuladoApertura = (renderables = []) =>
             collection === 'features' && type === 'LN-acumulado/apertura'
     ) || false;
 
-const getImageConfig = (isLoadWithPicture, idCollectionApertura) => {
-    if (isLoadWithPicture) {
-        return idCollectionApertura ? 'newAperturaAcu' : 'newBoxArticles';
-    }
+const getImageConfig = idCollectionApertura =>
+    // TODO: revisar que no afecte a ningun preload al borrar 'boxArticles'
+    idCollectionApertura ? 'newAperturaAcu' : 'newBoxArticles';
 
-    return idCollectionApertura ? 'aperturaAcu' : 'boxArticles';
-};
-
-export const getDataPreloadAcu = (
-    idCollectionApertura,
-    nodeType,
-    isLoadWithPicture = false
-) => {
-    return {
-        nodeType: idCollectionApertura ? '' : nodeType,
-        collectionId: idCollectionApertura || '',
-        // TODO: Sacar funcion getImageConfig y agregar el imageConfig respectivo una vez se implemente carga con picture en todos los acumulados
-        imageConfig: getImageConfig(isLoadWithPicture, idCollectionApertura)
-    };
-};
+export const getDataPreloadAcu = (idCollectionApertura, nodeType) => ({
+    nodeType: idCollectionApertura ? '' : nodeType,
+    collectionId: idCollectionApertura || '',
+    imageConfig: getImageConfig(idCollectionApertura)
+});
 
 export const excludePreloadAcu = ({
     nodeType = '',
@@ -115,12 +109,9 @@ export const excludePreloadAcu = ({
     hasFeatureAcumuladoApertura,
     idCollectionApertura,
     hasChainBeforeGrid
-}) => {
-    return (
-        nodeType === 'section' &&
-        id !== '/ultimas-noticias' &&
-        id !== '/deportes' &&
-        (!hasFeatureAcumuladoApertura ||
-            (!idCollectionApertura && hasChainBeforeGrid))
-    );
-};
+}) =>
+    nodeType === 'section' &&
+    id !== '/ultimas-noticias' &&
+    id !== '/deportes' &&
+    (!hasFeatureAcumuladoApertura ||
+        (!idCollectionApertura && hasChainBeforeGrid));

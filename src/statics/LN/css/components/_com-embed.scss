@@ -12,8 +12,7 @@
         align-items: center;
         padding-top: $picture;
         position: relative;
-        iframe,
-        amp-iframe {
+        iframe{
             position: absolute;
             object-fit: cover;
             height: 100%;

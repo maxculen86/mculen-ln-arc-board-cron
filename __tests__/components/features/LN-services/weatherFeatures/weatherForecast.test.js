@@ -6,7 +6,7 @@ import WeatherForecast from '../../../../../components/features/LN-services/weat
 import mendozaCiudad from '../../../../../__mocks__/data/weather/mendozaCiudad.json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return class extends component {
             constructor(props) {
                 super(props);
@@ -24,6 +24,8 @@ jest.mock('fusion:context', () => () => ({
     },
     useAppContext: jest.fn(() => ({}))
 }));
+
+jest.mock('../../../../../__mocks__/fusion:static', () => 'Static');
 
 Context.useAppContext = jest.fn(() => ({
     globalContent: {

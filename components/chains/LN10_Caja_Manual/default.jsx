@@ -48,12 +48,12 @@ function CajaManual(props) {
 
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const error = validateCajaManual(
+    const error = validateCajaManual({
         layout,
         childProps,
         chainStyle,
         isGrid6MasTimeline
-    );
+    });
 
     const viewabilityRoof = getViewabilityRoof(
         chainId,
@@ -77,11 +77,14 @@ function CajaManual(props) {
         children
     });
 
+    const hasVariants = checkVariants({ children, renderables });
+
     const roofData = useRoofData({
         ...propsForRoof,
         isAdmin,
         chainStyle,
-        isManual: true
+        isManual: true,
+        isStatic: !hasVariants
     });
 
     const { bannerMob = undefined, bannerDsk = undefined } =
@@ -91,7 +94,6 @@ function CajaManual(props) {
         }) || {};
 
     const ContainerCards = getComponent(chainStyle, layout);
-    const hasVariants = checkVariants({ children, renderables });
 
     const Component = setRender({
         chainId,

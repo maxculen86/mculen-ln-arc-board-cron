@@ -12,9 +12,9 @@ class ImageResizer {
             globalContent: { url }
         } = props;
         const regexUpperExtension = /\b[A-Z]+\b/g;
-        const modifiedUrl = url.replace(regexUpperExtension, match => {
-            return match.toLowerCase();
-        });
+        const modifiedUrl = url?.replace(regexUpperExtension, match =>
+            match.toLowerCase()
+        );
         this.fetch(modifiedUrl);
         this.apiData = {
             global: {
@@ -41,9 +41,10 @@ class ImageResizer {
         try {
             const { imageResizeSource } = this.state;
             const { globalContent } = this.props;
-            const indexImage = this.apiData[
-                browser.getApiType(this.props.requestUri)
-            ][browser.getApiVersion(this.props.requestUri)];
+            const indexImage =
+                this.apiData[browser.getApiType(this.props.requestUri)][
+                    browser.getApiVersion(this.props.requestUri)
+                ];
 
             return indexImage({
                 ...globalContent,

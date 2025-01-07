@@ -24,24 +24,26 @@ const fetch = async (query, { cachedCall }) => {
         serviceItem = '',
         serviceSubItem = '',
         uri = '',
-        'arc-site': arcSite = 'la-nacion-ar',
-        outputType = ''
+        'arc-site': arcSite = 'la-nacion-ar'
     } = query;
 
     const sectionSourceData =
         service !== 'horoscopo'
             ? await cachedCall('sectionSource', getRequest, {
-                  query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
+                  query: `${CONTENT_BASE}${sectionSourceResolve(query)}`,
+                  independent: true
               })
             : {};
 
-    const { request: serviceRequest, resolve, reject, getTemplates } =
-        SERVICES[service] || SERVICES.default;
-
     const {
-        _id: sectionSourceId = '',
-        children: sectionChildrens = []
-    } = sectionSourceData;
+        request: serviceRequest,
+        resolve,
+        reject,
+        getTemplates
+    } = SERVICES[service] || SERVICES.default;
+
+    const { _id: sectionSourceId = '', children: sectionChildrens = [] } =
+        sectionSourceData;
 
     if (sectionSourceId !== id) {
         throw new NotFoundError(
@@ -69,9 +71,9 @@ const fetch = async (query, { cachedCall }) => {
                 query
             })
         )
-        .catch(error => {
-            return reject({ error, uri, arcSite, source: 'servicesSource' });
-        });
+        .catch(error =>
+            reject({ error, uri, arcSite, source: 'servicesSource' })
+        );
 };
 
 export default {

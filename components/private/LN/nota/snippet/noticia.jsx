@@ -56,6 +56,8 @@ const extracDataFromCredits = (by, config = {}) => {
 const publishingPrinciples =
     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
+const sectionsWithTypeNewsArticle = ['Tecnología', 'Sociedad', 'Espectáculos'];
+
 export const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
     if (sponsored)
@@ -74,8 +76,10 @@ export const getTrustProject = trust => data => sponsored => {
         case Trust.TRUST_NOTICIA:
             return {
                 ...data,
-                '@type': ['Tecnología', 'Sociedad', 'Espectáculos'].includes(
-                    data.articleSection
+                '@type': sectionsWithTypeNewsArticle.some(element =>
+                    data.sections?.some(section =>
+                        section.name.includes(element)
+                    )
                 )
                     ? 'NewsArticle'
                     : 'ReportageNewsArticle',
@@ -127,7 +131,7 @@ function SnippetNoticia({
         type,
         headlines,
         content_elements: contentElements = [],
-        taxonomy: { primary_section: primarySection = {}, tags },
+        taxonomy: { primary_section: primarySection = {}, tags, sections },
         credits: { by },
         distributor = { name: 'LA NACION' },
         created_date: createdDate = '',
@@ -187,6 +191,7 @@ function SnippetNoticia({
             `${siteProperties.host}${canonicalUrl}`
         ),
         articleSection: `${name}`,
+        sections,
         isAccessibleForFree:
             contentCode === 'abierta' || contentCode === 'comun',
         hasPart: {
@@ -243,6 +248,11 @@ function SnippetNoticia({
                         description: PropTypes.string,
                         slug: PropTypes.string,
                         text: PropTypes.string
+                    })
+                ),
+                sections: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        name: PropTypes.string
                     })
                 )
             }),

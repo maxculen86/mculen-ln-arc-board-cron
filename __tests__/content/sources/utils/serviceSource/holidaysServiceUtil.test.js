@@ -47,7 +47,7 @@ jest.mock('request-promise-native', () => {
 jest.mock(
     '../../../../../components/private/common/utils/dateAndTimeUtil',
     () => ({
-        getArgentinaYear: jest.fn().mockReturnValue(2024),
+        getArgentinaYear: jest.fn().mockReturnValue(2025),
         monthNames: [
             'enero',
             'febrero',
@@ -66,15 +66,15 @@ jest.mock(
         datesDiffInDays: jest.fn()
     })
 );
-const currentYear = 2024;
-const previousYear = 2023;
+const currentYear = 2025;
+const previousYear = 2024;
 
 describe('Test getUri function', () => {
     test('Should return endpoint with the year', () => {
         expect(
-            getUri({ service: 'feriados', serviceItem: '2022' })
+            getUri({ service: 'feriados', serviceItem: '2025' })
         ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2025'
         );
     });
     test('Should return endpoint with the current year', () => {
@@ -441,8 +441,7 @@ describe('Test getHolidaysMetaData', () => {
                 'Calendario de feriados nacionales en enero de 2023 en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.',
             paragraph:
                 'Enero solo tiene un feriado: el Año Nuevo se festeja en su primer día, y es la única jornada de asueto generalizado en el primer mes del año. Enero no tiene días no laborables, aunque por lo general es un período de descanso para los más chicos al coincidir con las vacaciones de verano escolares.',
-            title:
-                'Feriados en enero de 2023 en Argentina. Calendario 2023 - LA NACION'
+            title: 'Feriados en enero de 2023 en Argentina. Calendario 2023 - LA NACION'
         });
     });
     test('Should return the correct default metadata of the month detail', () => {
@@ -451,33 +450,30 @@ describe('Test getHolidaysMetaData', () => {
                 'Calendario de feriados nacionales en mayo de 2024 en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.',
             paragraph:
                 'Todos los días no laborables de mayo del 2024, asuetos, cuáles son feriados inamovibles y por qué no se trabaja esos días, cuáles podrían cambiar de día, los días feriados puente y por qué son feriados para mayo del 2024. Cuándo es fin de semana largo en 2024. Calendario completo con todas las fechas patrias de la Argentina.',
-            title:
-                'Feriados en mayo de 2024 en Argentina. Calendario 2024 - LA NACION'
+            title: 'Feriados en mayo de 2024 en Argentina. Calendario 2024 - LA NACION'
         });
     });
     test('Should return the correct metadata of the calendar home', () => {
         expect(getHolidaysMetaData()('2022')).toStrictEqual({
-            title:
-                'Feriados 2022 en Argentina: Calendario de feriados nacionales - LA NACION',
+            title: 'Feriados 2022 en Argentina: Calendario de feriados nacionales - LA NACION',
             description:
                 'Calendario de feriados nacionales 2022 en Argentina: días no laborables, fines de semana largo y feriados puente del 2022 y 2023 en LA NACION.'
         });
     });
     test('Should return the correct metadata for the year current of the calendar home', () => {
         expect(getHolidaysMetaData()()).toStrictEqual({
-            title:
-                'Feriados 2024 en Argentina: Calendario de feriados nacionales - LA NACION',
+            title: 'Feriados 2025 en Argentina: Calendario de feriados nacionales - LA NACION',
             description:
-                'Calendario de feriados nacionales 2024 en Argentina: días no laborables, fines de semana largo y feriados puente del 2024 y 2025 en LA NACION.'
+                'Calendario de feriados nacionales 2025 en Argentina: días no laborables, fines de semana largo y feriados puente del 2025 y 2026 en LA NACION.'
         });
     });
 });
-describe('Test getUri function', () => {
+describe('Test getUri function v2', () => {
     test('Should return endpoint with the year', () => {
         expect(
-            getUri({ service: 'feriados', serviceItem: '2023' })
+            getUri({ service: 'feriados', serviceItem: '2025' })
         ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2023'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2025'
         );
     });
     test('Should return endpoint with the current year', () => {
@@ -486,7 +482,7 @@ describe('Test getUri function', () => {
             .spyOn(global, 'Date')
             .mockImplementation(() => mockDate);
         expect(getUri({ service: 'feriados' })).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2024'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2025'
         );
         spy.mockRestore();
     });
@@ -527,8 +523,7 @@ describe('Test transform holidays ', () => {
             metaData: {
                 description:
                     'Calendario de feriados nacionales 2024 en Argentina: días no laborables, fines de semana largo y feriados puente del 2024 y 2025 en LA NACION.',
-                title:
-                    'Feriados 2024 en Argentina: Calendario de feriados nacionales - LA NACION'
+                title: 'Feriados 2024 en Argentina: Calendario de feriados nacionales - LA NACION'
             }
         });
     });

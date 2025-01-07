@@ -309,6 +309,41 @@ export const setMetaTitle = ({
     return options[arcSite]();
 };
 
+export const getDataForProfileType = (
+    globalContent = {},
+    globalContentConfig = {}
+) => {
+    const {
+        isWiki,
+        firstName,
+        lastName,
+        middleName = '',
+        wikiSourceData: {
+            schemas_info: {
+                family_name: familyName = '',
+                given_name: givenName = '',
+                additional_name: additionalName = ''
+            } = {}
+        } = {}
+    } = globalContent;
+
+    const { query: { slug, _id: slugAuthor } = {} } = globalContentConfig;
+
+    if (isWiki) {
+        return {
+            profileName: `${givenName}${additionalName ? ` ${additionalName}` : ''}`,
+            profileLastName: familyName,
+            profileUsername: slug
+        };
+    }
+
+    return {
+        profileName: `${firstName}${middleName ? ` ${middleName}` : ''}`,
+        profileLastName: lastName,
+        profileUsername: slugAuthor
+    };
+};
+
 export const buildOgMetas = params => {
     const {
         type,
@@ -324,11 +359,29 @@ export const buildOgMetas = params => {
         image,
         url,
         layout,
-        layoutsName
+        layoutsName,
+        globalContent = {},
+        globalContentConfig = {}
     } = params;
 
+    const WIKI_PERSON = 1;
+
+    const ogProfileType =
+        (globalContent?.isWiki &&
+            globalContent?.wikiSourceData?.type === WIKI_PERSON) ||
+        globalContent?.node_type === 'author';
+
+    let profileTagsInfo = {};
+
+    if (ogProfileType) {
+        profileTagsInfo = getDataForProfileType(
+            globalContent,
+            globalContentConfig
+        );
+    }
+
     return [
-        { property: 'og:type', content: type },
+        { property: 'og:type', content: ogProfileType ? 'profile' : type },
         {
             property: 'og:title',
             content: setMetaTitle({
@@ -363,6 +416,22 @@ export const buildOgMetas = params => {
         ...(['home', 'nota', 'acumulado'].includes(section) ||
         (arcSite === 'ott' && layout === layoutsName.OttFicha)
             ? [{ property: 'og:site_name', content: siteProperties.title }]
+            : []),
+        ...(ogProfileType
+            ? [
+                  {
+                      property: 'profile:first_name',
+                      content: profileTagsInfo.profileName
+                  },
+                  {
+                      property: 'profile:last_name',
+                      content: profileTagsInfo.profileLastName
+                  },
+                  {
+                      property: 'profile:username',
+                      content: profileTagsInfo.profileUsername
+                  }
+              ]
             : [])
     ];
 };

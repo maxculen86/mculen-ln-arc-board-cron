@@ -121,6 +121,29 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
         expect(climaLink).not.toBeInTheDocument();
     });
 
+    test('should render preHeader without when temperature is empty', () => {
+        useTermica.mockReturnValue(false);
+        setWeatherData.mockImplementation(() => ({
+            ...mock.weather,
+            temperature: ''
+        }));
+
+        const { container } = render(<PreHeaderLN />);
+
+        const ulElement = screen.getByRole('list');
+        const liElements = ulElement.querySelectorAll('li');
+        const climaLink = screen.queryByRole('link', { name: /clima/i });
+
+        expect(container).toMatchSnapshot();
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: null
+            })
+        );
+        expect(liElements.length).toBe(6);
+        expect(climaLink).not.toBeInTheDocument();
+    });
+
     test('should render brands data', () => {
         setWeatherData.mockImplementation(() => mock.weather);
         const { getByText } = render(<PreHeaderLN />);

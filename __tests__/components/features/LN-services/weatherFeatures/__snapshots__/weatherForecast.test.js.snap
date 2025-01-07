@@ -2,1821 +2,1825 @@
 
 exports[`Components- Features - WeatherForecast - default.jsx - test Should render the extended weather of mendoza 1`] = `
 <div>
-  <div
-    class="extend-forecast"
+  <static
+    id="QWERTYUIOP"
   >
-    <h2
-      class="com-title --font-primary --font-medium --xl"
-    >
-      Pronóstico del tiempo en
-      <strong>
-         Mendoza hoy
-      </strong>
-    </h2>
     <div
-      class="content-forecast"
+      class="extend-forecast"
     >
+      <h2
+        class="com-title --font-primary --font-medium --xl"
+      >
+        Pronóstico del tiempo en
+        <strong>
+           Mendoza hoy
+        </strong>
+      </h2>
       <div
-        class="forecast-card"
+        class="content-forecast"
       >
         <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Tarde
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Ligeramente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            18
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
+          class="forecast-card"
         >
           <div
-            class="box-icon-text"
+            class="labeled"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
+            <h4
+              class="com-text --font-bold"
             >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
+              Tarde
+            </h4>
             <span
-              class="com-text --font-bold --4xs"
+              class="description --font-light --fivexs"
             >
-              60%
+              Ligeramente nublado
             </span>
           </div>
           <div
-            class="box-icon-text"
+            class="icon-content"
           >
             <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
+              class="icon mr-16 --icon-48"
             >
               <mock-icon
                 critical="true"
-                name="windy"
+                name="sunCloudy"
               />
             </i>
-            <span
-              title="Este 22Km/h"
+            <p
+              class="com-text --font-bold --xl"
             >
-              E 22Km/h
-            </span>
+              18
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
           </div>
           <div
-            class="box-icon-text"
+            class="detail-province-icons"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
+            <div
+              class="box-icon-text"
             >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                60%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
             >
-              0%
-            </span>
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Este 22Km/h"
+              >
+                E 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="forecast-card"
-      >
         <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Noche
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Ligeramente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            9
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
+          class="forecast-card"
         >
           <div
-            class="box-icon-text"
+            class="labeled"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
+            <h4
+              class="com-text --font-bold"
             >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
+              Noche
+            </h4>
             <span
-              class="com-text --font-bold --4xs"
+              class="description --font-light --fivexs"
             >
-              43%
+              Ligeramente nublado
             </span>
           </div>
           <div
-            class="box-icon-text"
+            class="icon-content"
           >
             <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
+              class="icon mr-16 --icon-48"
             >
               <mock-icon
                 critical="true"
-                name="windy"
+                name="sunCloudy"
               />
             </i>
-            <span
-              title="Sudoeste 2Km/h"
+            <p
+              class="com-text --font-bold --xl"
             >
-              SO 2Km/h
-            </span>
+              9
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
           </div>
           <div
-            class="box-icon-text"
+            class="detail-province-icons"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
+            <div
+              class="box-icon-text"
             >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                43%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
             >
-              0%
-            </span>
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sudoeste 2Km/h"
+              >
+                SO 2Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="extend-forecast"
-  >
-    <h2
-      class="com-title --font-primary --font-medium --xl"
-    >
-      Pronóstico del tiempo en
-      <strong>
-         Mendoza mañana
-      </strong>
-    </h2>
     <div
-      class="content-forecast"
+      class="extend-forecast"
     >
+      <h2
+        class="com-title --font-primary --font-medium --xl"
+      >
+        Pronóstico del tiempo en
+        <strong>
+           Mendoza mañana
+        </strong>
+      </h2>
       <div
-        class="forecast-card"
+        class="content-forecast"
       >
         <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Mañana
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Parcialmente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            7
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
+          class="forecast-card"
         >
           <div
-            class="box-icon-text"
+            class="labeled"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
+            <h4
+              class="com-text --font-bold"
             >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
+              Mañana
+            </h4>
             <span
-              class="com-text --font-bold --4xs"
+              class="description --font-light --fivexs"
             >
-              61%
+              Parcialmente nublado
             </span>
           </div>
           <div
-            class="box-icon-text"
+            class="icon-content"
           >
             <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
+              class="icon mr-16 --icon-48"
             >
               <mock-icon
                 critical="true"
-                name="windy"
+                name="sunCloudy"
               />
             </i>
-            <span
-              title="Sur 22Km/h"
+            <p
+              class="com-text --font-bold --xl"
             >
-              S 22Km/h
+              7
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                61%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sur 22Km/h"
+              >
+                S 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Tarde
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Parcialmente nublado
             </span>
           </div>
           <div
-            class="box-icon-text"
+            class="icon-content"
           >
             <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="sunCloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              18
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                48%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Este 22Km/h"
+              >
+                E 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Noche
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Mayormente nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="cloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              13
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                52%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sudoeste 22Km/h"
+              >
+                SO 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="extend-forecast"
+    >
+      <h2
+        class="com-title --font-primary --font-medium --xl"
+      >
+        Pronóstico del tiempo en
+        <strong>
+           Mendoza el sábado
+        </strong>
+      </h2>
+      <div
+        class="content-forecast"
+      >
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Mañana
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Mayormente nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="cloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              5
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                63%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sur 22Km/h"
+              >
+                S 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                10%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Tarde
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Lluvias aisladas
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
             >
               <mock-icon
                 critical="true"
                 name="rain"
               />
             </i>
-            <span
-              class="com-text --font-bold --4xs"
+            <p
+              class="com-text --font-bold --xl"
             >
-              0%
-            </span>
+              13
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                55%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sudeste 22Km/h"
+              >
+                SE 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                40%
+              </span>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="extend-forecast"
+    >
+      <h2
+        class="com-title --font-primary --font-medium --xl"
+      >
+        Pronóstico del tiempo en
+        <strong>
+           Mendoza el domingo
+        </strong>
+      </h2>
       <div
-        class="forecast-card"
+        class="content-forecast"
       >
         <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Tarde
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Parcialmente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            18
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
+          class="forecast-card"
         >
           <div
-            class="box-icon-text"
+            class="labeled"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
+            <h4
+              class="com-text --font-bold"
             >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
+              Mañana
+            </h4>
             <span
-              class="com-text --font-bold --4xs"
+              class="description --font-light --fivexs"
             >
-              48%
+              Lluvias aisladas
             </span>
           </div>
           <div
-            class="box-icon-text"
+            class="icon-content"
           >
             <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Este 22Km/h"
-            >
-              E 22Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
+              class="icon mr-16 --icon-48"
             >
               <mock-icon
                 critical="true"
                 name="rain"
               />
             </i>
-            <span
-              class="com-text --font-bold --4xs"
+            <p
+              class="com-text --font-bold --xl"
             >
-              0%
+              1
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                93%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sur 22Km/h"
+              >
+                S 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                40%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Tarde
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Lluvias aisladas
             </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              8
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                51%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sudeste 22Km/h"
+              >
+                SE 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                40%
+              </span>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="extend-forecast"
+    >
+      <h2
+        class="com-title --font-primary --font-medium --xl"
+      >
+        Pronóstico del tiempo en
+        <strong>
+           Mendoza el lunes
+        </strong>
+      </h2>
       <div
-        class="forecast-card"
+        class="content-forecast"
       >
         <div
-          class="labeled"
+          class="forecast-card"
         >
-          <h4
-            class="com-text --font-bold"
+          <div
+            class="labeled"
           >
-            Noche
-          </h4>
+            <h4
+              class="com-text --font-bold"
+            >
+              Mañana
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Mayormente nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="cloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              -1
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                95%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sudoeste 2Km/h"
+              >
+                SO 2Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                10%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Tarde
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Parcialmente nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="sunCloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              8
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                54%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sudeste 12Km/h"
+              >
+                SE 12Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="extend-forecast"
+    >
+      <h2
+        class="com-title --font-primary --font-medium --xl"
+      >
+        Pronóstico del tiempo en
+        <strong>
+           Mendoza el martes
+        </strong>
+      </h2>
+      <div
+        class="content-forecast"
+      >
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Mañana
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Parcialmente nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="sunCloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              2
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                78%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Norte 12Km/h"
+              >
+                N 12Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Tarde
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Parcialmente nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="sunCloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              13
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                47%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Norte 22Km/h"
+              >
+                N 22Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="extend-forecast"
+    >
+      <h2
+        class="com-title --font-primary --font-medium --xl"
+      >
+        Pronóstico del tiempo en
+        <strong>
+           Mendoza el miércoles
+        </strong>
+      </h2>
+      <div
+        class="content-forecast"
+      >
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Mañana
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="cloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              5
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                58%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Sur 12Km/h"
+              >
+                S 12Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="forecast-card"
+        >
+          <div
+            class="labeled"
+          >
+            <h4
+              class="com-text --font-bold"
+            >
+              Tarde
+            </h4>
+            <span
+              class="description --font-light --fivexs"
+            >
+              Parcialmente nublado
+            </span>
+          </div>
+          <div
+            class="icon-content"
+          >
+            <i
+              class="icon mr-16 --icon-48"
+            >
+              <mock-icon
+                critical="true"
+                name="sunCloudy"
+              />
+            </i>
+            <p
+              class="com-text --font-bold --xl"
+            >
+              17
+              <span
+                class="com-text --m"
+              >
+                ºc
+              </span>
+            </p>
+          </div>
+          <div
+            class="detail-province-icons"
+          >
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Humedad"
+              >
+                <mock-icon
+                  critical="true"
+                  name="drop"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                45%
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Dirección del viento"
+              >
+                <mock-icon
+                  critical="true"
+                  name="windy"
+                />
+              </i>
+              <span
+                title="Noreste 12Km/h"
+              >
+                NE 12Km/h
+              </span>
+            </div>
+            <div
+              class="box-icon-text"
+            >
+              <i
+                class="icon mb-4 --icon-24"
+                title="Probabilidad de lluvia"
+              >
+                <mock-icon
+                  critical="true"
+                  name="rain"
+                />
+              </i>
+              <span
+                class="com-text --font-bold --4xs"
+              >
+                0%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content-icon flex flex-column jc-center mb-32"
+    >
+      <section
+        class="mod-headersection  --line"
+        role="contentinfo"
+      >
+        <h3
+          class="com-title --font-primary --xl --font-black"
+        >
+          Referencias del clima
+        </h3>
+      </section>
+      <div
+        class="icon-references w-100 p-16 rounded-4"
+      >
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
+          >
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
+          </i>
           <span
-            class="description --font-light --fivexs"
+            class="com-text --2xs"
           >
-            Mayormente nublado
+            Despejado (día)
           </span>
         </div>
         <div
-          class="icon-content"
+          class="card-icon flex ai-center w-100 p-16"
         >
           <i
-            class="icon mr-16 --icon-48"
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
+          >
+            <mock-icon
+              critical="true"
+              name="clearNight"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
+          >
+            Despejado (noche)
+          </span>
+        </div>
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
+          >
+            <mock-icon
+              critical="true"
+              name="windy"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
+          >
+            Ventoso
+          </span>
+        </div>
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
+          >
+            <mock-icon
+              critical="true"
+              name="sunCloudy"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
+          >
+            Parcialmente nublado
+          </span>
+        </div>
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
           >
             <mock-icon
               critical="true"
               name="cloudy"
             />
           </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            13
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              52%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sudoeste 22Km/h"
-            >
-              SO 22Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              0%
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="extend-forecast"
-  >
-    <h2
-      class="com-title --font-primary --font-medium --xl"
-    >
-      Pronóstico del tiempo en
-      <strong>
-         Mendoza el sábado
-      </strong>
-    </h2>
-    <div
-      class="content-forecast"
-    >
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Mañana
-          </h4>
           <span
-            class="description --font-light --fivexs"
+            class="com-text --2xs"
           >
             Mayormente nublado
           </span>
         </div>
         <div
-          class="icon-content"
+          class="card-icon flex ai-center w-100 p-16"
         >
           <i
-            class="icon mr-16 --icon-48"
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
           >
             <mock-icon
               critical="true"
-              name="cloudy"
+              name="rainyCloudy"
             />
           </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            5
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              63%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sur 22Km/h"
-            >
-              S 22Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              10%
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Tarde
-          </h4>
           <span
-            class="description --font-light --fivexs"
+            class="com-text --2xs"
           >
-            Lluvias aisladas
+            Llovizna
           </span>
         </div>
         <div
-          class="icon-content"
+          class="card-icon flex ai-center w-100 p-16"
         >
           <i
-            class="icon mr-16 --icon-48"
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
           >
             <mock-icon
               critical="true"
               name="rain"
             />
           </i>
-          <p
-            class="com-text --font-bold --xl"
+          <span
+            class="com-text --2xs"
           >
-            13
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
+            Lluvias Fuertes
+          </span>
         </div>
         <div
-          class="detail-province-icons"
+          class="card-icon flex ai-center w-100 p-16"
         >
-          <div
-            class="box-icon-text"
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              55%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
+            <mock-icon
+              critical="true"
+              name="stormCloudy"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sudeste 22Km/h"
-            >
-              SE 22Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
+            Tormentas
+          </span>
+        </div>
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
           >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              40%
-            </span>
-          </div>
+            <mock-icon
+              critical="true"
+              name="storm"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
+          >
+            Tormentas fuertes
+          </span>
+        </div>
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
+          >
+            <mock-icon
+              critical="true"
+              name="snowCloudy"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
+          >
+            Lluvia y Nevada
+          </span>
+        </div>
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
+          >
+            <mock-icon
+              critical="true"
+              name="snow"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
+          >
+            Nevadas Fuertes
+          </span>
+        </div>
+        <div
+          class="card-icon flex ai-center w-100 p-16"
+        >
+          <i
+            class="icon mr-16 --icon-24 --hasWrapper"
+            style="background-color: rgb(242, 242, 242);"
+          >
+            <mock-icon
+              critical="true"
+              name="drop"
+            />
+          </i>
+          <span
+            class="com-text --2xs"
+          >
+            Humedad
+          </span>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="extend-forecast"
-  >
-    <h2
-      class="com-title --font-primary --font-medium --xl"
-    >
-      Pronóstico del tiempo en
-      <strong>
-         Mendoza el domingo
-      </strong>
-    </h2>
-    <div
-      class="content-forecast"
-    >
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Mañana
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Lluvias aisladas
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="rain"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            1
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              93%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sur 22Km/h"
-            >
-              S 22Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              40%
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Tarde
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Lluvias aisladas
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="rain"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            8
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              51%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sudeste 22Km/h"
-            >
-              SE 22Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              40%
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="extend-forecast"
-  >
-    <h2
-      class="com-title --font-primary --font-medium --xl"
-    >
-      Pronóstico del tiempo en
-      <strong>
-         Mendoza el lunes
-      </strong>
-    </h2>
-    <div
-      class="content-forecast"
-    >
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Mañana
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Mayormente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="cloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            -1
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              95%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sudoeste 2Km/h"
-            >
-              SO 2Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              10%
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Tarde
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Parcialmente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            8
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              54%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sudeste 12Km/h"
-            >
-              SE 12Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              0%
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="extend-forecast"
-  >
-    <h2
-      class="com-title --font-primary --font-medium --xl"
-    >
-      Pronóstico del tiempo en
-      <strong>
-         Mendoza el martes
-      </strong>
-    </h2>
-    <div
-      class="content-forecast"
-    >
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Mañana
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Parcialmente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            2
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              78%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Norte 12Km/h"
-            >
-              N 12Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              0%
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Tarde
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Parcialmente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            13
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              47%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Norte 22Km/h"
-            >
-              N 22Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              0%
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="extend-forecast"
-  >
-    <h2
-      class="com-title --font-primary --font-medium --xl"
-    >
-      Pronóstico del tiempo en
-      <strong>
-         Mendoza el miércoles
-      </strong>
-    </h2>
-    <div
-      class="content-forecast"
-    >
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Mañana
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="cloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            5
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              58%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Sur 12Km/h"
-            >
-              S 12Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              0%
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="forecast-card"
-      >
-        <div
-          class="labeled"
-        >
-          <h4
-            class="com-text --font-bold"
-          >
-            Tarde
-          </h4>
-          <span
-            class="description --font-light --fivexs"
-          >
-            Parcialmente nublado
-          </span>
-        </div>
-        <div
-          class="icon-content"
-        >
-          <i
-            class="icon mr-16 --icon-48"
-          >
-            <mock-icon
-              critical="true"
-              name="sunCloudy"
-            />
-          </i>
-          <p
-            class="com-text --font-bold --xl"
-          >
-            17
-            <span
-              class="com-text --m"
-            >
-              ºc
-            </span>
-          </p>
-        </div>
-        <div
-          class="detail-province-icons"
-        >
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Humedad"
-            >
-              <mock-icon
-                critical="true"
-                name="drop"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              45%
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Dirección del viento"
-            >
-              <mock-icon
-                critical="true"
-                name="windy"
-              />
-            </i>
-            <span
-              title="Noreste 12Km/h"
-            >
-              NE 12Km/h
-            </span>
-          </div>
-          <div
-            class="box-icon-text"
-          >
-            <i
-              class="icon mb-4 --icon-24"
-              title="Probabilidad de lluvia"
-            >
-              <mock-icon
-                critical="true"
-                name="rain"
-              />
-            </i>
-            <span
-              class="com-text --font-bold --4xs"
-            >
-              0%
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="content-icon flex flex-column jc-center mb-32"
-  >
-    <section
-      class="mod-headersection  --line"
-      role="contentinfo"
-    >
-      <h3
-        class="com-title --font-primary --xl --font-black"
-      >
-        Referencias del clima
-      </h3>
-    </section>
-    <div
-      class="icon-references w-100 p-16 rounded-4"
-    >
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="sun"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Despejado (día)
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="clearNight"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Despejado (noche)
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="windy"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Ventoso
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="sunCloudy"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Parcialmente nublado
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="cloudy"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Mayormente nublado
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="rainyCloudy"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Llovizna
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="rain"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Lluvias Fuertes
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="stormCloudy"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Tormentas
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="storm"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Tormentas fuertes
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="snowCloudy"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Lluvia y Nevada
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="snow"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Nevadas Fuertes
-        </span>
-      </div>
-      <div
-        class="card-icon flex ai-center w-100 p-16"
-      >
-        <i
-          class="icon mr-16 --icon-24 --hasWrapper"
-          style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="drop"
-          />
-        </i>
-        <span
-          class="com-text --2xs"
-        >
-          Humedad
-        </span>
-      </div>
-    </div>
-  </div>
+  </static>
 </div>
 `;

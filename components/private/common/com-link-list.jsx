@@ -7,13 +7,13 @@ import setClassName from './utils/setClassName';
 
 // import '../../../resources/dist/css/ln/modules/mod-linklist.css';
 
-const ComLinkList = ({
+function ComLinkList({
     list,
     extraClass,
     _ref,
     isEditoriales = false,
     isHome = false
-}) => {
+}) {
     const classes = setClassName({
         baseClass: 'com-unordered',
         noScroll: '--no-scrollbar',
@@ -34,7 +34,11 @@ const ComLinkList = ({
                         Object.assign(element, { dataSection: 'TagsFooter' });
                     }
                     return (
-                        <li className="item" {...extraOpts}>
+                        <li
+                            key={element.id || i}
+                            className="item"
+                            {...extraOpts}
+                        >
                             <ComLink {...element} />
                         </li>
                     );
@@ -43,7 +47,7 @@ const ComLinkList = ({
         )) ||
         null
     );
-};
+}
 
 ComLinkList.propTypes = {
     list: PropTypes.arrayOf(PropTypes.obj),

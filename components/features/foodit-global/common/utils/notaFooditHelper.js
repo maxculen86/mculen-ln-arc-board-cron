@@ -51,7 +51,11 @@ const articleHasVideo = article => {
 
     const videoPromoItems = get(article, 'promo_items.video_jw');
 
-    return videoContentElement || videoPromoItems || get(article, 'hasVideo');
+    return (
+        Boolean(videoContentElement) ||
+        Boolean(videoPromoItems) ||
+        get(article, 'hasVideo')
+    );
 };
 export const getFooditAuthor = (article, getOnlyAuthorName = false) =>
     get(article, 'label.autor.text') === 'Usuario'

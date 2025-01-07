@@ -3,6 +3,9 @@ import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { buttonPropsByVariant } from './helpers';
 
+const BARRIER_LOGGED = 'barrier-logged';
+const BARRIER_UNLOGGED = 'barrier-unlogged';
+
 function RenderButtons({ variant, userType }) {
     if (variant === '404') return null;
 
@@ -16,17 +19,17 @@ function RenderButtons({ variant, userType }) {
         return (
             <>
                 <Button
-                    variant={buttonPropsByVariant['barrier-logged'].variant}
-                    href={buttonPropsByVariant['barrier-logged'].href}
+                    variant={buttonPropsByVariant[BARRIER_LOGGED].variant}
+                    href={buttonPropsByVariant[BARRIER_LOGGED].href}
                 >
-                    {buttonPropsByVariant['barrier-logged'].label}
+                    {buttonPropsByVariant[BARRIER_LOGGED].label}
                 </Button>
                 <Button
-                    variant={buttonPropsByVariant['barrier-unlogged'].variant}
-                    href={buttonPropsByVariant['barrier-unlogged'].href}
+                    variant={buttonPropsByVariant[BARRIER_UNLOGGED].variant}
+                    href={buttonPropsByVariant[BARRIER_UNLOGGED].href}
                 >
                     <span className="uppercase">
-                        {buttonPropsByVariant['barrier-unlogged'].label}
+                        {buttonPropsByVariant[BARRIER_UNLOGGED].label}
                     </span>
                 </Button>
             </>

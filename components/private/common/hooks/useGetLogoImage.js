@@ -1,8 +1,8 @@
 import { useContent } from 'fusion:content';
-import filter from '../../../../content/filters/LN/home/imageFilter.js';
+import filter from '../../../../content/filters/LN/home/imageFilter';
 import get from '../utils/get';
 
-const useGetLogoImage = (id, isHome) => {
+const useGetLogoImage = (id, staticMode = false) => {
     const relatedImage = useContent({
         source: (id && 'relatedImageSource') || null,
         query: {
@@ -10,7 +10,7 @@ const useGetLogoImage = (id, isHome) => {
             useDataSizes: true
         },
         filter,
-        staticMode: isHome
+        staticMode
     });
     return get(relatedImage, 'promo_items.basic');
 };

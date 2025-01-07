@@ -156,11 +156,11 @@ export const replaceMalformedAnchorTags = ({ textTypeElement, newValue }) => {
     const content = get(textTypeElement, 'content', '');
     const listErrors = getMalformedAnchorTags(content);
 
-    return listErrors.reduce((acc, e) => {
+    return listErrors.reduce((acc, e = '') => {
         const { content } = acc;
         return {
             ...acc,
-            content: content.replace(e, e.replace(/<[^>]*>/gim, newValue))
+            content: content?.replace(e, e.replace(/<[^>]*>/gim, newValue))
         };
     }, textTypeElement);
 };
@@ -190,7 +190,7 @@ export const injectGlossaryInText = (text, glossary) => {
                 const regex = new RegExp(`\\b${glossaryItem.key}\\b`, 'gi');
                 if (regex.test(part)) {
                     foundGlossaryWord = true;
-                    part = part.replace(
+                    part = part?.replace(
                         regex,
                         match =>
                             `<mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }">${match}</mark>`

@@ -81,11 +81,11 @@ export const replaceMalformedAnchorTags = ({ textTypeElement, newValue }) => {
     const content = get(textTypeElement, 'content', '');
     const listErrors = getMalformedAnchorTags(content);
 
-    return listErrors.reduce((acc, e) => {
+    return listErrors.reduce((acc, e = '') => {
         const { content: acumContent } = acc;
         return {
             ...acc,
-            content: acumContent.replace(e, e.replace(/<[^>]*>/gim, newValue))
+            content: acumContent?.replace(e, e.replace(/<[^>]*>/gim, newValue))
         };
     }, textTypeElement);
 };

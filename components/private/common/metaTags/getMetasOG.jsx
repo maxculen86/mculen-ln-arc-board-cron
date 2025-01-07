@@ -20,7 +20,9 @@ const getMetasOG = props => {
         requestUri,
         metaValue,
         subtype,
-        layout
+        layout,
+        globalContent = {},
+        globalContentConfig
     } = props;
 
     const { layoutsName = {} } = config || {};
@@ -64,7 +66,9 @@ const getMetasOG = props => {
         image,
         url,
         layout,
-        layoutsName
+        layoutsName,
+        globalContent,
+        globalContentConfig
     });
     const fbMetas = buildFbMetas(fbAppId);
     const twitterMetas = buildTwitterMetas({

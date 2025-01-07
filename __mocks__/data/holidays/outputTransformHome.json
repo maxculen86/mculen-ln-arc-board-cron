@@ -1,6 +1,6 @@
 {
     "serviceType": "feriados-año",
-    "serviceItem": 2024,
+    "serviceItem": 2025,
     "dataService": {
         "calendars": [
             {
@@ -8,7 +8,9 @@
                 "monthName": "Enero",
                 "holidayData": [
                     {
-                        "days": [1],
+                        "days": [
+                            1
+                        ],
                         "reason": "Año nuevo",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
@@ -20,7 +22,9 @@
                 "monthName": "Febrero",
                 "holidayData": [
                     {
-                        "days": [28],
+                        "days": [
+                            28
+                        ],
                         "reason": "Carnaval",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
@@ -32,7 +36,9 @@
                 "monthName": "Marzo",
                 "holidayData": [
                     {
-                        "days": [24],
+                        "days": [
+                            24
+                        ],
                         "reason": "Día Nacional de la Memoria por la Verdad y la Justicia.",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
@@ -44,7 +50,9 @@
                 "monthName": "Abril",
                 "holidayData": [
                     {
-                        "days": [2],
+                        "days": [
+                            2
+                        ],
                         "reason": "Viernes Santo.",
                         "day_type": 3,
                         "day_type_name": "Puente"
@@ -56,13 +64,17 @@
                 "monthName": "Mayo",
                 "holidayData": [
                     {
-                        "days": [1],
+                        "days": [
+                            1
+                        ],
                         "reason": "Día del Trabajador.",
                         "day_type": 2,
                         "day_type_name": "Trasladable"
                     },
                     {
-                        "days": [25],
+                        "days": [
+                            25
+                        ],
                         "reason": "Día de la Revolución de Mayo.",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
@@ -74,7 +86,9 @@
                 "monthName": "Junio",
                 "holidayData": [
                     {
-                        "days": [20],
+                        "days": [
+                            20
+                        ],
                         "reason": "Paso a la Inmortalidad del General Manuel Belgrano.",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
@@ -86,7 +100,9 @@
                 "monthName": "Julio",
                 "holidayData": [
                     {
-                        "days": [9],
+                        "days": [
+                            9
+                        ],
                         "reason": "Día de la Independencia.",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
@@ -114,13 +130,17 @@
                 "monthName": "Diciembre",
                 "holidayData": [
                     {
-                        "days": [8],
+                        "days": [
+                            8
+                        ],
                         "reason": "Inmaculada Concepción de María.",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
                     },
                     {
-                        "days": [25],
+                        "days": [
+                            25
+                        ],
                         "reason": "Navidad.",
                         "day_type": 1,
                         "day_type_name": "Inamovible"
@@ -383,7 +403,7 @@
         }
     },
     "metaData": {
-        "description": "Calendario de feriados nacionales 2024 en Argentina: días no laborables, fines de semana largo y feriados puente del 2024 y 2025 en LA NACION.",
-        "title": "Feriados 2024 en Argentina: Calendario de feriados nacionales - LA NACION"
+        "description": "Calendario de feriados nacionales 2025 en Argentina: días no laborables, fines de semana largo y feriados puente del 2025 y 2026 en LA NACION.",
+        "title": "Feriados 2025 en Argentina: Calendario de feriados nacionales - LA NACION"
     }
 }

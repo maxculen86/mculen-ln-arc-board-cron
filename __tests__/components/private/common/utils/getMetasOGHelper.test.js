@@ -12,7 +12,8 @@ import {
     buildFbMetas,
     buildTwitterMetas,
     ensureAtSymbol,
-    getTwitterLink
+    getTwitterLink,
+    getDataForProfileType
 } from '../../../../../components/private/common/utils/getMetasOGHelper';
 import {
     getModifiedDate,
@@ -635,6 +636,123 @@ describe('Case return buildOgMetas', () => {
             { property: 'og:image:width', content: '1200' },
             { property: 'og:url', content: 'https://example.com/' }
         ]);
+    });
+
+    it('If author or wiki person should build the correct meta tags for those cases', () => {
+        const globalContent = {
+            isWiki: true,
+            firstName: 'Juan',
+            lastName: 'Pravata',
+            middleName: 'Guillermo',
+            node_type: 'author',
+            wikiSourceData: {
+                schemas_info: {
+                    family_name: 'Messi',
+                    given_name: 'Lionel',
+                    additional_name: ''
+                },
+                type: 1
+            }
+        };
+        const globalContentConfig = {
+            query: {
+                slug: 'el-messi-slug',
+                _id: 'el-autor-slug'
+            }
+        };
+
+        expect(
+            buildOgMetas({ ...params, globalContent, globalContentConfig })
+        ).toEqual([
+            { property: 'og:type', content: 'profile' },
+            { property: 'og:title', content: 'Test Title' },
+            { property: 'og:description', content: 'text description' },
+            { property: 'og:locale', content: 'es_AR' },
+            { property: 'og:image', content: 'https://example.com/image.jpg' },
+            { property: 'og:image:type', content: 'image/jpeg' },
+            { property: 'og:image:alt', content: 'Example Image' },
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:image:height', content: '630' },
+            { property: 'og:url', content: 'https://example.com/' },
+            { property: 'og:site_name', content: 'My Website' },
+            { property: 'profile:first_name', content: 'Lionel' },
+            { property: 'profile:last_name', content: 'Messi' },
+            { property: 'profile:username', content: 'el-messi-slug' }
+        ]);
+
+        expect(
+            buildOgMetas({
+                ...params,
+                globalContent: { ...globalContent, isWiki: false },
+                globalContentConfig
+            })
+        ).toEqual([
+            { property: 'og:type', content: 'profile' },
+            { property: 'og:title', content: 'Test Title' },
+            { property: 'og:description', content: 'text description' },
+            { property: 'og:locale', content: 'es_AR' },
+            { property: 'og:image', content: 'https://example.com/image.jpg' },
+            { property: 'og:image:type', content: 'image/jpeg' },
+            { property: 'og:image:alt', content: 'Example Image' },
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:image:height', content: '630' },
+            { property: 'og:url', content: 'https://example.com/' },
+            { property: 'og:site_name', content: 'My Website' },
+            { property: 'profile:first_name', content: 'Juan Guillermo' },
+            { property: 'profile:last_name', content: 'Pravata' },
+            { property: 'profile:username', content: 'el-autor-slug' }
+        ]);
+    });
+});
+
+describe('getDataForProfileType function', () => {
+    const globalContentConfig = {
+        query: {
+            slug: 'el-messi-slug',
+            _id: 'el-autor-slug'
+        }
+    };
+    it('Should build the correct values for wiki person', () => {
+        expect(
+            getDataForProfileType(
+                {
+                    isWiki: true,
+                    node_type: 'acumulado',
+                    wikiSourceData: {
+                        schemas_info: {
+                            family_name: 'Messi',
+                            given_name: 'Lionel',
+                            additional_name: ''
+                        },
+                        type: 1
+                    }
+                },
+                globalContentConfig
+            )
+        ).toEqual({
+            profileLastName: 'Messi',
+            profileName: 'Lionel',
+            profileUsername: 'el-messi-slug'
+        });
+    });
+
+    it('Should build the correct values for author', () => {
+        expect(
+            getDataForProfileType(
+                {
+                    isWiki: false,
+                    firstName: 'Juan',
+                    lastName: 'Pravata',
+                    middleName: 'Guillermo',
+                    node_type: 'author'
+                },
+                globalContentConfig
+            )
+        ).toEqual({
+            profileLastName: 'Pravata',
+            profileName: 'Juan Guillermo',
+            profileUsername: 'el-autor-slug'
+        });
     });
 });
 

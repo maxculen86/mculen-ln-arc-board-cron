@@ -5,12 +5,14 @@ const replaceBaseUrl = promoItem => {
 
     if (type !== 'image') return promoItem;
 
-    const replaceUrl = _url => _url.replace(RESIZER_URL_PUBLIC, SITE_FOODIT);
+    const replaceUrl = (_url = '') =>
+        _url.replace(RESIZER_URL_PUBLIC, SITE_FOODIT);
 
     const transformResizedUrls = (resizedUrlsArray = []) =>
-        resizedUrlsArray.map(item => {
-            return { ...item, resizedUrl: replaceUrl(item.resizedUrl) };
-        });
+        resizedUrlsArray.map(item => ({
+            ...item,
+            resizedUrl: replaceUrl(item.resizedUrl)
+        }));
 
     return {
         ...promoItem,

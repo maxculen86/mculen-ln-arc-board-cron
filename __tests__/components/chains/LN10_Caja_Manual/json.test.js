@@ -2,7 +2,7 @@ import GetCajaManual from '../../../../components/private/LN/api/global/componen
 import LN10CajaManual from '../../../../components/chains/LN10_Caja_Manual/json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -128,15 +128,14 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
 
         resultChain.state.containerImage = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         const resultCajaManual = resultChain.render();
 
         const resultGetCajaManual = getCajaManual.render();
         console.log(resultCajaManual);
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state', 'validate'].sort()
+            ['props', 'renderResponse', 'state'].sort()
         );
         expect(resultCajaManual.information).toMatchObject({
             layout: 'bn_1_3_grid',
@@ -160,12 +159,11 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         const resultChain = new LN10CajaManual(props);
         resultChain.state.containerImage = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         const result = resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state', 'validate'].sort()
+            ['props', 'renderResponse', 'state'].sort()
         );
         expect(result).toBeNull();
     });
@@ -180,12 +178,11 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         const resultChain = new LN10CajaManual(props);
         resultChain.state.containerImage = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         const result = resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state', 'validate'].sort()
+            ['props', 'renderResponse', 'state'].sort()
         );
         expect(result.information.hideCaja).toBe(false);
     });
@@ -198,12 +195,11 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         const resultChain = new LN10CajaManual(props);
         resultChain.state.containerImage = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state', 'validate'].sort()
+            ['props', 'renderResponse', 'state'].sort()
         );
         expect(console.warn).toHaveBeenCalledTimes(1);
         expect(console.warn.mock.calls[0][0]).toBe(
@@ -217,12 +213,11 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         const resultChain = new LN10CajaManual(props);
         resultChain.state.containerImage = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         const result = resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state', 'validate'].sort()
+            ['props', 'renderResponse', 'state'].sort()
         );
         expect(result.Message).toBe('Error');
         expect(result.Success).toBe(false);
@@ -245,13 +240,12 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
 
         resultChain.state.containerImage = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         const resultCajaManual = resultChain.render();
 
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state', 'validate'].sort()
+            ['props', 'renderResponse', 'state'].sort()
         );
         expect(resultCajaManual.information).toMatchObject({
             layout: 'bnFondo',

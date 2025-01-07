@@ -45,22 +45,6 @@
                     color: $light-neutral-400;
                 }
             }
-            .mod-share {
-                amp-social-share {
-                    &[type='facebook'],
-                    &[type='twitter'],
-                    &[type='whatsapp'],
-                    &[type='email'] {
-                        .com-icon path {
-                            fill: $neutral-white;
-                        }
-                        @media ($media-l) {
-                            margin-bottom: 0;
-                            margin-right: $spacing-sm;
-                        }
-                    }
-                }
-            }
             .mod-media {
                 .mod-figcaption {
                     display: none;

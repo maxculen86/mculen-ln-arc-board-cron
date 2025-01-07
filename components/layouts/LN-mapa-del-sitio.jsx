@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import Copyright from '../private/LN/common/footer/copyright';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import ComLogo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import ListSection from '../private/common/utils/listSection';
