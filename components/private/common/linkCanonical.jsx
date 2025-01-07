@@ -5,7 +5,7 @@ import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
 import { isUSALangHtml } from './utils/outputTypeHelper';
 
-const LinkCanonicalAndAlternate = (props = {}) => {
+function LinkCanonicalAndAlternate(props = {}) {
     const {
         _id = '',
         canonicalUrl = '',
@@ -22,28 +22,25 @@ const LinkCanonicalAndAlternate = (props = {}) => {
         !siteUrl.includes(_id) &&
         template.includes('page');
 
-    const canonicalId = !mustUseSiteUrl && canonicalIdChecker(_id);
-
+    const canonicalId = (!mustUseSiteUrl && canonicalIdChecker(_id)) || '';
+    const canonicalSlash = canonicalId.startsWith('/')
+        ? canonicalId
+        : `/${canonicalId}`;
     const canonicalLink = mustUseSiteUrl
         ? siteUrl
-        : addForwardSlash(
-              `${host}${canonicalUrl ||
-                  (canonicalId.startsWith('/')
-                      ? canonicalId
-                      : `/${canonicalId}`)}`
-          );
+        : addForwardSlash(`${host}${canonicalUrl || canonicalSlash}`);
 
     return host && (canonicalUrl || _id || nodeType === 'home') ? (
         <>
             <link rel="canonical" href={canonicalLink} />
             {isUSALangHtml(_id, canonicalUrl) && (
-                <link rel="alternate" href={canonicalLink} hreflang="es-US" />
+                <link rel="alternate" href={canonicalLink} hrefLang="es-US" />
             )}
         </>
     ) : (
         <></>
     );
-};
+}
 LinkCanonicalAndAlternate.propTypes = {
     _id: PropTypes.string.isRequired,
     canonicalUrl: PropTypes.string.isRequired,

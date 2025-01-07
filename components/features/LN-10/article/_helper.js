@@ -325,10 +325,9 @@ export const getMediaData = ({
 
 export const getDataAttributesForViewability = (id, boxPosition, index) => {
     const extraOpts = {};
+    const indexNested = `0${Number(index) + 1}`.slice(-2);
     if (boxPosition) {
-        extraOpts['data-pos'] = `${boxPosition}${`0${Number(index) + 1}`.slice(
-            -2
-        )}`;
+        extraOpts['data-pos'] = `${boxPosition}${indexNested}`;
         extraOpts['data-id'] = id;
         extraOpts['data-notaid'] = id;
         extraOpts['data-source'] = 'editor';

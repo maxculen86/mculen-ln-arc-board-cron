@@ -45,10 +45,8 @@ export const getSlugForImage = imageData => {
     const shorterSlug = isValidString(slugifySeoFriendly)
         ? slugifySeoFriendly.slice(0, 50)
         : '';
-
-    return shorterSlug.charAt(shorterSlug.length - 1) === '-'
-        ? shorterSlug
-        : `${`${shorterSlug.slice(0, shorterSlug.lastIndexOf('-'))}-`}`;
+    const shorterSlugWithDash = `${shorterSlug.slice(0, shorterSlug.lastIndexOf('-'))}-`;
+    return shorterSlug.endsWith('-') ? shorterSlug : shorterSlugWithDash;
 };
 
 // TODO: Optener la config  por default

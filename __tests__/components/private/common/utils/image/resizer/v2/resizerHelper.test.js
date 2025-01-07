@@ -553,4 +553,37 @@ describe('Tests resizer helper', () => {
             );
         });
     });
+
+    describe('getSlugForImage', () => {
+        it('should return empty string from object', () => {
+            const imageData = {};
+    
+            const result = resizerHelper.getSlugForImage(imageData);
+            expect(result).toBe('');
+        });
+
+        it('should return slug from loremtextramdon lorem', () => {
+            const imageData = { alt_text: 'loremtextramdon lorem' };
+    
+            const result = resizerHelper.getSlugForImage(imageData);
+            expect(result).toBe('loremtextramdon-');
+        });
+
+        it('should return slug from loremtextramdon', () => {
+            const imageData = { alt_text: 'loremtextramdon' };
+    
+            const result = resizerHelper.getSlugForImage(imageData);
+            expect(result).toBe('loremtextramdo-');
+        });
+
+        
+        it('should return slug from text greater than 50 charts', () => {
+            const imageData = { alt_text: 'loremtextramdonasdgfsdfanwjkndlkandansdnasmdporuhsjfhuqeysktpñlaisu' };
+    
+            const result = resizerHelper.getSlugForImage(imageData);
+            expect(result).toBe('loremtextramdonasdgfsdfanwjkndlkandansdnasmdporuh-');
+        });
+
+    })
+
 });

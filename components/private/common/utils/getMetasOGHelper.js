@@ -325,18 +325,23 @@ export const getDataForProfileType = (
         } = {}
     } = globalContent;
 
-    const { query: { slug, _id: slugAuthor } = {} } = globalContentConfig;
+    const { query: { slug = '', _id: slugAuthor = '' } = {} } =
+        globalContentConfig;
 
     if (isWiki) {
+        const additionalNameWithSpace = additionalName
+            ? ` ${additionalName}`
+            : '';
         return {
-            profileName: `${givenName}${additionalName ? ` ${additionalName}` : ''}`,
+            profileName: `${givenName}${additionalNameWithSpace}`,
             profileLastName: familyName,
             profileUsername: decodeURIComponent(slug)
         };
     }
 
+    const middleNameWithSpace = middleName ? ` ${middleName}` : '';
     return {
-        profileName: `${firstName}${middleName ? ` ${middleName}` : ''}`,
+        profileName: `${firstName}${middleNameWithSpace}`,
         profileLastName: lastName,
         profileUsername: decodeURIComponent(slugAuthor)
     };
