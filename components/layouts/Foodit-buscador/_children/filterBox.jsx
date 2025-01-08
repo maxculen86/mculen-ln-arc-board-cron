@@ -32,7 +32,12 @@ export default function FilterBox({ toggleDrawer }) {
                     <SkeletonFaceteddata />
                 ) : (
                     <div id="faceteddata">
-                        <div className="flex flex-wrap gap-8 pb-24">
+                        <div className="flex jc-between text-24 pb-24_lg">
+                            <span className="prumo prumo-light lg-only">
+                                Filtros
+                            </span>
+                        </div>
+                        <div className="flex flex-wrap gap-8 pb-24 pb-0_lg">
                             {appliedFilters.map(({ group, value } = {}) => (
                                 <Chips
                                     key={`${group}-${value}`}
@@ -62,11 +67,6 @@ export default function FilterBox({ toggleDrawer }) {
                                 </Button>
                             </div>
                         )}
-                        <div className="flex jc-between text-24 pb-24_lg">
-                            <span className="prumo prumo-light lg-only">
-                                Filtros
-                            </span>
-                        </div>
 
                         {listFilters.length
                             ? listFilters.map(
