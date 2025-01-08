@@ -1137,14 +1137,6 @@ strong {
   top: 0;
 }
 
-.top--36 {
-  top: -2.25rem;
-}
-
-.top-60 {
-  top: 60%;
-}
-
 .top-100 {
   top: 100%;
 }
@@ -1159,10 +1151,6 @@ strong {
 
 .bottom-16 {
   bottom: 1rem;
-}
-
-.bottom-20 {
-  bottom: 20%;
 }
 
 .bottom-100 {
@@ -1181,10 +1169,6 @@ strong {
   right: 1.5rem;
 }
 
-.right--120 {
-  right: -7.5rem;
-}
-
 .right-100 {
   right: 100%;
 }
@@ -1193,16 +1177,8 @@ strong {
   left: 0;
 }
 
-.left-40 {
-  left: 40%;
-}
-
 .left-50 {
   left: 50%;
-}
-
-.left--48 {
-  left: -3rem;
 }
 
 .left-56 {
