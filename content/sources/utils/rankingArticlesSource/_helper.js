@@ -1,4 +1,4 @@
-import { RESIZER_KEY } from 'fusion:environment';
+import { RESIZER_KEY, ARC_ACCESS_TOKEN_PROD } from 'fusion:environment';
 import {
     FOTOAL100,
     STORYTELLING
@@ -10,6 +10,8 @@ import getPresets from '../presets';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 
+const BASE_ARC_SERVICES_URL =
+    'https://arcservices.lanacion.com.ar/api/v1/analytics';
 const CONTENT_BASE_PROD = 'https://api.lanacionar.arcpublishing.com';
 const RESIZER_URL_PUBLIC_PROD = 'https://resizer.glanacion.com';
 const STORY_QUERY_LIMIT = 30;
@@ -214,3 +216,42 @@ export const sortData = (articles, stories, size) =>
     articles
         .filter(article => stories.includes(article.canonical_url))
         .slice(0, size);
+
+export const getQueryData = query => {
+    const { sectionId, layout, arcSite } = query;
+    const newQuery = { ...query, ...getQuery(sectionId, layout) };
+    const { endpoint, size, name } = newQuery;
+    const uriArcServicesAPI = `${BASE_ARC_SERVICES_URL}${endpoint}`;
+    const isApiFetch = get(query, 'api', false);
+    return {
+        sectionId,
+        layout,
+        endpoint,
+        size,
+        uriArcServicesAPI,
+        newQuery,
+        arcSite,
+        isApiFetch,
+        name
+    };
+};
+
+export const getServicesRequest = (query, stories) => {
+    const uri = resolveUri({
+        ...query,
+        stories
+    });
+
+    const servicesRequest = {
+        uri,
+        json: true
+    };
+
+    if (ARC_ACCESS_TOKEN_PROD) {
+        servicesRequest.auth = {
+            bearer: ARC_ACCESS_TOKEN_PROD
+        };
+    }
+
+    return { servicesRequest, uri };
+};
