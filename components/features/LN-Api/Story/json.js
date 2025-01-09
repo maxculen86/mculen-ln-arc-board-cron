@@ -3,14 +3,16 @@ import IndexNotaV1 from '../../../private/LN/api/v1/global/story';
 import IndexNotaMobileV1 from '../../../private/LN/api/v1/mobile/story';
 import browser from '../../../private/common/utils/browser';
 import dateAndTimeUtil from '../../../private/common/utils/dateAndTimeUtil';
+import get from '../../../private/common/utils/get';
 
 class Story {
     constructor(props) {
         this.props = props;
         const {
-            globalContent: { _id: storyId, isListenable: isListenableValue }
+            globalContent: { _id: storyId, isListenable: isListenableValue },
+            globalContentConfig: { query }
         } = props;
-
+        const isAudioNewsFetch = get(query, 'ticks', false);
         // Responde al resolver que permite pasar las versiones existentes
         // Regex actual: ^/api/v([1]+)/notas/byId/(.+)/$
 
@@ -35,7 +37,7 @@ class Story {
             }
         });
 
-        if (isListenableValue) {
+        if (isListenableValue && !isAudioNewsFetch) {
             this.fetchContent({
                 audionewsSource: {
                     source: 'audionewsSource',
