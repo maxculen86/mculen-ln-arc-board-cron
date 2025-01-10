@@ -1379,9 +1379,12 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 320,
-                        height: 213,
-                        media_preload: setMediaCondition({ maxWidth: 511 }),
+                        width: 510,
+                        height: 510,
+                        maxScreenWidth: 511,
+                        media_preload: setMediaCondition({
+                            maxWidth: 511
+                        }),
                         proportion: '1:1'
                     },
                     {
