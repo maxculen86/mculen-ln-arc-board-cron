@@ -91,11 +91,8 @@ function Default(props) {
     } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
-    const {
-        description: defaultDescription,
-        layoutsName = {},
-        host = ''
-    } = siteProperties;
+    const { description: defaultDescription, layoutsName = {} } =
+        siteProperties;
 
     const metaTitleBasic = metaTitle || basicTitle;
 
@@ -229,7 +226,7 @@ function Default(props) {
                 <LinkCanonicalAndAlternate
                     _id={_id}
                     canonicalUrl={canonicalUrl}
-                    host={host}
+                    arcSite={arcSite}
                     nodeType={_nodeType}
                     site={site}
                     template={template}

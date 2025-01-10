@@ -3,10 +3,16 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import LinkCanonicalAndAlternate from '../../../../components/private/common/linkCanonical';
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar',
+    ARC_STATIC: 'https://arc-static.glanacion.com',
+    SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+}));
+
 describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
     describe('At homepage', () => {
         const props = {
-            host: 'https://www.lanacion.com.ar',
+            arcSite: 'la-nacion-ar',
             canonicalUrl: '',
             nodeType: 'home',
             site: {}
@@ -40,7 +46,7 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
 
     describe('At note', () => {
         const props = {
-            host: 'https://www.lanacion.com.ar',
+            arcSite: 'la-nacion-ar',
             canonicalUrl: '/ciencia/roger-prueba-imagenes-nid28052020/',
             nodeType: 'nota',
             site: {},
@@ -60,7 +66,9 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
                 <LinkCanonicalAndAlternate {...props} />
             );
             const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(`${props.host}${props.canonicalUrl}`);
+            expect(link[0].href).toEqual(
+                'https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/'
+            );
         });
 
         it('Should have the correct DOM attributes', () => {
@@ -85,7 +93,7 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
 
     describe('At sections', () => {
         const props = {
-            host: 'https://www.lanacion.com.ar',
+            arcSite: 'la-nacion-ar',
             canonicalUrl: '',
             _id: '/deportes',
             site: {
@@ -107,7 +115,9 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
                 <LinkCanonicalAndAlternate {...props} />
             );
             const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(`${props.host}${props._id}/`);
+            expect(link[0].href).toEqual(
+                'https://www.lanacion.com.ar/deportes/'
+            );
         });
 
         it('Should have the correct DOM attributes', () => {
@@ -131,7 +141,7 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
         it('When is page, dolar-hoy case', () => {
             const dolarHoyProps = {
                 _id: '/economia/dolar',
-                host: 'https://www.lanacion.com.ar',
+                arcSite: 'la-nacion-ar',
                 nodeType: 'acumulado',
                 site: {
                     site_about: '',
@@ -153,7 +163,7 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
 
     describe('At sub-sections', () => {
         const props = {
-            host: 'https://www.lanacion.com.ar',
+            arcSite: 'la-nacion-ar',
             canonicalUrl: '',
             _id: '/deportes/futbol/boca-juniors',
             site: {},
@@ -173,7 +183,9 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
                 <LinkCanonicalAndAlternate {...props} />
             );
             const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(`${props.host}${props._id}/`);
+            expect(link[0].href).toEqual(
+                'https://www.lanacion.com.ar/deportes/futbol/boca-juniors/'
+            );
         });
 
         it('Should have the correct DOM attributes', () => {
@@ -198,7 +210,7 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
 
     describe('With author id', () => {
         const props = {
-            host: 'https://www.foodit.lanacion.com.ar',
+            arcSite: 'foodit',
             canonicalUrl: '',
             _id: 'leo-messi-10',
             site: {},
@@ -219,7 +231,9 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
                 <LinkCanonicalAndAlternate {...props} />
             );
             const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(`${props.host}/${props._id}/`);
+            expect(link[0].href).toEqual(
+                'https://foodit.lanacion.com.ar/leo-messi-10/'
+            );
         });
 
         it('Should have the correct DOM attributes', () => {
@@ -230,7 +244,7 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
             expect(link).toHaveLength(1);
             expect(link[0].rel).toEqual('canonical');
             expect(link[0].href).toEqual(
-                'https://www.foodit.lanacion.com.ar/leo-messi-10/'
+                'https://foodit.lanacion.com.ar/leo-messi-10/'
             );
         });
 
@@ -244,7 +258,7 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
 
     describe('When parent is estados-unidos', () => {
         const props = {
-            host: 'https://www.lanacion.com.ar',
+            arcSite: 'la-nacion-ar',
             canonicalUrl: '',
             _id: '/estados-unidos',
             site: {},
