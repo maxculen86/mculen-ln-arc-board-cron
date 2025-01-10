@@ -139,15 +139,7 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
 export const isValidSectionIA = sections => {
     const section = get(sections, '[0].path', '');
 
-    const validSections = [
-        '/sociedad',
-        '/espectaculos',
-        '/tecnologia',
-        '/lifestyle',
-        '/autos',
-        '/el-mundo',
-        '/seguridad'
-    ];
+    const validSections = ['/campo', '/autos', '/salud', '/propiedades'];
 
     return validSections.some(validSection => section.startsWith(validSection));
 };
