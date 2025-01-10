@@ -36,13 +36,16 @@ export const fillMaxWidth = images =>
     }, []);
 
 export const getResizedUrls = (subtype, promoItems, basicDefault) => {
+    const propertyVideoJw = get(promoItems, 'apertura_multimedia', null)
+        ? 'apertura_multimedia'
+        : 'video_jw';
     const isVideoType =
-        get(promoItems, 'video_jw.subtype', false) === 'video_jw';
+        get(promoItems, `${propertyVideoJw}.subtype`, false) === 'video_jw';
 
     if (isVideoType) {
         const aperturaMultimedia = get(
             promoItems,
-            'video_jw.embed.config.videoJw.playlist',
+            `${propertyVideoJw}.embed.config.videoJw.playlist`,
             {}
         );
         const aperturaSrcImages =
