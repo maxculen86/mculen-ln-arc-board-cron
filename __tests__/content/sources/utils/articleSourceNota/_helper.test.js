@@ -1211,7 +1211,8 @@ describe('Tests articleSourceNota - _helper', () => {
         it.each([
             { path: '/autos/test-drive', expected: true },
             { path: '/salud/vida_sana', expected: true },
-            { path: '/propiedades/casas-y-departamentos', expected: true }
+            { path: '/propiedades/casas-y-departamentos', expected: true },
+            { path: '/economia/campo/cosecha-de-girasoles', expected: true }
         ])(
             'should return $expected if the section path is $path',
             ({ path, expected }) => {
