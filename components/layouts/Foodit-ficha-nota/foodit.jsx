@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
-import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
-import ActionsButtons from '../../features/foodit-global/common/ActionsButtons/foodit';
-import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
-import { OpeningStorytelling } from '../../features/foodit-global/common/OpeningStorytelling/foodit';
 import { Note } from '@ln/foodit-ui-note';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
+import { ActionsButtons } from '../../features/foodit-global/common/ActionsButtons/foodit';
+import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
+import { OpeningStorytelling } from '../../features/foodit-global/common/OpeningStorytelling/foodit';
 import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
@@ -17,10 +17,15 @@ import { getFooditAuthor } from '../../features/foodit-global/common/utils/notaF
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
-const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
+function FichaNotaFoodit({ children = [], globalContent = {} }) {
     const [body, bottom] = children;
-    const { promo_items, headlines, subheadlines, _id } = globalContent;
-    const video = Boolean(promo_items && promo_items.video_jw);
+    const {
+        promo_items: promoItems,
+        headlines,
+        subheadlines,
+        _id
+    } = globalContent;
+    const video = Boolean(promoItems && promoItems.video_jw);
 
     const title = get(headlines, 'basic', '');
     const subtitle = get(subheadlines, 'basic', '');
@@ -78,7 +83,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                                         title="Guardar"
                                         size={{ sm: 32, lg: 40 }}
                                         data-id={_id}
-                                        data-modal={'open-modal'}
+                                        data-modal="open-modal"
                                     >
                                         <Icon size={16} className="sm-none">
                                             <IconSprite
@@ -103,13 +108,13 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
-};
+}
 
 FichaNotaFoodit.sections = pageBuilderSections;
 
 FichaNotaFoodit.propTypes = {
-    children: PropTypes.array,
-    globalContent: PropTypes.object
+    children: PropTypes.node.isRequired,
+    globalContent: PropTypes.shape({}).isRequired
 };
 
 export default Consumer(FichaNotaFoodit);

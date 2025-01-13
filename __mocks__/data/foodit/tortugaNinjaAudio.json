@@ -1,0 +1,922 @@
+{
+    "_id": "FJ5UOR2HONA5RGOM226UQF24MI",
+    "canonical_url": "/recetas/pizza-estilo-tortugas-ninja-la-receta-definitiva-nid03012024/",
+    "category": "Pizzas y empanadas",
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "content_elements": [
+        {
+            "_id": "FPAMHE2RCJHY7BLDF6VWOOLJNI",
+            "embed": {
+                "config": {
+                    "items": [
+                        "En un tazón, mezcla el agua tibia, azúcar y levadura. Deja reposar por 5 minutos hasta que burbujee. Agrega la harina, aceite de oliva y sal. Amasa hasta obtener una masa suave y elástica. Cubre y deja reposar en un lugar cálido durante 1 hora.",
+                        "En una sartén, saltea el ajo en aceite de oliva hasta que esté dorado. Agrega el tomate triturado, orégano, albahaca, sal y pimienta. Cocina a fuego lento durante 15-20 minutos.",
+                        "Precalienta el horno a 220°C. Estira la masa en una bandeja para horno y unta la salsa de tomate uniformemente. Agrega el queso mozzarella y los ingredientes de tu elección.",
+                        "Hornea la pizza en el horno precalentado durante 15-20 minutos o hasta que la masa esté dorada y el queso burbujee."
+                    ],
+                    "titleList": "Para la masa",
+                    "typeList": "preparacion"
+                }
+            },
+            "subtype": "custom-preparacion",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "2UHBY2DGWJHA7PWKMDIFII5IOY",
+            "embed": {
+                "config": {
+                    "items": [
+                        "Cortar los tomates",
+                        "Triturar los tomates",
+                        "La preparación de la salsa rellenando espacio"
+                    ],
+                    "titleList": "Para la salsa",
+                    "typeList": "preparacion"
+                }
+            },
+            "subtype": "custom-preparacion",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "XDQNOZA7GZFXZNC6H6IHDR7C2Y",
+            "additional_properties": {},
+            "content": "<strong>Tips y Curiosidades:</strong>",
+            "level": 2,
+            "type": "header"
+        },
+        {
+            "_id": "SAKGG4JUWRCRPIVUN7SGOMJXNM",
+            "items": [
+                {
+                    "_id": "A5WAIHTIBFDQLKTAWOLBJDPD5Q",
+                    "content": "Las Tortugas Ninja amaban los ingredientes frescos. <strong>Añade tus </strong><em><strong>toppings</strong></em> favoritos y experimenta con combinaciones únicas.",
+                    "type": "text"
+                },
+                {
+                    "_id": "NPU5C5QCJFHDNGNE6FFCB7VCPY",
+                    "content": "Para logra<em>r una masa más fina y crujie</em>nte, puedes extenderla más fina o usar<strong> harina de tipo “00″</strong>.",
+                    "type": "text"
+                },
+                {
+                    "_id": "OIM3T4JMPRC6TL637YQJPOQ2YE",
+                    "content": "Las Tortugas preferían su salsa de <strong>tomate casera.</strong> Añade tus propias especias para darle un toque personal.",
+                    "type": "text"
+                },
+                {
+                    "_id": "REH7ENK4NBAQTBXCXLKEAAOM7Y",
+                    "content": "Si tienes una piedra para <strong>pizza</strong>, úsala para lograr una base aún más crujiente.",
+                    "type": "text"
+                }
+            ],
+            "list_type": "unordered",
+            "type": "list"
+        },
+        {
+            "_id": "CV4RE673U5HYTFTQK4UKRQPBRE",
+            "additional_properties": {},
+            "content": "¡Disfruta de tu pizza estilo <a href=\"https://es.wikipedia.org/wiki/Tortugas_Ninja\" target=\"_blank\" title=\"Tortugas Ninja\" class=\"link foodit-link\" data-variant=\"secondary\" rel=\"nofollow\">Tortugas Ninja</a>! Con esta receta, estarás listo para luchar contra el hambre con todo el poder de una auténtica pizza ninja. ¡<strong>Cowabunga</strong>!",
+            "type": "text"
+        },
+        {
+            "_id": "CWVFN3BKFBCXBKKAOX5PTHKHUE",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "abbreviation": "Tz.",
+                            "amount": "2",
+                            "fullIngredientString": "2 Tz. de Harina de trigo",
+                            "includeInShoppingList": true,
+                            "ingredient": "Harina de trigo",
+                            "isMainIngredient": true,
+                            "unit": "Taza"
+                        },
+                        {
+                            "abbreviation": "Tz.",
+                            "amount": "1",
+                            "fullIngredientString": "1 Tz. de Agua",
+                            "includeInShoppingList": false,
+                            "ingredient": "Agua",
+                            "isMainIngredient": false,
+                            "unit": "Taza"
+                        },
+                        {
+                            "abbreviation": "Cda.",
+                            "amount": "1",
+                            "fullIngredientString": "1 Cda. de Azúcar",
+                            "includeInShoppingList": false,
+                            "ingredient": "Azúcar",
+                            "isMainIngredient": false,
+                            "unit": "Cucharada"
+                        },
+                        {
+                            "abbreviation": "U",
+                            "amount": "1",
+                            "fullIngredientString": "1 Levadura seca",
+                            "includeInShoppingList": true,
+                            "ingredient": "Levadura seca",
+                            "isMainIngredient": false,
+                            "unit": "Unidad"
+                        },
+                        {
+                            "abbreviation": "Cda.",
+                            "amount": "2",
+                            "fullIngredientString": "2 Cda. de Aceite",
+                            "includeInShoppingList": false,
+                            "ingredient": "Aceite",
+                            "isMainIngredient": false,
+                            "unit": "Cucharada"
+                        },
+                        {
+                            "abbreviation": "Cda.",
+                            "amount": "1",
+                            "fullIngredientString": "1 Cda. de Sal fina",
+                            "includeInShoppingList": false,
+                            "ingredient": "Sal fina",
+                            "isMainIngredient": false,
+                            "unit": "Cucharada"
+                        }
+                    ],
+                    "titleList": "Para la masa",
+                    "typeList": "foodit-ingredientes"
+                }
+            },
+            "subtype": "foodit-ingredientes",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "RMS3CM4NSVFLDDBBXCROAJQLPE",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "abbreviation": "Tz.",
+                            "amount": "2",
+                            "fullIngredientString": "2 Tz. de Mozzarella",
+                            "includeInShoppingList": true,
+                            "ingredient": "Mozzarella",
+                            "isMainIngredient": false,
+                            "unit": "Taza"
+                        },
+                        {
+                            "abbreviation": "Tz.",
+                            "amount": "1",
+                            "fullIngredientString": "1 Tz. de Agua",
+                            "includeInShoppingList": false,
+                            "ingredient": "Agua",
+                            "isMainIngredient": false,
+                            "unit": "Taza"
+                        }
+                    ],
+                    "titleList": "Para la salsa",
+                    "typeList": "foodit-ingredientes"
+                }
+            },
+            "subtype": "foodit-ingredientes",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "JNJYIYWVYNEZVFP3KRHBCYU4AA",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "text": "Calorías",
+                            "unit": "kcal",
+                            "value": 40
+                        },
+                        {
+                            "text": "Carbohidratos",
+                            "unit": "g",
+                            "value": 30
+                        },
+                        {
+                            "text": "Colesterol",
+                            "unit": "mg",
+                            "value": 6
+                        },
+                        {
+                            "text": "Grasas",
+                            "unit": "g",
+                            "value": 3
+                        },
+                        {
+                            "text": "Fibras",
+                            "unit": "g",
+                            "value": 2
+                        },
+                        {
+                            "text": "Proteínas",
+                            "unit": "g",
+                            "value": 2
+                        },
+                        {
+                            "text": "Grasas saturadas",
+                            "unit": "g",
+                            "value": 3
+                        },
+                        {
+                            "text": "Tamaño de porcion",
+                            "unit": "g",
+                            "value": 6
+                        },
+                        {
+                            "text": "Sodio",
+                            "unit": "mg",
+                            "value": 2
+                        },
+                        {
+                            "text": "Azúcar",
+                            "unit": "g",
+                            "value": 2
+                        },
+                        {
+                            "text": "Grasas trans",
+                            "unit": "g",
+                            "value": 2
+                        },
+                        {
+                            "text": "Grasas insaturadas",
+                            "unit": "g",
+                            "value": 2
+                        }
+                    ],
+                    "typeList": "nutritional-info"
+                }
+            },
+            "subtype": "custom-nutrition",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "D5ZHHTUR3BHZNPDQTM7G4QJEBM",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "1U9JD9l7",
+                    "videoJw": {
+                        "description": "",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "description": "",
+                                "duration": 144,
+                                "image": "https://cdn.jwplayer.com/v2/media/1U9JD9l7/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/1U9JD9l7/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/1U9JD9l7/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/1U9JD9l7/poster.jpg?width=640",
+                                        "type": "image/jpeg",
+                                        "width": 640
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/1U9JD9l7/poster.jpg?width=720",
+                                        "type": "image/jpeg",
+                                        "width": 720
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/1U9JD9l7/poster.jpg?width=1280",
+                                        "type": "image/jpeg",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/1U9JD9l7/poster.jpg?width=1920",
+                                        "type": "image/jpeg",
+                                        "width": 1920
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/1U9JD9l7",
+                                "mediaid": "1U9JD9l7",
+                                "pubdate": 1705495384,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/1U9JD9l7.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 294434,
+                                        "file": "https://cdn.jwplayer.com/videos/1U9JD9l7-kTExGaWf.mp4",
+                                        "filesize": 5299813,
+                                        "framerate": 24,
+                                        "height": 180,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 414897,
+                                        "file": "https://cdn.jwplayer.com/videos/1U9JD9l7-K8B0kybS.mp4",
+                                        "filesize": 7468158,
+                                        "framerate": 24,
+                                        "height": 270,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    },
+                                    {
+                                        "bitrate": 1049727,
+                                        "file": "https://cdn.jwplayer.com/videos/1U9JD9l7-46NIuRKO.mp4",
+                                        "filesize": 18895093,
+                                        "framerate": 24,
+                                        "height": 720,
+                                        "label": "720p",
+                                        "type": "video/mp4",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "bitrate": 114182,
+                                        "file": "https://cdn.jwplayer.com/videos/1U9JD9l7-hz5z2Tv4.m4a",
+                                        "filesize": 2055279,
+                                        "label": "AAC Audio",
+                                        "type": "audio/mp4"
+                                    },
+                                    {
+                                        "bitrate": 1764605,
+                                        "file": "https://cdn.jwplayer.com/videos/1U9JD9l7-SomplJdm.mp4",
+                                        "filesize": 31762893,
+                                        "framerate": 24,
+                                        "height": 1080,
+                                        "label": "1080p",
+                                        "type": "video/mp4",
+                                        "width": 1920
+                                    },
+                                    {
+                                        "bitrate": 459104,
+                                        "file": "https://cdn.jwplayer.com/videos/1U9JD9l7-FnZGUVnC.mp4",
+                                        "filesize": 8263882,
+                                        "framerate": 24,
+                                        "height": 360,
+                                        "label": "360p",
+                                        "type": "video/mp4",
+                                        "width": 640
+                                    },
+                                    {
+                                        "bitrate": 742371,
+                                        "file": "https://cdn.jwplayer.com/videos/1U9JD9l7-0G6Pwvlw.mp4",
+                                        "filesize": 13362680,
+                                        "framerate": 24,
+                                        "height": 540,
+                                        "label": "540p",
+                                        "type": "video/mp4",
+                                        "width": 960
+                                    }
+                                ],
+                                "title": "Receta de los jugos verdes que desintoxican",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/1U9JD9l7-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "Receta de los jugos verdes que desintoxican"
+                    }
+                }
+            },
+            "subtype": "video_jw",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "55KEYH2SQZGP7M5LFAJVRJHIZM",
+            "additional_properties": {},
+            "header": [
+                {
+                    "_id": "RPVW256T3BCXTFHKCYZ36GYVCY",
+                    "content": "Esto",
+                    "type": "text"
+                },
+                {
+                    "_id": "K23N7S5J3FFMPJHGTQ2YEJ4EO4",
+                    "content": "tabla",
+                    "type": "text"
+                },
+                {
+                    "_id": "ZBWWLS4GOZGUROP2UOBEX647BA",
+                    "content": "de",
+                    "type": "text"
+                },
+                {
+                    "_id": "KP6P7BVSSJFHHA3KVGRNOK5GOI",
+                    "content": "ejemplo",
+                    "type": "text"
+                }
+            ],
+            "rows": [
+                [
+                    {
+                        "_id": "ND5HGG4HMNB3HKSITX6XJXWLJY",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "UOL7BAUJWVFEJLC3Z3XEXH6WJE",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "YT2JROJ2QRGNPGNHKKTLJPSPEQ",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "BG5V4VBVPVA7VKKG2GWPMXBLEQ",
+                        "content": "dato",
+                        "type": "text"
+                    }
+                ],
+                [
+                    {
+                        "_id": "PJ7X7RGBO5D6PLTDYRGSY6BS4M",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "U6MMPEMRFZFTBPRZIH5GMN7LTY",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "AKGVKHWGWRBXTNZE7PMDSCLYH4",
+                        "content": "",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "URTPTGLXH5CH5BNSBX3PHCQNXM",
+                        "content": "dato",
+                        "type": "text"
+                    }
+                ],
+                [
+                    {
+                        "_id": "SHP7U432Y5FI3MWCVVL2AC2JUE",
+                        "content": "",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "GHF7EZHVUJFYPGU5KUF3XY275Q",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "SAG4GR3TK5BTNIL56UFA4FJFTQ",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "NEYEXFMYJVBN3GLDEVX6HDQ7AI",
+                        "content": "",
+                        "type": "text"
+                    }
+                ],
+                [
+                    {
+                        "_id": "XH24U4ELLBD2ZMLXIWCWD4QVDA",
+                        "content": "dato",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "VYZLVDN7H5GHDMCEXNVS4SLWBE",
+                        "content": "",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "PQ32VIAH2NDWPIUCHKMBEBNBHI",
+                        "content": "",
+                        "type": "text"
+                    },
+                    {
+                        "_id": "URXJDX6YZRDFVIH2MLR42625GY",
+                        "content": "dato",
+                        "type": "text"
+                    }
+                ]
+            ],
+            "type": "table"
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "abierta"
+    },
+    "created_date": "2024-01-03T18:15:59.024Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "juan-pravata-666",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estandar",
+                        "bio_page": "/autor/juan-pravata-666/",
+                        "byline": "Juan Pravata",
+                        "image": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=2a103cfb8261b29bb005407c47c56549c207ca10a27069cd3f56e08d68de5bf4&width=80&quality=70&smart=false",
+                        "role": "Programador"
+                    }
+                },
+                "image": {
+                    "auth": {
+                        "1": "2a103cfb8261b29bb005407c47c56549c207ca10a27069cd3f56e08d68de5bf4"
+                    },
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 80,
+                                "width": 80
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=2a103cfb8261b29bb005407c47c56549c207ca10a27069cd3f56e08d68de5bf4&width=80&quality=70&smart=false"
+                        }
+                    ],
+                    "url": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=2a103cfb8261b29bb005407c47c56549c207ca10a27069cd3f56e08d68de5bf4&width=768&quality=70&smart=false"
+                },
+                "name": "Juan Pravata",
+                "slug": "",
+                "type": "author",
+                "url": "/autor/juan-pravata-666/"
+            }
+        ]
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2025-01-07T17:07:00Z",
+    "first_publish_date": "2024-01-03T18:32:36.403Z",
+    "headlines": {
+        "basic": "Pizza estilo Tortugas Ninja: La Receta Definitiva!",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "label": {
+        "autor": {
+            "text": "Usuario"
+        }
+    },
+    "last_updated_date": "2025-01-07T18:14:07.691Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "1",
+    "promo_items": {
+        "basic": {
+            "_id": "6E3ED45ARFBZ3ADKYOXZVZDP2A",
+            "additional_properties": {},
+            "auth": {
+                "1": "71712c104d049c36e0aaccedda462895ccb027f4b05dd866173cd571a9ffa571"
+            },
+            "caption": "Probá esta versión vegetariana de la pizza",
+            "created_date": "2019-12-04T02:23:51Z",
+            "description": {
+                "basic": "Probá esta versión vegetariana de la pizza"
+            },
+            "distributor": {
+                "name": ""
+            },
+            "height": 400,
+            "publish_date": "2013-11-18T16:59:00Z",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 587,
+                        "media_preload": "(min-width: 768px)",
+                        "minScreenWidth": 768,
+                        "proportion": "3:2",
+                        "width": 880
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/proba-esta-version-vegetariana-de-la-6E3ED45ARFBZ3ADKYOXZVZDP2A.jpg?auth=71712c104d049c36e0aaccedda462895ccb027f4b05dd866173cd571a9ffa571&width=880&height=586&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 280,
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/proba-esta-version-vegetariana-de-la-6E3ED45ARFBZ3ADKYOXZVZDP2A.jpg?auth=71712c104d049c36e0aaccedda462895ccb027f4b05dd866173cd571a9ffa571&width=420&height=280&quality=70&smart=true"
+                }
+            ],
+            "subtitle": "Probá esta versión vegetariana de la pizza",
+            "type": "image",
+            "url": "https://sandbox-resizer.glanacion.com/resizer/v2/proba-esta-version-vegetariana-de-la-6E3ED45ARFBZ3ADKYOXZVZDP2A.jpg?auth=71712c104d049c36e0aaccedda462895ccb027f4b05dd866173cd571a9ffa571&width=768&height=512&quality=70&smart=true",
+            "vanity_credits": {
+                "by": []
+            },
+            "width": 600
+        },
+        "receta": {
+            "embed": {
+                "config": {
+                    "cookTime": 20,
+                    "cookingTypes": [
+                        "Al horno"
+                    ],
+                    "counterPortion": 8,
+                    "counterTime": 30,
+                    "occasions": [
+                        "Día de la Amistad"
+                    ],
+                    "prepTime": 10,
+                    "regions": [
+                        "Italiana",
+                        "Estadounidense"
+                    ],
+                    "title": "detalle-receta"
+                }
+            },
+            "subtype": "custom-detalle-receta"
+        },
+        "video_jw": {
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "sgmv18Ps",
+                    "videoJw": {
+                        "description": "",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "description": "",
+                                "duration": 4,
+                                "image": "https://cdn.jwplayer.com/v2/media/sgmv18Ps/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/sgmv18Ps/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/sgmv18Ps/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/sgmv18Ps/poster.jpg?width=640",
+                                        "type": "image/jpeg",
+                                        "width": 640
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/sgmv18Ps/poster.jpg?width=720",
+                                        "type": "image/jpeg",
+                                        "width": 720
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/sgmv18Ps/poster.jpg?width=1280",
+                                        "type": "image/jpeg",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/sgmv18Ps/poster.jpg?width=1920",
+                                        "type": "image/jpeg",
+                                        "width": 1920
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/sgmv18Ps",
+                                "mediaid": "sgmv18Ps",
+                                "pubdate": 1726514192,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/sgmv18Ps.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 381110,
+                                        "file": "https://cdn.jwplayer.com/videos/sgmv18Ps-kTExGaWf.mp4",
+                                        "filesize": 190555,
+                                        "framerate": 30,
+                                        "height": 180,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 553134,
+                                        "file": "https://cdn.jwplayer.com/videos/sgmv18Ps-K8B0kybS.mp4",
+                                        "filesize": 276567,
+                                        "framerate": 30,
+                                        "height": 270,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    },
+                                    {
+                                        "bitrate": 1341766,
+                                        "file": "https://cdn.jwplayer.com/videos/sgmv18Ps-46NIuRKO.mp4",
+                                        "filesize": 670883,
+                                        "framerate": 30,
+                                        "height": 720,
+                                        "label": "720p",
+                                        "type": "video/mp4",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "bitrate": 117818,
+                                        "file": "https://cdn.jwplayer.com/videos/sgmv18Ps-hz5z2Tv4.m4a",
+                                        "filesize": 58909,
+                                        "label": "AAC Audio",
+                                        "type": "audio/mp4"
+                                    },
+                                    {
+                                        "bitrate": 2941204,
+                                        "file": "https://cdn.jwplayer.com/videos/sgmv18Ps-SomplJdm.mp4",
+                                        "filesize": 1470602,
+                                        "framerate": 30,
+                                        "height": 1080,
+                                        "label": "1080p",
+                                        "type": "video/mp4",
+                                        "width": 1920
+                                    },
+                                    {
+                                        "bitrate": 520818,
+                                        "file": "https://cdn.jwplayer.com/videos/sgmv18Ps-FnZGUVnC.mp4",
+                                        "filesize": 260409,
+                                        "framerate": 30,
+                                        "height": 360,
+                                        "label": "360p",
+                                        "type": "video/mp4",
+                                        "width": 640
+                                    },
+                                    {
+                                        "bitrate": 877766,
+                                        "file": "https://cdn.jwplayer.com/videos/sgmv18Ps-0G6Pwvlw.mp4",
+                                        "filesize": 438883,
+                                        "framerate": 30,
+                                        "height": 540,
+                                        "label": "540p",
+                                        "type": "video/mp4",
+                                        "width": 960
+                                    }
+                                ],
+                                "title": "Premierleague",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/sgmv18Ps-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "Premierleague"
+                    }
+                }
+            },
+            "subtype": "video_jw"
+        }
+    },
+    "publish_date": "2025-01-07T18:14:07.474Z",
+    "revision": {
+        "published": true
+    },
+    "subheadlines": {
+        "basic": "¡Cowabunga, amantes de la pizza! Preparar una pizza al estilo de las Tortugas Ninja es fácil y delicioso. Sigue estos pasos para disfrutar de una pizza que haría sentirse orgullosas a Leonardo, Miguel Ángel, Donatello y Rafael."
+    },
+    "subscription": "A",
+    "subtype": "7",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/recetas/saladas/pizza-y-empanadas",
+            "_website": "foodit",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": [
+                            "/recetas",
+                            "/recetas/saladas"
+                        ]
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Pizzas y empanadas",
+            "parent_id": "/recetas/saladas",
+            "path": "/recetas/saladas/pizza-y-empanadas",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/recetas/saladas/pizza-y-empanadas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas",
+                                "/recetas/saladas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Pizzas y empanadas",
+                "parent_id": "/recetas/saladas",
+                "path": "/recetas/saladas/pizza-y-empanadas",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/que-cocinar-hoy/rapida",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas",
+                                "/recetas/que-cocinar-hoy"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Rápida",
+                "parent_id": "/recetas/que-cocinar-hoy",
+                "path": "/recetas/que-cocinar-hoy/rapida",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/que-cocinar-hoy",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "¿Qué cocinar hoy?",
+                "parent_id": "/recetas",
+                "path": "/recetas/que-cocinar-hoy",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/que-cocinar-hoy/facil",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas",
+                                "/recetas/que-cocinar-hoy"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Fácil",
+                "parent_id": "/recetas/que-cocinar-hoy",
+                "path": "/recetas/que-cocinar-hoy/facil",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": []
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Recetas",
+                "parent_id": "/",
+                "path": "/recetas",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas/saladas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/recetas"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Saladas",
+                "parent_id": "/recetas",
+                "path": "/recetas/saladas",
+                "type": "section"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/recetas/pizza-estilo-tortugas-ninja-la-receta-definitiva-nid03012024/"
+}
