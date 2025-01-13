@@ -157,7 +157,9 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           <span
             class="text"
           >
-            © 2024 S.A. LA NACION. Todos los derechos reservados
+            © 
+            2025
+             S.A. LA NACION. Todos los derechos reservados
           </span>
           <a
             class="link foodit-link flex gap-8 ai-center roboto-regular --unstyled"
