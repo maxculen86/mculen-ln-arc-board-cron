@@ -23,6 +23,7 @@ import {
 import get from '../../../../private/common/utils/get';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
+import AudioRecipe from './audioRecipe';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const {
@@ -85,7 +86,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                         />
                     </div>
                 </div>
-                <div className="flex ai-center gap-24">
+                <div className="flex flex-column gap-24">
                     <Static id={`btn-saved-${_id}`}>
                         <Button
                             title="Guardar"
@@ -99,14 +100,21 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                             Guardar
                         </Button>
                     </Static>
-                    <hr className="h-100 lg-only" />
-                    <div className="flex ai-center gap-16 gap-24_md">
-                        {article && (
-                            <ButtonsGroup
-                                article={article}
-                                isPrivate={isPrivate}
-                            />
-                        )}
+                    <div className="flex flex-column flex-column_lg flex-row_md gap-24 jc-between_md">
+                        <AudioRecipe
+                            title={title}
+                            resizedUrl={resizedUrl}
+                            url={url}
+                            article={article}
+                        />
+                        <div className="flex ai-center gap-16 gap-24_md">
+                            {article && (
+                                <ButtonsGroup
+                                    article={article}
+                                    isPrivate={isPrivate}
+                                />
+                            )}
+                        </div>
                     </div>
                 </div>
             </Recipe.Body>
