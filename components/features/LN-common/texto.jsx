@@ -34,7 +34,7 @@ Text.propTypes = {
         font: PropTypes.oneOf(Object.keys(fonts)).tag({
             label: 'Fuente',
             description: 'Seleccione la fuente que corresponda.',
-            defaultValue: 'sueca'
+            defaultValue: 'prumo'
         }),
         size: PropTypes.oneOf(Object.keys(sizes)).tag({
             label: 'Tamaño',

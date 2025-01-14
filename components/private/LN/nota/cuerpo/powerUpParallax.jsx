@@ -8,7 +8,7 @@ import useProportions from '../../../common/hooks/useProportions';
 import Text from '../../../common/text';
 import { getImagesToLoadWithPicture } from '../../common/utils/mediaHelper';
 
-const Parallax = ({ data = {} }) => {
+function Parallax({ data = {} }) {
     const { globalContent: { subtype = 8 } = {} } = useAppContext();
     const dev = useViewportSize();
     const [device, setDevice] = useState(dev);
@@ -56,12 +56,7 @@ const Parallax = ({ data = {} }) => {
             </div>
             {title && (
                 <div className="step-parallax">
-                    <Text
-                        tag="h2"
-                        extraClass="bajada-titulo"
-                        font="sueca"
-                        weight="bold"
-                    >
+                    <Text tag="h2" extraClass="bajada-titulo" weight="bold">
                         {title}
                     </Text>
                 </div>
@@ -80,7 +75,7 @@ const Parallax = ({ data = {} }) => {
             )}
         </div>
     );
-};
+}
 Parallax.arcType = 'custom-parallax';
 Parallax.propTypes = {
     data: PropTypes.shape({
