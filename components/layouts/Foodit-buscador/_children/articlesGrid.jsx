@@ -64,9 +64,11 @@ export default function ArticlesGrid() {
                     )
                 )}
             </section>
-            {articlesGrid && articlesGrid.length >= 24 && (
-                <LoadMoreButton clickMoreArticle={getNextPage} />
-            )}
+            {articlesGrid &&
+                articlesGrid.length >= 24 &&
+                articlesGrid.length < total && (
+                    <LoadMoreButton clickMoreArticle={getNextPage} />
+                )}
         </section>
     );
 }
