@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { GridArticlesFoodit } from './gridArticles';
 import { LoadMoreButton } from './loadMoreButton';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
 import safeJSONParse from '../../../private-global/common/utils/safeJSONParse';
 
-const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
+function GridFooditClient({ id = '', layout = '', maxArticles = 24 }) {
     const [loading, setLoading] = useState(false);
     const [bookmarkedArticlesIds, setBookmarkedArticlesIds] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -13,11 +14,10 @@ const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
     const [totalArticlesLength, setTotalArticlesLength] = useState(0);
 
     useEffect(() => {
-        const serverArticlesLength = document.getElementsByTagName('article')
-            .length;
+        const serverArticlesLength =
+            document?.querySelectorAll('article.card').length;
         setTotalArticlesLength(serverArticlesLength);
     }, []);
-
     const { idArticleList, articles, count } = useGridArticlesFoodit({
         id,
         page: currentPage,
@@ -25,9 +25,8 @@ const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
         maxArticles
     });
 
-    const articleListIsLoaded = !Object.values(pageLoaded).includes(
-        idArticleList
-    );
+    const articleListIsLoaded =
+        !Object.values(pageLoaded).includes(idArticleList);
 
     useEffect(() => {
         if (articles.length > 0 && articleListIsLoaded) {
@@ -70,6 +69,17 @@ const GridFooditClient = ({ id = '', layout = '', maxArticles = 24 }) => {
                 )}
         </>
     );
+}
+GridFooditClient.propTypes = {
+    id: PropTypes.string,
+    layout: PropTypes.string,
+    maxArticles: PropTypes.number
+};
+
+GridFooditClient.defaultProps = {
+    id: '',
+    layout: '',
+    maxArticles: 24
 };
 
 export default GridFooditClient;

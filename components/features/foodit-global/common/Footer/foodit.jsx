@@ -125,8 +125,8 @@ function FooterFoodit() {
                     </section>
                     <section className="flex flex-column flex-row_lg jc-center ai-center gap-16 text-14 col-span-6_md py-32 border border-top border-thin border-light-100">
                         <Text>
-                            © 2024 S.A. LA NACION. Todos los derechos
-                            reservados
+                            © {new Date().getFullYear()} S.A. LA NACION. Todos
+                            los derechos reservados
                         </Text>
                         <Link
                             data-test-id="footer-link-afip"

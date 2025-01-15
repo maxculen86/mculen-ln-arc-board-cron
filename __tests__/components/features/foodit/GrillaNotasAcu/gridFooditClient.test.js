@@ -64,7 +64,10 @@ describe('Components - features - helpers - gridFooditClient', () => {
 
         expect(hiddenDiv).not.toBeInTheDocument();
         expect(gridDiv).toBeInTheDocument();
-        expect(screen.getAllByRole('article').length).toStrictEqual(24);
+        expect(container.querySelectorAll('article.card').length).toStrictEqual(
+            24
+        );
+        expect(screen.getByText('Ver más')).toBeInTheDocument();
         const loading = container.querySelector('.text-center');
         expect(loading).toBeTruthy();
         expect(screen.getByText('Ver más')).toBeInTheDocument();

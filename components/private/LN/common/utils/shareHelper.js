@@ -235,8 +235,8 @@ export const buttonsList = [
         icon: <IconSprite name="facebook" />,
         title: 'Compartir la nota en Facebook',
         id: 'btnfacebook',
-        handleClick: ({ requestUri, host, title }) => {
-            popUpCompartirNotaFB(requestUri, host, title);
+        handleClick: ({ requestUri, host }) => {
+            popUpCompartirNotaFB(requestUri, host);
         },
         className: noPaddingSmNone,
         labelDataLayer: 'compartir_facebook'

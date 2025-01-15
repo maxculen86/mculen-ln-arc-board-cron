@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { SITE_FOODIT } from 'fusion:environment';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
@@ -94,7 +93,7 @@ function Foodit({
                 <LinkCanonicalAndAlternate
                     _id={_id}
                     canonicalUrl={canonicalUrl}
-                    host={SITE_FOODIT}
+                    arcSite={arcSite}
                     nodeType={_nodeType}
                     site={site}
                     template={template}

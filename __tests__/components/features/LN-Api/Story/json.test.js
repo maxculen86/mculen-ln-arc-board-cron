@@ -5,7 +5,8 @@ const propsComponent = ({
     arcSite = '',
     children = [],
     globalContent,
-    requestUri
+    requestUri,
+    globalContentConfig
 }) => {
     return {
         arcSite,
@@ -14,7 +15,8 @@ const propsComponent = ({
         id: 'f0fbqPGS59PM2x',
         outputType: 'json',
         globalContent,
-        requestUri
+        requestUri,
+        globalContentConfig
     };
 };
 
@@ -35,9 +37,17 @@ describe('components - features - LN-Api - Story - json.js', () => {
     const props = propsComponent({
         arcSite: 'la-nacion-ar',
         children: [],
-        globalContent: ATLC5WVL4NH5HAHU2BWJXTSATY,
+        globalContent: { ...ATLC5WVL4NH5HAHU2BWJXTSATY, isListenable: true },
         requestUri:
-            '/api/mobile/v1/notas/byId/ATLC5WVL4NH5HAHU2BWJXTSATY/?_website=la-nacion-ar&outputType=json'
+            '/api/mobile/v1/notas/byId/ATLC5WVL4NH5HAHU2BWJXTSATY/?_website=la-nacion-ar&outputType=json',
+        globalContentConfig: {
+            query: {
+                uri: '/api/mobile/v1/notas/byId/ATLC5WVL4NH5HAHU2BWJXTSATY/01/',
+                id: 'ATLC5WVL4NH5HAHU2BWJXTSATY',
+                ticks: '01',
+                'arc-site': 'la-nacion-ar'
+            }
+        }
     });
 
     it('When article load props Ok', () => {

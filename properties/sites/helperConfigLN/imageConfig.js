@@ -1081,19 +1081,17 @@ export default {
                 sizes: [
                     {
                         width: 820,
-                        height: 410
+                        height: 410,
+                        media_preload: setMediaCondition({
+                            minWidth: 768
+                        })
                     },
                     {
-                        width: 768,
-                        height: 414
-                    },
-                    {
-                        width: 360,
-                        height: 180
-                    },
-                    {
-                        width: 351,
-                        height: 175
+                        width: 420,
+                        height: 280,
+                        maxScreenWidth: 767,
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        proportion: '3:2'
                     }
                 ]
             }
@@ -1379,9 +1377,12 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 320,
-                        height: 213,
-                        media_preload: setMediaCondition({ maxWidth: 511 }),
+                        width: 510,
+                        height: 510,
+                        maxScreenWidth: 511,
+                        media_preload: setMediaCondition({
+                            maxWidth: 511
+                        }),
                         proportion: '1:1'
                     },
                     {
