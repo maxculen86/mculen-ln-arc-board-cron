@@ -1,9 +1,10 @@
 import initializeAuth, {
     _UserClientLibs,
-    getAuthFromCookie,
     setMultiplyCookies,
-    setupCookies
+    setupCookies,
+    initializeAuthV2
 } from '../../../auth/helper/loginHelper';
+import { init } from '@ln/user.client.libs';
 import handleCookie from '../../../components/private/LN/common/utils/handleCookie';
 
 jest.mock('../../../components/private/LN/common/utils/handleCookie', () => ({
@@ -51,7 +52,34 @@ global.window.UserClientLibs = {
     GetAccessTokenValidatedAsync: jest.fn()
 };
 
+jest.mock('@ln/user.client.libs', () => ({
+    init: jest.fn()
+}));
+
+jest.mock('fusion:environment', () => ({
+    DATADOG_CONFIG: {
+        'la-nacion-ar': {
+            clientTokenLogs: 'mockClientTokenLogs',
+            clientTokenRum: 'mockClientTokenRum',
+            applicationId: 'mockApplicationId',
+            site: 'mockSite',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 100,
+            sampleRateRum: 100,
+            service: 'mockService',
+            env: 'test',
+            sessionReplaySampleRate: 100,
+            trackResources: true,
+            trackLongTasks: true,
+            trackUserInteractions: true,
+            trackSessionAcrossSubdomains: true,
+            defaultPrivacyLevel: 'mask-user-input'
+        }
+    }
+}));
+
 describe('Tests functions loginHelper', () => {
+    const mockFunctionRefreshAsync = jest.fn();
     describe('Tests function setupCookies', () => {
         const { setCookie, eraseCookie } = handleCookie();
 
@@ -65,7 +93,10 @@ describe('Tests functions loginHelper', () => {
                 UsuarioDetalleNick: 'nick123'
             };
 
-            setupCookies(userData);
+            setupCookies({
+                ...userData,
+                RefreshAsync: mockFunctionRefreshAsync
+            });
 
             expect(eraseCookie).toHaveBeenCalledWith(
                 'usuario%5Fdetalle%5Fguid'
@@ -88,7 +119,10 @@ describe('Tests functions loginHelper', () => {
                 UsuarioDetalleGuid: 12345
             };
 
-            setupCookies(userData);
+            setupCookies({
+                ...userData,
+                RefreshAsync: mockFunctionRefreshAsync
+            });
 
             expect(eraseCookie).not.toHaveBeenCalled();
             expect(setCookie).not.toHaveBeenCalled();
@@ -105,9 +139,16 @@ describe('Tests functions loginHelper', () => {
         test('should set multiple cookies and call setupCookies', () => {
             const userData = { id: 1, name: 'John Doe' };
             const newToken = 'newToken123';
-            const accessToken = 'accessToken123';
+            const dataUser = {
+                ...userData,
+                RefreshAsync: mockFunctionRefreshAsync
+            };
 
-            setMultiplyCookies({ userData, newToken, accessToken });
+            setMultiplyCookies({
+                dataUser,
+                newToken,
+                RefreshAsync: mockFunctionRefreshAsync
+            });
 
             expect(eraseCookie).toHaveBeenCalledWith('token');
             expect(setCookie).toHaveBeenCalledWith('token', newToken);
@@ -115,33 +156,88 @@ describe('Tests functions loginHelper', () => {
         });
     });
 
-    describe('Test function getAuthFromCookie', () => {
+    describe('initializeAuthV2', () => {
+        const mockSetTokens = jest.fn();
+        const { getCookie } = handleCookie();
         beforeEach(() => {
             jest.clearAllMocks();
+            global.window.UCL = {
+                RefreshAsync: jest.fn(),
+                BuildBearerAccessTokenAsync: jest.fn(),
+                getIdTokenCookie: jest.fn(),
+                LogoutAsync: jest.fn(),
+                GetAccessTokenValidatedAsync: jest.fn()
+            };
         });
 
-        test('should call BuildBearerAccessTokenAsync for access-token', async () => {
-            const mockToken = 'mockAccessToken';
-            window.UserClientLibs.BuildBearerAccessTokenAsync.mockResolvedValue(
-                mockToken
+        const consoleErrorMock = jest
+            .spyOn(console, 'error')
+            .mockImplementation(() => {});
+
+        it('should initialize and set tokens if cookie exists and methods succeed', async () => {
+            getCookie.mockReturnValue('mockToken');
+            const BuildBearerAccessTokenAsync = jest
+                .fn()
+                .mockResolvedValue('mockAccessToken');
+            const GetIdTokenValidatedAsync = jest
+                .fn()
+                .mockResolvedValue('mockIdToken');
+            const RefreshAsync = jest.fn();
+            init.mockReturnValue({
+                BuildBearerAccessTokenAsync,
+                GetIdTokenValidatedAsync,
+                RefreshAsync
+            });
+
+            await initializeAuthV2({
+                setTokens: mockSetTokens,
+                website: 'test-website'
+            });
+
+            expect(getCookie).toHaveBeenCalledWith('token');
+            expect(GetIdTokenValidatedAsync).toHaveBeenCalled();
+            expect(BuildBearerAccessTokenAsync).toHaveBeenCalled();
+
+            expect(mockSetTokens).toHaveBeenCalledWith({
+                token: 'mockIdToken',
+                accessToken: 'mockAccessToken'
+            });
+        });
+
+        it('should not initialize if cookie does not exist', async () => {
+            getCookie.mockReturnValue(null);
+
+            await initializeAuthV2({ setTokens: mockSetTokens });
+
+            expect(getCookie).toHaveBeenCalledWith('token');
+            expect(init).not.toHaveBeenCalled();
+            expect(mockSetTokens).not.toHaveBeenCalled();
+        });
+
+        it('should handle errors gracefully', async () => {
+            getCookie.mockReturnValue('mockToken');
+            init.mockImplementation(() => {
+                throw new Error('Initialization failed');
+            });
+
+            await initializeAuthV2({ setTokens: mockSetTokens });
+
+            expect(consoleErrorMock).toHaveBeenCalledWith(
+                'Error occurred while executing token rotation',
+                expect.any(Error)
             );
 
-            const token = await getAuthFromCookie('access-token');
-
-            expect(
-                window.UserClientLibs.BuildBearerAccessTokenAsync
-            ).toHaveBeenCalled();
-            expect(token).toBe(mockToken);
+            expect(mockSetTokens).not.toHaveBeenCalled();
         });
 
-        test('should call getIdTokenCookie for default token', async () => {
-            const mockToken = 'mockIdToken';
-            window.UserClientLibs.getIdTokenCookie.mockResolvedValue(mockToken);
+        it('should handle missing methods gracefully', async () => {
+            getCookie.mockReturnValue('mockToken');
+            init.mockReturnValue({});
 
-            const token = await getAuthFromCookie();
+            await initializeAuthV2({ setTokens: mockSetTokens });
 
-            expect(window.UserClientLibs.getIdTokenCookie).toHaveBeenCalled();
-            expect(token).toBe(mockToken);
+            expect(getCookie).toHaveBeenCalledWith('token');
+            expect(mockSetTokens).not.toHaveBeenCalled();
         });
     });
 
