@@ -38,3 +38,12 @@ jobs:
                     sonar.tests=./__tests__
                     sonar.test.inclusions=./__tests__/**/*.test.js
                     sonar.javascript.lcov.reportPaths=coverage/lcov.info
+          - script: |
+                curl --location 'https://api.staging.lanacionar.arcpublishing.com/pagebuilder/datasync/sync' \
+                --header 'Content-Type: application/json' \
+                --header 'Authorization: Bearer $TOKEN_SYNC' \
+                --data '{ "source": "production" }'
+            condition: and(succeeded(), eq(variables['System.PullRequest.TargetBranch'], 'refs/heads/sandbox'), eq(variables['System.PullRequest.SourceBranch'], 'refs/heads/develop'))
+            displayName: Sync prod - staging environment
+            env:
+                TOKEN_SYNC: $(TOKEN_SYNC)
