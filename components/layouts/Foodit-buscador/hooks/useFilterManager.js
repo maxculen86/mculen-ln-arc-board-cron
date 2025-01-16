@@ -12,7 +12,7 @@ const useFilterManager = () => {
 
     const { filters, applyFilter, removeFilters, appliedFilters } =
         useFilterState({});
-    const { getNextPage, page } = usePagination();
+    const { getNextPage, resetPage, page } = usePagination();
     const queryUrl = getQueryParamValue(
         'query',
         `${SITE_FOODIT}/${requestUri}`
@@ -31,6 +31,7 @@ const useFilterManager = () => {
         query: queryUrl,
         applyFilter,
         getNextPage,
+        resetPage,
         removeFilters,
         appliedFilters
     };
