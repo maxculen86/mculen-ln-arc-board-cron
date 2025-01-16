@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags component interaction with addEventToDataLayerV2 should match snapshot 1`] = `
+<div>
+  <ul
+    class="flex flex-wrap gap-16"
+  >
+    <li>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-8"
+        data-variant="secondary"
+        href="/tag1"
+        target="_self"
+        title="Tag 1"
+      >
+        Tag 1
+      </a>
+    </li>
+    <li>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-8"
+        data-variant="secondary"
+        href="/tag2"
+        target="_self"
+        title="Tag 2"
+      >
+        Tag 2
+      </a>
+    </li>
+    <li>
+      <a
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-8"
+        data-variant="secondary"
+        href="/tag3"
+        target="_self"
+        title="Tag 3"
+      >
+        Tag 3
+      </a>
+    </li>
+  </ul>
+</div>
+`;

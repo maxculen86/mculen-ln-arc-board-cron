@@ -35,7 +35,7 @@ function BaseLayout({ children }) {
     const { layoutsName } = siteProperties || {};
 
     const classNameMain = cx('container flex flex-column gap-40', {
-        'pb-64': !(layoutsName.FooditRecipePaywall === layout)
+        'pb-64': layoutsName.FooditRecipePaywall !== layout
     });
 
     const wrapperClass = cx('wrapper overflow-x-clip roboto', {

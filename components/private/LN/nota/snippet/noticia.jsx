@@ -8,7 +8,7 @@ import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
 import * as Trust from './constants';
 import addRelatedImage from '../../common/utils/addRelatedImage';
-import addForwardSlash from '../../common/utils/addForwardSlash';
+import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import {
     extractDataFromPromoItems,
     urlShema

@@ -10,16 +10,16 @@ import {
     getLastDay,
     getHighlightDayClass
 } from './helper/dayHelper';
-import '../../../../resources/dist/css/ln/modules/calendar.css';
 import { getArgentinaYear } from '../utils/dateAndTimeUtil';
+import '../../../../resources/dist/css/ln/modules/calendar.css';
 
-const Calendar = ({
+function Calendar({
     year,
     monthNumber,
     holidayData = [],
     monthName,
     layout = 'month'
-}) => {
+}) {
     const newDate = new Date();
     const validMonth = monthNumber ? monthNumber - 1 : newDate.getMonth();
     const validMonthName =
@@ -31,7 +31,7 @@ const Calendar = ({
     const initialDay = getInitialDay(validYear, validMonth);
     const lastDayOfMonth = getLastDay(validYear, validMonth + 1);
     const days = Array.from({ length: lastDayOfMonth }, (_, i) => i + 1);
-    const emptyDays = new Array(initialDay).fill(' ');
+    const emptyDays = Array.from({ length: initialDay }).fill(' ');
     const daysMonth = [...emptyDays, ...days];
     const attributes = {
         home: {
@@ -82,7 +82,7 @@ const Calendar = ({
             </div>
         </section>
     );
-};
+}
 
 Calendar.propTypes = {
     year: PropTypes.string,

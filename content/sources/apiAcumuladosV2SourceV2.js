@@ -200,9 +200,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             queryParams.tagId = 'la-nacion-cerca';
         }
 
-        const transformedAcu = await transformAcu(queryParams, { cachedCall });
-
-        return transformedAcu;
+        return await transformAcu(queryParams, { cachedCall });
     } catch (error) {
         if (error instanceof NotFoundError) {
             throw new NotFoundError(

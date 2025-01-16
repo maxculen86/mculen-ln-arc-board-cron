@@ -7,7 +7,7 @@ const CLUB_LA_NACION_ROUTE = '/club-la-nacion';
 const listDescubrir = [
     '/restaurantes',
     '/nutricion',
-    '/club-la-nacion',
+    CLUB_LA_NACION_ROUTE,
     '/protocolo',
     '/tendencias',
     '/ingredientes',

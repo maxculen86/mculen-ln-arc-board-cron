@@ -976,6 +976,15 @@ describe('common - utils - bannerHelper', () => {
             expect(
                 buildBannerClasses({ slotName: 'Nota/comercial_dsk' }, {})
             ).toEqual('none --comercial ');
+            expect(
+                buildBannerClasses(
+                    {
+                        slotName: 'Home/cajasuscriptores_dsk',
+                        withoutHide: true
+                    },
+                    {}
+                )
+            ).toEqual('');
         });
 
         it('Validar que el banner no se muestra si recibe por termicas, por section o por composer el valor', () => {

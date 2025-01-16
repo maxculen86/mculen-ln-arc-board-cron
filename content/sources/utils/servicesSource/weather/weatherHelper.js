@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
-import addForwardSlash from '../../../../../components/private/LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../../../../components/private/LN/common/utils/addForwardSlash';
 import removeAccents from '../../../../../components/private/common/utils/removeAccents';
 import { isValidNumber } from '../../../../../components/private/common/utils/dataValidation';
 

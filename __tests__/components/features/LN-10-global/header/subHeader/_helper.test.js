@@ -27,16 +27,14 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
             },
             {
                 compra: '-',
-                link:
-                    'https://www.lanacion.com.ar/tema/dolar-tarjeta-tid50462/',
+                link: 'https://www.lanacion.com.ar/tema/dolar-tarjeta-tid50462/',
                 sourceName: 'dtarjeta',
                 titleMobile: 'Dólar tarjeta',
                 venta: '325,06'
             },
             {
                 compra: '-',
-                link:
-                    'https://www.lanacion.com.ar/tema/dolar-turista-tid67475/',
+                link: 'https://www.lanacion.com.ar/tema/dolar-turista-tid67475/',
                 sourceName: 'dturista',
                 titleMobile: 'Dólar turista',
                 venta: '371,5'
@@ -94,7 +92,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
                     [
                         'Dólar oficial',
                         'Dólar blue',
-                        'Dólar turista',
+                        'Dólar tarjeta',
                         'Dólar CCL',
                         'Dólar MEP'
                     ].includes(currentDollar.title)
@@ -114,7 +112,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
             const expectedOrder = [
                 'Dólar oficial',
                 'Dólar blue',
-                'Dólar turista',
+                'Dólar tarjeta',
                 'Dólar CCL',
                 'Dólar MEP'
             ];

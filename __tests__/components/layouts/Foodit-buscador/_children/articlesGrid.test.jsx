@@ -94,8 +94,10 @@ describe('ArticlesGrid Component', () => {
             section: 'News'
         }));
 
-        renderComponent({ ...defaultContextValue, data: { articlesGrid } });
-
+        renderComponent({
+            ...defaultContextValue,
+            data: { articlesGrid, total: 50 }
+        });
         const loadMoreButton = screen.getByRole('button', {
             name: /ver más/i
         });

@@ -9,8 +9,8 @@ const useGetVideoPosterResized = ({
     isInApertura,
     isAdmin,
     arcSite
-}) => {
-    const videoData = useContent({
+}) =>
+    useContent({
         source: (videoID && videoID.trim() && 'videoSource') || null,
         query: {
             id: checkForId(videoID),
@@ -23,8 +23,5 @@ const useGetVideoPosterResized = ({
         staticMode: isSSR(),
         filter: videoFilterLN10
     });
-
-    return videoData;
-};
 
 export default useGetVideoPosterResized;

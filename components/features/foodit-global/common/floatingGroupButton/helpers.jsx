@@ -7,6 +7,7 @@ import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEv
 const { layoutsName = {} } = siteProperties || {};
 
 const FLOATING_BUTTON_SENTINEL = '.floating-button-sentinel';
+const HEADER_SENTINEL_CLASS = '.header-sentinel';
 
 const defaultClassName = 'lg-none';
 const defaultButtons = [
@@ -37,7 +38,7 @@ const defaultButtons = [
 ];
 
 const defaultConfig = {
-    observerSelector: '.header-sentinel',
+    observerSelector: HEADER_SENTINEL_CLASS,
     className: defaultClassName,
     buttons: defaultButtons
 };
@@ -52,7 +53,7 @@ export const floatingButtonConfig = {
     [layoutsName.FooditRecetario]: (callbacks = []) => {
         const [toggleDrawerRecetario = () => null] = callbacks;
         return {
-            observerSelector: '.header-sentinel',
+            observerSelector: HEADER_SENTINEL_CLASS,
             className: 'sm-only',
             buttons: [
                 {
@@ -66,7 +67,7 @@ export const floatingButtonConfig = {
     [layoutsName.FooditBuscador]: (callbacks = []) => {
         const [, toggleDrawerBuscador = () => null] = callbacks;
         return {
-            observerSelector: '.header-sentinel',
+            observerSelector: HEADER_SENTINEL_CLASS,
             className: 'lg-none',
             buttons: [
                 {

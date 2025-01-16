@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import ComLink from '../../../common/com-link';
 import ModHeaderSection from '../../../common/mod-headerSection';
-import addForwardSlash from '../../common/utils/addForwardSlash';
+import { addForwardSlash } from '../../common/utils/addForwardSlash';
 
 function ProvincesList({ provinces }) {
     if (!provinces.length) return null;

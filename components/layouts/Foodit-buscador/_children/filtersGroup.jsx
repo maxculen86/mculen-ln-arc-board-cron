@@ -9,6 +9,7 @@ export default function FiltersGroup({
     listFilters = [],
     applyFilter,
     removeFilters,
+    resetPage,
     group
 }) {
     return (
@@ -25,6 +26,7 @@ export default function FiltersGroup({
                 <Accordion.Body>
                     <ul className="flex flex-column gap-8 roboto roboto-regular text-16">
                         <CheckBoxList
+                            resetPage={resetPage}
                             listFilters={listFilters}
                             applyFilter={applyFilter}
                             removeFilters={removeFilters}
@@ -47,6 +49,7 @@ FiltersGroup.propTypes = {
             facetedKey: PropTypes.string
         })
     ),
+    resetPage: PropTypes.func.isRequired,
     applyFilter: PropTypes.func.isRequired,
     removeFilters: PropTypes.func.isRequired,
     group: PropTypes.string

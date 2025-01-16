@@ -4,8 +4,8 @@ import {
     resolveUri,
     getQuery,
     sortData,
-    transformData
-    // transformData
+    transformData,
+    getQueryData
 } from '../../../../../content/sources/utils/rankingArticlesSource/_helper';
 import config, {
     HOT_SECTION,
@@ -341,5 +341,38 @@ describe('Función => sortData', () => {
         const customStories = ['url1', 'url4', 'url5'];
         const result = sortData(articles, customStories, 2);
         expect(result).toEqual([articles[0]]);
+    });
+});
+
+describe('function => getQueryData', () => {
+    it('Should receive correct data from the query and isApiFetch true', async () => {
+        const mockQuery = {
+            sectionId: 'deportes/futbol',
+            size: 6,
+            imageConfig: 'boxArticles',
+            api: true
+        };
+
+        const result = await getQueryData(mockQuery);
+
+        expect(result.name).toBe('Fútbol');
+        expect(result.isApiFetch).toBeTruthy();
+        expect(result.sectionId).toBe('deportes/futbol');
+        expect(result.size).toBe(4);
+    });
+
+    it('Should receive correct data from the query and isApiFetch false', async () => {
+        const mockQuery = {
+            sectionId: 'deportes/futbol',
+            size: 6,
+            imageConfig: 'boxArticles'
+        };
+
+        const result = await getQueryData(mockQuery);
+
+        expect(result.name).toBe('Fútbol');
+        expect(result.isApiFetch).toBeFalsy();
+        expect(result.sectionId).toBe('deportes/futbol');
+        expect(result.size).toBe(4);
     });
 });

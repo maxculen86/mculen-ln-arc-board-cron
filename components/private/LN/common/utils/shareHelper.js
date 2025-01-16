@@ -17,12 +17,12 @@ function popUpRedSocial(url) {
 }
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
-    if (notaId.length > 0) {
+    if (notaId?.length > 0) {
         popUpRedSocial(
-            `https://www.twitter.com/intent/tweet?text=${titulo}&url=${dominio}${notaId}&via=LANACION`
-        ); // $("#hs-twitter").val());
+            `https://x.com/intent/tweet?text=${titulo}&url=${dominio}${notaId}&via=LANACION/`
+        );
     } else {
-        window.open('https://twitter.com/LANACION', '_blank');
+        window.open('https://x.com/LANACION/', '_blank');
     }
 }
 
@@ -235,8 +235,8 @@ export const buttonsList = [
         icon: <IconSprite name="facebook" />,
         title: 'Compartir la nota en Facebook',
         id: 'btnfacebook',
-        handleClick: ({ requestUri, host, title }) => {
-            popUpCompartirNotaFB(requestUri, host, title);
+        handleClick: ({ requestUri, host }) => {
+            popUpCompartirNotaFB(requestUri, host);
         },
         className: noPaddingSmNone,
         labelDataLayer: 'compartir_facebook'
