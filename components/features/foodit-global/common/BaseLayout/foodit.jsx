@@ -43,7 +43,7 @@ function BaseLayout({ children }) {
     });
 
     return (
-        <AuthInitializer website="foodit">
+        <AuthInitializer>
             <DynamicStylesheetLoader
                 contextPath={contextPath}
                 deployment={deployment}
