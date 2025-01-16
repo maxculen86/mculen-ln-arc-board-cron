@@ -36,4 +36,14 @@ describe('Ingredient Component', () => {
         const quantityElement = screen.queryByText('1 kg');
         expect(quantityElement).toBeNull();
     });
+
+    it('should display the name and displayAmount when isTabIngredients is true', () => {
+        const item = { name: 'Tomato', displayAmount: '2 pcs' };
+        render(<Ingredient item={item} isTabIngredients />);
+
+        const nameElement = screen.getByText('Tomato');
+        const displayAmountElement = screen.getByText('2 pcs');
+        expect(nameElement).toBeInTheDocument();
+        expect(displayAmountElement).toBeInTheDocument();
+    });
 });

@@ -16,7 +16,7 @@ export const TOAST = {
                         title="Ir al recetario"
                     >
                         <span className="text-light-1 underline">
-                            "Mis Recetas".
+                            &quot;Mis Recetas.&quot;
                         </span>
                     </Link>
                 </>
@@ -32,7 +32,7 @@ export const TOAST = {
                         title="Ir al recetario"
                     >
                         <span className="text-light-1 underline">
-                            "Mis Recetas".
+                            &quot;Mis Recetas.&quot;
                         </span>
                     </Link>
                 </>
@@ -40,7 +40,7 @@ export const TOAST = {
             SAVE_INGREDIENTS:
                 'Los ingredientes han sido añadidos a la lista de compras.',
             COPY_INGREDIENTS: 'Podes enviar el listado que copiaste.',
-            DELETE_INGREDIENTS: 'ya no forma parte de tu listado de compras.'
+            DELETE_INGREDIENTS: 'Ya no forma parte de tu listado de compras.'
         }
     },
     ERROR: {
