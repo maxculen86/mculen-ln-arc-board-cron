@@ -120,7 +120,6 @@
         "@ln/foodit-ui-toast": "0.0.18",
         "@ln/foodit-ui-topnavigationbar": "0.0.2",
         "@ln/hooks": "1.1.2",
-        "@ln/user.client.libs": "6.6.1",
         "@ln/lib-newsletter": "1.1.0",
         "@ln/lib-personalizacion": "1.1.0",
         "@ln/ott-ui-sass": "0.0.3",
