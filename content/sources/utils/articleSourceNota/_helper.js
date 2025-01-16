@@ -140,13 +140,10 @@ export const isValidSectionIA = sections => {
     const section = get(sections, '[0].path', '');
 
     const validSections = [
-        '/sociedad',
-        '/espectaculos',
-        '/tecnologia',
-        '/lifestyle',
+        '/economia/campo',
         '/autos',
-        '/el-mundo',
-        '/seguridad'
+        '/salud',
+        '/propiedades'
     ];
 
     return validSections.some(validSection => section.startsWith(validSection));
