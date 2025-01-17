@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import { Mediascroller } from '@ln/common-ui-mediascroller';
 import { validateCarruselChildren } from '../utils/validateCarruselChildren';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
 import { useRoofData } from '../utils/_helpers';
-import useGetElementsToScroll from './hooks/useGetElementsToScroll';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import BuildRoof from '../utils/_BuildRoof/default';
-import ArrowButton from './components/arrowButton';
+import CajaCarruselProvider from './components/cajaCarruselContext';
+import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
+import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
+import MediaScroller from './components/mediaScroller/mediaScroller';
+import { isScriptLoaded } from './components/helpers';
 
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
 
@@ -19,8 +20,7 @@ function CajaCarrusel({
     childProps
 }) {
     const { isAdmin } = useAppContext();
-    const { containerRef, elementsToScroll, itemCarouselWidth } =
-        useGetElementsToScroll();
+    const playerId = 'OSRCuuxn';
 
     const roofData = useRoofData({
         ...propsForRoof,
@@ -36,37 +36,35 @@ function CajaCarrusel({
     if (hideCarousel) {
         return null;
     }
+
+    useEffect(() => {
+        if (!isScriptLoaded(playerId)) {
+            const script = document.createElement('script');
+
+            script.src = `https://cdn.jwplayer.com/libraries/${playerId}.js`;
+            script.async = true;
+
+            document.body.appendChild(script);
+        }
+    }, []);
+
     return (
-        <div ref={containerRef} className="mb-32">
-            <BuildRoof {...roofData} />
-            <Mediascroller
-                className="grid w-100"
-                elementsToScroll={elementsToScroll}
-            >
-                <Mediascroller.Track
-                    className="pb-32"
-                    fixedElementsSize={itemCarouselWidth}
-                >
-                    {children.slice(0, 10)}
-                </Mediascroller.Track>
-                <Mediascroller.Arrows
-                    arrowSize={16}
-                    className="mx-6 rounded-24 bg-white"
-                    buttonTag={ArrowButton}
-                />
-                <Mediascroller.Progress
-                    containerClassName="w-171 h-5 mx-auto bg-light-100 rounded-24"
-                    className="bg-blue-500 rounded-24 transition-linear"
-                />
-            </Mediascroller>
-        </div>
+        <CajaCarruselProvider>
+            <MediaScroller roofData={roofData}>
+                {children.slice(0, 10)}
+            </MediaScroller>
+            <MediaScrollerExpandedWrapper>
+                <MediaScrollerExpanded />
+            </MediaScrollerExpandedWrapper>
+        </CajaCarruselProvider>
     );
 }
 
 CajaCarrusel.label = 'LN10 Caja Carrusel';
 
+CajaCarrusel.lazy = true;
+
 CajaCarrusel.propTypes = {
-    isAdmin: PropTypes.isRequired,
     children: PropTypes.isRequired,
     childProps: PropTypes.isRequired,
     customFields: PropTypes.shape({

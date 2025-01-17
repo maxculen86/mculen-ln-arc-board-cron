@@ -9,14 +9,16 @@ describe('content - sources - utils - getVideoJwDataCarrusel', () => {
                     images: [{ src: 'poster.jpg' }],
                     duration: 120
                 }
-            ]
+            ],
+            title: 'Video LN'
         };
 
         const result = getVideoJwDataCarrusel(videoData);
         expect(result).toEqual({
             sources: [{ file: 'video.mp4' }],
             poster: 'poster.jpg',
-            duration: 120
+            duration: 120,
+            title: 'Video LN'
         });
     });
 
@@ -27,7 +29,8 @@ describe('content - sources - utils - getVideoJwDataCarrusel', () => {
         expect(result).toEqual({
             sources: [],
             poster: '',
-            duration: 0
+            duration: 0,
+            title: ''
         });
     });
 });
