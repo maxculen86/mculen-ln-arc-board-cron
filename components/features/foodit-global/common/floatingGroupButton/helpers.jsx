@@ -96,7 +96,7 @@ export const getConfigByLayout = (layout, callbacks = []) => {
 };
 
 export const customFloatingButtonConfig = {
-    [layoutsName.FooditListadoCompras]: (callbacks = []) => {
+    [layoutsName.FooditListadoCompras]: (titleButton, callbacks = []) => {
         const [copyAction = () => null] = callbacks;
 
         return {
@@ -110,7 +110,7 @@ export const customFloatingButtonConfig = {
                             <Icon size={16}>
                                 <IconSprite name="copy" />
                             </Icon>
-                            Copiar todo
+                            {titleButton}
                         </>
                     ),
                     onClick: () => copyAction()
@@ -120,7 +120,7 @@ export const customFloatingButtonConfig = {
     }
 };
 
-export const getCustomConfigByLayout = (layout, callbacks) =>
+export const getCustomConfigByLayout = (layout, titleButton, callbacks) =>
     (customFloatingButtonConfig[layout] &&
-        customFloatingButtonConfig[layout](callbacks)) ||
+        customFloatingButtonConfig[layout](titleButton, callbacks)) ||
     {};

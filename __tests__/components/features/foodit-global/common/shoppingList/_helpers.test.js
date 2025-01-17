@@ -9,6 +9,67 @@ import {
     shareList,
     formatShoppingList
 } from '../../../../../../components/features/foodit-global/common/shoppingList/_helpers';
+import { groupRecipeIngredients } from '../../../../../../components/features/foodit-global/common/shoppingList/groupRecipeIngredients';
+
+const sampleRecipes = [
+    {
+        typeList: 'foodit-ingredientes',
+        items: [
+            {
+                ingredient: 'Levadura fresca',
+                amount: '100',
+                unit: 'Gramo',
+                abbreviation: 'g',
+                isMainIngredient: false,
+                fullIngredientString: '100 g de Levadura fresca',
+                includeInShoppingList: true
+            },
+            {
+                ingredient: 'Harina 0000',
+                amount: '1',
+                unit: 'Kilogramo',
+                abbreviation: 'kg',
+                isMainIngredient: false,
+                fullIngredientString: '1 kg de Harina 0000',
+                includeInShoppingList: true
+            },
+            {
+                ingredient: 'Pasas de uva',
+                amount: null,
+                unit: 'A Gusto',
+                abbreviation: 'a gusto',
+                isMainIngredient: false,
+                fullIngredientString: 'Pasas de uva a gusto',
+                includeInShoppingList: true
+            }
+        ],
+        titleList: 'Ingredientes'
+    },
+    {
+        typeList: 'foodit-ingredientes',
+        items: [
+            {
+                ingredient: 'Levadura fresca',
+                amount: '50',
+                unit: 'Gramo',
+                abbreviation: 'g',
+                isMainIngredient: false,
+                fullIngredientString: '50 g de Levadura fresca',
+                includeInShoppingList: true
+            },
+            {
+                ingredient: 'Harina 0000',
+                amount: '500',
+                unit: 'Gramo',
+                abbreviation: 'g',
+                isMainIngredient: false,
+                fullIngredientString: '500 g de Harina 0000',
+                includeInShoppingList: true
+            }
+        ],
+        titleList: 'Ingredientes'
+    }
+];
 
 jest.mock(
     '../../../../../../components/features/foodit-global/common/bookmark/api/_helper',
@@ -204,6 +265,236 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - _helpe
             await shareList(shoppingList);
 
             expect(addErrorToast).toHaveBeenCalled();
+        });
+    });
+
+    describe('groupRecipeIngredients', () => {
+        it('groups and formats recipe ingredients correctly', () => {
+            const result = groupRecipeIngredients(sampleRecipes);
+
+            expect(result).toEqual([
+                {
+                    name: 'Levadura fresca',
+                    displayAmount: '150 g',
+                    fullIngredientNameToCopy: '150 g de levadura fresca',
+                    group: 'default'
+                },
+                {
+                    name: 'Harina 0000',
+                    displayAmount: '1 kg + 500 g',
+                    fullIngredientNameToCopy: '1 kg + 500 g de harina 0000',
+                    group: 'default'
+                },
+                {
+                    name: 'Pasas de uva',
+                    displayAmount: 'a gusto',
+                    fullIngredientNameToCopy: 'a gusto de pasas de uva',
+                    group: 'default'
+                }
+            ]);
+        });
+
+        it('handles special units correctly', () => {
+            const specialUnitRecipes = [
+                {
+                    typeList: 'foodit-ingredientes',
+                    items: [
+                        {
+                            ingredient: 'Sal',
+                            amount: null,
+                            unit: 'A Gusto',
+                            abbreviation: 'a gusto',
+                            isMainIngredient: false,
+                            fullIngredientString: 'Sal a gusto',
+                            includeInShoppingList: true
+                        },
+                        {
+                            ingredient: 'Pimienta',
+                            amount: null,
+                            unit: 'Cantidad Necesaria',
+                            abbreviation: 'c/n',
+                            isMainIngredient: false,
+                            fullIngredientString: 'Pimienta c/n',
+                            includeInShoppingList: true
+                        }
+                    ],
+                    titleList: 'default'
+                }
+            ];
+
+            const result = groupRecipeIngredients(specialUnitRecipes);
+
+            expect(result).toEqual([
+                {
+                    name: 'Sal',
+                    displayAmount: 'a gusto',
+                    fullIngredientNameToCopy: 'a gusto de sal',
+                    group: 'default'
+                },
+                {
+                    name: 'Pimienta',
+                    displayAmount: 'cantidad necesaria',
+                    fullIngredientNameToCopy: 'cantidad necesaria de pimienta',
+                    group: 'default'
+                }
+            ]);
+        });
+
+        it('handles missing amounts correctly', () => {
+            const missingAmountRecipes = [
+                {
+                    typeList: 'foodit-ingredientes',
+                    items: [
+                        {
+                            ingredient: 'Sal',
+                            amount: null,
+                            unit: 'A Gusto',
+                            abbreviation: 'a gusto',
+                            isMainIngredient: false,
+                            fullIngredientString: 'Sal a gusto',
+                            includeInShoppingList: true
+                        },
+                        {
+                            ingredient: 'Pimienta',
+                            amount: null,
+                            unit: 'Cantidad Necesaria',
+                            abbreviation: 'c/n',
+                            isMainIngredient: false,
+                            fullIngredientString: 'Pimienta c/n',
+                            includeInShoppingList: true
+                        }
+                    ],
+                    titleList: 'default'
+                }
+            ];
+
+            const result = groupRecipeIngredients(missingAmountRecipes);
+
+            expect(result).toEqual([
+                {
+                    name: 'Sal',
+                    displayAmount: 'a gusto',
+                    fullIngredientNameToCopy: 'a gusto de sal',
+                    group: 'default'
+                },
+                {
+                    name: 'Pimienta',
+                    displayAmount: 'cantidad necesaria',
+                    fullIngredientNameToCopy: 'cantidad necesaria de pimienta',
+                    group: 'default'
+                }
+            ]);
+        });
+
+        it('handles plural of units correctly', () => {
+            const pluralUnitRecipes = [
+                {
+                    typeList: 'foodit-ingredientes',
+                    items: [
+                        {
+                            ingredient: 'Laurel',
+                            amount: '1',
+                            unit: 'Hoja',
+                            abbreviation: 'hoja',
+                            isMainIngredient: false,
+                            fullIngredientString: '1 hoja de laurel',
+                            includeInShoppingList: true
+                        },
+                        {
+                            ingredient: 'Laurel',
+                            amount: '1',
+                            unit: 'Hoja',
+                            abbreviation: 'hoja',
+                            isMainIngredient: false,
+                            fullIngredientString: '1 hoja de laurel',
+                            includeInShoppingList: true
+                        },
+                        {
+                            ingredient: 'Azúcar',
+                            amount: '1',
+                            unit: 'Cucharada',
+                            abbreviation: 'cda.',
+                            isMainIngredient: false,
+                            fullIngredientString: '1 cda. de azúcar',
+                            includeInShoppingList: true
+                        },
+                        {
+                            ingredient: 'Azúcar',
+                            amount: '1',
+                            unit: 'Cucharada',
+                            abbreviation: 'cda.',
+                            isMainIngredient: false,
+                            fullIngredientString: '1 cda. de azúcar',
+                            includeInShoppingList: true
+                        }
+                    ],
+                    titleList: 'default'
+                }
+            ];
+
+            const result = groupRecipeIngredients(pluralUnitRecipes);
+
+            expect(result).toEqual([
+                {
+                    name: 'Laurel',
+                    displayAmount: '2 hojas',
+                    fullIngredientNameToCopy: '2 hojas de laurel',
+                    group: 'default'
+                },
+                {
+                    name: 'Azúcar',
+                    displayAmount: '2 cdas.',
+                    fullIngredientNameToCopy: '2 cdas. de azúcar',
+                    group: 'default'
+                }
+            ]);
+        });
+
+        it('should display a gusto/cantidad necesaria when no amounts are quantifiable and there are one ingredient in common', () => {
+            const recipes = [
+                {
+                    typeList: 'foodit-ingredientes',
+                    items: [
+                        {
+                            ingredient: 'Sal',
+                            amount: null,
+                            unit: 'A Gusto',
+                            abbreviation: 'a gusto',
+                            isMainIngredient: false,
+                            fullIngredientString: 'Sal a gusto',
+                            includeInShoppingList: true
+                        },
+                        {
+                            ingredient: 'Sal',
+                            amount: null,
+                            unit: 'Cantidad Necesaria',
+                            abbreviation: 'c/n',
+                            isMainIngredient: false,
+                            fullIngredientString: 'Pimienta c/n',
+                            includeInShoppingList: true
+                        }
+                    ],
+                    titleList: 'default'
+                }
+            ];
+
+            const result = groupRecipeIngredients(recipes);
+
+            expect(result).toEqual([
+                {
+                    name: 'Sal',
+                    displayAmount: 'a gusto/cantidad necesaria',
+                    fullIngredientNameToCopy:
+                        'a gusto/cantidad necesaria de sal',
+                    group: 'default'
+                }
+            ]);
+        });
+
+        it('handles empty recipe list', () => {
+            const result = groupRecipeIngredients([]);
+
+            expect(result).toEqual([]);
         });
     });
 });

@@ -1,16 +1,16 @@
 import React from 'react';
-import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { Text } from '@ln/common-ui-text';
+import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import ShoppingList from '../../features/foodit-global/common/shoppingList/foodit';
 import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit';
 
-const ListadoComprasFoodit = () => {
+function ListadoComprasFoodit() {
     return (
         <BaseLayout>
-            <div className="flex flex-column gap-32">
+            <div className="flex flex-column gap-32 relative">
                 <section className="flex flex-column">
                     <BreadcrumbCustomFoodit
-                        className={'mb-24'}
+                        className="mb-24"
                         sectionsCustom={[
                             {
                                 name: 'Lista de compras',
@@ -30,7 +30,7 @@ const ListadoComprasFoodit = () => {
             </div>
         </BaseLayout>
     );
-};
+}
 
 ListadoComprasFoodit.sections = ['Cuerpo'];
 
