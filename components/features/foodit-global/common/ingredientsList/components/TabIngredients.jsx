@@ -78,7 +78,7 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
         })
     );
 
-    const mockData = [
+    const tabsConfig = [
         {
             id: LISTA_DE_COMPRAS.LISTA_DE_COMPRAS_POR_RECETA,
             title: 'por receta',
@@ -124,10 +124,10 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
         <div>
             <Tabs
                 selectedColor="var(--secondary-positive)"
-                defaultValue={mockData[0].id}
+                defaultValue={tabsConfig[0].id}
             >
                 <Tabs.ItemContainer className="gap-16">
-                    {mockData?.map(({ id, title, callback }) => (
+                    {tabsConfig?.map(({ id, title, callback }) => (
                         <Tabs.Item
                             className="flex ai-center mb-8 text-wrap cursor-pointer "
                             id={id}
@@ -144,7 +144,7 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
                         </Tabs.Item>
                     ))}
                 </Tabs.ItemContainer>
-                {mockData?.map(({ id, panelContent }) => (
+                {tabsConfig?.map(({ id, panelContent }) => (
                     <Tabs.Panel className="w-100" id={id} key={id}>
                         {panelContent}
                     </Tabs.Panel>
