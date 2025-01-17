@@ -173,8 +173,6 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                screen.debug();
-
                 const linksPreload = container.querySelectorAll('link');
 
                 expect(linksPreload).toHaveLength(3);
