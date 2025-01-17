@@ -10,14 +10,14 @@ import AperturaComponent from './component';
 
 // TODO: Evaluar si es posible unificar esta apertura con el resto de aperturas.
 
-const AperturaStorytelling = props => {
+function AperturaStorytelling(props) {
     const { globalContent } = props || {};
     const { subtype } = globalContent;
 
     if (subtype === STORYTELLING || subtype === FOTOAL100)
         return <AperturaComponent {...props} />;
     return <></>;
-};
+}
 
 AperturaStorytelling.propTypes = {
     globalContent: PropTypes.shape({
