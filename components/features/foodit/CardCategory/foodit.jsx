@@ -69,6 +69,7 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
                 href: url || urlCustom,
                 title: `Ir a ${title}`
             }}
+            data-test-id={`carousel-category-card-${featureId}`}
         />
     );
 }
