@@ -38,7 +38,7 @@ const getCssLibsHome = () => {
             file('common-ui-image'),
             file('common-ui-link'),
             file('common-ui-media'),
-            file('common-ui-scrollinx'),
+            file('common-ui-dialog'),
             file('common-ui-text'),
             file('common-ui-video'),
             file('common-ui-mediascroller'),

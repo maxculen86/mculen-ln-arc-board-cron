@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - chains - LN10_Caja_Carrusel - components - mediaScroller - MediaScroller matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mb-32"
+  >
+    <div
+      class="ln-roof --generic"
+      roof-container="roof-container"
+    >
+      <div
+        class="--ln-roof-full pt-24 flex jc-between"
+      >
+        <div
+          class="--ln-roof-left"
+        >
+          <div
+            class="flex uppercase ai-center"
+            roof-group="left"
+            target="_blank"
+          />
+        </div>
+        <div
+          class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+          roof-group="right"
+        />
+      </div>
+    </div>
+    <div
+      class="media-scroller relative grid w-100"
+      data-scroller="container"
+    >
+      <ul
+        class="relative pb-32"
+        data-scroller="track"
+        data-scroller-elements="1"
+        style="grid-auto-columns: 280px;"
+      >
+        <li
+          data-scroller="element"
+        >
+          <div>
+            Test Child
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

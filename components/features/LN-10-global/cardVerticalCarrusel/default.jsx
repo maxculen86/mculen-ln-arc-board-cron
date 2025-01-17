@@ -7,16 +7,25 @@ import { useOnClickOutside } from '@ln/hooks';
 import Video from './video';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { secondsToMinutes } from './helpers';
+import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 function CardVertical({
     title = '',
     src = '',
     badgeText = '',
     poster = '',
-    duration = 0
+    duration = 0,
+    cardPosition,
+    videoId,
+    layoutType,
+    titleJwPlayer
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isTouching, setIsTouching] = useState(false);
+
+    const { setCurrentIndex, onOpenMediaScrollerExpanded } =
+        useCajaCarruselContext();
 
     const touchTimeoutRef = useRef(null);
     const containerCardRef = useRef(null);
@@ -25,24 +34,38 @@ function CardVertical({
         if (!isTouching) {
             setIsPlaying(true);
         }
-    });
+    }, [isTouching]);
 
     const handleCardMouseLeave = useCallback(() => {
         setIsPlaying(false);
-    });
+    }, []);
 
     const handleCardTouchStart = useCallback(() => {
         setIsTouching(true);
         touchTimeoutRef.current = setTimeout(() => {
             setIsPlaying(true);
         }, 400);
-    });
+    }, []);
 
     const handleClickCardOutside = useCallback(() => {
         clearTimeout(touchTimeoutRef?.current);
         setIsTouching(false);
         setIsPlaying(false);
-    });
+    }, []);
+
+    const handleClickCard = useCallback(() => {
+        onOpenMediaScrollerExpanded();
+        setCurrentIndex(cardPosition);
+        addEventToDataLayerV2({
+            event: 'video_view',
+            contentType: 'video_story',
+            origin: layoutType,
+            rest: {
+                page_title: titleJwPlayer,
+                id_video: videoId
+            }
+        });
+    }, []);
 
     useEffect(() => () => clearTimeout(touchTimeoutRef?.current), []);
 
@@ -54,6 +77,7 @@ function CardVertical({
                 onMouseEnter={handleCardMouseEnter}
                 onMouseLeave={handleCardMouseLeave}
                 onTouchStart={handleCardTouchStart}
+                onClick={handleClickCard}
                 className="card-vertical-carousel cursor-pointer"
                 variant="vertical"
             >
@@ -89,13 +113,18 @@ CardVertical.propTypes = {
     src: PropTypes.string,
     badgeText: PropTypes.string,
     poster: PropTypes.string,
-    duration: PropTypes.number
+    duration: PropTypes.number,
+    cardPosition: PropTypes.number.isRequired,
+    videoId: PropTypes.string.isRequired,
+    layoutType: PropTypes.string,
+    titleJwPlayer: PropTypes.string.isRequired
 };
 CardVertical.defaultProps = {
     title: '',
     src: '',
     badgeText: '',
     poster: '',
-    duration: 0
+    duration: 0,
+    layoutType: ''
 };
 export default CardVertical;
