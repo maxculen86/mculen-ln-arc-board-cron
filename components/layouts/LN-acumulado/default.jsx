@@ -41,6 +41,7 @@ const sections = [
     'autos',
     'campo',
     'propiedades',
+    'juegos',
     'futuria',
     'que-sale'
 ];
