@@ -16,6 +16,7 @@ export default function FilterBox({ toggleDrawer }) {
         applyFilter = () => {},
         removeFilters = () => {},
         appliedFilters = [],
+        resetPage = () => {},
         filters
     } = useContext(SearchContext);
 
@@ -42,12 +43,13 @@ export default function FilterBox({ toggleDrawer }) {
                                 <Chips
                                     key={`${group}-${value}`}
                                     text={transformedFilterNames(value)}
-                                    actionClick={() =>
+                                    actionClick={() => {
+                                        resetPage();
                                         removeFilters({
                                             nameFilter: value,
                                             category: group
-                                        })
-                                    }
+                                        });
+                                    }}
                                 />
                             ))}
                         </div>
@@ -56,9 +58,10 @@ export default function FilterBox({ toggleDrawer }) {
                                 <Button
                                     fullWidth
                                     variant="secondary"
-                                    onClick={() =>
-                                        removeFilters({ removeAll: true })
-                                    }
+                                    onClick={() => {
+                                        resetPage();
+                                        removeFilters({ removeAll: true });
+                                    }}
                                 >
                                     <Icon size={16}>
                                         <IconSprite name="delete" />
@@ -82,6 +85,7 @@ export default function FilterBox({ toggleDrawer }) {
                                                   group,
                                                   filters
                                               })}
+                                              resetPage={resetPage}
                                               removeFilters={removeFilters}
                                               appliedFilters={appliedFilters}
                                           />

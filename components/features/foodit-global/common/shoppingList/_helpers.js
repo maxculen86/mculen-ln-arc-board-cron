@@ -30,13 +30,44 @@ export const formatShoppingList = shoppingList =>
 
 export const copyListToClipboard = async text => {
     try {
-        await navigator.clipboard.writeText(text);
-        addToast({
-            variant: TOAST.SUCCESS.VARIANT,
-            title: TOAST.SUCCESS.TITLE,
-            message: TOAST.SUCCESS.MESSAGE.COPY_INGREDIENTS
-        });
+        if (navigator?.clipboard) {
+            await navigator.clipboard.writeText(text);
+            addToast({
+                variant: TOAST.SUCCESS.VARIANT,
+                title: TOAST.SUCCESS.TITLE,
+                message: TOAST.SUCCESS.MESSAGE.COPY_INGREDIENTS
+            });
+            return;
+        }
+
+        // Fallback for browsers that don't support clipboard API
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+
+        // Make the textarea invisible
+        textArea.style.position = 'fixed';
+        textArea.style.top = '0';
+        textArea.style.left = '0';
+        textArea.style.opacity = '0';
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+
+        if (successful) {
+            addToast({
+                variant: TOAST.SUCCESS.VARIANT,
+                title: TOAST.SUCCESS.TITLE,
+                message: TOAST.SUCCESS.MESSAGE.COPY_INGREDIENTS
+            });
+        } else {
+            throw new Error('execCommand copy failed');
+        }
     } catch (error) {
+        console.error('Error copying to clipboard:', error);
         addErrorToast();
     }
 };

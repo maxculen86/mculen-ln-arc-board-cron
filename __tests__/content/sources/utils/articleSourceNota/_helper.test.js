@@ -1199,21 +1199,20 @@ describe('Tests articleSourceNota - _helper', () => {
         });
 
         it('should return false if section path is not in validSections', () => {
-            const sections = [{ path: '/deportes' }];
+            const sections = [{ path: '/tecnologia' }];
             expect(isValidSectionIA(sections)).toBe(false);
         });
 
         it('should return true if the section path exactly matches a valid section', () => {
-            const sections = [{ path: '/sociedad' }];
+            const sections = [{ path: '/autos' }];
             expect(isValidSectionIA(sections)).toBe(true);
         });
 
         it.each([
-            { path: '/espectaculos/cine', expected: true },
-            { path: '/tecnologia/ai', expected: true },
-            { path: '/tecnologia/gaming', expected: true },
-            { path: '/sociedad/cultura', expected: true },
-            { path: '/espectaculos/musica', expected: true }
+            { path: '/autos/test-drive', expected: true },
+            { path: '/salud/vida_sana', expected: true },
+            { path: '/propiedades/casas-y-departamentos', expected: true },
+            { path: '/economia/campo/cosecha-de-girasoles', expected: true }
         ])(
             'should return $expected if the section path is $path',
             ({ path, expected }) => {

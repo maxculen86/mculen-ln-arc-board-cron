@@ -23,23 +23,15 @@ export const imgsPhoneFoodit = assetsPath => [
 
 export const imgsIngredientsBackground = [
     {
-        asset: 'ingredient-christmas-bottom-medium.webp',
-        className: 'bottom-0 left-40 sm-none absolute'
+        asset: 'ingredient-background-left-top.webp',
+        className: 'top-0 left-0 absolute'
     },
     {
-        asset: 'ingredient-christmas-bottom-left.webp',
-        className: 'top-60 center-y_md left--48 absolute'
+        asset: 'ingredient-background-right-top.webp',
+        className: 'top-0 right-0 absolute'
     },
     {
-        asset: 'ingredient-christmas-bottom-right.webp',
-        className: 'bottom-20 bottom-0_md right--120 absolute'
-    },
-    {
-        asset: 'ingredient-christmas-top-left.webp',
-        className: 'top--36 right--120 absolute'
-    },
-    {
-        asset: 'ingredient-christmas-top-right.webp',
-        className: 'top--36 left--48 absolute'
+        asset: 'ingredient-background-middle-bottom.webp',
+        className: 'bottom-0 left-50 absolute'
     }
 ];

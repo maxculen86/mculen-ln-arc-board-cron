@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Consumer from 'fusion:consumer';
 
 import PropTypes from 'fusion:prop-types';
@@ -12,6 +12,7 @@ import {
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { useGetImage } from './hooks/useGetImage';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 function CardCategory({ id: featureId, isAdmin, customFields }) {
     const {
@@ -22,6 +23,26 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
         groups = [],
         itemGroups = []
     } = customFields;
+
+    const cardRef = useRef(null);
+    const [cardIndex, setCardIndex] = useState(null);
+
+    useEffect(() => {
+        if (cardRef.current) {
+            const track = document.querySelector('ul[data-scroller="track"]');
+
+            if (track) {
+                const cards = Array.from(track.children);
+
+                const cardContainer = cardRef.current.closest('li');
+
+                if (cardContainer) {
+                    const index = cards.indexOf(cardContainer);
+                    setCardIndex(index);
+                }
+            }
+        }
+    }, []);
 
     const { resized_urls: resizedUrls } = useGetImage(image) || {};
 
@@ -58,19 +79,31 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
+
+    const handleClick = () => {
+        addEventToDataLayerV2({
+            event: 'navbar',
+            button: title,
+            label: (cardIndex + 1).toString()
+        });
+    };
+
     return (
-        <Category
-            title={title}
-            imageProps={{
-                src: imageUrl,
-                alt: `Foto de ${title}`
-            }}
-            linkProps={{
-                href: url || urlCustom,
-                title: `Ir a ${title}`
-            }}
-            data-test-id={`carousel-category-card-${featureId}`}
-        />
+        <div ref={cardRef}>
+            <Category
+                title={title}
+                imageProps={{
+                    src: imageUrl,
+                    alt: `Foto de ${title}`
+                }}
+                linkProps={{
+                    href: url || urlCustom,
+                    title: `Ir a ${title}`
+                }}
+                onClick={handleClick}
+                data-test-id={`carousel-category-card-${featureId}`}
+            />
+        </div>
     );
 }
 

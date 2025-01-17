@@ -1,8 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Accordion } from '@ln/common-ui-accordion';
 
-export const MainWrapper = ({ isMobile, visible, ...props }) => {
-    if (isMobile) return <Accordion visible={visible} {...props} />;
+export function MainWrapper({ visible, ...props }) {
+    return (
+        <Accordion
+            className="border border-all border-light-100 border-secondary-positive__hover border-thin rounded-4 px-16 px-24_md px-32_lg py-12 py-16_lg rounded-4 mt-24"
+            visible={visible}
+            {...props}
+        />
+    );
+}
 
-    return <div className="flex flex-column gap-24" {...props} />;
+MainWrapper.propTypes = {
+    visible: PropTypes.bool.isRequired
 };

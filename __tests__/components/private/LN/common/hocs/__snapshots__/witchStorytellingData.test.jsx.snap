@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithStorytellingData should pass props storytellingData apertura to wrapper component by type story, subtype 4 and  video content 1`] = `
+<div
+  id="storytelling-id"
+>
+  {"apertura":{"video":"","altText":"","src":"urlmock","srcset":"urlmock","caption":"","credit":"","resizedUrls":[],"imgDefault":"urlmock","device":"desktop","isMobile":false}}
+</div>
+`;
+
+exports[`WithStorytellingData should return an empty object when conditions are not meet 1`] = `
+<div
+  id="storytelling-id"
+>
+  {"apertura":{}}
+</div>
+`;

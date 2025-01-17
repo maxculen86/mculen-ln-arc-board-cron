@@ -1,0 +1,217 @@
+[
+    {
+        "sections": [
+            {
+                "typeList": "foodit-ingredientes",
+                "items": [
+                    {
+                        "isMainIngredient": false,
+                        "amount": "100",
+                        "unit": "Gramo",
+                        "ingredient": "Levadura fresca",
+                        "abbreviation": "g",
+                        "fullIngredientString": "100 g de Levadura fresca",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "1",
+                        "unit": "Gramo",
+                        "ingredient": "Levadura fresca",
+                        "abbreviation": "kg",
+                        "fullIngredientString": "1 kg de Levadura fresca",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "1",
+                        "unit": "Tz",
+                        "ingredient": "Levadura fresca",
+                        "abbreviation": "Tz",
+                        "fullIngredientString": "1 Tz de Levadura fresca",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "1",
+                        "unit": "Kilogramo",
+                        "ingredient": "Harina 0000",
+                        "abbreviation": "kg",
+                        "fullIngredientString": "1 kg de Harina 0000",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "500",
+                        "unit": "Gramo",
+                        "ingredient": "Harina 0000",
+                        "abbreviation": "g",
+                        "fullIngredientString": "500 g de Harina 0000",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": null,
+                        "unit": "A Gusto",
+                        "ingredient": "Pasas de uva",
+                        "abbreviation": "a gusto",
+                        "fullIngredientString": "Pasas de uva a gusto",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "100",
+                        "unit": "Gramo",
+                        "ingredient": "Pasas de uva",
+                        "abbreviation": "g",
+                        "fullIngredientString": "100 g de Pasas de uva",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": null,
+                        "unit": "Cantidad Necesaria",
+                        "ingredient": "Frutos secos",
+                        "abbreviation": "c/n",
+                        "fullIngredientString": "Frutos secos c/n",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": null,
+                        "unit": "A Gusto",
+                        "ingredient": "Frutos secos",
+                        "abbreviation": "a gusto",
+                        "fullIngredientString": "Frutos secos a gusto",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "250",
+                        "unit": "Gramo",
+                        "ingredient": "Manteca",
+                        "abbreviation": "g",
+                        "fullIngredientString": "250 g de Manteca",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "75",
+                        "unit": "Mililitro",
+                        "ingredient": "Jugo de naranja",
+                        "abbreviation": "ml",
+                        "fullIngredientString": "75 ml de Jugo de naranja",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "250",
+                        "unit": "Gramo",
+                        "ingredient": "Azúcar blanca",
+                        "abbreviation": "g",
+                        "fullIngredientString": "250 g de Azúcar blanca",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "2",
+                        "unit": "Cucharadas",
+                        "ingredient": "Ralladura de naranja",
+                        "abbreviation": "cdas.",
+                        "fullIngredientString": "2 cdas. de Ralladura de naranja",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "1",
+                        "unit": "Cucharada",
+                        "ingredient": "Agua de Azahar",
+                        "abbreviation": "cda.",
+                        "fullIngredientString": "1 cda. de Agua de Azahar",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "1",
+                        "unit": "Cucharadita",
+                        "ingredient": "Esencia de vainilla",
+                        "abbreviation": "cdta.",
+                        "fullIngredientString": "1 cdta. de Esencia de vainilla",
+                        "includeInShoppingList": true
+                    }
+                ],
+                "titleList": null
+            }
+        ],
+        "text": "Pan dulce casero esponjoso en simples pasos, ideal para Navidad",
+        "id": "NCSOPFI43VG3FD22S4VK66UAPA",
+        "bookmarkId": "de9df554-c420-41b3-8366-113258e776ec"
+    },
+    {
+        "sections": [
+            {
+                "typeList": "foodit-ingredientes",
+                "items": [
+                    {
+                        "isMainIngredient": false,
+                        "amount": "200",
+                        "unit": "Gramo",
+                        "ingredient": "Chocolate amargo",
+                        "abbreviation": "g",
+                        "fullIngredientString": "200 g de Chocolate amargo",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "3",
+                        "unit": "Unidad",
+                        "ingredient": "Huevos",
+                        "abbreviation": "u",
+                        "fullIngredientString": "3 unidades de Huevos",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "150",
+                        "unit": "Gramo",
+                        "ingredient": "Azúcar",
+                        "abbreviation": "g",
+                        "fullIngredientString": "150 g de Azúcar",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "100",
+                        "unit": "Gramo",
+                        "ingredient": "Manteca",
+                        "abbreviation": "g",
+                        "fullIngredientString": "100 g de Manteca",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "1",
+                        "unit": "Cucharadita",
+                        "ingredient": "Esencia de vainilla",
+                        "abbreviation": "cdta.",
+                        "fullIngredientString": "1 cdta. de Esencia de vainilla",
+                        "includeInShoppingList": true
+                    },
+                    {
+                        "isMainIngredient": false,
+                        "amount": "1",
+                        "unit": "Pizca",
+                        "ingredient": "Sal",
+                        "abbreviation": "pizca",
+                        "fullIngredientString": "1 pizca de Sal",
+                        "includeInShoppingList": true
+                    }
+                ],
+                "titleList": "Para la cobertura"
+            }
+        ],
+        "text": "Panneforte, el pan dulce italiano que se come en Navidad",
+        "id": "PCSOPFI43VG3FD22S4VK66UAPA",
+        "bookmarkId": "de9df554-c420-41b3-8366-113258e776ew"
+    }
+]
