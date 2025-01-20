@@ -101,6 +101,7 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
                     title: `Ir a ${title}`
                 }}
                 onClick={handleClick}
+                data-test-id={`carousel-category-card-${featureId}`}
             />
         </div>
     );
