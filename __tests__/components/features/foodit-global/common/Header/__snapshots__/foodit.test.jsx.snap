@@ -57,7 +57,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="flex gap-8 ai-center"
                   >
                     <svg
-                      class="logo-foodit --enabled h-32 h-44_md h-52_lg"
+                      class="logo-foodit --enabled h-32 h-40_md h-56_lg"
                       fill="none"
                       viewBox="0 0 32 32"
                       xmlns="http://www.w3.org/2000/svg"
