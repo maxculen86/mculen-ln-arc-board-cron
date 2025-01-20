@@ -11,7 +11,7 @@ function IngredientsListContent({
 }) {
     return (
         <div>
-            <div className="flex flex-column gap-16 gap-8_md">
+            <div className="flex flex-column gap-8 pt-24">
                 {titleList && (
                     <Text className="roboto-bold text-16">{titleList}</Text>
                 )}

@@ -75,7 +75,7 @@ function HeaderFoodit({ layout, layoutsName }) {
                                     </span>
                                     <Logo
                                         variant="row"
-                                        classNameSvgAnimated="h-32 h-44_md h-52_lg"
+                                        classNameSvgAnimated="h-32 h-40_md h-56_lg"
                                         classNameSvgText="h-20 h-24_md h-28_lg"
                                         enabledAnimation
                                     />
