@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { useContent } from 'fusion:content';
 import { validateItemCarrusel } from '../../../../../components/features/LN-10/itemCarrusel/_helper';
 import ItemCarrusel from '../../../../../components/features/LN-10/itemCarrusel/default';
+import CajaCarruselProvider from '../../../../../components/chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 
 jest.mock('fusion:consumer', Component => {
     return function (Component) {
@@ -38,12 +39,19 @@ describe('components - features - LN-10 - itemCarrusel', () => {
             title: 'Test Title',
             chapita: 'Test Chapita',
             chapitaStyle: 'style-class'
-        }
+        },
+        renderables: []
     };
 
     afterEach(() => {
         jest.clearAllMocks();
     });
+
+    const renderWithProvider = (ui, providerProps) => {
+        return render(
+            <CajaCarruselProvider {...providerProps}>{ui}</CajaCarruselProvider>
+        );
+    };
 
     it('renders a warning message when isAdmin is true and there is an error', () => {
         const errorMock = {
@@ -52,7 +60,10 @@ describe('components - features - LN-10 - itemCarrusel', () => {
         };
         validateItemCarrusel.mockReturnValue(errorMock);
 
-        render(<ItemCarrusel {...defaultProps} isAdmin={true} />);
+        renderWithProvider(
+            <ItemCarrusel {...defaultProps} isAdmin={true} />,
+            {}
+        );
 
         expect(
             screen.getByText(/Advertencia. El campo Video es obligatorio/i)
@@ -67,7 +78,10 @@ describe('components - features - LN-10 - itemCarrusel', () => {
         useContent.mockReturnValue(mockVideoData);
         validateItemCarrusel.mockReturnValue(null);
 
-        const { container } = render(<ItemCarrusel {...defaultProps} />);
+        const { container } = renderWithProvider(
+            <ItemCarrusel {...defaultProps} />,
+            {}
+        );
 
         expect(screen.getByText(/test title/i)).toBeInTheDocument();
         expect(container.querySelector('img')).toHaveAttribute(
@@ -82,7 +96,10 @@ describe('components - features - LN-10 - itemCarrusel', () => {
             message: 'Invalid video data'
         });
 
-        const { container } = render(<ItemCarrusel {...defaultProps} />);
+        const { container } = renderWithProvider(
+            <ItemCarrusel {...defaultProps} />,
+            {}
+        );
 
         expect(container.firstChild).toBeNull();
     });
@@ -91,7 +108,10 @@ describe('components - features - LN-10 - itemCarrusel', () => {
         useContent.mockReturnValue(null);
         validateItemCarrusel.mockReturnValue(null);
 
-        const { container } = render(<ItemCarrusel {...defaultProps} />);
+        const { container } = renderWithProvider(
+            <ItemCarrusel {...defaultProps} />,
+            {}
+        );
 
         expect(container.firstChild).toBeNull();
     });

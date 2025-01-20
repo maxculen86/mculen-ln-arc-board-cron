@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
 import { validateItemCarrusel } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import CardVertical from '../../LN-10-global/cardVerticalCarrusel/default';
-import { checkForId } from '../article/common/_helper-WebApi';
+import siteConfig from '../../../../properties/sites/la-nacion-ar';
+import {
+    checkForId,
+    getChainParentOfFeature
+} from '../article/common/_helper-WebApi';
+import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
+import get from '../../../private/common/utils/get';
 
 function itemCarrusel({
     isAdmin,
     id: featureId,
-    customFields: { video: videoId, title, chapita }
+    customFields: { video: videoId, title, chapita },
+    renderables,
+    layout
 }) {
+    const { setVideosData } = useCajaCarruselContext();
+
+    const { layoutsName = {} } = siteConfig || {};
+
+    const layoutTypesForEvent = {
+        [layoutsName.HomeLN10]: 'home',
+        [layoutsName.Acumulado]: 'acu'
+    };
+
+    const getLayoutType = layoutName => layoutTypesForEvent[layoutName] || '';
+
     const videoData =
         useContent({
             source: checkForId(videoId) ? 'videosJwCarruselSource' : null,
@@ -22,10 +41,23 @@ function itemCarrusel({
             }
         }) || null;
 
+    useEffect(() => {
+        setVideosData({
+            id: videoId,
+            title: videoData?.title
+        });
+    }, []);
+
     const error = validateItemCarrusel({
         video: videoData,
         videoId
     });
+
+    const parent = getChainParentOfFeature(featureId, renderables);
+
+    const cardPosition = get(parent, 'children', []).findIndex(
+        elem => elem && get(elem, 'props.id') === featureId
+    );
 
     if (isAdmin && !!error) {
         return (
@@ -44,10 +76,14 @@ function itemCarrusel({
         videoData && (
             <CardVertical
                 title={title}
+                titleJwPlayer={videoData?.title}
                 badgeText={chapita}
                 poster={videoData?.poster}
                 src={videoData?.posterVideo}
                 duration={videoData?.duration}
+                cardPosition={cardPosition}
+                videoId={videoId}
+                layoutType={getLayoutType(layout)}
             />
         )
     );
