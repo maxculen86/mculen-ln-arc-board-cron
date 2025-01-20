@@ -18,6 +18,7 @@ function NewsLetter({ globalContent }) {
         section: '',
         userIdToken: '',
         userAccessToken: '',
+        isUserLoading: true,
         useTestEnvironment: API_ENV !== 'prod',
         onSubscription: () => {}
     });
@@ -30,14 +31,13 @@ function NewsLetter({ globalContent }) {
             'taxonomy.primary_section._id',
             ''
         );
+
         setPropsNewsletter({
             ...propsNewsletter,
             section: primarySection?.split('/')[1],
             userIdToken: token,
-            isUserLoading: !token && !accessToken,
-            /* TODO: rotacion de tokens no se tiene que realizar si no hay un usuario logueado */
-            userAccessToken:
-                accessToken !== 'Bearer undefined' ? accessToken : '',
+            isUserLoading: false,
+            userAccessToken: accessToken || '',
             onSubscription: ({ code }) =>
                 code >= 200 && code < 400
                     ? setNewToast(<Toast {...toastProps.success} />)
