@@ -3,7 +3,7 @@ import { ARC_STATIC } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 
-const Schemas = ({ section }) => {
+function Schemas({ section }) {
     const { contextPath, deployment } = useAppContext();
     const _deployment = `${contextPath}/resources/images/placeholderLN-1280x1280.jpg`;
     const logoUrl = `${ARC_STATIC}${deployment(_deployment)}`;
@@ -31,7 +31,7 @@ const Schemas = ({ section }) => {
         "sameAs": [
           "https://www.facebook.com/lanacion/",
           "https://www.instagram.com/lanacioncom/",
-          "https://twitter.com/LANACION"
+          "https://x.com/LANACION/"
         ]
       }`;
     const webSite = `{
@@ -51,8 +51,8 @@ const Schemas = ({ section }) => {
 
     const nodes = createScript([newsMedia, webSite]);
 
-    return section === 'home' ? nodes : <></>;
-};
+    return section === 'home' ? nodes : null;
+}
 
 Schemas.defaultProps = {
     section: ''

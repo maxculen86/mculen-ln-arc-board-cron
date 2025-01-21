@@ -39,9 +39,8 @@ const resolve = key => {
             '_id,subtype,promo_items,taxonomy.tags,source.system,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,' +
             'display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,label.republicar_audio.text,label.republicar_audio,related_content,' +
             'content_restrictions.content_code';
-        const path = `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
+        return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
             &sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
-        return path;
     }
 
     const sourceOriginFilter =

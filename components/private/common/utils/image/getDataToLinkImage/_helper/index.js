@@ -5,12 +5,11 @@ import { getImageData } from '../../../getApertura';
 import { transformImages } from '../../../../videoPlayerJw/utils/helperJw';
 import setMediaCondition from '../../../../../../../properties/sites/utils/setMediaCondition';
 
-const getImageListStorytelling = (imageData, proportion) => {
-    return replaceAllUrlsResizerArray(getImageData(imageData, proportion));
-};
+const getImageListStorytelling = (imageData, proportion) =>
+    replaceAllUrlsResizerArray(getImageData(imageData, proportion));
 
 const getImagesList = ({ promoItems, basicDefault }) => {
-    if (Boolean(get(promoItems, 'storytelling', null))) {
+    if (get(promoItems, 'storytelling', null)) {
         return getImageListStorytelling(
             get(promoItems, 'storytelling_mobile', []),
             '2:3'
@@ -26,14 +25,27 @@ const getImagesList = ({ promoItems, basicDefault }) => {
     ];
 };
 
+export const fillMaxWidth = images =>
+    images.reduceRight((acc, image, index, array) => {
+        const imageAux = { ...image };
+        if (!image.maxWidth && index < array.length - 1) {
+            imageAux.maxWidth = array[index + 1].minWidth - 1;
+        }
+        acc.unshift(imageAux);
+        return acc;
+    }, []);
+
 export const getResizedUrls = (subtype, promoItems, basicDefault) => {
+    const propertyVideoJw = get(promoItems, 'apertura_multimedia', null)
+        ? 'apertura_multimedia'
+        : 'video_jw';
     const isVideoType =
-        get(promoItems, 'video_jw.subtype', false) === 'video_jw';
+        get(promoItems, `${propertyVideoJw}.subtype`, false) === 'video_jw';
 
     if (isVideoType) {
         const aperturaMultimedia = get(
             promoItems,
-            'video_jw.embed.config.videoJw.playlist',
+            `${propertyVideoJw}.embed.config.videoJw.playlist`,
             {}
         );
         const aperturaSrcImages =
@@ -43,7 +55,7 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
         let imagesJwPlayer = transformImages(srcImages, subtype);
         imagesJwPlayer = fillMaxWidth(imagesJwPlayer);
 
-        const preloadJwPlayer = imagesJwPlayer.map(
+        return imagesJwPlayer.map(
             ({ minWidth = '', maxWidth = '', srcSet = '' }) => ({
                 option: {
                     media_preload: setMediaCondition({ minWidth, maxWidth }),
@@ -53,8 +65,6 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
                 resizedUrl: srcSet
             })
         );
-
-        return preloadJwPlayer;
     }
 
     if (
@@ -70,34 +80,19 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     return get(basicDefault, 'resized_urls', []);
 };
 
-export const fillMaxWidth = images => {
-    return images.reduceRight((acc, image, index, array) => {
-        if (!image.maxWidth && index < array.length - 1) {
-            image.maxWidth = array[index + 1].minWidth - 1;
-        }
-        acc.unshift(image);
-        return acc;
-    }, []);
-};
+export const getcustomFieldsData = fieldsData => ({
+    isHideImage: get(fieldsData, 'props.customFields.hideImage', false),
+    imageID: get(fieldsData, 'props.customFields.imageId', '').trim(),
+    noteID: get(fieldsData, 'props.customFields.noteId', '').trim(),
+    videoID: get(fieldsData, 'props.customFields.video', '')
+});
 
-export const getcustomFieldsData = fieldsData => {
-    return {
-        isHideImage: get(fieldsData, 'props.customFields.hideImage', false),
-        imageID: get(fieldsData, 'props.customFields.imageId', '').trim(),
-        noteID: get(fieldsData, 'props.customFields.noteId', '').trim(),
-        videoID: get(fieldsData, 'props.customFields.video', '')
-    };
-};
-
-export const getPromoItems = items => {
-    return get(items, 'promo_items.basic.resized_urls', []).map(elem => {
-        return {
-            resizedUrl: get(elem, 'resizedUrl', ''),
-            media: get(elem, 'option.media_preload', ''),
-            // TODO: Evaluar no pasar Media
-            option: elem.option
-        };
-    });
-};
+export const getPromoItems = items =>
+    get(items, 'promo_items.basic.resized_urls', []).map(elem => ({
+        resizedUrl: get(elem, 'resizedUrl', ''),
+        media: get(elem, 'option.media_preload', ''),
+        // TODO: Evaluar no pasar Media
+        option: elem.option
+    }));
 
 export const checkForId = id => (id && id.trim() ? id : '');

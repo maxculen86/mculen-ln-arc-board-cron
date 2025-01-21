@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import useGetElementsToScroll from '../../../../../components/chains/LN10_Caja_Carrusel/hooks/useGetElementsToScroll';
+import { useGetElementsToScroll } from '../../../../../components/chains/LN10_Caja_Carrusel/components/hooks/index';
 
 describe('useGetElementsToScroll', () => {
     let addEventListenerSpy;

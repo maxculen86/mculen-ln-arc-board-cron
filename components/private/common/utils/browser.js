@@ -6,6 +6,7 @@ const getParameterByName = (parameter, urlP) => {
         if (typeof window === 'undefined') throw new Error(infoErrorUrl);
         url = window.location.href;
     }
+    // eslint-disable-next-line no-useless-escape
     const name = parameter && parameter.replace(/[\[\]]/g, '\\$&');
 
     const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`);
@@ -46,12 +47,12 @@ const isApiMobileRequest = url => {
     if (!url) {
         return false;
     }
-
+    // TODO: revisar regla prefer-regex-literals
+    // eslint-disable-next-line prefer-regex-literals
     const apiRegex = new RegExp('/(api/mobile)/');
     const regexResult = apiRegex.exec(url);
-    if (!regexResult) return false;
 
-    return true;
+    return !!regexResult;
 };
 
 const isApiRequest = url => {
@@ -59,11 +60,11 @@ const isApiRequest = url => {
         return false;
     }
 
+    // eslint-disable-next-line prefer-regex-literals
     const apiRegex = new RegExp('/(api)/');
     const regexResult = apiRegex.exec(url);
-    if (!regexResult) return false;
 
-    return true;
+    return !!regexResult;
 };
 
 const getApiVersion = urlP => {
@@ -73,6 +74,7 @@ const getApiVersion = urlP => {
         url = window.location.href;
     }
 
+    // eslint-disable-next-line prefer-regex-literals
     const versionRegex = new RegExp('/api/(?:mobile/)?v([0-9]+)/');
     const regexResult = versionRegex.exec(url);
     return regexResult[1];
@@ -85,6 +87,7 @@ const getApiType = urlP => {
         url = window.location.href;
     }
 
+    // eslint-disable-next-line prefer-regex-literals
     const versionRegex = new RegExp('/api/(?:(mobile)/)?v([0-9]+)/');
     const regexResult = versionRegex.exec(url);
     return regexResult[1] !== undefined ? regexResult[1] : 'global';

@@ -7,23 +7,21 @@ import {
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
 import get from '../../../../private/common/utils/get';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
 
-const getUrlAndTitle = article => {
-    return {
-        url: get(article, 'website_url', ''),
-        title: get(article, 'headlines.basic', '')
-    };
-};
+const getUrlAndTitle = article => ({
+    url: get(article, 'website_url', ''),
+    title: get(article, 'headlines.basic', '')
+});
 
 export const socials = [
     {
         type: 'button',
         onClick: ({ article }) => {
             addActionToDataLayer(article, 'compartir');
-            const { url, title } = getUrlAndTitle(article);
-            popUpCompartirNotaFB(url, SITE_FOODIT, title);
+            const { url } = getUrlAndTitle(article);
+            popUpCompartirNotaFB(url, SITE_FOODIT);
         },
         title: 'Compartir por Facebook',
         text: 'Facebook',

@@ -9,9 +9,9 @@ const Video = memo(({ src, poster, isPlaying, ...rest }) => {
 
     useEffect(() => {
         if (isPlaying) {
-            videoRef.current.play();
+            videoRef?.current?.play();
         } else {
-            videoRef.current.pause();
+            videoRef?.current?.pause();
             videoRef.current.currentTime = 0;
         }
     }, [isPlaying]);

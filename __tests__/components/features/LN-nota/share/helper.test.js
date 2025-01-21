@@ -60,9 +60,15 @@ describe('components - features - LN-nota - share - helper', () => {
             expect(setIaButtonIsClicked).toHaveBeenCalledWith(true);
 
             expect(publish).toHaveBeenCalledWith('showIa', { show: true });
+
+            expect(localStorage.setItem).toHaveBeenCalledWith(
+                'IA-feature-tracking',
+                'wasDisplayed'
+            );
         });
 
         it('should call openBarrier when not subscribed', () => {
+            const callback = jest.fn();
             const defaultTab = 'summary';
             const suscription = false;
 
@@ -71,13 +77,15 @@ describe('components - features - LN-nota - share - helper', () => {
                 iaButtonIsClicked,
                 setIaButtonIsClicked,
                 suscription,
-                openBarrier
+                openBarrier,
+                callback
             });
 
             expect(openBarrier).toHaveBeenCalled();
             expect(addEventToDataLayerV2).not.toHaveBeenCalled();
             expect(setIaButtonIsClicked).not.toHaveBeenCalled();
             expect(publish).not.toHaveBeenCalled();
+            expect(callback).not.toHaveBeenCalled();
         });
 
         it('should not execute any actions if iaButtonIsClicked is true', () => {

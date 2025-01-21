@@ -13,7 +13,7 @@ trigger:
 pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
 
 variables:
-    FUSION_RELEASE: "5.0.7"
+    FUSION_RELEASE: '5.1.1'
 
 jobs:
     - job: BuildArc
@@ -34,7 +34,16 @@ jobs:
                     sonar.sourceEncoding=UTF-8
                     sonar.sources=./
                     sonar.language=js
-                    sonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules,resources/**
+                    sonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules,resources/**,src/statics/**
                     sonar.tests=./__tests__
                     sonar.test.inclusions=./__tests__/**/*.test.js
                     sonar.javascript.lcov.reportPaths=coverage/lcov.info
+          - script: |
+                curl --location 'https://api.staging.lanacionar.arcpublishing.com/pagebuilder/datasync/sync' \
+                --header 'Content-Type: application/json' \
+                --header 'Authorization: Bearer $TOKEN_SYNC' \
+                --data '{ "source": "production" }'
+            condition: and(succeeded(), eq(variables['System.PullRequest.TargetBranch'], 'refs/heads/sandbox'), eq(variables['System.PullRequest.SourceBranch'], 'refs/heads/develop'))
+            displayName: Sync prod - staging environment
+            env:
+                TOKEN_SYNC: $(TOKEN_SYNC)

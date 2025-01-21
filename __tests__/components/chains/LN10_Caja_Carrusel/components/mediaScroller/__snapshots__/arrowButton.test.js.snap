@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - chains - LN10_Caja_Carrusel - components - mediaScroller - Arrow Button matches the snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 --secondary"
+    data-variant="secondary"
+    style="top: 50%; border-radius: 4px;"
+    type="button"
+  />
+</DocumentFragment>
+`;

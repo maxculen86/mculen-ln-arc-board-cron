@@ -3,7 +3,7 @@ import Context from 'fusion:context';
 import HeaderItem from './headerItem';
 import HamburgerButton from '../../../common/hamburgerButton';
 import hrefHelper from '../../../common/utils/hrefHelper';
-import addForwardSlash from '../../../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../../LN/common/utils/addForwardSlash';
 
 class HeaderComponent extends PureComponent {
     constructor(props) {
@@ -12,17 +12,15 @@ class HeaderComponent extends PureComponent {
     }
 
     getHeaderItems(props) {
-        return props.items.map((item, index) => {
-            return (
-                <HeaderItem
-                    description={item.description}
-                    href={addForwardSlash(item.href)}
-                    data={props.data}
-                    alt={item.alt}
-                    key={index}
-                />
-            );
-        });
+        return props.items.map((item, index) => (
+            <HeaderItem
+                description={item.description}
+                href={addForwardSlash(item.href)}
+                data={props.data}
+                alt={item.alt}
+                key={index}
+            />
+        ));
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -48,7 +46,7 @@ class HeaderComponent extends PureComponent {
                         >
                             LN+
                         </a>
-                        <HamburgerButton className={'header__hamburguer'}>
+                        <HamburgerButton className="header__hamburguer">
                             ☰
                         </HamburgerButton>
                         <nav className="header__nav">{this.headerItems}</nav>

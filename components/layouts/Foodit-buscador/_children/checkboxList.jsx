@@ -5,7 +5,13 @@ import CheckBoxHeader from './checkboxHeader';
 import CheckBoxAccordion from './checkboxAccordion';
 import { transformedFilterNames } from '../_helpers';
 
-function CheckBoxList({ listFilters = [], applyFilter, removeFilters, group }) {
+function CheckBoxList({
+    listFilters = [],
+    applyFilter,
+    removeFilters,
+    group,
+    resetPage
+}) {
     const handleCheckBox = (event, facetedKey) => {
         const isChecked = event.target.checked;
         const { name } = event.target;
@@ -14,7 +20,7 @@ function CheckBoxList({ listFilters = [], applyFilter, removeFilters, group }) {
             nameFilter: transformedFilterNames(name),
             category: facetedKey || group
         };
-
+        resetPage();
         if (isChecked) {
             applyFilter(paramsFilters);
         } else {
@@ -57,6 +63,7 @@ function CheckBoxList({ listFilters = [], applyFilter, removeFilters, group }) {
 
 CheckBoxList.propTypes = {
     listFilters: PropTypes.arrayOf.isRequired,
+    resetPage: PropTypes.func.isRequired,
     applyFilter: PropTypes.func.isRequired,
     removeFilters: PropTypes.func.isRequired,
     group: PropTypes.string.isRequired

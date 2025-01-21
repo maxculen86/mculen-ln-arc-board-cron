@@ -16,6 +16,7 @@ export default function FilterBox({ toggleDrawer }) {
         applyFilter = () => {},
         removeFilters = () => {},
         appliedFilters = [],
+        resetPage = () => {},
         filters
     } = useContext(SearchContext);
 
@@ -32,17 +33,23 @@ export default function FilterBox({ toggleDrawer }) {
                     <SkeletonFaceteddata />
                 ) : (
                     <div id="faceteddata">
-                        <div className="flex flex-wrap gap-8 pb-24">
+                        <div className="flex jc-between text-24 pb-24_lg">
+                            <span className="prumo prumo-light lg-only">
+                                Filtros
+                            </span>
+                        </div>
+                        <div className="flex flex-wrap gap-8 pb-24 pb-0_lg">
                             {appliedFilters.map(({ group, value } = {}) => (
                                 <Chips
                                     key={`${group}-${value}`}
                                     text={transformedFilterNames(value)}
-                                    actionClick={() =>
+                                    actionClick={() => {
+                                        resetPage();
                                         removeFilters({
                                             nameFilter: value,
                                             category: group
-                                        })
-                                    }
+                                        });
+                                    }}
                                 />
                             ))}
                         </div>
@@ -51,9 +58,10 @@ export default function FilterBox({ toggleDrawer }) {
                                 <Button
                                     fullWidth
                                     variant="secondary"
-                                    onClick={() =>
-                                        removeFilters({ removeAll: true })
-                                    }
+                                    onClick={() => {
+                                        resetPage();
+                                        removeFilters({ removeAll: true });
+                                    }}
                                 >
                                     <Icon size={16}>
                                         <IconSprite name="delete" />
@@ -62,11 +70,6 @@ export default function FilterBox({ toggleDrawer }) {
                                 </Button>
                             </div>
                         )}
-                        <div className="flex jc-between text-24 pb-24_lg">
-                            <span className="prumo prumo-light lg-only">
-                                Filtros
-                            </span>
-                        </div>
 
                         {listFilters.length
                             ? listFilters.map(
@@ -82,6 +85,7 @@ export default function FilterBox({ toggleDrawer }) {
                                                   group,
                                                   filters
                                               })}
+                                              resetPage={resetPage}
                                               removeFilters={removeFilters}
                                               appliedFilters={appliedFilters}
                                           />

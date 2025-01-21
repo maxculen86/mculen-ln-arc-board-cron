@@ -1,13 +1,17 @@
-import addForwardSlash, {
-    addForwardSlashInInterstitialLink,
-    addForwardSlashInParagraphsLinks
-} from '../../../../../../components/private/LN/common/utils/addForwardSlash';
+import { addForwardSlash, addForwardSlashInInterstitialLink, addForwardSlashInParagraphsLinks } from '../../../../../../components/private/LN/common/utils/addForwardSlash';
 
 describe('Private - LN - common - utils', () => {
     describe('Tests addForwardSlash function', () => {
-        describe('With no string parameter', () => {
-            it('Should return null', () => {
-                expect(addForwardSlash()).toBeNull();
+        describe('No valid parameters', () => {
+            it('Should return empty string', () => {
+                expect(addForwardSlash()).toBe('');
+                expect(addForwardSlash(null)).toBe('');
+                expect(addForwardSlash(undefined)).toBe('');
+                expect(addForwardSlash(123)).toBe('');
+                expect(addForwardSlash({})).toBe('');
+                expect(addForwardSlash([])).toBe('');
+                expect(addForwardSlash('')).toBe('');
+                expect(addForwardSlash('   ')).toBe('');
             });
         });
 
@@ -26,6 +30,9 @@ describe('Private - LN - common - utils', () => {
                 expect(
                     addForwardSlash('https://www.lanacion.com.ar')
                 ).toStrictEqual('https://www.lanacion.com.ar/');
+                expect(addForwardSlash('path/to/resource')).toBe('path/to/resource/');
+                expect(addForwardSlash('  path/to/resource  ')).toBe('path/to/resource/');
+
             });
         });
     });

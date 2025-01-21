@@ -8,7 +8,7 @@ import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
 import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
 import getImageAltText from '../../../features/foodit-global/common/utils/getImageAltText';
-import addForwardSlash from '../../LN/common/utils/addForwardSlash';
+import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 import {
     getModifiedDate,
     getPublishDate
@@ -210,7 +210,7 @@ export const getData = ({
         getTwitterLink(authors[0]) ?? '@LANACION'
     );
 
-    const response = {
+    return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
             ? headlinesBasic || titleDefault
@@ -243,8 +243,6 @@ export const getData = ({
         subtype,
         twitterAccount
     };
-
-    return response;
 };
 
 export const setMetaDescription = ({
@@ -327,20 +325,25 @@ export const getDataForProfileType = (
         } = {}
     } = globalContent;
 
-    const { query: { slug, _id: slugAuthor } = {} } = globalContentConfig;
+    const { query: { slug = '', _id: slugAuthor = '' } = {} } =
+        globalContentConfig;
 
     if (isWiki) {
+        const additionalNameWithSpace = additionalName
+            ? ` ${additionalName}`
+            : '';
         return {
-            profileName: `${givenName}${additionalName ? ` ${additionalName}` : ''}`,
+            profileName: `${givenName}${additionalNameWithSpace}`,
             profileLastName: familyName,
-            profileUsername: slug
+            profileUsername: decodeURIComponent(slug)
         };
     }
 
+    const middleNameWithSpace = middleName ? ` ${middleName}` : '';
     return {
-        profileName: `${firstName}${middleName ? ` ${middleName}` : ''}`,
+        profileName: `${firstName}${middleNameWithSpace}`,
         profileLastName: lastName,
-        profileUsername: slugAuthor
+        profileUsername: decodeURIComponent(slugAuthor)
     };
 };
 

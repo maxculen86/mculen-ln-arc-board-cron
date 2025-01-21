@@ -49,17 +49,15 @@ const AddRelatedImage = (article = {}) => {
             filter
         });
 
-    const resultArticle = {
+    return {
         ...article,
         ...(imageData && {
             promo_items: {
                 ...imageData.promo_items
             }
         }),
-        ...(acuOgImg && { acuOgImg: acuOgImg })
+        ...(acuOgImg && { acuOgImg })
     };
-
-    return resultArticle;
 };
 
 export default AddRelatedImage;

@@ -1,9 +1,17 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import CardCategory from '../../../../../components/features/foodit/CardCategory/foodit';
 import { useContent } from 'fusion:content';
+import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock('fusion:consumer', () => Component => Component);
+
+jest.mock(
+    '../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        addEventToDataLayerV2: jest.fn()
+    })
+);
 
 describe('Components - features - foodit - CardCategory', () => {
     const fooditCategoryImageSource = {
@@ -88,5 +96,55 @@ describe('Components - features - foodit - CardCategory', () => {
 
         render(<CardCategory {...props} />);
         expect(screen.getByText('Se requiere un titulo')).toBeInTheDocument();
+    });
+
+    it('should call addEventToDataLayerV2 with correct parameters when clicked', () => {
+        const props = {
+            id: 'test-id',
+            isAdmin: false,
+            customFields: {
+                title: 'Test Title',
+                image: 'test-image-id',
+                url: 'https://test-url.com',
+                query: 'test-query',
+                groups: [],
+                itemGroups: []
+            }
+        };
+
+        render(<CardCategory {...props} />);
+
+        const categoryElement = screen.getByText('Test Title');
+        fireEvent.click(categoryElement);
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'navbar',
+            button: 'Test Title',
+            label: '1'
+        });
+    });
+
+    it('should render the Category component with correct props', () => {
+        const props = {
+            id: 'test-id',
+            isAdmin: false,
+            customFields: {
+                title: 'Test Title',
+                image: 'test-image-id',
+                url: 'https://test-url.com',
+                query: 'test-query',
+                groups: [],
+                itemGroups: []
+            }
+        };
+
+        render(<CardCategory {...props} />);
+
+        const categoryElement = screen.getByText('Test Title');
+        expect(categoryElement).toBeInTheDocument();
+        expect(categoryElement.closest('a')).toHaveAttribute(
+            'href',
+            'https://test-url.com'
+        );
     });
 });

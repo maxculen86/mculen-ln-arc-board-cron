@@ -1,9 +1,10 @@
 import React from 'react';
 import Static from 'fusion:static';
+import PropTypes from 'prop-types';
 import { GridArticlesFoodit } from './gridArticles';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
 
-const GridFooditServer = ({ id = '', layout = '', maxArticles = 24 }) => {
+function GridFooditServer({ id = '', layout = '', maxArticles = 24 }) {
     const { articles } = useGridArticlesFoodit({
         id,
         layout,
@@ -16,6 +17,18 @@ const GridFooditServer = ({ id = '', layout = '', maxArticles = 24 }) => {
             <GridArticlesFoodit articles={articles} maxArticles={maxArticles} />
         </Static>
     );
+}
+
+GridFooditServer.propTypes = {
+    id: PropTypes.string,
+    layout: PropTypes.string,
+    maxArticles: PropTypes.number
+};
+
+GridFooditServer.defaultProps = {
+    id: '',
+    layout: '',
+    maxArticles: 24
 };
 
 export default GridFooditServer;

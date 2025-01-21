@@ -122,27 +122,22 @@ export const transformListGroups = listFiltersGroups => {
         occasions
     };
 
-    const filterBoxList = Object.entries(resultGroups).reduce(
-        (acc, currentValue) => {
-            const [key, value = []] = currentValue || [];
-            const name = namesGroups[key];
-            if (name) {
-                acc.push({
-                    name,
-                    childrens: value.map(checkbox => ({
-                        ...checkbox,
-                        checked: false
-                    })),
-                    group: key
-                });
-            }
+    return Object.entries(resultGroups).reduce((acc, currentValue) => {
+        const [key, value = []] = currentValue || [];
+        const name = namesGroups[key];
+        if (name) {
+            acc.push({
+                name,
+                childrens: value.map(checkbox => ({
+                    ...checkbox,
+                    checked: false
+                })),
+                group: key
+            });
+        }
 
-            return acc;
-        },
-        []
-    );
-
-    return filterBoxList;
+        return acc;
+    }, []);
 };
 
 export const getTag = (section = '') => {
