@@ -154,6 +154,7 @@ const index = (
 
             case 3:
             case 8:
+            case 10:
                 result.push(
                     boxTypeByLayout(layoutPage, type)(sectionBox, boxInfo)
                 );
