@@ -11,7 +11,7 @@ HTMLCollection [
       Nombre
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       Lionel Andrés Messi Cuccittini
     </span>
@@ -25,7 +25,7 @@ HTMLCollection [
       Profesión
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       Futbolista
     </span>
@@ -39,7 +39,7 @@ HTMLCollection [
       Fecha de nacimiento
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       24/06/1987
     </span>
@@ -53,7 +53,7 @@ HTMLCollection [
       Lugar de nacimiento
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       Rosario, Santa Fe, Argentina
     </span>
@@ -72,7 +72,7 @@ HTMLCollection [
       Nombre
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       Lionel Andrés Messi Cuccittini leo 
     </span>
@@ -86,7 +86,7 @@ HTMLCollection [
       Profesión
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       Futbolista
     </span>
@@ -100,7 +100,7 @@ HTMLCollection [
       Fecha de nacimiento
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       01T19:00:00/05/01T19:00:002022/05/2022
     </span>
@@ -114,7 +114,7 @@ HTMLCollection [
       Lugar de nacimiento
     </span>
     <span
-      class="text sueca --font-regular --twoxs"
+      class="text --font-regular --twoxs"
     >
       Rosario, Santa Fe, Argentina
     </span>

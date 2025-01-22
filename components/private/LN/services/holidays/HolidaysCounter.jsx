@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-counter.css';
 import Text from '../../../common/text';
 
-const HolidaysCounter = ({
+function HolidaysCounter({
     nextHoliday,
     month,
     remainingDays,
     description,
     typeHoliday
-}) => {
+}) {
     const extraClass = {
         Inamovible: ' --immovable',
         Puente: ' --bridge',
@@ -24,7 +24,7 @@ const HolidaysCounter = ({
         <div className="holidays-counter">
             <div className={`number-counter${extraClass[typeHoliday]}`}>
                 {nextHoliday && (
-                    <Text size="3xl" weight="bold" font="sueca">
+                    <Text size="3xl" weight="bold" font="prumo">
                         {nextHoliday}
                     </Text>
                 )}
@@ -50,7 +50,7 @@ const HolidaysCounter = ({
             </div>
         </div>
     );
-};
+}
 HolidaysCounter.propTypes = {
     nextHoliday: PropTypes.number.isRequired,
     month: PropTypes.string.isRequired,
