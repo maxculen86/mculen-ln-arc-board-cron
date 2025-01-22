@@ -164,4 +164,21 @@ describe('cardAnexo v2 LN10', () => {
         const result = anexoMobileBox(element, featureInfo, cardAnexo);
         expect(result).toBeNull();
     });
+
+    it('should return null when url is https://especialess3.lanacion.com.ar/ComercialLN/carrousel/', () => {
+        const element = {
+            articles: [
+                {
+                    url: 'https://especialess3.lanacion.com.ar/ComercialLN/carrousel/',
+                    alto: 400
+                }
+            ]
+        };
+        const featureInfo = {
+            tipoSeccion: 'anexoMobile',
+            idSeccion: 603
+        };
+        const result = anexoMobileBox(element, featureInfo, cardAnexo);
+        expect(result).toBeNull();
+    });
 });

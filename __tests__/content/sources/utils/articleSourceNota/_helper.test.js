@@ -9,7 +9,8 @@ import {
     isValidSectionIA,
     updateUrlIfMatch,
     getIncludedFields,
-    checkIfExternalRedirect
+    checkIfExternalRedirect,
+    transformSubtype
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -1302,6 +1303,97 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const result = getIncludedFields(isLiveblog);
             expect(result).toEqual(expectedFields.join(','));
+        });
+    });
+
+    describe('Tests - function - transformSubtype', () => {
+        const mockResponse = {
+            _id: 'ID-DE-NOTA',
+            promo_items: {},
+            subtype: 'Noticia'
+        };
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '1'.", () => {
+            expect(transformSubtype(mockResponse)).toStrictEqual({
+                ...mockResponse,
+                subtype: '1'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '2'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'Infografia' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '2'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '5'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'Video' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '5'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '6'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'LiveBlog' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '6'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '7'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'Receta' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '7'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '4'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'Storytelling' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '4'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '8'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'FotoAl100' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '8'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '9'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'HtmlLibre' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '9'
+            });
+        });
+
+        it("It should return a copy of the response it receives, with the subtype value overwritten by '10'.", () => {
+            expect(
+                transformSubtype({ ...mockResponse, subtype: 'Agencia' })
+            ).toStrictEqual({
+                ...mockResponse,
+                subtype: '10'
+            });
+        });
+
+        it('It should return the response received by parameter, if it is null', () => {
+            expect(transformSubtype(null)).toBeNull();
         });
     });
 });

@@ -1,6 +1,7 @@
 import {
     isFotoAl100orStorytelling,
-    Subtypes
+    Subtypes,
+    translateStringFromSubitypeToID
 } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
@@ -44,6 +45,99 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
 
         it('Should return false without a parameter', () => {
             expect(isFotoAl100orStorytelling()).toBeFalsy();
+        });
+    });
+
+    describe('Tests - function - translateStringFromSubitypeToID', () => {
+        it("Should return '1' when the subtype arrives with the value 'News' or '1'", () => {
+            const subtypeNoticia = '1';
+            expect(translateStringFromSubitypeToID('Noticia')).toStrictEqual(
+                subtypeNoticia
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeNoticia)
+            ).toStrictEqual(subtypeNoticia);
+        });
+
+        it("Should return '2' when the subtype arrives with the value 'Infographic' or '2'", () => {
+            const subtypeInfografia = '2';
+            expect(translateStringFromSubitypeToID('Infografia')).toStrictEqual(
+                subtypeInfografia
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeInfografia)
+            ).toStrictEqual(subtypeInfografia);
+        });
+
+        it("Should return '5' when the subtype arrives with the value 'Video' or '5'", () => {
+            const subtypeVideo = '5';
+            expect(translateStringFromSubitypeToID('Video')).toStrictEqual(
+                subtypeVideo
+            );
+            expect(translateStringFromSubitypeToID(subtypeVideo)).toStrictEqual(
+                subtypeVideo
+            );
+        });
+
+        it("Should return '6' when the subtype arrives with the value 'LiveBlog' or '6'", () => {
+            const subtypeLiveBlog = '6';
+            expect(translateStringFromSubitypeToID('LiveBlog')).toStrictEqual(
+                subtypeLiveBlog
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeLiveBlog)
+            ).toStrictEqual(subtypeLiveBlog);
+        });
+
+        it("Should return '7' when the subtype arrives with the value 'Recipe' or '7'", () => {
+            const subtypeReceta = '7';
+
+            expect(translateStringFromSubitypeToID('Receta')).toStrictEqual(
+                subtypeReceta
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeReceta)
+            ).toStrictEqual(subtypeReceta);
+        });
+
+        it("Should return '4' when the subtype arrives with the value 'Storytelling' or '4'", () => {
+            const subtypeStorytelling = '4';
+            expect(
+                translateStringFromSubitypeToID('Storytelling')
+            ).toStrictEqual(subtypeStorytelling);
+            expect(
+                translateStringFromSubitypeToID(subtypeStorytelling)
+            ).toStrictEqual(subtypeStorytelling);
+        });
+
+        it("Should return '8' when the subtype arrives with the value 'Storytelling' or '8'", () => {
+            const subtypeFotoAl100 = '8';
+            expect(translateStringFromSubitypeToID('FotoAl100')).toStrictEqual(
+                subtypeFotoAl100
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeFotoAl100)
+            ).toStrictEqual(subtypeFotoAl100);
+        });
+
+        it("Should return '9' when the subtype arrives with the value 'HtmlLibre' or '9'", () => {
+            const subtypeHtmlLibre = '9';
+            expect(translateStringFromSubitypeToID('HtmlLibre')).toStrictEqual(
+                subtypeHtmlLibre
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeHtmlLibre)
+            ).toStrictEqual(subtypeHtmlLibre);
+        });
+
+        it("Should return '10' when the subtype arrives with the value 'Agency' or '10'", () => {
+            const subtypeAgencia = '10';
+            expect(translateStringFromSubitypeToID('Agencia')).toStrictEqual(
+                subtypeAgencia
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeAgencia)
+            ).toStrictEqual(subtypeAgencia);
         });
     });
 });
