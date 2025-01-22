@@ -6770,6 +6770,10 @@ strong:not(.--font-primary),
   min-width: 100%;
 }
 
+.min-w-170.min-w-170 {
+  min-width: 10.625rem;
+}
+
 .h-100.h-100 {
   height: 100%;
 }

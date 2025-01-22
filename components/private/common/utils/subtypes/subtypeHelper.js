@@ -23,6 +23,21 @@ export const Subtypes = [
     { id: '10', nombre: 'Agencia' }
 ];
 
-export const isFotoAl100orStorytelling = subtype => {
-    return subtype === FOTOAL100 || subtype === STORYTELLING;
+export const translateStringFromSubitypeToID = (subtype = '') => {
+    const dictionarySubtypes = {
+        Noticia: NOTICIA,
+        Infografia: INFOGRAFIA,
+        Video: VIDEO,
+        LiveBlog: LIVEBLOG,
+        Receta: RECETA,
+        Storytelling: STORYTELLING,
+        FotoAl100: FOTOAL100,
+        HtmlLibre: HTMLLIBRE,
+        Agencia: AGENCIA
+    };
+
+    return dictionarySubtypes[subtype] || subtype;
 };
+
+export const isFotoAl100orStorytelling = subtype =>
+    subtype === FOTOAL100 || subtype === STORYTELLING;

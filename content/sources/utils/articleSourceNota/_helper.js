@@ -16,12 +16,12 @@ import isNoteListenable from '../audioNews/helper';
 import {
     FOTOAL100,
     RECETA,
-    STORYTELLING
+    STORYTELLING,
+    translateStringFromSubitypeToID
 } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 import addParallaxData from '../addParallaxData';
 import { recipePowerUps } from '../powerUp';
 import firmaDistributorValidation from '../firmaDistributorValidator';
-
 // Tener en cuenta que foodit usa estos helpers
 
 export const getUrlQuery = key => {
@@ -375,7 +375,6 @@ export const transform = async (response, query, cachedCall) => {
 
     const arcSite = query['arc-site'];
     const siteProperties = getProperties(arcSite);
-
     const newData = await getAllImagesAuth(response, cachedCall);
     Object.assign(response, newData);
 
@@ -522,4 +521,17 @@ export const getIncludedFields = (isLiveblog = false) => {
         : commonFields;
 
     return fields.join(',');
+};
+
+export const transformSubtype = (response = {}) => {
+    const subtype = get(response, 'subtype');
+
+    if (response) {
+        return {
+            ...response,
+            subtype: translateStringFromSubitypeToID(subtype)
+        };
+    }
+
+    return response;
 };

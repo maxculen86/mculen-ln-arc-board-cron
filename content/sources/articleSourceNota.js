@@ -13,7 +13,8 @@ import {
     setRedirect,
     transform,
     updateUrlIfMatch,
-    getIncludedFields
+    getIncludedFields,
+    transformSubtype
 } from './utils/articleSourceNota/_helper';
 
 const fetch = (query, { cachedCall } = {}) => {
@@ -54,8 +55,10 @@ const fetch = (query, { cachedCall } = {}) => {
                 Object.keys(externalApiRedirectUrl).length !== 0
             )
                 return { externalApiRedirectUrl };
+            // Se aplica este transform para sobrescribir el subtype por un error en composer que devuelve el name del subtype en lugar del value
+            const traslateSubypeResponse = transformSubtype(response);
 
-            return transform(response, queryAux, cachedCall);
+            return transform(traslateSubypeResponse, queryAux, cachedCall);
         } catch (error) {
             return logger.push(
                 error,

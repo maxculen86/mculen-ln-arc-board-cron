@@ -3,6 +3,8 @@ import { replaceVideoId } from './utils/replaceVideoId';
 import { fetch as apiConvivenciaSourceFetch } from './apiConvivenciaSource';
 import Redirect from './utils/redirect';
 import logger from '../../components/private/common/utils/logger';
+import NotFoundError from './utils/notFoundError';
+import { addForwardSlash } from '../../components/private/LN/common/utils/addForwardSlash';
 
 const fetch = async (query, { cachedCall }) => {
     const { url, 'arc-site': arcSite } = query;
@@ -13,15 +15,28 @@ const fetch = async (query, { cachedCall }) => {
             apiConvivenciaSourceFetch,
             { query }
         );
-        const newUrl = replaceVideoId(url, idJw);
 
         if (idJw) {
-            throw new Redirect(`${SITE_OTT}${newUrl}`, 301);
+            const newPath = replaceVideoId(url, idJw);
+
+            if (url !== newPath) {
+                const newUrl = addForwardSlash(`${SITE_OTT}${newPath}`);
+                throw new Redirect(newUrl, 301);
+            }
         }
+
+        throw new NotFoundError(
+            `The video with URL: ${addForwardSlash(`${SITE_OTT}${url}`)} does not have an associated ID in JW`
+        );
     } catch (error) {
-        logger.push(
+        const { statusCode } = error || {};
+        if (statusCode === 301) {
+            throw error;
+        }
+
+        return logger.push(
             error,
-            { source: 'content/source/videoJwRedirectSource' },
+            { source: 'content/source/videoJwRedirectSource', url },
             arcSite
         );
     }
