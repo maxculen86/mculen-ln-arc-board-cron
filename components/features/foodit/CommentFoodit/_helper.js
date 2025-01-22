@@ -26,17 +26,20 @@ export const loginViafoura = async ({
                 window.vf.$subscribe('comment-reply', 'posted', () =>
                     addEventToDataLayerV2(dataLayerInfo)
                 );
-                subscription &&
+                if (
+                    subscription &&
                     token &&
                     accessToken &&
                     window.vf &&
-                    window.vf.session &&
+                    window.vf.session
+                ) {
                     window.vf.session.login.cookie(token).catch(error => {
                         console.error('Viafoura Login incorrecto ', {
                             error,
                             outputType
                         });
                     });
+                }
             });
         })
         .catch(error => {
@@ -65,7 +68,7 @@ export const useValidateComments = props => {
     return { ...data };
 };
 
-export const getCommentsDataLayerInfo = (globalContent = {}, layout) => {
+export const getCommentsDataLayerInfo = (layout, globalContent = {}) => {
     const { _id = '' } = globalContent;
 
     return {

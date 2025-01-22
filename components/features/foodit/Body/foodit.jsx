@@ -23,11 +23,9 @@ function Body({ globalContent = {} }) {
         }
     }, [_id, contentElements]);
 
-    const renderComponents = buildBody({
+    return buildBody({
         globalContent
     });
-
-    return renderComponents;
 }
 Body.propTypes = {
     globalContent: PropTypes.shape({

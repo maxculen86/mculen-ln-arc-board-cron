@@ -12,13 +12,13 @@ import {
     useValidateComments
 } from './_helper';
 import useGetUserConfig from '../../foodit-global/hooks/useGetUserConfig';
-import LazyLoad from '../../foodit-global/common/LazyLoad/foodit';
+import LazyLoadComponent from '../../foodit-global/common/LazyLoad/foodit';
 import LoadingFoodit from '../../foodit-global/common/Loading/foodit';
 import CommentsViafoura from '../../foodit-global/common/CommentFoodit/foodit';
 import EmptyState from '../../foodit-global/common/emptyState/foodit';
 import { getVariantBarrier } from '../../foodit-global/common/emptyState/helpers';
 
-const CommentFoodit = props => {
+function CommentFoodit(props) {
     const {
         outputType,
         customFields: { hideCaja },
@@ -39,12 +39,12 @@ const CommentFoodit = props => {
                 outputType,
                 setIsReady,
                 subscription,
-                dataLayerInfo: getCommentsDataLayerInfo(globalContent, layout)
+                dataLayerInfo: getCommentsDataLayerInfo(layout, globalContent)
             });
         }
     }, [isVisible]);
 
-    if (!showComments || hideCaja) return <></>;
+    if (!showComments || hideCaja) return null;
 
     const onViewport = () => {
         setIsVisible(true);
@@ -61,7 +61,7 @@ const CommentFoodit = props => {
                     className="bg-positive mb-40"
                 />
             )}
-            <LazyLoad
+            <LazyLoadComponent
                 showComponent={isReady}
                 rootMargin="600px"
                 threshold={0.1}
@@ -75,7 +75,7 @@ const CommentFoodit = props => {
             />
         </div>
     );
-};
+}
 
 CommentFoodit.propTypes = {
     globalContent: PropTypes.shape({
