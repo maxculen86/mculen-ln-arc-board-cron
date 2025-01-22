@@ -1,14 +1,15 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
+import PropTypes from 'prop-types';
 import Facade from '../facade/foodit';
 
-const VideoPlayer = ({
+function VideoPlayer({
     data = {},
     tituloNota = '',
     className = '',
     isOpening = false
-}) => {
+}) {
     const { deployment, contextPath, arcSite } = useAppContext();
 
     const {
@@ -25,7 +26,7 @@ const VideoPlayer = ({
     const { mediaid = '', image = '', images = [] } = video || {};
 
     return (
-        <Static id={idPlayer}>
+        <Static id={mediaid}>
             <section className={`video-player bg-black ${className}`}>
                 <Facade
                     id={mediaid}
@@ -44,7 +45,7 @@ const VideoPlayer = ({
                     data-playlist={JSON.stringify(playlist)}
                     data-has-autoplay={isOpening}
                     data-media-id={mediaid}
-                    data-tags-url={''}
+                    data-tags-url=""
                     data-autostart={false}
                     data-arc-site={arcSite}
                     src={deployment(
@@ -54,6 +55,12 @@ const VideoPlayer = ({
             </section>
         </Static>
     );
+}
+VideoPlayer.propTypes = {
+    data: PropTypes.shape({}).isRequired,
+    tituloNota: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired,
+    isOpening: PropTypes.bool.isRequired
 };
 
 export default VideoPlayer;
