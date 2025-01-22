@@ -1090,6 +1090,9 @@ strong {
   .col-span-16_lg {
     grid-column: span 16/span 16;
   }
+  .col-span-3-center_lg {
+    grid-column: 3 / -3;
+  }
   .col-span-4-center_lg {
     grid-column: 4 / -4;
   }
