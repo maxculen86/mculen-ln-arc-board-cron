@@ -4,7 +4,7 @@ import Context from 'fusion:context';
 import FooterFoodit from '../../../../../../components/features/foodit-global/common/Footer/foodit';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -27,7 +27,7 @@ describe('Components - Features - foodit-global - Common - FooterFoodit', () => 
     });
     it('should contain eight links', () => {
         const { length } = screen.getAllByRole('link');
-        expect(length).toEqual(8);
+        expect(length).toEqual(9);
     });
     it('should contain five icons', () => {
         const { length } = document.querySelectorAll('.icon');

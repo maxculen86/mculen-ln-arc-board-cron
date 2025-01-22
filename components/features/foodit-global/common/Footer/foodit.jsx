@@ -6,6 +6,7 @@ import { Icon } from '@ln/common-ui-icon';
 import { useAppContext } from 'fusion:context';
 import classNames from 'classnames';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import { Logo } from '@ln/foodit-ui-logo';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
@@ -22,6 +23,26 @@ function FooterFoodit() {
     return (
         <div className="hidden print-hide">
             <footer className={wrapperClassNames}>
+                <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg border border-top border-thin border-light-100">
+                    <div className="col-span-8 col-span-12_md col-span-3-center_lg flex flex-column jc-center ai-center gap-16 py-32">
+                        <Link href="/" title="Ir a Foodit">
+                            <Logo
+                                variant="row"
+                                classNameSvgAnimated="h-32"
+                                classNameSvgText="h-20"
+                            />
+                        </Link>
+                        <Text className="roboto roboto-regular text-16 text-center text-light-800 col-span-3-center_lg">
+                            Foodit es la plataforma que te ayuda a cocinar todos
+                            los días. Recetas, guías de cocina, masterclasses
+                            con chefs referentes y menús semanales. Encontrá las
+                            mejores recetas para cocinar en Foodit: ideas para
+                            platos rápidos, keto, veganos y vegetarianos,
+                            recetas con carne y pollo, tortas, dulces y mucho
+                            más.
+                        </Text>
+                    </div>
+                </div>
                 <div className="grid grid-cols-12_md relative w-100 pb-32 pb-0_lg text-center border border-top border-thin border-light-100">
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12">
                         <Text>
