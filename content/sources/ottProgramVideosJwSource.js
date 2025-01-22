@@ -5,6 +5,10 @@ import {
     filterMediaBySection,
     transform
 } from './utils/ottJwVideoTransform/jwVideoTransform';
+import { isValidString } from '../../components/private/common/utils/dataValidation';
+import NotFoundError from './utils/notFoundError';
+import badRequestHandler from './utils/badRequestHandler';
+import { isEmptyObject } from '../../components/private/common/utils/isEmptyObject';
 
 const sectionConfig = {
     '+ Nación': { pageLimit: 24, filter: true },
@@ -15,16 +19,30 @@ const sectionConfig = {
 };
 
 // TODO: revisar query con custom_params: ( name: "abc" AND value: "123" ), mandar mail a soporte JW para buscar otra solución
-const fetch = ({ sectionId, page = '1' }) => {
-    const arcSite = 'la-nacion-ar';
-    const config = sectionConfig[sectionId] || { pageLimit: 12, filter: false };
+const fetch = async query => {
+    const { sectionId, page = '1', 'arc-site': arcSite } = query;
+    const updatedSectionId = sectionId?.replace(':', '');
+
+    if (!JWP_TOKEN) {
+        return badRequestHandler('Bad Request - JWP_TOKEN is not defined');
+    }
+
+    const config = sectionConfig[updatedSectionId] || {
+        pageLimit: 12,
+        filter: false
+    };
+    const params = [`custom_param:"site:ott"`];
+
+    if (isValidString(updatedSectionId) && updatedSectionId?.trim() !== '') {
+        params.push(
+            `custom_param:"section:${encodeURIComponent(updatedSectionId)}"`
+        );
+    }
+
+    const uri = `https://api.jwplayer.com/v2/sites/uafFIXv2/media?q=${params.join(' AND ')}&&page_length=${config.pageLimit}&&sort=publish_start_date:dsc&&page=${page}`;
 
     const opt = {
-        uri: `https://api.jwplayer.com/v2/sites/uafFIXv2/media?q=custom_param:"site:ott" AND custom_param:"section:${encodeURIComponent(
-            sectionId
-        )}"&&page_length=${
-            config.pageLimit
-        }&&sort=publish_start_date:dsc&&page=${page}`,
+        uri,
         json: true,
         method: 'GET',
         auth: {
@@ -34,9 +52,13 @@ const fetch = ({ sectionId, page = '1' }) => {
 
     return request(opt)
         .then(data => {
+            if (isEmptyObject(data) || data?.media?.length === 0) {
+                throw new NotFoundError('No content found');
+            }
+
             if (config.filter) {
                 return transform({
-                    data: filterMediaBySection(data, sectionId)
+                    data: filterMediaBySection(data, updatedSectionId)
                 });
             }
             return transform({ data });
@@ -46,7 +68,7 @@ const fetch = ({ sectionId, page = '1' }) => {
                 error,
                 {
                     source: 'content/source/ottProgramVideosJwSource',
-                    sectionId
+                    sectionId: updatedSectionId
                 },
                 arcSite
             );
@@ -55,6 +77,9 @@ const fetch = ({ sectionId, page = '1' }) => {
 
 export default {
     fetch,
-    params: { sectionId: 'text', pageLimit: 'text', page: 'text' },
+    params: {
+        sectionId: 'text',
+        page: 'text'
+    },
     ttl: 60
 };

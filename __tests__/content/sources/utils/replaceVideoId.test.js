@@ -5,7 +5,7 @@ const testReplaceVideoId = (url, newId) => {
     return { originalUrl: url, newId, result };
 };
 describe('replaceVideoId', () => {
-    test('should replace video ID in the URL', () => {
+    it('should replace video ID in the URL', () => {
         const testData = testReplaceVideoId(
             'https://example.com/vidabcdefgh',
             '12345678'
@@ -15,10 +15,17 @@ describe('replaceVideoId', () => {
         expect(testData.newId).toBe('12345678');
     });
 
-    test('should handle invalid URL', () => {
+    it('should handle invalid URL', () => {
         const url = null;
         const newId = '12345678';
         const result = replaceVideoId(url, newId);
         expect(result).toBe(null);
+    });
+
+    it('If url is not of type string, it should not be processed', () => {
+        const url = 123;
+        const newId = '12345678';
+        const result = replaceVideoId(url, newId);
+        expect(result).toBe(123);
     });
 });
