@@ -1,14 +1,17 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import get from '../../components/private/common/utils/get.js';
-import logger from '../../components/private/common/utils/logger.js';
-import { getUrlQuery } from './utils/articleSourceNota/_helper.js';
-import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth.js';
+import get from '../../components/private/common/utils/get';
+import logger from '../../components/private/common/utils/logger';
+import {
+    getUrlQuery,
+    transformSubtype
+} from './utils/articleSourceNota/_helper';
+import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 import {
     getArticleSubtype,
     getImageConfig
-} from './utils/fooditSources/fooditArticleSource/index.js';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls.js';
+} from './utils/fooditSources/fooditArticleSource/index';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
@@ -30,13 +33,18 @@ const fetch = (query, { cachedCall } = {}) => {
             const newData = await getAllImagesAuth(response, cachedCall);
             Object.assign(response, newData);
 
-            const subtype = getArticleSubtype(get(response, 'subtype', null));
+            // Se aplica este transform para sobrescribir el subtype por un error en composer que devuelve el name del subtype en lugar del value
+            const traslateSubypeResponse = transformSubtype(response);
+
+            const subtype = getArticleSubtype(
+                get(traslateSubypeResponse, 'subtype', null)
+            );
 
             return {
-                ...response,
-                ...addResizedUrls(response, {
+                ...traslateSubypeResponse,
+                ...addResizedUrls(traslateSubypeResponse, {
                     presets: {
-                        ...getImageConfig(response, query)
+                        ...getImageConfig(traslateSubypeResponse, query)
                     },
                     subtype,
                     isInApertura: get(query, 'isInApertura', false),

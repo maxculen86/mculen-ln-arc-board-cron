@@ -12,14 +12,20 @@ const validateYoutubeUrl = url => {
     return false;
 };
 
+function excludeAnexo(url) {
+    const excludedUrls = [
+        'https://carrousel.lanacion.com.ar/web_stories/',
+        'https://especialess3.lanacion.com.ar/ComercialLN/carrousel/'
+    ];
+    return excludedUrls.some(excludedUrl => url.includes(excludedUrl));
+}
+
 export function CardAnexo([articleData]) {
     const alto = get(articleData, 'alto', null);
     const url = trimIfNotEmpty(get(articleData, 'url', null));
     const html = cleanHtmlAttributes(get(articleData, 'html', null));
-    const excludedUrl = 'https://carrousel.lanacion.com.ar/web_stories/';
 
-    if (url && alto && !url.includes(excludedUrl))
-        return [{ src: url, url, alto }];
+    if (url && alto && !excludeAnexo(url)) return [{ src: url, url, alto }];
 
     if (html) {
         const root = parse(html);
