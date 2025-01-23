@@ -36,6 +36,7 @@ exports[`components - private - common - audioNews - AudioPlayer should match sn
             class="icon"
           >
             <mock-icon
+              fill="var(--neutral-light-800)"
               name="close"
             />
           </i>
