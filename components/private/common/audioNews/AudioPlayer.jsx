@@ -65,7 +65,10 @@ function AudioPlayer({ noteId = '', audioPlayerProps = {}, showVariantIa }) {
                             title="Cerrar"
                         >
                             <Icon>
-                                <IconSprite name="close" />
+                                <IconSprite
+                                    name="close"
+                                    fill="var(--neutral-light-800)"
+                                />
                             </Icon>
                         </Button>
                     </Dialog.Header>
