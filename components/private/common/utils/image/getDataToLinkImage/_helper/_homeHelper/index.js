@@ -3,7 +3,9 @@ import get from '../../../../get';
 import useGetMediaData from './useGetMediaData';
 import { getcustomFieldsData, getPromoItems } from '../index';
 import { isHomeLN10 } from '../common/helper-WebApi';
-import diagramationRules from '../../../../diagramationRules';
+import diagramationRules, {
+    diagramationExceptions
+} from '../../../../diagramationRules';
 import { getValidElementForPreload } from './common/helper-WebApi';
 
 const getImageConfig = (configArticle, diagramacion, arcSite, layout) => {
@@ -22,20 +24,31 @@ const getImageConfig = (configArticle, diagramacion, arcSite, layout) => {
 
 const getArticleAndConfig = (diagramacion, element, layout) => {
     const children = get(element, 'children', []);
+    const isHome = isHomeLN10(layout);
 
-    if (isHomeLN10(layout)) {
-        const config = diagramationRules(diagramacion) || [];
-        const articlePosition = config.findIndex(
-            ({ withPreload = false } = {}) => withPreload
-        );
+    if (!isHome) {
+        return { article: children[0] };
+    }
 
+    const config = diagramationRules(diagramacion) || [];
+
+    if (diagramationExceptions.includes(diagramacion) && children.length > 1) {
         return {
-            article: children[articlePosition],
-            configArticle: config[articlePosition]
+            article: children[0],
+            configArticle: config[0],
+            secondArticle: children[1],
+            secondConfig: config[1]
         };
     }
 
-    return { article: children[0] };
+    const articlePosition = config.findIndex(
+        ({ withPreload = false } = {}) => withPreload
+    );
+
+    return {
+        article: children[articlePosition],
+        configArticle: config[articlePosition]
+    };
 };
 
 const useGetMediaApertura = ({
@@ -47,15 +60,11 @@ const useGetMediaApertura = ({
     const apertura = getValidElementForPreload(layout, renderables);
     const diagramacion = get(apertura, 'props.customFields.layout', '');
 
-    const { article, configArticle } = getArticleAndConfig(
-        diagramacion,
-        apertura,
-        layout
-    );
+    const { article, configArticle, secondArticle, secondConfig } =
+        getArticleAndConfig(diagramacion, apertura, layout);
 
-    const { isHideImage, imageID, noteID, videoID } = getcustomFieldsData(
-        article
-    );
+    const { isHideImage, imageID, noteID, videoID } =
+        getcustomFieldsData(article);
 
     const imageConfig = getImageConfig(
         configArticle,
@@ -64,7 +73,21 @@ const useGetMediaApertura = ({
         layout
     );
 
-    const mediaData = useGetMediaData({
+    const secondArticleData =
+        secondArticle && secondConfig
+            ? getcustomFieldsData(secondArticle)
+            : {
+                  isHideImage: true,
+                  imageID: null,
+                  noteID: null,
+                  videoID: null
+              };
+
+    const secondImageConfig = secondConfig
+        ? getImageConfig(secondConfig, diagramacion, arcSite, layout)
+        : null;
+
+    const mediaDataFirstArticle = useGetMediaData({
         imageConfig,
         isHideImage,
         isAdmin,
@@ -75,7 +98,42 @@ const useGetMediaApertura = ({
         noteID
     });
 
-    return getPromoItems(mediaData) || [];
+    const mediaDataSecondArticle = useGetMediaData({
+        imageConfig: secondImageConfig,
+        isHideImage: secondArticleData.isHideImage,
+        isAdmin,
+        imageID: secondArticleData.imageID,
+        videoID: secondArticleData.videoID,
+        arcSite,
+        layout,
+        noteID: secondArticleData.noteID
+    });
+    const promoItemsSecondArticle = getPromoItems(mediaDataSecondArticle) || [];
+
+    const preloadSecondArticle = promoItemsSecondArticle.reduce(
+        (acc, promoItem = {}) => {
+            if (promoItem.media === '(min-width: 768px)') {
+                const desktopPromoItem = {
+                    ...promoItem,
+                    media: '(min-width: 1024px)',
+                    option: {
+                        ...promoItem.option,
+                        media_preload: '(min-width: 1024px)'
+                    }
+                };
+                acc.push(desktopPromoItem);
+            }
+            return acc;
+        },
+        []
+    );
+
+    const allMediaData = [
+        ...getPromoItems(mediaDataFirstArticle),
+        ...preloadSecondArticle
+    ];
+
+    return allMediaData || [];
 };
 
 export default useGetMediaApertura;
