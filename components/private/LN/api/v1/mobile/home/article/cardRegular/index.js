@@ -5,7 +5,7 @@ import { getPrincipalCategory } from '../../../../../common/elements/category';
 import { getAuthor, getAuthors, getSignature } from '../elements/author/index';
 import { getDroptext } from '../elements/bajada/index';
 import { getBadgebyConfig } from '../elements/chapita/index';
-import { getEmbed } from '../elements/embed/index';
+import { getEmbed, getEmbedWidget } from '../elements/embed/index';
 import { getFlyertext } from '../elements/volanta/index';
 import { getYouTubeVideoLink } from '../../../../../common/article/elements/video/index';
 
@@ -26,6 +26,7 @@ export const CardRegular = article => {
         bajada: hideDescriptionValue ? null : getDroptext(article),
         imagen: getArticleImage(article),
         videoYouTube: getYouTubeVideoLink(article),
+        widgetEmbed: getEmbedWidget(article),
         embed: getEmbed(article),
         ...getBadgebyConfig(article),
         opinion: false,
