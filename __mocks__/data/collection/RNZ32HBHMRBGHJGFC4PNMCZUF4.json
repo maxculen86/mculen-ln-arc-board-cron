@@ -1,0 +1,1447 @@
+{
+    "_id": "RNZ32HBHMRBGHJGFC4PNMCZUF4",
+    "version": "0.10.6",
+    "created_date": "2024-12-09T15:25:08.543Z",
+    "headlines": {
+        "basic": "Acu revistas"
+    },
+    "last_updated_date": "2024-12-13T17:55:16.506Z",
+    "type": "collection",
+    "canonical_website": "la-nacion-ar",
+    "content_elements": [
+        {
+            "_id": "RRAHEKIZW5AETKOBOTI3QNAC6A",
+            "additional_properties": {},
+            "canonical_website": "la-nacion-ar",
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "type": "author",
+                        "version": "0.5.8",
+                        "name": "Carlos Pagni",
+                        "image": {
+                            "url": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png?auth=55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f&width=768&quality=70&smart=false",
+                            "version": "0.5.8",
+                            "auth": {
+                                "1": "55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f"
+                            },
+                            "type": "image",
+                            "width": 768,
+                            "height": 513,
+                            "resized_urls": [
+                                {
+                                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png?auth=55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f&width=80&quality=70&smart=false",
+                                    "option": {
+                                        "width": 80,
+                                        "height": 80,
+                                        "media": "(min-width: 320px)"
+                                    }
+                                }
+                            ],
+                            "resized_urls_zoom": []
+                        },
+                        "url": "/autor/carlos-pagni-81/",
+                        "slug": "carlos-pagni-81",
+                        "social_links": [
+                            {
+                                "site": "email",
+                                "url": ""
+                            }
+                        ],
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "url": "",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links."
+                            }
+                        ],
+                        "additional_properties": {
+                            "original": {
+                                "_id": "carlos-pagni-81",
+                                "byline": "Carlos Pagni",
+                                "firstName": "Carlos",
+                                "lastName": "Pagni",
+                                "author_type": "Estándar",
+                                "email": "",
+                                "image": "https://author-service-images-sandbox-us-east-1.publishing.aws.arc.pub/lanacionar/1c4c5db6-cb62-487b-9724-8992e566bb58.png",
+                                "status": false,
+                                "role": "LA NACION",
+                                "longBio": " Columnista político del diario LA NACION. Es profesor de Historia en la Universidad Nacional de Mar del Plata y fue docente de la cátedra de Historia de las Ideas Políticas de la Facultad de Derecho de la Universidad Nacional de Mar del Plata, e investigador del Instituto Emilio Ravignani de la Facultad de Filosofía y Letras de la UBA. Presta servicios de consultoría política para instituciones y empresas del país y el exterior. En 2002 fue condecorado por el gobierno de la República de Brasil con la Orden de Río Branco.",
+                                "slug": "carlos-pagni-81",
+                                "bio_page": "/autor/carlos-pagni-81/",
+                                "last_updated_date": "2024-10-22T18:52:26.433Z",
+                                "books": [],
+                                "podcasts": [],
+                                "education": [],
+                                "awards": [],
+                                "voice": "4031"
+                            }
+                        }
+                    }
+                ]
+            },
+            "description": {
+                "basic": "Esto es una meta description"
+            },
+            "display_date": "2024-12-13T16:56:36.227Z",
+            "distributor": {
+                "category": "staff",
+                "mode": "custom",
+                "name": "lanacionar",
+                "subcategory": ""
+            },
+            "headlines": {
+                "basic": "La Casa Rosada vuelve a la carga contra Villarruel por la sesión por Kueider: “En este gobierno no se miente”",
+                "meta_title": "",
+                "mobile": "",
+                "native": "",
+                "print": "",
+                "tablet": "",
+                "web": ""
+            },
+            "label": {
+                "volanta": {
+                    "display": true,
+                    "text": "Esto es una volanta."
+                }
+            },
+            "language": "",
+            "owner": {
+                "sponsored": false
+            },
+            "promo_items": {
+                "basic": {
+                    "_id": "HFNGO3ALWBHG7EBIUA6H7EMIIM",
+                    "additional_properties": {
+                        "fullSizeResizeUrl": "/resizer/NzX_G-cMUJo7ABx7Gh_BOzGQ7AI=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/HFNGO3ALWBHG7EBIUA6H7EMIIM.jpg",
+                        "galleries": [
+                            {
+                                "headlines": {
+                                    "basic": "Un papá crea imágenes de mundos de cuento de hadas junto a sus hijas"
+                                },
+                                "_id": "HFKOVR4LRJDOTGAZPJPGZ6IRRE"
+                            }
+                        ],
+                        "iptc_source": "",
+                        "keywords": [],
+                        "mime_type": "image/jpeg",
+                        "originalName": "1890285.jpg",
+                        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HFNGO3ALWBHG7EBIUA6H7EMIIM.jpg",
+                        "proxyUrl": "/resizer/NzX_G-cMUJo7ABx7Gh_BOzGQ7AI=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/HFNGO3ALWBHG7EBIUA6H7EMIIM.jpg",
+                        "published": true,
+                        "resizeUrl": "/resizer/NzX_G-cMUJo7ABx7Gh_BOzGQ7AI=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/HFNGO3ALWBHG7EBIUA6H7EMIIM.jpg",
+                        "restricted": false,
+                        "thumbnailResizeUrl": "/resizer/SOqAQSXdvoIk1Be12yafOdBMG8w=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/HFNGO3ALWBHG7EBIUA6H7EMIIM.jpg",
+                        "version": 0
+                    },
+                    "alt_text": "Cada composición le toma alrededor de 3 a 5 horas",
+                    "auth": {
+                        "1": "0fd0fb4034bf28f3262e4e1434c9e3347bc3da7db42f0ea4c8ef280d3787dbb2"
+                    },
+                    "caption": "Cada composición le toma alrededor de 3 a 5 horas",
+                    "created_date": "2020-05-13T21:05:09Z",
+                    "credits": {
+                        "by": [
+                            {
+                                "name": "BuzzFeed/John Wilhelm/Barcroft Media",
+                                "type": "author"
+                            }
+                        ]
+                    },
+                    "distributor": {
+                        "category": "other",
+                        "mode": "custom",
+                        "name": ""
+                    },
+                    "height": 513,
+                    "last_updated_date": "2020-05-13T21:05:09Z",
+                    "licensable": false,
+                    "owner": {
+                        "id": "sandbox.lanacionar"
+                    },
+                    "source": {
+                        "source_id": "1890285.jpg",
+                        "source_type": "other",
+                        "additional_properties": {
+                            "editor": "photo center"
+                        },
+                        "edit_url": "",
+                        "system": "photo center"
+                    },
+                    "status": "published",
+                    "subtitle": "Cada composición le toma alrededor de 3 a 5 horas",
+                    "type": "image",
+                    "url": "https://sandbox-resizer.glanacion.com/resizer/v2/cada-composicion-le-toma-alrededor-de-3-a-5-HFNGO3ALWBHG7EBIUA6H7EMIIM.jpg?auth=0fd0fb4034bf28f3262e4e1434c9e3347bc3da7db42f0ea4c8ef280d3787dbb2&width=768&quality=70&smart=false",
+                    "version": "0.10.9",
+                    "width": 768,
+                    "display_date": "2014-05-28T21:11:00Z",
+                    "first_publish_date": "2014-05-28T21:11:00Z",
+                    "description": {
+                        "basic": "Cada composición le toma alrededor de 3 a 5 horas"
+                    },
+                    "language": "es-419",
+                    "publish_date": "2014-05-28T21:11:00Z",
+                    "resized_urls": [
+                        {
+                            "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/cada-composicion-le-toma-alrededor-de-3-a-5-HFNGO3ALWBHG7EBIUA6H7EMIIM.jpg?auth=0fd0fb4034bf28f3262e4e1434c9e3347bc3da7db42f0ea4c8ef280d3787dbb2&width=768&quality=70&smart=false",
+                            "option": {
+                                "width": 768,
+                                "height": 513,
+                                "media": "(min-width: 768px)"
+                            }
+                        }
+                    ],
+                    "resized_urls_zoom": []
+                }
+            },
+            "publish_date": "2024-12-13T20:01:22.287Z",
+            "revision": {
+                "published": true,
+                "revision_id": "AUP7E3UXGVA7TGX2A7727J7QNU"
+            },
+            "subheadlines": {
+                "basic": "Esto es una bajada."
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/revista-brando",
+                    "_website": "la-nacion-ar",
+                    "type": "section",
+                    "version": "0.6.0",
+                    "name": "Revista Brando",
+                    "path": "/revista-brando",
+                    "parent_id": "/",
+                    "parent": {
+                        "default": "/"
+                    },
+                    "additional_properties": {
+                        "original": {
+                            "_id": "/revista-brando",
+                            "migration": {
+                                "migrated_mob": "true",
+                                "id_section_ln9": "7353"
+                            },
+                            "style": {
+                                "section_style_name": "brando"
+                            },
+                            "_website": "la-nacion-ar",
+                            "name": "Revista Brando",
+                            "order": {
+                                "Header-SecondaryNav": 2006,
+                                "default": 1040,
+                                "navigationRedaccion": 1043
+                            },
+                            "parent": {
+                                "default": "/",
+                                "Header-SecondaryNav": "/revistas",
+                                "navigationRedaccion": "/",
+                                "pruebaTecnica": null
+                            },
+                            "ancestors": {
+                                "Header-SecondaryNav": [
+                                    "/",
+                                    "/revistas"
+                                ],
+                                "navigationRedaccion": [
+                                    "/"
+                                ],
+                                "default": [
+                                    "/"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section"
+                        }
+                    },
+                    "_website_section_id": "la-nacion-ar./revista-brando"
+                },
+                "primary_site": {
+                    "_id": "/revista-brando",
+                    "type": "site",
+                    "version": "0.5.8",
+                    "name": "Revista Brando",
+                    "path": "/revista-brando",
+                    "parent_id": "/",
+                    "additional_properties": {
+                        "original": {
+                            "_id": "/revista-brando",
+                            "migration": {
+                                "migrated_mob": "true",
+                                "id_section_ln9": "7353"
+                            },
+                            "style": {
+                                "section_style_name": "brando"
+                            },
+                            "name": "Revista Brando",
+                            "order": {
+                                "Header-SecondaryNav": 2006,
+                                "default": 1040,
+                                "navigationRedaccion": 1043
+                            },
+                            "parent": {
+                                "default": "/",
+                                "Header-SecondaryNav": "/revistas",
+                                "navigationRedaccion": "/",
+                                "pruebaTecnica": null
+                            },
+                            "ancestors": {
+                                "Header-SecondaryNav": [
+                                    "/",
+                                    "/revistas"
+                                ],
+                                "navigationRedaccion": [
+                                    "/"
+                                ],
+                                "default": [
+                                    "/"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section"
+                        }
+                    }
+                },
+                "sections": [
+                    {
+                        "_id": "/revista-brando",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Revista Brando",
+                        "path": "/revista-brando",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revista-brando",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "7353"
+                                },
+                                "style": {
+                                    "section_style_name": "brando"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Revista Brando",
+                                "order": {
+                                    "Header-SecondaryNav": 2006,
+                                    "default": 1040,
+                                    "navigationRedaccion": 1043
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/",
+                                        "/revistas"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./revista-brando"
+                    },
+                    {
+                        "_id": "/deportes",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Deportes",
+                        "path": "/deportes",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/deportes",
+                                "_website": "la-nacion-ar",
+                                "name": "Deportes",
+                                "inactive": false,
+                                "ancestors": {
+                                    "Header-FirstNav": [
+                                        "/"
+                                    ],
+                                    "Architecture": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ],
+                                    "CustomNavigationComunidadNegocios": [],
+                                    "Prueba": [
+                                        "/"
+                                    ],
+                                    "Hambre_futuro": [],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "pruebaTecnica": []
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/",
+                                    "Architecture": "/",
+                                    "CustomNavigationComunidadNegocios": null,
+                                    "Prueba": "/",
+                                    "Hambre_futuro": null,
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "order": {
+                                    "Header-FirstNav": 1007,
+                                    "Architecture": 1001,
+                                    "default": 1020,
+                                    "Prueba": 1002,
+                                    "navigationRedaccion": 1011
+                                },
+                                "acumuladoColor": {
+                                    "background_color": null,
+                                    "header_class_name": "false",
+                                    "id_logo_compartir": "7Y2TB3CA3VAUFPUPWJSKH7HIFI",
+                                    "id_logo_image": "ATAJZOSEIVDD5DUAS7OASO2S64",
+                                    "navigation_color": null,
+                                    "navigation_color_tags": null
+                                },
+                                "acumuladoGeneral": {
+                                    "cantidad_notas": "30",
+                                    "colecciones": [],
+                                    "hide_banner": null,
+                                    "hidesectionslist": "false",
+                                    "hidetagslist": "false",
+                                    "hierarchy_navigation": "Deportes",
+                                    "id_collection_promo_items": null,
+                                    "tipo_acumulado": "Grilla",
+                                    "usa_datalayer": "true"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "131",
+                                    "migrated_mob": "false"
+                                },
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./deportes"
+                    },
+                    {
+                        "_id": "/cocina",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Cocina",
+                        "path": "/cocina",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/cocina",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "1"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Cocina",
+                                "order": {
+                                    "navigationRedaccion": 1031,
+                                    "default": 1053
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "ancestors": {
+                                    "default": [
+                                        "/"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "pruebaTecnica": []
+                                }
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./cocina"
+                    },
+                    {
+                        "_id": "/revistas",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Revistas",
+                        "path": "/revistas",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revistas",
+                                "_website": "la-nacion-ar",
+                                "name": "Revistas",
+                                "inactive": false,
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "node_type": "section",
+                                "order": {
+                                    "Header-SecondaryNav": 1002,
+                                    "default": 1037,
+                                    "navigationRedaccion": 1030
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                }
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./revistas"
+                    },
+                    {
+                        "_id": "/propiedades",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Propiedades",
+                        "path": "/propiedades",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/propiedades",
+                                "_website": "la-nacion-ar",
+                                "name": "Propiedades",
+                                "inactive": false,
+                                "ancestors": {
+                                    "Header-FirstNav": [
+                                        "/",
+                                        "/economia"
+                                    ],
+                                    "Economy": [
+                                        "/"
+                                    ],
+                                    "Home-ComunidadNegocios": [
+                                        "/"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/economia",
+                                    "Economy": "/",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null,
+                                    "Home-ComunidadNegocios": "/"
+                                },
+                                "order": {
+                                    "Header-FirstNav": 2003,
+                                    "default": 1032,
+                                    "Economy": 1006,
+                                    "navigationRedaccion": 1026,
+                                    "Home-ComunidadNegocios": 1002
+                                },
+                                "acumuladoColor": {
+                                    "background_color": null,
+                                    "header_class_name": "false",
+                                    "id_logo_image": "A5KKOCVHKBBVTMBG6SFT22QRJE",
+                                    "navigation_color": "#0074c4",
+                                    "navigation_color_tags": "#0074c4"
+                                },
+                                "acumuladoGeneral": {
+                                    "cantidad_notas": "42",
+                                    "colecciones": [
+                                        "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                                        "WPDJCUD7RNAQVA4JEPFJYZMCSE"
+                                    ],
+                                    "hide_banner": "false",
+                                    "hidesectionslist": "false",
+                                    "hidetagslist": "false",
+                                    "hierarchy_navigation": null,
+                                    "id_collection_promo_items": "ZGYIL4W3JZCUXCQNLHL2A7VPZY",
+                                    "tipo_acumulado": "Grilla"
+                                },
+                                "bannerConfig": {
+                                    "acumulado_caja1_dsk": null,
+                                    "nota_caja1_dsk": null
+                                },
+                                "migration": {
+                                    "id_section_ln9": "6251",
+                                    "migrated_mob": "true"
+                                },
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./propiedades"
+                    }
+                ],
+                "sites": [
+                    {
+                        "_id": "/revista-brando",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Revista Brando",
+                        "path": "/revista-brando",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revista-brando",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "7353"
+                                },
+                                "style": {
+                                    "section_style_name": "brando"
+                                },
+                                "name": "Revista Brando",
+                                "order": {
+                                    "Header-SecondaryNav": 2006,
+                                    "default": 1040,
+                                    "navigationRedaccion": 1043
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/",
+                                        "/revistas"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/deportes",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Deportes",
+                        "path": "/deportes",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/deportes",
+                                "name": "Deportes",
+                                "inactive": false,
+                                "ancestors": {
+                                    "Header-FirstNav": [
+                                        "/"
+                                    ],
+                                    "Architecture": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ],
+                                    "CustomNavigationComunidadNegocios": [],
+                                    "Prueba": [
+                                        "/"
+                                    ],
+                                    "Hambre_futuro": [],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "pruebaTecnica": []
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/",
+                                    "Architecture": "/",
+                                    "CustomNavigationComunidadNegocios": null,
+                                    "Prueba": "/",
+                                    "Hambre_futuro": null,
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "order": {
+                                    "Header-FirstNav": 1007,
+                                    "Architecture": 1001,
+                                    "default": 1020,
+                                    "Prueba": 1002,
+                                    "navigationRedaccion": 1011
+                                },
+                                "acumuladoColor": {
+                                    "background_color": null,
+                                    "header_class_name": "false",
+                                    "id_logo_compartir": "7Y2TB3CA3VAUFPUPWJSKH7HIFI",
+                                    "id_logo_image": "ATAJZOSEIVDD5DUAS7OASO2S64",
+                                    "navigation_color": null,
+                                    "navigation_color_tags": null
+                                },
+                                "acumuladoGeneral": {
+                                    "cantidad_notas": "30",
+                                    "colecciones": [],
+                                    "hide_banner": null,
+                                    "hidesectionslist": "false",
+                                    "hidetagslist": "false",
+                                    "hierarchy_navigation": "Deportes",
+                                    "id_collection_promo_items": null,
+                                    "tipo_acumulado": "Grilla",
+                                    "usa_datalayer": "true"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "131",
+                                    "migrated_mob": "false"
+                                },
+                                "node_type": "section"
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/cocina",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Cocina",
+                        "path": "/cocina",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/cocina",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "1"
+                                },
+                                "name": "Cocina",
+                                "order": {
+                                    "navigationRedaccion": 1031,
+                                    "default": 1053
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "ancestors": {
+                                    "default": [
+                                        "/"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "pruebaTecnica": []
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/revistas",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Revistas",
+                        "path": "/revistas",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revistas",
+                                "name": "Revistas",
+                                "inactive": false,
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "node_type": "section",
+                                "order": {
+                                    "Header-SecondaryNav": 1002,
+                                    "default": 1037,
+                                    "navigationRedaccion": 1030
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/propiedades",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Propiedades",
+                        "path": "/propiedades",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/propiedades",
+                                "name": "Propiedades",
+                                "inactive": false,
+                                "ancestors": {
+                                    "Header-FirstNav": [
+                                        "/",
+                                        "/economia"
+                                    ],
+                                    "Economy": [
+                                        "/"
+                                    ],
+                                    "Home-ComunidadNegocios": [
+                                        "/"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/economia",
+                                    "Economy": "/",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null,
+                                    "Home-ComunidadNegocios": "/"
+                                },
+                                "order": {
+                                    "Header-FirstNav": 2003,
+                                    "default": 1032,
+                                    "Economy": 1006,
+                                    "navigationRedaccion": 1026,
+                                    "Home-ComunidadNegocios": 1002
+                                },
+                                "acumuladoColor": {
+                                    "background_color": null,
+                                    "header_class_name": "false",
+                                    "id_logo_image": "A5KKOCVHKBBVTMBG6SFT22QRJE",
+                                    "navigation_color": "#0074c4",
+                                    "navigation_color_tags": "#0074c4"
+                                },
+                                "acumuladoGeneral": {
+                                    "cantidad_notas": "42",
+                                    "colecciones": [
+                                        "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                                        "WPDJCUD7RNAQVA4JEPFJYZMCSE"
+                                    ],
+                                    "hide_banner": "false",
+                                    "hidesectionslist": "false",
+                                    "hidetagslist": "false",
+                                    "hierarchy_navigation": null,
+                                    "id_collection_promo_items": "ZGYIL4W3JZCUXCQNLHL2A7VPZY",
+                                    "tipo_acumulado": "Grilla"
+                                },
+                                "bannerConfig": {
+                                    "acumulado_caja1_dsk": null,
+                                    "nota_caja1_dsk": null
+                                },
+                                "migration": {
+                                    "id_section_ln9": "6251",
+                                    "migrated_mob": "true"
+                                },
+                                "node_type": "section"
+                            }
+                        }
+                    }
+                ],
+                "tags": [
+                    {
+                        "description": "cebolla de verdeo",
+                        "slug": "cebolla-de-verdeo-tid47175",
+                        "text": "cebolla de verdeo"
+                    },
+                    {
+                        "description": "carne de vaca",
+                        "slug": "carne-de-vaca-tid47169",
+                        "text": "carne de vaca"
+                    },
+                    {
+                        "description": "Pescados y Mariscos",
+                        "slug": "pescados-y-mariscos-tid56744",
+                        "text": "Pescados y Mariscos"
+                    }
+                ]
+            },
+            "type": "story",
+            "version": "0.10.10",
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "_id": "/revista-brando",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Revista Brando",
+                        "path": "/revista-brando",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revista-brando",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "7353"
+                                },
+                                "style": {
+                                    "section_style_name": "brando"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Revista Brando",
+                                "order": {
+                                    "Header-SecondaryNav": 2006,
+                                    "default": 1040,
+                                    "navigationRedaccion": 1043
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/",
+                                        "/revistas"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./revista-brando"
+                    },
+                    "website_url": "/revista-brando/la-casa-rosada-vuelve-a-la-carga-contra-villarruel-por-la-sesion-por-kueider-en-este-gobierno-no-se-nid13122024/"
+                }
+            },
+            "canonical_url": "/revista-brando/la-casa-rosada-vuelve-a-la-carga-contra-villarruel-por-la-sesion-por-kueider-en-este-gobierno-no-se-nid13122024/",
+            "website_url": "/revista-brando/la-casa-rosada-vuelve-a-la-carga-contra-villarruel-por-la-sesion-por-kueider-en-este-gobierno-no-se-nid13122024/"
+        },
+        {
+            "_id": "T77SPOAN65DSHM5YYLLH5J3J6I",
+            "additional_properties": {},
+            "canonical_website": "la-nacion-ar",
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": []
+            },
+            "description": {
+                "basic": ""
+            },
+            "display_date": "2024-12-13T17:18:32.192Z",
+            "distributor": {
+                "mode": "reference",
+                "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+            },
+            "headlines": {
+                "basic": "Probando acumulado revistas | Seccion revista-hola",
+                "meta_title": "",
+                "mobile": "",
+                "native": "",
+                "print": "",
+                "table": "",
+                "tablet": "",
+                "web": ""
+            },
+            "label": {
+                "edicion": {
+                    "display": true,
+                    "text": "Digital",
+                    "url": ""
+                },
+                "enviar_a_apps": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "generar_glosario": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "glosario_nota": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "metarefresh": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "mostrar_banners": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "recomendar": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "republicar_audio": {
+                    "display": true,
+                    "text": "No",
+                    "url": ""
+                },
+                "resumen_nota": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "sitio": {
+                    "display": true,
+                    "text": "https://sandbox.lanacion.com.ar",
+                    "url": ""
+                },
+                "trust": {
+                    "display": true,
+                    "text": "Noticia Original",
+                    "url": ""
+                }
+            },
+            "language": "",
+            "owner": {
+                "sponsored": false
+            },
+            "promo_items": {
+                "basic": {
+                    "_id": "WOQAYDZQ4JC3NANEZ2PFHQXX34",
+                    "additional_properties": {
+                        "fullSizeResizeUrl": "/resizer/DMu-D3BKmQJbOqPi4PGsKK05_Nk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/WOQAYDZQ4JC3NANEZ2PFHQXX34.png",
+                        "galleries": [],
+                        "mime_type": "image/png",
+                        "originalName": "https://ichef.bbci.co.uk/news/raw/cpsprodpb/70d1/live/0ec2a4f0-b8ea-11ef-a0f2-fd81ae5962f4.png",
+                        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WOQAYDZQ4JC3NANEZ2PFHQXX34.png",
+                        "proxyUrl": "/resizer/DMu-D3BKmQJbOqPi4PGsKK05_Nk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/WOQAYDZQ4JC3NANEZ2PFHQXX34.png",
+                        "published": true,
+                        "resizeUrl": "/resizer/DMu-D3BKmQJbOqPi4PGsKK05_Nk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/WOQAYDZQ4JC3NANEZ2PFHQXX34.png",
+                        "restricted": false,
+                        "thumbnailResizeUrl": "/resizer/bVFIoRMoDyY7UwfOJ1QFhKs8FU0=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/WOQAYDZQ4JC3NANEZ2PFHQXX34.png",
+                        "version": 0
+                    },
+                    "address": {},
+                    "auth": {
+                        "1": "fc0cd490485fcc165a40d02cca20de8697b4bc7e2b16c9bc9dd819dedb2b02f6"
+                    },
+                    "created_date": "2024-12-13T11:05:21Z",
+                    "height": 513,
+                    "last_updated_date": "2024-12-13T11:05:21Z",
+                    "licensable": false,
+                    "owner": {
+                        "id": "sandbox.lanacionar"
+                    },
+                    "source": {
+                        "additional_properties": {
+                            "editor": "photo center"
+                        },
+                        "edit_url": "",
+                        "system": "photo center"
+                    },
+                    "status": "published",
+                    "type": "image",
+                    "url": "https://sandbox-resizer.glanacion.com/resizer/v2/WOQAYDZQ4JC3NANEZ2PFHQXX34.png?auth=fc0cd490485fcc165a40d02cca20de8697b4bc7e2b16c9bc9dd819dedb2b02f6&width=768&quality=70&smart=false",
+                    "version": "0.10.9",
+                    "width": 768,
+                    "display_date": "2024-12-13T08:05:13.4296001-03:00",
+                    "first_publish_date": "2024-12-13T08:05:13.4296001-03:00",
+                    "language": "es-419",
+                    "publish_date": "2024-12-13T08:05:13.4295999-03:00",
+                    "resized_urls": [
+                        {
+                            "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/WOQAYDZQ4JC3NANEZ2PFHQXX34.png?auth=fc0cd490485fcc165a40d02cca20de8697b4bc7e2b16c9bc9dd819dedb2b02f6&width=768&quality=70&smart=false",
+                            "option": {
+                                "width": 768,
+                                "height": 513,
+                                "media": "(min-width: 768px)"
+                            }
+                        }
+                    ],
+                    "resized_urls_zoom": []
+                }
+            },
+            "publish_date": "2024-12-13T17:20:42.948Z",
+            "revision": {
+                "published": true,
+                "revision_id": "HHIGLVQCNVDBJLQ34RI52K7KSI"
+            },
+            "subheadlines": {
+                "basic": ""
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/revista-brando",
+                    "_website": "la-nacion-ar",
+                    "type": "section",
+                    "version": "0.6.0",
+                    "name": "Revista Brando",
+                    "path": "/revista-brando",
+                    "parent_id": "/",
+                    "parent": {
+                        "default": "/"
+                    },
+                    "additional_properties": {
+                        "original": {
+                            "_id": "/revista-brando",
+                            "migration": {
+                                "migrated_mob": "true",
+                                "id_section_ln9": "7353"
+                            },
+                            "style": {
+                                "section_style_name": "brando"
+                            },
+                            "_website": "la-nacion-ar",
+                            "name": "Revista Brando",
+                            "order": {
+                                "Header-SecondaryNav": 2006,
+                                "default": 1040,
+                                "navigationRedaccion": 1043
+                            },
+                            "parent": {
+                                "default": "/",
+                                "Header-SecondaryNav": "/revistas",
+                                "navigationRedaccion": "/",
+                                "pruebaTecnica": null
+                            },
+                            "ancestors": {
+                                "Header-SecondaryNav": [
+                                    "/",
+                                    "/revistas"
+                                ],
+                                "navigationRedaccion": [
+                                    "/"
+                                ],
+                                "default": [
+                                    "/"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section"
+                        }
+                    },
+                    "_website_section_id": "la-nacion-ar./revista-brando"
+                },
+                "primary_site": {
+                    "_id": "/revista-brando",
+                    "type": "site",
+                    "version": "0.5.8",
+                    "name": "Revista Brando",
+                    "path": "/revista-brando",
+                    "parent_id": "/",
+                    "additional_properties": {
+                        "original": {
+                            "_id": "/revista-brando",
+                            "migration": {
+                                "migrated_mob": "true",
+                                "id_section_ln9": "7353"
+                            },
+                            "style": {
+                                "section_style_name": "brando"
+                            },
+                            "name": "Revista Brando",
+                            "order": {
+                                "Header-SecondaryNav": 2006,
+                                "default": 1040,
+                                "navigationRedaccion": 1043
+                            },
+                            "parent": {
+                                "default": "/",
+                                "Header-SecondaryNav": "/revistas",
+                                "navigationRedaccion": "/",
+                                "pruebaTecnica": null
+                            },
+                            "ancestors": {
+                                "Header-SecondaryNav": [
+                                    "/",
+                                    "/revistas"
+                                ],
+                                "navigationRedaccion": [
+                                    "/"
+                                ],
+                                "default": [
+                                    "/"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section"
+                        }
+                    }
+                },
+                "sections": [
+                    {
+                        "_id": "/revista-brando",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Revista Brando",
+                        "path": "/revista-brando",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revista-brando",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "7353"
+                                },
+                                "style": {
+                                    "section_style_name": "brando"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Revista Brando",
+                                "order": {
+                                    "Header-SecondaryNav": 2006,
+                                    "default": 1040,
+                                    "navigationRedaccion": 1043
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/",
+                                        "/revistas"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./revista-brando"
+                    }
+                ],
+                "sites": [
+                    {
+                        "_id": "/revista-brando",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Revista Brando",
+                        "path": "/revista-brando",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revista-brando",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "7353"
+                                },
+                                "style": {
+                                    "section_style_name": "brando"
+                                },
+                                "name": "Revista Brando",
+                                "order": {
+                                    "Header-SecondaryNav": 2006,
+                                    "default": 1040,
+                                    "navigationRedaccion": 1043
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/",
+                                        "/revistas"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        }
+                    }
+                ]
+            },
+            "type": "story",
+            "version": "0.10.10",
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "_id": "/revista-brando",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Revista Brando",
+                        "path": "/revista-brando",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/revista-brando",
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "7353"
+                                },
+                                "style": {
+                                    "section_style_name": "brando"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Revista Brando",
+                                "order": {
+                                    "Header-SecondaryNav": 2006,
+                                    "default": 1040,
+                                    "navigationRedaccion": 1043
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas",
+                                    "navigationRedaccion": "/",
+                                    "pruebaTecnica": null
+                                },
+                                "ancestors": {
+                                    "Header-SecondaryNav": [
+                                        "/",
+                                        "/revistas"
+                                    ],
+                                    "navigationRedaccion": [
+                                        "/"
+                                    ],
+                                    "default": [
+                                        "/"
+                                    ]
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./revista-brando"
+                    },
+                    "website_url": "/revista-brando/probando-acumulado-revistas-seccion-revista-hola-nid13122024/"
+                }
+            },
+            "canonical_url": "/revista-brando/probando-acumulado-revistas-seccion-revista-hola-nid13122024/",
+            "website_url": "/revista-brando/probando-acumulado-revistas-seccion-revista-hola-nid13122024/"
+        }
+    ],
+    "websites": {
+        "la-nacion-ar": {}
+    },
+    "content_aliases": [],
+    "dynamic_items": {
+        "type": "sections",
+        "ids": [
+            "/revista-brando",
+            "/revista-hola",
+            "/revista-hola/estilo-hola",
+            "/revista-jardin",
+            "/revista-living",
+            "/revista-living/agenda-living",
+            "/revista-living/banos",
+            "/revista-living/cocinas",
+            "/revista-living/comedores",
+            "/revista-living/dormitorios",
+            "/revista-living/espacios-exteriores",
+            "/revista-living/fachadas",
+            "/revista-living/home-office",
+            "/revista-living/inspiracion",
+            "/revista-living/living",
+            "/revista-living/playroom",
+            "/revista-living/soluciones",
+            "/revista-lugares",
+            "/revista-lugares/tapas",
+            "/revista-ohlala",
+            "/revista-ohlala/fabrica-ohlala",
+            "/revista-ohlala/ohlala-fest",
+            "/revista-ohlala/ohlala-makers",
+            "/revista-ohlala/ohlala-moda",
+            "/revista-ohlala/ohlala-viaja",
+            "/revista-rolling-stone",
+            "/revista-rolling-stone/criticas",
+            "/revista-rolling-stone/entrevistas",
+            "/revista-rolling-stone/tapas",
+            "/revistas"
+        ]
+    },
+    "owner": {
+        "id": "sandbox.lanacionar"
+    },
+    "revision": {
+        "branch": "default",
+        "published": true
+    },
+    "canonical_url": null,
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar"
+}
