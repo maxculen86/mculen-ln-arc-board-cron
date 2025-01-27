@@ -1,9 +1,10 @@
+import { transformUrl } from '../../../../../../../../features/LN-10/article/common/_helper';
+
 export const renderProps = (
     articleSourceNota,
     articleImage,
     articleVideo,
-    propsParam,
-    configs
+    propsParam
 ) => {
     const props = propsParam;
     if (!articleSourceNota) {
@@ -24,9 +25,9 @@ export const renderProps = (
         variant,
         chapitaStyle,
         description,
-        hideDescription
+        hideDescription,
+        cllBoard
     } = props.customFields;
-
     const additionalProperties = {
         noteId,
         title,
@@ -41,8 +42,10 @@ export const renderProps = (
         chapitaStyle,
         description,
         hideDescription,
+        cllBoard: transformUrl(cllBoard) || null,
         idRender: props.id //  Se usa en un metodo compartido con front para validar articulos de apertura
     };
+
     return { ...articleSourceNota, additionalProperties };
 };
 export default renderProps;
