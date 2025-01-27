@@ -5,7 +5,10 @@ import {
     getArticleVideos,
     getYouTubeVideoLink
 } from '../../../../../../../../../../components/private/LN/api/common/article/elements/video/index';
-import { getEmbed } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/embed/index';
+import {
+    getEmbed,
+    getEmbedWidget
+} from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/embed/index';
 import { getBadgebyConfig } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/chapita/index';
 import { CardBasic } from '../../../../../../../../../../components/private/LN/api/common/article/cardBasic/index';
 import { cardRegular } from '../../../../../../../../../../components/private/LN/api/common/article/cardRegular/index.js';
@@ -46,6 +49,9 @@ describe('cardRegular', () => {
         getArticleVideos.mockReturnValueOnce('videos');
         getYouTubeVideoLink.mockReturnValueOnce('youtubeLink');
         getEmbed.mockReturnValueOnce('iframe');
+        getEmbedWidget.mockReturnValueOnce(
+            'https://canchallena.clanacion.com.ar/futbol/copa-argentina-2025/boca-juniors-argentino-monte-maiz-aeptpxkh2li6vimrypjso0ff8/widget/?isHome=true'
+        );
         getBadgebyConfig.mockReturnValueOnce(objbadget);
         CardBasic.mockReturnValueOnce({ title: article.title });
         get.mockImplementation((obj, path, defaultValue) => {
@@ -69,6 +75,8 @@ describe('cardRegular', () => {
             imagen: 'image',
             videoYouTube: 'youtubeLink',
             embed: 'iframe',
+            widgetEmbed:
+                'https://canchallena.clanacion.com.ar/futbol/copa-argentina-2025/boca-juniors-argentino-monte-maiz-aeptpxkh2li6vimrypjso0ff8/widget/?isHome=true',
             chapita: 'VIDEO',
             badge: 'VIDEO',
             badgeStyle: 'positive',
@@ -87,6 +95,8 @@ describe('cardRegular', () => {
         expect(getYouTubeVideoLink).toHaveBeenCalledWith(article);
         expect(getEmbed).toHaveBeenCalledTimes(1);
         expect(getEmbed).toHaveBeenCalledWith(article);
+        expect(getEmbedWidget).toHaveBeenCalledTimes(1);
+        expect(getEmbedWidget).toHaveBeenCalledWith(article);
         expect(getBadgebyConfig).toHaveBeenCalledTimes(1);
         expect(getBadgebyConfig).toHaveBeenCalledWith(article);
         expect(CardBasic).toHaveBeenCalledTimes(1);
@@ -105,6 +115,7 @@ describe('cardRegular', () => {
         const expectedCardRegular = {
             categoria: undefined,
             embed: undefined,
+            widgetEmbed: undefined,
             imagen: undefined,
             videoYouTube: undefined,
             autor: null,
