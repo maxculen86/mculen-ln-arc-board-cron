@@ -115,6 +115,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         });
 
         it('should setup JWPlayer and handle video events on click', () => {
+            jest.useFakeTimers();
             const title = 'Test Title';
             const player = 'testPlayer';
             const playlist = ['video1', 'video2'];
@@ -126,6 +127,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             scheduleTask.mockImplementation(mockScheduleTask);
 
             getJWScript(title, player, playlist, hasAutoplay, idVideo, tagsUrl);
+
+            jest.advanceTimersByTime(1000);
 
             expect(document.getElementById).toHaveBeenCalledWith(
                 `facade-${idVideo}`
