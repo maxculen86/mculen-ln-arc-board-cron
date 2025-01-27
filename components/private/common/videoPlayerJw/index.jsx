@@ -61,6 +61,9 @@ const videoPlayerJW = ({
                                 className={facade}
                                 title={title}
                                 subtype={subtype}
+                                openingVideo={
+                                    subtype === VIDEO || isPromoItemVideo
+                                }
                             />
                             <div id={mediaid} />
                             {shouldShowFigureCaption && (
