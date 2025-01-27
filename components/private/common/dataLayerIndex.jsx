@@ -38,10 +38,12 @@ const config = {
 };
 
 function dataLayerIndex(props) {
-    const { arcSite, layout } = props;
+    const { arcSite, layout, globalContent: { _id: id = '' } = {} } = props;
 
     const sitio = config[arcSite];
     if (!sitio) return null;
+
+    if (arcSite === 'foodit' && id === '/tema') return null;
 
     const DataLayer = sitio[layout];
 
