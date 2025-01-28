@@ -11,16 +11,17 @@ import * as cajaTemasValidators from '../../../../../components/private/LN/commo
 import * as _helper from '../../../../../components/features/LN-10/article/_helper';
 import * as _helperWebApi from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import * as helpers from '../../../../../components/chains/utils/_helpers';
+import * as _helperArticle from '../../../../../components/private/LN/common/utils/articuloHelper';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
 
 jest.mock('fusion:context', Component => {
     return {
-        default: function(Component) {
+        default: function (Component) {
             return props => <Component {...props} />;
         },
         useComponentContext: jest.fn(() => ({}))
@@ -53,8 +54,7 @@ const article = (authors, content_elements) => ({
     credits: { by: authors },
     display_date: '2021-11-23T20:40:21.467Z',
     headlines: {
-        basic:
-            'Dejó un puesto gerencial. Se mudó a un pueblo de 800 habitantes y armó un lodge de lujo: “Ganamos una tranquilidad que no tiene precio”',
+        basic: 'Dejó un puesto gerencial. Se mudó a un pueblo de 800 habitantes y armó un lodge de lujo: “Ganamos una tranquilidad que no tiene precio”',
         mobile: ''
     },
     label: {
@@ -66,8 +66,7 @@ const article = (authors, content_elements) => ({
             height: 1333,
             resized_urls: [],
             type: 'image',
-            url:
-                'https://resizer.glanacion.com/resizer/aPpzwat2vydqHtvHAqbvYMMLNpU=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg',
+            url: 'https://resizer.glanacion.com/resizer/aPpzwat2vydqHtvHAqbvYMMLNpU=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg',
             width: 2000
         }
     },
@@ -107,6 +106,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
             noteId: '2KOBND62KNFVVBFQZOADNN6WNY',
             imageId: '',
             videoId: '',
+            html: '',
             mobileImageId: '',
             lead: 'LeadNota',
             title: 'Nota',
@@ -116,6 +116,10 @@ describe('Components - features - LN-10 - articulo - default', () => {
         },
         searchableField: () => {},
         isBomba: false
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 
     describe('Tests variant Liveblog', () => {
@@ -171,8 +175,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
                                     'https://resizer.glanacion.com/resizer/ZnZOQF59aM1zxza6X79jrDuFP5g=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
                             }
                         ],
-                        url:
-                            'https://bucket.glanacion.com/anexos/fotos/91/2219591.png'
+                        url: 'https://bucket.glanacion.com/anexos/fotos/91/2219591.png'
                     },
                     name: 'Carlos Pagni',
                     type: 'author'
@@ -278,22 +281,6 @@ describe('Components - features - LN-10 - articulo - default', () => {
         expect(screen.getByRole('article')).toBeInTheDocument();
     });
 
-    it('should set source to videosJwSource when checkForId(videoId) is true', () => {
-        jest.spyOn(_helperWebApi, 'checkForId').mockReturnValue(true);
-
-        useContent.mockReturnValue(article());
-
-        const props = getProps('author');
-        props.customFields.videoId = 'testId';
-        render(<ArticleFeature {...props} />);
-
-        expect(useContent).toHaveBeenCalledWith(
-            expect.objectContaining({
-                source: 'videosJwSource'
-            })
-        );
-    });
-
     it('should set source to null when checkForId(videoId) is false', () => {
         jest.spyOn(_helperWebApi, 'checkForId').mockReturnValue(false);
 
@@ -348,5 +335,144 @@ describe('Components - features - LN-10 - articulo - default', () => {
 
         fireEvent.click(cardElement);
         expect(registerSuccessEventMock).not.toHaveBeenCalled();
+    });
+
+    it('should make request for image if no HTML and no videoId', () => {
+        const props = getProps('author');
+        props.customFields.html = '';
+        props.customFields.videoId = '';
+        props.customFields.imageId = 'testimage';
+
+        const getImageSpy = jest.spyOn(_helperArticle, 'GetImage');
+
+        render(<ArticleFeature {...props} />);
+
+        expect(getImageSpy).toHaveBeenCalledTimes(1);
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: 'relatedImageSource'
+            })
+        );
+    });
+
+    it('should make request for video if videoId exists and HTML is empty', () => {
+        jest.spyOn(_helperWebApi, 'checkForId').mockReturnValue(true);
+
+        useContent.mockReturnValue(article());
+
+        const props = getProps('author');
+        props.customFields.videoId = 'testId';
+        props.customFields.html = '';
+        render(<ArticleFeature {...props} />);
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: 'videosJwSource'
+            })
+        );
+    });
+
+    it('should not make requests for video or image if HTML exists', () => {
+        useContent.mockReturnValue(article());
+
+        const props = getProps('author');
+        props.customFields.html =
+            '<div style="position:relative;overflow:hidden;padding-bottom:56.25%"><iframe src="https://cdn.jwplayer.com/players/3GCCLgtb-bWFcPBAT.html" width="100%" height="100%" frameborder="0" scrolling="auto" title="Coloradans V. Texans  The Great Tomato War Continues" style="position:absolute;" allowfullscreen></iframe></div>';
+        props.customFields.videoId = '223';
+        props.customFields.imageId = '';
+
+        render(<ArticleFeature {...props} />);
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: null
+            })
+        );
+    });
+
+    it('should make request for video and not image if videoId exists and HTML is empty', () => {
+        useContent.mockReturnValue(article());
+        jest.spyOn(_helperWebApi, 'checkForId').mockReturnValue(true);
+
+        const getImageSpy = jest.spyOn(_helperArticle, 'GetImage');
+
+        const props = getProps('author');
+
+        render(<ArticleFeature {...props} />);
+        props.customFields.videoId = '82738923';
+        props.customFields.imageId = 'testImageId';
+        props.customFields.html = '';
+
+        const result = _helper.getImageIdValidations(
+            props.customFields.html,
+            props.customFields.videoId,
+            props.customFields.imageId
+        );
+        expect(result).toBeNull();
+
+        expect(getImageSpy).toHaveBeenCalled();
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: 'videosJwSource'
+            })
+        );
+    });
+
+    it('should not make requests for image or video if only HTML exists', () => {
+        const props = getProps('author');
+        props.customFields.html =
+            '<div style="position:relative;overflow:hidden;padding-bottom:56.25%"><iframe src="https://cdn.jwplayer.com/players/3GCCLgtb-bWFcPBAT.html" width="100%" height="100%" frameborder="0" scrolling="auto" title="Coloradans V. Texans  The Great Tomato War Continues" style="position:absolute;" allowfullscreen></iframe></div>';
+        props.customFields.videoId = '';
+        props.customFields.imageId = '';
+
+        render(<ArticleFeature {...props} />);
+
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                source: null
+            })
+        );
+    });
+
+    describe('getImageIdValidations', () => {
+        test('should return imageIdParam when isHtmlParam is false, isVideoParam is false, and imageIdParam is not an empty string', () => {
+            const result = _helper.getImageIdValidations(
+                false,
+                false,
+                'image123'
+            );
+            expect(result).toBe('image123');
+        });
+
+        test('should return null when imageIdParam is empty string and both isHtmlParam and isVideoParam are false', () => {
+            const result = _helper.getImageIdValidations(false, false, '');
+            expect(result).toBeNull();
+        });
+
+        it('should return null when either isHtmlParam or isVideoParam is true, regardless of imageIdParam value', () => {
+            const result = _helper.getImageIdValidations(
+                true,
+                true,
+                'image456'
+            );
+            expect(result).toBeNull();
+        });
+
+        test('should return null when imageIdParam is empty string and either isHtmlParam or isVideoParam is true', () => {
+            const result = _helper.getImageIdValidations(true, false, '');
+            expect(result).toBeNull();
+        });
+
+        test('should return null when imageIdParam is empty string and isHtmlParam and isVideoParam are both true', () => {
+            const result = _helper.getImageIdValidations(true, true, '');
+            expect(result).toBeNull();
+        });
+
+        test('should return null when imageIdParam is null', () => {
+            const result = _helper.getImageIdValidations(false, false, null);
+            expect(result).toBeNull();
+        });
     });
 });
