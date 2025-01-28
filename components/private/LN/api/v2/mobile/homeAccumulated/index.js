@@ -121,6 +121,11 @@ const index = (
                     boxTypeByLayout(layoutPage, type)(sectionBox, typeSection)
                 );
                 break;
+            case 10:
+                result.push(
+                    boxTypeByLayout(layoutPage, type)(sectionBox, boxInfo)
+                );
+                break;
 
             default:
                 // eslint-disable-next-line no-console
