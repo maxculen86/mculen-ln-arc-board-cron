@@ -401,3 +401,9 @@ export const showExtraClass = (
 
     return classname || undefined;
 };
+
+export const getImageIdValidations = (
+    isHtmlParam,
+    isVideoParam,
+    imageIdParam
+) => (isHtmlParam || isVideoParam || imageIdParam === '' ? null : imageIdParam);
