@@ -123,6 +123,22 @@ describe('components - feature - LN-nota - signature - default', () => {
                             url: '/autor/paz-rodriguez-niell-160/'
                         },
                         {
+                            _id: 'paz-rodriguez-niell-160',
+                            additional_properties: {
+                                original: {
+                                    author_type: 'Estándar',
+                                    bio_page: '/autor/paz-rodriguez-niell-160/',
+                                    byline: 'Paz Rodríguez Niell',
+                                    image: 'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F2166339.png?auth=96e4ce5ca889925d6314c78aebcc719bd10a1c2c76150d8e86323936349c7e31&width=80&quality=70&smart=false',
+                                    role: 'LA NACION',
+                                    voice: '4081'
+                                }
+                            },
+                            name: 'Paz Rodríguez Niell',
+                            type: 'author',
+                            url: '/autor/paz-rodriguez-niell-160/'
+                        },
+                        {
                             _id: 'maia-jastreblansky-5',
                             additional_properties: {
                                 original: {
