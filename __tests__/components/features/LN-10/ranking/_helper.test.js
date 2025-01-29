@@ -1,6 +1,7 @@
+import { useContent } from 'fusion:content';
 import {
     hasArticles,
-    getDataContent
+    useRankingArticles
 } from '../../../../../components/features/LN-10/ranking/_helper';
 import {
     getRankingProps,
@@ -9,7 +10,6 @@ import {
     getRankingType
 } from '../../../../../components/features/LN-10/ranking/common/_helper-WebApi.js';
 import articlesMock from '../../../../../__mocks__/data/articlesAcum/articles.json';
-import { useContent as getContent } from 'fusion:content';
 
 const mockedGetSectionName = jest.fn();
 
@@ -171,34 +171,33 @@ describe('features - LN10 - Ranking - Helper - hasArticles', () => {
     });
 });
 
-describe('features - LN10 - Ranking - Helper - getDataContent', () => {
+describe('features - LN10 - Ranking - Helper - useRankingArticles', () => {
     test('returns data when sectionId or sectionParentId is falsy', () => {
         const dataMock = {
-            _id:
-                '3f14b384049f464ae3345baa3c1d3a81ed785422f1d3388b7d58d39f9525f5fa',
+            _id: '3f14b384049f464ae3345baa3c1d3a81ed785422f1d3388b7d58d39f9525f5fa',
             articles: articlesMock.slice(0, 5),
             name: '',
             size: 5
         };
 
-        getContent.mockImplementation(() => dataMock);
-        const dataContent = getDataContent(
-            '',
+        useContent.mockImplementation(() => dataMock);
+        const dataContent = useRankingArticles(
             '',
             'la-nacion-ar',
-            'LN10-Home_Main'
+            'LN10-Home_Main',
+            'rankingArticlesSource'
         );
 
         expect(dataContent).toEqual(dataMock);
     });
 
     test('returns empty object when data is falsy', () => {
-        getContent.mockImplementation(() => null);
-        const dataContent = getDataContent(
-            '',
+        useContent.mockImplementation(() => null);
+        const dataContent = useRankingArticles(
             '',
             'la-nacion-ar',
-            'LN10-Home_Main'
+            'LN10-Home_Main',
+            'rankingArticlesSource'
         );
 
         expect(dataContent).toEqual({});
@@ -206,51 +205,20 @@ describe('features - LN10 - Ranking - Helper - getDataContent', () => {
 
     test('returns data when sectionId and sectionParentId is truthy and has any article', () => {
         const dataMock = {
-            _id:
-                '3f14b384049f464ae3345baa3c1d3a81ed785422f1d3388b7d58d39f9525f5fa',
+            _id: '3f14b384049f464ae3345baa3c1d3a81ed785422f1d3388b7d58d39f9525f5fa',
             articles: articlesMock.slice(0, 5),
             name: '',
             size: 5
         };
 
-        getContent.mockImplementation(() => dataMock);
-        const dataContent = getDataContent(
+        useContent.mockImplementation(() => dataMock);
+        const dataContent = useRankingArticles(
             'economia/campo/',
-            'economia/',
             'la-nacion-ar',
-            'LN10-Home_Main'
+            'LN10-Home_Main',
+            'rankingArticlesSource'
         );
 
         expect(dataContent).toEqual(dataMock);
-    });
-
-    test('returns parent data when does not have any article for sectionId', () => {
-        const dataMock = {
-            _id:
-                '3f14b384049f464ae3345baa3c1d3a81ed785422f1d3388b7d58d39f9525f5fa',
-            articles: [],
-            name: '',
-            size: 5
-        };
-
-        const parentDataMock = {
-            _id:
-                '2f13b335454949f464ae3345baa3c1d3a81ed785422f1388b7d58d39f4525f5fa',
-            articles: articlesMock.slice(0, 5),
-            name: 'Campo',
-            size: 5
-        };
-
-        getContent
-            .mockImplementationOnce(() => dataMock)
-            .mockImplementationOnce(() => parentDataMock);
-
-        const dataContent = getDataContent(
-            'economia/campo/',
-            'economia/',
-            'la-nacion-ar',
-            'LN10-Home_Main'
-        );
-        expect(dataContent).toEqual(parentDataMock);
     });
 });
