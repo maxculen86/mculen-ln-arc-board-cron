@@ -1,11 +1,11 @@
 import React from 'react';
 import { SITE_LANACION, SITE_FOODIT, SITE_OTT } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
-import { addForwardSlash } from '../LN/common/utils/addForwardSlash';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
 import { isUSALangHtml } from './utils/outputTypeHelper';
 import { addInitialSlash } from '../LN/common/utils/addInitialSlash';
+import getCanonicalLink from './helpers/getCanonicalLink';
 
 function LinkCanonicalAndAlternate(props = {}) {
     const {
@@ -14,7 +14,8 @@ function LinkCanonicalAndAlternate(props = {}) {
         arcSite = '',
         nodeType = '',
         site = {},
-        template = ''
+        template = '',
+        layout = ''
     } = props;
 
     const { site_url: siteUrl = null } = site;
@@ -33,11 +34,16 @@ function LinkCanonicalAndAlternate(props = {}) {
         'la-nacion-ar': SITE_LANACION
     };
 
-    const canonicalLink = mustUseSiteUrl
-        ? siteUrl
-        : addForwardSlash(
-              `${baseUrlByArcType[arcSite]}${canonicalUrl || canonicalSlash}`
-          );
+    const canonicalLink = getCanonicalLink({
+        _id,
+        arcSite,
+        layout,
+        baseUrlByArcType,
+        mustUseSiteUrl,
+        siteUrl,
+        canonicalUrl,
+        canonicalSlash
+    });
 
     return arcSite && (canonicalUrl || _id || nodeType === 'home') ? (
         <>
@@ -56,6 +62,7 @@ LinkCanonicalAndAlternate.propTypes = {
     site: PropTypes.shape({
         site_url: PropTypes.string
     }).isRequired,
-    template: PropTypes.string.isRequired
+    template: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired
 };
 export default LinkCanonicalAndAlternate;
