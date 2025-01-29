@@ -58,10 +58,25 @@ describe('Carousel Feature test', () => {
             carouselItem.state = {
                 [carouselItem.contentKey]: {
                     _id: '_ID',
-                    previewVideoUrl: 'preview.mp4',
                     poster: 'poster.jpg?width=320',
                     duration: 4003,
-                    posterVideo: 'video-320.mp4'
+                    posterVideo: 'poster-video-320.mp4',
+                    sources: [
+                        {
+                            file: 'playlist.m3u8',
+                            type: 'application/vnd.apple.mpegurl'
+                        },
+                        {
+                            file: 'video-180.mp4',
+                            type: 'video/mp4',
+                            height: 180,
+                            width: 320,
+                            label: '180p',
+                            bitrate: 245727,
+                            filesize: 61001753,
+                            framerate: 25
+                        }
+                    ],
                 }
             };
 
@@ -71,8 +86,8 @@ describe('Carousel Feature test', () => {
                 _id: '_ID',
                 title: 'Título',
                 posterUrl: 'poster.jpg?width=320',
-                previewVideoUrl: 'preview.mp4',
-                fullVideoUrl: 'video-320.mp4',
+                previewVideoUrl: 'poster-video-320.mp4',
+                fullVideoUrl: 'playlist.m3u8',
                 fullVideoDuration: 4003,
                 badge: 'Chapita',
                 badgeStyle: 'default'
