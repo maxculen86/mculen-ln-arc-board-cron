@@ -1200,7 +1200,7 @@ describe('Tests articleSourceNota - _helper', () => {
         });
 
         it('should return false if section path is not in validSections', () => {
-            const sections = [{ path: '/tecnologia' }];
+            const sections = [{ path: '/politica' }];
             expect(isValidSectionIA(sections)).toBe(false);
         });
 
