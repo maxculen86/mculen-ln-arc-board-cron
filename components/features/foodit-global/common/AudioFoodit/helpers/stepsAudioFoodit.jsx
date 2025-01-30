@@ -3,13 +3,16 @@ import { Text } from '@ln/common-ui-text';
 
 export function StepsAudioFoodit({ stepList = [], segmentIndex = 0 }) {
     return stepList.map(({ showTitle, titleList, step, indexList }, i) => (
-        <>
+        <ul data-step-index={i}>
             {showTitle && titleList && (
-                <Text className="roboto roboto-bold text-light-800">
+                <Text
+                    as="p"
+                    className="roboto roboto-bold text-light-800 pb-16"
+                >
                     {titleList}
                 </Text>
             )}
-            <div
+            <li
                 className={`${
                     segmentIndex === i + 1
                         ? 'roboto roboto-bold text-primary-positive'
@@ -18,7 +21,7 @@ export function StepsAudioFoodit({ stepList = [], segmentIndex = 0 }) {
             >
                 <Text className="text-14">{indexList + 1}.</Text>
                 <Text className="text-14"> {step}</Text>
-            </div>
-        </>
+            </li>
+        </ul>
     ));
 }
