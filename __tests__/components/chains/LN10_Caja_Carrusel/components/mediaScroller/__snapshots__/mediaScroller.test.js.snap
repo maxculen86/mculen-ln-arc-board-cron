@@ -38,6 +38,7 @@ exports[`components - chains - LN10_Caja_Carrusel - components - mediaScroller -
         style="grid-auto-columns: 280px;"
       >
         <li
+          class="--x-scroll-boundary-swipe"
           data-scroller="element"
         >
           <div>
