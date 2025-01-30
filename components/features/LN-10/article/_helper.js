@@ -270,6 +270,28 @@ export const transformVideoData = (videoData, cardSize, isAdmin = false) => {
     };
 };
 
+export const generateLazyLoadEmbedCode = embedCode => {
+    const youtubeId = embedCode.match(/youtube\.com\/embed\/([\w-]+)/)?.[1];
+    if (!youtubeId) return embedCode;
+
+    const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+
+    const uniqueId = `youtube-${Math.random().toString(36).substring(7)}`;
+
+    const isAutoplay = embedCode.includes('autoplay');
+
+    let dataSrc = `https://www.youtube.com/embed/${youtubeId}`;
+
+    if (isAutoplay) dataSrc += '?autoplay=1&mute=1';
+
+    const modifiedEmbedCode = embedCode.replace(
+        /src="(https:\/\/www\.youtube\.com\/embed\/[\w-]+[^"]*)"/,
+        `src="${thumbnailUrl}" data-src="${dataSrc}" id="${uniqueId}"`
+    );
+
+    return modifiedEmbedCode;
+};
+
 export const getMediaData = ({
     article,
     video,
@@ -298,8 +320,8 @@ export const getMediaData = ({
             validation: html.trim(),
             data: {
                 type: 'embedCode',
-                embedCode: html,
-                dataSrc: html && html !== ' ' && html.match(/src="(.*?)"/)[1]
+                embedCode: generateLazyLoadEmbedCode(html),
+                dataSrc: html.match(/src="(.*?)"/)?.[1]
             }
         },
         {
