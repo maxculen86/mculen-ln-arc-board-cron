@@ -7,10 +7,15 @@ import '@testing-library/jest-dom';
 import VideoPlayer from '../../../../../../components/features/private-global/common/videoPlayer/foodit';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
+
+jest.mock('fusion:static', () => ({
+    __esModule: true,
+    default: ({ id, children }) => <div data-testid={id}>{children}</div>
+}));
 
 describe('Features - private-global/common - VideoPlayer Component, outputType Foodit', () => {
     Context.useAppContext = jest.fn(() => ({
@@ -36,18 +41,15 @@ describe('Features - private-global/common - VideoPlayer Component, outputType F
                         {
                             description: ' ',
                             duration: '433634',
-                            image:
-                                'https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=720',
+                            image: 'https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=720',
                             images: [
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=320',
+                                    src: 'https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=320',
                                     type: 'image/jpeg',
                                     width: 320
                                 },
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=480',
+                                    src: 'https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=480',
                                     type: 'image/jpeg',
                                     width: 480
                                 }
@@ -57,14 +59,12 @@ describe('Features - private-global/common - VideoPlayer Component, outputType F
                             pubdate: 1657907249,
                             sources: [
                                 {
-                                    file:
-                                        'https://cdn.jwplayer.com/manifests/wzNCu0kE.m3u8',
+                                    file: 'https://cdn.jwplayer.com/manifests/wzNCu0kE.m3u8',
                                     type: 'application/vnd.apple.mpegurl'
                                 },
                                 {
                                     bitrate: 413100,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/wzNCu0kE-kTExGaWf.mp4',
+                                    file: 'https://cdn.jwplayer.com/videos/wzNCu0kE-kTExGaWf.mp4',
                                     filesize: 22359059,
                                     framerate: 30,
                                     height: 180,
@@ -74,8 +74,7 @@ describe('Features - private-global/common - VideoPlayer Component, outputType F
                                 },
                                 {
                                     bitrate: 647029,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/wzNCu0kE-K8B0kybS.mp4',
+                                    file: 'https://cdn.jwplayer.com/videos/wzNCu0kE-K8B0kybS.mp4',
                                     filesize: 35020492,
                                     framerate: 30,
                                     height: 270,
@@ -84,20 +83,17 @@ describe('Features - private-global/common - VideoPlayer Component, outputType F
                                     width: 480
                                 }
                             ],
-                            title:
-                                'Ariel en su salsa: Waffles de chocolate con bananas foster',
+                            title: 'Ariel en su salsa: Waffles de chocolate con bananas foster',
                             tracks: [
                                 {
-                                    file:
-                                        'https://cdn.jwplayer.com/strips/wzNCu0kE-120.vtt',
+                                    file: 'https://cdn.jwplayer.com/strips/wzNCu0kE-120.vtt',
                                     kind: 'thumbnails'
                                 }
                             ],
                             variations: {}
                         }
                     ],
-                    title:
-                        'Ariel en su salsa: Waffles de chocolate con bananas foster'
+                    title: 'Ariel en su salsa: Waffles de chocolate con bananas foster'
                 }
             }
         },
@@ -113,7 +109,7 @@ describe('Features - private-global/common - VideoPlayer Component, outputType F
             />
         );
         expect(container).toBeTruthy();
-
+        expect(screen.getByTestId('wzNCu0kE')).toBeInTheDocument();
         expect(screen.getByTestId('facade-wzNCu0kE')).toBeInTheDocument();
     });
 });

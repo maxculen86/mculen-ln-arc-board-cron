@@ -89,7 +89,7 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
     };
 
     return (
-        <div ref={cardRef}>
+        <div ref={cardRef} className="h-100">
             <Category
                 title={title}
                 imageProps={{
