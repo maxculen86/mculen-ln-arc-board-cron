@@ -30,8 +30,6 @@ function AcumuladoFoodit(props) {
                         {getFooditAcuTitle(globalContent)}
                     </Text>
                 </section>
-                {/* TODO: Descomentar si un acumulado lleva apertura */}
-                {/* <section>{apertura}</section> */}
                 <section className="grid gap-32">{renderAcu}</section>
             </div>
         </BaseLayout>

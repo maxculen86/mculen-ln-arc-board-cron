@@ -320,8 +320,9 @@
             rgba(255, 255, 255, 0.1) 4px,
             rgba(0, 0, 0, 0.15) 6px
         );
-        flex-basis: 18.75rem;
         flex-shrink: 0;
+        width: 18.75rem;
+        overflow: hidden;
     }
 }
 @media (min-width: 83.75em) {

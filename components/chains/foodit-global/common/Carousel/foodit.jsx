@@ -9,6 +9,10 @@ const CustomButtonTag = React.forwardRef((props, ref) => (
 ));
 
 export function Carousel({ children, type }) {
+    const dataTestId = {
+        category: 'container-category-cards-carousel',
+        collection: 'container-cards-carousel'
+    };
     const classMediaScroller = {
         category: '--carousel-category',
         collection: 'hide-mobile'
@@ -18,8 +22,7 @@ export function Carousel({ children, type }) {
             className: 'overflow-container'
         },
         collection: {
-            fullWidth: true,
-            'data-test-id': 'container-cards-carousel'
+            fullWidth: true
         }
     };
     const classProgress = {
@@ -36,7 +39,10 @@ export function Carousel({ children, type }) {
         <Mediascroller
             className={`flex flex-column gap-16 ${classMediaScroller[type]}`}
         >
-            <Mediascroller.Track {...propsTrack[type]}>
+            <Mediascroller.Track
+                {...propsTrack[type]}
+                data-test-id={dataTestId[type]}
+            >
                 {children}
             </Mediascroller.Track>
             {type === 'collection' && (

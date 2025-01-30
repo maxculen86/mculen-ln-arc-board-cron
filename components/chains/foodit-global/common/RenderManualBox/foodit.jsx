@@ -1,28 +1,63 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { LAYOUTS } from '../utils/helper-WebApi';
 import { FocalOnePlusFour } from './components/FocalOnePlusFour';
 
-const RenderManualBox = ({ layout, boxType, cards = [] }) => {
-    const { BN_FOCAL_1, BN_FOCAL_1_MAS_4, BN_2_GRID } = LAYOUTS;
+function BNFocal1({ cards }) {
+    return cards;
+}
 
-    const componentsByLayout = {
-        [BN_FOCAL_1]: () => cards,
-        [BN_FOCAL_1_MAS_4]: () => (
-            <FocalOnePlusFour boxType={boxType} cards={cards} />
-        ),
-        [BN_2_GRID]: () => (
-            <div
-                className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32"
-                data-test-id={`${boxType}-${BN_2_GRID}`}
-            >
-                {cards}
-            </div>
-        )
-    };
+BNFocal1.propTypes = {
+    cards: PropTypes.arrayOf(PropTypes.node)
+};
 
+BNFocal1.defaultProps = {
+    cards: []
+};
+
+function BN2Grid({ boxType, cards }) {
     return (
-        (componentsByLayout[layout] && componentsByLayout[layout]()) || <></>
+        <div
+            className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32"
+            data-test-id={`${boxType}-${LAYOUTS.BN_2_GRID}`}
+        >
+            {cards}
+        </div>
     );
+}
+
+BN2Grid.propTypes = {
+    boxType: PropTypes.string.isRequired,
+    cards: PropTypes.arrayOf(PropTypes.node)
+};
+
+BN2Grid.defaultProps = {
+    cards: []
+};
+
+const componentsByLayout = {
+    [LAYOUTS.BN_FOCAL_1]: BNFocal1,
+    [LAYOUTS.BN_FOCAL_1_MAS_4]: FocalOnePlusFour,
+    [LAYOUTS.BN_2_GRID]: BN2Grid
+};
+
+function RenderManualBox({ layout, boxType, cards = [] }) {
+    const LayoutComponent = componentsByLayout[layout];
+    if (!LayoutComponent) {
+        return null;
+    }
+
+    return <LayoutComponent boxType={boxType} cards={cards} />;
+}
+
+RenderManualBox.propTypes = {
+    layout: PropTypes.oneOf(Object.values(LAYOUTS)).isRequired,
+    boxType: PropTypes.string.isRequired,
+    cards: PropTypes.arrayOf(PropTypes.node)
+};
+
+RenderManualBox.defaultProps = {
+    cards: []
 };
 
 export default RenderManualBox;

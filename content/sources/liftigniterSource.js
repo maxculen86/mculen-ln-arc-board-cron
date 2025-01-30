@@ -1,4 +1,4 @@
-import request from 'request-promise-native';
+import nodeFetch from 'node-fetch';
 import {
     WIDGETS,
     LIFTIGNITER_X_API_KEY,
@@ -17,7 +17,7 @@ import getPresets from './utils/presets';
 import ArticleSourceNotas from './acuArticlesSourcebyIds';
 import parseUrl from './utils/parseUrl';
 import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
-import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
+import { BackendLnError } from '../../components/private/LN/api/common/models/backendLnError';
 
 const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
     liftigniterArticles &&
@@ -89,8 +89,9 @@ const getUrlsbyIds = async (query, cachedCall) => {
                 let urlReferer = null;
                 let nextUrlReferer = nextUrl;
 
-                Array.isArray(resp.content_elements) &&
-                    resp.content_elements.map((item, i) => {
+                if (Array.isArray(resp.content_elements)) {
+                    /* eslint-disable no-underscore-dangle */
+                    resp.content_elements.forEach(item => {
                         let itemUrl = get(item, 'canonical_url', null);
 
                         if (itemUrl && !itemUrl.includes('http')) {
@@ -131,7 +132,7 @@ const getUrlsbyIds = async (query, cachedCall) => {
                             }
                         }
                     });
-
+                }
                 queryAdapted.excludeItems = excludeItems;
                 queryAdapted.urlReferer = urlReferer;
                 queryAdapted.idArticle = idArticleClean;
@@ -223,7 +224,7 @@ export const transform = (data, siteProps) => {
     });
 };
 
-const resolveData = query => {
+const resolveData = async query => {
     const {
         cantidadNotas = 9,
         referrer = SITE_LANACION,
@@ -361,6 +362,7 @@ const resolveData = query => {
                             enumTypeError.liftigniterError
                         )
                     );
+                    return {};
                 }
                 logger.push(
                     error,
@@ -370,6 +372,7 @@ const resolveData = query => {
                     },
                     arcSite
                 );
+                return {};
             }
         }
     };
@@ -380,9 +383,19 @@ const resolveData = query => {
         body: REQUESTS[action] && REQUESTS[action].body
     };
 
-    return request(queryRequest)
-        .then(response => REQUESTS[action].resolve(response))
-        .catch(error => REQUESTS[action].reject(error));
+    try {
+        const response = await nodeFetch(queryRequest.uri, {
+            method: queryRequest.method,
+            headers: queryRequest.headers,
+            body: queryRequest.body
+        });
+
+        const data = await response.text();
+
+        return REQUESTS[action].resolve(data);
+    } catch (error) {
+        return REQUESTS[action].reject(error) || {};
+    }
 };
 
 const fetch = (query, { cachedCall } = {}) => {

@@ -1,4 +1,4 @@
-import request from 'request-promise-native';
+import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import {
     FOTOAL100,
@@ -16,6 +16,7 @@ import {
 } from './utils/collectionsHelper';
 import { hasFutureDisplayDate } from '../../components/private/common/utils/dateAndTimeUtil';
 import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const resolve = key => {
     const { id, size, website, from = 0 } = key;
@@ -34,8 +35,9 @@ const resolve = key => {
         }`
     ].join('');
 
-    let basePath = `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
-        2}&from=${from}`;
+    let basePath = `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${
+        size || 2
+    }&from=${from}`;
 
     if (uriParams && uriParams !== '') {
         basePath = `${basePath}${uriParams}`;
@@ -43,30 +45,34 @@ const resolve = key => {
     return basePath;
 };
 
-const fetch = (query, { cachedCall } = {}) => {
-    const { url = '' } = query;
-    const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
+const filterArticlesInCollection = (siteProps, originalArticles) => {
+    const {
+        idsArticlesToExclude = [],
+        filterRecomendar = false,
+        filterRepetead = false,
+        filterFutureDisplayDate = false,
+        notesQuantity = 3
+    } = siteProps || {};
 
-    return request(opt)
-        .then(response => {
-            return transform(response, query, cachedCall);
-        })
-        .catch(error => {
-            logger.push(
-                error,
-                { source: 'content/source/collectionSource', url },
-                arcSite
-            );
-        });
+    const articlesStoryOnly = filterArticlesTypeStory(originalArticles);
+
+    const articlesRecomended = filterRecomendar
+        ? articlesStoryOnly.filter(art => !isNotRecommend(art))
+        : articlesStoryOnly;
+
+    const articlesNoFuture = filterFutureDisplayDate
+        ? articlesRecomended.filter(
+              art => !hasFutureDisplayDate(art.display_date)
+          )
+        : articlesRecomended;
+
+    return filterRepetead
+        ? getArticlesToShow(
+              notesQuantity,
+              articlesNoFuture,
+              idsArticlesToExclude
+          )
+        : articlesNoFuture;
 };
 
 const transform = async (data, siteProps, cachedCall) => {
@@ -135,36 +141,35 @@ const transform = async (data, siteProps, cachedCall) => {
     return respData;
 };
 
-const filterArticlesInCollection = (siteProps, originalArticles) => {
-    const {
-        idsArticlesToExclude = [],
-        filterRecomendar = false,
-        filterRepetead = false,
-        filterFutureDisplayDate = false,
-        notesQuantity = 3
-    } = siteProps || {};
+const fetch = async (query, { cachedCall } = {}) => {
+    const { url = '' } = query;
+    const arcSite = query['arc-site'];
+    const opt = { method: 'GET' };
 
-    const articlesStoryOnly = filterArticlesTypeStory(originalArticles);
+    if (ARC_ACCESS_TOKEN) {
+        opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
+    }
 
-    const articlesRecomended = filterRecomendar
-        ? articlesStoryOnly.filter(art => {
-              return !isNotRecommend(art);
-          })
-        : articlesStoryOnly;
+    const resolveData = async () => {
+        try {
+            const response = await nodeFetch(
+                `${CONTENT_BASE}${resolve(query)}`,
+                opt
+            );
+            handleHttpError(response);
+            const data = await response.json();
+            return await transform(data, query, cachedCall);
+        } catch (error) {
+            logger.push(
+                error,
+                { source: 'content/source/collectionSource', url },
+                arcSite
+            );
+            return {};
+        }
+    };
 
-    const articlesNoFuture = filterFutureDisplayDate
-        ? articlesRecomended.filter(
-              art => !hasFutureDisplayDate(art.display_date)
-          )
-        : articlesRecomended;
-
-    return filterRepetead
-        ? getArticlesToShow(
-              notesQuantity,
-              articlesNoFuture,
-              idsArticlesToExclude
-          )
-        : articlesNoFuture;
+    return resolveData();
 };
 
 export default {

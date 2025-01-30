@@ -1,27 +1,49 @@
 import React from 'react';
-import Ingredient from './Ingredient';
+import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
+import Ingredient from './Ingredient';
 
-export const IngredientsListContent = ({
+function IngredientsListContent({
     bookmarkId,
     titleList,
     items = [],
     typeList
-}) => {
+}) {
     return (
-        <div className="flex flex-column gap-16 gap-8_md pt-24 pt-0_md">
-            {titleList && (
-                <Text className="roboto-bold text-16">{titleList}</Text>
-            )}
-            {items?.map(item => (
-                <Ingredient
-                    key={`${bookmarkId}-${item.ingredient || ''}`}
-                    item={item}
-                    typeList={typeList}
-                />
-            ))}
+        <div>
+            <div className="flex flex-column gap-8 pt-24">
+                {titleList && (
+                    <Text className="roboto-bold text-16">{titleList}</Text>
+                )}
+                {items?.map(item => (
+                    <Ingredient
+                        key={`${bookmarkId}-${item.ingredient || ''}`}
+                        item={item}
+                        typeList={typeList}
+                    />
+                ))}
+            </div>
         </div>
     );
+}
+
+IngredientsListContent.propTypes = {
+    bookmarkId: PropTypes.string.isRequired,
+    titleList: PropTypes.string,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            amount: PropTypes.string,
+            unit: PropTypes.string.isRequired,
+            ingredient: PropTypes.string.isRequired,
+            abbreviation: PropTypes.string,
+            fullIngredientString: PropTypes.string
+        })
+    ).isRequired,
+    typeList: PropTypes.string.isRequired
+};
+
+IngredientsListContent.defaultProps = {
+    titleList: ''
 };
 
 export default IngredientsListContent;

@@ -1,15 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { transformImages } from './helperJw';
 import get from '../../utils/get';
 
-export const Facade = ({
+export function Facade({
     id = '',
     playlist = [],
     className = '',
-    title,
-    subtype = ''
-}) => {
+    title = '',
+    subtype = '',
+    openingVideo = false
+}) {
     const [video] = playlist || {};
     const allImages = get(video, 'images', []);
     const srcFacade = get(video, 'image', '');
@@ -52,7 +54,53 @@ export const Facade = ({
                 src={srcFacade}
                 className={className}
                 alt={title}
+                loading={openingVideo ? 'eager' : 'lazy'}
+                fetchPriority={openingVideo ? 'high' : 'low'}
             />
         </div>
     );
+}
+
+Facade.propTypes = {
+    id: PropTypes.string.isRequired,
+    playlist: PropTypes.arrayOf(
+        PropTypes.shape({
+            description: PropTypes.string,
+            duration: PropTypes.string,
+            image: PropTypes.string,
+            images: PropTypes.arrayOf(
+                PropTypes.shape({
+                    src: PropTypes.string,
+                    type: PropTypes.string,
+                    width: PropTypes.number
+                })
+            ),
+            link: PropTypes.string,
+            mediaid: PropTypes.string,
+            pubdate: PropTypes.string,
+            sources: PropTypes.arrayOf(
+                PropTypes.shape({
+                    bitrate: PropTypes.number,
+                    file: PropTypes.string,
+                    filesize: PropTypes.number,
+                    framerate: PropTypes.number,
+                    height: PropTypes.number,
+                    label: PropTypes.string,
+                    type: PropTypes.string,
+                    width: PropTypes.number
+                })
+            ),
+            title: PropTypes.string,
+            tracks: PropTypes.arrayOf(
+                PropTypes.shape({
+                    file: PropTypes.string,
+                    kind: PropTypes.string
+                })
+            )
+        })
+    ).isRequired,
+    className: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtype: PropTypes.string.isRequired,
+    openingVideo: PropTypes.bool.isRequired
 };

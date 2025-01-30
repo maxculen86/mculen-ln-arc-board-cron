@@ -16,7 +16,8 @@
             "Ln_Caja_Collection",
             "LN-common/navigationList",
             "LN-common/anexo",
-            "LN-acumulado/apertura"
+            "LN-acumulado/apertura",
+            "LN10_Caja_Carrusel"
         ],
         "position": 4
     },
@@ -32,7 +33,8 @@
             "LN-acumulado/anexoIframe",
             "LN-acumulado/grillaNotas",
             "LN-common/navigationList",
-            "LN-common/techo"
+            "LN-common/techo",
+            "LN10_Caja_Carrusel"
         ],
         "position": 6
     },

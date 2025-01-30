@@ -131,7 +131,7 @@ function SnippetNoticia({
         type,
         headlines,
         content_elements: contentElements = [],
-        taxonomy: { primary_section: primarySection = {}, tags, sections },
+        taxonomy: { primary_section: primarySection = {}, tags },
         credits: { by },
         distributor = { name: 'LA NACION' },
         created_date: createdDate = '',
@@ -191,7 +191,6 @@ function SnippetNoticia({
             `${siteProperties.host}${canonicalUrl}`
         ),
         articleSection: `${name}`,
-        sections,
         isAccessibleForFree:
             contentCode === 'abierta' || contentCode === 'comun',
         hasPart: {

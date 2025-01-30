@@ -377,6 +377,9 @@ input[type=checkbox]:hover {
 .border.border-left {
   border-left-style: solid;
 }
+.border.border-neutral-light-100 {
+  border-color: var(--neutral-light-100);
+}
 .border.border-light-100 {
   border-color: var(--neutral-light-100);
 }
@@ -1087,6 +1090,9 @@ strong {
   .col-span-16_lg {
     grid-column: span 16/span 16;
   }
+  .col-span-3-center_lg {
+    grid-column: 3 / -3;
+  }
   .col-span-4-center_lg {
     grid-column: 4 / -4;
   }
@@ -1184,6 +1190,10 @@ strong {
 
 .top-0 {
   top: 0;
+}
+
+.top-100px {
+  top: 6.25rem;
 }
 
 .top-100 {
@@ -1614,8 +1624,8 @@ strong {
   .h-37_md {
     height: 2.3125rem;
   }
-  .h-44_md {
-    height: 2.75rem;
+  .h-40_md {
+    height: 2.5rem;
   }
   .h-509_md {
     height: 31.8125rem;
@@ -1628,8 +1638,8 @@ strong {
   .h-42_lg {
     height: 2.625rem;
   }
-  .h-52_lg {
-    height: 3.25rem;
+  .h-56_lg {
+    height: 3.5rem;
   }
   .h-160_lg {
     height: 10rem;
@@ -1766,6 +1776,10 @@ strong {
   margin-block: auto;
 }
 
+.my-8 {
+  margin-block: 0.5rem;
+}
+
 .my-16 {
   margin-block: 1rem;
 }
@@ -1892,6 +1906,10 @@ strong {
 
 .pb-4 {
   padding-bottom: 0.25rem;
+}
+
+.pb-8 {
+  padding-bottom: 0.5rem;
 }
 
 .pb-12 {
@@ -2025,6 +2043,9 @@ strong {
   }
   .py-8_lg {
     padding-block: 0.5rem;
+  }
+  .py-16_lg {
+    padding-block: 1rem;
   }
   .py-12_lg {
     padding-block: 0.75rem;

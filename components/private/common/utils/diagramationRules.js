@@ -64,7 +64,9 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 imageConfig: size.S,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                withPreload: true,
+                isFetchPriorityHigh: true
             },
             {
                 titleTag: tag.h2,
@@ -1575,4 +1577,7 @@ const diagramationRules = diagramation => {
 
     return diagramations[diagramation];
 };
+
+export const diagramationExceptions = ['left-focal'];
+
 export default diagramationRules;

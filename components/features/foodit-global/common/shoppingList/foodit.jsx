@@ -1,27 +1,14 @@
 import React, { useState } from 'react';
-import { useAppContext } from 'fusion:context';
-
-import { Button } from '@ln/foodit-ui-button';
-import { Icon } from '@ln/common-ui-icon';
 import { Spinner } from '@ln/foodit-ui-spinner';
-import { getCustomConfigByLayout } from '../floatingGroupButton/helpers';
 import { useShoppingList } from './hooks/useShoppingList';
-import { copyListToClipboard } from './_helpers';
 import { getVariantBarrier } from '../emptyState/helpers';
-
 import EmptyState from '../emptyState/foodit';
-import CollectionBox from '../collectionBox/foodit';
-import { IngredientsList } from '../ingredientsList/foodit';
 import { ModalRemoveIngredient } from '../Modals/RemoveIngredients/foodit';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import FloatingButtons from '../floatingGroupButton/foodit';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
+import TabIngredients from '../ingredientsList/components/TabIngredients';
 
 function ShoppingList() {
-    const { layout } = useAppContext();
-
-    const { loading, isMobile, shoppingList, setShoppingList } =
-        useShoppingList();
+    const { loading, shoppingList, setShoppingList } = useShoppingList();
 
     const [selectedItem, setSelectedItem] = useState({ id: 'Todas' });
 
@@ -55,36 +42,13 @@ function ShoppingList() {
         );
 
     return (
-        <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
-            <aside className="sm-none col-span-5 bg-positive p-24 p-32_lg">
-                <CollectionBox
-                    title="Recetas"
-                    list={shoppingList}
-                    button={
-                        <Button
-                            title="copiar"
-                            onClick={() => copyListToClipboard(shoppingList)}
-                        >
-                            <Icon size={16}>
-                                <IconSprite name="copy" />
-                            </Icon>
-                            Copiar todo
-                        </Button>
-                    }
-                    onItemSelected={setSelectedItem}
-                />
-            </aside>
-            <IngredientsList
+        <div>
+            <TabIngredients
                 list={displayList}
-                isMobile={isMobile}
                 setShoppingList={setShoppingList}
+                shoppingList={shoppingList}
             />
             <ModalRemoveIngredient />
-            <FloatingButtons
-                {...getCustomConfigByLayout(layout, [
-                    () => copyListToClipboard(shoppingList)
-                ])}
-            />
         </div>
     );
 }

@@ -17,7 +17,7 @@ import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
 import useProportions from '../../../../common/hooks/useProportions';
 
-const Component = props => {
+function Component(props) {
     const {
         storytellingData,
         globalContent: { headlines, subtype },
@@ -92,7 +92,7 @@ const Component = props => {
             )}
         </section>
     );
-};
+}
 
 Component.propTypes = {
     outputType: PropTypes.string.isRequired,
@@ -115,7 +115,8 @@ Component.propTypes = {
         }),
         subtype: PropTypes.string
     }).isRequired,
-    isLoadWithPicture: PropTypes.bool
+    isLoadWithPicture: PropTypes.bool,
+    withoutVideoBackground: PropTypes.bool
 };
 
 Component.defaultProps = {
@@ -129,7 +130,8 @@ Component.defaultProps = {
             credit: ''
         }
     },
-    isLoadWithPicture: false
+    isLoadWithPicture: false,
+    withoutVideoBackground: false
 };
 
 export default WithStorytellingData(Component);

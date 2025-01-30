@@ -56,7 +56,7 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
         ).toBe(1);
     });
 
-    test('Should render selected list title twice', () => {
+    test('Should render selected list title', () => {
         useShoppingList.mockImplementation(() => ({
             loading: false,
             setShoppingList: () => null,
@@ -64,6 +64,6 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
             shoppingList: shoppingList
         }));
         const { getAllByText } = render(<ShoppingList />);
-        expect(getAllByText('Receta empanada de cazon').length).toBe(2);
+        expect(getAllByText('Receta empanada de cazon').length).toBe(1);
     });
 });

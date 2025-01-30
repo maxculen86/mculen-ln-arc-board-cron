@@ -30,7 +30,8 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-acumulado/breadcrumb',
             'LN-acumulado/titulo',
             'LN-acumulado/anexoIframe'
-        ]
+        ],
+        10: ['LN10_Caja_Carrusel']
     };
     let defaultType = 9; // For discard box
     Object.keys(boxTypeContainer).some(typeIndexBox => {
@@ -39,12 +40,11 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             sectionAliasMobile &&
             elementsTypes &&
             Array.isArray(elementsTypes) &&
-            elementsTypes.some(typeComponent => {
-                return (
+            elementsTypes.some(
+                typeComponent =>
                     typeComponent.toLowerCase() ===
                     sectionAliasMobile.toLowerCase()
-                );
-            })
+            )
         ) {
             defaultType = typeIndexBox;
             return true;

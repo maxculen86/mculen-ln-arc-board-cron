@@ -28,7 +28,7 @@ export const filterChildrenWithNoRoof = sectionChildren => {
     return device === 'mobile'
         ? sectionChildren
         : sectionChildren.filter(
-              children => !children.props.customFields.hideTitle
+              children => children.props.customFields.hideTitle !== true
           );
 };
 

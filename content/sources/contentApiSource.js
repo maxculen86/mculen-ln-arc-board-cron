@@ -35,11 +35,7 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-    if (typeFilter === 'nota_id') {
-        return {
-            redirectNotaAsp: true
-        };
-    }
+
     return request(opt)
         .then(response => {
             eventByFilter[typeFilter]
@@ -52,16 +48,9 @@ const fetch = query => {
 };
 
 const resolve = (query = {}) => {
-    const { uri = '' } = query;
     const website = `website=${query.website || query['arc-site']}`;
     const published = `&published=${query.published || 'true'}`;
 
-    if (uri.includes('/nota.asp')) {
-        return {
-            path: '',
-            typeFilter: 'nota_id'
-        };
-    }
     if (query.hasOwnProperty('website_url')) {
         return {
             path: `/content/v4/?website_url=${query.website_url}&${website}&${published}`,

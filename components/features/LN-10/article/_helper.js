@@ -284,7 +284,8 @@ export const getMediaData = ({
     const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
-    const isEager = isImageEager(_id, renderables);
+    const isEager =
+        config.isFetchPriorityHigh || isImageEager(_id, renderables);
     const mediaDataDefault = transformImageData({
         articleData: article,
         imageData: outstandingImage,
@@ -400,3 +401,9 @@ export const showExtraClass = (
 
     return classname || undefined;
 };
+
+export const getImageIdValidations = (
+    isHtmlParam,
+    isVideoParam,
+    imageIdParam
+) => (isHtmlParam || isVideoParam || imageIdParam === '' ? null : imageIdParam);
