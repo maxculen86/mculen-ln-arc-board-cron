@@ -377,6 +377,9 @@ input[type=checkbox]:hover {
 .border.border-left {
   border-left-style: solid;
 }
+.border.border-neutral-light-100 {
+  border-color: var(--neutral-light-100);
+}
 .border.border-light-100 {
   border-color: var(--neutral-light-100);
 }
@@ -1087,6 +1090,9 @@ strong {
   .col-span-16_lg {
     grid-column: span 16/span 16;
   }
+  .col-span-3-center_lg {
+    grid-column: 3 / -3;
+  }
   .col-span-4-center_lg {
     grid-column: 4 / -4;
   }
@@ -1182,8 +1188,16 @@ strong {
   overflow-y: auto;
 }
 
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
 .top-0 {
   top: 0;
+}
+
+.top-100px {
+  top: 6.25rem;
 }
 
 .top-100 {
@@ -1467,6 +1481,10 @@ strong {
     width: 1.25rem;
   }
 }
+.max-w-32 {
+  max-width: 2rem;
+}
+
 .max-w-1366 {
   max-width: 85.375rem;
 }
@@ -1614,11 +1632,15 @@ strong {
   .h-37_md {
     height: 2.3125rem;
   }
-  .h-44_md {
-    height: 2.75rem;
+  .h-40_md {
+    height: 2.5rem;
   }
   .h-509_md {
     height: 31.8125rem;
+  }
+  .h-fit_md {
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 @media (min-width: 80rem) {
@@ -1628,8 +1650,8 @@ strong {
   .h-42_lg {
     height: 2.625rem;
   }
-  .h-52_lg {
-    height: 3.25rem;
+  .h-56_lg {
+    height: 3.5rem;
   }
   .h-160_lg {
     height: 10rem;
@@ -1658,6 +1680,19 @@ strong {
   max-height: 12.375rem;
 }
 
+.max-h-240 {
+  max-height: 15rem;
+}
+
+.max-h-60dvh {
+  max-height: 60dvh;
+}
+
+@media (min-width: 48rem) {
+  .max-h-100_md {
+    max-height: 6.25rem;
+  }
+}
 .min-h-344 {
   min-height: 21.5rem;
 }
@@ -1666,6 +1701,11 @@ strong {
   min-height: 100vh;
 }
 
+@media (min-width: 80rem) {
+  .min-h-40_lg {
+    min-height: 2.5rem;
+  }
+}
 .m-8 {
   margin: 0.5rem;
 }
@@ -1764,6 +1804,10 @@ strong {
 
 .my-auto {
   margin-block: auto;
+}
+
+.my-8 {
+  margin-block: 0.5rem;
 }
 
 .my-16 {
@@ -1892,6 +1936,10 @@ strong {
 
 .pb-4 {
   padding-bottom: 0.25rem;
+}
+
+.pb-8 {
+  padding-bottom: 0.5rem;
 }
 
 .pb-12 {
@@ -2025,6 +2073,9 @@ strong {
   }
   .py-8_lg {
     padding-block: 0.5rem;
+  }
+  .py-16_lg {
+    padding-block: 1rem;
   }
   .py-12_lg {
     padding-block: 0.75rem;
