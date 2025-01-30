@@ -157,6 +157,8 @@ export const getTwitterLink = author => {
     )?.url;
 };
 
+export const ottProgramsLayouts = ['OTT-programa', 'OTT-default'];
+
 export const getData = ({
     siteProperties,
     metaValue,
@@ -165,7 +167,9 @@ export const getData = ({
     contextPath,
     deployment,
     section,
-    metaDescription
+    metaDescription,
+    arcSite,
+    layout
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
@@ -195,7 +199,14 @@ export const getData = ({
     const { basic: subheadlinesBasic } = subheadlines;
     const { basic: promoItemsBasic = {} } = promoItems;
 
-    const url = canonicalUrl || _id;
+    let url = '';
+
+    if (arcSite === 'ott' && ottProgramsLayouts.includes(layout)) {
+        url = _id ? `/programas${_id}` : '/programas/';
+    } else {
+        url = canonicalUrl || _id;
+    }
+
     const description = getDescription({
         isArticle,
         subheadlinesBasic,
