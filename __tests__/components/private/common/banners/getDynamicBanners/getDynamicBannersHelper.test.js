@@ -149,14 +149,14 @@ describe('Components - private - common - banners - dynamicBanners - getDynamicB
     describe('Function hasBomba', () => {
         it('should test hasBomba func', () => {
             expect(hasBomba(getRenderables())).toStrictEqual(true);
-            expect(hasBomba(getRenderables(true))).toStrictEqual(undefined);
-            expect(hasBomba([])).toStrictEqual(undefined);
+            expect(hasBomba(getRenderables(true))).toStrictEqual(false);
+            expect(hasBomba([])).toStrictEqual(false);
         });
 
-        it('should return undefined when renderables array is empty', () => {
+        it('should return false when renderables array is empty', () => {
             const renderables = [];
 
-            expect(hasBomba(renderables)).toBe(undefined);
+            expect(hasBomba(renderables)).toBe(false);
         });
     });
 
@@ -408,10 +408,8 @@ const elementWithoutHideTitle = [
                 heightMobile: 236,
                 heightTablet: 174,
                 hideByUrl: true,
-                html:
-                    '<style>iframe.iframe_anexoAnuario21{height:390px}@media(max-width:850px){iframe.iframe_anexoAnuario21{height:360px}}@media(max-width:700px){iframe.iframe_anexoAnuario21{height:345px}}@media(max-width:650px){iframe.iframe_anexoAnuario21{height:535px}}@media(max-width:550px){iframe.iframe_anexoAnuario21{height:840px}}@media(max-width:450px){iframe.iframe_anexoAnuario21{height:770px}}@media(max-width:400px){iframe.iframe_anexoAnuario21{height:745px}}@media(max-width:350px){iframe.iframe_anexoAnuario21{height:690px}}</style> <iframe class="iframe_anexoAnuario21" frameborder="0" width="100%" height="390" scrolling="no" src="https://especialess3.lanacion.com.ar/21/11/anexo-anuario-2021/"></iframe>',
-                url:
-                    'https://especialess3.lanacion.com.ar/interactivos/22/08/anexos-calculadora-mundial-2022-v07/?v=13'
+                html: '<style>iframe.iframe_anexoAnuario21{height:390px}@media(max-width:850px){iframe.iframe_anexoAnuario21{height:360px}}@media(max-width:700px){iframe.iframe_anexoAnuario21{height:345px}}@media(max-width:650px){iframe.iframe_anexoAnuario21{height:535px}}@media(max-width:550px){iframe.iframe_anexoAnuario21{height:840px}}@media(max-width:450px){iframe.iframe_anexoAnuario21{height:770px}}@media(max-width:400px){iframe.iframe_anexoAnuario21{height:745px}}@media(max-width:350px){iframe.iframe_anexoAnuario21{height:690px}}</style> <iframe class="iframe_anexoAnuario21" frameborder="0" width="100%" height="390" scrolling="no" src="https://especialess3.lanacion.com.ar/21/11/anexo-anuario-2021/"></iframe>',
+                url: 'https://especialess3.lanacion.com.ar/interactivos/22/08/anexos-calculadora-mundial-2022-v07/?v=13'
             },
             displayProperties: {},
             id: 'f0f7L1jCKXiv19v',
