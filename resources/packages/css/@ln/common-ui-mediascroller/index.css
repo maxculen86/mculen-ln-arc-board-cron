@@ -16,6 +16,11 @@
 .media-scroller [data-scroller=track] > [data-scroller=element] {
   scroll-snap-align: start;
 }
+@media screen and (max-width: 1279px) {
+  .media-scroller [data-scroller=track] > [data-scroller=element].--x-scroll-boundary-swipe {
+    scroll-snap-stop: always;
+  }
+}
 .media-scroller [data-scroller=track].--full-width {
   width: calc(100% + var(--spacing) * 2);
   padding-inline: var(--spacing);

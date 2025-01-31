@@ -28,6 +28,11 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoContain
         jest.clearAllMocks();
     });
 
+    const defaultProps = {
+        handleNextCallback: jest.fn(),
+        isLastVideo: false
+    };
+
     it('renders correctly when videosData is available', () => {
         useCajaCarruselContext.mockReturnValue({
             onCloseMediaScrollerExpanded: mockOnClose,
@@ -37,7 +42,7 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoContain
             ]
         });
 
-        render(<JwVideoContainer />);
+        render(<JwVideoContainer {...defaultProps} />);
 
         const listItems = screen.getAllByRole('listitem');
         expect(listItems).toHaveLength(2);
@@ -56,7 +61,7 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoContain
             videosData: []
         });
 
-        const { container } = render(<JwVideoContainer />);
+        const { container } = render(<JwVideoContainer {...defaultProps} />);
         expect(container.firstChild).toBeNull();
     });
 
@@ -66,11 +71,22 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoContain
             videosData: [{ id: 'video1', title: 'Video 1' }]
         });
 
-        render(<JwVideoContainer />);
+        render(<JwVideoContainer {...defaultProps} />);
 
         const closeButton = screen.getByTitle('Cerrar');
         fireEvent.click(closeButton);
 
         expect(mockOnClose).toHaveBeenCalled();
+    });
+    it('should match snapshot', () => {
+        useCajaCarruselContext.mockReturnValue({
+            onCloseMediaScrollerExpanded: mockOnClose,
+            videosData: [
+                { id: 'video1', title: 'Video 1' },
+                { id: 'video2', title: 'Video 2' }
+            ]
+        });
+        const { asFragment } = render(<JwVideoContainer {...defaultProps} />);
+        expect(asFragment()).toMatchSnapshot();
     });
 });

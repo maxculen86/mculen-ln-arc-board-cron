@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
@@ -12,8 +12,9 @@ import {
     shouldBeExcluded
 } from './utils/metarefreshHelper';
 
-const Component = props => {
+function Component(props) {
     const { getCookie } = handleCookie();
+
     const globalContent = get(props, 'globalContent', null);
     const type = get(props, 'globalContent.type', null);
     const category = get(props, 'globalContent.category', null);
@@ -27,9 +28,7 @@ const Component = props => {
         query: {
             website
         },
-        transform: resp => {
-            return get(resp, 'Metarefresh', undefined);
-        }
+        transform: resp => get(resp, 'Metarefresh', undefined)
     });
     const typeOrId = type || _id;
 
@@ -48,21 +47,56 @@ const Component = props => {
             interval < 1 ||
             shouldBeExcluded({ globalContent })
         ) {
-            return;
+            return () => {};
         }
 
-        setTimeout(() => {
-            (!cookieProductoPremium || template === 'home') &&
-                localStorage.setItem('CDmetaRefresh', true);
-            if (template === 'home') {
-                window.scrollTo(0, 0);
-                sessionStorage.setItem('hp', 0);
-                sessionStorage.setItem('lb', 'apertura1');
-                window.location.href = SITE_LANACION;
-            } else {
-                window.location.reload();
-            }
-        }, interval);
+        let timeoutId = null;
+
+        const handleSetTimeout = () => {
+            timeoutId = setTimeout(() => {
+                if (!cookieProductoPremium || template === 'home') {
+                    localStorage.setItem('CDmetaRefresh', true);
+                }
+                if (template === 'home') {
+                    window.scrollTo(0, 0);
+                    sessionStorage.setItem('hp', 0);
+                    sessionStorage.setItem('lb', 'apertura1');
+                    window.location.href = SITE_LANACION;
+                } else {
+                    window.location.reload();
+                }
+            }, interval);
+        };
+
+        const handleClearTimeout = () => {
+            clearTimeout(timeoutId);
+            timeoutId = null;
+        };
+
+        const handleRetriggerTimeout = () => {
+            handleClearTimeout();
+            handleSetTimeout();
+        };
+
+        window.LN.observable.subscribe('clearTimeout', handleClearTimeout);
+        window.LN.observable.subscribe(
+            'retriggerTimeout',
+            handleRetriggerTimeout
+        );
+
+        handleSetTimeout();
+
+        return () => {
+            window.LN.observable.unsubscribe(
+                'clearTimeout',
+                handleClearTimeout
+            );
+            window.LN.observable.unsubscribe(
+                'retriggerTimeout',
+                handleRetriggerTimeout
+            );
+            handleClearTimeout();
+        };
     }, [
         cookieProductoPremium,
         globalContent,
@@ -74,8 +108,8 @@ const Component = props => {
         isSubscribed
     ]);
 
-    return <></>;
-};
+    return null;
+}
 
 Component.propTypes = {
     globalContent: PropTypes.shape({

@@ -5,7 +5,7 @@ import Metarefresh from '../../../../components/private/common/metarefresh';
 import handleCookie from '../../../../components/private/LN/common/utils/handleCookie';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -72,6 +72,13 @@ describe('Components - private - common - metarefresh', () => {
             assign: jest.fn()
         };
         jest.useFakeTimers();
+        global.window.LN = {
+            observable: {
+                publish: jest.fn(),
+                subscribe: jest.fn(),
+                unsubscribe: jest.fn()
+            }
+        };
     });
 
     afterAll(() => {
