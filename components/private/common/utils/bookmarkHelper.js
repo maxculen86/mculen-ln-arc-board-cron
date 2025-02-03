@@ -94,6 +94,44 @@ export function getBookmarkContent(globalContent) {
     };
 }
 
+const fetchBookmarks = async (
+    path,
+    accessToken,
+    token,
+    bookmarkRequestBody,
+    setBookmark,
+    isDelete
+) => {
+    const handleResponse = async res => {
+        if (res.status !== 200)
+            return { status: res.status, bookmarkContent: null };
+
+        const data = await res.json();
+        const { bookmarkContent, bookmarkId } = data;
+
+        if (setBookmark) {
+            setBookmark(bookmarkContent ? bookmarkId : '');
+        }
+
+        return {
+            status: res.status,
+            bookmarkContent: bookmarkContent || null
+        };
+    };
+
+    try {
+        const res = await fetch(`${PERSONALIZACION_APIV2}bookmarks${path}`, {
+            method: isDelete ? 'DELETE' : 'POST',
+            headers: { Authorization: accessToken, 'X-Token': token },
+            body: JSON.stringify(bookmarkRequestBody)
+        });
+
+        return await handleResponse(res);
+    } catch (err) {
+        return { status: 500, bookmarkContent: null };
+    }
+};
+
 export default function toggleBookmark({
     isDelete,
     setBookmark,
@@ -101,62 +139,35 @@ export default function toggleBookmark({
 } = {}) {
     const getDataFromAPI = async () => {
         const { token, accessToken } = await getAuthTokens();
-
-        const fetchBookmarkPath = isDelete ? `/${isDelete}` : '';
-        const { _id: noteId = '' } = _globalContent;
-        const primarySectionName = get(
-            _globalContent,
-            'taxonomy.primary_section.name',
-            ''
-        );
-
-        const bookmarkRequestBody = isDelete
-            ? {}
-            : {
-                  bookmarkParent: noteId,
-                  bookmarkType: 'story',
-                  bookmarkTypeId: noteId,
-                  bookmarkGroup: primarySectionName,
-                  bookmarkContent: getBookmarkContent(_globalContent)
-              };
-
-        if (!accessToken || !token) {
+        if (!accessToken || !token)
             return { status: 401, bookmarkContent: null };
-        }
 
-        try {
-            const res = await fetch(
-                `${PERSONALIZACION_APIV2}bookmarks${fetchBookmarkPath}`,
-                {
-                    method: isDelete ? 'DELETE' : 'POST',
-                    headers: {
-                        Authorization: accessToken,
-                        'X-Token': token
-                    },
-                    body: JSON.stringify(bookmarkRequestBody)
-                }
-            );
+        const { _id: noteId = '', taxonomy } = _globalContent;
+        const primarySectionName = taxonomy?.primary_section?.name || '';
 
-            let bookmarkContent = null;
+        const fetchBookmarkPath = (isDelete && `/${isDelete}`) || '';
 
-            if (res.status === 200) {
-                const data = await res.json();
-                bookmarkContent = data.bookmarkContent || null;
+        const bookmarkRequestBody = (isDelete && {}) || {
+            bookmarkParent: noteId,
+            bookmarkType: 'story',
+            bookmarkTypeId: noteId,
+            bookmarkGroup: primarySectionName,
+            bookmarkContent: getBookmarkContent(_globalContent)
+        };
 
-                if (setBookmark)
-                    setBookmark(bookmarkContent ? data.bookmarkId : '');
-            }
-
-            return { status: res.status, bookmarkContent };
-        } catch (err) {
-            console.error(err);
-            return { status: 500, bookmarkContent: null };
-        }
+        return fetchBookmarks(
+            fetchBookmarkPath,
+            accessToken,
+            token,
+            bookmarkRequestBody,
+            setBookmark,
+            isDelete
+        );
     };
 
-    const shouldCallApi = isDelete || Object.keys(_globalContent).length;
-
-    return shouldCallApi ? getDataFromAPI() : null;
+    return isDelete || Object.keys(_globalContent).length
+        ? getDataFromAPI()
+        : null;
 }
 
 export const getStatusMessage = (status, bookmarkContent) => {
