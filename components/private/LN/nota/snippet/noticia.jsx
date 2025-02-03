@@ -56,7 +56,15 @@ const extracDataFromCredits = (by, config = {}) => {
 const publishingPrinciples =
     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
-const sectionsWithTypeNewsArticle = ['Tecnología', 'Sociedad', 'Espectáculos'];
+const sectionsWithTypeNewsArticle = [
+    'Tecnología',
+    'Sociedad',
+    'Espectáculos',
+    'Lifestyle',
+    'Autos',
+    'Seguridad',
+    'Opinión'
+];
 
 export const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
