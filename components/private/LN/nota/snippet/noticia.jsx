@@ -63,7 +63,8 @@ const sectionsWithTypeNewsArticle = [
     'Lifestyle',
     'Autos',
     'Seguridad',
-    'Opinión'
+    'Opinión',
+    'El Mundo'
 ];
 
 export const getTrustProject = trust => data => sponsored => {
