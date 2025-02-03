@@ -100,7 +100,7 @@ describe('Tests getTrustProject() function', () => {
         }
     );
 
-    it('If the note section is not found in the NewsArticle set, its type must be ReportNewsArticle', () => {
+    it('If the section is not found in the NewsArticle set, its type must be ReportNewsArticle', () => {
         expect(
             getTrustProject('Noticia')({
                 '@type': 'AdvertiserContentArticle',
