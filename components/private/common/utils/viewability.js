@@ -1,6 +1,71 @@
 /* eslint-disable no-console */
 import get from './get';
 
+export const updateIndexOfItems = (items = []) => {
+    const newItems = [];
+    items.forEach((item, i) => {
+        newItems.push({
+            ...item,
+            index: i + 1
+        });
+    });
+    return newItems;
+};
+
+const addEventImpressionToDataLayer = (
+    articlesToAdd = [],
+    itemsToAdd = [],
+    articlesSeen = []
+) => {
+    if (articlesToAdd.length > 0) {
+        const itemsUpdated = updateIndexOfItems(itemsToAdd);
+        window.dataLayer.push({
+            ecommerce: null
+        });
+        window.dataLayer.push({
+            event: `impressionsScore`,
+            ecommerce: { items: itemsUpdated }
+        });
+
+        articlesSeen.push(...articlesToAdd);
+
+        sessionStorage.setItem(
+            'seenArticlesScore',
+            JSON.stringify(
+                articlesSeen.map(art => ({
+                    id: art.id,
+                    name: art.name,
+                    list: art.list
+                }))
+            )
+        );
+    }
+};
+
+const getName = element => {
+    const subtitle = element.querySelectorAll('h4, h2, h1');
+    if (subtitle && subtitle.length > 0) {
+        return (subtitle[0].innerText && subtitle[0].innerText.trim()) || '';
+    }
+    return '';
+};
+
+const shouldAddArticle = (entry, articlesSeen) => {
+    const idArticle = get(entry, 'target.dataset.id');
+    const sectionOfArticle =
+        get(entry, 'target') && get(entry, 'target').closest('[data-is-block]');
+
+    const blockName = get(sectionOfArticle, 'dataset.blockName');
+    return (
+        entry.isIntersecting &&
+        idArticle &&
+        Array.isArray(articlesSeen) &&
+        !articlesSeen.find(
+            art => art.id === idArticle && art.list === blockName
+        )
+    );
+};
+
 export const getDataSetProps = element => {
     if (element) {
         const { dataset: articleDataSet = {} } = element;
@@ -86,14 +151,6 @@ export const getDataSetProps = element => {
     return {};
 };
 
-const getName = element => {
-    const subtitle = element.querySelectorAll('h4, h2, h1');
-    if (subtitle && subtitle.length > 0) {
-        return (subtitle[0].innerText && subtitle[0].innerText.trim()) || '';
-    }
-    return '';
-};
-
 export const productClickFromClient = (element = {}) => {
     const { item } = getDataSetProps(element.currentTarget);
     if (item.item_id) {
@@ -107,8 +164,11 @@ export const productClickFromClient = (element = {}) => {
 
 export const createIntersectionObserver = () => {
     try {
-        const callback = (entries, _observer) => {
+        const observedElements = new Set();
+
+        const callback = (entries, observer) => {
             const articlesToAdd = [];
+            const articlesToAddFiltered = [];
             const itemsToAdd = [];
             const articlesSeen =
                 (sessionStorage &&
@@ -116,15 +176,19 @@ export const createIntersectionObserver = () => {
                 [];
 
             entries.forEach(entry => {
-                if (shouldAddArticle(entry, articlesSeen)) {
+                if (
+                    entry.isIntersecting &&
+                    shouldAddArticle(entry, articlesSeen)
+                ) {
                     const { product, item } = getDataSetProps(entry.target);
                     articlesToAdd.push(product);
                     itemsToAdd.push(item);
+
                     observer.unobserve(entry.target);
+                    observedElements.delete(entry.target);
                 }
             });
 
-            const articlesToAddFiltered = [];
             articlesToAdd.forEach(data => {
                 const existElement = articlesToAddFiltered.find(
                     element =>
@@ -148,13 +212,27 @@ export const createIntersectionObserver = () => {
             threshold: 0.1
         });
 
-        document
-            .querySelectorAll('article, .live-body > article')
-            .forEach(element => {
-                if (element) {
-                    observer.observe(element);
-                }
-            });
+        const observeElements = () => {
+            document
+                .querySelectorAll('article, .live-body > article')
+                .forEach(element => {
+                    if (element && !observedElements.has(element)) {
+                        observer.observe(element);
+                        observedElements.add(element);
+                    }
+                });
+        };
+
+        const mutationObserver = new MutationObserver(() => {
+            observeElements();
+        });
+
+        mutationObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        observeElements();
 
         return observer;
     } catch (error) {
@@ -167,68 +245,19 @@ export const createIntersectionObserver = () => {
     }
 };
 
-const shouldAddArticle = (entry, articlesSeen) => {
-    const idArticle = get(entry, 'target.dataset.id');
-    const sectionOfArticle =
-        get(entry, 'target') && get(entry, 'target').closest('[data-is-block]');
-
-    const blockName = get(sectionOfArticle, 'dataset.blockName');
-    return (
-        entry.isIntersecting &&
-        idArticle &&
-        Array.isArray(articlesSeen) &&
-        !articlesSeen.find(
-            art => art.id === idArticle && art.list === blockName
-        )
-    );
-};
-
-export const updateIndexOfItems = (items = []) => {
-    const newItems = [];
-    items.forEach((item, i) => {
-        newItems.push({
-            ...item,
-            index: i + 1
-        });
-    });
-    return newItems;
-};
-
-const addEventImpressionToDataLayer = (
-    articlesToAdd = [],
-    itemsToAdd = [],
-    articlesSeen = []
-) => {
-    if (articlesToAdd.length > 0) {
-        const itemsUpdated = updateIndexOfItems(itemsToAdd);
-        window.dataLayer.push({
-            ecommerce: null
-        });
-        window.dataLayer.push({
-            event: `impressionsScore`,
-            ecommerce: { items: itemsUpdated }
-        });
-
-        articlesSeen.push(...articlesToAdd);
-
-        sessionStorage.setItem(
-            'seenArticlesScore',
-            JSON.stringify(
-                articlesSeen.map(art => ({
-                    id: art.id,
-                    name: art.name,
-                    list: art.list
-                }))
-            )
-        );
-    }
-};
-
 export const createViewabilityObservers = (isLN10 = false) => {
-    const interSectionObserver = createIntersectionObserver();
+    if (typeof window !== 'undefined') {
+        const observer = createIntersectionObserver();
+
+        window.addEventListener('beforeunload', () => {
+            if (observer) observer.disconnect();
+        });
+    }
 
     if (!isLN10) {
-        const mutationCallback = (mutationsList, observer) => {
+        const interSectionObserver = createIntersectionObserver();
+
+        const mutationCallback = mutationsList => {
             mutationsList.forEach(mutation => {
                 mutation.addedNodes.forEach(node => {
                     if (get(node, 'dataset.module')) {
@@ -258,7 +287,5 @@ export const createViewabilityObservers = (isLN10 = false) => {
                 subtree: true
             }
         );
-
-        // mutationObserver.disconnect();
     }
 };

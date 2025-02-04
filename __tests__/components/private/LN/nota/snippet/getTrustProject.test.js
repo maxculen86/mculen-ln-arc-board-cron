@@ -53,11 +53,46 @@ describe('Tests getTrustProject() function', () => {
                 'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
             articleSection: 'Sociedad',
             sections: [{ name: 'Sociedad' }, { name: 'Comunidad' }]
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'El Mundo',
+            sections: [{ name: 'El Mundo' }, { name: 'Comunidad' }]
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'Opinión',
+            sections: [{ name: 'Opinión' }, { name: 'Comunidad' }]
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'Lifestyle',
+            sections: [{ name: 'Lifestyle' }, { name: 'Comunidad' }]
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'Autos',
+            sections: [{ name: 'Autos' }, { name: 'Comunidad' }]
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples:
+                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+            articleSection: 'Seguridad',
+            sections: [{ name: 'Seguridad' }, { name: 'Comunidad' }]
         }
     ];
 
     it.each(dataNote)(
-        'Type for trust noticia and section equals to Sociedad, Tecnología or Espectaculos must be NewsArticle',
+        'For notes from certain sections, the type must be NewsArticle',
         data => {
             expect(getTrustProject('Noticia')(data)(false)['@type']).toBe(
                 'NewsArticle'
@@ -65,7 +100,7 @@ describe('Tests getTrustProject() function', () => {
         }
     );
 
-    it('If another section different from Sociedad, Tecnología or Espectaculos and trust noticia type must be ReportageNewsArticle', () => {
+    it('If the section is not found in the NewsArticle set, its type must be ReportNewsArticle', () => {
         expect(
             getTrustProject('Noticia')({
                 '@type': 'AdvertiserContentArticle',

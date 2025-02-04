@@ -8,10 +8,12 @@ import CardVertical from '../../LN-10-global/cardVerticalCarrusel/default';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import {
     checkForId,
+    getChainConfig,
     getChainParentOfFeature
 } from '../article/common/_helper-WebApi';
 import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 import get from '../../../private/common/utils/get';
+import { getDataAttributesForViewability } from '../article/_helper';
 
 function itemCarrusel({
     isAdmin,
@@ -59,6 +61,15 @@ function itemCarrusel({
         elem => elem && get(elem, 'props.id') === featureId
     );
 
+    const { boxPosition } = getChainConfig({ featureId, renderables });
+
+    const extraOpts = getDataAttributesForViewability(
+        videoId,
+        boxPosition,
+        cardPosition,
+        true
+    );
+
     if (isAdmin && !!error) {
         return (
             <article data-feature-id={featureId}>
@@ -75,6 +86,7 @@ function itemCarrusel({
         !error &&
         videoData && (
             <CardVertical
+                data-feature-id={featureId}
                 title={title}
                 titleJwPlayer={videoData?.title}
                 badgeText={chapita}
@@ -84,6 +96,7 @@ function itemCarrusel({
                 cardPosition={cardPosition}
                 videoId={videoId}
                 layoutType={getLayoutType(layout)}
+                {...extraOpts}
             />
         )
     );

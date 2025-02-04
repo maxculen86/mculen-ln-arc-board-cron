@@ -22,6 +22,16 @@ jest.mock(
     })
 );
 
+const observe = jest.fn();
+const unobserve = jest.fn();
+const disconnect = jest.fn();
+
+window.IntersectionObserver = jest.fn(() => ({
+    observe,
+    unobserve,
+    disconnect
+}));
+
 describe('components - features - LN-10 - itemCarrusel', () => {
     const mockVideoData = {
         poster: 'mock-poster.jpg'

@@ -143,7 +143,11 @@ export const isValidSectionIA = sections => {
         '/economia/campo',
         '/autos',
         '/salud',
-        '/propiedades'
+        '/propiedades',
+        '/espectaculos',
+        '/sociedad',
+        '/tecnologia',
+        '/el-mundo'
     ];
 
     return validSections.some(validSection => section.startsWith(validSection));
