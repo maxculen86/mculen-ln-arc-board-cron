@@ -65,11 +65,11 @@ function CajaCarruselProvider({ children }) {
 
     const value = useMemo(
         () => ({
-            currentIndex,
             videosData,
-            isOpenMediaScrollerExpanded,
-            setCurrentIndex,
             setVideosData,
+            currentIndex,
+            setCurrentIndex,
+            isOpenMediaScrollerExpanded,
             onOpenMediaScrollerExpanded,
             onCloseMediaScrollerExpanded
         }),

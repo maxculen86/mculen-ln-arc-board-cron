@@ -1,14 +1,16 @@
-import React, { useRef, useState, useCallback, useEffect } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Cardv2 } from '@ln/contenidos-ui-cardv2';
 import { Icon } from '@ln/common-ui-icon';
 import { Badge } from '@ln/contenidos-ui-badge';
-import { useOnClickOutside } from '@ln/hooks';
 import Video from './video';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { secondsToMinutes } from './helpers';
 import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
+import { productClickFromClient } from '../../../private/common/utils/viewability';
+import { registeredIdsSetAndInteractions } from '../../../chains/LN10_Caja_Carrusel/components/helpers';
+import isSSR from '../../../private/LN/common/utils/isSSR';
 
 function CardVertical({
     title = '',
@@ -19,43 +21,26 @@ function CardVertical({
     cardPosition,
     videoId,
     layoutType,
-    titleJwPlayer
+    titleJwPlayer,
+    ...viewabilityData
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
-    const [isTouching, setIsTouching] = useState(false);
 
     const { setCurrentIndex, onOpenMediaScrollerExpanded } =
         useCajaCarruselContext();
 
-    const touchTimeoutRef = useRef(null);
     const containerCardRef = useRef(null);
 
-    const handleCardMouseEnter = useCallback(() => {
-        if (!isTouching) {
-            setIsPlaying(true);
-        }
-    }, [isTouching]);
+    const handleProductClick = event => {
+        productClickFromClient(event);
+    };
 
-    const handleCardMouseLeave = useCallback(() => {
-        setIsPlaying(false);
-    }, []);
+    const isDesktop = !isSSR() && window?.innerWidth > 1279;
 
-    const handleCardTouchStart = useCallback(() => {
-        setIsTouching(true);
-        touchTimeoutRef.current = setTimeout(() => {
-            setIsPlaying(true);
-        }, 400);
-    }, []);
-
-    const handleClickCardOutside = useCallback(() => {
-        clearTimeout(touchTimeoutRef?.current);
-        setIsTouching(false);
-        setIsPlaying(false);
-    }, []);
-
-    const handleClickCard = useCallback(() => {
+    const handleClickCard = useCallback(event => {
         onOpenMediaScrollerExpanded();
         setCurrentIndex(cardPosition);
+        registeredIdsSetAndInteractions.add('clickEventRegistered');
         addEventToDataLayerV2({
             event: 'video_view',
             contentType: 'video_story',
@@ -65,24 +50,38 @@ function CardVertical({
                 id_video: videoId
             }
         });
+        handleProductClick(event);
     }, []);
 
-    useEffect(() => () => clearTimeout(touchTimeoutRef?.current), []);
+    const handleMouseEnter = useCallback(() => {
+        if (isDesktop) {
+            setIsPlaying(true);
+        }
+    }, []);
 
-    useOnClickOutside(containerCardRef, handleClickCardOutside);
+    const handleMouseLeave = useCallback(() => {
+        if (isDesktop) {
+            setIsPlaying(false);
+        }
+    }, []);
 
     return (
         <div ref={containerCardRef}>
             <Cardv2
-                onMouseEnter={handleCardMouseEnter}
-                onMouseLeave={handleCardMouseLeave}
-                onTouchStart={handleCardTouchStart}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 onClick={handleClickCard}
                 className="card-vertical-carousel cursor-pointer"
                 variant="vertical"
+                {...viewabilityData}
             >
                 <Cardv2.Media>
-                    <Video src={src} poster={poster} isPlaying={isPlaying} />
+                    <Video
+                        src={src}
+                        poster={poster}
+                        isPlaying={isPlaying}
+                        setIsPlaying={setIsPlaying}
+                    />
                 </Cardv2.Media>
                 <Cardv2.Description style={{ gap: '12px' }}>
                     {badgeText && (
@@ -119,6 +118,7 @@ CardVertical.propTypes = {
     layoutType: PropTypes.string,
     titleJwPlayer: PropTypes.string.isRequired
 };
+
 CardVertical.defaultProps = {
     title: '',
     src: '',
@@ -127,4 +127,5 @@ CardVertical.defaultProps = {
     duration: 0,
     layoutType: ''
 };
+
 export default CardVertical;

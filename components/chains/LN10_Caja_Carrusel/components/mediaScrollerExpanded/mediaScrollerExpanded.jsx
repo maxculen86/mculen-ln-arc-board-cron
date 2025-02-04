@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useWindowSize } from '@ln/hooks';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
-import { registeredIdsSet } from '../helpers';
+import { registeredIdsSetAndInteractions } from '../helpers';
 import JwVideoContainer from './jwVideoContainer';
 import {
     useHandleBack,
@@ -33,7 +33,8 @@ function MediaScrollerExpanded() {
 
     const handleNextCallback = useHandleNext({
         containerRef,
-        showNext
+        showNext,
+        isMobile
     });
     const handleBackCallback = useHandleBack({
         containerRef,
@@ -42,6 +43,7 @@ function MediaScrollerExpanded() {
 
     useUpdateVideoWidth({
         containerRef,
+        viewportWidth,
         isMobile
     });
 
@@ -49,7 +51,7 @@ function MediaScrollerExpanded() {
 
     useEffect(
         () => () => {
-            registeredIdsSet.clear();
+            registeredIdsSetAndInteractions.clear();
         },
         []
     );
@@ -65,12 +67,19 @@ function MediaScrollerExpanded() {
                     style={{ transition: 'none' }}
                     iconOnly
                 >
-                    <Icon size={24}>
-                        <IconSprite name="arrowLeft" />
+                    <Icon size={24} color="dark">
+                        <IconSprite
+                            name="arrowLeft"
+                            fill="var(--neutral-light-800)"
+                        />
                     </Icon>
                 </Button>
             )}
-            <JwVideoContainer ref={containerRef} />
+            <JwVideoContainer
+                ref={containerRef}
+                handleNextCallback={handleNextCallback}
+                isLastVideo={currentIndex < videosData.length - 1}
+            />
             {showNext && (
                 <Button
                     title="Avanzar"
@@ -80,8 +89,11 @@ function MediaScrollerExpanded() {
                     style={{ transition: 'none' }}
                     iconOnly
                 >
-                    <Icon size={24}>
-                        <IconSprite name="arrowRight" />
+                    <Icon size={24} color="dark">
+                        <IconSprite
+                            name="arrowRight"
+                            fill="var(--neutral-light-800)"
+                        />
                     </Icon>
                 </Button>
             )}
@@ -89,4 +101,4 @@ function MediaScrollerExpanded() {
     );
 }
 
-export default MediaScrollerExpanded;
+export default memo(MediaScrollerExpanded);
