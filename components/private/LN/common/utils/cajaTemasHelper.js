@@ -192,28 +192,26 @@ export const getMarkupForDatalayer = (
         Default: () => {
             if (!position) return {};
 
-            const extraOpts = {
-                'data-block-name': `h_${sectionName}tema-${position}`,
-                'data-diagramacion-id': layout,
-                'data-is-block': true,
-                ...(positionInsideSection && {
-                    'data-chain-position': positionInsideSection
-                }),
-                id: `tema_${position}`,
-                ...(isExclusiveSub && {
-                    'data-is-subscriptor': true
-                }),
-                ...(isFoodit && {
-                    'data-is-foodit': true
-                }),
-                'data-roof': roof || 'N/A'
-            };
-
             return {
                 extraOptsDiv: {
                     'data-module': `tema_${position}`
                 },
-                extraOpts
+                extraOpts: {
+                    'data-block-name': `h_${sectionName}tema-${position}`,
+                    'data-diagramacion-id': layout,
+                    'data-is-block': true,
+                    ...(positionInsideSection && {
+                        'data-chain-position': positionInsideSection
+                    }),
+                    id: `tema_${position}`,
+                    ...(isExclusiveSub && {
+                        'data-is-subscriptor': true
+                    }),
+                    ...(isFoodit && {
+                        'data-is-foodit': true
+                    }),
+                    'data-roof': roof || 'N/A'
+                }
             };
         }
     };
