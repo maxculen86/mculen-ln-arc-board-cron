@@ -1306,6 +1306,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         data-test-id="container-cards-carousel"
       >
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -1416,6 +1417,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -1526,6 +1528,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -1620,6 +1623,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -1730,6 +1734,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -1840,6 +1845,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -1950,6 +1956,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -2044,6 +2051,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -2138,6 +2146,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -2248,6 +2257,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -2358,6 +2368,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article
@@ -2473,6 +2484,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </article>
         </li>
         <li
+          class=""
           data-scroller="element"
         >
           <article

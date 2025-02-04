@@ -4,7 +4,7 @@ import { setTitleByLayout } from '../../../common/elements/titles/index';
 import { setDolarByLayout } from '../../../common/elements/dolars/index';
 import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
 import { setRankingByLayout } from '../../../common/elements/ranking/index';
-import BackendLnError from '../../../../../../../components/private/LN/api/common/models/backendLnError';
+import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
 
 const transform = async (dataPage, query) => {
     const {
@@ -27,7 +27,9 @@ const transform = async (dataPage, query) => {
         // Returns boxes that type not >= 9, for discard
         elementsPageHome =
             (Array.isArray(elementsPageHome) &&
-                elementsPageHome.filter(elem => elem && elem.type < 9)) ||
+                elementsPageHome.filter(
+                    elem => (elem && elem.type < 9) || elem.type === 10
+                )) ||
             elementsPageHome;
 
         // Add Component Title set file /pageSource/common/elements/titles/config/configTitlePositionbySection.js

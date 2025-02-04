@@ -246,7 +246,7 @@ export const findPositionInsideSection = (idFeature, renderables = []) => {
 
 export const getCommonProps = props => {
     const {
-        customFields: { layout = 'grilla3', backgroundColor },
+        customFields: { layout = 'grilla3', backgroundColor } = {},
         renderables = [],
         id: idFeature,
         globalContent: { name, acumuladoGeneral } = {},
@@ -279,7 +279,7 @@ export const getCommonProps = props => {
 
     const showDatalayerMark =
         pageBuilderLayout === layoutsName.Home ||
-        pageBuilderLayout === layoutsName.HomeLN10
+            pageBuilderLayout === layoutsName.HomeLN10
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 

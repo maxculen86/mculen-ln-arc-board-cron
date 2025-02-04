@@ -144,12 +144,12 @@ export const getBadgetConfig = ({
 
     return !hideBadget
         ? {
-              badgetStyle: style || 'negative',
-              badgetText:
-                  withMedia &&
-                  typeOfMedia !== typeMedia.HTML &&
-                  (text || get(article, 'label.chapita.text'))
-          }
+            badgetStyle: style || 'negative',
+            badgetText:
+                withMedia &&
+                typeOfMedia !== typeMedia.HTML &&
+                (text || get(article, 'label.chapita.text'))
+        }
         : {};
 };
 export const getOnlyHoursMinutes = (time = '') =>
@@ -284,7 +284,8 @@ export const getMediaData = ({
     const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
-    const isEager = isImageEager(_id, renderables);
+    const isEager =
+        config.isFetchPriorityHigh || isImageEager(_id, renderables);
     const mediaDataDefault = transformImageData({
         articleData: article,
         imageData: outstandingImage,
@@ -323,14 +324,19 @@ export const getMediaData = ({
     );
 };
 
-export const getDataAttributesForViewability = (id, boxPosition, index) => {
+export const getDataAttributesForViewability = (
+    id,
+    boxPosition,
+    index,
+    hasVideo = false
+) => {
     const extraOpts = {};
     const indexNested = `0${Number(index) + 1}`.slice(-2);
     if (boxPosition) {
         extraOpts['data-pos'] = `${boxPosition}${indexNested}`;
         extraOpts['data-id'] = id;
         extraOpts['data-notaid'] = id;
-        extraOpts['data-source'] = 'editor';
+        extraOpts['data-source'] = hasVideo ? 'video' : 'editor';
     }
     return extraOpts;
 };
@@ -400,3 +406,9 @@ export const showExtraClass = (
 
     return classname || undefined;
 };
+
+export const getImageIdValidations = (
+    isHtmlParam,
+    isVideoParam,
+    imageIdParam
+) => (isHtmlParam || isVideoParam || imageIdParam === '' ? null : imageIdParam);

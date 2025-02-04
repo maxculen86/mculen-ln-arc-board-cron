@@ -1,0 +1,49 @@
+[
+    {},
+    {},
+    {},
+    {
+      "collection": "chains",
+      "type": "LN10_Caja_Apertura",
+      "props": {
+        "collection": "chains",
+        "type": "LN10_Caja_Apertura",
+        "id": "apertura_1",
+        "customFields": {
+          "layout": "left-focal",
+          "hideCaja": false
+        }
+      },
+      "children": [
+        {
+          "collection": "features",
+          "type": "LN-10/article",
+          "props": {
+            "collection": "features",
+            "type": "LN-10/article",
+            "id": "article_1",
+            "customFields": {
+              "noteId": "note_1",
+              "imageId": "image_1",
+              "hideImage": false
+            }
+          }
+        },
+        {
+          "collection": "features",
+          "type": "LN-10/article",
+          "props": {
+            "collection": "features",
+            "type": "LN-10/article",
+            "id": "article_2",
+            "customFields": {
+              "noteId": "note_2",
+              "imageId": "image_2",
+              "hideImage": false
+            }
+          }
+        }
+      ]
+    },
+    {}
+  ]

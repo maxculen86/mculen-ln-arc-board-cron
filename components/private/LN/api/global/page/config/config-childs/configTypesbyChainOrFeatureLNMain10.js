@@ -53,6 +53,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-acumulado/anexoIframe',
             'ln-10/timeline'
         ],
+        10: ['LN10_Caja_Carrusel'],
         11: ['foodit']
     };
     let defaultType = 9; // For discard box

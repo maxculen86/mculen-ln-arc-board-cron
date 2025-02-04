@@ -151,11 +151,15 @@ export const getJWScript = (
             handleVideoEventsScript(title, idVideo);
         });
 
-        if (facadeDiv) facadeDiv.remove();
+        if (facadeDiv) {
+            facadeDiv.remove();
+        }
     };
 
     if (hasAutoplay) {
-        setJwScript();
+        setTimeout(() => {
+            setJwScript();
+        }, 1000);
     } else {
         facadeDiv.addEventListener('click', setJwScript);
     }

@@ -17,7 +17,6 @@ function CatholicHolidaysTables() {
                 <>
                     <ModheaderSection
                         tag="h2"
-                        font="sueca"
                         title="Feriados inamovibles"
                         line
                     />
@@ -28,7 +27,6 @@ function CatholicHolidaysTables() {
                 <>
                     <ModheaderSection
                         tag="h2"
-                        font="sueca"
                         title="Feriados trasladables"
                         line
                     />
@@ -42,7 +40,6 @@ function CatholicHolidaysTables() {
                 <>
                     <ModheaderSection
                         tag="h2"
-                        font="sueca"
                         title="Días no laborables"
                         line
                     />

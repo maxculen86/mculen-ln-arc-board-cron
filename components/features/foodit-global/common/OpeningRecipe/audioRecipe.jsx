@@ -13,6 +13,7 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import EmptyState from '../emptyState/foodit';
 import { getVariantBarrier } from '../emptyState/helpers';
 import { AudioFoodit } from '../AudioFoodit/foodit';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function AudioRecipe({ title, resizedUrl, url, article }) {
     const { isOpen, onOpen, onClose } = useDisclosure(false);
@@ -30,6 +31,20 @@ function AudioRecipe({ title, resizedUrl, url, article }) {
     const text = isOpen ? 'Escuchando preparación' : defaultText;
     const position = isSubscribed ? 'bottom' : 'center';
 
+    const handleClick = () => {
+        onOpen();
+        addEventToDataLayerV2({
+            event: 'page_listened',
+            origin: 'receta',
+            title,
+            rest: {
+                autor_nombre: article?.credits?.by[0]?.name || 'N/A',
+                nota_id_arc: article?._id || 'N/A',
+                seccion: 'ficha_receta'
+            }
+        });
+    };
+
     return (
         <>
             <div className="flex ai-center gap-8">
@@ -37,7 +52,7 @@ function AudioRecipe({ title, resizedUrl, url, article }) {
                     style={{ padding: '8px 16px' }}
                     title="escuchar receta"
                     variant="secondary"
-                    onClick={onOpen}
+                    onClick={handleClick}
                     className="flex ai-center gap-8 min-h-40_lg"
                 >
                     {isOpen ? (
@@ -120,7 +135,16 @@ AudioRecipe.propTypes = {
     title: PropTypes.string.isRequired,
     resizedUrl: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    article: PropTypes.shape({}).isRequired
+    article: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        credits: PropTypes.shape({
+            by: PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.string.isRequired
+                })
+            ).isRequired
+        }).isRequired
+    }).isRequired
 };
 
 export default AudioRecipe;

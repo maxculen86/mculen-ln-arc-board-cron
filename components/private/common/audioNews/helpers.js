@@ -14,18 +14,16 @@ export const handleClickAudioNews = (
 ) => {
     if (subscription && token) {
         onOpenAudioPlayer();
-        addEventToDataLayerV2({
-            event: 'page_listened',
-            rest: getAudioEvents(
-                globalContent,
-                globalContentConfig,
-                contentVariant
-            )
-        });
+
         scheduleTask(() => closeTooltipIAAuthor());
     } else {
         openBarrier();
     }
+
+    addEventToDataLayerV2({
+        event: 'page_listened',
+        rest: getAudioEvents(globalContent, globalContentConfig, contentVariant)
+    });
 };
 
 export const getTextAndIconColor = (contentVariant, variant) => {

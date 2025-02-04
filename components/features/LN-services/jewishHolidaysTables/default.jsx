@@ -5,7 +5,7 @@ import get from '../../../private/common/utils/get';
 import Table from '../../../private/LN/nota/cuerpo/table';
 import ModheaderSection from '../../../private/common/mod-headerSection';
 
-const JewishHolidaysTable = ({ id: _featureId = {} }) => {
+function JewishHolidaysTable({ id: _featureId = {} }) {
     const jewishTable = get(
         useAppContext(),
         'globalContent.dataService.tables.Judio',
@@ -16,18 +16,13 @@ const JewishHolidaysTable = ({ id: _featureId = {} }) => {
         <>
             {!!Object.keys(jewishTable).length && (
                 <>
-                    <ModheaderSection
-                        tag="h2"
-                        font="sueca"
-                        title="Feriados judíos"
-                        line
-                    />
+                    <ModheaderSection tag="h2" title="Feriados judíos" line />
                     <Table data={jewishTable} extraClass="--holidays" />
                 </>
             )}
         </>
     );
-};
+}
 
 JewishHolidaysTable.label = 'LN Tabla Feriados Judíos';
 JewishHolidaysTable.propTypes = {

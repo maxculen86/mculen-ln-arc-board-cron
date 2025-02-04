@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { SkeletonCarousel } from '../skeletons/Carousel/foodit';
 
-export const LazyLoad = ({
+export function LazyLoad({
     children,
     PlaceholderComponent = SkeletonCarousel,
     showComponent = true,
@@ -10,7 +11,7 @@ export const LazyLoad = ({
     onViewport = () => {},
     hide,
     ...props
-}) => {
+}) {
     const targetRef = useRef(null);
     const [isIntersecting, setIsIntersecting] = useState(false);
 
@@ -37,7 +38,7 @@ export const LazyLoad = ({
     }, [rootMargin, threshold]);
 
     if (hide) {
-        return <></>;
+        return null;
     }
     return (
         <div ref={targetRef} {...props}>
@@ -48,6 +49,26 @@ export const LazyLoad = ({
             )}
         </div>
     );
+}
+
+LazyLoad.propTypes = {
+    children: PropTypes.node,
+    PlaceholderComponent: PropTypes.elementType,
+    showComponent: PropTypes.bool,
+    rootMargin: PropTypes.string,
+    threshold: PropTypes.number,
+    onViewport: PropTypes.func,
+    hide: PropTypes.bool
+};
+
+LazyLoad.defaultProps = {
+    children: null,
+    PlaceholderComponent: SkeletonCarousel,
+    showComponent: true,
+    rootMargin: '600px',
+    threshold: 0.1,
+    onViewport: () => {},
+    hide: false
 };
 
 export default LazyLoad;

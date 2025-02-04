@@ -3,7 +3,7 @@ import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import {
     copyListToClipboard,
@@ -27,7 +27,7 @@ function DropdownToggle(props) {
         </Button>
     );
 }
-export function RecipeOptions({ list, bookmarkId, setShoppingList }) {
+export function RecipeOptions({ list = [], bookmarkId, setShoppingList }) {
     const handleClick = e => {
         e.preventDefault();
         e.stopPropagation();
@@ -92,7 +92,28 @@ export function RecipeOptions({ list, bookmarkId, setShoppingList }) {
 }
 
 RecipeOptions.propTypes = {
-    list: PropTypes.isRequired,
-    bookmarkId: PropTypes.isRequired,
-    setShoppingList: PropTypes.isRequired
+    list: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            bookmarkId: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired,
+            sections: PropTypes.arrayOf(
+                PropTypes.shape({
+                    titleList: PropTypes.string,
+                    items: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            amount: PropTypes.string,
+                            unit: PropTypes.string.isRequired,
+                            ingredient: PropTypes.string.isRequired,
+                            abbreviation: PropTypes.string,
+                            fullIngredientString: PropTypes.string
+                        })
+                    ).isRequired,
+                    typeList: PropTypes.string.isRequired
+                })
+            ).isRequired
+        })
+    ).isRequired,
+    bookmarkId: PropTypes.string.isRequired,
+    setShoppingList: PropTypes.func.isRequired
 };

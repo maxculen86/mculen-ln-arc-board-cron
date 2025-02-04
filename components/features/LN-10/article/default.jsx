@@ -21,7 +21,8 @@ import {
     validateMedia,
     showSection,
     showExtraClass,
-    getTypeOfMedia
+    getTypeOfMedia,
+    getImageIdValidations
 } from './_helper';
 import {
     getChainConfig,
@@ -52,6 +53,7 @@ function ArticleFeature({
         imageId,
         video: videoId,
         lead,
+        html,
         title,
         authors,
         chapita,
@@ -95,6 +97,9 @@ function ArticleFeature({
         config,
         articlePosition: index
     });
+    const isHtml = Boolean(html);
+
+    const isVideo = Boolean(videoId);
 
     const isLiveblog = variant === 'liveblog';
 
@@ -120,8 +125,10 @@ function ArticleFeature({
         filter: isLiveblog ? liveblogFilter : filter
     });
 
+    const resolveImageId = getImageIdValidations(isHtml, isVideo, imageId);
+
     const image = GetImage({
-        imageId,
+        imageId: resolveImageId,
         imageConfig,
         id,
         onlyOneApeturaValidateForWWW,
@@ -145,7 +152,7 @@ function ArticleFeature({
     // TODO agregar test cuando se muestra video en article ln 10
     const videoBackground =
         useContent({
-            source: checkForId(videoId) ? 'videosJwSource' : null,
+            source: checkForId(videoId) && !isHtml ? 'videosJwSource' : null,
             staticMode: isSSR(),
             query: {
                 id: checkForId(videoId),
@@ -301,6 +308,18 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
+        noteId: PropTypes.string,
+        imageId: PropTypes.string,
+        video: PropTypes.string,
+        lead: PropTypes.string,
+        html: PropTypes.string,
+        title: PropTypes.string,
+        authors: PropTypes.arrayOf(PropTypes.string),
+        chapita: PropTypes.string,
+        chapitaStyle: PropTypes.object,
+        description: PropTypes.string,
+        hideAuthors: PropTypes.bool,
+        variant: PropTypes.oneOf(['regular', 'author', 'liveblog']),
         ...(articleCustomFields || {})
     }),
     searchableField: PropTypes.shape({

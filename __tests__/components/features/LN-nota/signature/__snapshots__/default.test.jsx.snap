@@ -128,6 +128,19 @@ exports[`components - feature - LN-nota - signature - default should not render 
                     Paz Rodríguez Niell
                   </strong>
                 </a>
+                , 
+              </span>
+              <span>
+                <a
+                  class="link ln-link"
+                  href="/autor/paz-rodriguez-niell-160/"
+                  target="_self"
+                  title="Ir a notas de Paz Rodríguez Niell"
+                >
+                  <strong>
+                    Paz Rodríguez Niell
+                  </strong>
+                </a>
                  y 
               </span>
               <span>

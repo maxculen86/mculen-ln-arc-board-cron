@@ -1,23 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// import { Icon } from '@ln/common-ui-icon';
+// import { Text } from '@ln/common-ui-text';
 import IngredientsListHeader from './components/Header';
 import IngredientsListContent from './components/Content';
 import { MainWrapper } from './components/MainWrapper';
 import { HeaderWrapper } from './components/HeaderWrapper';
 import { ContentWrapper } from './components/ContentWrapper';
+// import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
-export const IngredientsList = ({ isMobile, list = [], setShoppingList }) => {
+export function IngredientsList({ list = [], setShoppingList }) {
     return (
-        <section className="col-span-8 col-span-7_md col-span-11_lg flex flex-column gap-32">
+        <section className="col-span-8 col-span-7_md col-span-11_lg flex flex-column">
             {list?.map((articleIngredients, i) => {
-                if (!articleIngredients || (!isMobile && i !== 0)) return <></>;
+                if (!articleIngredients) return null;
 
-                const { text = '', sections = [], bookmarkId = '' } =
-                    articleIngredients || {};
+                const {
+                    text = '',
+                    sections = [],
+                    bookmarkId = ''
+                } = articleIngredients || {};
 
                 return (
                     <React.Fragment key={`${bookmarkId}-list`}>
-                        <MainWrapper isMobile={isMobile} visible={i === 0}>
-                            <HeaderWrapper isMobile={isMobile}>
+                        <MainWrapper visible={i === 0}>
+                            <HeaderWrapper>
                                 <IngredientsListHeader
                                     list={list}
                                     title={text}
@@ -25,20 +32,49 @@ export const IngredientsList = ({ isMobile, list = [], setShoppingList }) => {
                                     setShoppingList={setShoppingList}
                                 />
                             </HeaderWrapper>
-                            <ContentWrapper isMobile={isMobile}>
-                                {sections.map((section, sectionIndex) => (
+                            <ContentWrapper>
+                                {/* TODO: Add portions to the list in the future  */}
+                                {/* <div className="flex ai-center gap-8 pt-24">
+                                    <Icon>
+                                        <IconSprite name="portion" />
+                                    </Icon>
+                                    <Text className="uppercase roboto roboto-bold text-14">
+                                        Porciones: x
+                                    </Text>
+                                </div> */}
+                                {sections.map(section => (
                                     <IngredientsListContent
-                                        key={`${bookmarkId}-ingredient-${sectionIndex}`}
+                                        key={`${bookmarkId}-ingredient`}
                                         bookmarkId={bookmarkId}
                                         {...section}
                                     />
                                 ))}
                             </ContentWrapper>
                         </MainWrapper>
-                        {i < list.length - 1 && <hr className="sm-only" />}
                     </React.Fragment>
                 );
             })}
         </section>
     );
+}
+
+IngredientsList.propTypes = {
+    list: PropTypes.arrayOf(
+        PropTypes.shape({
+            typeList: PropTypes.string,
+            items: PropTypes.arrayOf(
+                PropTypes.shape({
+                    isMainIngredient: PropTypes.bool.isRequired,
+                    amount: PropTypes.string,
+                    unit: PropTypes.string.isRequired,
+                    ingredient: PropTypes.string.isRequired,
+                    abbreviation: PropTypes.string,
+                    fullIngredientString: PropTypes.string.isRequired,
+                    includeInShoppingList: PropTypes.bool.isRequired
+                })
+            ),
+            titleList: PropTypes.string
+        })
+    ).isRequired,
+    setShoppingList: PropTypes.func.isRequired
 };

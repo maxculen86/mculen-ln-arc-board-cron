@@ -18,6 +18,7 @@ function MediaScroller({ children, roofData }) {
                 <Mediascroller.Track
                     className="pb-32"
                     fixedElementsSize={itemCarouselWidth}
+                    xScrollBoundarySwipe
                 >
                     {children}
                 </Mediascroller.Track>

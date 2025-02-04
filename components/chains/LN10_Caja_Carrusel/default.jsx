@@ -11,16 +11,27 @@ import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrol
 import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
 import MediaScroller from './components/mediaScroller/mediaScroller';
 import { isScriptLoaded } from './components/helpers';
+import {
+    getCommonProps,
+    getMarkupForDatalayer
+} from '../../private/LN/common/utils/cajaTemasHelper';
+import getViewabilityRoof from '../utils/getViewabilityRoof';
 
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
 
-function CajaCarrusel({
-    children,
-    customFields: { hideCarousel, ...propsForRoof },
-    childProps
-}) {
+function CajaCarrusel(props) {
+    const {
+        children,
+        customFields: { hideCarousel, ...propsForRoof },
+        childProps,
+        chainId,
+        renderables
+    } = props;
+
     const { isAdmin } = useAppContext();
     const playerId = 'OSRCuuxn';
+
+    const { position, positionInsideSection } = getCommonProps(props);
 
     const roofData = useRoofData({
         ...propsForRoof,
@@ -28,11 +39,29 @@ function CajaCarrusel({
         isStatic: false
     });
 
+    const viewabilityRoof = getViewabilityRoof(
+        chainId,
+        renderables,
+        propsForRoof
+    );
+
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
+        '',
+        'carrusel',
+        position,
+        '',
+        positionInsideSection,
+        false,
+        false,
+        viewabilityRoof
+    );
+
     const error = validateCarruselChildren({ children, childProps });
 
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
+
     if (hideCarousel) {
         return null;
     }
@@ -50,12 +79,16 @@ function CajaCarrusel({
 
     return (
         <CajaCarruselProvider>
-            <MediaScroller roofData={roofData}>
-                {children.slice(0, 10)}
-            </MediaScroller>
-            <MediaScrollerExpandedWrapper>
-                <MediaScrollerExpanded />
-            </MediaScrollerExpandedWrapper>
+            <div {...extraOptsDiv}>
+                <section {...viewabilityData} data-chain-id={chainId}>
+                    <MediaScroller roofData={roofData}>
+                        {children.slice(0, 10)}
+                    </MediaScroller>
+                    <MediaScrollerExpandedWrapper>
+                        <MediaScrollerExpanded />
+                    </MediaScrollerExpandedWrapper>
+                </section>
+            </div>
         </CajaCarruselProvider>
     );
 }
@@ -135,7 +168,9 @@ CajaCarrusel.propTypes = {
             description: 'Marque para ocultar el carousel',
             defaultValue: false
         }).isRequired
-    }).isRequired
+    }).isRequired,
+    chainId: PropTypes.string.isRequired,
+    renderables: PropTypes.array.isRequired
 };
 
 export default Consumer(CajaCarrusel);

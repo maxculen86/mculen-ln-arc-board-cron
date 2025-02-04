@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import ComLink from '../../../common/com-link';
 
-const SchemaInfoWiki = ({ classes, label, text, link }) => {
+function SchemaInfoWiki({ classes, label, text, link }) {
     return (
         <div className={classes}>
             <Text font="arial" size="4xs" weight="regular" extraClass="label">
@@ -13,18 +13,13 @@ const SchemaInfoWiki = ({ classes, label, text, link }) => {
             {link ? (
                 <ComLink link={link} target="_blank" textname={text} />
             ) : (
-                <Text
-                    font="sueca"
-                    size="2xs"
-                    weight="regular"
-                    extraClass="text"
-                >
+                <Text size="2xs" weight="regular" extraClass="text">
                     {text}
                 </Text>
             )}
         </div>
     );
-};
+}
 
 export default SchemaInfoWiki;
 

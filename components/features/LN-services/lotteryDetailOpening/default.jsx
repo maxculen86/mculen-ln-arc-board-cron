@@ -17,7 +17,7 @@ import {
     reorderSubLotteries
 } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 
-const LotteryDetailOpening = () => {
+function LotteryDetailOpening() {
     const lottery = get(
         useAppContext(),
         'globalContent.dataService.lotteryDetail',
@@ -35,7 +35,6 @@ const LotteryDetailOpening = () => {
         lottery.length && (
             <Static id={id} htmlOnly>
                 <Text
-                    font="sueca"
                     size="xs"
                     weight="regular"
                     tag="h2"
@@ -88,7 +87,7 @@ const LotteryDetailOpening = () => {
             </Static>
         )
     );
-};
+}
 
 LotteryDetailOpening.label = 'LN Loteria Detalle Apertura';
 
