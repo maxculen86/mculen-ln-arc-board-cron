@@ -40,6 +40,25 @@ export function PowerupsReceta({ article = {} }) {
     const { nutritionLists, ingredientsLists } =
         getListsFromPowerup(contentElements);
 
+    const allowConversor = get(
+        article,
+        'label.conversion_porciones.text',
+        'Si'
+    );
+
+    const primarySection = get(article, 'taxonomy.primary_section._id', '');
+    const sectionsWithoutConversor = [
+        '/recetas/saladas/tartas',
+        '/recetas/dulces/tartas',
+        '/recetas/dulces/tortas',
+        '/recetas/dulces/postres',
+        '/recetas/dulces/budines',
+        '/recetas/saladas/pizzas-y-empanadas'
+    ];
+
+    const validateSection = !sectionsWithoutConversor.includes(primarySection);
+    const showButtonsConversor = allowConversor === 'Si' && validateSection;
+
     return (
         <>
             <Static htmlOnly persistent id={`sumary-box-${_id}`}>
@@ -55,6 +74,7 @@ export function PowerupsReceta({ article = {} }) {
                     ingredientsLists={ingredientsLists}
                     title={get(headlines, 'basic', '')}
                     portions={counterPortion}
+                    showButtonsConversor={showButtonsConversor}
                 />
                 <Static htmlOnly persistent id={`adintional-info-${_id}`}>
                     <hr />

@@ -92,11 +92,14 @@ describe('FoodIt', () => {
         expect(
             getByText(article.promo_items.receta.embed.config.occasions[0])
         ).toBeInTheDocument();
+        expect(getByText(`PORCIONES`)).toBeInTheDocument();
+
         expect(
             getByText(
-                `PORCIONES: ${article.promo_items.receta.embed.config.counterPortion}`
+                `${article.promo_items.receta.embed.config.counterPortion}`
             )
         ).toBeInTheDocument();
+
         expect(getByText(`item2`)).toBeInTheDocument();
     });
 });
