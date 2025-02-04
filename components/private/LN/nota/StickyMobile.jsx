@@ -30,7 +30,10 @@ function StickyMobile({ headerText, alt, articleToShow }) {
         <section
             className={`sticky-mobile flex jc-center${!displaySticky && ' hlp-none'}`}
         >
-            <div className="sticky-mobile-container flex flex-column gap-8 flex-grow-1">
+            <div
+                className="sticky-mobile-container flex flex-column gap-8 flex-grow-1"
+                data-mrf-recirculation="n_sticky"
+            >
                 <div className="header-sticky">
                     <div className="flex gap-16 ai-center">
                         <div className="flex p-4 rounded-4 bg-la-nacion">
