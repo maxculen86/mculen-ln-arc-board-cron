@@ -1,5 +1,5 @@
-import postIngredientsList from '../../../common/bookmark/api/postIngredientsList';
 import { SITE_FOODIT } from 'fusion:environment';
+import postIngredientsList from '../../../common/bookmark/api/postIngredientsList';
 import {
     addToast,
     addErrorToast,
@@ -19,10 +19,9 @@ export const saveIngredientsList = async ({ text, sections, id }) => {
         });
 
         return response.bookmarkId;
-    } else {
-        addErrorToast();
-        return '';
     }
+    addErrorToast();
+    return '';
 };
 
 export const moreInfoElements = [
@@ -82,16 +81,53 @@ export const handleIngredientListButton = async ({
                 null,
                 title
             );
-            status === '200' && setBookmarkId(null);
+            if (status === '200') {
+                setBookmarkId(null);
+            }
         } else {
             const newBookmarkId = await saveIngredientsList({
                 text: title,
                 sections: ingredientsLists.reduce(ingredientsListReduce, []),
                 id: articleId
             });
-            newBookmarkId && setBookmarkId(newBookmarkId);
+            if (newBookmarkId) {
+                setBookmarkId(newBookmarkId);
+            }
         }
     } else {
         window?.LN?.observable?.publish('openModal', {});
     }
 };
+
+export function modifyPortionsQuantity({
+    ingredientsArray = [],
+    currentPortion = 0,
+    defaultPortion = 1
+}) {
+    const roundTo = 0.5;
+
+    return ingredientsArray?.map(list => ({
+        ...list,
+        items: list?.items?.map(item => {
+            const { amount, abbreviation, ingredient, fullIngredientString } =
+                item || {};
+            const originalAmount = parseFloat(amount) || 0;
+
+            const newAmount =
+                (currentPortion * originalAmount) / defaultPortion;
+            const roundedAmount = Math.round(newAmount / roundTo) * roundTo;
+            const quantityNumber = `${roundedAmount === Math.floor(roundedAmount) ? roundedAmount : roundedAmount.toFixed(1)}`;
+            const fullText = `${abbreviation} de ${ingredient}`;
+
+            const fullIngredientStringUpdated = `${String(Number(quantityNumber) || '')} ${fullText}`;
+
+            return {
+                ...item,
+                amount: roundedAmount,
+                fullIngredientString: amount
+                    ? fullIngredientStringUpdated
+                    : fullIngredientString
+            };
+        })
+    }));
+}

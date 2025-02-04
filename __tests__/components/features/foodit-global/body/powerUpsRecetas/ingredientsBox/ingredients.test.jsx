@@ -13,19 +13,68 @@ describe('components - features - foodit-global - body - powerUpRecetas - ingred
         {
             items: [
                 {
-                    fullIngredientString: '100 g de Manteca',
+                    abbreviation: 'g',
+                    amount: '400',
+                    fullIngredientString: '400 g de Tofu firme',
                     includeInShoppingList: true,
-                    isMainIngredient: false
+                    ingredient: 'Tofu firme',
+                    isMainIngredient: true,
+                    unit: 'Gramo'
                 },
                 {
-                    fullIngredientString: '3 Huevo',
+                    abbreviation: 'g',
+                    amount: '150',
+                    fullIngredientString: '150 g de Kale',
                     includeInShoppingList: true,
-                    isMainIngredient: false
+                    ingredient: 'Kale',
+                    isMainIngredient: true,
+                    unit: 'Gramo'
                 },
                 {
-                    fullIngredientString: '50 mL de Aceite de oliva',
+                    abbreviation: 'g',
+                    amount: '200',
+                    fullIngredientString: '200 g de Harina 0000',
                     includeInShoppingList: true,
-                    isMainIngredient: false
+                    ingredient: 'Harina 0000',
+                    isMainIngredient: false,
+                    unit: 'Gramo'
+                },
+                {
+                    abbreviation: 'cdas.',
+                    amount: '4',
+                    fullIngredientString:
+                        '4 cdas. de Aceite de oliva Virgen Extra',
+                    includeInShoppingList: true,
+                    ingredient: 'Aceite de oliva Virgen Extra',
+                    isMainIngredient: false,
+                    unit: 'Cucharadas'
+                },
+                {
+                    abbreviation: 'a gusto',
+                    amount: '',
+                    fullIngredientString: 'Sal a gusto',
+                    includeInShoppingList: true,
+                    ingredient: 'Sal',
+                    isMainIngredient: false,
+                    unit: 'A Gusto'
+                },
+                {
+                    abbreviation: 'a gusto',
+                    amount: '',
+                    fullIngredientString: 'Pimienta a gusto',
+                    includeInShoppingList: true,
+                    ingredient: 'Pimienta',
+                    isMainIngredient: false,
+                    unit: 'A Gusto'
+                },
+                {
+                    abbreviation: 'c/n',
+                    amount: '',
+                    fullIngredientString: 'Agua c/n',
+                    includeInShoppingList: true,
+                    ingredient: 'Agua',
+                    isMainIngredient: false,
+                    unit: 'Cantidad necesaria'
                 }
             ],
             titleList: 'Wafflesito rico'
@@ -36,7 +85,7 @@ describe('components - features - foodit-global - body - powerUpRecetas - ingred
 
     it('should render correctly, texts and links', () => {
         const { getByText, getByTestId } = render(
-            <Ingredients ingredientsLists={ingredientsListMock} />
+            <Ingredients ingredientsLists={ingredientsListMock} portions="4" />
         );
         items.forEach(item => {
             const text = getByText(item.fullIngredientString.toLowerCase());

@@ -159,6 +159,9 @@ const labels = `
         autor{
             text
         }
+        conversion_porciones{
+            text
+        }
     }
 `;
 const table = `
