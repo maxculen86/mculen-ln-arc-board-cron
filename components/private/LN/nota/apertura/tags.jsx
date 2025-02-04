@@ -42,7 +42,7 @@ function Tags({ tags = [], sections, destacado, temas, showItems }) {
 
     if (temas) {
         return (
-            <div className="row">
+            <div className="row" data-mrf-recirculation="n_temas">
                 <div className="col-12">
                     {listTags.length > 0 && (
                         <HeaderSection tag="h3" title="Temas" line={false} />

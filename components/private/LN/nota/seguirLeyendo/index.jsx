@@ -3,18 +3,17 @@ import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/modules/mod-keepreading.css';
 import CajaTema from '../../common/cajaTema';
 
-const Index = ({ relatedContent = [], outputType = 'default' }) => {
+function Index({ relatedContent = [], outputType = 'default' }) {
     return (
         <CajaTema
             title="Seguí leyendo"
             sectionName="SeguiLeyendo"
             articles={relatedContent}
-            position="toi"
             outputType={outputType}
             withVolanta
         />
     );
-};
+}
 
 Index.propTypes = {
     relatedContent: PropTypes.arrayOf(

@@ -14,7 +14,7 @@ Object.defineProperty(global.self, 'crypto', {
 });
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -64,7 +64,7 @@ describe('Tests when the section may interest you is visible.', () => {
         component = null;
     });
 
-    it('Matche Snapshot with the section visible', () => {
+    it('Match Snapshot with the section visible', () => {
         const { container } = component;
         expect(container).toMatchSnapshot();
     });
