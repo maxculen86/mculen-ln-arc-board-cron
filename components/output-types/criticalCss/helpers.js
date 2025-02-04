@@ -34,31 +34,29 @@ export const cssPathsBySiteAndLayout = {
 
 export const stylesFormat = (fonts = '', styles = '') => `${fonts}${styles}`;
 
-export const fontsBySite = (contextPath, deployment) => {
-    return {
-        'la-nacion-ar': fontFaceLn10({
-            contextPath,
-            deployment
-        }),
-        ott: '',
-        foodit: fontFaceFoodit({
-            contextPath,
-            deployment
-        })
-    };
-};
+export const fontsBySite = (contextPath, deployment) => ({
+    'la-nacion-ar': fontFaceLn10({
+        contextPath,
+        deployment
+    }),
+    ott: '',
+    foodit: fontFaceFoodit({
+        contextPath,
+        deployment
+    })
+});
 
 export const createLinkTag = ({
     contextPath,
-    cssPathsBySiteAndLayout,
+    layoutStylePaths,
     deployment,
     layout = '',
     arcSite = ''
 }) => {
     const tagLink = document.createElement('link');
     const path =
-        get(cssPathsBySiteAndLayout, `${arcSite}.${layout}`, '') ||
-        get(cssPathsBySiteAndLayout, `${arcSite}.default`, '');
+        get(layoutStylePaths, `${arcSite}.${layout}`, '') ||
+        get(layoutStylePaths, `${arcSite}.default`, '');
     if (!path) return;
 
     tagLink.rel = 'stylesheet';

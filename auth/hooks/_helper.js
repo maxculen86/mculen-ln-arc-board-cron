@@ -3,8 +3,8 @@ import { isSubscribed } from '../helper/loginHelper';
 
 const { getCookie } = handleCookie();
 
-export const getUserType = (userEmail, isSubscribed) => {
-    if (isSubscribed) {
+export const getUserType = (userEmail, userIsSubscribed) => {
+    if (userIsSubscribed) {
         return 'subscribed';
     }
 

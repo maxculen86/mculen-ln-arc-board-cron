@@ -13,11 +13,11 @@ export function useGetElementsToScroll() {
         return 0;
     };
 
-    const containerRef = useRef(null);
+    const viewportRef = useRef(null);
 
     useEffect(() => {
         const updateVisibleItems = () => {
-            setVisibleItems(getVisibleItems(containerRef, itemCarouselWidth));
+            setVisibleItems(getVisibleItems(viewportRef, itemCarouselWidth));
         };
 
         updateVisibleItems();
@@ -26,7 +26,11 @@ export function useGetElementsToScroll() {
         return () => window.removeEventListener('resize', updateVisibleItems);
     }, []);
 
-    return { containerRef, elementsToScroll: visibleItems, itemCarouselWidth };
+    return {
+        containerRef: viewportRef,
+        elementsToScroll: visibleItems,
+        itemCarouselWidth
+    };
 }
 
 export function useObserverItems({ containerRef, setCurrentIndex }) {
