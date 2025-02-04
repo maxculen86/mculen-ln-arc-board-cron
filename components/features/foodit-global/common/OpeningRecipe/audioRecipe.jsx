@@ -23,8 +23,8 @@ function AudioRecipe({ title, resizedUrl, url, article }) {
     const classContainer = cx(
         'mx-auto',
         isSubscribed
-            ? 'pt-16 pb-16 pb-24_md pb-32_lg px-16 px-24_md px-32_lg w-100 w-520_md shadow-up-md'
-            : 'p-16 p-24_md p-32_lg w-360 min-w-720_md min-w-944_lg bg-positive'
+            ? 'h-100 h-fit_md overflow-y-hidden pt-16 pb-16 pb-24_md pb-32_lg px-16 px-24_md px-32_lg w-100 w-520_md shadow-up-md'
+            : 'p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4'
     );
 
     const defaultText = 'Escuchar preparación';
@@ -53,7 +53,7 @@ function AudioRecipe({ title, resizedUrl, url, article }) {
                     title="escuchar receta"
                     variant="secondary"
                     onClick={handleClick}
-                    className="flex ai-center gap-8"
+                    className="flex ai-center gap-8 min-h-40_lg"
                 >
                     {isOpen ? (
                         <AnimatedIcons
