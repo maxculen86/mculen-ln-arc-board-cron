@@ -45,7 +45,7 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
             </section>
             <div className="print-hide">
                 <Breadcrumb globalContent={globalContent} className="lg-none" />
-                <hr className="lg-none" />
+                <hr className="lg-none mb-40" />
                 <section className="flex flex-column gap-40">{bottom}</section>
             </div>
         </BaseLayout>
