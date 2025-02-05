@@ -1958,6 +1958,10 @@ strong {
   padding-bottom: 1.5rem;
 }
 
+.pb-40 {
+  padding-bottom: 2.5rem;
+}
+
 .pb-32 {
   padding-bottom: 2rem;
 }
@@ -2230,6 +2234,10 @@ strong {
 
 .z-5 {
   z-index: 5;
+}
+
+.z-7 {
+  z-index: 7;
 }
 
 .z-10 {
