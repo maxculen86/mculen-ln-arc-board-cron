@@ -173,10 +173,10 @@ describe('components - private - LN - nota - share', () => {
         fireEvent.click(button);
 
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-            event: 'e_linkclick',
-            action: 'toolbard',
-            category: 'nota_ln9',
-            label: 'compartir_whatsapp'
+            event: 'share_note',
+            articleId: props.globalContent._id,
+            title: props.globalContent.headlines.basic,
+            rest: { tags: 'whatsapp' }
         });
         expect(window.open).toHaveBeenCalled();
     });
@@ -198,10 +198,10 @@ describe('components - private - LN - nota - share', () => {
         fireEvent.click(button);
 
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-            event: 'e_linkclick',
-            action: 'toolbard',
-            category: 'nota_ln9',
-            label: 'copiar_link'
+            event: 'share_note',
+            title: props.globalContent.headlines.basic,
+            articleId: props.globalContent._id,
+            rest: { tags: 'link' }
         });
         expect(navigator.clipboard.writeText).toHaveBeenCalled();
         expect(
@@ -219,10 +219,10 @@ describe('components - private - LN - nota - share', () => {
         fireEvent.click(button);
 
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-            event: 'e_linkclick',
-            action: 'toolbard',
-            category: 'nota_ln9',
-            label: 'compartir_facebook'
+            event: 'share_note',
+            title: props.globalContent.headlines.basic,
+            articleId: props.globalContent._id,
+            rest: { tags: 'facebook' }
         });
         expect(window.open).toHaveBeenCalled();
     });
@@ -237,10 +237,10 @@ describe('components - private - LN - nota - share', () => {
         fireEvent.click(button);
 
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-            event: 'e_linkclick',
-            action: 'toolbard',
-            category: 'nota_ln9',
-            label: 'compartir_x'
+            event: 'share_note',
+            title: props.globalContent.headlines.basic,
+            articleId: props.globalContent._id,
+            rest: { tags: 'x' }
         });
         expect(window.open).toHaveBeenCalled();
     });
@@ -255,10 +255,10 @@ describe('components - private - LN - nota - share', () => {
         fireEvent.click(button);
 
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-            event: 'e_linkclick',
-            action: 'toolbard',
-            category: 'nota_ln9',
-            label: 'enviar_mail'
+            event: 'share_note',
+            title: props.globalContent.headlines.basic,
+            articleId: props.globalContent._id,
+            rest: { tags: 'mail' }
         });
         expect(window.open).toHaveBeenCalled();
     });
