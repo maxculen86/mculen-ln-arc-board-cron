@@ -133,6 +133,7 @@ function Share() {
                         title={title}
                         mobileTitle={mobileTitle}
                         subtypeVideo={subtypeVideo}
+                        articleId={id}
                     />
                 </div>
             </div>
