@@ -120,7 +120,7 @@ describe('Components - private - common - metarefresh', () => {
                     type: 'story',
                     content_elements: [
                         {
-                            type: 'video'
+                            type: 'video_jw'
                         }
                     ]
                 },
