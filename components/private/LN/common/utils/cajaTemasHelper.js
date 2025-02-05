@@ -277,7 +277,7 @@ export const getCommonProps = props => {
 
     const showDatalayerMark =
         pageBuilderLayout === layoutsName.Home ||
-            pageBuilderLayout === layoutsName.HomeLN10
+        pageBuilderLayout === layoutsName.HomeLN10
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
@@ -311,14 +311,6 @@ export const hastVariant = (childProps = []) =>
 export const isInApertura = (idFeature, tree = {}) => {
     const sectionApertura = get(tree, 'children[4].children', []);
     return sectionApertura.find(child => child.props.id === idFeature);
-};
-
-export const validateoutItem = itemNota => {
-    // eslint-disable-next-line prefer-regex-literals
-    const regex = new RegExp(`/video/`);
-    const results = regex.exec(itemNota.url_nota);
-
-    return !results;
 };
 
 export const getArticlesOfChain = ({

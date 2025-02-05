@@ -5,9 +5,8 @@ import calculatePaginationValue from './utils/pageSource/acumulados/common/calcu
 import tagSource from './tagSource';
 import NotFoundError from './utils/notFoundError';
 
-const getSizeParamFromQuery = query => {
-    // eslint-disable-next-line prefer-regex-literals
-    const regexForSizeParam = new RegExp(/size:(\d+)/);
+export const getSizeParamFromQuery = query => {
+    const regexForSizeParam = /size:(\d+)/;
     const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
     if (matchForSize) {
         return matchForSize.length > 1 ? matchForSize[1] : 30;
@@ -15,9 +14,8 @@ const getSizeParamFromQuery = query => {
     return 30;
 };
 
-const getPageParamFromQuery = query => {
-    // eslint-disable-next-line prefer-regex-literals
-    const regexForPageParam = new RegExp(/page:(\d+)/);
+export const getPageParamFromQuery = query => {
+    const regexForPageParam = /page:(\d+)/;
     const matchForPageParam = regexForPageParam.exec(get(query, 'params', ''));
 
     const page =
