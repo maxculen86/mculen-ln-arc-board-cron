@@ -325,14 +325,6 @@ export const isInApertura = (idFeature, tree = {}) => {
     return sectionApertura.find(child => child.props.id === idFeature);
 };
 
-export const validateoutItem = itemNota => {
-    // eslint-disable-next-line prefer-regex-literals
-    const regex = new RegExp(`/video/`);
-    const results = regex.exec(itemNota.url_nota);
-
-    return !results;
-};
-
 export const getArticlesOfChain = ({
     isInSiteService,
     articlesFromCollectionSiteService = [],
