@@ -105,14 +105,15 @@ export const validateChain = ({
 
 export const getBreakingChildren = renderables =>
     ['Breaking_1', 'Breaking_2']
-        .map(breakingName =>
-            getChildrenBySection({
-                renderables,
-                section: {
-                    title: breakingName,
-                    validation: sectionValidation
-                }
-            })
+        .map(
+            breakingName =>
+                getChildrenBySection({
+                    renderables,
+                    section: {
+                        title: breakingName,
+                        validation: sectionValidation
+                    }
+                }) || []
         )
         .flat();
 
