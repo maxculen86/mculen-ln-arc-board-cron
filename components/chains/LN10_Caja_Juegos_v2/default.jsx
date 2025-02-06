@@ -8,14 +8,15 @@ import { useRoofData } from '../utils/_helpers';
 import config from '../../../properties/sites/la-nacion-ar';
 import GameEventScript from '../../private/common/scriptManager/GameEventsScript';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
-
+import WarningMessage from '../../private/common/warningMessage/warningMessage';
+import { validateGamesChain } from './common/_helper';
+import DiagramationCard from '../../features/LN-common/Juego/diagramationCard';
 import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
 const { layoutsName = {} } = config || {};
 
-// TODO: eliminar esta chain luego de que quede en producción la Caja Juegos v2
-function CajaJuegos({ customFields, children }) {
-    const { globalContent = {}, layout } = useAppContext() || {};
+function CajaJuegosV2({ customFields, children, ...props }) {
+    const { globalContent = {}, layout, isAdmin } = useAppContext() || {};
     const {
         logoId,
         link,
@@ -26,8 +27,11 @@ function CajaJuegos({ customFields, children }) {
         buttonLogo,
         buttonText,
         linkButton,
-        buttonStyle
+        buttonStyle,
+        layout: diagramation
     } = customFields;
+
+    const { id: featureId } = props;
 
     const roofData = useRoofData({
         logoId,
@@ -49,21 +53,46 @@ function CajaJuegos({ customFields, children }) {
               'Mostrar'
             : true;
 
+    const error = validateGamesChain(layout, customFields);
+
+    if (isAdmin && error) {
+        return <WarningMessage type={error.type} message={error.message} />;
+    }
+
     return shouldShowGame && !hideCaja ? (
-        <Static id={`${logoId}-${title}`}>
+        <Static id={featureId}>
             <BuildRoof {...roofData} />
-            <div className="grid grid-cols-8 grid-cols-12_sm gap-16 mb-32">
-                {children}
+            <div className="grid gap-24 mb-32">
+                <DiagramationCard variant={diagramation}>
+                    {children}
+                </DiagramationCard>
             </div>
             <GameEventScript />
         </Static>
     ) : null;
 }
 
-CajaJuegos.label = 'LN10 Caja Juegos';
+CajaJuegosV2.label = 'LN10 Caja Juegos v2';
 
-CajaJuegos.propTypes = {
+CajaJuegosV2.propTypes = {
+    id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
+        layout: PropTypes.oneOf([
+            'oneLargeFourSmall',
+            'twoHorizontal',
+            'fourVertical',
+            'oneHorizontalThreeVertical'
+        ]).tag({
+            label: 'Diagramación',
+            description: 'Cambiar el diseño de la caja',
+            group: 'Ajuste Juegos',
+            labels: {
+                oneLargeFourSmall: 'Juegos 1 + 4',
+                twoHorizontal: 'Juegos x 2',
+                fourVertical: 'Juegos x 4',
+                oneHorizontalThreeVertical: 'Juegos 1 + 3'
+            }
+        }),
         logoId: PropTypes.string.tag({
             name: 'Logo',
             description: 'Ingrese aquí el id de Photo Center de la imagen',
@@ -136,4 +165,4 @@ CajaJuegos.propTypes = {
     children: PropTypes.node.isRequired
 };
 
-export default CajaJuegos;
+export default CajaJuegosV2;

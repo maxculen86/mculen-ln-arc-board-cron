@@ -1,22 +1,22 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import GameCard from '../../../../../components/features/LN-common/Juego/gameCard';
+import { CardGame } from '@ln/contenidos-ui-cardgames';
 
 describe('Component - Features - LN Common - juego - GameCard', () => {
     it('should match the snapshot', () => {
-        const restProps = {
-            title: 'Criptograma',
-            logo: { src: '/pf/assets/games/criptograma.svg' },
-            borderColor: 'bg-criptograma',
-            href: '/juegos/criptograma/'
-        };
-
         const { asFragment } = render(
-            <GameCard
-                forSubscriber={false}
-                newGame={false}
-                isHomeGames={false}
-                {...restProps}
+            <CardGame
+                title="Criptograma"
+                imageProps={{
+                    alt: 'Criptograma',
+                    src: '/pf/assets/games/criptograma.svg'
+                }}
+                linkProps={{
+                    target: '_self',
+                    href: '/juegos/criptograma/'
+                }}
+                game="criptograma"
+                diagramation="fourVertical"
             />
         );
 
