@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import {
     FOODIT_LOGIN_URL,
@@ -7,10 +8,26 @@ import {
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 
-const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
+function LoginSubscribeButtons({ classNameButtons = '' }) {
     const { promotions } = useGetUserConfig();
     const { buttonLogginText, buttonSubscribeText } = promotions;
 
+    const handleSubscribeClick = () => {
+        const href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window?.btoa(window.location.href)}`;
+        requestAnimationFrame(() => {
+            window.location.href = href;
+        });
+        addEventToDataLayerV2({
+            event: 'subscription_start',
+            button: buttonSubscribeText
+        });
+    };
+    const handleLoginClick = () => {
+        const href = `${FOODIT_LOGIN_URL}${window?.btoa(window.location.href)}`;
+        requestAnimationFrame(() => {
+            window.location.href = href;
+        });
+    };
     return (
         <>
             {buttonSubscribeText && (
@@ -23,14 +40,7 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     data-interaction="dataLayerInteraction"
                     data-event="subscription_start"
                     data-button="buttonSubscribeText"
-                    href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window &&
-                        window.btoa(window.location.href)}`}
-                    onClick={() => {
-                        addEventToDataLayerV2({
-                            event: 'subscription_start',
-                            button: buttonSubscribeText
-                        });
-                    }}
+                    onClick={handleSubscribeClick}
                 >
                     {buttonSubscribeText}
                 </Button>
@@ -42,16 +52,21 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     title={buttonLogginText}
                     variant="link"
                     data-variant="link"
-                    href={
-                        FOODIT_LOGIN_URL +
-                        (window && window.btoa(location.href))
-                    }
+                    onClick={handleLoginClick}
                 >
                     <span className="roboto-regular">{buttonLogginText}</span>
                 </Button>
             )}
         </>
     );
+}
+
+LoginSubscribeButtons.defaultProps = {
+    classNameButtons: ''
+};
+
+LoginSubscribeButtons.propTypes = {
+    classNameButtons: PropTypes.string
 };
 
 export default LoginSubscribeButtons;
