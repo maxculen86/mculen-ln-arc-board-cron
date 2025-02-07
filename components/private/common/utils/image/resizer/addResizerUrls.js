@@ -4,7 +4,6 @@ import {
     resizeCredits,
     resizePromoItems
 } from './v2/resizerFactory';
-import { isFotoAl100orStorytelling } from '../../subtypes/subtypeHelper';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -19,7 +18,8 @@ export const addResizedUrls = (ansDoc, options) => {
         subtype,
         isInApertura,
         arcSite = 'lanacionar',
-        resizerUrl
+        resizerUrl,
+        avatarWWW
     } = options;
 
     const {
@@ -34,7 +34,6 @@ export const addResizedUrls = (ansDoc, options) => {
         );
 
     const presetPromoOrDefault = presetsPromoItems || presetsDefault;
-    const avatarWWW = !isFotoAl100orStorytelling(subtype);
     const { defaultResize } = getDefaultSize(subtype);
 
     return {
