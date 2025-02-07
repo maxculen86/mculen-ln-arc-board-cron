@@ -6,11 +6,10 @@ import getToken from '../../../../private/common/utils/getToken';
 export const generateUrlWithToken = async (url = '') => {
     const { token } = await getAuthTokens();
     const tokenFromCookie = getToken();
-    if (!token || !tokenFromCookie) {
-        console.error('No se pudo obtener el token JWT');
-        return url;
+    if (!token) {
+        return tokenFromCookie ? `${url}?jwt=${tokenFromCookie}` : url;
     }
-    return `${url}?jwt=${token || tokenFromCookie}`;
+    return `${url}?jwt=${token}`;
 };
 
 export const handleIframeProps = async (

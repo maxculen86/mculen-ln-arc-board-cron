@@ -8,6 +8,9 @@ import { createResizer } from '../../components/private/common/utils/image/resiz
 
 const fetch = key => {
     const { url, subtype = '1' } = key;
+    console.warn(
+        `LnWarn: customEvent LN API imageResizeSource - fetch url: ${url}`
+    );
     if (url.match('(http(s?):)?([/|.|\\w|\\s|-])*\\.(?:jpg|gif|png|jpeg)')) {
         return { url, subtype };
     }
@@ -46,6 +49,9 @@ const transform = (data, siteProps) => {
         presetsPromoItems ||
         presetsDefault;
 
+    console.warn(
+        `LnWarn: customEvent LN API imageResizeSource - transform data.url: ${data.url}`
+    );
     const resizer = createResizer();
     return resizer.resizeUrls(data.url, 0, 0, present);
 };
