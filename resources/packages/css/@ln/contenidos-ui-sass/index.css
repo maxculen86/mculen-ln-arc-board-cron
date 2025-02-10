@@ -2018,8 +2018,79 @@ a {
   background: var(--primary-ia);
 }
 
-.ln-card-games:hover .cardGame__hover {
-  border: none;
+.ln-card-games-panal-de-letras__hover:hover .cardGame__hover {
+  border-color: var(--panal-de-letras);
+  background-color: white;
+}
+
+.ln-card-games-nunca-cuatro__hover:hover .cardGame__hover {
+  border-color: var(--nunca-cuatro);
+  background-color: white;
+}
+
+.ln-card-games-criptograma__hover:hover .cardGame__hover {
+  border-color: var(--criptograma);
+  background-color: white;
+}
+
+.ln-card-games-sudoku__hover:hover .cardGame__hover {
+  border-color: var(--sudoku);
+  background-color: white;
+}
+
+.ln-card-games-crucigrama__hover:hover .cardGame__hover {
+  border-color: var(--crucigrama);
+  background-color: white;
+}
+
+.ln-card-games-palabras-cruzadas__hover:hover .cardGame__hover {
+  border-color: var(--palabras-cruzadas);
+  background-color: white;
+}
+
+.ln-card-games-sopa-de-letras__hover:hover .cardGame__hover {
+  border-color: var(--sopa-de-letras);
+  background-color: white;
+}
+
+.ln-card-games-el-telar__hover:hover .cardGame__hover {
+  border-color: var(--el-telar);
+  background-color: white;
+}
+
+.ln-card-games-trivias__hover:hover .cardGame__hover {
+  border-color: var(--trivias);
+  background-color: white;
+}
+
+.ln-card-games-cruciexpres__hover:hover .cardGame__hover {
+  border-color: var(--cruciexpres);
+  background-color: white;
+}
+
+.ln-card-games-palabra-oculta__hover:hover .cardGame__hover {
+  border-color: var(--palabra-oculta);
+  background-color: white;
+}
+
+.ln-card-games-diferencias__hover:hover .cardGame__hover {
+  border-color: var(--diferencias);
+  background-color: white;
+}
+
+.ln-card-games-crucimini__hover:hover .cardGame__hover {
+  border-color: var(--crucimini);
+  background-color: white;
+}
+
+.ln-card-games-cruci-tematico__hover:hover .cardGame__hover {
+  border-color: var(--cruci-tematico);
+  background-color: white;
+}
+
+.ln-card-games-memograma__hover:hover .cardGame__hover {
+  border-color: var(--memograma);
+  background-color: white;
 }
 
 .bg-gradient-dark {
@@ -2661,6 +2732,12 @@ strong:not(.--font-primary),
   }
   .mt-4_m {
     margin-top: 0.25rem;
+  }
+  .mt-8_m {
+    margin-top: 0.5rem;
+  }
+  .mt-14_m {
+    margin-top: 0.875rem;
   }
   .mt-16_m {
     margin-top: 1rem;
@@ -3591,14 +3668,28 @@ strong:not(.--font-primary),
   .min-h-54_md.min-h-54_md {
     min-height: 3.375rem;
   }
+  .min-h-58_md.min-h-58_md {
+    min-height: 3.625rem;
+  }
   .min-h-208_md.min-h-208_md {
     min-height: 13rem;
   }
   .min-h-272_md.min-h-272_md {
     min-height: 17rem;
   }
+  .min-h-288_md.min-h-288_md {
+    min-height: 18rem;
+  }
   .min-h-480_md.min-h-480_md {
     min-height: 30rem;
+  }
+}
+@media (min-width: 59.75rem) {
+  .min-h-auto_min956.min-h-auto_min956 {
+    min-height: auto;
+  }
+  .min-h-272_min956.min-h-272_min956 {
+    min-height: 17rem;
   }
 }
 @media (max-width: 47.9375rem) {
@@ -3947,19 +4038,19 @@ strong:not(.--font-primary),
 }
 
 @media (min-width: 48rem) {
-  .oneLargeFourSmall > article:nth-child(1) {
+  .oneLargeFourSmall > article:nth-of-type(1) {
     grid-area: 1/1/3/7;
   }
-  .oneLargeFourSmall > article:nth-child(2) {
+  .oneLargeFourSmall > article:nth-of-type(2) {
     grid-area: 1/7/2/10;
   }
-  .oneLargeFourSmall > article:nth-child(3) {
+  .oneLargeFourSmall > article:nth-of-type(3) {
     grid-area: 1/10/2/13;
   }
-  .oneLargeFourSmall > article:nth-child(4) {
+  .oneLargeFourSmall > article:nth-of-type(4) {
     grid-area: 2/7/3/10;
   }
-  .oneLargeFourSmall > article:nth-child(5) {
+  .oneLargeFourSmall > article:nth-of-type(5) {
     grid-area: 2/10/3/13;
   }
 }

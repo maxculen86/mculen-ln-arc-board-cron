@@ -3,7 +3,7 @@
 exports[`Component - Features - LN Common - juego - GameCard should match the snapshot 1`] = `
 <DocumentFragment>
   <article
-    class="ln-card-games border border-thin border-all border-light-200 shadow-card-games transition transition-all transition-duration-800 min-h-120 max-h-120 min-h-272_md max-h-272_md bg-criptograma__hover"
+    class="ln-card-games border border-thin border-all border-light-200 shadow-card-games transition transition-all transition-duration-800 min-h-120 max-h-120 min-h-288_md min-h-272_min956 bg-criptograma__hover ln-card-games-criptograma__hover"
   >
     <a
       class="link ln-link flex flex-column ai-center opacity-1__hover relative h-100 --unstyled"
@@ -15,7 +15,7 @@ exports[`Component - Features - LN Common - juego - GameCard should match the sn
         class="h-6 w-100 bg-criptograma"
       />
       <div
-        class="flex w-100 h-100 ai-center pb-12 flex-row px-12 pt-16 gap-12 flex-column_m px-4_m pt-12_m"
+        class="flex w-100 h-100 ai-center pb-12 flex-row px-12 pt-16 gap-12 flex-column_m px-4_m pt-4_m"
       >
         <img
           alt="Criptograma"
@@ -29,15 +29,15 @@ exports[`Component - Features - LN Common - juego - GameCard should match the sn
           class="flex w-100 h-100 ai-center jc-between gap-8 flex-column_m"
         >
           <span
-            class="text ln-text text-ellipsis-1 text-neutral-light-900 prumo prumo-medium text-center --text-m --text-md-xl"
+            class="text ln-text text-ellipsis-1 text-neutral-light-900 prumo prumo-medium --text-m --text-md-xl flex ai-center min-h-auto_min956 min-h-58_md text-center_m"
           >
             Criptograma
           </span>
           <div
-            class="pt-8"
+            class="pt-8_m"
           >
             <button
-              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-32 px-12 py-8 cardGame__hover transition transition-all transition-duration-800 bg-white --secondary"
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-32 px-12 py-8 cardGame__hover opacity-1__hover bg-white --secondary"
               data-variant="secondary"
               title="Criptograma"
               type="button"
