@@ -111,7 +111,7 @@ export function useScrollTo({ containerRef, isMobile, currentIndex }) {
         containerRef?.current?.scrollTo({
             ...scrollOptions
         });
-    }, [isMobile]);
+    }, [containerRef?.current, isMobile]);
 }
 
 export function useUpdateVideoWidth({ containerRef, viewportWidth, isMobile }) {
@@ -144,26 +144,4 @@ export function useVideoJwCustomSettings({
             playerRef?.current?.stop();
         }
     }, [isInView, loading]);
-}
-
-// TODO: eliminar al aplicar el cambio de componente por common-ui-dialog
-export function useHandleCloseScape({
-    isOpenMediaScrollerExpanded,
-    onCloseMediaScrollerExpanded
-}) {
-    useEffect(() => {
-        function handleEscape(e) {
-            if (e.key === 'Escape') {
-                e.preventDefault();
-                onCloseMediaScrollerExpanded();
-            }
-        }
-
-        if (isOpenMediaScrollerExpanded) {
-            document.addEventListener('keydown', handleEscape);
-        }
-        return () => {
-            document.removeEventListener('keydown', handleEscape);
-        };
-    }, [isOpenMediaScrollerExpanded]);
 }

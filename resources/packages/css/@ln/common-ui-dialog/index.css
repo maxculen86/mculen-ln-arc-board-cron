@@ -12,10 +12,17 @@
 .dialog[data-position=bottom] {
   inset-block-end: 0;
 }
+.dialog[data-position=left] {
+  inset-inline-start: 0;
+}
+.dialog[data-position=right] {
+  inset-inline-start: unset;
+  inset-inline-end: 0;
+}
 .dialog[data-position=top] {
   inset-block-start: 0;
 }
-.dialog[data-position=center] {
+.dialog[data-position=center], .dialog[data-position=full] {
   inset: 0;
   margin: auto;
 }
