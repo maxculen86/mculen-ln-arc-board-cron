@@ -3,10 +3,15 @@ import {
     handleIframeProps
 } from '../../../../../../components/features/LN-common/anexo/helpers/iframeHelper';
 import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
+import getToken from '../../../../../../components/private/common/utils/getToken';
 
 jest.mock('../../../../../../auth/helper/loginHelper', () => ({
     getAuthTokens: jest.fn()
 }));
+
+jest.mock('../../../../../../components/private/common/utils/getToken', () =>
+    jest.fn()
+);
 
 const TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ilczdk';
 const BASE_URL = 'https://lanacion.agilmenteapp.com/crossword/mini';
@@ -16,15 +21,19 @@ describe('features - LN-common - anexo - helpers - iframeHelper', () => {
     describe('generateUrlWithToken', () => {
         it('should return URL with JWT token if token exists', async () => {
             getAuthTokens.mockResolvedValueOnce({ token: TOKEN });
+            getToken.mockReturnValueOnce(TOKEN);
             const finalUrl = await generateUrlWithToken(BASE_URL);
             expect(finalUrl).toBe(FINAL_URL_WITH_TOKEN);
         });
+
         it('should return original URL if token does not exist', async () => {
             getAuthTokens.mockResolvedValueOnce({ token: null });
+            getToken.mockReturnValueOnce(null);
             const finalUrl = await generateUrlWithToken(BASE_URL);
             expect(finalUrl).toBe(BASE_URL);
         });
     });
+
     describe('handleIframeProps', () => {
         let iframeMock;
         beforeEach(() => {
@@ -43,6 +52,7 @@ describe('features - LN-common - anexo - helpers - iframeHelper', () => {
         });
         it('should set iframe src with JWT token for game URLs', async () => {
             getAuthTokens.mockResolvedValueOnce({ token: TOKEN });
+            getToken.mockReturnValueOnce(TOKEN);
             const id = 'f0fXG4p6pSpK2s8';
             await handleIframeProps(id, BASE_URL, true);
             expect(document.getElementById).toHaveBeenCalledWith(`anexo-${id}`);
@@ -51,6 +61,7 @@ describe('features - LN-common - anexo - helpers - iframeHelper', () => {
             ).toHaveBeenCalledWith('skeleton-box');
             expect(iframeMock.src).toBe(FINAL_URL_WITH_TOKEN);
         });
+
         it('should set iframe src with original URL if not a game', async () => {
             const id = 'f0f0raOK8mKx1sc';
             const nonGameUrl =
@@ -62,6 +73,7 @@ describe('features - LN-common - anexo - helpers - iframeHelper', () => {
             ).toHaveBeenCalledWith('skeleton-box');
             expect(iframeMock.src).toBe(nonGameUrl);
         });
+
         it('should handle missing iframe element gracefully', async () => {
             document.getElementById = jest.fn(() => null);
             const id = 'f0fXG4p6pSpK2s8';
