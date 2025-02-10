@@ -92,23 +92,44 @@ function Game({ id: featureId, customFields, isAdmin }) {
 
     const isFirstCard = getFirstCard(cardPosition, parentLayout);
 
+    const badge = newGame ? 'Nuevo' : null;
+    const ribbon = forSubscriber ? (
+        <IconSprite name="ribbonColor" color />
+    ) : null;
+
+    const isSpecialLayout =
+        parentLayout === 'oneHorizontalThreeVertical' && !isFirstCard;
+
+    const hrefLink =
+        gameType === 'Externo'
+            ? addForwardSlash(sectionId)
+            : addForwardSlash(articleLink);
+
+    const slotsProps = {
+        title: {
+            className: isSpecialLayout ? 'min-h-54_md' : null
+        },
+        description: {
+            className: 'text-18 sm-none'
+        }
+    };
+
+    const slotsClasses = {
+        icon: isSpecialLayout ? 'mt-14_m' : ''
+    };
+
     return (
         <CardGame
             title={title}
-            badge={newGame ? 'Nuevo' : null}
-            ribbon={
-                forSubscriber ? <IconSprite name="ribbonColor" color /> : null
-            }
+            badge={badge}
+            ribbon={ribbon}
             imageProps={{
                 alt: title,
                 src: logo.src
             }}
             linkProps={{
                 target: '_self',
-                href:
-                    gameType === 'Externo'
-                        ? addForwardSlash(sectionId)
-                        : addForwardSlash(articleLink)
+                href: hrefLink
             }}
             game={game}
             diagramation={parentLayout}
@@ -119,17 +140,8 @@ function Game({ id: featureId, customFields, isAdmin }) {
                 description
             )}
             className={getClassName(parentLayout, isFirstCard)}
-            slotsProps={{
-                title: {
-                    className:
-                        parentLayout === 'oneHorizontalThreeVertical'
-                            ? 'min-h-54_md'
-                            : null
-                },
-                description: {
-                    className: 'text-18 sm-none'
-                }
-            }}
+            slotsProps={slotsProps}
+            classnames={slotsClasses}
         />
     );
 }
