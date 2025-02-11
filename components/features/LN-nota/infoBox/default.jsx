@@ -1,10 +1,10 @@
 import React from 'react';
 import { Zocalo } from '@ln/contenidos-ui-zocalo';
+import { useAppContext } from 'fusion:context';
 import { getZocaloProps } from './helper';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
-import { useAppContext } from 'fusion:context';
 
-const InfoBoxFeature = () => {
+function InfoBoxFeature() {
     const {
         contextPath,
         deployment,
@@ -14,7 +14,7 @@ const InfoBoxFeature = () => {
     } = useAppContext();
 
     const zocaloConfig = getZocaloProps(deployment, contextPath, path);
-    if (!zocaloConfig.showZocalo) return <></>;
+    if (!zocaloConfig.showZocalo) return null;
 
     return (
         <Zocalo
@@ -33,7 +33,7 @@ const InfoBoxFeature = () => {
             }
         />
     );
-};
+}
 
 InfoBoxFeature.label = 'LN Caja Zocalo';
 InfoBoxFeature.lazy = true;
