@@ -19,6 +19,7 @@ export function IngredientsButtons({
     const pressButton = option => {
         if (!isSubscribed) {
             onOpen();
+            return;
         }
 
         if (option === 'add') {
