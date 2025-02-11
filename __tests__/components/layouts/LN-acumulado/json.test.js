@@ -62,7 +62,8 @@ describe('LNAcumulado layout test', () => {
                     fullVideoUrl: 'video-320.mp4',
                     fullVideoDuration: 4003,
                     badge: 'Chapita',
-                    badgeStyle: 'default'
+                    badgeStyle: 'default',
+                    jwVideoId: '000000',
                 }
             ];
             children[sectionIdx] = [
