@@ -21,7 +21,8 @@ import {
     showExtraClass,
     getTypeOfMedia,
     getImageIdValidations,
-    getCllBoard
+    getCllBoard,
+    shouldHighlightCustomVoice
 } from './_helper';
 import {
     getChainConfig,
@@ -248,6 +249,17 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     if (!isAdmin && (!article || !articleContent)) return <></>;
 
+    const hasCustomVoice = shouldHighlightCustomVoice(article, config);
+
+    const sectionText = hasCustomVoice
+        ? 'Escuchar con la voz del autor'
+        : showSection({
+              withSection,
+              article,
+              authors,
+              authorPhoto: marqueeImg
+          });
+
     return (
         !error && (
             <ErrorBoundary>
@@ -271,12 +283,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
                             : cardSize
                     }
                     imagePosition={imagePosition}
-                    section={showSection({
-                        withSection,
-                        article,
-                        authors,
-                        authorPhoto: marqueeImg
-                    })}
+                    section={sectionText}
                     searchableField={
                         layoutPageBuilder === layoutsName.HomeLN10 &&
                         searchableField({

@@ -455,3 +455,26 @@ export const getImageIdValidations = (
     isVideoParam,
     imageIdParam
 ) => (isHtmlParam || isVideoParam || imageIdParam === '' ? null : imageIdParam);
+
+export const shouldHighlightCustomVoice = (article = {}, config = {}) => {
+    const author = get(article, 'credits.by[0]', {});
+    const isCustomVoiceCandidate = get(config, 'isCustomVoiceCandidate', false);
+    const hasAuthorVoice = get(
+        author,
+        'additional_properties.original.voice',
+        false
+    );
+    const hasAuthorImage = get(
+        author,
+        'additional_properties.original.image',
+        false
+    );
+    const hasOneAuthor = get(article, 'credits.by.length', 0) === 1;
+
+    return (
+        hasAuthorVoice &&
+        hasAuthorImage &&
+        hasOneAuthor &&
+        isCustomVoiceCandidate
+    );
+};

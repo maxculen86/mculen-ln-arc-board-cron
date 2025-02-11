@@ -53,7 +53,8 @@ const diagramationRules = diagramation => {
                 },
                 imageConfig: size.T1,
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 titleTag: tag.h2,
@@ -132,7 +133,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 titleTag: tag.h2,
@@ -182,7 +184,8 @@ const diagramationRules = diagramation => {
                     desktop: img.right
                 },
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 titleTag: tag.h2,
@@ -230,7 +233,8 @@ const diagramationRules = diagramation => {
                     desktop: img.right
                 },
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             }
         ],
         'bn-opening-4': [
@@ -316,7 +320,8 @@ const diagramationRules = diagramation => {
                 className: txtCenter,
                 withPreload: true,
                 extraClass: { withoutMedia: '--no-mc' },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             }
         ],
         vertical: [
@@ -334,7 +339,8 @@ const diagramationRules = diagramation => {
                 aspectRatio: 'ratio-3-4',
                 className: txtCenter,
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             }
         ],
         bombita: [
@@ -834,7 +840,8 @@ const diagramationRules = diagramation => {
                     tablet: img.right,
                     desktop: img.right
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 imagePosition: {
@@ -908,7 +915,8 @@ const diagramationRules = diagramation => {
                     tablet: img.right,
                     desktop: img.right
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             }
         ],
         bn_2_grid: [
@@ -1166,7 +1174,8 @@ const diagramationRules = diagramation => {
                     tablet: img.top,
                     desktop: img.top
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 imagePosition: {
@@ -1223,7 +1232,8 @@ const diagramationRules = diagramation => {
                     tablet: img.right,
                     desktop: img.right
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 variantsDisabled: [],
