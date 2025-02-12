@@ -33,6 +33,7 @@ const revistas = [
     'jardin',
     'rolling-stone'
 ];
+// TODO: Quitar ln-juegos cuando se realice el refactor de tomar la sectionClass por la section y no por el name
 const sections = [
     'economia',
     'deportes',
@@ -42,6 +43,7 @@ const sections = [
     'campo',
     'propiedades',
     'juegos',
+    'ln-juegos',
     'futuria',
     'que-sale'
 ];
