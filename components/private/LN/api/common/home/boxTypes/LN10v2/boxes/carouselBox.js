@@ -1,4 +1,4 @@
-const mapVideo = ({ _id: id, badge, badgeStyle, ...rest }) => ({
+const mapVideo = ({ _id: id, badge, badgeStyle, jwVideoId, ...rest }) => ({
     id,
     ...(badge && { badge: badge.toUpperCase() }),
     ...(badge && { badgeStyle }),
