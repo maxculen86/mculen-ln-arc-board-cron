@@ -4,7 +4,7 @@ import Static from 'fusion:static';
 import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
-import { configClassName } from './utils/helperJw';
+import { configClassName, getVerticalPlayer } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import getSourcesJw from '../../LN/common/utils/getSourcesJw';
 import FigureCaption from '../../../features/LN-10-global/common/figCaption/default';
@@ -44,21 +44,33 @@ const videoPlayerJW = ({
     const shouldShowFigureCaption =
         !isPromoItemVideo || !isStorytellingOrVideoSubtype;
 
-    const { container, mediaContainer, videoContainer, videoPlayer, facade } =
-        get(configClassName, arcSite, {});
+    const videoOrientation = getVerticalPlayer(idPlayer)
+        ? 'vertical'
+        : 'horizontal';
+
+    const {
+        container,
+        mediaContainer,
+        videoContainer,
+        videoPlayer,
+        facade,
+        facadeContainer,
+        captionClasses
+    } = get(configClassName, `${arcSite}.${videoOrientation}`, {});
 
     const minStream = video && getSourcesJw(get(video, 'sources', []));
 
     return (
         <Static id={mediaid}>
-            <div className={container}>
-                <section className={mediaContainer}>
+            <section className={container}>
+                <figure className={mediaContainer}>
                     <div className={videoContainer}>
-                        <figure className={videoPlayer}>
+                        <div className={videoPlayer}>
                             <Facade
                                 id={mediaid}
                                 playlist={playlist}
                                 className={facade}
+                                containerClasses={facadeContainer}
                                 title={title}
                                 subtype={subtype}
                                 openingVideo={
@@ -66,9 +78,6 @@ const videoPlayerJW = ({
                                 }
                             />
                             <div id={mediaid} />
-                            {shouldShowFigureCaption && (
-                                <FigureCaption epigraphTitle={epigraphTitle} />
-                            )}
                             <script
                                 defer
                                 className="video-jw"
@@ -84,8 +93,14 @@ const videoPlayerJW = ({
                                     `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
                                 )}
                             />
-                        </figure>
+                        </div>
                     </div>
+                    {shouldShowFigureCaption && (
+                        <FigureCaption
+                            epigraphTitle={epigraphTitle}
+                            className={captionClasses}
+                        />
+                    )}
                     {!isOtt && (
                         <VideoPlayerSnippet
                             paragraph={parrafo || description}
@@ -94,8 +109,8 @@ const videoPlayerJW = ({
                             minStream={{ url: get(minStream, 'file', '') }}
                         />
                     )}
-                </section>
-            </div>
+                </figure>
+            </section>
         </Static>
     );
 };
