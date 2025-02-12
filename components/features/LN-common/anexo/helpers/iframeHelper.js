@@ -1,10 +1,13 @@
 import { getAuthTokens } from '../../../../../auth/helper/loginHelper';
+import getToken from '../../../../private/common/utils/getToken';
+
+// TODO: REVERTIR CUANDO UCL ESTE ACTUALIZADO incluyendo iframeHelper.test.js
 
 export const generateUrlWithToken = async (url = '') => {
     const { token } = await getAuthTokens();
+    const tokenFromCookie = getToken();
     if (!token) {
-        console.error('No se pudo obtener el token JWT');
-        return url;
+        return tokenFromCookie ? `${url}?jwt=${tokenFromCookie}` : url;
     }
     return `${url}?jwt=${token}`;
 };
