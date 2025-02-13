@@ -62,7 +62,8 @@ describe('LN10Home layout test', () => {
                     fullVideoUrl: 'playlist.m3u8',
                     fullVideoDuration: 4003,
                     badge: 'Chapita',
-                    badgeStyle: 'default'
+                    badgeStyle: 'default',
+                    jwVideoId: '000000',
                 }
             ];
             children[sectionIdx] = [

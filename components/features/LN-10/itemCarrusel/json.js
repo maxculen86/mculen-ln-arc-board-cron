@@ -6,6 +6,7 @@ class CarouselFeature {
     constructor(props) {
         this.props = props;
         this.contentKey = 'carouselVideo';
+        this.jwVideoId = undefined;
         const {
             arcSite: website,
             customFields: { video }
@@ -13,6 +14,7 @@ class CarouselFeature {
         const source = 'videosJwCarruselSource';
         const id = checkForId(video);
         if (id) {
+            this.jwVideoId = id;
             this.fetchContent({
                 [this.contentKey]: {
                     source,
@@ -49,7 +51,8 @@ class CarouselFeature {
             fullVideoUrl,
             fullVideoDuration,
             badge,
-            badgeStyle
+            badgeStyle,
+            jwVideoId: this.jwVideoId
         };
     }
 }

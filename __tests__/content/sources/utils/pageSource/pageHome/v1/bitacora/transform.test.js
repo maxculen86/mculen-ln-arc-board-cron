@@ -102,4 +102,85 @@ describe('Transform bitacora v1 test', () => {
             ]
         });
     });
+
+    it('transforms carousel', async () => {
+        const page = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            },
+            content_elements: [{
+                type: 10,
+                sectionAliasMobile: 'ln10_caja_carrusel',
+                information: {
+                    title: 'CAJA CARRUSEL',
+                    link: 'https://www.lanacion.com.ar/lifestyle/',
+                    nameChain: 'LN10_Caja_Carrusel',
+                    idRender: 'c0ft4SpFfd1g5VC'
+                },
+                videos: [
+                    {
+                        _id: '4c2089568f39a4311692c2231c39ab5d537a341aa2e2e83f3771db93855b3a82',
+                        title: 'ITEM 1 CARRUSEL',
+                        posterUrl: 'https://cdn.jwplayer.com/v2/media/kkWdaX2X/poster.jpg?width=320',
+                        previewVideoUrl: 'https://assets-jpcust.jwpsrv.com/thumbnails/96e67bif-320.mp4',
+                        fullVideoUrl: 'https://cdn.jwplayer.com/manifests/kkWdaX2X.m3u8',
+                        fullVideoDuration: 9056,
+                        badge: 'CHAPITA',
+                        badgeStyle: 'default',
+                        jwVideoId: 'kkWdaX2X',
+                    },
+                    {
+                        _id: '77c706ae79a5c674ed24ec2a08d85a2c9429156b318c0131f5f04d81ed0de819',
+                        title: 'ITEM 2 CARRUSEL',
+                        posterUrl: 'https://cdn.jwplayer.com/v2/media/sfEt1cNK/poster.jpg?width=320',
+                        previewVideoUrl: 'https://assets-jpcust.jwpsrv.com/thumbnails/s8qk6z3z-320.mp4',
+                        fullVideoUrl: 'https://cdn.jwplayer.com/manifests/sfEt1cNK.m3u8',
+                        fullVideoDuration: 110,
+                        badge: 'Chapita cap',
+                        badgeStyle: 'default',
+                        jwVideoId: 'sfEt1cNK',
+                    }
+                ],
+                configurations: {
+                    arcSite: 'la-nacion-ar'
+                },
+                sectionWeb: 'Breaking_1'
+            }]
+        };
+        const {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate,
+        } = queryParams.information;
+        const expected = {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate,
+            cajas: [{
+                id_caja: '01',
+                visible: true,
+                feature: 'carrusel',
+                diagramacion_caja: 'carrusel',
+                item_category: 'CAJA CARRUSEL',
+                videos: [
+                    {
+                        id_video: 'kkWdaX2X',
+                        url_video: 'https://cdn.jwplayer.com/manifests/kkWdaX2X.m3u8',
+                        posicion: '01',
+                    },
+                    {
+                        id_video: 'sfEt1cNK',
+                        url_video: 'https://cdn.jwplayer.com/manifests/sfEt1cNK.m3u8',
+                        posicion: '02',
+                    }
+                ]
+            }]
+        };
+
+        const result = await transform(page, queryParams);
+
+        expect(result).toEqual(expected);
+    });
 });
