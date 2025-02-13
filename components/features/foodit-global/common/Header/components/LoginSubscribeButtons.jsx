@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import {
@@ -6,6 +6,7 @@ import {
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 import { Tooltip } from '@ln/common-ui-tooltip';
+import { useOnClickOutside } from '@ln/hooks';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 
@@ -16,6 +17,7 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
         text: '',
         shouldShow: false
     });
+    const refTooltipText = useRef(null);
 
     useEffect(() => {
         if (termicasData) {
@@ -44,13 +46,19 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
         });
     };
 
+    useOnClickOutside(refTooltipText, () => {
+        setTooltipState({ text: '', shouldShow: false });
+    });
+
     return (
         <>
             {buttonSubscribeText && (
                 <Tooltip
                     position="bottom-center"
                     content={
-                        <span className="text-12">{tooltipState.text}</span>
+                        <span ref={refTooltipText} className="text-12">
+                            {tooltipState.text}
+                        </span>
                     }
                     className="lg-only flex rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 border border-all border-thin border-light-100 z-5"
                     style={{ maxWidth: '200px' }}
