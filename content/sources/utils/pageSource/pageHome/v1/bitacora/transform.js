@@ -1,9 +1,9 @@
+import { enumTypeError } from '../../../../../../../components/private/LN/api/common/enums/enumTypeError';
 import {
-    infoLNMainLN10,
-    infoLNMain
+    infoLNMain,
+    infoLNMainLN10
 } from '../../../../../../../components/private/LN/api/common/home/config/configInfoSectionsByLayout';
 import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
-import { enumTypeError } from '../../../../../../../components/private/LN/api/common/enums/enumTypeError';
 
 const specialBox = {
     'ln-acumulado/timeline': 'timeline',
@@ -24,12 +24,18 @@ const configPositionArticlesByBox = {
     default: { fields: ['_id', 'website_url'], savePosition: true }
 };
 
+const BoxType = {
+    Notas: 'notas',
+    Videos: 'videos'
+};
+
 const createBox = (
     id,
     visible,
     feature,
     layout,
     notas,
+    type,
     itemCategory = 'N/A'
 ) => ({
     id_caja: id,
@@ -37,7 +43,7 @@ const createBox = (
     feature,
     diagramacion_caja: layout,
     item_category: itemCategory,
-    notas
+    [type]: notas,
 });
 
 const getFeature = sectionAliasMobile => {
@@ -48,6 +54,15 @@ const getFeature = sectionAliasMobile => {
     return infoEntry.tipoSeccion;
 };
 
+const createVideo = (video, index) => {
+    const { _id: id, website_url: url } = video;
+    return {
+        id_video: id,
+        url_video: url,
+        posicion: index.toString().padStart(2, '0')
+    };
+};
+
 const createNota = (article, index) => {
     const { _id: id, website_url: url } = article;
     return {
@@ -56,7 +71,26 @@ const createNota = (article, index) => {
         posicion: index.toString().padStart(2, '0')
     };
 };
-const createNotasArray = elem => {
+
+const normalizeCarousel = (elem) => ({
+    ...elem,
+    information: {
+        ...elem.information,
+        layout: 'carrusel',
+        viewabilityRoof: elem.information.title,
+    },
+    articles: elem.videos.map(({ jwVideoId, fullVideoUrl }) => ({
+        _id: jwVideoId,
+        website_url: fullVideoUrl,
+    })),
+});
+
+const normalizeElement = (elem) => {
+    const isCarousel = elem.sectionAliasMobile === "ln10_caja_carrusel";
+    return isCarousel ? normalizeCarousel(elem) : elem;
+};
+
+const createNotasArray = (elem, boxType) => {
     const notasArray = [];
     const resp = {};
     let posicion = 0;
@@ -72,13 +106,14 @@ const createNotasArray = elem => {
     }
     elem.articles.forEach(article => {
         if (specialBox[article.sectionAliasMobile]) {
-            const notas = createNotasArray(article);
+            const notas = createNotasArray(article, boxType);
             const box = createBox(
                 specialBox[article.sectionAliasMobile],
                 article.information?.hideCaja,
                 getFeature(elem.sectionAliasMobile),
                 article.information?.layout,
                 notas.notasArray,
+                boxType,
                 article.information?.viewabilityRoof
             );
             resp.specialBox = box;
@@ -93,7 +128,9 @@ const createNotasArray = elem => {
             return;
         }
         posicion += 1;
-        const nota = createNota(article, posicion);
+        const nota = boxType === BoxType.Notas
+            ? createNota(article, posicion)
+            : createVideo(article, posicion);
         notasArray.push(nota);
     });
 
@@ -103,12 +140,12 @@ const createNotasArray = elem => {
     };
 };
 
-const createBoxAndNotas = (elem, paramCajaCount, cajas) => {
+const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
     const { sectionAliasMobile, information } = elem;
     const isSpecialBox = specialBoxRoot[sectionAliasMobile];
     let cajaCount = paramCajaCount;
     try {
-        const notas = createNotasArray(elem);
+        const notas = createNotasArray(elem, boxType);
         const boxId = isSpecialBox
             ? specialBoxRoot[sectionAliasMobile]
             : cajaCount.toString().padStart(2, '0');
@@ -125,6 +162,7 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas) => {
             getFeature(sectionAliasMobile),
             layout,
             notas.notasArray,
+            boxType,
             information.viewabilityRoof
         );
         cajas.push(caja);
@@ -154,9 +192,18 @@ const transform = async (dataPage, query) => {
         let cajaCount = 1;
         const cajas = [];
         elementsPage.forEach(elem => {
-            if (elem.type !== 0 && elem.type !== 7 && elem.type !== 11) return; // Ignorar elementos que no son cajas
+            const acceptedTypes = [0, 7, 10, 11];
+            if (!acceptedTypes.includes(elem.type)) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
-            cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
+            const boxType = elem.sectionAliasMobile === "ln10_caja_carrusel"
+                ? BoxType.Videos
+                : BoxType.Notas;
+            cajaCount = createBoxAndNotas(
+                normalizeElement(elem),
+                cajaCount,
+                cajas,
+                boxType
+            );
         });
 
         return {
