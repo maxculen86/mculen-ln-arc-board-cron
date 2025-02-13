@@ -19,7 +19,8 @@ describe('Carousel Box test', () => {
                 fullVideoUrl: 'https://cdn.jwplayer.com/manifests/kkWdaX2X.m3u8',
                 fullVideoDuration: 9056,
                 badge: 'CHAPITA 1',
-                badgeStyle: 'default'
+                badgeStyle: 'default',
+                jwVideoId: 'kkWdaX2X',
             },
             {
                 _id: '77c706ae79a5c674ed24ec2a08d85a2c9429156b318c0131f5f04d81ed0de819',
@@ -29,7 +30,8 @@ describe('Carousel Box test', () => {
                 fullVideoUrl: 'https://cdn.jwplayer.com/manifests/sfEt1cNK.m3u8',
                 fullVideoDuration: 110,
                 badge: 'Chapita 2',
-                badgeStyle: 'default'
+                badgeStyle: 'default',
+                jwVideoId: 'sfEt1cNK'
             },
             {
                 _id: 'd962a4ea0f1954896b5532358ccee3e07d494d2a5c50deebbd61b84e04c1f91a',
@@ -39,7 +41,8 @@ describe('Carousel Box test', () => {
                 fullVideoUrl: 'https://cdn.jwplayer.com/manifests/Eko4xJhx.m3u8',
                 fullVideoDuration: 1986,
                 badge: 'chapita 3',
-                badgeStyle: 'default'
+                badgeStyle: 'default',
+                jwVideoId: 'Eko4xJhx'
             },
             {
                 _id: 'd3774baa846aba86d61b7cd5a4878cca26e6566032c8a6261452385dfc7d73e0',
@@ -49,7 +52,8 @@ describe('Carousel Box test', () => {
                 fullVideoUrl: 'https://cdn.jwplayer.com/manifests/sjGVMUbX.m3u8',
                 fullVideoDuration: 65,
                 badge: 'Chapita Cuatro',
-                badgeStyle: 'default'
+                badgeStyle: 'default',
+                jwVideoId: 'sjGVMUbX'
             },
             {
                 _id: 'b1e73fda733b7b7bcd0155626433394dd1cecc0741f4f36a0caedcf4876467fd',
@@ -59,7 +63,8 @@ describe('Carousel Box test', () => {
                 fullVideoUrl: 'https://cdn.jwplayer.com/manifests/tr2twovL.m3u8',
                 fullVideoDuration: 38,
                 badge: 'CHAPITA 5',
-                badgeStyle: 'default'
+                badgeStyle: 'default',
+                jwVideoId: 'tr2twovL'
             }
         ]
     };
@@ -107,6 +112,16 @@ describe('Carousel Box test', () => {
         expect(result.videos).toEqual(
             Array(5).fill(
                 expect.not.objectContaining({ badge: expect.anything() })
+            )
+        );
+    });
+
+    it('excludes jwVideoId', () => {
+        const result = carouselBox(carouselSection, carouselInfo);
+
+        expect(result.videos).toEqual(
+            Array(5).fill(
+                expect.not.objectContaining({ jwVideoId: expect.anything() })
             )
         );
     });
