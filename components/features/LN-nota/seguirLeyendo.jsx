@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
@@ -11,7 +10,7 @@ import { articleBoxesTracker } from '../../private/common/utils/noteTracker/arti
 
 // TODO hacer unit test, fix hooks y default props
 
-const seguirLeyendo = ({ globalContent, outputType }) => {
+function seguirLeyendo({ globalContent, outputType }) {
     const justThreeStories = content =>
         content
             .filter(element => element && element.type === 'story')
@@ -48,6 +47,7 @@ const seguirLeyendo = ({ globalContent, outputType }) => {
                     className="keep-reading"
                     data-is-block="true"
                     data-block-name="n_segui_leyendo"
+                    data-mrf-recirculation="n_segui_leyendo"
                     data-diagramacion-id="0"
                 >
                     <SeguirLeyendo
@@ -58,7 +58,7 @@ const seguirLeyendo = ({ globalContent, outputType }) => {
             </div>
         </div>
     );
-};
+}
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 

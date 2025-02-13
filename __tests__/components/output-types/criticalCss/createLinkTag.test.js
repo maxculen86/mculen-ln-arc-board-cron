@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 describe('components - outputType - criticalCss - createStyleTag', () => {
     const mockParams = {
         contextPath: '/pf',
-        cssPathsBySiteAndLayout: {
+        layoutStylePaths: {
             'la-nacion-ar': {
                 HomeLN10: 'resources/packages/css/HomeLN10.min.css',
                 default: ''

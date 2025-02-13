@@ -4,7 +4,6 @@ import { Link } from '@ln/foodit-ui-link';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useAppContext } from 'fusion:context';
-import classNames from 'classnames';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Logo } from '@ln/foodit-ui-logo';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
@@ -14,15 +13,11 @@ function FooterFoodit() {
     const { contextPath, deployment, layout, siteProperties } = useAppContext();
     const { layoutsName } = siteProperties || {};
 
-    const wrapperClassNames = classNames('container', {
-        'fixed_md fixed-center-x_md bottom-0': layout === layoutsName.Foodit404
-    });
-
     if (layoutsName.FooditRecipePaywall === layout) return null;
 
     return (
         <div className="hidden print-hide">
-            <footer className={wrapperClassNames}>
+            <footer className="container">
                 <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg border border-top border-thin border-light-100">
                     <div className="col-span-8 col-span-12_md col-span-3-center_lg flex flex-column jc-center ai-center gap-16 py-32">
                         <Link href="/" title="Ir a Foodit">

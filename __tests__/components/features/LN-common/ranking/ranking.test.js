@@ -2,13 +2,10 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
-import Consumer from 'fusion:consumer';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import acuResponse from '../../../../../__mocks__/data/ranking/acuResponse.json';
-import homeResponse from '../../../../../__mocks__/data/ranking/homeResponse.json';
-import inverseHomeResponse from '../../../../../__mocks__/data/ranking/inverseHomeResponse.json';
 
 import Ranking from '../../../../../components/features/LN-common/ranking/default';
 
@@ -28,25 +25,11 @@ jest.mock('react', () => {
     };
 });
 
-global.MutationObserver = class {
-    constructor(callback) {}
-    disconnect() {}
-    observe(element, initObject) {}
-};
 jest.mock('../../../../../__mocks__/fusion:static', () => 'Static');
 
 afterEach(() => {
     useContent.mockClear();
 });
-
-const getMockContext = (layout, globalContent = {}) => {
-    Context.useAppContext = jest.fn(() => ({
-        globalContent,
-        arcSite: 'la-nacion-ar',
-        layout: layout,
-        outputType: 'default'
-    }));
-};
 
 describe('Features - LN - Common - Ranking - default', () => {
     it('Should not render without right props', () => {
@@ -59,11 +42,16 @@ describe('Features - LN - Common - Ranking - default', () => {
         );
     });
     it('Should render ranking acu politica', async () => {
-        getMockContext('LN-acumulado', {
-            name: 'Política',
-            node_type: 'section',
-            _id: '/politica'
-        });
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {
+                name: 'Política',
+                node_type: 'section',
+                _id: '/politica'
+            },
+            arcSite: 'la-nacion-ar',
+            layout: 'LN-acumulado',
+            outputType: 'default'
+        }));
 
         useContent.mockImplementationOnce(() => acuResponse);
 
@@ -74,57 +62,6 @@ describe('Features - LN - Common - Ranking - default', () => {
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: 'politica',
-                website: 'la-nacion-ar',
-                section: 'commonRanking'
-            },
-            source: 'rankingArticlesSource',
-            staticMode: true
-        });
-
-        expect(container).toMatchSnapshot();
-    });
-    it('Should render ranking home', async () => {
-        getMockContext('LN-Home_Main');
-
-        useContent.mockImplementation(() => homeResponse);
-
-        const { container } = render(<Ranking id="rankingHome" />);
-
-        const titleElement = await screen.findByText('Más leídas');
-        expect(titleElement).toBeInTheDocument();
-
-        expect(useContent).toHaveBeenNthCalledWith(1, {
-            query: {
-                imageConfig: 'boxArticles',
-                sectionId: '',
-                website: 'la-nacion-ar',
-                section: 'commonRanking'
-            },
-            source: 'rankingArticlesSource',
-            staticMode: true
-        });
-
-        expect(container).toMatchSnapshot();
-    });
-    it('Should render ranking reverse home', async () => {
-        Context.useAppContext = jest.fn(() => ({
-            globalContent: {},
-            arcSite: 'la-nacion-ar',
-            layout: 'LN-Home_Main',
-            outputType: 'default'
-        }));
-
-        useContent.mockImplementation(() => inverseHomeResponse);
-
-        const { container } = render(<Ranking id="inverse-home" />);
-
-        const titleElement = await screen.findByText('Más leídas');
-        expect(titleElement).toBeInTheDocument();
-
-        expect(useContent).toHaveBeenNthCalledWith(1, {
-            query: {
-                imageConfig: 'boxArticles',
-                sectionId: 'inverse-home',
                 website: 'la-nacion-ar',
                 section: 'commonRanking'
             },

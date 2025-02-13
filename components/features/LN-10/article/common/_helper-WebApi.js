@@ -34,6 +34,7 @@ const getImageConfig = ({ renderables, layoutsName, config }) =>
         ? get(config, 'imageConfig', 'boxArticles')
         : '';
 
+// TO-DO: REFACTOR METODO: Permitir que los elementos de la lista "chains" sean pasados como prop.
 export const getChainParentOfFeature = (featureId, renderables) => {
     const chains = [
         'LN10_Caja_Manual',
@@ -43,7 +44,8 @@ export const getChainParentOfFeature = (featureId, renderables) => {
         'LN10_Caja_Canal',
         'LN10_Caja_WebStories',
         'Ln_Caja_Manual',
-        'LN10_Caja_Carrusel'
+        'LN10_Caja_Carrusel',
+        'LN10_Caja_Juegos_v2'
     ];
 
     return renderables.find(

@@ -8,11 +8,12 @@ import { useRoofData } from '../utils/_helpers';
 import config from '../../../properties/sites/la-nacion-ar';
 import GameEventScript from '../../private/common/scriptManager/GameEventsScript';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
-
+import DiagramationCard from '../../features/LN-common/Juego/diagramationCard';
 import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
 const { layoutsName = {} } = config || {};
 
+// TODO: eliminar esta chain luego de que quede en producción la Caja Juegos v2
 function CajaJuegos({ customFields, children }) {
     const { globalContent = {}, layout } = useAppContext() || {};
     const {
@@ -51,8 +52,10 @@ function CajaJuegos({ customFields, children }) {
     return shouldShowGame && !hideCaja ? (
         <Static id={`${logoId}-${title}`}>
             <BuildRoof {...roofData} />
-            <div className="grid grid-cols-8 grid-cols-12_sm gap-16 mb-32">
-                {children}
+            <div className="grid gap-24 mb-32">
+                <DiagramationCard variant="fourVertical">
+                    {children}
+                </DiagramationCard>
             </div>
             <GameEventScript />
         </Static>

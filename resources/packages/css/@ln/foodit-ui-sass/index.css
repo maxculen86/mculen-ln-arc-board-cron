@@ -1902,6 +1902,10 @@ strong {
   padding-inline: 2rem;
 }
 
+.pt-4 {
+  padding-top: 0.25rem;
+}
+
 .pt-8 {
   padding-top: 0.5rem;
 }
@@ -1952,6 +1956,10 @@ strong {
 
 .pb-24 {
   padding-bottom: 1.5rem;
+}
+
+.pb-40 {
+  padding-bottom: 2.5rem;
 }
 
 .pb-32 {
@@ -2024,6 +2032,9 @@ strong {
   }
   .pt-0_md {
     padding-top: 0rem;
+  }
+  .pt-12_md {
+    padding-top: 0.75rem;
   }
   .pt-24_md {
     padding-top: 1.5rem;
@@ -2100,6 +2111,9 @@ strong {
   }
   .pt-0_lg {
     padding-top: 0rem;
+  }
+  .pt-20_lg {
+    padding-top: 1.25rem;
   }
   .pt-32_lg {
     padding-top: 2rem;
@@ -2220,6 +2234,10 @@ strong {
 
 .z-5 {
   z-index: 5;
+}
+
+.z-7 {
+  z-index: 7;
 }
 
 .z-10 {

@@ -10,13 +10,13 @@ import useAppContext from '../../../../../__mocks__/data/LN10_Opinion/useAppCont
 import { useContent } from 'fusion:content';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -51,7 +51,7 @@ describe('Tests - helpers - feature - Opinion', () => {
         deployment: arg => arg,
         contextPath: '/pf'
     }));
-    it('should should return feature', () => {
+    it('should return feature', () => {
         const { container } = render(<Opinion {...props} />);
         expect(container).toMatchSnapshot();
     });

@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ComText from './text';
 import classNames from 'classnames';
+import ComText from './text';
 
 import '../../../resources/dist/css/ln/components/com-button.css';
 
-const ComButton = props => {
+function ComButton(props) {
     const {
         id,
         children,
@@ -42,6 +42,7 @@ const ComButton = props => {
             onClick={onClick}
             style={style}
             title={title}
+            // eslint-disable-next-line react/no-unknown-property
             on={on || ''}
             disabled={disabled}
             {...conditionalProps}
@@ -56,7 +57,7 @@ const ComButton = props => {
             {iconEnd}
         </button>
     );
-};
+}
 
 ComButton.propTypes = {
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),

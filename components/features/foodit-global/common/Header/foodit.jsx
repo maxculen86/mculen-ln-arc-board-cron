@@ -5,7 +5,6 @@ import { useDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Header, MainHeader } from '@ln/common-ui-header';
-import { useContent } from 'fusion:content';
 import { DRAWER } from '../DrawerContainer/constants';
 import { SubHeader } from './components/subHeader/SubHeader';
 import { Search } from './components/Search';
@@ -15,11 +14,10 @@ import LoginSubscribeButtons from './components/LoginSubscribeButtons';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import DrawerMenu from '../DrawerMenu/foodit';
-import transformMenuData from './_helpers';
-import filterMenuSections from '../../../../../content/filters/foodit/filterMenuSections';
 import { BellButton } from './components/rightOptions/bellButton';
 import { useLayoutHeader } from './hooks/useLayoutHeader';
 import HeaderTag from './components/HeaderTag';
+import { useNavigationData } from './hooks/useNavigationData';
 
 function HeaderFoodit({ layout, layoutsName }) {
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
@@ -32,15 +30,7 @@ function HeaderFoodit({ layout, layoutsName }) {
         showSubheaderInSheet
     } = useLayoutHeader();
 
-    const categories = useContent({
-        source: 'navigationSource',
-        query: {
-            hierarchy: 'header_menu_foodit',
-            website: 'foodit'
-        },
-        transform: transformMenuData,
-        filter: filterMenuSections
-    });
+    const { categories, termicasData } = useNavigationData();
 
     return (
         <>
@@ -83,7 +73,10 @@ function HeaderFoodit({ layout, layoutsName }) {
                             </MainHeader.Brand>
                         </MainHeader.Content.Center>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
-                            <LoginSubscribeButtons classNameButtons="lg-only" />
+                            <LoginSubscribeButtons
+                                classNameButtons="lg-only"
+                                termicasData={termicasData}
+                            />
                             <BellButton />
                             <RenderUserOptions />
                         </MainHeader.Content.Right>

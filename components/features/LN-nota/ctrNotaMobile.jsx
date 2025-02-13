@@ -9,8 +9,7 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../auth/helper/loginHelper';
 import { getSectionId } from '../LN-10/ranking/common/_helper-WebApi';
-import { getSectionParentId } from '../LN-common/ranking/_helper';
-import { getDataContent } from '../LN-10/ranking/_helper';
+import { useRankingArticles } from '../LN-10/ranking/_helper';
 
 export const ctrRecommendNote = (
     articleList,
@@ -32,11 +31,11 @@ function CTRNota() {
     const { website = '', arcSite = '', globalContent = {} } = useAppContext();
     const { _id } = globalContent;
     const sectionId = getSectionId(globalContent) || '';
-    const sectionParentId = getSectionParentId(sectionId) || '';
+
     const [trigger, setTrigger] = useState(false);
     const [tracked, setTracker] = useState(true);
     const [excludeItems, setExcludeItems] = useState([]);
-
+    const [source, setSource] = useState(null);
     useEffect(() => {
         if (localStorage) {
             const seenNotes =
@@ -46,6 +45,9 @@ function CTRNota() {
         }
         const handleScroll = () => {
             const scrolledInAxisY = window.scrollY;
+            if (!source && scrolledInAxisY >= 1000)
+                setSource('rankingArticlesSource');
+
             if (!trigger && scrolledInAxisY >= 2800) {
                 setTrigger(true);
                 window.removeEventListener('scroll', handleScroll);
@@ -55,18 +57,18 @@ function CTRNota() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [trigger]);
+    }, [trigger, source]);
 
     const device = useViewportSize();
     const showCtr = !isSubscribed(SUBSCRIBED_HELPER.LN) && device === 'mobile';
 
     const { articles = [] } =
-        getDataContent(
+        useRankingArticles(
             sectionId,
-            sectionParentId,
             website || arcSite,
             '',
-            'ctrMobile'
+            'ctrMobile',
+            source
         ) || {};
 
     if (!showCtr || articles?.length === 0) return null;
@@ -75,16 +77,15 @@ function CTRNota() {
     const showComponent =
         showCtr && trigger && Object.keys(articleToShow)?.length > 0;
 
+    if (!showComponent) return null;
     return (
-        showComponent && (
-            <Lazy renderPlaceholder={ref => <div ref={ref} />} offsetTop={8000}>
-                <StickyMobile
-                    headerText="Te puede interesar"
-                    articleToShow={articleToShow}
-                />
-                {crtViewTracker(tracked, setTracker)}
-            </Lazy>
-        )
+        <Lazy renderPlaceholder={ref => <div ref={ref} />} offsetTop={8000}>
+            <StickyMobile
+                headerText="Te puede interesar"
+                articleToShow={articleToShow}
+            />
+            {crtViewTracker(tracked, setTracker)}
+        </Lazy>
     );
 }
 

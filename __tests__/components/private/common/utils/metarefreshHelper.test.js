@@ -67,17 +67,20 @@ describe('Components - private- common - utils - metarefreshHelper - getInterval
 });
 
 describe('Components - private- common - utils - metarefreshHelper - shouldBeExcluded', () => {
-    it('should return true if content_elements contains raw_html, oembed_response, or video', () => {
-        const globalContent = {
-            content_elements: [{ type: 'raw_html' }]
-        };
+    test.each([['raw_html'], ['oembed_response'], ['video_jw']])(
+        'should return true when content_elements contains %s',
+        type => {
+            const globalContent = {
+                content_elements: [{ type }]
+            };
 
-        expect(shouldBeExcluded({ globalContent })).toBe(true);
-    });
+            expect(shouldBeExcluded({ globalContent })).toBe(true);
+        }
+    );
 
-    it('should return true if promo_items.basic is of type video', () => {
+    it('should return true if promo_items has a video_jw', () => {
         const globalContent = {
-            promo_items: { basic: { type: 'video' } }
+            promo_items: { video_jw: {} }
         };
 
         expect(shouldBeExcluded({ globalContent })).toBe(true);

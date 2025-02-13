@@ -11,7 +11,7 @@ import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper
 import handleCookie from '../../LN/common/utils/handleCookie';
 import createHash from '../utils/createHash';
 
-const GooglePublisherTag = props => {
+function GooglePublisherTag(props) {
     const { globalContent = {} } = props;
     const { type } = globalContent;
     const { getCookie } = handleCookie();
@@ -31,15 +31,14 @@ const GooglePublisherTag = props => {
     const { eje_subeje } = label || {};
     const { text: ejeSubejeText = '' } = eje_subeje || {};
 
-    const getTopics = tags => {
-        return tags && tags.length
-            ? tags.map(tag => decorator('te_', /\W/g, '_', tag.text))
+    const getTopics = tagsList =>
+        tagsList && tagsList.length
+            ? tagsList.map(tag => decorator('te_', /\W/g, '_', tag.text))
             : [];
-    };
 
-    const getUrl = url => {
-        if (!url) return '';
-        return `${decorator('url', /\//g, '_', url.replace(/\/$/g, ''))}`;
+    const getUrl = inputUrl => {
+        if (!inputUrl) return '';
+        return `${decorator('url', /\//g, '_', inputUrl.replace(/\/$/g, ''))}`;
     };
 
     const getArticleId = () => {
@@ -95,7 +94,7 @@ const GooglePublisherTag = props => {
             />
         </>
     );
-};
+}
 
 GooglePublisherTag.propTypes = {
     globalContent: PropTypes.shape({

@@ -230,6 +230,7 @@ function Default(props) {
                     nodeType={_nodeType}
                     site={site}
                     template={template}
+                    layout={layout}
                 />
                 {layout !== lnBuscador && (
                     <MetaTitle

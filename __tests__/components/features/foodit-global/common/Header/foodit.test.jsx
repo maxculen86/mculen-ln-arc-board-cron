@@ -1,10 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import HeaderFoodit from '../../../../../../components/features/foodit-global/common/Header/foodit';
 import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 import useGetUserData from '../../../../../../auth/hooks/useGetUserData';
+import { useNavigationData } from '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData';
+
 jest.mock('../../../../../../auth/hooks/useGetUserData');
 
 const observe = jest.fn();
@@ -21,6 +23,13 @@ jest.mock('fusion:context', Component => {
 });
 
 jest.mock('../../../../../../auth/hooks/useGetUserData', () => jest.fn());
+
+jest.mock(
+    '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData',
+    () => ({
+        useNavigationData: jest.fn()
+    })
+);
 
 describe('Components - Features - foodit-global - Common - HeaderFoodit', () => {
     Context.useAppContext = jest.fn(() => ({
@@ -40,7 +49,9 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     // });
 
     it('should return buttons login and button suscribed when the user is unlogged', () => {
-        useContent.mockReturnValue(menuCategories);
+        useNavigationData.mockReturnValue({
+            categories: menuCategories
+        });
         useGetUserData.mockReturnValue({
             userType: 'unlogged',
             userEmail: '',

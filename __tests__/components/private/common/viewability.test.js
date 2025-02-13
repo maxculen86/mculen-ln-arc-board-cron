@@ -168,9 +168,8 @@ describe('Viewability', () => {
             const { container } = render(<CajaTema {...propsFocalRight} />);
             expect(container).toBeTruthy();
 
-            const articlesFocalRight = container.querySelectorAll(
-                '.mod-article'
-            );
+            const articlesFocalRight =
+                container.querySelectorAll('.mod-article');
 
             const layout = container.querySelector(
                 '[data-diagramacion-id="focalRight2"]'
@@ -207,23 +206,20 @@ describe('Viewability', () => {
                         _id: 'KEBOPEQGFASKHASFSFAFSF',
                         display_date: '2020-04-24T16:10:43.235Z',
                         headlines: {
-                            basic:
-                                'Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos',
+                            basic: 'Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos',
                             mobile: ''
                         },
                         promo_items: {
                             basic: {
                                 height: 513,
                                 type: 'image',
-                                url:
-                                    'https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg',
+                                url: 'https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg',
                                 width: 768
                             }
                         },
                         publish_date: '2021-01-07T12:56:01.989Z',
                         subheadlines: {
-                            basic:
-                                'A los perros no les gusta estar solos . Tanto es así que incluso pueden llegar a experimentar ataques de pánico cuando los dueños salen de sus casas . '
+                            basic: 'A los perros no les gusta estar solos . Tanto es así que incluso pueden llegar a experimentar ataques de pánico cuando los dueños salen de sus casas . '
                         },
                         subtype: '1',
                         website_url:

@@ -33,4 +33,17 @@ describe('InfoBox', () => {
         );
         expect(container).toMatchSnapshot();
     });
+
+    it('Should not render if path is null or undefined', () => {
+        Context.useAppContext.mockReturnValue({
+            globalContent: {
+                taxonomy: { primary_section: { path: null } }
+            }
+        });
+
+        const { container } = render(
+            <InfoBoxFeature contextPath={'/pf'} deployment={arg => arg} />
+        );
+        expect(container).toMatchSnapshot();
+    });
 });

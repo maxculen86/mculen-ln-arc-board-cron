@@ -8,7 +8,7 @@ import { isSubscribed } from '../../../../auth/helper/loginHelper';
 import { useAppContext } from 'fusion:context';
 import '@testing-library/jest-dom';
 import StickyMobile from '../../../../components/private/LN/nota/StickyMobile';
-import { getDataContent } from '../../../../components/features/LN-10/ranking/_helper';
+import { useRankingArticles } from '../../../../components/features/LN-10/ranking/_helper';
 
 const mockSetTrigger = jest.fn();
 
@@ -21,7 +21,7 @@ jest.mock('../../../../components/features/LN-10/ranking/_helper', () => ({
     ...jest.requireActual(
         '../../../../components/features/LN-10/ranking/_helper'
     ),
-    getDataContent: jest.fn()
+    useRankingArticles: jest.fn()
 }));
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
@@ -62,7 +62,7 @@ describe('CTRNota', () => {
         expect(!!articleToShow).toBe(true);
     });
 
-    it('should call getDataContent with expected parameters', () => {
+    it('should call useRankingArticles with expected parameters', () => {
         useAppContext.mockReturnValue({
             globalContent: {
                 _id: '/sociedad',
@@ -76,12 +76,12 @@ describe('CTRNota', () => {
 
         render(<CTRNota />);
 
-        expect(getDataContent).toHaveBeenCalledWith(
+        expect(useRankingArticles).toHaveBeenCalledWith(
             'sociedad',
-            '',
             'la-nacion-ar',
             '',
-            'ctrMobile'
+            'ctrMobile',
+            null
         );
     });
 

@@ -21,7 +21,7 @@ export const getInterval = (type, resolution, config, category) => {
 export const shouldBeExcluded = ({ globalContent }) => {
     const labelMetarefresh = get(globalContent, 'label.metarefresh.text', null);
     const contentElements = get(globalContent, 'content_elements', null);
-    const promoItem = get(globalContent, 'promo_items.basic', null);
+    const promoItemExists = !!get(globalContent, 'promo_items.video_jw', null);
 
     return (
         (contentElements &&
@@ -29,9 +29,9 @@ export const shouldBeExcluded = ({ globalContent }) => {
                 contentElement =>
                     contentElement.type === 'raw_html' ||
                     contentElement.type === 'oembed_response' ||
-                    contentElement.type === 'video'
+                    contentElement.type === 'video_jw'
             )) ||
-        (promoItem && promoItem.type === 'video') ||
+        promoItemExists ||
         labelMetarefresh === 'No'
     );
 };

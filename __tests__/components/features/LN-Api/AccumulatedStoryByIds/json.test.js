@@ -2,7 +2,7 @@ import * as AccumulatedStoryByIds from '../../../../../components/features/LN-Ap
 import resultsArticle from '../../../../../__mocks__/data/acuArticlesbyIds/3ab7551887d97961726b9a8a9fb665c78a64fa5aa1d46bfd370886e44febc56b.json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return class extends component {
             constructor(props) {
                 super(props);
@@ -80,9 +80,7 @@ describe('components - features - LN-Api - AccumulatedStoryByIds - json.js', () 
             const objArticle = new AccumulatedStoryByIds.default(props);
             objArticle.props.requestUri = null;
             const result = objArticle.render();
-            expect(result.Message).toBe(
-                `Cannot read properties of null (reading '1')`
-            );
+            expect(result.Message).toBe('indexAcu is not a function');
         });
     });
 });

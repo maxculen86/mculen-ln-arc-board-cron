@@ -104,7 +104,11 @@ describe('IaTools component', () => {
         render(<IaTools iaData={iaDataMockGlossary} />);
 
         iaDataMockGlossary[0].data.forEach(({ key, value }) => {
-            expect(screen.getByText(key)).toBeTruthy();
+            expect(screen.getByText('BBC')).toBeTruthy();
+            expect(screen.getByText('EBay')).toBeTruthy();
+            expect(screen.getByText('Museo Británico')).toBeTruthy();
+            expect(screen.getByText('PayPal')).toBeTruthy();
+            expect(screen.getByText('Test Sa')).toBeTruthy();
             expect(screen.getByText(value)).toBeTruthy();
         });
     });

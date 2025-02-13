@@ -1,16 +1,21 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import { getListsFromPowerup } from '../PowerupsReceta/_helper';
 import get from '../../../../private/common/utils/get';
 
-import Ingredients from '../PowerupsReceta/ingredientsBox/ingredients';
+import { Ingredients } from '../PowerupsReceta/ingredientsBox/ingredients';
 
-export const PowerupsRecipePaywall = ({ article = {} }) => {
-    const { promo_items = [], content_elements = [], _id = '' } = article;
+export function PowerupsRecipePaywall({ article = {} }) {
+    const {
+        promo_items: promoItems = [],
+        content_elements: contentElements = [],
+        _id = ''
+    } = article;
 
-    const { counterPortion } = get(promo_items, 'receta.embed.config', {});
+    const { counterPortion } = get(promoItems, 'receta.embed.config', {});
 
-    const { ingredientsLists } = getListsFromPowerup(content_elements);
+    const { ingredientsLists } = getListsFromPowerup(contentElements);
 
     return (
         <div className="bg-positive flex flex-column gap-16 gap-24_md gap-32_lg p-16 p-24_md p-32_lg">
@@ -19,7 +24,11 @@ export const PowerupsRecipePaywall = ({ article = {} }) => {
                 ingredientsLists={ingredientsLists}
                 portions={counterPortion}
                 showButton={false}
+                showButtonsConversor
             />
         </div>
     );
+}
+PowerupsRecipePaywall.propTypes = {
+    article: PropTypes.shape({}).isRequired
 };

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import { createDifferVideosObserver } from '../../private/common/banners/intersectionObservers';
+import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
 
 const pageBuilderSections = ['Apertura', 'Bloque-1', 'Bloque-2'];
 
@@ -21,6 +22,7 @@ function HomeFoodit({ children, isAdmin }) {
     return (
         <BaseLayout>
             <UserBookmarks />
+            {BannersFoodit.modal_1x1()}
             <Static id="opening-home">
                 <section>{opening}</section>
             </Static>

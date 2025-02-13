@@ -1,6 +1,6 @@
 import React from 'react';
 import Ranking from '../../../../../components/features/LN-10/ranking/default';
-import { getDataContent } from '../../../../../components/features/LN-10/ranking/_helper';
+import { useRankingArticles } from '../../../../../components/features/LN-10/ranking/_helper';
 import '@testing-library/jest-dom';
 import Context from 'fusion:context';
 import { render } from '@testing-library/react';
@@ -18,7 +18,7 @@ jest.mock('../../../../../components/features/LN-10/ranking/_helper', () => ({
     ...jest.requireActual(
         '../../../../../components/features/LN-10/ranking/_helper'
     ),
-    getDataContent: jest.fn()
+    useRankingArticles: jest.fn()
 }));
 
 jest.mock('fusion:context', () => ({ useAppContext: jest.fn() }));
@@ -31,14 +31,16 @@ describe('features - LN10 - Ranking', () => {
     }));
 
     it('should return null if the length of the items array is empty', () => {
-        getDataContent.mockImplementation(() => ({ articles: [] }));
+        useRankingArticles.mockImplementation(() => ({ articles: [] }));
 
         const { container } = render(<Ranking {...props} />);
         expect(container.firstChild).toBeNull();
     });
 
     it('should returns the right articles length', () => {
-        getDataContent.mockImplementation(() => ({ articles: mockArticles }));
+        useRankingArticles.mockImplementation(() => ({
+            articles: mockArticles
+        }));
 
         const { container } = render(<Ranking {...props} />);
         const articles = container.querySelectorAll('article');
