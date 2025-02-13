@@ -15,19 +15,17 @@ function AcumuladoFoodit(props) {
     const { globalContent = {}, children } = props;
 
     const [, notas] = children;
-    const { _id: id } = globalContent;
+    const { _id: id, children: childrenContent = [] } = globalContent;
+
+    const tagCategories = childrenContent
+        .map(({ _id = '', name = '' }) => ({
+            href: `${_id}/`,
+            title: name
+        }))
+        .sort((a, b) => a?.title.localeCompare(b?.title));
+
     const renderAcu =
         id === '/tema' ? <AcuTema globalContent={globalContent} /> : notas;
-
-    const mockLinks = [
-        { href: '/link1', title: 'Tortas' },
-        { href: '/link2', title: 'Postres' },
-        { href: '/link3', title: 'Panqueques' },
-        { href: '/link4', title: 'Budines' },
-        { href: '/link5', title: 'tartas' },
-        { href: '/link6', title: 'helados' },
-        { href: '/link7', title: 'batidos' }
-    ];
 
     return (
         <BaseLayout>
@@ -42,7 +40,7 @@ function AcumuladoFoodit(props) {
                         >
                             {getFooditAcuTitle(globalContent)}
                         </Text>
-                        <TagCategories mockLinks={mockLinks} />
+                        <TagCategories tagLinks={tagCategories} />
                     </div>
                 </section>
                 <section className="grid gap-32">{renderAcu}</section>
