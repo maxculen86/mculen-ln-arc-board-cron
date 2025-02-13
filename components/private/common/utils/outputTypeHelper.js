@@ -77,12 +77,9 @@ const nodeTypeTitles = {
         return shortTitle ? `${shortTitle} - LA NACION` : PBTitle;
     },
     ott: ({ ottTitle }) => ottTitle,
-    home: ({ PBTitle, longTitle, defaultTitle }) => {
-        return longTitle || PBTitle || defaultTitle;
-    },
-    default: ({ PBTitle, defaultTitle }) => {
-        return PBTitle || defaultTitle;
-    }
+    home: ({ PBTitle, longTitle, defaultTitle }) =>
+        longTitle || PBTitle || defaultTitle,
+    default: ({ PBTitle, defaultTitle }) => PBTitle || defaultTitle
 };
 
 export const getMetaDescriptionDefault = (
@@ -129,11 +126,10 @@ export const metasFromSiteServices = (metaTags = {}) => {
 
     return (
         <>
-            {metas.map(([name, content]) => {
-                return (
+            {metas.map(
+                ([name, content]) =>
                     name && content && <meta name={name} content={content} />
-                );
-            })}
+            )}
         </>
     );
 };
@@ -141,19 +137,19 @@ export const metasFromSiteServices = (metaTags = {}) => {
 export const addMetaNoIndexNoFollow = ({
     outputType = 'default',
     requestUri
-}) => {
-    return [
+}) =>
+    [
         'home-vivo',
         'home-temas',
         'cajaafondo',
         'home-webstories',
         'home-juegos',
         'preview-arc',
-        'home-content'
+        'home-content',
+        'carrusel-home'
     ].includes(getSectionOfRequestUri(requestUri)) ||
-        ['opta', 'widgets'].includes(outputType) ? (
+    ['opta', 'widgets'].includes(outputType) ? (
         <meta name="robots" content="noindex, nofollow" />
     ) : (
         <></>
     );
-};

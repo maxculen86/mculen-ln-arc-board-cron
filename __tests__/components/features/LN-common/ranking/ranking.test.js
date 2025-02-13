@@ -55,7 +55,7 @@ describe('Features - LN - Common - Ranking - default', () => {
         }));
         const { container } = render(<Ranking id="LN-acumulado" />);
         expect(container.innerHTML).toBe(
-            '<static id="common-ranking-LN-acumulado"><div class="bg-light-0 py-32"><ol></ol></div></static>'
+            '<static id="common-ranking-LN-acumulado"><div class="bg-light-0 py-32 overflow-hidden"><ol></ol></div></static>'
         );
     });
     it('Should render ranking acu politica', async () => {
