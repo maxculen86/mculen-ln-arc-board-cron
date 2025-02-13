@@ -8,7 +8,7 @@ export function TagCategories({ mockLinks }) {
 
     return (
         <nav className="flex ai-end_md">
-            <ul className="flex flex-wrap gap-8">
+            <ul className="flex flex-wrap gap-8 mb-8_md">
                 {mockLinks.map((link, i) => (
                     <li
                         key={link.href}
