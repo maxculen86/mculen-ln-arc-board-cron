@@ -169,7 +169,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   title="SUSCRIBITE"
                 >
                   <span
-                    class="roboto-regular"
+                    class="roboto-bold"
                   >
                     SUSCRIBITE
                   </span>
@@ -1434,7 +1434,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               title="SUSCRIBITE"
             >
               <span
-                class="roboto-regular"
+                class="roboto-bold"
               >
                 SUSCRIBITE
               </span>

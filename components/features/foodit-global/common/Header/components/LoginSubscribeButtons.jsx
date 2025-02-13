@@ -78,7 +78,7 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
                         data-button="buttonSubscribeText"
                         onClick={handleSubscribeClick}
                     >
-                        <span className="roboto-regular">
+                        <span className="roboto-bold">
                             {buttonSubscribeText}
                         </span>
                     </Button>
