@@ -53,7 +53,7 @@ function RankingFeature({ id: featureId }) {
                     <CommonCollection
                         roofData={{ title, isAdmin }}
                         rules={rules}
-                        position="0190"
+                        position="0196"
                         articles={replaceUrlsByEnvironment(articles)}
                         gridType={RANKING_LAYOUT}
                         ContainerCards={Cajaranking}

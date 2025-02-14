@@ -159,9 +159,10 @@ export const getMarkupForDatalayer = (
         },
         Ranking: {
             extraOpts: {
+                ...extraOptsdefault,
                 'data-block-name': 'h_ranking',
                 'data-mrf-recirculation': 'h_ranking',
-                ...extraOptsdefault
+                'data-diagramacion-id': 'ranking-1-2-2_grid'
             },
             extraOptsDiv: {
                 'data-module': 'tema_ranking'
