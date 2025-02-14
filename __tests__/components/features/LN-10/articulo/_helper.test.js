@@ -23,7 +23,8 @@ import {
     translateSectionName,
     getDynamicStreamOperator,
     transformVideoData,
-    generateLazyLoadEmbedCode
+    generateLazyLoadEmbedCode,
+    getCllBoard
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -1336,5 +1337,33 @@ describe('generateLazyLoadEmbedCode', () => {
         const id2 = result2.match(/id="([a-z0-9-]+)"/)[1];
 
         expect(id1).not.toBe(id2);
+    });
+
+    describe('Test function getCllBoard', () => {
+        it('should return an empty object if inputUrl is undefined', () => {
+            const result = getCllBoard(undefined);
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object if inputUrl is null', () => {
+            const result = getCllBoard(null);
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object if inputUrl is an empty string', () => {
+            const result = getCllBoard('');
+            expect(result).toEqual({});
+        });
+
+        it('should return the embedCode and classNames with a valid transformed URL', () => {
+            const input =
+                ' https://canchallena.lanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/ ';
+
+            const result = getCllBoard(input);
+            expect(result).toEqual({
+                embedCode: `<iframe src=https://widget-canchallena.clanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/widget/?isHome=true title="Embebido canchallena" class="w-100 h-82"> </iframe>`,
+                classNames: 'h-82'
+            });
+        });
     });
 });

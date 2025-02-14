@@ -6,7 +6,7 @@ import { cx } from '@ln/cva';
 function FigureCaption({ epigraphTitle, credit, className }) {
     if (!epigraphTitle) return null;
     const classnames = cx(
-        'border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md p-overflow_max767 mb-8',
+        'border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md',
         className
     );
     return (

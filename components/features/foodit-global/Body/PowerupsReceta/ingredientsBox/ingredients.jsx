@@ -92,7 +92,7 @@ export function Ingredients({
                     bookmarkId={bookmarkId}
                     setBookmarkId={setBookmarkId}
                     isSuscriptor={isSuscriptor}
-                    ingredientsLists={currentIngredients}
+                    ingredientsLists={ingredientsModificated}
                     title={title}
                     articleId={articleId}
                 />

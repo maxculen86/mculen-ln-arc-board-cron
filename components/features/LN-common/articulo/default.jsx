@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useAppContext, useComponentContext } from 'fusion:context';
@@ -14,19 +13,19 @@ import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import featureArticleCustomsFields, {
-    GetImage
+    getImage
 } from '../../../private/LN/common/utils/articuloHelper';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import { getChainConfig } from '../../LN-10/article/common/_helper-WebApi';
 
-const ArticleFeature = ({
+function ArticleFeature({
     id: featureId,
     customFields,
     customFields: { noteId: id, imageId, video: videoId, mobileImageId },
     isBomba = false
-}) => {
+}) {
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
 
     const { cajaTemaConfig } = getProperties(arcSite);
@@ -39,9 +38,7 @@ const ArticleFeature = ({
         cajaTemaConfig
     });
 
-    const checkForId = idValue => {
-        return idValue && idValue.trim();
-    };
+    const checkForId = idValue => idValue && idValue.trim();
 
     const article = useContent({
         source: checkForId(id) ? 'articleSourceNota' : null,
@@ -72,7 +69,7 @@ const ArticleFeature = ({
             filter: filterVideo
         }) || null;
 
-    const image = GetImage({
+    const image = getImage({
         imageId,
         imageConfig,
         id,
@@ -81,7 +78,7 @@ const ArticleFeature = ({
         filterImage
     });
 
-    const mobileImage = GetImage({
+    const mobileImage = getImage({
         imageId: mobileImageId,
         imageConfig: 'boxMultimediaMobile',
         id,
@@ -145,7 +142,7 @@ const ArticleFeature = ({
             </ErrorBoundary>
         )
     );
-};
+}
 
 ArticleFeature.label = 'LN Articulo';
 

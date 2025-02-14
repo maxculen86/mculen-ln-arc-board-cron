@@ -1,7 +1,7 @@
 import LN10Article from '../../../../../components/features/LN-10/article/json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         const newComponent = component;
         // Mock fetchContent
         newComponent.prototype.fetchContent = jest.fn();
@@ -19,9 +19,9 @@ jest.mock('fusion:properties', () => {
                     focalLeft3: {
                         className: '--focal --left',
                         articles: {
-                            '0': [],
-                            '1': [],
-                            '2': []
+                            0: [],
+                            1: [],
+                            2: []
                         }
                     }
                 }
@@ -44,21 +44,22 @@ jest.mock('../../../../../properties/sites/la-nacion-ar', () => {
         }
     };
 });
-
+const { renderProps: renderPropsMock } = jest.requireMock(
+    '../../../../../components/private/LN/api/global/components/features/article/LN10/renderProps.js'
+);
 jest.mock(
     '../../../../../components/private/LN/api/global/components/features/article/LN10/renderProps.js',
-    () => {
-        //renderProps
-        return {
-            __esModule: true,
-            renderProps: (
+    () => ({
+        __esModule: true,
+        renderProps: jest.fn(
+            (
                 articleSourceNotaRender,
                 articleImageRender,
                 articleVideoRender,
                 propsRender,
                 configs
             ) => {
-                if (propsRender.id === 'throw') {
+                if (propsRender?.id === 'throw') {
                     throw new Error('Error');
                 }
                 if (!articleSourceNotaRender) {
@@ -70,8 +71,8 @@ jest.mock(
                         '/sociedad/coronavirus-en-argentina-casos-en-vera-santa-fe-al-29-de-junio-nid29062021/'
                 };
             }
-        };
-    }
+        )
+    })
 );
 
 jest.mock(
@@ -124,7 +125,9 @@ describe('components - feature - LN10 Articulo - json', () => {
         hideImage: false,
         lead: '',
         imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-        title: ''
+        title: '',
+        cllBoard:
+            'https://canchallena.clanacion.com.ar/futbol/copa-argentina-2025/boca-juniors-argentino-monte-maiz-aeptpxkh2li6vimrypjso0ff8'
     };
     propsArticle.children = [1, 2, 3];
     propsArticle.renderables = [
@@ -167,8 +170,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         };
         resultFeature.state.articleImageLN10 = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         resultFeature.state.articleVideoLN10 = {};
         const resultArticle = resultFeature.render();
@@ -183,7 +185,48 @@ describe('components - feature - LN10 Articulo - json', () => {
             ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
+    test('LN10 Article OK when contains cllBoard', () => {
+        const props = { ...propsArticle };
 
+        const article = LN10Article;
+        const configs = {
+            imageConfig: '',
+            config: undefined,
+            index: -1,
+            boxPosition: '00',
+            layout: '',
+            chainId: ''
+        };
+        const resultFeature = new article(props);
+        resultFeature.state = {};
+        resultFeature.state.articleSourceNotaLN10 = {
+            _id: 'AAABBBB',
+            website_url:
+                '/sociedad/coronavirus-en-argentina-casos-en-vera-santa-fe-al-29-de-junio-nid29062021/'
+        };
+        resultFeature.state.articleImageLN10 = {
+            promo_items: {},
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+        };
+        resultFeature.state.articleVideoLN10 = {};
+        const resultArticle = resultFeature.render();
+        expect(renderPropsMock).toHaveBeenCalledWith(
+            expect.anything(),
+            expect.anything(),
+            expect.anything(),
+            props,
+            configs
+        );
+        expect(resultArticle).toMatchObject({
+            _id: '1A',
+            website_url:
+                '/sociedad/coronavirus-en-argentina-casos-en-vera-santa-fe-al-29-de-junio-nid29062021/'
+        });
+
+        expect(Object.keys(resultFeature).sort()).toEqual(
+            ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
+        );
+    });
     test('LN10 Article when state is null', () => {
         const props = { ...propsArticle };
 
@@ -213,8 +256,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         };
         resultFeature.state.articleImageLN10 = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         resultFeature.state.articleVideoLN10 = {};
         resultFeature.configs = {};
@@ -238,8 +280,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         resultFeature.state.articleSourceNotaLN10 = null;
         resultFeature.state.articleImageLN10 = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         resultFeature.state.articleVideoLN10 = {};
         const resultArticle = resultFeature.render();
@@ -267,8 +308,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         };
         resultFeature.state.articleImageLN10 = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         resultFeature.state.articleVideoLN10 = null;
         const resultArticle = resultFeature.render();
@@ -294,8 +334,7 @@ describe('components - feature - LN10 Articulo - json', () => {
         };
         resultFeature.state.articleImageLN10 = {
             promo_items: {},
-            _id:
-                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+            _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
         resultFeature.state.articleVideoLN10 = {};
         const resultArticle = resultFeature.render();

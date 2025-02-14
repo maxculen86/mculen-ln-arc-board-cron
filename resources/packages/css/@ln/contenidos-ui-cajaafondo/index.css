@@ -28,9 +28,6 @@
 }
 @media (max-width: 767px) {
   .a-fondo .ln-card a .media-container {
-    overflow: visible;
-  }
-  .a-fondo .ln-card a .media-container .ln-placeholder {
     width: calc(100% + 2rem);
     margin-left: -1rem;
   }

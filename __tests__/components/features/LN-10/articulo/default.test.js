@@ -1,11 +1,8 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
-import getProperties from 'fusion:properties';
 import { useContent } from 'fusion:content';
 import ArticleFeature from '../../../../../components/features/LN-10/article/default';
 import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import contentElementsLiveblog from '.././../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import * as cajaTemasValidators from '../../../../../components/private/LN/common/utils/cajaTemasValidators';
 import * as _helper from '../../../../../components/features/LN-10/article/_helper';
@@ -46,6 +43,13 @@ jest.spyOn(_helperWebApi, 'getChainConfig').mockReturnValue({
 jest.mock('../../../../../components/chains/utils/_helpers', () => ({
     ...jest.requireActual('../../../../../components/chains/utils/_helpers'),
     checkVariants: jest.fn()
+}));
+
+jest.mock('../../../../../components/features/LN-10/article/_helper', () => ({
+    ...jest.requireActual(
+        '../../../../../components/features/LN-10/article/_helper'
+    ),
+    getMediaData: jest.fn()
 }));
 
 const article = (authors, content_elements) => ({
@@ -105,8 +109,9 @@ describe('Components - features - LN-10 - articulo - default', () => {
         customFields: {
             noteId: '2KOBND62KNFVVBFQZOADNN6WNY',
             imageId: '',
-            videoId: '',
+            video: '',
             html: '',
+            cllBoard: '',
             mobileImageId: '',
             lead: 'LeadNota',
             title: 'Nota',
@@ -144,13 +149,6 @@ describe('Components - features - LN-10 - articulo - default', () => {
         test('must always return the badget ', () => {
             render(<ArticleFeature {...getProps('liveblog')} />);
             expect(screen.getByText('vivo')).toBeVisible();
-        });
-
-        test('Should return the text of the badget that is configured in the custom field "chapita" ', () => {
-            const chapita = 'Chapita personalizada';
-
-            render(<ArticleFeature {...getProps('liveblog', { chapita })} />);
-            expect(screen.getByText(chapita)).toBeVisible();
         });
 
         test('Should return the text of the badget that is configured in the custom field "chapita" ', () => {
@@ -343,7 +341,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
         props.customFields.videoId = '';
         props.customFields.imageId = 'testimage';
 
-        const getImageSpy = jest.spyOn(_helperArticle, 'GetImage');
+        const getImageSpy = jest.spyOn(_helperArticle, 'getImage');
 
         render(<ArticleFeature {...props} />);
 
@@ -395,7 +393,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
         useContent.mockReturnValue(article());
         jest.spyOn(_helperWebApi, 'checkForId').mockReturnValue(true);
 
-        const getImageSpy = jest.spyOn(_helperArticle, 'GetImage');
+        const getImageSpy = jest.spyOn(_helperArticle, 'getImage');
 
         const props = getProps('author');
 
@@ -473,6 +471,64 @@ describe('Components - features - LN-10 - articulo - default', () => {
         test('should return null when imageIdParam is null', () => {
             const result = _helper.getImageIdValidations(false, false, null);
             expect(result).toBeNull();
+        });
+
+        it('should render video player when videoId is set', () => {
+            useContent.mockReturnValue(article());
+            _helper.getMediaData.mockReturnValue({
+                type: 'video',
+                dataSrc:
+                    'https://cdn.jwplayer.com/videos/62BbXEwp-kTExGaWf.mp4',
+                poster: 'https://cdn.jwplayer.com/v2/media/62BbXEwp/poster.jpg?width=320'
+            });
+
+            const props = getProps('regular');
+            props.customFields.video = 'testId';
+
+            render(<ArticleFeature {...props} />);
+            expect(document.querySelector('video')).toBeInTheDocument();
+        });
+
+        it('should render iframe when HTML is set', () => {
+            const src = 'https://youtube.com/watch';
+            _helper.getMediaData.mockReturnValue({
+                type: 'embedCode',
+                embedCode: `<iframe src=${src}> </iframe>`,
+                dataSrc: src
+            });
+
+            useContent.mockReturnValue(article());
+
+            const props = getProps('regular');
+            props.customFields.html = `<iframe src=${src}> </iframe>`;
+            render(<ArticleFeature {...props} />);
+
+            const iframe = document.querySelector('iframe');
+            expect(iframe).toBeInTheDocument();
+            expect(iframe).toHaveAttribute('src', src);
+        });
+
+        it('should render iframe and image when cllBoard is set', () => {
+            const input =
+                'https://canchallena.lanacion.com.ar/futbol/europa-league-2024-2025/az-alkmaar-galatasaray-ecmmhg21x9ueq1nrpghsvshec/';
+            _helper.getMediaData.mockReturnValue({
+                embedCode: `<iframe src=${input}> </iframe>`
+            });
+
+            const output =
+                'https://widget-canchallena.clanacion.com.ar/futbol/europa-league-2024-2025/az-alkmaar-galatasaray-ecmmhg21x9ueq1nrpghsvshec/widget/?isHome=true';
+
+            useContent.mockReturnValue(article());
+
+            const props = getProps('regular');
+            props.customFields.cllBoard = input;
+            render(<ArticleFeature {...props} />);
+
+            const img = document.querySelector('img');
+            expect(img).toBeInTheDocument();
+            const iframe = document.querySelector('iframe');
+            expect(iframe).toBeInTheDocument();
+            expect(iframe).toHaveAttribute('src', output);
         });
     });
 });

@@ -4,4 +4,5 @@ import cleanHtmlAttributes from '../../../../../../../../common/utils/cleanHtmlA
 export const getEmbed = article =>
     cleanHtmlAttributes(get(article, 'additionalProperties.html', null));
 
-export default getEmbed;
+export const getEmbedWidget = article =>
+    get(article, 'additionalProperties.cllBoard', null);

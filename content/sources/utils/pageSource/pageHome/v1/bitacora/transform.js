@@ -1,9 +1,10 @@
-import { enumTypeError } from '../../../../../../../components/private/LN/api/common/enums/enumTypeError';
 import {
     infoLNMain,
     infoLNMainLN10
 } from '../../../../../../../components/private/LN/api/common/home/config/configInfoSectionsByLayout';
 import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
+import { enumTypeError } from '../../../../../../../components/private/LN/api/common/enums/enumTypeError';
+import { setRankingByLayout } from '../../../common/elements/ranking/index';
 
 const specialBox = {
     'ln-acumulado/timeline': 'timeline',
@@ -17,7 +18,8 @@ const omitSections = {
 const specialBoxRoot = {
     'ln-common/opinion': 'h_opinion',
     'ln-common/ln10_opinion': 'h_opinion',
-    'ln-common/ln10_en_vivo': 'h_enVivo'
+    'ln-common/ln10_en_vivo': 'h_enVivo',
+    ranking: 'h_ranking'
 };
 
 const configPositionArticlesByBox = {
@@ -43,7 +45,7 @@ const createBox = (
     feature,
     diagramacion_caja: layout,
     item_category: itemCategory,
-    [type]: notas,
+    [type]: notas
 });
 
 const getFeature = sectionAliasMobile => {
@@ -72,21 +74,21 @@ const createNota = (article, index) => {
     };
 };
 
-const normalizeCarousel = (elem) => ({
+const normalizeCarousel = elem => ({
     ...elem,
     information: {
         ...elem.information,
         layout: 'carrusel',
-        viewabilityRoof: elem.information.title,
+        viewabilityRoof: elem.information.title
     },
     articles: elem.videos.map(({ jwVideoId, fullVideoUrl }) => ({
         _id: jwVideoId,
-        website_url: fullVideoUrl,
-    })),
+        website_url: fullVideoUrl
+    }))
 });
 
-const normalizeElement = (elem) => {
-    const isCarousel = elem.sectionAliasMobile === "ln10_caja_carrusel";
+const normalizeElement = elem => {
+    const isCarousel = elem.sectionAliasMobile === 'ln10_caja_carrusel';
     return isCarousel ? normalizeCarousel(elem) : elem;
 };
 
@@ -128,9 +130,10 @@ const createNotasArray = (elem, boxType) => {
             return;
         }
         posicion += 1;
-        const nota = boxType === BoxType.Notas
-            ? createNota(article, posicion)
-            : createVideo(article, posicion);
+        const nota =
+            boxType === BoxType.Notas
+                ? createNota(article, posicion)
+                : createVideo(article, posicion);
         notasArray.push(nota);
     });
 
@@ -183,6 +186,23 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
     }
 };
 
+const getRanking = async (query, layoutPage, elementsPageHome) => {
+    // Add Ranking by Configuration set in file /pageSource/common/elements/ranking/config/configRankingPositionbySection.json
+    const propsRanking = {
+        website: query && query.website,
+        layoutPage,
+        globalContent: {},
+        elementsPage: elementsPageHome
+    };
+
+    const ranking =
+        (setRankingByLayout[layoutPage] &&
+            (await setRankingByLayout[layoutPage](propsRanking))) ||
+        [];
+
+    return ranking;
+};
+
 const transform = async (dataPage, query) => {
     const {
         information: { layoutPage },
@@ -191,13 +211,18 @@ const transform = async (dataPage, query) => {
     try {
         let cajaCount = 1;
         const cajas = [];
-        elementsPage.forEach(elem => {
+        let elements = await getRanking(query, layoutPage, elementsPage);
+        if (elements.length === 0) {
+            elements = elementsPage;
+        }
+        elements.forEach(elem => {
             const acceptedTypes = [0, 7, 10, 11];
             if (!acceptedTypes.includes(elem.type)) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
-            const boxType = elem.sectionAliasMobile === "ln10_caja_carrusel"
-                ? BoxType.Videos
-                : BoxType.Notas;
+            const boxType =
+                elem.sectionAliasMobile === 'ln10_caja_carrusel'
+                    ? BoxType.Videos
+                    : BoxType.Notas;
             cajaCount = createBoxAndNotas(
                 normalizeElement(elem),
                 cajaCount,

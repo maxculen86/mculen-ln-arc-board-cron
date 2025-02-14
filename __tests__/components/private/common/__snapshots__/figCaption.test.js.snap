@@ -5,7 +5,7 @@ exports[`Components - Features - LN-10-global - Common - FigureCaption should no
 exports[`Components - Features - LN-10-global - Common - FigureCaption should render figcaption with epigraphTitle but without credit 1`] = `
 <div>
   <figcaption
-    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md p-overflow_max767 mb-8"
+    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md"
   >
     <span
       class="text ln-text text-16 block"
@@ -19,7 +19,7 @@ exports[`Components - Features - LN-10-global - Common - FigureCaption should re
 exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle 1`] = `
 <div>
   <figcaption
-    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md p-overflow_max767 mb-8"
+    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md"
   >
     <span
       class="text ln-text text-16 block"
@@ -33,7 +33,7 @@ exports[`Components - Features - LN-10-global - Common - FigureCaption should re
 exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle and credit 1`] = `
 <div>
   <figcaption
-    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md p-overflow_max767 mb-8"
+    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md"
   >
     <span
       class="text ln-text text-16 block"
