@@ -3,13 +3,13 @@
 exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
 <DocumentFragment>
   <div>
-    <section
+    <div
       class="container cursor-pointer pt-32"
     >
-      <figure
+      <section
         class="ratio-16-9"
       >
-        <div>
+        <figure>
           <div
             class="video-player bg-black ratio-16-9"
           >
@@ -69,7 +69,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
               id="scriptVideosJw"
             />
           </div>
-        </div>
+        </figure>
         <script
           type="application/ld+json"
         >
@@ -86,8 +86,8 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
   "duration": "PT0M0S"
 }
         </script>
-      </figure>
-    </section>
+      </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
