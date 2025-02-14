@@ -176,13 +176,19 @@ export const validateArticleFeature = ({
     imageId,
     videoId,
     variant,
-    variantsDisabled
+    variantsDisabled,
+    cllBoard,
+    chapita
 }) => {
     const { streams, sources } = video || {};
     const { filesize } =
         getStreams(streams, '>') || getSources(sources, '>') || '';
     const maxVideoSize = 3145728;
     const oneMegabyte = 1048576;
+    const labelChapita = get(content, 'label.chapita.text', '');
+    const closedNote =
+        get(content, 'content_restrictions.content_code', '') === 'cerrada';
+    const hasBadge = chapita || labelChapita?.length > 0 || closedNote;
 
     const rules = [
         {
@@ -213,6 +219,10 @@ export const validateArticleFeature = ({
             message: `El tamaño del video debe ser inferior a 3 MB. Peso actual ${(
                 filesize / oneMegabyte
             ).toFixed(2)} MB`
+        },
+        {
+            validation: cllBoard && hasBadge,
+            message: `La chapita y el embebido de canchallena no se pueden utilizar al mismo tiempo. Por favor, elija uno.`
         }
     ];
 

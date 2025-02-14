@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/require-default-props */
 import React, { useEffect, useState } from 'react';
 import { useAppContext, useComponentContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
@@ -22,7 +20,8 @@ import {
     showSection,
     showExtraClass,
     getTypeOfMedia,
-    getImageIdValidations
+    getImageIdValidations,
+    getCllBoard
 } from './_helper';
 import {
     getChainConfig,
@@ -34,7 +33,7 @@ import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
 import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
-import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
+import { getImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import get from '../../../private/common/utils/get';
@@ -44,11 +43,8 @@ import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
 
-function ArticleFeature({
-    id: featureId,
-    customFields,
-    searchableField,
-    customFields: {
+function ArticleFeature({ id: featureId, customFields, searchableField }) {
+    const {
         noteId: id,
         imageId,
         video: videoId,
@@ -60,9 +56,10 @@ function ArticleFeature({
         chapitaStyle,
         description,
         hideAuthors,
-        variant = 'regular'
-    }
-}) {
+        variant = 'regular',
+        cllBoard = ''
+    } = customFields ?? {};
+
     const { registerSuccessEvent } = useComponentContext();
     const articleId = checkForId(id);
     const {
@@ -127,7 +124,7 @@ function ArticleFeature({
 
     const resolveImageId = getImageIdValidations(isHtml, isVideo, imageId);
 
-    const image = GetImage({
+    const image = getImage({
         imageId: resolveImageId,
         imageConfig,
         id,
@@ -189,7 +186,9 @@ function ArticleFeature({
         config,
         variant,
         variantsDisabled,
-        isBomba
+        isBomba,
+        chapita,
+        cllBoard
     });
 
     useEffect(() => {
@@ -243,9 +242,11 @@ function ArticleFeature({
         );
     }
 
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    if (!isAdmin && (!article || !articleContent)) return <></>;
+
     return (
-        !error &&
-        article && (
+        !error && (
             <ErrorBoundary>
                 <Card
                     data-feature-id={featureId}
@@ -260,6 +261,7 @@ function ArticleFeature({
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
+                    widgetOverlay={getCllBoard(cllBoard?.trim())}
                     cardSize={
                         isContentLabAt100(chainId, layout, renderables)
                             ? '4xl'
@@ -308,23 +310,26 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
-        noteId: PropTypes.string,
-        imageId: PropTypes.string,
-        video: PropTypes.string,
-        lead: PropTypes.string,
-        html: PropTypes.string,
-        title: PropTypes.string,
-        authors: PropTypes.arrayOf(PropTypes.string),
-        chapita: PropTypes.string,
-        chapitaStyle: PropTypes.object,
-        description: PropTypes.string,
-        hideAuthors: PropTypes.bool,
-        variant: PropTypes.oneOf(['regular', 'author', 'liveblog']),
-        ...(articleCustomFields || {})
-    }),
+        noteId: articleCustomFields.noteId,
+        title: articleCustomFields.title,
+        lead: articleCustomFields.lead,
+        imageId: articleCustomFields.imageId,
+        hideImage: articleCustomFields.hideImage,
+        authors: articleCustomFields.authors,
+        hideAuthors: articleCustomFields.hideAuthors,
+        hideFeature: articleCustomFields.hideFeature,
+        description: articleCustomFields.description,
+        hideDescription: articleCustomFields.hideDescription,
+        chapita: articleCustomFields.chapita,
+        chapitaStyle: articleCustomFields.chapitaStyle,
+        video: articleCustomFields.video,
+        html: articleCustomFields.html,
+        cllBoard: articleCustomFields.cllBoard,
+        variant: articleCustomFields.variant
+    }).isRequired,
     searchableField: PropTypes.shape({
         imageId: PropTypes.string
-    })
+    }).isRequired
 };
 
 export default Consumer(ArticleFeature);
