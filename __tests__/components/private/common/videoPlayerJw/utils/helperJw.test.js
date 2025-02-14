@@ -248,7 +248,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'com-image',
                 facadeContainer: 'ratio-16-9',
-                captionClasses: 'px-0_l'
+                captionClasses: 'px-0_l mb-8'
             });
         });
 
@@ -258,11 +258,11 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             expect(result).toEqual({
                 container: 'content-media cursor-pointer',
                 mediaContainer: 'mod-media w-100',
-                videoContainer: 'mod-video flex jc-center bg-black',
+                videoContainer: 'mod-video flex flex-column ai-center bg-black',
                 videoPlayer: 'video-player w-250 w-100 ratio-9-16',
                 facade: 'com-image',
                 facadeContainer: 'w-250 ratio-9-16',
-                captionClasses: ''
+                captionClasses: 'w-100'
             });
         });
 
@@ -274,7 +274,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 mediaContainer: 'ratio-16-9',
                 videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'flex w-100 h-100',
-                captionClasses: 'px-0_l'
+                captionClasses: 'px-0_l mb-8'
             });
         });
     });

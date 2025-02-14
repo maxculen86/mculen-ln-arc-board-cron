@@ -62,9 +62,9 @@ const videoPlayerJW = ({
 
     return (
         <Static id={mediaid}>
-            <section className={container}>
-                <figure className={mediaContainer}>
-                    <div className={videoContainer}>
+            <div className={container}>
+                <section className={mediaContainer}>
+                    <figure className={videoContainer}>
                         <div className={videoPlayer}>
                             <Facade
                                 id={mediaid}
@@ -94,13 +94,13 @@ const videoPlayerJW = ({
                                 )}
                             />
                         </div>
-                    </div>
-                    {shouldShowFigureCaption && (
-                        <FigureCaption
-                            epigraphTitle={epigraphTitle}
-                            className={captionClasses}
-                        />
-                    )}
+                        {shouldShowFigureCaption && (
+                            <FigureCaption
+                                epigraphTitle={epigraphTitle}
+                                className={captionClasses}
+                            />
+                        )}
+                    </figure>
                     {!isOtt && (
                         <VideoPlayerSnippet
                             paragraph={parrafo || description}
@@ -109,8 +109,8 @@ const videoPlayerJW = ({
                             minStream={{ url: get(minStream, 'file', '') }}
                         />
                     )}
-                </figure>
-            </section>
+                </section>
+            </div>
         </Static>
     );
 };
