@@ -17,7 +17,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
       title="LeadNota Nota"
     >
       <section
-        class="media-container"
+        class="media-container relative"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
         title="Nota"
       >
@@ -25,13 +25,10 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
           class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
         >
           <img
-            alt="Nota"
             class="image flex w-100 h-100 none --cover"
             decoding="async"
             fetchpriority="low"
-            height="1333"
             loading="lazy"
-            width="2000"
           />
         </figure>
       </section>

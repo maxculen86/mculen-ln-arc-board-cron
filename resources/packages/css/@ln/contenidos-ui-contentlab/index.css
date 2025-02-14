@@ -25,9 +25,6 @@
 }
 @media (max-width: 768px) {
   .content-lab .ln-card a .media-container {
-    overflow: visible;
-  }
-  .content-lab .ln-card a .media-container .ln-placeholder {
     width: calc(100% + 2rem);
     margin-left: -1rem;
   }
