@@ -6,6 +6,7 @@ import { getArticleAuthor } from '../elements/author/index';
 import { getArticleOpinionSubtype } from '../elements/subType/index';
 import { articleSignature } from '../../elements/author';
 import sentToApps from '../../elements/label/sentToApps';
+import getOpeningMode from '../../elements/label/openingMode';
 
 export const CardBasic = article => {
     const { subtype: templateId, label } = article;
@@ -41,6 +42,7 @@ export const CardBasic = article => {
     const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
     const enviarApps = sentToApps(article);
+    const openingMode = getOpeningMode(article);
 
     return {
         id,
@@ -59,7 +61,8 @@ export const CardBasic = article => {
         seccionPadre: getArticleOpinionSubtype(article),
         opinion: get(article, 'additionalProperties.opinion', false),
         enviarApps,
-        fechaPublicacion: getLastPublishDate(article)
+        fechaPublicacion: getLastPublishDate(article),
+        openingMode
     };
 };
 

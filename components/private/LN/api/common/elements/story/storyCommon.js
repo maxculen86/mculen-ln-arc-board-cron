@@ -11,6 +11,7 @@ import {
     calcReadingMinutes,
     isExcludedSubtype
 } from '../../../../../../features/LN-10-global/common/readingTime/_helpers';
+import getOpeningMode from '../label/openingMode';
 
 export const getPaywallStatus = dataNota => {
     const paywallStatus = get(
@@ -63,6 +64,8 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const enviarApps = sentToApps(dataNota);
 
+    const openingMode = getOpeningMode(dataNota);
+
     const distributor = get(dataNota, 'distributor', null);
 
     const trust = get(dataNota, 'label.trust.text', null);
@@ -105,7 +108,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         modificadorTemplate: ModificadorTemplate(distributor),
         trust: !isTrust,
         metadata: Metadata(dataNota),
-        ia: getIa(dataNota, subtype)
+        ia: getIa(dataNota, subtype),
+        openingMode
     };
 
     if (dataNota.subtype === '9') resp.HTML = cuerpo;

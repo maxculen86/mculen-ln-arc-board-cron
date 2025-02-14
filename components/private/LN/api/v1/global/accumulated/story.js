@@ -5,6 +5,7 @@ import { getTag } from '../../../common/elements/tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../../common/elements/category';
 import sentToApps from '../../../common/elements/label/sentToApps';
+import getOpeningMode from '../../../common/elements/label/openingMode';
 
 const articleItem = article => {
     const {
@@ -34,7 +35,8 @@ const articleItem = article => {
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
         url,
         bajada,
-        enviarApps: sentToApps(article)
+        enviarApps: sentToApps(article),
+        openingMode: getOpeningMode(article)
     };
 
     if (image && image.type === 'image') {
@@ -44,9 +46,7 @@ const articleItem = article => {
     if (authors && authors.length > 0) {
         const authorsFixed = authors.filter(v => v.type === 'author');
         if (authorsFixed.length > 0) {
-            resp.autores = authorsFixed.map(v => {
-                return Author(v);
-            });
+            resp.autores = authorsFixed.map(v => Author(v));
         }
     }
 
@@ -55,9 +55,7 @@ const articleItem = article => {
     }
 
     if (tags && tags.length > 0) {
-        resp.tags = tags.map(v => {
-            return getTag(v);
-        });
+        resp.tags = tags.map(v => getTag(v));
     }
 
     return resp;
