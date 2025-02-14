@@ -19,5 +19,5 @@ export default function getEmbedHref(attr, nodo) {
 
     if (!attrs) return null;
 
-    return getLinkDomain(attrs[1]);
+    return getLinkDomain(attrs[1] || attrs[2]);
 }
