@@ -63,7 +63,7 @@ function RankingFeature({ id: featureId }) {
     return (
         <Static id={`common-ranking-${featureId}`} htmlOnly>
             <div
-                className="bg-light-0 py-32"
+                className="bg-light-0 py-32 overflow-hidden"
                 data-mrf-recirculation={isNote ? 'n_ranking' : undefined}
             >
                 {articles?.length > 0 && (
