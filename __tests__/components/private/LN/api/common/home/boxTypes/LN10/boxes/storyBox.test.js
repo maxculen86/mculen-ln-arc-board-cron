@@ -22,10 +22,8 @@ describe('storyBox LN10', () => {
                     templateId: '1',
                     isListenable: false,
                     sitioId: null,
-                    url:
-                        '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid27012023/',
-                    titulo:
-                        'Messi finalmente levanta la copa mas esperada por todos los argentinos.',
+                    url: '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid27012023/',
+                    titulo: 'Messi finalmente levanta la copa mas esperada por todos los argentinos.',
                     volanta: 'ARGENTINA CAMPEON.',
                     autor: {
                         id: 330,
@@ -34,8 +32,7 @@ describe('storyBox LN10', () => {
                         intereses: undefined,
                         rol: '',
                         tipo: 1,
-                        imagen:
-                            'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
+                        imagen: 'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                         absoluteUrl:
                             'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                         mail: undefined,
@@ -49,8 +46,7 @@ describe('storyBox LN10', () => {
                             intereses: undefined,
                             rol: '',
                             tipo: 1,
-                            imagen:
-                                'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
+                            imagen: 'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                             absoluteUrl:
                                 'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
                             mail: undefined,
@@ -58,12 +54,12 @@ describe('storyBox LN10', () => {
                         }
                     ],
                     marquesina: 'Por Alfredo Leuco',
+                    openingMode: 'Native',
                     seccionPadre: null,
                     opinion: false,
                     enviarApps: true,
                     fechaPublicacion: '2023-01-27 09:16:07',
-                    bajada:
-                        '\n                Los nazis mataron a más de 11 millones de personas durante el Holocausto, incluidos seis millones de judíos. Un grupo de nómadas marginados, los romaníes, fueron también víctimas de la masacre.\n            ',
+                    bajada: '\n                Los nazis mataron a más de 11 millones de personas durante el Holocausto, incluidos seis millones de judíos. Un grupo de nómadas marginados, los romaníes, fueron también víctimas de la masacre.\n            ',
                     categoria: {
                         slug: '/sociedad',
                         valor: 'Sociedad'
