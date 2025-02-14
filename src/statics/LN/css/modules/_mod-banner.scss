@@ -226,12 +226,14 @@
         &.--caja2_dsk,
         &.--caja3_dsk {
             height: px(250);
+            overflow: hidden;
         }
 
         &.--caja1_dsk,
         &.--caja4_dsk,
         &.--caja5_dsk {
             height: px(600);
+            overflow: hidden;
         }
 
         &.--middle_1_dsk {
