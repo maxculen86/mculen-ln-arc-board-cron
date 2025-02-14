@@ -9,12 +9,23 @@ jest.mock('@ln/common-ui-adaptableimage', () => ({
     ))
 }));
 
+const observe = jest.fn();
+const unobserve = jest.fn();
+const disconnect = jest.fn();
+
+window.IntersectionObserver = jest.fn(() => ({
+    observe,
+    unobserve,
+    disconnect
+}));
+
 describe('components - features - LN-10-global - cardVerticalCarrusel - video', () => {
     const defaultProps = {
         src: 'video.mp4',
         poster: 'poster.jpg',
         isPlaying: false,
-        'data-testid': 'video-element'
+        'data-testid': 'video-element',
+        setIsPlaying: jest.fn()
     };
     beforeAll(() => {
         HTMLMediaElement.prototype.play = jest.fn();
@@ -31,28 +42,40 @@ describe('components - features - LN-10-global - cardVerticalCarrusel - video', 
     });
 
     it('renders video element with correct props', () => {
-        const { debug } = render(<Video {...defaultProps} />);
+        render(<Video {...defaultProps} />);
 
         const video = screen.getByTestId('video-element');
-        debug();
         expect(video).toHaveAttribute('src', 'video.mp4');
         expect(video).toHaveAttribute('playsInline');
         expect(video).toHaveAttribute('loop');
-        expect(video).toHaveClass('w-100 h-100');
+        expect(video).toHaveClass(
+            'w-100 h-100 absolute object-cover transition transition-opacity transition-ease-in transition-duration-500'
+        );
+    });
+    it('tag video should have correct classnames when isPlaying is false', () => {
+        render(<Video {...defaultProps} />);
+
+        const video = screen.getByTestId('video-element');
+        expect(video).toHaveClass('opacity-0 z-1');
+    });
+    it('tag video should have correct classnames when isPlaying is true', () => {
+        render(<Video {...defaultProps} isPlaying={true} />);
+
+        const video = screen.getByTestId('video-element');
+        expect(video).toHaveClass('opacity-100 z-2');
     });
 
-    it('hides Adaptableimage when isPlaying is true', () => {
+    it('Adaptableimage should have correct classnames when isPlaying is false', () => {
+        render(<Video {...defaultProps} />);
+
+        const adaptableImage = screen.getByTestId('Adaptableimage');
+        expect(adaptableImage).toHaveClass('z-2');
+    });
+    it('Adaptableimage should have correct classnames when isPlaying is true', () => {
         render(<Video {...defaultProps} isPlaying={true} />);
 
         const adaptableImage = screen.getByTestId('Adaptableimage');
-        expect(adaptableImage).toHaveStyle('display: none');
-    });
-
-    it('shows Adaptableimage when isPlaying is false', () => {
-        render(<Video {...defaultProps} isPlaying={false} />);
-
-        const adaptableImage = screen.getByTestId('Adaptableimage');
-        expect(adaptableImage).not.toHaveStyle('display: none');
+        expect(adaptableImage).toHaveClass('z-1');
     });
 
     it('plays video when isPlaying is true', () => {

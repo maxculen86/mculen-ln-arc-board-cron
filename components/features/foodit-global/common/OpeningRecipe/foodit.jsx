@@ -100,7 +100,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                             Guardar
                         </Button>
                     </Static>
-                    <div className="flex flex-column flex-column_lg flex-row_md gap-24 jc-between_md">
+                    <div className="flex flex-column flex-column_lg gap-24 jc-between_md">
                         <AudioRecipe
                             title={title}
                             resizedUrl={resizedUrl}

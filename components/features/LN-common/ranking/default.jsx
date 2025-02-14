@@ -50,9 +50,10 @@ function RankingFeature({ id: featureId }) {
         {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
+    const isNote = type === 'story';
 
     useEffect(() => {
-        if (type === 'story') {
+        if (isNote) {
             articleBoxesTracker({
                 boxType: 'ranking'
             });
@@ -61,7 +62,10 @@ function RankingFeature({ id: featureId }) {
 
     return (
         <Static id={`common-ranking-${featureId}`} htmlOnly>
-            <div className="bg-light-0 py-32">
+            <div
+                className="bg-light-0 py-32"
+                data-mrf-recirculation={isNote ? 'n_ranking' : undefined}
+            >
                 {articles?.length > 0 && (
                     <div className="flex ai-center gap-12 pt-12 mb-8 border border-top border-thin border-light-100">
                         <Text className="--prumo --font-l --font-medium">

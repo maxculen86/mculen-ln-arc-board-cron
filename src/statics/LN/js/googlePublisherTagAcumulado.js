@@ -12,9 +12,9 @@ const createHash = eval(`(${serializedCreateHash})`);
 const googleTagGetCookie = eval(`(${serializedGetCookie})`);
 const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
 const googleTagEmailCookie = googleTagGetCookie('usuarioemail') || '';
-const googleTagSuscriptionType = googleTagUserCookie.includes('2')
-    ? 'suscriptor'
-    : 'no suscriptor';
+const isSuscriptor = googleTagUserCookie.includes('2');
+const googleTagSuscriptionType = isSuscriptor ? 'suscriptor' : 'no suscriptor';
+const googleTagProductPremiumId = isSuscriptor ? googleTagUserCookie : '0';
 
 window.googletag = window.googletag || { cmd: [] };
 googletag.cmd.push(function () {
@@ -31,6 +31,9 @@ googletag.cmd.push(function () {
 
     googletag.pubads().setTargeting('tags_nuevos', newTags);
     googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
+    googletag
+        .pubads()
+        .setTargeting('ProductoPremiumId', googleTagProductPremiumId);
     googletag.pubads().setTargeting('seccion', 'acumulado');
     googletag.pubads().setTargeting('sitio', 'lanacion');
 });

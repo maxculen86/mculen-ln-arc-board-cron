@@ -56,9 +56,18 @@ const extracDataFromCredits = (by, config = {}) => {
 const publishingPrinciples =
     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
-const sectionsWithTypeNewsArticle = ['Tecnología', 'Sociedad', 'Espectáculos'];
+export const sectionsWithTypeNewsArticle = [
+    'Tecnología',
+    'Sociedad',
+    'Espectáculos',
+    'Lifestyle',
+    'Autos',
+    'Seguridad',
+    'Opinión',
+    'El Mundo'
+];
 
-export const getTrustProject = trust => data => sponsored => {
+export const getTrustProject = trust => (data, sections) => sponsored => {
     if (!trust && !sponsored) return { ...data };
     if (sponsored)
         return {
@@ -77,9 +86,7 @@ export const getTrustProject = trust => data => sponsored => {
             return {
                 ...data,
                 '@type': sectionsWithTypeNewsArticle.some(element =>
-                    data.sections?.some(section =>
-                        section.name.includes(element)
-                    )
+                    sections?.some(section => section.name.includes(element))
                 )
                     ? 'NewsArticle'
                     : 'ReportageNewsArticle',
@@ -131,7 +138,7 @@ function SnippetNoticia({
         type,
         headlines,
         content_elements: contentElements = [],
-        taxonomy: { primary_section: primarySection = {}, tags },
+        taxonomy: { primary_section: primarySection = {}, tags, sections },
         credits: { by },
         distributor = { name: 'LA NACION' },
         created_date: createdDate = '',
@@ -223,7 +230,7 @@ function SnippetNoticia({
         image
     };
 
-    data = getTrustProject(trust)(data)(sponsored);
+    data = getTrustProject(trust)(data, sections)(sponsored);
 
     SnippetNoticia.propTypes = {
         siteProperties: PropTypes.shape({

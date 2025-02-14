@@ -6,7 +6,7 @@ import ComLink from '../../../common/com-link';
 import ComButton from '../../../common/com-button';
 import ComContainer from '../../../common/com-container';
 
-const BotonLink = ({ data }) => {
+function BotonLink({ data }) {
     const { url, content } = data || {};
 
     const iconEnd = (
@@ -18,7 +18,13 @@ const BotonLink = ({ data }) => {
     return (
         <ComContainer classesNames="--button">
             {url && content ? (
-                <ComLink link={url} target="_blank" title={content}>
+                <ComLink
+                    link={url}
+                    target="_blank"
+                    title={content}
+                    marfeelTrack
+                    bodyLinkType="intersitial"
+                >
                     <ComButton
                         classesNames="--secondary"
                         size="--fivexs"
@@ -30,7 +36,7 @@ const BotonLink = ({ data }) => {
             ) : null}
         </ComContainer>
     );
-};
+}
 
 BotonLink.arcType = 'interstitial_link';
 BotonLink.isStatic = true;

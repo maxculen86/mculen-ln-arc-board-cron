@@ -1,10 +1,12 @@
 import Consumer from 'fusion:consumer';
 import { checkForId } from '../article/common/_helper-WebApi';
+import { videoJWM3u8 } from '../../../private/LN/api/common/elements/videoJW';
 
 class CarouselFeature {
     constructor(props) {
         this.props = props;
         this.contentKey = 'carouselVideo';
+        this.jwVideoId = undefined;
         const {
             arcSite: website,
             customFields: { video }
@@ -12,6 +14,7 @@ class CarouselFeature {
         const source = 'videosJwCarruselSource';
         const id = checkForId(video);
         if (id) {
+            this.jwVideoId = id;
             this.fetchContent({
                 [this.contentKey]: {
                     source,
@@ -28,11 +31,11 @@ class CarouselFeature {
         }
         const {
             _id,
-            previewVideoUrl,
             poster: posterUrl,
             duration: fullVideoDuration,
-            posterVideo: fullVideoUrl
+            posterVideo: previewVideoUrl
         } = content;
+        const fullVideoUrl = videoJWM3u8(content.sources);
         const {
             customFields: {
                 title,
@@ -48,7 +51,8 @@ class CarouselFeature {
             fullVideoUrl,
             fullVideoDuration,
             badge,
-            badgeStyle
+            badgeStyle,
+            jwVideoId: this.jwVideoId
         };
     }
 }

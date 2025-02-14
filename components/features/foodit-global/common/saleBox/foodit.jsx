@@ -13,6 +13,7 @@ import {
     imgsPhoneFoodit
 } from './helper';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
+import { scheduleTask } from '../../../../private/common/utils/scheduleTask';
 
 export function SaleBox({ ...props }) {
     const { deployment, contextPath } = useAppContext();
@@ -28,6 +29,11 @@ export function SaleBox({ ...props }) {
           )}`
         : '';
 
+    const handleRedirectSubscription = () => {
+        scheduleTask(() => {
+            window.location.href = paywallUrl;
+        });
+    };
     return (
         <section className="bg-positive relative w-100vw as-center" {...props}>
             <div className="container relative pt-56 pb-56_md pb-0_lg px-16 px-24_md px-32_lg grid grid-cols-12_md grid-cols-16_lg jc-center ai-center ai-start_md gap-24 gap-64_md">
@@ -50,6 +56,7 @@ export function SaleBox({ ...props }) {
                                 </Icon>
                                 <Text as="p" className="text-16">
                                     <span
+                                        // eslint-disable-next-line react/no-danger
                                         dangerouslySetInnerHTML={{
                                             __html: beneficts
                                         }}
@@ -61,7 +68,7 @@ export function SaleBox({ ...props }) {
                     <Button
                         title="Ir a Suscribirse"
                         variant="accent"
-                        href={paywallUrl}
+                        onClick={handleRedirectSubscription}
                     >
                         ¡suscribite!
                     </Button>

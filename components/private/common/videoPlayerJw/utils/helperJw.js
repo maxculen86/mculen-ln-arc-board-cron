@@ -9,17 +9,33 @@ import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLa
 
 export const configClassName = {
     'la-nacion-ar': {
-        container: 'content-media cursor-pointer',
-        mediaContainer: 'mod-media ratio-16-9',
-        videoContainer: 'mod-video',
-        videoPlayer: 'video-player bg-black ratio-16-9',
-        facade: 'com-image'
+        horizontal: {
+            container: 'content-media cursor-pointer',
+            mediaContainer: 'mod-media ratio-16-9',
+            videoContainer: 'mod-video',
+            videoPlayer: 'video-player bg-black ratio-16-9',
+            facade: 'com-image',
+            facadeContainer: 'ratio-16-9',
+            captionClasses: 'px-0_l'
+        },
+        vertical: {
+            container: 'content-media cursor-pointer',
+            mediaContainer: 'mod-media w-100',
+            videoContainer: 'mod-video flex jc-center bg-black',
+            videoPlayer: 'video-player w-250 w-100 ratio-9-16',
+            facade: 'com-image',
+            facadeContainer: 'w-250 ratio-9-16',
+            captionClasses: ''
+        }
     },
     ott: {
-        container: 'container cursor-pointer pt-32',
-        mediaContainer: 'ratio-16-9',
-        videoPlayer: 'video-player bg-black ratio-16-9',
-        facade: 'flex w-100 h-100'
+        horizontal: {
+            container: 'container cursor-pointer pt-32',
+            mediaContainer: 'ratio-16-9',
+            videoPlayer: 'video-player bg-black ratio-16-9',
+            facade: 'flex w-100 h-100',
+            captionClasses: 'px-0_l'
+        }
     }
 };
 
@@ -109,6 +125,11 @@ export const handleVideoEventsScript = (title, idVideo) => {
     });
 };
 
+export const getVerticalPlayer = playerId => {
+    const idsPlayersVertical = ['hOz6uuUy', 'HbGKzdo0', '9gbjbJp8'];
+    return idsPlayersVertical.includes(playerId);
+};
+
 export const getJWScript = (
     title,
     player,
@@ -145,7 +166,10 @@ export const getJWScript = (
                               ]
                           }
                       }
-                    : {})
+                    : {}),
+                ...(getVerticalPlayer(player) && {
+                    fullscreenOrientationLock: 'portrait'
+                })
             });
 
             handleVideoEventsScript(title, idVideo);

@@ -1,6 +1,9 @@
 /* eslint-disable react/require-default-props */
 import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import classNames from 'classnames';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
@@ -8,19 +11,17 @@ import {
     getTwitterTitle,
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
-import { Button } from '@ln/contenidos-ui-button';
-import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import classNames from 'classnames';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
-const BuildSecondButtonsGroup = ({
+function BuildSecondButtonsGroup({
     requestUri,
     host,
     title: basic,
     mobileTitle,
-    subtypeVideo
-} = {}) => {
+    subtypeVideo,
+    articleId
+} = {}) {
     const [copy, setCopy] = useState(false);
 
     const paddingPosition = subtypeVideo
@@ -61,10 +62,10 @@ const BuildSecondButtonsGroup = ({
                 onClick={() => {
                     shareButton();
                     addEventToDataLayerV2({
-                        event: 'e_linkclick',
-                        action: 'toolbard',
-                        category: 'nota_ln9',
-                        label: 'compartir_mobile'
+                        event: 'share_note',
+                        articleId,
+                        title: basic,
+                        rest: { tags: 'popup-nativo' }
                     });
                 }}
             >
@@ -84,10 +85,10 @@ const BuildSecondButtonsGroup = ({
                 onClick={() => {
                     shareWhatsAppDesktop(requestUri, host);
                     addEventToDataLayerV2({
-                        event: 'e_linkclick',
-                        action: 'toolbard',
-                        category: 'nota_ln9',
-                        label: 'compartir_whatsapp'
+                        event: 'share_note',
+                        articleId,
+                        title: basic,
+                        rest: { tags: 'whatsapp' }
                     });
                 }}
             >
@@ -106,59 +107,58 @@ const BuildSecondButtonsGroup = ({
                     labelDataLayer,
                     handleClick,
                     className
-                } = {}) => {
-                    return (
-                        <BtnContainer withContainer={withContainer} key={id}>
-                            <Button
-                                dataEvent={dataEvent}
-                                dataSection={dataSection}
-                                title={title}
-                                id={id}
-                                onClick={() => {
-                                    handleClick({
-                                        requestUri,
-                                        host,
-                                        basic,
-                                        setCopy,
-                                        mobileTitle
-                                    });
-                                    addEventToDataLayerV2({
-                                        event: 'e_linkclick',
-                                        action: 'toolbard',
-                                        category: 'nota_ln9',
-                                        label: `${labelDataLayer}`
-                                    });
-                                }}
-                                className={className}
-                                iconOnly
-                                isNegative={subtypeVideo}
-                                size="inherit"
-                            >
-                                <Icon size={24} color="inherit">
-                                    {icon}
-                                </Icon>
-                            </Button>
-                            {id === 'copyLinkNote' && copy && (
-                                <ModTooltip
-                                    className="copy"
-                                    label="Copiado"
-                                    handleTimeout={() => setCopy(false)}
-                                />
-                            )}
-                        </BtnContainer>
-                    );
-                }
+                } = {}) => (
+                    <BtnContainer withContainer={withContainer} key={id}>
+                        <Button
+                            dataEvent={dataEvent}
+                            dataSection={dataSection}
+                            title={title}
+                            id={id}
+                            onClick={() => {
+                                handleClick({
+                                    requestUri,
+                                    host,
+                                    basic,
+                                    setCopy,
+                                    mobileTitle
+                                });
+                                addEventToDataLayerV2({
+                                    event: 'share_note',
+                                    title: basic,
+                                    articleId,
+                                    rest: { tags: labelDataLayer.split('_')[1] }
+                                });
+                            }}
+                            className={className}
+                            iconOnly
+                            isNegative={subtypeVideo}
+                            size="inherit"
+                        >
+                            <Icon size={24} color="inherit">
+                                {icon}
+                            </Icon>
+                        </Button>
+                        {id === 'copyLinkNote' && copy && (
+                            <ModTooltip
+                                className="copy"
+                                label="Copiado"
+                                handleTimeout={() => setCopy(false)}
+                            />
+                        )}
+                    </BtnContainer>
+                )
             )}
         </div>
     );
-};
+}
 
 BuildSecondButtonsGroup.propTypes = {
     requestUri: PropTypes.string,
     host: PropTypes.string,
     title: PropTypes.string,
     mobileTitle: PropTypes.string,
-    subtypeVideo: PropTypes.string
+    subtypeVideo: PropTypes.string,
+    articleId: PropTypes.string
 };
 
 export default BuildSecondButtonsGroup;

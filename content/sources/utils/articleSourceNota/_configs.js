@@ -153,8 +153,8 @@ export const formatElementText = (elementText = {}) => {
 };
 
 export const replaceMalformedAnchorTags = ({ textTypeElement, newValue }) => {
-    const content = get(textTypeElement, 'content', '');
-    const listErrors = getMalformedAnchorTags(content);
+    const contentElement = get(textTypeElement, 'content', '');
+    const listErrors = getMalformedAnchorTags(contentElement);
 
     return listErrors.reduce((acc, e = '') => {
         const { content } = acc;

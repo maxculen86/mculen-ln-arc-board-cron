@@ -156,25 +156,29 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             <div
               class="right-options flex jc-end ai-center gap-16 gap-24_md"
             >
-              <a
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg lg-only"
-                data-button="buttonSubscribeText"
-                data-event="subscription_start"
-                data-interaction="dataLayerInteraction"
-                data-test-id="button-suscribe"
-                data-variant="accent"
-                href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
-                target="_self"
-                title="SUSCRIBITE"
+              <div
+                class="relative w-max"
               >
-                SUSCRIBITE
-              </a>
-              <a
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg lg-only"
+                  data-button="buttonSubscribeText"
+                  data-event="subscription_start"
+                  data-interaction="dataLayerInteraction"
+                  data-test-id="button-suscribe"
+                  data-variant="accent"
+                  title="SUSCRIBITE"
+                >
+                  <span
+                    class="roboto-bold"
+                  >
+                    SUSCRIBITE
+                  </span>
+                </button>
+              </div>
+              <button
                 class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
                 data-test-id="button-login"
                 data-variant="link"
-                href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
-                target="_self"
                 title="INICIÁ SESIÓN"
               >
                 <span
@@ -182,7 +186,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 >
                   INICIÁ SESIÓN
                 </span>
-              </a>
+              </button>
               <button
                 class="button notification-drawer-button --icon-only"
                 data-test-id="campanita-notifications-drawer"
@@ -1417,25 +1421,29 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         <div
           class="promotions-container lg-none flex ai-center gap-24 w-100 jc-center"
         >
-          <a
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
-            data-button="buttonSubscribeText"
-            data-event="subscription_start"
-            data-interaction="dataLayerInteraction"
-            data-test-id="button-suscribe"
-            data-variant="accent"
-            href="https://ingresar.lanacion.com.ar/suscripcion/V/3/?callback=aHR0cDovL2xvY2FsaG9zdC8="
-            target="_self"
-            title="SUSCRIBITE"
+          <div
+            class="relative w-max"
           >
-            SUSCRIBITE
-          </a>
-          <a
+            <button
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
+              data-button="buttonSubscribeText"
+              data-event="subscription_start"
+              data-interaction="dataLayerInteraction"
+              data-test-id="button-suscribe"
+              data-variant="accent"
+              title="SUSCRIBITE"
+            >
+              <span
+                class="roboto-bold"
+              >
+                SUSCRIBITE
+              </span>
+            </button>
+          </div>
+          <button
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
             data-test-id="button-login"
             data-variant="link"
-            href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
-            target="_self"
             title="INICIÁ SESIÓN"
           >
             <span
@@ -1443,7 +1451,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             >
               INICIÁ SESIÓN
             </span>
-          </a>
+          </button>
         </div>
       </div>
     </header>

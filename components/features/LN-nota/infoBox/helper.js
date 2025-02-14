@@ -3,6 +3,7 @@ import zocaloOptions from './ZocaloConfig';
 import get from '../../../private/common/utils/get';
 
 export const getZocaloProps = (deployment, contextPath, path = '') => {
+    if (!path) return { showZocalo: false };
     const section = path.split('/');
     const zocaloData = get(zocaloOptions, section[1], undefined);
     if (!zocaloData) return { showZocalo: false };

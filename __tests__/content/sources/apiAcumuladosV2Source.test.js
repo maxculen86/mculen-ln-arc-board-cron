@@ -25,8 +25,7 @@ const cachedCall = async (nameOfCall, callbackFunc, params) => {
 describe('content source apiAcumuladosV2Source integration test', () => {
     test('should return right output keys if notes exists', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             sectionId: '/economia',
             params: 'params=size:30;page:1',
@@ -56,8 +55,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
 
     test('should return banners if biggest note index is less than 16', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             sectionId: '/economia',
             params: 'params=size:30;page:1',
@@ -88,8 +86,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
 
     test('should not return banners if smallest note index is more than 16', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:2/33/',
+            uri: '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:2/33/',
             website: 'la-nacion-ar',
             sectionId: '/economia',
             params: 'params=size:30;page:2',
@@ -120,8 +117,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
 
     test('should return flag isListenable true if note meets the requirements to have audio', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             sectionId: '/economia',
             params: 'params=size:30;page:1',
@@ -216,6 +212,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
             fechaPublicacion: '1899-12-31 19:43:12',
             id: 'S457534CSVAXRLNSMCNBDHHATE',
             isListenable: true,
+            openingMode: 'Native',
             opinion: false,
             templateId: '1',
             titulo: 'Entrevistadel lector',
@@ -225,8 +222,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
 
     test('should return 404 if section does not exists', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             sectionId: '/economia',
             params: 'params=size:30;page:1',
@@ -250,8 +246,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
 
     test('should return right metadata for ultimas noticias Section', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             sectionId: '/ultimas-noticias',
             params: 'params=size:30;page:1',
@@ -295,8 +290,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
 
     test('should return right metadata for suscriptores section', async () => {
         const queryParams = {
-            uri:
-                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            uri: '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
             website: 'la-nacion-ar',
             sectionId: '/suscriptores',
             params: 'params=size:30;page:1',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog } from '@ln/common-ui-dialog';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
@@ -9,17 +9,25 @@ function MediaScrollerExpandedWrapper({ children }) {
     const { isOpenMediaScrollerExpanded, onCloseMediaScrollerExpanded } =
         useCajaCarruselContext();
 
+    useEffect(() => {
+        const eventName = isOpenMediaScrollerExpanded
+            ? 'clearTimeout'
+            : 'retriggerTimeout';
+
+        window?.LN?.observable?.publish?.(eventName);
+    }, [isOpenMediaScrollerExpanded]);
+
     return (
         <Dialog
             isOpen={isOpenMediaScrollerExpanded}
             onClose={onCloseMediaScrollerExpanded}
-            overlay
-            position="center"
+            position="full"
             classnames={{
-                base: 'w-100 h-100vh bg-black-40',
-                wrapper: 'flex w-100 h-100 jc-center ai-center scroll-y-none'
+                base: 'w-100 h-100dvh bg-light-900',
+                wrapper: 'flex w-100 h-100'
             }}
-            style={{ '--_background-dialog': 'var(--neutral-light-900)' }}
+            overlay
+            closeOnClickOutside
         >
             {children}
         </Dialog>

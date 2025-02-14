@@ -58,11 +58,12 @@ describe('LN10Home layout test', () => {
                     _id: '_ID',
                     title: 'Título',
                     posterUrl: 'poster.jpg?width=320',
-                    previewVideoUrl: 'preview.mp4',
-                    fullVideoUrl: 'video-320.mp4',
+                    previewVideoUrl: 'poster-video-320.mp4',
+                    fullVideoUrl: 'playlist.m3u8',
                     fullVideoDuration: 4003,
                     badge: 'Chapita',
-                    badgeStyle: 'default'
+                    badgeStyle: 'default',
+                    jwVideoId: '000000',
                 }
             ];
             children[sectionIdx] = [

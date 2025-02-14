@@ -1,11 +1,15 @@
-import { getTrustProject } from '../../../../../../components/private/LN/nota/snippet/noticia';
+import {
+    getTrustProject,
+    sectionsWithTypeNewsArticle
+} from '../../../../../../components/private/LN/nota/snippet/noticia';
 
 describe('Tests getTrustProject() function', () => {
+    const publishingPrinciples =
+        'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
     const data = {
         ...data,
         '@type': 'AdvertiserContentArticle',
-        publishingPrinciples:
-            'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/'
+        publishingPrinciples
     };
 
     const trust = [
@@ -32,45 +36,67 @@ describe('Tests getTrustProject() function', () => {
         expect(getTrustProject(trust)(data)(sponsored)).toStrictEqual(data);
     });
 
+    const sections = sectionsWithTypeNewsArticle.map(section => ({
+        name: section
+    }));
+
     const dataNote = [
         {
             '@type': 'AdvertiserContentArticle',
-            publishingPrinciples:
-                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
-            articleSection: 'Espectáculos',
-            sections: [{ name: 'Espectáculos' }, { name: 'Show' }]
+            publishingPrinciples,
+            articleSection: 'Espectáculos'
         },
         {
             '@type': 'AdvertiserContentArticle',
-            publishingPrinciples:
-                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
-            articleSection: 'Tecnología',
-            sections: [{ name: 'Tecnología' }, { name: 'eaSports' }]
+            publishingPrinciples,
+            articleSection: 'Tecnología'
         },
         {
             '@type': 'AdvertiserContentArticle',
-            publishingPrinciples:
-                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
-            articleSection: 'Sociedad',
-            sections: [{ name: 'Sociedad' }, { name: 'Comunidad' }]
+            publishingPrinciples,
+            articleSection: 'Sociedad'
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples,
+            articleSection: 'El Mundo'
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples,
+            articleSection: 'Opinión'
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples,
+            articleSection: 'Lifestyle'
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples,
+            articleSection: 'Autos'
+        },
+        {
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples,
+            articleSection: 'Seguridad'
         }
     ];
 
     it.each(dataNote)(
-        'Type for trust noticia and section equals to Sociedad, Tecnología or Espectaculos must be NewsArticle',
+        'For notes from certain sections, the type must be NewsArticle',
         data => {
-            expect(getTrustProject('Noticia')(data)(false)['@type']).toBe(
-                'NewsArticle'
-            );
+            expect(
+                getTrustProject('Noticia')(data, sections)(false)['@type']
+            ).toBe('NewsArticle');
         }
     );
 
-    it('If another section different from Sociedad, Tecnología or Espectaculos and trust noticia type must be ReportageNewsArticle', () => {
+    it('If the section is not found in the NewsArticle set, its type must be ReportNewsArticle', () => {
         expect(
             getTrustProject('Noticia')({
                 '@type': 'AdvertiserContentArticle',
-                publishingPrinciples:
-                    'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/',
+                publishingPrinciples,
                 articleSection: 'Deportes'
             })(false)['@type']
         ).toBe('ReportageNewsArticle');

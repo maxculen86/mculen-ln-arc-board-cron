@@ -7,7 +7,7 @@ function DynamicStylesheetLoader({ contextPath, deployment, layout, arcSite }) {
     useEffect(() => {
         createLinkTag({
             contextPath,
-            cssPathsBySiteAndLayout,
+            layoutStylePaths: cssPathsBySiteAndLayout,
             deployment,
             layout,
             arcSite

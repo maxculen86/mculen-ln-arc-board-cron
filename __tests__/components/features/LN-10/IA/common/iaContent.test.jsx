@@ -5,8 +5,11 @@ import '@testing-library/jest-dom';
 
 describe('IaContent Component', () => {
     const contentDataGlossary = [
-        { key: 'Word1', value: 'Definition 1' },
-        { key: 'Word2', value: 'Definition 2' }
+        { key: 'word1', value: 'Definition 1' },
+        { key: 'WORD2', value: 'Definition 2' },
+        { key: 'Word3', value: 'Definition 3' },
+        { key: '4thWord', value: 'Definition 4' },
+        { key: 'word 5', value: 'Definition 5' }
     ];
     const contentDataSummary = ['Paragraph 1', 'Paragraph 2'];
     const idSummary = 'summary';
@@ -37,7 +40,11 @@ describe('IaContent Component', () => {
         render(<IaContent id={idGlossary} contentData={contentDataGlossary} />);
 
         contentDataGlossary.forEach(({ key, value }) => {
-            expect(screen.getByText(key)).toBeInTheDocument();
+            expect(screen.getByText('Word1')).toBeInTheDocument();
+            expect(screen.getByText('WORD2')).toBeInTheDocument();
+            expect(screen.getByText('Word3')).toBeInTheDocument();
+            expect(screen.getByText('4thWord')).toBeInTheDocument();
+            expect(screen.getByText('Word 5')).toBeInTheDocument();
             expect(screen.getByText(value)).toBeInTheDocument();
         });
     });

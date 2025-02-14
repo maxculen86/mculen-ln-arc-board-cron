@@ -41,6 +41,9 @@ class ImageResizer {
         try {
             const { imageResizeSource } = this.state;
             const { globalContent } = this.props;
+            console.warn(
+                `LnWarn: customEvent LN API imageResizeSource - requestUri: ${this.props.requestUri}`
+            );
             const indexImage =
                 this.apiData[browser.getApiType(this.props.requestUri)][
                     browser.getApiVersion(this.props.requestUri)

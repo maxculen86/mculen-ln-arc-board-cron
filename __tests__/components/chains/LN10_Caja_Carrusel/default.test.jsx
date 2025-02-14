@@ -51,6 +51,11 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
             disconnect: jest.fn(),
             unobserve: jest.fn()
         }));
+        global.window.LN = {
+            observable: {
+                publish: jest.fn()
+            }
+        };
     });
 
     beforeEach(() => {

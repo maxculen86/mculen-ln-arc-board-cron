@@ -6,8 +6,7 @@ import mockArticle from '../../../../../../__mocks__/data/articlesFoodit/Subtype
 jest.mock(
     '../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/ingredients',
     () => ({
-        __esModule: true,
-        default: jest.fn(
+        Ingredients: jest.fn(
             ({ articleId, ingredientsLists, portions, showButton }) => (
                 <div
                     data-testid="ingredients-component"

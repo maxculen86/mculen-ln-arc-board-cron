@@ -31,16 +31,16 @@ export function AudioFoodit({ article, setIsAudioPlaying }) {
     useEffect(() => {
         if (segmentContainer?.current) {
             const currentStep = segmentContainer.current.querySelector(
-                `:nth-child(${segmentIndex + 1})`
+                `[data-step-index="${segmentIndex - 1}"]`
             );
-
             if (currentStep) {
                 currentStep.scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    block: 'center'
                 });
             }
         }
-    }, [segmentContainer, segmentIndex]);
+    }, [segmentIndex]);
 
     useEffect(() => {
         const audioElement = document.querySelector('.audio-player');
@@ -71,14 +71,16 @@ export function AudioFoodit({ article, setIsAudioPlaying }) {
     return (
         <>
             <div className="py-32">
-                {!contentAvailable && (
-                    <Skeleton className="w-100 max-w-456_md" height={40} />
-                )}
-                <div className="audio-player" />
+                <div className="h-48">
+                    {!contentAvailable && (
+                        <Skeleton className="w-100 max-w-456_md" height={48} />
+                    )}
+                    <div className="audio-player" />
+                </div>
             </div>
             <div
                 ref={segmentContainer}
-                className="foodit-scrollbar max-h-100 overflow-y-auto flex flex-column gap-16"
+                className="flex flex-column gap-16 max-h-60dvh max-h-100_md foodit-scrollbar overflow-y-auto"
             >
                 <StepsAudioFoodit
                     stepList={stepList}

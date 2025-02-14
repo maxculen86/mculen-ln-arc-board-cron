@@ -13,11 +13,11 @@ export function useGetElementsToScroll() {
         return 0;
     };
 
-    const containerRef = useRef(null);
+    const viewportRef = useRef(null);
 
     useEffect(() => {
         const updateVisibleItems = () => {
-            setVisibleItems(getVisibleItems(containerRef, itemCarouselWidth));
+            setVisibleItems(getVisibleItems(viewportRef, itemCarouselWidth));
         };
 
         updateVisibleItems();
@@ -26,7 +26,11 @@ export function useGetElementsToScroll() {
         return () => window.removeEventListener('resize', updateVisibleItems);
     }, []);
 
-    return { containerRef, elementsToScroll: visibleItems, itemCarouselWidth };
+    return {
+        containerRef: viewportRef,
+        elementsToScroll: visibleItems,
+        itemCarouselWidth
+    };
 }
 
 export function useObserverItems({ containerRef, setCurrentIndex }) {
@@ -73,15 +77,18 @@ export function useObserverItems({ containerRef, setCurrentIndex }) {
     }, [containerRef?.current]);
 }
 
-export function useHandleNext({ containerRef, showNext }) {
+export function useHandleNext({ containerRef, showNext, isMobile }) {
     return useCallback(() => {
-        if (showNext) {
+        const scrollOptions = isMobile
+            ? { top: containerRef.current.offsetHeight }
+            : { left: containerRef.current.offsetWidth };
+        if (showNext || isMobile) {
             containerRef?.current?.scrollBy({
-                left: containerRef?.current?.offsetWidth,
+                ...scrollOptions,
                 behavior: 'smooth'
             });
         }
-    }, [containerRef?.current, showNext]);
+    }, [containerRef?.current, showNext, isMobile]);
 }
 
 export function useHandleBack({ containerRef, showBack }) {
@@ -107,11 +114,34 @@ export function useScrollTo({ containerRef, isMobile, currentIndex }) {
     }, [containerRef?.current, isMobile]);
 }
 
-export function useUpdateVideoWidth({ containerRef, isMobile }) {
+export function useUpdateVideoWidth({ containerRef, viewportWidth, isMobile }) {
     useEffect(() => {
         containerRef?.current?.parentElement?.style.setProperty(
             '--_video-width',
             `${containerRef?.current?.firstChild?.offsetWidth}px`
         );
-    }, [containerRef?.current, isMobile]);
+    }, [containerRef?.current, viewportWidth, isMobile]);
+}
+
+export function useVideoJwCustomSettings({
+    isInView,
+    loading,
+    playerRef,
+    handleNextCallback
+}) {
+    useEffect(() => {
+        if (isInView) {
+            if (playerRef?.current?.getState() === 'idle') {
+                playerRef?.current?.play();
+            }
+            const isMuted =
+                window?.localStorage.getItem('jwplayer.mute') === 'true';
+            playerRef?.current?.setMute(isMuted);
+            playerRef?.current?.on('complete', () => {
+                handleNextCallback();
+            });
+        } else {
+            playerRef?.current?.stop();
+        }
+    }, [isInView, loading]);
 }
