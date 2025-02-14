@@ -76,6 +76,7 @@ describe('renderProps', () => {
                 html: '<p>Article content</p>',
                 variant: 'regular',
                 chapitaStyle: 'chapita_style',
+                cllBoard: null,
                 idRender: undefined
             }
         });
