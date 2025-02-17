@@ -1,0 +1,43 @@
+{
+    "short_name": "LA NACION",
+    "name": "LA NACION",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "orientation": "portrait",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "https://www.lanacion.com.ar/pwa_128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "https://www.lanacion.com.ar/pwa_152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "https://www.lanacion.com.ar/pwa_144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "https://www.lanacion.com.ar/pwa_192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "https://www.lanacion.com.ar/pwa_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/?utm_source=(direct)&utm_medium=pwa",
+    "related_applications": [
+        {
+            "platform": "play",
+            "url": "https://play.google.com/store/apps/details?id=app.lanacion.activity"
+        }
+    ],
+    "prefer_related_applications": true
+}
