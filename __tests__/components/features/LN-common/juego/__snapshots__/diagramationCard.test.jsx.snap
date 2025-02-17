@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Features - LN Common - juego - DiagramationCard should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-4_m grid-col-2_m gap-24"
+  >
+    <div>
+      Children
+    </div>
+  </div>
+</DocumentFragment>
+`;

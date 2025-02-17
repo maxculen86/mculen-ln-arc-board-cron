@@ -5812,6 +5812,10 @@ strong:not(.--font-primary),
   margin-top: 0.5rem;
 }
 
+.mt-10 {
+  margin-top: 0.625rem;
+}
+
 .mt-12 {
   margin-top: 0.75rem;
 }
