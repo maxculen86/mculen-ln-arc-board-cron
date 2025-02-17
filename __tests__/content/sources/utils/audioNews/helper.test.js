@@ -65,7 +65,7 @@ describe('Test - isNoteListenable', () => {
                 }
             ],
             [
-                'Should return false when republicar_audio text is empty "No"',
+                'Should return true when republicar_audio text is "No"',
                 {
                     ...data,
                     label: {
@@ -77,7 +77,7 @@ describe('Test - isNoteListenable', () => {
                 }
             ],
             [
-                'Should return false when republicar_audio text is empty "Si"',
+                'Should return true when republicar_audio text is "Si"',
                 {
                     ...data,
                     label: {
@@ -86,6 +86,30 @@ describe('Test - isNoteListenable', () => {
                             text: 'Si'
                         }
                     }
+                }
+            ],
+            [
+                'Should return true when the primary section is "/estados-unidos/california"',
+                {
+                    ...data,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/estados-unidos/california'
+                        }
+                    },
+                    first_publish_date: '2025-11-24T18:06:59.601Z'
+                }
+            ],
+            [
+                'Should return true when the primary section is "estados-unidos"',
+                {
+                    ...data,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/estados-unidos'
+                        }
+                    },
+                    first_publish_date: '2025-11-24T18:06:59.601Z'
                 }
             ]
         ];
@@ -98,7 +122,8 @@ describe('Test - isNoteListenable', () => {
             expect(
                 isNoteListenable({
                     ...data,
-                    first_publish_date: '2022-09-15T18:06:59.601Z'
+                    display_date: '2022-09-15T18:06:59.601Z',
+                    first_publish_date: ''
                 })
             ).toBeFalsy();
         });
@@ -187,17 +212,6 @@ describe('Test - isNoteListenable', () => {
                 }
             ],
             [
-                'Should return false when the primary section is "estados-unidos"',
-                {
-                    ...response,
-                    taxonomy: {
-                        primary_section: {
-                            _id: '/estados-unidos'
-                        }
-                    }
-                }
-            ],
-            [
                 'Should return false when the primary section is "juegos"',
                 {
                     ...response,
@@ -220,14 +234,27 @@ describe('Test - isNoteListenable', () => {
                 }
             ],
             [
-                'Should return false when the primary section is "/estados-unidos/california"',
+                'Should return false when the primary section is "/estados-unidos/california" and first_publish_date < 2025/02/17',
                 {
                     ...response,
                     taxonomy: {
                         primary_section: {
                             _id: '/estados-unidos/california'
                         }
-                    }
+                    },
+                    first_publish_date: '2023-11-24T18:06:59.601Z'
+                }
+            ],
+            [
+                'Should return false when the primary section is "estados-unidos" and first_publish_date < 2025/02/17',
+                {
+                    ...response,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/estados-unidos'
+                        }
+                    },
+                    first_publish_date: '2023-11-24T18:06:59.601Z'
                 }
             ]
         ];
