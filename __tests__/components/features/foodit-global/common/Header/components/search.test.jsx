@@ -35,7 +35,7 @@ describe('Components - features - foodit-global - common - header - components -
         fireEvent.keyDown(inputElement, { key: 'Enter', code: 'Enter' });
 
         expect(window.location.href).toBe(
-            'https://foodit-lanacion.com.ar/buscador/?query=searching'
+            'https://foodit-lanacion.com.ar/buscador/?query=searching%20'
         );
     });
     it('button "Buscar" as Ancle should be a correctly URL', () => {
@@ -48,7 +48,7 @@ describe('Components - features - foodit-global - common - header - components -
 
         expect(buttonElementAsAncle).toHaveAttribute(
             'href',
-            'https://foodit-lanacion.com.ar/buscador/?query=searching'
+            'https://foodit-lanacion.com.ar/buscador/?query=searching%20'
         );
     });
 
