@@ -402,7 +402,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             ).toMatchObject({
                 ...resultHtmlWithoutId,
                 embedCode: expect.stringMatching(
-                    /src="https:\/\/img.youtube.com\/vi\/sITCH5csTmo\/hqdefault\.jpg"/
+                    /style="background-image: url\(https:\/\/img\.youtube\.com\/vi\/sITCH5csTmo\/hqdefault\.jpg\); background-size: cover; background-position: center; width: 100%; height: 100%;"/
                 )
             });
         });
@@ -1294,12 +1294,14 @@ describe('generateLazyLoadEmbedCode', () => {
             '<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>';
         const result = generateLazyLoadEmbedCode(embedCode);
 
+        expect(result).toContain('src=""');
         expect(result).toContain(
-            'src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"'
+            'style="background-image: url(https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg); background-size: cover; background-position: center; width: 100%; height: 100%;"'
         );
         expect(result).toContain(
             'data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"'
         );
+
         expect(result).toMatch(/id="youtube-[\w\d]+"/);
     });
 
@@ -1308,9 +1310,11 @@ describe('generateLazyLoadEmbedCode', () => {
             '<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allowfullscreen></iframe>';
         const result = generateLazyLoadEmbedCode(embedCode);
 
+        expect(result).toContain('src=""');
         expect(result).toContain(
-            'src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"'
+            'style="background-image: url(https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg); background-size: cover; background-position: center; width: 100%; height: 100%;"'
         );
+
         expect(result).toContain(
             'data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1"'
         );
