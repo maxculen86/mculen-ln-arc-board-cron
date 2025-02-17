@@ -290,7 +290,7 @@ export const generateLazyLoadEmbedCode = embedCode => {
 
     const modifiedEmbedCode = embedCode.replace(
         /src="(https:\/\/www\.youtube\.com\/embed\/[\w-]+[^"]*)"/,
-        `src="${thumbnailUrl}" data-src="${dataSrc}" id="${uniqueId}"`
+        `src="" data-src="${dataSrc}" id="${uniqueId}" style="background-image: url(${thumbnailUrl}); background-size: cover; background-position: center; width: 100%; height: 100%;"`
     );
 
     return modifiedEmbedCode;
