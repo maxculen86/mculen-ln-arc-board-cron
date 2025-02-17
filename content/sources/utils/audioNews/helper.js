@@ -36,8 +36,19 @@ const hasParagraphs = contentElements =>
     contentElements.some(({ type = '' } = {}) => type === 'text');
 
 const isSectionNoListenable = primarySectionId => {
-    const regex = /^\/(estados-unidos|juegos|newsletters)/i;
+    const regex = /^\/(juegos|newsletters)/i;
     return regex.test(primarySectionId);
+};
+
+const isSectionEstadosUnidosListenable = (primarySectionId, date = '') => {
+    const regex = /^\/(estados-unidos)/i;
+    const formatDate = date.replace(/-|[a-z][^/]+/gi, '');
+    const releaseDateSection = 20250217;
+
+    if (regex.test(primarySectionId)) {
+        return Number(formatDate) >= releaseDateSection;
+    }
+    return true;
 };
 
 const isListenable = (data, validHasParagraphs = true) => {
@@ -56,6 +67,10 @@ const isListenable = (data, validHasParagraphs = true) => {
         (sourceOrigin === 'composer' || sourceOrigin === '') &&
         (labelAudioNews ? textAudioNews !== 'No mostrar audio' : true) &&
         !isSectionNoListenable(primarySectionId) &&
+        isSectionEstadosUnidosListenable(
+            primarySectionId,
+            date || displayDate
+        ) &&
         !disableSubtypes.includes(subtype) &&
         (isValidDate(date) || isValidDate(displayDate)) &&
         (validHasParagraphs ? hasParagraphs(contentElements) : true)
