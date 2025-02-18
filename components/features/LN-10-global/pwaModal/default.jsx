@@ -10,7 +10,7 @@ import startPWASetup from './register';
 
 export function PwaModal({ className }) {
     const { isShowModal, handleNoClick, handleYesClick } = usePwaModal();
-    const { deployment, contextPath, isAdmin } = useAppContext();
+    const { deployment, contextPath, isAdmin, arcSite } = useAppContext();
 
     const path = `${contextPath}/resources/images/la-nacion.webp`;
     const deploymentPath = deployment(path);
@@ -22,7 +22,7 @@ export function PwaModal({ className }) {
     );
 
     useEffect(() => {
-        startPWASetup(deployment);
+        startPWASetup({ deployment, arcSite });
     }, [deployment]);
 
     if (!isShowModal || isAdmin) return <></>;
