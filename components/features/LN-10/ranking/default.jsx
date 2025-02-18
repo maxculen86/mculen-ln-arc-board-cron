@@ -4,12 +4,8 @@ import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import { Cajaranking } from '@ln/contenidos-ui-cajaranking';
-import { getDataContent } from './_helper';
-import {
-    getRankingProps,
-    getSectionParentId,
-    RANKING_LAYOUT
-} from './common/_helper-WebApi';
+import { useRankingArticles } from './_helper';
+import { getRankingProps, RANKING_LAYOUT } from './common/_helper-WebApi';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import CommonCollection from '../../../private/LN10/home/components/CommonCollection/default';
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
@@ -29,15 +25,13 @@ function RankingFeature({ id: featureId }) {
         rankingLayout
     } = getRankingProps(layout, featureId, globalContent);
 
-    const sectionParentId = getSectionParentId(sectionId);
-
     const { articles = [] } =
-        getDataContent(
+        useRankingArticles(
             sectionId,
-            sectionParentId,
             website || arcSite,
             layout,
-            ''
+            '',
+            'rankingArticlesSource'
         ) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
@@ -59,7 +53,7 @@ function RankingFeature({ id: featureId }) {
                     <CommonCollection
                         roofData={{ title, isAdmin }}
                         rules={rules}
-                        position="0190"
+                        position="0196"
                         articles={replaceUrlsByEnvironment(articles)}
                         gridType={RANKING_LAYOUT}
                         ContainerCards={Cajaranking}

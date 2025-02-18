@@ -2,31 +2,46 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
+import { CardGame } from '@ln/contenidos-ui-cardgames';
+import { cx } from '@ln/cva';
 import get from '../../../private/common/utils/get';
 import getGameProperties from '../../../private/LN/common/utils/getGameProperties';
-import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import checkSection from '../../../private/LN/common/utils/checkSection';
+import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import { addInitialSlash } from '../../../private/LN/common/utils/addInitialSlash';
-import { addForwardSlash } from '../../../private/LN/common/utils/addForwardSlash';
-import GameCard from './gameCard';
+import IconSprite from '../../private-global/common/iconSprite/IconSprite';
+import {
+    DIAGRAMATIONS,
+    getCardPosition,
+    getClassName,
+    getDescriptionData,
+    getFirstCard,
+    getHrefLink,
+    getParent,
+    getParentLayout,
+    getSlotsClasses,
+    getSlotsProps
+} from './helper';
 
 function Game({ id: featureId, customFields, isAdmin }) {
-    const { contextPath, deployment, arcSite, globalContent } =
+    const { contextPath, deployment, arcSite, renderables, globalContent } =
         useAppContext() || {};
 
     const {
         sectionId: originalSectionId = '',
         gameType,
         subscriber,
-        isNewGame
+        isNewGame,
+        description
     } = customFields;
+
     const primarySection = checkSection(globalContent, '/juegos');
 
-    const sectionId = originalSectionId.endsWith('/')
+    const sectionId = originalSectionId?.endsWith('/')
         ? originalSectionId.slice(0, -1)
-        : originalSectionId;
+        : originalSectionId || '';
 
-    const { name: sectionTitle } =
+    const { name: sectionTitle = '' } =
         useContent({
             source: 'sectionSource',
             query: {
@@ -42,7 +57,9 @@ function Game({ id: featureId, customFields, isAdmin }) {
         sectionId
     );
 
+    const { title, logo, game } = gameProperties;
     const newGame = isNewGame === 'SI';
+    const forSubscriber = subscriber === 'SI';
 
     if (!sectionId && isAdmin) {
         return (
@@ -62,20 +79,6 @@ function Game({ id: featureId, customFields, isAdmin }) {
         );
     }
 
-    const forSubscriber = subscriber === 'SI';
-
-    if (gameType === 'Externo') {
-        return (
-            <GameCard
-                {...gameProperties}
-                href={addForwardSlash(sectionId)}
-                forSubscriber={forSubscriber}
-                newGame={newGame}
-                isHomeGames={primarySection}
-            />
-        );
-    }
-
     const articleData =
         useContent({
             source: 'lnAcuSource',
@@ -88,13 +91,52 @@ function Game({ id: featureId, customFields, isAdmin }) {
 
     const articleLink = get(articleData, 'content_elements[0].website_url', '');
 
+    const parent = getParent(featureId, renderables);
+    const cardPosition = getCardPosition(parent, featureId);
+    const parentLayout = getParentLayout(parent);
+    const isFirstCard = getFirstCard(cardPosition, parentLayout);
+
+    const badge = newGame ? 'Nuevo' : null;
+    const ribbon = forSubscriber ? (
+        <IconSprite name="ribbonColor" color />
+    ) : null;
+
+    const isSpecialLayout =
+        parentLayout === DIAGRAMATIONS.oneHorizontalThreeVertical &&
+        !isFirstCard;
+    const hrefLink = getHrefLink(gameType, sectionId, articleLink);
+    const slotsProps = getSlotsProps(isSpecialLayout);
+    const slotsClasses = getSlotsClasses(isSpecialLayout, isFirstCard);
+    const addStyleForHome = !primarySection ? 'col-span-4 col-span-3_sm' : '';
+
     return (
-        <GameCard
-            {...gameProperties}
-            href={addForwardSlash(articleLink)}
-            forSubscriber={forSubscriber}
-            newGame={newGame}
-            isHomeGames={primarySection}
+        <CardGame
+            sizeCard={primarySection ? 24 : 18}
+            title={title}
+            badge={badge}
+            ribbon={ribbon}
+            imageProps={{
+                alt: title,
+                src: logo.src
+            }}
+            linkProps={{
+                target: '_self',
+                href: hrefLink
+            }}
+            game={game}
+            diagramation={parentLayout}
+            firstChild={isFirstCard}
+            description={getDescriptionData(
+                isFirstCard,
+                parentLayout,
+                description
+            )}
+            className={cx(
+                getClassName(parentLayout, isFirstCard),
+                addStyleForHome
+            )}
+            slotsProps={slotsProps}
+            classnames={slotsClasses}
         />
     );
 }
@@ -108,6 +150,11 @@ Game.propTypes = {
         sectionId: PropTypes.string.tag({
             name: 'sectionId',
             description: 'Ingrese aquí el id de la seccion',
+            defaultValue: ''
+        }),
+        description: PropTypes.string.tag({
+            name: 'Texto',
+            description: 'Ingrese aquí la descripción del juego',
             defaultValue: ''
         }),
         gameType: PropTypes.oneOf(['Interno', 'Externo']).tag({

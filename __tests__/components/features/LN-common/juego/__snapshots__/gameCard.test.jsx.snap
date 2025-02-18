@@ -2,54 +2,52 @@
 
 exports[`Component - Features - LN Common - juego - GameCard should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="col-span-4 col-span-3_sm"
+  <article
+    class="ln-card-games border border-thin border-all border-light-200 shadow-card-games transition transition-all transition-duration-800 bg-criptograma__hover ln-card-games-criptograma__hover"
   >
-    <article
-      bordercolor="bg-criptograma"
-      class="ln-card-games border border-thin border-all border-light-200 shadow-card-games cardGames__hover"
+    <a
+      class="link ln-link flex flex-column ai-center opacity-1__hover relative h-100 --unstyled"
+      href="/juegos/criptograma/"
+      target="_self"
+      title="Criptograma"
     >
-      <a
-        class="link ln-link flex flex-column ai-center opacity-1__hover relative --unstyled"
-        href="/juegos/criptograma/"
-        target="_self"
-        title="Criptograma"
+      <div
+        class="h-6 w-100 bg-criptograma"
+      />
+      <div
+        class="flex w-100 h-100 ai-center pb-12 flex-column px-8 pt-8 mt-10 mt-0_m"
       >
-        <div
-          class="h-6 w-100"
+        <img
+          alt="Criptograma"
+          class="image flex w-100 h-100 flex ai-center h-64 w-64 --cover"
+          decoding="async"
+          fetchpriority="low"
+          loading="lazy"
+          src="/pf/assets/games/criptograma.svg"
         />
         <div
-          class="flex flex-column px-8 pt-8 pb-12 ai-center w-100 transition transition-all transition-duration-800"
+          class="flex w-100 h-100 ai-center jc-between flex-column"
         >
-          <div
-            class="h-64 w-64 flex ai-center jc-center"
+          <span
+            class="text ln-text text-ellipsis-1 text-neutral-light-900 prumo prumo-medium text-18 flex ai-center h-64 flex-column jc-center mb-10 text-center"
           >
-            <img
-              alt="Criptograma"
-              class="image flex w-100 h-100 --cover"
-              decoding="async"
-              fetchpriority="low"
-              loading="lazy"
-              src="/pf/assets/games/criptograma.svg"
-            />
-          </div>
+            Criptograma
+          </span>
           <div
-            class="flex ai-center h-64 flex-column jc-center mb-10"
+            class="pt-8_m"
           >
-            <span
-              class="text ln-text --prumo --font-semi text-neutral-light-900 text-center --font-m"
+            <button
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-32 px-12 py-8 cardGame__hover opacity-1__hover bg-white --secondary"
+              data-variant="secondary"
+              title="Criptograma"
+              type="button"
             >
-              Criptograma
-            </span>
-          </div>
-          <div
-            class="border border-thin border-all border-neutral-light-700 rounded-4 py-8 px-16 --font-2xs --font-bold bg-white transition transition-all transition-duration-800"
-          >
-            JUGAR
+              JUGAR
+            </button>
           </div>
         </div>
-      </a>
-    </article>
-  </div>
+      </div>
+    </a>
+  </article>
 </DocumentFragment>
 `;

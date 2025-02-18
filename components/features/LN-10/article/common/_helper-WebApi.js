@@ -34,6 +34,7 @@ const getImageConfig = ({ renderables, layoutsName, config }) =>
         ? get(config, 'imageConfig', 'boxArticles')
         : '';
 
+// TO-DO: REFACTOR METODO: Permitir que los elementos de la lista "chains" sean pasados como prop.
 export const getChainParentOfFeature = (featureId, renderables) => {
     const chains = [
         'LN10_Caja_Manual',
@@ -43,7 +44,8 @@ export const getChainParentOfFeature = (featureId, renderables) => {
         'LN10_Caja_Canal',
         'LN10_Caja_WebStories',
         'Ln_Caja_Manual',
-        'LN10_Caja_Carrusel'
+        'LN10_Caja_Carrusel',
+        'LN10_Caja_Juegos_v2'
     ];
 
     return renderables.find(
@@ -174,13 +176,19 @@ export const validateArticleFeature = ({
     imageId,
     videoId,
     variant,
-    variantsDisabled
+    variantsDisabled,
+    cllBoard,
+    chapita
 }) => {
     const { streams, sources } = video || {};
     const { filesize } =
         getStreams(streams, '>') || getSources(sources, '>') || '';
     const maxVideoSize = 3145728;
     const oneMegabyte = 1048576;
+    const labelChapita = get(content, 'label.chapita.text', '');
+    const closedNote =
+        get(content, 'content_restrictions.content_code', '') === 'cerrada';
+    const hasBadge = chapita || labelChapita?.length > 0 || closedNote;
 
     const rules = [
         {
@@ -211,6 +219,10 @@ export const validateArticleFeature = ({
             message: `El tamaño del video debe ser inferior a 3 MB. Peso actual ${(
                 filesize / oneMegabyte
             ).toFixed(2)} MB`
+        },
+        {
+            validation: cllBoard && hasBadge,
+            message: `La chapita y el embebido de canchallena no se pueden utilizar al mismo tiempo. Por favor, elija uno.`
         }
     ];
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import { cx } from '@ln/cva';
 import { transformImages } from './helperJw';
 import get from '../../utils/get';
 
@@ -8,6 +9,7 @@ export function Facade({
     id = '',
     playlist = [],
     className = '',
+    containerClasses = '',
     title = '',
     subtype = '',
     openingVideo = false
@@ -23,11 +25,13 @@ export function Facade({
         return true;
     });
 
+    const facadeClasses = cx(
+        'content-facade-jw relative bg-black',
+        containerClasses
+    );
+
     return (
-        <div
-            id={`facade-${id}`}
-            className="content-facade-jw relative bg-black ratio-16-9"
-        >
+        <div id={`facade-${id}`} className={facadeClasses}>
             <div
                 id="button-play"
                 className="absolute flex w-100 h-100 jc-center ai-center z-15"
@@ -100,6 +104,7 @@ Facade.propTypes = {
         })
     ).isRequired,
     className: PropTypes.string.isRequired,
+    containerClasses: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     subtype: PropTypes.string.isRequired,
     openingVideo: PropTypes.bool.isRequired

@@ -1,7 +1,11 @@
 import {
     filteredChildren,
-    assignPropsToChildren
+    assignPropsToChildren,
+    getBreakingChildren
 } from '../../../../components/chains/LN10_Caja_Collection/common/_helper-WebApi';
+import getChildrenBySection from '../../../../components/chains/utils/getChildrenBySection';
+
+jest.mock('../../../../components/chains/utils/getChildrenBySection');
 
 describe('chains - LN10_Caja_Collection - _helper-WebApi', () => {
     describe('filteredChildren', () => {
@@ -169,6 +173,33 @@ describe('chains - LN10_Caja_Collection - _helper-WebApi', () => {
         it('should handle case when children is undefined', () => {
             const result = assignPropsToChildren();
 
+            expect(result).toEqual([]);
+        });
+    });
+
+    describe('getBreakingChildren', () => {
+        const renderables = [{ id: 1 }, { id: 2 }];
+
+        afterEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should return a flattened array of children from both sections', () => {
+            getChildrenBySection.mockImplementation(({ section }) => {
+                if (section.title === 'Breaking_1')
+                    return [{ id: 'a' }, { id: 'b' }];
+                if (section.title === 'Breaking_2') return [{ id: 'c' }];
+                return [];
+            });
+
+            const result = getBreakingChildren(renderables);
+            expect(result).toEqual([{ id: 'a' }, { id: 'b' }, { id: 'c' }]);
+        });
+
+        it('should handle cases where getChildrenBySection returns null', () => {
+            getChildrenBySection.mockReturnValue(undefined);
+
+            const result = getBreakingChildren(renderables);
             expect(result).toEqual([]);
         });
     });

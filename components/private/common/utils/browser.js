@@ -1,3 +1,5 @@
+import get from './get';
+
 const infoErrorUrl = 'El parametro de Url es obligatorio en SSR';
 
 const getParameterByName = (parameter, urlP) => {
@@ -47,12 +49,9 @@ const isApiMobileRequest = url => {
     if (!url) {
         return false;
     }
-    // TODO: revisar regla prefer-regex-literals
-    // eslint-disable-next-line prefer-regex-literals
-    const apiRegex = new RegExp('/(api/mobile)/');
-    const regexResult = apiRegex.exec(url);
 
-    return !!regexResult;
+    const apiRegex = /\/(api\/mobile)\//;
+    return apiRegex.test(url);
 };
 
 const isApiRequest = url => {
@@ -60,11 +59,8 @@ const isApiRequest = url => {
         return false;
     }
 
-    // eslint-disable-next-line prefer-regex-literals
-    const apiRegex = new RegExp('/(api)/');
-    const regexResult = apiRegex.exec(url);
-
-    return !!regexResult;
+    const apiRegex = /\/api\//;
+    return apiRegex.test(url);
 };
 
 const getApiVersion = urlP => {
@@ -74,23 +70,24 @@ const getApiVersion = urlP => {
         url = window.location.href;
     }
 
-    // eslint-disable-next-line prefer-regex-literals
-    const versionRegex = new RegExp('/api/(?:mobile/)?v([0-9]+)/');
+    const versionRegex = /\/api\/(?:mobile\/)?v([0-9]+)\//;
     const regexResult = versionRegex.exec(url);
-    return regexResult[1];
+
+    return regexResult ? regexResult[1] : null;
 };
 
 const getApiType = urlP => {
     let url = urlP;
+
     if (!url) {
         if (typeof window === 'undefined') throw new Error(infoErrorUrl);
         url = window.location.href;
     }
 
-    // eslint-disable-next-line prefer-regex-literals
-    const versionRegex = new RegExp('/api/(?:(mobile)/)?v([0-9]+)/');
+    const versionRegex = /\/api\/(?:(mobile)\/)?v([0-9]+)\//;
     const regexResult = versionRegex.exec(url);
-    return regexResult[1] !== undefined ? regexResult[1] : 'global';
+
+    return get(regexResult, '[1]', 'global');
 };
 
 export default {

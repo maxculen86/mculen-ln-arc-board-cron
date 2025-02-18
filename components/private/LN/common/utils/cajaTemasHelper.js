@@ -111,6 +111,7 @@ export const getMarkupForDatalayer = (
         Opinion: {
             extraOpts: {
                 'data-block-name': 'h_opinion',
+                'data-mrf-recirculation': 'h_opinion',
                 ...extraOptsdefault
             },
             extraOptsDiv: {
@@ -120,6 +121,8 @@ export const getMarkupForDatalayer = (
         Editoriales: {
             extraOpts: {
                 'data-block-name': 'h_editoriales',
+                'data-mrf-recirculation': 'h_editoriales',
+
                 ...extraOptsdefault
             },
             extraOptsDiv: {
@@ -129,31 +132,37 @@ export const getMarkupForDatalayer = (
         OtrasNoticias: {
             extraOpts: {
                 'data-block-name': 'n_otras_noticias',
+                'data-mrf-recirculation': 'n_otras_noticias',
                 ...extraOptsdefault
             }
         },
         UltimasNoticias: {
             extraOpts: {
                 'data-block-name': 'n_ultimas_noticias',
+                'data-mrf-recirculation': 'n_ultimas_noticias',
                 ...extraOptsdefault
             }
         },
         TePuedeInteresarHome: {
             extraOpts: {
                 'data-block-name': 'h_sugerencias',
+                'data-mrf-recirculation': 'h_sugerencias',
                 ...extraOptsdefault
             }
         },
         TePuedeInteresar: {
             extraOpts: {
                 'data-block-name': 'n_te_puede_interesar',
+                'data-mrf-recirculation': 'n_te_puede_interesar',
                 ...extraOptsdefault
             }
         },
         Ranking: {
             extraOpts: {
-                'data-block-name': 'n_ranking',
-                ...extraOptsdefault
+                ...extraOptsdefault,
+                'data-block-name': 'h_ranking',
+                'data-mrf-recirculation': 'h_ranking',
+                'data-diagramacion-id': 'ranking-1-2-2_grid'
             },
             extraOptsDiv: {
                 'data-module': 'tema_ranking'
@@ -162,6 +171,7 @@ export const getMarkupForDatalayer = (
         RankingInverso: {
             extraOpts: {
                 'data-block-name': 'h_ranking_seo',
+                'data-mrf-recirculation': 'h_ranking_seo',
                 ...extraOptsdefault,
                 'data-diagramacion-id': 'grilla6'
             },
@@ -172,6 +182,7 @@ export const getMarkupForDatalayer = (
         WebStories: {
             extraOpts: {
                 'data-block-name': 'n_webstories',
+                'data-mrf-recirculation': 'n_webstories',
                 ...extraOptsdefault,
                 'data-diagramacion-id': 'webstories'
             },
@@ -182,6 +193,7 @@ export const getMarkupForDatalayer = (
         EnVivo: {
             extraOpts: {
                 'data-block-name': 'h_enVivo',
+                'data-mrf-recirculation': 'h_enVivo',
                 ...extraOptsdefault,
                 'data-diagramacion-id': 'enVivo'
             },
@@ -192,28 +204,27 @@ export const getMarkupForDatalayer = (
         Default: () => {
             if (!position) return {};
 
-            const extraOpts = {
-                'data-block-name': `h_${sectionName}tema-${position}`,
-                'data-diagramacion-id': layout,
-                'data-is-block': true,
-                ...(positionInsideSection && {
-                    'data-chain-position': positionInsideSection
-                }),
-                id: `tema_${position}`,
-                ...(isExclusiveSub && {
-                    'data-is-subscriptor': true
-                }),
-                ...(isFoodit && {
-                    'data-is-foodit': true
-                }),
-                'data-roof': roof || 'N/A'
-            };
-
             return {
                 extraOptsDiv: {
                     'data-module': `tema_${position}`
                 },
-                extraOpts
+                extraOpts: {
+                    'data-block-name': `h_${sectionName}tema-${position}`,
+                    'data-mrf-recirculation': `h_${sectionName}tema-${position}`,
+                    'data-diagramacion-id': layout,
+                    'data-is-block': true,
+                    ...(positionInsideSection && {
+                        'data-chain-position': positionInsideSection
+                    }),
+                    id: `tema_${position}`,
+                    ...(isExclusiveSub && {
+                        'data-is-subscriptor': true
+                    }),
+                    ...(isFoodit && {
+                        'data-is-foodit': true
+                    }),
+                    'data-roof': roof || 'N/A'
+                }
             };
         }
     };
@@ -279,7 +290,7 @@ export const getCommonProps = props => {
 
     const showDatalayerMark =
         pageBuilderLayout === layoutsName.Home ||
-            pageBuilderLayout === layoutsName.HomeLN10
+        pageBuilderLayout === layoutsName.HomeLN10
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
@@ -313,14 +324,6 @@ export const hastVariant = (childProps = []) =>
 export const isInApertura = (idFeature, tree = {}) => {
     const sectionApertura = get(tree, 'children[4].children', []);
     return sectionApertura.find(child => child.props.id === idFeature);
-};
-
-export const validateoutItem = itemNota => {
-    // eslint-disable-next-line prefer-regex-literals
-    const regex = new RegExp(`/video/`);
-    const results = regex.exec(itemNota.url_nota);
-
-    return !results;
 };
 
 export const getArticlesOfChain = ({

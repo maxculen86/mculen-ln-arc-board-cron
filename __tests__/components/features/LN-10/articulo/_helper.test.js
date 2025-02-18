@@ -22,7 +22,9 @@ import {
     getDataAttributesForViewability,
     translateSectionName,
     getDynamicStreamOperator,
-    transformVideoData
+    transformVideoData,
+    generateLazyLoadEmbedCode,
+    getCllBoard
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -303,7 +305,8 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         const resultHtml = {
             type: 'embedCode',
-            embedCode: iframeWithoutSrc,
+            embedCode:
+                '<iframe width="560" height="315" src="https://img.youtube.com/vi/sITCH5csTmo/hqdefault.jpg" data-src="https://www.youtube.com/embed/sITCH5csTmo?autoplay=1&mute=1" id="youtube-1zhwqe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
             dataSrc: 'https://www.youtube.com/embed/sITCH5csTmo'
         };
 
@@ -376,6 +379,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         });
 
         test('should return the iframe as priority when all customFields are defined', () => {
+            const resultHtmlWithoutId = {
+                ...resultHtml,
+                embedCode: resultHtml.embedCode.replace(
+                    /id="youtube-[^"]+"/,
+                    ''
+                )
+            };
+
             expect(
                 getMediaData(
                     getProps({
@@ -388,7 +399,12 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                         image: responseRelatedImageSource
                     })
                 )
-            ).toStrictEqual(resultHtml);
+            ).toMatchObject({
+                ...resultHtmlWithoutId,
+                embedCode: expect.stringMatching(
+                    /style="background-image: url\(https:\/\/img\.youtube\.com\/vi\/sITCH5csTmo\/hqdefault\.jpg\); background-size: cover; background-position: center; width: 100%; height: 100%;"/
+                )
+            });
         });
 
         test('should return the video as priority when the image and video are defined in the customFields', () => {
@@ -1267,6 +1283,90 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 dataSrc: '',
                 poster: '',
                 type: ''
+            });
+        });
+    });
+});
+
+describe('generateLazyLoadEmbedCode', () => {
+    it('should return the embed code with the thumbnail and data-src for a valid YouTube video (no autoplay)', () => {
+        const embedCode =
+            '<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>';
+        const result = generateLazyLoadEmbedCode(embedCode);
+
+        expect(result).toContain('src=""');
+        expect(result).toContain(
+            'style="background-image: url(https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg); background-size: cover; background-position: center; width: 100%; height: 100%;"'
+        );
+        expect(result).toContain(
+            'data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"'
+        );
+
+        expect(result).toMatch(/id="youtube-[\w\d]+"/);
+    });
+
+    it('should return the embed code with autoplay and mute when autoplay is present', () => {
+        const embedCode =
+            '<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+        const result = generateLazyLoadEmbedCode(embedCode);
+
+        expect(result).toContain('src=""');
+        expect(result).toContain(
+            'style="background-image: url(https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg); background-size: cover; background-position: center; width: 100%; height: 100%;"'
+        );
+
+        expect(result).toContain(
+            'data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1"'
+        );
+    });
+
+    it('should return the original embed code if the YouTube ID is invalid or not present', () => {
+        const embedCode =
+            '<iframe src="https://www.example.com/embed/video" frameborder="0" allowfullscreen></iframe>';
+        const result = generateLazyLoadEmbedCode(embedCode);
+
+        expect(result).toBe(embedCode);
+    });
+
+    it('should generate a unique id for each call', () => {
+        const embedCode1 =
+            '<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>';
+        const embedCode2 =
+            '<iframe src="https://www.youtube.com/embed/abcdefg" frameborder="0" allowfullscreen></iframe>';
+
+        const result1 = generateLazyLoadEmbedCode(embedCode1);
+        const result2 = generateLazyLoadEmbedCode(embedCode2);
+
+        const id1 = result1.match(/id="([a-z0-9-]+)"/)[1];
+        const id2 = result2.match(/id="([a-z0-9-]+)"/)[1];
+
+        expect(id1).not.toBe(id2);
+    });
+
+    describe('Test function getCllBoard', () => {
+        it('should return an empty object if inputUrl is undefined', () => {
+            const result = getCllBoard(undefined);
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object if inputUrl is null', () => {
+            const result = getCllBoard(null);
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object if inputUrl is an empty string', () => {
+            const result = getCllBoard('');
+            expect(result).toEqual({});
+        });
+
+        it('should return the embedCode and classNames with a valid transformed URL', () => {
+            const input =
+                ' https://canchallena.lanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/ ';
+
+            const result = getCllBoard(input);
+            expect(result).toEqual({
+                embedCode: `<iframe src=https://widget-canchallena.clanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/widget/?isHome=true title="Embebido canchallena" class="w-100 h-82"> </iframe>`,
+                classNames: 'h-82'
             });
         });
     });

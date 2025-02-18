@@ -21,6 +21,7 @@ import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
+import YouTubeLazyLoadScript from '../../private/common/scriptManager/YouTubeLazyLoadScript';
 import ScriptViewability from '../../private/common/utils/ScriptViewability';
 import DynamicStylesheetLoader from '../../output-types/criticalCss/dynamicStylesheetLoader';
 import {
@@ -205,6 +206,7 @@ function LN10Home(props) {
             <Metarefresh />
             <PwaModal />
             <RoofEventsScript />
+            <YouTubeLazyLoadScript />
             <ScriptViewability />
             <InitControlGroup />
         </GlobalProvider>

@@ -41,7 +41,7 @@ const boxArticleEventBuilder = {
     },
     seguirLeyendo: () => {
         const keepReadingArticles = document.querySelectorAll(
-            '[data-block-name="h_SeguiLeyendotema-toi"] div article'
+            '[data-block-name="n_segui_leyendo"] div article'
         );
 
         keepReadingArticles.forEach((keepReadArt, i) => {

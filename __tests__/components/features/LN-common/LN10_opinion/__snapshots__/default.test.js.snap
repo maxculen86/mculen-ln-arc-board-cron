@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests - helpers - feature - Opinion should should return feature 1`] = `
+exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
 <div>
   <div>
     <div
@@ -11,6 +11,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
         data-chain-position="00"
         data-diagramacion-id="0"
         data-is-block="true"
+        data-mrf-recirculation="h_opinion"
         data-roof="N/A"
       >
         <div
@@ -267,6 +268,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     data-chain-position="00"
                     data-diagramacion-id="0"
                     data-is-block="true"
+                    data-mrf-recirculation="h_editoriales"
                     data-roof="N/A"
                     data-testid="opinion-test-id"
                   >

@@ -4,7 +4,9 @@ import {
     formatJwPlayerDate,
     getJWScript,
     handleVideoEventsScript,
-    getAlternativeDescription
+    getAlternativeDescription,
+    getVerticalPlayer,
+    configClassName
 } from '../../../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 jest.mock('../../../../../../components/private/common/utils/scheduleTask');
@@ -205,6 +207,75 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             expect(description).toStrictEqual(
                 'Video de Note Title publicado el 05/05/2022 por LA NACION'
             );
+        });
+    });
+
+    describe('getVerticalPlayer', () => {
+        it('returns true for valid vertical player IDs', () => {
+            const validVerticalPlayerIds = ['hOz6uuUy', 'HbGKzdo0', '9gbjbJp8'];
+
+            validVerticalPlayerIds.forEach(playerId => {
+                expect(getVerticalPlayer(playerId)).toBe(true);
+            });
+        });
+
+        it('returns false for invalid player IDs', () => {
+            const invalidPlayerIds = ['invalid1', '12345', 'randomID'];
+
+            invalidPlayerIds.forEach(playerId => {
+                expect(getVerticalPlayer(playerId)).toBe(false);
+            });
+        });
+
+        it('returns false for undefined or null playerId', () => {
+            expect(getVerticalPlayer(undefined)).toBe(false);
+            expect(getVerticalPlayer(null)).toBe(false);
+        });
+
+        it('returns false for an empty string', () => {
+            expect(getVerticalPlayer('')).toBe(false);
+        });
+    });
+
+    describe('configClassName', () => {
+        it('returns the correct class names for la-nacion-ar site with horizontal orientation', () => {
+            const result = configClassName['la-nacion-ar'].horizontal;
+
+            expect(result).toEqual({
+                container: 'content-media cursor-pointer',
+                mediaContainer: 'mod-media ratio-16-9',
+                videoContainer: 'mod-video',
+                videoPlayer: 'video-player bg-black ratio-16-9',
+                facade: 'com-image',
+                facadeContainer: 'ratio-16-9',
+                captionClasses: 'px-0_l mb-8'
+            });
+        });
+
+        it('returns the correct class names for la-nacion-ar site with vertical orientation', () => {
+            const result = configClassName['la-nacion-ar'].vertical;
+
+            expect(result).toEqual({
+                container: 'content-media cursor-pointer',
+                mediaContainer: 'mod-media w-100',
+                videoContainer: 'mod-video flex flex-column ai-center bg-black',
+                videoPlayer: 'video-player w-250 w-100 ratio-9-16',
+                facade: 'com-image',
+                facadeContainer: 'w-250 ratio-9-16',
+                captionClasses: 'w-100'
+            });
+        });
+
+        it('returns the correct class names for ott site with horizontal orientation', () => {
+            const result = configClassName.ott.horizontal;
+
+            expect(result).toEqual({
+                container: 'container cursor-pointer pt-32',
+                mediaContainer: 'ratio-16-9',
+                videoPlayer: 'video-player bg-black ratio-16-9',
+                facade: 'flex w-100 h-100',
+                captionClasses: 'px-0_l mb-8'
+            });
         });
     });
 });

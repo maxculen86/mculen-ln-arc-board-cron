@@ -20,6 +20,7 @@ import { getFirstParentSection } from '../../../private/common/utils/sectionUtil
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
 import getElementFromRenderables from '../../../private/common/utils/getElementFromRenderables';
 import getSourcesJw from '../../../private/LN/common/utils/getSourcesJw';
+import { transformUrl } from './common/_helper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -104,10 +105,13 @@ export const validateMedia = (customFields, config, article) =>
     (get(customFields, 'variant', 'regular') !== 'author' ||
         (get(article, 'credits.by', []).length !== 1 &&
             get(customFields, 'variant', 'regular') === 'author')) &&
-    (get(customFields, 'video') ||
-        get(customFields, 'html') ||
-        get(customFields, 'imageId') ||
-        get(article, 'promo_items.basic.type', 'image') === 'image');
+    Boolean(
+        get(customFields, 'cllBoard') ||
+            get(customFields, 'video') ||
+            get(customFields, 'html') ||
+            get(customFields, 'imageId') ||
+            get(article, 'promo_items.basic.type', 'image') === 'image'
+    );
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && authorsQuantity !== 1 ? 'regular' : variant;
@@ -144,12 +148,12 @@ export const getBadgetConfig = ({
 
     return !hideBadget
         ? {
-            badgetStyle: style || 'negative',
-            badgetText:
-                withMedia &&
-                typeOfMedia !== typeMedia.HTML &&
-                (text || get(article, 'label.chapita.text'))
-        }
+              badgetStyle: style || 'negative',
+              badgetText:
+                  withMedia &&
+                  typeOfMedia !== typeMedia.HTML &&
+                  (text || get(article, 'label.chapita.text'))
+          }
         : {};
 };
 export const getOnlyHoursMinutes = (time = '') =>
@@ -270,6 +274,28 @@ export const transformVideoData = (videoData, cardSize, isAdmin = false) => {
     };
 };
 
+export const generateLazyLoadEmbedCode = embedCode => {
+    const youtubeId = embedCode.match(/youtube\.com\/embed\/([\w-]+)/)?.[1];
+    if (!youtubeId) return embedCode;
+
+    const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+
+    const uniqueId = `youtube-${Math.random().toString(36).substring(7)}`;
+
+    const isAutoplay = embedCode.includes('autoplay');
+
+    let dataSrc = `https://www.youtube.com/embed/${youtubeId}`;
+
+    if (isAutoplay) dataSrc += '?autoplay=1&mute=1';
+
+    const modifiedEmbedCode = embedCode.replace(
+        /src="(https:\/\/www\.youtube\.com\/embed\/[\w-]+[^"]*)"/,
+        `src="" data-src="${dataSrc}" id="${uniqueId}" style="background-image: url(${thumbnailUrl}); background-size: cover; background-position: center; width: 100%; height: 100%;"`
+    );
+
+    return modifiedEmbedCode;
+};
+
 export const getMediaData = ({
     article,
     video,
@@ -280,7 +306,7 @@ export const getMediaData = ({
     isAdmin = false,
     isLoadWithPicture
 } = {}) => {
-    const { video: videoId, imageId, html = '' } = customFields;
+    const { video: videoId, imageId, html = '', cllBoard = '' } = customFields;
     const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
@@ -292,14 +318,24 @@ export const getMediaData = ({
         isEager,
         isLoadWithPicture
     });
+    const promoItemsImage = transformImageData({
+        articleData: article,
+        imageData: get(image, promoItemsBasic, outstandingImage),
+        isEager,
+        isLoadWithPicture
+    });
 
     const rules = [
+        {
+            validation: Boolean(cllBoard.trim()),
+            data: promoItemsImage
+        },
         {
             validation: html.trim(),
             data: {
                 type: 'embedCode',
-                embedCode: html,
-                dataSrc: html && html !== ' ' && html.match(/src="(.*?)"/)[1]
+                embedCode: generateLazyLoadEmbedCode(html),
+                dataSrc: html.match(/src="(.*?)"/)?.[1]
             }
         },
         {
@@ -308,12 +344,7 @@ export const getMediaData = ({
         },
         {
             validation: imageId && image,
-            data: transformImageData({
-                articleData: article,
-                imageData: get(image, promoItemsBasic, outstandingImage),
-                isEager,
-                isLoadWithPicture
-            })
+            data: promoItemsImage
         }
     ];
 
@@ -322,6 +353,18 @@ export const getMediaData = ({
         'data',
         mediaDataDefault
     );
+};
+
+export const getCllBoard = inputUrl => {
+    if (!inputUrl) return {};
+    const src = transformUrl(inputUrl.trim());
+
+    if (!src) return {};
+
+    return {
+        embedCode: `<iframe src=${src} title="Embebido canchallena" class="w-100 h-82"> </iframe>`,
+        classNames: 'h-82'
+    };
 };
 
 export const getDataAttributesForViewability = (

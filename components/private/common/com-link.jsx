@@ -4,7 +4,7 @@ import generateProps from './utils/GetPropsForComLink';
 // import '../../../resources/dist/css/ln/components/com-link.css';
 // import '../../../resources/dist/css/ln/components/com-text.css';
 
-const ComLink = props => {
+function ComLink(props) {
     const {
         children,
         dataEvent,
@@ -17,6 +17,8 @@ const ComLink = props => {
         size,
         rel,
         style,
+        marfeelTrack,
+        bodyLinkType,
         withSponsoredLink = false
     } = props;
 
@@ -40,13 +42,15 @@ const ComLink = props => {
         style,
         SIZE_CLASS,
         EXTRA_CLASS,
-        withSponsoredLink
+        withSponsoredLink,
+        marfeelTrack,
+        bodyLinkType
     );
 
     const tag = link ? 'a' : 'span';
 
     return React.createElement(tag, { ..._props });
-};
+}
 
 ComLink.propTypes = {
     children: PropTypes.oneOfType([
@@ -64,6 +68,8 @@ ComLink.propTypes = {
     dataSection: PropTypes.string,
     dataEvent: PropTypes.string,
     rel: PropTypes.string,
+    marfeelTrack: PropTypes.bool,
+    bodyLinkType: PropTypes.string,
     withSponsoredLink: PropTypes.bool
 };
 
@@ -78,7 +84,9 @@ ComLink.defaultProps = {
     dataEvent: '',
     link: null,
     rel: undefined,
-    withSponsoredLink: false
+    withSponsoredLink: false,
+    marfeelTrack: false,
+    bodyLinkType: ''
 };
 
 export default ComLink;

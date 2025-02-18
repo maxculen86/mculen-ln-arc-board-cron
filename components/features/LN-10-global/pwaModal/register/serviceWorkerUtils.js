@@ -1,13 +1,12 @@
 import { initialize } from './pwaMessaging';
 
-export const verify = () => {
-    return true && 'serviceWorker' in navigator;
-};
+export const verify = () => 'serviceWorker' in navigator;
 
 export const unregister = async () => {
     if ('serviceWorker' in navigator) {
         try {
-            const registrations = await navigator.serviceWorker.getRegistrations();
+            const registrations =
+                await navigator.serviceWorker.getRegistrations();
             const { length } = registrations || [];
 
             for (const registration of registrations) {

@@ -26,21 +26,25 @@ const generateProps = (
     style,
     SIZE_CLASS,
     EXTRA_CLASS,
-    withSponsoredLink = false
-) => {
-    return {
-        ...(link && { href: link }),
-        ...(dataEvent && { 'data-event': dataEvent }),
-        ...(dataSection && { 'data-section': dataSection }),
-        // ...(link && !rel && { rel: target === '_blank' ? 'nofollow' : undefined }),
-        ...setNofollow(link, rel, withSponsoredLink, target),
-        ...(link && { target }),
-        ...(link && { title }),
-        ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
-        ...(!isString && { children: children || textname }),
-        ...(style && { style }),
-        className: `com-${link ? 'link' : 'text'}${SIZE_CLASS}${EXTRA_CLASS}`
-    };
-};
+    withSponsoredLink,
+    marfeelTrack,
+    bodyLinkType
+) => ({
+    ...(link && { href: link }),
+    ...(dataEvent && { 'data-event': dataEvent }),
+    ...(dataSection && { 'data-section': dataSection }),
+    // ...(link && !rel && { rel: target === '_blank' ? 'nofollow' : undefined }),
+    ...setNofollow(link, rel, withSponsoredLink, target),
+    ...(link && { target }),
+    ...(link && { title }),
+    ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
+    ...(!isString && { children: children || textname }),
+    ...(style && { style }),
+    className: `com-${link ? 'link' : 'text'}${SIZE_CLASS}${EXTRA_CLASS}`,
+    ...(marfeelTrack && {
+        'data-mrf-recirculation':
+            bodyLinkType === 'intersitial' ? 'n_interstitial' : 'n_link_parrafo'
+    })
+});
 
 export default generateProps;

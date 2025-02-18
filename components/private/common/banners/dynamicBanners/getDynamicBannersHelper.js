@@ -3,15 +3,17 @@ import get from '../../utils/get';
 import bannersHome from '../bannersDivHome';
 
 export const hasBomba = renderables =>
-    renderables
-        .filter(ren => ren.collection === 'sections')
-        .find(section =>
-            section.children.find(
-                child =>
-                    child.type === 'LN10_Caja_Bomba' &&
-                    child.props.customFields.hideCaja !== true
+    Boolean(
+        renderables
+            .filter(ren => ren.collection === 'sections')
+            .find(section =>
+                section.children.find(
+                    child =>
+                        child.type === 'LN10_Caja_Bomba' &&
+                        child.props.customFields.hideCaja !== true
+                )
             )
-        ) && true;
+    );
 
 export const getSectionId = (renderables, featureId) => {
     const layoutSection = renderables

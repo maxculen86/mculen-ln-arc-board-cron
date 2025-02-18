@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable camelcase */
 /* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react';
@@ -23,7 +22,7 @@ import { articleBoxesTracker } from '../../private/common/utils/noteTracker/arti
 
 // TODO fixes de eslint
 
-const masNotas = props => {
+function masNotas(props) {
     const {
         customFields: {
             cantidadNotas = 30,
@@ -40,7 +39,7 @@ const masNotas = props => {
     const { primary_section, tags = [] } = taxonomy || {};
     const { _id, _website, name: sectionName, path } = primary_section || {};
 
-    if (!_id) return <></>;
+    if (!_id) return null;
 
     const isFilteringByTags = filterCustomField === 'byTags';
 
@@ -117,10 +116,8 @@ const masNotas = props => {
             outputType={outputType}
             withVolanta
         />
-    ) : (
-        <></>
-    );
-};
+    ) : null;
+}
 
 masNotas.label = 'LN-Nota-masNotas';
 

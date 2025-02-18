@@ -16,7 +16,7 @@ const featuredRules = {
 const conditionallyCallImageSource = idImage =>
     (idImage && idImage.trim() && 'relatedImageSource') || null;
 
-export function GetImage({
+export function getImage({
     imageId,
     imageConfig,
     id,
@@ -135,9 +135,16 @@ const featureArticleCustomsFields = (featuredName, isLN10) => ({
         default: ''
     }),
     html: PropTypes.string.tag({
-        name: 'Tablero / HTML',
-        description: 'Ingrese aquí el html del tablero',
+        name: 'HTML',
+        description: 'Ingrese aquí el código HTML / embed',
         default: ''
+    }),
+    ...(isLN10 && {
+        cllBoard: PropTypes.string.tag({
+            name: 'Tablero de canchallena',
+            description: 'Ingrese aquí la url de la ficha del partido',
+            default: ''
+        })
     }),
     ...(!isLN10 && {
         mobileImageId: PropTypes.string.tag({

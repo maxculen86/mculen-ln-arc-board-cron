@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests when the section may interest you is visible. Matche Snapshot with the section visible 1`] = `
+exports[`Tests when the section may interest you is visible. Match Snapshot with the section visible 1`] = `
 <div>
   <div
     class="row interest"
@@ -12,6 +12,7 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
         data-block-name="n_te_puede_interesar"
         data-diagramacion-id="0"
         data-is-block="true"
+        data-mrf-recirculation="n_te_puede_interesar"
         data-roof="N/A"
       >
         <section

@@ -46,8 +46,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     };
 
     try {
-        // eslint-disable-next-line prefer-regex-literals
-        const regexVersionDeploy = new RegExp('[0-9]+');
+        const regexVersionDeploy = /[0-9]+/;
         let versionDeploy = get(query, 'versionDeploy', null);
         versionDeploy =
             regexVersionDeploy.exec(versionDeploy) &&

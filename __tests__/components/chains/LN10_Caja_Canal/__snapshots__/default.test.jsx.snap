@@ -14,6 +14,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         data-chain-position="00"
         data-diagramacion-id="canal_1_4_grid"
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       >
@@ -339,6 +340,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         data-chain-position="00"
         data-diagramacion-id="bn-4-8"
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       >
@@ -635,6 +637,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         data-chain-position="00"
         data-diagramacion-id="canal_1_3_grid"
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       >
@@ -931,6 +934,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         data-chain-position="00"
         data-diagramacion-id="canal_1_2_grid"
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       >
@@ -1176,6 +1180,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         data-chain-position="00"
         data-diagramacion-id="bn_1_1_grid"
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       >
@@ -1336,6 +1341,7 @@ exports[`components - chains - LN10_Caja_canal should return an empty array of a
         data-chain-position="00"
         data-diagramacion-id=""
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       />
@@ -1358,6 +1364,7 @@ exports[`components - chains - LN10_Caja_canal should return an empty array of a
         data-chain-position="00"
         data-diagramacion-id="invalid_layout"
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       />
@@ -1380,6 +1387,7 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
         data-chain-position="00"
         data-diagramacion-id="bn_2_2_grid"
         data-is-block="true"
+        data-mrf-recirculation="h_tema-00"
         data-roof="N/A"
         id="tema_00"
       >

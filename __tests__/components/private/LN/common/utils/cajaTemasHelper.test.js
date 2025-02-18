@@ -2,8 +2,7 @@ import getRenderables from '../../../../../../__mocks__/data/renderables/banners
 
 import {
     getMarkupForDatalayer,
-    hastVariant,
-    validateoutItem
+    hastVariant
 } from '../../../../../../components/private/LN/common/utils/cajaTemasHelper';
 import getChildrenFromSectionHome from '../../../../../../components/private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 
@@ -33,24 +32,6 @@ describe('cajaTemasHelper functions', () => {
     it('getChildrenFromSectionHome with no renderables', () => {
         const result = getChildrenFromSectionHome();
         expect(result).toHaveLength(0);
-    });
-
-    it('validateoutItem returns false for url containing "/video/"', () => {
-        const itemNota = {
-            url_nota: 'https://example.com/video/123'
-        };
-
-        const result = validateoutItem(itemNota);
-        expect(result).toBe(false);
-    });
-
-    it('validateoutItem returns true for url not containing "/video/"', () => {
-        const itemNota = {
-            url_nota: 'https://example.com/article/123'
-        };
-
-        const result = validateoutItem(itemNota);
-        expect(result).toBe(true);
     });
 
     it('getMarkupForDatalayer should return data-subscriptor: true when isExclusiveSub is true', () => {

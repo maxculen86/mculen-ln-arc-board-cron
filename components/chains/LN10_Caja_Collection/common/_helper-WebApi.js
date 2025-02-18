@@ -80,25 +80,23 @@ export const validateChain = ({
         {
             validation:
                 isGrid6MasTimeline &&
-                !renderables.find(({ collection, type, children }) => {
-                    return (
+                !renderables.find(
+                    ({ collection, type, children }) =>
                         collection === COLLECTION_CHAIN &&
                         type === LN10_CAJA_COLLECTION &&
                         children.some(
-                            ({ collection, type }) =>
-                                collection === COLLECTION_FEATURES &&
-                                type === LN_TIMELINE
+                            ({ collection: collectionType, type: itemType }) =>
+                                collectionType === COLLECTION_FEATURES &&
+                                itemType === LN_TIMELINE
                         )
-                    );
-                }),
+                ),
             message: 'Esta diagramación requiere el feature LN10 Timeline'
         },
         {
             validation: articlesLength < minimum,
-            message: `Se requiere la carga de ${minimum -
-                articlesLength} artículo${
-                minimum - articlesLength > 1 ? 's' : ''
-            }`
+            message: `Se requiere la carga de ${
+                minimum - articlesLength
+            } artículo${minimum - articlesLength > 1 ? 's' : ''}`
         }
     ];
 
@@ -107,25 +105,23 @@ export const validateChain = ({
 
 export const getBreakingChildren = renderables =>
     ['Breaking_1', 'Breaking_2']
-        .map(breakingName =>
-            getChildrenBySection({
-                renderables,
-                section: {
-                    title: breakingName,
-                    validation: sectionValidation
-                }
-            })
+        .map(
+            breakingName =>
+                getChildrenBySection({
+                    renderables,
+                    section: {
+                        title: breakingName,
+                        validation: sectionValidation
+                    }
+                }) || []
         )
         .flat();
 
-export const assignPropsToChildren = (children = [], childProps = []) => {
-    return children.map((child, index) => ({
+export const assignPropsToChildren = (children = [], childProps = []) =>
+    children.map((child, index) => ({
         nodo: child,
         ...(childProps[index] || {})
     }));
-};
 
 export const filteredChildren = children =>
-    children.find(child => {
-        return child.type === LN_TIMELINE;
-    });
+    children.find(child => child.type === LN_TIMELINE);
