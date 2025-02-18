@@ -23,7 +23,7 @@ export const getCardPosition = (parent, featureId) =>
 export const getParentLayout = parent => {
     if (!parent || !parent.props) return DIAGRAMATIONS.fourVertical;
 
-    return get(parent, 'props.customFields.layout', '');
+    return get(parent, 'props.customFields.layout', DIAGRAMATIONS.fourVertical);
 };
 
 export const getFirstCard = (cardPosition, parentLayout) => {
@@ -52,10 +52,10 @@ export const getDescriptionData = (firstCard, parentLayout, description) => {
     return isValidLayout ? description : null;
 };
 
-export const getSizeByLayout = layoutName => {
+export const getSizeByLayout = (layoutName, section) => {
     const { layoutsName = {} } = siteConfig;
     const layoutsNameWithSize18 = [layoutsName.HomeLN10];
-    return layoutsNameWithSize18.includes(layoutName) ? 18 : 24;
+    return layoutsNameWithSize18.includes(layoutName) || !section ? 18 : 24;
 };
 
 export const getHrefLink = (type, section, link) =>
