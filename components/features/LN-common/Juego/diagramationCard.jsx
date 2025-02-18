@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useAppContext } from 'fusion:context';
 import { cardDiagramationVariant } from './styles';
+import { getSizeByLayout } from './helper';
 
 function DiagramationCard({ children, variant }) {
-    const _className = cardDiagramationVariant({ variant });
+    const { layout } = useAppContext();
+    const sizeCard = getSizeByLayout(layout);
+
+    const _className = cardDiagramationVariant({ variant, size: sizeCard });
     return <div className={_className}>{children}</div>;
 }
 
