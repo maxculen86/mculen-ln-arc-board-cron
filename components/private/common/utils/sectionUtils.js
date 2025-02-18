@@ -144,16 +144,3 @@ export const formatText = (str = '') =>
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '');
-
-export function toKebabCase(str = '') {
-    if (typeof str !== 'string') return '';
-    if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(str)) return str;
-    return str
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9\s]/g, '')
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-');
-}

@@ -240,7 +240,6 @@
             height: px(480);
             //TODO: cambiar por el selector definitivo de juegos cuando se realice el refactor
             .acumulado.juegos &,
-            .acumulado.ln-juegos &,
             .acumulado.propiedades & {
                 height: px(250);
             }
