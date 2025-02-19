@@ -1,16 +1,34 @@
 import { cva } from '@ln/cva';
 
-export const cardDiagramationVariant = cva('grid gap-24', {
+export const cardDiagramationVariant = cva('grid', {
     variants: {
         variant: {
-            oneLargeFourSmall: 'grid-cols-12_m grid-rows_m oneLargeFourSmall',
-            twoHorizontal: 'grid-cols-2_m grid-col-2_m',
-            fourVertical: 'grid-cols-4_m grid-col-2_m',
-            oneHorizontalThreeVertical: 'grid-cols-12_m'
+            oneLargeFourSmall:
+                'grid-cols-12_m grid-rows_m gap-24 oneLargeFourSmall',
+            twoHorizontal: 'grid-cols-2_m grid-col-2_m gap-24',
+            fourVertical: '',
+            oneHorizontalThreeVertical: 'grid-cols-12_m gap-24'
+        },
+        size: {
+            18: '',
+            24: ''
         }
     },
+    compoundVariants: [
+        {
+            size: 18,
+            variant: 'fourVertical',
+            className: 'grid-cols-8 grid-cols-12_sm gap-16 mb-32'
+        },
+        {
+            size: 24,
+            variant: 'fourVertical',
+            className: 'grid-cols-4_m grid-col-2_m gap-24'
+        }
+    ],
     defaultVariants: {
-        variant: 'fourVertical'
+        variant: 'fourVertical',
+        size: 18
     }
 });
 

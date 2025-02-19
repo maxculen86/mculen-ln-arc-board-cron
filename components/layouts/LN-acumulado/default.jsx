@@ -16,37 +16,12 @@ import '../../../resources/dist/css/ln/pages/wiki-tags.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
-import { toKebabCase } from '../../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 import InitControlGroup from '../helpers/initCtrlGrp';
-
-const CLASS_ACU_REVISTA = '';
-const revistas = [
-    'ohlala',
-    'lugares',
-    'hola',
-    'living',
-    'brando',
-    'jardin',
-    'rolling-stone'
-];
-// TODO: Quitar ln-juegos cuando se realice el refactor de tomar la sectionClass por la section y no por el name
-const sections = [
-    'economia',
-    'deportes',
-    'opinion',
-    'salud',
-    'autos',
-    'campo',
-    'propiedades',
-    'juegos',
-    'ln-juegos',
-    'futuria',
-    'que-sale'
-];
+import { CLASS_ACU_REVISTA, revistas, getSectionClassName } from './helpers';
 
 const acumToSearchAperturaChain = ['tags'];
 
@@ -69,7 +44,9 @@ function LNAcumuladoLayout(props) {
         layout
     } = props;
 
-    const { style, name = '', node_type: nodeType } = globalContent || {};
+    const { style, node_type: nodeType } = globalContent || {};
+
+    const sectionClass = getSectionClassName(requestUri);
 
     const sectionStyleName = get(style, 'section_style_name', '');
 
@@ -78,9 +55,6 @@ function LNAcumuladoLayout(props) {
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
             : '';
 
-    const classMisNotas = requestUri.includes('/mis-notas/') && 'mis-notas';
-    const sectionClass =
-        sections.find(sec => sec === toKebabCase(name)) || classMisNotas || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
 
     const {

@@ -1,6 +1,7 @@
 import { useContent } from 'fusion:content';
 import transformMenuData from '../_helpers';
 import filterMenuSections from '../../../../../../content/filters/foodit/filterMenuSections';
+import isSSR from '../../../../../private/LN/common/utils/isSSR';
 
 export const useNavigationData = () => {
     const response = useContent({
@@ -11,7 +12,7 @@ export const useNavigationData = () => {
         },
         transform: data => {
             const transformedData = transformMenuData(data);
-            const termicasData = data.Termicas || {};
+            const termicasData = (!isSSR() && data.Termicas) || {};
             return { transformedData, termicasData };
         },
         filter: filteredResponse => {
