@@ -15,10 +15,7 @@ export const useNavigationData = () => {
             const termicasData = (!isSSR() && data.Termicas) || {};
             return { transformedData, termicasData };
         },
-        filter: filteredResponse => {
-            const { transformedData } = filteredResponse;
-            return filterMenuSections(transformedData);
-        }
+        filter: filterMenuSections
     });
 
     const categories = response ? response.transformedData : null;
