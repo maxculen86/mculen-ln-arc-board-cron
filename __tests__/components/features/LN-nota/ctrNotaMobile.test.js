@@ -4,7 +4,7 @@ import CTRNota, {
     ctrRecommendNote
 } from '../../../../components/features/LN-nota/ctrNotaMobile';
 import useViewportSize from '../../../../components/private/common/hooks/useViewportSize';
-import { isSubscribed } from '../../../../components/private/common/auth/helper/loginHelper';
+import { isSubscribed } from '../../../../auth/helper/loginHelper';
 import { useAppContext } from 'fusion:context';
 import '@testing-library/jest-dom';
 import StickyMobile from '../../../../components/private/LN/nota/StickyMobile';
@@ -16,7 +16,7 @@ jest.mock('fusion:context', () => ({ useAppContext: jest.fn() }));
 jest.mock('../../../../components/private/common/hooks/useViewportSize', () =>
     jest.fn()
 );
-jest.mock('../../../../components/private/common/auth/helper/loginHelper');
+jest.mock('../../../../auth/helper/loginHelper');
 jest.mock('../../../../components/features/LN-10/ranking/_helper', () => ({
     ...jest.requireActual(
         '../../../../components/features/LN-10/ranking/_helper'

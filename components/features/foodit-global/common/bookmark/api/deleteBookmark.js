@@ -1,6 +1,6 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import { addToast, TOAST, addErrorToast } from './_helper';
-import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
 import { toggleBookmarks } from '../iconHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';

@@ -7,9 +7,9 @@ import toggleBookmark, {
 } from '../../../../../components/private/common/utils/bookmarkHelper';
 import notaExample from '../../../../../__mocks__/data/nota/body/globalContent.json';
 import BookmarkApiNoteFormat from '../../../../../__mocks__/data/bookmark/APINoteData.json';
-import { getAuthTokens } from '../../../../../components/private/common/auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../../auth/helper/loginHelper';
 
-jest.mock('../../../../../components/private/common/auth/helper/loginHelper');
+jest.mock('../../../../../auth/helper/loginHelper');
 
 describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
     describe('toggleBookmark', () => {

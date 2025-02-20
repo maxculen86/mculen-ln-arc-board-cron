@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
 import get from '../../../private/common/utils/get';
-import { getAuthTokens } from '../../../private/common/auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../auth/helper/loginHelper';
 import { TRANSLATE_LAYOUTS } from '../../foodit-global/common/dataLayer/_helpers';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 

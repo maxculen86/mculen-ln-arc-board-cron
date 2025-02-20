@@ -1,7 +1,7 @@
 import { getConfig } from '../common/utils/promotions';
 import getUserInitials from '../../../private/common/utils/getUserInitials';
-import useGetUserData from '../../../private/common/auth/hooks/useGetUserData';
-import { SUBSCRIBED_HELPER } from '../../../private/common/auth/helper/loginHelper';
+import useGetUserData from '../../../../auth/hooks/useGetUserData';
+import { SUBSCRIBED_HELPER } from '../../../../auth/helper/loginHelper';
 
 const useGetUserConfig = () => {
     const {

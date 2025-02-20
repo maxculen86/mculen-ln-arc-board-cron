@@ -41,7 +41,7 @@ jest.mock(
     '../../../../../../components/private/common/scriptManager/DataLayerInteracions',
     () => jest.fn(() => <div>DataLayerInteractions</div>)
 );
-jest.mock('../../../../../../components/private/common/auth/AuthInitializer', () =>
+jest.mock('../../../../../../auth/AuthInitializer', () =>
     jest.fn(({ children }) => <div>{children}</div>)
 );
 jest.mock(

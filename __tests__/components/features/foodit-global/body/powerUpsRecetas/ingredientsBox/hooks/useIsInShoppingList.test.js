@@ -1,17 +1,14 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import getBookmarkByArticleId from '../../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarkByArticleId';
-import useAuthManager from '../../../../../../../../components/private/common/auth/hooks/useAuthManager';
+import useAuthManager from '../../../../../../../../auth/hooks/useAuthManager';
 import { useIsInShoppingList } from '../../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList';
 
 jest.mock(
     '../../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarkByArticleId',
     () => jest.fn()
 );
-jest.mock(
-    '../../../../../../../../components/private/common/auth/hooks/useAuthManager',
-    () => jest.fn()
-);
+jest.mock('../../../../../../../../auth/hooks/useAuthManager', () => jest.fn());
 
 const TestComponent = ({ isSuscriptor, articleId }) => {
     const { bookmarkId } = useIsInShoppingList(isSuscriptor, articleId);

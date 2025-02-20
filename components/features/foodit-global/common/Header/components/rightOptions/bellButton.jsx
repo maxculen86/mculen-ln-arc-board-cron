@@ -5,7 +5,7 @@ import {
     getPropsBellFoodit,
     hideTooltip
 } from './_helpers';
-import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
+import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
 
 export function BellButton() {
     const isCSR = typeof window !== 'undefined';

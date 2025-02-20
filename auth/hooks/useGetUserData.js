@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import getUserInitials from '../../utils/getUserInitials';
+import getUserInitials from '../../components/private/common/utils/getUserInitials';
 import getUserData from './_helper';
 
 const useGetUserData = (productPremiumToValidate = '') => {

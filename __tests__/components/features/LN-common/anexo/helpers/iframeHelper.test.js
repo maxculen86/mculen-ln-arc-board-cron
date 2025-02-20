@@ -2,15 +2,12 @@ import {
     generateUrlWithToken,
     handleIframeProps
 } from '../../../../../../components/features/LN-common/anexo/helpers/iframeHelper';
-import { getAuthTokens } from '../../../../../../components/private/common/auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
 import getToken from '../../../../../../components/private/common/utils/getToken';
 
-jest.mock(
-    '../../../../../../components/private/common/auth/helper/loginHelper',
-    () => ({
-        getAuthTokens: jest.fn()
-    })
-);
+jest.mock('../../../../../../auth/helper/loginHelper', () => ({
+    getAuthTokens: jest.fn()
+}));
 
 jest.mock('../../../../../../components/private/common/utils/getToken', () =>
     jest.fn()

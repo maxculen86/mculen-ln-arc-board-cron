@@ -14,8 +14,8 @@ import ShowToast from '../../../private/common/toast/showToast';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../../private/common/auth/helper/loginHelper';
-import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
+} from '../../../../auth/helper/loginHelper';
+import useAuthManager from '../../../../auth/hooks/useAuthManager';
 import BarrierRequiresSubscription from '../../LN-10-global/common/barrierRequiresSubscription/default';
 import { a11yAttrsBarrierSub } from '../../../private/common/audioNews/helpers';
 import { useToast } from '../../../private/common/toast/hooks/useToast';

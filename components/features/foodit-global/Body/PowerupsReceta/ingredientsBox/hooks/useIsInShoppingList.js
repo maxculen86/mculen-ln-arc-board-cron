@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import getBookmarkByArticleId from '../../../../common/bookmark/api/getBookmarkByArticleId';
-import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
+import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
 
 export const useIsInShoppingList = (isSuscriptor, articleId = '') => {
     const [bookmarkId, setBookmarkId] = useState(null);

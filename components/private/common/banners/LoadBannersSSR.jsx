@@ -9,7 +9,10 @@ import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
 import bannerConfigType from './helpers/loadBannersSSRHelper';
 import getCustomTargeting from './helpers/getCustomTargeting';
-import { isSubscribed, SUBSCRIBED_HELPER } from '../auth/helper/loginHelper';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../auth/helper/loginHelper';
 
 let googleCmdPushed = false;
 
@@ -38,7 +41,7 @@ const getBannersInDOM = device => {
     return bannersToLoad;
 };
 
-function LoadBannersSSR({ blocksBanners }) {
+const LoadBannersSSR = ({ blocksBanners }) => {
     const {
         renderables = [],
         outputType,
@@ -159,7 +162,7 @@ function LoadBannersSSR({ blocksBanners }) {
     ]);
 
     return <div className="hlp-none">Cargando banners ...</div>;
-}
+};
 
 LoadBannersSSR.propTypes = {
     blocksBanners: PropTypes.arrayOf(

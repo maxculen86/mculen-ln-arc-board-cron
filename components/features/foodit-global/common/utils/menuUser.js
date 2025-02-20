@@ -1,6 +1,6 @@
 import React from 'react';
 import { MY_ACCOUNT_URL, SITE_FOODIT } from 'fusion:environment';
-import { logout } from '../../../../private/common/auth/helper/loginHelper';
+import { logout } from '../../../../../auth/helper/loginHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
