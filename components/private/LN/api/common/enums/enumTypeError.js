@@ -5,5 +5,6 @@ export const enumTypeError = {
     bitacoraError: 'BitacoraError',
     ln10ArticleError: 'LN10ArticleError',
     featureError: 'FeatureError',
-    apiSigningServiceError: 'ApiSigningServiceError'
+    apiSigningServiceError: 'ApiSigningServiceError',
+    apiImageSourceError: 'apiImageSourceError'
 };
