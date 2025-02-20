@@ -11,10 +11,24 @@ const queryParams = {
         keyCachedCall: 'ApiPageHomehome_08'
     }
 };
+let homePage;
+
+jest.mock('../../../../../../../../content/sources/rankingArticlesSource', () => {
+    return {
+        fetch: jest.fn().mockResolvedValue({
+            articles: [],
+            size: 0,
+        })
+    };
+});
+
+beforeEach(() => {
+    homePage = JSON.parse(JSON.stringify(firstTransformation))
+});
 
 describe('Transform bitacora v1 test', () => {
     test('Test transformacion bitacora', async () => {
-        let result = await transform(
+        const result = await transform(
             {
                 information: {
                     layoutPage: ''
@@ -28,8 +42,8 @@ describe('Transform bitacora v1 test', () => {
     });
 
     test('Bitacora should return right data', async () => {
-        let result = await transform(firstTransformation, queryParams);
-        expect(result.cajas.length).toBe(28);
+        const result = await transform(homePage, queryParams);
+        expect(result.cajas.length).toBe(29);
         expect(result.cajas[4]).toEqual({
             id_caja: '04',
             visible: true,
@@ -66,8 +80,8 @@ describe('Transform bitacora v1 test', () => {
     });
 
     test('Bitacora should not return status 500 if a box has no articles', async () => {
-        let result = await transform(firstTransformation, queryParams);
-        expect(result.cajas.length).toBe(28);
+        const result = await transform(homePage, queryParams);
+        expect(result.cajas.length).toBe(29);
         expect(result.cajas[4]).toEqual({
             id_caja: '04',
             visible: true,
@@ -175,6 +189,69 @@ describe('Transform bitacora v1 test', () => {
                         url_video: 'https://cdn.jwplayer.com/manifests/sfEt1cNK.m3u8',
                         posicion: '02',
                     }
+                ]
+            }]
+        };
+
+        const result = await transform(page, queryParams);
+
+        expect(result).toEqual(expected);
+    });
+
+    it('renames diagramation left-focal-without-timeline', async () => {
+        const page = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            },
+            content_elements: [
+                {
+                    type: 0,
+                    sectionAliasMobile: 'apertura',
+                    information: {
+                        layout: 'left-focal-without-timeline',
+                        hideCaja: false,
+                        typeChain: 'apertura',
+                        nameChain: 'LN10_Caja_Apertura',
+                        idRender: 'c0fuD8YggDBz7YJ'
+                    },
+                    articles: [
+                        { _id: 'ZUU7XJDSV5HQ5N6HESKDJXHFNA', website_url: '/sociedad/1' },
+                        { _id: 'WXIBUED5GBEZNCZ347Q4VFKWRY', website_url: '/sociedad/2' },
+                    ],
+                    configurations: {
+                        arcSite: 'la-nacion-ar'
+                    },
+                    sectionWeb: 'Apertura'
+                }]
+        };
+        const {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate,
+        } = queryParams.information;
+        const expected = {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate,
+            cajas: [{
+                id_caja: '01',
+                visible: true,
+                feature: 'apertura',
+                diagramacion_caja: 'apertura_left-focal-without-timeline',
+                item_category: 'N/A',
+                notas: [
+                    {
+                        id_nota: 'ZUU7XJDSV5HQ5N6HESKDJXHFNA',
+                        url_nota: '/sociedad/1',
+                        posicion: '01',
+                    },
+                    {
+                        id_nota: 'WXIBUED5GBEZNCZ347Q4VFKWRY',
+                        url_nota: '/sociedad/2',
+                        posicion: '02',
+                    },
                 ]
             }]
         };
