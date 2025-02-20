@@ -1,5 +1,5 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
 
 const putBookmarkGroups = async (bookmarkGroupOld, bookmarkGroupNew) => {
     const { token, accessToken } = await getAuthTokens();

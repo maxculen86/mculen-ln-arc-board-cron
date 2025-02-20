@@ -1,5 +1,5 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
-import { getAuthTokens } from '../../../../../../auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
 import get from '../../../../../private/common/utils/get';
 
 export const INGREDIENTS_BOOKMARK_GROUP = '0c470be489a8782dda8265b77d0dfcd4';

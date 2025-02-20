@@ -1,5 +1,7 @@
-import { API_INGRESAR } from 'fusion:environment';
-import handleCookie from '../../components/private/LN/common/utils/handleCookie';
+import { API_INGRESAR, DATADOG_CONFIG } from 'fusion:environment';
+import { init } from '@ln/user.client.libs';
+import get from '../../utils/get';
+import handleCookie from '../../../LN/common/utils/handleCookie';
 
 const { setCookie, getCookie, eraseCookie, DiccionarioCookiesAGuardar } =
     handleCookie();
@@ -8,8 +10,6 @@ export const SUBSCRIBED_HELPER = {
     LN: '2',
     FOODIT: '22'
 };
-
-const ACCESS_TOKEN = 'access-token';
 
 export const isSubscribed = valueSuscription => {
     const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
@@ -29,7 +29,7 @@ export const setupCookies = (userData = {}) => {
         TokenJWT: 'PersoTKN'
     };
 
-    for (const key in userData) {
+    Object.keys(userData).forEach(key => {
         if (
             DiccionarioCookiesAGuardar.indexOf(key) > -1 &&
             typeof userData[key] === 'string'
@@ -40,36 +40,23 @@ export const setupCookies = (userData = {}) => {
             eraseCookie(cookieKey);
             setCookie(cookieKey, cookieValue);
         }
-    }
+    });
 };
 
-export const setMultiplyCookies = ({ userData, newToken }) => {
+export const setMultiplyCookies = ({ userData, newToken, RefreshAsync }) => {
     eraseCookie('token');
     setCookie('token', newToken);
     setupCookies(userData);
-    _UserClientLibs('RefreshAsync')();
-};
-
-export const _UserClientLibs = func =>
-    window.UserClientLibs && window.UserClientLibs[func]
-        ? window.UserClientLibs[func]
-        : () => {};
-
-export const getAuthFromCookie = async (cookie = 'token') => {
-    try {
-        if (cookie === ACCESS_TOKEN) {
-            return await _UserClientLibs('BuildBearerAccessTokenAsync')();
-        }
-        return _UserClientLibs('getIdTokenCookie')();
-    } catch (error) {
-        console.error(`Ocurrió un error al obtener el ${cookie}`, error);
-        return undefined;
-    }
+    RefreshAsync();
 };
 
 export const getAuthTokens = async () => {
-    const token = await getAuthFromCookie();
-    const accessToken = await getAuthFromCookie(ACCESS_TOKEN);
+    const getToken = window?.UCL?.GetIdTokenValidatedAsync;
+    const getAccessToken = window?.UCL?.BuildBearerAccessTokenAsync;
+
+    const token = await getToken();
+    const accessToken = await getAccessToken();
+
     return {
         token,
         accessToken
@@ -77,7 +64,9 @@ export const getAuthTokens = async () => {
 };
 
 export const logout = (callback = () => {}) => {
-    _UserClientLibs('LogoutAsync')({
+    const logoutFunction = window?.UCL?.LogoutAsync;
+
+    logoutFunction({
         embedShortCircuit: true,
         redirectToLogin: false,
         isVoluntary: true
@@ -88,22 +77,18 @@ export const logout = (callback = () => {}) => {
     window?.viafoura?.session?.logout();
 };
 
-export const setUserData = async () => {
+export const setUserData = async (token, accessToken, RefreshAsync) => {
     const userEmail = getCookie('usuarioemail');
-    const token = getCookie('token');
 
-    if (!userEmail && token) {
+    if (!userEmail && token && accessToken) {
         eraseCookie('ProductoPremiumId');
-
-        const newToken = await getAuthFromCookie();
-        const accessToken = await getAuthFromCookie(ACCESS_TOKEN);
 
         try {
             const result = await fetch(`${API_INGRESAR}/UsuarioV1/me`, {
                 method: 'POST',
                 headers: {
                     Authorization: accessToken,
-                    'X-Token': newToken
+                    'X-Token': token
                 }
             });
 
@@ -112,7 +97,8 @@ export const setUserData = async () => {
             const { Usuario: userData } = JSON.parse(response) || {};
             setMultiplyCookies({
                 userData,
-                newToken
+                token,
+                RefreshAsync
             });
 
             return userData;
@@ -121,13 +107,37 @@ export const setUserData = async () => {
             return {};
         }
     }
+
+    return {};
 };
 
-const initializeAuth = async callback => {
+const initializeAuth = async ({ website = 'la-nacion-ar', setTokens } = {}) => {
     try {
-        await _UserClientLibs('GetAccessTokenValidatedAsync')();
-        await setUserData();
-        return callback && callback(true);
+        if (getCookie('token')) {
+            const keyDatadog = get(
+                DATADOG_CONFIG,
+                `${website}.clientTokenLogs`,
+                ''
+            );
+
+            const methodsUCL = init({ keyDatadog }) || {};
+            window.UCL = methodsUCL;
+
+            const {
+                BuildBearerAccessTokenAsync,
+                GetIdTokenValidatedAsync,
+                RefreshAsync
+            } = methodsUCL;
+
+            const token = await GetIdTokenValidatedAsync();
+            const accessToken = await BuildBearerAccessTokenAsync();
+
+            await setUserData(token, accessToken, RefreshAsync);
+            setTokens({
+                token,
+                accessToken
+            });
+        }
     } catch (error) {
         console.error('Error occurred while executing token rotation', error);
     }
