@@ -9,7 +9,7 @@ import config from '../../../properties/sites/la-nacion-ar';
 import GameEventScript from '../../private/common/scriptManager/GameEventsScript';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import { validateGamesChain } from './common/_helper';
+import { getGameDiagramationItems, validateGamesChain } from './common/_helper';
 import DiagramationCard from '../../features/LN-common/Juego/diagramationCard';
 import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
@@ -53,7 +53,7 @@ function CajaJuegosV2({ customFields, children, ...props }) {
               'Mostrar'
             : true;
 
-    const error = validateGamesChain(layout, customFields);
+    const error = validateGamesChain(layout, customFields, children);
 
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
@@ -64,7 +64,7 @@ function CajaJuegosV2({ customFields, children, ...props }) {
             <BuildRoof {...roofData} />
             <div className="grid gap-24 mb-32">
                 <DiagramationCard variant={diagramation}>
-                    {children}
+                    {getGameDiagramationItems(children, diagramation)}
                 </DiagramationCard>
             </div>
             <GameEventScript />
