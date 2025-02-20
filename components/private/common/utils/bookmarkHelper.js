@@ -2,7 +2,7 @@ import { PERSONALIZACION_APIV2, SITE_LANACION } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
-import { getAuthTokens } from '../auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../auth/helper/loginHelper';
 
 export function getBookmarkContent(globalContent) {
     const regexResizerUrl =

@@ -4,13 +4,10 @@ import { act } from 'react-dom/test-utils';
 import React from 'react';
 import useListBookmarks from '../../../../../components/private/common/hooks/bookmark/useListBookmarks';
 
-jest.mock('../../../../../components/private/common/auth/hooks/useAuthManager');
-jest.mock(
-    '../../../../../components/private/common/auth/helper/loginHelper',
-    () => ({
-        getAuthFromCookie: jest.fn()
-    })
-);
+jest.mock('../../../../../auth/hooks/useAuthManager');
+jest.mock('../../../../../auth/helper/loginHelper', () => ({
+    getAuthFromCookie: jest.fn()
+}));
 
 describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
     const setBookmarks = jest.fn().mockImplementation(x => x);

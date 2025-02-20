@@ -1,4 +1,4 @@
-import { getAuthTokens } from '../../../../private/common/auth/helper/loginHelper';
+import { getAuthTokens } from '../../../../../auth/helper/loginHelper';
 import getToken from '../../../../private/common/utils/getToken';
 
 // TODO: REVERTIR CUANDO UCL ESTE ACTUALIZADO incluyendo iframeHelper.test.js

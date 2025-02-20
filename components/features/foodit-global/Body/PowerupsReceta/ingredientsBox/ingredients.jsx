@@ -6,7 +6,7 @@ import get from '../../../../../private/common/utils/get';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../../../../private/common/auth/helper/loginHelper';
+} from '../../../../../../auth/helper/loginHelper';
 import { useIsInShoppingList } from './hooks/useIsInShoppingList';
 import { IngredientsSection } from './ingredientsSection';
 import ShoppingListButton from './shoppingListButton';

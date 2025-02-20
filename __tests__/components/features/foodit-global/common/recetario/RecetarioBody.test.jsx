@@ -5,7 +5,7 @@ import '@testing-library/jest-dom/';
 import { useAppContext } from 'fusion:context';
 import RecetarioBody from '../../../../../../components/features/foodit-global/common/recetario/RecetarioBody';
 import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
-import { isSubscribed } from '../../../../../../components/private/common/auth/helper/loginHelper';
+import { isSubscribed } from '../../../../../../auth/helper/loginHelper';
 import useGetRecetarioData from '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData';
 
 jest.mock('fusion:context', () => ({
@@ -16,7 +16,7 @@ jest.mock(
     '../../../../../../components/features/foodit-global/hooks/useGetUserConfig'
 );
 
-jest.mock('../../../../../../components/private/common/auth/helper/loginHelper');
+jest.mock('../../../../../../auth/helper/loginHelper');
 jest.mock(
     '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData'
 );

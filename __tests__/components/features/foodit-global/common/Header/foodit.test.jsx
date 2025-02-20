@@ -4,12 +4,10 @@ import HeaderFoodit from '../../../../../../components/features/foodit-global/co
 import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
-import useGetUserData from '../../../../../../components/private/common/auth/hooks/useGetUserData';
+import useGetUserData from '../../../../../../auth/hooks/useGetUserData';
 import { useNavigationData } from '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData';
 
-jest.mock(
-    '../../../../../../components/private/common/auth/hooks/useGetUserData'
-);
+jest.mock('../../../../../../auth/hooks/useGetUserData');
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -24,10 +22,7 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-jest.mock(
-    '../../../../../../components/private/common/auth/hooks/useGetUserData',
-    () => jest.fn()
-);
+jest.mock('../../../../../../auth/hooks/useGetUserData', () => jest.fn());
 
 jest.mock(
     '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData',

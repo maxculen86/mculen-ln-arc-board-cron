@@ -9,8 +9,9 @@ import { Toast } from '@ln/contenidos-ui-toast';
 import get from '../../../private/common/utils/get';
 import { toastProps } from './_helper';
 import NewsLetterEventsScript from '../../../private/common/scriptManager/NewsLetterEventScript';
-import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
+
 import '../../../../resources/packages/css/@ln/common-ui-toast/index.css';
+import useAuthManager from '../../../../auth/hooks/useAuthManager';
 
 function NewsLetter({ globalContent }) {
     const [propsNewsletter, setPropsNewsletter] = useState({
@@ -34,7 +35,7 @@ function NewsLetter({ globalContent }) {
         setPropsNewsletter({
             ...propsNewsletter,
             section: primarySection?.split('/')[1],
-            userIdToken: token || '',
+            userIdToken: token,
             isUserLoading: false,
             userAccessToken: accessToken || '',
             onSubscription: ({ code }) =>

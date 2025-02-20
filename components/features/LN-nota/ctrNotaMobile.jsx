@@ -7,7 +7,7 @@ import { crtViewTracker } from '../../private/common/utils/noteTracker/ctrTracke
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../private/common/auth/helper/loginHelper';
+} from '../../../auth/helper/loginHelper';
 import { getSectionId } from '../LN-10/ranking/common/_helper-WebApi';
 import { useRankingArticles } from '../LN-10/ranking/_helper';
 

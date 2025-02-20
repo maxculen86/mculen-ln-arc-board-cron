@@ -4,7 +4,7 @@ import { getInitialState } from '../../_helper';
 import { toggleBellColor } from './_helper';
 import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { useHeaderContext } from '../../../context';
-import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
+import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const BellButton = () => {

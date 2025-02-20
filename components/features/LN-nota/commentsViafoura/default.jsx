@@ -22,7 +22,7 @@ import classNames from 'classnames';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../../private/common/auth/helper/loginHelper';
+} from '../../../../auth/helper/loginHelper';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const CommentsViafouraFeature = props => {

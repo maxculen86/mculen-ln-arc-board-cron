@@ -1,4 +1,4 @@
-import handleCookie from '../../../LN/common/utils/handleCookie';
+import handleCookie from '../../components/private/LN/common/utils/handleCookie';
 import { isSubscribed } from '../helper/loginHelper';
 
 const { getCookie } = handleCookie();

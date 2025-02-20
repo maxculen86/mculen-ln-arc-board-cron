@@ -2,9 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Promotions } from '../../../../../../../components/features/foodit-global/common/Header/components/promotions/Promotions';
 import '@testing-library/jest-dom';
-import useGetUserData from '../../../../../../../components/private/common/auth/hooks/useGetUserData';
+import useGetUserData from '../../../../../../../auth/hooks/useGetUserData';
 
-jest.mock('../../../../../../../components/private/common/auth/hooks/useGetUserData');
+jest.mock('../../../../../../../auth/hooks/useGetUserData');
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
     useContext: jest.fn()

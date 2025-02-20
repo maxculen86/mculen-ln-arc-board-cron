@@ -13,9 +13,12 @@ import {
     queueGoogletagCommand
 } from '../../LN/common/utils/bannerHelper';
 import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
-import { isSubscribed, SUBSCRIBED_HELPER } from '../auth/helper/loginHelper';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../auth/helper/loginHelper';
 
-function LoadBanners({ blocksBanners }) {
+const LoadBanners = ({ blocksBanners }) => {
     const [bannersLoaded, setBannersLoaded] = useState(() => false);
     const { outputType, isAdmin } = useAppContext();
     const device = useViewportSize();
@@ -30,16 +33,16 @@ function LoadBanners({ blocksBanners }) {
             { device: 'mobile', slotId: mobile },
             { device: 'tablet', slotId: tablet }
         ]
-            .map(bannerConfig =>
-                bannerConfig.slotId
+            .map(bannerConfig => {
+                return bannerConfig.slotId
                     ? getBannerConfiguration(
                           {},
                           { group: 'home' },
                           {},
                           bannerConfig
                       )
-                    : null
-            )
+                    : null;
+            })
             .filter(item => item !== null);
     });
 
@@ -134,7 +137,7 @@ function LoadBanners({ blocksBanners }) {
     ]);
 
     return <div className="none">Cargando banners ...</div>;
-}
+};
 
 LoadBanners.propTypes = {
     blocksBanners: PropTypes.arrayOf(

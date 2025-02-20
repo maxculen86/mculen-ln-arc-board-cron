@@ -4,8 +4,8 @@ import getBookmarks from '../../bookmark/api/getBookmarks';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../../../../private/common/auth/helper/loginHelper';
-import useAuthManager from '../../../../../private/common/auth/hooks/useAuthManager';
+} from '../../../../../../auth/helper/loginHelper';
+import useAuthManager from '../../../../../../auth/hooks/useAuthManager';
 
 export const useShoppingList = () => {
     const [isMobile, setIsMobile] = useState(false);

@@ -11,9 +11,12 @@ import useListBookmarks from '../hooks/bookmark/useListBookmarks';
 import useCountBookmarks from '../hooks/bookmark/useCountBookmarks';
 import useTermica from '../hooks/useTermica';
 import ShowToast from '../toast/showToast';
-import { isSubscribed, SUBSCRIBED_HELPER } from '../auth/helper/loginHelper';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../../auth/helper/loginHelper';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
-import useAuthManager from '../auth/hooks/useAuthManager';
+import useAuthManager from '../../../../auth/hooks/useAuthManager';
 import { useToast } from '../toast/hooks/useToast';
 import BarrierDeleteNote from '../../../features/LN-10-global/common/barrierDeleteNote/default';
 import {
