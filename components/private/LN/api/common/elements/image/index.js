@@ -51,6 +51,7 @@ const imageCommon = image => {
         _t: 'img',
         baseUrl,
         absoluteUrl,
+        auth: image.auth?.[1] ? `auth=${image.auth[1]}` : undefined,
         parametros: []
     };
 
@@ -121,6 +122,7 @@ export const imageMobile = imageData => {
     const resp = {
         _t: 'image',
         url: image.absoluteUrl,
+        auth: image.auth,
         parameters: image.parametros.map(e => ({
             media: e.media,
             height: e.alto,
