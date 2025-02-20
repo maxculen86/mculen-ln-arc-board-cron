@@ -3,9 +3,9 @@ import '@testing-library/jest-dom';
 import { render, fireEvent } from '@testing-library/react';
 import { useDrawer } from '@ln/common-ui-drawer';
 import RenderUserOptions from '../../../../../../../components/features/foodit-global/common/Header/components/rightOptions/RenderUserOptions';
-import useGetUserData from '../../../../../../../auth/hooks/useGetUserData';
+import useGetUserData from '../../../../../../../components/private/common/auth/hooks/useGetUserData';
 
-jest.mock('../../../../../../../auth/hooks/useGetUserData');
+jest.mock('../../../../../../../components/private/common/auth/hooks/useGetUserData');
 
 jest.mock('@ln/common-ui-drawer', () => ({
     useDrawer: jest.fn()

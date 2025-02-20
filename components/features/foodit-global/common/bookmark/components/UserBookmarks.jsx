@@ -4,8 +4,8 @@ import { toggleBookmarks } from '../iconHelper';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../../../../../auth/helper/loginHelper';
-import useAuthManager from '../../../../../../auth/hooks/useAuthManager';
+} from '../../../../../private/common/auth/helper/loginHelper';
+import useAuthManager from '../../../../../private/common/auth/hooks/useAuthManager';
 
 export function UserBookmarks() {
     const { token, accessToken } = useAuthManager();
