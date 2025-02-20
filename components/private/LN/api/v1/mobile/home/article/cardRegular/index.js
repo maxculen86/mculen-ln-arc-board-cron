@@ -16,6 +16,8 @@ export const CardRegular = article => {
         'additionalProperties.hideDescription'
     );
 
+    const widgetEmbed = getEmbedWidget(article);
+
     return {
         categoria: primarySection && getPrincipalCategory(primarySection),
         ...CardBasic(article),
@@ -26,9 +28,9 @@ export const CardRegular = article => {
         bajada: hideDescriptionValue ? null : getDroptext(article),
         imagen: getArticleImage(article),
         videoYouTube: getYouTubeVideoLink(article),
-        widgetEmbed: getEmbedWidget(article),
+        widgetEmbed,
         embed: getEmbed(article),
-        ...getBadgebyConfig(article),
+        ...(widgetEmbed === null && getBadgebyConfig(article)),
         opinion: false,
         isListenable: article.isListenable
     };
