@@ -137,7 +137,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Carlos Pagni"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -222,7 +222,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Celina Chatruc"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -273,7 +273,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Mariela Arias"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -463,7 +463,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Carlos Pagni"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -548,7 +548,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Celina Chatruc"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -599,7 +599,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Mariela Arias"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -760,7 +760,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Carlos Pagni"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -845,7 +845,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Celina Chatruc"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -896,7 +896,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Mariela Arias"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -1057,7 +1057,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Carlos Pagni"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -1142,7 +1142,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Celina Chatruc"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -1303,7 +1303,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       title="Por Carlos Pagni"
                     >
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"

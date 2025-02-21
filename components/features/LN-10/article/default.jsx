@@ -4,6 +4,8 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
+import { Icon } from '@ln/common-ui-icon';
+import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { transform } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import {
     getDataAuthor,
@@ -251,8 +253,17 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
 
     const hasCustomVoice = shouldHighlightCustomVoice(article, config);
 
+    const marqueeHighlightComponente = (
+        <span className="flex ai-center gap-2 text-neutral-light-600">
+            Escuchar con la voz del autor
+            <Icon size={16}>
+                <IconSprite name="ai" fill="var(--primary-ia)" />
+            </Icon>
+        </span>
+    );
+
     const sectionText = hasCustomVoice
-        ? 'Escuchar con la voz del autor'
+        ? marqueeHighlightComponente
         : showSection({
               withSection,
               article,
@@ -273,6 +284,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
                     subheadTag={get(config, 'subheadTag')}
                     marquee={marquee}
                     marqueeImg={marqueeImg}
+                    marqueeAIHighlight={hasCustomVoice}
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
