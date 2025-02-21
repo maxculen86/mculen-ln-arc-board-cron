@@ -42,6 +42,7 @@ import WarningMessage from '../../../private/common/warningMessage/warningMessag
 import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
+import { isEmptyObject } from '../../../private/common/utils/isEmptyObject';
 
 function ArticleFeature({ id: featureId, customFields, searchableField }) {
     const {
@@ -211,6 +212,8 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
 
     const typeOfMedia = getTypeOfMedia(customFields);
 
+    const widgetOverlay = getCllBoard(cllBoard?.trim());
+
     const { badgetStyle, badgetText } = getBadgetConfig({
         article,
         style: chapitaStyle,
@@ -218,7 +221,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         isLiveblog: isLiveblog || get(article, 'subtype') === LIVEBLOG,
         withMedia,
         typeOfMedia,
-        hideBadget
+        hideBadget: !isEmptyObject(widgetOverlay) || hideBadget
     });
 
     const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({
@@ -261,7 +264,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
-                    widgetOverlay={getCllBoard(cllBoard?.trim())}
+                    widgetOverlay={widgetOverlay}
                     cardSize={
                         isContentLabAt100(chainId, layout, renderables)
                             ? '4xl'
