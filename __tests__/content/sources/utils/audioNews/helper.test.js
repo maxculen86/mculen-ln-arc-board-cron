@@ -160,6 +160,13 @@ describe('Test - isNoteListenable', () => {
                 }
             ],
             [
+                'Should return false when the subtype is not enabled (LIVEBLOG).',
+                {
+                    ...response,
+                    subtype: '6'
+                }
+            ],
+            [
                 'should return false when the origin source is not composer',
                 {
                     ...response,
