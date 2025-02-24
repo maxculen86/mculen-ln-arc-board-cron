@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { LOGIN_URL } from 'fusion:environment';
 import { useHeaderVariants } from './useHeaderVariants';
-import useGetUserData from '../../../../auth/hooks/useGetUserData';
-import { SUBSCRIBED_HELPER } from '../../../../auth/helper/loginHelper';
+import useGetUserData from '../../../private/common/auth/hooks/useGetUserData';
+import { SUBSCRIBED_HELPER } from '../../../private/common/auth/helper/loginHelper';
+
 export const HeaderContext = React.createContext({});
 
 export const HeaderProvider = ({ children, ...headerVariantProps }) => {

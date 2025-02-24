@@ -2,13 +2,17 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import useGetRecetarioData from '../../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData';
-import { isSubscribed } from '../../../../../../../auth/helper/loginHelper';
+import { isSubscribed } from '../../../../../../../components/private/common/auth/helper/loginHelper';
 import getBookmarks from '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
-import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
+import useAuthManager from '../../../../../../../components/private/common/auth/hooks/useAuthManager';
 
-jest.mock('../../../../../../../auth/helper/loginHelper');
+jest.mock(
+    '../../../../../../../components/private/common/auth/helper/loginHelper'
+);
 
-jest.mock('../../../../../../../auth/hooks/useAuthManager');
+jest.mock(
+    '../../../../../../../components/private/common/auth/hooks/useAuthManager'
+);
 
 jest.mock(
     '../../../../../../../components/features/foodit-global/hooks/useGetUserConfig'

@@ -7,7 +7,12 @@ import getToken from '../../../../../../../components/private/common/utils/getTo
 jest.mock(
     '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/_helper'
 );
-jest.mock('../../../../../../../auth/helper/loginHelper');
+jest.mock(
+    '../../../../../../../components/private/common/auth/helper/loginHelper'
+);
+jest.mock(
+    '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList'
+);
 jest.mock('../../../../../../../components/private/common/utils/getToken');
 
 describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - IngredientsBox - ShoppingListButton', () => {
