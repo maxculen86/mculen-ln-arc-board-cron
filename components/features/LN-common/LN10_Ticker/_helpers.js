@@ -11,17 +11,20 @@ export const setWarning = ({ hideFeature, updates = [] }) =>
 
 export const getUpdatesFromCustomFields = (customFields = {}) => {
     const totalCustomFieldsKeys = Object.keys(customFields).length;
-    const updatesKeys = Array.from(
-        { length: totalCustomFieldsKeys },
-        (_, index) => index
-    );
 
-    return updatesKeys
-        .map(key => ({
-            title: customFields[`title${key}`],
-            link: customFields[`link${key}`]
-        }))
-        .filter(update => update.title && update.link);
+    return Array.from({ length: totalCustomFieldsKeys }).reduce(
+        (updates, _, index) => {
+            const title = customFields[`title${index}`];
+            const link = customFields[`link${index}`];
+
+            if (title && link) {
+                updates.push({ title, link });
+            }
+
+            return updates;
+        },
+        []
+    );
 };
 
 export const setUpdatesCustomFields = (maxTopics = 3) => {
