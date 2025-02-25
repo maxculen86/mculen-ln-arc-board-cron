@@ -4,8 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
-import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { transform } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import {
     getDataAuthor,
@@ -46,6 +44,7 @@ import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
 import { isEmptyObject } from '../../../private/common/utils/isEmptyObject';
+import MarqueeHighlight from '../../LN-10-global/common/marqueeHighlight/default';
 
 function ArticleFeature({ id: featureId, customFields, searchableField }) {
     const {
@@ -253,23 +252,16 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
 
     const hasCustomVoice = shouldHighlightCustomVoice(article, config);
 
-    const marqueeHighlightComponente = (
-        <span className="flex ai-center gap-2 text-neutral-light-600">
-            Escuchar con la voz del autor
-            <Icon size={16}>
-                <IconSprite name="ai" fill="var(--primary-ia)" />
-            </Icon>
-        </span>
+    const sectionText = hasCustomVoice ? (
+        <MarqueeHighlight />
+    ) : (
+        showSection({
+            withSection,
+            article,
+            authors,
+            authorPhoto: marqueeImg
+        })
     );
-
-    const sectionText = hasCustomVoice
-        ? marqueeHighlightComponente
-        : showSection({
-              withSection,
-              article,
-              authors,
-              authorPhoto: marqueeImg
-          });
 
     return (
         !error && (
