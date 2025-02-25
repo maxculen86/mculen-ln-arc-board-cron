@@ -14,11 +14,11 @@ import FloatingGroupButton from '../floatingGroupButton/foodit';
 import Toasts from '../toasts/foodit';
 import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
-import AuthInitializer from '../../../../../auth/AuthInitializer';
+import AuthInitializer from '../../../../private/common/auth/AuthInitializer';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../../../../auth/helper/loginHelper';
+} from '../../../../private/common/auth/helper/loginHelper';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -43,7 +43,7 @@ function BaseLayout({ children }) {
     });
 
     return (
-        <AuthInitializer>
+        <AuthInitializer website="foodit">
             <DynamicStylesheetLoader
                 contextPath={contextPath}
                 deployment={deployment}

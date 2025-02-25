@@ -4,8 +4,8 @@ import getBookmarks from '../../bookmark/api/getBookmarks';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
-} from '../../../../../../auth/helper/loginHelper';
-import useAuthManager from '../../../../../../auth/hooks/useAuthManager';
+} from '../../../../../private/common/auth/helper/loginHelper';
+import useAuthManager from '../../../../../private/common/auth/hooks/useAuthManager';
 
 const useGetRecetarioData = () => {
     const [loading, setLoading] = useState(true);
