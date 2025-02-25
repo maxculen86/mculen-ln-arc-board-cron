@@ -14,10 +14,7 @@ import {
     a11yAttrsBarrierSub
 } from '../helpers';
 import getToken from '../../utils/getToken';
-import {
-    isSubscribed,
-    SUBSCRIBED_HELPER
-} from '../../../../../auth/helper/loginHelper';
+import { isSubscribed, SUBSCRIBED_HELPER } from '../../auth/helper/loginHelper';
 
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import useTermica from '../../hooks/useTermica';
