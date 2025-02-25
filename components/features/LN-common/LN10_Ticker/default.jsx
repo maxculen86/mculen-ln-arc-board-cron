@@ -30,7 +30,7 @@ function Ticker({ customFields, id: featureId }) {
 
     const section = isApertura ? 'apertura' : 'pre-apertura';
 
-    if (updates.length === 0) return null;
+    if (updates.length === 0 && !isAdmin) return null;
 
     return (
         <StaticContentV2 {...{ id: featureId }}>
