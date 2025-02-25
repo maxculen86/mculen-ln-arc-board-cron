@@ -24,34 +24,6 @@ const resolve = key => {
     return `/photo/api/v2/photos/${id}`;
 };
 
-const fetch = (query, { cachedCall } = {}) => {
-    const { id = '' } = query;
-
-    const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-
-    return request(opt)
-        .then(resp => transform(resp, query, cachedCall))
-        .catch(err => {
-            logger.push(
-                err,
-                {
-                    source: 'content/sources/relatedImageSource',
-                    id
-                },
-                arcSite
-            );
-        });
-};
-
 const transform = async (data, siteProps, cachedCall) => {
     const { presets, presetsDefault } = getPresets(siteProps);
     const newData = await getAllImagesAuth(data, cachedCall);
@@ -95,6 +67,34 @@ const transform = async (data, siteProps, cachedCall) => {
     };
 };
 
+const fetch = (query, { cachedCall } = {}) => {
+    const { id = '' } = query;
+
+    const arcSite = query['arc-site'];
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    return request(opt)
+        .then(resp => transform(resp, query, cachedCall))
+        .catch(err => {
+            logger.push(
+                err,
+                {
+                    source: 'content/sources/relatedImageSource',
+                    id
+                },
+                arcSite
+            );
+        });
+};
+
 export default {
     fetch,
     params: {
@@ -104,7 +104,8 @@ export default {
         isAddRelated: 'text',
         nid: 'text',
         boxType: 'text',
-        useDataSizes: 'bool'
+        useDataSizes: 'bool',
+        isInApertura: 'bool'
     },
     ttl: 600
 };

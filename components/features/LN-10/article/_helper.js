@@ -125,6 +125,8 @@ export const getBadgetConfig = ({
     typeOfMedia,
     hideBadget
 }) => {
+    if (hideBadget) return {};
+
     if (get(article, 'content_restrictions.content_code') === 'cerrada') {
         return {
             badgetStyle: 'subscriber',
@@ -146,15 +148,13 @@ export const getBadgetConfig = ({
         };
     }
 
-    return !hideBadget
-        ? {
-              badgetStyle: style || 'negative',
-              badgetText:
-                  withMedia &&
-                  typeOfMedia !== typeMedia.HTML &&
-                  (text || get(article, 'label.chapita.text'))
-          }
-        : {};
+    return {
+        badgetStyle: style || 'negative',
+        badgetText:
+            withMedia &&
+            typeOfMedia !== typeMedia.HTML &&
+            (text || get(article, 'label.chapita.text'))
+    };
 };
 export const getOnlyHoursMinutes = (time = '') =>
     time.split(':').slice(0, 2).join(':');

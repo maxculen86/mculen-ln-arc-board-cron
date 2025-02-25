@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
-import AuthInitializer from '../../../../auth/AuthInitializer';
+import AuthInitializer from '../auth/AuthInitializer';
 
 export const GlobalContext = React.createContext();
 

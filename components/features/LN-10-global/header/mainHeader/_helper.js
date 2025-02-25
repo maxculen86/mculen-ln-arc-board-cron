@@ -4,7 +4,7 @@ import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToD
 import { GlobalContext } from '../../../../private/common/context/globalContext';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import get from '../../../../private/common/utils/get';
-import { logout } from '../../../../../auth/helper/loginHelper';
+import { logout } from '../../../../private/common/auth/helper/loginHelper';
 import handleCookie from '../../../../private/LN/common/utils/handleCookie';
 
 const { eraseCookie } = handleCookie();

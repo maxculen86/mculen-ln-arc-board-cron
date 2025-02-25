@@ -1172,6 +1172,10 @@ strong {
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -1448,6 +1452,10 @@ strong {
 
 .w-288 {
   width: 18rem;
+}
+
+.w-328 {
+  width: 20.5rem;
 }
 
 .w-360 {

@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaveRecipe Component should match snapshot when userType is logged 1`] = `
+<body>
+  <div />
+  <dialog
+    class="dialog disable-body-scroll p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
+    data-position="center"
+    style="animation-name: fade-in-up; animation-fill-mode: forwards; animation-duration: 200ms;"
+  >
+    <div
+      class="flex flex-column gap-16 gap-24_md gap-32_lg"
+    >
+      <header
+        class="flex flex flex-column ai-end"
+      >
+        <button
+          aria-label="Cerrar"
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+          data-variant="link"
+          title="Cerrar"
+        >
+          <i
+            class="icon"
+          >
+            <mock-icon
+              name="close"
+            />
+          </i>
+        </button>
+      </header>
+      <section>
+        <section
+          class="flex ai-center px-24 px-32_lg gap-32 flex-column"
+        >
+          <img
+            alt="Para realizar esta acción es necesario que tengas una suscripción."
+            class="image flex none --fill"
+            decoding="async"
+            fetchpriority="low"
+            height="110"
+            loading="lazy"
+            src=""
+            width="147"
+          />
+          <div
+            class="flex flex-column gap-8 text-center ai-center "
+          >
+            <p
+              class="text prumo prumo-semibold text-24 text-28_md text-32_lg"
+            >
+              ¡Exclusivo suscriptores!
+            </p>
+            <p
+              class="text text-16 text-light-600"
+            >
+              Para realizar esta acción es necesario que tengas una suscripción.
+            </p>
+          </div>
+          <div
+            class="flex gap-24 ai-center"
+          >
+            <a
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+              data-variant="accent"
+              href="undefined/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+              target="_self"
+            >
+              Suscribite
+            </a>
+          </div>
+        </section>
+      </section>
+    </div>
+  </dialog>
+</body>
+`;
+
+exports[`SaveRecipe Component should match snapshot when userType is subscribed 1`] = `
+<body>
+  <div />
+  <dialog
+    class="dialog disable-body-scroll p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
+    data-position="center"
+    style="animation-name: fade-in-up; animation-fill-mode: forwards; animation-duration: 200ms;"
+  >
+    <div
+      class="flex flex-column gap-16 gap-24_md gap-32_lg"
+    >
+      <header
+        class="flex flex jc-between ai-center w-100 border border-bottom border-thin border-light-100 pb-16"
+      >
+        <header>
+          <h2
+            class="prumo prumo-semibold text-24 text-28_md text-32_lg"
+          >
+            Save Recipe Title
+          </h2>
+        </header>
+        <button
+          aria-label="Cerrar"
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+          data-variant="link"
+          title="Cerrar"
+        >
+          <i
+            class="icon"
+          >
+            <mock-icon
+              name="close"
+            />
+          </i>
+        </button>
+      </header>
+      <section>
+        <div>
+          MainSaveRecipe Component
+        </div>
+      </section>
+      <footer
+        class="flex flex-column gap-16 gap-24_md gap-32_lg"
+      >
+        <hr />
+        <div>
+          FooterSaveRecipe Component
+        </div>
+      </footer>
+    </div>
+  </dialog>
+</body>
+`;
+
+exports[`SaveRecipe Component should match snapshot when userType is unlogged 1`] = `
+<body>
+  <div />
+  <dialog
+    class="dialog disable-body-scroll p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
+    data-position="center"
+    style="animation-name: fade-in-up; animation-fill-mode: forwards; animation-duration: 200ms;"
+  >
+    <div
+      class="flex flex-column gap-16 gap-24_md gap-32_lg"
+    >
+      <header
+        class="flex flex flex-column ai-end"
+      >
+        <button
+          aria-label="Cerrar"
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+          data-variant="link"
+          title="Cerrar"
+        >
+          <i
+            class="icon"
+          >
+            <mock-icon
+              name="close"
+            />
+          </i>
+        </button>
+      </header>
+      <section>
+        <section
+          class="flex ai-center px-24 px-32_lg gap-32 flex-column"
+        >
+          <img
+            alt="Para realizar esta acción es necesario que tengas una suscripción."
+            class="image flex none --fill"
+            decoding="async"
+            fetchpriority="low"
+            height="110"
+            loading="lazy"
+            src=""
+            width="147"
+          />
+          <div
+            class="flex flex-column gap-8 text-center ai-center "
+          >
+            <p
+              class="text prumo prumo-semibold text-24 text-28_md text-32_lg"
+            >
+              ¡Exclusivo suscriptores!
+            </p>
+            <p
+              class="text text-16 text-light-600"
+            >
+              Para realizar esta acción es necesario que tengas una suscripción.
+            </p>
+          </div>
+          <div
+            class="flex gap-24 ai-center"
+          >
+            <a
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+              data-variant="link"
+              href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
+              target="_self"
+            >
+              Iniciá sesión
+            </a>
+          </div>
+        </section>
+      </section>
+    </div>
+  </dialog>
+</body>
+`;
