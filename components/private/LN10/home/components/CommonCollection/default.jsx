@@ -5,7 +5,6 @@
 import React from 'react';
 import { Card } from '@ln/contenidos-ui-card';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
-
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig, {
     getArticleHref,
@@ -15,9 +14,11 @@ import getCardConfig, {
 
 import {
     getDataAttributesForViewability,
-    showSection
+    showSection,
+    shouldHighlightCustomVoice
 } from '../../../../../features/LN-10/article/_helper';
 import { targetUrlRedirect } from '../../../../../chains/utils/targetUrlRedirect';
+import MarqueeHighlight from '../../../../../features/LN-10-global/common/marqueeHighlight/default';
 
 export default function CommonCollection({
     roofData = {},
@@ -75,6 +76,21 @@ export default function CommonCollection({
                     });
                     const targetFoodit = isFoodit && `_blank`;
 
+                    const hasCustomVoice = shouldHighlightCustomVoice(
+                        article,
+                        rules[index]
+                    );
+
+                    const sectionText = hasCustomVoice ? (
+                        <MarqueeHighlight />
+                    ) : (
+                        showSection({
+                            withSection,
+                            article,
+                            authorPhoto: marqueeImg
+                        })
+                    );
+
                     return (
                         <Card
                             withMedia={withImage}
@@ -82,17 +98,14 @@ export default function CommonCollection({
                             lead={lead}
                             marquee={marquee}
                             marqueeImg={marqueeImg}
+                            marqueeAIHighlight={hasCustomVoice}
                             subhead={subhead}
                             href={getArticleHref(article, href, isFoodit)}
                             mediaData={mediaData}
                             cardSize={isContentLab100 ? '4xl' : cardSize}
                             imagePosition={imagePosition}
                             className={className}
-                            section={showSection({
-                                withSection,
-                                article,
-                                authorPhoto: marqueeImg
-                            })}
+                            section={sectionText}
                             badgeText={badgeText}
                             badgeType={badgeStyle}
                             {...extraOpts}

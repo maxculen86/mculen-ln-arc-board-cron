@@ -87,6 +87,15 @@
 .ln-card .description-container .marquee-container .marquee-text {
   gap: 0.25rem;
 }
+.ln-card .description-container .marquee-ai-highlight .marquee-img-container {
+  padding: 0.125rem;
+  border-radius: 50%;
+  background: linear-gradient(var(--dark-neutral-900), var(--primary-ia));
+}
+.ln-card .description-container .marquee-ai-highlight .marquee-img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
 .ln-card .description-container .marquee-img {
   width: 2.5rem;
   height: 2.5rem;

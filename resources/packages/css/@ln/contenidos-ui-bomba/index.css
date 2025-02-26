@@ -24,7 +24,7 @@
   text-align: left;
 }
 @media (max-width: 47.9375rem) {
-  .bomba .ln-card > .link .description-container .marquee-img,
+  .bomba .ln-card > .link .description-container .marquee-img-container,
   .bomba .ln-card > .link .description-container .author-section {
     display: none;
   }

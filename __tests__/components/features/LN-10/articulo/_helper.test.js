@@ -24,7 +24,8 @@ import {
     getDynamicStreamOperator,
     transformVideoData,
     generateLazyLoadEmbedCode,
-    getCllBoard
+    getCllBoard,
+    shouldHighlightCustomVoice
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -1284,6 +1285,146 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 poster: '',
                 type: ''
             });
+        });
+    });
+
+    describe('shouldHighlightCustomVoice', () => {
+        it('should return true when all conditions are met', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png?auth=55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f&width=80&quality=70&smart=false'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                }
+            };
+
+            const config = {
+                isCustomVoiceCandidate: true
+            };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(true);
+        });
+
+        it('should return false if the author does not have the voice property', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png?auth=55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f&width=80&quality=70&smart=false'
+                                }
+                            },
+                            name: 'Alfredo Leuco',
+                            type: 'author'
+                        }
+                    ]
+                }
+            };
+            const config = {
+                isCustomVoiceCandidate: true
+            };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
+        });
+
+        it('should return false if the author does not have an image', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                }
+            };
+
+            const config = {
+                isCustomVoiceCandidate: true
+            };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
+        });
+
+        it('should return false if there is more than one author', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png?auth=55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f&width=80&quality=70&smart=false'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        },
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '2045',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png?auth=55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f&width=80&quality=70&smart=false'
+                                }
+                            },
+                            name: 'Alfredo Leuco',
+                            type: 'author'
+                        }
+                    ]
+                }
+            };
+
+            const config = {
+                isCustomVoiceCandidate: true
+            };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
+        });
+
+        it('should return false if the article is not marked as a custom voice candidate', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png?auth=55b616dbc28ddb730e6b2875a28f9741304585478a05d06fda4fbf3a249f405f&width=80&quality=70&smart=false'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                }
+            };
+
+            const config = {
+                isCustomVoiceCandidate: false
+            };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
+        });
+
+        it('should return false if the input data is empty or undefined', () => {
+            expect(shouldHighlightCustomVoice()).toBe(false);
+            expect(shouldHighlightCustomVoice(null, null)).toBe(false);
+            expect(shouldHighlightCustomVoice({}, {})).toBe(false);
         });
     });
 });
