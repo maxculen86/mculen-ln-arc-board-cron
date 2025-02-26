@@ -121,7 +121,8 @@ const diagramationRules = diagramation => {
                     tablet: img.none,
                     desktop: img.none
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 variantsDisabled: ['liveblog'],
@@ -133,8 +134,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                isLoadWithPicture: true,
-                isCustomVoiceCandidate: true
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
