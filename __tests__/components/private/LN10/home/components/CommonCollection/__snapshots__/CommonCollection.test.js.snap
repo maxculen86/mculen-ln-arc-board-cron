@@ -92,7 +92,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Carlos Pagni"
               >
                 <div
-                  class="marquee-text flex flex-column --font-2xs w-100"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
                   <span
                     class="text ln-text marquee"
@@ -177,7 +177,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Celina Chatruc"
               >
                 <div
-                  class="marquee-text flex flex-column --font-2xs w-100"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
                   <span
                     class="text ln-text marquee"
@@ -249,7 +249,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Francisco Jueguen"
               >
                 <div
-                  class="marquee-text flex flex-column --font-2xs w-100"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
                   <span
                     class="text ln-text marquee"
@@ -321,7 +321,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Redacción - BBC News Mundo"
               >
                 <div
-                  class="marquee-text flex flex-column --font-2xs w-100"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
                   <span
                     class="text ln-text marquee"
@@ -393,7 +393,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por José Luis Domínguez"
               >
                 <div
-                  class="marquee-text flex flex-column --font-2xs w-100"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
                   <span
                     class="text ln-text marquee"
@@ -465,7 +465,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Tomás Girón"
               >
                 <div
-                  class="marquee-text flex flex-column --font-2xs w-100"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
                   <span
                     class="text ln-text marquee"
@@ -573,7 +573,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Mariela Arias"
               >
                 <div
-                  class="marquee-text flex flex-column --font-2xs w-100"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
                   <span
                     class="text ln-text marquee"

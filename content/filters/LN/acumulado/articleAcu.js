@@ -72,6 +72,7 @@ export default `
                 additional_properties {
                     original {
                         image
+                        voice
                     }
                 }
             }

@@ -10,8 +10,7 @@ export const handleOpenIAFeature = ({
     iaButtonIsClicked,
     setIaButtonIsClicked,
     suscription,
-    openBarrier,
-    callback = () => null
+    openBarrier
 }) => {
     if (iaButtonIsClicked) {
         return;
@@ -26,17 +25,9 @@ export const handleOpenIAFeature = ({
             category: 'nota_ln9',
             label: defaultTab
         });
-
-        localStorage.setItem('IA-feature-tracking', 'wasDisplayed');
-        callback?.();
     } else {
         openBarrier();
     }
-};
-
-export const IA_FEATURE_TRACKING_STORAGE = {
-    key: 'IA-feature-tracking',
-    value: 'wasDisplayed'
 };
 
 export const getClassAndIconByClick = iaButtonIsClicked =>
