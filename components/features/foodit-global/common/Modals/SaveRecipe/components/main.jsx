@@ -38,13 +38,13 @@ function MainSaveRecipe(props) {
     }, []);
 
     return (
-        <div className="mb-16" data-test-id="button-bookmark-show-collections">
+        <div data-test-id="button-bookmark-show-collections">
             {showSelect && (
                 <Select
                     label="Colección"
                     openClassName="border-secondary-positive"
                     hoverClassName="border-accent-lechuga__hover"
-                    listClassName="shadow-modal bg-white p-16 rounded-8 border border-all border-thin border-light-100"
+                    listClassName="text-12 roboto roboto-regular shadow-modal bg-white p-16 rounded-8 border border-all border-thin border-light-100"
                     onChange={onSelectChange}
                     floatingLabelProps={{
                         className: 'bg-white'

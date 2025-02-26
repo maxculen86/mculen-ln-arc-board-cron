@@ -41,9 +41,9 @@ describe('components - features - LN-10-global - pwaModal - register - serviceWo
             navigator.serviceWorker = {
                 register: jest.fn().mockResolvedValue({})
             };
-            await expect(register('deployment')).resolves.toBeUndefined();
+            await expect(register({deployment: 'deployment'})).resolves.toBeUndefined();
             expect(navigator.serviceWorker.register).toHaveBeenCalledWith(
-                '/sw.js?d=deployment'
+                '/pf/resources/js/LN/sw.min.js?d=deployment'
             );
         });
 
@@ -51,7 +51,7 @@ describe('components - features - LN-10-global - pwaModal - register - serviceWo
             navigator.serviceWorker = {
                 register: jest.fn(() => Promise.reject('Error'))
             };
-            await expect(register('deployment')).rejects.toEqual('Error');
+            await expect(register({deployment: 'deployment'})).rejects.toEqual('Error');
         });
     });
 });

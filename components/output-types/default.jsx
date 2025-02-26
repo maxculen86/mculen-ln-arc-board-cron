@@ -270,7 +270,12 @@ function Default(props) {
                 <Schemas section={_nodeType} />
                 <Favicon />
                 {arcSite !== 'ott' && (
-                    <link rel="manifest" href="/manifest.json" />
+                    <link
+                        rel="manifest"
+                        href={deployment(
+                            `${contextPath}/resources/json/LN/manifest.json`
+                        )}
+                    />
                 )}
                 <MetasFBNews
                     nodeType={_nodeType}

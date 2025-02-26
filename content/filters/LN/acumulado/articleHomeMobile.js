@@ -29,6 +29,9 @@ const section = `
 }`;
 const image = `
     type
+    auth {
+        1
+    }
     resized_urls {
         ${imageResizedUrl}
     }

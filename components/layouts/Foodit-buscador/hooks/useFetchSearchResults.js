@@ -2,7 +2,7 @@ import { API_QUERYLY, API_KEY_QUERYLY } from 'fusion:environment';
 import { useState, useEffect } from 'react';
 import { transformListGroups } from '../_helpers';
 
-const URL_BASE = `${API_QUERYLY}/json.aspx?queryly_key=${API_KEY_QUERYLY}&sort=date&extendeddatafields=category,creator,subtype,counter_time,guid,creator,imageresizer,promo_image,counter_time,section,subtype,video_jw`;
+const URL_BASE = `${API_QUERYLY}/json.aspx?queryly_key=${API_KEY_QUERYLY}&extendeddatafields=category,creator,subtype,counter_time,guid,creator,imageresizer,promo_image,counter_time,section,subtype,video_jw`;
 
 function useFetchSearchResults({
     queryUrl,

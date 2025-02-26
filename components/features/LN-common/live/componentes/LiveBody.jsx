@@ -1,0 +1,27 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { cx } from '@ln/cva';
+
+function LiveBody({ children, className, ...r }) {
+    return (
+        <div
+            className={cx(
+                'live-body py-16 pr-16 flex pt-0 --scroll-x --degrade-scroll mr-2',
+                className
+            )}
+            {...r}
+        >
+            {children}
+        </div>
+    );
+}
+LiveBody.propTypes = {
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string
+};
+
+LiveBody.defaultProps = {
+    className: ''
+};
+
+export default LiveBody;
