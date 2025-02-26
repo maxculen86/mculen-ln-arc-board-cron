@@ -1,3 +1,6 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
+// TODO: Quitar eslint-disable y refactorizar para que devuelva las promesas y sea en paralelo su uso.
 import get from '../../../../components/private/common/utils/get';
 import signingServiceSource from '../../signingServiceSource';
 import logger from '../../../../components/private/common/utils/logger';
@@ -16,7 +19,7 @@ export const signingServiceCachedCall = async (id, cachedCall) => {
     try {
         return await cachedCall(
             'signingServiceSource Token',
-            signingServiceSource.fetch, // The fetch method imported from the resizer content source
+            signingServiceSource.fetch,
             {
                 query: { imageId: id },
                 ttl: 31536000,
@@ -78,9 +81,8 @@ export const getPromoItemsAuth = async (promoItems, cachedCall) => {
         get(promoItems, 'storytelling_mobile.type') === 'image' &&
         !get(promoItems, 'storytelling_mobile.auth.1')
     ) {
-        const {
-            hash: storytellingMobileHash = ''
-        } = await signingServiceCachedCall(storyTellingMobileImgId, cachedCall);
+        const { hash: storytellingMobileHash = '' } =
+            await signingServiceCachedCall(storyTellingMobileImgId, cachedCall);
 
         Object.assign(result, {
             storytellingMobileHash
@@ -125,33 +127,38 @@ export const getAllImagesAuth = async (data, cachedCall) => {
             videoBasicHash
         } = await getPromoItemsAuth(promoItems, cachedCall);
 
-        basicHash &&
+        if (basicHash) {
             Object.assign(data.promo_items.basic, {
                 auth: { 1: basicHash }
             });
+        }
 
-        storytellingMobileHash &&
+        if (storytellingMobileHash) {
             Object.assign(data.promo_items.storytelling_mobile, {
                 auth: { 1: storytellingMobileHash }
             });
+        }
 
-        storytellingHash &&
+        if (storytellingHash) {
             Object.assign(data.promo_items.storytelling.promo_items.basic, {
                 auth: { 1: storytellingHash }
             });
+        }
 
-        videoHash &&
+        if (videoHash) {
             Object.assign(
                 data.promo_items.apertura_multimedia.promo_items.basic,
                 {
                     auth: { 1: videoHash }
                 }
             );
+        }
 
-        videoBasicHash &&
+        if (videoBasicHash) {
             Object.assign(data.promo_items.basic.promo_items.basic, {
                 auth: { 1: videoBasicHash }
             });
+        }
     }
     const contentElements = get(data, 'content_elements', []);
 
@@ -166,10 +173,11 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                     get(element, '_id'),
                     cachedCall
                 );
-                hash &&
+                if (hash) {
                     Object.assign(data.content_elements[index], {
                         auth: { 1: hash }
                     });
+                }
             }
             if (
                 get(element, 'type') === 'video' &&
@@ -179,13 +187,14 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                     get(element, 'promo_items.basic.url'),
                     cachedCall
                 );
-                videoHash &&
+                if (videoHash) {
                     Object.assign(
                         data.content_elements[index].promo_items.basic,
                         {
                             auth: { 1: videoHash }
                         }
                     );
+                }
             }
             if (get(element, 'type') === 'gallery') {
                 const {
@@ -195,15 +204,16 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                     get(element, 'promo_items'),
                     cachedCall
                 );
-                basicGalleryHash &&
+                if (basicGalleryHash) {
                     Object.assign(
                         data.content_elements[index].promo_items.basic,
                         {
                             auth: { 1: basicGalleryHash }
                         }
                     );
+                }
 
-                storytellingGalleryHash &&
+                if (storytellingGalleryHash) {
                     Object.assign(
                         data.content_elements[index].promo_items
                             .storytelling_mobile,
@@ -211,8 +221,10 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                             auth: { 1: storytellingGalleryHash }
                         }
                     );
+                }
 
                 const galleryElements = get(element, 'content_elements', []);
+                // eslint-disable-next-line
                 for (const [
                     galleryIndex,
                     galleryElement
@@ -221,14 +233,13 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                         get(galleryElement, 'type') === 'image' &&
                         !get(galleryElement, 'auth.1')
                     ) {
-                        const {
-                            hash: imageGalleryHash
-                        } = await signingServiceCachedCall(
-                            get(galleryElement, '_id'),
-                            cachedCall
-                        );
+                        const { hash: imageGalleryHash } =
+                            await signingServiceCachedCall(
+                                get(galleryElement, '_id'),
+                                cachedCall
+                            );
 
-                        imageGalleryHash &&
+                        if (imageGalleryHash) {
                             Object.assign(
                                 data.content_elements[index].content_elements[
                                     galleryIndex
@@ -237,6 +248,7 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                                     auth: { 1: imageGalleryHash }
                                 }
                             );
+                        }
                     }
                 }
             }
@@ -260,12 +272,30 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                     cachedCall
                 );
 
-                creditHash &&
+                if (creditHash) {
                     Object.assign(data.credits.by[index].image, {
                         auth: { 1: creditHash }
                     });
+                }
             }
         }
     }
+
+    if (
+        get(data, '_id') &&
+        get(data, 'type') === 'image' &&
+        !get(data, 'promo_items.basic.auth.1')
+    ) {
+        const { hash } = await signingServiceCachedCall(
+            get(data, '_id'),
+            cachedCall
+        );
+        if (hash) {
+            Object.assign(data, {
+                auth: { 1: hash }
+            });
+        }
+    }
+
     return data;
 };

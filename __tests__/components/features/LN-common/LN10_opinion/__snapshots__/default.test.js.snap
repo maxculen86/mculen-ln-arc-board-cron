@@ -121,7 +121,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         />
                       </picture>
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -182,7 +182,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                           />
                         </picture>
                         <div
-                          class="marquee-text flex flex-column --font-2xs w-100"
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
                           <span
                             class="text ln-text marquee"
@@ -236,7 +236,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                           />
                         </picture>
                         <div
-                          class="marquee-text flex flex-column --font-2xs w-100"
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
                           <span
                             class="text ln-text marquee"
@@ -447,7 +447,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                           />
                         </picture>
                         <div
-                          class="marquee-text flex flex-column --font-2xs w-100"
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
                           <span
                             class="text ln-text marquee"
@@ -506,7 +506,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         />
                       </picture>
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -564,7 +564,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         />
                       </picture>
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -622,7 +622,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         />
                       </picture>
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
@@ -680,7 +680,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         />
                       </picture>
                       <div
-                        class="marquee-text flex flex-column --font-2xs w-100"
+                        class="marquee-text flex --font-2xs w-100 flex-column"
                       >
                         <span
                           class="text ln-text marquee"
