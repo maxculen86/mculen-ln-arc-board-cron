@@ -11,16 +11,13 @@ import PageBuilderMessage from '../../../private/LN/home/common/components/pageB
 import { addInitialSlash } from '../../../private/LN/common/utils/addInitialSlash';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import {
-    DIAGRAMATIONS,
     getCardPosition,
     getClassName,
     getDescriptionData,
     getFirstCard,
     getHrefLink,
     getParent,
-    getParentLayout,
-    getSlotsClasses,
-    getSlotsProps
+    getParentLayout
 } from './helper';
 
 function Game({ id: featureId, customFields, isAdmin }) {
@@ -96,18 +93,15 @@ function Game({ id: featureId, customFields, isAdmin }) {
     const parentLayout = getParentLayout(parent);
     const isFirstCard = getFirstCard(cardPosition, parentLayout);
 
+    const hrefLink = getHrefLink(gameType, sectionId, articleLink);
     const badge = newGame ? 'Nuevo' : null;
     const ribbon = forSubscriber ? (
         <IconSprite name="ribbonColor" color />
     ) : null;
 
-    const isSpecialLayout =
-        parentLayout === DIAGRAMATIONS.oneHorizontalThreeVertical &&
-        !isFirstCard;
-    const hrefLink = getHrefLink(gameType, sectionId, articleLink);
-    const slotsProps = getSlotsProps(isSpecialLayout);
-    const slotsClasses = getSlotsClasses(isSpecialLayout, isFirstCard);
-    const addStyleForHome = !primarySection ? 'col-span-4 col-span-3_sm' : '';
+    const slotsProps = {
+        description: { className: 'text-18 sm-none' }
+    };
 
     return (
         <CardGame
@@ -131,12 +125,8 @@ function Game({ id: featureId, customFields, isAdmin }) {
                 parentLayout,
                 description
             )}
-            className={cx(
-                getClassName(parentLayout, isFirstCard),
-                addStyleForHome
-            )}
+            className={cx(getClassName(parentLayout, isFirstCard))}
             slotsProps={slotsProps}
-            classnames={slotsClasses}
         />
     );
 }

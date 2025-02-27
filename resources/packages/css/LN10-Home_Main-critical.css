@@ -7758,6 +7758,10 @@ strong:not(.--font-primary),
   right: -0.125rem;
 }
 
+.right--3 {
+  right: -0.2rem;
+}
+
 .right-4 {
   right: 0.25rem;
 }
