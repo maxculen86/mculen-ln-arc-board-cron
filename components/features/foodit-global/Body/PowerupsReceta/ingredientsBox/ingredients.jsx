@@ -95,6 +95,8 @@ export function Ingredients({
                     ingredientsLists={ingredientsModificated}
                     title={title}
                     articleId={articleId}
+                    currentPortion={currentPortion}
+                    defaultPortion={portions}
                 />
             )}
         </div>
