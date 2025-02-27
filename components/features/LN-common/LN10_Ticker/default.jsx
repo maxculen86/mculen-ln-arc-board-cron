@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import { Badge } from '@ln/contenidos-ui-badge';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
 import {
     setUpdatesCustomFields,
@@ -12,7 +11,7 @@ import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import get from '../../../private/common/utils/get';
 import setRender from '../../../chains/utils/setRender';
 import { isInSection } from '../anexo/common/_helper-WebApi';
-import LiveNew from '../live/LiveNew';
+import Updates from '../live/Updates';
 
 function Ticker({ customFields, id: featureId }) {
     const { isAdmin, renderables } = useAppContext() || {};
@@ -42,34 +41,12 @@ function Ticker({ customFields, id: featureId }) {
                 extraOptions: {
                     isEmpty: hideFeature && null,
                     default: !hideFeature && (
-                        <LiveNew data-testid="live-component">
-                            <LiveNew.Section section={section}>
-                                <div className="live-notes relative w-100 overflow-hidden">
-                                    <LiveNew.Body>
-                                        {chapita && (
-                                            <Badge
-                                                className="ai-center mr-8"
-                                                type={typeBadge[chapitaStyle]}
-                                                text={chapita}
-                                            />
-                                        )}
-                                        {updates.length !== 0 ? (
-                                            <LiveNew.Notes>
-                                                {updates.map(update => (
-                                                    <LiveNew.Note
-                                                        key={update.title}
-                                                        url={update.link}
-                                                        title={update.title}
-                                                    >
-                                                        {update.title}
-                                                    </LiveNew.Note>
-                                                ))}
-                                            </LiveNew.Notes>
-                                        ) : null}
-                                    </LiveNew.Body>
-                                </div>
-                            </LiveNew.Section>
-                        </LiveNew>
+                        <Updates
+                            section={section}
+                            updates={updates}
+                            chapita={chapita}
+                            chapitaStyle={chapitaStyle}
+                        />
                     )
                 }
             })}
