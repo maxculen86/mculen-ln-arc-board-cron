@@ -28,11 +28,11 @@ exports[`Component - Features - LN Common - juego - GameCard should match the sn
         <div
           class="flex w-100 h-100 ai-center jc-between flex-column"
         >
-          <span
-            class="text ln-text text-ellipsis-1 text-neutral-light-900 prumo prumo-medium text-18 flex ai-center h-64 flex-column jc-center mb-10 text-center"
+          <h2
+            class="text ln-text text-ellipsis-1 text-neutral-light-900 prumo prumo-medium flex ai-center text-center text-18  h-64 flex-column jc-center mb-10"
           >
             Criptograma
-          </span>
+          </h2>
           <div
             class="pt-8_m"
           >

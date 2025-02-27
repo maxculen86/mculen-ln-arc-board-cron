@@ -3,7 +3,7 @@
 exports[`Component - Features - LN Common - juego - DiagramationCard should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="grid grid-cols-8 grid-cols-12_sm gap-16 mb-32"
+    class="grid-cols-8 grid-cols-12_sm gap-16 mb-32"
   >
     <div>
       Children
