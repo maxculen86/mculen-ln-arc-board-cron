@@ -247,14 +247,15 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withSubhead: true,
                 cardSize: size.fourXL,
-                imageConfig: size.T1Focal100,
+                imageConfig: size.T1,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.bottom,
                     desktop: img.bottom
                 },
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 type: 'T2',
@@ -265,13 +266,13 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.default,
+                imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
-                withPreload: false,
+                withPreload: true,
                 isLoadWithPicture: true
             },
             {
@@ -1699,6 +1700,9 @@ const diagramationRules = diagramation => {
     return diagramations[diagramation];
 };
 
-export const diagramationExceptions = ['left-focal'];
+export const diagramationExceptions = [
+    'left-focal',
+    'left-focal-without-timeline'
+];
 
 export default diagramationRules;
