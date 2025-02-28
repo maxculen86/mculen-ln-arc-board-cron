@@ -44,7 +44,16 @@ function SaveRecipe({
         error: inputError
     } = useInputListener('');
 
-    const { onSelectChange, selectValue = {} } = useSelectListener({});
+    const {
+        onSelectChange,
+        selectValue = {},
+        restoreInputValue
+    } = useSelectListener({});
+
+    const handleCLoseDialog = () => {
+        restoreInputValue();
+        close();
+    };
 
     const { leftButton, rightButton, showInputFolder, showSelect, title } =
         getConfig(saveRecipeConfig, indexStep);
@@ -54,12 +63,11 @@ function SaveRecipe({
             setIndexStep(prev => prev + 1);
         }
     }, [selectValue]);
-
     const renderDialogHeader = (className, children) => (
         <Dialog.Header className={className}>
             {children}
             <Button
-                onClick={close}
+                onClick={handleCLoseDialog}
                 variant="link"
                 title="Cerrar"
                 aria-label="Cerrar"
@@ -74,7 +82,7 @@ function SaveRecipe({
     return (
         <Dialog
             isOpen={showModal}
-            onClose={close}
+            onClose={handleCLoseDialog}
             position="center"
             classnames={{
                 base: classNameModal,
@@ -104,7 +112,7 @@ function SaveRecipe({
                     <Dialog.Footer className="flex flex-column gap-16 gap-24_md gap-32_lg">
                         <hr />
                         <FooterSaveRecipe
-                            close={close}
+                            close={handleCLoseDialog}
                             indexStep={indexStep}
                             leftButton={leftButton}
                             newFolder={inputValue}
