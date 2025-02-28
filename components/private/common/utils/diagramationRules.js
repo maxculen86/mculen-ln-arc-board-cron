@@ -262,7 +262,7 @@ const diagramationRules = diagramation => {
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: true,
-                withMarquee: false,
+                withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
