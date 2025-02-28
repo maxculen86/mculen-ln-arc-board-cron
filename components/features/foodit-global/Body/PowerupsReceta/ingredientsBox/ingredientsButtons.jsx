@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import PropTypes from 'prop-types';
 import { useDisclosure } from '@ln/hooks';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { DialogFoodit } from '../../../common/DialogFoodit/foodit';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function IngredientsButtons({
     currentPortion = 0,
@@ -15,8 +16,22 @@ export function IngredientsButtons({
 }) {
     const { isSubscribed, userType } = useGetUserConfig();
     const { isOpen, onOpen, onClose } = useDisclosure(false);
+    const hasTrackedPortion = useRef(false);
 
     const initialPortion = portions;
+
+    const trackPortionChange = () => {
+        if (!hasTrackedPortion.current) {
+            addEventToDataLayerV2({
+                event: 'e_linkclick',
+                category: 'interaction',
+                label: 'Receta',
+                action: 'Cambio_porciones'
+            });
+
+            hasTrackedPortion.current = true;
+        }
+    };
 
     const pressButton = option => {
         if (!isSubscribed) {
@@ -24,10 +39,13 @@ export function IngredientsButtons({
             return;
         }
 
-        if (option === 'add') {
-            setCurrentPortion(prev => prev + 1);
-        } else if (option === 'subtract' && currentPortion > Number(portions)) {
-            setCurrentPortion(prev => prev - 1);
+        const shouldChange =
+            option === 'add' ||
+            (option === 'subtract' && currentPortion > Number(portions));
+
+        if (shouldChange) {
+            trackPortionChange();
+            setCurrentPortion(prev => (option === 'add' ? prev + 1 : prev - 1));
         }
     };
 
@@ -69,6 +87,7 @@ export function IngredientsButtons({
         </div>
     );
 }
+
 IngredientsButtons.propTypes = {
     currentPortion: PropTypes.number.isRequired,
     portions: PropTypes.number.isRequired,
