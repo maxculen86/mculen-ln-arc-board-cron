@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { getTypeOfDevice } from '@ln/hooks';
-import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
+import useAuthManager from '../../../../../../../components/private/common/auth/hooks/useAuthManager';
 import { useShoppingList } from '../../../../../../../components/features/foodit-global/common/shoppingList/hooks/useShoppingList';
 import getBookmarks from '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
-import { isSubscribed } from '../../../../../../../auth/helper/loginHelper';
+import { isSubscribed } from '../../../../../../../components/private/common/auth/helper/loginHelper';
 
 jest.mock('@ln/hooks', () => ({
     getTypeOfDevice: jest.fn()
@@ -15,14 +15,20 @@ jest.mock(
     () => jest.fn()
 );
 
-jest.mock('../../../../../../../auth/helper/loginHelper', () => ({
-    isSubscribed: jest.fn(),
-    SUBSCRIBED_HELPER: {
-        FOODIT: 'foodit'
-    }
-}));
+jest.mock(
+    '../../../../../../../components/private/common/auth/helper/loginHelper',
+    () => ({
+        isSubscribed: jest.fn(),
+        SUBSCRIBED_HELPER: {
+            FOODIT: 'foodit'
+        }
+    })
+);
 
-jest.mock('../../../../../../../auth/hooks/useAuthManager', () => jest.fn());
+jest.mock(
+    '../../../../../../../components/private/common/auth/hooks/useAuthManager',
+    () => jest.fn()
+);
 
 const TestComponent = () => {
     const { loading, shoppingList, isMobile } = useShoppingList();

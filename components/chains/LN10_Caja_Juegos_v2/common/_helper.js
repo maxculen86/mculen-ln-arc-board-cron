@@ -5,8 +5,26 @@ const GAME_LAYOUT_RULES = {
     'LN-acumulado': ['fourVertical', 'oneLargeFourSmall', 'twoHorizontal']
 };
 
-export const validateGamesChain = (layout = '', customFields = {}) => {
+const DIAGRAMATION_ITEM_LIMITS = {
+    oneHorizontalThreeVertical: 4,
+    oneLargeFourSmall: 5
+};
+
+const MIN_DIAGRAMATION_ITEMS = {
+    fourVertical: 4,
+    twoHorizontal: 2
+};
+
+export const validateGamesChain = (
+    layout = '',
+    customFields = {},
+    gameItems = []
+) => {
     const { layout: selectedDiagramation } = customFields;
+
+    const minItemsRequired =
+        DIAGRAMATION_ITEM_LIMITS[selectedDiagramation] ||
+        MIN_DIAGRAMATION_ITEMS[selectedDiagramation];
 
     const rules = [
         {
@@ -17,8 +35,22 @@ export const validateGamesChain = (layout = '', customFields = {}) => {
             validation:
                 !GAME_LAYOUT_RULES[layout]?.includes(selectedDiagramation),
             message: 'Esta diagramación no está permitida en este layout'
+        },
+        {
+            validation: gameItems.length < minItemsRequired,
+            message: `Se requiere la carga de ${minItemsRequired - gameItems.length} juego${minItemsRequired - gameItems.length > 1 ? 's' : ''}`
         }
     ];
 
     return pageBuilderValidator(rules);
+};
+
+export const getGameDiagramationItems = (
+    gameItems = [],
+    diagramationType = ''
+) => {
+    const limit =
+        DIAGRAMATION_ITEM_LIMITS[diagramationType] || gameItems.length;
+
+    return gameItems.slice(0, limit);
 };

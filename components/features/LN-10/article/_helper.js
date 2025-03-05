@@ -125,6 +125,8 @@ export const getBadgetConfig = ({
     typeOfMedia,
     hideBadget
 }) => {
+    if (hideBadget) return {};
+
     if (get(article, 'content_restrictions.content_code') === 'cerrada') {
         return {
             badgetStyle: 'subscriber',
@@ -146,15 +148,13 @@ export const getBadgetConfig = ({
         };
     }
 
-    return !hideBadget
-        ? {
-              badgetStyle: style || 'negative',
-              badgetText:
-                  withMedia &&
-                  typeOfMedia !== typeMedia.HTML &&
-                  (text || get(article, 'label.chapita.text'))
-          }
-        : {};
+    return {
+        badgetStyle: style || 'negative',
+        badgetText:
+            withMedia &&
+            typeOfMedia !== typeMedia.HTML &&
+            (text || get(article, 'label.chapita.text'))
+    };
 };
 export const getOnlyHoursMinutes = (time = '') =>
     time.split(':').slice(0, 2).join(':');
@@ -290,7 +290,7 @@ export const generateLazyLoadEmbedCode = embedCode => {
 
     const modifiedEmbedCode = embedCode.replace(
         /src="(https:\/\/www\.youtube\.com\/embed\/[\w-]+[^"]*)"/,
-        `src="${thumbnailUrl}" data-src="${dataSrc}" id="${uniqueId}"`
+        `src="" data-src="${dataSrc}" id="${uniqueId}" style="background-image: url(${thumbnailUrl}); background-size: cover; background-position: center; width: 100%; height: 100%;"`
     );
 
     return modifiedEmbedCode;
@@ -455,3 +455,26 @@ export const getImageIdValidations = (
     isVideoParam,
     imageIdParam
 ) => (isHtmlParam || isVideoParam || imageIdParam === '' ? null : imageIdParam);
+
+export const shouldHighlightCustomVoice = (article = {}, config = {}) => {
+    const author = get(article, 'credits.by[0]', {});
+    const isCustomVoiceCandidate = get(config, 'isCustomVoiceCandidate', false);
+    const hasAuthorVoice = get(
+        author,
+        'additional_properties.original.voice',
+        false
+    );
+    const hasAuthorImage = get(
+        author,
+        'additional_properties.original.image',
+        false
+    );
+    const hasOneAuthor = get(article, 'credits.by.length', 0) === 1;
+
+    return (
+        hasAuthorVoice &&
+        hasAuthorImage &&
+        hasOneAuthor &&
+        isCustomVoiceCandidate
+    );
+};

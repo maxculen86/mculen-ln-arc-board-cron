@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import useAuthManager from '../../../../../../auth/hooks/useAuthManager';
+import useAuthManager from '../../../../../private/common/auth/hooks/useAuthManager';
 
 export const useGetPropsBellAuth = () => {
     const [props, setProps] = useState({});

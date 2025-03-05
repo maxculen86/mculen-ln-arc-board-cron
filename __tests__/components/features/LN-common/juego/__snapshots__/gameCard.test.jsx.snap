@@ -3,7 +3,7 @@
 exports[`Component - Features - LN Common - juego - GameCard should match the snapshot 1`] = `
 <DocumentFragment>
   <article
-    class="ln-card-games border border-thin border-all border-light-200 shadow-card-games transition transition-all transition-duration-800 min-h-120 max-h-120 min-h-288_md min-h-272_min956 bg-criptograma__hover ln-card-games-criptograma__hover"
+    class="ln-card-games border border-thin border-all border-light-200 shadow-card-games transition transition-all transition-duration-800 bg-criptograma__hover ln-card-games-criptograma__hover"
   >
     <a
       class="link ln-link flex flex-column ai-center opacity-1__hover relative h-100 --unstyled"
@@ -15,24 +15,24 @@ exports[`Component - Features - LN Common - juego - GameCard should match the sn
         class="h-6 w-100 bg-criptograma"
       />
       <div
-        class="flex w-100 h-100 ai-center pb-12 flex-row px-12 pt-16 gap-12 flex-column_m px-4_m pt-4_m"
+        class="flex w-100 h-100 ai-center pb-12 flex-column px-8 pt-8 mt-10 mt-0_m"
       >
         <img
           alt="Criptograma"
-          class="image flex w-100 h-100 flex ai-center h-64 w-64 h-144_md w-144_md --cover"
+          class="image flex w-100 h-100 flex ai-center h-64 w-64 --cover"
           decoding="async"
           fetchpriority="low"
           loading="lazy"
           src="/pf/assets/games/criptograma.svg"
         />
         <div
-          class="flex w-100 h-100 ai-center jc-between gap-8 flex-column_m"
+          class="flex w-100 h-100 ai-center jc-between flex-column"
         >
-          <span
-            class="text ln-text text-ellipsis-1 text-neutral-light-900 prumo prumo-medium --text-m --text-md-xl flex ai-center min-h-auto_min956 min-h-58_md text-center_m"
+          <h2
+            class="text ln-text text-ellipsis-1 text-neutral-light-900 prumo prumo-medium flex ai-center text-center text-18  h-64 flex-column jc-center mb-10"
           >
             Criptograma
-          </span>
+          </h2>
           <div
             class="pt-8_m"
           >

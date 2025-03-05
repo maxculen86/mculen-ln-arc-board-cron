@@ -1264,6 +1264,7 @@ a {
   --cruci-tematico: #b09c03;
   --panal-de-letras: #dce11f;
   --memograma: #295dea;
+  --nexos: #8969E9;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1886,6 +1887,10 @@ a {
   background: var(--memograma);
 }
 
+.bg-nexos {
+  background: var(--nexos);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1998,6 +2003,10 @@ a {
   background: var(--memograma);
 }
 
+.bg-nexos__hover:hover {
+  background: var(--nexos);
+}
+
 .bg-secondary__hover:hover {
   background: var(--neutral-light-50);
 }
@@ -2090,6 +2099,11 @@ a {
 
 .ln-card-games-memograma__hover:hover .cardGame__hover {
   border-color: var(--memograma);
+  background-color: white;
+}
+
+.ln-card-games-nexos__hover:hover .cardGame__hover {
+  border-color: var(--nexos);
   background-color: white;
 }
 
@@ -2420,6 +2434,10 @@ strong:not(.--font-primary),
 
 .mt-8 {
   margin-top: 0.5rem;
+}
+
+.mt-10 {
+  margin-top: 0.625rem;
 }
 
 .mt-12 {
@@ -4226,6 +4244,10 @@ strong:not(.--font-primary),
 
 .right--2 {
   right: -0.125rem;
+}
+
+.right--3 {
+  right: -0.2rem;
 }
 
 .right-4 {

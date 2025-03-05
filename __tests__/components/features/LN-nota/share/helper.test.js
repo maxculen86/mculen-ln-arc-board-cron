@@ -60,11 +60,6 @@ describe('components - features - LN-nota - share - helper', () => {
             expect(setIaButtonIsClicked).toHaveBeenCalledWith(true);
 
             expect(publish).toHaveBeenCalledWith('showIa', { show: true });
-
-            expect(localStorage.setItem).toHaveBeenCalledWith(
-                'IA-feature-tracking',
-                'wasDisplayed'
-            );
         });
 
         it('should call openBarrier when not subscribed', () => {

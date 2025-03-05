@@ -1,16 +1,24 @@
+import { API_ENV } from 'fusion:environment';
 import { addForwardSlash } from '../../../../private/LN/common/utils/addForwardSlash';
 
 export const transformUrl = inputUrl => {
     try {
+        const isProdARC = API_ENV === 'prod';
         const url = new URL(inputUrl);
-        const validDomain = 'canchallena.lanacion.com.ar';
-        const includesPath = url.pathname && url.pathname !== '/';
+        const isProdEmbedCLL = url.hostname === 'canchallena.lanacion.com.ar';
+        const matchDetailCLLRegex = /\/futbol\/[^/]+\/[^/]+-[a-zA-Z0-9]{25}/;
 
-        if (url.hostname !== validDomain || !includesPath) {
+        if (
+            (isProdARC && !isProdEmbedCLL) ||
+            !matchDetailCLLRegex.test(url.pathname)
+        ) {
             return '';
         }
+        const domainEnvironmentCLLPrefix = url.hostname
+            .split('-')[0]
+            .concat('-');
 
-        const newDomain = 'widget-canchallena.clanacion.com.ar';
+        const newDomain = `${isProdEmbedCLL ? '' : domainEnvironmentCLLPrefix}widget-canchallena.clanacion.com.ar`;
         let newPath = url.pathname;
         addForwardSlash(newPath);
 

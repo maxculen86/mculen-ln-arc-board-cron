@@ -53,7 +53,8 @@ const diagramationRules = diagramation => {
                 },
                 imageConfig: size.T1,
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 titleTag: tag.h2,
@@ -120,7 +121,8 @@ const diagramationRules = diagramation => {
                     tablet: img.none,
                     desktop: img.none
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 variantsDisabled: ['liveblog'],
@@ -182,7 +184,8 @@ const diagramationRules = diagramation => {
                     desktop: img.right
                 },
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 titleTag: tag.h2,
@@ -230,9 +233,122 @@ const diagramationRules = diagramation => {
                     desktop: img.right
                 },
                 withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            }
+        ],
+        'left-focal-without-timeline': [
+            {
+                type: 'T1',
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                cardSize: size.fourXL,
+                imageConfig: size.T1,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.bottom,
+                    desktop: img.bottom
+                },
+                withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
+                type: 'T2',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: true,
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: true,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T4',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T5',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T6',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
                 isLoadWithPicture: true
             }
         ],
+
         'bn-opening-4': [
             {
                 titleTag: tag.h2,
@@ -316,7 +432,8 @@ const diagramationRules = diagramation => {
                 className: txtCenter,
                 withPreload: true,
                 extraClass: { withoutMedia: '--no-mc' },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             }
         ],
         vertical: [
@@ -334,7 +451,8 @@ const diagramationRules = diagramation => {
                 aspectRatio: 'ratio-3-4',
                 className: txtCenter,
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             }
         ],
         bombita: [
@@ -834,7 +952,8 @@ const diagramationRules = diagramation => {
                     tablet: img.right,
                     desktop: img.right
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 imagePosition: {
@@ -908,7 +1027,8 @@ const diagramationRules = diagramation => {
                     tablet: img.right,
                     desktop: img.right
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             }
         ],
         bn_2_grid: [
@@ -1166,7 +1286,8 @@ const diagramationRules = diagramation => {
                     tablet: img.top,
                     desktop: img.top
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 imagePosition: {
@@ -1223,7 +1344,8 @@ const diagramationRules = diagramation => {
                     tablet: img.right,
                     desktop: img.right
                 },
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
             },
             {
                 variantsDisabled: [],
@@ -1578,6 +1700,9 @@ const diagramationRules = diagramation => {
     return diagramations[diagramation];
 };
 
-export const diagramationExceptions = ['left-focal'];
+export const diagramationExceptions = [
+    'left-focal',
+    'left-focal-without-timeline'
+];
 
 export default diagramationRules;

@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const youtubeIframes = document.querySelectorAll('iframe[data-src]');
 
     const loadVideo = iframe => {

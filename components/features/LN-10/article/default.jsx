@@ -21,7 +21,8 @@ import {
     showExtraClass,
     getTypeOfMedia,
     getImageIdValidations,
-    getCllBoard
+    getCllBoard,
+    shouldHighlightCustomVoice
 } from './_helper';
 import {
     getChainConfig,
@@ -42,6 +43,8 @@ import WarningMessage from '../../../private/common/warningMessage/warningMessag
 import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
+import { isEmptyObject } from '../../../private/common/utils/isEmptyObject';
+import MarqueeHighlight from '../../LN-10-global/common/marqueeHighlight/default';
 
 function ArticleFeature({ id: featureId, customFields, searchableField }) {
     const {
@@ -211,6 +214,8 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
 
     const typeOfMedia = getTypeOfMedia(customFields);
 
+    const widgetOverlay = getCllBoard(cllBoard?.trim());
+
     const { badgetStyle, badgetText } = getBadgetConfig({
         article,
         style: chapitaStyle,
@@ -218,7 +223,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         isLiveblog: isLiveblog || get(article, 'subtype') === LIVEBLOG,
         withMedia,
         typeOfMedia,
-        hideBadget
+        hideBadget: !isEmptyObject(widgetOverlay) || hideBadget
     });
 
     const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({
@@ -245,6 +250,19 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     if (!isAdmin && (!article || !articleContent)) return <></>;
 
+    const hasCustomVoice = shouldHighlightCustomVoice(article, config);
+
+    const sectionText = hasCustomVoice ? (
+        <MarqueeHighlight />
+    ) : (
+        showSection({
+            withSection,
+            article,
+            authors,
+            authorPhoto: marqueeImg
+        })
+    );
+
     return (
         !error && (
             <ErrorBoundary>
@@ -258,22 +276,18 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
                     subheadTag={get(config, 'subheadTag')}
                     marquee={marquee}
                     marqueeImg={marqueeImg}
+                    marqueeAIHighlight={hasCustomVoice}
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
-                    widgetOverlay={getCllBoard(cllBoard?.trim())}
+                    widgetOverlay={widgetOverlay}
                     cardSize={
                         isContentLabAt100(chainId, layout, renderables)
                             ? '4xl'
                             : cardSize
                     }
                     imagePosition={imagePosition}
-                    section={showSection({
-                        withSection,
-                        article,
-                        authors,
-                        authorPhoto: marqueeImg
-                    })}
+                    section={sectionText}
                     searchableField={
                         layoutPageBuilder === layoutsName.HomeLN10 &&
                         searchableField({

@@ -31,6 +31,13 @@ const BoxType = {
     Videos: 'videos'
 };
 
+const diagramationFromLayout = (layout) => {
+    const diagramation = {
+        'left-focal-without-timeline': 'apertura_left-focal-without-timeline'
+    };
+    return diagramation[layout] ?? layout;
+};
+
 const createBox = (
     id,
     visible,
@@ -43,7 +50,7 @@ const createBox = (
     id_caja: id,
     visible: visible || true,
     feature,
-    diagramacion_caja: layout,
+    diagramacion_caja: diagramationFromLayout(layout),
     item_category: itemCategory,
     [type]: notas
 });
@@ -195,12 +202,9 @@ const getRanking = async (query, layoutPage, elementsPageHome) => {
         elementsPage: elementsPageHome
     };
 
-    const ranking =
-        (setRankingByLayout[layoutPage] &&
-            (await setRankingByLayout[layoutPage](propsRanking))) ||
+    return (setRankingByLayout[layoutPage] &&
+        (await setRankingByLayout[layoutPage](propsRanking))) ||
         [];
-
-    return ranking;
 };
 
 const transform = async (dataPage, query) => {

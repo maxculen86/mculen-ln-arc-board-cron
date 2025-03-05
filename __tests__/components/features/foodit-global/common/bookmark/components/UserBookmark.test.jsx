@@ -3,15 +3,15 @@ import { render, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import getBookmarks from '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
 import { UserBookmarks } from '../../../../../../../components/features/foodit-global/common/bookmark/components/UserBookmarks';
-import { isSubscribed } from '../../../../../../../auth/helper/loginHelper';
-import useAuthManager from '../../../../../../../auth/hooks/useAuthManager';
+import { isSubscribed } from '../../../../../../../components/private/common/auth/helper/loginHelper';
+import useAuthManager from '../../../../../../../components/private/common/auth/hooks/useAuthManager';
 
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks'
 );
 jest.mock('../../../../../../../components/private/common/utils/getToken');
-jest.mock('../../../../../../../auth/helper/loginHelper');
-jest.mock('../../../../../../../auth/hooks/useAuthManager');
+jest.mock('../../../../../../../components/private/common/auth/helper/loginHelper');
+jest.mock('../../../../../../../components/private/common/auth/hooks/useAuthManager');
 
 describe('UserBookmarks', () => {
     const mockBookmarks = [

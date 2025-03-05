@@ -1,7 +1,7 @@
 import dynamicallyLoadScript from '../../../../private/LN/common/utils/dynamicallyLoadScript';
 import { register, unregister, verify } from './serviceWorkerUtils';
 
-const startPWASetup = deployment => {
+const startPWASetup = ({ deployment, arcSite }) => {
     window.addEventListener('load', async () => {
         const isSafari = !!navigator.userAgent.match(
             /Version\/[\d\.]+.*Safari/
@@ -21,7 +21,7 @@ const startPWASetup = deployment => {
                 );
                 if (verify()) {
                     try {
-                        await register(deployment);
+                        await register({ deployment, arcSite });
                     } catch (err) {
                         console.error('SW: error', err);
                     }

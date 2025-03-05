@@ -37,6 +37,69 @@ describe('cardRegular', () => {
         jest.clearAllMocks();
     });
 
+    test('should returns correct cardRegular object without widgetEmbed', () => {
+        const objbadget = {
+            chapita: 'VIDEO',
+            badge: 'VIDEO',
+            badgeStyle: 'positive'
+        };
+        // Arrange
+        get.mockReturnValueOnce('subheadline');
+        getArticleImage.mockReturnValueOnce('image');
+        getArticleVideos.mockReturnValueOnce('videos');
+        getYouTubeVideoLink.mockReturnValueOnce('youtubeLink');
+        getEmbed.mockReturnValueOnce('iframe');
+        getEmbedWidget.mockReturnValueOnce(null);
+        getBadgebyConfig.mockReturnValueOnce(objbadget);
+        CardBasic.mockReturnValueOnce({ title: article.title });
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path == 'subheadlines.basic') {
+                return 'Sample Subheadline';
+            }
+            return defaultValue;
+        });
+
+        const expectedCardRegular = {
+            categoria: {
+                slug: undefined,
+                valor: undefined
+            },
+            title: 'Test article',
+            autor: null,
+            autores: null,
+            marquesina: null,
+            volanta: null,
+            bajada: 'Sample Subheadline',
+            imagen: 'image',
+            videoYouTube: 'youtubeLink',
+            embed: 'iframe',
+            chapita: 'VIDEO',
+            badge: 'VIDEO',
+            badgeStyle: 'positive',
+            widgetEmbed: null,
+            opinion: false,
+            isListenable: undefined
+        };
+
+        // Act
+        const result = CardRegular(article);
+
+        // Assert
+        expect(result).toStrictEqual(expectedCardRegular);
+        expect(getArticleImage).toHaveBeenCalledTimes(1);
+        expect(getArticleImage).toHaveBeenCalledWith(article);
+        expect(getYouTubeVideoLink).toHaveBeenCalledTimes(1);
+        expect(getYouTubeVideoLink).toHaveBeenCalledWith(article);
+        expect(getEmbed).toHaveBeenCalledTimes(1);
+        expect(getEmbed).toHaveBeenCalledWith(article);
+        expect(getEmbedWidget).toHaveBeenCalledTimes(1);
+        expect(getEmbedWidget).toHaveBeenCalledWith(article);
+        expect(getBadgebyConfig).toHaveBeenCalledTimes(1);
+        expect(getBadgebyConfig).toHaveBeenCalledWith(article);
+        expect(CardBasic).toHaveBeenCalledTimes(1);
+        expect(CardBasic).toHaveBeenCalledWith(article);
+    });
+
     test('returns correct cardRegular object', () => {
         const objbadget = {
             chapita: 'VIDEO',
@@ -77,9 +140,6 @@ describe('cardRegular', () => {
             embed: 'iframe',
             widgetEmbed:
                 'https://canchallena.clanacion.com.ar/futbol/copa-argentina-2025/boca-juniors-argentino-monte-maiz-aeptpxkh2li6vimrypjso0ff8/widget/?isHome=true',
-            chapita: 'VIDEO',
-            badge: 'VIDEO',
-            badgeStyle: 'positive',
             opinion: false,
             isListenable: undefined
         };
@@ -97,8 +157,7 @@ describe('cardRegular', () => {
         expect(getEmbed).toHaveBeenCalledWith(article);
         expect(getEmbedWidget).toHaveBeenCalledTimes(1);
         expect(getEmbedWidget).toHaveBeenCalledWith(article);
-        expect(getBadgebyConfig).toHaveBeenCalledTimes(1);
-        expect(getBadgebyConfig).toHaveBeenCalledWith(article);
+        expect(getBadgebyConfig).toHaveBeenCalledTimes(0);
         expect(CardBasic).toHaveBeenCalledTimes(1);
         expect(CardBasic).toHaveBeenCalledWith(article);
     });
@@ -160,7 +219,7 @@ describe('cardRegular', () => {
             isListenable: false,
             video: 'videos',
             videoYouTube: undefined,
-            videos: undefined
+            videos: 'videos'
         };
 
         // ACT
