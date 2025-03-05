@@ -2758,7 +2758,7 @@
   margin-top: 0.5rem;
   border-top: 0.0625rem solid #e4e4e4;
 }
-.wrapper-dropdown .ln-dropdown > nav ul {
+.wrapper-dropdown .ln-dropdown > nav ul:not(.--first-sections) {
   background: #ffffff;
   width: 100%;
 }
