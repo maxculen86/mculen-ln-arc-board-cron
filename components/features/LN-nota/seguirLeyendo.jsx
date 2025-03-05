@@ -1,36 +1,25 @@
-/* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
+import { useAppContext } from 'fusion:context';
 import get from '../../private/common/utils/get';
-import filter from '../../../content/filters/LN/nota/articleAcu';
+import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
-// TODO hacer unit test, fix hooks y default props
-
 function seguirLeyendo({ globalContent, outputType }) {
-    const justThreeStories = content =>
-        content
-            .filter(element => element && element.type === 'story')
-            .slice(0, 3);
+    const { arcSite, isAdmin } = useAppContext();
+    const id = get(globalContent, '_id', '');
 
-    const getRelatedData = content =>
-        content.map(article =>
-            useContent({
-                source: 'articleSourceNota',
-                query: {
-                    id: article._id,
-                    imageConfig: 'boxArticles'
-                },
-                filter
-            })
-        );
-
-    const relatedContent = get(globalContent, 'related_content.basic', []);
-    const relatedStories = justThreeStories(relatedContent);
-    const articles = getRelatedData(relatedStories);
+    const relatedContent = useContent({
+        source: 'relatedContentSource',
+        query: {
+            id,
+            website: arcSite,
+            imageConfig: 'boxArticles',
+            isAdmin
+        }
+    });
 
     useEffect(() => {
         articleBoxesTracker({
@@ -38,7 +27,7 @@ function seguirLeyendo({ globalContent, outputType }) {
         });
     }, []);
 
-    if (!articles.length) return null;
+    if (!relatedContent || !relatedContent.length) return null;
 
     return (
         <div className="row">
@@ -51,7 +40,7 @@ function seguirLeyendo({ globalContent, outputType }) {
                     data-diagramacion-id="0"
                 >
                     <SeguirLeyendo
-                        relatedContent={articles}
+                        relatedContent={relatedContent}
                         outputType={outputType}
                     />
                 </section>
@@ -64,18 +53,8 @@ seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({
-        related_content: PropTypes.shape({
-            basic: PropTypes.arrayOf(
-                PropTypes.shape({
-                    type: PropTypes.string,
-                    headlines: PropTypes.shape({
-                        basic: PropTypes.string,
-                        mobile: PropTypes.string
-                    })
-                })
-            )
-        })
-    }),
+        _id: PropTypes.string
+    }).isRequired,
     outputType: PropTypes.string.isRequired
 };
 

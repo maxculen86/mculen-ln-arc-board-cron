@@ -1,0 +1,51 @@
+import get from '../../../../components/private/common/utils/get';
+import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
+import getPresets from '../presets';
+import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
+
+const transformData = async (response, query, cachedCall) => {
+    if (!response?.basic) return [];
+
+    const arcSite = query['arc-site'];
+
+    const filteredData = response.basic
+        .filter(item => item.revision?.published === true)
+        .slice(0, 3);
+
+    const { presets, presetsDefault } = getPresets(query);
+    const presetsPromoItems = get(presets, 'promo_items', null);
+
+    const transformedData = await Promise.all(
+        filteredData.map(async elem => {
+            const newElem = await getAllImagesAuth(elem, cachedCall);
+            Object.assign(elem, newElem);
+
+            const promoItems = get(elem, 'promo_items', null);
+            const credits = get(elem, 'credits', null);
+            const presetsCredits = get(presets, 'credits', null);
+
+            return {
+                ...elem,
+                ...addResizedUrls(
+                    {
+                        ...(promoItems && { promo_items: promoItems }),
+                        ...(credits && { credits })
+                    },
+                    {
+                        presets: {
+                            promoItems: presetsPromoItems,
+                            ...(credits && { credits: presetsCredits }),
+                            presetsDefault
+                        },
+                        isAdmin: get(query, 'isAdmin', false),
+                        arcSite
+                    }
+                )
+            };
+        })
+    );
+
+    return transformedData;
+};
+
+export default transformData;
