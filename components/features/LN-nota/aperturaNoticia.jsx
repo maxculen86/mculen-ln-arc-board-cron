@@ -9,7 +9,7 @@ import {
     getMediaData
 } from '../../private/LN/common/utils/mediaHelper';
 
-const AperturaNoticia = props => {
+function AperturaNoticia(props) {
     const { globalContent, outputType, layout } = props;
     const { promo_items: promoItems = {}, subtype } = globalContent || {};
     const mediaData = getMediaData(promoItems, subtype);
@@ -61,12 +61,11 @@ const AperturaNoticia = props => {
     );
 
     return (subtype === INFOGRAFIA && Component) || <div>{Component}</div>;
-};
+}
 
 AperturaNoticia.label = 'LN-Nota-AperturaNoticia';
 
 AperturaNoticia.propTypes = {
-    id: PropTypes.string,
     outputType: PropTypes.string,
     globalContent: PropTypes.shape({
         promo_items: PropTypes.shape({
@@ -78,11 +77,13 @@ AperturaNoticia.propTypes = {
         subtype: PropTypes.string,
         content_elements: PropTypes.arrayOf(PropTypes.shape())
     }),
-    isApertura: PropTypes.bool
+    layout: PropTypes.string
 };
 
 AperturaNoticia.defaultProps = {
-    isApertura: true
+    outputType: '',
+    globalContent: {},
+    layout: ''
 };
 
 export default Consumer(AperturaNoticia);
