@@ -12,7 +12,7 @@ import addEventToDataLayer from '../../../private/LN/common/utils/addEventToData
 
 function FirstSection() {
     return (
-        <ul className="list flex flex-column gap-8 lg-none bg-light-100 --first-sections">
+        <ul className="list flex flex-column gap-8 gap-0_l lg-none bg-light-100 --first-section">
             <li className="item mb-8 bg-white">
                 <label
                     className="flex w-100 cursor-pointer"
