@@ -45,14 +45,20 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
                   </g>
                 </svg>
               </div>
-              <img
-                alt="MockTitle"
-                class="image flex flex w-100 h-100 --cover"
-                decoding="async"
-                fetchpriority="low"
-                loading="lazy"
-                src="main-image.jpg"
-              />
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcset="image2.jpg"
+                />
+                <img
+                  alt="MockTitle"
+                  class="image flex flex w-100 h-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="main-image.jpg"
+                />
+              </picture>
             </div>
             <div
               id="yPJ53Pzg"
@@ -63,7 +69,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
               data-has-autoplay="true"
               data-media-id="yPJ53Pzg"
               data-player="mockPlayer"
-              data-playlist="[{"images":["image1.jpg","image2.jpg"],"image":"main-image.jpg","pubdate":16809218408,"mediaid":"yPJ53Pzg"}]"
+              data-playlist="[{"images":[{"src":"image1.jpg","width":320},{"src":"image2.jpg","width":480},{"src":"image3.jpg","width":720},{"src":"image4.jpg","width":1280}],"image":"main-image.jpg","pubdate":16809218408,"mediaid":"yPJ53Pzg"}]"
               data-title="MockTitle"
               defer=""
               id="scriptVideosJw"
