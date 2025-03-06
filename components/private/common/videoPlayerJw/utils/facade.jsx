@@ -17,13 +17,7 @@ export function Facade({
     const [video] = playlist || {};
     const allImages = get(video, 'images', []);
     const srcFacade = get(video, 'image', '');
-
-    const imgSource = transformImages(allImages, subtype).filter(item => {
-        if (srcFacade && item.srcSet) {
-            return item.srcSet.includes(srcFacade);
-        }
-        return true;
-    });
+    const imgSource = transformImages(allImages, subtype);
 
     const facadeClasses = cx(
         'content-facade-jw relative bg-black',
@@ -54,7 +48,7 @@ export function Facade({
                 </svg>
             </div>
             <Adaptableimage
-                sources={imgSource}
+                sources={[imgSource[0]]}
                 src={srcFacade}
                 className={className}
                 alt={title}
