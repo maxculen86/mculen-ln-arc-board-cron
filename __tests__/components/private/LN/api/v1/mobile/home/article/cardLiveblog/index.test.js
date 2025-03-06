@@ -15,6 +15,7 @@ describe('Test-CardLiveblog when size is M', () => {
                 'chapita',
                 'isListenable',
                 'enviarApps',
+                'openingMode',
                 'fechaPublicacion',
                 'id',
                 'imagen',

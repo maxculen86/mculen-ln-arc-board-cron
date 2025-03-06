@@ -42,6 +42,56 @@
             }
         }
     ],
+    "left-focal-without-timeline": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T4": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T6": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
+        },
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "M"
+            },
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            },
+            "T5": {
+                "size": "M"
+            },
+            "T6": {
+                "size": "M"
+            }
+        }
+    ],
     "center-focal": [
         {
             "variants": ["regular", "liveblog"],

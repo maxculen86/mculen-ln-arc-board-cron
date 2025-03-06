@@ -21,6 +21,9 @@ describe('Json imagen common', () => {
         expect(resp.absoluteUrl).toBe(
             'https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?{{param}}'
         );
+        expect(resp.auth).toBe(
+            'auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794'
+        );
         expect(resp.parametros[0].media).toBe(1280);
         expect(resp.parametros[0].ancho).toBe(1920);
         expect(resp.parametros[0].alto).toBe(1280);

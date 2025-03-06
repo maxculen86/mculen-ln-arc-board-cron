@@ -3,12 +3,14 @@ import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { SITE_FOODIT } from 'fusion:environment';
 import classNames from 'classnames';
-import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
+import PropTypes from 'prop-types';
+import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 
-export const Search = ({ className, ...r }) => {
+export function Search({ className, ...r }) {
     const [inputValue, setInputValue] = useState('');
 
-    const urlSearch = `${SITE_FOODIT}/buscador/?query=${inputValue}`;
+    // add a space at the end to the query term to avoid the search engine from suggesting
+    const urlSearch = `${SITE_FOODIT}/buscador/?query=${encodeURIComponent(`${inputValue} `)}`;
 
     const handleInputValue = e => {
         setInputValue(e.target.value);
@@ -52,4 +54,12 @@ export const Search = ({ className, ...r }) => {
             </div>
         </div>
     );
+}
+
+Search.propTypes = {
+    className: PropTypes.string
+};
+
+Search.defaultProps = {
+    className: ''
 };

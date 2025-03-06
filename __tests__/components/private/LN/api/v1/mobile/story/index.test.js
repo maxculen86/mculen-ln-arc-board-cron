@@ -241,6 +241,7 @@ describe('Test json integracion Article', () => {
                 'relacionados',
                 'enviarApps',
                 'trust',
+                'openingMode',
                 'contenido',
                 'fechaActualizacion',
                 'fecha',

@@ -54,7 +54,6 @@ export function DialogFoodit({
                 ) : (
                     <EmptyState
                         variant={getVariantBarrier(userType)}
-                        // TODO: revisar o eliminar clases
                         className="pt-4 pt-12_md pt-20_lg"
                         direction="column"
                     />

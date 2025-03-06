@@ -55,6 +55,7 @@ describe('storyBox LN10', () => {
                         }
                     ],
                     marquesina: 'Por Alfredo Leuco',
+                    openingMode: 'Native',
                     seccionPadre: null,
                     opinion: false,
                     enviarApps: true,
@@ -79,6 +80,7 @@ describe('storyBox LN10', () => {
                             'https://resizer.glanacion.com/resizer/YUOnmEFPRR24kgOY_cF3pZN5fPA=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg',
                         absoluteUrl:
                             'https://resizer.glanacion.com/resizer/YUOnmEFPRR24kgOY_cF3pZN5fPA=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg',
+                        auth: 'auth=280ee101695619353dc6daec55ef9febe10e37c84cabf7bf3534732e593bab22',
                         parametros: []
                     },
                     videoYouTube: null,

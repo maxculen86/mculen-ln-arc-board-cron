@@ -237,6 +237,118 @@ const diagramationRules = diagramation => {
                 isCustomVoiceCandidate: true
             }
         ],
+        'left-focal-without-timeline': [
+            {
+                type: 'T1',
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                cardSize: size.fourXL,
+                imageConfig: size.T1,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.bottom,
+                    desktop: img.bottom
+                },
+                withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
+                type: 'T2',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: true,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T4',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T5',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T6',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            }
+        ],
+
         'bn-opening-4': [
             {
                 titleTag: tag.h2,
@@ -1588,6 +1700,9 @@ const diagramationRules = diagramation => {
     return diagramations[diagramation];
 };
 
-export const diagramationExceptions = ['left-focal'];
+export const diagramationExceptions = [
+    'left-focal',
+    'left-focal-without-timeline'
+];
 
 export default diagramationRules;

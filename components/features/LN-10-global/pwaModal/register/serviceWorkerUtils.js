@@ -23,10 +23,19 @@ export const unregister = async () => {
     }
 };
 
-export const register = async deployment => {
+export const register = async ({ deployment, arcSite = 'la-nacion-ar' }) => {
+    const dictionarySites = {
+        'la-nacion-ar': 'LN',
+        ott: 'OTT',
+        foodit: 'foodit'
+    };
+    // TODO: Si se quiere reutilizar en foodit esta función, crear el directorio en: resources/js/foodit
+
     if ('serviceWorker' in navigator) {
         try {
-            await navigator.serviceWorker.register(`/sw.js?d=${deployment}`);
+            await navigator.serviceWorker.register(
+                `/pf/resources/js/${dictionarySites[arcSite]}/sw.min.js?d=${deployment}`
+            );
             initialize();
         } catch (err) {
             console.error(

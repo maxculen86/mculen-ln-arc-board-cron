@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 import NotaDataLayer from '../LN/nota/dataLayer/dataLayer';
 import HomeDataLayer from '../LN/home/dataLayer/dataLayerHome';
+import AcumuladoDataLayer from '../LN/acumulado/dataLayer/dataLayerAcumulado';
 import PageViewDataLayer from '../../features/foodit-global/common/dataLayer/pageView';
 import AcusPageView from '../../features/foodit-global/common/dataLayer/acusPageVIew';
 import AutogestionPageView from '../../features/foodit-global/common/dataLayer/autogestionPageView';
@@ -21,7 +22,8 @@ const config = {
         'LN-nota-video': NotaDataLayer,
         'LN-Home_Sports': HomeDataLayer,
         'LN-Home_Main': HomeDataLayer,
-        'LN10-Home_Main': HomeDataLayer
+        'LN10-Home_Main': HomeDataLayer,
+        'LN-acumulado': AcumuladoDataLayer
     },
     foodit: {
         'Foodit-home': PageViewDataLayer,

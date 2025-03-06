@@ -16,6 +16,8 @@ export function IngredientsButtons({
     const { isSubscribed, userType } = useGetUserConfig();
     const { isOpen, onOpen, onClose } = useDisclosure(false);
 
+    const initialPortion = portions;
+
     const pressButton = option => {
         if (!isSubscribed) {
             onOpen();
@@ -44,7 +46,7 @@ export function IngredientsButtons({
                     rounded="rounded-circle"
                     title="sacar"
                     onClick={() => pressButton('subtract')}
-                    disabled={bookmarkId}
+                    disabled={bookmarkId || currentPortion === initialPortion}
                 >
                     -
                 </Button>

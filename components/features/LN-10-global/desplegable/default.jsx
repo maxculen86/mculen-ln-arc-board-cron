@@ -1,14 +1,14 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { Dropdown } from '@ln/contenidos-ui-dropdown';
+import { useAppContext } from 'fusion:context';
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { toggleScroll } from './_helper';
 import { useHeaderContext } from '../header/context';
-import { useAppContext } from 'fusion:context';
-import { Search } from './search';
-import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import { menuData } from './menuData.js';
+import FirstSection from './firstSection';
+import { menuData } from './menuData';
 
-export const Desplegable = () => {
+export function Desplegable() {
     const { toggleDesplegable, showMenu } = useHeaderContext();
     const { contextPath, deployment } = useAppContext();
 
@@ -20,7 +20,7 @@ export const Desplegable = () => {
     return (
         <div>
             <Dropdown
-                search={<Search />}
+                firstSection={<FirstSection />}
                 logo={
                     <Adaptableimage
                         src={deploymentPath}
@@ -34,4 +34,4 @@ export const Desplegable = () => {
             />
         </div>
     );
-};
+}

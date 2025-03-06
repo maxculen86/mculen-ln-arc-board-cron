@@ -1172,6 +1172,10 @@ strong {
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -1448,6 +1452,10 @@ strong {
 
 .w-288 {
   width: 18rem;
+}
+
+.w-328 {
+  width: 20.5rem;
 }
 
 .w-360 {
@@ -1818,6 +1826,10 @@ strong {
   margin-block: 2rem;
 }
 
+.my-40 {
+  margin-block: 2.5rem;
+}
+
 .mr-8 {
   margin-right: 0.5rem;
 }
@@ -1996,6 +2008,9 @@ strong {
   }
   .mr-0_md {
     margin-right: 0rem;
+  }
+  .mb-8_md {
+    margin-bottom: 0.5rem;
   }
   .mb-24_md {
     margin-bottom: 1.5rem;
