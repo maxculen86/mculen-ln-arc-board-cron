@@ -1,18 +1,59 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
+import { Dropdown } from '@ln/common-ui-dropdown';
+import { Button } from '@ln/common-ui-button';
+import { Itemcard } from '@ln/foodit-ui-itemcard';
+import { useDrawer } from '@ln/common-ui-drawer';
+import { Icon } from '@ln/common-ui-icon';
+import { Text } from '@ln/common-ui-text';
+import { useWindowSize } from '@ln/hooks';
 import CommonCardFoodit from '../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import { LoadMoreButton } from '../../../features/foodit/GrillaNotasAcu/helpers/loadMoreButton';
 import { getVariantBySubtype } from '../../../features/foodit-global/common/utils/notaFooditHelper';
 import { getTag } from '../_helpers';
 import { SearchContext } from './searchContext';
 import { SkeletonResultdata } from '../../../features/foodit-global/common/skeletons/Buscador/resultdata';
+import { DRAWER } from '../../../features/foodit-global/common/DrawerContainer/constants';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import DrawerBuscador from './drawerBuscador';
 
 export default function ArticlesGrid() {
     const {
         data: { articlesGrid = [], total } = {},
         loading,
         getNextPage = () => {},
-        query
+        query,
+        sort,
+        setSort,
+        resetPage
     } = useContext(SearchContext);
+
+    const { toggleDrawer } = useDrawer({ id: DRAWER.BUSCADOR });
+    const { width } = useWindowSize();
+    const isMobile = useMemo(() => width !== 0 && width < 1280, [width]);
+
+    const handleSortChange = newSortValue => {
+        setSort(newSortValue);
+        resetPage();
+    };
+
+    const renderItems = [
+        {
+            key: 'mas-relevantes',
+            text: 'MAS RELEVANTES',
+            variant: 'default',
+            type: 'button',
+            className: 'text-accent-lechuga__hover',
+            onClick: () => handleSortChange('relevance')
+        },
+        {
+            key: 'mas-actuales',
+            text: 'MAS ACTUALES',
+            variant: 'default',
+            type: 'button',
+            className: 'text-accent-lechuga__hover',
+            onClick: () => handleSortChange('date')
+        }
+    ];
 
     return (
         <section
@@ -27,6 +68,59 @@ export default function ArticlesGrid() {
                     >
                         <span className="prumo prumo-medium">{total}</span>{' '}
                         resultados de: {query}
+                    </div>
+
+                    <div className="flex ai-center gap-24">
+                        <Button
+                            onClick={toggleDrawer}
+                            id="btn-toggle-filter"
+                            variant="secondary"
+                            className="text-light-800 text-14 roboto-bold inline-flex ai-center gap-8"
+                        >
+                            <Icon size={16}>
+                                <IconSprite name="filter" />
+                            </Icon>
+                            <Text>Filtrar</Text>
+                        </Button>
+
+                        {isMobile && (
+                            <DrawerBuscador toggleDrawer={toggleDrawer} />
+                        )}
+
+                        <hr className="h-100 border border-light-800" />
+
+                        <div className="flex ai-center gap-8">
+                            <Text className="text-14">Ordenar por: </Text>
+                            <Dropdown className="flex cursor-pointer l-only">
+                                <Dropdown.Toggle className="text-light-800 text-14 roboto-bold">
+                                    <Button
+                                        variant="secondary"
+                                        title="ver opciones"
+                                    >
+                                        <Text>
+                                            {sort === 'relevance'
+                                                ? 'MAS RELEVANTES'
+                                                : 'MAS ACTUALES'}
+                                        </Text>
+                                    </Button>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu
+                                    alignment="right"
+                                    className="bg-light-1 p-24 rounded-4 shadow-center"
+                                >
+                                    {renderItems.map(item => (
+                                        <Itemcard
+                                            key={item.key}
+                                            text={item.text}
+                                            variant={item.variant}
+                                            type={item.type}
+                                            className={item.className}
+                                            onClick={item.onClick}
+                                        />
+                                    ))}
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
                     </div>
                 </div>
             )}

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 import getQueryParamValue from '../../../private/common/utils/getQueryParamValue';
@@ -18,10 +18,14 @@ const useFilterManager = () => {
         `${SITE_FOODIT}/${requestUri}`
     );
     const concatFilters = useMemo(() => getQueryForFilters(filters), [filters]);
+
+    const [sort, setSort] = useState('relevance');
+
     const { loading, data } = useFetchSearchResults({
         queryUrl,
         filters: concatFilters,
-        page
+        page,
+        sort
     });
 
     return {
@@ -33,7 +37,9 @@ const useFilterManager = () => {
         getNextPage,
         resetPage,
         removeFilters,
-        appliedFilters
+        appliedFilters,
+        sort,
+        setSort
     };
 };
 
