@@ -72,7 +72,6 @@ const buildBody = ({ globalContent = {} }) => {
             el => el.type === 'text'
         );
 
-        // Check if there are two consecutive images
         if (type === 'image' && currentIndex < contentElements.length - 1) {
             const nextElement = contentElements[currentIndex + 1];
             const nextElementProcessed = nextElement?.subtype
@@ -81,7 +80,6 @@ const buildBody = ({ globalContent = {} }) => {
             const nextType = nextElementProcessed?.type;
 
             if (nextType === 'image') {
-                // Mark the next image as processed
                 processedIndices.add(currentIndex + 1);
 
                 return setDataComponent({
@@ -99,7 +97,6 @@ const buildBody = ({ globalContent = {} }) => {
             }
         }
 
-        // Process individual element
         const Component =
             bodyComponents[type] || bodyComponents[subtype] || null;
         const elementData =
