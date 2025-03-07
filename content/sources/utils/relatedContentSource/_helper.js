@@ -4,11 +4,12 @@ import getPresets from '../presets';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 
 const transformData = async (response, query, cachedCall) => {
-    if (!response?.basic) return [];
+    const basicData = get(response, 'basic', []);
+    if (basicData.length === 0) return [];
 
     const arcSite = query['arc-site'];
 
-    const filteredData = response.basic
+    const filteredData = basicData
         .filter(item => item.revision?.published === true)
         .slice(0, 3);
 

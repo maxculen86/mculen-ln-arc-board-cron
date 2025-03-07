@@ -57,7 +57,7 @@ describe('fetch function', () => {
         );
     });
 
-    it('should handle errors correctly and return an empty array', async () => {
+    it('should handle errors correctly and return an empty object', async () => {
         const mockError = new Error('Fetch failed');
 
         nodeFetch.mockRejectedValue(mockError);
@@ -68,6 +68,6 @@ describe('fetch function', () => {
             source: 'content/sources/relatedContentSource',
             query: query
         });
-        expect(result).toEqual([]);
+        expect(result).toEqual({});
     });
 });

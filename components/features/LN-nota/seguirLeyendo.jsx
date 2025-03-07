@@ -1,25 +1,12 @@
 import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { useContent } from 'fusion:content';
-import { useAppContext } from 'fusion:context';
 import get from '../../private/common/utils/get';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
 function seguirLeyendo({ globalContent, outputType }) {
-    const { arcSite, isAdmin } = useAppContext();
-    const id = get(globalContent, '_id', '');
-
-    const relatedContent = useContent({
-        source: 'relatedContentSource',
-        query: {
-            id,
-            website: arcSite,
-            imageConfig: 'boxArticles',
-            isAdmin
-        }
-    });
+    const relatedContent = get(globalContent, 'related_content.basic', []);
 
     useEffect(() => {
         articleBoxesTracker({

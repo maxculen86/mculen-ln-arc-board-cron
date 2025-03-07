@@ -38,7 +38,7 @@ const fetch = async (query, { cachedCall } = {}) => {
                 query
             });
 
-            return [];
+            return {};
         }
     };
 
