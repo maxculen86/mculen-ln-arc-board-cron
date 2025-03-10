@@ -27,6 +27,7 @@ export const getRegex = sectionId => {
         /^\/(deportes\/canchallena)(?:\/.+)?/,
         /^\/(economia\/IA)(?:\/.+)?/,
         /^\/(que-sale)(?:\/.+)?/,
+        /^\/(masmusica)(?:\/.+)?/,
         /\/revista-(.\w+[^\W]?)/
     ];
 
@@ -40,6 +41,9 @@ export const getRegex = sectionId => {
 export const generatePath = (sectionId, regex, fullMatch, $1) => {
     if (sectionId === '/deportes/canchallena') {
         return 'https://canchallena.lanacion.com.ar';
+    }
+    if (sectionId === '/masmusica') {
+        return 'https://masmusica.lanacion.com.ar/';
     }
     return (
         sectionId &&
@@ -66,6 +70,7 @@ export const getLogoData = sections => {
             ($1 === 'deportes/canchallena' && 'canchallena') ||
             ($1 === 'economia/IA' && 'futuria') ||
             ($1 === 'que-sale' && 'que-sale') ||
+            ($1 === 'masmusica' && 'ln-radio') ||
             $1;
         const path = generatePath(sectionId, regex, fullMatch, $1);
         return (
@@ -91,6 +96,7 @@ export const dictionaryAlt = {
     ohlala: 'Revista Ohlalá',
     futuria: 'Futuria',
     'que-sale': 'Qué Sale',
+    'ln-radio': 'LN 104.9 + Música',
     'hola-blanco': 'Revista Hola',
     'jardin-blanco': 'Revista Jardin',
     'brando-blanco': 'Revista Brando',
