@@ -15,9 +15,9 @@ export const getUpdatesFromCustomFields = (customFields = {}) => {
     return Array.from({ length: totalCustomFieldsKeys }).reduce(
         (updates, _, index) => {
             const title = customFields[`title${index}`];
-            const link = customFields[`link${index}`];
+            const link = customFields[`link${index}`] || '';
 
-            if (title && link) {
+            if (title) {
                 updates.push({ title, link });
             }
 

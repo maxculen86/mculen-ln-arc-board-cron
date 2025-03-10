@@ -5,7 +5,7 @@ import Video from '../../../../../components/private/OTT/ficha/video';
 import Context from 'fusion:context';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -25,7 +25,12 @@ describe('components - private - ott - ficha', () => {
                     title: 'MockTitle',
                     playlist: [
                         {
-                            images: ['image1.jpg', 'image2.jpg'],
+                            images: [
+                                { src: 'image1.jpg', width: 320 },
+                                { src: 'image2.jpg', width: 480 },
+                                { src: 'image3.jpg', width: 720 },
+                                { src: 'image4.jpg', width: 1280 }
+                            ],
                             image: 'main-image.jpg',
                             mediaid: 'yPJ53Pzg'
                         }

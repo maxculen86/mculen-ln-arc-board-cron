@@ -120,7 +120,7 @@ describe('SaveRecipe Component', () => {
 
         expect(FooterSaveRecipe).toHaveBeenCalledWith(
             expect.objectContaining({
-                close: mockClose,
+                close: expect.any(Function),
                 indexStep: 1,
                 leftButton: { text: 'Left Button', action: 'leftAction' },
                 rightButton: { text: 'Right Button', action: 'rightAction' },

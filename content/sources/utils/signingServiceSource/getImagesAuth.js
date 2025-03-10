@@ -49,6 +49,11 @@ export const getPromoItemsAuth = async (promoItems, cachedCall) => {
 
     const aperturaVideoBasic = get(promoItems, 'basic.promo_items.basic.url');
 
+    const imageVideoJw = get(
+        promoItems,
+        'video_jw.embed.config.videoJw.playlist[0].image'
+    );
+
     const result = {};
 
     if (
@@ -113,6 +118,17 @@ export const getPromoItemsAuth = async (promoItems, cachedCall) => {
         Object.assign(result, { videoBasicHash });
     }
 
+    if (
+        get(promoItems, 'video_jw.subtype') === 'video_jw' &&
+        !get(promoItems, 'video_jw.auth.1')
+    ) {
+        const { hash: videoJwHash = '' } = await signingServiceCachedCall(
+            imageVideoJw,
+            cachedCall
+        );
+        Object.assign(result, { videoJwHash });
+    }
+
     return result;
 };
 
@@ -124,7 +140,8 @@ export const getAllImagesAuth = async (data, cachedCall) => {
             storytellingMobileHash,
             storytellingHash,
             videoHash,
-            videoBasicHash
+            videoBasicHash,
+            videoJwHash
         } = await getPromoItemsAuth(promoItems, cachedCall);
 
         if (basicHash) {
@@ -157,6 +174,11 @@ export const getAllImagesAuth = async (data, cachedCall) => {
         if (videoBasicHash) {
             Object.assign(data.promo_items.basic.promo_items.basic, {
                 auth: { 1: videoBasicHash }
+            });
+        }
+        if (videoJwHash) {
+            Object.assign(data.promo_items.video_jw, {
+                auth: { 1: videoJwHash }
             });
         }
     }
@@ -250,6 +272,24 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                             );
                         }
                     }
+                }
+            }
+            if (
+                get(element, 'subtype') === 'video_jw' &&
+                !get(element, 'auth.1')
+            ) {
+                const image = get(
+                    element,
+                    'embed.config.videoJw.playlist[0].image'
+                );
+                const { hash: videoJwHash } = await signingServiceCachedCall(
+                    image,
+                    cachedCall
+                );
+                if (videoJwHash) {
+                    Object.assign(data.content_elements[index], {
+                        auth: { 1: videoJwHash }
+                    });
                 }
             }
         }

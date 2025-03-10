@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search } from '../../../../../components/features/LN-10-global/desplegable/search';
+import FirstSection from '../../../../../components/features/LN-10-global/desplegable/firstSection';
 import { render, fireEvent } from '@testing-library/react';
 import addEventToDataLayer from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 import '@testing-library/jest-dom';
@@ -14,13 +14,13 @@ jest.mock(
 
 describe('components - features - LN-10-global - desplegable - search', () => {
     it('should render the search component with the "label" tag and the htmlFor attribute for the queryly functionality', () => {
-        const { container } = render(<Search />);
+        const { container } = render(<FirstSection />);
         const search = container.querySelector('label');
         expect(search).toBeInTheDocument();
         expect(search).toHaveAttribute('for', 'queryly_toggle');
     });
     it('should call the addEventToDataLayer function when the search component is clicked', () => {
-        const { container } = render(<Search />);
+        const { container } = render(<FirstSection />);
         const search = container.querySelector('label');
         fireEvent.click(search);
         expect(addEventToDataLayer).toHaveBeenCalledWith({
@@ -30,8 +30,15 @@ describe('components - features - LN-10-global - desplegable - search', () => {
             event: 'e_linkclick'
         });
     });
+
+    it('should render item LN 104.9 + Música', () => {
+        const { getByText } = render(<FirstSection />);
+        const badge = getByText('NUEVO');
+        expect(badge).toBeInTheDocument();
+        expect(getByText('LN 104.9 + Música')).toBeInTheDocument();
+    });
     it('should match snapshot', () => {
-        const { container } = render(<Search />);
+        const { container } = render(<FirstSection />);
         expect(container).toMatchSnapshot();
     });
 });
