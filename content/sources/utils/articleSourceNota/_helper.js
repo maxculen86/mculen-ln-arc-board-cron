@@ -144,7 +144,10 @@ export const isValidSectionIA = sections => {
         '/espectaculos',
         '/sociedad',
         '/tecnologia',
-        '/el-mundo'
+        '/el-mundo',
+        '/lifestyle',
+        '/seguridad',
+        '/deportes'
     ];
 
     return validSections.some(validSection => section.startsWith(validSection));
