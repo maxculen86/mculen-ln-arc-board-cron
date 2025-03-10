@@ -34,13 +34,11 @@ const fetch = async query => {
 
         if (ARC_ACCESS_TOKEN) {
             opt.auth = {
-                bearer: 'ARC_ACCESS_TOKEN'
+                bearer: ARC_ACCESS_TOKEN
             };
         }
 
-        const requestResponse = await request(opt);
-
-        return requestResponse;
+        return await request(opt);
     } catch (error) {
         console.error(
             new BackendLnError(

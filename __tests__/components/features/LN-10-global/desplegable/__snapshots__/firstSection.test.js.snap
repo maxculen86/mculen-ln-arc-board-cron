@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - desplegable - search should match snapshot 1`] = `
+<div>
+  <ul
+    class="list flex flex-column gap-8 gap-0_l lg-none bg-light-100 --first-section"
+  >
+    <li
+      class="item mb-8 bg-white"
+    >
+      <label
+        class="flex w-100 cursor-pointer"
+        for="queryly_toggle"
+      >
+        <div
+          class="flex ai-center flex-grow-1 py-8 px-20"
+        >
+          <span
+            class="text ln-text text-14"
+          >
+            Buscá en LA NACION...
+          </span>
+        </div>
+        <div
+          class="flex w-50 h-50 ai-center jc-center"
+        >
+          <i
+            class="icon --icon-16"
+          >
+            <mock-icon
+              critical="true"
+              name="search"
+            />
+          </i>
+        </div>
+      </label>
+    </li>
+    <li
+      class="item border border-top border-thin border-light-300 bg-white"
+    >
+      <a
+        class="link ln-link ai-center jc-between font-bold"
+        href="https://www.lanacionmusica.com.ar/"
+        rel="nofollow"
+        target="_blank"
+        title="Ir a undefined"
+      >
+        <span
+          class="inline-flex ai-center gap-8"
+        >
+          <i
+            class="icon --icon-16 --hasWrapper"
+          >
+            <mock-icon
+              critical="true"
+              fill="var(--neutral-light-800)"
+              name="lnRadio"
+            />
+          </i>
+          LN 104.9 + Música
+        </span>
+        <span
+          class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-black text-light-0 uppercase py-6 px-8 --negative"
+        >
+          NUEVO
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+`;

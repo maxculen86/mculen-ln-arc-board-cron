@@ -4,16 +4,20 @@ const useSelectListener = (initialValue = {}) => {
     const [selectValue, setSelectValue] = useState(initialValue);
 
     const handleSelectChange = (event = {}) => {
-        event?.value && setSelectValue(event);
+        if (event?.value) {
+            setSelectValue(event);
+        }
     };
 
     const restoreInputValue = () => setSelectValue(initialValue);
 
-    useEffect(() => {
-        return () => restoreInputValue();
-    }, []);
+    useEffect(() => () => restoreInputValue(), []);
 
-    return { selectValue, onSelectChange: handleSelectChange };
+    return {
+        selectValue,
+        onSelectChange: handleSelectChange,
+        restoreInputValue
+    };
 };
 
 export default useSelectListener;

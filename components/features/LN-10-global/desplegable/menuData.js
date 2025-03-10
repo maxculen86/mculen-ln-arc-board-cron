@@ -386,7 +386,8 @@ export const menuData = [
             title: 'LN 104.9 + Música',
             icon: <IconSprite name="lnRadio" critical fill="#333333" />,
             isNew: true,
-            target: '_blank'
+            target: '_blank',
+            className: 'lg-only'
         },
         {
             name: 'LN+',

@@ -6,7 +6,7 @@ export const transformUrl = inputUrl => {
         const isProdARC = API_ENV === 'prod';
         const url = new URL(inputUrl);
         const isProdEmbedCLL = url.hostname === 'canchallena.lanacion.com.ar';
-        const matchDetailCLLRegex = /\/futbol\/[^/]+\/[^/]+-[a-zA-Z0-9]{25}/;
+        const matchDetailCLLRegex = /\/futbol\/[^/]+\/[^/]+-[a-zA-Z0-9]{20,}/;
 
         if (
             (isProdARC && !isProdEmbedCLL) ||
