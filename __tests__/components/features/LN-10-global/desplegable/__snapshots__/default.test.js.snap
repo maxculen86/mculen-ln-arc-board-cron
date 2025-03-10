@@ -58,7 +58,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
           class="nav"
         >
           <ul
-            class="list flex flex-column gap-8 lg-none bg-light-100 --first-sections"
+            class="list flex flex-column gap-8 gap-0_l lg-none bg-light-100 --first-section"
           >
             <li
               class="item mb-8 bg-white"

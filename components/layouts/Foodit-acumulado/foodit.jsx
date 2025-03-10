@@ -36,7 +36,7 @@ function AcumuladoFoodit(props) {
                     <div className="flex flex-column flex-row_md gap-16 gap-24_md">
                         <Text
                             as="h1"
-                            className="prumo prumo-semibold text-28 text-40_md text-48_lg"
+                            className="prumo prumo-semibold text-28 text-40_md text-48_lg min-w-fit"
                         >
                             {getFooditAcuTitle(globalContent)}
                         </Text>

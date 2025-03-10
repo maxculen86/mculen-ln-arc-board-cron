@@ -83,4 +83,78 @@ describe('Test function transformUrl', () => {
             'https://poc-widget-canchallena.clanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/widget/?isHome=true'
         );
     });
+
+    describe('should transform a valid URL when it includes an ID of 20 or more characters', () => {
+        const validCases = [
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxm/',
+                expected:
+                    'https://widget-canchallena.clanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxm/widget/?isHome=true',
+                idLength: 20
+            },
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxmz3f8/',
+                expected:
+                    'https://widget-canchallena.clanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxmz3f8/widget/?isHome=true',
+                idLength: 24
+            },
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxm12345/',
+                expected:
+                    'https://widget-canchallena.clanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxm12345/widget/?isHome=true',
+                idLength: 25
+            },
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxmz3f81234567890/',
+                expected:
+                    'https://widget-canchallena.clanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxmz3f81234567890/widget/?isHome=true',
+                idLength: 30
+            }
+        ];
+
+        validCases.forEach(({ idLength, inputUrl, expected }) => {
+            it(`case with idLength ${idLength}`, () => {
+                expect(transformUrl(inputUrl)).toBe(expected);
+            });
+        });
+    });
+
+    describe('should not transform a URL when it includes an ID with fewer than 20 characters', () => {
+        const invalidCases = [
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppx/',
+                expected: '',
+                idLength: 19
+            },
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63j/',
+                expected: '',
+                idLength: 10
+            },
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wa/',
+                expected: '',
+                idLength: 2
+            },
+            {
+                inputUrl:
+                    'https://canchallena.lanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-/',
+                expected: '',
+                idLength: 0
+            }
+        ];
+
+        invalidCases.forEach(({ idLength, inputUrl, expected }) => {
+            it(`case with idLength ${idLength}`, () => {
+                expect(transformUrl(inputUrl)).toBe(expected);
+            });
+        });
+    });
 });

@@ -1132,12 +1132,23 @@ strong {
     --_outer-spacing: 2;
     --_inner-spacing: 2;
   }
+  .note-body .image-group {
+    --_content-columns: 10;
+    --_outer-spacing: 3;
+    gap: 24px;
+  }
+  .note-body .image-group > * {
+    grid-column: span 5/span 5;
+  }
 }
 @media (min-width: 80rem) {
   .note-body {
     --_body-columns: 16;
     --_content-columns: 12;
     --_outer-spacing: 3;
+  }
+  .note-body .image-group {
+    --_outer-spacing: 4;
   }
 }
 
@@ -1524,6 +1535,11 @@ strong {
 
 .min-w-116 {
   min-width: 7.25rem;
+}
+
+.min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 @media (min-width: 48rem) {
