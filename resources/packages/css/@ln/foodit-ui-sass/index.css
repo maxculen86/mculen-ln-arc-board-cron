@@ -1529,6 +1529,10 @@ strong {
     max-width: 30.1875rem;
   }
 }
+.min-w-209 {
+  min-width: 13.0625rem;
+}
+
 .min-w-360 {
   min-width: 22.5rem;
 }
@@ -1717,6 +1721,10 @@ strong {
     max-height: 6.25rem;
   }
 }
+.min-h-14 {
+  min-height: 0.875rem;
+}
+
 .min-h-344 {
   min-height: 21.5rem;
 }
@@ -2072,6 +2080,9 @@ strong {
   }
   .pt-48_md {
     padding-top: 3rem;
+  }
+  .pb-0_md {
+    padding-bottom: 0rem;
   }
   .pb-24_md {
     padding-bottom: 1.5rem;

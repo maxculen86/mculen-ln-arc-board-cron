@@ -1,10 +1,7 @@
 export const mockBenefits = [
-    '<span class="roboto-bold">Empezá a comer mejor</span> con nuestros menús semanales creados por nutricionistas.',
-    '<span class="roboto-bold">Ahorrá tiempo</span> con una gran variedad de recetas fáciles, rápidas, y ricas. Todo en un solo lugar.',
-    '<span class="roboto-bold">Dejá de cocinar siempre lo mismo.</span> Usá Foodit para conocer nuevos platos y sabores.',
-    '<span class="roboto-bold">Sin complicaciones.</span> Recetas probadas con información clara y simple. Armá tu recetario y listas de compras de ingredientes.',
-    '<span class="roboto-bold">Trucos y secretos.</span> Aprendé con nuestras masterclasses, guías de cocina y notas sobre técnicas, ingredientes y consejos prácticos.',
-    'Con la suscripción de Foodit + Club LA NACION accedé a cientos de descuentos y beneficios y <span class="roboto-bold">ahorrá más de lo que cuesta la suscripción.</span>'
+    '<span class="roboto-bold">Recetas y menús para todos:</span> Planes semanales y miles de opciones fáciles y ricas en un solo lugar.',
+    '<span class="roboto-bold">Cociná sin complicaciones:</span> Guardá recetas generá lista de compras y ahorrá tiempo.',
+    '<span class="roboto-bold">Más beneficios para vos:</span> Elegí Foodit solo o con Club LA NACION y accedé a beneficios en supermercado, deco, hogar y mucho más.'
 ];
 
 export const imgsPhoneFoodit = assetsPath => [

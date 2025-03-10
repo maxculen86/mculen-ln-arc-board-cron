@@ -21,7 +21,7 @@ function ShoppingListButton({
 
     return (
         <Button
-            title="Agregar"
+            title="Agregar a lista"
             size={{ sm: 32, md: 40 }}
             onClick={() =>
                 handleIngredientListButton({
