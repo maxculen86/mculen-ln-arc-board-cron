@@ -10,6 +10,7 @@ import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
 import RawHTML from '../../../private-global/body/rawHTML/foodit';
 import PowerUpPreparacionComponent from '../../../private-global/body/powerUpPreparacion/foodit';
 import TableComponent from '../../../private-global/body/table/foodit';
+import ConsecutiveImages from '../../../private-global/body/doubleImage/foodit';
 
 const bodyComponents = {
     text: Paragraph,
@@ -17,6 +18,7 @@ const bodyComponents = {
     header: Subtitle,
     list: ListOrderedOrUnorderedComponent,
     image: ImageComponent,
+    doubleImage: ConsecutiveImages,
     oembed_response: RawHTML,
     raw_html: Html,
     interstitial_link: BotonLinkComponent,
