@@ -10,7 +10,6 @@ import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBoo
 import { getClassCondition } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
-import ShowToast from '../../../private/common/toast/showToast';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
@@ -18,7 +17,6 @@ import {
 import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
 import BarrierRequiresSubscription from '../../LN-10-global/common/barrierRequiresSubscription/default';
 import { a11yAttrsBarrierSub } from '../../../private/common/audioNews/helpers';
-import { useToast } from '../../../private/common/toast/hooks/useToast';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 
 function Share() {
@@ -49,14 +47,6 @@ function Share() {
         onOpen: openBarrier,
         onClose: closeBarrier
     } = useDisclosure(false);
-
-    const {
-        isToastOpen,
-        openToast,
-        closeToast,
-        toastData,
-        handleOperationComplete
-    } = useToast();
 
     useEffect(() => {
         if (termicaBookmark) setBookmark(checkBookmarkId);
@@ -89,11 +79,6 @@ function Share() {
 
     return (
         <div className={modShareContainerClass}>
-            <ShowToast
-                isOpen={isToastOpen}
-                onClose={closeToast}
-                {...toastData}
-            />
             <Dialog
                 isOpen={isBarrierOpen}
                 onClose={closeBarrier}
@@ -121,8 +106,6 @@ function Share() {
                         suscription={suscription}
                         subtypeVideo={subtypeVideo}
                         openBarrier={openBarrier}
-                        openToast={openToast}
-                        onOperationComplete={handleOperationComplete}
                     />
 
                     <hr className={hrVideoClasses} />

@@ -1389,8 +1389,15 @@ a {
 .animation.animation-name-rotate {
   animation-name: rotate;
 }
+.animation.animation-timing-ease {
+  animation-timing-function: ease;
+}
 .animation.animation-timing-linear {
   animation-timing-function: linear;
+}
+
+.animation-paused {
+  animation-play-state: paused;
 }
 
 .ratio-1-1 {
@@ -2198,6 +2205,10 @@ strong:not(.--font-primary),
   font-weight: 700;
 }
 
+.font-weight-700 {
+  font-weight: 700;
+}
+
 .line-height-18.line-height-18 {
   line-height: 1.125rem;
 }
@@ -2890,6 +2901,9 @@ strong:not(.--font-primary),
   }
   .p-20_lg {
     padding: 1.25rem;
+  }
+  .p-32_lg {
+    padding: 2rem;
   }
   .py-8_lg {
     padding-block: 0.5rem;

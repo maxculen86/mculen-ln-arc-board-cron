@@ -6,6 +6,7 @@ import ToggleButton from './ToggleButton';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import { getTextDisclaimer } from './helpers';
 import { useSignatureContext } from './hooks/SignatureContext';
+import renderToast from '../../../features/private-global/common/utils/renderToast';
 import DisclaimerIA from '../../../features/LN-10-global/common/disclaimerIa/default';
 
 function BuildAudioPlayer({
@@ -29,7 +30,11 @@ function BuildAudioPlayer({
         if (errorAudio) {
             onCloseAudioPlayer();
             setEnableButton(true);
-            openToast();
+            renderToast({
+                variant: 'danger',
+                message: 'Parece que hubo un problema.',
+                title: 'Error de audio'
+            });
         }
     }, [errorAudio, setEnableButton, openToast]);
 

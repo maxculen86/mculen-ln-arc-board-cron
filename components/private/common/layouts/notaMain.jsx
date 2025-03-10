@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Header from '../../../features/LN-10-global/header/default';
 import Footer from '../../LN10/footer';
 import Glossary from '../../../features/LN-10-global/glossary/default';
+import Toasts from '../../../features/LN-10-global/common/toasts/default';
 
-const NotaMain = ({ children, className }) => {
+function NotaMain({ children, className }) {
     return (
         <div id="wrapper" className={className}>
             <Header />
@@ -68,9 +69,10 @@ const NotaMain = ({ children, className }) => {
                 <Footer />
             </div>
             <Glossary />
+            <Toasts />
         </div>
     );
-};
+}
 
 NotaMain.propTypes = {
     children: PropTypes.node.isRequired,

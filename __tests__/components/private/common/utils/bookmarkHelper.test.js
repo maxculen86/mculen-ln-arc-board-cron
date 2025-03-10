@@ -142,45 +142,42 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
     describe('getStatusMessage', () => {
         const SITE_LANACION = 'https://www.lanacion.com.ar';
 
+        const baseToastProps = {
+            buttonProps: {
+                children: 'Mis Notas',
+                title: 'Ir a mis notas',
+                'area-label': 'Ir a mis notas',
+                href: `${SITE_LANACION}/mis-notas/`
+            }
+        };
+
         it('should return success configuration for status 200 with bookmarkContent', () => {
             const result = getStatusMessage(200, true);
             expect(result).toEqual({
-                timeout: 2750,
-                buttonLabel: 'Mis Notas',
-                href: `${SITE_LANACION}/mis-notas/`,
-                closable: true,
-                pauseOnHover: true,
+                ...baseToastProps,
                 title: '¡Listo!',
-                status: 'success',
-                description: 'Podés acceder desde "Menú de usuario"'
+                variant: 'success',
+                message: 'Podés acceder desde "Menú de usuario"'
             });
         });
 
         it('should return success configuration for status 200 without bookmarkContent', () => {
             const result = getStatusMessage(200, false);
             expect(result).toEqual({
-                timeout: 2750,
-                buttonLabel: 'Mis Notas',
-                href: `${SITE_LANACION}/mis-notas/`,
-                closable: true,
-                pauseOnHover: true,
+                ...baseToastProps,
                 title: '¡Listo!',
-                status: 'success',
-                description: 'Se borró de "Mis notas"'
+                variant: 'success',
+                message: 'Se borró de "Mis notas"'
             });
         });
 
         it('should return warning configuration for status 409', () => {
             const result = getStatusMessage(409, false);
             expect(result).toEqual({
-                timeout: 2750,
-                buttonLabel: 'Mis Notas',
-                href: `${SITE_LANACION}/mis-notas/`,
-                closable: true,
-                pauseOnHover: true,
+                ...baseToastProps,
                 title: '¡Atención!',
-                status: 'warning',
-                description:
+                variant: 'warning',
+                message:
                     'No se pudo guardar porque llegaste al límite permitido.'
             });
         });
@@ -188,15 +185,10 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
         it('should return default configuration for unknown status', () => {
             const result = getStatusMessage(500, false);
             expect(result).toEqual({
-                timeout: 2750,
-                buttonLabel: 'Mis Notas',
-                href: `${SITE_LANACION}/mis-notas/`,
-                closable: true,
-                pauseOnHover: true,
+                ...baseToastProps,
                 title: '¡Ups!',
-                status: 'danger',
-                description:
-                    'Hubo un problema de conexión. Reintenta más tarde.'
+                variant: 'danger',
+                message: 'Hubo un problema de conexión. Reintenta más tarde.'
             });
         });
     });

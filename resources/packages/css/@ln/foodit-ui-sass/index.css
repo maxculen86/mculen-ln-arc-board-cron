@@ -299,6 +299,20 @@ input[type=checkbox]:hover {
     transform: translateY(-6.25rem);
   }
 }
+.animation.animation-duration-300 {
+  animation-duration: 300ms;
+}
+.animation.animation-fill-forwards {
+  animation-fill-mode: forwards;
+}
+.animation.animation-timing-ease {
+  animation-timing-function: ease;
+}
+
+.animation-paused {
+  animation-play-state: paused;
+}
+
 .ratio-1-1 {
   aspect-ratio: 1 / 1;
 }
@@ -504,6 +518,14 @@ input[type=checkbox]:hover {
   color: var(--feedback-danger-600);
 }
 
+.text-neutral-light-1 {
+  color: var(--neutral-light-1);
+}
+
+.text-neutral-light-800 {
+  color: var(--neutral-light-800);
+}
+
 .bg-light-1 {
   background: var(--neutral-light-1);
 }
@@ -578,6 +600,18 @@ input[type=checkbox]:hover {
 
 .bg-transparent {
   background: transparent;
+}
+
+.bg-neutral-light-50 {
+  background: var(--neutral-light-50);
+}
+
+.bg-neutral-light-800 {
+  background: var(--neutral-light-800);
+}
+
+.bg-black-40 {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .icon-dark-800 .icon.icon svg > path {
@@ -728,6 +762,10 @@ input[type=checkbox]:hover {
     font-size: 2.5rem;
     line-height: 120%;
   }
+}
+
+.font-weight-700 {
+  font-weight: 700;
 }
 
 .prumo {
@@ -1502,6 +1540,10 @@ strong {
 }
 .max-w-32 {
   max-width: 2rem;
+}
+
+.max-w-100 {
+  max-width: 100%;
 }
 
 .max-w-1366 {
@@ -2443,6 +2485,10 @@ hr {
 
 .pointer-events-none {
   pointer-events: none;
+}
+
+.pointer-events-initial {
+  pointer-events: initial;
 }
 
 .banner-container {
