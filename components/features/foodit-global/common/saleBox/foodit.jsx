@@ -36,20 +36,19 @@ export function SaleBox({ ...props }) {
     };
     return (
         <section className="bg-positive relative w-100vw as-center" {...props}>
-            <div className="container relative pt-56 pb-56_md pb-0_lg px-16 px-24_md px-32_lg grid grid-cols-12_md grid-cols-16_lg jc-center ai-center ai-start_md gap-24 gap-64_md">
-                <div className="col-span-8 col-span-7_md col-span-9_lg flex flex-column gap-24 ai-center ai-start_md pb-56_lg">
+            <div className="container relative pt-56 pb-0_md px-16 px-24_md px-32_lg grid grid-cols-12_md grid-cols-16_lg jc-center ai-center ai-start_md gap-24 gap-64_md">
+                <div className="col-span-8 col-span-7_md col-span-9_lg flex flex-column gap-24 ai-center ai-start_md pb-56_md">
                     <Text
                         as="h2"
                         className="prumo prumo-semibold text-light-800 text-24 text-28_md text-center text-start_md"
                     >
-                        Somos Foodit. La plataforma que te ayuda a cocinar todos
-                        los días. ¿Por qué suscribirte?
+                        Tres motivos para suscribirte hoy a Foodit
                     </Text>
                     <div>
                         {mockBenefits.map(beneficts => (
                             <div
                                 key={useId()}
-                                className="flex ai-center gap-4 mb-12 text-light-700"
+                                className="flex ai-center roboto roboto-regular gap-4 mb-12 text-light-700"
                             >
                                 <Icon className="text-light-700" size={20}>
                                     <IconSprite name="check" />
@@ -75,7 +74,7 @@ export function SaleBox({ ...props }) {
                 </div>
                 <div className="col-span-8 col-span-5_md col-span-7_lg js-center as-end">
                     <Adaptableimage
-                        className="relative z-5 h-336 h-509_md h-461_lg"
+                        className="relative z-5"
                         sources={imgsPhoneFoodit(assetsPath)}
                         src={assetsPath('phone-foodit-mobile.webp')}
                         alt="Imagen celular con la app de Foodit abierta"
