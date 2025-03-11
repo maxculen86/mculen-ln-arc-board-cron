@@ -250,7 +250,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     if (!isAdmin && (!article || !articleContent)) return <></>;
 
-    const hasCustomVoice = shouldHighlightCustomVoice(article, config);
+    const hasCustomVoice = shouldHighlightCustomVoice(articleContent, config);
 
     const sectionText = hasCustomVoice ? (
         <MarqueeHighlight />

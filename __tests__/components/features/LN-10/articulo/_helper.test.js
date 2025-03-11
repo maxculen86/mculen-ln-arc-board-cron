@@ -1289,6 +1289,11 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     });
 
     describe('shouldHighlightCustomVoice', () => {
+        const AUDIO_STATUS = {
+            CREATED_AUDIO: 6,
+            UPDATED_AUDIO: 7
+        };
+
         it('should return true when all conditions are met', () => {
             const article = {
                 credits: {
@@ -1304,6 +1309,15 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                             type: 'author'
                         }
                     ]
+                },
+                promo_items: {
+                    audio_nota: {
+                        embed: {
+                            config: {
+                                audio_status: AUDIO_STATUS.CREATED_AUDIO
+                            }
+                        }
+                    }
                 }
             };
 
@@ -1425,6 +1439,124 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(shouldHighlightCustomVoice()).toBe(false);
             expect(shouldHighlightCustomVoice(null, null)).toBe(false);
             expect(shouldHighlightCustomVoice({}, {})).toBe(false);
+        });
+
+        it('should return true when all conditions are met, including audio generated', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                },
+                promo_items: {
+                    audio_nota: {
+                        embed: {
+                            config: {
+                                audio_status: AUDIO_STATUS.UPDATED_AUDIO
+                            }
+                        }
+                    }
+                }
+            };
+
+            const config = { isCustomVoiceCandidate: true };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(true);
+        });
+
+        it('should return false if audio_status is not correct', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                },
+                promo_items: {
+                    audio_nota: {
+                        embed: {
+                            config: {
+                                audio_status: 8
+                            }
+                        }
+                    }
+                }
+            };
+
+            const config = { isCustomVoiceCandidate: true };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
+        });
+
+        it('should return true if audio_status is missing, to maintain previous behavior', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-sandbox-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1c4c5db6-cb62-487b-9724-8992e566bb58.png'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                },
+                promo_items: {
+                    audio_nota: {
+                        embed: {
+                            config: {}
+                        }
+                    }
+                }
+            };
+
+            const config = { isCustomVoiceCandidate: true };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(true);
+        });
+
+        it('should return true if promo_items.audio_nota does not exist, to maintain previous behavior', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/image.png'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                },
+                promo_items: {}
+            };
+
+            const config = { isCustomVoiceCandidate: true };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(true);
         });
     });
 });
