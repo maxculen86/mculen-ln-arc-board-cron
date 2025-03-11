@@ -85,7 +85,7 @@ export const resizePromoItems = ({
             const resizedImage = resizeImgUrl({
                 arcImage: {
                     url: image,
-                    auth: { 1: promoItem?.auth['1'] }
+                    auth: { 1: auth }
                 },
                 defaultResizeWithSmart: { width: 720 }
             });
@@ -166,7 +166,7 @@ export const resizeContentElements = (
         const resizedImage = resizeImgUrl({
             arcImage: {
                 url: image,
-                auth: { 1: elem.auth['1'] }
+                auth: { 1: auth }
             },
             defaultResizeWithSmart: { width: 720 }
         });
