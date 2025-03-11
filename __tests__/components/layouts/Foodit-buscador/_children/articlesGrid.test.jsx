@@ -2,10 +2,29 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ArticlesGrid from '../../../../../components/layouts/Foodit-buscador/_children/articlesGrid';
 import { SearchContext } from '../../../../../components/layouts/Foodit-buscador/_children/searchContext';
+import { useWindowSize } from '@ln/hooks';
+import { useDrawer } from '@ln/common-ui-drawer';
+
+jest.mock('@ln/common-ui-drawer');
+jest.mock('@ln/hooks', () => {
+    return {
+        useWindowSize: jest.fn()
+    };
+});
+jest.mock('@ln/hooks', () => {
+    return {
+        useWindowSize: jest.fn(() => ({ width: 1280 })),
+        useOnClickOutside: jest.fn()
+    };
+});
 
 describe('ArticlesGrid Component', () => {
     const mockGetNextPage = jest.fn();
+    const mockToggleDrawer = jest.fn();
 
+    beforeEach(() => {
+        useDrawer.mockReturnValue({ toggleDrawer: mockToggleDrawer });
+    });
     const defaultContextValue = {
         data: {
             articlesGrid: [],
@@ -47,6 +66,24 @@ describe('ArticlesGrid Component', () => {
         expect(
             screen.getByText('resultados de: Technology')
         ).toBeInTheDocument();
+    });
+
+    it('should render the toggle filter button and handle clicks', () => {
+        const articlesGrid = [
+            {
+                guid: '1',
+                title: 'Test Article 1',
+                section: 'News'
+            }
+        ];
+        useWindowSize.mockReturnValue({ width: 1280 });
+        const { container } = renderComponent({
+            ...defaultContextValue,
+            data: { articlesGrid }
+        });
+
+        const toggleButton = container.querySelector('#btn-toggle-filter');
+        expect(toggleButton).toBeInTheDocument();
     });
 
     it('should display the skeleton loader when loading is true', () => {

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Button } from '@ln/common-ui-button';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
@@ -30,8 +30,10 @@ export default function ArticlesGrid() {
     const { toggleDrawer } = useDrawer({ id: DRAWER.BUSCADOR });
     const { width } = useWindowSize();
     const isMobile = useMemo(() => width !== 0 && width < 1280, [width]);
+    const [selectedId, setSelectedId] = useState('relevance');
 
     const handleSortChange = newSortValue => {
+        setSelectedId(newSortValue);
         setSort(newSortValue);
         resetPage();
     };
@@ -39,7 +41,7 @@ export default function ArticlesGrid() {
     const renderItems = [
         {
             key: 'mas-relevantes',
-            text: 'MAS RELEVANTES',
+            text: 'MÁS RELEVANTES',
             variant: 'default',
             type: 'button',
             className: 'text-accent-lechuga__hover',
@@ -47,7 +49,7 @@ export default function ArticlesGrid() {
         },
         {
             key: 'mas-actuales',
-            text: 'MAS ACTUALES',
+            text: 'MÁS ACTUALES',
             variant: 'default',
             type: 'button',
             className: 'text-accent-lechuga__hover',
@@ -61,7 +63,7 @@ export default function ArticlesGrid() {
             className="col-span-8 col-span-12_md col-span-12_lg"
         >
             {articlesGrid.length > 0 && (
-                <div className="flex jc-between pb-24">
+                <div className="flex flex-column flex-row_md jc-between gap-24 pb-24">
                     <div
                         className="text-24 text-28_md prumo prumo-light text-light-800"
                         id="results_count"
@@ -69,44 +71,47 @@ export default function ArticlesGrid() {
                         <span className="prumo prumo-medium">{total}</span>{' '}
                         resultados de: {query}
                     </div>
+                    <div className="flex ai-center gap-8">
+                        <div className="flex lg-none gap-8">
+                            <Button
+                                onClick={toggleDrawer}
+                                id="btn-toggle-filter"
+                                variant="secondary"
+                                className="text-light-800 text-14 roboto-bold inline-flex ai-center gap-8"
+                            >
+                                <Icon size={16}>
+                                    <IconSprite name="filter" />
+                                </Icon>
+                                <Text className="text-12">Filtrar</Text>
+                            </Button>
 
-                    <div className="flex ai-center gap-24">
-                        <Button
-                            onClick={toggleDrawer}
-                            id="btn-toggle-filter"
-                            variant="secondary"
-                            className="text-light-800 text-14 roboto-bold inline-flex ai-center gap-8"
-                        >
-                            <Icon size={16}>
-                                <IconSprite name="filter" />
-                            </Icon>
-                            <Text>Filtrar</Text>
-                        </Button>
+                            {isMobile && (
+                                <DrawerBuscador toggleDrawer={toggleDrawer} />
+                            )}
 
-                        {isMobile && (
-                            <DrawerBuscador toggleDrawer={toggleDrawer} />
-                        )}
-
-                        <hr className="h-100 border border-light-800" />
+                            <hr className="min-h-14 border border-light-800" />
+                        </div>
 
                         <div className="flex ai-center gap-8">
-                            <Text className="text-14">Ordenar por: </Text>
-                            <Dropdown className="flex cursor-pointer l-only">
-                                <Dropdown.Toggle className="text-light-800 text-14 roboto-bold">
+                            <Text className="text-14 min-w-fit">
+                                Ordenar por:
+                            </Text>
+                            <Dropdown className="flex cursor-pointer">
+                                <Dropdown.Toggle className="text-light-800 text-12 roboto-bold">
                                     <Button
                                         variant="secondary"
                                         title="ver opciones"
                                     >
                                         <Text>
                                             {sort === 'relevance'
-                                                ? 'MAS RELEVANTES'
-                                                : 'MAS ACTUALES'}
+                                                ? 'MÁS RELEVANTES'
+                                                : 'MÁS ACTUALES'}
                                         </Text>
                                     </Button>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu
                                     alignment="right"
-                                    className="bg-light-1 p-24 rounded-4 shadow-center"
+                                    className="bg-light-1 p-24 min-w-209 rounded-4 shadow-center"
                                 >
                                     {renderItems.map(item => (
                                         <Itemcard
@@ -116,6 +121,12 @@ export default function ArticlesGrid() {
                                             type={item.type}
                                             className={item.className}
                                             onClick={item.onClick}
+                                            selected={
+                                                selectedId ===
+                                                (item.key === 'mas-relevantes'
+                                                    ? 'relevance'
+                                                    : 'date')
+                                            }
                                         />
                                     ))}
                                 </Dropdown.Menu>

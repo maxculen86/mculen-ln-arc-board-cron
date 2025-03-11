@@ -37,6 +37,22 @@ export function Search({ className, ...r }) {
                         onKeyDown={handleKeyDown}
                     />
                 </div>
+                {inputValue ? (
+                    <Button
+                        data-test-id="button-header-search"
+                        title="Borrar"
+                        iconOnly
+                        variant="link"
+                        className="px-12 py-8"
+                        onClick={() => {
+                            setInputValue('');
+                        }}
+                    >
+                        <Icon size={24}>
+                            <IconSprite name="close" />
+                        </Icon>
+                    </Button>
+                ) : null}
                 <div className="flex border border-left border-thin border-light-100 h-100">
                     <Button
                         data-test-id="button-header-search"
