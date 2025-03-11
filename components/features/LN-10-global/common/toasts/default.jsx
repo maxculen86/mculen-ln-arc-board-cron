@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { ToastContainer, Toast } from '@ln/common-ui-toast';
-import { Button } from '@ln/foodit-ui-button';
+import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { getIconProps } from './helpers';
@@ -19,7 +19,13 @@ function Toasts() {
 
     const ToastButton = useCallback(
         ({ buttonProps }) =>
-            buttonProps ? <Button variant="primary" {...buttonProps} /> : null,
+            buttonProps ? (
+                <Button
+                    variant="secondary"
+                    className="bg-neutral-light-50"
+                    {...buttonProps}
+                />
+            ) : null,
         []
     );
 
@@ -47,10 +53,11 @@ function Toasts() {
     return (
         <ToastContainer
             newToast={toast}
-            transitionIn={['fade-in-right']}
+            duration={2750}
+            transitionIn={['fade-in-up']}
             hPosition="end"
-            vPosition="top"
-            className="z-15 roboto"
+            className="bottom-64 bottom-100_md z-1500"
+            style={{ alignItems: 'center' }}
         />
     );
 }

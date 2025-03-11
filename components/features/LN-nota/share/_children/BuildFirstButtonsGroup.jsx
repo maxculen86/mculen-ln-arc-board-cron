@@ -30,9 +30,7 @@ function BuildFirtsButtonsGroup({
     suscription,
     bookmark = '',
     subtypeVideo,
-    openBarrier,
-    openToast,
-    onOperationComplete
+    openBarrier
 } = {}) {
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
@@ -131,9 +129,7 @@ function BuildFirtsButtonsGroup({
                             globalContent,
                             bookmark,
                             setBookmark,
-                            openBarrier,
-                            openToast,
-                            onOperationComplete
+                            openBarrier
                         );
                     }}
                     variant="secondary"
@@ -201,9 +197,7 @@ BuildFirtsButtonsGroup.propTypes = {
     suscription: PropTypes.bool.isRequired,
     termicaBookmark: PropTypes.bool.isRequired,
     subtypeVideo: PropTypes.string.isRequired,
-    openBarrier: PropTypes.func.isRequired,
-    openToast: PropTypes.func.isRequired,
-    onOperationComplete: PropTypes.func.isRequired
+    openBarrier: PropTypes.func.isRequired
 };
 
 export default BuildFirtsButtonsGroup;

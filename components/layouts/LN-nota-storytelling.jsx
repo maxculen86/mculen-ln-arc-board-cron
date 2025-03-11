@@ -7,14 +7,14 @@ import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelli
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import { PwaModal } from '../features/LN-10-global/pwaModal/default';
+import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
-import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
+import Toasts from '../features/LN-10-global/common/toasts/default';
 import '../../resources/dist/css/ln/pages/storytelling.css';
 
 function lnNotaStorytelling({
@@ -101,6 +101,7 @@ function lnNotaStorytelling({
                     <Footer outputType={outputType} />
                 </div>
             </div>
+            <Toasts />
             <LoadBannersSSR />
             <PwaModal />
             <Glossary />
