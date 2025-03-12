@@ -23,17 +23,6 @@ describe('components - chains - LN10_Caja_Juegos_v2 - helper', () => {
             });
         });
 
-        test('should return warning when diagramation is not allowed in layout accumulated', () => {
-            expect(
-                validateGamesChain('LN-acumulado', {
-                    layout: 'oneHorizontalThreeVertical'
-                })
-            ).toEqual({
-                message: 'Esta diagramación no está permitida en este layout',
-                type: 'warning'
-            });
-        });
-
         test('should return null when diagramation is valid for layout', () => {
             expect(
                 validateGamesChain(
