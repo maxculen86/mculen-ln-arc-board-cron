@@ -1,9 +1,6 @@
 import React, { useMemo } from 'react';
-import { Button } from '@ln/foodit-ui-button';
 import { useWindowSize } from '@ln/hooks';
-import { Icon } from '@ln/common-ui-icon';
 import { useDrawer } from '@ln/common-ui-drawer';
-import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import FilterBox from './_children/filterBox';
 import ArticlesGrid from './_children/articlesGrid';
@@ -28,18 +25,6 @@ export default function FooditSearch() {
                             <FilterBox />
                         </aside>
                     )}
-                    <Button
-                        onClick={toggleDrawer}
-                        id="btn-toggle-filter"
-                        iconOnly
-                        size={{ sm: 32, md: 40 }}
-                        variant="secondary"
-                        className="lg-none absolute right-0"
-                    >
-                        <Icon size={16}>
-                            <IconSprite name="filter" />
-                        </Icon>
-                    </Button>
                     {isMobile && <DrawerBuscador toggleDrawer={toggleDrawer} />}
 
                     <ArticlesGrid />

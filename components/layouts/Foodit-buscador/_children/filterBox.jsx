@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import { cx } from '@ln/cva';
 import FiltersGroup from './filtersGroup';
 import { SearchContext } from './searchContext';
 import Chips from './chips';
@@ -19,6 +20,10 @@ export default function FilterBox({ toggleDrawer }) {
         resetPage = () => {},
         filters
     } = useContext(SearchContext);
+
+    const classNameChips = cx(
+        `flex flex-wrap gap-8 pb-0_lg ${appliedFilters.length > 0 ? 'pb-24' : ''}`
+    );
 
     return (
         <aside
@@ -38,7 +43,7 @@ export default function FilterBox({ toggleDrawer }) {
                                 Filtros
                             </span>
                         </div>
-                        <div className="flex flex-wrap gap-8 pb-24 pb-0_lg">
+                        <div className={classNameChips}>
                             {appliedFilters.map(({ group, value } = {}) => (
                                 <Chips
                                     key={`${group}-${value}`}
@@ -72,8 +77,13 @@ export default function FilterBox({ toggleDrawer }) {
                         )}
 
                         {listFilters.length
-                            ? listFilters.map(
-                                  ({ name, group, childrens = [] } = {}) =>
+                            ? listFilters.map(item => {
+                                  const {
+                                      name,
+                                      group,
+                                      childrens = []
+                                  } = item || {};
+                                  return (
                                       childrens.length > 0 && (
                                           <FiltersGroup
                                               key={`${name}-${group}`}
@@ -88,17 +98,25 @@ export default function FilterBox({ toggleDrawer }) {
                                               resetPage={resetPage}
                                               removeFilters={removeFilters}
                                               appliedFilters={appliedFilters}
+                                              isLast={
+                                                  item ===
+                                                  listFilters[
+                                                      listFilters.length - 1
+                                                  ]
+                                              }
                                           />
                                       )
-                              )
+                                  );
+                              })
                             : null}
                     </div>
                 )}
-                <div className="flex gap-18 lg-none mt-auto">
+                <div className="flex gap-18 lg-none mt-auto sticky bottom-0 bg-light-1 border border-top border-thin border-light-100 pt-16">
                     <Button
                         fullWidth
                         variant="secondary"
                         onClick={() => removeFilters({ removeAll: true })}
+                        disabled={appliedFilters.length === 0}
                     >
                         Limpiar
                     </Button>
