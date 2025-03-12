@@ -3591,6 +3591,9 @@ strong:not(.--font-primary),
   .h-40_md.h-40_md {
     height: 2.5rem;
   }
+  .h-48_md.h-48_md {
+    height: 3rem;
+  }
   .h-86_md.h-86_md {
     height: 5.375rem;
   }

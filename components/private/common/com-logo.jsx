@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
+import { cx } from '@ln/cva';
 import getAssetsPath from './utils/getAssetsPath';
 
 import ComLink from './com-link';
@@ -26,8 +27,7 @@ function ComLogo(props) {
     } = props;
 
     const { contextPath, deployment } = useAppContext();
-    const extraClass = `com-logo ${logoName} ${size || ''}`;
-    const classes = `${classCondition} ${extraClass}`;
+    const classes = cx(classCondition, 'com-logo', logoName, size);
 
     if (!logoName) return null;
 
@@ -78,8 +78,8 @@ ComLogo.propTypes = {
 ComLogo.defaultProps = {
     logoName: '',
     size: '',
-    width: '50',
-    height: '50',
+    width: 'inherit',
+    height: 'inherit',
     classCondition: '',
     href: '',
     title: '',

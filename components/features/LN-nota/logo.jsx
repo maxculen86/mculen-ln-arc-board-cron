@@ -35,7 +35,7 @@ function Logo(props) {
 
     return logoName !== 'canchallena' ? (
         <ComLogo
-            size="--xs"
+            size="h-24"
             logoName={logoName}
             href={link}
             alt={altLogo}

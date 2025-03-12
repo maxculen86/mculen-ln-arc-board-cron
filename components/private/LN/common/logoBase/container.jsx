@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import {
     dictionaryAlt,
@@ -8,14 +8,14 @@ import {
 import ModSponsor from '../../../common/mod-sponsor';
 import ComLogo from '../../../common/com-logo';
 
-const LogoBaseContainer = ({
+function LogoBaseContainer({
     sections,
     layout,
     distributor,
     sponsored,
     advertiser,
     tooltip
-}) => {
+}) {
     const { name: distributorName } = distributor || {};
     const sectionData = getSectionLogo(sections, layout, distributorName);
 
@@ -38,7 +38,7 @@ const LogoBaseContainer = ({
                 logoName={logoName}
                 sponsor={sponsor}
                 textName={advertiser}
-                link={`${path}/`} //agrego barra al final
+                link={`${path}/`} // agrego barra al final
                 tooltip={tooltip}
             />
         );
@@ -46,14 +46,14 @@ const LogoBaseContainer = ({
 
     return (
         <ComLogo
-            href={`${path}/`} //agrego barra al final
+            href={`${path}/`} // agrego barra al final
             title={altLogo}
             logoName={sponsor}
             alt={altLogo}
-            size="--sm"
+            size="h-32 h-48_md"
         />
     );
-};
+}
 
 LogoBaseContainer.propTypes = {
     sections: PropTypes.arrayOf(
@@ -69,7 +69,13 @@ LogoBaseContainer.propTypes = {
     layout: PropTypes.string.isRequired,
     sponsored: PropTypes.bool,
     advertiser: PropTypes.string,
-    subtype: PropTypes.string
+    tooltip: PropTypes.string
+};
+
+LogoBaseContainer.defaultProps = {
+    sponsored: false,
+    advertiser: '',
+    tooltip: ''
 };
 
 export default LogoBaseContainer;
