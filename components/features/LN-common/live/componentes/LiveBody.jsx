@@ -6,7 +6,7 @@ function LiveBody({ children, className, ...r }) {
     return (
         <div
             className={cx(
-                'live-body py-16 pr-16 flex pt-0 --scroll-x --degrade-scroll mr-2',
+                'live-body py-16 pr-16 flex pt-0 overflow-auto_lg contenidos-scrollbar-gray --degrade-scroll mr-2',
                 className
             )}
             {...r}
