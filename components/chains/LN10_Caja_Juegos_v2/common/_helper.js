@@ -2,7 +2,12 @@ import pageBuilderValidator from '../../../private/common/utils/pageBuilderValid
 
 const GAME_LAYOUT_RULES = {
     'LN10-Home_Main': ['fourVertical', 'oneHorizontalThreeVertical'],
-    'LN-acumulado': ['fourVertical', 'oneLargeFourSmall', 'twoHorizontal']
+    'LN-acumulado': [
+        'fourVertical',
+        'oneLargeFourSmall',
+        'twoHorizontal',
+        'oneHorizontalThreeVertical'
+    ]
 };
 
 const DIAGRAMATION_ITEM_LIMITS = {
