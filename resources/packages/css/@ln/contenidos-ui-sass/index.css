@@ -4461,6 +4461,11 @@ strong:not(.--font-primary),
     overflow: hidden;
   }
 }
+@media (min-width: 80rem) {
+  .overflow-auto_lg {
+    overflow: auto;
+  }
+}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -4805,5 +4810,30 @@ body:has(.disable-body-scroll) {
   border-radius: 8px;
 }
 .contenidos-scrollbar::-webkit-scrollbar-track:hover, .contenidos-scrollbar::-webkit-scrollbar-track:active {
+  background: #e4e4e4;
+}
+
+.contenidos-scrollbar-gray {
+  /* Cambiamos el fondo cuando esté en active */
+  /* Ponemos un color de fondo y redondeamos las esquinas del track */
+  /* Cambiamos el fondo cuando esté en active o hover */
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar {
+  width: 4px;
+  /* Tamaño del scroll en vertical */
+  height: 4px;
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-thumb {
+  background: var(--light-neutral-400);
+  border-radius: 4px;
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-thumb:active {
+  background-color: var(--light-neutral-400);
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-track {
+  background: #f7f7f4;
+  border-radius: 4px;
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-track:hover, .contenidos-scrollbar-gray::-webkit-scrollbar-track:active {
   background: #e4e4e4;
 }
