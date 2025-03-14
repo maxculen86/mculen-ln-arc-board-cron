@@ -19,7 +19,7 @@ function AperturaNoticia(props) {
         <section className="mod-opening">
             {(() => {
                 const {
-                    headlines: { basic: tituloNota },
+                    headlines: { basic: tituloNota } = {},
                     content_elements: contentElements = []
                 } = globalContent || {};
 
@@ -66,7 +66,7 @@ function AperturaNoticia(props) {
 AperturaNoticia.label = 'LN-Nota-AperturaNoticia';
 
 AperturaNoticia.propTypes = {
-    outputType: PropTypes.string,
+    outputType: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         promo_items: PropTypes.shape({
             basic: PropTypes.object
@@ -76,14 +76,8 @@ AperturaNoticia.propTypes = {
         }),
         subtype: PropTypes.string,
         content_elements: PropTypes.arrayOf(PropTypes.shape())
-    }),
-    layout: PropTypes.string
-};
-
-AperturaNoticia.defaultProps = {
-    outputType: '',
-    globalContent: {},
-    layout: ''
+    }).isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default Consumer(AperturaNoticia);
