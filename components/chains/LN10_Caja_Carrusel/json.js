@@ -11,8 +11,9 @@ class CarouselChain {
         if (hideCarousel) {
             return null;
         }
+        const children = this.props.children.filter((child) => child !== null);
         const error = validateCarruselChildren({
-            children: this.props.children,
+            children: children,
             childProps: this.childProps
         });
         if (error) {
@@ -22,7 +23,7 @@ class CarouselChain {
         const { title, link } = this.props.customFields;
         return {
             information: { title, link },
-            videos: this.props.children.slice(0, 10)
+            videos: children.slice(0, 10)
         };
     }
 
