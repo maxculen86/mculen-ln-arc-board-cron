@@ -13,8 +13,9 @@ import {
     generatePostObject,
     generatePostObjectWithoutPowerUp
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
+import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 
-const SnippetLiveblog = props => {
+function SnippetLiveblog(props) {
     const { siteProperties, globalContent, contextPath, deployment } = props;
 
     const {
@@ -50,7 +51,10 @@ const SnippetLiveblog = props => {
     const noteTitle =
         headlines &&
         `${headlines.meta_title || headlines.basic || 'LA NACION - Noticia'}`;
-    const noteDescription = subheadlines && subheadlines.basic;
+
+    const noteDescription =
+        (subheadlines && subheadlines.basic) ||
+        getFirstParagraph(contentElements);
 
     const data = {
         '@context': urlShema,
@@ -106,7 +110,7 @@ const SnippetLiveblog = props => {
     };
 
     return <SnippetRender id="Schema_LiveBlog" data={data} />;
-};
+}
 
 SnippetLiveblog.propTypes = {
     siteProperties: PropTypes.shape.isRequired,
