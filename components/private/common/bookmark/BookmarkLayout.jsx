@@ -10,16 +10,14 @@ import HelperBookmark from './HelperBookmark';
 import useListBookmarks from '../hooks/bookmark/useListBookmarks';
 import useCountBookmarks from '../hooks/bookmark/useCountBookmarks';
 import useTermica from '../hooks/useTermica';
-import ShowToast from '../toast/showToast';
 import { isSubscribed, SUBSCRIBED_HELPER } from '../auth/helper/loginHelper';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
-import useAuthManager from '../auth/hooks/useAuthManager';
-import { useToast } from '../toast/hooks/useToast';
 import BarrierDeleteNote from '../../../features/LN-10-global/common/barrierDeleteNote/default';
 import {
     BookmarkContextProvider,
     useBookmarkContext
 } from './hooks/BookmarkContext';
+import useAuthManager from '../auth/hooks/useAuthManager';
 
 function BookmarkLayoutContent() {
     const [showHelper, setShowHelper] = useState(false);
@@ -46,14 +44,6 @@ function BookmarkLayoutContent() {
         onOpen: openBarrier,
         onClose: closeBarrier
     } = useDisclosure(false);
-
-    const {
-        isToastOpen,
-        openToast,
-        closeToast,
-        toastData,
-        handleOperationComplete
-    } = useToast();
 
     const { bookmarkId } = useBookmarkContext();
 
@@ -107,15 +97,8 @@ function BookmarkLayoutContent() {
                     bookmarkId={bookmarkId}
                     deleteArticle={deleteArticle}
                     substractOne={substractOne}
-                    onOperationComplete={handleOperationComplete}
-                    openToast={openToast}
                 />
             </Dialog>
-            <ShowToast
-                isOpen={isToastOpen}
-                onClose={closeToast}
-                {...toastData}
-            />
         </div>
     );
 }

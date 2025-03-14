@@ -8,8 +8,13 @@ import {
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import deleteIngredientList from '../../../common/bookmark/api/deleteIngredientList';
 
-export const saveIngredientsList = async ({ text, sections, id }) => {
-    const response = await postIngredientsList({ text, sections, id });
+export const saveIngredientsList = async ({ text, sections, id, portions }) => {
+    const response = await postIngredientsList({
+        text,
+        sections,
+        id,
+        portions
+    });
 
     if (response && response.bookmarkId) {
         addToast({
@@ -63,7 +68,8 @@ export const handleIngredientListButton = async ({
     articleId,
     bookmarkId,
     setBookmarkId,
-    ingredientsLists
+    ingredientsLists,
+    portions
 }) => {
     if (isSuscriptor) {
         addEventToDataLayerV2({
@@ -88,7 +94,8 @@ export const handleIngredientListButton = async ({
             const newBookmarkId = await saveIngredientsList({
                 text: title,
                 sections: ingredientsLists.reduce(ingredientsListReduce, []),
-                id: articleId
+                id: articleId,
+                portions
             });
             if (newBookmarkId) {
                 setBookmarkId(newBookmarkId);

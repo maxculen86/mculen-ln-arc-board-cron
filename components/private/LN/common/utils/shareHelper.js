@@ -5,7 +5,10 @@ import classNames from 'classnames';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
-import toggleBookmark from '../../../common/utils/bookmarkHelper';
+import toggleBookmark, {
+    getStatusMessage
+} from '../../../common/utils/bookmarkHelper';
+import renderToast from '../../../../features/private-global/common/utils/renderToast';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from './addEventToDataLayer';
@@ -159,9 +162,7 @@ export const onButtonClicked = (
     globalContent,
     bookmark,
     setBookmark,
-    openBarrier,
-    openToast,
-    onOperationComplete
+    openBarrier
 ) => {
     addEventToDataLayerV2({
         event: 'e_linkclick',
@@ -176,8 +177,8 @@ export const onButtonClicked = (
             setBookmark,
             _globalContent: globalContent
         }).then(({ status, bookmarkContent }) => {
-            onOperationComplete(status, bookmarkContent);
-            openToast();
+            const toastConfig = getStatusMessage(status, bookmarkContent);
+            renderToast(toastConfig);
         });
     } else {
         openBarrier();

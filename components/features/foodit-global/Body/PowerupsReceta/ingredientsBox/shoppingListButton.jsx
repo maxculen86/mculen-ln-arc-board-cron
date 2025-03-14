@@ -12,11 +12,16 @@ function ShoppingListButton({
     title = '',
     bookmarkId,
     setBookmarkId,
-    isSuscriptor
+    isSuscriptor,
+    currentPortion,
+    defaultPortion
 }) {
+    const portionsValue =
+        currentPortion > defaultPortion ? currentPortion : defaultPortion;
+
     return (
         <Button
-            title="Agregar"
+            title="Agregar a lista"
             size={{ sm: 32, md: 40 }}
             onClick={() =>
                 handleIngredientListButton({
@@ -25,7 +30,8 @@ function ShoppingListButton({
                     articleId,
                     bookmarkId,
                     setBookmarkId,
-                    ingredientsLists
+                    ingredientsLists,
+                    portions: portionsValue
                 })
             }
         >
@@ -54,7 +60,9 @@ ShoppingListButton.propTypes = {
             titleList: PropTypes.string.isRequired,
             typeList: PropTypes.string.isRequired
         })
-    ).isRequired
+    ).isRequired,
+    currentPortion: PropTypes.number.isRequired,
+    defaultPortion: PropTypes.number.isRequired
 };
 
 export default ShoppingListButton;

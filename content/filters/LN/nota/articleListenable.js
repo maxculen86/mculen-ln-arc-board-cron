@@ -564,6 +564,24 @@ export default `
                     1
                 }
             }
+            promo_items {
+                basic {
+                    _id
+                    type
+                    content
+                    ${image}
+                    auth {
+                      1
+                    }
+                    originalSizes {
+                        height
+                        width
+                    }
+                    subtitle
+                    caption
+                    alt_text
+                 }
+            }
         }
         redirect {
             redirect_url

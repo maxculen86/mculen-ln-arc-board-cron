@@ -6,7 +6,7 @@ exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono
     alt="bbc"
     href="/distributor/bbc-mundo/"
     logoname="bbc"
-    size="--sm"
+    size="h-32 h-48_md"
     title="bbc"
   />
   <h1

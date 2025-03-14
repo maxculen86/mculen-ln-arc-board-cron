@@ -30,18 +30,19 @@ const deleteIngredientList = async (
             addErrorToast();
             return { bookmarkId, status: response.status };
         }
-
-        setShoppingList
-            ? setShoppingList(shoppingList => {
-                  return shoppingList.filter(
-                      article => article.bookmarkId !== bookmarkId
-                  );
-              })
-            : addToast({
-                  variant: TOAST.SUCCESS.VARIANT,
-                  title: TOAST.SUCCESS.TITLE,
-                  message: `${title} ${TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS}`
-              });
+        if (setShoppingList) {
+            setShoppingList(shoppingList =>
+                shoppingList.filter(
+                    article => article.bookmarkId !== bookmarkId
+                )
+            );
+        } else {
+            addToast({
+                variant: TOAST.SUCCESS.VARIANT,
+                title: TOAST.SUCCESS.TITLE,
+                message: `${title} ${TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS}`
+            });
+        }
 
         return { bookmarkId, status: '200' };
     } catch (error) {

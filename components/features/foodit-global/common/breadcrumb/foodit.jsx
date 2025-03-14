@@ -40,7 +40,13 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
     return (
         <div className={classNames('flex ai-center gap-8', className)}>
             <Static htmlOnly persistent id="breadcrumb-foodit">
-                <Breadcrumb gap={8} className="text-14">
+                <Breadcrumb
+                    gap="gap-8"
+                    classnames={{
+                        base: 'text-14',
+                        separator: 'text-light-200'
+                    }}
+                >
                     {renderSections}
                 </Breadcrumb>
             </Static>

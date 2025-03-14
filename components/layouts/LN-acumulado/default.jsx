@@ -17,10 +17,11 @@ import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalCont
 import get from '../../private/common/utils/get';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
-import { PwaModal } from '../../features/LN-10-global/pwaModal/default';
+import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 import InitControlGroup from '../helpers/initCtrlGrp';
+import Toasts from '../../features/LN-10-global/common/toasts/default';
 import { CLASS_ACU_REVISTA, revistas, getSectionClassName } from './helpers';
 
 const acumToSearchAperturaChain = ['tags'];
@@ -212,6 +213,7 @@ function LNAcumuladoLayout(props) {
                         <Footer />
                     </div>
                 </div>
+                <Toasts />
                 <LoadBannersSSR />
                 <PwaModal />
                 <InitControlGroup />

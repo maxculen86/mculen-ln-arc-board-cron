@@ -8,6 +8,7 @@ function useFetchSearchResults({
     queryUrl,
     filters,
     page,
+    sort = 'relevance',
     withFilterBox = true
 }) {
     const [data, setData] = useState({ loading: true, articlesGrid: [] });
@@ -16,11 +17,12 @@ function useFetchSearchResults({
         const fetchSearchResults = async (
             query,
             appliedFilters,
-            numberPage
+            numberPage,
+            sortParam
         ) => {
             try {
                 const response = await fetch(
-                    `${URL_BASE}&query=${query}&batchsize=24&showfaceted=${withFilterBox}${appliedFilters}&endindex=${numberPage}`
+                    `${URL_BASE}&query=${query}&sort=${sortParam}&batchsize=24&showfaceted=${withFilterBox}${appliedFilters}&endindex=${numberPage}`
                 );
 
                 const {
@@ -49,8 +51,8 @@ function useFetchSearchResults({
             }
         };
 
-        fetchSearchResults(queryUrl, filters, page);
-    }, [queryUrl, filters, page]);
+        fetchSearchResults(queryUrl, filters, page, sort);
+    }, [queryUrl, filters, page, sort]);
 
     return { data, loading: data.loading };
 }

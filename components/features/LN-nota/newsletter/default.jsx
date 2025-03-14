@@ -4,13 +4,11 @@ import PropTypes from 'fusion:prop-types';
 import React, { useEffect, useState } from 'react';
 import Lazy from 'lazy-child';
 import { NewsletterBox } from '@ln/lib-newsletter';
-import { ToastContainer } from '@ln/common-ui-toast';
-import { Toast } from '@ln/contenidos-ui-toast';
+import renderToast from '../../private-global/common/utils/renderToast';
 import get from '../../../private/common/utils/get';
-import { toastProps } from './_helper';
+import { TOAST_CONFIG } from '../../LN-10-global/common/toasts/helpers';
 import NewsLetterEventsScript from '../../../private/common/scriptManager/NewsLetterEventScript';
 import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
-import '../../../../resources/packages/css/@ln/common-ui-toast/index.css';
 
 function NewsLetter({ globalContent }) {
     const [propsNewsletter, setPropsNewsletter] = useState({
@@ -21,7 +19,6 @@ function NewsLetter({ globalContent }) {
         useTestEnvironment: API_ENV !== 'prod',
         onSubscription: () => {}
     });
-    const [newToast, setNewToast] = useState();
     const { token, accessToken } = useAuthManager();
 
     useEffect(() => {
@@ -37,10 +34,24 @@ function NewsLetter({ globalContent }) {
             userIdToken: token || '',
             isUserLoading: false,
             userAccessToken: accessToken || '',
-            onSubscription: ({ code }) =>
-                code >= 200 && code < 400
-                    ? setNewToast(<Toast {...toastProps.success} />)
-                    : setNewToast(<Toast {...toastProps.error} />)
+            onSubscription: ({ code }) => {
+                if (code >= 200 && code < 400) {
+                    renderToast({
+                        variant: TOAST_CONFIG.SUCCESS.VARIANT,
+                        title: TOAST_CONFIG.SUCCESS.TITLE,
+                        message: TOAST_CONFIG.SUCCESS.MESSAGE.ADD_NEWSLLETER,
+                        buttonProps: {
+                            ...TOAST_CONFIG.BUTTON_PROPS.NEWSLETTER_BOX
+                        }
+                    });
+                } else {
+                    renderToast({
+                        variant: TOAST_CONFIG.ERROR.VARIANT,
+                        title: TOAST_CONFIG.ERROR.TITLE,
+                        message: TOAST_CONFIG.ERROR.MESSAGE.ADD_NEWSLLETER
+                    });
+                }
+            }
         });
     }, [token, accessToken]);
 
@@ -49,18 +60,10 @@ function NewsLetter({ globalContent }) {
             renderPlaceholder={ref => <div ref={ref} />}
             offsetTop={LAZY_OFFSETTOP}
         >
-            <>
-                <ToastContainer
-                    transitionIn={['fade-in-up']}
-                    vPosition="inherit"
-                    hPosition="center"
-                    newToast={newToast}
-                    className="top-113 top-auto_md bottom-100_md p-16 p-24_md p-32_lg bottom-100_md"
-                />
-                <div className="mb-32">
-                    <NewsletterBox {...propsNewsletter} />
-                </div>
-            </>
+            <div className="mb-32">
+                <NewsletterBox {...propsNewsletter} />
+            </div>
+
             <NewsLetterEventsScript />
         </Lazy>
     );
