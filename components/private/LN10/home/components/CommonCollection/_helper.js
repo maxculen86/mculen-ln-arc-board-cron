@@ -4,6 +4,18 @@ import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
 import { LIVEBLOG } from '../../../../common/utils/subtypes/subtypeHelper';
+import isExternalDistributor from '../../../../common/utils/isExternalDistributor';
+
+export const getDataAuthorCollection = (article, distributor = {}) => {
+    const distributorName = distributor?.name || '';
+    const distributorCategory = distributor?.category || '';
+    const author = get(article, 'credits.by[0]', {});
+    const authorName = author?.name || '';
+    const authorType = author?.additional_properties?.author_type || '';
+    if (isExternalDistributor(distributorName, distributorCategory, authorType))
+        return distributorName;
+    return authorName.trim() ? authorName : null;
+};
 
 const getCardConfig = (config, articleData) => {
     const {
@@ -15,11 +27,12 @@ const getCardConfig = (config, articleData) => {
         isLoadWithPicture,
         href = ''
     } = config || {};
+    const distributor = get(articleData, 'distributor', {});
     const promoItems = get(articleData, 'promo_items.basic');
     const containsImage =
         get(articleData, 'promo_items.basic.type', '') === 'image';
 
-    const dataAuthor = getDataAuthorCollection(articleData);
+    const dataAuthor = getDataAuthorCollection(articleData, distributor);
     return {
         withImage: containsImage && withMedia,
         subhead:
@@ -64,13 +77,6 @@ export const getTitleAndLeadForHome = (
         lead: titleTextShort !== '' ? lead : '',
         title: titleTextShort !== '' ? titleTextShort : titleTextLong
     };
-};
-
-export const getDataAuthorCollection = article => {
-    const authors = get(article, 'credits.by', []);
-    const [author] = authors;
-    const authorName = get(author, 'name', '');
-    return authorName.trim() ? authorName : null;
 };
 
 export const getBadge = ({ article, isExclusiveSub, isFoodit }) => {
