@@ -316,6 +316,8 @@ const customPowerUps = `
             time
             isoDate
             ${configPowerUpVideoJw}
+            widgetUrl
+            embedType
         }
     }
 `;
