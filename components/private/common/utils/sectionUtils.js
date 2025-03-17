@@ -43,7 +43,7 @@ export const generatePath = (sectionId, regex, fullMatch, $1) => {
         return 'https://canchallena.lanacion.com.ar';
     }
     if (sectionId === '/masmusica') {
-        return 'https://masmusica.lanacion.com.ar/';
+        return 'https://masmusica.lanacion.com.ar';
     }
     return (
         sectionId &&
