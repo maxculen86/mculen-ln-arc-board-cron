@@ -112,6 +112,7 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
     });
 
     it('Testeo Secciones Seccion Apertura sin information', () => {
+        const spy = jest.spyOn(console, 'error').mockImplementation(() => void 0);
         const Seccion = [
             {
                 type: 0,
@@ -124,14 +125,14 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
                 sectionWeb: 'Apertura_1'
             }
         ];
-        try {
-            const home = index(Seccion, paramsPage);
-            expect(home[0].items.length).toBe(null);
-        } catch (err) {
-            expect(err.message).toBe(
-                "Cannot read properties of undefined (reading 'layout')"
-            );
-        }
+        const home = index(Seccion, paramsPage);
+        expect(home[0].items.length).toBe(0);
+        expect(spy).toHaveBeenCalledWith(
+            expect.stringContaining(
+                'Cannot read properties of undefined (reading \'layout\')'
+            )
+        );
+        spy.mockRestore();
     });
 
     it('Total expected boxes test when two themes come without articles', () => {
