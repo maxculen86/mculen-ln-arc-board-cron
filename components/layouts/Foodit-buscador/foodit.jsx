@@ -33,3 +33,5 @@ export default function FooditSearch() {
         </BaseLayout>
     );
 }
+
+FooditSearch.sections = ['Bloque-1'];
