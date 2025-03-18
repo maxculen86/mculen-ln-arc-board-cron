@@ -17,6 +17,7 @@ import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
 import Parallax from '../../../../private/LN/nota/cuerpo/powerUpParallax';
 import PowerUpLiveBlog from '../../../../private/LN/nota/cuerpo/powerUpLiveBlog';
+import EmbedCll from '../../../../private/LN/nota/cuerpo/EmbedCll';
 // utils
 import { selectRule } from './_bodyRules';
 
@@ -38,7 +39,8 @@ const bodyComponents = [
     powerUpsReceta,
     Parallax,
     Divider,
-    PowerUpLiveBlog
+    PowerUpLiveBlog,
+    EmbedCll
 ];
 
 export const bodyElementRules = (props = {}) => {
