@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - feature - LN-nota - Footer Component renders correctly with valid props and context 1`] = `
+<body>
+  <div>
+    <div>
+      Signature
+    </div>
+    <div>
+      Logo
+    </div>
+    <div>
+      ExternalSignature
+    </div>
+    <div>
+      Themes
+    </div>
+    <div>
+      TrustProject
+    </div>
+  </div>
+</body>
+`;

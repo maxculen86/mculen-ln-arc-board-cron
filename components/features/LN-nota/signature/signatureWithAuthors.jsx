@@ -13,7 +13,7 @@ function SignatureWithAuthors({
     photo,
     medio,
     audioButton,
-    position,
+    position = 'Bottom',
     showSignatureWithAuthors,
     subtype
 }) {
