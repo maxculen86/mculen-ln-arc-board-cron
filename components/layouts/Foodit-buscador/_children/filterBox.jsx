@@ -77,7 +77,7 @@ export default function FilterBox({ toggleDrawer }) {
                         )}
 
                         {listFilters.length
-                            ? listFilters.map(item => {
+                            ? listFilters.map((item, i) => {
                                   const {
                                       name,
                                       group,
@@ -98,12 +98,7 @@ export default function FilterBox({ toggleDrawer }) {
                                               resetPage={resetPage}
                                               removeFilters={removeFilters}
                                               appliedFilters={appliedFilters}
-                                              isLast={
-                                                  item ===
-                                                  listFilters[
-                                                      listFilters.length - 1
-                                                  ]
-                                              }
+                                              isFirst={i === 0}
                                           />
                                       )
                                   );

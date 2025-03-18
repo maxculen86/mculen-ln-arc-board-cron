@@ -12,11 +12,13 @@ export default function FiltersGroup({
     removeFilters,
     resetPage,
     group,
-    isLast
+    isFirst
 }) {
-    const classNameContainer = cx('pb-16', {
-        'border border-bottom border-thin border-light-100 mb-16': !isLast
-    });
+    const classNameContainer = cx(
+        !isFirst
+            ? 'border border-top border-thin border-light-100 pt-16 mb-16'
+            : 'pb-16'
+    );
 
     return (
         <Accordion visible>
@@ -59,7 +61,7 @@ FiltersGroup.propTypes = {
     applyFilter: PropTypes.func.isRequired,
     removeFilters: PropTypes.func.isRequired,
     group: PropTypes.string,
-    isLast: PropTypes.bool.isRequired
+    isFirst: PropTypes.bool.isRequired
 };
 
 FiltersGroup.defaultProps = {
