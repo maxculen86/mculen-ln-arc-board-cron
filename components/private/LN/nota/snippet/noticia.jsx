@@ -56,18 +56,7 @@ const extracDataFromCredits = (by, config = {}) => {
 const publishingPrinciples =
     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
-export const sectionsWithTypeNewsArticle = [
-    'Tecnología',
-    'Sociedad',
-    'Espectáculos',
-    'Lifestyle',
-    'Autos',
-    'Seguridad',
-    'Opinión',
-    'El Mundo'
-];
-
-export const getTrustProject = trust => (data, sections) => sponsored => {
+export const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
     if (sponsored)
         return {
@@ -85,11 +74,7 @@ export const getTrustProject = trust => (data, sections) => sponsored => {
         case Trust.TRUST_NOTICIA:
             return {
                 ...data,
-                '@type': sectionsWithTypeNewsArticle.some(element =>
-                    sections?.some(section => section.name.includes(element))
-                )
-                    ? 'NewsArticle'
-                    : 'ReportageNewsArticle',
+                '@type': 'NewsArticle',
                 publishingPrinciples
             };
         case Trust.TRUST_ANALISIS:
@@ -138,7 +123,7 @@ function SnippetNoticia({
         type,
         headlines,
         content_elements: contentElements = [],
-        taxonomy: { primary_section: primarySection = {}, tags, sections },
+        taxonomy: { primary_section: primarySection = {}, tags },
         credits: { by },
         distributor = { name: 'LA NACION' },
         created_date: createdDate = '',
@@ -230,7 +215,7 @@ function SnippetNoticia({
         image
     };
 
-    data = getTrustProject(trust)(data, sections)(sponsored);
+    data = getTrustProject(trust)(data)(sponsored);
 
     SnippetNoticia.propTypes = {
         siteProperties: PropTypes.shape({
@@ -254,11 +239,6 @@ function SnippetNoticia({
                         description: PropTypes.string,
                         slug: PropTypes.string,
                         text: PropTypes.string
-                    })
-                ),
-                sections: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        name: PropTypes.string
                     })
                 )
             }),
