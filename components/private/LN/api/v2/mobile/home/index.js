@@ -96,76 +96,82 @@ const index = (
 
         const boxInfo = attachBanners(box, sectionAliasMobile, banners);
 
-        const type = Number(sectionBox.type);
-        switch (type) {
-            case 0:
-                {
-                    const articleFn =
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `${layoutPage}.article`,
-                            null
-                        ) ||
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `default.article`,
-                            null
+        try {
+            const type = Number(sectionBox.type);
+            switch (type) {
+                case 0:
+                    {
+                        const articleFn =
+                            get(
+                                FunctionsBoxContentsByLayout,
+                                `${layoutPage}.article`,
+                                null
+                            ) ||
+                            get(
+                                FunctionsBoxContentsByLayout,
+                                `default.article`,
+                                null
+                            );
+                        result.push(
+                            boxTypeByLayout(layoutPage, type)(
+                                sectionBox,
+                                boxInfo,
+                                articleFn,
+                                paramsFromPage
+                            )
                         );
+                    }
+                    break;
+                case 1:
+                case 5:
                     result.push(
-                        boxTypeByLayout(layoutPage, type)(
-                            sectionBox,
-                            boxInfo,
-                            articleFn,
-                            paramsFromPage
-                        )
+                        boxTypeByLayout(layoutPage, type)(sectionBox, typeSection)
                     );
-                }
-                break;
-            case 1:
-            case 5:
-                result.push(
-                    boxTypeByLayout(layoutPage, type)(sectionBox, typeSection)
-                );
 
-                break;
-            case 2:
-                {
-                    const anexoFn =
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `${layoutPage}.anexo`,
-                            null
-                        ) ||
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `default.anexo`,
-                            null
+                    break;
+                case 2:
+                    {
+                        const anexoFn =
+                            get(
+                                FunctionsBoxContentsByLayout,
+                                `${layoutPage}.anexo`,
+                                null
+                            ) ||
+                            get(
+                                FunctionsBoxContentsByLayout,
+                                `default.anexo`,
+                                null
+                            );
+                        result.push(
+                            boxTypeByLayout(layoutPage, type)(
+                                sectionBox,
+                                boxInfo,
+                                anexoFn
+                            )
                         );
+                    }
+
+                    break;
+
+                case 3:
+                case 8:
+                case 10:
                     result.push(
-                        boxTypeByLayout(layoutPage, type)(
-                            sectionBox,
-                            boxInfo,
-                            anexoFn
-                        )
+                        boxTypeByLayout(layoutPage, type)(sectionBox, boxInfo)
                     );
-                }
-
-                break;
-
-            case 3:
-            case 8:
-            case 10:
-                result.push(
-                    boxTypeByLayout(layoutPage, type)(sectionBox, boxInfo)
-                );
-                break;
-            case 4:
-                result.push(boxTypeByLayout(layoutPage, type)(f, typeSection));
-                break;
-            default:
-                // eslint-disable-next-line no-console
-                console.log('to discard');
-                break;
+                    break;
+                case 4:
+                    result.push(boxTypeByLayout(layoutPage, type)(f, typeSection));
+                    break;
+                default:
+                    // eslint-disable-next-line no-console
+                    console.log('to discard');
+                    break;
+            }
+        } catch (e) {
+            console.error(
+                `${e.name}: ${e.message} at api/v2/mobile/home/index on element: ${JSON.stringify(information)}`
+            );
         }
 
         return result;

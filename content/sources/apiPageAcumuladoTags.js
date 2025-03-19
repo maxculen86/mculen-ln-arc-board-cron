@@ -1,10 +1,10 @@
 import { SITE_LANACION } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
+import home from '../../components/private/LN/api/v2/mobile/homeAccumulated';
+import NotFoundError from './utils/notFoundError';
+import pageTransformV2Format from './utils/pageSource/acumulados/v2/mobile/byTag/pageTransformV2Format';
 import pages from './utils/pageSource/index';
 import transform from './utils/pageSource/pageAcumulados/v2/mobile/transform';
-import home from '../../components/private/LN/api/v2/mobile/homeAccumulated';
-import pageTransformV2Format from './utils/pageSource/acumulados/v2/mobile/byTag/pageTransformV2Format';
-import NotFoundError from './utils/notFoundError';
 
 const getParamsFromQuery = query => {
     const { uri = '', website, versionUri } = query;
@@ -66,11 +66,10 @@ const fetch = async (query, { cachedCall }) => {
 
         return pageTransformV2Format(resultPageData);
     } catch (error) {
-        // eslint-disable-next-line no-console
         console.warn(
-            `Error in content/apiPageAcumuladoTags : 
-            query parameters: ${JSON.stringify(query)} 
-            - errorMsj: ${error.message}`
+            `LnWarn: Error in content/sources/apiPageAcumuladoTags : 
+                    query parameters: ${JSON.stringify(query)} 
+                    - errorMsj: ${error.message}`
         );
 
         if (error instanceof NotFoundError) {
