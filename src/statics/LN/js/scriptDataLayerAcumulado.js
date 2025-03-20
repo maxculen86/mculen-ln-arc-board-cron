@@ -1,6 +1,0 @@
-window.dataLayer = window.dataLayer || [];
-
-window.dataLayer.push({
-    metarefresh: 'N/A',
-    pagetype: 'acumulado'
-});
