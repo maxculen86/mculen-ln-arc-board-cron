@@ -1,12 +1,35 @@
 import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import get from '../../private/common/utils/get';
+import { useContent } from 'fusion:content';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
+import get from '../../private/common/utils/get';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
+import filter from '../../../content/filters/LN/nota/articleAcu';
+
+// TODO hacer unit test, fix hooks y default props
 
 function seguirLeyendo({ globalContent, outputType }) {
+    const justThreeStories = content =>
+        content
+            .filter(element => element && element.type === 'story')
+            .slice(0, 3);
+
+    const getRelatedData = content =>
+        content.map(article =>
+            useContent({
+                source: 'articleSourceNota',
+                query: {
+                    id: article._id,
+                    imageConfig: 'boxArticles'
+                },
+                filter
+            })
+        );
+
     const relatedContent = get(globalContent, 'related_content.basic', []);
+    const relatedStories = justThreeStories(relatedContent);
+    const articles = getRelatedData(relatedStories);
 
     useEffect(() => {
         articleBoxesTracker({
@@ -14,7 +37,7 @@ function seguirLeyendo({ globalContent, outputType }) {
         });
     }, []);
 
-    if (!relatedContent || !relatedContent.length) return null;
+    if (!articles.length) return null;
 
     return (
         <div className="row">
@@ -27,7 +50,7 @@ function seguirLeyendo({ globalContent, outputType }) {
                     data-diagramacion-id="0"
                 >
                     <SeguirLeyendo
-                        relatedContent={relatedContent}
+                        relatedContent={articles}
                         outputType={outputType}
                     />
                 </section>
@@ -40,7 +63,17 @@ seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({
-        _id: PropTypes.string
+        related_content: PropTypes.shape({
+            basic: PropTypes.arrayOf(
+                PropTypes.shape({
+                    type: PropTypes.string,
+                    headlines: PropTypes.shape({
+                        basic: PropTypes.string,
+                        mobile: PropTypes.string
+                    })
+                })
+            )
+        })
     }).isRequired,
     outputType: PropTypes.string.isRequired
 };

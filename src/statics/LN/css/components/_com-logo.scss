@@ -20,7 +20,7 @@
             height: px(21);
         }
     }
-    
+
     &.ln-nota-logo {
         margin-bottom: 20px;
     }
@@ -243,6 +243,15 @@
         &.--sm {
             height: px(48);
             width: inherit;
+        }
+    }
+    &.ln-radio,
+    .ln-radio-blanco {
+        &.--xs {
+            height: px(32);
+        }
+        &.--sm {
+            height: px(48);
         }
     }
 
