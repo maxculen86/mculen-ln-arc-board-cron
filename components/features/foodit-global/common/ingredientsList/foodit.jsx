@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Icon } from '@ln/common-ui-icon';
-// import { Text } from '@ln/common-ui-text';
+import { Icon } from '@ln/common-ui-icon';
+import { Text } from '@ln/common-ui-text';
 import IngredientsListHeader from './components/Header';
 import IngredientsListContent from './components/Content';
 import { MainWrapper } from './components/MainWrapper';
 import { HeaderWrapper } from './components/HeaderWrapper';
 import { ContentWrapper } from './components/ContentWrapper';
-// import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 export function IngredientsList({ list = [], setShoppingList }) {
     return (
@@ -18,7 +18,8 @@ export function IngredientsList({ list = [], setShoppingList }) {
                 const {
                     text = '',
                     sections = [],
-                    bookmarkId = ''
+                    bookmarkId = '',
+                    portions
                 } = articleIngredients || {};
 
                 return (
@@ -33,15 +34,17 @@ export function IngredientsList({ list = [], setShoppingList }) {
                                 />
                             </HeaderWrapper>
                             <ContentWrapper>
-                                {/* TODO: Add portions to the list in the future  */}
-                                {/* <div className="flex ai-center gap-8 pt-24">
-                                    <Icon>
-                                        <IconSprite name="portion" />
-                                    </Icon>
-                                    <Text className="uppercase roboto roboto-bold text-14">
-                                        Porciones: x
-                                    </Text>
-                                </div> */}
+                                {portions && portions !== undefined && (
+                                    <div className="flex ai-center gap-8 pt-24">
+                                        <Icon>
+                                            <IconSprite name="portion" />
+                                        </Icon>
+                                        <Text className="uppercase roboto roboto-bold text-14">
+                                            Porciones: {portions}
+                                        </Text>
+                                    </div>
+                                )}
+
                                 {sections.map(section => (
                                     <IngredientsListContent
                                         key={`${bookmarkId}-ingredient`}

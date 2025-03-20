@@ -2,16 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
-import toggleBookmark from '../../../../private/common/utils/bookmarkHelper';
+import toggleBookmark, {
+    getStatusMessage
+} from '../../../../private/common/utils/bookmarkHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import renderToast from '../../../private-global/common/utils/renderToast';
 
 function BarrierDeleteNote({
     closeBarrier = () => null,
     bookmarkId,
     deleteArticle,
-    substractOne,
-    onOperationComplete,
-    openToast
+    substractOne
 }) {
     return (
         <div className="barrier flex flex-column jc-center ai-center rounded-4 w-328 bg-light-50 m-16 py-16 px-20">
@@ -55,9 +56,12 @@ function BarrierDeleteNote({
                                 deleteArticle(bookmarkId);
                                 substractOne();
                             }
-                            onOperationComplete(status, bookmarkContent);
                             closeBarrier();
-                            openToast();
+                            const toastConfig = getStatusMessage(
+                                status,
+                                bookmarkContent
+                            );
+                            renderToast(toastConfig);
                         });
                     }}
                 >
@@ -72,9 +76,7 @@ BarrierDeleteNote.propTypes = {
     closeBarrier: PropTypes.func.isRequired,
     bookmarkId: PropTypes.string.isRequired,
     deleteArticle: PropTypes.func.isRequired,
-    substractOne: PropTypes.func,
-    onOperationComplete: PropTypes.func.isRequired,
-    openToast: PropTypes.func.isRequired
+    substractOne: PropTypes.func
 };
 
 BarrierDeleteNote.defaultProps = {

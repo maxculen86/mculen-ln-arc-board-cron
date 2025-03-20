@@ -1,8 +1,9 @@
-import { PERSONALIZACION_APIV2, SITE_LANACION } from 'fusion:environment';
+import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
 import { getAuthTokens } from '../auth/helper/loginHelper';
+import { TOAST_CONFIG } from '../../../features/LN-10-global/common/toasts/helpers';
 
 export function getBookmarkContent(globalContent) {
     const regexResizerUrl =
@@ -171,36 +172,27 @@ export default function toggleBookmark({
 }
 
 export const getStatusMessage = (status, bookmarkContent) => {
-    const baseConfig = {
-        timeout: 2750,
-        buttonLabel: 'Mis Notas',
-        href: `${SITE_LANACION}/mis-notas/`,
-        closable: true,
-        pauseOnHover: true
-    };
-
     const statusConfig = {
         200: {
-            title: '¡Listo!',
-            status: 'success',
-            description: !bookmarkContent
-                ? 'Se borró de "Mis notas"'
-                : 'Podés acceder desde "Menú de usuario"'
+            title: TOAST_CONFIG.SUCCESS.TITLE,
+            variant: TOAST_CONFIG.SUCCESS.VARIANT,
+            message: !bookmarkContent
+                ? TOAST_CONFIG.SUCCESS.MESSAGE.DELETE_BOOKMARK
+                : TOAST_CONFIG.SUCCESS.MESSAGE.ADD_BOOKMARK
         },
         409: {
-            title: '¡Atención!',
-            status: 'warning',
-            description:
-                'No se pudo guardar porque llegaste al límite permitido.'
+            title: TOAST_CONFIG.WARNING.TITLE,
+            variant: TOAST_CONFIG.WARNING.VARIANT,
+            message: TOAST_CONFIG.WARNING.MESSAGE.LIMIT_REACHED
         }
     };
 
     return {
-        ...baseConfig,
+        buttonProps: TOAST_CONFIG.BUTTON_PROPS.BOOKMARK,
         ...(statusConfig[status] || {
             title: '¡Ups!',
-            status: 'danger',
-            description: 'Hubo un problema de conexión. Reintenta más tarde.'
+            variant: TOAST_CONFIG.ERROR.VARIANT,
+            message: TOAST_CONFIG.ERROR.MESSAGE.CONNECTION
         })
     };
 };

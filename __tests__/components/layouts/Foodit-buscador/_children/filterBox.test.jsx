@@ -114,9 +114,16 @@ describe('FilterBox Component', () => {
     });
 
     it('should call removeFilters with removeAll when the "Limpiar" button is clicked', () => {
-        renderComponent();
+        const appliedFilters = [{ group: 'category', value: 'filter1' }];
+        renderComponent({ ...defaultContextValue, appliedFilters });
 
-        const clearButton = screen.getByRole('button', { name: /limpiar/i });
+        const clearButtons = screen.getAllByRole('button', {
+            name: /limpiar/i
+        });
+        const clearButton = clearButtons.find(
+            button => button.textContent === 'Limpiar'
+        );
+        expect(clearButton).not.toBeDisabled();
         fireEvent.click(clearButton);
 
         expect(mockRemoveFilters).toHaveBeenCalledWith({ removeAll: true });

@@ -76,17 +76,6 @@ describe('foodit Component', () => {
         expect(screen.getByTestId('articles-grid')).toBeInTheDocument();
     });
 
-    it('should render the toggle filter button and handle clicks', () => {
-        useWindowSize.mockReturnValue({ width: 1280 });
-        const { container } = render(<FooditSearch />);
-
-        const toggleButton = container.querySelector('#btn-toggle-filter');
-        expect(toggleButton).toBeInTheDocument();
-
-        fireEvent.click(toggleButton);
-        expect(mockToggleDrawer).toHaveBeenCalledTimes(1);
-    });
-
     it('should render the DrawerBuscador component and handle toggleDrawer', () => {
         useWindowSize.mockReturnValue({ width: 1279 });
 

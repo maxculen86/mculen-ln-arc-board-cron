@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import { Text } from '@ln/common-ui-text';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -34,7 +35,9 @@ function ChefFoodit(props) {
         imageProps: {
             src: imageUrl,
             alt: byline,
-            title: byline
+            title: byline,
+            fetchPriority: 'high',
+            loading: 'eager'
         },
         description: longBio,
         socialNetworks
@@ -43,7 +46,9 @@ function ChefFoodit(props) {
     return (
         <BaseLayout>
             <div className="grid gap-40">
-                <AuthorBiography {...authorBiography} />
+                <Static id="Foodit-chef">
+                    <AuthorBiography {...authorBiography} />
+                </Static>
                 <hr className="floating-button-sentinel" />
                 <section className="grid gap-24_md">
                     <div className="roof-sticky py-12 py-0_md">

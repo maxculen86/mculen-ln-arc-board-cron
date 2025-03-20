@@ -95,10 +95,10 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
             >
               <a
                 class="link ln-link ai-center jc-between font-bold"
-                href="https://www.lanacionmusica.com.ar/"
+                href="https://masmusica.lanacion.com.ar/"
                 rel="nofollow"
                 target="_blank"
-                title="Ir a undefined"
+                title="Ir a LN 104.9 + Música"
               >
                 <span
                   class="inline-flex ai-center gap-8"

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Accordion } from '@ln/common-ui-accordion';
+import { cx } from '@ln/cva';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import CheckBoxList from './checkboxList';
 
@@ -10,13 +11,20 @@ export default function FiltersGroup({
     applyFilter,
     removeFilters,
     resetPage,
-    group
+    group,
+    isFirst
 }) {
+    const classNameContainer = cx(
+        !isFirst
+            ? 'border border-top border-thin border-light-100 pt-16 mb-16'
+            : 'pb-16'
+    );
+
     return (
         <Accordion visible>
             <section
                 id="main_ingredients_filter"
-                className="border border-bottom border-thin border-light-100 mb-16 pb-16"
+                className={classNameContainer}
             >
                 <div className="flex ai-center cursor-pointer roboto roboto-bold text-12 mb-16">
                     <Accordion.Header icon={<IconSprite name="arrow-down" />}>
@@ -52,7 +60,8 @@ FiltersGroup.propTypes = {
     resetPage: PropTypes.func.isRequired,
     applyFilter: PropTypes.func.isRequired,
     removeFilters: PropTypes.func.isRequired,
-    group: PropTypes.string
+    group: PropTypes.string,
+    isFirst: PropTypes.bool.isRequired
 };
 
 FiltersGroup.defaultProps = {

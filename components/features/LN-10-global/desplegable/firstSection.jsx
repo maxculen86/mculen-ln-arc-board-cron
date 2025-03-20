@@ -38,9 +38,10 @@ function FirstSection() {
             </li>
             <li className="item border border-top border-thin border-light-300 bg-white">
                 <Link
-                    href="https://www.lanacionmusica.com.ar/"
+                    href="https://masmusica.lanacion.com.ar/"
                     target="_blank"
                     className="ai-center jc-between font-bold"
+                    title="Ir a LN 104.9 + Música"
                 >
                     <span className="inline-flex ai-center gap-8">
                         <Icon

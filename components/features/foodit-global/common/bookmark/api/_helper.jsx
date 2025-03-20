@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@ln/foodit-ui-link';
+import renderToast from '../../../../private-global/common/utils/renderToast';
 
 export const TOAST = {
     SUCCESS: {
@@ -54,7 +55,7 @@ export const TOAST = {
 };
 
 export const addToast = ({ variant, title, message }) => {
-    window?.LN?.observable?.publish('addToast', {
+    renderToast({
         variant,
         title,
         message
@@ -62,7 +63,7 @@ export const addToast = ({ variant, title, message }) => {
 };
 
 export const addErrorToast = () => {
-    addToast({
+    renderToast({
         variant: TOAST.ERROR.VARIANT,
         title: TOAST.ERROR.TITLE,
         message: TOAST.ERROR.MESSAGE.GENERIC

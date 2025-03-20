@@ -1,6 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import bodyComponents from '../utils/bodyComponents';
+import ConsecutiveImages from '../../../private-global/body/doubleImage/foodit';
 import { transformEmbedScript } from '../../../LN-nota/body/_utils/_embedHelper';
 import { STORYTELLING } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
@@ -12,9 +12,20 @@ const setDataComponent = ({
     capitalIndex,
     type,
     subtype,
-    articleSubtype
-}) =>
-    articleSubtype === STORYTELLING ? (
+    articleSubtype,
+    hasConsecutiveImages,
+    images
+}) => {
+    if (hasConsecutiveImages && images) {
+        return (
+            <ConsecutiveImages
+                key={`consecutive-${currentIndex}`}
+                images={images}
+            />
+        );
+    }
+
+    return articleSubtype === STORYTELLING ? (
         <section key={`body-${currentIndex}`} className="content">
             <Component
                 data={element}
@@ -31,6 +42,7 @@ const setDataComponent = ({
             {...(extraProps[type] || extraProps[subtype] || {})}
         />
     );
+};
 
 const buildBody = ({ globalContent = {} }) => {
     const {
@@ -46,7 +58,10 @@ const buildBody = ({ globalContent = {} }) => {
         }
     };
 
+    const processedIndices = new Set();
+
     return contentElements.map((element, currentIndex) => {
+        if (processedIndices.has(currentIndex)) return null;
         if (!element) return null;
 
         const { type, subtype } = element.subtype
@@ -57,9 +72,33 @@ const buildBody = ({ globalContent = {} }) => {
             el => el.type === 'text'
         );
 
+        if (type === 'image' && currentIndex < contentElements.length - 1) {
+            const nextElement = contentElements[currentIndex + 1];
+            const nextElementProcessed = nextElement?.subtype
+                ? transformEmbedScript(nextElement)
+                : nextElement;
+            const nextType = nextElementProcessed?.type;
+
+            if (nextType === 'image') {
+                processedIndices.add(currentIndex + 1);
+
+                return setDataComponent({
+                    Component: ConsecutiveImages,
+                    extraProps,
+                    element,
+                    currentIndex,
+                    capitalIndex,
+                    type,
+                    subtype,
+                    articleSubtype,
+                    hasConsecutiveImages: true,
+                    images: [element, nextElement]
+                });
+            }
+        }
+
         const Component =
             bodyComponents[type] || bodyComponents[subtype] || null;
-
         const elementData =
             type === 'image' ? { ...element, title: tituloNota } : element;
 
@@ -72,7 +111,8 @@ const buildBody = ({ globalContent = {} }) => {
                   capitalIndex,
                   type,
                   subtype,
-                  articleSubtype
+                  articleSubtype,
+                  hasConsecutiveImages: false
               })
             : null;
     });

@@ -4901,8 +4901,15 @@ a {
 .animation.animation-name-rotate {
   animation-name: rotate;
 }
+.animation.animation-timing-ease {
+  animation-timing-function: ease;
+}
 .animation.animation-timing-linear {
   animation-timing-function: linear;
+}
+
+.animation-paused {
+  animation-play-state: paused;
 }
 
 .ratio-1-1 {
@@ -5710,6 +5717,10 @@ strong:not(.--font-primary),
   font-weight: 700;
 }
 
+.font-weight-700 {
+  font-weight: 700;
+}
+
 .line-height-18.line-height-18 {
   line-height: 1.125rem;
 }
@@ -6403,6 +6414,9 @@ strong:not(.--font-primary),
   .p-20_lg {
     padding: 1.25rem;
   }
+  .p-32_lg {
+    padding: 2rem;
+  }
   .py-8_lg {
     padding-block: 0.5rem;
   }
@@ -7089,6 +7103,9 @@ strong:not(.--font-primary),
   .h-40_md.h-40_md {
     height: 2.5rem;
   }
+  .h-48_md.h-48_md {
+    height: 3rem;
+  }
   .h-86_md.h-86_md {
     height: 5.375rem;
   }
@@ -7758,6 +7775,10 @@ strong:not(.--font-primary),
   right: -0.125rem;
 }
 
+.right--3 {
+  right: -0.2rem;
+}
+
 .right-4 {
   right: 0.25rem;
 }
@@ -7950,6 +7971,11 @@ strong:not(.--font-primary),
 @media (min-width: 48rem) {
   .overflow-hidden_md {
     overflow: hidden;
+  }
+}
+@media (min-width: 80rem) {
+  .overflow-auto_lg {
+    overflow: auto;
   }
 }
 .overflow-hidden {
@@ -8296,6 +8322,31 @@ body:has(.disable-body-scroll) {
   border-radius: 8px;
 }
 .contenidos-scrollbar::-webkit-scrollbar-track:hover, .contenidos-scrollbar::-webkit-scrollbar-track:active {
+  background: #e4e4e4;
+}
+
+.contenidos-scrollbar-gray {
+  /* Cambiamos el fondo cuando esté en active */
+  /* Ponemos un color de fondo y redondeamos las esquinas del track */
+  /* Cambiamos el fondo cuando esté en active o hover */
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar {
+  width: 4px;
+  /* Tamaño del scroll en vertical */
+  height: 4px;
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-thumb {
+  background: var(--light-neutral-400);
+  border-radius: 4px;
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-thumb:active {
+  background-color: var(--light-neutral-400);
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-track {
+  background: #f7f7f4;
+  border-radius: 4px;
+}
+.contenidos-scrollbar-gray::-webkit-scrollbar-track:hover, .contenidos-scrollbar-gray::-webkit-scrollbar-track:active {
   background: #e4e4e4;
 }header .text.ln-text {
   color: #000000;

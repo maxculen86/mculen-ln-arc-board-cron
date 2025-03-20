@@ -7,7 +7,7 @@ const BARRIER_LOGGED = 'barrier-logged';
 const BARRIER_UNLOGGED = 'barrier-unlogged';
 
 function RenderButtons({ variant, userType }) {
-    if (variant === '404') return null;
+    if (variant === '404' || variant === 'search-engine') return null;
 
     const {
         label,

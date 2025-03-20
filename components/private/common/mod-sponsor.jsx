@@ -10,7 +10,7 @@ import ComContainer from './com-container';
 import ModTooltip from './mod-tooltip';
 import { dictionaryAlt } from './utils/sectionUtils';
 
-const ModSponsor = props => {
+function ModSponsor(props) {
     const { type, sponsor, textName, link, logoName, tooltip = {} } = props;
 
     return (
@@ -19,40 +19,38 @@ const ModSponsor = props => {
                 <ComLink link={link}>
                     <ComLogo
                         logoName={sponsor}
-                        size="--sm"
+                        size="h-32 h-48_md"
                         alt={dictionaryAlt[sponsor]}
                     />
                 </ComLink>
             )}
 
-            <>
-                {type === '--contentlab' ? (
-                    <ComText size="--threexs" extraClass="com-text --sponsor">
-                        Content LAB para {textName}
-                        {tooltip.label && (
-                            <span className="com-text --tooltip">
-                                <ComContainer>
-                                    <ModTooltip label={tooltip.label} />
-                                </ComContainer>
-                            </span>
-                        )}
-                    </ComText>
-                ) : (
-                    <ComText size="--threexs" extraClass="com-text --sponsor">
-                        Espacio Patrocinado
-                        {tooltip.label && (
-                            <span className="com-text --tooltip">
-                                <ComContainer>
-                                    <ModTooltip label={tooltip.label} />
-                                </ComContainer>
-                            </span>
-                        )}
-                    </ComText>
-                )}
-            </>
+            {type === '--contentlab' ? (
+                <ComText size="--threexs" extraClass="com-text --sponsor">
+                    Content LAB para {textName}
+                    {tooltip.label && (
+                        <span className="com-text --tooltip">
+                            <ComContainer>
+                                <ModTooltip label={tooltip.label} />
+                            </ComContainer>
+                        </span>
+                    )}
+                </ComText>
+            ) : (
+                <ComText size="--threexs" extraClass="com-text --sponsor">
+                    Espacio Patrocinado
+                    {tooltip.label && (
+                        <span className="com-text --tooltip">
+                            <ComContainer>
+                                <ModTooltip label={tooltip.label} />
+                            </ComContainer>
+                        </span>
+                    )}
+                </ComText>
+            )}
         </div>
     );
-};
+}
 
 ModSponsor.propTypes = {
     type: PropTypes.string,

@@ -4,11 +4,7 @@ import Redirect from '../redirect';
 import validateExclusiveAccess from '../validateExclusiveAccess';
 import isNotShowcase from '../isNotShowcase';
 import paywallUtils from '../paywall';
-import {
-    configPromoItems,
-    configCallbackContentElements,
-    configCallbacksRelatedContent
-} from './_configs';
+import { configPromoItems, configCallbackContentElements } from './_configs';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 import validateSponsoredLink from '../validateSponsoredLink';
@@ -22,6 +18,7 @@ import {
 import addParallaxData from '../addParallaxData';
 import { recipePowerUps } from '../powerUp';
 import firmaDistributorValidation from '../firmaDistributorValidator';
+import relatedContentSource from '../../relatedContentSource';
 // Tener en cuenta que foodit usa estos helpers
 
 export const getUrlQuery = key => {
@@ -147,7 +144,10 @@ export const isValidSectionIA = sections => {
         '/espectaculos',
         '/sociedad',
         '/tecnologia',
-        '/el-mundo'
+        '/el-mundo',
+        '/lifestyle',
+        '/seguridad',
+        '/deportes'
     ];
 
     return validSections.some(validSection => section.startsWith(validSection));
@@ -377,6 +377,8 @@ export const transform = async (response, query, cachedCall) => {
         imageConfig
     } = query;
 
+    const id = get(response, '_id', '');
+
     const arcSite = query['arc-site'];
     const siteProperties = getProperties(arcSite);
     const newData = await getAllImagesAuth(response, cachedCall);
@@ -435,14 +437,15 @@ export const transform = async (response, query, cachedCall) => {
                 aditionalProps,
                 arcSite
             }),
-            Promise.all(
-                transformElementsBasedOnType({
-                    arrayElements: get(result, 'related_content.basic', []),
-                    configCallbacks: configCallbacksRelatedContent,
-                    searchPropertyOnElem: 'type',
-                    aditionalProps
-                })
-            )
+            cachedCall('relatedContentSource', relatedContentSource.fetch, {
+                query: {
+                    id,
+                    website: arcSite,
+                    imageConfig: 'boxArticles',
+                    isAdmin
+                },
+                independent: true
+            })
         ]);
 
     return {
@@ -473,7 +476,7 @@ export const transform = async (response, query, cachedCall) => {
         content_elements: [...contentElements],
         related_content: {
             ...get(result, 'related_content', {}),
-            basic: relatedContentBasic
+            basic: relatedContentBasic || []
         },
         paywallEnabled,
         subscription: meteringVariant,

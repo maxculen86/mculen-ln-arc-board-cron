@@ -5,7 +5,6 @@ import {
     addForwardSlashInParagraphsLinks
 } from '../../../../components/private/LN/common/utils/addForwardSlash';
 import convertVideoArcToJw from './cachedCalls/convertVideoArcToJW';
-import addFollowAnotherNoteData from './cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../components/private/common/utils/get';
 
 export const configPromoItems = {
@@ -48,12 +47,6 @@ export const configCallbackContentElements = {
     }
 };
 
-const callbacksByTypeReference = {
-    story: ({ cachedCall, element, arcSite } = {}) => {
-        return addFollowAnotherNoteData(cachedCall, element, arcSite);
-    }
-};
-
 const configListWithItemText = (element, glossary) => {
     if (!element) return null;
 
@@ -71,19 +64,6 @@ const configListWithItemText = (element, glossary) => {
     });
 
     return element;
-};
-
-export const configCallbacksRelatedContent = {
-    reference: ({ cachedCall, element, arcSite } = {}) => {
-        const selectedCallback =
-            callbacksByTypeReference[get(element, 'referent.type', '')];
-
-        if (selectedCallback) {
-            return selectedCallback({ cachedCall, element, arcSite });
-        }
-
-        return element;
-    }
 };
 
 export const removeErrosInterstitialLink = (url = '') => {
