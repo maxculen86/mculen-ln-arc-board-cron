@@ -1,21 +1,21 @@
 import {
-    CONTENT_BASE,
-    ARC_ACCESS_TOKEN,
-    LANACION_SERVICES_URL,
     API_ENV,
-    API_KEY_ARC_SERVICES
+    API_KEY_ARC_SERVICES,
+    ARC_ACCESS_TOKEN,
+    CONTENT_BASE,
+    LANACION_SERVICES_URL
 } from 'fusion:environment';
 import request from 'request-promise-native';
-import filter from '../filters/LN/acumulado/tag';
-import logger from '../../components/private/common/utils/logger';
-import NotFoundError from './utils/notFoundError';
-import getRequest from './utils/getRequest';
-import transformWikiTagData from './utils/transformWikiTagData';
-import getRequestWithJSON from './utils/getRequestWithJson';
-import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
-import get from '../../components/private/common/utils/get';
 import { isValidString } from '../../components/private/common/utils/dataValidation';
+import get from '../../components/private/common/utils/get';
+import logger from '../../components/private/common/utils/logger';
+import filter from '../filters/LN/acumulado/tag';
+import getRequest from './utils/getRequest';
+import getRequestWithJSON from './utils/getRequestWithJson';
+import NotFoundError from './utils/notFoundError';
+import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 import { extractIdFromImageUrl } from './utils/tagSource/_helper';
+import transformWikiTagData from './utils/transformWikiTagData';
 
 const resolve = key => {
     const { slug } = key;
@@ -142,6 +142,12 @@ const fetch = async (query, { cachedCall }) => {
             return transform(resp, query, tagConfigData, cachedCall);
         })
         .catch(error => {
+            console.warn(
+                `LnWarn:Error in content/sources/tagSource : 
+                query parameters: ${JSON.stringify(query)} 
+                - errorMsj: ${error.message}`,
+                'sourceError'
+            );
             logger.push(
                 error,
                 { source: 'content/source/tagSource', url: `/tema/${slug}/` },
