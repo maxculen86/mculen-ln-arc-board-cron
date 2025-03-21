@@ -1,7 +1,16 @@
 import isNoteListenable from '../../../../../content/sources/utils/audioNews/helper';
 import responseArticleSource from '../../../../../__mocks__/data/articles/responseArticleSource.json';
+import {
+    isAudioGenerated,
+    isValidDate
+} from '../../../../../content/sources/utils/audioNews/helper';
 
 describe('Test - isNoteListenable', () => {
+    const AUDIO_STATUS = {
+        CREATED_AUDIO: 6,
+        UPDATED_AUDIO: 7
+    };
+
     const data = {
         ...responseArticleSource,
         source: {
@@ -25,7 +34,16 @@ describe('Test - isNoteListenable', () => {
                 content: 'Un parrafo'
             }
         ],
-        first_publish_date: '2023-11-24T18:06:59.601Z'
+        first_publish_date: '2023-11-24T18:06:59.601Z',
+        promo_items: {
+            audio_nota: {
+                embed: {
+                    config: {
+                        audio_status: AUDIO_STATUS.CREATED_AUDIO
+                    }
+                }
+            }
+        }
     };
 
     describe('When the note is of spectacles', () => {
@@ -123,7 +141,8 @@ describe('Test - isNoteListenable', () => {
                 isNoteListenable({
                     ...data,
                     display_date: '2022-09-15T18:06:59.601Z',
-                    first_publish_date: ''
+                    first_publish_date: '',
+                    promo_items: {}
                 })
             ).toBeFalsy();
         });
@@ -140,7 +159,45 @@ describe('Test - isNoteListenable', () => {
             first_publish_date: '2023-11-24T18:06:59.601Z'
         };
 
-        it('It should return true when the source is composer, the subtype is enabled, and the publish date is 23/11/2023 onwards.', () => {
+        const casesTruthy = [
+            [
+                'It should return true when the source is composer, the subtype is enabled, the publish date is after 23/11/2023, and audioStatus is valid.',
+                {
+                    ...response,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_status: AUDIO_STATUS.CREATED_AUDIO
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return true when audioStatus is missing, maintaining previous logic',
+                {
+                    ...response,
+                    promo_items: {}
+                }
+            ],
+            [
+                'Should return true when promo_items.audio_nota exists but audio_status is missing',
+                {
+                    ...response,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {}
+                            }
+                        }
+                    }
+                }
+            ]
+        ];
+
+        it.each(casesTruthy)('%s', (message, response) => {
             expect(isNoteListenable(response)).toBeTruthy();
         });
 
@@ -149,21 +206,24 @@ describe('Test - isNoteListenable', () => {
                 'Should return false when the publish date is 23/11/2023 before.',
                 {
                     ...response,
-                    first_publish_date: '2022-09-21T18:06:59.601Z'
+                    first_publish_date: '2022-09-21T18:06:59.601Z',
+                    promo_items: {}
                 }
             ],
             [
                 'Should return false when the subtype is not enabled.',
                 {
                     ...response,
-                    subtype: '9'
+                    subtype: '9',
+                    promo_items: {}
                 }
             ],
             [
                 'Should return false when the subtype is not enabled (LIVEBLOG).',
                 {
                     ...response,
-                    subtype: '6'
+                    subtype: '6',
+                    promo_items: {}
                 }
             ],
             [
@@ -172,7 +232,8 @@ describe('Test - isNoteListenable', () => {
                     ...response,
                     source: {
                         system: 'LN-9'
-                    }
+                    },
+                    promo_items: {}
                 }
             ],
             ['Should return false when data is not defined', undefined],
@@ -185,7 +246,8 @@ describe('Test - isNoteListenable', () => {
                             type: 'image',
                             content: 'image.png'
                         }
-                    ]
+                    ],
+                    promo_items: {}
                 }
             ],
             [
@@ -196,14 +258,16 @@ describe('Test - isNoteListenable', () => {
                         {
                             type: undefined
                         }
-                    ]
+                    ],
+                    promo_items: {}
                 }
             ],
             [
                 'Should return false when the contentElements is not defined',
                 {
                     ...response,
-                    content_elements: [undefined]
+                    content_elements: [undefined],
+                    promo_items: {}
                 }
             ],
             [
@@ -215,7 +279,8 @@ describe('Test - isNoteListenable', () => {
                             display: true,
                             text: 'No mostrar audio'
                         }
-                    }
+                    },
+                    promo_items: {}
                 }
             ],
             [
@@ -226,7 +291,8 @@ describe('Test - isNoteListenable', () => {
                         primary_section: {
                             _id: '/juegos'
                         }
-                    }
+                    },
+                    promo_items: {}
                 }
             ],
             [
@@ -237,7 +303,8 @@ describe('Test - isNoteListenable', () => {
                         primary_section: {
                             _id: '/newsletters'
                         }
-                    }
+                    },
+                    promo_items: {}
                 }
             ],
             [
@@ -249,7 +316,8 @@ describe('Test - isNoteListenable', () => {
                             _id: '/estados-unidos/california'
                         }
                     },
-                    first_publish_date: '2023-11-24T18:06:59.601Z'
+                    first_publish_date: '2023-11-24T18:06:59.601Z',
+                    promo_items: {}
                 }
             ],
             [
@@ -261,7 +329,39 @@ describe('Test - isNoteListenable', () => {
                             _id: '/estados-unidos'
                         }
                     },
-                    first_publish_date: '2023-11-24T18:06:59.601Z'
+                    first_publish_date: '2023-11-24T18:06:59.601Z',
+                    promo_items: {}
+                }
+            ],
+            [
+                'Should return false when audioStatus is invalid',
+                {
+                    ...response,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_status: 8
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return false when the note is published after the release date and audioStatus is null',
+                {
+                    ...response,
+                    first_publish_date: '2025-03-26T00:00:00.000Z',
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_status: null
+                                }
+                            }
+                        }
+                    }
                 }
             ]
         ];
@@ -269,5 +369,65 @@ describe('Test - isNoteListenable', () => {
         it.each(casesFalsy)('%s', (message, response) => {
             expect(isNoteListenable(response)).toBeFalsy();
         });
+    });
+});
+
+describe('Test - isAudioGenerated', () => {
+    const AUDIO_STATUS = {
+        CREATED_AUDIO: 6,
+        UPDATED_AUDIO: 7
+    };
+
+    it('should return true for CREATED_AUDIO', () => {
+        expect(isAudioGenerated(AUDIO_STATUS.CREATED_AUDIO)).toBe(true);
+    });
+
+    it('should return true for UPDATED_AUDIO', () => {
+        expect(isAudioGenerated(AUDIO_STATUS.UPDATED_AUDIO)).toBe(true);
+    });
+
+    it('should return false for an unknown audioStatus', () => {
+        expect(isAudioGenerated(8)).toBe(false);
+    });
+
+    it('should return false for null status', () => {
+        expect(isAudioGenerated(null)).toBe(false);
+    });
+
+    it('should return false for undefined status', () => {
+        expect(isAudioGenerated(undefined)).toBe(false);
+    });
+});
+
+describe('Test - isValidDate', () => {
+    it('should return true for a date equal to releaseDate', () => {
+        expect(isValidDate('20231123')).toBe(true);
+    });
+
+    it('should return true for a date after releaseDate', () => {
+        expect(isValidDate('20241124')).toBe(true);
+    });
+
+    it('should return false for a date before releaseDate', () => {
+        expect(isValidDate('20231122')).toBe(false);
+    });
+
+    it('should return true for a formatted date with dashes', () => {
+        expect(isValidDate('2023-11-23')).toBe(true);
+    });
+
+    it('should return true for a formatted date with letters and time', () => {
+        expect(isValidDate('2025-03-18T13:22:49.627Z')).toBe(true);
+    });
+
+    it('should return true for a valid date after a releaseDate', () => {
+        expect(isValidDate('20250326', 20250325)).toBe(true);
+    });
+
+    it('should return false for a date before a releaseDate', () => {
+        expect(isValidDate('20250320', 20250325)).toBe(false);
+    });
+    it('should return false for an empty date', () => {
+        expect(isValidDate('')).toBe(false);
     });
 });

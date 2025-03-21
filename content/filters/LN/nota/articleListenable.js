@@ -489,6 +489,13 @@ export default `
                 }
             }
         }
+        audio_nota {
+            embed {
+                config {
+                    audio_status
+                }
+            }
+        }
     }
     credits {
         by {
