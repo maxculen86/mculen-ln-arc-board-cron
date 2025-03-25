@@ -20,6 +20,12 @@ export default `
         _id
         subtype
         canonical_url
+        distributor {
+            name
+            category
+            reference_id
+            mode
+        }
         promo_items {
             basic {
                 ${image}
@@ -71,6 +77,7 @@ export default `
                 }
                 additional_properties {
                     original {
+                        author_type
                         image
                         voice
                     }

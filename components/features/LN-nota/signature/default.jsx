@@ -13,6 +13,7 @@ import SignatureWithAuthors from './signatureWithAuthors';
 import SignatureWithDistributor from './signatureWithDistributor';
 import WithoutSignature from './withoutSignature';
 import { useSignature } from './hook/useSignature';
+import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
 
 function SignatureFeature(props) {
     const {
@@ -28,15 +29,18 @@ function SignatureFeature(props) {
         }
     } = props;
 
-    const { name, mode } = distributor;
-    const showSignatureWithDistributor =
-        withFirmaDistributor && name !== 'lanacionar';
+    const { name, mode, category } = distributor;
 
     const { photo, medio, authors, dataAuthor } = useSignature({
         creditsBy,
         position,
         contentElements
     });
+
+    const showSignatureWithDistributor =
+        (withFirmaDistributor && name !== 'lanacionar') ||
+        (isExternalDistributor(name, category, dataAuthor.author_type) &&
+            position === 'Top');
 
     const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
     const { thermicalAudio } = audioPlayerProps;
@@ -46,7 +50,8 @@ function SignatureFeature(props) {
     const { author } =
         !showSignatureWithDistributor && getAuthorsNameAndLink(authors);
 
-    const hasAuthors = author || authors.length > 0;
+    const hasAuthors =
+        author || (authors.length > 0 && !showSignatureWithDistributor);
 
     const notShowSignature =
         !showSignatureWithDistributor && !authors?.length && !author;
