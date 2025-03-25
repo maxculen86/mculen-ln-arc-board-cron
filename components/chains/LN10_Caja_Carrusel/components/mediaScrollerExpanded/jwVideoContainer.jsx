@@ -7,6 +7,7 @@ import { Text } from '@ln/contenidos-ui-text';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import JwVideoPlayer from './jwVideoPlayer';
+import ShareV2 from '../../../../features/LN-common/shareV2/default';
 
 const JwVideoContainer = forwardRef(
     ({ handleNextCallback, isLastVideo }, ref) => {
@@ -55,7 +56,7 @@ const JwVideoContainer = forwardRef(
                                 <Button
                                     title="Cerrar"
                                     onClick={onCloseMediaScrollerExpanded}
-                                    className="py-8 px-16 text-white relative left--130_lg"
+                                    className="py-8 px-16 text-white relative_lg left--130_lg"
                                     variant="custom"
                                     size="inherit"
                                     iconOnly
@@ -65,6 +66,11 @@ const JwVideoContainer = forwardRef(
                                     </Icon>
                                     <span className="text-16">Volver</span>
                                 </Button>
+                                <ShareV2
+                                    videoId={id}
+                                    videoTitle={title}
+                                    className="absolute top-0 right-0 right--55_lg"
+                                />
                             </div>
                             <JwVideoPlayer
                                 videoId={id}

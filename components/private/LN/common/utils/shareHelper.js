@@ -120,8 +120,9 @@ export const scrollToComments = () => {
     window.scrollTo(0, document.body.scrollHeight);
 };
 
-export const copyToClipboard = () => {
-    navigator.clipboard.writeText(window.location.href);
+export const copyToClipboard = (domain, url) => {
+    const link = domain && url ? `${domain}${url}` : window.location.href;
+    navigator.clipboard.writeText(link);
 };
 
 export const getClassCondition = subtype =>

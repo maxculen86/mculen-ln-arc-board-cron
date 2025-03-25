@@ -1,11 +1,14 @@
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
-import { getMediaJwData } from './utils/videoFichaJwSource/_helper';
+import {
+    getMediaJwData,
+    transformResultWithResizer
+} from './utils/videoFichaJwSource/_helper';
 
 // ESTE SOURCE SE UTILIZA TANTO PARA OTT COMO PARA EL VIDEO EXPANDIDO DEL CARROUSEL
 const transform = (data, url) => getMediaJwData(data, url);
 
-const fetch = async query => {
+const fetch = async (query, { cachedCall } = {}) => {
     const { uri, url, 'arc-site': arcSite } = query;
 
     const regex = /jwid(\w{8})/;
@@ -19,7 +22,18 @@ const fetch = async query => {
 
     try {
         const mediaResponse = await request(mediaUrl);
-        return transform(mediaResponse, url);
+        const result = transform(mediaResponse, url);
+
+        if (arcSite === 'ott') {
+            return result;
+        }
+
+        return await transformResultWithResizer({
+            result,
+            arcSite,
+            query,
+            cachedCall
+        });
     } catch (error) {
         const errorDetails = {
             source: 'content/source/videoFichaJwSource',

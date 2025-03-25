@@ -3858,6 +3858,11 @@ strong:not(.--font-primary),
      object-fit: cover;
 }
 
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .-order-1 {
   order: -1;
 }
@@ -4230,6 +4235,9 @@ strong:not(.--font-primary),
   }
 }
 @media (min-width: 80rem) {
+  .gap-24_lg {
+    gap: 1.5rem;
+  }
   .gap-16_lg {
     gap: 1rem;
   }
@@ -4416,8 +4424,14 @@ strong:not(.--font-primary),
   }
 }
 @media (min-width: 80rem) {
+  .relative_lg {
+    position: relative;
+  }
   .left--130_lg {
     left: -8.125rem;
+  }
+  .right--55_lg {
+    right: -3.4375rem;
   }
 }
 @keyframes fade-in-up {

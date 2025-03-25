@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - layouts - CarouselVideoExpanded - default renders correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="w-100 h-100dvh bg-light-900 flex jc-center ai-center"
+  >
+    <div
+      data-testid="share-video"
+    />
+  </main>
+</DocumentFragment>
+`;
