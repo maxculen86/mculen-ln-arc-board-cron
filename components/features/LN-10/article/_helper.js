@@ -477,9 +477,13 @@ export const shouldHighlightCustomVoice = (article = {}, config = {}) => {
         'promo_items.audio_nota.embed.config.audio_status',
         null
     );
+    const textAudioNews = get(article, 'label.republicar_audio.text', '');
+    const isAudioAllowedByLabel = textAudioNews !== 'No mostrar audio';
 
     const isAudioValid =
-        audioStatus !== null ? isAudioGenerated(audioStatus) : true;
+        audioStatus !== null
+            ? isAudioGenerated(audioStatus) && isAudioAllowedByLabel
+            : true;
 
     return (
         hasAuthorVoice &&

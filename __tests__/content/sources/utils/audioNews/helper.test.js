@@ -194,6 +194,27 @@ describe('Test - isNoteListenable', () => {
                         }
                     }
                 }
+            ],
+            [
+                'Should return true when audioStatus is valid and K&L is not "No mostrar audio"',
+                {
+                    ...response,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_status: AUDIO_STATUS.CREATED_AUDIO
+                                }
+                            }
+                        }
+                    },
+                    label: {
+                        republicar_audio: {
+                            display: true,
+                            text: 'Si'
+                        }
+                    }
+                }
             ]
         ];
 
@@ -360,6 +381,27 @@ describe('Test - isNoteListenable', () => {
                                     audio_status: null
                                 }
                             }
+                        }
+                    }
+                }
+            ],
+            [
+                'Should return false when audioStatus is valid but K&L text is "No mostrar audio"',
+                {
+                    ...response,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_status: AUDIO_STATUS.CREATED_AUDIO
+                                }
+                            }
+                        }
+                    },
+                    label: {
+                        republicar_audio: {
+                            display: true,
+                            text: 'No mostrar audio'
                         }
                     }
                 }
