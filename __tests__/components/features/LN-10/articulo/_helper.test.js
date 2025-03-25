@@ -1558,6 +1558,43 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
             expect(shouldHighlightCustomVoice(article, config)).toBe(true);
         });
+
+        it('should return false if republicar_audio.text is "No mostrar audio"', () => {
+            const article = {
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    voice: '4031',
+                                    image: 'https://sandbox.lanacion.com.ar/resizer/v2/image.png'
+                                }
+                            },
+                            name: 'Carlos Pagni',
+                            type: 'author'
+                        }
+                    ]
+                },
+                promo_items: {
+                    audio_nota: {
+                        embed: {
+                            config: {
+                                audio_status: AUDIO_STATUS.CREATED_AUDIO
+                            }
+                        }
+                    }
+                },
+                label: {
+                    republicar_audio: {
+                        text: 'No mostrar audio'
+                    }
+                }
+            };
+
+            const config = { isCustomVoiceCandidate: true };
+
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
+        });
     });
 });
 

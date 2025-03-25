@@ -80,7 +80,10 @@ const isListenable = (data, validHasParagraphs = true) => {
     } = getCommonProperties(data);
 
     if (audioStatus !== null) {
-        return isAudioGenerated(audioStatus);
+        const shouldShowAudio = isAudioGenerated(audioStatus);
+        const isAudioAllowedByLabel = textAudioNews !== 'No mostrar audio';
+
+        return shouldShowAudio && isAudioAllowedByLabel;
     }
 
     const publishedDate = date || displayDate;
