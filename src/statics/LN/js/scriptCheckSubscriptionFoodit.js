@@ -2,9 +2,13 @@ import { checkSubscriptionFromCookie } from '../../../../components/chains/utils
 
 export const handleButtonSubscriptionFoodit = () => {
     if (checkSubscriptionFromCookie('22')) {
-        const buttonFooditGrid = document.getElementById('btn-foodit-grid');
-        if (buttonFooditGrid) {
-            buttonFooditGrid.classList.add('none');
+        const buttonFooditGridDesk = document.getElementById('btn-foodit-grid');
+        const buttonFooditGridMob = document.getElementById('btn-foodit-roof');
+        if (buttonFooditGridDesk) {
+            buttonFooditGridDesk.classList.add('none');
+        }
+        if (buttonFooditGridMob) {
+            buttonFooditGridMob.classList.add('none');
         }
     }
 };
