@@ -19,7 +19,7 @@ function ModSponsor(props) {
                 <ComLink link={link}>
                     <ComLogo
                         logoName={sponsor}
-                        size="h-32 h-48_md"
+                        size="--sm"
                         alt={dictionaryAlt[sponsor]}
                     />
                 </ComLink>

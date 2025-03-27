@@ -13,7 +13,7 @@ exports[`Private - Common -  ModSponsor Matches Snapshot 1`] = `
       <com-logo
         alt="Revista Jardin"
         logoname="jardin"
-        size="h-32 h-48_md"
+        size="--sm"
       />
     </a>
     <span
