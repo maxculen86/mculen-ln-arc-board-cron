@@ -5702,6 +5702,9 @@ a {
 .prumo-semibold {
   --prumo-font-variation: 130;
 }
+.prumo-extra {
+  --prumo-font-variation: 170;
+}
 .prumo-black {
   --prumo-font-variation: 190;
 }
@@ -5709,6 +5712,25 @@ a {
   font-size: 1.5rem;
   line-height: 110%;
   --prumo-letter-spacing: -0.3px;
+}
+.prumo.text-28 {
+  font-size: 1.75rem;
+  line-height: 116%;
+  --prumo-letter-spacing: -0.3px;
+}
+@media (min-width: 48rem) {
+  .prumo.text-40_md {
+    font-size: 2.5rem;
+    line-height: 116%;
+    --prumo-letter-spacing: -0.64px;
+  }
+}
+@media (min-width: 80rem) {
+  .prumo.text-48_lg {
+    font-size: 3rem;
+    line-height: 100%;
+    --prumo-letter-spacing: -0.64px;
+  }
 }
 
 strong:not(.--font-primary),
@@ -6833,8 +6855,16 @@ strong:not(.--font-primary),
   width: 10rem;
 }
 
+.w-164.w-164 {
+  width: 10.25rem;
+}
+
 .w-171.w-171 {
   width: 10.6875rem;
+}
+
+.w-215.w-215 {
+  width: 13.4375rem;
 }
 
 .w-250.w-250 {
@@ -6889,6 +6919,9 @@ strong:not(.--font-primary),
 @media (min-width: 64rem) {
   .w-268_l.w-268_l {
     width: 16.75rem;
+  }
+  .w-306_l.w-306_l {
+    width: 19.125rem;
   }
 }
 @media (min-width: 64rem) {
@@ -7014,6 +7047,10 @@ strong:not(.--font-primary),
   height: 1.25rem;
 }
 
+.h-21.h-21 {
+  height: 1.3125rem;
+}
+
 .h-24.h-24 {
   height: 1.5rem;
 }
@@ -7124,6 +7161,9 @@ strong:not(.--font-primary),
 @media (min-width: 64rem) {
   .h-28_l.h-28_l {
     height: 1.75rem;
+  }
+  .h-30_l.h-30_l {
+    height: 1.875rem;
   }
   .h-100_l.h-100_l {
     height: 100%;
@@ -7973,13 +8013,16 @@ strong:not(.--font-primary),
     overflow: hidden;
   }
 }
-@media (min-width: 80rem) {
-  .overflow-auto_lg {
-    overflow: auto;
-  }
-}
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
 }
 
 .transition.transition-all {
@@ -8178,6 +8221,21 @@ hr {
   display: none;
 }
 
+.scrollbar-width-none {
+  scrollbar-width: none;
+}
+.scrollbar-width-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .scrollbar_l {
+    scrollbar-width: auto;
+  }
+  .scrollbar_l::-webkit-scrollbar {
+    display: block;
+  }
+}
 .--lead-br .description-container .lead {
   display: block;
 }
