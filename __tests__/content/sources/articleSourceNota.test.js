@@ -153,9 +153,7 @@ describe('Article source nota - defensive cachedCall', () => {
         mockRequestResponse.mockReturnValue(mockResponseNotaNoticia);
     });
     it('Return test when cachedcall is not defined', done => {
-        articleSourceFetch(query, {
-            cachedCall: jest.fn()
-        })
+        articleSourceFetch(query)
             .then(response => {
                 expect(response).toStrictEqual({
                     ...responseNotaNoticia,
@@ -233,9 +231,7 @@ describe('Category test', () => {
     it('should get categoria', done => {
         mockRequestResponse.mockReturnValue(mockResponseNotaNoticia);
 
-        articleSourceFetch(query, {
-            cachedCall: jest.fn()
-        })
+        articleSourceFetch(query)
             .then(response => {
                 expect(response).toStrictEqual({
                     ...responseNotaNoticia,
@@ -253,9 +249,7 @@ describe('Category test', () => {
     it('no categoria value', done => {
         mockRequestResponse.mockReturnValue(mockResponseSinCategoria);
 
-        articleSourceFetch(query, {
-            cachedCall: jest.fn()
-        })
+        articleSourceFetch(query)
             .then(response => {
                 expect(response).toStrictEqual({
                     ...responseSinCategoria,
@@ -278,9 +272,7 @@ describe('Html apertura', () => {
     it('should get html, config only apertura_multimedia', done => {
         mockRequestResponse.mockReturnValue(mockResponseAperturaMultimedia);
 
-        articleSourceFetch(query, {
-            cachedCall: jest.fn()
-        })
+        articleSourceFetch(query)
             .then(response => {
                 expect(response).toStrictEqual({
                     ...responseSoloAperturaMultimedia,
@@ -298,9 +290,7 @@ describe('Html apertura', () => {
     it('should get html config both html', done => {
         mockRequestResponse.mockReturnValue(mockResponseAperturaBasic);
 
-        articleSourceFetch(query, {
-            cachedCall: jest.fn()
-        })
+        articleSourceFetch(query)
             .then(response => {
                 expect(response).toStrictEqual({
                     ...responseAperturaBasic,
@@ -318,9 +308,7 @@ describe('Html apertura', () => {
     it('should get html, config only basic raw_html', done => {
         mockRequestResponse.mockReturnValue(mockResponseBasic);
 
-        articleSourceFetch(query, {
-            cachedCall: jest.fn()
-        })
+        articleSourceFetch(query)
             .then(response => {
                 expect(response).toStrictEqual({
                     ...responseBasic,

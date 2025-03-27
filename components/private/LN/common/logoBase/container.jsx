@@ -50,7 +50,7 @@ function LogoBaseContainer({
             title={altLogo}
             logoName={sponsor}
             alt={altLogo}
-            size="h-32 h-48_md"
+            size="--sm"
         />
     );
 }
