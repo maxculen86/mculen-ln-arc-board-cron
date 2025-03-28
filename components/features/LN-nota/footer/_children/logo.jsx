@@ -27,15 +27,20 @@ function Logo({ globalContent, layout }) {
     const altLogo = dictionaryAlt?.[logoName] || logoName;
 
     return (
-        <Link href={link} title={altLogo}>
-            <Adaptableimage
-                src={deployment(
-                    `${contextPath}/resources/images/${logoName}.svg`
-                )}
-                alt={altLogo}
-                classCondition="ln-nota-logo"
-            />
-        </Link>
+        <>
+            <div className="logo-nota-footer as-start as-center_m py-16_m">
+                <Link href={link} title={altLogo}>
+                    <Adaptableimage
+                        src={deployment(
+                            `${contextPath}/resources/images/${logoName}.svg`
+                        )}
+                        alt={altLogo}
+                        className="h-24"
+                    />
+                </Link>
+            </div>
+            <hr className="vertical sm-none" />
+        </>
     );
 }
 

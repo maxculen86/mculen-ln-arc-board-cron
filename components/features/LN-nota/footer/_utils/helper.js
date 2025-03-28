@@ -21,16 +21,14 @@ const getSignatureRenderOptions = ({
     {
         shouldRender: isReceta && !hasAuthor,
         signatureContent: (
-            <ComPartner size="--xs">Por LA NACION recetas</ComPartner>
+            <Text className="font-bold --xs">Por LA NACION recetas</Text>
         )
     },
     {
         shouldRender: !withFirmaDistributor,
         signatureContent:
             isLaNacion || isCustomDistributor ? (
-                <div className="mb-32">
-                    <Text className="font-bold --twoxs">{name}</Text>
-                </div>
+                <Text className="font-bold --twoxs">{name}</Text>
             ) : (
                 <ComLink
                     link={`${SITE_LANACION}/distributor/${formatDistributorName(name)}/`}

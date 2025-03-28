@@ -131,7 +131,7 @@ exports[`components - features - LN-10-global - subHeader - default should match
                   </a>
                 </li>
                 <hr
-                  class="border-left-none"
+                  class="vertical"
                 />
               </div>
               <div
@@ -150,7 +150,7 @@ exports[`components - features - LN-10-global - subHeader - default should match
                   </a>
                 </li>
                 <hr
-                  class="border-left-none"
+                  class="vertical"
                 />
               </div>
               <div

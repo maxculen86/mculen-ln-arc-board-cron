@@ -3,21 +3,38 @@
 exports[`components - feature - LN-nota - Footer Component renders correctly with valid props and context 1`] = `
 <body>
   <div>
-    <div>
-      Signature
-    </div>
-    <div>
-      Logo
-    </div>
-    <div>
-      ExternalSignature
-    </div>
-    <div>
-      Themes
-    </div>
-    <div>
-      TrustProject
-    </div>
+    <section
+      class="container-center-100"
+    >
+      <div
+        class="grid grid-cols-2_m gap-12 py-16 py-12_m"
+      >
+        <div
+          class="flex flex-column gap-4"
+        >
+          <div>
+            ExternalSignature
+          </div>
+          <div>
+            Signature
+          </div>
+        </div>
+        <div>
+          Themes
+        </div>
+      </div>
+      <hr />
+      <div
+        class="flex flex-column flex-row_m gap-16 mb-8 ai-stretch py-16 py-12_m"
+      >
+        <div>
+          Logo
+        </div>
+        <div>
+          TrustProject
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 `;

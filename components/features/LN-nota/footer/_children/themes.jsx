@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useDisclosure } from '@ln/hooks';
+import { Link } from '@ln/contenidos-ui-link';
+import { Icon } from '@ln/common-ui-icon';
+import { Button } from '@ln/contenidos-ui-button';
+import { cx } from '@ln/cva';
 import { getSectionsAsTags } from '../_utils/helper';
-import HeaderSection from '../../../../private/common/mod-headerSection';
 import { RECETA } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 function Themes({ globalContent }) {
+    const { isOpen: isCollapsed, onToggle: onToggleCollapse } =
+        useDisclosure(true);
     const { taxonomy, subtype } = globalContent;
     const isReceta = subtype === RECETA;
 
@@ -20,20 +27,54 @@ function Themes({ globalContent }) {
         })
     );
 
+    const RenderTags = ({ arrayTags = [] }) => {
+        const showBullet = index => index !== 0 || (isCollapsed && index === 3);
+
+        return arrayTags?.map(({ path, text }, index) => {
+            if (isCollapsed && index > 3) return null;
+            return (
+                <li key={text} className="flex ai-center">
+                    {showBullet(index) && (
+                        <Icon size={24}>
+                            <IconSprite
+                                name="bulletFilled"
+                                height={16}
+                                fill="var(--neutral-light-200)"
+                            />
+                        </Icon>
+                    )}
+                    <Link href={path}>{text}</Link>
+                </li>
+            );
+        });
+    };
     if (!listTags.length) return null;
 
     return (
-        <div className="row" data-mrf-recirculation="n_temas">
-            <div className="col-12">
-                <HeaderSection tag="h3" title="Temas" line={false} />
-                <ul>
-                    {listTags.map(({ path, text }) => (
-                        <li>
-                            <a href={path}>{text}</a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+        <div
+            className="flex jc-between ai-start gap-8"
+            data-mrf-recirculation="n_temas"
+        >
+            <ul className="flex flex-wrap w-100 jc-start jc-end_m brand-color">
+                <RenderTags arrayTags={listTags} />
+            </ul>
+            {listTags?.length > 4 && (
+                <Button
+                    title="Ver más"
+                    onClick={onToggleCollapse}
+                    size="inherit"
+                    iconOnly
+                >
+                    <Icon
+                        size={12}
+                        hasWrapper
+                        bgColor="var(--neutral-light-100)"
+                        className={cx(!isCollapsed && 'rotate-180')}
+                    >
+                        <IconSprite name="arrowDown" type="default" />
+                    </Icon>
+                </Button>
+            )}
         </div>
     );
 }

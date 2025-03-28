@@ -27,13 +27,20 @@ function Footer(props) {
     const tooltip = getTooltip(trust, siteService);
 
     return (
-        <>
-            <Signature globalContent={globalContent} />
-            <Logo globalContent={globalContent} layout={layout} />
-            <ExternalSignature globalContent={globalContent} />
-            <Themes globalContent={globalContent} />
-            <TrustProject isInvalid={isInvalid} tooltipData={tooltip} />
-        </>
+        <section className="container-center-100">
+            <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
+                <div className="flex flex-column gap-4">
+                    <ExternalSignature globalContent={globalContent} />
+                    <Signature globalContent={globalContent} isNotaFooter />
+                </div>
+                <Themes globalContent={globalContent} />
+            </div>
+            <hr />
+            <div className="flex flex-column flex-row_m gap-16 mb-8 ai-stretch py-16 py-12_m">
+                <Logo globalContent={globalContent} layout={layout} />
+                <TrustProject isInvalid={isInvalid} tooltipData={tooltip} />
+            </div>
+        </section>
     );
 }
 

@@ -40,9 +40,6 @@ describe('components - feature - LN-nota - footer - _children - themes', () => {
 
         render(<Themes globalContent={globalContent} />);
 
-        expect(
-            screen.getByRole('heading', { name: /temas/i })
-        ).toBeInTheDocument();
         expect(screen.getByText('Sergio Massa')).toBeInTheDocument();
         expect(screen.getByText('Ganancias')).toBeInTheDocument();
         expect(

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import classNames from 'classnames';
 import SignatureWithAuthors from '../../signature/signatureWithAuthors';
 import SignatureWithDistributor from '../../signature/signatureWithDistributor';
 import { useSignature } from '../../signature/hook/useSignature';
 import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
 
-function Signature({ globalContent }) {
+function Signature({ globalContent, isNotaFooter }) {
     const {
         content_elements: contentElements,
         credits: { by: creditsBy },
@@ -32,7 +31,7 @@ function Signature({ globalContent }) {
     if (!showSignatureWithDistributor && !hasAuthors) return null;
 
     return (
-        <div className={classNames('flex flex-column feature-firma', 'mb-32')}>
+        <div className="flex flex-column brand-color">
             <SignatureWithDistributor
                 name={name}
                 mode={mode}
@@ -44,6 +43,7 @@ function Signature({ globalContent }) {
                 medio={medio}
                 showSignatureWithAuthors={hasAuthors}
                 subtype={subtype}
+                isNotaFooter={isNotaFooter}
             />
         </div>
     );
@@ -81,6 +81,12 @@ Signature.propTypes = {
         }),
         withFirmaDistributor: PropTypes.bool,
         subtype: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    isNotaFooter: PropTypes.bool
 };
+
+Signature.defaultProps = {
+    isNotaFooter: false
+};
+
 export default Signature;

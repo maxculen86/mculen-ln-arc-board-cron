@@ -3,25 +3,31 @@ import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { Link } from '@ln/contenidos-ui-link';
 import { Text } from '@ln/contenidos-ui-text';
+import { cx } from '@ln/cva';
 import formatDistributorName from '../../../private/LN/common/utils/formatDistributorName';
 
 function SignatureWithDistributor({
     name,
     mode,
     audioButton,
-    showSignatureWithDistributor
+    showSignatureWithDistributor,
+    classNameSignature
 }) {
     if (!showSignatureWithDistributor) return null;
 
     const signatureDistributorHtml = nombre =>
         nombre === 'LA NACION' || mode === 'custom' ? (
-            <Text className="font-bold --xs">{nombre}</Text>
+            <Text className={cx('font-bold --xs', classNameSignature)}>
+                {nombre}
+            </Text>
         ) : (
             <Link
                 href={`${SITE_LANACION}/distributor/${formatDistributorName(nombre)}/`}
                 title={nombre}
             >
-                <Text className="font-bold --twoxs">{nombre}</Text>
+                <Text className={cx('font-bold --twoxs', classNameSignature)}>
+                    {nombre}
+                </Text>
             </Link>
         );
 
@@ -37,7 +43,12 @@ SignatureWithDistributor.propTypes = {
     name: PropTypes.string.isRequired,
     mode: PropTypes.string.isRequired,
     audioButton: PropTypes.node.isRequired,
-    showSignatureWithDistributor: PropTypes.bool.isRequired
+    showSignatureWithDistributor: PropTypes.bool.isRequired,
+    classNameSignature: PropTypes.string
+};
+
+SignatureWithDistributor.defaultProps = {
+    classNameSignature: ''
 };
 
 export default SignatureWithDistributor;

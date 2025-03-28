@@ -16,7 +16,6 @@ describe('components - feature - LN-nota - footer - _children - trustProject', (
         expect(screen.getByAltText('The Trust Project')).toBeInTheDocument();
         expect(screen.getByText('Tipo de trabajo:')).toBeInTheDocument();
         expect(screen.getByText('noticia original')).toBeInTheDocument();
-        expect(screen.getByText('Conocé más')).toBeInTheDocument();
 
         expect(asFragment()).toMatchSnapshot();
     });
