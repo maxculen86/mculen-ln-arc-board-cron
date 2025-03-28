@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import classNames from 'classnames';
 import { Author } from '@ln/contenidos-ui-author';
+import { cx } from '@ln/cva';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { place } from '../../../private/common/utils/firmaHelper';
 import { getAuthorData } from './signatureHelper';
@@ -13,9 +13,10 @@ function SignatureWithAuthors({
     photo,
     medio,
     audioButton,
-    position,
+    position = 'Bottom',
     showSignatureWithAuthors,
-    subtype
+    subtype,
+    isNotaFooter
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -33,9 +34,10 @@ function SignatureWithAuthors({
     return (
         <div className="row">
             <div
-                className={classNames(
+                className={cx(
                     'flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start',
-                    position === place.Top && 'mb-16'
+                    position === place.Top && 'mb-16',
+                    !isNotaFooter && position === place.Bottom && 'mb-32'
                 )}
             >
                 <Author
@@ -69,7 +71,12 @@ SignatureWithAuthors.propTypes = {
     audioButton: PropTypes.node.isRequired,
     position: PropTypes.oneOf([place.Top, place.Bottom]).isRequired,
     showSignatureWithAuthors: PropTypes.bool.isRequired,
-    subtype: PropTypes.string.isRequired
+    subtype: PropTypes.string.isRequired,
+    isNotaFooter: PropTypes.bool
+};
+
+SignatureWithAuthors.defaultProps = {
+    isNotaFooter: false
 };
 
 export default SignatureWithAuthors;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
-import classNames from 'classnames';
+import { cx } from '@ln/cva';
 import { place } from '../../../private/common/utils/firmaHelper';
 import AudioPlayer from '../../../private/common/audioNews/AudioPlayer';
 import { AudioButton } from '../../../private/common/audioNews/components/AudioButton';
@@ -78,9 +78,9 @@ function SignatureFeature(props) {
         />
     );
 
-    const classNameContainer = classNames(
-        'flex flex-column feature-firma',
-        position === place.Top ? 'mb-16 mb-24_m' : 'mb-32'
+    const classNameContainer = cx(
+        'flex flex-column container-center-100 brand-color',
+        position === place.Top && 'mb-16 mb-24_m'
     );
 
     return (
@@ -91,6 +91,9 @@ function SignatureFeature(props) {
                     mode={mode}
                     audioButton={audioButton}
                     showSignatureWithDistributor={showSignatureWithDistributor}
+                    classNameSignature={cx(
+                        position === place.Bottom && 'mb-32'
+                    )}
                 />
                 <SignatureWithAuthors
                     showVariantIa={showVariantIa}
