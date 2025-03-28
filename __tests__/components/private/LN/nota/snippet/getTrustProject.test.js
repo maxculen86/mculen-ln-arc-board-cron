@@ -1,7 +1,4 @@
-import {
-    getTrustProject,
-    sectionsWithTypeNewsArticle
-} from '../../../../../../components/private/LN/nota/snippet/noticia';
+import { getTrustProject } from '../../../../../../components/private/LN/nota/snippet/noticia';
 
 describe('Tests getTrustProject() function', () => {
     const publishingPrinciples =
@@ -36,69 +33,31 @@ describe('Tests getTrustProject() function', () => {
         expect(getTrustProject(trust)(data)(sponsored)).toStrictEqual(data);
     });
 
-    const sections = sectionsWithTypeNewsArticle.map(section => ({
-        name: section
-    }));
+    describe('For trust "Noticia"', () => {
+        const randomSections = [
+            'Espectáculos',
+            'Tecnología',
+            'Sociedad',
+            'El Mundo',
+            'Opinión',
+            'Lifestyle',
+            'Autos',
+            'Seguridad',
+            'Deportes',
+            'Otra'
+        ];
+        const dataNote = randomSections.map(section => ({
+            '@type': 'AdvertiserContentArticle',
+            publishingPrinciples,
+            articleSection: section
+        }));
 
-    const dataNote = [
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'Espectáculos'
-        },
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'Tecnología'
-        },
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'Sociedad'
-        },
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'El Mundo'
-        },
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'Opinión'
-        },
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'Lifestyle'
-        },
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'Autos'
-        },
-        {
-            '@type': 'AdvertiserContentArticle',
-            publishingPrinciples,
-            articleSection: 'Seguridad'
-        }
-    ];
-
-    it.each(dataNote)(
-        'For notes from certain sections, the type must be NewsArticle',
-        data => {
-            expect(
-                getTrustProject('Noticia')(data, sections)(false)['@type']
-            ).toBe('NewsArticle');
-        }
-    );
-
-    it('If the section is not found in the NewsArticle set, its type must be ReportNewsArticle', () => {
-        expect(
-            getTrustProject('Noticia')({
-                '@type': 'AdvertiserContentArticle',
-                publishingPrinciples,
-                articleSection: 'Deportes'
-            })(false)['@type']
-        ).toBe('ReportageNewsArticle');
+        it.each(dataNote)(
+            'Given a note from section "%s", it should return @type as "NewsArticle"',
+            ({ articleSection, ...data }) => {
+                const result = getTrustProject('Noticia')(data)(false);
+                expect(result['@type']).toBe('NewsArticle');
+            }
+        );
     });
 });

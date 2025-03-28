@@ -77,7 +77,7 @@ export default {
             defaultPrivacyLevel: MASK_USER_INPUT
         }
     },
-    ARC_STATIC: 'https://arc-static.glanacion.com',
+    ARC_STATIC: 'https://staging-arc-static.glanacion.com',
     LAZY_OFFSETTOP: 500,
     VIAFOURA_UUID: '00000000-0000-4000-8000-5611d514abb3',
     VIAFOURA_XREQUEST:

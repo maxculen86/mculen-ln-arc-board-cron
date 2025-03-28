@@ -1,7 +1,15 @@
 import get from './get';
+import isExternalDistributor from './isExternalDistributor';
 
 const getAuthorsAsString = (article, isHomeLN10) => {
+    const name = article?.distributor?.name || '';
+    const category = article?.distributor?.category || '';
     const authors = get(article, 'credits.by', []);
+    const { author_type: authorType } = get(
+        authors,
+        '[0].additional_properties.original',
+        {}
+    );
     const authorFiltered = authors.filter(auth => auth.type === 'author');
     const authorsConcat = authorFiltered.reduce((prevVal, currVal, idx) => {
         const authorName = get(currVal, 'name', '').trim();
@@ -10,6 +18,9 @@ const getAuthorsAsString = (article, isHomeLN10) => {
             return `${prevVal} y ${authorName}`;
         return `${prevVal}, ${authorName}`;
     }, '');
+
+    if (isHomeLN10 && isExternalDistributor(name, category, authorType))
+        return name;
 
     if (isHomeLN10) return authorsConcat;
 

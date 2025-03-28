@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
-import classNames from 'classnames';
+import { cx } from '@ln/cva';
 import { place } from '../../../private/common/utils/firmaHelper';
 import AudioPlayer from '../../../private/common/audioNews/AudioPlayer';
 import { AudioButton } from '../../../private/common/audioNews/components/AudioButton';
@@ -13,6 +13,7 @@ import SignatureWithAuthors from './signatureWithAuthors';
 import SignatureWithDistributor from './signatureWithDistributor';
 import WithoutSignature from './withoutSignature';
 import { useSignature } from './hook/useSignature';
+import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
 
 function SignatureFeature(props) {
     const {
@@ -28,15 +29,18 @@ function SignatureFeature(props) {
         }
     } = props;
 
-    const { name, mode } = distributor;
-    const showSignatureWithDistributor =
-        withFirmaDistributor && name !== 'lanacionar';
+    const { name, mode, category } = distributor;
 
     const { photo, medio, authors, dataAuthor } = useSignature({
         creditsBy,
         position,
         contentElements
     });
+
+    const showSignatureWithDistributor =
+        (withFirmaDistributor && name !== 'lanacionar') ||
+        (isExternalDistributor(name, category, dataAuthor.author_type) &&
+            position === 'Top');
 
     const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
     const { thermicalAudio } = audioPlayerProps;
@@ -46,7 +50,8 @@ function SignatureFeature(props) {
     const { author } =
         !showSignatureWithDistributor && getAuthorsNameAndLink(authors);
 
-    const hasAuthors = author || authors.length > 0;
+    const hasAuthors =
+        author || (authors.length > 0 && !showSignatureWithDistributor);
 
     const notShowSignature =
         !showSignatureWithDistributor && !authors?.length && !author;
@@ -73,9 +78,9 @@ function SignatureFeature(props) {
         />
     );
 
-    const classNameContainer = classNames(
-        'flex flex-column feature-firma',
-        position === place.Top ? 'mb-16 mb-24_m' : 'mb-32'
+    const classNameContainer = cx(
+        'flex flex-column container-center-100 brand-color',
+        position === place.Top && 'mb-16 mb-24_m'
     );
 
     return (
@@ -86,6 +91,9 @@ function SignatureFeature(props) {
                     mode={mode}
                     audioButton={audioButton}
                     showSignatureWithDistributor={showSignatureWithDistributor}
+                    classNameSignature={cx(
+                        position === place.Bottom && 'mb-32'
+                    )}
                 />
                 <SignatureWithAuthors
                     showVariantIa={showVariantIa}

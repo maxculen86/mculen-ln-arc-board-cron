@@ -6,7 +6,11 @@ import {
 import { compose } from '../../../../private/common/utils/functional';
 import get from '../../../../private/common/utils/get';
 
-export const useSignature = ({ creditsBy, position, contentElements = [] }) => {
+export const useSignature = ({
+    creditsBy,
+    position = 'Bottom',
+    contentElements = []
+}) => {
     const hasCredits = creditsBy?.length > 0;
 
     const propsBuilder = hasCredits

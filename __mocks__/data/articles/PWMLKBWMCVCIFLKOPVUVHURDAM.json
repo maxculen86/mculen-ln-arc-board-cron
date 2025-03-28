@@ -658,6 +658,13 @@
             },
             "subtype": "custom-resumen",
             "type": "custom_embed"
+        },
+        "audio_nota": {
+            "embed": {
+                "config": {
+                    "audio_status": 6
+                }
+            }
         }
     },
     "related_content": {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import classNames from 'classnames';
 import { useDisclosure } from '@ln/hooks';
 import { Dialog } from '@ln/common-ui-dialog';
+import { cx } from '@ln/cva';
 import config from '../../../../properties/sites/la-nacion-ar';
 import useTermica from '../../../private/common/hooks/useTermica';
 import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBookmark';
@@ -17,6 +17,7 @@ import {
 import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
 import BarrierRequiresSubscription from '../../LN-10-global/common/barrierRequiresSubscription/default';
 import { a11yAttrsBarrierSub } from '../../../private/common/audioNews/helpers';
+
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 
 function Share() {
@@ -59,7 +60,7 @@ function Share() {
         ? 'sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024'
         : '-order-1 ratio-auto order-initial_min1024';
 
-    const modShareContainerClass = classNames(
+    const modShareContainerClass = cx(
         'mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l',
         '--no-app',
         subtypeVideo,
@@ -69,13 +70,11 @@ function Share() {
     const shareSubClasses = !subtypeVideo
         ? 'flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l'
         : 'mb-8_l';
-    const shareClasses = classNames(
-        'share',
-        'flex relative z-100',
-        shareSubClasses
-    );
+    const shareClasses = cx('share', 'flex relative z-100', shareSubClasses);
 
-    const hrVideoClasses = subtypeVideo ? 'border border-neutral-dark-300' : '';
+    const hrVideoClasses = cx(
+        subtypeVideo && 'vertical border border-neutral-dark-300'
+    );
 
     return (
         <div className={modShareContainerClass}>

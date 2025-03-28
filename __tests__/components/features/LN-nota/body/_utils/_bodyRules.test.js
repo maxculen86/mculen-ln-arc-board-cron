@@ -89,4 +89,17 @@ describe('_utils/_bodyRules.js', () => {
             expect(component).toEqual(bodyRules.quote);
         });
     });
+    describe('elements in the body of the note', () => {
+        it('if the type is custom_embed and the subtype is "canchallena" should return the custom_embed function from selectRule', () => {
+            const attr = {
+                subtype: 'canchallena',
+                componentElement: { arcType: 'canchallena' },
+                subtypeElement: 'canchallena',
+                type: 'custom_embed'
+            };
+
+            const component = selectRule(attr);
+            expect(component).toEqual(bodyRules.custom_embed);
+        });
+    });
 });
