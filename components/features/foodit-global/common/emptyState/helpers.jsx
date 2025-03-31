@@ -44,7 +44,7 @@ export const descriptionByVariant = ({ layout, variant }) => {
         );
     } else if (isLayoutMenuSemanal) {
         emptyStateMessage = getEmptyStateMessage(
-            'para planificar tu menú semanal y ¡Listo!',
+            'en la receta para organizar tus comidas y ¡Listo!',
             'weekly-menu'
         );
     } else {

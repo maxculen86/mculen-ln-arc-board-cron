@@ -88,7 +88,7 @@ function OptionEdit({
         >
             <Dialog.Header className="flex jc-between gap-16 pb-16 border border-bottom border-thin border-light-100">
                 <Text className="text-24 text-28_md text-32_lg prumo prumo-semibold">
-                    Editar
+                    Editar menú semanal
                 </Text>
                 <Button
                     onClick={onClose}

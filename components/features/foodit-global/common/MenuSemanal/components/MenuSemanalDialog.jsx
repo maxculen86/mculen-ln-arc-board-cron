@@ -79,7 +79,6 @@ function MenuSemanalDialog({ article }) {
 
         return handleClose();
     };
-    const textButton = saveMenu ? 'agregado al menú' : 'agregar al menú';
 
     const renderDialogHeader = (className, children) => (
         <Dialog.Header className={className}>
@@ -109,7 +108,7 @@ function MenuSemanalDialog({ article }) {
                 <Icon size={16}>
                     <IconSprite name="weekly-menu" critical />
                 </Icon>
-                {textButton}
+                agregar al menú
             </Button>
             <Dialog
                 isOpen={isOpen}
