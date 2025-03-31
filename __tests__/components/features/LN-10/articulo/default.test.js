@@ -508,6 +508,25 @@ describe('Components - features - LN-10 - articulo - default', () => {
             expect(iframe).toHaveAttribute('src', src);
         });
 
+        it('should render data-testid attribute when HTML is set and vivoComercial is true', () => {
+            const src = 'https://youtube.com/watch';
+            const dataTestID = 'vivoYoutube-container-article-disabled';
+            _helper.getMediaData.mockReturnValue({
+                type: 'embedCode',
+                embedCode: `<iframe src=${src}> </iframe>`,
+                dataSrc: src
+            });
+
+            useContent.mockReturnValue(article());
+
+            const props = getProps('regular');
+            props.customFields.html = `<iframe src=${src}> </iframe>`;
+            props.customFields.videoComercial = true;
+            render(<ArticleFeature {...props} />);
+            const articleNode = document.querySelector('article');
+            expect(articleNode).toHaveAttribute('data-testid', dataTestID);
+        });
+
         it('should render iframe and image when cllBoard is set', () => {
             const input =
                 'https://canchallena.lanacion.com.ar/futbol/europa-league-2024-2025/az-alkmaar-galatasaray-ecmmhg21x9ueq1nrpghsvshec/';
