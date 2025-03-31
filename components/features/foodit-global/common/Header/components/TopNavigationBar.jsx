@@ -1,17 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { Topnavigationbar } from '@ln/foodit-ui-topnavigationbar';
 import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/foodit-ui-link';
-import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import Categories from './menuCategories';
 
-export const TopNavigationBar = ({ categories = [] }) => {
+export function TopNavigationBar({ categories = [] }) {
     return (
         <div className="flex w-100 jc-between container py-12 h-44">
             <Topnavigationbar className="flex jc-center">
-                {categories.map((category, i) => (
-                    <Categories {...category} key={i} />
+                {categories.map(category => (
+                    <Categories {...category} key={category?.name} />
                 ))}
             </Topnavigationbar>
             <Static id="foodit-top-navigation-bar">
@@ -24,13 +25,23 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         data-interaction="dataLayerInteraction"
                         data-event="e_linkclick"
                         data-category="header"
-                        data-label={'Recetario'}
+                        data-label="Recetario"
                         data-action="N/A"
                     >
                         <Icon size={20}>
                             <IconSprite name="bookmark" critical />
                         </Icon>
                         MIS RECETAS
+                    </Link>
+                    <Link
+                        href="/menu-semanal/"
+                        title="Ir a menú semanal"
+                        className="gap-8"
+                    >
+                        <Icon size={20}>
+                            <IconSprite name="weekly-menu" critical />
+                        </Icon>
+                        MENÚ SEMANAL
                     </Link>
                     <Link
                         data-test-id="header-link-lista-compras"
@@ -40,7 +51,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         data-interaction="dataLayerInteraction"
                         data-event="e_linkclick"
                         data-category="header"
-                        data-label={'Lista de compras'}
+                        data-label="Lista de compras"
                         data-action="N/A"
                     >
                         <Icon size={20}>
@@ -68,4 +79,32 @@ export const TopNavigationBar = ({ categories = [] }) => {
             </Static>
         </div>
     );
+}
+
+TopNavigationBar.propTypes = {
+    categories: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            href: PropTypes.string,
+            data: PropTypes.arrayOf(
+                PropTypes.shape({
+                    title: PropTypes.shape({
+                        text: PropTypes.string.isRequired,
+                        href: PropTypes.string,
+                        icon: PropTypes.shape({
+                            props: PropTypes.shape({
+                                name: PropTypes.string.isRequired
+                            })
+                        })
+                    }),
+                    items: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            text: PropTypes.string.isRequired,
+                            href: PropTypes.string.isRequired
+                        })
+                    )
+                })
+            )
+        })
+    ).isRequired
 };

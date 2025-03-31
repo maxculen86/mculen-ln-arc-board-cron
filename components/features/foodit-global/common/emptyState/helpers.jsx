@@ -23,28 +23,40 @@ export const titleByVariant = {
 export const descriptionByVariant = ({ layout, variant }) => {
     const { layoutsName = {} } = siteProperties || {};
     const isLayoutShoppingList = layout === layoutsName.FooditListadoCompras;
+    const isLayoutMenuSemanal = layout === layoutsName.FooditMenuSemanal;
 
+    const getEmptyStateMessage = (message, iconName) => (
+        <span>
+            Presioná el botón
+            <Icon size={16} className="vertical-align-middle mx-4">
+                <IconSprite name={iconName} critical />
+            </Icon>
+            {message}
+        </span>
+    );
+
+    let emptyStateMessage;
+
+    if (isLayoutShoppingList) {
+        emptyStateMessage = getEmptyStateMessage(
+            'en la receta para agregar los ingredientes que necesitas y ¡Listo!',
+            'shopping-list'
+        );
+    } else if (isLayoutMenuSemanal) {
+        emptyStateMessage = getEmptyStateMessage(
+            'para planificar tu menú semanal y ¡Listo!',
+            'weekly-menu'
+        );
+    } else {
+        emptyStateMessage = getEmptyStateMessage(
+            'para guardar el contenido que te gusta y ¡Listo!',
+            'bookmark'
+        );
+    }
     const optionsDescription = {
         'barrier-logged': NEED_SUBSCRIPTION,
         'barrier-unlogged': NEED_SUBSCRIPTION,
-        'empty-state': isLayoutShoppingList ? (
-            <span>
-                Presioná el botón
-                <Icon size={16} className="vertical-align-middle mx-4">
-                    <IconSprite name="shopping-list" critical />
-                </Icon>
-                en la receta para agregar los ingredientes que necesitas y
-                ¡Listo!
-            </span>
-        ) : (
-            <span>
-                Presioná el botón
-                <Icon size={16} className="vertical-align-middle mx-4">
-                    <IconSprite name="bookmark" critical />
-                </Icon>
-                para guardar el contenido que te gusta y ¡Listo!
-            </span>
-        ),
+        'empty-state': emptyStateMessage,
         404: (
             <span>
                 <span>Mientras te invitamos a seguir navegando en </span>

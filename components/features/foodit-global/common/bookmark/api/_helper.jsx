@@ -41,7 +41,23 @@ export const TOAST = {
             SAVE_INGREDIENTS:
                 'Los ingredientes han sido añadidos a la lista de compras.',
             COPY_INGREDIENTS: 'Podes enviar el listado que copiaste.',
-            DELETE_INGREDIENTS: 'Ya no forma parte de tu listado de compras.'
+            DELETE_INGREDIENTS: 'Ya no forma parte de tu listado de compras.',
+            SAVE_MENU: (
+                <>
+                    Podes acceder desde la sección{' '}
+                    <Link
+                        href="/menu-semanal/"
+                        className="inline-flex"
+                        title="Ir a Menú semanal"
+                    >
+                        <span className="text-light-1 underline">
+                            &quot;Menú semanal.&quot;
+                        </span>
+                    </Link>
+                </>
+            ),
+            EDIT_MENU: 'Podes ver los cambios aplicados en el menú semanal.',
+            DELETE_MENU: 'Se quito del menú semanal'
         }
     },
     ERROR: {
@@ -49,7 +65,8 @@ export const TOAST = {
         VARIANT: 'danger',
         MESSAGE: {
             GENERIC: 'Parece que hubo un problema',
-            LIMIT_BOOKMARKS: 'Se alcanzó el limite de 150 recetas guardadas.'
+            LIMIT_BOOKMARKS: 'Se alcanzó el limite de 150 recetas guardadas.',
+            LIMIT_MENU: 'Se alcanzó el limite de 3 recetas por comida y día.'
         }
     }
 };

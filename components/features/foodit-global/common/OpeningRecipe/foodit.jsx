@@ -24,6 +24,7 @@ import get from '../../../../private/common/utils/get';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
 import AudioRecipe from './audioRecipe';
+import MenuSemanalDialog from '../MenuSemanal/components/MenuSemanalDialog';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const {
@@ -87,19 +88,22 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                     </div>
                 </div>
                 <div className="flex flex-column gap-24">
-                    <Static id={`btn-saved-${_id}`}>
-                        <Button
-                            title="Guardar"
-                            size={{ sm: 32, lg: 40 }}
-                            data-modal="open-modal"
-                            data-id={_id}
-                        >
-                            <Icon size={16} className="sm-none">
-                                <IconSprite name="bookmark" critical />
-                            </Icon>
-                            Guardar
-                        </Button>
-                    </Static>
+                    <div className="flex gap-24">
+                        <Static id={`btn-saved-${_id}`}>
+                            <Button
+                                title="Guardar"
+                                size={{ sm: 32, lg: 40 }}
+                                data-modal="open-modal"
+                                data-id={_id}
+                            >
+                                <Icon size={16} className="sm-none">
+                                    <IconSprite name="bookmark" critical />
+                                </Icon>
+                                Guardar
+                            </Button>
+                        </Static>
+                        <MenuSemanalDialog article={article} />
+                    </div>
                     <div className="flex flex-column flex-column_lg gap-24 jc-between_md">
                         <AudioRecipe
                             title={title}

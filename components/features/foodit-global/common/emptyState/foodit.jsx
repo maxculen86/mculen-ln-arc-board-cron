@@ -51,10 +51,7 @@ function EmptyState({ variant, className, direction = 'row' }) {
                 objectFit="fill"
             />
             <div className={descriptionClassNames}>
-                <Text
-                    as="p"
-                    className="prumo prumo-semibold text-24 text-28_md text-32_lg"
-                >
+                <Text as="p" className="prumo prumo-semibold text-24">
                     {titleByVariant[variant]}
                 </Text>
                 <Text as="p" className="text-16 text-light-600">

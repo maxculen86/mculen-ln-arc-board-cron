@@ -150,6 +150,10 @@ input[type=checkbox]:hover {
   }
 }
 
+.jc-start {
+  justify-content: flex-start;
+}
+
 .jc-center {
   justify-content: center;
 }
@@ -1463,6 +1467,10 @@ strong {
   width: 2.5rem;
 }
 
+.w-48 {
+  width: 3rem;
+}
+
 .w-56 {
   width: 3.5rem;
 }
@@ -1526,8 +1534,14 @@ strong {
   .w-51_md {
     width: 3.1875rem;
   }
+  .w-150_md {
+    width: 9.375rem;
+  }
   .w-328_md {
     width: 20.5rem;
+  }
+  .w-450_md {
+    width: 28.125rem;
   }
   .w-520_md {
     width: 32.5rem;
@@ -1537,9 +1551,19 @@ strong {
   .w-20_lg {
     width: 1.25rem;
   }
+  .w-56_lg {
+    width: 3.5rem;
+  }
+  .w-600_lg {
+    width: 37.5rem;
+  }
 }
 .max-w-32 {
   max-width: 2rem;
+}
+
+.max-w-72 {
+  max-width: 4.5rem;
 }
 
 .max-w-100 {
@@ -1556,6 +1580,11 @@ strong {
 
 .max-w-328 {
   max-width: 20.5rem;
+}
+
+.max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 @media (min-width: 48rem) {
@@ -1594,6 +1623,9 @@ strong {
   }
 }
 @media (min-width: 80rem) {
+  .min-w-344_lg {
+    min-width: 21.5rem;
+  }
   .min-w-944_lg {
     min-width: 59rem;
   }
@@ -2072,6 +2104,9 @@ strong {
   .ml-0_md {
     margin-left: 0rem;
   }
+  .mt-24_md {
+    margin-top: 1.5rem;
+  }
   .mr-0_md {
     margin-right: 0rem;
   }
@@ -2147,6 +2182,9 @@ strong {
 @media (min-width: 80rem) {
   .mb-40_lg {
     margin-bottom: 2.5rem;
+  }
+  .mt-32_lg {
+    margin-top: 2rem;
   }
   .p-8_lg {
     padding: 0.5rem;
@@ -2463,6 +2501,14 @@ hr {
   background: #e4e4e4;
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .transition-regular {
   transition: all 0.2s ease-in-out;
 }
@@ -2471,7 +2517,8 @@ hr {
   transition: all 0.2s linear;
 }
 
-.--rotate-180 {
+.--rotate-180,
+.rotate-180 {
   transform: rotate(180deg);
 }
 
@@ -2536,6 +2583,10 @@ hr {
 
 .white-space-nowrap {
   white-space: nowrap;
+}
+
+.white-space-normal {
+  white-space: normal;
 }
 
 @media (min-width: 48rem) {
@@ -2704,4 +2755,7 @@ input[type=checkbox]:checked::after {
   .print-hide.print-hide {
     display: none;
   }
+}
+.accordion:has(.accordion-header.--selected) {
+  border-color: #846b05;
 }

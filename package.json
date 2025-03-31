@@ -32,7 +32,7 @@
         "postinstall": "npm run ln:copycss"
     },
     "dependencies": {
-        "@ln/common-ui-accordion": "0.0.6",
+        "@ln/common-ui-accordion": "0.0.9",
         "@ln/common-ui-adaptableimage": "1.1.4",
         "@ln/common-ui-animate": "0.0.2",
         "@ln/common-ui-badge": "1.1.0",
@@ -114,7 +114,7 @@
         "@ln/foodit-ui-modal": "0.0.7",
         "@ln/foodit-ui-note": "0.0.1",
         "@ln/foodit-ui-recipe": "0.0.1",
-        "@ln/foodit-ui-sass": "0.0.112",
+        "@ln/foodit-ui-sass": "0.0.113",
         "@ln/foodit-ui-spinner": "0.0.1",
         "@ln/foodit-ui-topnavigationbar": "0.0.2",
         "@ln/hooks": "1.1.2",

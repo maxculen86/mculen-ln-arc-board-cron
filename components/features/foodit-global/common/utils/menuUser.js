@@ -1,7 +1,7 @@
 import React from 'react';
 import { MY_ACCOUNT_URL, SITE_FOODIT } from 'fusion:environment';
 import { logout } from '../../../../private/common/auth/helper/loginHelper';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const menuUser = [
@@ -29,6 +29,19 @@ export const menuUser = [
                 action: 'mis_recetas'
             });
             window.location.replace(`${SITE_FOODIT}/recetario/`);
+        }
+    },
+    {
+        text: 'Menú semanal',
+        icon: <IconSprite name="weekly-menu" critical />,
+        onClick: () => {
+            addEventToDataLayerV2({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'perfil',
+                action: 'menu-semanal'
+            });
+            window.location.replace(`${SITE_FOODIT}/menu-semanal/`);
         }
     },
     {

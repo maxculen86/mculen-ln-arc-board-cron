@@ -47,7 +47,7 @@ exports[`SaveRecipe Component should match snapshot when userType is logged 1`] 
             class="flex flex-column gap-8 text-center ai-center "
           >
             <p
-              class="text prumo prumo-semibold text-24 text-28_md text-32_lg"
+              class="text prumo prumo-semibold text-24"
             >
               ¡Exclusivo suscriptores!
             </p>
@@ -177,7 +177,7 @@ exports[`SaveRecipe Component should match snapshot when userType is unlogged 1`
             class="flex flex-column gap-8 text-center ai-center "
           >
             <p
-              class="text prumo prumo-semibold text-24 text-28_md text-32_lg"
+              class="text prumo prumo-semibold text-24"
             >
               ¡Exclusivo suscriptores!
             </p>
