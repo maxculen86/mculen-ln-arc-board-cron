@@ -60,7 +60,7 @@ const AUDIO_STATUS = {
     UPDATED_AUDIO: 7
 };
 
-const RELEASE_DATE_FOR_AUDIO_STATUS = 20250325;
+const RELEASE_DATE_FOR_AUDIO_STATUS = 20250401;
 
 export const isAudioGenerated = (audioStatus = null) =>
     audioStatus === AUDIO_STATUS.CREATED_AUDIO ||

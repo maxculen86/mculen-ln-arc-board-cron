@@ -373,7 +373,7 @@ describe('Test - isNoteListenable', () => {
                 'Should return false when the note is published after the release date and audioStatus is null',
                 {
                     ...response,
-                    first_publish_date: '2025-03-26T00:00:00.000Z',
+                    first_publish_date: '2025-04-02T00:00:00.000Z',
                     promo_items: {
                         audio_nota: {
                             embed: {
