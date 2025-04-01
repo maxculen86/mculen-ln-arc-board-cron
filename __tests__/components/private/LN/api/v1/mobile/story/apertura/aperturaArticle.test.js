@@ -102,7 +102,7 @@ describe('Test apetura con videoJW', () => {
         };
         const resp = aperturaArticle(newArticle);
         expect(Object.keys(resp).sort()).toEqual(
-            ['bajada', 'titulo', 'tituloMobile', 'video', 'volanta'].sort()
+            ['bajada', 'titulo', 'tituloMobile', 'video', 'volanta', 'distributor'].sort()
         );
     });
 });
