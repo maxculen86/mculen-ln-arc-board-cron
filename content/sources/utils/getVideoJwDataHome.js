@@ -1,8 +1,23 @@
 export const getVideoJwDataHome = videoData => {
     const { playlist = [] } = videoData;
-    const [{ sources = [], images: [{ src } = {}] = [] } = {}] = playlist;
+    const [
+        {
+            sources = [],
+            image,
+            images = [],
+            mediaid,
+            title = 'Video sin título',
+            tracks = []
+        } = {}
+    ] = playlist;
+
     return {
         sources,
-        poster: src
+        poster: image,
+        image,
+        images,
+        mediaid,
+        title,
+        tracks
     };
 };

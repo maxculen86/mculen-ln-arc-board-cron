@@ -53,6 +53,10 @@ export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
     };
 
     const articles = get(element, 'articles', []);
+    let video = null;
+    if (featureInfo?.diagramacion === 'bn_player_3_grid') {
+        video = get(element, 'video', []);
+    }
 
     const ordererArticles = orderArticles(articles, information.layout);
 
@@ -66,7 +70,8 @@ export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
         return {
             ...featureInfo,
-            notas: resultArticles
+            notas: resultArticles,
+            video
         };
     }
     return null;

@@ -77,7 +77,8 @@ describe('storyBox LN9', () => {
                     videos: null,
                     videoYouTube: null
                 }
-            ]
+            ],
+            video: null
         });
     });
 });

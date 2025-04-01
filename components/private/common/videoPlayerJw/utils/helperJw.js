@@ -126,7 +126,7 @@ export const handleVideoEventsScript = (title, idVideo) => {
 };
 
 export const getVerticalPlayer = playerId => {
-    const idsPlayersVertical = ['hOz6uuUy', 'HbGKzdo0', '9gbjbJp8'];
+    const idsPlayersVertical = ['hOz6uuUy', 'HbGKzdo0', '9gbjbJp8', 'tMVdYMxO'];
     return idsPlayersVertical.includes(playerId);
 };
 
