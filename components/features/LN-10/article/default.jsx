@@ -60,7 +60,8 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         description,
         hideAuthors,
         variant = 'regular',
-        cllBoard = ''
+        cllBoard = '',
+        videoComercial
     } = customFields ?? {};
 
     const { registerSuccessEvent } = useComponentContext();
@@ -250,7 +251,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     if (!isAdmin && (!article || !articleContent)) return <></>;
 
-    const hasCustomVoice = shouldHighlightCustomVoice(article, config);
+    const hasCustomVoice = shouldHighlightCustomVoice(articleContent, config);
 
     const sectionText = hasCustomVoice ? (
         <MarqueeHighlight />
@@ -267,6 +268,11 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         !error && (
             <ErrorBoundary>
                 <Card
+                    data-testid={
+                        videoComercial
+                            ? 'vivoYoutube-container-article-disabled'
+                            : null
+                    }
                     data-feature-id={featureId}
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
@@ -338,6 +344,7 @@ ArticleFeature.propTypes = {
         chapitaStyle: articleCustomFields.chapitaStyle,
         video: articleCustomFields.video,
         html: articleCustomFields.html,
+        videoComercial: articleCustomFields.videoComercial,
         cllBoard: articleCustomFields.cllBoard,
         variant: articleCustomFields.variant
     }).isRequired,

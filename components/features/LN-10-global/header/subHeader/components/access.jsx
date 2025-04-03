@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from '@ln/contenidos-ui-link';
 
-export const Access = ({ accessData = [] }) => {
-    if (accessData.length === 0) return <></>;
+export function Access({ accessData = [] }) {
+    if (accessData.length === 0) return null;
+
     const lastChild = accessData.length - 1;
     return (
         <div className="access-container --tablet-none ">
@@ -10,13 +12,11 @@ export const Access = ({ accessData = [] }) => {
                 {accessData.map(({ href, text, callback }, accessIndex) => {
                     const divider =
                         accessIndex !== lastChild ? (
-                            <hr className="border-left-none" />
-                        ) : (
-                            <></>
-                        );
+                            <hr className="vertical" />
+                        ) : null;
                     return (
                         <div className="flex gap-8">
-                            <li className="w-max" key={accessIndex}>
+                            <li className="w-max" key={text}>
                                 <Link
                                     className="flex ai-center"
                                     href={href}
@@ -34,4 +34,14 @@ export const Access = ({ accessData = [] }) => {
             </ul>
         </div>
     );
+}
+
+Access.propTypes = {
+    accessData: PropTypes.arrayOf(
+        PropTypes.shape({
+            href: PropTypes.string,
+            text: PropTypes.string,
+            callback: PropTypes.func
+        })
+    ).isRequired
 };

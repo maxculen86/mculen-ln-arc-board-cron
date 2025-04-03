@@ -1,0 +1,348 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Liveblog Snippet with liveblog power up Should render the schema correctly with LiveBlog Power Up 1`] = `
+<div>
+  <script
+    id="Schema_LiveBlog"
+    type="application/ld+json"
+  >
+    {
+  "@context": "https://schema.org",
+  "@type": "LiveBlogPosting",
+  "publisher": {
+    "@type": "Organization",
+    "name": "",
+    "url": "https://www.lanacion.com.ar",
+    "logo": {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      "height": 60,
+      "width": 600
+    }
+  },
+  "about": {
+    "@type": "Event",
+    "name": "Paaawer ap dos",
+    "startDate": "2022-06-15T15:50:21.667Z",
+    "endDate": "2022-06-22T03:53:00.000Z",
+    "location": {
+      "@type": "place",
+      "name": "LA NACION",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressRegion": "AR"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "La Nación",
+      "url": "https://lanacion.com.ar/"
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": "La Nación",
+      "url": "https://lanacion.com.ar/"
+    },
+    "eventstatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "description": "Lo pibe",
+    "image": {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      "height": "800",
+      "width": "1200"
+    }
+  },
+  "url": "https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022/",
+  "@id": "#liveBlogPosting",
+  "description": "Lo pibe",
+  "coverageStartTime": "2022-06-15T15:50:21.667Z",
+  "coverageEndTime": "2022-06-22T03:53:00.000Z",
+  "headline": "Paaawer ap dos",
+  "liveBlogUpdate": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Paaawer ap dos",
+      "url": "https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_1",
+      "@id": "#parrafo_1",
+      "mainEntityOfPage": {
+        "@type": "WebPage"
+      },
+      "datePublished": "",
+      "dateModified": "",
+      "articleBody": "Esto es un titulo El gimnasio de Plateada es el primer gimnasio de Kanto. Su tipo dominante es el roca. El líder de gimnasio es Brock. Los entrenadores que lo derrotan reciben la medalla Roca.",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://resizer.glanacion.com/resizer/7K_yKMxoPihLDNi5fuAcK7CyaZk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PKRXY5HMUZCPVHZESCXJJSN66U.jpg"
+      },
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION"
+      },
+      "publisher": {
+        "name": "LA NACION",
+        "@type": "Organization"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Paaawer ap dos",
+      "url": "https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_2",
+      "@id": "#parrafo_2",
+      "mainEntityOfPage": {
+        "@type": "WebPage"
+      },
+      "datePublished": "",
+      "dateModified": "",
+      "articleBody": "Gym 2 ciudad Celeste El Gimnasio Celeste es el segundo de la región de Kanto. Se encuentra en Ciudad Celeste y su líder es Misty, experta en los Pokémon de tipo agua. Con su medalla Cascada todos los Pokémon del nivel 30 o inferior te obedecerán.",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://resizer.glanacion.com/resizer/InkxW3rrh4Wud4c-HzaGUcdDlhw=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BIV4XOQKQVGNRF7QGI5EYLJBMA.jpg"
+      },
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION"
+      },
+      "publisher": {
+        "name": "LA NACION",
+        "@type": "Organization"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Paaawer ap dos",
+      "url": "https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_3",
+      "@id": "#parrafo_3",
+      "mainEntityOfPage": {
+        "@type": "WebPage"
+      },
+      "datePublished": "",
+      "dateModified": "",
+      "articleBody": "Gym 3 ciudad Carmin El gimnasio Carmín (Vermilion Gym en inglés, クチバジム en japonés) es el tercer gimnasio de la región de Kanto. El líder de este gimnasio es un ex-soldado llamado Lt. Surge, y sus Pokémon son de tipo eléctrico. Se ubica en Ciudad Carmín. 18 obuses de 155 mm.; 36.000 cartuchos de munición de 155 mm.; 18 vehículos tácticos para remolcar obuses de 155 mm.; Munición adicional para sistemas de cohetes de artillería de alta movilidad.; Cuatro vehículos tácticos para recuperar equipos.; Repuestos y otros equipos.; Dos sistemas de defensa costera Harpoon.; Miles de radios de seguridad.; Miles de dispositivos de visión nocturna, visores térmicos y otras ópticas; ",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://resizer.glanacion.com/resizer/av26y64NWYetao2gcdBB_PMqJtg=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QPBCCE3TCFAQXA2ZKVH5NZXCFQ.jpg"
+      },
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION"
+      },
+      "publisher": {
+        "name": "LA NACION",
+        "@type": "Organization"
+      }
+    }
+  ]
+}
+  </script>
+</div>
+`;
+
+exports[`Schema LiveBlogPosting - SnippetLiveblog Should validate main schema properties 1`] = `
+{
+  "@context": "https://schema.org",
+  "@id": "#liveBlogPosting",
+  "@type": "LiveBlogPosting",
+  "about": {
+    "@type": "Event",
+    "description": "Esta es la prueba de la bajada en Foto al 100",
+    "endDate": "2020-06-26T07:39:44.527Z",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "eventstatus": "https://schema.org/EventScheduled",
+    "image": {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "height": "800",
+      "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      "width": "1200",
+    },
+    "location": {
+      "@type": "place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressRegion": "AR",
+      },
+      "name": "LA NACION",
+    },
+    "name": "Meta titulo",
+    "organizer": {
+      "@type": "Organization",
+      "name": "La Nación",
+      "url": "https://lanacion.com.ar/",
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": "La Nación",
+      "url": "https://lanacion.com.ar/",
+    },
+    "startDate": "2020-06-25T19:39:44.527Z",
+  },
+  "coverageEndTime": "2020-06-26T07:39:44.527Z",
+  "coverageStartTime": "2020-06-25T19:39:44.527Z",
+  "description": "Esta es la prueba de la bajada en Foto al 100",
+  "headline": "Meta titulo",
+  "liveBlogUpdate": [
+    {
+      "@id": "#parrafo_1",
+      "@type": "BlogPosting",
+      "articleBody": "Se trata del primer caso confirmado de un latinoamericano diagnosticado con esta enfermedad que se haya anunciado hasta el momento. El crucero , que llegó el lunes por la noche a las inmediaciones del puerto de Yokohama , al suroeste de Tokio, tiene unos 3.700 pasajeros y tripulantes, de los cuales 273 se sometieron a las pruebas de detección. Permanecerían en cuarentena hasta el 19 de febrero.",
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION",
+      },
+      "dateModified": "2020-06-25T20:39:38.448Z",
+      "datePublished": "2020-06-25T20:39:38.448Z",
+      "headline": "Nota de prueba Foto al 100",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LA NACION",
+      },
+      "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_1",
+    },
+    {
+      "@id": "#parrafo_2",
+      "@type": "BlogPosting",
+      "articleBody": "El nombre de Squeff , muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras la caída sorpresiva de la postulación de Luis Bellando , otro diplomático de carrera, para representar al país en la Santa Sede.",
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION",
+      },
+      "dateModified": "2020-06-25T20:19:38.448Z",
+      "datePublished": "2020-06-25T20:19:38.448Z",
+      "headline": "Nota de prueba Foto al 100",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LA NACION",
+      },
+      "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_2",
+    },
+    {
+      "@id": "#parrafo_3",
+      "@type": "BlogPosting",
+      "articleBody": "En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero.",
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION",
+      },
+      "dateModified": "2020-06-25T20:09:38.448Z",
+      "datePublished": "2020-06-25T20:09:38.448Z",
+      "headline": "Nota de prueba Foto al 100",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LA NACION",
+      },
+      "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_3",
+    },
+    {
+      "@id": "#parrafo_4",
+      "@type": "BlogPosting",
+      "articleBody": "Quieren decir que tenía el sobrenombre de Quijada, o Quesada, que en esto hay alguna diferencia en los autores que deste caso escriben.",
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION",
+      },
+      "dateModified": "2020-06-25T19:59:38.448Z",
+      "datePublished": "2020-06-25T19:59:38.448Z",
+      "headline": "Nota de prueba Foto al 100",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LA NACION",
+      },
+      "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_4",
+    },
+    {
+      "@id": "#parrafo_5",
+      "@type": "BlogPosting",
+      "articleBody": "El nombre de Squeff , muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras la caída sorpresiva de la postulación de Luis Bellando , otro diplomático de carrera, para representar al país en la Santa Sede.",
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION",
+      },
+      "dateModified": "2020-06-25T19:49:38.448Z",
+      "datePublished": "2020-06-25T19:49:38.448Z",
+      "headline": "Nota de prueba Foto al 100",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LA NACION",
+      },
+      "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_5",
+    },
+    {
+      "@id": "#parrafo_6",
+      "@type": "BlogPosting",
+      "articleBody": "El nombre de Squeff , muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras la caída sorpresiva de la postulación de Luis Bellando , otro diplomático de carrera, para representar al país en la Santa Sede.",
+      "author": {
+        "@type": "PERSON",
+        "name": "Redacción LA NACION",
+      },
+      "dateModified": "2020-06-25T19:39:38.448Z",
+      "datePublished": "2020-06-25T19:39:38.448Z",
+      "headline": "Nota de prueba Foto al 100",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LA NACION",
+      },
+      "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_6",
+    },
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "logo": {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "height": 60,
+      "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
+      "width": 600,
+    },
+    "name": "",
+    "url": "https://www.lanacion.com.ar",
+  },
+  "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020/",
+}
+`;

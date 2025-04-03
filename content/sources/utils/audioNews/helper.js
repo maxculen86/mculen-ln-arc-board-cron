@@ -12,6 +12,11 @@ const getCommonProperties = data => {
     const displayDate = get(data, 'display_date', '');
     const contentElements = get(data, 'content_elements', []);
     const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
+    const audioStatus = get(
+        data,
+        'promo_items.audio_nota.embed.config.audio_status',
+        null
+    );
 
     return {
         sourceOrigin,
@@ -21,15 +26,14 @@ const getCommonProperties = data => {
         date,
         contentElements,
         primarySectionId,
-        displayDate
+        displayDate,
+        audioStatus
     };
 };
 
-const isValidDate = (date = '') => {
+export const isValidDate = (date = '', releaseDate = 20231123) => {
     const formatDate = date.replace(/-|[a-z][^/]+/gi, '');
-    const releaseDateInAllSections = 20231123;
-
-    return Number(formatDate) >= releaseDateInAllSections;
+    return Number(formatDate) >= releaseDate;
 };
 
 const hasParagraphs = contentElements =>
@@ -51,6 +55,17 @@ const isSectionEstadosUnidosListenable = (primarySectionId, date = '') => {
     return true;
 };
 
+const AUDIO_STATUS = {
+    CREATED_AUDIO: 6,
+    UPDATED_AUDIO: 7
+};
+
+const RELEASE_DATE_FOR_AUDIO_STATUS = 20250401;
+
+export const isAudioGenerated = (audioStatus = null) =>
+    audioStatus === AUDIO_STATUS.CREATED_AUDIO ||
+    audioStatus === AUDIO_STATUS.UPDATED_AUDIO;
+
 const isListenable = (data, validHasParagraphs = true) => {
     const {
         sourceOrigin,
@@ -60,8 +75,24 @@ const isListenable = (data, validHasParagraphs = true) => {
         date,
         contentElements,
         primarySectionId,
-        displayDate
+        displayDate,
+        audioStatus
     } = getCommonProperties(data);
+
+    if (audioStatus !== null) {
+        const shouldShowAudio = isAudioGenerated(audioStatus);
+        const isAudioAllowedByLabel = textAudioNews !== 'No mostrar audio';
+
+        return shouldShowAudio && isAudioAllowedByLabel;
+    }
+
+    const publishedDate = date || displayDate;
+    if (
+        audioStatus === null &&
+        isValidDate(publishedDate, RELEASE_DATE_FOR_AUDIO_STATUS)
+    ) {
+        return false;
+    }
 
     return (
         (sourceOrigin === 'composer' || sourceOrigin === '') &&

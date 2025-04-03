@@ -12,7 +12,6 @@ import PwaModal from '../features/LN-10-global/pwaModal/default';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
-import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 import Toasts from '../features/LN-10-global/common/toasts/default';
@@ -44,10 +43,6 @@ function lnNotaFotoAl100({
         listOfAllowedSection,
         noteType: subtype
     });
-    const withoutVideoBackground = !(
-        get(globalContent, 'promo_items.storytelling', null) ||
-        get(globalContent, 'promo_items.video_jw', null)
-    );
     const classNameWrapper = classNames(
         'wrapper',
         '--top-fixed',
@@ -63,15 +58,9 @@ function lnNotaFotoAl100({
                 <Header />
                 <main id="content" className="--header-fixed-margin">
                     {preTitulo}
-                    {isLoadWithPicture && withoutVideoBackground ? (
-                        <AperturaStorytelling
-                            isLoadWithPicture={isLoadWithPicture}
-                        />
-                    ) : (
-                        <AperturaStorytelling
-                            isLoadWithPicture={isLoadWithPicture}
-                        />
-                    )}
+                    <AperturaStorytelling
+                        isLoadWithPicture={isLoadWithPicture}
+                    />
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - feature - LN-nota - footer - _children - trustProject renders correctly when valid 1`] = `
+<DocumentFragment>
+  <section
+    class="w-100 flex flex-column flex-row_m ai-start ai-center_m gap-4"
+  >
+    <a
+      class="link ln-link flex ai-center gap-8 mt-8 mt-0_m py-16"
+      href="https://www.lanacion.com.ar/tema/the-trust-project-tid68036/"
+      target="_self"
+      title="Ir a Proyecto Trust"
+    >
+      <span
+        class="text ln-text white-space-nowrap text-light-800"
+      >
+        Conforme a
+      </span>
+      <div
+        class="w-100 flex jc-between ai-start ai-center_m"
+      >
+        <div
+          class="flex flex-column flex-row_m ai-start ai-center_m gap-12 gap-16_m"
+        >
+          <div
+            class="flex gap-8 ai-center"
+          >
+            <img
+              alt="The Trust Project"
+              class="image flex --cover"
+              decoding="async"
+              fetchpriority="low"
+              height="26"
+              loading="lazy"
+              src="pathDeployment/contextPath/resources/images/the-trust-project.webp"
+            />
+            <i
+              class="icon --icon-16"
+            >
+              <mock-icon
+                fill="var(--text-light-800)"
+                name="arrowRight"
+              />
+            </i>
+          </div>
+        </div>
+      </div>
+    </a>
+    <div
+      class="inline-flex gap-2 "
+    >
+      <span
+        class="text ln-text text-light-800"
+      >
+        Tipo de trabajo:
+      </span>
+      <div
+        class="relative w-max"
+      >
+        <strong
+          class="tooltip-sibling-hover text-light-800"
+        >
+          noticia original
+        </strong>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

@@ -21,6 +21,7 @@ import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirst
 import getElementFromRenderables from '../../../private/common/utils/getElementFromRenderables';
 import getSourcesJw from '../../../private/LN/common/utils/getSourcesJw';
 import { transformUrl } from './common/_helper';
+import { isAudioGenerated } from '../../../../content/sources/utils/audioNews/helper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -306,7 +307,13 @@ export const getMediaData = ({
     isAdmin = false,
     isLoadWithPicture
 } = {}) => {
-    const { video: videoId, imageId, html = '', cllBoard = '' } = customFields;
+    const {
+        video: videoId,
+        imageId,
+        html = '',
+        cllBoard = '',
+        videoComercial
+    } = customFields;
     const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
@@ -334,7 +341,9 @@ export const getMediaData = ({
             validation: html.trim(),
             data: {
                 type: 'embedCode',
-                embedCode: generateLazyLoadEmbedCode(html),
+                embedCode: videoComercial
+                    ? html
+                    : generateLazyLoadEmbedCode(html),
                 dataSrc: html.match(/src="(.*?)"/)?.[1]
             }
         },
@@ -471,10 +480,24 @@ export const shouldHighlightCustomVoice = (article = {}, config = {}) => {
     );
     const hasOneAuthor = get(article, 'credits.by.length', 0) === 1;
 
+    const audioStatus = get(
+        article,
+        'promo_items.audio_nota.embed.config.audio_status',
+        null
+    );
+    const textAudioNews = get(article, 'label.republicar_audio.text', '');
+    const isAudioAllowedByLabel = textAudioNews !== 'No mostrar audio';
+
+    const isAudioValid =
+        audioStatus !== null
+            ? isAudioGenerated(audioStatus) && isAudioAllowedByLabel
+            : true;
+
     return (
         hasAuthorVoice &&
         hasAuthorImage &&
         hasOneAuthor &&
-        isCustomVoiceCandidate
+        isCustomVoiceCandidate &&
+        isAudioValid
     );
 };

@@ -316,6 +316,8 @@ const customPowerUps = `
             time
             isoDate
             ${configPowerUpVideoJw}
+            widgetUrl
+            embedType
         }
     }
 `;
@@ -484,6 +486,13 @@ export default `
             embed {
                 config {
                     arrayBullets
+                }
+            }
+        }
+        audio_nota {
+            embed {
+                config {
+                    audio_status
                 }
             }
         }

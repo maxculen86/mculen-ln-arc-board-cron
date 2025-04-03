@@ -186,6 +186,15 @@ describe('content source apiAcumuladosV2Source integration test', () => {
                         source_type: 'staff',
                         system: 'composer'
                     },
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_status: 6
+                                }
+                            }
+                        }
+                    },
                     subheadlines: {
                         basic: ''
                     },
