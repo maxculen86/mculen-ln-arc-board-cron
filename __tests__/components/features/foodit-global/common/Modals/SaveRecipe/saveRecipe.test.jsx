@@ -1,11 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useAppContext } from 'fusion:context';
 import useGetUserConfig from '../../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
 import SaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/saveRecipe';
 import useSelectListener from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/hooks/useSelectListener';
 import useInputListener from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/hooks/useInputListener';
+import MainSaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/main';
 import FooterSaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/footer';
 import {
     saveRecipeConfig,
@@ -46,6 +47,10 @@ jest.mock(
 describe('SaveRecipe Component', () => {
     const mockClose = jest.fn();
     const mockSetIndexStep = jest.fn();
+    const mockInputRestoreValue = jest.fn();
+    const mockSelectRestoreValue = jest.fn();
+    const mockOnSelectChange = jest.fn();
+
     HTMLDialogElement.prototype.show = jest.fn();
     HTMLDialogElement.prototype.showModal = jest.fn();
 
@@ -57,12 +62,15 @@ describe('SaveRecipe Component', () => {
         useInputListener.mockReturnValue({
             onChange: jest.fn(),
             value: 'New Folder Name',
-            error: null
+            error: null,
+            restoreInputValue: mockInputRestoreValue,
+            setValue: jest.fn()
         });
 
         useSelectListener.mockReturnValue({
-            onSelectChange: jest.fn(),
-            selectValue: { value: '' }
+            onSelectChange: mockOnSelectChange,
+            selectValue: { value: '' },
+            restoreInputValue: mockSelectRestoreValue
         });
 
         getConfig.mockReturnValue({
@@ -85,6 +93,84 @@ describe('SaveRecipe Component', () => {
         carouselTitle: 'Sample Carousel Title',
         fatherType: 'sampleFatherType'
     };
+
+    it('passes correct props to MainSaveRecipe', () => {
+        render(<SaveRecipe {...defaultProps} />);
+
+        expect(MainSaveRecipe).toHaveBeenCalledWith(
+            expect.objectContaining({
+                newFolder: 'New Folder Name',
+                onInputFolderChange: expect.any(Function),
+                error: null,
+                selectedFolder: { value: '' },
+                onSelectChange: expect.any(Function),
+                showInputFolder: true,
+                showSelect: true,
+                inputRef: expect.any(Object),
+                restoreInputValue: expect.any(Function)
+            }),
+            {}
+        );
+    });
+
+    it('calls restoreSelectValue when dialog is closed', () => {
+        render(<SaveRecipe {...defaultProps} />);
+
+        const closeButton = screen.getByLabelText(/Cerrar/i);
+        fireEvent.click(closeButton);
+
+        expect(mockSelectRestoreValue).toHaveBeenCalled();
+        expect(mockClose).toHaveBeenCalled();
+    });
+
+    it('restores input value when selecting "new" collection', () => {
+        const mockOnSelectChange = jest.fn(({ value }) => {
+            if (value === 'new') {
+                mockInputRestoreValue();
+            }
+        });
+        useSelectListener.mockReturnValue({
+            onSelectChange: mockOnSelectChange,
+            selectValue: { value: '' },
+            restoreInputValue: mockSelectRestoreValue
+        });
+
+        render(<SaveRecipe {...defaultProps} />);
+
+        const [mainSaveRecipeProps] = MainSaveRecipe.mock.calls[0];
+        const onSelectChangeHandler = mainSaveRecipeProps.onSelectChange;
+
+        onSelectChangeHandler({ value: 'new' });
+
+        expect(mockInputRestoreValue).toHaveBeenCalled();
+        expect(mockInputRestoreValue).toHaveBeenCalledTimes(1);
+    });
+
+    it('handles error state in input correctly', () => {
+        useInputListener.mockReturnValue({
+            onChange: jest.fn(),
+            value: 'New Folder Name',
+            error: { hasError: true, message: 'Error message' },
+            restoreInputValue: mockInputRestoreValue,
+            setValue: jest.fn()
+        });
+
+        render(<SaveRecipe {...defaultProps} />);
+
+        expect(MainSaveRecipe).toHaveBeenCalledWith(
+            expect.objectContaining({
+                error: { hasError: true, message: 'Error message' }
+            }),
+            {}
+        );
+        expect(FooterSaveRecipe).toHaveBeenCalledWith(
+            expect.objectContaining({
+                hasInputError: true
+            }),
+            {}
+        );
+    });
+
     it('renders Header, Main, and Footer components', () => {
         render(<SaveRecipe {...defaultProps} />);
 
