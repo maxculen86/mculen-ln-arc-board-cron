@@ -1,0 +1,221 @@
+{
+  "_id": "RBZZKXKHT5D7LJTXIKWX6H7KKM",
+  "canonical_url": "/recetas/receta-de-prueba-tacos-al-pastor-nid25032025/",
+  "category": "Recetas",
+  "content_elements": [
+    {
+      "_id": "TS2L5DLMFFELNOZOKPTASTGSS4",
+      "additional_properties": {},
+      "content": "Ingredientes",
+      "level": 2,
+      "type": "header"
+    },
+    {
+      "_id": "ACKBTOT2TZEMXPA3LEWYGRQ7GQ",
+      "additional_properties": {},
+      "content": "Para la Carne",
+      "level": 3,
+      "type": "header"
+    },
+    {
+      "_id": "E6PEDKZ36FH4BPC3UCY2MQPZHQ",
+      "items": [
+        {
+          "_id": "J3RJEVNGEBD6TEY3VKLMYS5YJ4",
+          "content": "2 kg de pierna de cerdo",
+          "type": "text"
+        },
+        {
+          "_id": "TFDWAFW4JNDT3BJUBYLK4DALKY",
+          "content": "4 chiles guajillo",
+          "type": "text"
+        },
+        {
+          "_id": "76IX2434BVA2BI3XKCYUIMM6OI",
+          "content": "2 chiles anchos",
+          "type": "text"
+        },
+        {
+          "_id": "5QDPJYKVLRFP5BV2QDPH6H4734",
+          "content": "1 cabeza de ajo",
+          "type": "text"
+        },
+        {
+          "_id": "TUWUTU4AFBAZ3KA42KKIGVVV7E",
+          "content": "1/2 taza de jugo de piña",
+          "type": "text"
+        },
+        {
+          "_id": "ABVJ6DVIE5BWFGF5XGFQWAQIH4",
+          "content": "1/4 taza de vinagre blanco",
+          "type": "text"
+        },
+        {
+          "_id": "CYL2JEZCDRF43BDGQRCSJHA4CU",
+          "content": "2 cucharadas de achiote en pasta",
+          "type": "text"
+        },
+        {
+          "_id": "UMISKKG4QZGLXLAMFICDHRP52I",
+          "content": "1 cucharada de comino molido",
+          "type": "text"
+        },
+        {
+          "_id": "DBJF55XMSJDALJSAWPC42LJTUA",
+          "content": "Sal al gusto",
+          "type": "text"
+        },
+        {
+          "_id": "PAERQJXOEJDNRAYWSQNJ6JVVLE",
+          "content": "Pimienta al gusto",
+          "type": "text"
+        }
+      ],
+      "list_type": "unordered",
+      "type": "list"
+    },
+    {
+      "_id": "JJ62VK3BNBA2JPJMJY7I6375TE",
+      "items": [
+        {"content": "Tortillas de maíz", "type": "text"},
+        {"content": "Cebolla picada", "type": "text"},
+        {"content": "Cilantro fresco picado", "type": "text"},
+        {"content": "Piña picada", "type": "text"},
+        {"content": "Limones", "type": "text"},
+        {"content": "Salsa roja", "type": "text"}
+      ],
+      "list_type": "unordered",
+      "type": "list"
+    },
+    {
+      "_id": "2CLN7ZLINVDHFANMRI4NMXWQGU",
+      "content": "Preparación",
+      "level": 2,
+      "type": "header"
+    },
+    {
+      "_id": "GHDAPMZZZRFUTGLILSBGZHUHGI",
+      "content": "Marinado de la Carne",
+      "level": 3,
+      "type": "header"
+    },
+    {
+      "_id": "6NPXN2IYZJBEXPDK63P2CSVMOY",
+      "items": [
+        {"content": "Limpiar y cortar la pierna de cerdo en cortes delgados", "type": "text"},
+        {"content": "Hidratar los chiles guajillo y anchos.", "type": "text"},
+        {"content": "Preparar la marinada mezclando los chiles, ajo, piña, vinagre, achiote, comino, sal y pimienta.", "type": "text"},
+        {"content": "Cubrir la carne con la marinada y refrigerar por 4-6 horas.", "type": "text"}
+      ],
+      "list_type": "ordered",
+      "type": "list"
+    },
+    {
+      "_id": "VR2ZXJUZJVBKXPAKTAK3TU4FD4",
+      "content": " Cocción",
+      "level": 3,
+      "type": "header"
+    },
+    {
+      "_id": "G7Z5F7GV5RDT5IR2X4N227WUY4",
+      "items": [
+        {"content": "Precalentar el horno a 160°C", "type": "text"},
+        {"content": "Colocar la carne marinada en una fuente para horno", "type": "text"},
+        {"content": "Cubrir con papel aluminio", "type": "text"},
+        {"content": "Hornear por 2 horas hasta que la carne esté muy suave", "type": "text"},
+        {"content": "Desmenuzar o cortar en trozos pequeños", "type": "text"}
+      ],
+      "list_type": "ordered",
+      "type": "list"
+    }
+  ],
+  "content_restrictions": {
+    "content_code": "comun"
+  },
+  "created_date": "2025-03-25T19:51:36.14Z",
+  "credits": {
+    "by": [
+      {
+        "additional_properties": {
+          "original": {
+            "author_type": "",
+            "image": ""
+          }
+        },
+        "name": "Carlos G.",
+        "type": "author"
+      }
+    ]
+  },
+  "description": {
+    "basic": ""
+  },
+  "display_date": "2025-03-25T19:54:43.28Z",
+  "first_publish_date": "2025-03-25T19:54:43.28Z",
+  "headlines": {
+    "basic": "Receta de prueba: Tacos al Pastor",
+    "meta_title": "",
+    "mobile": ""
+  },
+  "label": {
+    "conversion_porciones": {
+      "text": "No"
+    }
+  },
+  "last_updated_date": "2025-03-28T16:42:41.101Z",
+  "owner": {
+    "sponsored": false
+  },
+  "paywallEnabled": "1",
+  "publish_date": "2025-03-28T16:42:40.882Z",
+  "revision": {
+    "published": true
+  },
+  "subheadlines": {
+    "basic": ""
+  },
+  "subscription": "A",
+  "subtype": "7",
+  "taxonomy": {
+    "primary_section": {
+      "_id": "/recetas",
+      "_website": "foodit",
+      "additional_properties": {
+        "original": {
+          "ancestors": {
+            "default": [
+              "/"
+            ]
+          },
+          "site": {}
+        }
+      },
+      "name": "Recetas",
+      "parent_id": "/",
+      "path": "/recetas",
+      "type": "section"
+    },
+    "sections": [
+      {
+        "_id": "/recetas",
+        "_website": "foodit",
+        "additional_properties": {
+          "original": {
+            "ancestors": {
+              "default": [
+                "/"
+              ]
+            },
+            "site": {}
+          }
+        },
+        "name": "Recetas",
+        "parent_id": "/",
+        "path": "/recetas",
+        "type": "section"
+      }
+    ]
+  },
+  "type": "story",
+  "website_url": "/recetas/receta-de-prueba-tacos-al-pastor-nid25032025/"
+}
