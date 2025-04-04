@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 export function TagCategories({ tagLinks = [] }) {
-    if (tagLinks.length === 0) return null;
+    if (tagLinks.length <= 1) return null;
 
     return (
         <nav className="flex ai-end_md">
