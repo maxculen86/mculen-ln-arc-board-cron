@@ -4,7 +4,7 @@ exports[`components - feature - LN-nota - Footer Component renders correctly wit
 <body>
   <div>
     <section
-      class="container-center-100"
+      class="container-center-100 mb-32"
     >
       <div
         class="grid grid-cols-2_m gap-12 py-16 py-12_m"

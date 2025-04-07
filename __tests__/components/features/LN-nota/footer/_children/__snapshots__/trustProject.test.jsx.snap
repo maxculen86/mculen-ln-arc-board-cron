@@ -6,7 +6,7 @@ exports[`components - feature - LN-nota - footer - _children - trustProject rend
     class="w-100 flex flex-column flex-row_m ai-start ai-center_m gap-4"
   >
     <a
-      class="link ln-link flex ai-center gap-8 mt-8 mt-0_m py-16"
+      class="link ln-link flex ai-center gap-8"
       href="https://www.lanacion.com.ar/tema/the-trust-project-tid68036/"
       target="_self"
       title="Ir a Proyecto Trust"
@@ -30,7 +30,7 @@ exports[`components - feature - LN-nota - footer - _children - trustProject rend
               class="image flex --cover"
               decoding="async"
               fetchpriority="low"
-              height="26"
+              height="24"
               loading="lazy"
               src="pathDeployment/contextPath/resources/images/the-trust-project.webp"
             />
