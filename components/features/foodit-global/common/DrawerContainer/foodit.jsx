@@ -39,16 +39,20 @@ function DrawerContainer({
         </Drawer>
     );
 }
+DrawerContainer.defaultProps = {
+    bodyClassName: '',
+    title: ''
+};
 
 DrawerContainer.propTypes = {
     drawerId: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
-    bodyClassName: PropTypes.string.isRequired,
+    bodyClassName: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string
 };
 
 export default DrawerContainer;
