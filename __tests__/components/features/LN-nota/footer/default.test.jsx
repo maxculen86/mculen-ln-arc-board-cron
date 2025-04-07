@@ -42,7 +42,9 @@ describe('components - feature - LN-nota - Footer Component', () => {
             trust: { text: 'Noticia Original' }
         },
         owner: { sponsored: false },
-        subtype: '1'
+        subtype: '1',
+        distributor: { name: 'Xinhua' },
+        taxonomy: { sections: [{}] }
     };
 
     it('renders correctly with valid props and context', () => {

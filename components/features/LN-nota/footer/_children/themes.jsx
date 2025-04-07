@@ -52,7 +52,7 @@ function Themes({ globalContent }) {
 
     return (
         <div
-            className="flex jc-between ai-start gap-8"
+            className="flex jc-between ai-center gap-8"
             data-mrf-recirculation="n_temas"
         >
             <ul className="flex flex-wrap w-100 jc-start jc-end_m brand-color">
