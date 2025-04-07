@@ -40,7 +40,7 @@ export function BannerBaseFoodit({ bannerType }) {
 
 BannerBaseFoodit.propTypes = {
     bannerType: PropTypes.shape({
-        devices: {
+        devices: PropTypes.shape({
             desktop: PropTypes.shape({
                 slotId: PropTypes.string.isRequired,
                 size: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
@@ -62,7 +62,7 @@ BannerBaseFoodit.propTypes = {
                 divId: PropTypes.string.isRequired,
                 classParent: PropTypes.string.isRequired
             })
-        },
+        }).isRequired,
         getTargetings: PropTypes.func.isRequired
     }).isRequired
 };

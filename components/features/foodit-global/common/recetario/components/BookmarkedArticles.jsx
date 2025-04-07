@@ -45,10 +45,15 @@ function BookmarkedArticles({
     );
 }
 
+BookmarkedArticles.defaultProps = {
+    selectedItemId: '',
+    selectedItemQuantity: 0
+};
+
 BookmarkedArticles.propTypes = {
     userBookmarks: PropTypes.arrayOf(PropTypes.object).isRequired,
-    selectedItemId: PropTypes.string.isRequired,
-    selectedItemQuantity: PropTypes.number.isRequired,
+    selectedItemId: PropTypes.string,
+    selectedItemQuantity: PropTypes.number,
     setSelectedItem: PropTypes.func.isRequired,
     setUserBookmarks: PropTypes.func.isRequired
 };

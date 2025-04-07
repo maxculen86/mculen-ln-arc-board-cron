@@ -119,11 +119,15 @@ function EditFolderModal({
     );
 }
 
+EditFolderModal.defaultProps = {
+    folderId: ''
+};
+
 EditFolderModal.propTypes = {
     onClose: PropTypes.func.isRequired,
     setUserBookmarks: PropTypes.func.isRequired,
     setSelectedItem: PropTypes.func.isRequired,
-    folderId: PropTypes.string.isRequired,
+    folderId: PropTypes.string,
     isOpen: PropTypes.bool.isRequired
 };
 export default EditFolderModal;

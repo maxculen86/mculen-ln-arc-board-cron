@@ -64,10 +64,12 @@ function CajaManual(props) {
 }
 
 CajaManual.label = 'foodit Caja Manual';
-
+CajaManual.defaultProps = {
+    isAdmin: false
+};
 CajaManual.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
     customFields: PropTypes.shape({
         ...setChainFooditCustomFields('cajaManual')
     }).isRequired

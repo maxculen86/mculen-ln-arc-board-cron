@@ -67,11 +67,12 @@ function MenuCategories({ data = [], fullWidth }) {
 
 MenuCategories.propTypes = {
     data: PropTypes.array,
-    fullWidth: PropTypes.boolean.isRequired
+    fullWidth: PropTypes.boolean
 };
 
 MenuCategories.defaultProps = {
-    data: []
+    data: [],
+    fullWidth: false
 };
 
 export default MenuCategories;
