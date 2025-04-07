@@ -5,7 +5,8 @@ import { Skeleton } from '@ln/common-ui-skeleton';
 import {
     createPlayer,
     createScript,
-    getPreparationItems
+    getPreparationItems,
+    getSteps
 } from './helpers/_helper';
 import get from '../../../../private/common/utils/get';
 import { StepsAudioFoodit } from './helpers/stepsAudioFoodit';
@@ -16,7 +17,12 @@ export function AudioFoodit({ article, setIsAudioPlaying }) {
     const [segmentIndex, setSegmentIndex] = useState(0);
     const playerRef = useRef(null);
     const contentElements = get(article, 'content_elements', []);
-    const stepList = getPreparationItems(contentElements);
+    const hasCustomPreparacion = contentElements.some(
+        element => element?.subtype === 'custom-preparacion'
+    );
+    const stepList = hasCustomPreparacion
+        ? getSteps(contentElements)
+        : getPreparationItems(contentElements);
     const idArticle = get(article, '_id', '');
     const segmentContainer = useRef(null);
 
