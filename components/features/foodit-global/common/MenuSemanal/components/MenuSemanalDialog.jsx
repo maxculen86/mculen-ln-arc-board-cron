@@ -102,13 +102,16 @@ function MenuSemanalDialog({ article }) {
                 title="agregar al menú"
                 variant="secondary"
                 onClick={handleOpen}
-                className="flex ai-center gap-8 max-h-32 min-h-40_lg"
+                className="flex ai-center gap-8 max-h-32 min-h-40_lg relative"
                 style={{ padding: '8px 16px' }}
             >
                 <Icon size={16}>
                     <IconSprite name="weekly-menu" critical />
                 </Icon>
                 agregar al menú
+                <span className="w-14 h-14 flex ai-center jc-center roboto roboto-bold text-8 translate-weekly-menu absolute rounded-circle bg-danger-500 text-light-1">
+                    1
+                </span>
             </Button>
             <Dialog
                 isOpen={isOpen}

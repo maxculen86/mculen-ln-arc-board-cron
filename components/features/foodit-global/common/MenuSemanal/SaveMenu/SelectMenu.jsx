@@ -3,9 +3,9 @@ import { Select } from '@ln/common-ui-select';
 import PropTypes from 'prop-types';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 
-function ItemCard(props) {
+/* function ItemCard(props) {
     return <Itemcard type="button" {...props} />;
-}
+} */
 
 export function SelectMenu({ setSelectedDay, setSelectedFood }) {
     const list = [
@@ -42,7 +42,19 @@ export function SelectMenu({ setSelectedDay, setSelectedFood }) {
                             key={id}
                             value={id}
                             label={text}
-                            as={ItemCard}
+                            // eslint-disable-next-line react/no-unstable-nested-components
+                            as={props => (
+                                <Itemcard
+                                    type="button"
+                                    disabled={id === 'wednesday'}
+                                    className={
+                                        id === 'wednesday'
+                                            ? 'opacity-40 text-inherit_hover'
+                                            : ''
+                                    }
+                                    {...props}
+                                />
+                            )}
                         />
                     ))}
                 </div>
@@ -64,7 +76,19 @@ export function SelectMenu({ setSelectedDay, setSelectedFood }) {
                         className="text-12"
                         value={id}
                         label={text}
-                        as={ItemCard}
+                        // eslint-disable-next-line react/no-unstable-nested-components
+                        as={props => (
+                            <Itemcard
+                                type="button"
+                                disabled={id === 'wednesday'}
+                                className={
+                                    id === 'wednesday'
+                                        ? 'opacity-40 text-inherit_hover'
+                                        : ''
+                                }
+                                {...props}
+                            />
+                        )}
                     />
                 ))}
             </Select>

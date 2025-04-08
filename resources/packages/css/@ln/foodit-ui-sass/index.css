@@ -150,6 +150,20 @@ input[type=checkbox]:hover {
   }
 }
 
+.media-scroller.--carousel-info [data-scroller=track] {
+  --scroller-element-columns: 7;
+}
+@media (min-width: 48rem) {
+  .media-scroller.--carousel-info [data-scroller=track] {
+    --scroller-element-columns: 4;
+  }
+}
+@media (min-width: 80rem) {
+  .media-scroller.--carousel-info [data-scroller=track] {
+    --scroller-element-columns: 5.3;
+  }
+}
+
 .jc-start {
   justify-content: flex-start;
 }
@@ -718,6 +732,10 @@ input[type=checkbox]:hover {
 }
 .roboto-bold {
   font-weight: 700;
+}
+.roboto .text-8 {
+  font-size: 0.5rem;
+  line-height: 120%;
 }
 .roboto .text-12 {
   font-size: 0.75rem;
@@ -1447,6 +1465,10 @@ strong {
   width: 0rem;
 }
 
+.w-14 {
+  width: 0.875rem;
+}
+
 .w-16 {
   width: 1rem;
 }
@@ -1475,8 +1497,20 @@ strong {
   width: 3.5rem;
 }
 
+.w-78 {
+  width: 4.875rem;
+}
+
 .w-80 {
   width: 5rem;
+}
+
+.w-87 {
+  width: 5.4375rem;
+}
+
+.w-95 {
+  width: 5.9375rem;
 }
 
 .w-50 {
@@ -1534,6 +1568,9 @@ strong {
   .w-51_md {
     width: 3.1875rem;
   }
+  .w-94_md {
+    width: 5.875rem;
+  }
   .w-150_md {
     width: 9.375rem;
   }
@@ -1553,6 +1590,9 @@ strong {
   }
   .w-56_lg {
     width: 3.5rem;
+  }
+  .w-110_lg {
+    width: 6.875rem;
   }
   .w-600_lg {
     width: 37.5rem;
@@ -1646,6 +1686,10 @@ strong {
   height: 0.5rem;
 }
 
+.h-14 {
+  height: 0.875rem;
+}
+
 .h-20 {
   height: 1.25rem;
 }
@@ -1694,6 +1738,14 @@ strong {
   height: 4.5rem;
 }
 
+.h-80 {
+  height: 5rem;
+}
+
+.h-91 {
+  height: 5.6875rem;
+}
+
 .h-250 {
   height: 15.625rem;
 }
@@ -1737,6 +1789,9 @@ strong {
   .h-40_md {
     height: 2.5rem;
   }
+  .h-96_md {
+    height: 6rem;
+  }
   .h-509_md {
     height: 31.8125rem;
   }
@@ -1754,6 +1809,9 @@ strong {
   }
   .h-56_lg {
     height: 3.5rem;
+  }
+  .h-112_lg {
+    height: 7rem;
   }
   .h-160_lg {
     height: 10rem;
@@ -2758,4 +2816,13 @@ input[type=checkbox]:checked::after {
 }
 .accordion:has(.accordion-header.--selected) {
   border-color: #846b05;
+}
+
+.translate-weekly-menu {
+  translate: 80px -15px;
+}
+
+.text-inherit_hover:hover.text-inherit_hover:hover {
+  color: inherit;
+  border-color: var(--neutral-light-100);
 }
