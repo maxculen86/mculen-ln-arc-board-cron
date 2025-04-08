@@ -4,9 +4,10 @@ import { getLastPublishDate } from '../elements/date/index';
 import { getArticleTitle } from '../elements/title/index';
 import { getArticleAuthor } from '../elements/author/index';
 import { getArticleOpinionSubtype } from '../elements/subType/index';
-import { articleSignature } from '../../elements/author';
+import { distributorOrAuthorSignature } from '../../elements/author';
 import sentToApps from '../../elements/label/sentToApps';
 import getOpeningMode from '../../elements/label/openingMode';
+import getDistributor from '../../elements/distributor';
 
 export const CardBasic = article => {
     const { subtype: templateId, label } = article;
@@ -39,10 +40,10 @@ export const CardBasic = article => {
         throw new Error(`La nota con el id: ${id}: No posee el valor Titulo`);
     }
     const autores = getArticleAuthor(article);
-    const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
     const enviarApps = sentToApps(article);
     const openingMode = getOpeningMode(article);
+    const distributor = getDistributor(article);
 
     return {
         id,
@@ -55,14 +56,15 @@ export const CardBasic = article => {
         volanta:
             get(label, 'volanta.text', null) ||
             get(article, 'additionalProperties.lead', null),
-        autor,
         autores,
-        marquesina: articleSignature(autores, signature),
+        authors: autores,
+        marquesina: distributorOrAuthorSignature(distributor, autores, signature),
         seccionPadre: getArticleOpinionSubtype(article),
         opinion: get(article, 'additionalProperties.opinion', false),
         enviarApps,
         fechaPublicacion: getLastPublishDate(article),
-        openingMode
+        openingMode,
+        distributor
     };
 };
 

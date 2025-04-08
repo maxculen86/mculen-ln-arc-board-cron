@@ -218,6 +218,7 @@ describe('Test json integracion Article', () => {
         expect(Object.keys(resp.apertura).sort()).toEqual(
             [
                 'autores',
+                'authors',
                 'bajada',
                 'imagenes',
                 'marquesina',
