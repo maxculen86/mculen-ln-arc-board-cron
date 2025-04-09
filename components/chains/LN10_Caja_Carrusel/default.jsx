@@ -16,6 +16,7 @@ import {
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+import loadJWPlayerScript from '../utils/loadJWPlayerScript';
 
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
 
@@ -68,12 +69,7 @@ function CajaCarrusel(props) {
 
     useEffect(() => {
         if (!isScriptLoaded(playerId)) {
-            const script = document.createElement('script');
-
-            script.src = `https://cdn.jwplayer.com/libraries/${playerId}.js`;
-            script.async = true;
-
-            document.body.appendChild(script);
+            loadJWPlayerScript(playerId);
         }
     }, []);
 
