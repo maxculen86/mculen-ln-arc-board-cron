@@ -31,6 +31,8 @@ import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowa
 import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 import { GetFonts } from './criticalCss/getFonts';
 import removeExtraSpaces from '../private/common/utils/removeExtraSpaces';
+import SchemaPageview from '../features/LN-10-global/common/schemas/schemaPageView/default';
+import ScriptRegisterPageview from '../private/common/scriptManager/scriptRegisterPageview';
 
 const lnBuscador = 'LN-buscador';
 
@@ -169,6 +171,9 @@ function Default(props) {
                     isAdmin={isAdmin}
                     layout={layout}
                 />
+                {/* TODO: Eliminar schemaPageview y scriptRegisterPageview cuando se implemente gtag para registro de pageviews */}
+                <SchemaPageview globalContent={globalContent} layout={layout} />
+                <ScriptRegisterPageview />
                 <GetFonts
                     contextPath={contextPath}
                     deployment={deployment}

@@ -7,6 +7,11 @@ import AnexoFeature, {
 } from '../../../../../components/features/LN-common/anexo/default';
 import { isInSection } from '../../../../../components/features/LN-common/anexo/common/_helper-WebApi';
 import BuildRoof from '../../../../../components/chains/utils/_BuildRoof/default';
+import { setupIntersectionObserver } from '../../../../../components/features/LN-10-global/common/utils/intersectionObserver';
+
+jest.mock(
+    '../../../../../components/features/LN-10-global/common/utils/intersectionObserver'
+);
 
 jest.mock('fusion:context', Component => {
     return function (Component) {
@@ -50,6 +55,75 @@ describe('features - LN-common - anexo - default', () => {
             mobileFullWidth: true
         }
     };
+
+    describe('AnexoFeature - VivoYoutube Section', () => {
+        it('renders vivoYoutube content when videoComercial is true', () => {
+            const props = {
+                id: 'vivoYoutube-container',
+                customFields: {
+                    vivoYoutube: '<div>Video Content</div>',
+                    videoComercial: true
+                },
+                isAdmin: false
+            };
+
+            render(<AnexoFeature {...props} />);
+
+            const container = screen.getByTestId(
+                'vivoYoutube-container-anexo-disabled'
+            );
+            expect(container.innerHTML).toBe('<div>Video Content</div>');
+        });
+
+        it('calls setupIntersectionObserver when videoComercial is false', () => {
+            const props = {
+                id: 'test-id',
+                customFields: {
+                    vivoYoutube: '<div>Video Content</div>',
+                    videoComercial: false
+                },
+                isAdmin: false
+            };
+
+            render(<AnexoFeature {...props} />);
+
+            expect(setupIntersectionObserver).toHaveBeenCalledWith(
+                expect.any(Object),
+                '<div>Video Content</div>'
+            );
+        });
+
+        it('updates vivoYoutube content when props change', () => {
+            const { rerender } = render(
+                <AnexoFeature
+                    id="test-id"
+                    customFields={{
+                        vivoYoutube: '<div>Initial Content</div>',
+                        videoComercial: true
+                    }}
+                    isAdmin={false}
+                />
+            );
+
+            const container = screen.getByTestId(
+                'vivoYoutube-container-anexo-disabled'
+            );
+            expect(container.innerHTML).toBe('<div>Initial Content</div>');
+
+            rerender(
+                <AnexoFeature
+                    id="test-id"
+                    customFields={{
+                        vivoYoutube: '<div>Updated Content</div>',
+                        videoComercial: true
+                    }}
+                    isAdmin={false}
+                />
+            );
+
+            expect(container.innerHTML).toBe('<div>Updated Content</div>');
+        });
+    });
 
     describe('With HTML anexo props', () => {
         it('Should render HTML anexo correctly', () => {
