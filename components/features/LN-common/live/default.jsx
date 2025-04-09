@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
-import LiveNew from './LiveNew';
+import LiveNew from './liveNew';
 
 function Updates({ section = '', chapita = '', updates = [], chapitaStyle }) {
     return (
