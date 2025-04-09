@@ -19,7 +19,7 @@ function TrustProject({ isInvalid, tooltipData }) {
             <Link
                 href="https://www.lanacion.com.ar/tema/the-trust-project-tid68036/"
                 title="Ir a Proyecto Trust"
-                className="flex ai-center gap-8 mt-8 mt-0_m py-16"
+                className="flex ai-center gap-8"
             >
                 <Text className="white-space-nowrap text-light-800">
                     Conforme a
@@ -28,7 +28,7 @@ function TrustProject({ isInvalid, tooltipData }) {
                     <div className="flex flex-column flex-row_m ai-start ai-center_m gap-12 gap-16_m">
                         <div className="flex gap-8 ai-center">
                             <Adaptableimage
-                                height={26}
+                                height={24}
                                 src={deployment(
                                     `${contextPath}/resources/images/the-trust-project.webp`
                                 )}
