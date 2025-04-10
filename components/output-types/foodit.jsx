@@ -66,6 +66,12 @@ function Foodit({
                     name="viewport"
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
+                <link
+                    rel="manifest"
+                    href={deployment(
+                        `${contextPath}/resources/json/foodit/manifest.json`
+                    )}
+                />
                 {isArcPreview && (
                     <meta name="robots" content="noindex, nofollow" />
                 )}
