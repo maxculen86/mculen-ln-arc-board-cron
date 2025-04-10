@@ -33,7 +33,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo'
+            path: '/distributor/bbc-mundo/'
         });
     });
 
@@ -46,7 +46,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo'
+            path: '/distributor/bbc-mundo/'
         });
     });
 
@@ -58,7 +58,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'propiedades',
-            path: '/propiedades'
+            path: '/propiedades/'
         });
     });
 
@@ -71,7 +71,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo'
+            path: '/distributor/bbc-mundo/'
         });
     });
 
@@ -84,7 +84,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: false,
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo'
+            path: '/distributor/bbc-mundo/'
         });
     });
 
@@ -104,7 +104,7 @@ describe('Utils - SectionUtils', () => {
 
         const expectedResult = {
             logoName: 'canchallena',
-            path: 'https://canchallena.lanacion.com.ar'
+            path: 'https://canchallena.lanacion.com.ar/'
         };
 
         expect(logoName).toBe(expectedResult.logoName);
@@ -119,7 +119,7 @@ describe('Utils - SectionUtils', () => {
 
         const path = generatePath(sectionId, regex, fullMatch, $1);
 
-        const expectedResult = 'https://canchallena.lanacion.com.ar';
+        const expectedResult = 'https://canchallena.lanacion.com.ar/';
 
         expect(path).toBe(expectedResult);
     });

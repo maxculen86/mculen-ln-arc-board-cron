@@ -1,0 +1,583 @@
+{
+    "_id": "PUYGVLI4SJH35IYS6J2ZYOWP7E",
+    "canonical_url": "/masmusica/foto-al-100-mas-musica-nid20032025/",
+    "category": "La Nación 104.9 + Música",
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "content_elements": [
+        {
+            "_id": "IHL2QK5ISZDBLMLUQ72XG2JWU4",
+            "additional_properties": {},
+            "content": "La cantante estadounidense Roberta Flack, conocida por éxitos como Killing me softly with his song, falleció este lunes a los 88 años.",
+            "type": "text"
+        },
+        {
+            "_id": "XYFAAMU2V5CV7NRLV3AUOB2K2M",
+            "additional_properties": {},
+            "content": "“Murió en paz rodeada de su familia. Roberta rompió fronteras y récords. También era una orgullosa educadora”, señaló en un comunicado su representante.",
+            "type": "text"
+        },
+        {
+            "_id": "HPDJJQRZS5CDNBMRPU2UGMRZLY",
+            "additional_properties": {},
+            "content": "Flack había sido diagnosticada de esclerosis lateral amiotrófica (ELA) en 2022. Llevaba varios años retirada de los escenarios después de haber sufrido un derrame cerebral.",
+            "type": "text"
+        },
+        {
+            "_id": "4TOJLFFS2FH5TAOA77BCF4Y67M",
+            "additional_properties": {},
+            "content": "En su carrera de casi cinco décadas, Flack fue la primera cantante en ganar el premio Grammy a la Grabación del Año en dos años consecutivos por First time ever I saw your face (1973) y Killing me softly with his song (1974).",
+            "type": "text"
+        },
+        {
+            "_id": "U3DZO3N2G5AVTLLZ5NUIZ6VKS4",
+            "additional_properties": {},
+            "content": "En 2020, un año después de sufrir un derrame cerebral, fue galardonada por los Grammy con el premio a su trayectoria.",
+            "type": "text"
+        },
+        {
+            "_id": "SGHJPNNEJREQZG6GOELKADDUGY",
+            "additional_properties": {},
+            "content": "“Es un honor tremendo y abrumador”, dijo entonces.",
+            "type": "text"
+        },
+        {
+            "_id": "WS3MKEJCI5CPBJKSLEZ76UFJJY",
+            "additional_properties": {},
+            "content": "“He intentado toda mi carrera contar historias a través de mi música. Este premio es una validación para mí de que mis compañeros escucharon mis pensamientos y acogieron lo que he intentado ofrecer”, añadió.",
+            "type": "text"
+        },
+        {
+            "_id": "LZTMCPFEUNCMJGG5LXRFAEGNUU",
+            "additional_properties": {
+                "mime_type": "image/jpeg"
+            },
+            "auth": {
+                "1": "dddb8561c4f1172404f1adf069b6b10e0f232eed6d6a68f6014eedd3155ee79c"
+            },
+            "caption": "Flack fue descubierta en un club de jazz a finales de la década de 1960.",
+            "created_date": "2025-02-24T23:10:23Z",
+            "height": 648,
+            "publish_date": "2025-02-24T20:10:18.5909494-03:00",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1440px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-fue-descubierta-en-un-club-de-jazz-a-LZTMCPFEUNCMJGG5LXRFAEGNUU.jpg?auth=dddb8561c4f1172404f1adf069b6b10e0f232eed6d6a68f6014eedd3155ee79c&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 853,
+                        "media": "(min-width: 1024px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1280
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-fue-descubierta-en-un-club-de-jazz-a-LZTMCPFEUNCMJGG5LXRFAEGNUU.jpg?auth=dddb8561c4f1172404f1adf069b6b10e0f232eed6d6a68f6014eedd3155ee79c&width=1280&height=853&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 512,
+                        "media": "(min-width: 768px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "3:2",
+                        "width": 768
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-fue-descubierta-en-un-club-de-jazz-a-LZTMCPFEUNCMJGG5LXRFAEGNUU.jpg?auth=dddb8561c4f1172404f1adf069b6b10e0f232eed6d6a68f6014eedd3155ee79c&width=768&height=512&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 280,
+                        "media": "(max-width: 767px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-fue-descubierta-en-un-club-de-jazz-a-LZTMCPFEUNCMJGG5LXRFAEGNUU.jpg?auth=dddb8561c4f1172404f1adf069b6b10e0f232eed6d6a68f6014eedd3155ee79c&width=420&height=280&quality=70&smart=true"
+                }
+            ],
+            "type": "image",
+            "url": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-fue-descubierta-en-un-club-de-jazz-a-LZTMCPFEUNCMJGG5LXRFAEGNUU.jpg?auth=dddb8561c4f1172404f1adf069b6b10e0f232eed6d6a68f6014eedd3155ee79c&width=1920&height=1215&quality=70&smart=true",
+            "vanity_credits": {
+                "by": [
+                    {
+                        "name": "Getty Images",
+                        "type": "reference"
+                    }
+                ]
+            },
+            "width": 1024
+        },
+        {
+            "_id": "XBUBYUH32NGXDIDOEGT2227DMA",
+            "additional_properties": {},
+            "content": "El éxito de Killing me softly with his song",
+            "level": 2,
+            "type": "header"
+        },
+        {
+            "_id": "P4I3ZCOZARASTKF7RHDC5523CU",
+            "additional_properties": {},
+            "content": "Killing me softly with his song, una composición de los músicos Charles Fox y Norman Gimbel, se convirtió en el número uno de la lista de éxitos de EE.UU. durante varias semanas desde su lanzamiento en 1973.",
+            "type": "text"
+        },
+        {
+            "_id": "4VANQP7ZQFBAPMVEGFJZTVX4R4",
+            "additional_properties": {},
+            "content": "También fue un éxito en otros países de habla inglesa y con el tiempo llegó al resto del mundo.",
+            "type": "text"
+        },
+        {
+            "_id": "7IHEC355IJFXXN4WSUFBKGGI2Q",
+            "additional_properties": {},
+            "content": "Flack contaba que la escuchó por primera vez en 1971 mientras viajaba en avión.",
+            "type": "text"
+        },
+        {
+            "_id": "3JQDOMJPOFCBLPAHTBR7ZGSSFU",
+            "additional_properties": {},
+            "content": "“La canción me golpeó. Inmediatamente saqué un papel, hice pentagramas y repasé la canción al menos ocho o diez veces, anotando la melodía que escuchaba. Cuando aterricé, llamé inmediatamente a Quincy [Jones, el productor] a su casa y le pregunté cómo encontrar a Charles Fox. Dos días después tenía la canción”, contaba Flack.",
+            "type": "text"
+        },
+        {
+            "_id": "FZBD2OQGSFE6FHM43MCGHSRVG4",
+            "additional_properties": {},
+            "content": "Grabó varias versiones hasta conseguir la armonía y las voces que buscaba, pese a las presiones de sus productores para lanzar el tema lo antes posible.",
+            "type": "text"
+        },
+        {
+            "_id": "G4ZI2RRYPVGYHNLSZEBCU6TDKI",
+            "additional_properties": {},
+            "content": "“Mi formación clásica me permitió probar varias cosas. Cambié partes de la estructura de acordes y decidí terminar con un acorde mayor”, dijo.",
+            "type": "text"
+        },
+        {
+            "_id": "LZYBK4KEUZDKTI6KYQT3ZNWIY4",
+            "additional_properties": {},
+            "content": "Tras el éxito de la versión de Flack, el tema fue grabado por otros artistas, como los Fugees en 1996.",
+            "type": "text"
+        },
+        {
+            "_id": "HUO5NXK2O5CYNAUDVU46VBZSTA",
+            "additional_properties": {
+                "mime_type": "image/jpeg"
+            },
+            "auth": {
+                "1": "410d26620e420bdcbf009959decba9753bc1c2e320a91aa6a1c3a186f5b75d72"
+            },
+            "caption": "Flack había perdido movilidad desde 2022, cuando fue diagnosticada con ELA.",
+            "created_date": "2025-02-24T23:10:24Z",
+            "height": 694,
+            "publish_date": "2025-02-24T20:10:18.5990695-03:00",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1440px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-habia-perdido-movilidad-desde-2022-cuando-HUO5NXK2O5CYNAUDVU46VBZSTA.jpg?auth=410d26620e420bdcbf009959decba9753bc1c2e320a91aa6a1c3a186f5b75d72&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 853,
+                        "media": "(min-width: 1024px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1280
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-habia-perdido-movilidad-desde-2022-cuando-HUO5NXK2O5CYNAUDVU46VBZSTA.jpg?auth=410d26620e420bdcbf009959decba9753bc1c2e320a91aa6a1c3a186f5b75d72&width=1280&height=853&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 512,
+                        "media": "(min-width: 768px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "3:2",
+                        "width": 768
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-habia-perdido-movilidad-desde-2022-cuando-HUO5NXK2O5CYNAUDVU46VBZSTA.jpg?auth=410d26620e420bdcbf009959decba9753bc1c2e320a91aa6a1c3a186f5b75d72&width=768&height=512&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 280,
+                        "media": "(max-width: 767px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-habia-perdido-movilidad-desde-2022-cuando-HUO5NXK2O5CYNAUDVU46VBZSTA.jpg?auth=410d26620e420bdcbf009959decba9753bc1c2e320a91aa6a1c3a186f5b75d72&width=420&height=280&quality=70&smart=true"
+                }
+            ],
+            "type": "image",
+            "url": "https://sandbox-resizer.glanacion.com/resizer/v2/flack-habia-perdido-movilidad-desde-2022-cuando-HUO5NXK2O5CYNAUDVU46VBZSTA.jpg?auth=410d26620e420bdcbf009959decba9753bc1c2e320a91aa6a1c3a186f5b75d72&width=1920&height=1301&quality=70&smart=true",
+            "vanity_credits": {
+                "by": [
+                    {
+                        "name": "Getty Images",
+                        "type": "reference"
+                    }
+                ]
+            },
+            "width": 1024
+        },
+        {
+            "_id": "HK3P2WEFZFACRPMEQZQXIKCDQA",
+            "additional_properties": {},
+            "content": "Cantante y educadora",
+            "level": 2,
+            "type": "header"
+        },
+        {
+            "_id": "VIUNKPFGONDQHBC3ERBR2EYVXY",
+            "additional_properties": {},
+            "content": "Nacida en Carolina del Norte y criada en Arlington (Virginia), Flack comenzó como pianista clásica, primero enseñando música.",
+            "type": "text"
+        },
+        {
+            "_id": "4ETWKZSS3NDYLKARUHXA5CB6MI",
+            "additional_properties": {},
+            "content": "Su carrera discográfica arrancó tras ser descubierta cantando en un club de jazz por el músico Les McCann, quien decía que “su voz tocaba, golpeaba, atrapaba y pateaba todas las emociones que he conocido”.",
+            "type": "text"
+        },
+        {
+            "_id": "TFYV3FSZZ5GHRI2MS47MZOJC7Q",
+            "additional_properties": {},
+            "content": "Pero su primer éxito llegó varios años después, cuando su grabación de The first time ever I saw your face, de Ewan MacColl, se utilizó como fondo de una explícita escena de amor en la película de Clint Eastwood Play Misty For Me (1971).",
+            "type": "text"
+        },
+        {
+            "_id": "WYTOGT4CURCFNOGTPOFMI2QWLE",
+            "additional_properties": {},
+            "content": "La grabación la llevó a ganar el Grammy en 1973 y luego se llevó el premio al año siguiente con Killing me softly with his song.",
+            "type": "text"
+        },
+        {
+            "_id": "BQAX27TSGZGW3MSHKHUSGH2YJY",
+            "additional_properties": {},
+            "content": "Tras volver a encabezar las listas de éxitos en 1974 con Feel like makin’ love, Flack dejó de actuar para concentrarse en componer y realizar causas benéficas.",
+            "type": "text"
+        },
+        {
+            "_id": "S734XFKU2JC2JAQZXEIVSSPCMM",
+            "additional_properties": {},
+            "content": "A lo largo de su carrera, trabajó con artistas como Donny Hathaway y Miles Davis y grabó un álbum de versiones de The Beatles en 2012.",
+            "type": "text"
+        },
+        {
+            "_id": "D6TRL6GWLZF4JOV2UMAX4RRAFY",
+            "additional_properties": {
+                "mime_type": "image/png"
+            },
+            "auth": {
+                "1": "f6e7f215f143000a59e8aaf7015b008fd6ad6d1f324f941e6f28f5d91b9f2da7"
+            },
+            "created_date": "2024-04-17T11:10:23Z",
+            "height": 100,
+            "publish_date": "2024-04-17T08:10:15.1458445-03:00",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1440px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/D6TRL6GWLZF4JOV2UMAX4RRAFY.png?auth=f6e7f215f143000a59e8aaf7015b008fd6ad6d1f324f941e6f28f5d91b9f2da7&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 853,
+                        "media": "(min-width: 1024px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1280
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/D6TRL6GWLZF4JOV2UMAX4RRAFY.png?auth=f6e7f215f143000a59e8aaf7015b008fd6ad6d1f324f941e6f28f5d91b9f2da7&width=1280&height=853&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 512,
+                        "media": "(min-width: 768px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "3:2",
+                        "width": 768
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/D6TRL6GWLZF4JOV2UMAX4RRAFY.png?auth=f6e7f215f143000a59e8aaf7015b008fd6ad6d1f324f941e6f28f5d91b9f2da7&width=768&height=512&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 280,
+                        "media": "(max-width: 767px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/D6TRL6GWLZF4JOV2UMAX4RRAFY.png?auth=f6e7f215f143000a59e8aaf7015b008fd6ad6d1f324f941e6f28f5d91b9f2da7&width=420&height=280&quality=70&smart=true"
+                }
+            ],
+            "type": "image",
+            "url": "https://sandbox-resizer.glanacion.com/resizer/v2/D6TRL6GWLZF4JOV2UMAX4RRAFY.png?auth=f6e7f215f143000a59e8aaf7015b008fd6ad6d1f324f941e6f28f5d91b9f2da7&width=1920&height=240&quality=70&smart=true",
+            "vanity_credits": {
+                "by": [
+                    {
+                        "name": "BBC",
+                        "type": "reference"
+                    }
+                ]
+            },
+            "width": 800
+        },
+        {
+            "_id": "LZIR7UNIWNE73LDBGTPRAJ3ZGY",
+            "additional_properties": {},
+            "content": "<a href=\"https://www.bbc.com/mundo?xtor=AL-73-%5Bpartner%5D-%5Blanacion.com.ar%5D-%5Blink%5D-%5Bmundo%5D-%5Bbizdev%5D-%5Bisapi%5D/\">Haz clic aquí</a> para leer más historias de BBC News Mundo.",
+            "type": "text"
+        },
+        {
+            "_id": "6GL3T4J2OBDZDPTWDN4ELWOJEI",
+            "additional_properties": {},
+            "content": "<a href=\"https://www.bbc.com/mundo/send/u184973209?xtor=AL-73-%5Bpartner%5D-%5Blanacion.com.ar%5D-%5Blink%5D-%5Bmundo%5D-%5Bbizdev%5D-%5Bisapi%5D/\">Suscríbete aquí</a> a nuestro nuevo newsletter para recibir cada viernes una selección de nuestro mejor contenido de la semana.",
+            "type": "text"
+        },
+        {
+            "_id": "DCSUYA5YNZFOBMNOBW7Z6DPJ7M",
+            "additional_properties": {},
+            "content": "También puedes seguirnos en <a href=\"https://www.youtube.com/user/BBCMundo?sub_confirmation=1\">YouTube</a>, <a href=\"https://www.instagram.com/bbcmundo\">Instagram</a>, <a href=\"https://www.tiktok.com/@bbcnewsmundo\">TikTok</a>, <a href=\"https://twitter.com/bbcmundo\">X</a>, <a href=\"https://www.facebook.com/BBCnewsMundo\">Facebook</a> y en nuestro nuevo <a href=\"https://www.whatsapp.com/channel/0029VaUm1Ss3WHTbgIXrjw3D\">canal de WhatsApp</a>.",
+            "type": "text"
+        },
+        {
+            "_id": "YVDEOBV2TBFQNNUYQUGE7YK74Y",
+            "additional_properties": {},
+            "content": "Y recuerda que puedes recibir notificaciones en nuestra app. Descarga la última versión y actívalas.",
+            "type": "text"
+        },
+        {
+            "_id": "QSCWW47BO5DLBP7THG33ZWVXKA",
+            "items": [
+                {
+                    "_id": "N4K2FEOGERBGTHU6JSJJQAPTZQ",
+                    "content": "Roberta Flack: la fascinante vida de la cantante que cambió el soul en Estados Unidos ’ BBC Extra",
+                    "type": "text"
+                }
+            ],
+            "list_type": "unordered",
+            "type": "list"
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2025-03-20T18:54:05.695Z",
+    "credits": {
+        "by": []
+    },
+    "display_date": "2025-03-20T18:54:17.344Z",
+    "distributor": {
+        "category": "staff",
+        "mode": "custom",
+        "name": ""
+    },
+    "first_publish_date": "2025-03-20T18:54:17.344Z",
+    "headlines": {
+        "basic": "foto al 100 mas musica",
+        "mobile": ""
+    },
+    "isListenable": true,
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital"
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si"
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si"
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si"
+        },
+        "trust": {
+            "text": "Noticia"
+        }
+    },
+    "last_updated_date": "2025-03-20T18:55:02.968Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "1",
+    "planning": {
+        "story_length": {
+            "character_count_actual": 3693,
+            "inch_count_actual": 5,
+            "line_count_actual": 33,
+            "word_count_actual": 634
+        }
+    },
+    "promo_items": {
+        "audio_nota": {
+            "embed": {
+                "config": {
+                    "audio_status": 6
+                }
+            }
+        },
+        "basic": {
+            "_id": "JAMSJ347CFBYJOZGVFD2NOMGFM",
+            "additional_properties": {
+                "mime_type": "image/jpeg"
+            },
+            "auth": {
+                "1": "94389351b0b9ba44590818c33c87daef7c7399b8c265cd05b7d33843593c9d27"
+            },
+            "caption": "Roberta Flack ganó dos Grammy a la Grabación del año (1973 y 1974).",
+            "created_date": "2025-02-24T23:10:22Z",
+            "height": 461,
+            "originalSizes": {
+                "height": 461,
+                "width": 819
+            },
+            "publish_date": "2025-02-24T20:10:18.5828964-03:00",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/roberta-flack-gano-dos-grammy-a-la-grabacion-del-JAMSJ347CFBYJOZGVFD2NOMGFM.jpg?auth=94389351b0b9ba44590818c33c87daef7c7399b8c265cd05b7d33843593c9d27&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/roberta-flack-gano-dos-grammy-a-la-grabacion-del-JAMSJ347CFBYJOZGVFD2NOMGFM.jpg?auth=94389351b0b9ba44590818c33c87daef7c7399b8c265cd05b7d33843593c9d27&width=1200&height=800&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 1155,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "2:3",
+                        "width": 770
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/roberta-flack-gano-dos-grammy-a-la-grabacion-del-JAMSJ347CFBYJOZGVFD2NOMGFM.jpg?auth=94389351b0b9ba44590818c33c87daef7c7399b8c265cd05b7d33843593c9d27&width=770&height=1155&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 630,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "2:3",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/roberta-flack-gano-dos-grammy-a-la-grabacion-del-JAMSJ347CFBYJOZGVFD2NOMGFM.jpg?auth=94389351b0b9ba44590818c33c87daef7c7399b8c265cd05b7d33843593c9d27&width=420&height=630&quality=70&smart=true"
+                }
+            ],
+            "type": "image",
+            "url": "https://sandbox-resizer.glanacion.com/resizer/v2/roberta-flack-gano-dos-grammy-a-la-grabacion-del-JAMSJ347CFBYJOZGVFD2NOMGFM.jpg?auth=94389351b0b9ba44590818c33c87daef7c7399b8c265cd05b7d33843593c9d27&width=1920&height=1081&quality=70&smart=true",
+            "width": 819
+        }
+    },
+    "publish_date": "2025-03-20T18:54:17.344Z",
+    "related_content": {
+        "basic": []
+    },
+    "source": {
+        "system": "composer"
+    },
+    "subheadlines": {
+        "basic": "Roberta Flack falleció a los 88 años. Fue la primera cantante en ganar dos Grammy consecutivos a la Grabación del Año."
+    },
+    "subscription": "A",
+    "subtype": "8",
+    "syndication": {
+        "external_distribution": false,
+        "search": false
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/masmusica",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": [
+                            "/"
+                        ]
+                    },
+                    "site": {}
+                }
+            },
+            "name": "La Nación 104.9 + Música",
+            "parent_id": "/",
+            "path": "/masmusica",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/masmusica",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": [
+                                "/"
+                            ]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "La Nación 104.9 + Música",
+                "parent_id": "/",
+                "path": "/masmusica",
+                "type": "section"
+            }
+        ],
+        "sites": [
+            {
+                "additional_properties": {
+                    "original": {
+                        "_id": "/masmusica"
+                    }
+                }
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/masmusica/foto-al-100-mas-musica-nid20032025/",
+    "withFirmaDistributor": false,
+    "withSponsoredLink": false
+}
