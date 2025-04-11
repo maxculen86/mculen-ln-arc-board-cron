@@ -112,7 +112,7 @@ describe('Components - Features - LN-nota - share', () => {
 
         expect(
             screen.getByTitle(
-                'Leer el resumen y glosario generados por la inteligencia artificial'
+                'Leer resumen generado por inteligencia artificial'
             )
         ).toBeInTheDocument();
     });
