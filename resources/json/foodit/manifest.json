@@ -9,12 +9,12 @@
     "theme_color": "#143318",
     "icons": [
         {
-            "src": "https://ln-static.glanacion.com/foodit-static/foodit-logo-192.png",
+            "src": "https://ln-static.glanacion.com/foodit-static/favicon-192x192@1x.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "https://ln-static.glanacion.com/foodit-static/foodit-logo-512.png",
+            "src": "https://ln-static.glanacion.com/foodit-static/favicon-512x512@1x.png",
             "sizes": "512x512",
             "type": "image/png"
         }
