@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should render with button cerrar sesion and logout must be executed 1`] = `
+<div>
+  <div
+    class="header-wrapper"
+  >
+    <header
+      class="header"
+    >
+      <div
+        class="wrapper"
+      >
+        <a
+          alt="lnmas.com.ar"
+          class="header__logo"
+          href="/pf/homepage/"
+          title="lnmas.com.ar"
+        >
+          LN+
+        </a>
+        <button
+          class="header__hamburguer"
+        >
+          ☰
+        </button>
+        <nav
+          class="header__nav"
+        >
+          <a
+            alt="En Vivo"
+            class="header__nav__link"
+            data-event="LinkClick"
+            data-section="HeaderOTT"
+            href="/homepage/"
+          >
+            En Vivo
+          </a>
+          <a
+            alt="Todos los programas"
+            class="header__nav__link"
+            data-event="LinkClick"
+            data-section="HeaderOTT"
+            href="/programas/"
+          >
+            Todos los programas
+          </a>
+          <button
+            class="button header__log-out"
+            title="Cerrar sesión"
+            type="button"
+          >
+            <i
+              class="icon --icon-12"
+            >
+              <svg
+                fill="none"
+                height="12"
+                viewBox="0 0 12 12"
+                width="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  id="Icon"
+                >
+                  <path
+                    d="M2.5 11C2.36739 11 2.24021 10.9473 2.14645 10.8536C2.05268 10.7598 2 10.6326 2 10.5V1.5C2 1.36739 2.05268 1.24021 2.14645 1.14645C2.24021 1.05268 2.36739 1 2.5 1H9.5C9.63261 1 9.75979 1.05268 9.85355 1.14645C9.94732 1.24021 10 1.36739 10 1.5V3H9V2H3V10H9V9H10V10.5C10 10.6326 9.94732 10.7598 9.85355 10.8536C9.75979 10.9473 9.63261 11 9.5 11H2.5ZM9 8V6.5H5.5V5.5H9V4L11.5 6L9 8Z"
+                    fill="#C61B25"
+                    id="Icon_2"
+                  />
+                </g>
+              </svg>
+            </i>
+            <span
+              class="text"
+            >
+              Cerrar sesión
+            </span>
+          </button>
+        </nav>
+      </div>
+    </header>
+  </div>
+</div>
+`;
