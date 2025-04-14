@@ -10,7 +10,8 @@ describe('respChildrens', () => {
             'bomba',
             'chainManual',
             'LN',
-            'LN10'
+            'LN10',
+            'bnPlayer'
         ];
         const receivedProperties = Object.keys(respChildrens);
         expect(receivedProperties).toEqual(expectedProperties);
