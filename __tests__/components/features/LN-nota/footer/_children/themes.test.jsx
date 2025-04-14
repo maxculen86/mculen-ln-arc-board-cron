@@ -44,10 +44,10 @@ describe('components - feature - LN-nota - footer - _children - themes', () => {
         expect(screen.getByText('Ganancias')).toBeInTheDocument();
         expect(
             screen.getByRole('link', { name: 'Sergio Massa' })
-        ).toHaveAttribute('href', 'sergio-massa');
+        ).toHaveAttribute('href', '/tema/sergio-massa/');
         expect(screen.getByRole('link', { name: 'Ganancias' })).toHaveAttribute(
             'href',
-            'ganancias'
+            '/tema/ganancias/'
         );
     });
 
