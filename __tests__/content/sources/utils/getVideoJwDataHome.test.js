@@ -1,26 +1,40 @@
 import { getVideoJwDataHome } from '../../../../content/sources/utils/getVideoJwDataHome';
 
 describe('content - sources - utils -getVideoJwDataHome', () => {
-    it('should return sources and poster from videoData', () => {
+    it('should return correct video data', () => {
         const videoData = {
             playlist: [
                 {
                     sources: ['video.mp4'],
-                    images: [{ src: 'poster.jpg' }]
+                    image: 'poster.jpg',
+                    images: [{ src: 'poster.jpg' }],
+                    mediaid: 'GVSSDClx',
+                    title: 'Título de prueba',
+                    tracks: [{ file: 'subtitulos.vtt' }]
                 }
             ]
         };
 
         expect(getVideoJwDataHome(videoData)).toStrictEqual({
             sources: ['video.mp4'],
-            poster: 'poster.jpg'
+            image: 'poster.jpg',
+            poster: 'poster.jpg',
+            images: [{ src: 'poster.jpg' }],
+            mediaid: 'GVSSDClx',
+            title: 'Título de prueba',
+            tracks: [{ file: 'subtitulos.vtt' }]
         });
     });
 
-    it('should return empty sources and poster when videoData is empty', () => {
+    it('should return default empty values when videoData is empty', () => {
         expect(getVideoJwDataHome({})).toStrictEqual({
             sources: [],
-            poster: undefined
+            poster: undefined,
+            image: undefined,
+            images: [],
+            mediaid: undefined,
+            title: 'Video sin título',
+            tracks: []
         });
     });
 });

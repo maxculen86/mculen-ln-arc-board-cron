@@ -88,7 +88,8 @@ describe('storyBox LN10', () => {
                     videoYouTube: null,
                     embed: ''
                 }
-            ]
+            ],
+            video: null
         });
     });
 });

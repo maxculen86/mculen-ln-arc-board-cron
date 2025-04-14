@@ -7,7 +7,9 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
-import validateCajaManual from './common/_helper-WebApi';
+import validateCajaManual, {
+    getOrderedArticles
+} from './common/_helper-WebApi';
 import getGridType from '../utils/getGridType';
 import setRender from '../utils/setRender';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
@@ -21,10 +23,9 @@ import {
 } from '../utils/_helpers';
 import { LAYOUTS, setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
-import { reorderArticlesWithTimeline } from '../utils/reorderArticlesWithTimeline';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 
-const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
+const { BN_6_GRID_MAS_TIMELINE, BN_PLAYER_1_MAS_3 } = LAYOUTS;
 
 function CajaManual(props) {
     const {
@@ -45,6 +46,7 @@ function CajaManual(props) {
     } = customFields;
 
     const isGrid6MasTimeline = layout === BN_6_GRID_MAS_TIMELINE;
+    const isBnPlayer = layout === BN_PLAYER_1_MAS_3;
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -52,7 +54,8 @@ function CajaManual(props) {
         layout,
         childProps,
         chainStyle,
-        isGrid6MasTimeline
+        isGrid6MasTimeline,
+        isBnPlayer
     });
 
     const viewabilityRoof = getViewabilityRoof(
@@ -72,9 +75,16 @@ function CajaManual(props) {
         viewabilityRoof
     );
 
+    const reorderedChildren = getOrderedArticles({
+        childProps,
+        nodeList: children,
+        isGrid6MasTimeline,
+        isBnPlayer
+    });
+
     const articles = setSlicedChildren({
         config: { layout, countTimeline: isGrid6MasTimeline },
-        children
+        children: reorderedChildren
     });
 
     const hasVariants = checkVariants({ children, renderables });
@@ -110,9 +120,7 @@ function CajaManual(props) {
                         gridType={getGridType(layout)}
                         gridStyle={chainStyle}
                     >
-                        {isGrid6MasTimeline
-                            ? reorderArticlesWithTimeline(articles, childProps)
-                            : articles}
+                        {articles}
                     </ContainerCards>
                     {bannerMob}
                 </>
