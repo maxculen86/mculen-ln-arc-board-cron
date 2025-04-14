@@ -12,7 +12,7 @@ const setOtherChar = (text = '') =>
     text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
 const replaceClassForMark = (text = '') =>
-    text.replace(/hl_(yellow|pink|purple|orange|green)/g, 'hl_underline');
+    text.replace(/hl_(yellow|pink|purple|orange|green|gold)/g, 'hl_underline');
 
 const setBoldText = ({ content = '', withSponsoredLink } = {}) => ({
     text: content.replace(/(?:<|<(\/))b(?:>)/g, '<$1strong>'),
