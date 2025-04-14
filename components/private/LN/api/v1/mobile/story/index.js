@@ -47,7 +47,10 @@ const indexNota = dataNotaParam => {
             });
         });
     }
-    return removeEmptyItems(resp);
+
+    const story = { ...resp, url: `${resp.url}?utm_source=appln` };
+
+    return removeEmptyItems(story);
 };
 
 export default indexNota;
