@@ -24,9 +24,6 @@ exports[`components - features - OTT - header When site has hydrateOnly Header s
         >
           ☰
         </button>
-        <nav
-          class="header__nav"
-        />
       </div>
     </header>
   </div>
