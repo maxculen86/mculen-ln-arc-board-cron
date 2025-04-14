@@ -75,3 +75,45 @@ export function getSteps(contentElement) {
 
     return contentElement.reduce(createStepList, []);
 }
+
+export function getPreparationItems(contentElements) {
+    const preparationHeaderIndex = contentElements.findIndex(element =>
+        element.content?.toLowerCase().includes('preparación')
+    );
+
+    if (preparationHeaderIndex === -1) {
+        console.warn('No "Preparación" header found');
+        return [];
+    }
+
+    const preparationLists = [];
+
+    for (
+        let i = preparationHeaderIndex + 1;
+        i < contentElements.length;
+        i += 1
+    ) {
+        if (contentElements[i].type === 'list') {
+            const mappedList = contentElements[i].items.map((item, index) => ({
+                indexList: index,
+                showTitle: index === 0,
+                titleList: contentElements[i - 1]?.content || 'Preparación',
+                step: item.content
+            }));
+
+            preparationLists.push(...mappedList);
+
+            return mappedList;
+        }
+
+        if (
+            contentElements[i].type === 'header' &&
+            contentElements[i].level <= 2 &&
+            i > preparationHeaderIndex + 1
+        ) {
+            break;
+        }
+    }
+
+    return preparationLists;
+}

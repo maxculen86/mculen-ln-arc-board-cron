@@ -99,7 +99,7 @@ function Default(props) {
 
     const metaTitleBasic = metaTitle || basicTitle;
 
-    const _nodeType = getSectionName({ nodeType, type, arcSite });
+    const _nodeType = getSectionName({ nodeType, type, arcSite, canonicalUrl });
     const title = getTitle({
         title: metaValue('title'),
         basicTitle,

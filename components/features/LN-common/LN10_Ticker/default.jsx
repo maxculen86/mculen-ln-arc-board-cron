@@ -11,7 +11,7 @@ import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import get from '../../../private/common/utils/get';
 import setRender from '../../../chains/utils/setRender';
 import { isInSection } from '../anexo/common/_helper-WebApi';
-import Updates from '../live/Updates';
+import Updates from '../live/default';
 
 function Ticker({ customFields, id: featureId }) {
     const { isAdmin, renderables } = useAppContext() || {};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import get from '../../get';
 import {
     LinkImagePreload,
@@ -18,19 +19,19 @@ import {
 } from '../../preloadHelper';
 import { getUltimasNoticiasSectionsIds } from '../../../../../features/LN-acumulado/tagList';
 import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
-import { getResizedUrls } from './_helper';
+import { getResizedUrls, getResizerUrlJw } from './_helper';
 import isAllowedSection from '../../../../LN/common/utils/isAllowedSection';
 import allowSectionAndLayout from '../../../../LN/common/media/helpers/allowSectionAndLayout';
 import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
 
-const GetDataToLinkImage = ({
+function GetDataToLinkImage({
     data = {},
     section = '',
     renderables = [],
     arcSite = '',
     isAdmin = false,
     layout
-}) => {
+}) {
     const {
         _id: id,
         name,
@@ -110,14 +111,13 @@ const GetDataToLinkImage = ({
                             as="image"
                             fetchPriority="high"
                             href={urlImage}
-                            imagesrcset={urlImage}
+                            imageSrcSet={urlImage}
                         />
                     )
                 );
             }
-            const hasFeatureAcumuladoApertura = haveFeatureAcumuladoApertura(
-                renderables
-            );
+            const hasFeatureAcumuladoApertura =
+                haveFeatureAcumuladoApertura(renderables);
             const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
             const idCollectionApertura = getIdCollectionFromGC({
                 globalContent: data
@@ -151,19 +151,24 @@ const GetDataToLinkImage = ({
                 />
             );
         },
-        Home: () => {
-            return (
-                <BuildHomePreloadImages
-                    renderables={renderables}
-                    arcSite={arcSite}
-                    isAdmin={isAdmin}
-                    layout={layout}
-                />
-            );
-        },
+        Home: () => (
+            <BuildHomePreloadImages
+                renderables={renderables}
+                arcSite={arcSite}
+                isAdmin={isAdmin}
+                layout={layout}
+            />
+        ),
+        // TODO: REVISAR SI SE USA PARA ELIMINAR
         Video: () => (
             <LinkImagePreload
                 resizedUrls={getResizedUrls(subtype, promoItems, basic)}
+            />
+        ),
+        VideoJw: () => (
+            <LinkImagePreload
+                resizedUrls={getResizerUrlJw(promoItems)}
+                isLoadWithPicture
             />
         )
     };
@@ -173,6 +178,27 @@ const GetDataToLinkImage = ({
         (sectionData[sectionAsComponent] &&
             sectionData[sectionAsComponent]()) || <></>
     );
+}
+
+GetDataToLinkImage.propTypes = {
+    data: PropTypes.shape({
+        _id: PropTypes.string,
+        name: PropTypes.string,
+        subtype: PropTypes.string,
+        promo_items: PropTypes.object,
+        canonical_url: PropTypes.string,
+        wikiSourceData: PropTypes.object,
+        isWiki: PropTypes.bool,
+        node_type: PropTypes.string,
+        image: PropTypes.shape({
+            url: PropTypes.string
+        })
+    }).isRequired,
+    section: PropTypes.string.isRequired,
+    renderables: PropTypes.arrayOf(PropTypes.object).isRequired,
+    arcSite: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default GetDataToLinkImage;

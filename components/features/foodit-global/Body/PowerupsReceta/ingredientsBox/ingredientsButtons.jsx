@@ -93,5 +93,5 @@ IngredientsButtons.propTypes = {
     portions: PropTypes.number.isRequired,
     setCurrentPortion: PropTypes.func.isRequired,
     showButtonsConversor: PropTypes.bool.isRequired,
-    bookmarkId: PropTypes.oneOf(PropTypes.string, null).isRequired
+    bookmarkId: PropTypes.oneOf([PropTypes.string, null]).isRequired
 };

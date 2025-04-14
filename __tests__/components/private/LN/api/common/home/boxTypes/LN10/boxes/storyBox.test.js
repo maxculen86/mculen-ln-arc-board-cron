@@ -26,20 +26,22 @@ describe('storyBox LN10', () => {
                     titulo: 'Messi finalmente levanta la copa mas esperada por todos los argentinos.',
                     volanta: 'ARGENTINA CAMPEON.',
                     widgetEmbed: null,
-                    autor: {
-                        id: 330,
-                        slug: 'alfredo-leuco-330',
-                        valor: 'Alfredo Leuco',
-                        intereses: undefined,
-                        rol: '',
-                        tipo: 1,
-                        imagen: 'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
-                        absoluteUrl:
-                            'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
-                        mail: undefined,
-                        twitter: undefined
-                    },
                     autores: [
+                        {
+                            id: 330,
+                            slug: 'alfredo-leuco-330',
+                            valor: 'Alfredo Leuco',
+                            intereses: undefined,
+                            rol: '',
+                            tipo: 1,
+                            imagen: 'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
+                            absoluteUrl:
+                                'https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg',
+                            mail: undefined,
+                            twitter: undefined
+                        }
+                    ],
+                    authors: [
                         {
                             id: 330,
                             slug: 'alfredo-leuco-330',
@@ -86,7 +88,8 @@ describe('storyBox LN10', () => {
                     videoYouTube: null,
                     embed: ''
                 }
-            ]
+            ],
+            video: null
         });
     });
 });

@@ -6,6 +6,7 @@ import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeU
 import { getPrincipalCategory } from '../../../common/elements/category';
 import sentToApps from '../../../common/elements/label/sentToApps';
 import getOpeningMode from '../../../common/elements/label/openingMode';
+import getDistributor from '../../../common/elements/distributor';
 
 const articleItem = article => {
     const {
@@ -36,7 +37,8 @@ const articleItem = article => {
         url,
         bajada,
         enviarApps: sentToApps(article),
-        openingMode: getOpeningMode(article)
+        openingMode: getOpeningMode(article),
+        distributor: getDistributor(article)
     };
 
     if (image && image.type === 'image') {
@@ -47,6 +49,7 @@ const articleItem = article => {
         const authorsFixed = authors.filter(v => v.type === 'author');
         if (authorsFixed.length > 0) {
             resp.autores = authorsFixed.map(v => Author(v));
+            resp.authors = resp.autores;
         }
     }
 

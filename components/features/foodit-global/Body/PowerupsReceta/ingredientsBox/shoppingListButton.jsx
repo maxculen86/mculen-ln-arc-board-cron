@@ -44,7 +44,7 @@ function ShoppingListButton({
 }
 ShoppingListButton.propTypes = {
     setBookmarkId: PropTypes.func.isRequired,
-    bookmarkId: PropTypes.oneOf(PropTypes.string, null).isRequired,
+    bookmarkId: PropTypes.oneOf([PropTypes.string, null]).isRequired,
     isSuscriptor: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     articleId: PropTypes.string.isRequired,

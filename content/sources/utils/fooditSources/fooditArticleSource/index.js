@@ -97,7 +97,6 @@ export const getArticleSubtype = (subtype, isExclusiveSuscriptor = false) => {
     return subtype;
 };
 
-// TODO: Pendiente por sumar tests al transform
 export const transform = async (
     result,
     query,

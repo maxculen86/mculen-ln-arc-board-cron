@@ -5,6 +5,14 @@ export default `{
         height
         filesize
     }
+    title
+    mediaid
+    image
+    images {
+        src
+        width
+        type
+    }
     poster
     promo_items {
         basic {

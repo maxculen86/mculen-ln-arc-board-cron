@@ -65,9 +65,9 @@ describe('cardRegular', () => {
                 valor: undefined
             },
             title: 'Test article',
-            autor: null,
             autores: null,
-            marquesina: null,
+            authors: undefined,
+            marquesina: undefined,
             volanta: null,
             bajada: 'Sample Subheadline',
             imagen: 'image',
@@ -130,9 +130,9 @@ describe('cardRegular', () => {
                 valor: undefined
             },
             title: 'Test article',
-            autor: null,
             autores: null,
-            marquesina: null,
+            authors: undefined,
+            marquesina: undefined,
             volanta: null,
             bajada: 'Sample Subheadline',
             imagen: 'image',
@@ -164,6 +164,7 @@ describe('cardRegular', () => {
 
     test('Should return null for bajada when hideDescription property is true', () => {
         // ARRANGE
+        CardBasic.mockReturnValueOnce({});
         get.mockImplementation((obj, path, defaultValue) => {
             if (path == 'subheadlines.basic') {
                 return 'Sample Subheadline';
@@ -177,9 +178,9 @@ describe('cardRegular', () => {
             widgetEmbed: undefined,
             imagen: undefined,
             videoYouTube: undefined,
-            autor: null,
             autores: null,
-            marquesina: null,
+            authors: undefined,
+            marquesina: undefined,
             volanta: null,
             bajada: 'Sample Subheadline',
             opinion: false,
@@ -261,5 +262,35 @@ describe('cardRegular', () => {
 
         // ASSERT
         expect(resultWithFalse).toEqual(expectedCardWithFalse);
+    });
+
+    test('removes `marquesina` and `authors` when sectionAliasMobile is `hashtag`', () => {
+        CardBasic.mockReturnValueOnce({
+            ...article,
+            marquesina: 'Por autor'
+        });
+        get.mockImplementation((_, path, defaultValue) =>
+            path === 'informationBox.sectionAliasMobile' ? 'hashtag' : defaultValue
+        );
+        const expectedCardRegular = {
+            id: 1,
+            title: 'Test article',
+            categoria: undefined,
+            embed: undefined,
+            widgetEmbed: undefined,
+            imagen: undefined,
+            videoYouTube: undefined,
+            autores: null,
+            authors: null,
+            marquesina: null,
+            volanta: null,
+            bajada: null,
+            opinion: false,
+            isListenable: undefined
+        };
+
+        const result = CardRegular(article);
+
+        expect(result).toStrictEqual(expectedCardRegular);
     });
 });

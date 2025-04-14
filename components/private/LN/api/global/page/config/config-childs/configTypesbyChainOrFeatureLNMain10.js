@@ -37,7 +37,8 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-common/LN10_editorial',
             'LN-common/LN10_opinion',
             'LN-common/LN10_En_Vivo',
-            'LN-acumulado/apertura'
+            'LN-acumulado/apertura',
+            'bnplayer'
         ],
         2: ['LN-common/anexo', 'LN-common/anexoMobile'],
         3: ['LN-common/LN10_anticipo', 'LN-common/cajaAnticipo'],

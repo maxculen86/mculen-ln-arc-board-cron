@@ -11,6 +11,19 @@ const respChain = (props, containerImage) => {
     const responseChildren = respChildrens[typeChain]
         ? respChildrens[typeChain](props)
         : respChainByVersion(props, version);
+
+    if (typeChain === 'bnPlayer') {
+        return {
+            information: {
+                ...customFields,
+                image: containerImage,
+                typeChain,
+                viewabilityRoof
+            },
+            ...responseChildren
+        };
+    }
+
     return {
         information: {
             ...customFields,
