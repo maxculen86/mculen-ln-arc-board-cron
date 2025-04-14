@@ -41,7 +41,55 @@ header.sticky .header__logo img {
     @include flex;
     @include flex-row;
     @include alit-center;
+    width: 100%;
     z-index: 2;
+}
+
+.header__log-out {
+    all: unset;
+    @include flex;
+    @include flex-row;
+    @include alit-center;
+    box-sizing: border-box;
+    height: 100%;
+    margin-left: auto;
+    padding: 8px 16px;
+    gap: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    .text {
+        color: #fefefe;
+        font-family: Arial;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 24px */
+        letter-spacing: -0.32px;
+    }
+    .icon {
+        @include flex;
+        @include alit-center;
+        @include just-center;
+        box-sizing: border-box;
+        height: 20px;
+        width: 20px;
+        padding: 4px;
+        border-radius: 50%;
+        background: #fbe5e6;
+    }
+    &:hover {
+        background: #fbe5e6;
+        .text {
+            color: #c61b25;
+        }
+        .icon {
+            background: #c61b25;
+            path {
+                fill: #fefefe;
+            }
+        }
+    }
 }
 
 .header__nav__link {
@@ -135,6 +183,10 @@ header.sticky .header__logo img {
     .header .header__nav__link {
         font-size: 0;
     }
+    .header .header__log-out {
+        display: none;
+        margin: 8px 0 0 0;
+    }
     .header__hamburguer {
         @include flex;
         font-size: 2.5rem;
@@ -158,6 +210,9 @@ header.sticky .header__logo img {
         font-size: 1.5em;
         line-height: 2.5em;
         transition: all 0.5s ease;
+    }
+    .header.open .header__log-out {
+        @include flex;
     }
     button:focus {
         outline: 0;
