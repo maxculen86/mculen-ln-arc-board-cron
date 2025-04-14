@@ -91,7 +91,7 @@ describe('BreadcrumbFoodit', () => {
         expect(tooltip).toBeVisible();
     });
 
-    it('Exclude sections dietas and que cocinar hoy in breadcrumb', () => {
+    it('Exclude sections que cocinar hoy in breadcrumb', () => {
         const { container: containerSaladas } = render(
             <BreadcrumbFoodit
                 globalContent={{
@@ -109,8 +109,7 @@ describe('BreadcrumbFoodit', () => {
                 }}
             />
         );
-
-        expect(containerDieta.getElementsByTagName('li')).toHaveLength(3);
+        expect(containerDieta.getElementsByTagName('li')).toHaveLength(4);
 
         const { container: containerQueCocinarHoy } = render(
             <BreadcrumbFoodit
@@ -121,7 +120,7 @@ describe('BreadcrumbFoodit', () => {
         );
 
         expect(containerQueCocinarHoy.getElementsByTagName('li')).toHaveLength(
-            3
+            4
         );
     });
 });

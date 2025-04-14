@@ -17,7 +17,7 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
     const showTooltip = listSections.some(({ _id = '' } = {}) =>
         _id.includes('sin-gluten')
     );
-    const breadcrumbExclude = ['Que cocinar hoy', 'Dietas'];
+    const breadcrumbExclude = ['Que cocinar hoy'];
 
     const renderSections = sections.reduce(
         (acc, { url = '', name = '', disabled = false } = {}) => {
