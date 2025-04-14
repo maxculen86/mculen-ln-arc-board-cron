@@ -1,7 +1,7 @@
 .card a:hover {
   opacity: inherit;
 }
-.card[data-container=grid] a:hover .card-title {
+.card[data-container=grid] a:hover .card-title, .card[data-container=related-content] a:hover .card-title {
   color: var(--accent-lechuga);
   opacity: 0.8;
 }
@@ -36,4 +36,8 @@
     --_spacing: 0;
     width: 100%;
   }
+}
+.card[data-container=related-content] .related-content.related-content {
+  align-items: stretch;
+  gap: 12px;
 }
