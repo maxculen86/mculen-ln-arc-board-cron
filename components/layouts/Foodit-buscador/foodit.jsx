@@ -7,12 +7,12 @@ import ArticlesGrid from './_children/articlesGrid';
 import QuerylyContext from './_children/searchContext';
 import DrawerBuscador from './_children/drawerBuscador';
 import { DRAWER } from '../../features/foodit-global/common/DrawerContainer/constants';
+import FloatingButton from './_children/floatingButton';
 
 export default function FooditSearch() {
     const { toggleDrawer } = useDrawer({ id: DRAWER.BUSCADOR });
     const { width } = useWindowSize();
     const isMobile = useMemo(() => width !== 0 && width < 1280, [width]);
-
     return (
         <BaseLayout>
             <QuerylyContext>
@@ -29,6 +29,7 @@ export default function FooditSearch() {
 
                     <ArticlesGrid />
                 </section>
+                <FloatingButton toggleDrawer={toggleDrawer} />
             </QuerylyContext>
         </BaseLayout>
     );

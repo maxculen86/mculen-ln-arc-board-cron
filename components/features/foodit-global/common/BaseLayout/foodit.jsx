@@ -28,10 +28,6 @@ function BaseLayout({ children }) {
         id: DRAWER.RECETARIO
     });
 
-    const { toggleDrawer: toggleBuscadorDrawer } = useDrawer({
-        id: DRAWER.BUSCADOR
-    });
-
     const { layoutsName } = siteProperties || {};
 
     const classNameMain = cx('container flex flex-column gap-40', {
@@ -41,6 +37,10 @@ function BaseLayout({ children }) {
     const wrapperClass = cx('wrapper overflow-x-clip roboto', {
         '--non-subscriber': !isSubscribed(SUBSCRIBED_HELPER.FOODIT)
     });
+
+    const excludeLayoutsFloatingGroupButton = [layoutsName.FooditBuscador];
+    const showFloatingGroupButton =
+        !excludeLayoutsFloatingGroupButton.includes(layout);
 
     return (
         <AuthInitializer website="foodit">
@@ -61,12 +61,11 @@ function BaseLayout({ children }) {
                 <DataLayerInteractions />
                 <Modal />
                 <Toasts />
-                <FloatingGroupButton
-                    {...getConfigByLayout(layout, [
-                        toggleRecetarioDrawer,
-                        toggleBuscadorDrawer
-                    ])}
-                />
+                {showFloatingGroupButton && (
+                    <FloatingGroupButton
+                        {...getConfigByLayout(layout, [toggleRecetarioDrawer])}
+                    />
+                )}
             </div>
         </AuthInitializer>
     );

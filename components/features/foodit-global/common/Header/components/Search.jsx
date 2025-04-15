@@ -7,7 +7,12 @@ import PropTypes from 'prop-types';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 
 export function Search({ className, ...r }) {
-    const [inputValue, setInputValue] = useState('');
+    const querySelected =
+        typeof window !== 'undefined'
+            ? new URLSearchParams(window?.location?.search).get('query')
+            : '';
+
+    const [inputValue, setInputValue] = useState(querySelected || '');
 
     // add a space at the end to the query term to avoid the search engine from suggesting
     const urlSearch = `${SITE_FOODIT}/buscador/?query=${encodeURIComponent(`${inputValue} `)}`;
