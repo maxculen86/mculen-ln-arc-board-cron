@@ -4,9 +4,9 @@ import get from '../../../../private/common/utils/get';
 
 export const formatSectionName = (sectionString = '') => {
     if (sectionString === 'club-la-nacion') return 'Club LA NACION';
+    if (sectionString === 'dieta') return 'Dietas';
 
-    // eslint-disable-next-line no-useless-escape
-    const sectionFormated = sectionString.replace(/[\/-]/g, ' ').trim();
+    const sectionFormated = sectionString.replace(/[/-]/g, ' ').trim();
 
     return capitalizeFirstLetter(sectionFormated);
 };
