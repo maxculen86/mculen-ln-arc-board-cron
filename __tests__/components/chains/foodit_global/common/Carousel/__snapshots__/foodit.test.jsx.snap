@@ -17,13 +17,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC111"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dieta/una-comida-si-saludable-nid06092023/"
             target="_self"
@@ -61,7 +61,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Una comida si saludable
                   </h2>
@@ -128,13 +128,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC222"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dieta/una-dieta-poco-saludable-nid06092023/"
             target="_self"
@@ -172,7 +172,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Una dieta ...poco saludable
                   </h2>
@@ -239,13 +239,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC333"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dieta/una-comida-mas-o-menos-saludable-nid06092023/"
             target="_self"
@@ -283,7 +283,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Una comida mas o menos saludable
                   </h2>
@@ -296,7 +296,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
-                    class="text text-14"
+                    class="text text-14 mb-24"
                   >
                     Por Maru Botana
                   </span>
@@ -334,13 +334,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC444"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/clasica/receta-para-comer-mas-rico-con-milanesas-nid06092023/"
             target="_self"
@@ -378,7 +378,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Receta para comer mas rico con ...MILANESAS 
                   </h2>
@@ -445,20 +445,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-positive max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-note--AAABBBCCC555"
           data-variant="note"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/clasica/ficha-nota-foodit-nid11092023/"
             target="_self"
             title="Ficha nota FOODIT"
           >
             <div
-              class="relative w-100 px-16 pt-16 pb-4"
+              class="relative w-100 px-16 pt-16"
             >
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
@@ -480,7 +480,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
             >
               <div
                 class="flex flex-column gap-12"
@@ -489,7 +489,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-semibold prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-semibold prumo-medium text-20 text-ellipsis-2"
                   >
                     Ficha nota FOODIT
                   </h2>
@@ -507,7 +507,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     Foodit
                   </span>
                   <div
-                    class="flex ai-center gap-4"
+                    class="flex ai-center gap-4 none"
                   >
                     <i
                       class="icon --icon-12 --inherit"
@@ -556,20 +556,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-positive max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-note--AAABBBCCC666"
           data-variant="note"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/clasica/receta-para-comer-mas-rico-con-pollito-nid04092023/"
             target="_self"
             title="Receta para comer mas rico con ...POLLITO 2"
           >
             <div
-              class="relative w-100 px-16 pt-16 pb-4"
+              class="relative w-100 px-16 pt-16"
             >
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
@@ -591,7 +591,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
             >
               <div
                 class="flex flex-column gap-12"
@@ -600,7 +600,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-semibold prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-semibold prumo-medium text-20 text-ellipsis-2"
                   >
                     Receta para comer mas rico con ...POLLITO 2
                   </h2>
@@ -618,7 +618,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     Foodit
                   </span>
                   <div
-                    class="flex ai-center gap-4"
+                    class="flex ai-center gap-4 none"
                   >
                     <i
                       class="icon --icon-12 --inherit"
@@ -667,13 +667,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC777"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dieta/una-comida-no-saludable-nid06092023/"
             target="_self"
@@ -711,7 +711,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Una comida no saludable
                   </h2>
@@ -724,7 +724,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
-                    class="text text-14"
+                    class="text text-14 mb-24"
                   >
                     Por Maru Botana
                   </span>
@@ -762,13 +762,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC888"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dulces/receta-rapida-nid06092023/"
             target="_self"
@@ -806,7 +806,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Receta rapida
                   </h2>
@@ -819,7 +819,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
-                    class="text text-14"
+                    class="text text-14 mb-24"
                   >
                     Por Emilio Ocampo
                   </span>
@@ -857,13 +857,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC999"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/clasica/prueba-nota-recetas-nuevo-nid04092023/"
             target="_self"
@@ -901,7 +901,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Prueba nota recetas nuevo
                   </h2>
@@ -968,13 +968,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card---AAABBBCCC0000"
           data-variant=""
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dieta/vegetarianas/sopa-de-mani-nid24082023/"
             target="_self"
@@ -1012,7 +1012,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Sopa de mani
                   </h2>
@@ -1079,13 +1079,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCC000"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dieta/veganas/como-traer-la-tercera-nid24082023/"
             target="_self"
@@ -1113,7 +1113,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </picture>
               </div>
               <span
-                class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
+                class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute translate-y-50 bottom-0 left-0"
               >
                 FÁCIL
               </span>
@@ -1128,7 +1128,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Como traer la tercera
                   </h2>
@@ -1195,13 +1195,13 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+          class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
           data-container="grid"
           data-test-id="card-recipe--AAABBBCCD111"
           data-variant="recipe"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
             data-variant="primary"
             href="/dieta/veganas/prueba-receta-vegana-nid24082023/"
             target="_self"
@@ -1229,7 +1229,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </picture>
               </div>
               <span
-                class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
+                class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute translate-y-50 bottom-0 left-0"
               >
                 RÁPIDA
               </span>
@@ -1244,7 +1244,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <h2
-                    class="text card-title prumo transition-regular text-ellipsis-2  prumo-medium text-20"
+                    class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
                   >
                     Prueba receta vegana
                   </h2>
