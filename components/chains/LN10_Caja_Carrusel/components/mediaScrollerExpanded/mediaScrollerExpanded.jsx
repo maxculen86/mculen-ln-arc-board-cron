@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, memo } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useWindowSize } from '@ln/hooks';
@@ -13,12 +14,23 @@ import {
     useScrollTo,
     useUpdateVideoWidth
 } from '../hooks';
+import useHandlerBanner from '../hooks/useHandlerBanner';
 
-function MediaScrollerExpanded() {
-    const { currentIndex, setCurrentIndex, videosData } =
-        useCajaCarruselContext();
-
+function MediaScrollerExpanded({ listVideoData = [] }) {
+    const { currentIndex, setCurrentIndex } = useCajaCarruselContext();
     const containerRef = useRef(null);
+
+    const { width: viewportWidth } = useWindowSize();
+    const isMobile = viewportWidth < 768;
+
+    const { handleBannerViewed } = useHandlerBanner({
+        listVideoData,
+        currentIndex,
+        isMobile
+    });
+
+    const showNext = currentIndex < listVideoData.length - 1 && !isMobile;
+    const showBack = currentIndex > 0 && !isMobile;
 
     useObserverItems({
         containerRef,
@@ -26,19 +38,23 @@ function MediaScrollerExpanded() {
         currentIndex
     });
 
-    const { width: viewportWidth } = useWindowSize();
-    const isMobile = viewportWidth < 768;
-    const showNext = currentIndex < videosData.length - 1 && !isMobile;
-    const showBack = currentIndex > 0 && !isMobile;
-
     const handleNextCallback = useHandleNext({
         containerRef,
         showNext,
-        isMobile
+        isMobile,
+        currentIndex,
+        callback: () => handleBannerViewed({ currentPosition: currentIndex })
     });
+
     const handleBackCallback = useHandleBack({
         containerRef,
-        showBack
+        showBack,
+        currentIndex,
+        callback: () =>
+            handleBannerViewed({
+                currentPosition: currentIndex,
+                isShowBack: true
+            })
     });
 
     useUpdateVideoWidth({
@@ -47,7 +63,11 @@ function MediaScrollerExpanded() {
         isMobile
     });
 
-    useScrollTo({ containerRef, isMobile, currentIndex });
+    useScrollTo({
+        containerRef,
+        isMobile,
+        currentIndex
+    });
 
     useEffect(
         () => () => {
@@ -78,7 +98,8 @@ function MediaScrollerExpanded() {
             <JwVideoContainer
                 ref={containerRef}
                 handleNextCallback={handleNextCallback}
-                isLastVideo={currentIndex < videosData.length - 1}
+                isLastVideo={currentIndex < listVideoData.length - 1}
+                listVideoData={listVideoData}
             />
             {showNext && (
                 <Button
@@ -100,5 +121,9 @@ function MediaScrollerExpanded() {
         </div>
     );
 }
+
+MediaScrollerExpanded.propTypes = {
+    listVideoData: PropTypes.arrayOf().isRequired
+};
 
 export default memo(MediaScrollerExpanded);

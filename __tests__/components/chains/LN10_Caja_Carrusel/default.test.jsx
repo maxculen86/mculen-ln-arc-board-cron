@@ -36,13 +36,22 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         someData: 'mockData'
     };
 
+    const childPropBase = {
+        collection: 'features',
+        type: 'LN-10/itemCarrusel',
+        id: 'f0fT3DeljGTD3Xg',
+        customFields: {
+            video: '551Qg3uY'
+        }
+    };
+
     const defaultProps = {
         children: [<div key="1">Child 1</div>, <div key="2">Child 2</div>],
         customFields: {
             hideCarousel: false,
             roofProp: 'mockRoofProp'
         },
-        childProps: {}
+        childProps: [childPropBase, childPropBase]
     };
 
     beforeAll(() => {
@@ -118,8 +127,18 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         const manyChildren = Array.from({ length: 15 }, (_, i) => (
             <div key={i}>Child {i + 1}</div>
         ));
+        const childProps = Array.from({ length: 15 }, (_, i) => ({
+            ...childPropBase,
+            id: `f0fT3DeljGTD3Xg${i}`
+        }));
 
-        render(<CajaCarrusel {...defaultProps} children={manyChildren} />);
+        render(
+            <CajaCarrusel
+                {...defaultProps}
+                children={manyChildren}
+                childProps={childProps}
+            />
+        );
 
         expect(screen.getAllByText(/child/i)).toHaveLength(10);
     });

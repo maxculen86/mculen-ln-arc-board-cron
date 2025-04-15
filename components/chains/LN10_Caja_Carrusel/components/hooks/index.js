@@ -49,11 +49,12 @@ export function useObserverItems({ containerRef, setCurrentIndex }) {
 
                         const videoTitle =
                             entry.target.getAttribute('data-title');
-
-                        handleEventSwipeVideo({
-                            videoIdObserved,
-                            videoTitle
-                        });
+                        if (videoIdObserved && videoTitle) {
+                            handleEventSwipeVideo({
+                                videoIdObserved,
+                                videoTitle
+                            });
+                        }
                     }
                 });
             },
@@ -77,29 +78,42 @@ export function useObserverItems({ containerRef, setCurrentIndex }) {
     }, [containerRef?.current]);
 }
 
-export function useHandleNext({ containerRef, showNext, isMobile }) {
+export function useHandleNext({
+    containerRef,
+    showNext,
+    isMobile,
+    callback,
+    currentIndex
+}) {
     return useCallback(() => {
         const scrollOptions = isMobile
             ? { top: containerRef.current.offsetHeight }
             : { left: containerRef.current.offsetWidth };
         if (showNext || isMobile) {
+            callback(currentIndex);
             containerRef?.current?.scrollBy({
                 ...scrollOptions,
                 behavior: 'smooth'
             });
         }
-    }, [containerRef?.current, showNext, isMobile]);
+    }, [containerRef?.current, showNext, isMobile, currentIndex]);
 }
 
-export function useHandleBack({ containerRef, showBack }) {
+export function useHandleBack({
+    containerRef,
+    showBack,
+    callback,
+    currentIndex
+}) {
     return useCallback(() => {
         if (showBack) {
+            callback();
             containerRef?.current?.scrollBy({
                 left: -containerRef.current.offsetWidth,
                 behavior: 'smooth'
             });
         }
-    }, [containerRef?.current, showBack]);
+    }, [containerRef?.current, showBack, currentIndex]);
 }
 
 export function useScrollTo({ containerRef, isMobile, currentIndex }) {
@@ -107,7 +121,6 @@ export function useScrollTo({ containerRef, isMobile, currentIndex }) {
         const scrollOptions = isMobile
             ? { top: containerRef.current.offsetHeight * currentIndex }
             : { left: containerRef.current.offsetWidth * currentIndex };
-
         containerRef?.current?.scrollTo({
             ...scrollOptions
         });

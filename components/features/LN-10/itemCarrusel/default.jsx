@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
@@ -11,7 +11,6 @@ import {
     getChainConfig,
     getChainParentOfFeature
 } from '../article/common/_helper-WebApi';
-import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 import get from '../../../private/common/utils/get';
 import { getDataAttributesForViewability } from '../article/_helper';
 
@@ -22,8 +21,6 @@ function itemCarrusel({
     renderables,
     layout
 }) {
-    const { setVideosData } = useCajaCarruselContext();
-
     const { layoutsName = {} } = siteConfig || {};
 
     const layoutTypesForEvent = {
@@ -42,13 +39,6 @@ function itemCarrusel({
                 isAdmin
             }
         }) || null;
-
-    useEffect(() => {
-        setVideosData({
-            id: videoId,
-            title: videoData?.title
-        });
-    }, []);
 
     const error = validateItemCarrusel({
         video: videoData,
