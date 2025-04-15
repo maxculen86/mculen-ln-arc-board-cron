@@ -98,8 +98,8 @@ function BuildFirtsButtonsGroup({
             {showIAButton && (
                 <Button
                     id="btnIA"
-                    title="Leer el resumen y glosario generados por la inteligencia artificial"
-                    aria-label="Leer el resumen y glosario generados por la inteligencia artificial"
+                    title="Leer resumen generado por inteligencia artificial"
+                    aria-label="Leer resumen generado por inteligencia artificial"
                     variant="secondary"
                     iconOnly
                     dataEvent="LinkClick"

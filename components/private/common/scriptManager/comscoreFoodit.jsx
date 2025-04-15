@@ -1,12 +1,10 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/no-danger */
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/iframe-has-title */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const ComscoreFoodit = ({ config, configNoScript, location = 'head' }) => {
-    if (!config || !configNoScript) return '';
-    if (location !== 'head') return '';
+function ComscoreFoodit({ config, configNoScript, location = 'head' }) {
+    if (!config || !configNoScript) return null;
+    if (location !== 'head') return null;
 
     const script = `var _comscore = _comscore || [];
         _comscore.push(${JSON.stringify({
@@ -42,6 +40,12 @@ const ComscoreFoodit = ({ config, configNoScript, location = 'head' }) => {
             />
         </>
     );
+}
+
+ComscoreFoodit.propTypes = {
+    config: PropTypes.shape({}).isRequired,
+    configNoScript: PropTypes.shape({}).isRequired,
+    location: PropTypes.string.isRequired
 };
 
 export default ComscoreFoodit;

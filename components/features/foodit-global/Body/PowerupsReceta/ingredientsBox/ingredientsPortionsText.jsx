@@ -45,5 +45,5 @@ export function IngredientsPortionsText({
 }
 IngredientsPortionsText.propTypes = {
     showButtonsConversor: PropTypes.bool.isRequired,
-    bookmarkId: PropTypes.oneOf(PropTypes.string, null).isRequired
+    bookmarkId: PropTypes.oneOf([PropTypes.string, null]).isRequired
 };

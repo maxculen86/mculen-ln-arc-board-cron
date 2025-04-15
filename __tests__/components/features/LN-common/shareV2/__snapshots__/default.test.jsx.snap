@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN-common - ShareV2 - default matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="share-bar"
+  >
+    <button
+      data-testid="share-button"
+    >
+      <i
+        class="icon --icon-24 --inherit"
+      >
+        <mock-icon
+          name="reply"
+        />
+      </i>
+    </button>
+    <button
+      data-testid="share-button"
+    >
+      <i
+        class="icon --icon-24 --inherit"
+      >
+        <mock-icon
+          name="whatsapp"
+        />
+      </i>
+    </button>
+    <div
+      class="relative w-max"
+    >
+      <button
+        data-testid="share-button"
+      >
+        <i
+          class="icon --icon-24 --inherit"
+        >
+          <mock-icon
+            name="fileCopy"
+          />
+        </i>
+      </button>
+    </div>
+    <button
+      data-testid="share-button"
+    >
+      <i
+        class="icon --icon-24 --inherit"
+      >
+        <mock-icon
+          name="facebook"
+        />
+      </i>
+    </button>
+    <button
+      data-testid="share-button"
+    >
+      <i
+        class="icon --icon-24 --inherit"
+      >
+        <mock-icon
+          name="twitter"
+        />
+      </i>
+    </button>
+    <button
+      data-testid="share-button"
+    >
+      <i
+        class="icon --icon-24 --inherit"
+      >
+        <mock-icon
+          name="mail"
+        />
+      </i>
+    </button>
+  </div>
+</DocumentFragment>
+`;

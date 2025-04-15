@@ -24,6 +24,7 @@ import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import HandleGlossary from '../../../common/scriptManager/handleGlossary';
+import JwPlayerHome from '../../../common/scriptManager/JwPlayerHome';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -142,15 +143,18 @@ const scriptList = [
     {
         component: { name: 'HandleGlossary', function: HandleGlossary },
         feature: 'LN-10/glossary'
+    },
+    {
+        component: { name: 'JwPlayerHome', function: JwPlayerHome },
+        feature: ['LN-10/videoPlayer']
     }
 ];
 
 const getPageBuilderFeatures = _renderables =>
     _renderables.filter(renderable => renderable.collection === 'features');
 
-const isGPTAndDisabled = (script, bannersDisabled) => {
-    return bannersDisabled && script.component.name === 'GooglePublisherTag';
-};
+const isGPTAndDisabled = (script, bannersDisabled) =>
+    bannersDisabled && script.component.name === 'GooglePublisherTag';
 
 const getScriptsFilterFunction = (scripts, bannersDisabled) => features => {
     const filteredScripts = scripts
@@ -178,12 +182,11 @@ const getScriptsFilterFunction = (scripts, bannersDisabled) => features => {
     return filteredScripts;
 };
 
-export const getScriptsToLoad = (renderables = [], bannersDisabled) => {
-    return pipe(
+export const getScriptsToLoad = (bannersDisabled, renderables = []) =>
+    pipe(
         getPageBuilderFeatures,
         getScriptsFilterFunction(scriptList, bannersDisabled)
     )(renderables);
-};
 
 const buildScriptComponent = ({
     renderables = [],
@@ -197,7 +200,7 @@ const buildScriptComponent = ({
     );
 
     return ScriptManager(
-        getScriptsToLoad(renderables, bannersDisabled),
+        getScriptsToLoad(bannersDisabled, renderables),
         sitePropertiesScripts,
         globalContent,
         isArcPreview

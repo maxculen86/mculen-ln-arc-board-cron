@@ -125,9 +125,32 @@ export const getCardConfig = (
     return cardConfig && cardConfig[articlePosition];
 };
 
+// TODO agregar test unitario
+export const reorderArticlePositionForVideo = (chainConfig = {}) => {
+    const isBnPlayer =
+        get(chainConfig, 'props.customFields.layout', '') ===
+        'bn_player_3_grid';
+
+    if (isBnPlayer) {
+        const children = get(chainConfig, 'children', []);
+        const modifiedChildren = children.reduce((acc, child) => {
+            const isVideoFeature = child.type === 'LN-10/videoPlayer';
+
+            if (isVideoFeature) {
+                acc.unshift(child);
+            } else acc.push(child);
+            return acc;
+        }, []);
+        return { ...chainConfig, children: modifiedChildren };
+    }
+    return chainConfig;
+};
+
 export const getChainConfig = ({ featureId, renderables, cajaTemaConfig }) => {
     const { layoutsName = {} } = siteConfig || {};
-    const parent = getChainParentOfFeature(featureId, renderables);
+    const parent = reorderArticlePositionForVideo(
+        getChainParentOfFeature(featureId, renderables)
+    );
     const chainId = get(parent, 'props.id', '');
     const chainPosition = getChainPosition(chainId, renderables);
     const layout = get(parent, 'props.customFields.layout', '');

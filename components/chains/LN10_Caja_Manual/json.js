@@ -7,7 +7,7 @@ import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 
 const validate = propsValidate => {
-    const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
+    const { BN_6_GRID_MAS_TIMELINE, BN_PLAYER_1_MAS_3 } = LAYOUTS;
     const {
         id: chainId,
         customFields: { layout = '', chainStyle },
@@ -22,13 +22,18 @@ const validate = propsValidate => {
         get(childrenRenders, 'props.customFields.layout', '') ===
         BN_6_GRID_MAS_TIMELINE;
 
+    const isBnPlayer =
+        get(childrenRenders, 'props.customFields.layout', '') ===
+        BN_PLAYER_1_MAS_3;
+
     childrenRenders = childrenRenders && childrenRenders.children;
 
     return validateCajaManual({
         layout,
         childProps: childrenRenders,
         chainStyle,
-        isGrid6MasTimeline
+        isGrid6MasTimeline,
+        isBnPlayer
     });
 };
 class CajaManual extends GetCajaManual {

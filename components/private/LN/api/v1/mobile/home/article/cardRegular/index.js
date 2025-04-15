@@ -2,7 +2,7 @@ import get from '../../../../../../../common/utils/get';
 import { CardBasic } from '../../../../../common/article/cardBasic/index';
 import { getArticleImage } from '../../../../../common/article/elements/image/index';
 import { getPrincipalCategory } from '../../../../../common/elements/category';
-import { getAuthor, getAuthors, getSignature } from '../elements/author/index';
+import { getAuthors, validSectionAliasMobile } from '../elements/author/index';
 import { getDroptext } from '../elements/bajada/index';
 import { getBadgebyConfig } from '../elements/chapita/index';
 import { getEmbed, getEmbedWidget } from '../elements/embed/index';
@@ -18,12 +18,14 @@ export const CardRegular = article => {
 
     const widgetEmbed = getEmbedWidget(article);
 
+    const basicCard = CardBasic(article);
+    const isHashtagSection = validSectionAliasMobile(article);
     return {
         categoria: primarySection && getPrincipalCategory(primarySection),
-        ...CardBasic(article),
-        autor: getAuthor(article),
+        ...basicCard,
         autores: getAuthors(article),
-        marquesina: getSignature(article),
+        authors: isHashtagSection ? null : basicCard.authors,
+        marquesina: isHashtagSection ? null : basicCard.marquesina,
         volanta: getFlyertext(article),
         bajada: hideDescriptionValue ? null : getDroptext(article),
         imagen: getArticleImage(article),

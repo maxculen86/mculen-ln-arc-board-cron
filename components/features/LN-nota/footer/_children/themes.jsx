@@ -30,7 +30,7 @@ function Themes({ globalContent }) {
     const RenderTags = ({ arrayTags = [] }) => {
         const showBullet = index => index !== 0 || (isCollapsed && index === 3);
 
-        return arrayTags?.map(({ path, text }, index) => {
+        return arrayTags?.map(({ path, text, type }, index) => {
             if (isCollapsed && index > 3) return null;
             return (
                 <li key={text} className="flex ai-center">
@@ -43,7 +43,12 @@ function Themes({ globalContent }) {
                             />
                         </Icon>
                     )}
-                    <Link href={path}>{text}</Link>
+                    <Link
+                        href={`${type === 'tag' ? '/tema/' : ''}${path}/`}
+                        title={text}
+                    >
+                        {text}
+                    </Link>
                 </li>
             );
         });

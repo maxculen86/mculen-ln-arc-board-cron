@@ -5,7 +5,7 @@ describe('Test apetura con videoJW === private-LN-api-v1-global-story-apertura-a
     it('Render de atributos de apertura', () => {
         const resp = Apertura(articleWithVideoJW);
         expect(Object.keys(resp).sort()).toEqual(
-            ['titulo', 'tituloMobile', 'bajada', 'multimedio'].sort()
+            ['titulo', 'tituloMobile', 'bajada', 'multimedio', 'distributor'].sort()
         );
 
         expect(resp).toMatchObject({

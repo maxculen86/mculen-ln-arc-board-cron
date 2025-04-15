@@ -112,7 +112,10 @@ LoginSubscribeButtons.propTypes = {
     classNameButtons: PropTypes.string,
     termicasData: PropTypes.shape({
         tooltip_subscribe_foodit_text: PropTypes.string,
-        tooltip_subscribe_foodit_show: PropTypes.bool
+        tooltip_subscribe_foodit_show: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.bool
+        ])
     })
 };
 

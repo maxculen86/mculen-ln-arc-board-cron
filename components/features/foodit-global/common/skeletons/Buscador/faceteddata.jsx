@@ -22,6 +22,23 @@ export function SkeletonFaceteddata() {
         return filterItemList;
     };
 
+    const renderSection = (
+        titleWidth,
+        filterQty,
+        includeExtraSkeleton = false
+    ) => (
+        <div className="flex flex-column gap-16">
+            <div className="flex jc-between">
+                <Skeleton width={titleWidth} height={20} />
+                <Skeleton width={20} height={20} />
+            </div>
+            <div className="flex flex-column gap-8">
+                {getFilterItems(filterQty)}
+                {includeExtraSkeleton && <Skeleton width={72} height={16} />}
+            </div>
+        </div>
+    );
+
     return (
         <div className="flex flex-column" data-testid="skeleton-loader">
             <div className="flex jc-between text-24 pb-24_lg">
@@ -29,59 +46,15 @@ export function SkeletonFaceteddata() {
                 <IconSprite name="close" className="lg-none" size={24} />
             </div>
             <div className={firstDividerClass} />
-            <div className="flex flex-column gap-16">
-                <div className="flex jc-between">
-                    <Skeleton width={115} height={20} />
-                    <Skeleton width={20} height={20} />
-                </div>
-                <div className="filterItems flex flex-column gap-8">
-                    {getFilterItems(2)}
-                </div>
-            </div>
+            {renderSection(115, 2)}
             <div className={dividerClass} />
-
-            <div className="flex flex-column gap-16">
-                <div className="flex jc-between">
-                    <Skeleton width={35} height={20} />
-                    <Skeleton width={20} height={20} />
-                </div>
-                <div className="flex flex-column gap-8">
-                    {getFilterItems(3)}
-                </div>
-            </div>
+            {renderSection(35, 3)}
             <div className={dividerClass} />
-
-            <div className="flex flex-column gap-16">
-                <div className="flex jc-between">
-                    <Skeleton width={55} height={20} />
-                    <Skeleton width={20} height={20} />
-                </div>
-                <div className="flex flex-column gap-8">
-                    {getFilterItems(3)}
-                    <Skeleton width={72} height={16} />
-                </div>
-            </div>
+            {renderSection(55, 3, true)}
             <div className={dividerClass} />
-            <div className="flex flex-column gap-16">
-                <div className="flex jc-between">
-                    <Skeleton width={46} height={20} />
-                    <Skeleton width={20} height={20} />
-                </div>
-                <div className="flex flex-column gap-8">
-                    {getFilterItems(3)}
-                    <Skeleton width={72} height={16} />
-                </div>
-            </div>
+            {renderSection(46, 3, true)}
             <div className={dividerClass} />
-            <div className="flex flex-column gap-16">
-                <div className="flex jc-between">
-                    <Skeleton width={46} height={20} />
-                    <Skeleton width={20} height={20} />
-                </div>
-                <div className="flex flex-column gap-8">
-                    {getFilterItems(3)}
-                </div>
-            </div>
+            {renderSection(46, 3)}
             <div className={dividerClass} />
         </div>
     );

@@ -72,4 +72,36 @@ describe('useInputListener', () => {
         );
         expect(getByTestIdAfterUnmount('input').value).toBe(initialValue);
     });
+
+    it('should restore input value to initial value', () => {
+        const initialValue = 'initial';
+        const { getByTestId } = render(
+            <HookWrapper initialValue={initialValue} />
+        );
+
+        const input = getByTestId('input');
+        fireEvent.change(input, { target: { value: 'new value' } });
+
+        expect(input.value).toBe('new value');
+
+        fireEvent.change(input, { target: { value: initialValue } });
+
+        expect(input.value).toBe(initialValue);
+    });
+
+    it('should set error message when input is empty', () => {
+        const initialValue = 'some initial value';
+        const { getByTestId } = render(
+            <HookWrapper initialValue={initialValue} />
+        );
+
+        const input = getByTestId('input');
+        fireEvent.change(input, { target: { value: '' } });
+
+        expect(input.value).toBe(initialValue);
+        expect(getByTestId('error').textContent).not.toBe('');
+        expect(getByTestId('error').textContent).toBe(
+            'Completa el nombre de la colección para continuar'
+        );
+    });
 });

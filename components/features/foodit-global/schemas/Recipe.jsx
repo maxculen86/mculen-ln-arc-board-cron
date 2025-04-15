@@ -2,8 +2,13 @@ import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 
+import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
-import { fooditSchemaLogo, getSuitableForDietUrls } from './_helpers';
+import {
+    findPreparationSteps,
+    fooditSchemaLogo,
+    getSuitableForDietUrls
+} from './_helpers';
 import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 import replaceBaseUrl from '../common/utils/replaceBaseUrl';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
@@ -13,21 +18,21 @@ import { getBreadcrumbSections } from '../common/breadcrumb/_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const RecipeSchema = ({ globalContent = {}, layout = '' }) => {
+export function RecipeSchema({ globalContent = {}, layout = '' }) {
     const { contextPath, deployment } = useAppContext();
     const {
-        promo_items = {},
-        content_elements = [],
+        promo_items: promoItems = {},
+        content_elements: contentElements = [],
         headlines = {},
         subheadlines = {},
         taxonomy = {},
-        additional_properties = {}
+        additional_properties: additionalProperties = {}
     } = globalContent;
 
     const sections = get(taxonomy, 'sections', []);
     const primarySectionName = get(taxonomy, 'primary_section.name', '');
 
-    const recipeInstructions = content_elements
+    const recipeInstructions = contentElements
         .filter(item => item.subtype === 'custom-preparacion')
         .flatMap(item => item.embed.config.items)
         .map((step, index) => ({
@@ -36,7 +41,7 @@ export const RecipeSchema = ({ globalContent = {}, layout = '' }) => {
             name: `Paso ${index + 1}`
         }));
 
-    const recipeIngredient = content_elements
+    const recipeIngredient = contentElements
         .filter(
             item =>
                 item.subtype === 'foodit-ingredientes' ||
@@ -57,17 +62,24 @@ export const RecipeSchema = ({ globalContent = {}, layout = '' }) => {
     const author = getFooditAuthor(globalContent, true);
 
     const { playlist = [] } = get(
-        promo_items,
+        promoItems,
         'video_jw.embed.config.videoJw',
         {}
     );
     const [video] = playlist;
 
-    const { link = '', image = '', title = '', description, pubdate } =
-        video || {};
+    const {
+        link = '',
+        image = '',
+        title = '',
+        description,
+        pubdate
+    } = video || {};
 
-    const { resized_urls = [] } = replaceBaseUrl(get(promo_items, 'basic', {}));
-    const { resizedUrl = '' } = getShortestImage(resized_urls);
+    const { resized_urls: resizedUrls = [] } = replaceBaseUrl(
+        get(promoItems, 'basic', {})
+    );
+    const { resizedUrl = '' } = getShortestImage(resizedUrls);
 
     const {
         prepTime,
@@ -77,7 +89,7 @@ export const RecipeSchema = ({ globalContent = {}, layout = '' }) => {
         cookingTypes = [],
         regions = [],
         occasions = []
-    } = get(promo_items, 'receta.embed.config', {});
+    } = get(promoItems, 'receta.embed.config', {});
 
     const tags = getTagList({
         cookingTypes,
@@ -115,9 +127,12 @@ export const RecipeSchema = ({ globalContent = {}, layout = '' }) => {
         suitableForDiet: getSuitableForDietUrls(sections),
         performTime: (prepTime && `PT${prepTime}M`) || `PT0M`,
         totalTime: (counterTime && `PT${counterTime}M`) || `PT0M`,
-        recipeInstructions,
+        recipeInstructions:
+            recipeInstructions.length > 0
+                ? recipeInstructions
+                : findPreparationSteps(contentElements),
         recipeIngredient,
-        dateCreated: get(additional_properties, 'publish_date', ''),
+        dateCreated: get(additionalProperties, 'publish_date', ''),
         headline: get(headlines, 'basic', ''),
         ...((video &&
             layout !== 'Foodit-recipe-paywall' && {
@@ -149,11 +164,23 @@ export const RecipeSchema = ({ globalContent = {}, layout = '' }) => {
     return (
         <>
             <SnippetRender
-                key={'schema-Recipe'}
-                id={'schema-Recipe'}
+                key="schema-Recipe"
+                id="schema-Recipe"
                 data={recipeSchema}
             />
             <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
         </>
     );
+}
+
+RecipeSchema.propTypes = {
+    globalContent: PropTypes.shape({
+        promo_items: PropTypes.object,
+        content_elements: PropTypes.array,
+        headlines: PropTypes.object,
+        subheadlines: PropTypes.object,
+        taxonomy: PropTypes.object,
+        additional_properties: PropTypes.object
+    }).isRequired,
+    layout: PropTypes.string.isRequired
 };

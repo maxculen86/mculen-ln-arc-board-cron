@@ -1096,6 +1096,26 @@ export default {
                 ]
             }
         },
+        videoJwImage: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 920,
+                        height: 410,
+                        media_preload: setMediaCondition({
+                            minWidth: 768
+                        })
+                    },
+                    {
+                        width: 516,
+                        height: 280,
+                        maxScreenWidth: 767,
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        proportion: '3:2'
+                    }
+                ]
+            }
+        },
         xxl: {
             promo_items: {
                 sizes: [
