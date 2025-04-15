@@ -7,6 +7,7 @@ import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit
 import { RoofFoodit } from '../../foodit-global/common/RoofFoodit/foodit';
 import getImageAltText from '../../foodit-global/common/utils/getImageAltText';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
+import { getFooditAuthor } from '../../foodit-global/common/utils/notaFooditHelper';
 
 function RelatedContent({ globalContent }) {
     const id = get(globalContent, '_id', '');
@@ -21,6 +22,55 @@ function RelatedContent({ globalContent }) {
 
     if (!relatedContent || relatedContent?.length === 0) return null;
 
+    const renderRelatedContent = () =>
+        relatedContent?.map(item => {
+            const itemId = get(item, '_id', '');
+            const itemHeadline = get(item, 'headlines.basic', '');
+            const itemAuthorText = getFooditAuthor(item);
+            const itemLinkUrl = get(item, 'canonical_url', '');
+            const itemPreparationTime = get(
+                item,
+                'promo_items.receta.embed.config.counterTime',
+                1
+            );
+            const itemAltText = getImageAltText(
+                get(item, 'promo_items.basic', {})
+            );
+            const { resizedUrl } = getShortestImage(
+                get(item, 'promo_items.basic.resized_urls', [])
+            );
+            const itemImage = get(item, 'promo_items.basic.url', '');
+            const itemHasVideo = get(item, 'promo_items.video_jw', null);
+
+            return (
+                <div className="w-100" key={itemId}>
+                    <CommonCardFoodit
+                        articleId={itemId}
+                        linksProps={{
+                            href: itemLinkUrl,
+                            title: itemHeadline
+                        }}
+                        title={itemHeadline}
+                        variant="recipe"
+                        container="related-content"
+                        size="small"
+                        tag="Facil"
+                        src={resizedUrl || itemImage}
+                        alt={itemAltText}
+                        author={itemAuthorText}
+                        showTime={Boolean(itemPreparationTime)}
+                        time={String(itemPreparationTime)}
+                        contentCode="receta"
+                        mediaVariant="image"
+                        isOpening={false}
+                        loading="lazy"
+                        fetchPriority="low"
+                        hasVideo={Boolean(itemHasVideo)}
+                    />
+                </div>
+            );
+        });
+
     return (
         <Static id="related-content-static">
             <RoofFoodit
@@ -30,57 +80,7 @@ function RelatedContent({ globalContent }) {
                 className="flex flex-column flex-row_md gap-24_md gap-32 gap-32_lg"
                 role="list"
             >
-                {relatedContent?.map(item => {
-                    const itemId = get(item, '_id', '');
-                    const itemHeadline = get(item, 'headlines.basic', '');
-                    const itemAuthor = get(item, 'credits.by[0].name', '');
-                    const itemLinkUrl = get(item, 'canonical_url', '');
-                    const itemPreparationTime = get(
-                        item,
-                        'promo_items.receta.embed.config.counterTime',
-                        1
-                    );
-                    const itemAltText = getImageAltText(
-                        get(item, 'promo_items.basic', {})
-                    );
-                    const { resizedUrl } = getShortestImage(
-                        get(item, 'promo_items.basic.resized_urls', [])
-                    );
-                    const itemImage = get(item, 'promo_items.basic.url', '');
-                    const itemHasVideo = get(
-                        item,
-                        'promo_items.video_jw',
-                        null
-                    );
-
-                    return (
-                        <div className="w-100" key={itemId}>
-                            <CommonCardFoodit
-                                articleId={itemId}
-                                linksProps={{
-                                    href: itemLinkUrl,
-                                    title: itemHeadline
-                                }}
-                                title={itemHeadline}
-                                variant="recipe"
-                                container="related-content"
-                                size="small"
-                                tag="Facil"
-                                src={resizedUrl || itemImage}
-                                alt={itemAltText}
-                                author={itemAuthor}
-                                showTime={Boolean(itemPreparationTime)}
-                                time={String(itemPreparationTime)}
-                                contentCode="receta"
-                                mediaVariant="image"
-                                isOpening={false}
-                                loading="lazy"
-                                fetchPriority="low"
-                                hasVideo={Boolean(itemHasVideo)}
-                            />
-                        </div>
-                    );
-                })}
+                {renderRelatedContent()}
             </div>
         </Static>
     );
