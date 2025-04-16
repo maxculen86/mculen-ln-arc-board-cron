@@ -11,56 +11,53 @@ import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../common/auth/helper/loginHelper';
-import AuthInitializer from '../../../common/auth/AuthInitializer';
 
 function HeaderComponent(props) {
     const { arcSite, contextPath, items, data } = props;
     const subscribed = isSubscribed(SUBSCRIBED_HELPER.LN);
 
     return (
-        <AuthInitializer website="ott">
-            <div className="header-wrapper">
-                <header className="header">
-                    <div className="wrapper">
-                        <a
-                            className="header__logo"
-                            href={hrefHelper.createCorrectHref(
-                                '/',
-                                arcSite,
-                                contextPath
-                            )}
-                            alt="lnmas.com.ar"
-                            title="lnmas.com.ar"
-                        >
-                            LN+
-                        </a>
-                        <HamburgerButton className="header__hamburguer">
-                            ☰
-                        </HamburgerButton>
-                        {subscribed && (
-                            <nav className="header__nav">
-                                {items.map(item => (
-                                    <HeaderItem
-                                        description={item.description}
-                                        href={addForwardSlash(item.href)}
-                                        data={data}
-                                        alt={item.alt}
-                                        key={useId()}
-                                    />
-                                ))}
-                                <Link
-                                    className="header__my-account"
-                                    title="Ir a mi cuenta"
-                                    href="https://myaccount.lanacion.com.ar/"
-                                >
-                                    <Text>Mi cuenta</Text>
-                                </Link>
-                            </nav>
+        <div className="header-wrapper">
+            <header className="header">
+                <div className="wrapper">
+                    <a
+                        className="header__logo"
+                        href={hrefHelper.createCorrectHref(
+                            '/',
+                            arcSite,
+                            contextPath
                         )}
-                    </div>
-                </header>
-            </div>
-        </AuthInitializer>
+                        alt="lnmas.com.ar"
+                        title="lnmas.com.ar"
+                    >
+                        LN+
+                    </a>
+                    <HamburgerButton className="header__hamburguer">
+                        ☰
+                    </HamburgerButton>
+                    {subscribed && (
+                        <nav className="header__nav">
+                            {items.map(item => (
+                                <HeaderItem
+                                    description={item.description}
+                                    href={addForwardSlash(item.href)}
+                                    data={data}
+                                    alt={item.alt}
+                                    key={useId()}
+                                />
+                            ))}
+                            <Link
+                                className="header__my-account"
+                                title="Ir a mi cuenta"
+                                href="https://myaccount.lanacion.com.ar/"
+                            >
+                                <Text>Mi cuenta</Text>
+                            </Link>
+                        </nav>
+                    )}
+                </div>
+            </header>
+        </div>
     );
 }
 
