@@ -26,3 +26,9 @@
 
 @import url('../../resources/packages/css/@ln/foodit-ui-sass/index.css');
 @import url('../../resources/packages/css/@ln/foodit-ui-itemcard/index.css');
+
+.prumo.text-48 {
+    font-size: 3rem;
+    line-height: 100%;
+    --prumo-letter-spacing: -0.64px;
+}

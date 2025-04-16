@@ -3,11 +3,16 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useDisclosure } from '@ln/hooks';
+import { Dialog } from '@ln/common-ui-dialog';
 import get from '../../../../private/common/utils/get';
 
 import { ShareFoodit } from '../ShareFoodit/foodit';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
+import { PrintButton } from '../PrintButton/foodit';
+import EmptyState from '../emptyState/foodit';
+import { getVariantBarrier } from '../emptyState/helpers';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -107,6 +112,61 @@ const renderRegularButton = ({
     </Button>
 );
 
+const printButton = ({
+    handleChange,
+    IconButton,
+    description,
+    handleClick,
+    type,
+    article
+}) => {
+    const { isOpen, onClose } = useDisclosure();
+    const { isSubscribed, userType } = useGetUserConfig();
+
+    return isSubscribed ? (
+        <PrintButton
+            handleChange={handleChange}
+            IconButton={IconButton}
+            description={description}
+            handleClick={handleClick}
+            type={type}
+            article={article}
+        />
+    ) : (
+        <Dialog
+            isOpen={isOpen}
+            onClose={onClose}
+            position="center"
+            classnames={{
+                base: 'p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4',
+                wrapper: 'flex flex-column gap-12'
+            }}
+            overlay
+            closeOnClickOutside
+        >
+            <Dialog.Header className="flex flex-column ai-end">
+                <Button
+                    onClick={onClose}
+                    variant="link"
+                    title="Cerrar"
+                    aria-label="Cerrar"
+                >
+                    <Icon>
+                        <IconSprite name="close" />
+                    </Icon>
+                </Button>
+            </Dialog.Header>
+            <Dialog.Body>
+                <EmptyState
+                    variant={getVariantBarrier(userType)}
+                    className="pt-4 pt-12_md pt-20_lg"
+                    direction="column"
+                />
+            </Dialog.Body>
+        </Dialog>
+    );
+};
+
 const renderCopyButton = ({
     IconButton,
     description,
@@ -150,11 +210,13 @@ const renderCopyButton = ({
 };
 
 export const renderAction = ({
+    handleChange,
     IconButton,
     description,
     handleClick,
     type,
-    article
+    article,
+    printButtonType
 }) => {
     const options = {
         share:
@@ -175,13 +237,25 @@ export const renderAction = ({
                 type,
                 article
             }),
-        default: renderRegularButton({
-            IconButton,
-            description,
-            handleClick,
-            type,
-            article
-        })
+        default:
+            (type === 'comment' || printButtonType === 'regular') &&
+            renderRegularButton({
+                IconButton,
+                description,
+                handleClick,
+                type,
+                article
+            }),
+        print:
+            type === 'print' &&
+            printButton({
+                handleChange,
+                IconButton,
+                description,
+                handleClick,
+                type,
+                article
+            })
     };
 
     return Object.values(options).find(Boolean);
