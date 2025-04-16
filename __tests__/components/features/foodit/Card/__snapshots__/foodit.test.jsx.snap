@@ -6,13 +6,13 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
     class="hidden"
   >
     <article
-      class="card relative w-100 max-w-1366 mx-auto h-100 --day-recipe bg-light-1"
+      class="card relative w-100 mx-auto --day-recipe bg-light-1 max-w-1366"
       data-container="opening-alone"
       data-test-id="opening-card-day-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
       data-variant="day-recipe"
     >
       <a
-        class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit flex-row_lg"
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit flex-row_lg row-gap-0 column-gap-32 flex-column"
         data-variant="primary"
         href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
         target="_self"
@@ -40,13 +40,13 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
             </picture>
           </div>
           <span
-            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 m-8"
+            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute m-8 bottom-0 left-0"
           >
             FÁCIL
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 max-w-483_lg pt-16 pt-0_lg"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 max-w-483_lg pt-16 pt-0_lg pt-16"
         >
           <div
             class="flex flex-column gap-12"
@@ -60,14 +60,14 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 Receta del día
               </span>
               <h1
-                class="text card-title prumo transition-regular  prumo-book text-28 text-40_md text-48_lg"
+                class="text card-title prumo transition-regular prumo-book text-28 text-40_md text-48_lg"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </h1>
             </div>
           </div>
           <div
-            class="flex gap-16 text-light-800 flex-row flex-column_lg ai-center ai-start_lg"
+            class="flex gap-16 text-light-800 flex-row ai-center flex-column_lg ai-start_lg"
           >
             <div
               class="flex flex-column gap-8 flex-grow-1"
@@ -130,20 +130,20 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
     class="hidden"
   >
     <article
-      class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-positive"
+      class="card relative w-100 mx-auto overflow-hidden h-100 bg-positive max-w-1366 border border-all border-thin border-light-100"
       data-container="grid"
       data-test-id="card-note--FMLGIYTL2ZBCRAKQTSO27CCQ6U"
       data-variant="note"
     >
       <a
-        class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
         data-variant="primary"
         href="/guia-de-cocina/ficha-nota-foodit-nid18092023/"
         target="_self"
         title="Ficha nota FOODIT"
       >
         <div
-          class="relative w-100 px-16 pt-16 pb-4"
+          class="relative w-100 px-16 pt-16"
         >
           <div
             class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
@@ -165,7 +165,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
         >
           <div
             class="flex flex-column gap-12"
@@ -174,7 +174,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               class="flex flex-column gap-4"
             >
               <h2
-                class="text card-title prumo transition-regular text-ellipsis-3 prumo-semibold prumo-medium text-20"
+                class="text card-title prumo transition-regular prumo-semibold prumo-medium text-20 text-ellipsis-3"
               >
                 Ficha nota FOODIT
               </h2>
@@ -192,7 +192,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                 Por Foodit
               </span>
               <div
-                class="flex ai-center gap-4"
+                class="flex ai-center gap-4 none"
               >
                 <i
                   class="icon --icon-12 --inherit"
@@ -244,13 +244,13 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
     class="hidden"
   >
     <article
-      class="card relative w-100 max-w-1366 mx-auto h-100 border border-all border-thin border-light-100 overflow-hidden bg-light-1"
+      class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
       data-container="grid"
       data-test-id="card-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
       data-variant="recipe"
     >
       <a
-        class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
         data-variant="primary"
         href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
         target="_self"
@@ -278,7 +278,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
             </picture>
           </div>
           <span
-            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
+            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute translate-y-50 bottom-0 left-0"
           >
             FÁCIL
           </span>
@@ -293,7 +293,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               class="flex flex-column gap-4"
             >
               <h2
-                class="text card-title prumo transition-regular text-ellipsis-3  prumo-medium text-20"
+                class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-3"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </h2>
