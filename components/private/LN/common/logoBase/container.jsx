@@ -7,6 +7,7 @@ import {
 } from '../../../common/utils/sectionUtils';
 import ModSponsor from '../../../common/mod-sponsor';
 import ComLogo from '../../../common/com-logo';
+import getTargetAndRelIfExternal from '../../../common/utils/getTargetAndRelIfExternal';
 
 function LogoBaseContainer({
     sections,
@@ -19,10 +20,11 @@ function LogoBaseContainer({
     const { name: distributorName } = distributor || {};
     const sectionData = getSectionLogo(sections, layout, distributorName);
 
-    const { path, logoName, color } = sectionData || {
+    const { path, logoName, color, isExternal } = sectionData || {
         path: null,
         logoName: null,
-        color: null
+        color: null,
+        isExternal: null
     };
 
     const altLogo = dictionaryAlt[logoName]
@@ -31,6 +33,8 @@ function LogoBaseContainer({
 
     const sponsor = !color && logoName ? `${logoName}${'-blanco'}` : logoName;
 
+    const { target, rel } = getTargetAndRelIfExternal(isExternal);
+
     if (sponsored) {
         return (
             <ModSponsor
@@ -38,7 +42,9 @@ function LogoBaseContainer({
                 logoName={logoName}
                 sponsor={sponsor}
                 textName={advertiser}
-                link={`${path}/`} // agrego barra al final
+                link={path}
+                target={target}
+                rel={rel}
                 tooltip={tooltip}
             />
         );
@@ -46,8 +52,10 @@ function LogoBaseContainer({
 
     return (
         <ComLogo
-            href={`${path}/`} // agrego barra al final
+            href={path}
             title={altLogo}
+            target={target}
+            rel={rel}
             logoName={sponsor}
             alt={altLogo}
             size="--sm"
