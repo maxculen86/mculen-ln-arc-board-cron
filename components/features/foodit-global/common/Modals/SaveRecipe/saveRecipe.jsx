@@ -5,7 +5,7 @@ import { Dialog } from '@ln/common-ui-dialog';
 import { cx } from '@ln/cva';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import useSelectListener from './hooks/useSelectListener';
+import useSelectListener from '../../../../LN-common/hooks/useSelectListener';
 import useInputListener from './hooks/useInputListener';
 
 import HeaderSaveRecipe from './components/header';
