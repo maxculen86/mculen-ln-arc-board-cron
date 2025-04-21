@@ -13,8 +13,12 @@ trigger:
 pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
 
 variables:
-    FUSION_RELEASE: ${{ if or(eq(variables['Build.SourceBranchName'], 'develop'), startsWith(variables['Build.SourceBranchName'], 'demo/')) }} 'latest' ${{ else }} '5.1.3'
-    NODE_VERSION: ${{ if or(eq(variables['Build.SourceBranchName'], 'develop'), startsWith(variables['Build.SourceBranchName'], 'demo/')) }} '20.x' ${{ else }} '18.x'
+    ${{if eq(variables['Build.SourceBranchName'], 'main') }}:
+        FUSION_RELEASE: '5.1.3'
+        NODE_VERSION: 18.x
+    ${{else}}:
+        FUSION_RELEASE: '6.0.0'
+        NODE_VERSION: 20.x
 
 jobs:
     - job: BuildArc
