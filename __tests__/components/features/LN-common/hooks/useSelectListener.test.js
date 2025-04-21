@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
-import useSelectListener from '../../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/hooks/useSelectListener';
+import useSelectListener from '../../../../../components/features/LN-common/hooks/useSelectListener';
 
 const HookWrapper = ({ initialValue }) => {
     const { selectValue, onSelectChange } = useSelectListener(initialValue);

@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { useAppContext } from 'fusion:context';
 import useGetUserConfig from '../../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
 import SaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/saveRecipe';
-import useSelectListener from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/hooks/useSelectListener';
+import useSelectListener from '../../../../../../../components/features/LN-common/hooks/useSelectListener';
 import useInputListener from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/hooks/useInputListener';
 import MainSaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/main';
 import FooterSaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/footer';
@@ -12,7 +12,6 @@ import {
     saveRecipeConfig,
     getConfig
 } from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/helpers';
-
 jest.mock(
     '../../../../../../../components/features/foodit-global/hooks/useGetUserConfig',
     () => jest.fn()
@@ -21,7 +20,7 @@ jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 jest.mock(
-    '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/hooks/useSelectListener',
+    '../../../../../../../components/features/LN-common/hooks/useSelectListener',
     () => jest.fn()
 );
 jest.mock(
