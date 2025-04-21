@@ -160,7 +160,7 @@ export const getJWScript = (
                               autoplayadsmuted: hasAutoplay ?? false,
                               schedule: [
                                   {
-                                      tag: `"${tagsUrl}"`,
+                                      tag: tagsUrl,
                                       offset: 'pre'
                                   }
                               ]
