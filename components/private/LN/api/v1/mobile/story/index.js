@@ -26,7 +26,7 @@ const indexNota = dataNotaParam => {
     };
 
     let elmentsAdd = 0;
-    const boxElements = [0, 3, 6, 8, 10];
+    const boxElements = [0, 2, 5, 8, 10];
     if (resp.contenido) {
         const { length } = resp.contenido;
         boxElements.forEach(boxElement => {
