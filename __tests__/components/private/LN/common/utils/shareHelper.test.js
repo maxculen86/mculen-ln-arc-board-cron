@@ -213,7 +213,7 @@ describe('private - LN - common - utils - shareHelper', () => {
 
             expect(mockWindowOpen).toHaveBeenCalledTimes(1);
             expect(mockWindowOpen).toHaveBeenCalledWith(
-                `https://x.com/intent/tweet?text=${titulo}&url=${dominio}${notaId}&via=LANACION/`,
+                `https://x.com/intent/tweet?text=${encodeURIComponent(titulo)}&url=${dominio}${notaId}&via=LANACION/`,
                 '',
                 'top=300,left=550,width=800,height=380'
             );
@@ -229,6 +229,27 @@ describe('private - LN - common - utils - shareHelper', () => {
                 'https://x.com/LANACION/',
                 '_blank'
             );
+        });
+
+        it('should generate a valid URL with correctly encoded percentage symbol', () => {
+            const titulo =
+                'Guyana: El pequeño país que creció un 54% durante 2020';
+            const notaId =
+                '/economia/guyana-el-pequeno-pais-que-crecio-un-54-durante-2020-nid21062021/';
+            const dominio = 'https://www.lanacion.com.ar';
+
+            const mockWindowOpen = jest.fn();
+            global.open = mockWindowOpen;
+
+            popUpCompartirNotaTW(notaId, dominio, titulo);
+
+            const generatedUrl = mockWindowOpen.mock.calls[0][0];
+
+            // Verificar que el símbolo de porcentaje (%) esté correctamente codificado como '%25'
+            expect(generatedUrl).toContain('54%25');
+
+            // Verificar que la URL sea válida sintácticamente
+            expect(() => new URL(generatedUrl)).not.toThrow();
         });
     });
 
