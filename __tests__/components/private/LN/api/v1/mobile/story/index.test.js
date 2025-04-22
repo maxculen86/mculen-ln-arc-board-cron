@@ -154,33 +154,33 @@ describe('Test json integracion Article', () => {
         expect(resp.contenido.length).toBe(6);
         expect(resp.contenido[1]._t).toBe('banner');
     });
-    it('Luego del 4to elemento/párrafo. Se dibuja si la nota tiene al menos 4 elementos.', () => {
+    it('Luego del 3er elemento/párrafo. Se dibuja si la nota tiene al menos 4 elementos.', () => {
         const resp = NotaIndex(ArticleFourElements);
         expect(resp.contenido.length).toBe(6);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
     });
-    it('Luego del 7mo elemento/párrafo. Se dibuja si la nota tiene al menos 7 elementos.', () => {
+    it('Luego del 6to elemento/párrafo. Se dibuja si la nota tiene al menos 7 elementos.', () => {
         const resp = NotaIndex(ArticleSevenElements);
         expect(resp.contenido.length).toBe(10);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
+        expect(resp.contenido[8]._t).toBe('banner');
     });
     it('Luego del 9no elemento/párrafo. Se dibuja si la nota tiene al menos 9 elementos.', () => {
         const resp = NotaIndex(ArticleNineElements);
         expect(resp.contenido.length).toBe(13);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
+        expect(resp.contenido[8]._t).toBe('banner');
         expect(resp.contenido[12]._t).toBe('banner');
     });
     it('Luego del 11no elemento/párrafo. Se dibuja si la nota tiene al menos 11 elementos.', () => {
         const resp = NotaIndex(ArticleElevenElements);
         expect(resp.contenido.length).toBe(16);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
+        expect(resp.contenido[8]._t).toBe('banner');
         expect(resp.contenido[12]._t).toBe('banner');
         expect(resp.contenido[15]._t).toBe('banner');
     });
