@@ -7,19 +7,22 @@ import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { cx } from '@ln/cva';
 import { List } from '@ln/foodit-ui-list';
 import { Icon } from '@ln/common-ui-icon';
-import { TimePrint } from '../../features/foodit-global/common/TimePrint/TimePrint';
-import get from '../../private/common/utils/get';
-import { getListsFromPowerup } from '../../features/foodit-global/Body/PowerupsReceta/_helper';
-import PrintIngredients from '../../features/foodit-global/common/PrintIngredients/foodit';
-import { Nutritional } from '../../features/foodit-global/Body/PowerupsReceta/ingredientsBox/nutritional';
-import { getHighestPriorityTag } from '../../features/foodit-global/common/utils/notaFooditHelper';
-import { PowerUpPreparacion } from '../../features/private-global/body/powerUpPreparacion/foodit';
-import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import { PowerUpPreparacion } from '../../../private-global/body/powerUpPreparacion/foodit';
+import {
+    getFooditAuthor,
+    getHighestPriorityTag
+} from '../utils/notaFooditHelper';
+import { TimePrint } from '../TimePrint/TimePrint';
+import get from '../../../../private/common/utils/get';
+import { getListsFromPowerup } from '../../Body/PowerupsReceta/_helper';
+import PrintIngredients from '../PrintIngredients/foodit';
+import { Nutritional } from '../../Body/PowerupsReceta/ingredientsBox/nutritional';
 
 export const FooditPrint = React.forwardRef(
     ({ includePhotos, article }, ref) => {
         const titleRecipe = get(article, 'headlines.basic', '');
-        const authorRecipe = get(article, 'credits.by[0].name', '');
+        const authorRecipe = getFooditAuthor(article);
         const promoItemsRecipe = get(
             article,
             'promo_items.receta.embed.config',
@@ -40,6 +43,7 @@ export const FooditPrint = React.forwardRef(
             content =>
                 content?.subtype === 'custom-preparacion' ||
                 content?.type === 'list' ||
+                content?.type === 'header' ||
                 content?.type === 'image'
         );
         const tipsAndTricks = contentElements.filter(
@@ -69,9 +73,9 @@ export const FooditPrint = React.forwardRef(
                         key={element._id}
                         variant={element.list_type || 'unordered'}
                     >
-                        {element.items?.map(item => (
+                        {element.items?.map((item, itemIndex) => (
                             <List.Item
-                                key={`${element._id}-item`}
+                                key={`${element._id}-${item.id || itemIndex}`}
                                 dangerouslySetInnerHTML={{
                                     __html: item.content
                                 }}
@@ -120,7 +124,7 @@ export const FooditPrint = React.forwardRef(
                                 {authorRecipe && (
                                     <Text
                                         className="text-14 text-center"
-                                        text={`Por ${authorRecipe}`}
+                                        text={authorRecipe}
                                         as="p"
                                     />
                                 )}
@@ -138,7 +142,12 @@ export const FooditPrint = React.forwardRef(
                     </div>
                     <section className="flex gap-32">
                         <div className="bg-positive flex flex-column p-32 gap-24">
-                            <div className="flex ai-center gap-8">
+                            <div
+                                className="flex ai-center gap-8"
+                                style={{
+                                    whiteSpace: 'nowrap'
+                                }}
+                            >
                                 <Icon>
                                     <IconSprite name="portion" />
                                 </Icon>
@@ -154,9 +163,9 @@ export const FooditPrint = React.forwardRef(
                                     Ingredientes
                                 </Text>
                             )}
-                            {ingredientsLists.map(items => (
+                            {ingredientsLists.map((items, index) => (
                                 <PrintIngredients
-                                    key={`ingredients-${items.titleList}`}
+                                    key={`ingredients-${items.titleList || index}`}
                                     ingredientsList={items}
                                 />
                             ))}
@@ -172,13 +181,18 @@ export const FooditPrint = React.forwardRef(
                         </div>
                         <div className="flex flex-column gap-32 pt-32">
                             {preparacionElements.length > 0 &&
-                                preparacionElements.map(preparacionElement => (
-                                    <PowerUpPreparacion
-                                        key={preparacionElement._id}
-                                        data={preparacionElement}
-                                        includePhotos={includePhotos}
-                                    />
-                                ))}
+                                preparacionElements.map(
+                                    (preparacionElement, index) => (
+                                        <PowerUpPreparacion
+                                            key={
+                                                preparacionElement._id ||
+                                                `prep-element-${index}`
+                                            }
+                                            data={preparacionElement}
+                                            includePhotos={includePhotos}
+                                        />
+                                    )
+                                )}
                             {!includePhotos &&
                                 tipsAndTricks.length > 0 &&
                                 tipsAndTricks.map(renderHeadingOrList)}
@@ -233,6 +247,10 @@ FooditPrint.propTypes = {
                         counterTime: PropTypes.number
                     })
                 })
+            }),
+            basic: PropTypes.shape({
+                url: PropTypes.string,
+                caption: PropTypes.string
             })
         })
     }).isRequired

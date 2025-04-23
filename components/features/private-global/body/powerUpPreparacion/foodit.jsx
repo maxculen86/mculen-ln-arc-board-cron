@@ -4,100 +4,102 @@ import { List } from '@ln/foodit-ui-list';
 import { Text } from '@ln/common-ui-text';
 import PropTypes from 'prop-types';
 import get from '../../../../private/common/utils/get';
+import {
+    processPreparacionContent,
+    hasCustomPreparacion,
+    isFirstPreparacionBody
+} from './helper';
 
 export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
     const { globalContent } = useAppContext();
-    const { items = [], titleList = '' } = get(data, 'embed.config', {});
     const { _id: idPreparacionElement = '' } = data;
+    const { items = [], titleList = '' } = get(data, 'embed.config', {});
 
     const contentElements = get(globalContent, 'content_elements', []);
+    const hasCustomPrep = hasCustomPreparacion(contentElements);
+    const isFirstPrep = isFirstPreparacionBody(
+        contentElements,
+        idPreparacionElement
+    );
 
-    const isFirstPreparacionBody =
-        contentElements.findIndex(
-            content => content?._id === idPreparacionElement
-        ) === 0;
-
-    const processPreparacionContent = () => {
-        const orderedContent = [];
-        const processedSteps = new Set();
-
-        if (items.length > 0) {
-            items.forEach(item => {
-                orderedContent.push({
-                    type: 'step',
-                    content: item
-                });
-                processedSteps.add(item);
-            });
-        }
-
-        const currentIndex = contentElements.findIndex(
-            content => content?._id === idPreparacionElement
-        );
-
-        const nextPreparacionIndex = contentElements.findIndex(
-            (element, index) =>
-                index > currentIndex &&
-                element?.subtype === 'custom-preparacion'
-        );
-
-        const endIndex =
-            nextPreparacionIndex !== -1
-                ? nextPreparacionIndex
-                : contentElements.length;
-
-        for (let i = currentIndex + 1; i < endIndex; i += 1) {
-            const element = contentElements[i];
-
-            if (
-                i > currentIndex + 1 &&
-                element?.type === 'list' &&
-                !includePhotos
-            ) {
-                break;
-            }
-
-            if (element?.type === 'list' && element.items) {
-                element.items.forEach(listItem => {
-                    const stepContent = listItem.content;
-                    if (stepContent && !processedSteps.has(stepContent)) {
-                        orderedContent.push({
-                            type: 'step',
-                            content: stepContent
-                        });
-                        processedSteps.add(stepContent);
-                    }
-                });
-            }
-
-            if (element?.type === 'image' && element.url) {
-                orderedContent.push({
-                    type: 'image',
-                    id: element._id || `img-${i}`,
-                    url: element.url || '',
-                    caption: element.caption || ''
-                });
-            }
-        }
-
-        return { orderedContent };
-    };
-
-    const { orderedContent = [] } = processPreparacionContent();
-
-    if (items.length === 0) {
+    if (items.length === 0 && (!includePhotos || hasCustomPrep)) {
         return null;
     }
 
-    const renderStepsAndImages = () => {
-        if (!includePhotos) {
+    const { orderedContent = [] } = processPreparacionContent(
+        data,
+        contentElements,
+        idPreparacionElement,
+        items,
+        includePhotos
+    );
+
+    /**
+     * Render a specific content item based on its type
+     * @param {Object} content - The content item to render
+     * @param {number} index - The index of the content item
+     * @returns {React.ReactElement|null} The rendered content item or null
+     */
+    const renderContentItem = (content, index) => {
+        if (content.type === 'header') {
+            return (
+                <li key={`header-${index}`} className="mt-8 mb-4">
+                    <Text
+                        as={`h${content.level || 3}`}
+                        className="roboto-bold text-16 text-18_md"
+                    >
+                        <span
+                            // eslint-disable-next-line react/no-danger
+                            dangerouslySetInnerHTML={{
+                                __html: content.content
+                            }}
+                        />
+                    </Text>
+                </li>
+            );
+        }
+
+        if (content.type === 'step') {
+            return (
+                <List.Item
+                    key={`step-${index}-${content.content?.substring(0, 10)}`}
+                    dangerouslySetInnerHTML={{
+                        __html: content.content
+                    }}
+                />
+            );
+        }
+
+        if (content.type === 'image') {
+            return (
+                <li key={`image-${content.id}-${index}`} className="mt-8 mb-16">
+                    <img
+                        src={content.url}
+                        alt={content.caption || 'Recipe image'}
+                        className="w-100"
+                    />
+                </li>
+            );
+        }
+
+        return null;
+    };
+
+    /**
+     * Render the content based on includePhotos flag
+     * @param {Array} orderedContent - The ordered content to render
+     * @param {boolean} includePhotos - Flag to include photos
+     * @returns {React.ReactElement} The rendered content
+     */
+    const renderContent = (contentList, includePhotosFlag) => {
+        if (!includePhotosFlag) {
             return (
                 <List variant="unordered">
-                    {orderedContent
+                    {contentList
                         .filter(item => item.type === 'step')
                         .map(item => (
                             <List.Item
-                                key={`step-${item.content}`}
+                                key={`step-${item.id || item.content?.substring(0, 10)}`}
                                 dangerouslySetInnerHTML={{
                                     __html: item.content
                                 }}
@@ -110,33 +112,9 @@ export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
         return (
             <div className="list-with-images">
                 <List variant="unordered">
-                    {orderedContent.map((content, index) => {
-                        if (content.type === 'step') {
-                            return (
-                                <List.Item
-                                    key={`step-${content.id}`}
-                                    dangerouslySetInnerHTML={{
-                                        __html: content.content
-                                    }}
-                                />
-                            );
-                        }
-                        if (content.type === 'image') {
-                            return (
-                                <li
-                                    key={`image-${content.id || index}`}
-                                    className="mt-8 mb-16"
-                                >
-                                    <img
-                                        src={content.url}
-                                        alt={content.caption || 'Recipe image'}
-                                        className="w-100"
-                                    />
-                                </li>
-                            );
-                        }
-                        return null;
-                    })}
+                    {contentList.map((content, index) =>
+                        renderContentItem(content, index)
+                    )}
                 </List>
             </div>
         );
@@ -144,7 +122,7 @@ export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
 
     return (
         <>
-            {isFirstPreparacionBody && (
+            {isFirstPrep && (
                 <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
                     Preparación
                 </h3>
@@ -155,8 +133,7 @@ export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
                         {titleList}
                     </Text>
                 )}
-
-                {renderStepsAndImages()}
+                {renderContent(orderedContent, includePhotos)}
             </div>
         </>
     );
@@ -165,6 +142,21 @@ export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
 PowerUpPreparacion.propTypes = {
     data: PropTypes.shape({
         _id: PropTypes.string,
+        type: PropTypes.string,
+        subtype: PropTypes.string,
+        level: PropTypes.number,
+        content: PropTypes.string,
+        items: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.string,
+                type: PropTypes.string,
+                content: PropTypes.string,
+                url: PropTypes.string,
+                caption: PropTypes.string
+            })
+        ),
+        url: PropTypes.string,
+        caption: PropTypes.string,
         embed: PropTypes.shape({
             config: PropTypes.oneOfType([
                 PropTypes.shape({

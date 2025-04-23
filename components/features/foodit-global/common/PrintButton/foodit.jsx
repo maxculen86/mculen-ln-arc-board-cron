@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Text } from '@ln/common-ui-text';
-import { FooditPrint } from '../../../../layouts/Foodit-impresion/foodit';
 import usePrint from '../utils/PrintFoodit/usePrint';
+import { FooditPrint } from '../LayoutImpression/foodit';
 
 export function PrintButton({ type, description, IconButton, article }) {
     const [includePhotos, setIncludePhotos] = useState(false);
@@ -15,11 +15,17 @@ export function PrintButton({ type, description, IconButton, article }) {
     };
     const { printRef, handlePrint } = usePrint();
 
+    useEffect(() => {
+        if (shouldRenderPrint) {
+            setTimeout(() => {
+                handlePrint();
+                setShouldRenderPrint(false);
+            }, 0);
+        }
+    }, [shouldRenderPrint, handlePrint]);
+
     const handlePrintClick = () => {
         setShouldRenderPrint(true);
-        setTimeout(() => {
-            handlePrint();
-        }, 0);
     };
     return (
         <Dropdown hideArrow className="print-hide">

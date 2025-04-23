@@ -21,8 +21,7 @@ PrintIngredients.propTypes = {
                 fullIngredientString: PropTypes.string.isRequired
             })
         ).isRequired,
-        titleList: PropTypes.string.isRequired,
-        typeList: PropTypes.string.isRequired
+        titleList: PropTypes.string.isRequired
     }).isRequired
 };
 

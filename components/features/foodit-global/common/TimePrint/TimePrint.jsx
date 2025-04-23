@@ -44,7 +44,6 @@ export function TimePrint({ cookTime, prepTime, counterTime }) {
 }
 
 TimePrint.propTypes = {
-    portions: PropTypes.string.isRequired,
     cookTime: PropTypes.number.isRequired,
     prepTime: PropTypes.number.isRequired,
     counterTime: PropTypes.number.isRequired
