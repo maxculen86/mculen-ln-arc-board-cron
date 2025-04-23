@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN-common - ShareVideo -default should match snapshot 1`] = `
+<div>
+  <div
+    data-testid="video-share"
+  >
+    <a
+      data-testid="video-share-button"
+      href="https://www.lanacion.com.ar"
+    >
+      <i
+        class="icon --icon-24"
+      >
+        <mock-icon
+          name="arrowLeft"
+        />
+      </i>
+      <span
+        class="text-16 uppercase"
+      >
+        Volver
+      </span>
+    </a>
+    <div
+      data-testid="video-share-media"
+    >
+      Video ID: 
+      TdCdBgL
+    </div>
+  </div>
+</div>
+`;
