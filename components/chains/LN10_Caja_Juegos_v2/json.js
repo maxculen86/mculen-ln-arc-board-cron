@@ -1,5 +1,6 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
+import { getGameDiagramationItems, validateGamesChain } from './common/_helper';
 
 class CajaJuegosV2 {
     constructor(props) {
@@ -8,7 +9,21 @@ class CajaJuegosV2 {
 
     render() {
         try {
-            const items = this.props.children;
+            const { layout, customFields, children } = this.props;
+
+            const items = children;
+
+            const error = validateGamesChain(layout, customFields, items);
+
+            if (error) {
+                console.warn(
+                    `${layout} - ${
+                        typeof error === 'object' ? JSON.stringify(error) : ''
+                    }`
+                );
+
+                return null;
+            }
 
             if (
                 this.props.customFields &&
@@ -22,7 +37,7 @@ class CajaJuegosV2 {
                     ...this.props.customFields,
                     url: get(this.props.customFields, 'link', null)
                 },
-                items
+                items: getGameDiagramationItems(children, customFields.layout)
             };
         } catch (err) {
             return { Success: false, Message: err.message };
