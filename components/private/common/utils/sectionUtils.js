@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import { SITE_LANACION } from 'fusion:environment';
 import siteProperties from '../../../../properties/sites/la-nacion-ar';
 
 export const getFirstParentSection = section => {
@@ -38,19 +39,21 @@ export const getRegex = sectionId => {
     });
 };
 
+const normalizePath = path => (path && path.endsWith('/') ? path : `${path}/`);
+
 export const generatePath = (sectionId, regex, fullMatch, $1) => {
     if (sectionId === '/deportes/canchallena') {
-        return 'https://canchallena.lanacion.com.ar';
+        return normalizePath('https://canchallena.lanacion.com.ar');
     }
     if (sectionId === '/masmusica') {
-        return 'https://masmusica.lanacion.com.ar';
+        return normalizePath('https://masmusica.lanacion.com.ar');
     }
-    return (
+    return normalizePath(
         sectionId &&
-        sectionId.replace(
-            regex,
-            (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
-        )
+            sectionId.replace(
+                regex,
+                (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
+            )
     );
 };
 
@@ -72,13 +75,22 @@ export const getLogoData = sections => {
             ($1 === 'que-sale' && 'que-sale') ||
             ($1 === 'masmusica' && 'ln-radio') ||
             $1;
+
         const path = generatePath(sectionId, regex, fullMatch, $1);
+
+        const isExternal = !!(
+            path &&
+            !path.startsWith('/') &&
+            !path.startsWith(SITE_LANACION)
+        );
+
         return (
             logoName &&
             path &&
             Object.assign(resp, {
                 logoName,
-                path
+                path,
+                isExternal
             })
         );
     });
@@ -110,7 +122,7 @@ export const dictionaryAlt = {
 
 export const getSectionLogo = (sections, layout, distributorName) => {
     const { layoutsName = {} } = siteProperties || {};
-    const { logoName, path } = getLogoData(sections);
+    const { logoName, path, isExternal } = getLogoData(sections);
     const color = !(
         layout === layoutsName.StoryTelling ||
         layout === layoutsName.FotoAl100 ||
@@ -130,8 +142,9 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     if (isBBC)
         return {
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo',
-            color
+            path: '/distributor/bbc-mundo/',
+            color,
+            isExternal
         };
 
     return (
@@ -139,7 +152,8 @@ export const getSectionLogo = (sections, layout, distributorName) => {
             path && {
                 logoName,
                 path,
-                color
+                color,
+                isExternal
             }) ||
         null
     );

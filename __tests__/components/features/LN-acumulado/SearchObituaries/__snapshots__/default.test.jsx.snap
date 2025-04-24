@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN-acumulado - SearchObituaries - default should render correctly and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-column gap-16 gap-8_m max-w-620_md mb-16 mb-32_l"
+  >
+    <div
+      class="flex flex-column gap-16 flex-row_m gap-8_m"
+    >
+      <div
+        class="w-183_md"
+      >
+        <div
+          class="select w-100 relative"
+        >
+          <div
+            class="flex jc-between ai-center gap-16 p-16 opacity-80_hover h-56 border border-all border-thin border-light-100 rounded-8 cursor-pointer gap-0_m w-183_md"
+            tabindex="0"
+          >
+            <input
+              class="none"
+              value="24"
+            />
+            <span
+              class="text-16"
+            >
+              Hoy
+            </span>
+            <i
+              class="icon --icon-24"
+            >
+              <svg
+                fill="none"
+                viewBox="0 0 17 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="m8.743 8.634 2.828-2.828a.667.667 0 0 1 .943.942L9.45 9.813a1 1 0 0 1-1.414 0L4.97 6.748a.667.667 0 0 1 .943-.942z"
+                  fill="#272727"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-429_md"
+      >
+        <div
+          class="input-field w-100 relative opacity-80_hover"
+        >
+          <div
+            class="flex ai-center gap-16 p-16 w-100 z-1 rounded-8 transition transition-all transition-duration-400 border border-all border-thin border-light-100"
+          >
+            <label
+              class="floating-label absolute cursor-inherit transition-regular pointer-events-none z-1 px-8 text-12 bg-white"
+              style="left: 16px; transform: translate3d(calc(-16px + 8px), -28px, 0);"
+            >
+              Nombre y/o Apellido
+            </label>
+            <input
+              class="w-100 text-16 bg-transparent"
+              name="keyword"
+              value=""
+            />
+          </div>
+          <div
+            class="py-4 flex ai-center gap-8"
+          >
+            <span
+              class="text text-12 text-light-600"
+            >
+              *Opcional
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-blue-500 text-light-0 h-40 px-16 py-12 px-16 py-12 --primary"
+      data-variant="primary"
+      title="Buscar avisos"
+      type="button"
+    >
+      <i
+        class="icon --icon-16"
+      >
+        <mock-icon
+          name="search"
+        />
+      </i>
+      <span
+        class="text ln-text"
+      >
+        Buscar avisos
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;

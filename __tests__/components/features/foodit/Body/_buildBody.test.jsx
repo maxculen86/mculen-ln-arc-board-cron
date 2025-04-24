@@ -71,12 +71,6 @@ describe('buildBody', () => {
         const globalContent = {
             content_elements: [
                 {
-                    _id: '6OTGUBOF4RE6XBWPT4VYFZAZRQ',
-                    additional_properties: {},
-                    content: 'Texto de prueba debajo de apertura',
-                    type: 'text'
-                },
-                {
                     _id: 'BHVZBEA6FFFS7I6ZS5Z7OQ2PXM',
                     additional_properties: {},
                     embed: {
@@ -99,6 +93,12 @@ describe('buildBody', () => {
                     },
                     subtype: 'custom-preparacion',
                     type: 'custom_embed'
+                },
+                {
+                    _id: '6OTGUBOF4RE6XBWPT4VYFZAZRQ',
+                    additional_properties: {},
+                    content: 'Texto de prueba debajo de apertura',
+                    type: 'text'
                 },
                 {
                     _id: 'XODVX6YV3RHKBNXDVE23NAPARM',

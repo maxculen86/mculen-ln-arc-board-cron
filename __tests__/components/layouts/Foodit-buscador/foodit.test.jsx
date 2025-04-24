@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import FooditSearch from '../../../../components/layouts/Foodit-buscador/foodit';
 import { useDrawer } from '@ln/common-ui-drawer';
 import { useWindowSize } from '@ln/hooks';
+
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useContext: jest.fn()
+}));
 
 jest.mock('@ln/common-ui-drawer');
 jest.mock(
@@ -35,12 +40,20 @@ jest.mock(
 
 jest.mock('@ln/hooks', () => {
     return {
-        useWindowSize: jest.fn()
+        useWindowSize: jest.fn(),
+        getTypeOfDevice: jest.fn()
     };
 });
+const observe = jest.fn();
+const unobserve = jest.fn();
+window.IntersectionObserver = jest.fn(() => ({
+    observe,
+    unobserve
+}));
 
 describe('foodit Component', () => {
     const mockToggleDrawer = jest.fn();
+    useContext.mockReturnValue({ appliedFilters: [] });
 
     beforeEach(() => {
         useDrawer.mockReturnValue({ toggleDrawer: mockToggleDrawer });

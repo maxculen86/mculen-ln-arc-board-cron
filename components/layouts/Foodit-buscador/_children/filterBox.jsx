@@ -25,6 +25,26 @@ export default function FilterBox({ toggleDrawer }) {
         `flex flex-wrap gap-8 pb-0_lg ${appliedFilters.length > 0 ? 'pb-24' : ''}`
     );
 
+    const aplicatedWithValues = appliedFilters.map(item => {
+        const matchedChild = listFilters
+            .flatMap(list => list.childrens)
+            .find(child => child.key === item.value);
+
+        return matchedChild
+            ? { ...item, key: matchedChild.key, value: matchedChild.value }
+            : item;
+    });
+
+    const filtradosKeys = new Set(
+        appliedFilters.map(filtrado => filtrado.value)
+    );
+    const result = listFilters.map(listado => ({
+        ...listado,
+        childrens: listado.childrens.filter(
+            child => !filtradosKeys.has(child.key)
+        )
+    }));
+
     return (
         <aside
             id="container-faceteddata"
@@ -44,19 +64,21 @@ export default function FilterBox({ toggleDrawer }) {
                             </span>
                         </div>
                         <div className={classNameChips}>
-                            {appliedFilters.map(({ group, value } = {}) => (
-                                <Chips
-                                    key={`${group}-${value}`}
-                                    text={transformedFilterNames(value)}
-                                    actionClick={() => {
-                                        resetPage();
-                                        removeFilters({
-                                            nameFilter: value,
-                                            category: group
-                                        });
-                                    }}
-                                />
-                            ))}
+                            {aplicatedWithValues.map(
+                                ({ group, key, value } = {}) => (
+                                    <Chips
+                                        key={`${group}-${key}`}
+                                        text={`${transformedFilterNames(key)} (${value})`}
+                                        actionClick={() => {
+                                            resetPage();
+                                            removeFilters({
+                                                nameFilter: key,
+                                                category: group
+                                            });
+                                        }}
+                                    />
+                                )
+                            )}
                         </div>
                         {appliedFilters.length > 0 && (
                             <div className="flex jc-center lg-only py-24_lg">
@@ -77,7 +99,7 @@ export default function FilterBox({ toggleDrawer }) {
                         )}
 
                         {listFilters.length
-                            ? listFilters.map((item, i) => {
+                            ? result.map((item, i) => {
                                   const {
                                       name,
                                       group,

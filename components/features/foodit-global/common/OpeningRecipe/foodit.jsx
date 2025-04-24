@@ -112,6 +112,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                                 <ButtonsGroup
                                     article={article}
                                     isPrivate={isPrivate}
+                                    printButtonType="printButton"
                                 />
                             )}
                         </div>

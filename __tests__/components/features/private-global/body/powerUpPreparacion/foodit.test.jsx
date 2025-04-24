@@ -3,9 +3,18 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PowerUpPreparacion from '../../../../../../components/features/private-global/body/powerUpPreparacion/foodit';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn().mockReturnValue({
+        globalContent: {
+            content_elements: [{ _id: 'test-id' }]
+        }
+    })
+}));
+
 describe('PowerUpPreparacion', () => {
     it('Should render with valid data', () => {
         const data = {
+            _id: 'test-id',
             embed: {
                 config: {
                     items: ['Item 1', 'Item 2'],
@@ -46,6 +55,7 @@ describe('PowerUpPreparacion', () => {
     });
     it('Should show title Preparacion', () => {
         const data = {
+            _id: 'test-id',
             embed: {
                 config: {
                     items: ['Item 1', 'Item 2'],

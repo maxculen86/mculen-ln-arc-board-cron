@@ -47,7 +47,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.id).toBe('FUO2YR3EABBAFOMSI2BBS6J7FM');
         expect(resp.template).toBe('1');
         expect(resp.url).toBe(
-            '/comunidad/violencia-economica-deje-de-trabajar-porque-el-me-lo-pidio-y-fue-el-principio-del-fin-para-mi-nid29092020/'
+            '/comunidad/violencia-economica-deje-de-trabajar-porque-el-me-lo-pidio-y-fue-el-principio-del-fin-para-mi-nid29092020/?utm_source=appln'
         );
         expect(resp.mostrarBanners).toBe(false);
         expect(resp.enviarApps).toBe(false);
@@ -63,7 +63,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.id).toBe('L47IICAOMVFW5MV343TJIHS4RY');
         expect(resp.template).toBe('1');
         expect(resp.url).toBe(
-            '/el-mundo/marcada-por-la-escasez-y-la-inflacion-la-semana-santa-no-escapo-al-calvario-cotidiano-nid2121866/'
+            '/el-mundo/marcada-por-la-escasez-y-la-inflacion-la-semana-santa-no-escapo-al-calvario-cotidiano-nid2121866/?utm_source=appln'
         );
         expect(resp.mostrarBanners).toBe(true);
         expect(resp.enviarApps).toBe(true);
@@ -90,7 +90,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
         expect(resp.template).toBe('7');
         expect(resp.url).toBe(
-            '/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/'
+            '/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/?utm_source=appln'
         );
         expect(resp.mostrarBanners).toBe(true);
         expect(resp.paywallStatus).toBe('premium');
@@ -154,33 +154,33 @@ describe('Test json integracion Article', () => {
         expect(resp.contenido.length).toBe(6);
         expect(resp.contenido[1]._t).toBe('banner');
     });
-    it('Luego del 4to elemento/párrafo. Se dibuja si la nota tiene al menos 4 elementos.', () => {
+    it('Luego del 3er elemento/párrafo. Se dibuja si la nota tiene al menos 4 elementos.', () => {
         const resp = NotaIndex(ArticleFourElements);
         expect(resp.contenido.length).toBe(6);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
     });
-    it('Luego del 7mo elemento/párrafo. Se dibuja si la nota tiene al menos 7 elementos.', () => {
+    it('Luego del 6to elemento/párrafo. Se dibuja si la nota tiene al menos 7 elementos.', () => {
         const resp = NotaIndex(ArticleSevenElements);
         expect(resp.contenido.length).toBe(10);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
+        expect(resp.contenido[8]._t).toBe('banner');
     });
     it('Luego del 9no elemento/párrafo. Se dibuja si la nota tiene al menos 9 elementos.', () => {
         const resp = NotaIndex(ArticleNineElements);
         expect(resp.contenido.length).toBe(13);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
+        expect(resp.contenido[8]._t).toBe('banner');
         expect(resp.contenido[12]._t).toBe('banner');
     });
     it('Luego del 11no elemento/párrafo. Se dibuja si la nota tiene al menos 11 elementos.', () => {
         const resp = NotaIndex(ArticleElevenElements);
         expect(resp.contenido.length).toBe(16);
         expect(resp.contenido[1]._t).toBe('banner');
-        expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[4]._t).toBe('banner');
+        expect(resp.contenido[8]._t).toBe('banner');
         expect(resp.contenido[12]._t).toBe('banner');
         expect(resp.contenido[15]._t).toBe('banner');
     });

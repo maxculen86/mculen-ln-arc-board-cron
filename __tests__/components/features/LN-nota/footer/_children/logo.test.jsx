@@ -39,7 +39,7 @@ describe('components - feature - LN-nota - footer - _children - Logo', () => {
         });
 
         const logoData = {
-            path: '/autos',
+            path: '/autos/',
             logoName: 'autos'
         };
 
