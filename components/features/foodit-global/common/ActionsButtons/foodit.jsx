@@ -1,8 +1,12 @@
 import { buttonConfig, renderAction } from './_helper';
 import get from '../../../../private/common/utils/get';
 
-export const ActionsButtons = ({ article = {}, isPrivate = false }) => {
-    return buttonConfig.reduce(
+export const ActionsButtons = ({
+    article = {},
+    isPrivate = false,
+    printButtonType = 'regular'
+}) =>
+    buttonConfig.reduce(
         (
             acc,
             { type, handleClick, IconButton, description, isPrivateButton }
@@ -18,7 +22,8 @@ export const ActionsButtons = ({ article = {}, isPrivate = false }) => {
                         description,
                         handleClick,
                         type,
-                        article
+                        article,
+                        printButtonType
                     })
                 );
             }
@@ -26,6 +31,5 @@ export const ActionsButtons = ({ article = {}, isPrivate = false }) => {
         },
         []
     );
-};
 
 export default ActionsButtons;
