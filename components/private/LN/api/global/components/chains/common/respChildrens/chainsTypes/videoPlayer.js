@@ -10,10 +10,7 @@ export const respChildrens = props => {
     if (!validateChildrensApi(children)) {
         return null;
     }
-    const childrensOrdered = setSlicedChildren({
-        children,
-        config: { layout }
-    }).sort((a, b) => {
+    let childrensOrdered = children.sort((a, b) => {
         const aIsVideo = !!a.fullVideoUrl;
         const bIsVideo = !!b.fullVideoUrl;
         if (aIsVideo && !bIsVideo) return -1;
@@ -21,8 +18,14 @@ export const respChildrens = props => {
         return 0;
     });
 
-    const articles = childrensOrdered.slice(-3);
+    childrensOrdered = setSlicedChildren({
+        config: { layout },
+        children: childrensOrdered
+    });
+
+    const notesByLayout = childrensOrdered.length - 1;
     const video = childrensOrdered[0];
+    const articles = childrensOrdered.slice(-notesByLayout);
 
     return {
         articles,

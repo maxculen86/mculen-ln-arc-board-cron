@@ -2,7 +2,7 @@ import { respChildrens } from '../../../../../../../../../../../components/priva
 import * as _helpers from '../../../../../../../../../../../components/private/LN/api/global/components/common/utils/_helpers';
 import * as _helpers_WebApi from '../../../../../../../../../../../components/chains/utils/common/_helpers-WebApi';
 describe('respChildrens videoPlayer', () => {
-    it('return null if validateChildren sApi from children in props is false', () => {
+    it('return null if validateChildren Api from children in props is false', () => {
         const props = {
             children: { parameter: 'a' },
             customFields: { layout: 'bn_player_3_grid' }
@@ -18,6 +18,21 @@ describe('respChildrens videoPlayer', () => {
                     _id: 'XCV'
                 },
                 {
+                    _id: 'ASD'
+                },
+                {
+                    _id: 'ERT'
+                },
+                {
+                    _id: 'ERT1'
+                },
+                {
+                    _id: 'ERT2'
+                },
+                {
+                    _id: 'ERT3'
+                },
+                {
                     id: '9SP9fXDX',
                     posterUrl:
                         'http://cdn.jwplayer.com/v2/media/9SP9fXDX/poster.jpg?width=320',
@@ -27,12 +42,6 @@ describe('respChildrens videoPlayer', () => {
                         'http://cdn.jwplayer.com/manifests/9SP9fXDX.m3u8',
                     fullVideoDuration: 10,
                     badgeStyle: 'default'
-                },
-                {
-                    _id: 'ASD'
-                },
-                {
-                    _id: 'ERT'
                 }
             ],
             customFields: { layout: 'bn_player_3_grid' }
