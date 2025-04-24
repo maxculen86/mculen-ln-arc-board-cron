@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
+// TODO: Refactorizar para dejar de usar el hoc withScreenUtils
 import withScreenUtils from './hocs/withScreenUtils';
 import handleCookie from '../LN/common/utils/handleCookie';
 import {
@@ -56,6 +57,7 @@ function Component(props) {
             timeoutId = setTimeout(() => {
                 if (!cookieProductoPremium || template === 'home') {
                     localStorage.setItem('CDmetaRefresh', true);
+                    localStorage.setItem('SchemaPageViewMetaRefresh', true);
                 }
                 if (template === 'home') {
                     window.scrollTo(0, 0);
