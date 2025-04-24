@@ -49,7 +49,7 @@ export function SelectMenu({ setSelectedDay, setSelectedFood }) {
                                     disabled={id === 'wednesday'}
                                     className={
                                         id === 'wednesday'
-                                            ? 'opacity-40 text-inherit_hover'
+                                            ? 'card-item-disabled'
                                             : ''
                                     }
                                     {...props}
@@ -80,11 +80,9 @@ export function SelectMenu({ setSelectedDay, setSelectedFood }) {
                         as={props => (
                             <Itemcard
                                 type="button"
-                                disabled={id === 'wednesday'}
+                                disabled={id === 'lunch'}
                                 className={
-                                    id === 'wednesday'
-                                        ? 'opacity-40 text-inherit_hover'
-                                        : ''
+                                    id === 'lunch' ? 'card-item-disabled' : ''
                                 }
                                 {...props}
                             />

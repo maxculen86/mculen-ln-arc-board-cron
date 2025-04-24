@@ -2,15 +2,13 @@ import React from 'react';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { Text } from '@ln/common-ui-text';
-import { Icon } from '@ln/common-ui-icon';
 import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
 import { Badge } from '@ln/foodit-ui-badge';
-import { Button } from '@ln/foodit-ui-button';
 
+import { useDisclosure } from '@ln/hooks';
 import ButtonsGroup from '../ActionsButtons/foodit';
 import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 import {
     getFooditAuthor,
@@ -25,6 +23,7 @@ import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
 import AudioRecipe from './audioRecipe';
 import MenuSemanalDialog from '../MenuSemanal/components/MenuSemanalDialog';
+import { ActionsButtons } from './actionOptions';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const {
@@ -43,6 +42,11 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
         replaceBaseUrl(imageData);
 
     const { resizedUrl = '' } = getShortestImage(resizedUrls);
+    const { isOpen, onOpen, onClose } = useDisclosure(false);
+
+    const handleOpen = () => {
+        onOpen();
+    };
 
     return (
         <Recipe>
@@ -89,7 +93,8 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                 </div>
                 <div className="flex flex-column gap-24">
                     <div className="flex gap-24">
-                        <Static id={`btn-saved-${_id}`}>
+                        <ActionsButtons handleOpen={handleOpen} />
+                        {/* <Static id={`btn-saved-${_id}`}>
                             <Button
                                 title="Guardar"
                                 size={{ sm: 32, lg: 40 }}
@@ -101,8 +106,12 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                                 </Icon>
                                 Guardar
                             </Button>
-                        </Static>
-                        <MenuSemanalDialog article={article} />
+                        </Static> */}
+                        <MenuSemanalDialog
+                            isOpen={isOpen}
+                            onClose={onClose}
+                            article={article}
+                        />
                     </div>
                     <div className="flex flex-column flex-column_lg gap-24 jc-between_md">
                         <AudioRecipe
