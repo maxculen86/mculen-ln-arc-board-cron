@@ -7015,6 +7015,10 @@ strong:not(.--font-primary),
   width: 15.625rem;
 }
 
+.w-320.w-320 {
+  width: 20rem;
+}
+
 .w-328.w-328 {
   width: 20.5rem;
 }
@@ -7271,6 +7275,10 @@ strong:not(.--font-primary),
 
 .h-336.h-336 {
   height: 21rem;
+}
+
+.h-640.h-640 {
+  height: 40rem;
 }
 
 .h-fit.h-fit {
