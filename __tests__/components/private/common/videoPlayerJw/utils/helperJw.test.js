@@ -259,9 +259,10 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 container: 'content-media cursor-pointer',
                 mediaContainer: 'mod-media w-100',
                 videoContainer: 'mod-video flex flex-column ai-center bg-black',
-                videoPlayer: 'video-player w-250 w-100 ratio-9-16',
+                videoPlayer:
+                    'video-player w-320 h-640 w-100 ratio-9-16 flex jc-center ai-center',
                 facade: 'com-image',
-                facadeContainer: 'w-250 ratio-9-16',
+                facadeContainer: 'w-320 ratio-9-16',
                 captionClasses: 'w-100'
             });
         });
