@@ -1,17 +1,16 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { memo, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useAppContext } from 'fusion:context';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Icon } from '@ln/common-ui-icon';
-import get from '../../../../private/common/utils/get';
+import { Button } from '@ln/contenidos-ui-button';
+import { useAppContext } from 'fusion:context';
 import {
     getImagesToLoadWithPicture,
     getShortestImage
 } from '../../../../private/LN/common/utils/mediaHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { useJWPlayer } from '../hooks/useJWPlayer';
+import get from '../../../../private/common/utils/get';
 
 function VideoShareMedia({ id }) {
     const { globalContent } = useAppContext();
@@ -38,21 +37,22 @@ function VideoShareMedia({ id }) {
 
     return (
         <div className="flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center">
-            <div
-                className="relative flex w-100 h-100 ratio-2-3 jc-center ai-center cursor-pointer"
-                onClick={() => setShowPlayer(true)}
-            >
+            <Button onClick={() => setShowPlayer(true)} iconOnly isNegative>
                 <Adaptableimage
                     src={resizedUrl}
-                    alt="Video thumbnail"
+                    alt="Imagen poster de video"
                     sources={getImagesToLoadWithPicture(allImages)}
                 />
-                <div className="absolute z-1">
-                    <Icon size={48}>
-                        <IconSprite name="play" />
+                <div
+                    className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-dark-top"
+                    aria-hidden="true"
+                />
+                <div className="absolute z-1 opacity-80">
+                    <Icon color="inherit" width={77} height={77}>
+                        <IconSprite name="mediaPlay" />
                     </Icon>
                 </div>
-            </div>
+            </Button>
         </div>
     );
 }
