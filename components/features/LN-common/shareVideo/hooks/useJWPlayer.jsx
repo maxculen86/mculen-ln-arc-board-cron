@@ -1,16 +1,20 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import loadJWPlayerScript from '../../../../chains/utils/loadJWPlayerScript';
 
 export function useJWPlayer(videoId) {
     const [isScriptLoaded, setIsScriptLoaded] = useState(false);
-    const playerId = 'OSRCuuxn';
+    const hasStartedLoadingRef = useRef(false);
     const playerRef = useRef(null);
+    const playerId = 'OSRCuuxn';
 
-    useEffect(() => {
-        loadJWPlayerScript(playerId, () => setIsScriptLoaded(true));
-    }, [playerId]);
+    const loadPlayer = useCallback(() => {
+        if (!hasStartedLoadingRef.current) {
+            hasStartedLoadingRef.current = true;
+            loadJWPlayerScript(playerId, () => setIsScriptLoaded(true));
+        }
+    }, []);
 
-    useEffect(() => {
+    const setupPlayer = useCallback(() => {
         if (!playerRef.current && isScriptLoaded) {
             const playerInstance = window?.jwplayer?.(videoId);
             playerRef.current = playerInstance?.setup({
@@ -26,6 +30,8 @@ export function useJWPlayer(videoId) {
     }, [videoId, isScriptLoaded]);
 
     return {
+        loadPlayer,
+        setupPlayer,
         playerRef,
         isScriptLoaded
     };

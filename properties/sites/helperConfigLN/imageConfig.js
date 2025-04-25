@@ -1111,7 +1111,7 @@ export default {
                         height: 280,
                         maxScreenWidth: 767,
                         media_preload: setMediaCondition({ maxWidth: 767 }),
-                        proportion: '3:2'
+                        proportion: '2:3'
                     }
                 ]
             }

@@ -4,13 +4,13 @@ import { SITE_LANACION } from 'fusion:environment';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { useVideoJwCustomSettings } from '../../../chains/LN10_Caja_Carrusel/components/hooks';
-import { useJWPlayer } from './hooks';
+import { useJWPlayer } from './hooks/useJWPlayer';
 import VideoShareButton from './components/VideoShareButton';
 import VideoShare from './components/VideoShare';
 import VideoShareMedia from './components/VideoShareMedia';
 
 function ShareVideo({ videoId }) {
-    const { playerRef, isScriptLoaded } = useJWPlayer(videoId);
+    const { playerRef } = useJWPlayer(videoId);
     useVideoJwCustomSettings({
         isInView: true,
         loading: false,
@@ -26,7 +26,7 @@ function ShareVideo({ videoId }) {
                 </Icon>
                 <span className="text-16 uppercase">Volver</span>
             </VideoShare.Button>
-            <VideoShare.Media id={videoId} isScriptLoaded={isScriptLoaded} />
+            <VideoShare.Media id={videoId} />
         </VideoShare>
     );
 }
