@@ -3,7 +3,7 @@ resources:
         - repository: templates
           type: git
           name: Arquitectura/PipelineTemplates #Se define el nombre del TeamProject / Repositorio donde se encuentra el template.
-          ref: refs/tags/2.15.3
+          ref: refs/tags/2.25.0
 trigger:
     - demo/*
     - sandbox
@@ -13,7 +13,12 @@ trigger:
 pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
 
 variables:
-    FUSION_RELEASE: '5.1.3'
+    ${{if eq(variables['Build.SourceBranchName'], 'master') }}:
+        FUSION_RELEASE: '5.1.3'
+        NODE_VERSION: 18.x
+    ${{else}}:
+        FUSION_RELEASE: '6.0.0'
+        NODE_VERSION: 20.x
 
 jobs:
     - job: BuildArc
@@ -28,7 +33,7 @@ jobs:
           - template: Arc/build.yml@templates
             parameters:
                 runTest: true
-                nodeVersion: 18.x
+                nodeVersion: $(NODE_VERSION)
                 projectKeySonarQube: arc-ln
                 sonarQubeExtraProperties: |
                     sonar.sourceEncoding=UTF-8

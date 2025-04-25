@@ -138,7 +138,7 @@
         "thumbor": "0.1.5"
     },
     "devDependencies": {
-        "@arc-fusion/cli": "2.2.4",
+        "@arc-fusion/cli": "2.3.0",
         "@babel/core": "7.23.0",
         "@babel/eslint-parser": "7.25.1",
         "@babel/plugin-proposal-class-properties": "7.7.0",
