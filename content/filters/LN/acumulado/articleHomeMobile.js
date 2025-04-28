@@ -54,6 +54,13 @@ export default `
                     sponsored
                 }
             }
+            audio_nota {
+                embed {
+                    config {
+                        audio_status
+                    }
+                }
+            }         
         }
         taxonomy {
             tags {
