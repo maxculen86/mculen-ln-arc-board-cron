@@ -40,7 +40,7 @@ const deleteIngredientList = async (
             addToast({
                 variant: TOAST.SUCCESS.VARIANT,
                 title: TOAST.SUCCESS.TITLE,
-                message: `${title} ${TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS}`
+                message: `Receta ${title} ${TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS}`
             });
         }
 

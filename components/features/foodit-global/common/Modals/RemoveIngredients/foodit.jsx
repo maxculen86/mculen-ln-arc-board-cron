@@ -7,16 +7,21 @@ import { ButtonCancel } from './components/ButtonCancel';
 import { usePopupHandling } from './hooks/usePopupHandling';
 import get from '../../../../../private/common/utils/get';
 import deleteIngredientList from '../../bookmark/api/deleteIngredientList';
+import { useShoppingList } from '../../shoppingList/hooks/useShoppingList';
 
-export const ModalRemoveIngredient = () => {
+export function ModalRemoveIngredient() {
     const { close, modalData } = usePopupHandling();
     const showModal = get(modalData, 'show', false);
+    const { shoppingList } = useShoppingList();
 
-    const { type = 'recipe', bookmarkId, setShoppingList } = get(
-        modalData,
-        'data',
-        {}
-    );
+    const {
+        type = 'recipe',
+        bookmarkId,
+        setShoppingList
+    } = get(modalData, 'data', {});
+
+    const { text = '' } =
+        shoppingList.find(list => list.bookmarkId === bookmarkId) || {};
 
     return (
         <Animate
@@ -41,10 +46,11 @@ export const ModalRemoveIngredient = () => {
                         clickAction={() =>
                             deleteIngredientList(bookmarkId, setShoppingList)
                         }
+                        title={text}
                     />
                     <ButtonCancel close={close} />
                 </div>
             </Modal>
         </Animate>
     );
-};
+}
