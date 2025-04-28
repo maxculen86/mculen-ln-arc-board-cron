@@ -74,7 +74,8 @@ const customFieldsRules = {
             bn_1_4_grid: 'BN Focal 1 + 4',
             bn_2_1_2_grid: 'BN 2 +Focal 1 + 2',
             bnFondo: 'BN A Fondo',
-            bn_player_3_grid: 'BN Player vertical + 3'
+            bn_player_3_grid: 'BN Player vertical + 3',
+            bn_player_4_grid: 'BN Player vertical + 4'
         },
         defaultLayout: 'bnGrilla4'
     },
