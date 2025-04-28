@@ -8,6 +8,7 @@ import { useJWPlayer } from './hooks/useJWPlayer';
 import VideoShareButton from './components/VideoShareButton';
 import VideoShare from './components/VideoShare';
 import VideoShareMedia from './components/VideoShareMedia';
+import ShareV2 from '../shareV2/default';
 
 function ShareVideo({ videoId }) {
     const { playerRef } = useJWPlayer(videoId);
@@ -20,12 +21,18 @@ function ShareVideo({ videoId }) {
 
     return (
         <VideoShare>
-            <VideoShare.Button href={SITE_LANACION}>
-                <Icon size={24}>
-                    <IconSprite name="arrowLeft" />
-                </Icon>
-                <span className="text-16 uppercase">Volver</span>
-            </VideoShare.Button>
+            <div className="w-100 absolute top-0 left-0 z-1 bg-gradient-dark bg-none_lg py-8 mt-16_m">
+                <VideoShare.Button href={SITE_LANACION}>
+                    <Icon size={24}>
+                        <IconSprite name="arrowLeft" />
+                    </Icon>
+                    <span className="text-16 uppercase">Volver</span>
+                </VideoShare.Button>
+                <ShareV2
+                    videoId={videoId}
+                    className="absolute top-0 right-0 right--55_lg"
+                />
+            </div>
             <VideoShare.Media id={videoId} />
         </VideoShare>
     );
