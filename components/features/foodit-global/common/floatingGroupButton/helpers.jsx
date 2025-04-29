@@ -63,27 +63,6 @@ export const floatingButtonConfig = {
                 }
             ]
         };
-    },
-    [layoutsName.FooditBuscador]: (callbacks = []) => {
-        const [, toggleDrawerBuscador = () => null] = callbacks;
-        return {
-            observerSelector: HEADER_SENTINEL_CLASS,
-            className: 'lg-none',
-            buttons: [
-                {
-                    title: 'Filtros',
-                    children: (
-                        <>
-                            <Icon size={16}>
-                                <IconSprite fill="#FEFEFE" name="filter" />
-                            </Icon>
-                            Filtros
-                        </>
-                    ),
-                    onClick: () => toggleDrawerBuscador()
-                }
-            ]
-        };
     }
 };
 

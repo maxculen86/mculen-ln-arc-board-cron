@@ -41,8 +41,9 @@ jest.mock(
     '../../../../../../components/private/common/scriptManager/DataLayerInteracions',
     () => jest.fn(() => <div>DataLayerInteractions</div>)
 );
-jest.mock('../../../../../../components/private/common/auth/AuthInitializer', () =>
-    jest.fn(({ children }) => <div>{children}</div>)
+jest.mock(
+    '../../../../../../components/private/common/auth/AuthInitializer',
+    () => jest.fn(({ children }) => <div>{children}</div>)
 );
 jest.mock(
     '../../../../../../components/features/foodit-global/common/floatingGroupButton/helpers',
@@ -119,7 +120,6 @@ describe('Components - Features - Foodit-global - Common -BaseLayout', () => {
         const { getByText } = render(<BaseLayout>Test Children</BaseLayout>);
 
         expect(getConfigByLayout).toHaveBeenCalledWith('Foodit-ficha-nota', [
-            expect.any(Function),
             expect.any(Function)
         ]);
         expect(getByText('FloatingGroupButton')).toBeInTheDocument();

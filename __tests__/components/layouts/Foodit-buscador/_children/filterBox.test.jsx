@@ -51,7 +51,7 @@ describe('FilterBox Component', () => {
     });
 
     it('should call removeFilters when clicking on a chip', () => {
-        const appliedFilters = [{ group: 'category', value: 'filter1' }];
+        const appliedFilters = [{ group: 'category', key: 'filter1' }];
 
         renderComponent({ ...defaultContextValue, appliedFilters });
 

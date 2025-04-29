@@ -14,6 +14,7 @@ function CheckBoxHeader({ checkboxes = [], handleCheckBox = () => {} }) {
                             key={`${key}-${facetedKey || group}`}
                         >
                             <input
+                                className="input-search"
                                 id={`${key}-${facetedKey || group}`}
                                 type="checkbox"
                                 checked={checked}

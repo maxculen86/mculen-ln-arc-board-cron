@@ -8,6 +8,8 @@ import get from '../../../../private/common/utils/get';
 import { ShareFoodit } from '../ShareFoodit/foodit';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
+import { PrintButton } from '../PrintButton/foodit';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -107,6 +109,28 @@ const renderRegularButton = ({
     </Button>
 );
 
+const printButton = ({
+    handleChange,
+    IconButton,
+    description,
+    handleClick,
+    type,
+    article
+}) => {
+    const { isSubscribed } = useGetUserConfig();
+
+    return isSubscribed ? (
+        <PrintButton
+            handleChange={handleChange}
+            IconButton={IconButton}
+            description={description}
+            handleClick={handleClick}
+            type={type}
+            article={article}
+        />
+    ) : null;
+};
+
 const renderCopyButton = ({
     IconButton,
     description,
@@ -150,11 +174,13 @@ const renderCopyButton = ({
 };
 
 export const renderAction = ({
+    handleChange,
     IconButton,
     description,
     handleClick,
     type,
-    article
+    article,
+    printButtonType
 }) => {
     const options = {
         share:
@@ -175,13 +201,25 @@ export const renderAction = ({
                 type,
                 article
             }),
-        default: renderRegularButton({
-            IconButton,
-            description,
-            handleClick,
-            type,
-            article
-        })
+        default:
+            (type === 'comment' || printButtonType === 'regular') &&
+            renderRegularButton({
+                IconButton,
+                description,
+                handleClick,
+                type,
+                article
+            }),
+        print:
+            type === 'print' &&
+            printButton({
+                handleChange,
+                IconButton,
+                description,
+                handleClick,
+                type,
+                article
+            })
     };
 
     return Object.values(options).find(Boolean);
