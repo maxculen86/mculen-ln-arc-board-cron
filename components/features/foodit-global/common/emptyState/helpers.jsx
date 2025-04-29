@@ -16,7 +16,7 @@ export const titleByVariant = {
     'barrier-unlogged': '¡Exclusivo suscriptores!',
     'barrier-logged': '¡Exclusivo suscriptores!',
     'empty-state': EMPTY_STATE,
-    'search-engine': 'Nada por acá',
+    'search-engine': '¡Nada por acá!',
     404: '¡Uppps! Contenido en preparación'
 };
 
