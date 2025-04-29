@@ -2509,6 +2509,9 @@ strong {
 .viafoura.viafoura .vf-dropdown-button--accent:hover {
   --accent-color: var(--primary-positive);
 }
+.viafoura.viafoura .vf-reply-to.vf-reply-to {
+  display: none;
+}
 
 :root {
   --notification-header-font-family: Roboto, Arial, sans-serif;
