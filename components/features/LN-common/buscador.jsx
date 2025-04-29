@@ -8,7 +8,7 @@ function Buscador() {
     useEffect(() => {
         const query = getQueryParamValue('fval', window.location.href);
 
-        if (query !== 'avisos') {
+        if (query && query !== 'avisos') {
             const style = document.createElement('style');
             style.innerHTML = `
                 #faceteddata {display:none!important}
