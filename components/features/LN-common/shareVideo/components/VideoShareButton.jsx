@@ -5,7 +5,7 @@ import { Link } from '@ln/contenidos-ui-link';
 
 function VideoShareButton({ className, children, ...r }) {
     return (
-        <div className="w-100 absolute top-0 left-0 z-1 bg-gradient-dark bg-none_lg py-8 mt-16_m">
+        <div>
             <Link
                 title="Cerrar"
                 className={cx(
