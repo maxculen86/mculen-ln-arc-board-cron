@@ -5,23 +5,131 @@ exports[`Components - features - LN-common - ShareVideo -default should match sn
   <div
     data-testid="video-share"
   >
-    <a
-      data-testid="video-share-button"
-      href="https://www.lanacion.com.ar"
+    <div
+      class="w-100 absolute top-0 left-0 z-1 bg-gradient-dark bg-none_lg py-8 mt-16_m"
     >
-      <i
-        class="icon --icon-24"
+      <a
+        data-testid="video-share-button"
+        href="https://www.lanacion.com.ar"
       >
-        <mock-icon
-          name="arrowLeft"
-        />
-      </i>
-      <span
-        class="text-16 uppercase"
+        <i
+          class="icon --icon-24"
+        >
+          <mock-icon
+            name="arrowLeft"
+          />
+        </i>
+        <span
+          class="text-16 uppercase"
+        >
+          Volver
+        </span>
+      </a>
+      <div
+        class="absolute top-0 right-0 right--55_lg flex flex-column gap-24_lg p-16 w-max"
       >
-        Volver
-      </span>
-    </a>
+        <button
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-neutral-dark-999 lg-none --default"
+          data-variant="default"
+          id="compartirMobile"
+          title="Compartir el video"
+          type="button"
+        >
+          <i
+            class="icon --icon-24 --inherit"
+          >
+            <mock-icon
+              name="reply"
+            />
+          </i>
+        </button>
+        <button
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-neutral-dark-999 lg-only --default"
+          data-variant="default"
+          id="whatsAppShareDesktop"
+          title="Compartir el video en WhatsApp"
+          type="button"
+        >
+          <i
+            class="icon --icon-24 --inherit"
+          >
+            <mock-icon
+              name="whatsapp"
+            />
+          </i>
+        </button>
+        <div
+          class="relative w-max"
+        >
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-neutral-dark-999 lg-only --default"
+            data-variant="default"
+            id="copyLinkNote"
+            title="Copiar link del video"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="fileCopy"
+              />
+            </i>
+          </button>
+        </div>
+        <button
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-neutral-dark-999 lg-only --default"
+          data-variant="default"
+          id="btnfacebook"
+          title="Compartir el video en Facebook"
+          type="button"
+        >
+          <i
+            class="icon --icon-24 --inherit"
+          >
+            <mock-icon
+              name="facebook"
+            />
+          </i>
+        </button>
+        <button
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-neutral-dark-999 lg-only --default"
+          data-variant="default"
+          id="btntwitter"
+          title="Compartir el video en X"
+          type="button"
+        >
+          <i
+            class="icon --icon-24 --inherit"
+          >
+            <mock-icon
+              name="twitter"
+            />
+          </i>
+        </button>
+        <button
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-neutral-dark-999 email lg-only --default"
+          data-variant="default"
+          id="btnemail"
+          title="Compartir el video por E-mail"
+          type="button"
+        >
+          <i
+            class="icon --icon-24 --inherit"
+          >
+            <mock-icon
+              name="mail"
+            />
+          </i>
+        </button>
+      </div>
+    </div>
     <div
       data-testid="video-share-media"
     >
