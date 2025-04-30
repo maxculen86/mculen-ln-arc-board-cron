@@ -25,4 +25,9 @@ describe('getPageType', () => {
         const result = getPageType();
         expect(result).toBe('nota');
     });
+
+    it('should return "receta" if layout is "LN-nota-receta"', () => {
+        const result = getPageType('LN-nota-receta', '/recetas');
+        expect(result).toBe('receta');
+    });
 });

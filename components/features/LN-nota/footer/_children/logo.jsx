@@ -19,20 +19,17 @@ function Logo({ logoData }) {
     const { target, rel } = getTargetAndRelIfExternal(isExternal);
 
     return (
-        <>
-            <div className="logo-nota-footer as-start as-center_m py-16_m">
-                <Link href={path} title={altLogo} target={target} rel={rel}>
-                    <Adaptableimage
-                        src={deployment(
-                            `${contextPath}/resources/images/${logoName}.svg`
-                        )}
-                        alt={altLogo}
-                        className="h-24"
-                    />
-                </Link>
-            </div>
-            <hr className="vertical sm-none" />
-        </>
+        <div className="logo-nota-footer as-start as-center_m">
+            <Link href={path} title={altLogo} target={target} rel={rel}>
+                <Adaptableimage
+                    src={deployment(
+                        `${contextPath}/resources/images/${logoName}.svg`
+                    )}
+                    alt={altLogo}
+                    className="h-24"
+                />
+            </Link>
+        </div>
     );
 }
 
