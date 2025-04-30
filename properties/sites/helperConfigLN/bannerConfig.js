@@ -49,7 +49,6 @@ export default {
                 slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
                 withoutHide: true,
                 dimensions: [
-                    [1, 1],
                     [728, 90],
                     [920, 100],
                     [920, 170],
@@ -1145,7 +1144,6 @@ export default {
                 dimensions: [
                     [300, 50],
                     [320, 50],
-                    [1, 1]
                 ],
                 targeting: targetingHome
             },
