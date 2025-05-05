@@ -16,7 +16,9 @@ export const boxInfoComplete = (information, section, typeSection) => {
                 title: (information.title || '').toUpperCase(),
                 url: information.link,
                 badge: information.chapita,
-                badgeStyle: information.chapitaStyle
+                badgeStyle: information.chapitaStyle,
+                logoId: information?.logoId,
+                buttonLogo: information?.buttonLogo
             }
         };
     }

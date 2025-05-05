@@ -14,7 +14,9 @@ export const boxInfoHashTag = (information, section, typeSection) => {
         return {
             ...box,
             parameters: {
-                title: (title || 'Hashtag').toUpperCase()
+                title: (title || 'Hashtag').toUpperCase(),
+                logoId: information.logoId,
+                buttonLogo: information.buttonLogo
             }
         };
     }
