@@ -7,10 +7,10 @@ import { Text } from '@ln/common-ui-text';
 import usePrint from '../utils/PrintFoodit/usePrint';
 import { FooditPrint } from '../LayoutImpression/foodit';
 
-export function PrintButton({ type, description, IconButton, article }) {
+export function PrintButton({ printType, description, IconButton, article }) {
     const [includePhotos, setIncludePhotos] = useState(false);
     const [shouldRenderPrint, setShouldRenderPrint] = useState(false);
-    const handleInputChange = () => {
+    const toggleIncludePhotos = () => {
         setIncludePhotos(!includePhotos);
     };
     const { printRef, handlePrint } = usePrint();
@@ -30,18 +30,21 @@ export function PrintButton({ type, description, IconButton, article }) {
     return (
         <Dropdown hideArrow className="print-hide">
             <Dropdown.Toggle className="text-light-800 text-accent-lechuga__hover">
-                <Button key={type} title={description} variant="link">
+                <Button key={printType} title={description} variant="link">
                     <Icon size={24}>{IconButton}</Icon>
                 </Button>
             </Dropdown.Toggle>
-            <Dropdown.Menu className="bg-light-1 p-24 flex flex-column gap-24 w-191 rounded-4 shadow-center">
+            <Dropdown.Menu
+                alignment="left"
+                className="bg-light-1 p-24 flex flex-column gap-24 w-191 rounded-4 shadow-center"
+            >
                 <div className="flex flex-column gap-8">
                     <Text className="roboto roboto-regular text-12" as="p">
                         Opciones de impresión
                     </Text>
                     <div className="flex ai-center gap-8">
                         <input
-                            onChange={handleInputChange}
+                            onChange={toggleIncludePhotos}
                             type="checkbox"
                             id="include-photos"
                         />
@@ -54,7 +57,7 @@ export function PrintButton({ type, description, IconButton, article }) {
                         </Text>
                     </div>
                 </div>
-                <Button key={type} onClick={handlePrintClick}>
+                <Button size={32} key={printType} onClick={handlePrintClick}>
                     IMPRIMIR
                 </Button>
                 {shouldRenderPrint && (
@@ -72,7 +75,7 @@ export function PrintButton({ type, description, IconButton, article }) {
 }
 
 PrintButton.propTypes = {
-    type: PropTypes.string.isRequired,
+    printType: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     IconButton: PropTypes.node.isRequired,
     article: PropTypes.shape({

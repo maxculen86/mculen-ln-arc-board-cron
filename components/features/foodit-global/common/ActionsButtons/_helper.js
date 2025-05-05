@@ -125,7 +125,7 @@ const printButton = ({
             IconButton={IconButton}
             description={description}
             handleClick={handleClick}
-            type={type}
+            printType={type}
             article={article}
         />
     ) : null;

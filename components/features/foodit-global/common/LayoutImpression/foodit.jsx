@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Badge } from '@ln/foodit-ui-badge';
 import { Text } from '@ln/common-ui-text';
 import { Logo } from '@ln/foodit-ui-logo';
-import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import { cx } from '@ln/cva';
 import { List } from '@ln/foodit-ui-list';
-import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { PowerUpPreparacion } from '../../../private-global/body/powerUpPreparacion/foodit';
 import {
     getFooditAuthor,
     getHighestPriorityTag
@@ -16,8 +10,8 @@ import {
 import { TimePrint } from '../TimePrint/TimePrint';
 import get from '../../../../private/common/utils/get';
 import { getListsFromPowerup } from '../../Body/PowerupsReceta/_helper';
-import PrintIngredients from '../PrintIngredients/foodit';
-import { Nutritional } from '../../Body/PowerupsReceta/ingredientsBox/nutritional';
+import { OpeningPrint } from './openginPrint';
+import { BodyPrint } from './bodyPrint';
 
 export const FooditPrint = React.forwardRef(
     ({ includePhotos, article }, ref) => {
@@ -87,51 +81,27 @@ export const FooditPrint = React.forwardRef(
             return null;
         };
 
-        const className = cx(
-            'w-100 bg-light-1 border border-bottom border-thin border-light-100'
-        );
         return (
             <section
                 ref={ref}
                 data-testid="foodit-print"
                 className="pt-32 px-32 w-100"
             >
-                <div className="flex flex-column jc-center border border-bottom border-thin border-light-100 w-100 ai-center w-100 text-center pb-16 mb-16">
+                <div className="flex flex-column jc-center border border-bottom border-thin border-light-100 w-100 ai-center text-center pb-16 mb-16">
                     <Logo
                         variant="row"
                         classNameSvgAnimated="h-40"
                         classNameSvgText="h-20"
                     />
                 </div>
-                <div className="relative w-100">
-                    {includePhotos && (
-                        <Adaptableimage
-                            className="w-100 ratio-3-2"
-                            src={mainImage}
-                            alt={imageCaption}
-                        />
-                    )}
-
-                    <section className={className}>
-                        <div className="w-100 flex flex-column jc-center ai-center px-32 py-40 gap-12">
-                            {badge && <Badge>{badge}</Badge>}
-                            <div className="flex flex-column gap-24">
-                                <Text
-                                    className="prumo text-48 text-center"
-                                    text={titleRecipe}
-                                    as="h1"
-                                />
-                                {authorRecipe && (
-                                    <Text
-                                        className="text-14 text-center"
-                                        text={authorRecipe}
-                                        as="p"
-                                    />
-                                )}
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                <OpeningPrint
+                    includePhotos={includePhotos}
+                    mainImage={mainImage}
+                    imageCaption={imageCaption}
+                    titleRecipe={titleRecipe}
+                    authorRecipe={authorRecipe}
+                    badge={badge}
+                />
                 <article className="flex flex-column jc-center ai-center gap-40 jc-center pt-40">
                     <div className="w-100 mx-78">
                         <TimePrint
@@ -140,64 +110,15 @@ export const FooditPrint = React.forwardRef(
                             counterTime={counterTime}
                         />
                     </div>
-                    <section className="flex gap-32">
-                        <div className="bg-positive flex flex-column p-32 gap-24">
-                            <div
-                                className="flex ai-center gap-8"
-                                style={{
-                                    whiteSpace: 'nowrap'
-                                }}
-                            >
-                                <Icon>
-                                    <IconSprite name="portion" />
-                                </Icon>
-                                <Text className="uppercase roboto roboto-bold text-12">
-                                    Porciones: {portions}
-                                </Text>
-                            </div>
-                            {ingredientsLists.length > 0 && (
-                                <Text
-                                    as="h2"
-                                    className="prumo prumo-light text-28"
-                                >
-                                    Ingredientes
-                                </Text>
-                            )}
-                            {ingredientsLists.map((items, index) => (
-                                <PrintIngredients
-                                    key={`ingredients-${items.titleList || index}`}
-                                    ingredientsList={items}
-                                />
-                            ))}
-                            {nutritionLists.length > 0 && (
-                                <Text
-                                    as="h3"
-                                    className="prumo prumo-light text-24"
-                                >
-                                    Nutricional
-                                </Text>
-                            )}
-                            <Nutritional nutritionLists={nutritionLists} />
-                        </div>
-                        <div className="flex flex-column gap-32 pt-32">
-                            {preparacionElements.length > 0 &&
-                                preparacionElements.map(
-                                    (preparacionElement, index) => (
-                                        <PowerUpPreparacion
-                                            key={
-                                                preparacionElement._id ||
-                                                `prep-element-${index}`
-                                            }
-                                            data={preparacionElement}
-                                            includePhotos={includePhotos}
-                                        />
-                                    )
-                                )}
-                            {!includePhotos &&
-                                tipsAndTricks.length > 0 &&
-                                tipsAndTricks.map(renderHeadingOrList)}
-                        </div>
-                    </section>
+                    <BodyPrint
+                        portions={portions}
+                        ingredientsLists={ingredientsLists}
+                        nutritionLists={nutritionLists}
+                        preparacionElements={preparacionElements}
+                        tipsAndTricks={tipsAndTricks}
+                        includePhotos={includePhotos}
+                        renderHeadingOrList={renderHeadingOrList}
+                    />
                 </article>
             </section>
         );

@@ -50,9 +50,9 @@ const usePrint = () => {
             newWindow.document.close();
 
             waitForImagesToLoad(newWindow.document).then(() => {
+                newWindow.onafterprint = () => newWindow.close();
                 newWindow.focus();
                 newWindow.print();
-                setTimeout(() => newWindow.close(), 100);
             });
         } else {
             const iframe = document.createElement('iframe');
@@ -68,9 +68,11 @@ const usePrint = () => {
 
             iframe.onload = () => {
                 waitForImagesToLoad(iframe.contentDocument).then(() => {
+                    iframe.contentWindow.onafterprint = () => {
+                        document.body.removeChild(iframe);
+                    };
                     iframe.contentWindow.focus();
                     iframe.contentWindow.print();
-                    setTimeout(() => document.body.removeChild(iframe), 1000);
                 });
             };
 
