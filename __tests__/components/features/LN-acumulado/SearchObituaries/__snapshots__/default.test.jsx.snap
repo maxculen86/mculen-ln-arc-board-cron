@@ -5,6 +5,11 @@ exports[`Components - features - LN-acumulado - SearchObituaries - default shoul
   <div
     class="flex flex-column gap-16 gap-8_m max-w-620_md mb-16 mb-32_l"
   >
+    <span
+      class="text ln-text prumo-medium text-18 text-light-600"
+    >
+      Buscar:
+    </span>
     <div
       class="flex flex-column gap-16 flex-row_m gap-8_m"
     >

@@ -163,8 +163,8 @@ export function hasCustomPreparacion(contentElements) {
  */
 export function isFirstPreparacionBody(contentElements, idPreparacionElement) {
     return (
-        contentElements.findIndex(
-            content => content?._id === idPreparacionElement
-        ) === 0
+        contentElements
+            .filter(content => content?.subtype === 'custom-preparacion')
+            .findIndex(content => content?._id === idPreparacionElement) === 0
     );
 }
