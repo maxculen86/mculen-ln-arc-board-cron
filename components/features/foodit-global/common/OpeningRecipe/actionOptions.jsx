@@ -8,7 +8,7 @@ import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import getBookmarks from '../bookmark/api/getBookmarks';
-import { dayFoodQuantities } from '../MenuSemanal/helpers/_helper';
+import { getMealTotalById } from '../MenuSemanal/helpers/_helper';
 import useAuthManager from '../../../../private/common/auth/hooks/useAuthManager';
 import { handleIngredientListButton } from '../../Body/PowerupsReceta/ingredientsBox/_helper';
 import { useIsInShoppingList } from '../../Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList';
@@ -50,12 +50,8 @@ export function ActionsButtons({
                 accessToken,
                 'weeklyMenu'
             );
-            const dayFoodCountArray = dayFoodQuantities(data);
-            const count = dayFoodCountArray.reduce((acc, item) => {
-                const { count: total } = item;
-                return acc + total;
-            }, 0);
-            setCountDayFood(count);
+            const { total } = getMealTotalById(articleId, data);
+            setCountDayFood(total);
         } catch (error) {
             console.error('Error fetching weekly menu count:', error);
         }

@@ -96,3 +96,30 @@ export function dayFoodQuantities(bookmarks = []) {
 
     return Object.values(counts);
 }
+
+export function getMealTotalById(articleId, bookmarks = []) {
+    const counts = bookmarks.reduce((acc, bookmark) => {
+        const group = get(bookmark, 'bookmarkGroup', '');
+        const mealId = get(bookmark, 'bookmarkContent.id', '');
+        const mealTitle = get(bookmark, 'bookmarkContent.title', '');
+
+        if (mealId === articleId) {
+            const key = `${group}-${mealId}`;
+
+            if (!acc[key]) {
+                acc[key] = { day: group, mealId, title: mealTitle, count: 0 };
+            }
+
+            acc[key].count += 1;
+        }
+        return acc;
+    }, {});
+
+    const mealsArray = Object.values(counts);
+    const total = mealsArray.reduce((sum, meal) => sum + meal.count, 0);
+
+    return {
+        meals: mealsArray,
+        total
+    };
+}
