@@ -18,7 +18,7 @@ const getImages = objectImage => {
             resizedUrl: firma ? urlAbsolute.replace('{{param}}', firma) : ''
         }));
 
-        const { resizedUrl, _width: width } = getShortestImage(resizedUrls);
+        const { resizedUrl, width } = getShortestImage(resizedUrls);
 
         return {
             height: getHeightOfUrl(resizedUrl),

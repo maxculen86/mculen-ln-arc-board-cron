@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
 import PropTypes from 'prop-types';
@@ -8,6 +6,7 @@ import get from '../../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 const optionWidth = 'option.width';
+const DEFAULT_WIDTH = undefined;
 
 export const getEpigrafe = basic => {
     const { type, promo_items: promoItemsBasic, caption } = basic || {};
@@ -73,10 +72,10 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
 export const getSizes = (sources = []) =>
     Array.isArray(sources)
         ? sources
-              .map(
-                  x => x.option.media && `${x.option.media} ${x.option.width}px`
-              )
-              .filter(Boolean)
+            .map(
+                x => x.option.media && `${x.option.media} ${x.option.width}px`
+            )
+            .filter(Boolean)
         : [];
 
 export const getShortestImage = (resizedUrls = []) => {
@@ -88,12 +87,11 @@ export const getShortestImage = (resizedUrls = []) => {
         {}
     );
 
-    // eslint-disable-next-line no-underscore-dangle
-    const _width = get(result, optionWidth, undefined);
+    const width = get(result, optionWidth, DEFAULT_WIDTH);
 
     return {
         resizedUrl: result.resizedUrl,
-        _width
+        width
     };
 };
 
@@ -107,8 +105,7 @@ const setSourceSet = (
     return urlImage;
 };
 
-// eslint-disable-next-line default-param-last
-export const getImagesToLoadWithPicture = (sourceActive = [], isPreload) => {
+export const getImagesToLoadWithPicture = (isPreload, sourceActive = []) => {
     let mediaCondition;
     const srcset = [];
 
@@ -175,7 +172,7 @@ export function LinkImagePreload({
 
     // TODO: Sacar condicion isLoadWithPicture cuando se implemente carga con picture en todo el sitio.
     if (isLoadWithPicture) {
-        const images = getImagesToLoadWithPicture(resizedUrls, true);
+        const images = getImagesToLoadWithPicture(true, resizedUrls);
 
         return images.map(
             ({ mediaPreload, srcSet, withConfigPixelRatio, href } = {}) => (

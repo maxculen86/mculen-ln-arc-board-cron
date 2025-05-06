@@ -35,20 +35,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                  <img
-                    alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Hamburguesa de carne vacuna (Pixabay)"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                />
               </div>
             </div>
             <div
@@ -146,20 +140,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                  <img
-                    alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Hamburguesa de carne vacuna (Pixabay)"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                />
               </div>
             </div>
             <div
@@ -257,20 +245,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                  <img
-                    alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Hamburguesa de carne vacuna (Pixabay)"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                />
               </div>
             </div>
             <div
@@ -352,20 +334,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
-                  />
-                  <img
-                    alt="Acompañá las patas de pollo con zucchinis"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Acompañá las patas de pollo con zucchinis"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                />
               </div>
             </div>
             <div
@@ -463,20 +439,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/JCYWqHBocu_465twQ4jXqcvKTY8=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
-                  />
-                  <img
-                    alt="Pie de foto"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/sZWokM9HOmBxTxsh1wLkXIaYB64=/238x158/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Pie de foto"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/sZWokM9HOmBxTxsh1wLkXIaYB64=/238x158/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+                />
               </div>
             </div>
             <div
@@ -574,20 +544,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
-                  />
-                  <img
-                    alt="Acompañá las patas de pollo con zucchinis"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Acompañá las patas de pollo con zucchinis"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                />
               </div>
             </div>
             <div
@@ -685,20 +649,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                  <img
-                    alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Hamburguesa de carne vacuna (Pixabay)"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                />
               </div>
             </div>
             <div
@@ -780,20 +738,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/4euC7C0duGKCn3hj5T6WiNA5aL0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
-                  />
-                  <img
-                    alt="Subtitle"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/ySDDSPdlKx7hOqPQ7stYATozdW4=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Subtitle"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/ySDDSPdlKx7hOqPQ7stYATozdW4=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
+                />
               </div>
             </div>
             <div
@@ -875,20 +827,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/39iaG0em6yhSZIkIwxjfFRhZXw0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
-                  />
-                  <img
-                    alt=""
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/A29ND6fhGV2TlD5CIZW5SNpyEwY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
-                  />
-                </picture>
+                <img
+                  alt=""
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/A29ND6fhGV2TlD5CIZW5SNpyEwY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
+                />
               </div>
             </div>
             <div
@@ -986,20 +932,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/ipLc_6K_t4yo-Smy0KpJuVxL420=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
-                  />
-                  <img
-                    alt=""
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/j-IJ5qMXhujp_MG5mjLTIRnayHI=/238x158/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
-                  />
-                </picture>
+                <img
+                  alt=""
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/j-IJ5qMXhujp_MG5mjLTIRnayHI=/238x158/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
+                />
               </div>
             </div>
             <div
@@ -1097,20 +1037,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/Gb-JZZkR73DjvH-pNLmt4EQESHM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
-                  />
-                  <img
-                    alt=""
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/VB6dy7gi6LI1unkCJMZg0zgyNBQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
-                  />
-                </picture>
+                <img
+                  alt=""
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/VB6dy7gi6LI1unkCJMZg0zgyNBQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                />
               </div>
               <span
                 class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute translate-y-50 bottom-0 left-0"
@@ -1213,20 +1147,14 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
               >
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="https://resizer.glanacion.com/resizer/ieCszURadyFnFeJKWMXeYzAgYdI=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
-                  />
-                  <img
-                    alt="Provoleta con vegetales"
-                    class="image flex object-cover card-image ratio-3-2 w-100 --cover"
-                    decoding="async"
-                    fetchpriority="low"
-                    loading="lazy"
-                    src="https://resizer.glanacion.com/resizer/Pi97y-0q3jUiWl6dDQ_UPITX8MY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
-                  />
-                </picture>
+                <img
+                  alt="Provoleta con vegetales"
+                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://resizer.glanacion.com/resizer/Pi97y-0q3jUiWl6dDQ_UPITX8MY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
+                />
               </div>
               <span
                 class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute translate-y-50 bottom-0 left-0"

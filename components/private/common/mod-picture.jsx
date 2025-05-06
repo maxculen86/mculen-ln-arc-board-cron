@@ -44,6 +44,7 @@ function ModImage(props) {
                         fetchPriority="high"
                         loading="eager"
                         sources={getImagesToLoadWithPicture(
+                            false,
                             imageListForPicture
                         )}
                     />
@@ -58,7 +59,7 @@ function ModImage(props) {
                     isApertura={isApertura}
                 />
             )}
-            {video ? <ModVideo image={src} video={video} /> : <></>}
+            {video ? <ModVideo image={src} video={video} /> : null}
         </ComPicture>
     );
 }

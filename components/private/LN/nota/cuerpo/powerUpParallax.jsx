@@ -51,7 +51,10 @@ function Parallax({ data = {} }) {
                     className="com-image --parallax"
                     fetchPriority="low"
                     loading="lazy"
-                    sources={getImagesToLoadWithPicture(sourcesForDevice)}
+                    sources={getImagesToLoadWithPicture(
+                        false,
+                        sourcesForDevice
+                    )}
                 />
             </div>
             {title && (

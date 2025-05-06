@@ -3,7 +3,7 @@ import get from '../../../../components/private/common/utils/get';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 
-const transformLnAcu = async (data = {}, siteProps = {}, cachedCall) => {
+const transformLnAcu = async (cachedCall, data = {}, siteProps = {}) => {
     try {
         const respData = data;
         const { content_elements: contentElements = [] } = data;

@@ -13,8 +13,15 @@ describe('componentes - private - LN - common - utils', () => {
         const sections = [{ name: 'section1' }, { name: 'section2' }];
         const authors = [{ name: 'Author 1' }, { name: 'Author 2' }];
         const id = '12345';
+        const contentElements = [];
 
-        const result = getCustParamsEncoded(tags, sections, authors, id);
+        const result = getCustParamsEncoded(
+            tags,
+            sections,
+            contentElements,
+            id,
+            authors
+        );
 
         expect(result).toBe(
             'te_tag1%2Cte_tag2%2Cca_section1%2Cca_section2%2Cau_author_1%2Cau_author_2%2C12345'
