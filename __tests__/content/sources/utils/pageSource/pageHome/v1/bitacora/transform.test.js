@@ -120,7 +120,7 @@ describe('Transform bitacora v1 test', () => {
         });
     });
 
-    it('transforms carousel', async () => {
+    test('transforms carousel', async () => {
         const page = {
             information: {
                 layoutPage: 'LN10-Home_Main'
@@ -213,7 +213,7 @@ describe('Transform bitacora v1 test', () => {
         expect(result).toEqual(expected);
     });
 
-    it('renames diagramation left-focal-without-timeline', async () => {
+    test('renames diagramation left-focal-without-timeline', async () => {
         const page = {
             information: {
                 layoutPage: 'LN10-Home_Main'
@@ -285,7 +285,7 @@ describe('Transform bitacora v1 test', () => {
         expect(result).toEqual(expected);
     });
 
-    it('transforms bn_player_3_grid', async () => {
+    test('transforms bn_player_3_grid', async () => {
         const page = {
             information: {
                 layoutPage: 'LN10-Home_Main'
@@ -385,6 +385,136 @@ describe('Transform bitacora v1 test', () => {
                             url_nota:
                                 '/el-mundo/el-mundo-en-alerta-ante-incremento-de-emergencias-y-catastrofes-naturales-nid14092023/',
                             posicion: '04'
+                        }
+                    ],
+                    videos: [
+                        {
+                            id_video: '9SP9fXDX',
+                            url_video:
+                                'https://cdn.jwplayer.com/manifests/9SP9fXDX.m3u8',
+                            posicion: '01'
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const result = await transform(page, queryParams);
+
+        expect(result).toEqual(expected);
+    });
+
+    test('transforms bn_player_4_grid', async () => {
+        const page = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            },
+            content_elements: [
+                {
+                    type: 0,
+                    sectionAliasMobile: 'bnplayer',
+                    information: {
+                        idCollection: '',
+                        layout: 'bn_player_4_grid',
+                        initialPosition: 1,
+                        chainStyle: '',
+                        title: 'caja bn_player_4_grid',
+                        link: '',
+                        logoId: '',
+                        hideTitle: false,
+                        navigator: '',
+                        buttonLogo: '',
+                        buttonText: '',
+                        linkButton: '',
+                        buttonStyle: 'generic',
+                        hideCaja: false,
+                        typeChain: 'bnPlayer',
+                        viewabilityRoof: 'caja bn_player_4_grid',
+                        nameChain: 'LN10_Caja_Manual',
+                        idRender: 'c0fLEMY8RmQeMP'
+                    },
+                    articles: [
+                        {
+                            _id: 'AIWKATG3ABF6NATFOSAAUBTLZE',
+                            website_url:
+                                '/sociedad/medicos-jovenes-muchos-estan-barajando-la-posibilidad-de-cambiar-de-profesion-nid14092023/'
+                        },
+                        {
+                            _id: '3AGPROGDXNFHFMEX5PE2N7VSHU',
+                            website_url:
+                                '/el-mundo/el-mundo-en-alerta-ante-incremento-de-emergencias-y-catastrofes-naturales-nid14092023/'
+                        },
+                        {
+                            _id: '3AGPROGDXNFHFMEX5PE2N7VSHU',
+                            website_url:
+                                '/el-mundo/el-mundo-en-alerta-ante-incremento-de-emergencias-y-catastrofes-naturales-nid14092023/'
+                        },
+                        {
+                            _id: '3AGPROGDXNFHFMEX5PE2N7VSHU',
+                            website_url:
+                                '/el-mundo/el-mundo-en-alerta-ante-incremento-de-emergencias-y-catastrofes-naturales-nid14092023/'
+                        }
+                    ],
+                    video: {
+                        id: '9SP9fXDX',
+                        posterUrl:
+                            'https://cdn.jwplayer.com/v2/media/9SP9fXDX/poster.jpg?width=320',
+                        previewVideoUrl:
+                            'https://assets-jpcust.jwpsrv.com/thumbnails/sh0dhtyg-320.mp4',
+                        fullVideoUrl:
+                            'https://cdn.jwplayer.com/manifests/9SP9fXDX.m3u8',
+                        fullVideoDuration: 10,
+                        badgeStyle: 'default'
+                    },
+                    configurations: {
+                        arcSite: 'la-nacion-ar'
+                    },
+                    sectionWeb: 'Apertura'
+                }
+            ]
+        };
+        const {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate
+        } = queryParams.information;
+        const expected = {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate,
+            cajas: [
+                {
+                    id_caja: '01',
+                    visible: true,
+                    feature: 'tema',
+                    diagramacion_caja: 'bn_player_4_grid',
+                    item_category: 'caja bn_player_4_grid',
+                    notas: [
+                        {
+                            id_nota: 'AIWKATG3ABF6NATFOSAAUBTLZE',
+                            url_nota:
+                                '/sociedad/medicos-jovenes-muchos-estan-barajando-la-posibilidad-de-cambiar-de-profesion-nid14092023/',
+                            posicion: '02'
+                        },
+                        {
+                            id_nota: '3AGPROGDXNFHFMEX5PE2N7VSHU',
+                            url_nota:
+                                '/el-mundo/el-mundo-en-alerta-ante-incremento-de-emergencias-y-catastrofes-naturales-nid14092023/',
+                            posicion: '03'
+                        },
+                        {
+                            id_nota: '3AGPROGDXNFHFMEX5PE2N7VSHU',
+                            url_nota:
+                                '/el-mundo/el-mundo-en-alerta-ante-incremento-de-emergencias-y-catastrofes-naturales-nid14092023/',
+                            posicion: '04'
+                        },
+                        {
+                            id_nota: '3AGPROGDXNFHFMEX5PE2N7VSHU',
+                            url_nota:
+                                '/el-mundo/el-mundo-en-alerta-ante-incremento-de-emergencias-y-catastrofes-naturales-nid14092023/',
+                            posicion: '05'
                         }
                     ],
                     videos: [
