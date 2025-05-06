@@ -12,7 +12,7 @@ export function TopNavigationBar({ categories = [] }) {
         <div className="flex w-100 jc-between container py-12 h-44">
             <Topnavigationbar className="flex jc-center">
                 {categories.map(category => (
-                    <Categories {...category} key={category?.name} />
+                    <Categories {...category} key={category.title} />
                 ))}
             </Topnavigationbar>
             <Static id="foodit-top-navigation-bar">

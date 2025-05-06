@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Dialog } from '@ln/common-ui-dialog';
@@ -22,8 +22,8 @@ import { getVariantBarrier } from '../../emptyState/helpers';
 function MenuSemanalDialog({ article, onClose, isOpen }) {
     const { isSubscribed, userType } = useGetUserConfig();
     const [countDayFood, setCountDayFood] = useState([]);
-    const [selectedDay, setSelectedDay] = useState('');
-    const [selectedFood, setSelectedFood] = useState('');
+    const [selectedDay, setSelectedDay] = useState(null);
+    const [selectedFood, setSelectedFood] = useState(null);
     // const { token, accessToken } = useAuthManager();
 
     const classContainer = cx(
@@ -48,6 +48,7 @@ function MenuSemanalDialog({ article, onClose, isOpen }) {
         setSelectedFood(null);
         onClose();
     };
+
     const saveMenuWeekly = async () => {
         const dayFoodSelected = countDayFood.find(
             info => info.day === selectedDay && info.food === selectedFood
@@ -120,6 +121,8 @@ function MenuSemanalDialog({ article, onClose, isOpen }) {
                                 <SelectMenu
                                     setSelectedDay={setSelectedDay}
                                     setSelectedFood={setSelectedFood}
+                                    selectedDay={selectedDay}
+                                    selectedFood={selectedFood}
                                 />
                             </div>
                             <FooterMenu
@@ -147,9 +150,11 @@ function MenuSemanalDialog({ article, onClose, isOpen }) {
         </Dialog>
     );
 }
+
 MenuSemanalDialog.propTypes = {
     article: PropTypes.shape({}).isRequired,
     onClose: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired
 };
+
 export default MenuSemanalDialog;

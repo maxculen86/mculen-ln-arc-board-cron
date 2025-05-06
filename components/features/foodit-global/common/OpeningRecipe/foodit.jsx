@@ -26,12 +26,7 @@ import MenuSemanalDialog from '../MenuSemanal/components/MenuSemanalDialog';
 import { ActionsButtons } from './actionOptions';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
-    const {
-        promo_items: promoItems = {},
-        headlines = {},
-        taxonomy,
-        _id = ''
-    } = article;
+    const { promo_items: promoItems = {}, headlines = {}, taxonomy } = article;
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
     const title = get(headlines, 'basic', '');
@@ -93,20 +88,10 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                 </div>
                 <div className="flex flex-column gap-24">
                     <div className="flex gap-24">
-                        <ActionsButtons handleOpen={handleOpen} />
-                        {/* <Static id={`btn-saved-${_id}`}>
-                            <Button
-                                title="Guardar"
-                                size={{ sm: 32, lg: 40 }}
-                                data-modal="open-modal"
-                                data-id={_id}
-                            >
-                                <Icon size={16} className="sm-none">
-                                    <IconSprite name="bookmark" critical />
-                                </Icon>
-                                Guardar
-                            </Button>
-                        </Static> */}
+                        <ActionsButtons
+                            handleOpen={handleOpen}
+                            article={article}
+                        />
                         <MenuSemanalDialog
                             isOpen={isOpen}
                             onClose={onClose}

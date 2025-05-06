@@ -22,6 +22,13 @@ function MenuSemanalBody({
 
     const menuDatas = menusDayTransform(menusDay);
 
+    console.log('menuDatas', menuDatas);
+    console.log('weeklyMenu', weeklyMenu);
+    console.log('setWeeklyMenu', setWeeklyMenu);
+    console.log('subscription', subscription);
+    console.log('userType', userType);
+    console.log('menusDay', menusDay);
+
     return (
         <>
             {menuDatas.map((menu, i) => (
@@ -40,7 +47,10 @@ function MenuSemanalBody({
                             </Text>
                         </div>
                     </Accordion.Header>
-                    <Accordion.Body className="flex flex-column">
+                    <Accordion.Body
+                        className="flex flex-column"
+                        style={{ overflow: 'visible' }}
+                    >
                         <div className="pt-24">
                             {menu.recipes.length > 0 ? (
                                 <table className="w-100">
