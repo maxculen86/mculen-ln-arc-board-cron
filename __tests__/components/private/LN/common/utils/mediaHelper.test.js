@@ -92,26 +92,24 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             {
                 minWidth: 375,
                 maxWidth: undefined,
-                srcSet:
-                    'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                srcSet: 'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
             },
             {
                 minWidth: 320,
                 maxWidth: undefined,
-                srcSet:
-                    'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
             }
         ];
 
         test('should return an array of object with the props minWidth and srcSet', () => {
             expect(
-                getImagesToLoadWithPicture(mockDataResizedUrls)
+                getImagesToLoadWithPicture(false, mockDataResizedUrls)
             ).toStrictEqual(result);
         });
 
         test('should return an array of object with the props maxWidth and srcSet', () => {
             expect(
-                getImagesToLoadWithPicture([
+                getImagesToLoadWithPicture(false, [
                     ...mockDataResizedUrls,
                     {
                         option: {
@@ -128,15 +126,14 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 {
                     minWidth: undefined,
                     maxWidth: 320,
-                    srcSet:
-                        'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 }
             ]);
         });
 
         test('The srcSet of size 320 should contain the images for each pixel density according to the configuration', () => {
             expect(
-                getImagesToLoadWithPicture([
+                getImagesToLoadWithPicture(false, [
                     {
                         option: {
                             configPixelRatio: {
@@ -155,14 +152,13 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             ).toStrictEqual({
                 minWidth: 320,
                 maxWidth: undefined,
-                srcSet:
-                    'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg, https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg 2x'
+                srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg, https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg 2x'
             });
         });
 
         test('should not return the srcSet with pixel density if the prop xDescriptor or forScreenWidth is not specified. ', () => {
             expect(
-                getImagesToLoadWithPicture([
+                getImagesToLoadWithPicture(false, [
                     {
                         option: {
                             configPixelRatio: {
@@ -181,15 +177,16 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 {
                     minWidth: 1024,
                     maxWidth: undefined,
-                    srcSet:
-                        'https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet: 'https://resizer.glanacion.com/resizer/AnidcDn2RnPhDMHCW90l68efmJI=/500x333/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 },
                 ...result
             ]);
         });
 
         test('should return a emptyString when the parameters is not defined', () => {
-            expect(getImagesToLoadWithPicture(undefined)).toStrictEqual([]);
+            expect(getImagesToLoadWithPicture(false, undefined)).toStrictEqual(
+                []
+            );
         });
     });
 
@@ -205,13 +202,11 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             const resultImages = [
                 {
                     mediaPreload: '(min-width: 320px) and (max-width: 375px)',
-                    srcSet:
-                        'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 },
                 {
                     mediaPreload: '(min-width: 375)',
-                    srcSet:
-                        'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                    srcSet: 'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 }
             ];
 

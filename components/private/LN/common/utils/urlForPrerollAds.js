@@ -17,9 +17,9 @@ const urlForPrerollAds = () => {
     const custParamsEncoded = getCustParamsEncoded(
         tags,
         sections,
-        authors,
+        contentElements,
         _id,
-        contentElements
+        authors
     );
 
     const url = encodeURIComponent(`${SITE_LANACION}${requestUri}`);

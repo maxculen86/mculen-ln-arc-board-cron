@@ -1,6 +1,6 @@
 import get from '../../../common/utils/get';
 
-const checkSection = (globalContent = {}, target) => {
+const checkSection = (target, globalContent = {}) => {
     const primarySection = get(globalContent, '_id', '');
 
     return primarySection === target;

@@ -12,8 +12,8 @@ import isSSR from '../../../../private/LN/common/utils/isSSR';
 import VideoSource from '../../../private-global/common/videoSource/foodit';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 
-export const OpeningStorytelling = ({ article = {} }) => {
-    const { promo_items = {}, headlines = {} } = article;
+export function OpeningStorytelling({ article = {} }) {
+    const { promoItems = {}, headlines = {} } = article;
 
     const device = getTypeOfDevice({
         breakpoints: {
@@ -23,27 +23,23 @@ export const OpeningStorytelling = ({ article = {} }) => {
     });
 
     const title = get(headlines, 'basic', '');
-    const basicImage = replaceBaseUrl(get(promo_items, 'basic', null));
+    const basicImage = replaceBaseUrl(get(promoItems, 'basic', null));
     const basicImageMobile = replaceBaseUrl(
-        get(promo_items, 'storytelling_mobile')
+        get(promoItems, 'storytelling_mobile')
     );
-    const videoJw = get(promo_items, 'video_jw', null);
+    const videoJw = get(promoItems, 'video_jw', null);
 
-    const {
-        videoUrl,
-        defaultUrl,
-        posterUrl,
-        resizedUrls,
-        altText
-    } = getAperturaStorytelling(
-        videoJw,
-        basicImage,
-        basicImageMobile,
-        device,
-        title
-    );
+    const emptyFragment = null;
+    const { videoUrl, defaultUrl, posterUrl, resizedUrls, altText } =
+        getAperturaStorytelling(
+            videoJw,
+            basicImage,
+            basicImageMobile,
+            device,
+            title
+        );
 
-    if (videoUrl && isSSR()) return <></>;
+    if (videoUrl && isSSR()) return emptyFragment;
 
     return videoUrl && device === 'desktop' ? (
         <VideoSource
@@ -61,13 +57,26 @@ export const OpeningStorytelling = ({ article = {} }) => {
             src={defaultUrl}
             fetchPriority="high"
             loading="eager"
-            sources={getImagesToLoadWithPicture(resizedUrls)}
+            sources={getImagesToLoadWithPicture(false, resizedUrls)}
         />
     );
-};
+}
 
 OpeningStorytelling.propTypes = {
-    article: PropTypes.object
+    article: PropTypes.shape({
+        promoItems: PropTypes.shape({
+            basic: PropTypes.string,
+            storytelling_mobile: PropTypes.string,
+            video_jw: PropTypes.string
+        }),
+        headlines: PropTypes.shape({
+            basic: PropTypes.string
+        })
+    })
+};
+
+OpeningStorytelling.defaultProps = {
+    article: {}
 };
 
 export default OpeningStorytelling;

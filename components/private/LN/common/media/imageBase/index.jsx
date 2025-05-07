@@ -11,7 +11,7 @@ import {
 } from '../../utils/mediaHelper';
 import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
-const ImageArticle = props => {
+function ImageArticle(props) {
     const {
         image,
         href,
@@ -61,7 +61,10 @@ const ImageArticle = props => {
                         searchableField={searchableField}
                         fetchPriority={isApertura ? 'high' : 'low'}
                         loading={isApertura ? 'eager' : 'lazy'}
-                        sources={getImagesToLoadWithPicture(sourceActive)}
+                        sources={getImagesToLoadWithPicture(
+                            false,
+                            sourceActive
+                        )}
                     />
                 </div>
             ) : (
@@ -78,15 +81,24 @@ const ImageArticle = props => {
             )}
         </ComPicture>
     );
-};
+}
 
 ImageArticle.propTypes = {
-    outputType: PropTypes.string.isRequired,
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
-        resized_urls: PropTypes.array.isRequired,
-        resized_urls_zoom: PropTypes.array,
+        resized_urls: PropTypes.arrayOf(
+            PropTypes.shape({
+                option: PropTypes.string,
+                url: PropTypes.string
+            })
+        ).isRequired,
+        resized_urls_zoom: PropTypes.arrayOf(
+            PropTypes.shape({
+                option: PropTypes.string,
+                url: PropTypes.string
+            })
+        ),
         width: PropTypes.number,
         height: PropTypes.number,
         alt_text: PropTypes.string,
@@ -98,15 +110,18 @@ ImageArticle.propTypes = {
     href: PropTypes.string,
     isApertura: PropTypes.bool,
     isValidSection: PropTypes.bool,
-    authors: PropTypes.string
+    authors: PropTypes.string,
+    searchableField: PropTypes.string
 };
 
 ImageArticle.defaultProps = {
-    href: '',
     active: false,
     isVertical: false,
     isApertura: false,
-    isValidSection: false
+    isValidSection: false,
+    authors: '',
+    searchableField: '',
+    href: ''
 };
 
 export default ImageArticle;
