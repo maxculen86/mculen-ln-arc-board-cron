@@ -302,7 +302,7 @@
 }
 .notification-drawer .notification-card:not(.info, .warning, .danger, .loading):hover {
   opacity: 1;
-  background-color: #DEEBFF;
+  background-color: #deebff;
 }
 .notification-drawer .notification-card-header {
   display: flex;
@@ -321,6 +321,12 @@
   font-size: var(--notification-card-description-font-size, 0.875rem);
   line-height: var(--notification-card-description-line-height);
   font-weight: var(--notification-card-description-font-weight);
+}
+.notification-drawer .notification-card-img {
+  width: 100%;
+  border: 1px solid var(--notification-card-img-border-color, #f2f2f2);
+  border-radius: var(--notification-card-img-border-radius);
+  aspect-ratio: var(--notification-card-img-aspect-ratio, 5 / 2);
 }
 .notification-drawer .notification-card-btn {
   padding: var(--notification-card-button-padding);
