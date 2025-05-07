@@ -89,6 +89,7 @@ input[type=checkbox]:hover {
   --accent-tomate: #a92c2c;
   --accent-mandarina: #f65a22;
   --background-positive: #f3f0eb;
+  --feedback-info-700: #2F3A4E;
   --feedback-danger-500: #C61B25;
   --feedback-danger-600: #99151D;
   --feedback-success-700: #008759;
@@ -602,6 +603,10 @@ input[type=checkbox]:hover {
 
 .bg-danger-500 {
   background: var(--feedback-danger-500);
+}
+
+.bg-info-700 {
+  background: var(--feedback-info-700);
 }
 
 .bg-black {
@@ -2520,6 +2525,9 @@ strong {
 .viafoura.viafoura .vf-dropdown-button--accent:focus,
 .viafoura.viafoura .vf-dropdown-button--accent:hover {
   --accent-color: var(--primary-positive);
+}
+.viafoura.viafoura .vf-reply-to.vf-reply-to {
+  display: none;
 }
 
 :root {

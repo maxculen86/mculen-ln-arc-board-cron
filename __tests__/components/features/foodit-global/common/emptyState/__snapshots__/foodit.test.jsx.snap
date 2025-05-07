@@ -2,182 +2,166 @@
 
 exports[`EmptyState component should match snapshot with variant "barrier-logged" 1`] = `
 <div>
-  <section
-    class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
-  >
-    <img
-      alt="Para realizar esta acción es necesario que tengas una suscripción."
-      class="image flex --fill"
-      decoding="async"
-      fetchpriority="low"
-      height="110"
-      loading="lazy"
-      src="undefined/pf/resources/images/barrier-state.webp"
-      width="147"
-    />
-    <div
-      class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+  <div>
+    <section
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
     >
-      <p
-        class="text prumo prumo-semibold text-24"
+      <div
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
       >
-        ¡Exclusivo suscriptores!
-      </p>
-      <p
-        class="text text-16 text-light-600"
-      >
-        Para realizar esta acción es necesario que tengas una suscripción.
-      </p>
-    </div>
-    <div
-      class="flex gap-24 ai-center"
-    >
-      <a
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
-        data-variant="accent"
-        href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
-        target="_self"
-      >
-        Suscribite
-      </a>
-      <a
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-        data-variant="link"
-        href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
-        target="_self"
-      >
-        <span
-          class="uppercase"
+        <p
+          class="text prumo prumo-medium text-24 text-light-800"
         >
-          Iniciá sesión
-        </span>
-      </a>
-    </div>
-  </section>
+          Exclusivo para suscriptores
+        </p>
+        <p
+          class="text text-16 text-light-800"
+        >
+          Para realizar esta acción es necesario que tengas una suscripción.
+        </p>
+      </div>
+      <div
+        class="flex gap-24 ai-center"
+      >
+        <a
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+          data-variant="accent"
+          href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+          target="_self"
+        >
+          Suscribite
+        </a>
+        <a
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+          data-variant="link"
+          href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
+          target="_self"
+        >
+          <span
+            class="uppercase"
+          >
+            Iniciá sesión
+          </span>
+        </a>
+      </div>
+    </section>
+  </div>
 </div>
 `;
 
 exports[`EmptyState component should match snapshot with variant "barrier-unlogged 1`] = `
 <div>
-  <section
-    class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
-  >
-    <img
-      alt="Para realizar esta acción es necesario que tengas una suscripción."
-      class="image flex --fill"
-      decoding="async"
-      fetchpriority="low"
-      height="110"
-      loading="lazy"
-      src="undefined/pf/resources/images/barrier-state.webp"
-      width="147"
-    />
-    <div
-      class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+  <div>
+    <section
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
     >
-      <p
-        class="text prumo prumo-semibold text-24"
+      <div
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
       >
-        ¡Exclusivo suscriptores!
-      </p>
-      <p
-        class="text text-16 text-light-600"
-      >
-        Para realizar esta acción es necesario que tengas una suscripción.
-      </p>
-    </div>
-    <div
-      class="flex gap-24 ai-center"
-    >
-      <a
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
-        data-variant="accent"
-        href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
-        target="_self"
-      >
-        Suscribite
-      </a>
-      <a
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-        data-variant="link"
-        href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
-        target="_self"
-      >
-        <span
-          class="uppercase"
+        <p
+          class="text prumo prumo-medium text-24 text-light-800"
         >
-          Iniciá sesión
-        </span>
-      </a>
-    </div>
-  </section>
+          Exclusivo para suscriptores
+        </p>
+        <p
+          class="text text-16 text-light-800"
+        >
+          Para realizar esta acción es necesario que tengas una suscripción.
+        </p>
+      </div>
+      <div
+        class="flex gap-24 ai-center"
+      >
+        <a
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+          data-variant="accent"
+          href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+          target="_self"
+        >
+          Suscribite
+        </a>
+        <a
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+          data-variant="link"
+          href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
+          target="_self"
+        >
+          <span
+            class="uppercase"
+          >
+            Iniciá sesión
+          </span>
+        </a>
+      </div>
+    </section>
+  </div>
 </div>
 `;
 
 exports[`EmptyState component should match snapshot with variant "empty-state 1`] = `
 <div>
-  <section
-    class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
-  >
-    <img
-      alt="¡Aún no hay nada por acá!"
-      class="image flex --fill"
-      decoding="async"
-      fetchpriority="low"
-      height="152"
-      loading="lazy"
-      src="undefined/pf/resources/images/empty-state-recetario.webp"
-      width="147"
-    />
-    <div
-      class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+  <div>
+    <section
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
     >
-      <p
-        class="text prumo prumo-semibold text-24"
+      <img
+        alt="¡Aún no hay nada por acá!"
+        class="image flex mb-16 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg --fill"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="undefined/pf/resources/images/empty-state-recetario.webp"
+      />
+      <div
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
       >
-        ¡Aún no hay nada por acá!
-      </p>
-      <p
-        class="text text-16 text-light-600"
-      >
-        <span>
-          Presioná el botón
-          <i
-            class="icon vertical-align-middle mx-4 --icon-16"
-          >
-            <mock-icon
-              critical="true"
-              name="bookmark"
-            />
-          </i>
-          para guardar el contenido que te gusta y ¡Listo!
-        </span>
-      </p>
-    </div>
-    <div
-      class="flex gap-24 ai-center"
-    >
-      <a
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
-        data-variant="accent"
-        href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
-        target="_self"
-      >
-        Suscribite
-      </a>
-      <a
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-        data-variant="link"
-        href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
-        target="_self"
-      >
-        <span
-          class="uppercase"
+        <p
+          class="text prumo prumo-medium text-24 text-light-800"
         >
-          Iniciá sesión
-        </span>
-      </a>
-    </div>
-  </section>
+          ¡Aún no hay nada por acá!
+        </p>
+        <p
+          class="text text-16 text-light-800"
+        >
+          <span>
+            Presioná el botón
+            <i
+              class="icon vertical-align-middle mx-4 --icon-16"
+            >
+              <mock-icon
+                critical="true"
+                name="bookmark"
+              />
+            </i>
+            para guardar el contenido que te gusta y ¡Listo!
+          </span>
+        </p>
+      </div>
+      <div
+        class="flex gap-24 ai-center"
+      >
+        <a
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+          data-variant="accent"
+          href="https://mocked-registro.com/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+          target="_self"
+        >
+          Suscribite
+        </a>
+        <a
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+          data-variant="link"
+          href="https://mocked-login.com/aHR0cDovL2xvY2FsaG9zdC8="
+          target="_self"
+        >
+          <span
+            class="uppercase"
+          >
+            Iniciá sesión
+          </span>
+        </a>
+      </div>
+    </section>
+  </div>
 </div>
 `;

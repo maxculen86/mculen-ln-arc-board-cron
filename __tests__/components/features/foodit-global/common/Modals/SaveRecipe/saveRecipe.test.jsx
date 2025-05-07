@@ -12,6 +12,14 @@ import {
     getConfig
 } from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/helpers';
 
+const observe = jest.fn();
+const unobserve = jest.fn();
+
+window.IntersectionObserver = jest.fn(() => ({
+    observe,
+    unobserve
+}));
+
 jest.mock(
     '../../../../../../../components/features/foodit-global/hooks/useGetUserConfig',
     () => jest.fn()

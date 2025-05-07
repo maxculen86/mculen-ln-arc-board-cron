@@ -30,46 +30,162 @@ exports[`SaveRecipe Component should match snapshot when userType is logged 1`] 
         </button>
       </header>
       <section>
-        <section
-          class="flex ai-center px-24 px-32_lg gap-32 flex-column"
-        >
-          <img
-            alt="Para realizar esta acción es necesario que tengas una suscripción."
-            class="image flex none --fill"
-            decoding="async"
-            fetchpriority="low"
-            height="110"
-            loading="lazy"
-            src=""
-            width="147"
-          />
-          <div
-            class="flex flex-column gap-8 text-center ai-center "
+        <div>
+          <section
+            class="flex ai-center px-24 px-32_lg flex-column"
           >
-            <p
-              class="text prumo prumo-semibold text-24"
+            <div
+              class="flex flex-column gap-8 text-center ai-center "
             >
-              ¡Exclusivo suscriptores!
-            </p>
-            <p
-              class="text text-16 text-light-600"
+              <p
+                class="text prumo prumo-medium text-24 text-light-800"
+              >
+                Exclusivo para suscriptores
+              </p>
+              <p
+                class="text text-16 text-light-800"
+              >
+                Para realizar esta acción es necesario que tengas una suscripción.
+              </p>
+            </div>
+            <div
+              class="flex gap-24 ai-center  pt-24"
             >
-              Para realizar esta acción es necesario que tengas una suscripción.
-            </p>
-          </div>
+              <a
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
+                data-variant="accent"
+                href="undefined/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
+                target="_self"
+              >
+                Suscribite
+              </a>
+            </div>
+          </section>
           <div
-            class="flex gap-24 ai-center"
+            class="flex flex-column jc-center ai-center"
           >
-            <a
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
-              data-variant="accent"
-              href="undefined/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
-              target="_self"
+            <hr
+              class="w-95 my-32"
+            />
+            <div
+              class="w-100"
             >
-              Suscribite
-            </a>
+              <p
+                class="text text-center prumo prumo-light text-24"
+              >
+                ¿Por qué suscribirme a Foodit?
+              </p>
+              <div
+                class="pt-24"
+              >
+                <div
+                  class="media-scroller relative grid gap-16 gap-24_md --carousel-info"
+                  data-scroller="container"
+                >
+                  <ul
+                    class="relative overflow-container jc-center_lg"
+                    data-scroller="track"
+                    data-scroller-elements="3"
+                  >
+                    <li
+                      class=""
+                      data-scroller="element"
+                    >
+                      <div
+                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+                      >
+                        <i
+                          class="icon --icon-32"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <div
+                          class="flex flex-column text-center jc-center ai-center gap-4"
+                        >
+                          <span
+                            class="text prumo prumo-semibold text-18"
+                          >
+                            Guardá tu receta favorita
+                          </span>
+                          <span
+                            class="text roboto roboto-regular text-16 text-light-600"
+                          >
+                            Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                      data-scroller="element"
+                    >
+                      <div
+                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+                      >
+                        <i
+                          class="icon --icon-32"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="shopping-list"
+                          />
+                        </i>
+                        <div
+                          class="flex flex-column text-center jc-center ai-center gap-4"
+                        >
+                          <span
+                            class="text prumo prumo-semibold text-18"
+                          >
+                            Agregá ingredientes a la lista de compras
+                          </span>
+                          <span
+                            class="text roboto roboto-regular text-16 text-light-600"
+                          >
+                            Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                      data-scroller="element"
+                    >
+                      <div
+                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+                      >
+                        <i
+                          class="icon --icon-32"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="weekly-menu"
+                          />
+                        </i>
+                        <div
+                          class="flex flex-column text-center jc-center ai-center gap-4"
+                        >
+                          <span
+                            class="text prumo prumo-semibold text-18"
+                          >
+                            Planificá tu semana
+                          </span>
+                          <span
+                            class="text roboto roboto-regular text-16 text-light-600"
+                          >
+                            Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
       </section>
     </div>
   </dialog>
@@ -160,46 +276,162 @@ exports[`SaveRecipe Component should match snapshot when userType is unlogged 1`
         </button>
       </header>
       <section>
-        <section
-          class="flex ai-center px-24 px-32_lg gap-32 flex-column"
-        >
-          <img
-            alt="Para realizar esta acción es necesario que tengas una suscripción."
-            class="image flex none --fill"
-            decoding="async"
-            fetchpriority="low"
-            height="110"
-            loading="lazy"
-            src=""
-            width="147"
-          />
-          <div
-            class="flex flex-column gap-8 text-center ai-center "
+        <div>
+          <section
+            class="flex ai-center px-24 px-32_lg flex-column"
           >
-            <p
-              class="text prumo prumo-semibold text-24"
+            <div
+              class="flex flex-column gap-8 text-center ai-center "
             >
-              ¡Exclusivo suscriptores!
-            </p>
-            <p
-              class="text text-16 text-light-600"
+              <p
+                class="text prumo prumo-medium text-24 text-light-800"
+              >
+                Exclusivo para suscriptores
+              </p>
+              <p
+                class="text text-16 text-light-800"
+              >
+                Para realizar esta acción es necesario que tengas una suscripción.
+              </p>
+            </div>
+            <div
+              class="flex gap-24 ai-center  pt-24"
             >
-              Para realizar esta acción es necesario que tengas una suscripción.
-            </p>
-          </div>
+              <a
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                data-variant="link"
+                href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
+                target="_self"
+              >
+                Iniciá sesión
+              </a>
+            </div>
+          </section>
           <div
-            class="flex gap-24 ai-center"
+            class="flex flex-column jc-center ai-center"
           >
-            <a
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-variant="link"
-              href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
-              target="_self"
+            <hr
+              class="w-95 my-32"
+            />
+            <div
+              class="w-100"
             >
-              Iniciá sesión
-            </a>
+              <p
+                class="text text-center prumo prumo-light text-24"
+              >
+                ¿Por qué suscribirme a Foodit?
+              </p>
+              <div
+                class="pt-24"
+              >
+                <div
+                  class="media-scroller relative grid gap-16 gap-24_md --carousel-info"
+                  data-scroller="container"
+                >
+                  <ul
+                    class="relative overflow-container jc-center_lg"
+                    data-scroller="track"
+                    data-scroller-elements="3"
+                  >
+                    <li
+                      class=""
+                      data-scroller="element"
+                    >
+                      <div
+                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+                      >
+                        <i
+                          class="icon --icon-32"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <div
+                          class="flex flex-column text-center jc-center ai-center gap-4"
+                        >
+                          <span
+                            class="text prumo prumo-semibold text-18"
+                          >
+                            Guardá tu receta favorita
+                          </span>
+                          <span
+                            class="text roboto roboto-regular text-16 text-light-600"
+                          >
+                            Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                      data-scroller="element"
+                    >
+                      <div
+                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+                      >
+                        <i
+                          class="icon --icon-32"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="shopping-list"
+                          />
+                        </i>
+                        <div
+                          class="flex flex-column text-center jc-center ai-center gap-4"
+                        >
+                          <span
+                            class="text prumo prumo-semibold text-18"
+                          >
+                            Agregá ingredientes a la lista de compras
+                          </span>
+                          <span
+                            class="text roboto roboto-regular text-16 text-light-600"
+                          >
+                            Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                      data-scroller="element"
+                    >
+                      <div
+                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+                      >
+                        <i
+                          class="icon --icon-32"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="weekly-menu"
+                          />
+                        </i>
+                        <div
+                          class="flex flex-column text-center jc-center ai-center gap-4"
+                        >
+                          <span
+                            class="text prumo prumo-semibold text-18"
+                          >
+                            Planificá tu semana
+                          </span>
+                          <span
+                            class="text roboto roboto-regular text-16 text-light-600"
+                          >
+                            Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
       </section>
     </div>
   </dialog>
