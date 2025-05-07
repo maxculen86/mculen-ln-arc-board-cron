@@ -139,6 +139,11 @@ const featureArticleCustomsFields = (featuredName, isLN10) => ({
         description: 'Ingrese aquí el código HTML / embed',
         default: ''
     }),
+    videoComercial: PropTypes.bool.tag({
+        name: 'Video Comercial',
+        description: 'Marque aqui para desactivar carga diferida',
+        default: false
+    }),
     ...(isLN10 && {
         cllBoard: PropTypes.string.tag({
             name: 'Tablero de canchallena',

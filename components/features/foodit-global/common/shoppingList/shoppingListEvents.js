@@ -11,10 +11,6 @@ export const emitBookmarkAdded = (articleId, bookmarkId) => {
         bubbles: true
     });
     window.dispatchEvent(event);
-    // console.log('Event emitted:', SHOPPING_LIST_EVENTS.BOOKMARK_ADDED, {
-    //     articleId,
-    //     bookmarkId
-    // });
 };
 
 export const emitBookmarkRemoved = (articleId, bookmarkId) => {
@@ -23,10 +19,6 @@ export const emitBookmarkRemoved = (articleId, bookmarkId) => {
         bubbles: true
     });
     window.dispatchEvent(event);
-    // console.log('Event emitted:', SHOPPING_LIST_EVENTS.BOOKMARK_REMOVED, {
-    //     articleId,
-    //     bookmarkId
-    // });
 };
 
 export const emitBookmarkUpdated = (articleId, bookmarkId) => {
@@ -35,10 +27,6 @@ export const emitBookmarkUpdated = (articleId, bookmarkId) => {
         bubbles: true
     });
     window.dispatchEvent(event);
-    // console.log('Event emitted:', SHOPPING_LIST_EVENTS.BOOKMARK_UPDATED, {
-    //     articleId,
-    //     bookmarkId
-    // });
 };
 
 export const BookmarkCache = {

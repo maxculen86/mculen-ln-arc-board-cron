@@ -16,12 +16,6 @@ export const useIsInShoppingList = (isSuscriptor, articleId = '') => {
 
     const setBookmarkId = useCallback(
         newBookmarkId => {
-            console.log('Setting bookmarkId:', {
-                articleId,
-                newBookmarkId,
-                previous: bookmarkId
-            });
-
             setLocalBookmarkId(newBookmarkId);
 
             if (newBookmarkId) {

@@ -55,7 +55,7 @@ function FirmaLogoExterno({ globalContent }) {
                 <ComLink
                     link={`${SITE_LANACION}/distributor/${formatDistributorName(name)}/`}
                 >
-                    <ComPartner size="--twoxs">{name}</ComPartner>
+                    <ComPartner size="--twoxs mb-32">{name}</ComPartner>
                 </ComLink>
             );
         }

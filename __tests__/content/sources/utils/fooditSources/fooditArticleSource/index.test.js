@@ -1,10 +1,12 @@
 import {
     getImageConfig,
-    getArticleSubtype
+    getArticleSubtype,
+    transform
 } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource';
 import {
     STORYTELLING,
-    RECETA
+    RECETA,
+    RECETA_CERRADA
 } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import getProperties from 'fusion:properties';
 import {
@@ -15,8 +17,17 @@ import {
     setItalicText,
     transformLinks,
     addAttribute,
-    deleteTagsForTitle
+    deleteTagsForTitle,
+    configCallbackContentElements,
+    configPromoItems
 } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource/_configs';
+import {
+    filterSections,
+    transformAuthors,
+    transformElementsBasedOnType,
+    transformPromoItems
+} from '../../../../../../content/sources/utils/articleSourceNota/_helper';
+import validateSponsoredLink from '../../../../../../content/sources/utils/validateSponsoredLink';
 
 const mockResults = {
     imageConfig: {
@@ -44,8 +55,20 @@ const mockResults = {
     }
 };
 
-jest.mock('fusion:properties', () => () =>
-    ({ getProperties: () => mockResults }.getProperties())
+jest.mock('fusion:properties', () => () => mockResults);
+
+jest.mock(
+    '../../../../../../content/sources/utils/articleSourceNota/_helper',
+    () => ({
+        transformElementsBasedOnType: jest.fn(),
+        transformPromoItems: jest.fn(),
+        transformAuthors: jest.fn(),
+        filterSections: jest.fn()
+    })
+);
+
+jest.mock('../../../../../../content/sources/utils/validateSponsoredLink', () =>
+    jest.fn()
 );
 
 describe('Tests helpers fooditArticleSource', () => {
@@ -293,8 +316,7 @@ describe('Tests helpers fooditArticleSource', () => {
                     withSponsoredLink: true
                 })
             ).toEqual({
-                text:
-                    'This is <strong>bold</strong> and <strong>strong</strong> text.',
+                text: 'This is <strong>bold</strong> and <strong>strong</strong> text.',
                 withSponsoredLink: true
             });
         });
@@ -547,6 +569,315 @@ describe('Tests helpers fooditArticleSource', () => {
 
         test('Should return STORYTELLING for an undefined subtype', () => {
             expect(getArticleSubtype(undefined)).toBe(STORYTELLING);
+        });
+    });
+
+    describe('transform Data Source Function', () => {
+        let mockInputResult;
+        let mockQuery;
+        let mockCachedCall;
+        let mockSiteProperties;
+
+        let mockedGetProperties;
+        let mockedValidateSponsoredLink;
+        let mockedTransformElementsBasedOnType;
+        let mockedTransformPromoItems;
+        let mockedTransformAuthors;
+        let mockedFilterSections;
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+
+            mockedGetProperties = getProperties;
+            mockedValidateSponsoredLink = validateSponsoredLink;
+            mockedTransformElementsBasedOnType = transformElementsBasedOnType;
+            mockedTransformPromoItems = transformPromoItems;
+            mockedTransformAuthors = transformAuthors;
+            mockedFilterSections = filterSections;
+
+            mockSiteProperties = mockResults;
+
+            mockedValidateSponsoredLink.mockReturnValue(false);
+
+            mockedTransformElementsBasedOnType.mockReturnValue([
+                { type: 'text', content: 'Transformed Element 1' },
+                { type: 'image', url: 'transformed-image.jpg' }
+            ]);
+
+            mockedTransformPromoItems.mockResolvedValue({
+                basic: {
+                    type: 'image',
+                    url: 'transformed-promo.jpg',
+                    caption: 'Transformed Promo'
+                }
+            });
+
+            mockedTransformAuthors.mockImplementation((authors = []) =>
+                authors.map(author => ({ ...author, transformed: true }))
+            );
+
+            mockedFilterSections.mockImplementation((resultData = {}) => ({
+                ...(resultData.taxonomy || {}),
+                filtered: true
+            }));
+
+            mockInputResult = {
+                _id: 'XYZ123',
+                type: 'story',
+                subtype: STORYTELLING,
+                headlines: { basic: 'Test Headline' },
+                promo_items: {
+                    basic: { type: 'image', url: 'original-promo.jpg' }
+                },
+                content_elements: [
+                    { type: 'text', content: 'Original Element 1' },
+                    { type: 'image', url: 'original-image.jpg' },
+                    { type: 'oembed', subtype: 'youtube' }
+                ],
+                credits: {
+                    by: [
+                        { type: 'author', name: 'John Doe', _id: 'johndoe' },
+                        { type: 'author', name: 'Jane Smith', _id: 'janesmith' }
+                    ]
+                },
+                taxonomy: {
+                    primary_section: {
+                        _id: '/food',
+                        type: 'section',
+                        name: 'Food'
+                    },
+                    sections: [
+                        { _id: '/food', type: 'section', name: 'Food' },
+                        { _id: '/recipes', type: 'section', name: 'Recipes' }
+                    ],
+                    tags: [
+                        { name: 'easy', slug: 'easy', description: 'Easy tag' }
+                    ]
+                },
+                related_content: {
+                    basic: []
+                }
+            };
+
+            mockQuery = {
+                'arc-site': 'foodit',
+                meteringVariant: 'PREMIUM',
+                paywallEnabled: 'true'
+            };
+
+            mockCachedCall = jest.fn();
+        });
+
+        it('should call dependencies with correct parameters and return transformed data for STORYTELLING', async () => {
+            const result = await transform(
+                mockInputResult,
+                mockQuery,
+                mockCachedCall
+            );
+
+            expect(mockedValidateSponsoredLink).toHaveBeenCalledWith(
+                mockInputResult
+            );
+            expect(mockedTransformPromoItems).toHaveBeenCalledTimes(1);
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledTimes(1);
+            expect(mockedTransformAuthors).toHaveBeenCalledWith(
+                mockInputResult.credits.by
+            );
+            expect(mockedFilterSections).toHaveBeenCalledWith(mockInputResult);
+
+            const aditionalPropsMatcher = expect.objectContaining({
+                withSponsoredLink: false,
+                siteProperties: mockSiteProperties,
+                cachedCall: mockCachedCall,
+                subtype: STORYTELLING,
+                arcSite: 'foodit'
+            });
+
+            expect(mockedTransformPromoItems).toHaveBeenCalledWith({
+                cachedCall: mockCachedCall,
+                arcSite: 'foodit',
+                configCallbacks: configPromoItems,
+                promoItemObject: mockInputResult.promo_items
+            });
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledWith({
+                arrayElements: mockInputResult.content_elements,
+                configCallbacks: configCallbackContentElements,
+                searchPropertyOnElem: 'type',
+                aditionalProps: aditionalPropsMatcher
+            });
+            expect(result).toBeDefined();
+            expect(result._id).toBe('XYZ123');
+            expect(result.subtype).toBe(STORYTELLING);
+            expect(result.paywallEnabled).toBe('true');
+            expect(result.subscription).toBe('PREMIUM');
+            expect(result.promo_items).toEqual({
+                basic: {
+                    type: 'image',
+                    url: 'transformed-promo.jpg',
+                    caption: 'Transformed Promo'
+                }
+            });
+            expect(result.content_elements).toEqual([
+                { type: 'text', content: 'Transformed Element 1' },
+                { type: 'image', url: 'transformed-image.jpg' }
+            ]);
+            expect(result.credits.by).toEqual([
+                {
+                    type: 'author',
+                    name: 'John Doe',
+                    _id: 'johndoe',
+                    transformed: true
+                },
+                {
+                    type: 'author',
+                    name: 'Jane Smith',
+                    _id: 'janesmith',
+                    transformed: true
+                }
+            ]);
+            expect(result.taxonomy).toEqual({
+                primary_section: {
+                    _id: '/food',
+                    type: 'section',
+                    name: 'Food'
+                },
+                sections: [
+                    { _id: '/food', type: 'section', name: 'Food' },
+                    { _id: '/recipes', type: 'section', name: 'Recipes' }
+                ],
+                tags: [{ name: 'easy', slug: 'easy', description: 'Easy tag' }],
+                filtered: true
+            });
+            expect(result.category).toBe('Food');
+            expect(result.related_content).toBeDefined();
+            expect(result.related_content.basic).toBeUndefined();
+        });
+
+        it('should set subtype to RECETA if input subtype is RECETA', async () => {
+            mockInputResult.subtype = RECETA;
+            const result = await transform(
+                mockInputResult,
+                mockQuery,
+                mockCachedCall
+            );
+            expect(result.subtype).toBe(RECETA);
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    aditionalProps: expect.objectContaining({ subtype: RECETA })
+                })
+            );
+        });
+
+        it('should set subtype to RECETA_CERRADA if input is RECETA and isExclusiveSuscriptor is true', async () => {
+            mockInputResult.subtype = RECETA;
+            const customCallbacksConfig = { isExclusiveSuscriptor: true };
+            const result = await transform(
+                mockInputResult,
+                mockQuery,
+                mockCachedCall,
+                customCallbacksConfig
+            );
+            expect(result.subtype).toBe(RECETA_CERRADA);
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    aditionalProps: expect.objectContaining({
+                        subtype: RECETA_CERRADA
+                    })
+                })
+            );
+        });
+
+        it('should default subtype to STORYTELLING if input subtype is unknown', async () => {
+            mockInputResult.subtype = 'SOME_OTHER_TYPE';
+            const result = await transform(
+                mockInputResult,
+                mockQuery,
+                mockCachedCall
+            );
+            expect(result.subtype).toBe(STORYTELLING);
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    aditionalProps: expect.objectContaining({
+                        subtype: STORYTELLING
+                    })
+                })
+            );
+        });
+
+        it('should use customConfigCallbackContentElements if provided', async () => {
+            const mockCustomConfig = { text: jest.fn() };
+            const customCallbacksConfig = {
+                customConfigCallbackContentElements: mockCustomConfig
+            };
+
+            await transform(
+                mockInputResult,
+                mockQuery,
+                mockCachedCall,
+                customCallbacksConfig
+            );
+
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    configCallbacks: mockCustomConfig
+                })
+            );
+        });
+
+        it('should handle missing optional fields in the input result gracefully', async () => {
+            const minimalResult = {
+                _id: 'MIN123',
+                type: 'story',
+                subtype: STORYTELLING,
+                headlines: { basic: 'Minimal Headline' }
+            };
+
+            mockedTransformPromoItems.mockResolvedValue({});
+            mockedTransformElementsBasedOnType.mockReturnValue([]);
+            mockedTransformAuthors.mockImplementation(() => []);
+            mockedFilterSections.mockImplementation(() => ({ filtered: true }));
+
+            const result = await transform(
+                minimalResult,
+                mockQuery,
+                mockCachedCall
+            );
+
+            expect(result).toBeDefined();
+            expect(result._id).toBe('MIN123');
+            expect(result.subtype).toBe(STORYTELLING);
+            expect(result.promo_items).toEqual({});
+            expect(result.content_elements).toEqual([]);
+            expect(result.credits.by).toEqual([]);
+            expect(result.taxonomy).toEqual({ filtered: true });
+            expect(result.category).toBe('');
+            expect(result.related_content).toEqual({ basic: undefined });
+            expect(result.paywallEnabled).toBe('true');
+            expect(mockedTransformPromoItems).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    promoItemObject: {}
+                })
+            );
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    arrayElements: []
+                })
+            );
+            expect(mockedTransformAuthors).toHaveBeenCalledWith([]);
+            expect(mockedFilterSections).toHaveBeenCalledWith(minimalResult);
+        });
+
+        it('should correctly pass withSponsoredLink=true to aditionalProps if validate returns true', async () => {
+            mockedValidateSponsoredLink.mockReturnValue(true);
+            await transform(mockInputResult, mockQuery, mockCachedCall);
+
+            expect(mockedTransformElementsBasedOnType).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    aditionalProps: expect.objectContaining({
+                        withSponsoredLink: true
+                    })
+                })
+            );
         });
     });
 });

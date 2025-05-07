@@ -10,7 +10,8 @@ import {
     updateUrlIfMatch,
     getIncludedFields,
     checkIfExternalRedirect,
-    transformSubtype
+    transformSubtype,
+    processVolanta
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -1394,6 +1395,148 @@ describe('Tests articleSourceNota - _helper', () => {
 
         it('It should return the response received by parameter, if it is null', () => {
             expect(transformSubtype(null)).toBeNull();
+        });
+    });
+
+    describe('Tests processVolanta function', () => {
+        const headlineWebValue = 'Headline Web Test';
+        const originalVolantaText = 'Texto original de volanta';
+
+        it('should set volanta.text with headlines.web when headlines.web exists', () => {
+            const result = {
+                headlines: {
+                    web: headlineWebValue
+                },
+                label: {
+                    volanta: {
+                        display: true,
+                        text: originalVolantaText
+                    }
+                }
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult.volanta.text).toEqual(headlineWebValue);
+            expect(labelResult.volanta.display).toBeTruthy();
+        });
+
+        it('should initialize label if it does not exist', () => {
+            const result = {
+                headlines: {
+                    web: headlineWebValue
+                }
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult).toBeDefined();
+            expect(labelResult.volanta).toBeDefined();
+            expect(labelResult.volanta.text).toEqual(headlineWebValue);
+            expect(labelResult.volanta.display).toBeTruthy();
+        });
+
+        it('should initialize volanta if it does not exist and headlines.web exists', () => {
+            const result = {
+                headlines: {
+                    web: headlineWebValue
+                },
+                label: {}
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult.volanta).toBeDefined();
+            expect(labelResult.volanta.text).toEqual(headlineWebValue);
+            expect(labelResult.volanta.display).toBeTruthy();
+        });
+
+        it('should keep original volanta.text when headlines.web does not exist', () => {
+            const result = {
+                headlines: {},
+                label: {
+                    volanta: {
+                        display: true,
+                        text: originalVolantaText
+                    }
+                }
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult.volanta.text).toEqual(originalVolantaText);
+        });
+
+        it('should handle empty headlines.web', () => {
+            const result = {
+                headlines: {
+                    web: ''
+                },
+                label: {
+                    volanta: {
+                        display: true,
+                        text: originalVolantaText
+                    }
+                }
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult.volanta.text).toEqual(originalVolantaText);
+        });
+
+        it('should handle null headlines.web', () => {
+            const result = {
+                headlines: {
+                    web: null
+                },
+                label: {
+                    volanta: {
+                        display: true,
+                        text: originalVolantaText
+                    }
+                }
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult.volanta.text).toEqual(originalVolantaText);
+        });
+
+        it('should handle trimming of headlines.web with whitespace', () => {
+            const result = {
+                headlines: {
+                    web: '  ' + headlineWebValue + '  '
+                },
+                label: {
+                    volanta: {
+                        display: true,
+                        text: originalVolantaText
+                    }
+                }
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult.volanta.text).toEqual(headlineWebValue);
+        });
+
+        it('should handle whitespace-only headlines.web as empty', () => {
+            const result = {
+                headlines: {
+                    web: '   '
+                },
+                label: {
+                    volanta: {
+                        display: true,
+                        text: originalVolantaText
+                    }
+                }
+            };
+
+            const labelResult = processVolanta(result);
+
+            expect(labelResult.volanta.text).toEqual(originalVolantaText);
         });
     });
 });

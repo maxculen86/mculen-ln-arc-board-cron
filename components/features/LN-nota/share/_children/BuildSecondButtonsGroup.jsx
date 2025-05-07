@@ -1,5 +1,4 @@
-/* eslint-disable react/require-default-props */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
@@ -8,11 +7,11 @@ import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
     BtnContainer,
-    getTwitterTitle,
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import useShare from '../hooks/useShare';
 
 function BuildSecondButtonsGroup({
     requestUri,
@@ -22,7 +21,12 @@ function BuildSecondButtonsGroup({
     subtypeVideo,
     articleId
 } = {}) {
-    const [copy, setCopy] = useState(false);
+    const { copy, setCopy, shareButton } = useShare({
+        mobileTitle,
+        basic,
+        host,
+        requestUri
+    });
 
     const paddingPosition = subtypeVideo
         ? 'pl-8 ai-center gap-8 gap-24_m'
@@ -35,20 +39,6 @@ function BuildSecondButtonsGroup({
         flexVideo,
         paddingPosition
     );
-
-    const shareButton = () => {
-        const shareTitle = getTwitterTitle(mobileTitle, basic);
-        const shareUrl = host.concat(requestUri);
-        const shareData = {
-            title: shareTitle,
-            text: shareTitle,
-            url: shareUrl
-        };
-
-        if (navigator && Boolean(navigator.canShare)) {
-            navigator.share(shareData);
-        }
-    };
 
     return (
         <div className={_classes}>
@@ -153,12 +143,12 @@ function BuildSecondButtonsGroup({
 }
 
 BuildSecondButtonsGroup.propTypes = {
-    requestUri: PropTypes.string,
-    host: PropTypes.string,
-    title: PropTypes.string,
-    mobileTitle: PropTypes.string,
-    subtypeVideo: PropTypes.string,
-    articleId: PropTypes.string
+    requestUri: PropTypes.string.isRequired,
+    host: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    mobileTitle: PropTypes.string.isRequired,
+    subtypeVideo: PropTypes.string.isRequired,
+    articleId: PropTypes.string.isRequired
 };
 
 export default BuildSecondButtonsGroup;

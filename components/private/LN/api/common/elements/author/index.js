@@ -1,5 +1,6 @@
 import get from '../../../../../common/utils/get';
 import { getAutorId } from '../../../../../common/utils/getElementId';
+import { DISTRIBUTOR_LN } from '../distributor';
 import { getImageUrlBasedOnResizerVersion } from '../image';
 
 const getAuthorData = author => {
@@ -123,4 +124,11 @@ export const articleSignature = (authors, signature = null) => {
         ?.replace(/,(?=[^,][ey])/, '')}`;
 
     return authorsValue;
+};
+
+export const distributorOrAuthorSignature = (distributor, authors, signature = null) => {
+    if (!distributor || distributor.name === DISTRIBUTOR_LN) {
+        return articleSignature(authors, signature);
+    }
+    return `Por ${distributor.name}`;
 };

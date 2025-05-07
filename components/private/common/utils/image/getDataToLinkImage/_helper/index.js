@@ -80,6 +80,23 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     return get(basicDefault, 'resized_urls', []);
 };
 
+export const getResizerUrlJw = promoItems => {
+    const allImages = get(promoItems, 'basic.resized_urls', []);
+
+    const imagesJwPlayer = fillMaxWidth(allImages);
+
+    return imagesJwPlayer.map(
+        ({ minWidth = '', maxWidth = '', resizedUrl = '' }) => ({
+            option: {
+                media_preload: setMediaCondition({ minWidth, maxWidth }),
+                minScreenWidth: minWidth || 0,
+                width: minWidth || 0
+            },
+            resizedUrl
+        })
+    );
+};
+
 export const getcustomFieldsData = fieldsData => ({
     isHideImage: get(fieldsData, 'props.customFields.hideImage', false),
     imageID: get(fieldsData, 'props.customFields.imageId', '').trim(),

@@ -31,7 +31,7 @@ const BoxType = {
     Videos: 'videos'
 };
 
-const diagramationFromLayout = (layout) => {
+const diagramationFromLayout = layout => {
     const diagramation = {
         'left-focal-without-timeline': 'apertura_left-focal-without-timeline'
     };
@@ -45,16 +45,29 @@ const createBox = (
     layout,
     notas,
     type,
-    itemCategory = 'N/A'
-) => ({
-    id_caja: id,
-    visible: visible || true,
-    feature,
-    diagramacion_caja: diagramationFromLayout(layout),
-    item_category: itemCategory,
-    [type]: notas
-});
-
+    itemCategory = 'N/A',
+    videos = undefined
+) => {
+    if (videos) {
+        return {
+            id_caja: id,
+            visible: visible || true,
+            feature,
+            diagramacion_caja: diagramationFromLayout(layout),
+            item_category: itemCategory,
+            [type]: notas,
+            videos
+        };
+    }
+    return {
+        id_caja: id,
+        visible: visible || true,
+        feature,
+        diagramacion_caja: diagramationFromLayout(layout),
+        item_category: itemCategory,
+        [type]: notas
+    };
+};
 const getFeature = sectionAliasMobile => {
     let infoEntry = infoLNMainLN10[sectionAliasMobile];
     infoEntry = infoEntry || infoLNMain[sectionAliasMobile];
@@ -102,7 +115,7 @@ const normalizeElement = elem => {
 const createNotasArray = (elem, boxType) => {
     const notasArray = [];
     const resp = {};
-    let posicion = 0;
+    let posicion = elem.sectionAliasMobile === 'bnplayer' ? 1 : 0;
     const configPositionArticles =
         configPositionArticlesByBox[elem && elem.sectionAliasMobile] ||
         configPositionArticlesByBox.default;
@@ -154,6 +167,7 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
     const { sectionAliasMobile, information } = elem;
     const isSpecialBox = specialBoxRoot[sectionAliasMobile];
     let cajaCount = paramCajaCount;
+    let videos;
     try {
         const notas = createNotasArray(elem, boxType);
         const boxId = isSpecialBox
@@ -166,6 +180,17 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 ? 'enVivo'
                 : informationLayout;
 
+        if (elem.sectionAliasMobile === 'bnplayer' && elem.video) {
+            videos = [
+                createVideo(
+                    {
+                        _id: elem.video?.id,
+                        website_url: elem.video?.fullVideoUrl
+                    },
+                    1
+                )
+            ];
+        }
         const caja = createBox(
             boxId,
             hideCaja,
@@ -173,7 +198,8 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
             layout,
             notas.notasArray,
             boxType,
-            information.viewabilityRoof
+            information.viewabilityRoof,
+            videos
         );
         cajas.push(caja);
         if (notas.specialBox) cajas.push(notas.specialBox);
@@ -202,9 +228,11 @@ const getRanking = async (query, layoutPage, elementsPageHome) => {
         elementsPage: elementsPageHome
     };
 
-    return (setRankingByLayout[layoutPage] &&
-        (await setRankingByLayout[layoutPage](propsRanking))) ||
-        [];
+    return (
+        (setRankingByLayout[layoutPage] &&
+            (await setRankingByLayout[layoutPage](propsRanking))) ||
+        []
+    );
 };
 
 const transform = async (dataPage, query) => {
@@ -238,10 +266,10 @@ const transform = async (dataPage, query) => {
         return {
             cajas,
             apiPageHomeSourceFetchDate:
-                query.information.apiPageHomeSourceFetchDate,
-            layoutDate: query.information.layoutDate,
-            homeFetchDate: query.information.homeFetchDate,
-            keyCachedCall: query.information.keyCachedCall
+                query.information?.apiPageHomeSourceFetchDate,
+            layoutDate: query.information?.layoutDate,
+            homeFetchDate: query.information?.homeFetchDate,
+            keyCachedCall: query.information?.keyCachedCall
         };
     } catch (error) {
         throw new BackendLnError(

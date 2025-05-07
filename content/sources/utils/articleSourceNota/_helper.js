@@ -15,6 +15,7 @@ import validateSponsoredLink from '../validateSponsoredLink';
 import isNoteListenable from '../audioNews/helper';
 import {
     FOTOAL100,
+    isFotoAl100orStorytelling,
     RECETA,
     STORYTELLING,
     translateStringFromSubitypeToID
@@ -22,6 +23,7 @@ import {
 import addParallaxData from '../addParallaxData';
 import { recipePowerUps } from '../powerUp';
 import firmaDistributorValidation from '../firmaDistributorValidator';
+
 // Tener en cuenta que foodit usa estos helpers
 
 export const getUrlQuery = key => {
@@ -371,6 +373,22 @@ const transformContentElements = async ({
     return contentElementTransformed;
 };
 
+export const processVolanta = result => {
+    const headlinesWeb = (get(result, 'headlines.web', '') || '').trim();
+
+    if (!headlinesWeb) {
+        return result.label;
+    }
+
+    return {
+        ...(result.label || {}),
+        volanta: {
+            display: true,
+            text: headlinesWeb
+        }
+    };
+};
+
 export const transform = async (response, query, cachedCall) => {
     const {
         meteringVariant,
@@ -396,12 +414,16 @@ export const transform = async (response, query, cachedCall) => {
     const notShowGlossary =
         get(response, 'label.glosario_nota.text', 'No') === 'No';
 
+    const avatarWWW =
+        isInApertura && (!subtype || !isFotoAl100orStorytelling(subtype));
+
     const result = {
         ...response,
         ...addResizedUrls(response, {
             ...getImageConfig({ response, siteProperties, imageConfig }),
             subtype,
             isInApertura,
+            avatarWWW,
             isAdmin
         })
     };
@@ -448,6 +470,8 @@ export const transform = async (response, query, cachedCall) => {
             )
         ]);
 
+    const labelWithVolanta = processVolanta(result);
+
     return {
         ...result,
         withSponsoredLink: validateSponsoredLink(result),
@@ -460,6 +484,7 @@ export const transform = async (response, query, cachedCall) => {
             authors,
             sponsored
         ),
+        label: labelWithVolanta,
         promo_items: {
             ...promoItems,
             ...(promoItems.basic && {

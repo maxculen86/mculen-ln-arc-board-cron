@@ -7,12 +7,13 @@ describe('Test-CardLiveblog when size is M', () => {
         expect(resp.subtitles).toBeNull();
         expect(Object.keys(resp).sort()).toEqual(
             [
-                'autor',
+                'authors',
                 'autores',
                 'badge',
                 'badgeStyle',
                 'bajada',
                 'chapita',
+                'distributor',
                 'isListenable',
                 'enviarApps',
                 'openingMode',

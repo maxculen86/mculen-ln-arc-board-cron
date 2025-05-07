@@ -4,7 +4,7 @@ import { Icon } from '@ln/common-ui-icon';
 import { useWindowSize } from '@ln/hooks';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
-import { registeredIdsSetAndInteractions } from '../helpers';
+import { registeredIdsSetAndInteractions, isScriptLoaded } from '../helpers';
 import JwVideoContainer from './jwVideoContainer';
 import {
     useHandleBack,
@@ -13,6 +13,8 @@ import {
     useScrollTo,
     useUpdateVideoWidth
 } from '../hooks';
+
+import loadJWPlayerScript from '../../../utils/loadJWPlayerScript';
 
 function MediaScrollerExpanded() {
     const { currentIndex, setCurrentIndex, videosData } =
@@ -30,6 +32,7 @@ function MediaScrollerExpanded() {
     const isMobile = viewportWidth < 768;
     const showNext = currentIndex < videosData.length - 1 && !isMobile;
     const showBack = currentIndex > 0 && !isMobile;
+    const playerId = 'OSRCuuxn';
 
     const handleNextCallback = useHandleNext({
         containerRef,
@@ -48,6 +51,12 @@ function MediaScrollerExpanded() {
     });
 
     useScrollTo({ containerRef, isMobile, currentIndex });
+
+    useEffect(() => {
+        if (!isScriptLoaded(playerId)) {
+            loadJWPlayerScript(playerId);
+        }
+    }, []);
 
     useEffect(
         () => () => {

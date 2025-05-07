@@ -31,6 +31,9 @@ import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowa
 import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 import { GetFonts } from './criticalCss/getFonts';
 import removeExtraSpaces from '../private/common/utils/removeExtraSpaces';
+import SchemaPageview from '../features/LN-10-global/common/schemas/schemaPageView/default';
+import ScriptRegisterPageview from '../private/common/scriptManager/scriptRegisterPageview';
+import OTTPaywall from '../private/common/scriptManager/ottPaywall';
 
 const lnBuscador = 'LN-buscador';
 
@@ -96,7 +99,7 @@ function Default(props) {
 
     const metaTitleBasic = metaTitle || basicTitle;
 
-    const _nodeType = getSectionName({ nodeType, type, arcSite });
+    const _nodeType = getSectionName({ nodeType, type, arcSite, canonicalUrl });
     const title = getTitle({
         title: metaValue('title'),
         basicTitle,
@@ -169,6 +172,9 @@ function Default(props) {
                     isAdmin={isAdmin}
                     layout={layout}
                 />
+                {/* TODO: Eliminar schemaPageview y scriptRegisterPageview cuando se implemente gtag para registro de pageviews */}
+                <SchemaPageview globalContent={globalContent} layout={layout} />
+                <ScriptRegisterPageview />
                 <GetFonts
                     contextPath={contextPath}
                     deployment={deployment}
@@ -205,6 +211,7 @@ function Default(props) {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
+                <OTTPaywall arcSite={arcSite} isAdmin={isAdmin} />
                 <TagsLoadingList
                     section={_nodeType}
                     location="head"

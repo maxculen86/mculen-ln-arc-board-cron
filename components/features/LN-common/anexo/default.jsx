@@ -56,22 +56,33 @@ export const getComponentFromConfig = (
             </>
         ),
         VivoYoutube: ({
-            customFields: { vivoYoutube = '' },
+            customFields: { vivoYoutube = '', videoComercial },
             anexoBaseClassNames
         }) => {
             const containerRef = useRef(null);
 
-            useEffect(
-                () => setupIntersectionObserver(containerRef, vivoYoutube),
-                [vivoYoutube]
-            );
+            useEffect(() => {
+                if (videoComercial && containerRef.current) {
+                    containerRef.current.innerHTML = vivoYoutube;
+                } else {
+                    setupIntersectionObserver(containerRef, vivoYoutube);
+                }
+            }, [vivoYoutube, videoComercial]);
 
             return (
                 <>
                     <div className={classNameRoof}>
                         <BuildRoof {...roofData} />
                     </div>
-                    <div ref={containerRef} className={anexoBaseClassNames} />
+                    <div
+                        data-testid={
+                            videoComercial
+                                ? 'vivoYoutube-container-anexo-disabled'
+                                : null
+                        }
+                        ref={containerRef}
+                        className={anexoBaseClassNames}
+                    />
                     {bannerMob}
                     {bannerDsk}
                 </>
@@ -278,6 +289,12 @@ AnexoFeature.propTypes = {
             group: adjustByVivoYoutube,
             description: 'Ingrese aquí el VIVO YOUTUBE del anexo',
             defaultValue: ''
+        }),
+        videoComercial: PropTypes.boolean.tag({
+            label: 'Video Comercial',
+            description: 'Marque para desactivar carga diferida',
+            group: adjustByVivoYoutube,
+            defaultValue: false
         }),
         heightDesktop: PropTypes.number.tag({
             label: 'Alto Desktop',

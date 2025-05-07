@@ -148,9 +148,8 @@ const scriptList = [
 const getPageBuilderFeatures = _renderables =>
     _renderables.filter(renderable => renderable.collection === 'features');
 
-const isGPTAndDisabled = (script, bannersDisabled) => {
-    return bannersDisabled && script.component.name === 'GooglePublisherTag';
-};
+const isGPTAndDisabled = (script, bannersDisabled) =>
+    bannersDisabled && script.component.name === 'GooglePublisherTag';
 
 const getScriptsFilterFunction = (scripts, bannersDisabled) => features => {
     const filteredScripts = scripts
@@ -178,12 +177,11 @@ const getScriptsFilterFunction = (scripts, bannersDisabled) => features => {
     return filteredScripts;
 };
 
-export const getScriptsToLoad = (renderables = [], bannersDisabled) => {
-    return pipe(
+export const getScriptsToLoad = (bannersDisabled, renderables = []) =>
+    pipe(
         getPageBuilderFeatures,
         getScriptsFilterFunction(scriptList, bannersDisabled)
     )(renderables);
-};
 
 const buildScriptComponent = ({
     renderables = [],
@@ -197,7 +195,7 @@ const buildScriptComponent = ({
     );
 
     return ScriptManager(
-        getScriptsToLoad(renderables, bannersDisabled),
+        getScriptsToLoad(bannersDisabled, renderables),
         sitePropertiesScripts,
         globalContent,
         isArcPreview

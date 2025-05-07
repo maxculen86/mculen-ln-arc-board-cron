@@ -307,7 +307,13 @@ export const getMediaData = ({
     isAdmin = false,
     isLoadWithPicture
 } = {}) => {
-    const { video: videoId, imageId, html = '', cllBoard = '' } = customFields;
+    const {
+        video: videoId,
+        imageId,
+        html = '',
+        cllBoard = '',
+        videoComercial
+    } = customFields;
     const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
@@ -335,7 +341,9 @@ export const getMediaData = ({
             validation: html.trim(),
             data: {
                 type: 'embedCode',
-                embedCode: generateLazyLoadEmbedCode(html),
+                embedCode: videoComercial
+                    ? html
+                    : generateLazyLoadEmbedCode(html),
                 dataSrc: html.match(/src="(.*?)"/)?.[1]
             }
         },

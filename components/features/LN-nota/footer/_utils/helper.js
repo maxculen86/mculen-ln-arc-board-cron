@@ -61,4 +61,10 @@ export const getSectionsAsTags = (sections = []) => {
         }));
 };
 
+export function isInvalidLogo(logoData) {
+    return (
+        !logoData || !logoData.logoName || logoData.logoName === 'canchallena'
+    );
+}
+
 export default getSignatureRenderOptions;

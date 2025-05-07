@@ -22,7 +22,8 @@ export const TOAST = {
                     </Link>
                 </>
             ),
-            RENAME_COLLECTION: 'Podes ver la colección en mis recetas.',
+            RENAME_COLLECTION:
+                'Podes ver los cambios aplicados en la colección.',
             DELETE_ARTICLE: 'Se quito de tu colección.',
             SAVE_ARTICLE: (
                 <>
@@ -38,10 +39,21 @@ export const TOAST = {
                     </Link>
                 </>
             ),
-            SAVE_INGREDIENTS:
-                'Los ingredientes han sido añadidos a la lista de compras.',
+            SAVE_INGREDIENTS: (
+                <>
+                    Podes acceder desde la sección{' '}
+                    <Link
+                        href="/lista-de-compras/"
+                        className="inline-flex"
+                        title="Ir a la lista de compras"
+                    >
+                        <span className="text-light-1 underline">
+                            &quot;Lista de compras.&quot;
+                        </span>
+                    </Link>
+                </>
+            ),
             COPY_INGREDIENTS: 'Podes enviar el listado que copiaste.',
-            DELETE_INGREDIENTS: 'Ya no forma parte de tu listado de compras.',
             SAVE_MENU: (
                 <>
                     Podes acceder desde la sección{' '}
@@ -57,7 +69,8 @@ export const TOAST = {
                 </>
             ),
             EDIT_MENU: 'Podes ver los cambios aplicados en el menú semanal.',
-            DELETE_MENU: 'Se quito del menú semanal'
+            DELETE_MENU: 'Se quito del menú semanal',
+            DELETE_INGREDIENTS: 'se quitó de tu listado de compras.'
         }
     },
     ERROR: {

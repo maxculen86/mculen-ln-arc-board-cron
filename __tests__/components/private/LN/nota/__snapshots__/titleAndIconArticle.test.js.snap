@@ -1,18 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono en Nota 1`] = `
+exports[`features - LaNacion - Nota - TituloNota Snapshot test for Title and Icon in Article 1`] = `
 <div>
   <com-logo
     alt="bbc"
     href="/distributor/bbc-mundo/"
     logoname="bbc"
     size="--sm"
+    target="_self"
     title="bbc"
   />
   <h1
     class="com-title --font-primary --sixxl --font-extra"
   >
     Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local
+  </h1>
+</div>
+`;
+
+exports[`features - LaNacion - Nota - TituloNota Snapshot test for Title and Icon in Article with External Link 1`] = `
+<div>
+  <com-logo
+    alt="LN 104.9 + Música"
+    href="https://masmusica.lanacion.com.ar/"
+    logoname="ln-radio"
+    rel="noopener"
+    size="--sm"
+    target="_blank"
+    title="LN 104.9 + Música"
+  />
+  <h1
+    class="com-title --font-primary --sixxl --font-extra"
+  >
+    foto al 100 mas musica
   </h1>
 </div>
 `;

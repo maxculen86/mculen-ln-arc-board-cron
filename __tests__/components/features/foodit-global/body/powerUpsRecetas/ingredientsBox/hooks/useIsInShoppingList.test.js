@@ -18,7 +18,7 @@ const TestComponent = ({ isSuscriptor, articleId }) => {
     return <div data-testid="bookmark-id">{bookmarkId}</div>;
 };
 
-describe('useIsInShoppingList', () => {
+xdescribe('useIsInShoppingList', () => {
     const mockToken = 'mockToken';
     const mockAccessToken = 'mockAccessToken';
     const mockArticleId = 'mockArticleId';

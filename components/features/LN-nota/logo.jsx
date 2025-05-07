@@ -9,7 +9,10 @@ import {
 } from '../../private/common/utils/sectionUtils';
 
 import ComLogo from '../../private/common/com-logo';
+import getTargetAndRelIfExternal from '../../private/common/utils/getTargetAndRelIfExternal';
 
+// TODO
+// Revisar, hay 2 componentes 'logo'
 function Logo(props) {
     const {
         globalContent: {
@@ -22,22 +25,25 @@ function Logo(props) {
     const { name } = distributor || {};
     const logo = getSectionLogo(sections, layout, name);
 
-    const { path, logoName } = logo || {
+    const { path, logoName, isExternal } = logo || {
         path: null,
-        logoName: null
+        logoName: null,
+        isExternal: null
     };
-
-    const link = path ? `${path}/` : null;
 
     const altLogo = dictionaryAlt[logoName]
         ? dictionaryAlt[logoName]
         : logoName;
 
+    const { target, rel } = getTargetAndRelIfExternal(isExternal);
+
     return logoName !== 'canchallena' ? (
         <ComLogo
             size="--xs"
             logoName={logoName}
-            href={link}
+            href={path}
+            target={target}
+            rel={rel}
             alt={altLogo}
             title={altLogo}
             classCondition="ln-nota-logo"

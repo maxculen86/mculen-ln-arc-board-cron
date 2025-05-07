@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
+import getQueryParamValue from '../../private/common/utils/getQueryParamValue';
 
-const Buscador = () => {
+function Buscador() {
     const { contextPath, deployment } = useAppContext();
+
+    useEffect(() => {
+        const query = getQueryParamValue('fval', window.location.href);
+
+        if (query && query !== 'avisos') {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                #faceteddata {display:none!important}
+                #resultdata {margin-left:auto!important}
+            `;
+            document.head.appendChild(style);
+        }
+    }, []);
+
     return (
         <>
             <article id="nota" className="floatFix">
@@ -35,7 +50,7 @@ const Buscador = () => {
             />
         </>
     );
-};
+}
 
 Buscador.label = 'LN-Common-Buscador';
 

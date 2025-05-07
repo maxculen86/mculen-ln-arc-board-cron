@@ -32,5 +32,10 @@
         {
             "customFields.layout": "foodit_3_grid"
         }
+    ],
+    "bnPlayer": [
+        {
+            "customFields.layout": "bn_player_3_grid"
+        }
     ]
 }

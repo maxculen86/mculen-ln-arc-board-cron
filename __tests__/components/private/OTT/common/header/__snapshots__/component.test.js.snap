@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should render with button cerrar sesion and logout must be executed 1`] = `
+<div>
+  <div
+    class="header-wrapper"
+  >
+    <header
+      class="header"
+    >
+      <div
+        class="wrapper"
+      >
+        <a
+          alt="lnmas.com.ar"
+          class="header__logo"
+          href="/pf/homepage/"
+          title="lnmas.com.ar"
+        >
+          LN+
+        </a>
+        <button
+          class="header__hamburguer"
+        >
+          ☰
+        </button>
+        <nav
+          class="header__nav"
+        >
+          <a
+            alt="En Vivo"
+            class="header__nav__link"
+            data-event="LinkClick"
+            data-section="HeaderOTT"
+            href="/homepage/"
+          >
+            En Vivo
+          </a>
+          <a
+            alt="Todos los programas"
+            class="header__nav__link"
+            data-event="LinkClick"
+            data-section="HeaderOTT"
+            href="/programas/"
+          >
+            Todos los programas
+          </a>
+          <a
+            class="link header__my-account"
+            href="https://myaccount.lanacion.com.ar/"
+            target="_self"
+            title="Ir a mi cuenta"
+          >
+            <span
+              class="text"
+            >
+              Mi cuenta
+            </span>
+          </a>
+        </nav>
+      </div>
+    </header>
+  </div>
+</div>
+`;

@@ -27,13 +27,6 @@ const defaultButtons = [
         title: 'Ir a Menú semanal',
         children: 'Menú semanal',
         href: '/menu-semanal/'
-        /* onClick: () =>
-            addEventToDataLayerV2({
-                event: 'e_linkclick',
-                category: 'autogestion',
-                label: 'perfil',
-                action: 'mis_recetas'
-            }) */
     },
     {
         title: 'Ir a Lista de compras',
@@ -73,27 +66,6 @@ export const floatingButtonConfig = {
                     title: 'Elegir colección',
                     children: 'Elegir colección',
                     onClick: () => toggleDrawerRecetario()
-                }
-            ]
-        };
-    },
-    [layoutsName.FooditBuscador]: (callbacks = []) => {
-        const [, toggleDrawerBuscador = () => null] = callbacks;
-        return {
-            observerSelector: HEADER_SENTINEL_CLASS,
-            className: 'lg-none',
-            buttons: [
-                {
-                    title: 'Filtros',
-                    children: (
-                        <>
-                            <Icon size={16}>
-                                <IconSprite fill="#FEFEFE" name="filter" />
-                            </Icon>
-                            Filtros
-                        </>
-                    ),
-                    onClick: () => toggleDrawerBuscador()
                 }
             ]
         };

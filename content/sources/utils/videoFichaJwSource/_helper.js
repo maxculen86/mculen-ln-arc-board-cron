@@ -1,4 +1,8 @@
+import getProperties from 'fusion:properties';
 import getSourcesJw from '../../../../components/private/LN/common/utils/getSourcesJw';
+import get from '../../../../components/private/common/utils/get';
+import { signingServiceCachedCall } from '../signingServiceSource/getImagesAuth';
+import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 
 export const getMediaJwData = (data, url) => {
     const parsedData = JSON.parse(data);
@@ -35,5 +39,54 @@ export const getMediaJwData = (data, url) => {
             }
         },
         type: 'video'
+    };
+};
+
+export const transformResultWithResizer = async ({
+    result,
+    arcSite,
+    query,
+    cachedCall
+}) => {
+    const imageVideoJw = get(
+        result,
+        'promo_items.basic.embed.config.videoJw.playlist[0].image',
+        null
+    );
+
+    const { hash: videoJwHash = '' } = await signingServiceCachedCall(
+        imageVideoJw,
+        cachedCall
+    );
+
+    Object.assign(result.promo_items.basic, {
+        auth: { 1: videoJwHash }
+    });
+
+    const properties = getProperties('la-nacion-ar');
+    const promoItems = get(result, 'promo_items', null);
+
+    const presetsPromoItems = get(
+        properties,
+        'imageConfig.resize.videoJwImage.promo_items',
+        null
+    );
+    const presetsDefault = get(properties, 'imageConfig.resize.default', null);
+
+    return {
+        ...result,
+        ...addResizedUrls(
+            {
+                ...(promoItems && { promo_items: promoItems })
+            },
+            {
+                presets: {
+                    promoItems: presetsPromoItems,
+                    presetsDefault
+                },
+                isAdmin: get(query, 'isAdmin', false),
+                arcSite
+            }
+        )
     };
 };

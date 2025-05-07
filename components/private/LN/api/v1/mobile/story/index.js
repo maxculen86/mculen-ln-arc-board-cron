@@ -26,7 +26,7 @@ const indexNota = dataNotaParam => {
     };
 
     let elmentsAdd = 0;
-    const boxElements = [0, 3, 6, 8, 10];
+    const boxElements = [0, 2, 5, 8, 10];
     if (resp.contenido) {
         const { length } = resp.contenido;
         boxElements.forEach(boxElement => {
@@ -47,7 +47,10 @@ const indexNota = dataNotaParam => {
             });
         });
     }
-    return removeEmptyItems(resp);
+
+    const story = { ...resp, url: `${resp.url}?utm_source=appln` };
+
+    return removeEmptyItems(story);
 };
 
 export default indexNota;

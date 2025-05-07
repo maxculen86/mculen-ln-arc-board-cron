@@ -5,7 +5,7 @@ import { Dialog } from '@ln/common-ui-dialog';
 import { cx } from '@ln/cva';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import useSelectListener from './hooks/useSelectListener';
+import useSelectListener from '../../../../LN-common/hooks/useSelectListener';
 import useInputListener from './hooks/useInputListener';
 
 import HeaderSaveRecipe from './components/header';
@@ -41,22 +41,27 @@ function SaveRecipe({
     const {
         onChange: onInputFolderChange,
         value: inputValue,
-        error: inputError
+        error: inputError,
+        restoreInputValue
     } = useInputListener('');
 
     const {
         onSelectChange,
         selectValue = {},
-        restoreInputValue
+        restoreInputValue: restoreSelectValue
     } = useSelectListener({});
 
     const handleCLoseDialog = () => {
-        restoreInputValue();
+        restoreSelectValue();
         close();
     };
 
     const { leftButton, rightButton, showInputFolder, showSelect, title } =
         getConfig(saveRecipeConfig, indexStep);
+
+    const handleRestoreInputValue = () => {
+        restoreInputValue();
+    };
 
     useEffect(() => {
         if (selectValue.value === 'new') {
@@ -107,6 +112,7 @@ function SaveRecipe({
                             showInputFolder={showInputFolder}
                             showSelect={showSelect}
                             inputRef={inputRef}
+                            restoreInputValue={handleRestoreInputValue}
                         />
                     </Dialog.Body>
                     <Dialog.Footer className="flex flex-column gap-16 gap-24_md gap-32_lg">

@@ -31,22 +31,20 @@ describe('components - feature - LN-nota - footer - _children - Logo', () => {
     it('renders the autos logo correctly when data is provided', () => {
         useAppContext.mockReturnValue({
             deployment: logoName => `http://arc.lanacion.com.ar${logoName}`,
-            contextPath: '/pf'
+            contextPath: '/pf',
+            globalContent: {
+                distributor: { name: 'Xinhua' },
+                taxonomy: { sections: [{}] }
+            }
         });
 
-        getSectionLogo.mockReturnValue({
-            path: '/autos',
+        const logoData = {
+            path: '/autos/',
             logoName: 'autos'
-        });
+        };
 
         const { getByAltText, getByRole } = render(
-            <Logo
-                globalContent={{
-                    distributor: { name: 'Xinhua' },
-                    taxonomy: { sections: [{}] }
-                }}
-                layout="LN-nota-noticia"
-            />
+            <Logo logoData={logoData} />
         );
 
         expect(getByRole('link')).toHaveAttribute('href', '/autos/');
@@ -62,17 +60,7 @@ describe('components - feature - LN-nota - footer - _children - Logo', () => {
             contextPath: '/pf'
         });
 
-        getSectionLogo.mockReturnValue(null);
-
-        const { container } = render(
-            <Logo
-                globalContent={{
-                    distributor: { name: 'Distributor' },
-                    taxonomy: { sections: [{}] }
-                }}
-                layout="LN-nota-noticia"
-            />
-        );
+        const { container } = render(<Logo logoData={null} />);
 
         expect(container.firstChild).toBeNull();
     });
@@ -83,20 +71,12 @@ describe('components - feature - LN-nota - footer - _children - Logo', () => {
             contextPath: '/pf'
         });
 
-        getSectionLogo.mockReturnValue({
+        const logoData = {
             path: '/sports',
             logoName: 'canchallena'
-        });
+        };
 
-        const { container } = render(
-            <Logo
-                globalContent={{
-                    distributor: { name: 'Distributor' },
-                    taxonomy: { sections: [{}] }
-                }}
-                layout="LN-nota-noticia"
-            />
-        );
+        const { container } = render(<Logo logoData={logoData} />);
 
         expect(container.firstChild).toBeNull();
     });

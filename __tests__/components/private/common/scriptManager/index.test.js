@@ -137,7 +137,8 @@ describe('getScriptsToLoad', () => {
     });
 
     it('should returns an object with the scripts to include', () => {
-        const result = getScriptsToLoad(renderables);
+        const bannersDisabled = false;
+        const result = getScriptsToLoad(bannersDisabled, renderables);
         expect(Object.keys(getScriptsToLoad(undefined))).toEqual([
             'Datadog',
             'AdblockDetector',
@@ -195,7 +196,7 @@ describe('getScriptsToLoad', () => {
 
     it('should returns an object with the scripts to include when banners are disabled', () => {
         const bannersDisabled = true;
-        const result = getScriptsToLoad(renderables, bannersDisabled);
+        const result = getScriptsToLoad(bannersDisabled, renderables);
         expect(Object.keys(result)).toEqual([
             'Datadog',
             'AdblockDetector',

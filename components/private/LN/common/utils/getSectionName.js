@@ -1,4 +1,4 @@
-export default function({ nodeType, type, arcSite }) {
+const getSectionName = ({ nodeType, type, arcSite, canonicalUrl = '' }) => {
     const SECTIONS = {
         HOME: 'home',
         STORY: 'nota',
@@ -6,17 +6,25 @@ export default function({ nodeType, type, arcSite }) {
         ACUMULADO: 'acumulado',
         NODE_TYPES: ['section', 'tags', 'author', 'distributor']
     };
+    // TODO: UNA VEZ ELIMINADO OTT, REFACTORIZAR PARA QUE SIEMPRE TOME LA FUNCION COMO JW
+    const transformType = canonicalUrl.startsWith('/carrousel/')
+        ? 'videoJw'
+        : type;
 
     const options = {
         story: () => SECTIONS.STORY,
         video: () => arcSite === 'ott' && SECTIONS.VIDEO,
         checkNodeTypes: () =>
-            SECTIONS.NODE_TYPES.includes(nodeType || type) && SECTIONS.ACUMULADO
+            SECTIONS.NODE_TYPES.includes(nodeType || type) &&
+            SECTIONS.ACUMULADO,
+        videoJw: () => transformType
     };
 
     return (
-        (options[type] && options[type]()) ||
+        (options[transformType] && options[transformType]()) ||
         options.checkNodeTypes() ||
         SECTIONS.HOME
     );
-}
+};
+
+export default getSectionName;

@@ -54,6 +54,13 @@ export default `
                     sponsored
                 }
             }
+            audio_nota {
+                embed {
+                    config {
+                        audio_status
+                    }
+                }
+            }         
         }
         taxonomy {
             tags {
@@ -89,10 +96,17 @@ export default `
                 }
                 additional_properties {
                     original {
+                        author_type
                         image
                     }
                 }
             }
+        }
+        distributor {
+            name
+            category
+            reference_id
+            mode
         }
         headlines {
             basic
@@ -110,8 +124,6 @@ export default `
         }
         display_date
         publish_date
-        website_url
-        display_date
         website_url
         marquesina
         label  {

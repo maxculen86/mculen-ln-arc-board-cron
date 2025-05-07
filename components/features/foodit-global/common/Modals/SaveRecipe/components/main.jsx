@@ -15,7 +15,8 @@ function MainSaveRecipe(props) {
         onSelectChange,
         showInputFolder,
         showSelect,
-        inputRef
+        inputRef,
+        restoreInputValue
     } = props;
 
     const [folders, setFolders] = useState([
@@ -37,6 +38,13 @@ function MainSaveRecipe(props) {
         fetchFolders();
     }, []);
 
+    const handleSelectChange = event => {
+        if (event.value === 'new') {
+            restoreInputValue();
+        }
+        onSelectChange(event);
+    };
+
     return (
         <div data-test-id="button-bookmark-show-collections">
             {showSelect && (
@@ -45,7 +53,7 @@ function MainSaveRecipe(props) {
                     openClassName="border-secondary-positive"
                     hoverClassName="border-accent-lechuga__hover"
                     listClassName="text-12 roboto roboto-regular shadow-modal bg-white p-16 rounded-8 border border-all border-thin border-light-100"
-                    onChange={onSelectChange}
+                    onChange={handleSelectChange}
                     floatingLabelProps={{
                         className: 'bg-white'
                     }}
@@ -107,7 +115,8 @@ MainSaveRecipe.propTypes = {
     showSelect: PropTypes.bool.isRequired,
     inputRef: PropTypes.shape({
         current: PropTypes.instanceOf(HTMLInputElement)
-    }).isRequired
+    }).isRequired,
+    restoreInputValue: PropTypes.func.isRequired
 };
 
 export default MainSaveRecipe;
