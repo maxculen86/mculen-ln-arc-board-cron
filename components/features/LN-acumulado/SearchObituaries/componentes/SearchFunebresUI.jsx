@@ -15,6 +15,7 @@ function SearchFuneberesUI({
 }) {
     return (
         <FuneralSearch className="mb-16 mb-32_l">
+            <Text className="prumo-medium text-18 text-light-600">Buscar:</Text>
             <div className="flex flex-column gap-16 flex-row_m gap-8_m">
                 <div className="w-183_md">
                     <FuneralSearch.Select
