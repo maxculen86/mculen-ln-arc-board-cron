@@ -153,11 +153,7 @@ export function SelectMenu({
                                 // eslint-disable-next-line react/no-unstable-nested-components
                                 as={props => (
                                     <ItemCardForDay
-                                        title={
-                                            isDisabled
-                                                ? `Día ${text} no disponible`
-                                                : text
-                                        }
+                                        title={false}
                                         disabled={isDisabled}
                                         {...(isDisabled && {
                                             'aria-disabled': true
@@ -199,11 +195,7 @@ export function SelectMenu({
                             // eslint-disable-next-line react/no-unstable-nested-components
                             as={props => (
                                 <ItemCardForMeal
-                                    title={
-                                        isDisabled
-                                            ? `Comida ${text} no disponible`
-                                            : text
-                                    }
+                                    title={false}
                                     disabled={isDisabled}
                                     {...(isDisabled && {
                                         'aria-disabled': true
