@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Static from 'fusion:static';
 import propTypes from 'prop-types';
 import { Dropdown } from '@ln/common-ui-dropdown';
@@ -7,9 +7,6 @@ import { Button } from '@ln/foodit-ui-button';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import getBookmarks from '../bookmark/api/getBookmarks';
-import { getMealTotalById } from '../MenuSemanal/helpers/_helper';
-import useAuthManager from '../../../../private/common/auth/hooks/useAuthManager';
 import { handleIngredientListButton } from '../../Body/PowerupsReceta/ingredientsBox/_helper';
 import { useIsInShoppingList } from '../../Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList';
 import {
@@ -22,12 +19,11 @@ import get from '../../../../private/common/utils/get';
 
 export function ActionsButtons({
     handleOpen,
+    countDayFood,
     article: { _id: articleId },
     article
 }) {
     const title = get(article, 'headlines.basic', '');
-    const [countDayFood, setCountDayFood] = useState(0);
-    const { token, accessToken } = useAuthManager();
     const isSuscriptor = useMemo(
         () => isSubscribed(SUBSCRIBED_HELPER.FOODIT),
         []
@@ -40,28 +36,6 @@ export function ActionsButtons({
 
     const { portionsValue } = usePortions('recipe-portions');
     const { ingredientsLists } = useIngredientsList('ingredients-list');
-
-    const handleWeeklyMenuCount = async () => {
-        if (!token || !accessToken) return;
-
-        try {
-            const { data = [] } = await getBookmarks(
-                token,
-                accessToken,
-                'weeklyMenu'
-            );
-            const { total } = getMealTotalById(articleId, data);
-            setCountDayFood(total);
-        } catch (error) {
-            console.error('Error fetching weekly menu count:', error);
-        }
-    };
-
-    useEffect(() => {
-        if (token && accessToken) {
-            handleWeeklyMenuCount();
-        }
-    }, [token, accessToken]);
 
     const handleShoppingListAdd = async () => {
         try {
@@ -210,6 +184,7 @@ export function ActionsButtons({
 
 ActionsButtons.propTypes = {
     handleOpen: propTypes.func.isRequired,
+    countDayFood: propTypes.number.isRequired,
     article: propTypes.shape({
         _id: propTypes.string.isRequired
     }).isRequired

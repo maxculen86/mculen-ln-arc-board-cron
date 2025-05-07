@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Select } from '@ln/common-ui-select';
 import PropTypes from 'prop-types';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
-import useGetUserConfig from '../../../hooks/useGetUserConfig';
-import { useGetWeeklyMenu } from '../hooks/useGetWeeklyMenu';
 
 function ItemCardForDay({ disabled, className, ...props }) {
     return (
@@ -69,13 +67,10 @@ export function SelectMenu({
     setSelectedDay,
     setSelectedFood,
     selectedDay,
-    selectedFood
+    selectedFood,
+    articleId,
+    weeklyMenu
 }) {
-    const { isSubscribed: subscription } = useGetUserConfig();
-    const { weeklyMenu, setWeeklyMenu } = useGetWeeklyMenu(subscription);
-    console.log('SelectMenu weeklyMenu', weeklyMenu);
-    console.log('SelectMenu subscription', subscription);
-
     const days = [
         { id: 'monday', text: 'Lunes' },
         { id: 'tuesday', text: 'Martes' },
@@ -102,29 +97,31 @@ export function SelectMenu({
 
     const getDayMealCombinations = () => {
         if (!weeklyMenu || weeklyMenu.length === 0) return [];
-        return weeklyMenu.map(item => ({
-            day: item.bookmarkGroup,
-            mealType: item.bookmarkContent.food
-        }));
+        return weeklyMenu
+            .filter(item => item.bookmarkTypeId === articleId)
+            .map(item => ({
+                day: item.bookmarkGroup,
+                mealType: item.bookmarkContent.food
+            }));
     };
 
     const dayMealCombinations = getDayMealCombinations();
 
-    console.log('dayMealCombinations', dayMealCombinations);
-
     const isMealDisabled = mealId => {
         if (!selectedDay) return false;
-        console.log('isMealDisabled for mealId:', mealId);
-        return dayMealCombinations.some(
-            item => item.mealType === mealId && item.day === selectedDay
+        return Boolean(
+            dayMealCombinations.find(
+                item => item.mealType === mealId && item.day === selectedDay
+            )
         );
     };
 
     const isDayDisabled = dayId => {
         if (!selectedFood) return false;
-        console.log('isDayDisabled for dayId:', dayId);
-        return dayMealCombinations.some(
-            item => item.day === dayId && item.mealType === selectedFood
+        return Boolean(
+            dayMealCombinations.find(
+                item => item.day === dayId && item.mealType === selectedFood
+            )
         );
     };
 
@@ -146,25 +143,31 @@ export function SelectMenu({
                 <div className="max-h-198 foodit-scrollbar overflow-y-auto">
                     {days.map(({ text, id }) => {
                         const isDisabled = isDayDisabled(id);
-                        console.log('isDisabled day', isDisabled);
 
                         return (
                             <Select.Options
                                 key={id}
                                 value={id}
                                 label={text}
-                                as={ItemCardForDay}
                                 className="text-12"
-                                disabled={isDisabled}
-                                {...(isDisabled && {
-                                    className: 'card-item-disabled'
-                                })}
-                                {...(isDisabled && {
-                                    'aria-disabled': true
-                                })}
-                                {...(isDisabled && {
-                                    'aria-label': `Día ${text} no disponible`
-                                })}
+                                // eslint-disable-next-line react/no-unstable-nested-components
+                                as={props => (
+                                    <ItemCardForDay
+                                        title={
+                                            isDisabled
+                                                ? `Día ${text} no disponible`
+                                                : text
+                                        }
+                                        disabled={isDisabled}
+                                        {...(isDisabled && {
+                                            'aria-disabled': true
+                                        })}
+                                        {...(isDisabled && {
+                                            'aria-label': `Día ${text} no disponible`
+                                        })}
+                                        {...props}
+                                    />
+                                )}
                             />
                         );
                     })}
@@ -186,7 +189,6 @@ export function SelectMenu({
             >
                 {meals.map(({ text, id }) => {
                     const isDisabled = isMealDisabled(id);
-                    console.log('isDisabled meal', isDisabled);
 
                     return (
                         <Select.Options
@@ -194,17 +196,24 @@ export function SelectMenu({
                             className="text-12"
                             value={id}
                             label={text}
-                            as={ItemCardForMeal}
-                            disabled={isDisabled}
-                            {...(isDisabled && {
-                                className: 'card-item-disabled'
-                            })}
-                            {...(isDisabled && {
-                                'aria-disabled': true
-                            })}
-                            {...(isDisabled && {
-                                'aria-label': `Comida ${text} no disponible`
-                            })}
+                            // eslint-disable-next-line react/no-unstable-nested-components
+                            as={props => (
+                                <ItemCardForMeal
+                                    title={
+                                        isDisabled
+                                            ? `Comida ${text} no disponible`
+                                            : text
+                                    }
+                                    disabled={isDisabled}
+                                    {...(isDisabled && {
+                                        'aria-disabled': true
+                                    })}
+                                    {...(isDisabled && {
+                                        'aria-label': `Comida ${text} no disponible`
+                                    })}
+                                    {...props}
+                                />
+                            )}
                         />
                     );
                 })}
@@ -218,6 +227,7 @@ SelectMenu.propTypes = {
     setSelectedFood: PropTypes.func.isRequired,
     selectedDay: PropTypes.string,
     selectedFood: PropTypes.string,
+    articleId: PropTypes.string.isRequired,
     weeklyMenu: PropTypes.arrayOf(
         PropTypes.shape({
             day: PropTypes.string.isRequired,

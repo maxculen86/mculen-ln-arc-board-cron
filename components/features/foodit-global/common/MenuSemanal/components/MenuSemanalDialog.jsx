@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Dialog } from '@ln/common-ui-dialog';
@@ -9,22 +9,19 @@ import IconSprite from '../../../../private-global/common/iconSprite/IconSprite'
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { SelectMenu } from '../SaveMenu/SelectMenu';
 import { FooterMenu } from '../SaveMenu/FooterMenu';
-// import { dayFoodQuantities } from '../helpers/_helper';
-// import getBookmarks from '../../bookmark/api/getBookmarks';
-// import useAuthManager from '../../../../../private/common/auth/hooks/useAuthManager';
 import get from '../../../../../private/common/utils/get';
 import { addToast, TOAST } from '../../bookmark/api/_helper';
 import { saveMenu } from '../../bookmark/api/menuSave';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
+import { dayFoodQuantities } from '../helpers/_helper';
 
-function MenuSemanalDialog({ article, onClose, isOpen }) {
+function MenuSemanalDialog({ article, onClose, isOpen, weeklyMenu }) {
     const { isSubscribed, userType } = useGetUserConfig();
-    const [countDayFood, setCountDayFood] = useState([]);
     const [selectedDay, setSelectedDay] = useState(null);
     const [selectedFood, setSelectedFood] = useState(null);
-    // const { token, accessToken } = useAuthManager();
+    const countDayFood = dayFoodQuantities(weeklyMenu);
 
     const classContainer = cx(
         'mx-auto rounded-4',
@@ -33,16 +30,6 @@ function MenuSemanalDialog({ article, onClose, isOpen }) {
             : 'p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive'
     );
 
-    /* const handleOpen = async () => {
-        onOpen();
-        const { data = [] } = await getBookmarks(
-            token,
-            accessToken,
-            'weeklyMenu'
-        );
-
-        setCountDayFood(dayFoodQuantities(data));
-    }; */
     const handleClose = () => {
         setSelectedDay(null);
         setSelectedFood(null);
@@ -123,6 +110,8 @@ function MenuSemanalDialog({ article, onClose, isOpen }) {
                                     setSelectedFood={setSelectedFood}
                                     selectedDay={selectedDay}
                                     selectedFood={selectedFood}
+                                    articleId={get(article, '_id', '')}
+                                    weeklyMenu={weeklyMenu}
                                 />
                             </div>
                             <FooterMenu
@@ -154,7 +143,14 @@ function MenuSemanalDialog({ article, onClose, isOpen }) {
 MenuSemanalDialog.propTypes = {
     article: PropTypes.shape({}).isRequired,
     onClose: PropTypes.func.isRequired,
-    isOpen: PropTypes.bool.isRequired
+    isOpen: PropTypes.bool.isRequired,
+    weeklyMenu: PropTypes.arrayOf(
+        PropTypes.shape({
+            day: PropTypes.string.isRequired,
+            mealType: PropTypes.string.isRequired,
+            recipe: PropTypes.shape({}).isRequired
+        })
+    ).isRequired
 };
 
 export default MenuSemanalDialog;

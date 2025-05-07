@@ -24,9 +24,18 @@ import getImageAltText from '../utils/getImageAltText';
 import AudioRecipe from './audioRecipe';
 import MenuSemanalDialog from '../MenuSemanal/components/MenuSemanalDialog';
 import { ActionsButtons } from './actionOptions';
+import { useGetWeeklyMenu } from '../MenuSemanal/hooks/useGetWeeklyMenu';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
+import { getMealTotalById } from '../MenuSemanal/helpers/_helper';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
-    const { promo_items: promoItems = {}, headlines = {}, taxonomy } = article;
+    const {
+        promo_items: promoItems = {},
+        headlines = {},
+        taxonomy,
+        _id: articleId
+    } = article;
+
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
     const title = get(headlines, 'basic', '');
@@ -38,10 +47,16 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
 
     const { resizedUrl = '' } = getShortestImage(resizedUrls);
     const { isOpen, onOpen, onClose } = useDisclosure(false);
+    const { isSubscribed: subscription } = useGetUserConfig();
+
+    const { weeklyMenu } = useGetWeeklyMenu(subscription);
 
     const handleOpen = () => {
         onOpen();
     };
+
+    const { total } = getMealTotalById(articleId, weeklyMenu);
+    const countDayFood = total;
 
     return (
         <Recipe>
@@ -90,9 +105,11 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                     <div className="flex gap-24">
                         <ActionsButtons
                             handleOpen={handleOpen}
+                            countDayFood={countDayFood}
                             article={article}
                         />
                         <MenuSemanalDialog
+                            weeklyMenu={weeklyMenu}
                             isOpen={isOpen}
                             onClose={onClose}
                             article={article}
