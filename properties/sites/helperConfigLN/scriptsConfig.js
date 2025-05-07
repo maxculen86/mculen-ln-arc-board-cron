@@ -104,6 +104,5 @@ export default {
     FundingChoices: { props: {}, location: [BODYBOTTOM] },
     Observable: { props: {}, location: [BODYBOTTOM] },
     HandleGlossary: { props: {}, location: [BODYBOTTOM] },
-    MetaRobots: { props: {}, location: [HEAD] },
-    JwPlayerHome: { props: { playerId: 'tMVdYMxO' }, location: [BODYTOP] }
+    MetaRobots: { props: {}, location: [HEAD] }
 };

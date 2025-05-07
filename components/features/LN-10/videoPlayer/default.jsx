@@ -94,11 +94,18 @@ function LN10VideoPlayer({
                 <h2 className="none">{title}</h2>
                 {mediaId && <div id={mediaId} />}
                 <script
-                    // TODO: Pasar script a scriptManager y minificar
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
                         __html: `
-                                window.addEventListener('load', function() {
+                            (function() {
+                                if (!window.__jwplayerLoaded) {
+                                window.__jwplayerLoaded = true;
+                                var jwScript = document.createElement('script');
+                                jwScript.src = 'https://cdn.jwplayer.com/libraries/tMVdYMxO.js';
+                                jwScript.async = true;
+
+                                jwScript.onload = function() {
+                                    window.addEventListener('load', function () {
                                     const instance = window.jwplayer && window.jwplayer('${mediaId}');
                                     if (!instance || !${JSON.stringify(playListWithoutTitle)}.length) return;
 
@@ -109,15 +116,40 @@ function LN10VideoPlayer({
                                     });
 
                                     instance.on('play', function () {
+                                        window.dataLayer = window.dataLayer || [];
+                                        window.dataLayer.push({
+                                        event: 'videoPlay',
+                                        videoName: '${videoData?.title || ''}',
+                                        videoID: '${videoData?.mediaid || ''}'
+                                        });
+                                    });
+                                    });
+                                };
+
+                                document.body.appendChild(jwScript);
+                                } else {
+                                window.addEventListener('load', function () {
+                                    const instance = window.jwplayer && window.jwplayer('${mediaId}');
+                                    if (!instance || !${JSON.stringify(playListWithoutTitle)}.length) return;
+
+                                    instance.setup({
+                                    playlist: ${JSON.stringify(playListWithoutTitle)},
+                                    width: '100%',
+                                    aspectratio: '9:16'
+                                    });
+
+                                    instance.on('play', function () {
                                     window.dataLayer = window.dataLayer || [];
                                     window.dataLayer.push({
                                         event: 'videoPlay',
                                         videoName: '${videoData?.title || ''}',
                                         videoID: '${videoData?.mediaid || ''}'
                                     });
+                                    });
                                 });
-                            });
-                        `
+                                }
+                            })();
+    `
                     }}
                 />
             </article>
