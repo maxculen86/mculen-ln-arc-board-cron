@@ -37,11 +37,18 @@ function VideoShareMedia({ id }) {
 
     return (
         <div className="flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center">
-            <Button onClick={() => setShowPlayer(true)} iconOnly isNegative>
+            <Button
+                onClick={() => setShowPlayer(true)}
+                iconOnly
+                isNegative
+                className="p-0 w-100 h-100"
+                size="inherit"
+            >
                 <Adaptableimage
                     src={resizedUrl}
                     alt="Imagen poster de video"
                     sources={getImagesToLoadWithPicture(allImages)}
+                    className="w-100"
                 />
                 <div
                     className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-dark-top"
