@@ -8,41 +8,34 @@ import {
     getHighestPriorityTag
 } from '../utils/notaFooditHelper';
 import { TimePrint } from '../TimePrint/TimePrint';
-import get from '../../../../private/common/utils/get';
 import { getListsFromPowerup } from '../../Body/PowerupsReceta/_helper';
 import { OpeningPrint } from './openginPrint';
 import { BodyPrint } from './bodyPrint';
+import { useRecipeElements } from './hooks/useRecipeElements';
 
 export const FooditPrint = React.forwardRef(
     ({ includePhotos, article }, ref) => {
-        const titleRecipe = get(article, 'headlines.basic', '');
+        const {
+            headlines: { basic: titleRecipe = '' } = {},
+            promo_items: {
+                receta: { embed: { config: promoItemsRecipe = {} } = {} } = {},
+                basic: { url: mainImage = '', caption: imageCaption = '' } = {}
+            } = {},
+            taxonomy: { sections = [] } = {},
+            content_elements: contentElements = []
+        } = article || {};
         const authorRecipe = getFooditAuthor(article);
-        const promoItemsRecipe = get(
-            article,
-            'promo_items.receta.embed.config',
-            {}
-        );
-        const portions = get(promoItemsRecipe, 'counterPortion', '');
-        const prepTime = get(promoItemsRecipe, 'prepTime', '');
-        const cookTime = get(promoItemsRecipe, 'cookTime', '');
-        const counterTime = get(promoItemsRecipe, 'counterTime', '');
-        const contentElements = get(article, 'content_elements', []);
+        const {
+            counterPortion: portions = '',
+            prepTime = '',
+            cookTime = '',
+            counterTime = ''
+        } = promoItemsRecipe;
         const { ingredientsLists, nutritionLists } =
             getListsFromPowerup(contentElements);
-        const sections = get(article, 'taxonomy.sections', []);
         const badge = getHighestPriorityTag(sections);
-        const mainImage = get(article, 'promo_items.basic.url', '');
-        const imageCaption = get(article, 'promo_items.basic.caption', '');
-        const preparacionElements = contentElements.filter(
-            content =>
-                content?.subtype === 'custom-preparacion' ||
-                content?.type === 'list' ||
-                content?.type === 'header' ||
-                content?.type === 'image'
-        );
-        const tipsAndTricks = contentElements.filter(
-            content => content?.type === 'header' || content?.type === 'list'
-        );
+        const { preparacionElements, tipsAndTricks } =
+            useRecipeElements(contentElements);
 
         const renderHeadingOrList = element => {
             if (element.type === 'header') {

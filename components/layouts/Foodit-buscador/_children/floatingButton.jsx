@@ -7,6 +7,8 @@ import IconSprite from '../../../features/private-global/common/iconSprite/IconS
 
 function FloatingButton({ toggleDrawer }) {
     const { appliedFilters = [] } = useContext(SearchContext);
+    const filterCount = appliedFilters.length;
+    const filterText = filterCount > 0 ? `Filtros (${filterCount})` : 'Filtros';
 
     return (
         <FloatingGroupButton
@@ -20,7 +22,7 @@ function FloatingButton({ toggleDrawer }) {
                             <Icon size={16}>
                                 <IconSprite fill="#FEFEFE" name="filter" />
                             </Icon>
-                            {`Filtros ${appliedFilters.length > 0 ? `(${appliedFilters.length})` : ''}`}
+                            {filterText}
                         </>
                     ),
                     onClick: () => toggleDrawer()
@@ -29,7 +31,9 @@ function FloatingButton({ toggleDrawer }) {
         />
     );
 }
+
 FloatingButton.propTypes = {
     toggleDrawer: PropTypes.func.isRequired
 };
+
 export default FloatingButton;

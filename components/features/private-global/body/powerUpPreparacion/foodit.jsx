@@ -34,12 +34,6 @@ export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
         includePhotos
     );
 
-    /**
-     * Render a specific content item based on its type
-     * @param {Object} content - The content item to render
-     * @param {number} index - The index of the content item
-     * @returns {React.ReactElement|null} The rendered content item or null
-     */
     const renderContentItem = (content, index) => {
         if (content.type === 'header') {
             return (
@@ -85,12 +79,6 @@ export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
         return null;
     };
 
-    /**
-     * Render the content based on includePhotos flag
-     * @param {Array} orderedContent - The ordered content to render
-     * @param {boolean} includePhotos - Flag to include photos
-     * @returns {React.ReactElement} The rendered content
-     */
     const renderContent = (contentList, includePhotosFlag) => {
         if (!includePhotosFlag) {
             return (

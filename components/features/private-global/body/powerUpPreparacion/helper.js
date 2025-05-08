@@ -1,11 +1,5 @@
-/* eslint-disable no-underscore-dangle */
+const CUSTOM_PREPARACION = 'custom-preparacion';
 
-/**
- * Process list items and add them to ordered content
- * @param {Array} items - The list items to process
- * @param {Array} orderedContent - The array to add processed items to
- * @param {Set} processedSteps - Set of already processed step contents
- */
 export function processListItems(orderedContent, processedSteps, items = []) {
     items.forEach(listItem => {
         const stepContent = listItem.content;
@@ -19,14 +13,6 @@ export function processListItems(orderedContent, processedSteps, items = []) {
     });
 }
 
-/**
- * Process custom preparation content
- * @param {Array} contentElements - The global content elements
- * @param {string} idPreparacionElement - ID of the preparation element
- * @param {boolean} includePhotos - Flag to include photos
- * @param {Array} orderedContent - The array to add processed items to
- * @param {Set} processedSteps - Set of already processed step contents
- */
 export function processCustomPreparacion(
     contentElements,
     idPreparacionElement,
@@ -34,13 +20,15 @@ export function processCustomPreparacion(
     orderedContent,
     processedSteps
 ) {
-    const currentIndex = contentElements.findIndex(
-        content => content?._id === idPreparacionElement
-    );
+    const currentIndex = contentElements.findIndex(content => {
+        if (!content) return false;
+        const { _id: id } = content;
+        return id === idPreparacionElement;
+    });
 
     const nextPreparacionIndex = contentElements.findIndex(
         (element, index) =>
-            index > currentIndex && element?.subtype === 'custom-preparacion'
+            index > currentIndex && element?.subtype === CUSTOM_PREPARACION
     );
 
     const endIndex =
@@ -64,9 +52,10 @@ export function processCustomPreparacion(
         }
 
         if (includePhotos && element?.type === 'image' && element.url) {
+            const { _id: id = `img-${i}` } = element;
             orderedContent.push({
                 type: 'image',
-                id: element._id || `img-${i}`,
+                id,
                 url: element.url || '',
                 caption: element.caption || ''
             });
@@ -74,15 +63,6 @@ export function processCustomPreparacion(
     }
 }
 
-/**
- * Process the preparation content and return ordered content items
- * @param {Object} data - The component data
- * @param {Array} contentElements - Global content elements
- * @param {string} idPreparacionElement - ID of the preparation element
- * @param {Array} configItems - Items from config
- * @param {boolean} includePhotos - Flag to include photos
- * @returns {Object} Object containing the ordered content
- */
 export function processPreparacionContent(
     data,
     contentElements,
@@ -115,23 +95,24 @@ export function processPreparacionContent(
     if (
         data?.type === 'list' &&
         data?.items &&
-        data?.subtype !== 'custom-preparacion'
+        data?.subtype !== CUSTOM_PREPARACION
     ) {
         processListItems(orderedContent, processedSteps, data.items);
         return { orderedContent };
     }
 
     if (includePhotos && data?.type === 'image' && data?.url) {
+        const { _id: id = 'img' } = data;
         orderedContent.push({
             type: 'image',
-            id: data._id || 'img',
+            id,
             url: data.url || '',
             caption: data.caption || ''
         });
         return { orderedContent };
     }
 
-    if (data?.subtype === 'custom-preparacion') {
+    if (data?.subtype === CUSTOM_PREPARACION) {
         processCustomPreparacion(
             contentElements,
             idPreparacionElement,
@@ -144,27 +125,18 @@ export function processPreparacionContent(
     return { orderedContent };
 }
 
-/**
- * Check if content has custom preparation
- * @param {Array} contentElements - Global content elements
- * @returns {boolean} Whether content has custom preparation
- */
 export function hasCustomPreparacion(contentElements) {
     return contentElements.some(
-        element => element?.subtype === 'custom-preparacion'
+        element => element?.subtype === CUSTOM_PREPARACION
     );
 }
 
-/**
- * Check if current element is the first preparation body
- * @param {Array} contentElements - Global content elements
- * @param {string} idPreparacionElement - ID of the preparation element
- * @returns {boolean} Whether this is the first preparation body
- */
 export function isFirstPreparacionBody(contentElements, idPreparacionElement) {
     return (
-        contentElements.findIndex(
-            content => content?._id === idPreparacionElement
-        ) === 0
+        contentElements.findIndex(content => {
+            if (!content) return false;
+            const { _id: id } = content;
+            return id === idPreparacionElement;
+        }) === 0
     );
 }

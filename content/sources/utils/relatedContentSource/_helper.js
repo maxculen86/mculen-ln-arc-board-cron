@@ -16,7 +16,7 @@ const transformData = async (response, query, cachedCall) => {
     const { presets, presetsDefault } = getPresets(query);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
-    const transformedData = await Promise.all(
+    return Promise.all(
         filteredData.map(async elem => {
             const newElem = await getAllImagesAuth(elem, cachedCall);
             Object.assign(elem, newElem);
@@ -45,8 +45,6 @@ const transformData = async (response, query, cachedCall) => {
             };
         })
     );
-
-    return transformedData;
 };
 
 export default transformData;
