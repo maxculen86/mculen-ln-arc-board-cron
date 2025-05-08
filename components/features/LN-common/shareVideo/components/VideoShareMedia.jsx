@@ -47,7 +47,7 @@ function VideoShareMedia({ id }) {
                 <Adaptableimage
                     src={resizedUrl}
                     alt="Imagen poster de video"
-                    sources={getImagesToLoadWithPicture(allImages)}
+                    sources={getImagesToLoadWithPicture(false, allImages)}
                     className="w-100"
                 />
                 <div

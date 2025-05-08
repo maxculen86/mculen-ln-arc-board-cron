@@ -75,7 +75,7 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
         expect(getHomeOpeningImages).toHaveBeenCalledWith(renderables, false);
 
-        expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(mockUrls, true);
+        expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(true, mockUrls);
 
         const linkElements = screen.getAllByRole('link', { hidden: true });
         expect(linkElements).toHaveLength(mockImages.length); // Asegurarse de que el número de elementos coincide
@@ -118,7 +118,7 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
             'Foodit-ficha-receta'
         );
 
-        expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(mockUrls, true);
+        expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(true, mockUrls);
 
         const linkElements = screen.getAllByRole('link', { hidden: true });
         expect(linkElements).toHaveLength(mockImages.length);

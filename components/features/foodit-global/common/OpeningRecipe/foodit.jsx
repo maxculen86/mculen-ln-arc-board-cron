@@ -75,7 +75,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                         className="w-100 ratio-3-2"
                         fetchPriority="high"
                         loading="eager"
-                        sources={getImagesToLoadWithPicture(resizedUrls)}
+                        sources={getImagesToLoadWithPicture(false, resizedUrls)}
                     />
                 )}
                 {badge && (
