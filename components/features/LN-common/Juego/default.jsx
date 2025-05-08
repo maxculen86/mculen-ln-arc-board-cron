@@ -32,7 +32,7 @@ function Game({ id: featureId, customFields, isAdmin }) {
         description
     } = customFields;
 
-    const primarySection = checkSection(globalContent, '/juegos');
+    const primarySection = checkSection('/juegos', globalContent);
 
     const sectionId = originalSectionId?.endsWith('/')
         ? originalSectionId.slice(0, -1)

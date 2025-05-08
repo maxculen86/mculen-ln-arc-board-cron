@@ -4632,6 +4632,7 @@ strong:not(.--font-primary),
   --notification-card-time-font-size: 0.75rem;
   --notification-card-time-line-height: 130%;
   --notification-card-time-font-weight: 400;
+  --notification-card-img-border-color: #CCCCCC;
   --notification-drawer-empty-state-title-font-family: Prumo, georgia, serif;
   --notification-drawer-empty-state-title-line-height: 110%;
   --notification-drawer-empty-state-title-font-weight: 100;

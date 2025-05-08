@@ -133,10 +133,11 @@ export function hasCustomPreparacion(contentElements) {
 
 export function isFirstPreparacionBody(contentElements, idPreparacionElement) {
     return (
-        contentElements.findIndex(content => {
-            if (!content) return false;
-            const { _id: id } = content;
-            return id === idPreparacionElement;
-        }) === 0
+        contentElements
+            .filter(content => content?.subtype === CUSTOM_PREPARACION)
+            .findIndex(content => {
+                const { _id: id } = content;
+                return id === idPreparacionElement;
+            }) === 0
     );
 }
