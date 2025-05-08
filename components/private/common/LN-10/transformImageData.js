@@ -25,7 +25,9 @@ const transformImageData = ({
         loading: isEager ? 'eager' : 'lazy',
         fetchPriority: isEager ? 'high' : 'low',
         type: isLoadWithPicture ? 'picture' : 'image',
-        sources: isLoadWithPicture ? getImagesToLoadWithPicture(sources) : []
+        sources: isLoadWithPicture
+            ? getImagesToLoadWithPicture(false, sources)
+            : []
     };
 };
 

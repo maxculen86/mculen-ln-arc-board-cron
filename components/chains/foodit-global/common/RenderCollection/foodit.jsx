@@ -99,7 +99,7 @@ export function RenderCollection({
                     variant={variant}
                     src={resizedUrl || url}
                     alt={getImageAltText(image)}
-                    sources={getImagesToLoadWithPicture(resizedUrls)}
+                    sources={getImagesToLoadWithPicture(false, resizedUrls)}
                     loading="lazy"
                     fetchPriority="low"
                     tag={tag}

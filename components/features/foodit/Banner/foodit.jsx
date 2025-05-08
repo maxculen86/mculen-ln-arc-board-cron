@@ -4,7 +4,9 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
-import { checkForId } from '../../LN-10/article/common/_helper-WebApi.js';
+import { Link } from '@ln/foodit-ui-link';
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import { checkForId } from '../../LN-10/article/common/_helper-WebApi';
 import { validateBannerReceta } from './_helper';
 import {
     getImagesToLoadWithPicture,
@@ -13,15 +15,13 @@ import {
 import get from '../../../private/common/utils/get';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import { Link } from '@ln/foodit-ui-link';
-import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import filter from '../../../../content/filters/LN/home/imageFilter.js';
+import filter from '../../../../content/filters/LN/home/imageFilter';
 
-const Banner = ({
+function Banner({
     id: featureId,
     customFields: { imageId: id, link: redirectUrl, hideBanner, title }
-}) => {
-    if (hideBanner) return <></>;
+}) {
+    if (hideBanner) return null;
 
     const imageId = checkForId(id);
 
@@ -40,12 +40,12 @@ const Banner = ({
         staticMode: true
     });
 
-    const { resized_urls = [], url = '' } = get(
+    const { resized_urls: resizedUrlsRelated = [], url = '' } = get(
         relatedImage,
         'promo_items.basic',
         {}
     );
-    const { resizedUrl } = getShortestImage(resized_urls);
+    const { resizedUrl } = getShortestImage(resizedUrlsRelated);
 
     const error = validateBannerReceta({
         title,
@@ -73,7 +73,10 @@ const Banner = ({
                     <Link href={redirectUrl} title={title}>
                         <Adaptableimage
                             src={resizedUrl || url}
-                            sources={getImagesToLoadWithPicture(resized_urls)}
+                            sources={getImagesToLoadWithPicture(
+                                false,
+                                resizedUrlsRelated
+                            )}
                             alt={title}
                         />
                     </Link>
@@ -81,7 +84,7 @@ const Banner = ({
             )}
         </Static>
     );
-};
+}
 
 Banner.propTypes = {
     id: PropTypes.string.isRequired,
@@ -106,7 +109,7 @@ Banner.propTypes = {
             description: 'Seleccione si no debe mostrarse el banner',
             default: false
         })
-    })
+    }).isRequired
 };
 
 export default Consumer(Banner);
