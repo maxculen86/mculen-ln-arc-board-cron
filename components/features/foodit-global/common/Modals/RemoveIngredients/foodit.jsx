@@ -31,8 +31,7 @@ export function ModalRemoveIngredient() {
             onClose={close}
             position="center"
             classnames={{
-                base: 'mx-auto rounded-4 overflow-visible py-16 py-24_md py-32_lg px-16 px-24_md px-32_lg max-w-328 max-w-344_lg',
-                wrapper: ''
+                base: 'mx-auto rounded-4 overflow-visible py-16 py-24_md py-32_lg px-16 px-24_md px-32_lg max-w-328 max-w-344_lg'
             }}
             overlay
             closeOnClickOutside

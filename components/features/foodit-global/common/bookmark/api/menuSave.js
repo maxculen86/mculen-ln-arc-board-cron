@@ -4,8 +4,6 @@ import { addErrorToast, addToast, TOAST } from './_helper';
 import { transformArticleFoodit } from '../../utils/notaFooditHelper';
 import { getShortestImage } from '../../../../../private/LN/common/utils/mediaHelper';
 
-export const INGREDIENTS_BOOKMARK_GROUP = '0c470be489a8782dda8265b77d0dfcd4';
-
 const postWeeklyMenu = async ({ article, food, day }) => {
     const { token, accessToken } = await getAuthTokens();
     const {
@@ -19,7 +17,7 @@ const postWeeklyMenu = async ({ article, food, day }) => {
         tag
     } = article;
 
-    if ((!token || !accessToken || !articleId || !day, !food)) return null;
+    if (!token || !accessToken || !articleId || !day || !food) return null;
 
     try {
         const response = await fetch(

@@ -5,6 +5,7 @@ export const SHOPPING_LIST_EVENTS = {
     BOOKMARK_UPDATED: 'shopping-list-bookmark-updated'
 };
 
+// TODO: crear función genérica emitBookmarkEvent para evitar duplicación de código
 export const emitBookmarkAdded = (articleId, bookmarkId) => {
     const event = new CustomEvent(SHOPPING_LIST_EVENTS.BOOKMARK_ADDED, {
         detail: { articleId, bookmarkId },

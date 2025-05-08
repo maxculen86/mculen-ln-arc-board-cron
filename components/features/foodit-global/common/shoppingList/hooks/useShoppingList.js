@@ -14,6 +14,7 @@ export const useShoppingList = () => {
     const { token, accessToken } = useAuthManager();
 
     useEffect(() => {
+        // TODO: sustituir por import { getTypeOfDevicev2 } from "@ln/utils", por bug en ipad pro y air
         if (getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile') {
             setIsMobile(true);
         }

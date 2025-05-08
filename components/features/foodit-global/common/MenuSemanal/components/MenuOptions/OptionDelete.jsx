@@ -17,19 +17,26 @@ function OptionDelete({
     onClose
 }) {
     const deleteMenuWeekly = async () => {
-        const { bookmarkId: bookmarkIdResponse } = await deleteWeeklyMenu({
-            bookmarkId
-        });
-
-        if (bookmarkIdResponse) {
-            const weeklyMenuWithoutEliminated = weeklyMenu.filter(
-                menu => menu.bookmarkId !== bookmarkId
-            );
-
-            setWeeklyMenu(weeklyMenuWithoutEliminated);
+        try {
+            const { bookmarkId: bookmarkIdResponse } = await deleteWeeklyMenu({
+                bookmarkId
+            });
+            if (bookmarkIdResponse) {
+                const updatedMenu = weeklyMenu.filter(
+                    menu => menu.bookmarkId !== bookmarkId
+                );
+                setWeeklyMenu(updatedMenu);
+                onClose();
+            } else {
+                console.error('Failed to delete menu.');
+                onClose();
+            }
+        } catch (error) {
+            console.error('Error deleting menu:', error);
+            onClose();
         }
-        onClose();
     };
+
     return (
         <Dialog
             isOpen={isOpen}

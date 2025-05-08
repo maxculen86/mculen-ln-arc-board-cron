@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import get from '../../../../../private/common/utils/get';
 import { getShortestImage } from '../../../../../private/LN/common/utils/mediaHelper';
 import {
@@ -14,38 +13,31 @@ import {
 export const daysOfWeek = [
     {
         id: MONDAY,
-        title: 'LUNES',
-        callback: () => {}
+        title: 'LUNES'
     },
     {
         id: TUESDAY,
-        title: 'MARTES',
-        callback: () => {}
+        title: 'MARTES'
     },
     {
         id: WEDNESDAY,
-        title: 'MIÉRCOLES',
-        callback: () => {}
+        title: 'MIÉRCOLES'
     },
     {
         id: THURSDAY,
-        title: 'JUEVES',
-        callback: () => {}
+        title: 'JUEVES'
     },
     {
         id: FRIDAY,
-        title: 'VIERNES',
-        callback: () => {}
+        title: 'VIERNES'
     },
     {
         id: SATURDAY,
-        title: 'SÁBADO',
-        callback: () => {}
+        title: 'SÁBADO'
     },
     {
         id: SUNDAY,
-        title: 'DOMINGO',
-        callback: () => {}
+        title: 'DOMINGO'
     }
 ];
 
@@ -57,20 +49,21 @@ export function menusDayTransform(menusDay) {
     };
 
     menusDay.forEach(menuItem => {
-        const food = menuItem.bookmarkContent?.food?.toLowerCase() || '';
+        const { bookmarkContent = {} } = menuItem || {};
+        const food = bookmarkContent?.food?.toLowerCase() || '';
         const category = categories[food];
 
         if (category) {
-            const { resizedUrl } = getShortestImage(
-                menuItem.bookmarkContent.image.resized_urls
+            const { resizedUrl = '' } = getShortestImage(
+                bookmarkContent?.image?.resized_urls
             );
             category.recipes.push({
-                bookmarkId: menuItem.bookmarkId,
-                id: menuItem.bookmarkContent.id,
-                title: menuItem.bookmarkContent.title,
+                bookmarkId: menuItem?.bookmarkId,
+                id: bookmarkContent?.id,
+                title: bookmarkContent?.title,
                 image: resizedUrl,
-                badge: menuItem.bookmarkContent.tag,
-                url: menuItem.bookmarkContent.canonical_url
+                badge: bookmarkContent?.tag,
+                url: bookmarkContent?.canonical_url
             });
         }
     });

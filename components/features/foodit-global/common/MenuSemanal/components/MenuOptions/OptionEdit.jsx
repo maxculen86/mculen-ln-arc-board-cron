@@ -15,6 +15,7 @@ import { addToast, TOAST } from '../../../bookmark/api/_helper';
 import editMenu from '../../../bookmark/api/menuEdit';
 
 function OptionEdit({
+    articleId,
     weeklyMenu = [],
     setWeeklyMenu,
     bookmarkId,
@@ -107,6 +108,10 @@ function OptionEdit({
                         <SelectMenu
                             setSelectedDay={setSelectedDay}
                             setSelectedFood={setSelectedFood}
+                            selectedDay={selectedDay}
+                            selectedFood={selectedFood}
+                            articleId={articleId}
+                            weeklyMenu={weeklyMenu}
                         />
                     </div>
                     <FooterMenu
@@ -123,6 +128,7 @@ function OptionEdit({
     );
 }
 OptionEdit.propTypes = {
+    articleId: PropTypes.string.isRequired,
     weeklyMenu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
     setWeeklyMenu: PropTypes.func.isRequired,
     bookmarkId: PropTypes.string.isRequired,

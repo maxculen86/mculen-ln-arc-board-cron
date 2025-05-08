@@ -22,13 +22,6 @@ function MenuSemanalBody({
 
     const menuDatas = menusDayTransform(menusDay);
 
-    console.log('menuDatas', menuDatas);
-    console.log('weeklyMenu', weeklyMenu);
-    console.log('setWeeklyMenu', setWeeklyMenu);
-    console.log('subscription', subscription);
-    console.log('userType', userType);
-    console.log('menusDay', menusDay);
-
     return (
         <>
             {menuDatas.map((menu, i) => (
@@ -90,6 +83,7 @@ function MenuSemanalBody({
                                                     </td>
                                                     <td className="py-12 px-16">
                                                         <MenuOptions
+                                                            articleId={id}
                                                             bookmarkId={
                                                                 bookmarkId
                                                             }

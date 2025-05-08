@@ -43,26 +43,6 @@ ItemCardForMeal.defaultProps = {
     className: ''
 };
 
-function ItemCardForDayMeal({ disabled, className, ...props }) {
-    return (
-        <Itemcard
-            type="button"
-            disabled={disabled}
-            className={disabled ? 'card-item-disabled' : className}
-            {...props}
-        />
-    );
-}
-
-ItemCardForDayMeal.propTypes = {
-    disabled: PropTypes.bool,
-    className: PropTypes.string
-};
-ItemCardForDayMeal.defaultProps = {
-    disabled: false,
-    className: ''
-};
-
 export function SelectMenu({
     setSelectedDay,
     setSelectedFood,
@@ -98,7 +78,7 @@ export function SelectMenu({
     const getDayMealCombinations = () => {
         if (!weeklyMenu || weeklyMenu.length === 0) return [];
         return weeklyMenu
-            .filter(item => item.bookmarkTypeId === articleId)
+            .filter(item => item?.bookmarkContent?.id === articleId)
             .map(item => ({
                 day: item.bookmarkGroup,
                 mealType: item.bookmarkContent.food
@@ -127,7 +107,6 @@ export function SelectMenu({
 
     return (
         <div className="flex flex-column gap-24">
-            {/* Day selector - options are disabled based on selected meal */}
             <Select
                 label="Seleccionar día"
                 className="roboto roboto-regular text-12"
@@ -170,7 +149,6 @@ export function SelectMenu({
                 </div>
             </Select>
 
-            {/* Meal selector - options are disabled based on selected day */}
             <Select
                 label="Seleccionar comida"
                 className="roboto roboto-regular text-12"

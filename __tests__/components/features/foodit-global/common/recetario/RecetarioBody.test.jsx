@@ -129,8 +129,7 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
             userType: 'unlogged'
         });
 
-        const { debug } = render(<RecetarioBody />);
-        debug();
+        render(<RecetarioBody />);
 
         expect(screen.queryByText('Colecciones')).not.toBeInTheDocument();
     });

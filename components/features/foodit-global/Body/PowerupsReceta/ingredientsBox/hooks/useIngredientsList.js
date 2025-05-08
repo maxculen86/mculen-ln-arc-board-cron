@@ -36,6 +36,7 @@ const useIngredientsList = (
         if (initialIngredientsList !== null) {
             updateIngredientsData(initialIngredientsList);
         }
+        // TODO: revisar si hace falta incluir eventName en las dependencias
     }, [eventName, initialIngredientsList]);
 
     useEffect(() => {

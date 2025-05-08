@@ -17,7 +17,7 @@ export const TOAST = {
                         title="Ir al recetario"
                     >
                         <span className="text-light-1 underline">
-                            &quot;Mis Recetas.&quot;
+                            Mis Recetas.
                         </span>
                     </Link>
                 </>
@@ -34,7 +34,7 @@ export const TOAST = {
                         title="Ir al recetario"
                     >
                         <span className="text-light-1 underline">
-                            &quot;Mis Recetas.&quot;
+                            Mis Recetas.
                         </span>
                     </Link>
                 </>
@@ -48,7 +48,7 @@ export const TOAST = {
                         title="Ir a la lista de compras"
                     >
                         <span className="text-light-1 underline">
-                            &quot;Lista de compras.&quot;
+                            Lista de compras.
                         </span>
                     </Link>
                 </>
@@ -63,7 +63,7 @@ export const TOAST = {
                         title="Ir a Menú semanal"
                     >
                         <span className="text-light-1 underline">
-                            &quot;Menú semanal.&quot;
+                            Menú semanal.
                         </span>
                     </Link>
                 </>

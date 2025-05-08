@@ -15,13 +15,15 @@ jest.mock(
     '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList'
 );
 jest.mock('../../../../../../../components/private/common/utils/getToken');
+jest.mock(
+    '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/ingredientsBox/hooks/usePortions',
+    () => ({
+        __esModule: true,
+        default: () => ({ portionsValue: 1 })
+    })
+);
 
-useIsInShoppingList.mockReturnValue({
-    bookmarkId: null,
-    setBookmarkId: jest.fn()
-});
-
-xdescribe('Components - Features - Foodit-global - Body - PowerUpsRecetas - IngredientsBox - ShoppingListButton', () => {
+describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - IngredientsBox - ShoppingListButton', () => {
     const setBookmarkIdMock = jest.fn();
     const defaultProps = {
         isSuscriptor: true,
@@ -29,12 +31,18 @@ xdescribe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingr
         title: 'Test Recipe',
         ingredientsLists: [
             {
+                titleList: 'Ingredientes',
                 typeList: 'ingredientes',
-                items: [{ id: '1', includeInShoppingList: true }]
+                items: [
+                    {
+                        fullIngredientString: '1 taza de azúcar',
+                        ingredient: 'azúcar',
+                        amount: 1,
+                        includeInShoppingList: true
+                    }
+                ]
             }
-        ],
-        setBookmarkId: setBookmarkIdMock,
-        bookmarkId: null
+        ]
     };
 
     beforeEach(() => {
@@ -43,17 +51,32 @@ xdescribe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingr
     });
 
     it('should render the button with "AGREGAR A LISTA" text initially', () => {
+        useIsInShoppingList.mockReturnValue({
+            bookmarkId: null,
+            setBookmarkId: setBookmarkIdMock
+        });
+
         render(<ShoppingListButton {...defaultProps} />);
         expect(screen.getByText('AGREGAR A LISTA')).toBeInTheDocument();
     });
 
     it('should render the button with "ELIMINAR DE LISTA" text when bookmarkId is provided', () => {
-        render(<ShoppingListButton {...defaultProps} bookmarkId="123" />);
+        useIsInShoppingList.mockReturnValue({
+            bookmarkId: '123',
+            setBookmarkId: setBookmarkIdMock
+        });
+
+        render(<ShoppingListButton {...defaultProps} />);
         expect(screen.getByText('ELIMINAR DE LISTA')).toBeInTheDocument();
     });
 
     it('should call handleIngredientListButton with correct parameters when clicked', () => {
-        render(<ShoppingListButton {...defaultProps} bookmarkId={null} />);
+        useIsInShoppingList.mockReturnValue({
+            bookmarkId: null,
+            setBookmarkId: setBookmarkIdMock
+        });
+
+        render(<ShoppingListButton {...defaultProps} />);
 
         fireEvent.click(screen.getByText('AGREGAR A LISTA'));
 

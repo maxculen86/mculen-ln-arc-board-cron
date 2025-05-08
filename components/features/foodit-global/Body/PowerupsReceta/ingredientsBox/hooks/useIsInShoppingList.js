@@ -1,3 +1,4 @@
+// TODO: Modularizar este hook
 import { useEffect, useState, useCallback } from 'react';
 import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
 import {
@@ -55,7 +56,7 @@ export const useIsInShoppingList = (isSuscriptor, articleId = '') => {
                 setLocalBookmarkId(eventBookmarkId);
             }
         };
-
+        // TODO: crear función utilitaria para registrar los listeners y reducir redundancia
         window.addEventListener(
             SHOPPING_LIST_EVENTS.BOOKMARK_ADDED,
             handleBookmarkAdded

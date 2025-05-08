@@ -56,7 +56,6 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
     };
 
     const { total } = getMealTotalById(articleId, weeklyMenu);
-    const countDayFood = total;
 
     return (
         <Recipe>
@@ -105,7 +104,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                     <div className="flex gap-24">
                         <ActionsButtons
                             handleOpen={handleOpen}
-                            countDayFood={countDayFood}
+                            countDayFood={total}
                             article={article}
                         />
                         <MenuSemanalDialog

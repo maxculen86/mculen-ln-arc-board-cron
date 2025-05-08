@@ -27,21 +27,17 @@ function DropdownToggle(props) {
 }
 
 export function MenuOptions({
+    articleId,
     bookmarkId,
     weeklyMenu,
     setWeeklyMenu,
     subscription
 }) {
-    const {
-        isOpen: edit,
-        onOpen: openEdit,
-        onClose: closeEdit
-    } = useDisclosure(false);
-    const {
-        isOpen: del,
-        onOpen: openDel,
-        onClose: closeDel
-    } = useDisclosure(false);
+    const modals = { edit: useDisclosure(false), del: useDisclosure(false) };
+
+    const { isOpen: edit, onOpen: openEdit, onClose: closeEdit } = modals.edit;
+    const { isOpen: del, onOpen: openDel, onClose: closeDel } = modals.del;
+    // TODO: crear un un array con los objetos que definen cada acción (por ejemplo, "editar" y "eliminar"), y luego mapear ese array para renderizar los Itemcard dinámicamente
 
     return (
         <>
@@ -77,6 +73,7 @@ export function MenuOptions({
                 </Dropdown.Menu>
             </Dropdown>
             <OptionEdit
+                articleId={articleId}
                 bookmarkId={bookmarkId}
                 weeklyMenu={weeklyMenu}
                 setWeeklyMenu={setWeeklyMenu}
@@ -97,6 +94,7 @@ export function MenuOptions({
     );
 }
 MenuOptions.propTypes = {
+    articleId: PropTypes.string.isRequired,
     bookmarkId: PropTypes.string.isRequired,
     weeklyMenu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
     setWeeklyMenu: PropTypes.func.isRequired,

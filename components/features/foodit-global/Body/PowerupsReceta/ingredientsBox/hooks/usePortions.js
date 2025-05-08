@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 const eventBus = new EventTarget();
 
+// TODO: Ver la posibilidad de convertir este objeto en un estado
 let latestPortionsState = {
     currentPortion: null,
     defaultPortion: null,
@@ -49,17 +50,14 @@ const usePortions = (
 
         setCurrentPortionState(newCurrentPortion);
         setDefaultPortionState(newDefaultPortion);
-        setPortionsValue(
-            newCurrentPortion > newDefaultPortion
-                ? newCurrentPortion
-                : newDefaultPortion
-        );
+        setPortionsValue(Math.max(newCurrentPortion, newDefaultPortion));
     };
 
     useEffect(() => {
         if (currentPortion !== null && defaultPortion !== null) {
             updatePortions(currentPortion, defaultPortion);
         }
+        // TODO: revisar si hacen falta estas 3 dependencias en el array de useEffect
     }, [eventName, currentPortion, defaultPortion]);
 
     useEffect(() => {

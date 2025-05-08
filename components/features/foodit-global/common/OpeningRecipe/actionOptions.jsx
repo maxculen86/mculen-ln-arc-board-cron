@@ -1,10 +1,8 @@
-import React, { useMemo } from 'react';
-import Static from 'fusion:static';
+import React from 'react';
 import propTypes from 'prop-types';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
-import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { handleIngredientListButton } from '../../Body/PowerupsReceta/ingredientsBox/_helper';
@@ -16,6 +14,7 @@ import {
 import usePortions from '../../Body/PowerupsReceta/ingredientsBox/hooks/usePortions';
 import useIngredientsList from '../../Body/PowerupsReceta/ingredientsBox/hooks/useIngredientsList';
 import get from '../../../../private/common/utils/get';
+import { renderItemCard } from './helper';
 
 export function ActionsButtons({
     handleOpen,
@@ -24,10 +23,7 @@ export function ActionsButtons({
     article
 }) {
     const title = get(article, 'headlines.basic', '');
-    const isSuscriptor = useMemo(
-        () => isSubscribed(SUBSCRIBED_HELPER.FOODIT),
-        []
-    );
+    const isSuscriptor = isSubscribed(SUBSCRIBED_HELPER.FOODIT);
 
     const { bookmarkId, setBookmarkId } = useIsInShoppingList(
         isSuscriptor,
@@ -105,44 +101,6 @@ export function ActionsButtons({
         }
     ];
 
-    const renderItemCard = item => {
-        const { text, icon, action } = item;
-        const isGuardarOption = text === 'Guardar';
-        const isShoppingListOption = text.includes('lista de compras');
-        const shouldDisable = isShoppingListOption && bookmarkId !== null;
-
-        if (isGuardarOption) {
-            return (
-                <Static id={`btn-saved-${articleId}`}>
-                    <Itemcard
-                        onClick={action}
-                        fullWidth
-                        type="button"
-                        icon={icon}
-                        text={text}
-                        data-id={articleId}
-                        data-modal="open-modal"
-                    />
-                </Static>
-            );
-        }
-
-        return (
-            <Itemcard
-                onClick={action}
-                fullWidth
-                type="button"
-                icon={icon}
-                text={text}
-                className={shouldDisable ? 'card-item-disabled' : ''}
-                style={{
-                    cursor: shouldDisable ? 'not-allowed' : 'pointer'
-                }}
-                disabled={shouldDisable}
-            />
-        );
-    };
-
     return (
         <Dropdown hideArrow className="print-hide">
             <Dropdown.Toggle className="text-light-800 text-accent-lechuga__hover">
@@ -159,7 +117,13 @@ export function ActionsButtons({
             >
                 {options.map(({ id, text, icon, tooltip, action }) => (
                     <li key={id} className="flex jc-center ai-center gap-8">
-                        {renderItemCard({ text, icon, tooltip, action })}
+                        {renderItemCard({
+                            text,
+                            icon,
+                            action,
+                            bookmarkId,
+                            articleId
+                        })}
                         {bookmarkId !== null &&
                             tooltip &&
                             text.includes('lista de compras') && (

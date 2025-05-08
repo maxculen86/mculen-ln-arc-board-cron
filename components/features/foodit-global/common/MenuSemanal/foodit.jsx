@@ -35,41 +35,38 @@ export function WeeklyMenu() {
     return (
         <div>
             {subscription ? (
-                <div>
-                    <Tabs
-                        selectedColor="var(--secondary-positive)"
-                        defaultValue={daysNames[day]}
-                    >
-                        <Tabs.ItemContainer className="gap-16">
-                            <Horizontalscroller
-                                classnames={{
-                                    button: 'bg-light-1'
-                                }}
-                            >
-                                {daysOfWeek?.map(({ id, title, callback }) => (
-                                    <Tabs.Item
-                                        className="flex ai-center text-wrap cursor-pointer"
-                                        id={id}
-                                        key={id}
-                                        color="secondary-positive"
-                                        onClick={callback}
-                                    >
-                                        <Text
-                                            as="h2"
-                                            className="roboto roboto-bold text-secondary-positive__hover"
-                                            text={title}
-                                        />
-                                    </Tabs.Item>
-                                ))}
-                            </Horizontalscroller>
-                        </Tabs.ItemContainer>
-                        <TabPanel
-                            weeklyMenu={weeklyMenu}
-                            setWeeklyMenu={setWeeklyMenu}
-                            subscription={subscription}
-                        />
-                    </Tabs>
-                </div>
+                <Tabs
+                    selectedColor="var(--secondary-positive)"
+                    defaultValue={daysNames[day]}
+                >
+                    <Tabs.ItemContainer className="gap-16">
+                        <Horizontalscroller
+                            classnames={{
+                                button: 'bg-light-1'
+                            }}
+                        >
+                            {daysOfWeek?.map(({ id, title }) => (
+                                <Tabs.Item
+                                    className="flex ai-center text-wrap cursor-pointer"
+                                    id={id}
+                                    key={id}
+                                    color="secondary-positive"
+                                >
+                                    <Text
+                                        as="h2"
+                                        className="roboto roboto-bold text-secondary-positive__hover"
+                                        text={title}
+                                    />
+                                </Tabs.Item>
+                            ))}
+                        </Horizontalscroller>
+                    </Tabs.ItemContainer>
+                    <TabPanel
+                        weeklyMenu={weeklyMenu}
+                        setWeeklyMenu={setWeeklyMenu}
+                        subscription={subscription}
+                    />
+                </Tabs>
             ) : (
                 <EmptyStateComponent userType={userType} />
             )}

@@ -33,6 +33,7 @@ function CardInfo() {
     const isLayoutMenuSemanal = layout === layoutsName.FooditMenuSemanal;
     const isLayoutListaDeCompras = layout === layoutsName.FooditListadoCompras;
 
+    // TODO: simplificar logica usando desestructuracion
     const reorderedCardInfoArray = React.useMemo(() => {
         if (isLayoutMenuSemanal) {
             return [
