@@ -104,6 +104,35 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           <li>
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-test-id="button-menu-user-Menú semanal"
+              role="button"
+              title="Ir a Menú semanal"
+            >
+              <i
+                class="icon --icon-20 --inherit"
+              >
+                <mock-icon
+                  critical="true"
+                  name="weekly-menu"
+                />
+              </i>
+              <span
+                class="text-left flex-grow-1"
+              >
+                Menú semanal
+              </span>
+              <i
+                class="icon --icon-16 --inherit"
+              >
+                <mock-icon
+                  name="arrow-right"
+                />
+              </i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
               data-test-id="button-menu-user-Lista de compras"
               role="button"
               title="Ir a Lista de compras"

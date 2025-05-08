@@ -22,3 +22,11 @@
   transition: inherit;
   transition-timing-function: linear;
 }
+.card-item-disabled[role=button] {
+  color: inherit;
+  opacity: 0.4;
+}
+.card-item-disabled:not(.--selected)[role=button]:hover {
+  border-color: var(--neutral-light-100);
+  color: inherit;
+}

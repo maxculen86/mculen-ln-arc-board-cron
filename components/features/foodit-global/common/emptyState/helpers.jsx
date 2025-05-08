@@ -13,8 +13,8 @@ const NEED_SUBSCRIPTION =
     'Para realizar esta acción es necesario que tengas una suscripción.';
 
 export const titleByVariant = {
-    'barrier-unlogged': '¡Exclusivo suscriptores!',
-    'barrier-logged': '¡Exclusivo suscriptores!',
+    'barrier-unlogged': 'Exclusivo para suscriptores',
+    'barrier-logged': 'Exclusivo para suscriptores',
     'empty-state': EMPTY_STATE,
     'search-engine': '¡Nada por acá!',
     404: '¡Uppps! Contenido en preparación'
@@ -23,31 +23,45 @@ export const titleByVariant = {
 export const descriptionByVariant = ({ layout, variant }) => {
     const { layoutsName = {} } = siteProperties || {};
     const isLayoutShoppingList = layout === layoutsName.FooditListadoCompras;
+    const isLayoutMenuSemanal = layout === layoutsName.FooditMenuSemanal;
 
+    const getEmptyStateMessage = (message, iconName) => (
+        <span>
+            Presioná el botón
+            <Icon size={16} className="vertical-align-middle mx-4">
+                <IconSprite name={iconName} critical />
+            </Icon>
+            {message}
+        </span>
+    );
+
+    let emptyStateMessage;
+
+    if (isLayoutShoppingList) {
+        emptyStateMessage = getEmptyStateMessage(
+            'en la receta para agregar los ingredientes que necesitas y ¡Listo!',
+            'shopping-list'
+        );
+    } else if (isLayoutMenuSemanal) {
+        emptyStateMessage = getEmptyStateMessage(
+            'en la receta para organizar tus comidas y ¡Listo!',
+            'weekly-menu'
+        );
+    } else {
+        emptyStateMessage = getEmptyStateMessage(
+            'para guardar el contenido que te gusta y ¡Listo!',
+            'bookmark'
+        );
+    }
     const optionsDescription = {
         'barrier-logged': NEED_SUBSCRIPTION,
         'barrier-unlogged': NEED_SUBSCRIPTION,
-        'empty-state': isLayoutShoppingList ? (
-            <span>
-                Presioná el botón
-                <Icon size={16} className="vertical-align-middle mx-4">
-                    <IconSprite name="shopping-list" critical />
-                </Icon>
-                en la receta para agregar los ingredientes que necesitas y
-                ¡Listo!
-            </span>
-        ) : (
-            <span>
-                Presioná el botón
-                <Icon size={16} className="vertical-align-middle mx-4">
-                    <IconSprite name="bookmark" critical />
-                </Icon>
-                para guardar el contenido que te gusta y ¡Listo!
-            </span>
-        ),
+        'empty-state': emptyStateMessage,
         404: (
             <span>
-                <span>Mientras te invitamos a seguir navegando en </span>
+                <span className="roboto text-16 text-light-600">
+                    Mientras te invitamos a seguir navegando en{' '}
+                </span>
                 <Link
                     href="/"
                     title="Ir a Foodit"
@@ -59,7 +73,7 @@ export const descriptionByVariant = ({ layout, variant }) => {
             </span>
         ),
         'search-engine': (
-            <span className="roboto text-24 text-center">
+            <span className="roboto text-16 text-light-600 text-center">
                 No se encontraron resultados
             </span>
         )
@@ -93,34 +107,25 @@ export const buttonPropsByVariant = {
 
 export const imagePropsByVariant = {
     'barrier-unlogged': {
-        asset: 'barrier-state.webp',
-        alt: NEED_SUBSCRIPTION,
-        width: 147,
-        height: 110
+        asset: false
     },
     'barrier-logged': {
-        asset: 'barrier-state.webp',
-        alt: NEED_SUBSCRIPTION,
-        width: 147,
-        height: 110
+        asset: false
     },
     'empty-state': {
         asset: 'empty-state-recetario.webp',
         alt: EMPTY_STATE,
-        width: 147,
-        height: 152
+        className: 'mb-16 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg'
     },
     'search-engine': {
         asset: 'empty-state-recetario.webp',
         alt: EMPTY_STATE,
-        width: 147,
-        height: 152
+        className: 'mb-16 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg'
     },
     404: {
         asset: 'logo-404.png',
         alt: 'Logo Foodit',
-        width: 91,
-        height: 87
+        className: 'mb-16 w-87 h-91'
     }
 };
 

@@ -1,25 +1,121 @@
-import { useEffect, useState } from 'react';
-import getBookmarkByArticleId from '../../../../common/bookmark/api/getBookmarkByArticleId';
+// TODO: Modularizar este hook
+import { useEffect, useState, useCallback } from 'react';
 import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
+import {
+    BookmarkCache,
+    emitBookmarkAdded,
+    emitBookmarkRemoved,
+    SHOPPING_LIST_EVENTS
+} from '../../../../common/shoppingList/shoppingListEvents';
+import getBookmarkByArticleId from '../../../../common/bookmark/api/getBookmarkByArticleId';
 
 export const useIsInShoppingList = (isSuscriptor, articleId = '') => {
-    const [bookmarkId, setBookmarkId] = useState(null);
+    const [bookmarkId, setLocalBookmarkId] = useState(
+        () => BookmarkCache.get(articleId) || null
+    );
     const { token, accessToken } = useAuthManager();
+
+    const setBookmarkId = useCallback(
+        newBookmarkId => {
+            setLocalBookmarkId(newBookmarkId);
+
+            if (newBookmarkId) {
+                BookmarkCache.set(articleId, newBookmarkId);
+                emitBookmarkAdded(articleId, newBookmarkId);
+            } else {
+                BookmarkCache.remove(articleId);
+                emitBookmarkRemoved(articleId, bookmarkId);
+            }
+        },
+        [articleId, bookmarkId]
+    );
+
+    useEffect(() => {
+        const handleBookmarkAdded = event => {
+            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+                event.detail;
+            if (
+                eventArticleId === articleId &&
+                eventBookmarkId !== bookmarkId
+            ) {
+                setLocalBookmarkId(eventBookmarkId);
+            }
+        };
+
+        const handleBookmarkRemoved = event => {
+            const { articleId: eventArticleId } = event.detail;
+            if (eventArticleId === articleId && bookmarkId !== null) {
+                setLocalBookmarkId(null);
+            }
+        };
+
+        const handleBookmarkUpdated = event => {
+            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+                event.detail;
+            if (eventArticleId === articleId) {
+                setLocalBookmarkId(eventBookmarkId);
+            }
+        };
+        // TODO: crear función utilitaria para registrar los listeners y reducir redundancia
+        window.addEventListener(
+            SHOPPING_LIST_EVENTS.BOOKMARK_ADDED,
+            handleBookmarkAdded
+        );
+        window.addEventListener(
+            SHOPPING_LIST_EVENTS.BOOKMARK_REMOVED,
+            handleBookmarkRemoved
+        );
+        window.addEventListener(
+            SHOPPING_LIST_EVENTS.BOOKMARK_UPDATED,
+            handleBookmarkUpdated
+        );
+
+        return () => {
+            window.removeEventListener(
+                SHOPPING_LIST_EVENTS.BOOKMARK_ADDED,
+                handleBookmarkAdded
+            );
+            window.removeEventListener(
+                SHOPPING_LIST_EVENTS.BOOKMARK_REMOVED,
+                handleBookmarkRemoved
+            );
+            window.removeEventListener(
+                SHOPPING_LIST_EVENTS.BOOKMARK_UPDATED,
+                handleBookmarkUpdated
+            );
+        };
+    }, [articleId, bookmarkId]);
 
     useEffect(() => {
         const fetchUserBookmarks = async () => {
-            const { bookmarkId: resBookmarkId } = await getBookmarkByArticleId({
-                bookmarkType: 'ingredientList',
-                articleId,
-                accessToken,
-                token
-            });
+            if (BookmarkCache.has(articleId)) {
+                const cachedBookmarkId = BookmarkCache.get(articleId);
+                setLocalBookmarkId(cachedBookmarkId);
+                return;
+            }
 
-            resBookmarkId && setBookmarkId(resBookmarkId);
+            try {
+                const { bookmarkId: resBookmarkId } =
+                    await getBookmarkByArticleId({
+                        bookmarkType: 'ingredientList',
+                        articleId,
+                        accessToken,
+                        token
+                    });
+
+                if (resBookmarkId) {
+                    setLocalBookmarkId(resBookmarkId);
+                    BookmarkCache.set(articleId, resBookmarkId);
+                }
+            } catch (error) {
+                console.error('Error fetching bookmark:', error);
+            }
         };
 
-        if (isSuscriptor) fetchUserBookmarks();
-    }, [token, accessToken]);
+        if (isSuscriptor && articleId && token && accessToken) {
+            fetchUserBookmarks();
+        }
+    }, [isSuscriptor, articleId, token, accessToken]);
 
     return { bookmarkId, setBookmarkId };
 };

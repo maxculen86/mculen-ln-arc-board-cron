@@ -5,7 +5,6 @@ import '@testing-library/jest-dom/';
 import { useAppContext } from 'fusion:context';
 import RecetarioBody from '../../../../../../components/features/foodit-global/common/recetario/RecetarioBody';
 import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
-import { isSubscribed } from '../../../../../../components/private/common/auth/helper/loginHelper';
 import useGetRecetarioData from '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData';
 
 jest.mock('fusion:context', () => ({
@@ -16,7 +15,9 @@ jest.mock(
     '../../../../../../components/features/foodit-global/hooks/useGetUserConfig'
 );
 
-jest.mock('../../../../../../components/private/common/auth/helper/loginHelper');
+jest.mock(
+    '../../../../../../components/private/common/auth/helper/loginHelper'
+);
 jest.mock(
     '../../../../../../components/features/foodit-global/common/recetario/hooks/useGetRecetarioData'
 );
@@ -64,7 +65,7 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
         render(<RecetarioBody />);
 
         expect(
-            screen.getByText('¡Exclusivo suscriptores!')
+            screen.getByText('Exclusivo para suscriptores')
         ).toBeInTheDocument(),
             expect(
                 screen.getByText(
@@ -85,7 +86,7 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
 
         render(<RecetarioBody />);
         expect(
-            screen.getByText('¡Exclusivo suscriptores!')
+            screen.getByText('Exclusivo para suscriptores')
         ).toBeInTheDocument(),
             expect(
                 screen.getByText(
@@ -106,16 +107,31 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
         });
 
         useGetUserConfig.mockReturnValue({
-            userType: 'subscribed'
+            userType: 'subscribed',
+            isSubscribed: true
         });
-
-        isSubscribed.mockReturnValue(true);
 
         render(<RecetarioBody />);
 
         expect(screen.getByText('Colecciones')).toBeInTheDocument();
 
         expect(screen.getByText('Todas (3)')).toBeInTheDocument();
+    });
+
+    test('Should not render bookmarks when user is unlogged', () => {
+        useGetRecetarioData.mockReturnValue({
+            userBookmarks: [],
+            setUserBookmarks: jest.fn(),
+            loading: false
+        });
+
+        useGetUserConfig.mockReturnValue({
+            userType: 'unlogged'
+        });
+
+        render(<RecetarioBody />);
+
+        expect(screen.queryByText('Colecciones')).not.toBeInTheDocument();
     });
 
     test('Should open modal on button click', async () => {
@@ -142,10 +158,9 @@ describe('Components - Features - Foodit-global - Common - Recetario - Recetario
         });
 
         useGetUserConfig.mockReturnValue({
-            userType: 'subscribed'
+            userType: 'subscribed',
+            isSubscribed: true
         });
-
-        isSubscribed.mockReturnValue(true);
 
         render(<RecetarioBody />);
 

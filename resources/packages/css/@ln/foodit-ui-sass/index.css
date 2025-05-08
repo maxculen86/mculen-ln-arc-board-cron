@@ -89,6 +89,7 @@ input[type=checkbox]:hover {
   --accent-tomate: #a92c2c;
   --accent-mandarina: #f65a22;
   --background-positive: #f3f0eb;
+  --feedback-info-700: #2F3A4E;
   --feedback-danger-500: #C61B25;
   --feedback-danger-600: #99151D;
   --feedback-success-700: #008759;
@@ -604,6 +605,10 @@ input[type=checkbox]:hover {
   background: var(--feedback-danger-500);
 }
 
+.bg-info-700 {
+  background: var(--feedback-info-700);
+}
+
 .bg-black {
   background: var(--neutral-black);
 }
@@ -732,6 +737,10 @@ input[type=checkbox]:hover {
 }
 .roboto-bold {
   font-weight: 700;
+}
+.roboto .text-8 {
+  font-size: 0.5rem;
+  line-height: 120%;
 }
 .roboto .text-12 {
   font-size: 0.75rem;
@@ -1482,6 +1491,10 @@ strong {
   width: 0rem;
 }
 
+.w-14 {
+  width: 0.875rem;
+}
+
 .w-16 {
   width: 1rem;
 }
@@ -1707,6 +1720,10 @@ strong {
 
 .h-8 {
   height: 0.5rem;
+}
+
+.h-14 {
+  height: 0.875rem;
 }
 
 .h-20 {
@@ -2676,6 +2693,10 @@ hr {
 
 .-translate-x-50 {
   transform: translate3d(-50%, 0, 0);
+}
+
+.translate-x-50 {
+  transform: translate3d(50%, 0, 0);
 }
 
 .white-space-nowrap {

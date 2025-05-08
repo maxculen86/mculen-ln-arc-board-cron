@@ -13,6 +13,8 @@ import ShoppingListButton from './shoppingListButton';
 import { modifyPortionsQuantity } from './_helper';
 import { IngredientsPortionsText } from './ingredientsPortionsText';
 import { IngredientsButtons } from './ingredientsButtons';
+import usePortions from './hooks/usePortions';
+import useIngredientsList from './hooks/useIngredientsList';
 
 function IngredientsTitle() {
     return (
@@ -52,18 +54,23 @@ export function Ingredients({
         () => isSubscribed(SUBSCRIBED_HELPER.FOODIT),
         []
     );
-
     const { bookmarkId, setBookmarkId } = useIsInShoppingList(
         isSuscriptor,
         articleId
     );
     const [currentPortion, setCurrentPortion] = useState(Number(portions));
-    const ingredientsModificated = modifyPortionsQuantity({
-        ingredientsArray: ingredientsLists,
-        currentPortion,
-        defaultPortion: Number(portions)
-    });
-    const currentIngredients = ingredientsModificated.map(
+    usePortions('recipe-portions', currentPortion, Number(portions));
+    const ingredientsModified = useMemo(
+        () =>
+            modifyPortionsQuantity({
+                ingredientsArray: ingredientsLists,
+                currentPortion,
+                defaultPortion: Number(portions)
+            }),
+        [ingredientsLists, currentPortion, portions]
+    );
+    useIngredientsList('ingredients-list', ingredientsModified);
+    const currentIngredients = ingredientsModified.map(
         createIngredientSections
     );
     return (
@@ -92,11 +99,9 @@ export function Ingredients({
                     bookmarkId={bookmarkId}
                     setBookmarkId={setBookmarkId}
                     isSuscriptor={isSuscriptor}
-                    ingredientsLists={ingredientsModificated}
+                    ingredientsLists={ingredientsModified}
                     title={title}
                     articleId={articleId}
-                    currentPortion={currentPortion}
-                    defaultPortion={portions}
                 />
             )}
         </div>
