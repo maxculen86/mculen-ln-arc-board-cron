@@ -86,6 +86,8 @@ export const revistas = [
 ];
 
 export const productos = [
+    commonPropsFooter('Canchallena', 'https://canchallena.lanacion.com.ar/'),
+    commonPropsFooter('Foodit', 'https://foodit.lanacion.com.ar/'),
     commonPropsFooter('Bonvivir', 'https://bonvivir.com/'),
     commonPropsFooter('Colecciones', 'https://colecciones.lanacion.com.ar'),
     commonPropsFooter(

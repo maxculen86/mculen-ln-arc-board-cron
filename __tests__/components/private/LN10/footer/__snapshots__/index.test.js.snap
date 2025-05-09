@@ -356,6 +356,38 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link text-start"
+            href="https://canchallena.lanacion.com.ar/"
+            target="_self"
+            title="Ir a Canchallena"
+          >
+            <span
+              class="text ln-text text-light-600 --font-xs"
+            >
+              Canchallena
+            </span>
+          </a>
+        </li>
+        <li
+          class="mb-0"
+        >
+          <a
+            class="link text-start"
+            href="https://foodit.lanacion.com.ar/"
+            target="_self"
+            title="Ir a Foodit"
+          >
+            <span
+              class="text ln-text text-light-600 --font-xs"
+            >
+              Foodit
+            </span>
+          </a>
+        </li>
+        <li
+          class="mb-0"
+        >
+          <a
+            class="link text-start"
             href="https://bonvivir.com/"
             target="_self"
             title="Ir a Bonvivir"
