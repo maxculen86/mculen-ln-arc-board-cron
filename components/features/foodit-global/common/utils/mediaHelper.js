@@ -28,7 +28,7 @@ export const transformFooditImageContent = (image = {}, isOpening = false) => {
         mediaVariant: 'image',
         src: resizedUrl || url,
         alt: getImageAltText(image),
-        sources: getImagesToLoadWithPicture(resizedUrls),
+        sources: getImagesToLoadWithPicture(false, resizedUrls),
         loading: isOpening ? 'eager' : 'lazy',
         fetchPriority: isOpening ? 'high' : 'low'
     };

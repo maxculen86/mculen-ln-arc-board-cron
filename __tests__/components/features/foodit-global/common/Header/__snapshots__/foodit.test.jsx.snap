@@ -1362,6 +1362,25 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   <li>
                     <a
                       class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
+                      data-variant="primary"
+                      href="/menu-semanal/"
+                      target="_self"
+                      title="Ir a menú semanal"
+                    >
+                      <i
+                        class="icon --icon-20"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="weekly-menu"
+                        />
+                      </i>
+                      MENÚ SEMANAL
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
                       data-action="N/A"
                       data-category="header"
                       data-event="e_linkclick"

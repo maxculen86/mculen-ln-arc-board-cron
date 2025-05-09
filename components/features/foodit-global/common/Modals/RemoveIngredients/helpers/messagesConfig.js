@@ -20,6 +20,16 @@ const removeIngredientsConfig = {
             title: '¡Listo!',
             description: 'ya no forma parte de esta receta.'
         }
+    },
+    menu: {
+        modal: {
+            title: 'Eliminar receta',
+            description: 'Se eliminará del menú semanal.<br />¿Está seguro?'
+        },
+        toast: {
+            title: '¡Listo!',
+            description: 'Se quito del menú semanal.'
+        }
     }
 };
 
