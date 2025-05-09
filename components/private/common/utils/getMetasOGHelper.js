@@ -427,7 +427,7 @@ export const buildOgMetas = params => {
             ? [{ property: 'og:image:height', content: image.height }]
             : []),
         { property: 'og:url', content: addForwardSlash(url) },
-        ...(['home', 'nota', 'acumulado'].includes(section) ||
+        ...(['home', 'nota', 'acumulado', 'videoJw'].includes(section) ||
         (arcSite === 'ott' && layout === layoutsName.OttFicha)
             ? [{ property: 'og:site_name', content: siteProperties.title }]
             : []),

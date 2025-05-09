@@ -28,7 +28,7 @@ function ConsecutiveImages({ images }) {
                     alt={getImageAltText(imageData)}
                     fetchPriority="low"
                     loading="lazy"
-                    sources={getImagesToLoadWithPicture(resizedUrls)}
+                    sources={getImagesToLoadWithPicture(false, resizedUrls)}
                 />
                 {imageData && (
                     <EpigraphComponent

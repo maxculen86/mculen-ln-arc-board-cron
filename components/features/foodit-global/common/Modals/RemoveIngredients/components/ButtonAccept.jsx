@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
+import PropTypes from 'prop-types';
 import { addErrorToast, addToast, TOAST } from '../../../bookmark/api/_helper';
 
-export const ButtonAccept = ({ close = () => null, clickAction }) => {
+export function ButtonAccept({ close = () => null, clickAction, title }) {
     const handleClick = async () => {
         close();
 
@@ -11,7 +12,7 @@ export const ButtonAccept = ({ close = () => null, clickAction }) => {
             addToast({
                 variant: TOAST.SUCCESS.VARIANT,
                 title: TOAST.SUCCESS.TITLE,
-                message: TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS
+                message: `Receta ${title} ${TOAST.SUCCESS.MESSAGE.DELETE_INGREDIENTS}`
             });
         else addErrorToast();
     };
@@ -21,4 +22,10 @@ export const ButtonAccept = ({ close = () => null, clickAction }) => {
             Aceptar
         </Button>
     );
+}
+
+ButtonAccept.propTypes = {
+    close: PropTypes.func.isRequired,
+    clickAction: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired
 };

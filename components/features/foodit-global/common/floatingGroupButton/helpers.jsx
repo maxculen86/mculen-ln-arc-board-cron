@@ -24,6 +24,11 @@ const defaultButtons = [
             })
     },
     {
+        title: 'Ir a Menú semanal',
+        children: 'Menú semanal',
+        href: '/menu-semanal/'
+    },
+    {
         title: 'Ir a Lista de compras',
         children: 'Lista de compras',
         href: '/lista-de-compras/',
@@ -50,6 +55,7 @@ export const floatingButtonConfig = {
     [layoutsName.FooditAcumulado]: defaultConfig,
     [layoutsName.FooditAcumuladoChef]: defaultConfig,
     [layoutsName.FooditChef]: defaultConfig,
+    [layoutsName.FooditMenuSemanal]: defaultConfig,
     [layoutsName.FooditRecetario]: (callbacks = []) => {
         const [toggleDrawerRecetario = () => null] = callbacks;
         return {

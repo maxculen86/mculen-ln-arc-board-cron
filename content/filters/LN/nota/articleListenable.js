@@ -533,6 +533,7 @@ export default `
         basic
         mobile
         meta_title
+        web
     }
     description {
         basic

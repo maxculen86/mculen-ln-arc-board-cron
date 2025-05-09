@@ -22,11 +22,15 @@ function RenderOption({ value, bookmarkGroup, propsAs }) {
 }
 
 RenderOption.propTypes = {
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     bookmarkGroup: PropTypes.string.isRequired,
     propsAs: PropTypes.shape({
         children: PropTypes.string.isRequired
     }).isRequired
+};
+
+RenderOption.defaultProps = {
+    value: ''
 };
 
 export default RenderOption;

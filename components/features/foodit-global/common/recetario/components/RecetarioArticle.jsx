@@ -1,12 +1,13 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import get from '../../../../../private/common/utils/get';
 import getAuthorsAsString from '../../../../../private/common/utils/getAuthorsAsString';
 import { getImagesToLoadWithPicture } from '../../../../../private/LN/common/utils/mediaHelper';
 
 import CommonCardFoodit from '../../CommonCardFoodit/foodit';
 
-const RecetarioArticle = ({ article, handleDeleteBookmark }) => {
+function RecetarioArticle({ article, handleDeleteBookmark }) {
     const {
         bookmarkTypeId,
         bookmarkId,
@@ -14,12 +15,12 @@ const RecetarioArticle = ({ article, handleDeleteBookmark }) => {
             image = {},
             time = null,
             headlines = {},
-            canonical_url,
+            canonical_url: canonicalUrl,
             variant,
             tag
         } = {}
     } = article || {};
-    const { url = {}, resized_urls = [] } = image;
+    const { url = {}, resized_urls: resizedUrls = [] } = image;
     const title = get(headlines, 'basic', '');
 
     return (
@@ -30,18 +31,18 @@ const RecetarioArticle = ({ article, handleDeleteBookmark }) => {
             time={time}
             className="col-span-8 col-span-4_md"
             linksProps={{
-                href: canonical_url,
-                title: title
+                href: canonicalUrl,
+                title
             }}
-            size={'small'}
+            size="small"
             variant={variant || 'm'}
             src={get(url, 'resizedUrl', '')}
             alt={title}
-            sources={getImagesToLoadWithPicture(resized_urls)}
-            loading={'lazy'}
-            fetchPriority={'low'}
+            sources={getImagesToLoadWithPicture(false, resizedUrls)}
+            loading="lazy"
+            fetchPriority="low"
             tag={tag}
-            fill={true}
+            fill
             title={title}
             author={getAuthorsAsString(article.bookmarkContent, false)}
             bookmarkAction={() =>
@@ -49,6 +50,12 @@ const RecetarioArticle = ({ article, handleDeleteBookmark }) => {
             }
         />
     );
+}
+RecetarioArticle.propTypes = {
+    article: PropTypes.shape({
+        bookmarkContent: PropTypes.shape({})
+    }).isRequired,
+    handleDeleteBookmark: PropTypes.func.isRequired
 };
 
 export default RecetarioArticle;

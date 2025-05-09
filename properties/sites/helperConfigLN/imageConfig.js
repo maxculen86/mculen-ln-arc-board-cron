@@ -1100,18 +1100,54 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 920,
-                        height: 410,
+                        width: 510,
+                        height: 765,
+                        maxScreenWidth: 511,
                         media_preload: setMediaCondition({
-                            minWidth: 768
-                        })
+                            maxWidth: 511
+                        }),
+                        proportion: '2:3'
                     },
                     {
-                        width: 516,
-                        height: 280,
-                        maxScreenWidth: 767,
-                        media_preload: setMediaCondition({ maxWidth: 767 }),
-                        proportion: '3:2'
+                        width: 767,
+                        height: 1151,
+                        minScreenWidth: 512,
+                        media_preload: setMediaCondition({
+                            minWidth: 512,
+                            maxWidth: 767
+                        }),
+                        proportion: '2:3'
+                    },
+                    {
+                        width: 1023,
+                        height: 1535,
+                        minScreenWidth: 768,
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1023
+                        }),
+                        proportion: '2:3'
+                    },
+                    {
+                        width: 1279,
+                        height: 1919,
+                        minScreenWidth: 1024,
+                        media_preload: setMediaCondition({
+                            minWidth: 1024,
+                            maxWidth: 1279
+                        }),
+                        proportion: '2:3'
+                    },
+
+                    {
+                        width: 1366,
+                        height: 2049,
+                        minScreenWidth: 1280,
+                        media_preload: setMediaCondition({
+                            minWidth: 1280,
+                            maxWidth: 1366
+                        }),
+                        proportion: '2:3'
                     }
                 ]
             }

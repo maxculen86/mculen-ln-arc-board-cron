@@ -24,7 +24,7 @@ const fetch = (query, { cachedCall } = {}) => {
                     cachedCall
                 );
             }
-            return transformLnAcu(response, query, cachedCall);
+            return transformLnAcu(cachedCall, response, query);
         } catch (error) {
             logger.push(
                 error,

@@ -3,48 +3,57 @@ import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { handleIngredientListButton } from './_helper';
-
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
+import usePortions from './hooks/usePortions';
+import { useIsInShoppingList } from './hooks/useIsInShoppingList';
 
 function ShoppingListButton({
     ingredientsLists = [],
     articleId = '',
     title = '',
-    bookmarkId,
-    setBookmarkId,
-    isSuscriptor,
-    currentPortion,
-    defaultPortion
+    isSuscriptor
 }) {
-    const portionsValue =
-        currentPortion > defaultPortion ? currentPortion : defaultPortion;
+    const { portionsValue } = usePortions('recipe-portions');
+
+    const { bookmarkId, setBookmarkId } = useIsInShoppingList(
+        isSuscriptor,
+        articleId
+    );
+
+    const handleClick = async () => {
+        try {
+            await handleIngredientListButton({
+                isSuscriptor,
+                title,
+                articleId,
+                bookmarkId,
+                setBookmarkId,
+                ingredientsLists,
+                portions: portionsValue
+            });
+        } catch (error) {
+            console.error('Shopping list update failed:', error);
+        }
+    };
+
+    const buttonText = bookmarkId ? 'ELIMINAR DE LISTA' : 'AGREGAR A LISTA';
+    const buttonTitle = bookmarkId ? 'Eliminar de lista' : 'Agregar a lista';
 
     return (
         <Button
-            title={bookmarkId ? 'Eliminar de lista' : 'Agregar a lista'}
+            title={buttonTitle}
             size={{ sm: 32, md: 40 }}
-            onClick={() =>
-                handleIngredientListButton({
-                    isSuscriptor,
-                    title,
-                    articleId,
-                    bookmarkId,
-                    setBookmarkId,
-                    ingredientsLists,
-                    portions: portionsValue
-                })
-            }
+            onClick={handleClick}
         >
             <Icon size={16}>
                 <IconSprite name="shopping-list" critical />
             </Icon>
-            {bookmarkId ? 'ELIMINAR DE LISTA' : 'AGREGAR A LISTA'}
+            {buttonText}
         </Button>
     );
 }
+
 ShoppingListButton.propTypes = {
-    setBookmarkId: PropTypes.func.isRequired,
-    bookmarkId: PropTypes.oneOf([PropTypes.string, null]).isRequired,
     isSuscriptor: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     articleId: PropTypes.string.isRequired,
@@ -60,9 +69,7 @@ ShoppingListButton.propTypes = {
             titleList: PropTypes.string.isRequired,
             typeList: PropTypes.string.isRequired
         })
-    ).isRequired,
-    currentPortion: PropTypes.number.isRequired,
-    defaultPortion: PropTypes.number.isRequired
+    ).isRequired
 };
 
 export default ShoppingListButton;

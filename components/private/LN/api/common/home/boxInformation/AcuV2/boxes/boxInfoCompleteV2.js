@@ -8,7 +8,9 @@ export const boxInfoCompleteV2 = (information, section, typeSection) => {
             ...box,
             parameters: {
                 title: information.title || '',
-                url: information.url
+                url: information.url,
+                logoId: information.logoId,
+                buttonLogo: information.buttonLogo
             }
         };
     }

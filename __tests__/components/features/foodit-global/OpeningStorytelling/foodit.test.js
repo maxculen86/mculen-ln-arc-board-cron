@@ -14,7 +14,7 @@ jest.mock('@ln/hooks', () => ({
 }));
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -32,8 +32,15 @@ describe('Foodit - OpeningStorytelling Component', () => {
     it('OpeningStorytelling with video', () => {
         getTypeOfDevice.mockImplementation(() => 'desktop');
 
+        const articleWithVideo = {
+            ...ArticleNotaVideo,
+            promoItems: ArticleNotaVideo.promo_items,
+            headlines: ArticleNotaVideo.headlines
+        };
+        delete articleWithVideo.promo_items;
+
         const { container } = render(
-            <OpeningStorytelling article={ArticleNotaVideo} />
+            <OpeningStorytelling article={articleWithVideo} />
         );
         expect(container).toBeTruthy();
 
@@ -44,8 +51,15 @@ describe('Foodit - OpeningStorytelling Component', () => {
     it('OpeningStorytelling with video, mobile device', () => {
         getTypeOfDevice.mockImplementation(() => 'mobile');
 
+        const articleWithVideo = {
+            ...ArticleNotaVideo,
+            promoItems: ArticleNotaVideo.promo_items,
+            headlines: ArticleNotaVideo.headlines
+        };
+        delete articleWithVideo.promo_items;
+
         const { container } = render(
-            <OpeningStorytelling article={ArticleNotaVideo} />
+            <OpeningStorytelling article={articleWithVideo} />
         );
         expect(container).toBeTruthy();
 
@@ -56,8 +70,15 @@ describe('Foodit - OpeningStorytelling Component', () => {
     });
 
     it('OpeningStorytelling without video', () => {
+        const articleWithoutVideo = {
+            ...ArticleNota,
+            promoItems: ArticleNota.promo_items,
+            headlines: ArticleNota.headlines
+        };
+        delete articleWithoutVideo.promo_items;
+
         const { container } = render(
-            <OpeningStorytelling article={ArticleNota} />
+            <OpeningStorytelling article={articleWithoutVideo} />
         );
         expect(container).toBeTruthy();
 

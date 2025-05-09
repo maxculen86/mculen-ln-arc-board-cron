@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
+import classNames from 'classnames';
 import {
     getIdCollection,
     validateChainFoodit,
@@ -14,12 +15,13 @@ import fooditRules from '../../features/foodit-global/common/utils/fooditRules';
 import useGetArticleInCollectionFoodit from '../foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
 import get from '../../private/common/utils/get';
-import classNames from 'classnames';
 import LazyLoad from '../../features/foodit-global/common/LazyLoad/foodit';
+import { getCarouselId } from './_helper';
 
-const CajaCollection = props => {
+function CajaCollection(props) {
     const [inViewport, setInViewport] = useState(false);
     const { isAdmin, customFields, id: chainId, tree } = props;
+    const carouselId = getCarouselId(chainId);
 
     const {
         idCollection,
@@ -67,9 +69,10 @@ const CajaCollection = props => {
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
-    const articlesWithSize = articles.map(article => {
-        return { ...transformArticleFoodit(article), size };
-    });
+    const articlesWithSize = articles.map(article => ({
+        ...transformArticleFoodit(article),
+        size
+    }));
     const articlesTransformed = articlesWithSize.filter(
         article => article.href
     );
@@ -93,14 +96,19 @@ const CajaCollection = props => {
     );
 
     if (!isStatic && isWithOutLazyLoad) {
-        return <>{Component}</>;
+        return Component;
     }
 
     return !isStatic && !isAdmin ? (
         <LazyLoad
+            id={carouselId}
             hide={hideCaja}
             onViewport={() => setInViewport(true)}
             showComponent={articlesTransformed.length > 0}
+            style={{
+                scrollMarginTop: '80px',
+                scrollBehavior: 'smooth'
+            }}
         >
             {Component}
         </LazyLoad>
@@ -109,18 +117,18 @@ const CajaCollection = props => {
             <div className={staticContentClassName}>{Component}</div>
         </Static>
     );
-};
+}
 
 CajaCollection.label = 'foodit Caja Collection';
 
 CajaCollection.propTypes = {
-    isAdmin: PropTypes.bool,
+    isAdmin: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         ...setChainFooditCustomFields('cajaCollection')
-    }),
+    }).isRequired,
     globalContent: PropTypes.shape({
         name: PropTypes.string
-    })
+    }).isRequired
 };
 
 export default Consumer(CajaCollection);

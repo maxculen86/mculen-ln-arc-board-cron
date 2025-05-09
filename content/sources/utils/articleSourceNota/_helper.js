@@ -373,6 +373,22 @@ const transformContentElements = async ({
     return contentElementTransformed;
 };
 
+export const processVolanta = result => {
+    const headlinesWeb = (get(result, 'headlines.web', '') || '').trim();
+
+    if (!headlinesWeb) {
+        return result.label;
+    }
+
+    return {
+        ...(result.label || {}),
+        volanta: {
+            display: true,
+            text: headlinesWeb
+        }
+    };
+};
+
 export const transform = async (response, query, cachedCall) => {
     const {
         meteringVariant,
@@ -454,6 +470,8 @@ export const transform = async (response, query, cachedCall) => {
             )
         ]);
 
+    const labelWithVolanta = processVolanta(result);
+
     return {
         ...result,
         withSponsoredLink: validateSponsoredLink(result),
@@ -466,6 +484,7 @@ export const transform = async (response, query, cachedCall) => {
             authors,
             sponsored
         ),
+        label: labelWithVolanta,
         promo_items: {
             ...promoItems,
             ...(promoItems.basic && {

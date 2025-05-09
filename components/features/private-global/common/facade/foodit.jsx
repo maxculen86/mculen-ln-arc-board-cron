@@ -1,8 +1,11 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import PropTypes from 'prop-types';
+import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 
-const Facade = ({ id, altText, image, resizedUrls, isOpening = false }) => {
+function Facade({ id, altText, image, resizedUrls, isOpening = false }) {
     return (
         <div
             id={`facade-${id}`}
@@ -36,10 +39,16 @@ const Facade = ({ id, altText, image, resizedUrls, isOpening = false }) => {
                 className="w-100 ratio-inherit"
                 fetchPriority={isOpening ? 'high' : 'low'}
                 loading={isOpening ? 'eager' : 'lazy'}
-                sources={getImagesToLoadWithPicture(resizedUrls)}
+                sources={getImagesToLoadWithPicture(false, resizedUrls)}
             />
         </div>
     );
+}
+Facade.propTypes = {
+    id: PropTypes.string.isRequired,
+    altText: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    resizedUrls: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    isOpening: PropTypes.bool.isRequired
 };
-
 export default Facade;

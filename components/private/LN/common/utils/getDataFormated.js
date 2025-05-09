@@ -1,31 +1,28 @@
 import getAuthorByline from '../../../common/utils/getAuthorByline';
 
-export const decorator = (prefix, regex, replace, string) => {
-    return regex && replace && string
+export const decorator = (prefix, regex, replace, string) =>
+    regex && replace && string
         ? `${prefix}${string
               .toLowerCase()
               .normalize('NFD')
               .replace(/[\u0300-\u036f]/g, '')
               .replace(regex, replace)}`
         : '';
-};
 
-export const getCategories = sections => {
-    return sections && sections.length
+export const getCategories = sections =>
+    sections && sections.length
         ? sections
               .map(section => decorator('ca_', /\W/g, '_', section.name))
               .join(',')
         : '';
-};
 
-export const getTags = tags => {
-    return tags && tags.length
+export const getTags = tags =>
+    tags && tags.length
         ? tags.map(tag => decorator('te_', /\W/g, '_', tag.text)).join(',')
         : '';
-};
 
-export const getAuthors = object => {
-    return object && object.length
+export const getAuthors = object =>
+    object && object.length
         ? object
               .map(author => {
                   const name = getAuthorByline(author);
@@ -33,7 +30,6 @@ export const getAuthors = object => {
               })
               .join(',')
         : '';
-};
 
 export const getAuthorsFromContentElements = object => {
     const authors =
@@ -54,9 +50,9 @@ export const getAuthorsFromContentElements = object => {
 export const getCustParamsEncoded = (
     tags,
     sections,
-    authors = [],
+    contentElements,
     id = '',
-    contentElements
+    authors = []
 ) => {
     const tagsFormated = getTags(tags);
     const categoriesFormated = getCategories(sections);
