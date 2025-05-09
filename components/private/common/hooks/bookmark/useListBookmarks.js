@@ -1,6 +1,11 @@
 import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
 import trasformBookmarkContent from '../../utils/bookmark/trasformBookmarkContent';
+import {
+    buildPaginationQuery,
+    hasMorePages,
+    hasCredentials
+} from '../../utils/bookmark/helpers';
 
 export default function useListBookmarks({
     termicaBookmark,
@@ -11,13 +16,11 @@ export default function useListBookmarks({
     const [bookmarks, setBookmarks] = useState([]);
     const [meta, setMeta] = useState(false);
     const [loading, setLoading] = useState(true);
-    const paginationQuery = meta
-        ? `&nextKeyPK=${meta.nextKeyPK}&nextKeySK=${meta.nextKeySK}`
-        : '';
+    const paginationQuery = buildPaginationQuery(meta);
 
     const getDataFromAPI = useCallback(async () => {
         try {
-            if (accessToken && token) {
+            if (hasCredentials(token, accessToken)) {
                 const res = await fetch(
                     `${PERSONALIZACION_APIV2}bookmarks?size=30${paginationQuery}`,
                     {
@@ -52,21 +55,21 @@ export default function useListBookmarks({
     };
 
     useEffect(() => {
-        if (termicaBookmark && subscription) {
-            getDataFromAPI();
-        }
-
         if (!subscription) {
             setLoading(false);
+            return;
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+
+        if (termicaBookmark) {
+            getDataFromAPI();
+        }
     }, [token, accessToken, termicaBookmark, subscription]);
 
     return {
         bookmarks,
         loading,
         deleteArticle,
-        morePages: meta && meta.nextKeyPK !== null,
+        morePages: hasMorePages(meta),
         getNextPage: getDataFromAPI
     };
 }
