@@ -79,6 +79,12 @@ describe('OpeningRecipe Component', () => {
         expect(buttonShoppingList).toBeInTheDocument();
     });
 
+    it('should render tooltip', () => {
+        render(<OpeningRecipe article={Article} />);
+        const tooltipNew = screen.getByText('¡Descubrí Menú semanal!');
+        expect(tooltipNew).toBeInTheDocument();
+    });
+
     it('Should have the correct text on the save bookmark button', () => {
         const { container, debug } = render(
             <OpeningRecipe article={Article} />

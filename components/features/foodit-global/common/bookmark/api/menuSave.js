@@ -82,7 +82,7 @@ export const saveMenu = async ({ article, selectedDay, selectedFood }) => {
             message: TOAST.SUCCESS.MESSAGE.SAVE_MENU
         });
 
-        return response.bookmarkId;
+        return response;
     }
     addErrorToast();
     return '';

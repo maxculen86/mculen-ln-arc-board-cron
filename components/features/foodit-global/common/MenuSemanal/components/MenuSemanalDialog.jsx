@@ -17,7 +17,13 @@ import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
 import { dayFoodQuantities } from '../helpers/_helper';
 
-function MenuSemanalDialog({ article, onClose, isOpen, weeklyMenu }) {
+function MenuSemanalDialog({
+    article,
+    onClose,
+    isOpen,
+    weeklyMenu,
+    setWeeklyMenu
+}) {
     const { isSubscribed, userType } = useGetUserConfig();
     const [selectedDay, setSelectedDay] = useState(null);
     const [selectedFood, setSelectedFood] = useState(null);
@@ -37,6 +43,7 @@ function MenuSemanalDialog({ article, onClose, isOpen, weeklyMenu }) {
     };
 
     const saveMenuWeekly = async () => {
+        handleClose();
         const dayFoodSelected = countDayFood.find(
             info => info.day === selectedDay && info.food === selectedFood
         );
@@ -47,12 +54,14 @@ function MenuSemanalDialog({ article, onClose, isOpen, weeklyMenu }) {
                 title: TOAST.ERROR.TITLE,
                 message: TOAST.ERROR.MESSAGE.LIMIT_MENU
             });
-            return handleClose();
+            return;
         }
 
         const result = await saveMenu({ article, selectedDay, selectedFood });
 
-        if (result) {
+        setWeeklyMenu(prevState => [...prevState, result]);
+
+        if (result?.bookmarkId) {
             addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'interaction',
@@ -62,8 +71,6 @@ function MenuSemanalDialog({ article, onClose, isOpen, weeklyMenu }) {
                 articleId: get(article, '_id', '')
             });
         }
-
-        return handleClose();
     };
 
     const renderDialogHeader = (className, children) => (
@@ -150,7 +157,8 @@ MenuSemanalDialog.propTypes = {
             mealType: PropTypes.string.isRequired,
             recipe: PropTypes.shape({}).isRequired
         })
-    ).isRequired
+    ).isRequired,
+    setWeeklyMenu: PropTypes.func.isRequired
 };
 
 export default MenuSemanalDialog;
