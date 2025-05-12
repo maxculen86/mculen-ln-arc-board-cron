@@ -22,8 +22,13 @@ function OptionEdit({
     isOpen,
     onClose
 }) {
-    const [selectedDay, setSelectedDay] = useState('');
-    const [selectedFood, setSelectedFood] = useState('');
+    const menuToEdit = weeklyMenu.find(menu => menu.bookmarkId === bookmarkId);
+    const [selectedDay, setSelectedDay] = useState(
+        menuToEdit?.bookmarkGroup || ''
+    );
+    const [selectedFood, setSelectedFood] = useState(
+        menuToEdit?.bookmarkContent?.food || ''
+    );
     const classContainer = cx(
         'mx-auto rounded-4 overflow-visible py-16 py-24_md py-32_lg px-16 px-24_md px-32_lg w-328 min-w-344_lg'
     );
@@ -42,9 +47,6 @@ function OptionEdit({
             return onClose();
         }
 
-        const menuToEdit = weeklyMenu.find(
-            menu => menu.bookmarkId === bookmarkId
-        );
         const response = await editMenu({
             menuToEdit,
             day: selectedDay,
@@ -112,6 +114,7 @@ function OptionEdit({
                             selectedFood={selectedFood}
                             articleId={articleId}
                             weeklyMenu={weeklyMenu}
+                            menuToEdit={menuToEdit}
                         />
                     </div>
                     <FooterMenu
