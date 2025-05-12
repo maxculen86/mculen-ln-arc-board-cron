@@ -33,6 +33,7 @@ function OptionEdit({
         'mx-auto rounded-4 overflow-visible py-16 py-24_md py-32_lg px-16 px-24_md px-32_lg w-328 min-w-344_lg'
     );
     const editMenuWeekly = async () => {
+        onClose();
         const countDayFood = dayFoodQuantities(weeklyMenu);
         const dayFoodSelected = countDayFood.find(
             info => info.day === selectedDay && info.food === selectedFood
@@ -44,7 +45,7 @@ function OptionEdit({
                 title: TOAST.ERROR.TITLE,
                 message: TOAST.ERROR.MESSAGE.LIMIT_MENU
             });
-            return onClose();
+            return;
         }
 
         const response = await editMenu({
@@ -74,8 +75,6 @@ function OptionEdit({
                 message: TOAST.ERROR.MESSAGE.GENERIC
             });
         }
-
-        return onClose();
     };
     return (
         <Dialog
