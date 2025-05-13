@@ -50,6 +50,7 @@ describe('relatedContentSource', () => {
         };
         const mockTransformedData = [{ id: '1', title: 'Test Article' }];
         const mockQuery = { 'arc-site': 'foodit', id: 'article-123' };
+        const mockLimit = 2;
         const mockCachedCall = jest.fn();
 
         nodeFetch.mockResolvedValue({
@@ -71,6 +72,7 @@ describe('relatedContentSource', () => {
         expect(transformData).toHaveBeenCalledWith(
             mockResponse,
             mockQuery,
+            mockLimit,
             mockCachedCall
         );
         expect(result).toEqual(mockTransformedData);
@@ -156,7 +158,7 @@ describe('relatedContentSource', () => {
         expect(result).toEqual([]);
     });
 
-    it('should filter out unpublished items and limit to 3', async () => {
+    it('should filter out unpublished items and limit to 2', async () => {
         const mockResponse = {
             basic: [
                 { id: '1', revision: { published: true } },
@@ -167,13 +169,14 @@ describe('relatedContentSource', () => {
             ]
         };
         const mockQuery = { 'arc-site': 'foodit' };
+        const mockLimit = 2;
         const mockCachedCall = jest.fn();
 
         transformData.mockImplementation(
-            async (response, query, cachedCall) => {
+            async (response, query, mockLimit, cachedCall) => {
                 const filteredItems = response.basic
                     .filter(item => item.revision?.published)
-                    .slice(0, 3);
+                    .slice(0, mockLimit);
 
                 return Promise.all(
                     filteredItems.map(item =>
@@ -186,14 +189,14 @@ describe('relatedContentSource', () => {
         const result = await transformData(
             mockResponse,
             mockQuery,
+            mockLimit,
             mockCachedCall
         );
 
-        expect(result.length).toBe(3);
+        expect(result.length).toBe(2);
         expect(result[0].id).toBe('1');
         expect(result[1].id).toBe('3');
-        expect(result[2].id).toBe('4');
-        expect(getAllImagesAuth).toHaveBeenCalledTimes(3);
+        expect(getAllImagesAuth).toHaveBeenCalledTimes(2);
     });
 
     it('should properly transform data with images and credits', async () => {
@@ -209,6 +212,7 @@ describe('relatedContentSource', () => {
         };
         const mockResponse = { basic: [mockBasicItem] };
         const mockQuery = { 'arc-site': 'foodit', isAdmin: true };
+        const mockLimit = 2;
         const mockCachedCall = jest.fn();
 
         getPresets.mockReturnValue({
@@ -243,6 +247,7 @@ describe('relatedContentSource', () => {
         const result = await realTransformData(
             mockResponse,
             mockQuery,
+            mockLimit,
             mockCachedCall
         );
 
@@ -268,6 +273,7 @@ describe('relatedContentSource', () => {
             ]
         };
         const mockQuery = { 'arc-site': 'foodit' };
+        const mockLimit = 2;
         const mockCachedCall = jest.fn();
 
         getAllImagesAuth.mockImplementation(async elem => {
@@ -280,6 +286,7 @@ describe('relatedContentSource', () => {
         const result = await transformData(
             mockResponse,
             mockQuery,
+            mockLimit,
             mockCachedCall
         );
 
