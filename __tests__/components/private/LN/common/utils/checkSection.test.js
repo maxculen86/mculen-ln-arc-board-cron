@@ -5,7 +5,7 @@ describe('Games test funcion checkSection', () => {
             _id: '/juegos'
         };
         const target = '/juegos';
-        const result = checkSection(globalContent, target);
+        const result = checkSection(target, globalContent);
         expect(result).toBe(true);
     });
 
@@ -14,13 +14,13 @@ describe('Games test funcion checkSection', () => {
             _id: '/other'
         };
         const target = '/other';
-        const result = checkSection(globalContent, target);
+        const result = checkSection(target, globalContent);
         expect(result).toBe(true);
     });
 
     it('should return false when globalContent is empty object', () => {
         const globalContent = {};
-        const result = checkSection(globalContent);
+        const result = checkSection('section1', globalContent);
         expect(result).toBe(false);
     });
 
@@ -29,14 +29,14 @@ describe('Games test funcion checkSection', () => {
             _id: '/targetSectionId'
         };
         const target = 'targetSectionId';
-        const result = checkSection(globalContent, target);
+        const result = checkSection(target, globalContent);
         expect(result).toBe(false);
     });
 
     it('returns false if globalContent does not have a primary section', () => {
         const globalContent = {};
         const target = 'targetSectionId';
-        const result = checkSection(globalContent, target);
+        const result = checkSection(target, globalContent);
         expect(result).toBe(false);
     });
 });

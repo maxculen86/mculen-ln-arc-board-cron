@@ -2,7 +2,9 @@ import { productClickFromClient } from '../../../../components/private/common/ut
 
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
-        const articles = document.querySelectorAll('article');
+        const articles = document.querySelectorAll(
+            'article:not([data-has-jwplayer="true"])'
+        );
 
         articles.forEach(art => {
             art.addEventListener('click', element => {

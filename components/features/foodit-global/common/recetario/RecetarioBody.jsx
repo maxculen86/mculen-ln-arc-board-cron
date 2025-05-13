@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
+import { cx } from '@ln/cva';
 import { createSummaryList } from '../utils/recetarioHelper';
 import useGetRecetarioData from './hooks/useGetRecetarioData';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
@@ -16,7 +17,7 @@ import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 function RecetarioBody() {
     const { loading, userBookmarks, setUserBookmarks } = useGetRecetarioData();
-    const { userType } = useGetUserConfig();
+    const { userType, isSubscribed } = useGetUserConfig();
     const [selectedItem, setSelectedItem] = useState({});
     const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
     useEffect(() => {
@@ -34,16 +35,24 @@ function RecetarioBody() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const onClose = useCallback(() => setIsModalOpen(false), []);
 
+    const classEmptyState = cx(
+        isSubscribed
+            ? 'col-span-8 col-span-12_lg min-h-344'
+            : 'col-span-8 col-span-12_md col-span-16_lg'
+    );
+
     return (
         <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
-            <aside className="sm-none col-span-4 bg-positive p-24 p-32_lg">
-                <CollectionBox
-                    title="Colecciones"
-                    list={summaryList}
-                    onItemSelected={setSelectedItem}
-                />
-            </aside>
-            <section className="col-span-8 col-span-12_lg min-h-344">
+            {isSubscribed ? (
+                <aside className="sm-none col-span-4 bg-positive p-24 p-32_lg">
+                    <CollectionBox
+                        title="Colecciones"
+                        list={summaryList}
+                        onItemSelected={setSelectedItem}
+                    />
+                </aside>
+            ) : null}
+            <section className={classEmptyState}>
                 <div className="floating-button-sentinel" />
                 <div className="flex ai-center gap-24 mb-24">
                     <Text

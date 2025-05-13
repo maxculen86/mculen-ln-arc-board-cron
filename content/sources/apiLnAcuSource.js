@@ -7,7 +7,7 @@ import transformLnAcuApi from './utils/lnAcuSources/api/helper';
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
     const apiTransform = {
-        transformLnAcuApi: transformLnAcuApi
+        transformLnAcuApi
     };
 
     const resolveData = async () => {
@@ -24,7 +24,7 @@ const fetch = (query, { cachedCall } = {}) => {
                     cachedCall
                 );
             }
-            return transformLnAcu(response, query, cachedCall);
+            return transformLnAcu(cachedCall, response, query);
         } catch (error) {
             logger.push(
                 error,

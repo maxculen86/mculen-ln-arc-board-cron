@@ -123,11 +123,11 @@ describe('Tests articleSourceNota - _helper', () => {
             ];
 
             const content =
-                'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores';
+                'Los que hayan adquirido dólar "bolsa" o contado con liquidación en los 90 días anteriores';
 
             const expected = {
                 foundGlossaryWord: false,
-                text: 'Los que hayan adquirido dólar “bolsa” o contado con liquidación en los 90 días anteriores'
+                text: 'Los que hayan adquirido dólar "bolsa" o contado con liquidación en los 90 días anteriores'
             };
 
             injectGlossaryInText.mockReturnValue(expected);

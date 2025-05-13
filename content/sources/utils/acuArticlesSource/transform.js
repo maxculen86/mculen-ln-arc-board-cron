@@ -9,6 +9,7 @@ import {
     isOlderThanXHoursAgo
 } from '../../../../components/private/common/utils/dateAndTimeUtil';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
+import { processVolanta } from '../common/volantaHelper';
 
 const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
     try {
@@ -41,6 +42,7 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
                 const api = get(siteProps, 'api', false);
                 return {
                     ...elem,
+                    label: processVolanta(elem),
                     ...addResizedUrls(
                         {
                             ...(promoItems && { promo_items: promoItems }),
@@ -91,13 +93,11 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
             respData.content_elements = respData.content_elements
                 .filter(story => !isOlderThanXHoursAgo(story.display_date, 24))
                 .filter(story => !hasFutureDisplayDate(story.display_date))
-                .map(story => {
-                    return {
-                        ...story,
-                        display_date: addHoursAndFormat(-3, story.display_date),
-                        website_url: story.canonical_url
-                    };
-                });
+                .map(story => ({
+                    ...story,
+                    display_date: addHoursAndFormat(-3, story.display_date),
+                    website_url: story.canonical_url
+                }));
             if (!respData.content_elements.length) {
                 respData.next = 0;
             }
@@ -109,8 +109,7 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
         console.warn(
             `Error Transform - content/acuArticlesSource : ${JSON.stringify(
                 data
-            )} - siteprops: ${JSON.stringify(siteProps)} - errorMsj:${
-                error.message
+            )} - siteprops: ${JSON.stringify(siteProps)} - errorMsj:${error.message
             }`
         );
         throw new Error(error);

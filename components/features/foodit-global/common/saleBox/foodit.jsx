@@ -24,9 +24,7 @@ export function SaleBox({ ...props }) {
         );
 
     const paywallUrl = !isSSR()
-        ? `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
-              window.location.href
-          )}`
+        ? `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=831&callback=${window.btoa(window.location.href)}`
         : '';
 
     const handleRedirectSubscription = () => {

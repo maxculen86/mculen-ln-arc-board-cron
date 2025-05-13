@@ -25,7 +25,7 @@ export function Image({ data }) {
                 alt={getImageAltText(data)}
                 fetchPriority="low"
                 loading="lazy"
-                sources={getImagesToLoadWithPicture(resizedUrls)}
+                sources={getImagesToLoadWithPicture(false, resizedUrls)}
             />
             {data && (
                 <EpigraphComponent

@@ -2,15 +2,13 @@ import React from 'react';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { Text } from '@ln/common-ui-text';
-import { Icon } from '@ln/common-ui-icon';
 import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
 import { Badge } from '@ln/foodit-ui-badge';
-import { Button } from '@ln/foodit-ui-button';
 
+import { useDisclosure } from '@ln/hooks';
 import ButtonsGroup from '../ActionsButtons/foodit';
 import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 import {
     getFooditAuthor,
@@ -24,14 +22,20 @@ import get from '../../../../private/common/utils/get';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
 import AudioRecipe from './audioRecipe';
+import MenuSemanalDialog from '../MenuSemanal/components/MenuSemanalDialog';
+import { ActionsButtons } from './actionOptions';
+import { useGetWeeklyMenu } from '../MenuSemanal/hooks/useGetWeeklyMenu';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
+import { getMealTotalById } from '../MenuSemanal/helpers/_helper';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const {
         promo_items: promoItems = {},
         headlines = {},
         taxonomy,
-        _id = ''
+        _id: articleId
     } = article;
+
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
     const title = get(headlines, 'basic', '');
@@ -42,6 +46,16 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
         replaceBaseUrl(imageData);
 
     const { resizedUrl = '' } = getShortestImage(resizedUrls);
+    const { isOpen, onOpen, onClose } = useDisclosure(false);
+    const { isSubscribed: subscription } = useGetUserConfig();
+
+    const { weeklyMenu, setWeeklyMenu } = useGetWeeklyMenu(subscription);
+
+    const handleOpen = () => {
+        onOpen();
+    };
+
+    const { total } = getMealTotalById(articleId, weeklyMenu);
 
     return (
         <Recipe>
@@ -61,7 +75,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                         className="w-100 ratio-3-2"
                         fetchPriority="high"
                         loading="eager"
-                        sources={getImagesToLoadWithPicture(resizedUrls)}
+                        sources={getImagesToLoadWithPicture(false, resizedUrls)}
                     />
                 )}
                 {badge && (
@@ -87,19 +101,20 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                     </div>
                 </div>
                 <div className="flex flex-column gap-24">
-                    <Static id={`btn-saved-${_id}`}>
-                        <Button
-                            title="Guardar"
-                            size={{ sm: 32, lg: 40 }}
-                            data-modal="open-modal"
-                            data-id={_id}
-                        >
-                            <Icon size={16} className="sm-none">
-                                <IconSprite name="bookmark" critical />
-                            </Icon>
-                            Guardar
-                        </Button>
-                    </Static>
+                    <div className="flex gap-24">
+                        <ActionsButtons
+                            handleOpen={handleOpen}
+                            countDayFood={total}
+                            article={article}
+                        />
+                        <MenuSemanalDialog
+                            weeklyMenu={weeklyMenu}
+                            setWeeklyMenu={setWeeklyMenu}
+                            isOpen={isOpen}
+                            onClose={onClose}
+                            article={article}
+                        />
+                    </div>
                     <div className="flex flex-column flex-column_lg gap-24 jc-between_md">
                         <AudioRecipe
                             title={title}

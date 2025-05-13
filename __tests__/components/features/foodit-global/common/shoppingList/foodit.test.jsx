@@ -8,6 +8,14 @@ import { useShoppingList } from '../../../../../../components/features/foodit-gl
 import getToken from '../../../../../../components/private/common/utils/getToken';
 import shoppingList from '../../../../../../__mocks__/data/fooditShoppingList/shoppingList.json';
 
+const observe = jest.fn();
+const unobserve = jest.fn();
+
+window.IntersectionObserver = jest.fn(() => ({
+    observe,
+    unobserve
+}));
+
 jest.mock(
     '../../../../../../components/features/foodit-global/common/shoppingList/hooks/useShoppingList'
 );
@@ -40,7 +48,7 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
         }));
         getToken.mockReturnValue('10');
         const { getByText } = render(<ShoppingList />);
-        expect(getByText('¡Exclusivo suscriptores!')).toBeInTheDocument();
+        expect(getByText('Exclusivo para suscriptores')).toBeInTheDocument();
     });
 
     test('Should render shoppingList', () => {

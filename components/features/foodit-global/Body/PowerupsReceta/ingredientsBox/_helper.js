@@ -138,3 +138,14 @@ export function modifyPortionsQuantity({
         })
     }));
 }
+
+export const isItemInShoppingList = (shoppingList, articleId, bookmarkId) => {
+    if (!shoppingList || !shoppingList.length) return false;
+
+    if (bookmarkId) {
+        return shoppingList.some(
+            item => item.id === articleId && item.bookmarkId === bookmarkId
+        );
+    }
+    return shoppingList.some(item => item.id === articleId);
+};

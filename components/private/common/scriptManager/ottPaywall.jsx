@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 export const scriptLog = `function getCookie(nameCookie) {
         if (!nameCookie) return undefined;
-        var value = "; ".concat(typeof document !== 'undefined' ? document.cookie : '');
-        var parts = value.split("; ".concat(nameCookie, "="));
+        const value = "; ".concat(typeof document !== 'undefined' ? document.cookie : '');
+        const parts = value.split("; ".concat(nameCookie, "="));
         return parts.length === 2 ? parts.pop().split(';').shift() : undefined;
       }
     function getHrefHashed() {
@@ -18,9 +18,10 @@ export const scriptLog = `function getCookie(nameCookie) {
     window.location.href = 'https://suscripciones.lanacion.com.ar/suscripcion/E/2/?callback=' + getHrefHashed()
     }`;
 
-function OTTPaywall({ arcSite }) {
+function OTTPaywall({ arcSite, isAdmin }) {
     return (
-        arcSite === 'ott' && (
+        arcSite === 'ott' &&
+        !isAdmin && (
             <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{ __html: scriptLog }}
@@ -30,7 +31,8 @@ function OTTPaywall({ arcSite }) {
 }
 
 OTTPaywall.propTypes = {
-    arcSite: PropTypes.string.isRequired
+    arcSite: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool.isRequired
 };
 
 export default OTTPaywall;

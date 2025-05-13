@@ -19,6 +19,11 @@ jest.mock(
 );
 
 describe('Content - Sources - Utils - FooditSources - transformFooditAcu', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        console.error = jest.fn();
+    });
+
     it('should handle promise rejection gracefully', async () => {
         const response = {
             content_elements: [
@@ -42,7 +47,7 @@ describe('Content - Sources - Utils - FooditSources - transformFooditAcu', () =>
         getImageConfig.mockReturnValue({});
         get.mockReturnValue('subtype');
 
-        const result = await transformFooditAcu(response, query, cachedCall);
+        const result = await transformFooditAcu(response, cachedCall, query);
 
         expect(result).toEqual({
             ...response,
@@ -67,6 +72,10 @@ describe('Content - Sources - Utils - FooditSources - transformFooditAcu', () =>
             response.content_elements[1],
             cachedCall
         );
+        expect(console.error).toHaveBeenCalledWith(
+            'fooditAcuSource - transformFooditAcu - getImagesAuth error',
+            expect.any(Error)
+        );
     });
 
     it('should transform all elements correctly when promises resolve', async () => {
@@ -88,7 +97,7 @@ describe('Content - Sources - Utils - FooditSources - transformFooditAcu', () =>
         getImageConfig.mockReturnValue({ config: 'config' });
         get.mockReturnValue('subtype');
 
-        const result = await transformFooditAcu(response, query, cachedCall);
+        const result = await transformFooditAcu(response, cachedCall, query);
 
         expect(result).toEqual({
             ...response,

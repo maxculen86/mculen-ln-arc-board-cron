@@ -23,6 +23,7 @@ import {
 import addParallaxData from '../addParallaxData';
 import { recipePowerUps } from '../powerUp';
 import firmaDistributorValidation from '../firmaDistributorValidator';
+import { processVolanta } from '../common/volantaHelper';
 
 // Tener en cuenta que foodit usa estos helpers
 
@@ -454,6 +455,8 @@ export const transform = async (response, query, cachedCall) => {
             )
         ]);
 
+    const labelWithVolanta = processVolanta(result);
+
     return {
         ...result,
         withSponsoredLink: validateSponsoredLink(result),
@@ -466,6 +469,7 @@ export const transform = async (response, query, cachedCall) => {
             authors,
             sponsored
         ),
+        label: labelWithVolanta,
         promo_items: {
             ...promoItems,
             ...(promoItems.basic && {

@@ -24,6 +24,13 @@ describe('ottPaywall', () => {
 
         expect(container).toBeEmptyDOMElement();
     });
+    it('Shouldnt render if arcSite is ott and isAdmin is true', () => {
+        const { container } = render(
+            <OTTPaywall arcSite={'ott'} isAdmin={true} />
+        );
+
+        expect(container).toBeEmptyDOMElement();
+    });
     it('When dont find cookie productoPremiumId should redirect to paywall', () => {
         eval(scriptLog);
         expect(window.location.href).toBe(

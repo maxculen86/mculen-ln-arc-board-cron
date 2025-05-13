@@ -211,7 +211,7 @@ function Default(props) {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
-                <OTTPaywall arcSite={arcSite} />
+                <OTTPaywall arcSite={arcSite} isAdmin={isAdmin} />
                 <TagsLoadingList
                     section={_nodeType}
                     location="head"

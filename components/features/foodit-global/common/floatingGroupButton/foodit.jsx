@@ -30,6 +30,7 @@ function FloatingGroupButton({
         <Groupbutton className={_className}>
             {buttons.map(button => (
                 <Button
+                    className="button-nota"
                     key={button.title}
                     size={32}
                     {...button}
