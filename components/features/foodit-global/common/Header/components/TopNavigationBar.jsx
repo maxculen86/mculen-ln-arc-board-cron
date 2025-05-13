@@ -34,14 +34,14 @@ export function TopNavigationBar({ categories = [] }) {
                         MIS RECETAS
                     </Link>
                     <Link
-                        href="/menu-semanal/"
-                        title="Ir a menú semanal"
+                        href="/mi-menu-semanal/"
+                        title="Ir a mi menú semanal"
                         className="gap-8"
                     >
                         <Icon size={20}>
                             <IconSprite name="weekly-menu" critical />
                         </Icon>
-                        MENÚ SEMANAL
+                        MI MENÚ SEMANAL
                     </Link>
                     <Link
                         data-test-id="header-link-lista-compras"

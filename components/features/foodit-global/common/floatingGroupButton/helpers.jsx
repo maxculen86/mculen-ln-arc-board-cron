@@ -25,8 +25,8 @@ const defaultButtons = [
     },
     {
         title: 'Ir a Menú semanal',
-        children: 'Menú semanal',
-        href: '/menu-semanal/'
+        children: 'Mi menú semanal',
+        href: '/mi-menu-semanal/'
     },
     {
         title: 'Ir a Lista de compras',
