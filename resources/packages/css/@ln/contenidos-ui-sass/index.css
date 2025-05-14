@@ -1265,6 +1265,7 @@ a {
   --panal-de-letras: #dce11f;
   --memograma: #295dea;
   --nexos: #8969E9;
+  --circuitos: #42D369;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1898,6 +1899,10 @@ a {
   background: var(--nexos);
 }
 
+.bg-circuitos {
+  background: var(--circuitos);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -2014,6 +2019,10 @@ a {
   background: var(--nexos);
 }
 
+.bg-circuitos__hover:hover {
+  background: var(--circuitos);
+}
+
 .bg-secondary__hover:hover {
   background: var(--neutral-light-50);
 }
@@ -2111,6 +2120,11 @@ a {
 
 .ln-card-games-nexos__hover:hover .cardGame__hover {
   border-color: var(--nexos);
+  background-color: white;
+}
+
+.ln-card-games-circuitos__hover:hover .cardGame__hover {
+  border-color: var(--circuitos);
   background-color: white;
 }
 
