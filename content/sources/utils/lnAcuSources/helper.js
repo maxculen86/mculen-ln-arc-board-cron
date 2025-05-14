@@ -2,6 +2,7 @@ import getPresets from '../presets';
 import get from '../../../../components/private/common/utils/get';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
+import { processVolanta } from '../common/volantaHelper';
 
 const transformLnAcu = async (cachedCall, data = {}, siteProps = {}) => {
     try {
@@ -33,7 +34,8 @@ const transformLnAcu = async (cachedCall, data = {}, siteProps = {}) => {
                             subtype,
                             arcSite: siteProps['arc-site']
                         }
-                    )
+                    ),
+                    label: processVolanta(elem)
                 };
             })
         );

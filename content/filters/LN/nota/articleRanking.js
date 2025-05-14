@@ -26,6 +26,7 @@ export default `{
             headlines {
                 basic
                 mobile
+                web
             }
             label {
                 volanta {
