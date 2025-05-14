@@ -34,7 +34,7 @@ export const FooditPrint = React.forwardRef(
         const { ingredientsLists, nutritionLists } =
             getListsFromPowerup(contentElements);
         const badge = getHighestPriorityTag(sections);
-        const { preparacionElements, tipsAndTricks } =
+        const { preparationElements, tipsAndTricks } =
             useRecipeElements(contentElements);
 
         const renderHeadingOrList = element => {
@@ -107,7 +107,7 @@ export const FooditPrint = React.forwardRef(
                         portions={portions}
                         ingredientsLists={ingredientsLists}
                         nutritionLists={nutritionLists}
-                        preparacionElements={preparacionElements}
+                        preparationElements={preparationElements}
                         tipsAndTricks={tipsAndTricks}
                         includePhotos={includePhotos}
                         renderHeadingOrList={renderHeadingOrList}

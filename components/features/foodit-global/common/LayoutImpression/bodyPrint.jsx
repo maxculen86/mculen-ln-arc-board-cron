@@ -11,11 +11,16 @@ export function BodyPrint({
     portions,
     ingredientsLists,
     nutritionLists,
-    preparacionElements,
+    preparationElements,
     tipsAndTricks,
     includePhotos,
     renderHeadingOrList
 }) {
+    const hasIngredients = ingredientsLists.length > 0;
+    const hasNutrition = nutritionLists.length > 0;
+    const hasPreparationElements = preparationElements.length > 0;
+    const hasTipsAndTricks = tipsAndTricks.length > 0;
+
     return (
         <section className="flex gap-32">
             <div className="bg-positive flex flex-column p-32 gap-24">
@@ -27,7 +32,7 @@ export function BodyPrint({
                         Porciones: {portions}
                     </Text>
                 </div>
-                {ingredientsLists.length > 0 && (
+                {hasIngredients && (
                     <Text as="h2" className="prumo prumo-light text-28">
                         Ingredientes
                     </Text>
@@ -38,7 +43,7 @@ export function BodyPrint({
                         ingredientsList={items}
                     />
                 ))}
-                {nutritionLists.length > 0 && (
+                {hasNutrition && (
                     <Text as="h3" className="prumo prumo-light text-24">
                         Nutricional
                     </Text>
@@ -46,19 +51,19 @@ export function BodyPrint({
                 <Nutritional nutritionLists={nutritionLists} />
             </div>
             <div className="flex flex-column gap-32 pt-32">
-                {preparacionElements.length > 0 &&
-                    preparacionElements.map((preparacionElement, index) => (
+                {hasPreparationElements &&
+                    preparationElements.map((preparationElement, index) => (
                         <PowerUpPreparacion
                             key={
-                                preparacionElement._id ||
+                                preparationElement._id ||
                                 `prep-element-${index}`
                             }
-                            data={preparacionElement}
+                            data={preparationElement}
                             includePhotos={includePhotos}
                         />
                     ))}
                 {!includePhotos &&
-                    tipsAndTricks.length > 0 &&
+                    hasTipsAndTricks &&
                     tipsAndTricks.map(renderHeadingOrList)}
             </div>
         </section>
@@ -79,7 +84,7 @@ BodyPrint.propTypes = {
             items: PropTypes.arrayOf(PropTypes.string)
         })
     ).isRequired,
-    preparacionElements: PropTypes.arrayOf(
+    preparationElements: PropTypes.arrayOf(
         PropTypes.shape({
             _id: PropTypes.string,
             titleList: PropTypes.string,

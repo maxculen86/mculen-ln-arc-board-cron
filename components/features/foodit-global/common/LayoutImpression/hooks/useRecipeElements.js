@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 export const useRecipeElements = (contentElements = []) => {
-    const preparacionElements = useMemo(
+    const preparationElements = useMemo(
         () =>
             contentElements.filter(
                 content =>
@@ -23,7 +23,7 @@ export const useRecipeElements = (contentElements = []) => {
     );
 
     return {
-        preparacionElements,
+        preparationElements,
         tipsAndTricks
     };
 };
