@@ -5,13 +5,11 @@ import EmptyBookmark from './EmptyBookmark';
 import ArticlesAcum from '../../LN/acumulado/articlesAcum';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import BtnMasNotas from '../../LN/acumulado/botonVerMasNotas';
-
 function BookmarkList({ data, morePages, getNextPage, loading, openBarrier }) {
     const { outputType } = useAppContext();
     const [loadingMorePages, setLoadingMorePages] = useState(false);
 
     if (loading) return <LoadingIcon />;
-
     return (
         <section className="bookmark-list">
             {data.length === 0 ? (

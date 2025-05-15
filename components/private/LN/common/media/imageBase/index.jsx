@@ -18,6 +18,7 @@ function ImageArticle(props) {
         active,
         isVertical,
         isApertura,
+        shouldLoadEager,
         isValidSection,
         searchableField,
         authors
@@ -76,6 +77,7 @@ function ImageArticle(props) {
                     height={height}
                     width={width}
                     isApertura={isApertura}
+                    shouldLoadEager={shouldLoadEager}
                     searchableField={searchableField}
                 />
             )}
@@ -109,6 +111,7 @@ ImageArticle.propTypes = {
     isVertical: PropTypes.bool,
     href: PropTypes.string,
     isApertura: PropTypes.bool,
+    shouldLoadEager: PropTypes.bool,
     isValidSection: PropTypes.bool,
     authors: PropTypes.string,
     searchableField: PropTypes.string
@@ -118,6 +121,7 @@ ImageArticle.defaultProps = {
     active: false,
     isVertical: false,
     isApertura: false,
+    shouldLoadEager: false,
     isValidSection: false,
     authors: '',
     searchableField: '',
