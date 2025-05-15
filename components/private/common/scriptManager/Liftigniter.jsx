@@ -6,7 +6,7 @@ import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
 import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 
-const LiftIgniter = ({ globalContent }) => {
+function LiftIgniter({ globalContent }) {
     const { contextPath, deployment } = useAppContext();
     const {
         taxonomy,
@@ -24,9 +24,10 @@ const LiftIgniter = ({ globalContent }) => {
     const titleShort = get(headlines, 'mobile', '');
     const title = get(headlines, 'basic', '');
     const leadText = get(label, 'volanta.text', '');
+    const headlinesWeb = get(label, 'headlines.web', '');
 
-    const getAuthorsFromContentElements = object => {
-        return object
+    const getAuthorsFromContentElements = object =>
+        object
             .filter(
                 contentElement =>
                     contentElement.additional_properties &&
@@ -34,17 +35,15 @@ const LiftIgniter = ({ globalContent }) => {
             )
             .map(author => author.content)
             .join(', ');
-    };
 
-    const getAuthors = object => {
-        return object.map(author => getAuthorByline(author)).join(', ');
-    };
+    const getAuthors = object =>
+        object.map(author => getAuthorByline(author)).join(', ');
 
     const script = {
         id: _id,
         title,
         titleShort,
-        leadText,
+        leadText: headlinesWeb || leadText,
         published_time: displayDate,
         noShow: recomendar !== 'Si',
         noIndex: false,
@@ -78,7 +77,7 @@ const LiftIgniter = ({ globalContent }) => {
             />
         </>
     );
-};
+}
 
 LiftIgniter.propTypes = {
     globalContent: PropTypes.shape({

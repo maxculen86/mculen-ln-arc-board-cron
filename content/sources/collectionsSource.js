@@ -17,6 +17,7 @@ import {
 import { hasFutureDisplayDate } from '../../components/private/common/utils/dateAndTimeUtil';
 import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
+import { processVolanta } from './utils/common/volantaHelper';
 
 const resolve = key => {
     const { id, size, website, from = 0 } = key;
@@ -115,7 +116,6 @@ const transform = async (data, siteProps, cachedCall) => {
                 const subtype = get(elem, `subtype`, null);
                 const isFotoAl100orStorytelling =
                     subtype === FOTOAL100 || subtype === STORYTELLING;
-
                 return {
                     ...elem,
                     ...addResizedUrls(elem, {
@@ -132,8 +132,9 @@ const transform = async (data, siteProps, cachedCall) => {
                     }),
                     ...(elem.canonical_url && {
                         website_url: elem.canonical_url
-                    })
+                    }),
                     // marquesina
+                    label: processVolanta(elem)
                 };
             })
         ));
