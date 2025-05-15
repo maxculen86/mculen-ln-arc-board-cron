@@ -1,60 +1,60 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { Text } from '@ln/common-ui-text';
-import { Itemcard } from '@ln/foodit-ui-itemcard';
 import DrawerContainer from '../DrawerContainer/foodit';
 import MenuCategories from '../MenuCategories/foodit';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import removeAccents from '../../../../private/common/utils/removeAccents';
-import { DESCUBRIR_SECTIONS } from '../dataLayer/_helpers';
 import { DRAWER } from '../DrawerContainer/constants';
+import { Search } from '../Header/components/Search';
+import { DrawerItems } from './drawerItems';
 
 function DrawerMenu({ categories = [] }) {
     if (!categories.length) return null;
+    const TITLES_TO_EXCLUDE = ['Conocenos', 'Guías de cocina', 'Masterclass'];
 
+    const principalMenu = categories.filter(
+        item => !TITLES_TO_EXCLUDE.includes(item.title)
+    );
+    const secondaryMenu = categories.filter(item =>
+        TITLES_TO_EXCLUDE.includes(item.title)
+    );
     return (
         <DrawerContainer
             drawerId={DRAWER.MENU}
             position="left"
             bodyClassName="pr-16"
         >
-            {categories.map(({ title = '', data, href }) => {
+            <Search />
+            {principalMenu.map(({ title = '', data, href }) => {
                 const dynamicLabel = removeAccents(title)
                     .replace(/ /g, '_')
                     .toLowerCase();
-
                 return (
                     <div key={title}>
-                        {href ? (
-                            <Itemcard
-                                type="link"
-                                href={href}
-                                text={title}
-                                level={1}
-                                fullWidth
-                                arrowIcon={<IconSprite name="arrow-right" />}
-                                data-test-id={`header-menu-${title}`}
-                                data-interaction="dataLayerInteraction"
-                                data-event="e_linkclick"
-                                data-category="header"
-                                data-label={dynamicLabel}
-                                data-action={
-                                    (DESCUBRIR_SECTIONS.includes(
-                                        dynamicLabel
-                                    ) &&
-                                        'descubrir') ||
-                                    'N/A'
-                                }
-                            />
-                        ) : (
-                            <Text className="roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4">
-                                {title}
-                            </Text>
-                        )}
+                        <DrawerItems
+                            title={title}
+                            href={href}
+                            dynamicLabel={dynamicLabel}
+                        />
                         <MenuCategories data={data} fullWidth />
                     </div>
                 );
             })}
+            <div className="mt-auto sticky bottom-0 bg-light-1 z-15 border border-top border-thin border-light-100">
+                {secondaryMenu.map(({ title = '', href }) => {
+                    const dynamicLabel = removeAccents(title)
+                        .replace(/ /g, '_')
+                        .toLowerCase();
+                    return (
+                        <div key={title}>
+                            <DrawerItems
+                                title={title}
+                                href={href}
+                                dynamicLabel={dynamicLabel}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
         </DrawerContainer>
     );
 }
