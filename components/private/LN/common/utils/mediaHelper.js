@@ -72,10 +72,10 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
 export const getSizes = (sources = []) =>
     Array.isArray(sources)
         ? sources
-            .map(
-                x => x.option.media && `${x.option.media} ${x.option.width}px`
-            )
-            .filter(Boolean)
+              .map(
+                  x => x.option.media && `${x.option.media} ${x.option.width}px`
+              )
+              .filter(Boolean)
         : [];
 
 export const getShortestImage = (resizedUrls = []) => {
