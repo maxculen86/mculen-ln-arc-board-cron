@@ -149,3 +149,49 @@ export const isItemInShoppingList = (shoppingList, articleId, bookmarkId) => {
     }
     return shoppingList.some(item => item.id === articleId);
 };
+
+export const registerShoppingListEventListeners = (
+    articleId,
+    bookmarkId,
+    setLocalBookmarkId,
+    events
+) => {
+    const handleBookmarkAdded = event => {
+        const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+            event.detail;
+        if (eventArticleId === articleId && eventBookmarkId !== bookmarkId) {
+            setLocalBookmarkId(eventBookmarkId);
+        }
+    };
+
+    const handleBookmarkRemoved = event => {
+        const { articleId: eventArticleId } = event.detail;
+        if (eventArticleId === articleId && bookmarkId !== null) {
+            setLocalBookmarkId(null);
+        }
+    };
+
+    const handleBookmarkUpdated = event => {
+        const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+            event.detail;
+        if (eventArticleId === articleId) {
+            setLocalBookmarkId(eventBookmarkId);
+        }
+    };
+
+    window.addEventListener(events.BOOKMARK_ADDED, handleBookmarkAdded);
+    window.addEventListener(events.BOOKMARK_REMOVED, handleBookmarkRemoved);
+    window.addEventListener(events.BOOKMARK_UPDATED, handleBookmarkUpdated);
+
+    return () => {
+        window.removeEventListener(events.BOOKMARK_ADDED, handleBookmarkAdded);
+        window.removeEventListener(
+            events.BOOKMARK_REMOVED,
+            handleBookmarkRemoved
+        );
+        window.removeEventListener(
+            events.BOOKMARK_UPDATED,
+            handleBookmarkUpdated
+        );
+    };
+};

@@ -23,10 +23,10 @@ import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
 import AudioRecipe from './audioRecipe';
 import MenuSemanalDialog from '../MenuSemanal/components/MenuSemanalDialog';
-import { ActionsButtons } from './actionOptions';
 import { useGetWeeklyMenu } from '../MenuSemanal/hooks/useGetWeeklyMenu';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import { getMealTotalById } from '../MenuSemanal/helpers/_helper';
+import { RecipeActionsDropdown } from './recipeActionsDropdown';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const {
@@ -102,7 +102,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                 </div>
                 <div className="flex flex-column gap-24">
                     <div className="flex gap-24">
-                        <ActionsButtons
+                        <RecipeActionsDropdown
                             handleOpen={handleOpen}
                             countDayFood={total}
                             article={article}
