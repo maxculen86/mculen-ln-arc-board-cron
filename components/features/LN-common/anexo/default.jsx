@@ -74,6 +74,7 @@ export const getComponentFromConfig = (
                     <div className={classNameRoof}>
                         <BuildRoof {...roofData} />
                     </div>
+
                     <div
                         data-testid={
                             videoComercial
@@ -155,13 +156,13 @@ function AnexoFeature(props) {
         heightMobile,
         logoId,
         link,
-        hideTitle,
         title,
         navigator,
         buttonText,
         linkButton,
         buttonStyle,
-        mobileFullWidth
+        mobileFullWidth,
+        hideTitle
     } = customFields;
 
     const isPreApertura = isInSection({

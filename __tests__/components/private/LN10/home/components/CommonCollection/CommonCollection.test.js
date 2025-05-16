@@ -14,7 +14,7 @@ import {
 } from '../../../../../../../components/private/LN10/home/components/CommonCollection/_helper';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -36,7 +36,7 @@ describe('Tests Component CommonCollection', () => {
         linkButton: '',
         buttonLogo: '',
         buttonStyle: '',
-        hideRoof: false,
+        hideTitle: false,
         navigationId: '',
         isAdmin: true,
         chainId: 'njsaiodnJ'

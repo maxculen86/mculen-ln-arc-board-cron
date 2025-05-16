@@ -30,6 +30,7 @@ const GrillaNotasFeature = props => {
             serviceType = ''
         } = {},
         outputType = 'default',
+        requestUri = '',
         renderables = [],
         layout: pageLayout
     } = useAppContext();
@@ -54,21 +55,17 @@ const GrillaNotasFeature = props => {
         globalContent
     });
 
-    const {
-        goToNextPage,
-        loading,
-        hasMoreArticles,
-        InitialGrid,
-        NextResults
-    } = useGridPagination({
-        getBanner,
-        ...globalProviderAcu,
-        ...appContextProps,
-        hasChainBeforeGrid,
-        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
-        globalContent,
-        pageLayout
-    });
+    const { goToNextPage, loading, hasMoreArticles, InitialGrid, NextResults } =
+        useGridPagination({
+            getBanner,
+            ...globalProviderAcu,
+            ...appContextProps,
+            hasChainBeforeGrid,
+            // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+            globalContent,
+            pageLayout,
+            requestUri
+        });
 
     return (
         <GrillaNotas
