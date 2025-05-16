@@ -32,7 +32,7 @@ const imageCommon = image => {
         id,
         _t: 'img',
         baseUrl,
-        absoluteUrl: `${baseUrl}?${image.auth?.[1] ? `auth=${image.auth[1]}&` : ''}width=512&quality=90&smart=true`
+        absoluteUrl: `${baseUrl}?${image.auth?.[1] ? `auth=${image.auth[1]}&` : ''}width=512&height=341&quality=90&smart=true`
     };
 
     return resp;

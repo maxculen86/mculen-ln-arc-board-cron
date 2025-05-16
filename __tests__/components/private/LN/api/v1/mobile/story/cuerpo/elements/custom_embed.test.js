@@ -20,7 +20,7 @@ describe('Test de los elementos parallax en el cuerpo de una nota', () => {
         expect(resp[0]['value']).toBe('Prueba parallax!');
         expect(resp[1]['_t']).toBe('image');
         expect(resp[1]['url']).toBe(
-            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp?width=512&quality=90&smart=true'
+            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp?width=512&height=341&quality=90&smart=true'
         );
         expect(resp[2]['_t']).toBe('text');
         expect(resp[2]['valor']).toBe(
@@ -43,7 +43,7 @@ describe('Test de los elementos parallax en el cuerpo de una nota', () => {
         const resp = CustomEmbed(ElementCustomEmbed[3]);
         expect(resp[0]['_t']).toBe('image');
         expect(resp[0]['url']).toBe(
-            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp?width=512&quality=90&smart=true'
+            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp?width=512&height=341&quality=90&smart=true'
         );
         expect(resp[1]['_t']).toBe('text');
         expect(resp[1]['valor']).toBe(
@@ -58,7 +58,7 @@ describe('Test de los elementos parallax en el cuerpo de una nota', () => {
         expect(resp[0]['value']).toBe('Prueba parallax!');
         expect(resp[1]['_t']).toBe('image');
         expect(resp[1]['url']).toBe(
-            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp?width=512&quality=90&smart=true'
+            'https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp?width=512&height=341&quality=90&smart=true'
         );
     });
 
