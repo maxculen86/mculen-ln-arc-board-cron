@@ -69,7 +69,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
           </div>
         </div>
         <div
-          class="flex j-center text-neutral-light-600 flex-column-reverse gap-8 py-4"
+          class="flex j-center flex-column-reverse gap-8 py-4 text-neutral-light-600"
         >
           <span
             class="text text-14 text-neutral-light-600 uppercase"
@@ -128,7 +128,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
           />
         </a>
         <div
-          class="flex j-center text-neutral-light-600 py-4 flex-column-reverse gap-8 py-4"
+          class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-100"
         >
           <span
             class="text text-14 text-neutral-light-100 uppercase"
