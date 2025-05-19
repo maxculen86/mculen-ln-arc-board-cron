@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import DrawerMenu from '../../../../../../components/features/foodit-global/common/DrawerMenu/foodit';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 
@@ -27,6 +27,40 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
         fireEvent.click(button);
         const modifiedAttribute = drawer.getAttribute('data-visible');
         expect(modifiedAttribute).toStrictEqual('false');
+    });
+    it('it should had component Search', () => {
+        const searchComponent = screen.getByPlaceholderText(
+            '¿Qué querés cocinar hoy?'
+        );
+        expect(searchComponent).toBeInTheDocument();
+    });
+
+    it('should render only excluded categories in the secondary menu section', () => {
+        const secondaryMenuContainer = document.querySelector(
+            '.mt-auto.sticky.bottom-0'
+        );
+
+        expect(secondaryMenuContainer).toBeInTheDocument();
+
+        const titlesToExclude = ['Conocenos', 'Guías de cocina', 'Masterclass'];
+
+        const renderedTitles = Array.from(
+            secondaryMenuContainer.querySelectorAll(
+                '[data-test-id^="header-menu-"]'
+            )
+        ).map(node =>
+            node.getAttribute('data-test-id').replace('header-menu-', '')
+        );
+
+        renderedTitles.forEach(title => {
+            expect(titlesToExclude).toContain(title);
+        });
+
+        titlesToExclude.forEach(title => {
+            if (menuCategories.some(c => c.title === title)) {
+                expect(renderedTitles).toContain(title);
+            }
+        });
     });
 
     it('should match snapshot', () => {
