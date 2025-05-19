@@ -30,25 +30,19 @@ function CardInfo() {
     const { layout, siteProperties } = useAppContext();
     const { layoutsName = {} } = siteProperties || {};
 
-    const isLayoutMenuSemanal = layout === layoutsName.FooditMenuSemanal;
-    const isLayoutListaDeCompras = layout === layoutsName.FooditListadoCompras;
-
-    // TODO: simplificar logica usando desestructuracion
     const reorderedCardInfoArray = React.useMemo(() => {
-        if (isLayoutMenuSemanal) {
-            return [
-                cardInfoArray[2],
-                ...cardInfoArray.filter((_, index) => index !== 2)
-            ];
+        const [first, second, third, ...rest] = cardInfoArray;
+
+        if (layout === layoutsName.FooditMenuSemanal) {
+            return [third, first, second, ...rest];
         }
-        if (isLayoutListaDeCompras) {
-            return [
-                cardInfoArray[1],
-                ...cardInfoArray.filter((_, index) => index !== 1)
-            ];
+
+        if (layout === layoutsName.FooditListadoCompras) {
+            return [second, first, third, ...rest];
         }
+
         return cardInfoArray;
-    }, [isLayoutMenuSemanal, isLayoutListaDeCompras]);
+    }, [layout, layoutsName]);
 
     return (
         <Mediascroller className="grid gap-16 gap-24_md --carousel-info">

@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardInfo component should match snapshot 1`] = `
+<div>
+  <div
+    class="media-scroller relative grid gap-16 gap-24_md --carousel-info"
+    data-scroller="container"
+  >
+    <ul
+      class="relative overflow-container jc-center_lg"
+      data-scroller="track"
+      data-scroller-elements="3"
+    >
+      <li
+        class=""
+        data-scroller="element"
+      >
+        <div
+          class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+        >
+          <i
+            class="icon --icon-32"
+          >
+            <mock-icon
+              critical="true"
+              name="weekly-menu"
+            />
+          </i>
+          <div
+            class="flex flex-column text-center jc-center ai-center gap-4"
+          >
+            <span
+              class="text prumo prumo-semibold text-18"
+            >
+              Planificá tu semana
+            </span>
+            <span
+              class="text roboto roboto-regular text-16 text-light-600"
+            >
+              Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
+            </span>
+          </div>
+        </div>
+      </li>
+      <li
+        class=""
+        data-scroller="element"
+      >
+        <div
+          class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+        >
+          <i
+            class="icon --icon-32"
+          >
+            <mock-icon
+              critical="true"
+              name="bookmark"
+            />
+          </i>
+          <div
+            class="flex flex-column text-center jc-center ai-center gap-4"
+          >
+            <span
+              class="text prumo prumo-semibold text-18"
+            >
+              Guardá tu receta favorita
+            </span>
+            <span
+              class="text roboto roboto-regular text-16 text-light-600"
+            >
+              Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
+            </span>
+          </div>
+        </div>
+      </li>
+      <li
+        class=""
+        data-scroller="element"
+      >
+        <div
+          class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
+        >
+          <i
+            class="icon --icon-32"
+          >
+            <mock-icon
+              critical="true"
+              name="shopping-list"
+            />
+          </i>
+          <div
+            class="flex flex-column text-center jc-center ai-center gap-4"
+          >
+            <span
+              class="text prumo prumo-semibold text-18"
+            >
+              Agregá ingredientes a la lista de compras
+            </span>
+            <span
+              class="text roboto roboto-regular text-16 text-light-600"
+            >
+              Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

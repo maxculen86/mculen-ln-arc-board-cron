@@ -51,10 +51,6 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
 
     const { weeklyMenu } = useGetWeeklyMenu(subscription);
 
-    const handleOpen = () => {
-        onOpen();
-    };
-
     const { total } = getMealTotalById(articleId, weeklyMenu);
 
     return (
@@ -103,7 +99,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                 <div className="flex flex-column gap-24">
                     <div className="flex gap-24">
                         <RecipeActionsDropdown
-                            handleOpen={handleOpen}
+                            handleOpen={onOpen}
                             countDayFood={total}
                             article={article}
                         />
