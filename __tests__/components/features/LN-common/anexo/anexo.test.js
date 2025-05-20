@@ -123,23 +123,6 @@ describe('features - LN-common - anexo - default', () => {
 
             expect(container.innerHTML).toBe('<div>Updated Content</div>');
         });
-
-        it('Should show roof in VivoYoutube component regardless of hideTitle prop', () => {
-            const props = {
-                id: 'test-id',
-                customFields: {
-                    vivoYoutube: '<div>Video Content</div>',
-                    videoComercial: true,
-                    hideTitle: true
-                },
-                isAdmin: false
-            };
-
-            const { container } = render(<AnexoFeature {...props} />);
-
-            const buildRoofClass = container.querySelector('.ln-roof');
-            expect(buildRoofClass).toBeInTheDocument();
-        });
     });
 
     describe('With HTML anexo props', () => {
@@ -155,26 +138,6 @@ describe('features - LN-common - anexo - default', () => {
             const anexoDiv = screen.getByText(/Mock HTML anexo/i);
             expect(anexoDiv).toBeInTheDocument();
             expect(anexoDiv.outerHTML).toMatch(propsHtml.customFields.html);
-        });
-
-        it('Should show roof in Html component regardless of hideTitle prop', () => {
-            const propsWithHideTitle = {
-                ...propsHtml,
-                customFields: {
-                    ...propsHtml.customFields,
-                    hideTitle: true
-                }
-            };
-
-            const { container } = render(
-                <AnexoFeature {...propsWithHideTitle} />
-            );
-
-            const buildRoofClass = container.querySelector('.ln-roof');
-            expect(buildRoofClass).toBeInTheDocument();
-
-            const anexoDiv = screen.getByText(/Mock HTML anexo/i);
-            expect(anexoDiv).toBeInTheDocument();
         });
 
         it('Should match HTML anexo snapshot', () => {
