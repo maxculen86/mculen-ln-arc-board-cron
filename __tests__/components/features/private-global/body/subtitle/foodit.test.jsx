@@ -37,7 +37,7 @@ describe('BodyComponents - Foodit - Subtitle', () => {
             1: 'text-28 text-32_md text-36_lg',
             2: 'text-24 text-28_md text-32_lg',
             3: 'text-24',
-            4: 'text-24',
+            4: 'text-16 text-18_md',
             5: 'text-24',
             6: 'text-24'
         };
@@ -52,8 +52,12 @@ describe('BodyComponents - Foodit - Subtitle', () => {
                 />
             );
             const subtitleElement = screen.getByText(`Test Content ${level}`);
+            const expectedFontClass =
+                parseInt(level) === 4
+                    ? 'roboto roboto-bold'
+                    : 'prumo prumo-light';
             expect(subtitleElement).toHaveClass(
-                `prumo prumo-light ${className}`
+                `${expectedFontClass} ${className}`
             );
         });
     });
