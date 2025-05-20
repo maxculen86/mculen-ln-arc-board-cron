@@ -156,42 +156,39 @@ export const registerShoppingListEventListeners = (
     setLocalBookmarkId,
     events
 ) => {
-    const handleBookmarkAdded = event => {
-        const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
-            event.detail;
-        if (eventArticleId === articleId && eventBookmarkId !== bookmarkId) {
-            setLocalBookmarkId(eventBookmarkId);
+    const handlers = {
+        [events.BOOKMARK_ADDED]: event => {
+            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+                event.detail || {};
+            if (
+                eventArticleId === articleId &&
+                eventBookmarkId !== bookmarkId
+            ) {
+                setLocalBookmarkId(eventBookmarkId);
+            }
+        },
+        [events.BOOKMARK_REMOVED]: event => {
+            const { articleId: eventArticleId } = event.detail || {};
+            if (eventArticleId === articleId && bookmarkId !== null) {
+                setLocalBookmarkId(null);
+            }
+        },
+        [events.BOOKMARK_UPDATED]: event => {
+            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+                event.detail || {};
+            if (eventArticleId === articleId) {
+                setLocalBookmarkId(eventBookmarkId);
+            }
         }
     };
 
-    const handleBookmarkRemoved = event => {
-        const { articleId: eventArticleId } = event.detail;
-        if (eventArticleId === articleId && bookmarkId !== null) {
-            setLocalBookmarkId(null);
-        }
-    };
-
-    const handleBookmarkUpdated = event => {
-        const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
-            event.detail;
-        if (eventArticleId === articleId) {
-            setLocalBookmarkId(eventBookmarkId);
-        }
-    };
-
-    window.addEventListener(events.BOOKMARK_ADDED, handleBookmarkAdded);
-    window.addEventListener(events.BOOKMARK_REMOVED, handleBookmarkRemoved);
-    window.addEventListener(events.BOOKMARK_UPDATED, handleBookmarkUpdated);
+    Object.entries(handlers).forEach(([eventType, handler]) => {
+        window.addEventListener(eventType, handler);
+    });
 
     return () => {
-        window.removeEventListener(events.BOOKMARK_ADDED, handleBookmarkAdded);
-        window.removeEventListener(
-            events.BOOKMARK_REMOVED,
-            handleBookmarkRemoved
-        );
-        window.removeEventListener(
-            events.BOOKMARK_UPDATED,
-            handleBookmarkUpdated
-        );
+        Object.entries(handlers).forEach(([eventType, handler]) => {
+            window.removeEventListener(eventType, handler);
+        });
     };
 };
