@@ -24,7 +24,8 @@ const useGridPagination = props => {
         hasChainBeforeGrid = false,
         // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
         pageLayout,
-        globalContent
+        globalContent,
+        requestUri
     } = props;
 
     const hasCollectionApertura =
@@ -77,7 +78,6 @@ const useGridPagination = props => {
     }, [currentPage, articles, storedArticlesValues]);
 
     const typeArticle = layout || accumulatedType;
-
     const InitialGrid = (
         <ArticlesAcum
             getBanner={getBanner}
@@ -88,6 +88,7 @@ const useGridPagination = props => {
             hasCollectionApertura={hasCollectionApertura}
             hasChainBeforeGrid={hasChainBeforeGrid}
             isWiki={isWiki}
+            requestUri={requestUri}
         />
     );
 

@@ -262,6 +262,23 @@ describe('features - LN-common - anexo - default', () => {
                 'Los altos fijos máximos de anexos con URL en pre apertura son de 300px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se verá el anexo'
             );
         });
+
+        it('Should respect hideTitle prop in Iframe component', () => {
+            const propsUrlWithHideTitle = {
+                ...propsUrl,
+                customFields: {
+                    ...propsUrl.customFields,
+                    hideTitle: true
+                }
+            };
+
+            const { container } = render(
+                <AnexoFeature {...propsUrlWithHideTitle} />
+            );
+
+            const buildRoofClass = container.querySelector('.ln-roof');
+            expect(buildRoofClass).not.toBeInTheDocument();
+        });
     });
 
     describe('Without right props', () => {
