@@ -149,3 +149,46 @@ export const isItemInShoppingList = (shoppingList, articleId, bookmarkId) => {
     }
     return shoppingList.some(item => item.id === articleId);
 };
+
+export const registerShoppingListEventListeners = (
+    articleId,
+    bookmarkId,
+    setLocalBookmarkId,
+    events
+) => {
+    const handlers = {
+        [events.BOOKMARK_ADDED]: event => {
+            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+                event.detail || {};
+            if (
+                eventArticleId === articleId &&
+                eventBookmarkId !== bookmarkId
+            ) {
+                setLocalBookmarkId(eventBookmarkId);
+            }
+        },
+        [events.BOOKMARK_REMOVED]: event => {
+            const { articleId: eventArticleId } = event.detail || {};
+            if (eventArticleId === articleId && bookmarkId !== null) {
+                setLocalBookmarkId(null);
+            }
+        },
+        [events.BOOKMARK_UPDATED]: event => {
+            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
+                event.detail || {};
+            if (eventArticleId === articleId) {
+                setLocalBookmarkId(eventBookmarkId);
+            }
+        }
+    };
+
+    Object.entries(handlers).forEach(([eventType, handler]) => {
+        window.addEventListener(eventType, handler);
+    });
+
+    return () => {
+        Object.entries(handlers).forEach(([eventType, handler]) => {
+            window.removeEventListener(eventType, handler);
+        });
+    };
+};

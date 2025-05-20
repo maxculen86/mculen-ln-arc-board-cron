@@ -1,4 +1,3 @@
-// TODO: Modularizar este hook
 import { useEffect, useState, useCallback } from 'react';
 import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
 import {
@@ -8,6 +7,7 @@ import {
     SHOPPING_LIST_EVENTS
 } from '../../../../common/shoppingList/shoppingListEvents';
 import getBookmarkByArticleId from '../../../../common/bookmark/api/getBookmarkByArticleId';
+import { registerShoppingListEventListeners } from '../_helper';
 
 export const useIsInShoppingList = (isSuscriptor, articleId = '') => {
     const [bookmarkId, setLocalBookmarkId] = useState(
@@ -30,61 +30,16 @@ export const useIsInShoppingList = (isSuscriptor, articleId = '') => {
         [articleId, bookmarkId]
     );
 
-    useEffect(() => {
-        const handleBookmarkAdded = event => {
-            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
-                event.detail;
-            if (
-                eventArticleId === articleId &&
-                eventBookmarkId !== bookmarkId
-            ) {
-                setLocalBookmarkId(eventBookmarkId);
-            }
-        };
-
-        const handleBookmarkRemoved = event => {
-            const { articleId: eventArticleId } = event.detail;
-            if (eventArticleId === articleId && bookmarkId !== null) {
-                setLocalBookmarkId(null);
-            }
-        };
-
-        const handleBookmarkUpdated = event => {
-            const { articleId: eventArticleId, bookmarkId: eventBookmarkId } =
-                event.detail;
-            if (eventArticleId === articleId) {
-                setLocalBookmarkId(eventBookmarkId);
-            }
-        };
-        // TODO: crear función utilitaria para registrar los listeners y reducir redundancia
-        window.addEventListener(
-            SHOPPING_LIST_EVENTS.BOOKMARK_ADDED,
-            handleBookmarkAdded
-        );
-        window.addEventListener(
-            SHOPPING_LIST_EVENTS.BOOKMARK_REMOVED,
-            handleBookmarkRemoved
-        );
-        window.addEventListener(
-            SHOPPING_LIST_EVENTS.BOOKMARK_UPDATED,
-            handleBookmarkUpdated
-        );
-
-        return () => {
-            window.removeEventListener(
-                SHOPPING_LIST_EVENTS.BOOKMARK_ADDED,
-                handleBookmarkAdded
-            );
-            window.removeEventListener(
-                SHOPPING_LIST_EVENTS.BOOKMARK_REMOVED,
-                handleBookmarkRemoved
-            );
-            window.removeEventListener(
-                SHOPPING_LIST_EVENTS.BOOKMARK_UPDATED,
-                handleBookmarkUpdated
-            );
-        };
-    }, [articleId, bookmarkId]);
+    useEffect(
+        () =>
+            registerShoppingListEventListeners(
+                articleId,
+                bookmarkId,
+                setLocalBookmarkId,
+                SHOPPING_LIST_EVENTS
+            ),
+        [articleId, bookmarkId]
+    );
 
     useEffect(() => {
         const fetchUserBookmarks = async () => {
