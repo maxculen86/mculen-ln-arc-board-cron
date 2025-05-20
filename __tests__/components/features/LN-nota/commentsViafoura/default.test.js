@@ -1,5 +1,11 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import {
+    render,
+    screen,
+    fireEvent,
+    waitFor,
+    act
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CommentsViafouraFeature from '../../../../../components/features/LN-nota/commentsViafoura/default';
 import dynamicallyLoadScript from '../../../../../components/private/LN/common/utils/dynamicallyLoadScript';
@@ -8,7 +14,7 @@ import useTermica from '../../../../../components/private/common/hooks/useTermic
 import getScrollPercent from '../../../../../components/private/LN/common/utils/getScrollPercent';
 
 jest.mock('fusion:consumer', () => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -24,6 +30,13 @@ jest.mock('../../../../../components/private/common/hooks/useTermica');
 jest.mock(
     '../../../../../components/private/LN/common/utils/getScrollPercent',
     () => jest.fn()
+);
+
+jest.mock(
+    '../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        addEventToDataLayerV2: jest.fn()
+    })
 );
 
 const mockGlobalContext = {
@@ -93,5 +106,27 @@ describe('CommentsViafouraFeature', () => {
         setupMocks();
         render(<CommentsViafouraFeature outputType="non-default" />);
         expect(screen.queryByText('Test Message')).not.toBeInTheDocument();
+    });
+
+    describe('tracking comments', () => {
+        it('llama a addEventToDataLayerV2 con los parámetros correctos', () => {
+            const {
+                addEventToDataLayerV2
+            } = require('../../../../../components/private/LN/common/utils/addEventToDataLayer');
+
+            addEventToDataLayerV2({
+                event: 'impressioncomentario',
+                ctr_brand: 'cajaComentarios',
+                ctr_position: '101100',
+                articleId: '123'
+            });
+
+            expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+                event: 'impressioncomentario',
+                ctr_brand: 'cajaComentarios',
+                ctr_position: '101100',
+                articleId: '123'
+            });
+        });
     });
 });

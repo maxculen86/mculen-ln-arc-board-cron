@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import classNames from 'classnames';
 import {
     getLoginAndRegistrationURLS,
     CLOSED_BY_TERMIC,
@@ -18,26 +19,41 @@ import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import useTermica from '../../../private/common/hooks/useTermica';
 import get from '../../../private/common/utils/get';
-import classNames from 'classnames';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../private/common/auth/helper/loginHelper';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
-const CommentsViafouraFeature = props => {
-    const { outputType } = props;
+const COMMENTS_SECTION_POSITION = '11';
+const COMMENTS_PAGE_POSITION = '00';
+const COMMENTS_DEFAULT_VALUE = '00';
+
+function CommentsViafouraFeature(props) {
+    const { outputType, globalContent } = props;
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
-    const {
-        messageType,
-        shouldLoad,
-        messageProps,
-        setMessage
-    } = useValidateComments(props, subscription);
+    const { messageType, shouldLoad, messageProps, setMessage } =
+        useValidateComments(props, subscription);
     const termicaLivefyre = useTermica('livefyre');
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
+    const [hasTrackedImpression, setHasTrackedImpression] = useState(false);
     const showComponent = shouldLoad && termicaLivefyre;
+    const articleId = globalContent?.id;
+
+    useEffect(() => {
+        if (isReady && !hasTrackedImpression) {
+            const position = `${COMMENTS_SECTION_POSITION}${COMMENTS_PAGE_POSITION}${COMMENTS_DEFAULT_VALUE}`;
+            addEventToDataLayerV2({
+                event: 'impressioncomentario',
+                ctr_brand: 'cajaComentarios',
+                ctr_position: position,
+                articleId
+            });
+            setHasTrackedImpression(true);
+        }
+    }, [isReady, hasTrackedImpression, articleId]);
 
     useEffect(() => {
         const handleScrollForComments = () => {
@@ -49,10 +65,8 @@ const CommentsViafouraFeature = props => {
                     'body'
                 )
                     .then(() => {
-                        const {
-                            loginUrl,
-                            registracionUrl
-                        } = getLoginAndRegistrationURLS();
+                        const { loginUrl, registracionUrl } =
+                            getLoginAndRegistrationURLS();
                         const token = getCookie('token');
                         window.vfQ = window.vfQ || [];
                         window.vfQ.push(() => {
@@ -76,10 +90,14 @@ const CommentsViafouraFeature = props => {
                                     setIsReady
                                 });
                             });
-                            subscription &&
+
+                            if (
+                                subscription &&
                                 token &&
                                 window.vf &&
                                 window.vf.session &&
+                                window.vf.session.login
+                            ) {
                                 window.vf.session.login
                                     .cookie(token)
                                     .catch(error => {
@@ -91,8 +109,7 @@ const CommentsViafouraFeature = props => {
                                             }
                                         );
                                         setMessage({
-                                            title:
-                                                'Ahora para comentar debés tener Acceso Digital.',
+                                            title: 'Ahora para comentar debés tener Acceso Digital.',
                                             subtitle:
                                                 'Iniciar sesión o suscribite',
                                             secondaryUrl: loginUrl,
@@ -101,23 +118,32 @@ const CommentsViafouraFeature = props => {
                                             isExclusive: true
                                         });
                                     });
+                            }
                         });
                     })
-                    .catch(error => {});
+                    .catch(() => {
+                        // Error handling for script loading
+                    });
             }
         };
 
-        showComponent &&
-            window.addEventListener('scroll', e => handleScrollForComments());
-        return () =>
-            showComponent &&
-            window.removeEventListener('scroll', handleScrollForComments);
+        if (showComponent) {
+            window.addEventListener('scroll', handleScrollForComments);
+        }
+        return () => {
+            if (showComponent) {
+                window.removeEventListener('scroll', handleScrollForComments);
+            }
+        };
     });
 
-    if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC)
+    if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC) {
         return <Message {...messageProps} />;
+    }
 
-    if (!showComponent || outputType !== 'default') return <></>;
+    if (!showComponent || outputType !== 'default') {
+        return null;
+    }
 
     const viafouraClassName = classNames('viafoura --no-app', {
         'not-comment': messageProps
@@ -133,7 +159,7 @@ const CommentsViafouraFeature = props => {
 
             {!isReady && <LoadingIcon className="--no-app" />}
 
-            <div className={viafouraClassName}>
+            <div className={viafouraClassName} data-testid="comments-viafoura">
                 <vf-tray />
                 <vf-conversations
                     limit="15"
@@ -146,12 +172,13 @@ const CommentsViafouraFeature = props => {
             </div>
         </>
     );
-};
+}
 
 CommentsViafouraFeature.propTypes = {
     id: PropTypes.string,
     globalContent: PropTypes.shape({
-        first_publish_date: PropTypes.string
+        first_publish_date: PropTypes.string,
+        id: PropTypes.string
     }),
     outputType: PropTypes.string
 };
