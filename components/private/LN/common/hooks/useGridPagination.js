@@ -8,6 +8,7 @@ import ArticlesAcum, {
 } from '../../acumulado/articlesAcum';
 import ArticleAcum from '../../acumulado/articleAcum';
 import ModRowGap from '../../../common/mod-rowgap';
+import { shouldHideSubheaderText } from '../../acumulado/utils/helpers';
 
 const useGridPagination = props => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -27,6 +28,8 @@ const useGridPagination = props => {
         globalContent,
         requestUri
     } = props;
+
+    const hideSubheaderText = shouldHideSubheaderText(requestUri);
 
     const hasCollectionApertura =
         !!get(acumuladoGeneral, 'collectionForTag', null) ||
@@ -88,7 +91,7 @@ const useGridPagination = props => {
             hasCollectionApertura={hasCollectionApertura}
             hasChainBeforeGrid={hasChainBeforeGrid}
             isWiki={isWiki}
-            requestUri={requestUri}
+            hideSubheaderText={hideSubheaderText}
         />
     );
 
@@ -106,7 +109,10 @@ const useGridPagination = props => {
                             titleSize={typeAcumRules[typeArticle].titleSize}
                             titleWeight={typeAcumRules[typeArticle].titleWeight}
                             outputType={outputType}
-                            withSubhead={typeAcumRules[typeArticle].withSubhead}
+                            withSubhead={
+                                typeAcumRules[typeArticle].withSubhead &&
+                                !hideSubheaderText
+                            }
                             withCategory={
                                 typeAcumRules[typeArticle].withCategory
                             }
