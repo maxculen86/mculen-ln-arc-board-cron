@@ -87,6 +87,7 @@ export default `
         headlines {
             basic
             mobile
+            web
         }
         subheadlines {
             basic

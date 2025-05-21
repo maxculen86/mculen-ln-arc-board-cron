@@ -58,12 +58,12 @@ export const TOAST = {
                 <>
                     Podes acceder desde la sección{' '}
                     <Link
-                        href="/menu-semanal/"
+                        href="/mi-menu-semanal/"
                         className="inline-flex"
                         title="Ir a Menú semanal"
                     >
                         <span className="text-light-1 underline">
-                            Menú semanal.
+                            Mi menú semanal.
                         </span>
                     </Link>
                 </>

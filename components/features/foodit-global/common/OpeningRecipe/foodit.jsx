@@ -49,7 +49,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const { isOpen, onOpen, onClose } = useDisclosure(false);
     const { isSubscribed: subscription } = useGetUserConfig();
 
-    const { weeklyMenu } = useGetWeeklyMenu(subscription);
+    const { weeklyMenu, setWeeklyMenu } = useGetWeeklyMenu(subscription);
 
     const { total } = getMealTotalById(articleId, weeklyMenu);
 
@@ -105,6 +105,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                         />
                         <MenuSemanalDialog
                             weeklyMenu={weeklyMenu}
+                            setWeeklyMenu={setWeeklyMenu}
                             isOpen={isOpen}
                             onClose={onClose}
                             article={article}

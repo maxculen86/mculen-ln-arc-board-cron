@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
@@ -10,11 +10,13 @@ import CajaCarruselProvider from './components/cajaCarruselContext';
 import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
 import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
 import MediaScroller from './components/mediaScroller/mediaScroller';
+import { isScriptLoaded } from './components/helpers';
 import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+import loadJWPlayerScript from '../utils/loadJWPlayerScript';
 
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
 
@@ -28,6 +30,7 @@ function CajaCarrusel(props) {
     } = props;
 
     const { isAdmin } = useAppContext();
+    const playerId = 'OSRCuuxn';
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -63,6 +66,12 @@ function CajaCarrusel(props) {
     if (hideCarousel) {
         return null;
     }
+
+    useEffect(() => {
+        if (!isScriptLoaded(playerId)) {
+            loadJWPlayerScript(playerId);
+        }
+    }, []);
 
     return (
         <CajaCarruselProvider>

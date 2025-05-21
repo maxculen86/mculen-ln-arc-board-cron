@@ -46,6 +46,7 @@ function ArticlesAcum({
     hasChainBeforeGrid = false,
     isWiki = false,
     requestUri,
+    hideSubheaderText,
     openBarrier
 }) {
     return (
@@ -74,7 +75,10 @@ function ArticlesAcum({
                         titleSize={typeAcumRules[typeArticle].titleSize}
                         titleWeight={typeAcumRules[typeArticle].titleWeight}
                         outputType={outputType}
-                        withSubhead={typeAcumRules[typeArticle].withSubhead}
+                        withSubhead={
+                            typeAcumRules[typeArticle].withSubhead &&
+                            !hideSubheaderText
+                        }
                         withCategory={typeAcumRules[typeArticle].withCategory}
                         withTags={typeAcumRules[typeArticle].withTags}
                         isApertura={isApertura}
@@ -101,6 +105,7 @@ ArticlesAcum.propTypes = {
     hasCollectionApertura: PropTypes.bool.isRequired,
     isWiki: PropTypes.bool.isRequired,
     requestUri: PropTypes.string.isRequired,
+    hideSubheaderText: PropTypes.bool.isRequired,
     openBarrier: PropTypes.func.isRequired
 };
 

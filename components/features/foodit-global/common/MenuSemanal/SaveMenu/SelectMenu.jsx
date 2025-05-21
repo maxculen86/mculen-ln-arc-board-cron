@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Select } from '@ln/common-ui-select';
 import PropTypes from 'prop-types';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
@@ -49,7 +49,8 @@ export function SelectMenu({
     selectedDay,
     selectedFood,
     articleId,
-    weeklyMenu
+    weeklyMenu,
+    menuToEdit
 }) {
     const days = [
         { id: 'monday', text: 'Lunes' },
@@ -67,11 +68,29 @@ export function SelectMenu({
         { id: 'dinner', text: 'Cena' }
     ];
 
+    const [activeState, setActiveState] = useState({
+        day: false,
+        food: false
+    });
+
+    const daysMap = Object.fromEntries(days.map(({ id, text }) => [id, text]));
+    const mealsMap = Object.fromEntries(
+        meals.map(({ id, text }) => [id, text])
+    );
+
     const handleDayChange = e => {
+        setActiveState({
+            ...activeState,
+            day: true
+        });
         setSelectedDay(e?.value);
     };
 
     const handleFoodChange = e => {
+        setActiveState({
+            ...activeState,
+            food: true
+        });
         setSelectedFood(e?.value);
     };
 
@@ -105,10 +124,24 @@ export function SelectMenu({
         );
     };
 
+    useEffect(() => {
+        if (menuToEdit) {
+            setSelectedDay(menuToEdit?.bookmarkGroup);
+            setSelectedFood(menuToEdit?.bookmarkContent?.food);
+        } else {
+            setSelectedDay('');
+            setSelectedFood('');
+        }
+    }, [menuToEdit, setSelectedDay, setSelectedFood]);
+
     return (
         <div className="flex flex-column gap-24">
             <Select
-                label="Seleccionar día"
+                label={
+                    daysMap[selectedDay] && !activeState.day
+                        ? daysMap[selectedDay]
+                        : 'Seleccionar día'
+                }
                 className="roboto roboto-regular text-12"
                 openClassName="border-secondary-positive"
                 hoverClassName="border-accent-lechuga__hover"
@@ -117,7 +150,6 @@ export function SelectMenu({
                     className: 'bg-white'
                 }}
                 onChange={handleDayChange}
-                value={selectedDay || ''}
             >
                 <div className="max-h-198 foodit-scrollbar overflow-y-auto">
                     {days.map(({ text, id }) => {
@@ -150,7 +182,11 @@ export function SelectMenu({
             </Select>
 
             <Select
-                label="Seleccionar comida"
+                label={
+                    mealsMap[selectedFood] && !activeState.food
+                        ? mealsMap[selectedFood]
+                        : 'Seleccionar comida'
+                }
                 className="roboto roboto-regular text-12"
                 openClassName="border-secondary-positive"
                 hoverClassName="border-accent-lechuga__hover"
@@ -159,7 +195,6 @@ export function SelectMenu({
                     className: 'bg-white'
                 }}
                 onChange={handleFoodChange}
-                value={selectedFood || ''}
             >
                 {meals.map(({ text, id }) => {
                     const isDisabled = isMealDisabled(id);
@@ -204,11 +239,18 @@ SelectMenu.propTypes = {
             mealType: PropTypes.string.isRequired,
             recipe: PropTypes.shape({}).isRequired
         })
-    )
+    ),
+    menuToEdit: PropTypes.shape({
+        bookmarkGroup: PropTypes.string.isRequired,
+        bookmarkContent: PropTypes.shape({
+            food: PropTypes.string.isRequired
+        }).isRequired
+    })
 };
 
 SelectMenu.defaultProps = {
     selectedDay: '',
     selectedFood: '',
-    weeklyMenu: []
+    weeklyMenu: [],
+    menuToEdit: {}
 };

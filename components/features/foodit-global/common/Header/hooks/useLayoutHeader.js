@@ -28,7 +28,8 @@ export const useLayoutHeader = () => {
         layoutsName.FooditListadoCompras,
         layoutsName.FooditAcumuladoChef,
         layoutsName.FooditRecipePaywall,
-        layoutsName.FooditChef
+        layoutsName.FooditChef,
+        layoutsName.FooditMenuSemanal
     ];
 
     const layoutsWithoutSearch = [
@@ -68,7 +69,7 @@ export const useLayoutHeader = () => {
     };
 
     const classNameHeaderContainer = classNames(
-        'z-10 w-100 sticky top-0 print-hide',
+        'z-15 w-100 sticky top-0 print-hide',
         marginByLayouts[layout] || marginByLayouts.default,
         getSubheaderSearchClasses(),
         shouldHaveExtraPadding && '--extra-padding'
