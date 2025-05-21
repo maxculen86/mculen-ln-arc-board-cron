@@ -5,12 +5,12 @@ import Article from './mod-article';
 import get from './utils/get';
 import getFirstAuthorAsString from './utils/getAuthorsAsString';
 
-const Opinion = props => {
+function Opinion(props) {
     const { articles = [], layout, arcSite, handleClick } = props;
     const transform = _articles =>
         _articles &&
         _articles.length &&
-        _articles.map((article, index) => {
+        _articles.map(article => {
             const { credits = { by: [] } } = article;
             const { by } = credits;
             const newCredits = {
@@ -24,16 +24,21 @@ const Opinion = props => {
         });
 
     const { cajaTemaConfig } = getProperties(arcSite);
-    const { 0: configArt1, 1: configArt2, 2: configArt3, 3: configArt4 } = get(
-        cajaTemaConfig,
-        `[${layout}].articles`,
-        {}
-    );
+    const {
+        0: configArt1,
+        1: configArt2,
+        2: configArt3,
+        3: configArt4
+    } = get(cajaTemaConfig, `[${layout}].articles`, {});
     const [art1, art2, art3, art4] = transform(articles) || [];
+    const headlinesWeb = 'headlines.web';
     const labelVolantaText = 'label.volanta.text';
     const headlinesMobile = 'headlines.mobile';
     const headlinesBasic = 'headlines.basic';
 
+    const getUnifiedVolanta = article =>
+        get(article, `${labelVolantaText}`, '') ||
+        get(article, `${headlinesWeb}`, '');
     return (
         (art1 && art2 && art3 && art4 && (
             <>
@@ -41,7 +46,7 @@ const Opinion = props => {
                     <Article
                         articleData={art1}
                         link={get(art1, 'website_url')}
-                        leadText={get(art1, `${labelVolantaText}`, '')}
+                        leadText={getUnifiedVolanta(art1)}
                         titleSize={get(configArt1, 'titleSize', '')}
                         titleText={
                             get(art1, `${headlinesMobile}`) ||
@@ -63,7 +68,7 @@ const Opinion = props => {
                     <Article
                         articleData={art2}
                         link={get(art2, 'website_url')}
-                        leadText={get(art2, `${labelVolantaText}`, '')}
+                        leadText={getUnifiedVolanta(art2)}
                         titleSize={get(configArt2, 'titleSize', '')}
                         titleText={
                             get(art2, `${headlinesMobile}`) ||
@@ -84,7 +89,7 @@ const Opinion = props => {
                     <Article
                         articleData={art3}
                         link={get(art3, 'website_url')}
-                        leadText={get(art3, `${labelVolantaText}`, '')}
+                        leadText={getUnifiedVolanta(art3)}
                         titleSize={get(configArt3, 'titleSize', '')}
                         titleText={
                             get(art3, `${headlinesMobile}`) ||
@@ -107,7 +112,7 @@ const Opinion = props => {
                     <Article
                         articleData={art4}
                         link={get(art4, 'website_url')}
-                        leadText={get(art4, `${labelVolantaText}`, '')}
+                        leadText={getUnifiedVolanta(art4)}
                         titleSize={get(configArt4, 'titleSize', '')}
                         titleText={
                             get(art4, `${headlinesMobile}`) ||
@@ -127,9 +132,10 @@ const Opinion = props => {
                     />
                 </div>
             </>
-        )) || <></>
+        )) ||
+        null
     );
-};
+}
 
 Opinion.propTypes = {
     articles: PropTypes.shape({}),
