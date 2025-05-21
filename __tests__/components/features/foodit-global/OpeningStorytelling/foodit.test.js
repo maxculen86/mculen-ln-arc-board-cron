@@ -37,7 +37,6 @@ describe('Foodit - OpeningStorytelling Component', () => {
             promoItems: ArticleNotaVideo.promo_items,
             headlines: ArticleNotaVideo.headlines
         };
-        delete articleWithVideo.promo_items;
 
         const { container } = render(
             <OpeningStorytelling article={articleWithVideo} />
@@ -56,7 +55,6 @@ describe('Foodit - OpeningStorytelling Component', () => {
             promoItems: ArticleNotaVideo.promo_items,
             headlines: ArticleNotaVideo.headlines
         };
-        delete articleWithVideo.promo_items;
 
         const { container } = render(
             <OpeningStorytelling article={articleWithVideo} />
@@ -75,7 +73,6 @@ describe('Foodit - OpeningStorytelling Component', () => {
             promoItems: ArticleNota.promo_items,
             headlines: ArticleNota.headlines
         };
-        delete articleWithoutVideo.promo_items;
 
         const { container } = render(
             <OpeningStorytelling article={articleWithoutVideo} />

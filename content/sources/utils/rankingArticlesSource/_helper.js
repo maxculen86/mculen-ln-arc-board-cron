@@ -168,7 +168,8 @@ export const transformData = (data, query, cachedCall) => {
             const websiteUrl = get(elem, `website_url`);
             const canonicalUrl = get(elem, `canonical_url`);
             const subtype = get(elem, `subtype`);
-            const volanta = get(elem, `label.volanta`);
+            const headlinesWeb = get(elem, `headlines.web`);
+            const volanta = headlinesWeb || get(elem, `label.volanta`);
             const republicarAudio = get(elem, `label.republicar_audio`);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;

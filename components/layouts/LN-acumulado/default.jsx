@@ -164,7 +164,8 @@ function LNAcumuladoLayout(props) {
                                                 anexoSuperiorConfig.anexoHeight,
                                             heightMobile:
                                                 anexoSuperiorConfig.anexoHeight,
-                                            url: anexoSuperiorConfig.anexoUrl
+                                            url: anexoSuperiorConfig.anexoUrl,
+                                            hideTitle: true
                                         }}
                                     />
                                 ) : null}
@@ -190,7 +191,8 @@ function LNAcumuladoLayout(props) {
                                                 anexoInferiorConfig.anexoHeight,
                                             heightMobile:
                                                 anexoInferiorConfig.anexoHeight,
-                                            url: anexoInferiorConfig.anexoUrl
+                                            url: anexoInferiorConfig.anexoUrl,
+                                            hideTitle: true
                                         }}
                                     />
                                 ) : null}

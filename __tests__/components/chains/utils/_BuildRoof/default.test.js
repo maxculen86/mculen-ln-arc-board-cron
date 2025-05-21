@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import BuildRoof from '../../../../../components/chains/utils/_BuildRoof/default';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -26,7 +26,7 @@ describe('Tests component BuildRoof', () => {
         buttonText: '',
         linkButton: '',
         buttonStyle: '',
-        hideRoof: false,
+        hideTitle: false,
         navigationId: '',
         isAdmin: true
     };
@@ -107,8 +107,7 @@ describe('Tests component BuildRoof', () => {
                 titleLink: '',
                 logo: {
                     height: 181,
-                    src:
-                        'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/D5BZF3XZ7JDUNJZWGSNJWHIHJQ.png',
+                    src: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/D5BZF3XZ7JDUNJZWGSNJWHIHJQ.png',
                     width: 920
                 }
             };
@@ -148,8 +147,7 @@ describe('Tests component BuildRoof', () => {
                     },
                     {
                         text: 'Emprendedores',
-                        href:
-                            'https://www.lanacion.com.ar/tema/emprendedores-tid53673/',
+                        href: 'https://www.lanacion.com.ar/tema/emprendedores-tid53673/',
                         target: '_blank'
                     },
                     {

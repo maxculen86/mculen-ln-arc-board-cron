@@ -44,6 +44,7 @@ function ArticlesAcum({
     hasCollectionApertura = false,
     hasChainBeforeGrid = false,
     isWiki = false,
+    hideSubheaderText,
     openBarrier
 }) {
     return (
@@ -72,7 +73,10 @@ function ArticlesAcum({
                         titleSize={typeAcumRules[typeArticle].titleSize}
                         titleWeight={typeAcumRules[typeArticle].titleWeight}
                         outputType={outputType}
-                        withSubhead={typeAcumRules[typeArticle].withSubhead}
+                        withSubhead={
+                            typeAcumRules[typeArticle].withSubhead &&
+                            !hideSubheaderText
+                        }
                         withCategory={typeAcumRules[typeArticle].withCategory}
                         withTags={typeAcumRules[typeArticle].withTags}
                         isApertura={isApertura}
@@ -97,6 +101,7 @@ ArticlesAcum.propTypes = {
     hasChainBeforeGrid: PropTypes.bool.isRequired,
     hasCollectionApertura: PropTypes.bool.isRequired,
     isWiki: PropTypes.bool.isRequired,
+    hideSubheaderText: PropTypes.bool.isRequired,
     openBarrier: PropTypes.func.isRequired
 };
 

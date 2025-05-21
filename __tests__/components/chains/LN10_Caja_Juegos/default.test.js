@@ -14,7 +14,7 @@ jest.mock('fusion:context', () => ({
 }));
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -39,7 +39,7 @@ describe('CajaJuegos Component', () => {
         useRoofData.mockReturnValue({
             logoId: 'Criptograma',
             titleLink: 'link',
-            hideRoof: false,
+            hideTitle: false,
             links: []
         });
     });
