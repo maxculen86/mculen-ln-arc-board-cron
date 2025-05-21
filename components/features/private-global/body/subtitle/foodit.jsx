@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Subtitle = ({ data }) => {
+function Subtitle({ data }) {
     const tagConfigByLevel = {
         1: { tag: 'h3', className: 'text-28 text-32_md text-36_lg' },
         2: { tag: 'h3', className: 'text-24 text-28_md text-32_lg' },
         3: { tag: 'h3', className: 'text-24' },
-        4: { tag: 'h4', className: 'text-24' },
+        4: { tag: 'h4', className: 'text-16 text-18_md' },
         5: { tag: 'h5', className: 'text-24' },
         6: { tag: 'h6', className: 'text-24' },
         default: { tag: 'h2', className: 'text-24 text-28_md text-32_lg' }
@@ -15,12 +16,21 @@ const Subtitle = ({ data }) => {
 
     const Component = _props.tag;
 
+    const fontClass = level === 4 ? 'roboto roboto-bold' : 'prumo prumo-light';
+
     return (
         <Component
-            className={'-mb-8 prumo prumo-light ' + _props.className}
+            className={`-mb-8 ${fontClass} ${_props.className}`}
             dangerouslySetInnerHTML={{ __html: content }}
         />
     );
+}
+
+Subtitle.propTypes = {
+    data: PropTypes.shape({
+        level: PropTypes.number.isRequired,
+        content: PropTypes.string.isRequired
+    }).isRequired
 };
 
 export default Subtitle;
