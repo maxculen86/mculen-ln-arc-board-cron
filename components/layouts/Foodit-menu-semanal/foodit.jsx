@@ -14,8 +14,8 @@ function MenuSemanal() {
                         className="mb-24"
                         sectionsCustom={[
                             {
-                                name: 'Menú Semanal',
-                                url: '/menu-semanal/'
+                                name: 'Mi Menú Semanal',
+                                url: '/mi-menu-semanal/'
                             }
                         ]}
                     />
@@ -23,7 +23,7 @@ function MenuSemanal() {
                         as="h1"
                         className="prumo prumo-semibold text-28 text-40_md text-48_lg"
                     >
-                        Menú Semanal
+                        Mi Menú Semanal
                     </Text>
                 </div>
                 <WeeklyMenu />

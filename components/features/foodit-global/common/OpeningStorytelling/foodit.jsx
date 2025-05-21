@@ -13,7 +13,7 @@ import VideoSource from '../../../private-global/common/videoSource/foodit';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 
 export function OpeningStorytelling({ article = {} }) {
-    const { promoItems = {}, headlines = {} } = article;
+    const { promo_items: promoItems = {}, headlines = {} } = article;
 
     const device = getTypeOfDevice({
         breakpoints: {

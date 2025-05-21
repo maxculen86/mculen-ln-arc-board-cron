@@ -32,16 +32,16 @@ export const menuUser = [
         }
     },
     {
-        text: 'Menú semanal',
+        text: 'Mi menú semanal',
         icon: <IconSprite name="weekly-menu" critical />,
         onClick: () => {
             addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
-                action: 'menu-semanal'
+                action: 'mi-menu-semanal'
             });
-            window.location.replace(`${SITE_FOODIT}/menu-semanal/`);
+            window.location.replace(`${SITE_FOODIT}/mi-menu-semanal/`);
         }
     },
     {

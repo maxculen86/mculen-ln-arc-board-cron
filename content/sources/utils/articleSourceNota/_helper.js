@@ -23,6 +23,7 @@ import {
 import addParallaxData from '../addParallaxData';
 import { recipePowerUps } from '../powerUp';
 import firmaDistributorValidation from '../firmaDistributorValidator';
+import { processVolanta } from '../common/volantaHelper';
 
 // Tener en cuenta que foodit usa estos helpers
 
@@ -371,22 +372,6 @@ const transformContentElements = async ({
     }
 
     return contentElementTransformed;
-};
-
-export const processVolanta = result => {
-    const headlinesWeb = (get(result, 'headlines.web', '') || '').trim();
-
-    if (!headlinesWeb) {
-        return result.label;
-    }
-
-    return {
-        ...(result.label || {}),
-        volanta: {
-            display: true,
-            text: headlinesWeb
-        }
-    };
 };
 
 export const transform = async (response, query, cachedCall) => {
