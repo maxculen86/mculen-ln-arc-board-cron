@@ -7587,6 +7587,10 @@ strong:not(.--font-primary),
   word-break: break-word;
 }
 
+.capitalize-first-letter::first-letter {
+  text-transform: capitalize;
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;

@@ -330,6 +330,7 @@
         margin-right: 2.5rem;
     }
     #wrapper.nota .sidebar__main {
+        max-width: calc(100% - 380px);
         flex-basis: calc(100% - 380px);
         margin-right: 5rem;
     }
