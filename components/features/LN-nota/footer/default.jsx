@@ -41,23 +41,34 @@ function Footer(props) {
     const logoData = getSectionLogo(sections, layout, name);
 
     const showDivider = !isInvalidLogo(logoData) && !isInvalid;
+    const showLogoOrTrust = !isInvalidLogo(logoData) || !isInvalid;
 
     return (
-        <section className="container-center-100 mb-32">
-            <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
-                <div className="flex flex-column gap-4">
-                    <ExternalSignature globalContent={globalContent} />
-                    <Signature globalContent={globalContent} isNotaFooter />
+        <>
+            <section className="container-center-100 mb-40">
+                <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
+                    <div className="flex flex-column gap-4">
+                        <ExternalSignature globalContent={globalContent} />
+                        <Signature globalContent={globalContent} isNotaFooter />
+                    </div>
+                    <Themes globalContent={globalContent} />
                 </div>
-                <Themes globalContent={globalContent} />
-            </div>
-            <hr />
-            <div className="flex flex-column flex-row_m gap-16 mb-8 ai-stretch py-16 py-12_m">
-                <Logo logoData={logoData} />
-                {showDivider && <hr className="vertical sm-none" />}
-                <TrustProject isInvalid={isInvalid} tooltipData={tooltip} />
-            </div>
-        </section>
+                {showLogoOrTrust && (
+                    <>
+                        <hr />
+                        <div className="flex flex-column flex-row_m gap-16 mb-8 ai-stretch py-16 py-12_m">
+                            <Logo logoData={logoData} />
+                            {showDivider && <hr className="vertical sm-none" />}
+                            <TrustProject
+                                isInvalid={isInvalid}
+                                tooltipData={tooltip}
+                            />
+                        </div>
+                    </>
+                )}
+            </section>
+            <hr className="border border-bottom border-thin border-neutral-light-700 mb-32" />
+        </>
     );
 }
 

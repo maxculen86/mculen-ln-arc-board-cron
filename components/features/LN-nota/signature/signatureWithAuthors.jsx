@@ -35,7 +35,7 @@ function SignatureWithAuthors({
         <div className="row">
             <div
                 className={cx(
-                    'flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start',
+                    'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start',
                     position === place.Top && 'mb-16',
                     !isNotaFooter && position === place.Bottom && 'mb-32'
                 )}
