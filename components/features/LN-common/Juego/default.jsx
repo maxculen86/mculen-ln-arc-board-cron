@@ -103,6 +103,8 @@ function Game({ id: featureId, customFields, isAdmin }) {
         description: { className: 'text-18 sm-none' }
     };
 
+    const buttonProps = game === 'ranking' ? { label: 'Ver Ranking' } : {};
+
     return (
         <CardGame
             sizeCard={primarySection ? 24 : 18}
@@ -118,6 +120,7 @@ function Game({ id: featureId, customFields, isAdmin }) {
                 href: hrefLink
             }}
             game={game}
+            buttonProps={buttonProps}
             diagramation={parentLayout}
             firstChild={isFirstCard}
             description={getDescriptionData(

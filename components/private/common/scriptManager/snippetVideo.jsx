@@ -29,7 +29,7 @@ const videoPlayerSnippet = ({ mediaData, minStream, paragraph, noteTitle }) => {
     const description =
         epigraph ||
         firstParagraph.trim() ||
-        paragraph?.trim() ||
+        (typeof paragraph === 'string' ? paragraph.trim() : '') ||
         getAlternativeDescription(uploadDate, noteTitle?.trim());
 
     const data = {

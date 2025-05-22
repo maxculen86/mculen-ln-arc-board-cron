@@ -111,6 +111,18 @@
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
+        "dynamic_label": "canchallena"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "footer",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "foodit"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "footer",
+        "dynamic_category": "home_ln10",
         "dynamic_label": "bonvivir"
     },
     {

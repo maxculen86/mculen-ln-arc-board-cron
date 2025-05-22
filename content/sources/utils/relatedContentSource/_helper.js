@@ -3,7 +3,7 @@ import { addResizedUrls } from '../../../../components/private/common/utils/imag
 import getPresets from '../presets';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 
-const transformData = async (response, query, cachedCall) => {
+const transformData = async (response, query, limit, cachedCall) => {
     const basicData = get(response, 'basic', []);
     if (basicData.length === 0) return [];
 
@@ -11,12 +11,12 @@ const transformData = async (response, query, cachedCall) => {
 
     const filteredData = basicData
         .filter(item => item.revision?.published === true)
-        .slice(0, 3);
+        .slice(0, limit);
 
     const { presets, presetsDefault } = getPresets(query);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
-    const transformedData = await Promise.all(
+    return Promise.all(
         filteredData.map(async elem => {
             const newElem = await getAllImagesAuth(elem, cachedCall);
             Object.assign(elem, newElem);
@@ -45,8 +45,6 @@ const transformData = async (response, query, cachedCall) => {
             };
         })
     );
-
-    return transformedData;
 };
 
 export default transformData;

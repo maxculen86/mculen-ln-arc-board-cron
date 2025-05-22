@@ -1,9 +1,16 @@
 import React from 'react';
 import { PrintButton } from '../../../../../../components/features/foodit-global/common/PrintButton/foodit';
 import { render, screen, fireEvent } from '@testing-library/react';
+import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
+
+jest.mock(
+    '../../../../../../components/features/foodit-global/hooks/useGetUserConfig',
+    () => jest.fn()
+);
 
 describe('PrintButton', () => {
-    it('should render the PrintButton component', () => {
+    it('should render the PrintButton component if user is subscribed', () => {
+        useGetUserConfig.mockReturnValue({ isSubscribed: true });
         render(
             <PrintButton
                 type="print"

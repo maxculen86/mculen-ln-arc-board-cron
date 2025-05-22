@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import propTypes from 'prop-types';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Icon } from '@ln/common-ui-icon';
@@ -18,7 +18,7 @@ import get from '../../../../private/common/utils/get';
 import { renderItemCard } from './helper';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
 
-export function ActionsButtons({
+export function RecipeActionsDropdown({
     handleOpen,
     countDayFood,
     article: { _id: articleId },
@@ -43,7 +43,7 @@ export function ActionsButtons({
     const { portionsValue } = usePortions('recipe-portions');
     const { ingredientsLists } = useIngredientsList('ingredients-list');
 
-    const handleShoppingListAdd = async () => {
+    const handleShoppingListAdd = useCallback(async () => {
         try {
             await handleIngredientListButton({
                 isSuscriptor,
@@ -57,59 +57,70 @@ export function ActionsButtons({
         } catch (error) {
             console.error('Shopping list update failed:', error);
         }
-    };
+    }, [
+        isSuscriptor,
+        title,
+        articleId,
+        bookmarkId,
+        setBookmarkId,
+        ingredientsLists,
+        portionsValue
+    ]);
 
-    const options = [
-        {
-            id: `btn-saved-${articleId}`,
-            icon: (
-                <Icon size={20}>
-                    <IconSprite name="bookmark" critical />
-                </Icon>
-            ),
-            text: 'Guardar',
-            action: () => {}
-        },
-        {
-            id: `btn-weekly-menu-${articleId}`,
-            icon: (
-                <div className="relative">
-                    {countDayFood > 0 && (
-                        <span
-                            style={{ fontStyle: 'normal' }}
-                            className="w-14 h-14 flex ai-center jc-center roboto roboto-bold text-8 top-0 right-0 translate-x-50 absolute rounded-circle bg-info-700 text-light-1"
-                        >
-                            {countDayFood}
-                        </span>
-                    )}
-                    <IconSprite
-                        width={20}
-                        height={20}
-                        name="weekly-menu"
-                        critical
-                    />
-                </div>
-            ),
-            text: 'Agregar al menú semanal',
-            action: handleOpen
-        },
-        {
-            id: `btn-shopping-list-${articleId}`,
-            icon: (
-                <Icon size={20}>
-                    <IconSprite name="shopping-list" critical />
-                </Icon>
-            ),
-            text: 'Agregar a la lista de compras',
-            tooltip: bookmarkId && (
-                <span className="text-12">
-                    Los ingredientes de esta receta ya se encuentran en la lista
-                    de compras
-                </span>
-            ),
-            action: handleShoppingListAdd
-        }
-    ];
+    const options = useMemo(
+        () => [
+            {
+                id: `btn-saved-${articleId}`,
+                icon: (
+                    <Icon size={20}>
+                        <IconSprite name="bookmark" critical />
+                    </Icon>
+                ),
+                text: 'Guardar',
+                action: () => {}
+            },
+            {
+                id: `btn-weekly-menu-${articleId}`,
+                icon: (
+                    <div className="relative">
+                        {countDayFood > 0 && (
+                            <span
+                                style={{ fontStyle: 'normal' }}
+                                className="w-14 h-14 flex ai-center jc-center roboto roboto-bold text-8 top-0 right-0 translate-x-50 absolute rounded-circle bg-info-700 text-light-1"
+                            >
+                                {countDayFood}
+                            </span>
+                        )}
+                        <IconSprite
+                            width={20}
+                            height={20}
+                            name="weekly-menu"
+                            critical
+                        />
+                    </div>
+                ),
+                text: 'Agregar al menú semanal',
+                action: handleOpen
+            },
+            {
+                id: `btn-shopping-list-${articleId}`,
+                icon: (
+                    <Icon size={20}>
+                        <IconSprite name="shopping-list" critical />
+                    </Icon>
+                ),
+                text: 'Agregar a la lista de compras',
+                tooltip: bookmarkId && (
+                    <span className="text-12">
+                        Los ingredientes de esta receta ya se encuentran en la
+                        lista de compras
+                    </span>
+                ),
+                action: handleShoppingListAdd
+            }
+        ],
+        [articleId, countDayFood, handleOpen, handleShoppingListAdd, bookmarkId]
+    );
 
     return (
         <Tooltip
@@ -181,7 +192,7 @@ export function ActionsButtons({
     );
 }
 
-ActionsButtons.propTypes = {
+RecipeActionsDropdown.propTypes = {
     handleOpen: propTypes.func.isRequired,
     countDayFood: propTypes.number.isRequired,
     article: propTypes.shape({

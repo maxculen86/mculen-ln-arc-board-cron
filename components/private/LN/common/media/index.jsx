@@ -27,6 +27,7 @@ const Media = ({
     outputType,
     handleClick,
     isApertura,
+    shouldLoadEager,
     parrafo,
     tituloNota,
     active,
@@ -47,14 +48,12 @@ const Media = ({
     let item = null;
     const { subtype } = useSubtype();
     const idForMedia = isApertura ? idMedia : undefined;
-
     const isValidSection = isAllowedSection({
         noteType: subtype.id,
         globalContent,
         listOfAllowedSection,
         layout: layoutPageBuilder
     });
-
     useEffect(() => {
         !itsGallery &&
             withZoom &&
@@ -78,8 +77,8 @@ const Media = ({
         itsGallery || zoom
             ? handleClick
             : () => {
-                // This is intentional
-            };
+                  // This is intentional
+              };
 
     if (mediaData) {
         const mediaTypeComponents = {
@@ -101,6 +100,7 @@ const Media = ({
                         image={{ ...mediaData, titleText }}
                         href={href}
                         isApertura={isApertura}
+                        shouldLoadEager={shouldLoadEager}
                         searchableField={searchableField}
                         isValidSection={isValidSection}
                         authors={authors}
@@ -176,6 +176,7 @@ Media.propTypes = {
         PropTypes.string
     ]),
     isApertura: PropTypes.bool,
+    shouldLoadEager: PropTypes.bool,
     html: PropTypes.string,
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node,
@@ -198,6 +199,7 @@ Media.defaultProps = {
     itsGallery: false,
     withZoom: false,
     isApertura: false,
+    shouldLoadEager: false,
     href: '',
     html: '',
     titleText: '',

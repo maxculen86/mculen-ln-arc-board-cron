@@ -8,6 +8,7 @@ export const RECETA_CERRADA = 'recipe-paywall';
 export const FOTOAL100 = '8';
 export const HTMLLIBRE = '9';
 export const AGENCIA = '10';
+export const LIVEBLOG_EDITORIAL = '11';
 
 export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
 
@@ -20,7 +21,8 @@ export const Subtypes = [
     { id: '4', nombre: 'Storytelling' },
     { id: '8', nombre: 'FotoAl100' },
     { id: '9', nombre: 'HtmlLibre' },
-    { id: '10', nombre: 'Agencia' }
+    { id: '10', nombre: 'Agencia' },
+    { id: '11', nombre: 'Liveblog-Editorial' }
 ];
 
 export const translateStringFromSubitypeToID = (subtype = '') => {
@@ -33,7 +35,8 @@ export const translateStringFromSubitypeToID = (subtype = '') => {
         Storytelling: STORYTELLING,
         FotoAl100: FOTOAL100,
         HtmlLibre: HTMLLIBRE,
-        Agencia: AGENCIA
+        Agencia: AGENCIA,
+        LiveblogEditorial: LIVEBLOG_EDITORIAL
     };
 
     return dictionarySubtypes[subtype] || subtype;

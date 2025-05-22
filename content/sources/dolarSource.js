@@ -10,19 +10,10 @@ import getRequest from './utils/getRequest';
 import filter from '../filters/LN/services/dolar';
 import logger from '../../components/private/common/utils/logger';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
-
+import { linkDictionary } from './utils/dolarSource/constants';
 const transform = data => {
     const [termicas = [], datos = {}] = data;
     const baseUrl = `${SITE_LANACION || 'https://www.lanacion.com.ar'}`;
-    const linkDictionary = {
-        dbna: '/dolar-hoy/',
-        dblue: '/tema/dolar-blue-tid67294/',
-        dtarjeta: '/tema/dolar-tarjeta-tid50462/',
-        dturista: '/tema/dolar-turista-tid67475/',
-        dccl: '/tema/dolar-ccl/',
-        euro: '/tema/euro-hoy-tid66142/',
-        dmep: '/tema/dolar-mep/'
-    };
 
     return {
         data:
