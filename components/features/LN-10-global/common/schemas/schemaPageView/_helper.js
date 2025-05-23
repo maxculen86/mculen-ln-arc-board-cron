@@ -26,6 +26,8 @@ const getPageType = (layout = '', section = '') => {
     return 'nota';
 };
 
+const DEFAULT_VALOR_COMUN = 'comun';
+
 export const getObjectSchema = (globalContent, pagetype) => {
     const notAplly = 'N/A';
     return {
@@ -41,7 +43,11 @@ export const getObjectSchema = (globalContent, pagetype) => {
         },
         nota: {
             pagetype,
-            valor: get(globalContent, 'content_restrictions.content_code'),
+            valor: get(
+                globalContent,
+                'content_restrictions.content_code',
+                DEFAULT_VALOR_COMUN
+            ),
             subtype: get(globalContent, 'subtype'),
             nota_id: get(globalContent, '_id'),
             isListenable: get(globalContent, 'isListenable', false)
