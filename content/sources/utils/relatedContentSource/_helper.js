@@ -2,6 +2,7 @@ import get from '../../../../components/private/common/utils/get';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 import getPresets from '../presets';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
+import { processVolanta } from '../common/volantaHelper';
 
 const transformData = async (response, query, limit, cachedCall) => {
     const basicData = get(response, 'basic', []);
@@ -41,7 +42,8 @@ const transformData = async (response, query, limit, cachedCall) => {
                         isAdmin: get(query, 'isAdmin', false),
                         arcSite
                     }
-                )
+                ),
+                label: processVolanta(elem)
             };
         })
     );
