@@ -37,7 +37,7 @@ describe('CTRNota', () => {
 
         render(<CTRNota />);
         act(() => {
-            window.scrollY = 2801;
+            window.scrollY = 1801;
             fireEvent.scroll(window);
         });
         expect(mockSetTrigger).toHaveBeenCalledWith(true);
