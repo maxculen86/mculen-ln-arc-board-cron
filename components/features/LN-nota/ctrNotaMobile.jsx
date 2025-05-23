@@ -36,6 +36,7 @@ function CTRNota() {
     const [tracked, setTracker] = useState(true);
     const [excludeItems, setExcludeItems] = useState([]);
     const [source, setSource] = useState(null);
+    const STICKY_MOBILE_SCROLL_TRIGGER = 1800;
     useEffect(() => {
         if (localStorage) {
             const seenNotes =
@@ -48,7 +49,7 @@ function CTRNota() {
             if (!source && scrolledInAxisY >= 1000)
                 setSource('rankingArticlesSource');
 
-            if (!trigger && scrolledInAxisY >= 2800) {
+            if (!trigger && scrolledInAxisY >= STICKY_MOBILE_SCROLL_TRIGGER) {
                 setTrigger(true);
                 window.removeEventListener('scroll', handleScroll);
             }
