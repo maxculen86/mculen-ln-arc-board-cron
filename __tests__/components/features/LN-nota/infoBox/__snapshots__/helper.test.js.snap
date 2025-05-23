@@ -2,7 +2,9 @@
 
 exports[`components - features - LN-Nota - infoBox - helper should return the correct config for deportes 1`] = `
 {
-  "description": "Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo.",
+  "descriptionProps": {
+    "text": "Encontrá resultados de fútbol en vivo, los próximos partidos, las tablas de posiciones, y todas las estadísticas de los principales torneos del mundo.",
+  },
   "imgProps": {
     "alt": "Imagen de celular con la app de Canchallena",
     "className": "w-100",
@@ -33,7 +35,9 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
 
 exports[`components - features - LN-Nota - infoBox - helper should return the correct config for juegos 1`] = `
 {
-  "description": "Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.",
+  "descriptionProps": {
+    "text": "Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.",
+  },
   "imgProps": {
     "alt": "Imagen de celular con la app de LN Juegos",
     "className": "w-100",
@@ -56,6 +60,45 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "className": "w-140_max512",
     "src": "https://arc-static.glanacion.com/pf/resources/images/logo-juegos.webp",
     "width": undefined,
+  },
+  "showZocalo": true,
+}
+`;
+
+exports[`components - features - LN-Nota - infoBox - helper should return the correct config for violence zocalo 1`] = `
+{
+  "descriptionProps": {
+    "classnames": {
+      "button": "mb-24_m",
+      "text": "prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800",
+      "title": "prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 bg-yellow-secondary uppercase",
+    },
+    "text": "Si estás pasando por una situación de violencia de género, te invitamos a recibir ayuda profesional y apoyo. Haz clic aquí para más información.",
+    "title": "Violencia de género",
+  },
+  "imgProps": {
+    "alt": "Imagen de asistencia contra violencia de género",
+    "className": "w-100",
+    "sources": [
+      {
+        "minWidth": 768,
+        "srcSet": "https://arc-static.glanacion.com/pf/resources/images/violencia-genero-desk.webp",
+      },
+    ],
+    "src": "https://arc-static.glanacion.com/pf/resources/images/violencia-genero-mob.webp",
+    "width": undefined,
+  },
+  "label": "violencia_genero",
+  "linkProps": {
+    "href": "https://www.lanacion.com.ar/asistencia-violencia-genero",
+    "target": "_blank",
+    "title": "Recibir asistencia en casos de violencia de género",
+  },
+  "logoProps": {
+    "alt": "Logo de asistencia contra violencia de género",
+    "className": undefined,
+    "src": "",
+    "width": 150,
   },
   "showZocalo": true,
 }
