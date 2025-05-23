@@ -15,7 +15,8 @@ function RelatedContent({ globalContent }) {
         source: id ? 'relatedContentSource' : null,
         query: {
             id,
-            website: 'foodit'
+            website: 'foodit',
+            limit: 2
         },
         isStatic: true
     });
