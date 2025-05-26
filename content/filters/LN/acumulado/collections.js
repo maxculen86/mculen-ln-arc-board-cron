@@ -36,6 +36,7 @@ export default `
         headlines {
             basic
             shortTitle
+            web
         }
         display_date
         publish_date

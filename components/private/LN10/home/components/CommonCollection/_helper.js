@@ -67,7 +67,9 @@ export const getTitleAndLeadForHome = (
 ) => {
     const titleTextShort = get(article, 'headlines.mobile', '');
     const titleTextLong = get(article, 'headlines.basic', '');
-    const lead = get(article, 'label.volanta.text', '');
+    const lead =
+        get(article, 'label.volanta.text', '') ||
+        get(article, 'headlines.web', '');
 
     if (requireTitleLong) {
         return { lead: '', title: titleTextLong || titleTextShort };
