@@ -48,9 +48,14 @@ describe('relatedContentSource', () => {
         const mockResponse = {
             basic: [{ id: '1', revision: { published: true } }]
         };
+        const mockLimit = 3; // o 2 para foodit, depende del caso;
         const mockTransformedData = [{ id: '1', title: 'Test Article' }];
-        const mockQuery = { 'arc-site': 'foodit', id: 'article-123' };
-        const mockLimit = 2;
+        const mockQuery = {
+            'arc-site': 'foodit',
+            id: 'article-123',
+            limit: mockLimit
+        };
+
         const mockCachedCall = jest.fn();
 
         nodeFetch.mockResolvedValue({

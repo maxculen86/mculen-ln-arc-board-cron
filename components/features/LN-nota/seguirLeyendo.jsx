@@ -2,34 +2,29 @@ import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import { useAppContext } from 'fusion:context';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
-import get from '../../private/common/utils/get';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
-import filter from '../../../content/filters/LN/nota/articleAcu';
-
 // TODO hacer unit test, fix hooks y default props
 
 function seguirLeyendo({ globalContent, outputType }) {
-    const justThreeStories = content =>
-        content
-            .filter(element => element && element.type === 'story')
-            .slice(0, 3);
+    const noteId = globalContent?._id;
+    const { arcSite } = useAppContext();
 
-    const getRelatedData = content =>
-        content.map(article =>
-            useContent({
-                source: 'articleSourceNota',
-                query: {
-                    id: article._id,
-                    imageConfig: 'boxArticles'
-                },
-                filter
-            })
-        );
-
-    const relatedContent = get(globalContent, 'related_content.basic', []);
-    const relatedStories = justThreeStories(relatedContent);
-    const articles = getRelatedData(relatedStories);
+    const articles =
+        useContent(
+            noteId
+                ? {
+                      source: 'relatedContentSource',
+                      query: {
+                          'arc-site': arcSite,
+                          id: noteId,
+                          imageConfig: 'boxArticles',
+                          limit: 3
+                      }
+                  }
+                : null
+        ) || [];
 
     useEffect(() => {
         articleBoxesTracker({
@@ -62,19 +57,7 @@ function seguirLeyendo({ globalContent, outputType }) {
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 
 seguirLeyendo.propTypes = {
-    globalContent: PropTypes.shape({
-        related_content: PropTypes.shape({
-            basic: PropTypes.arrayOf(
-                PropTypes.shape({
-                    type: PropTypes.string,
-                    headlines: PropTypes.shape({
-                        basic: PropTypes.string,
-                        mobile: PropTypes.string
-                    })
-                })
-            )
-        })
-    }).isRequired,
+    globalContent: PropTypes.shape({ _id: PropTypes.string }).isRequired,
     outputType: PropTypes.string.isRequired
 };
 

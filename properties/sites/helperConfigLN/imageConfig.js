@@ -1076,6 +1076,42 @@ export default {
                 ]
             }
         },
+        liveblogEditorial: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 360,
+                        height: 202,
+                        proportion: '16:9',
+                        maxScreenWidth: 767
+                    },
+                    {
+                        width: 768,
+                        height: 432,
+                        proportion: '16:9',
+                        maxScreenWidth: 1023
+                    },
+                    {
+                        width: 476,
+                        height: 267,
+                        proportion: '16:9',
+                        maxScreenWidth: 1279
+                    },
+                    {
+                        width: 670,
+                        height: 376,
+                        proportion: '16:9',
+                        maxScreenWidth: 1366
+                    },
+                    {
+                        width: 716,
+                        height: 402,
+                        proportion: '16:9',
+                        maxScreenWidth: 1920
+                    }
+                ]
+            }
+        },
         videoImage: {
             promo_items: {
                 sizes: [

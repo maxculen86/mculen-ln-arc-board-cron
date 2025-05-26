@@ -2,15 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
+import { cx } from '@ln/cva';
 
-const ComFigcaption = props => {
-    const { children } = props;
+function ComFigcaption(props) {
+    const { children, className } = props;
     if (!children) return null;
-    return <figcaption className="mod-figcaption">{children}</figcaption>;
-};
+    const _className = cx(className, 'mod-figcaption');
+    return <figcaption className={_className}>{children}</figcaption>;
+}
 
 ComFigcaption.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string
+};
+
+ComFigcaption.defaultProps = {
+    className: ''
 };
 
 export default ComFigcaption;

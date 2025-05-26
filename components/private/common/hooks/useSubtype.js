@@ -9,6 +9,7 @@ import generico from '../utils/subtypes/generico';
 import agencia from '../utils/subtypes/agencia';
 import liveblog from '../utils/subtypes/liveblog';
 import video from '../utils/subtypes/video';
+import LiveBlogEditorial from '../utils/subtypes/liveblogEditorial';
 
 const useSubtype = () => {
     const { globalContent } = useAppContext();
@@ -24,7 +25,8 @@ const useSubtype = () => {
         htmlLibre,
         agencia,
         liveblog,
-        video
+        video,
+        LiveBlogEditorial
     ];
 
     return {

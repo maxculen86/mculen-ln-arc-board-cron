@@ -82,7 +82,10 @@ const ArticleAcum = forwardRef(
 
         const titleTextShort = get(headlines, 'mobile', '');
         const titleTextLong = unescapeHtml(get(headlines, 'basic', ''));
-        const leadText = withVolanta ? get(label, 'volanta.text', '') : '';
+        const headlinesWeb = get(headlines, 'web', '');
+        const leadText = withVolanta
+            ? get(label, 'volanta.text', headlinesWeb)
+            : '';
         const chapita = get(label, 'chapita.text', '');
 
         const tagList =

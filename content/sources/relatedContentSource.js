@@ -4,11 +4,9 @@ import logger from '../../components/private/common/utils/logger';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import transformData from './utils/relatedContentSource/_helper';
 
-const RELATED_CARDS_LIMIT = 2;
-
 const fetch = async (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
-    const { id = '' } = query;
+    const { id = '', limit } = query;
 
     const opt = {
         method: 'GET'
@@ -28,12 +26,7 @@ const fetch = async (query, { cachedCall } = {}) => {
 
             const data = await response.json();
 
-            return await transformData(
-                data,
-                query,
-                RELATED_CARDS_LIMIT,
-                cachedCall
-            );
+            return await transformData(data, query, limit, cachedCall);
         } catch (error) {
             console.warn(
                 `content/relatedContentSource Error: ${JSON.stringify(
@@ -57,6 +50,7 @@ export default {
     params: {
         url: 'text',
         id: 'text',
+        limit: 'number',
         published: 'text',
         outputType: 'text',
         sourceInclude: 'text',

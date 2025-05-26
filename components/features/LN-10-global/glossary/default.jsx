@@ -1,11 +1,12 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
+import PropTypes from 'prop-types';
 import get from '../../../private/common/utils/get';
 import Tooltip from './components/tooltip';
 import Dialog from './components/dialog';
 import HandleGlossaryScript from '../../../private/common/scriptManager/handleGlossary';
 
-function Glossary() {
+function Glossary({ showGlossary }) {
     const { globalContent } = useAppContext();
 
     const glossaryData = get(
@@ -14,7 +15,7 @@ function Glossary() {
         []
     );
 
-    if (!glossaryData.length) {
+    if (!glossaryData.length || !showGlossary) {
         return null;
     }
 
@@ -26,5 +27,9 @@ function Glossary() {
         </>
     );
 }
+
+Glossary.propTypes = {
+    showGlossary: PropTypes.bool.isRequired
+};
 
 export default Glossary;
