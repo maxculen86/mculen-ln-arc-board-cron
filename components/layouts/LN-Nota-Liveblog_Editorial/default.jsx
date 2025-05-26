@@ -2,24 +2,32 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import GlobalProvider from '../../private/common/context/globalContext';
-import PwaModal from '../../features/LN-10-global/pwaModal/default';
+import LiveBlogEditorial from './components/liveblogEditorial';
 
-// eslint-disable-next-line no-unused-vars
-function LnNotaLiveblogEditorial({ globalContent = {} }) {
+function LnNotaLiveblogEditorial({ children, layout, outputType }) {
     return (
         <GlobalProvider>
-            <h1>LiveBlog</h1>
-            <PwaModal />
+            <LiveBlogEditorial outputType={outputType} layout={layout}>
+                {children}
+            </LiveBlogEditorial>
         </GlobalProvider>
     );
 }
 
-const pageBuilderSections = ['Apertura', 'Cuerpo', 'Tercera', 'Bottom'];
+const pageBuilderSections = [
+    'Banners',
+    'Apertura',
+    'Cuerpo',
+    'Tercera',
+    'Bottom'
+];
 
 LnNotaLiveblogEditorial.sections = pageBuilderSections;
 
 LnNotaLiveblogEditorial.propTypes = {
-    globalContent: PropTypes.shape({}).isRequired
+    children: PropTypes.node.isRequired,
+    outputType: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default Consumer(LnNotaLiveblogEditorial);

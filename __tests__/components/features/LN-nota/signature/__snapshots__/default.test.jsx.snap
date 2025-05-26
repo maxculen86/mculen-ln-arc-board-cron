@@ -29,7 +29,7 @@ exports[`components - feature - LN-nota - signature - default renders with autho
             />
           </a>
           <div
-            class="flex j-center text-neutral-light-600 py-4 flex-column-reverse gap-8 py-4"
+            class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
           >
             <span
               class="text text-14 text-neutral-light-600 uppercase"
@@ -113,7 +113,7 @@ exports[`components - feature - LN-nota - signature - default should not render 
           class="flex w-100 inline-flex ai-center gap-12"
         >
           <div
-            class="flex j-center text-neutral-light-600 py-4 flex-column-reverse gap-8 py-4"
+            class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
           >
             <span>
               Por 

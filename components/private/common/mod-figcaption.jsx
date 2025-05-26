@@ -6,12 +6,12 @@ import ComText from './text';
 
 import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
 
-const ModFigcaption = props => {
-    const { title, credit } = props;
+function ModFigcaption(props) {
+    const { title, credit, className } = props;
     if (!title && !credit) return null;
 
     return (
-        <ComFigcaption>
+        <ComFigcaption className={className}>
             <ComText extraClass="--caption" size="2xs">
                 {title}
             </ComText>
@@ -20,16 +20,18 @@ const ModFigcaption = props => {
             </ComText>
         </ComFigcaption>
     );
-};
+}
 
 ModFigcaption.propTypes = {
     title: PropTypes.string,
-    credit: PropTypes.string
+    credit: PropTypes.string,
+    className: PropTypes.string
 };
 
 ModFigcaption.defaultProps = {
     title: '',
-    credit: ''
+    credit: '',
+    className: ''
 };
 
 export default ModFigcaption;

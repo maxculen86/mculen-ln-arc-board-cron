@@ -5,6 +5,10 @@ import { cx } from '@ln/cva';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { place } from '../../../private/common/utils/firmaHelper';
 import { getAuthorData } from './signatureHelper';
+import {
+    VIDEO,
+    LIVEBLOG_EDITORIAL
+} from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureWithAuthors({
     showVariantIa,
@@ -29,7 +33,11 @@ function SignatureWithAuthors({
         <IconSprite name="ai" fill="#FEFEFE" />
     ) : null;
     const prefix = position === place.Bottom || hasMultipleAuthors;
-    const isVideoNote = subtype === '5' && position === place.Top;
+
+    const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO];
+
+    const isNegativeSubtype =
+        negativeSubtypes.includes(subtype) && position === place.Top;
 
     return (
         <div className="row">
@@ -50,10 +58,10 @@ function SignatureWithAuthors({
                     section={medio}
                     icon={iconAudio}
                     prefix={prefix}
-                    negative={isVideoNote}
+                    negative={isNegativeSubtype}
                     classnames={{
                         authorSection: 'uppercase',
-                        authorName: isVideoNote && 'text-blue-300'
+                        authorName: isNegativeSubtype && 'text-blue-300'
                     }}
                 />
                 {audioButton}

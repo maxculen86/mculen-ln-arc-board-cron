@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
+import { cx } from '@ln/cva';
 import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
@@ -8,14 +9,20 @@ import { configClassName, getVerticalPlayer } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import getSourcesJw from '../../LN/common/utils/getSourcesJw';
 import FigureCaption from '../../../features/LN-10-global/common/figCaption/default';
-import { STORYTELLING, VIDEO } from '../utils/subtypes/subtypeHelper';
+import {
+    STORYTELLING,
+    VIDEO,
+    LIVEBLOG_EDITORIAL
+} from '../utils/subtypes/subtypeHelper';
 
 const videoPlayerJW = ({
     data,
     parrafo,
     tituloNota,
     hasAutoplay,
-    isOtt = false
+    isOtt = false,
+    mediaContainerClassesProps,
+    videoContainerClassesProps
 }) => {
     const {
         embed: {
@@ -39,10 +46,14 @@ const videoPlayerJW = ({
     const promoItems = get(globalContent, 'promo_items', {});
     const isPromoItemVideo =
         get(promoItems, 'video_jw.embed.config.idVideo', '') === mediaid;
-    const isStorytellingOrVideoSubtype =
-        subtype === STORYTELLING || subtype === VIDEO;
+    const isSubtypeWithoutFigureCaption = [
+        STORYTELLING,
+        VIDEO,
+        LIVEBLOG_EDITORIAL
+    ].includes(subtype);
+
     const shouldShowFigureCaption =
-        !isPromoItemVideo || !isStorytellingOrVideoSubtype;
+        !isPromoItemVideo || !isSubtypeWithoutFigureCaption;
 
     const videoOrientation = getVerticalPlayer(idPlayer)
         ? 'vertical'
@@ -60,11 +71,21 @@ const videoPlayerJW = ({
 
     const minStream = video && getSourcesJw(get(video, 'sources', []));
 
+    const videoContainerClassName = cx(
+        videoContainer,
+        videoContainerClassesProps
+    );
+
+    const mediaContainerClassName = cx(
+        mediaContainer,
+        mediaContainerClassesProps
+    );
+
     return (
         <Static id={mediaid}>
             <div className={container}>
-                <section className={mediaContainer}>
-                    <figure className={videoContainer}>
+                <section className={mediaContainerClassName}>
+                    <figure className={videoContainerClassName}>
                         <div className={videoPlayer}>
                             <Facade
                                 id={mediaid}
