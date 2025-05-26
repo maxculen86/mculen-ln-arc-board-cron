@@ -50,7 +50,7 @@ describe('components - features - LN-Api - Story - json.js', () => {
         }
     });
 
-    it('When article load props Ok', () => {
+    test('When article load props Ok', () => {
         const objArticle = new story.default(props);
         expect(objArticle.props).toMatchObject(props);
         expect(
@@ -59,13 +59,13 @@ describe('components - features - LN-Api - Story - json.js', () => {
             ['apiData', 'props', 'state'].sort((a, b) => a.localeCompare(b))
         );
     });
-    it('When content_elements is null', () => {
+    test('When content_elements is null', () => {
         props.globalContent.content_elements = [];
         const objArticle = new story.default(props);
         const result = objArticle.render();
         expect(result.cotenido).toEqual(undefined);
     });
-    it('When audio news source contains voice id', () => {
+    test('When audio news source contains voice id', () => {
         const objArticle = new story.default(props);
 
         objArticle.state.audionewsSource = {
@@ -83,7 +83,7 @@ describe('components - features - LN-Api - Story - json.js', () => {
         expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
         expect(result.audio_custom_voice).toBeTruthy();
     });
-    it('When audio news source not contains voice id', () => {
+    test('When audio news source not contains voice id', () => {
         const objArticle = new story.default(props);
 
         objArticle.state.audionewsSource = {
@@ -98,5 +98,56 @@ describe('components - features - LN-Api - Story - json.js', () => {
         const result = objArticle.render();
         expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
         expect(result.audio_custom_voice).toBeFalsy();
+    });
+    test('should return foodit footer', () => {
+        const objArticle = new story.default(props);
+        props.globalContent = ATLC5WVL4NH5HAHU2BWJXTSATY;
+        const result = objArticle.render();
+        expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
+        expect(result.footer).toStrictEqual([
+            {
+                _t: 'card',
+                id: 'foodit'
+            }
+        ]);
+    });
+
+    test('should return canchallena footer', () => {
+        const objArticle = new story.default(props);
+        props.globalContent = ATLC5WVL4NH5HAHU2BWJXTSATY;
+        props.globalContent.taxonomy.primary_section.path = '/deportes';
+
+        const result = objArticle.render();
+        expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
+        expect(result.footer).toStrictEqual([
+            {
+                _t: 'card',
+                id: 'canchallena'
+            }
+        ]);
+    });
+
+    test('should return ln_juegos footer', () => {
+        const objArticle = new story.default(props);
+        props.globalContent = ATLC5WVL4NH5HAHU2BWJXTSATY;
+        props.globalContent.taxonomy.primary_section.path = '/juegos';
+
+        const result = objArticle.render();
+        expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
+        expect(result.footer).toStrictEqual([
+            {
+                _t: 'card',
+                id: 'ln_juegos'
+            }
+        ]);
+    });
+
+    test('should not return property footer', () => {
+        const objArticle = new story.default(props);
+        props.globalContent = ATLC5WVL4NH5HAHU2BWJXTSATY;
+        props.globalContent.taxonomy.primary_section.path = '/economia';
+        const result = objArticle.render();
+        expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
+        expect(result.footer).toBeUndefined();
     });
 });
