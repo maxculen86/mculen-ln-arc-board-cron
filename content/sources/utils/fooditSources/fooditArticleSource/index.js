@@ -2,7 +2,8 @@ import getProperties from 'fusion:properties';
 import {
     STORYTELLING,
     RECETA,
-    RECETA_CERRADA
+    RECETA_CERRADA,
+    NOTA_CERRADA
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../../../../components/private/common/utils/get';
 import validateSponsoredLink from '../../validateSponsoredLink';
@@ -92,6 +93,7 @@ export const getArticleSubtype = (subtype, isExclusiveSuscriptor = false) => {
         return STORYTELLING;
     }
 
+    if (subtype === STORYTELLING && isExclusiveSuscriptor) return NOTA_CERRADA;
     if (subtype === RECETA && isExclusiveSuscriptor) return RECETA_CERRADA;
 
     return subtype;
@@ -125,6 +127,11 @@ export const transform = async (
         arcSite
     };
 
+    const arrayElements =
+        subtype === NOTA_CERRADA
+            ? get(result, 'content_elements', []).slice(0, 1)
+            : get(result, 'content_elements', []);
+
     const [promoItems, contentElements, relatedContentBasic] =
         await Promise.all([
             transformPromoItems({
@@ -135,7 +142,7 @@ export const transform = async (
             }),
             Promise.all(
                 transformElementsBasedOnType({
-                    arrayElements: get(result, 'content_elements', []),
+                    arrayElements,
                     configCallbacks:
                         customConfigCallbackContentElements ||
                         configCallbackContentElements,

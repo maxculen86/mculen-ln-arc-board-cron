@@ -29,14 +29,11 @@ describe('SingWall Component', () => {
         render(<SingWall />);
 
         expect(
-            screen.getByText(
-                'Suscribite para ver todas las recetas de forma ilimitada.'
-            )
+            screen.getByText('Este contenido es exclusivo para suscriptores.')
         ).toBeInTheDocument();
-        expect(screen.getByText('$500/mes por 6 meses')).toBeInTheDocument();
         expect(
             screen.getByText(
-                'Además podrás armar tu recetario y listas de compras, acceder a Masterclass con chefs referentes y guías de cocina.'
+                'Suscribite a Foodit para ingresar y accedé a miles de ideas para cocinar mejor.'
             )
         ).toBeInTheDocument();
 

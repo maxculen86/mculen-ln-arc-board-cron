@@ -12,7 +12,7 @@ import isSSR from '../../../../private/LN/common/utils/isSSR';
 import VideoSource from '../../../private-global/common/videoSource/foodit';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 
-export function OpeningStorytelling({ article = {} }) {
+export function OpeningStorytelling({ article = {}, isPrivate = false }) {
     const { promo_items: promoItems = {}, headlines = {} } = article;
 
     const device = getTypeOfDevice({
@@ -41,7 +41,7 @@ export function OpeningStorytelling({ article = {} }) {
 
     if (videoUrl && isSSR()) return emptyFragment;
 
-    return videoUrl && device === 'desktop' ? (
+    return videoUrl && device === 'desktop' && !isPrivate ? (
         <VideoSource
             video={videoUrl}
             image={posterUrl}
@@ -72,11 +72,13 @@ OpeningStorytelling.propTypes = {
         headlines: PropTypes.shape({
             basic: PropTypes.string
         })
-    })
+    }),
+    isPrivate: PropTypes.bool
 };
 
 OpeningStorytelling.defaultProps = {
-    article: {}
+    article: {},
+    isPrivate: false
 };
 
 export default OpeningStorytelling;

@@ -13,7 +13,13 @@ function FooterFoodit() {
     const { contextPath, deployment, layout, siteProperties } = useAppContext();
     const { layoutsName } = siteProperties || {};
 
-    if (layoutsName.FooditRecipePaywall === layout) return null;
+    if (
+        [
+            layoutsName.FooditRecipePaywall,
+            layoutsName.FooditNotePaywall
+        ].includes(layout)
+    )
+        return null;
 
     return (
         <div className="hidden print-hide">

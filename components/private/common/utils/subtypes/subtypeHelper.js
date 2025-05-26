@@ -1,6 +1,7 @@
 export const NOTICIA = '1';
 export const INFOGRAFIA = '2';
 export const STORYTELLING = '4';
+export const NOTA_CERRADA = 'note-paywall';
 export const VIDEO = '5';
 export const LIVEBLOG = '6';
 export const RECETA = '7';
