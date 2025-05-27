@@ -217,6 +217,46 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
             </button>
           </li>
           <li
+            class="bg-positive flex flex-column pt-24 pb-12 px-16 gap-12 mt-24"
+            style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 400ms;"
+          >
+            <div
+              class="flex gap-8 ai-center"
+            >
+              <img
+                alt="icono foodit"
+                class="image flex --cover"
+                decoding="async"
+                fetchpriority="low"
+                height="24"
+                loading="lazy"
+                src="pathDeployment/contextPath/resources/foodit/assets/foodit-color.png"
+                width="24"
+              />
+              <span
+                class="text roboto roboto-regular text-14 text-light-800"
+              >
+                Ahora podés instalar Foodit, accedé a tus recetas fácil y rápido
+              </span>
+            </div>
+            <div
+              class="flex gap-24 w-100 jc-end"
+            >
+              <button
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover text-secondary-positive"
+                data-variant="link"
+              >
+                INSTALAR
+              </button>
+              <button
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover text-secondary-positive"
+                data-variant="link"
+              >
+                CANCELAR
+              </button>
+            </div>
+          </li>
+          <li
             class="mt-auto"
           >
             <button

@@ -19,6 +19,7 @@ import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../../private/common/auth/helper/loginHelper';
+import { SnackBar } from '../SnackBar/foodit';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -66,6 +67,7 @@ function BaseLayout({ children }) {
                         {...getConfigByLayout(layout, [toggleRecetarioDrawer])}
                     />
                 )}
+                <SnackBar variant="snackBarDefault" />
             </div>
         </AuthInitializer>
     );

@@ -86,21 +86,22 @@ export const menuUser = [
                 'https://www.contacto.lanacion.com.ar/ayuda?_ga=2.8511862.2123159231.1712773709-419929993.1705331477'
             );
         }
-    },
-    {
-        text: 'Cerrar sesión',
-        icon: <IconSprite name="exit" />,
-        onClick: () => {
-            addEventToDataLayerV2({
-                event: 'logout'
-            });
-            logout(() => {
-                localStorage.removeItem('bookmarkFolders');
-                localStorage.removeItem('bookmarkedItems');
-            });
-        },
-        variant: 'danger',
-        title: 'Cerrar sesión',
-        classNameList: 'mt-auto'
     }
 ];
+
+export const logOutItem = {
+    text: 'Cerrar sesión',
+    icon: <IconSprite name="exit" />,
+    onClick: () => {
+        addEventToDataLayerV2({
+            event: 'logout'
+        });
+        logout(() => {
+            localStorage.removeItem('bookmarkFolders');
+            localStorage.removeItem('bookmarkedItems');
+        });
+    },
+    variant: 'danger',
+    title: 'Cerrar sesión',
+    classNameList: 'mt-auto'
+};

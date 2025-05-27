@@ -1,7 +1,7 @@
 import React from 'react';
 import DrawerContainer from '../DrawerContainer/foodit';
 import { MyAccount } from '../MyAccount/foodit';
-import { menuUser } from '../utils/menuUser';
+import { menuUser, logOutItem } from '../utils/menuUser';
 import { DRAWER } from '../DrawerContainer/constants';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
@@ -14,6 +14,7 @@ function DrawerMyAccount() {
         <DrawerContainer drawerId={DRAWER.MY_ACCOUNT} position="right">
             <MyAccount
                 itemsList={itemsList}
+                logOutItem={logOutItem}
                 fullWidth
                 avatarProps={{
                     email,
