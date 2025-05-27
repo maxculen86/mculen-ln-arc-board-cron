@@ -66,3 +66,5 @@ Carousel.propTypes = {
 };
 
 export default Carousel;
+
+Carousel.lazy = true;
