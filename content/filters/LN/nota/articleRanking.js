@@ -5,6 +5,9 @@ const image = `
     resized_urls {
         ${imageResizedUrl}             
     }
+    auth {
+        1
+    }
     url
     subtitle
     height
