@@ -9,7 +9,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
       class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"
     >
       <div
-        class="flex w-100 inline-flex ai-center  gap-12"
+        class="flex inline-flex ai-center  gap-12"
       >
         <div
           class="relative"
@@ -69,7 +69,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
           </div>
         </div>
         <div
-          class="flex j-center text-neutral-light-600 flex-column-reverse gap-8 py-4"
+          class="flex j-center flex-column-reverse gap-8 py-4 text-neutral-light-600"
         >
           <span
             class="text text-14 text-neutral-light-600 uppercase"
@@ -111,7 +111,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
       class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"
     >
       <div
-        class="flex w-100 inline-flex ai-center gap-12"
+        class="flex inline-flex ai-center gap-12"
       >
         <a
           class="link ln-link"
@@ -128,7 +128,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
           />
         </a>
         <div
-          class="flex j-center text-neutral-light-600 py-4 flex-column-reverse gap-8 py-4"
+          class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-100"
         >
           <span
             class="text text-14 text-neutral-light-100 uppercase"
