@@ -13,7 +13,7 @@ jest.mock('fusion:environment', () => {
 });
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -38,7 +38,7 @@ describe('Tests - Footer - LN10', () => {
     });
 
     test('should first', () => {
-        expect(screen.getAllByRole('link')).toHaveLength(39);
+        expect(screen.getAllByRole('link')).toHaveLength(41);
     });
 
     test('should match snapshot of footer.', () => {

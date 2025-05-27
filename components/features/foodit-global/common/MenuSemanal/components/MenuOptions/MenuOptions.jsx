@@ -37,7 +37,27 @@ export function MenuOptions({
 
     const { isOpen: edit, onOpen: openEdit, onClose: closeEdit } = modals.edit;
     const { isOpen: del, onOpen: openDel, onClose: closeDel } = modals.del;
-    // TODO: crear un un array con los objetos que definen cada acción (por ejemplo, "editar" y "eliminar"), y luego mapear ese array para renderizar los Itemcard dinámicamente
+
+    const actionModal = [
+        {
+            icon: <IconSprite name="edit" />,
+            text: 'Editar',
+            variant: 'default',
+            type: 'button',
+            onClick: () => {
+                openEdit();
+            }
+        },
+        {
+            icon: <IconSprite name="delete" />,
+            text: 'Eliminar',
+            variant: 'danger',
+            type: 'button',
+            onClick: () => {
+                openDel();
+            }
+        }
+    ];
 
     return (
         <>
@@ -51,24 +71,18 @@ export function MenuOptions({
                     className="bg-light-1 p-24 rounded-4 shadow-center"
                 >
                     <ul className="w-202">
-                        <Itemcard
-                            icon={<IconSprite name="edit" />}
-                            text="Editar"
-                            variant="default"
-                            type="button"
-                            onClick={() => {
-                                openEdit();
-                            }}
-                        />
-                        <Itemcard
-                            icon={<IconSprite name="delete" />}
-                            text="Eliminar"
-                            variant="danger"
-                            type="button"
-                            onClick={() => {
-                                openDel();
-                            }}
-                        />
+                        {actionModal.map(
+                            ({ text, icon, variant, type, onClick }) => (
+                                <Itemcard
+                                    key={text}
+                                    icon={icon}
+                                    text={text}
+                                    variant={variant}
+                                    type={type}
+                                    onClick={onClick}
+                                />
+                            )
+                        )}
                     </ul>
                 </Dropdown.Menu>
             </Dropdown>

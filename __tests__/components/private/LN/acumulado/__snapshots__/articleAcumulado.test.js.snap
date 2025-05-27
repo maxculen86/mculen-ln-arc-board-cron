@@ -16,6 +16,7 @@ exports[`Private - LN - Acumulado - ArticleAcum Test de snapshot ArticleAcum 1`]
     leadtext="Volanta"
     link="/recetas/test-dl-nid02062020/"
     outputtype="default"
+    shouldloadeager="false"
     subheadtext="false"
     tags="false"
     titletext="Titulo Movil Corto"

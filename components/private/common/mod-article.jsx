@@ -50,6 +50,7 @@ const ModArticle = forwardRef((props, ref) => {
         handleClick,
         layout,
         isApertura,
+        shouldLoadEager,
         registerSuccessEvent,
         typeArticle,
         mobileImage,
@@ -58,7 +59,6 @@ const ModArticle = forwardRef((props, ref) => {
     } = props;
 
     const { layout: layoutPageBuilder, globalContent } = useAppContext() || {};
-
     const { setBookmarkId } = useBookmarkContext();
 
     const {
@@ -98,7 +98,6 @@ const ModArticle = forwardRef((props, ref) => {
         isRenderAuthorOpinion;
     const dataAuthors = isBookmark && get(articleData, 'credits.by', []);
     const categoryNote = get(articleData, 'category', '');
-
     const onCLick = event => {
         if (typeof registerSuccessEvent === 'function') {
             registerSuccessEvent();
@@ -131,6 +130,7 @@ const ModArticle = forwardRef((props, ref) => {
                     titleText={titleText}
                     isPowa={isPowa}
                     isApertura={isApertura}
+                    shouldLoadEager={shouldLoadEager}
                     withMobileImage={withMobileImage}
                     searchableField={searchableField}
                     // TODO: Eliminar estas propiedades cuando se implemente carga de imagen con picture en todo el sitio.
@@ -238,6 +238,7 @@ ModArticle.propTypes = {
     }),
     withMedia: PropTypes.bool,
     isApertura: PropTypes.bool,
+    shouldLoadEager: PropTypes.bool,
     typeArticle: PropTypes.string,
     mobileImage: PropTypes.shape({
         _id: PropTypes.string,
@@ -285,6 +286,7 @@ ModArticle.defaultProps = {
     videoBackground: undefined,
     withMedia: false,
     isApertura: false,
+    shouldLoadEager: false,
     typeArticle: '',
     mobileImage: undefined,
     searchableField: undefined

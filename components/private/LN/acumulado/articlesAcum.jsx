@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 import checkIsApertura from '../common/utils/checkIsApertura';
+import { shouldLoadEager } from './utils/helpers';
 
 export const DATA_SECTION = 'CuerpoAcu';
 export const typeAcumRules = {
@@ -44,6 +45,7 @@ function ArticlesAcum({
     hasCollectionApertura = false,
     hasChainBeforeGrid = false,
     isWiki = false,
+    requestUri,
     hideSubheaderText,
     openBarrier
 }) {
@@ -80,6 +82,7 @@ function ArticlesAcum({
                         withCategory={typeAcumRules[typeArticle].withCategory}
                         withTags={typeAcumRules[typeArticle].withTags}
                         isApertura={isApertura}
+                        shouldLoadEager={shouldLoadEager(requestUri, index)}
                         openBarrier={openBarrier}
                     >
                         {banner}
@@ -101,6 +104,7 @@ ArticlesAcum.propTypes = {
     hasChainBeforeGrid: PropTypes.bool.isRequired,
     hasCollectionApertura: PropTypes.bool.isRequired,
     isWiki: PropTypes.bool.isRequired,
+    requestUri: PropTypes.string.isRequired,
     hideSubheaderText: PropTypes.bool.isRequired,
     openBarrier: PropTypes.func.isRequired
 };

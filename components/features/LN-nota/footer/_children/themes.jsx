@@ -31,7 +31,7 @@ function Themes({ globalContent }) {
         const showBullet = index => index !== 0 || (isCollapsed && index === 3);
 
         return arrayTags?.map(({ path, text, type }, index) => {
-            if (isCollapsed && index > 3) return null;
+            if (isCollapsed && index > 2) return null;
             return (
                 <li key={text} className="flex ai-center">
                     {showBullet(index) && (
@@ -46,6 +46,7 @@ function Themes({ globalContent }) {
                     <Link
                         href={`${type === 'tag' ? '/tema/' : ''}${path}/`}
                         title={text}
+                        className="text-12 capitalize-first-letter"
                     >
                         {text}
                     </Link>
@@ -63,7 +64,7 @@ function Themes({ globalContent }) {
             <ul className="flex flex-wrap w-100 jc-start jc-end_m brand-color">
                 <RenderTags arrayTags={listTags} />
             </ul>
-            {listTags?.length > 4 && (
+            {listTags?.length > 3 && (
                 <Button
                     title="Ver más"
                     onClick={onToggleCollapse}

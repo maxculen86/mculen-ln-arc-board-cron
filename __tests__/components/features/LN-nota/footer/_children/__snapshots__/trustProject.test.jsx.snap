@@ -12,7 +12,7 @@ exports[`components - feature - LN-nota - footer - _children - trustProject rend
       title="Ir a Proyecto Trust"
     >
       <span
-        class="text ln-text white-space-nowrap text-light-800"
+        class="text ln-text white-space-nowrap text-light-800 text-12"
       >
         Conforme a
       </span>
@@ -30,7 +30,7 @@ exports[`components - feature - LN-nota - footer - _children - trustProject rend
               class="image flex --cover"
               decoding="async"
               fetchpriority="low"
-              height="24"
+              height="20"
               loading="lazy"
               src="pathDeployment/contextPath/resources/images/the-trust-project.webp"
             />
@@ -47,7 +47,7 @@ exports[`components - feature - LN-nota - footer - _children - trustProject rend
       </div>
     </a>
     <div
-      class="inline-flex gap-2 "
+      class="inline-flex gap-2 ai-center text-12"
     >
       <span
         class="text ln-text text-light-800"

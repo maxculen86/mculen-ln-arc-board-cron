@@ -3,6 +3,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useDisclosure } from '@ln/hooks';
+import { useAppContext } from 'fusion:context';
 import get from '../../../../private/common/utils/get';
 
 import { ShareFoodit } from '../ShareFoodit/foodit';
@@ -10,6 +11,7 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
 import { PrintButton } from '../PrintButton/foodit';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
+import { DialogBarrier } from '../DialogBarrier/foodit';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -98,16 +100,38 @@ const renderRegularButton = ({
     handleClick,
     type,
     article
-}) => (
-    <Button
-        key={type}
-        title={description}
-        variant="link"
-        onClick={() => handleClick(article)}
-    >
-        <Icon size={24}>{IconButton}</Icon>
-    </Button>
-);
+}) => {
+    const { isOpen, onClose, onOpen } = useDisclosure();
+    const { isSubscribed, userType } = useGetUserConfig();
+
+    const handleButtonClick = () => {
+        if (type === 'print' && !isSubscribed) {
+            onOpen();
+            return;
+        }
+
+        handleClick(article);
+    };
+
+    return (
+        <>
+            <Button
+                key={type}
+                title={description}
+                variant="link"
+                onClick={handleButtonClick}
+            >
+                <Icon size={24}>{IconButton}</Icon>
+            </Button>
+
+            <DialogBarrier
+                isOpen={isOpen}
+                onClose={onClose}
+                userType={userType}
+            />
+        </>
+    );
+};
 
 const printButton = ({
     handleChange,
@@ -117,20 +141,24 @@ const printButton = ({
     type,
     article
 }) => {
-    const { isSubscribed } = useGetUserConfig();
+    const { layout, siteProperties } = useAppContext();
+    const { layoutsName = {} } = siteProperties || {};
 
-    return isSubscribed ? (
+    const isLayoutPaywall = layout === layoutsName.FooditRecipePaywall;
+
+    if (isLayoutPaywall) return null;
+
+    return (
         <PrintButton
             handleChange={handleChange}
             IconButton={IconButton}
             description={description}
             handleClick={handleClick}
-            type={type}
+            printType={type}
             article={article}
         />
-    ) : null;
+    );
 };
-
 const renderCopyButton = ({
     IconButton,
     description,

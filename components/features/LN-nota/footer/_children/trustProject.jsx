@@ -21,14 +21,14 @@ function TrustProject({ isInvalid, tooltipData }) {
                 title="Ir a Proyecto Trust"
                 className="flex ai-center gap-8"
             >
-                <Text className="white-space-nowrap text-light-800">
+                <Text className="white-space-nowrap text-light-800 text-12">
                     Conforme a
                 </Text>
                 <div className="w-100 flex jc-between ai-start ai-center_m">
                     <div className="flex flex-column flex-row_m ai-start ai-center_m gap-12 gap-16_m">
                         <div className="flex gap-8 ai-center">
                             <Adaptableimage
-                                height={24}
+                                height={20}
                                 src={deployment(
                                     `${contextPath}/resources/images/the-trust-project.webp`
                                 )}
@@ -45,7 +45,7 @@ function TrustProject({ isInvalid, tooltipData }) {
                 </div>
             </Link>
             {tooltipData?.text && (
-                <div className="inline-flex gap-2 ">
+                <div className="inline-flex gap-2 ai-center text-12">
                     <Text className="text-light-800">Tipo de trabajo:</Text>
                     <Tooltip
                         toggleOn="hover"

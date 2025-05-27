@@ -13,7 +13,10 @@ function MenuCategories({ data = [], fullWidth }) {
             {data.map(({ title, items = [] }) => (
                 <ul className={fullWidth ? 'w-100' : 'w-202'} key={useId()}>
                     {title && (
-                        <li key={title.text}>
+                        <li
+                            className="sticky top-0 z-10 bg-light-1"
+                            key={title.text}
+                        >
                             <Itemcard
                                 type={title.href ? 'link' : 'text'}
                                 href={title.href}

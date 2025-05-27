@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from 'fusion:context';
-import Lazy from 'lazy-child';
 import useViewportSize from '../../private/common/hooks/useViewportSize';
 import StickyMobile from '../../private/LN/nota/StickyMobile';
 import { crtViewTracker } from '../../private/common/utils/noteTracker/ctrTracker';
@@ -36,6 +35,7 @@ function CTRNota() {
     const [tracked, setTracker] = useState(true);
     const [excludeItems, setExcludeItems] = useState([]);
     const [source, setSource] = useState(null);
+    const STICKY_MOBILE_SCROLL_TRIGGER = 1800;
     useEffect(() => {
         if (localStorage) {
             const seenNotes =
@@ -48,7 +48,7 @@ function CTRNota() {
             if (!source && scrolledInAxisY >= 1000)
                 setSource('rankingArticlesSource');
 
-            if (!trigger && scrolledInAxisY >= 2800) {
+            if (!trigger && scrolledInAxisY >= STICKY_MOBILE_SCROLL_TRIGGER) {
                 setTrigger(true);
                 window.removeEventListener('scroll', handleScroll);
             }
@@ -79,13 +79,13 @@ function CTRNota() {
 
     if (!showComponent) return null;
     return (
-        <Lazy renderPlaceholder={ref => <div ref={ref} />} offsetTop={8000}>
+        <>
             <StickyMobile
                 headerText="Te puede interesar"
                 articleToShow={articleToShow}
             />
             {crtViewTracker(tracked, setTracker)}
-        </Lazy>
+        </>
     );
 }
 

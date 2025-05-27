@@ -97,25 +97,36 @@ export default function transformMenuData({
         },
         { title: 'Conocenos', href: `https://conocenos.foodit.com.ar/` }
     ];
-    return children.reduce((acc, category) => {
+
+    let masterclassItem = null;
+    let guiasItem = null;
+    const otherItems = [];
+
+    children.forEach(category => {
         const { name, _id, children: childrenCategory } = category || {};
         const pageUrl = setPageUrl(_id);
 
         if (childrenCategory.length) {
             const dataSections = transformSubategorie(childrenCategory);
-            acc[0].data = dataSections;
+            initialMenu[0].data = dataSections;
         } else if (listDescubrir.includes(_id)) {
-            acc[1].data[0].items.push({
+            initialMenu[1].data[0].items.push({
                 text: name,
                 href: pageUrl
             });
+        } else if (name === 'Masterclass') {
+            masterclassItem = { title: name, href: pageUrl };
+        } else if (name === 'Guías de cocina') {
+            guiasItem = { title: name, href: pageUrl };
         } else {
-            acc.push({
-                title: name,
-                href: pageUrl
-            });
+            otherItems.push({ title: name, href: pageUrl });
         }
+    });
 
-        return acc;
-    }, initialMenu);
+    return [
+        ...initialMenu,
+        ...otherItems,
+        ...(masterclassItem ? [masterclassItem] : []),
+        ...(guiasItem ? [guiasItem] : [])
+    ];
 }

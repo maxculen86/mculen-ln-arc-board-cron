@@ -58,6 +58,7 @@ const ArticleAcum = forwardRef(
             withTags,
             handleClick,
             isApertura,
+            shouldLoadEager,
             openBarrier
         },
         ref
@@ -106,6 +107,7 @@ const ArticleAcum = forwardRef(
                     dataSection={dataSection}
                     withMedia={typeAcumRules[typeArticle].withMedia}
                     link={websiteUrl}
+                    shouldLoadEager={shouldLoadEager}
                     titleTag={titleTag}
                     titleSize={titleSize}
                     titleText={
@@ -182,6 +184,7 @@ ArticleAcum.propTypes = {
     boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     artPosition: PropTypes.string,
     isApertura: PropTypes.bool,
+    shouldLoadEager: PropTypes.bool,
     sectionName: PropTypes.string.isRequired,
     openBarrier: PropTypes.func.isRequired
 };
@@ -202,7 +205,8 @@ ArticleAcum.defaultProps = {
     isRenderAuthor: false,
     withSubhead: false,
     withVolanta: true,
-    isApertura: false
+    isApertura: false,
+    shouldLoadEager: false
 };
 
 export default ArticleAcum;
