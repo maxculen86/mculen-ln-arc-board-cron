@@ -8,10 +8,6 @@ export default {
         location: [HEAD]
     },
     Datadog: { props: {}, location: [HEAD] },
-    ScriptVideoPowa: {
-        props: {},
-        location: [HEAD]
-    },
     Permutive: { props: {}, location: [HEAD] },
     ScriptCripto: {
         props: {},
