@@ -21,16 +21,22 @@ export const hasInstagramEmbed = contentElements =>
                 contentElement.content.includes('instagram-media'))
     );
 
-export const hasFacebookEmbed = contentElements => {
-    return contentElements.some(
+export const hasFacebookEmbed = contentElements =>
+    contentElements.some(
         contentElement =>
             contentElement.subtype === 'facebook' ||
             contentElement.subtype === 'facebook-video' ||
             contentElement.subtype === 'facebook-post'
     );
-};
 
-const SocialEmbeds = props => {
+export const hasTwitterEmbed = contentElements =>
+    contentElements.some(
+        contentElement =>
+            contentElement.subtype === 'twitter' ||
+            contentElement.oembed?.html?.includes('twitter-tweet')
+    );
+
+function SocialEmbeds(props) {
     const { globalContent } = props;
     const { type, content_elements: contentElements } = globalContent || {};
     const { deployment, contextPath } = useAppContext();
@@ -41,11 +47,12 @@ const SocialEmbeds = props => {
 
     const instagramEmbed = hasInstagramEmbed(content);
     const facebookEmbed = hasFacebookEmbed(content);
+    const twitterEmbed = hasTwitterEmbed(content);
 
     const appId = get(config, 'shareConfig.facebook.appID', null);
 
     if (type !== 'story') return null;
-    if (!instagramEmbed && !facebookEmbed) return null;
+    if (!instagramEmbed && !facebookEmbed && !twitterEmbed) return null;
     return (
         <>
             {instagramEmbed && (
@@ -66,9 +73,16 @@ const SocialEmbeds = props => {
                     )}
                 />
             )}
+            {twitterEmbed && (
+                <script
+                    id="script-social-embeds-twitter"
+                    defer
+                    src="https://platform.twitter.com/widgets.js"
+                />
+            )}
         </>
     );
-};
+}
 
 SocialEmbeds.propTypes = {
     globalContent: PropTypes.shape({
