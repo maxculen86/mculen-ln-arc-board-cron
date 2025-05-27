@@ -105,7 +105,10 @@ function LN10VideoPlayer({
                                     instance.setup({
                                         playlist: ${JSON.stringify(playListWithoutTitle)},
                                         width: '100%',
-                                        aspectratio: '9:16'
+                                        aspectratio: '9:16',
+                                        mute: true,
+                                        preload: 'none',
+                                        displaytitle: false
                                     });
 
                                     instance.on('play', function () {
