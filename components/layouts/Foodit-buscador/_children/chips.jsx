@@ -7,7 +7,11 @@ import IconSprite from '../../../features/private-global/common/iconSprite/IconS
 export default function Chips({ text = '', actionClick = () => {} }) {
     return (
         <div className="flex flex-wrap row-gap-16">
-            <Button onClick={actionClick} style={{ padding: '8px 12px' }}>
+            <Button
+                onClick={actionClick}
+                className="button-nota"
+                style={{ padding: '8px 12px' }}
+            >
                 <span className="capitalize roboto roboto-bold text-14">
                     {text}
                 </span>
