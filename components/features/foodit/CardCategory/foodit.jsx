@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Consumer from 'fusion:consumer';
-
+import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { Category } from '@ln/foodit-ui-category';
 import {
@@ -89,21 +89,23 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
     };
 
     return (
-        <div ref={cardRef} className="h-100">
-            <Category
-                title={title}
-                imageProps={{
-                    src: imageUrl,
-                    alt: `Foto de ${title}`
-                }}
-                linkProps={{
-                    href: url || urlCustom,
-                    title: `Ir a ${title}`
-                }}
-                onClick={handleClick}
-                data-test-id={`carousel-category-card-${featureId}`}
-            />
-        </div>
+        <Static id={featureId}>
+            <div ref={cardRef} className="h-100">
+                <Category
+                    title={title}
+                    imageProps={{
+                        src: imageUrl,
+                        alt: `Foto de ${title}`
+                    }}
+                    linkProps={{
+                        href: url || urlCustom,
+                        title: `Ir a ${title}`
+                    }}
+                    onClick={handleClick}
+                    data-test-id={`carousel-category-card-${featureId}`}
+                />
+            </div>
+        </Static>
     );
 }
 
