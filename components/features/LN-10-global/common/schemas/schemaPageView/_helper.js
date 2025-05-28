@@ -13,7 +13,8 @@ export const layoutsListWithPageview = [
     'LN-Home_Sports',
     'LN-Home_Main',
     'LN10-Home_Main',
-    'LN-acumulado'
+    'LN-acumulado',
+    'LN-Nota-Liveblog_Editorial'
 ];
 
 const getPageType = (layout = '', section = '') => {
