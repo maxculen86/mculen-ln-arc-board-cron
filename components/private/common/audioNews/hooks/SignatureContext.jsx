@@ -5,18 +5,17 @@ import useGetContentVariant from './useGetContentVariant';
 export const SignatureContext = React.createContext({});
 
 export function SignatureContextProvider({ children }) {
-    const { contentVariant, setContentVariant } =
-        useGetContentVariant('article');
+    const { isSummary, setIsSummary } = useGetContentVariant();
     const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 
     const value = useMemo(
         () => ({
-            contentVariant,
-            setContentVariant,
+            isSummary,
+            setIsSummary,
             isAudioPlaying,
             setIsAudioPlaying
         }),
-        [contentVariant, isAudioPlaying]
+        [isSummary, isAudioPlaying]
     );
 
     return (
