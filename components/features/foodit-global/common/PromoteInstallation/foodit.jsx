@@ -8,7 +8,9 @@ import { cx } from '@ln/cva';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { useAppContext } from 'fusion:context';
 
-export function SnackBar({ variant = 'snackBarDefault' }) {
+// TODO: ver la posibilidad de crear lib para snackBar
+
+export function PromoteInstallation({ variant = 'snackBarDefault', onClick }) {
     const { isOpen, onClose } = useDisclosure(true);
 
     useEffect(() => {
@@ -17,7 +19,7 @@ export function SnackBar({ variant = 'snackBarDefault' }) {
         if (variant === 'snackBarDefault' && isOpen) {
             timer = setTimeout(() => {
                 onClose();
-            }, 7000);
+            }, 10000);
         }
 
         return () => clearTimeout(timer);
@@ -63,7 +65,11 @@ export function SnackBar({ variant = 'snackBarDefault' }) {
                     </Text>
                 </div>
                 <div className={cx(variantClassesButton[variant])}>
-                    <Button variant="link" className="text-secondary-positive">
+                    <Button
+                        variant="link"
+                        className="text-secondary-positive"
+                        onClick={onClick}
+                    >
                         INSTALAR
                     </Button>
                     {variant === 'snackBarDrawer' ? (
@@ -81,6 +87,7 @@ export function SnackBar({ variant = 'snackBarDefault' }) {
     );
 }
 
-SnackBar.propTypes = {
-    variant: PropTypes.string.isRequired
+PromoteInstallation.propTypes = {
+    variant: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
 };

@@ -9,9 +9,9 @@ export const unregister = async () => {
                 await navigator.serviceWorker.getRegistrations();
             const { length } = registrations || [];
 
-            for (const registration of registrations) {
-                await registration.unregister();
-            }
+            await Promise.all(
+                registrations.map(registration => registration.unregister())
+            );
 
             return length;
         } catch (err) {
@@ -27,9 +27,8 @@ export const register = async ({ deployment, arcSite = 'la-nacion-ar' }) => {
     const dictionarySites = {
         'la-nacion-ar': 'LN',
         ott: 'OTT',
-        foodit: 'foodit'
+        foodit: 'FOODIT'
     };
-    // TODO: Si se quiere reutilizar en foodit esta función, crear el directorio en: resources/js/foodit
 
     if ('serviceWorker' in navigator) {
         try {

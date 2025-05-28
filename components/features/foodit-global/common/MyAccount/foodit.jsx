@@ -4,13 +4,15 @@ import { Button } from '@ln/foodit-ui-button';
 import { Avatar } from '@ln/foodit-ui-avatar';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { AccountItem } from './accountItem';
-import { SnackBar } from '../SnackBar/foodit';
+import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
 
 export function MyAccount({
     avatarProps = {},
     itemsList = [],
     fullWidth,
-    logOutItem
+    logOutItem,
+    arcSite,
+    deployment
 }) {
     const { email, initials, hasSubscription } = avatarProps;
 
@@ -52,7 +54,11 @@ export function MyAccount({
                 {itemsList.map(item => (
                     <AccountItem key={item.text} item={item} />
                 ))}
-                <SnackBar variant="snackBarDrawer" />
+                <PwaInstallPrompt
+                    arcSite={arcSite}
+                    deployment={deployment}
+                    variant="snackBarDrawer"
+                />
                 {logOutItem && (
                     <AccountItem key={logOutItem.text} item={logOutItem} />
                 )}
@@ -85,7 +91,9 @@ MyAccount.propTypes = {
         variant: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         classNameList: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    arcSite: PropTypes.string.isRequired,
+    deployment: PropTypes.string.isRequired
 };
 
 export default MyAccount;

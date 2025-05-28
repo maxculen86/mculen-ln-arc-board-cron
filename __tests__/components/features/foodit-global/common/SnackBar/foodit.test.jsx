@@ -1,8 +1,8 @@
 import React, { act } from 'react';
 import { render, screen } from '@testing-library/react';
-import { SnackBar } from '../../../../../../components/features/foodit-global/common/SnackBar/foodit';
+import { PromoteInstallation } from '../../../../../../components/features/foodit-global/common/PromoteInstallation/foodit';
 
-describe('SnackBar', () => {
+describe('PromoteInstallation', () => {
     beforeEach(() => {
         jest.useFakeTimers();
     });
@@ -11,7 +11,7 @@ describe('SnackBar', () => {
         jest.useRealTimers();
     });
     it('renders without crashing and shows the main text', () => {
-        render(<SnackBar />);
+        render(<PromoteInstallation />);
         expect(
             screen.getByText(
                 /Ahora podés instalar Foodit, accedé a tus recetas fácil y rápido/i
@@ -20,7 +20,7 @@ describe('SnackBar', () => {
     });
 
     it('renders correctly when variant is snackBarDefault', () => {
-        render(<SnackBar variant="snackBarDefault" />);
+        render(<PromoteInstallation variant="snackBarDefault" />);
         expect(
             screen.getByText(/Ahora podés instalar Foodit/i)
         ).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('SnackBar', () => {
         expect(screen.queryByText(/CANCELAR/i)).not.toBeInTheDocument();
     });
     it('renders correctly when variant is snackBarDrawer', () => {
-        render(<SnackBar variant="snackBarDrawer" />);
+        render(<PromoteInstallation variant="snackBarDrawer" />);
         expect(
             screen.getByText(/Ahora podés instalar Foodit/i)
         ).toBeInTheDocument();
