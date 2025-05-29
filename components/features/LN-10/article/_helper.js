@@ -275,8 +275,20 @@ export const transformVideoData = (videoData, cardSize, isAdmin = false) => {
     };
 };
 
+export const getYoutubeIdFromEmbed = (html = '') =>
+    html.match(/youtube\.com\/embed\/([\w-]+)/)?.[1];
+
+export const addDataTestIdToYoutubeEmbed = (html = '') => {
+    if (!getYoutubeIdFromEmbed(html)) return html;
+
+    return html.replace(
+        /<iframe\b(.*?)>/i,
+        `<iframe$1 data-testid="youtube-comercial">`
+    );
+};
+
 export const generateLazyLoadEmbedCode = embedCode => {
-    const youtubeId = embedCode.match(/youtube\.com\/embed\/([\w-]+)/)?.[1];
+    const youtubeId = getYoutubeIdFromEmbed(embedCode);
     if (!youtubeId) return embedCode;
 
     const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
@@ -342,7 +354,7 @@ export const getMediaData = ({
             data: {
                 type: 'embedCode',
                 embedCode: videoComercial
-                    ? html
+                    ? addDataTestIdToYoutubeEmbed(html)
                     : generateLazyLoadEmbedCode(html),
                 dataSrc: html.match(/src="(.*?)"/)?.[1]
             }
