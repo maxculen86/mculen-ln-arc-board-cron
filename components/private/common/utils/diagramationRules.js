@@ -417,8 +417,8 @@ const diagramationRules = diagramation => {
                 subheadTag: tag.h2,
                 withSection: true,
                 withMarquee: true,
-                withMarqueeImg: true,
-                withSubhead: true,
+                withMarqueeImg: false,
+                withSubhead: false,
                 cardSize: size.L,
                 imageConfig: size.S,
                 imagePosition: {
@@ -435,14 +435,14 @@ const diagramationRules = diagramation => {
                 subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
-                withSubhead: true,
-                cardSize: size.ML,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.L,
                 imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
-                    tablet: img.top,
-                    desktop: img.top
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withPreload: false,
                 isLoadWithPicture: true
@@ -453,14 +453,14 @@ const diagramationRules = diagramation => {
                 subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
-                withSubhead: true,
-                cardSize: size.ML,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.L,
                 imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
-                    tablet: img.top,
-                    desktop: img.top
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withPreload: false,
                 isLoadWithPicture: true
@@ -471,14 +471,14 @@ const diagramationRules = diagramation => {
                 subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
-                withSubhead: true,
-                cardSize: size.ML,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.L,
                 imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
-                    tablet: img.top,
-                    desktop: img.top
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withPreload: false,
                 isLoadWithPicture: true
