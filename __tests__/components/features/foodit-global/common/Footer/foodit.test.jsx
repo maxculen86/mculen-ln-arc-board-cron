@@ -1,16 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Context from 'fusion:context';
 import FooterFoodit from '../../../../../../components/features/foodit-global/common/Footer/foodit';
 
-jest.mock('fusion:context', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
 const deployment = deploymentValue => deploymentValue;
 describe('Components - Features - foodit-global - Common - FooterFoodit', () => {
-    Context.useAppContext = jest.fn(() => ({
+    const props = {
         contextPath: '/pf',
         deployment,
         layout: 'Foodit-home',
@@ -20,10 +14,10 @@ describe('Components - Features - foodit-global - Common - FooterFoodit', () => 
                 FooditHome: 'Foodit-home'
             }
         }
-    }));
+    };
 
     beforeEach(() => {
-        render(<FooterFoodit />);
+        render(<FooterFoodit {...props} />);
     });
     it('should contain eight links', () => {
         const { length } = screen.getAllByRole('link');
@@ -34,7 +28,7 @@ describe('Components - Features - foodit-global - Common - FooterFoodit', () => 
         expect(length).toEqual(5);
     });
     it('should match snapshot', () => {
-        const { container } = render(<FooterFoodit />);
+        const { container } = render(<FooterFoodit {...props} />);
         expect(container).toMatchSnapshot();
     });
 });
