@@ -101,5 +101,6 @@ export default {
     Observable: { props: {}, location: [BODYBOTTOM] },
     HandleGlossary: { props: {}, location: [BODYBOTTOM] },
     MetaRobots: { props: {}, location: [HEAD] },
-    JwPlayerHome: { props: { playerId: 'tMVdYMxO' }, location: [BODYTOP] }
+    JwPlayerHome: { props: {}, location: [BODYTOP] },
+    ScriptJwVideoHome: { props: {}, location: [BODYBOTTOM] }
 };
