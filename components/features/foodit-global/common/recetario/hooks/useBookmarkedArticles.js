@@ -33,6 +33,7 @@ const useBookmarkedArticles = (
         for (
             let i = 0;
             i < userBookmarks.length && result.length < displayArticlesNum;
+            // eslint-disable-next-line no-plusplus
             i++
         ) {
             const article = userBookmarks[i];
@@ -45,6 +46,7 @@ const useBookmarkedArticles = (
                         key={article.bookmarkId}
                         article={article}
                         handleDeleteBookmark={handleDeleteBookmark}
+                        isFirst={i === 0}
                     />
                 );
             }

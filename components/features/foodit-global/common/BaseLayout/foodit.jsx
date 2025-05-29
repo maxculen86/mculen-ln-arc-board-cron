@@ -59,7 +59,12 @@ function BaseLayout({ children }) {
                 <DrawerMyAccount />
                 <main className={classNameMain}>{children}</main>
                 <Static id="footer-static">
-                    <Footer />
+                    <Footer
+                        contextPath={contextPath}
+                        deployment={deployment}
+                        layout={layout}
+                        siteProperties={siteProperties}
+                    />
                 </Static>
                 <DataLayerInteractions />
                 <Modal />
