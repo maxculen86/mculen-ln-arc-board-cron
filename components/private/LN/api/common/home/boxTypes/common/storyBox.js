@@ -1,6 +1,7 @@
 import get from '../../../../../../common/utils/get';
 import { orderArticles } from '../../utils/helpers';
 
+const videoPlayerDiagramations = ['bn_player_3_grid', 'bn_player_4_grid'];
 const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
     const { sectionWeb } = informationBox;
 
@@ -53,8 +54,10 @@ export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
     };
 
     const articles = get(element, 'articles', []);
+
     let video = null;
-    if (featureInfo?.diagramacion === 'bn_player_3_grid') {
+
+    if (videoPlayerDiagramations.includes(featureInfo?.diagramacion)) {
         video = get(element, 'video', []);
     }
 

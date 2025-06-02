@@ -5,9 +5,10 @@ import validateCajaManual from './common/_helper-WebApi';
 import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+import { isBnPlayerDiagramation } from '../../features/LN-10/article/common/_helper-WebApi';
 
 const validate = propsValidate => {
-    const { BN_6_GRID_MAS_TIMELINE, BN_PLAYER_1_MAS_3 } = LAYOUTS;
+    const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
     const {
         id: chainId,
         customFields: { layout = '', chainStyle },
@@ -22,9 +23,7 @@ const validate = propsValidate => {
         get(childrenRenders, 'props.customFields.layout', '') ===
         BN_6_GRID_MAS_TIMELINE;
 
-    const isBnPlayer =
-        get(childrenRenders, 'props.customFields.layout', '') ===
-        BN_PLAYER_1_MAS_3;
+    const isBnPlayer = isBnPlayerDiagramation(childrenRenders);
 
     childrenRenders = childrenRenders && childrenRenders.children;
 
@@ -51,7 +50,8 @@ class CajaManual extends GetCajaManual {
             const error = validate(this.props);
             if (error) {
                 console.warn(
-                    `${layout} - ${typeof error === 'object' ? JSON.stringify(error) : ''
+                    `${layout} - ${
+                        typeof error === 'object' ? JSON.stringify(error) : ''
                     }`
                 );
 
