@@ -242,7 +242,6 @@ export const getDynamicStreamOperator = (sizes, cardSize, middleSize = 'l') => {
 
     const values = Object.values(sizes);
     const divisorIndex = values.findIndex(value => value === middleSize);
-
     const lowerSizes = values.slice(0, divisorIndex + 1);
     const higherSizes = values.slice(divisorIndex + 1);
 
@@ -252,7 +251,12 @@ export const getDynamicStreamOperator = (sizes, cardSize, middleSize = 'l') => {
     return OPERATORS.LOWER;
 };
 
-export const transformVideoData = (videoData, cardSize, isAdmin = false) => {
+export const transformVideoData = (
+    videoData,
+    cardSize,
+    isAdmin = false,
+    isHome = false
+) => {
     // TODO: Quitar logica de videocenter una vez que se pase a JW tanto en LN como en OTT
     const streams = get(videoData, 'streams', []);
     const sources = get(videoData, 'sources', []);
@@ -262,9 +266,16 @@ export const transformVideoData = (videoData, cardSize, isAdmin = false) => {
         'promo_items.basic.resized_urls',
         []
     );
+
     const type = get(videoData, 'type', '');
     const { resizedUrl } = getShortestImage(videoImagesResized);
-    const streamOperator = getDynamicStreamOperator(size, cardSize);
+
+    const streamOperator = getDynamicStreamOperator(
+        size,
+        cardSize,
+        isHome ? 'T1' : undefined
+    );
+
     const { url } = getStreams(streams, streamOperator) || {};
     const { file } = getSourcesJw(sources, streamOperator) || {};
 
@@ -317,6 +328,7 @@ export const getMediaData = ({
     customFields = {},
     config = {},
     isAdmin = false,
+    isHome = false,
     isLoadWithPicture
 } = {}) => {
     const {
@@ -361,7 +373,7 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(video, config.cardSize, isAdmin)
+            data: transformVideoData(video, config.cardSize, isAdmin, isHome)
         },
         {
             validation: imageId && image,

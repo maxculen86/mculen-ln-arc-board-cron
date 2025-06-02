@@ -104,6 +104,8 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
 
     const isLiveblog = variant === 'liveblog';
 
+    const isHome = layoutPageBuilder === layoutsName.HomeLN10;
+
     const hasVariants = checkVariants({
         renderables,
         featureId
@@ -120,7 +122,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
             isAdmin,
             variant,
             isLiveblog,
-            isHome: layoutPageBuilder === layoutsName.HomeLN10
+            isHome
         },
         staticMode: isSSR() && !hasVariants,
         filter: isLiveblog ? liveblogFilter : filter
@@ -210,6 +212,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         renderables,
         config,
         isAdmin,
+        isHome,
         isLoadWithPicture
     });
 
