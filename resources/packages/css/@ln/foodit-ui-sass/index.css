@@ -1487,6 +1487,10 @@ strong {
   box-shadow: 0px 16px 32px 0px rgba(16, 16, 16, 0.08);
 }
 
+.shadow-snack-bar {
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
 .w-0 {
   width: 0rem;
 }
@@ -1660,6 +1664,9 @@ strong {
 @media (min-width: 48rem) {
   .max-w-456_md {
     max-width: 28.5rem;
+  }
+  .max-w-508_md {
+    max-width: 31.75rem;
   }
   .max-w-520_md {
     max-width: 32.5rem;

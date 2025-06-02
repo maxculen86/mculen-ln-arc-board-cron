@@ -19,6 +19,7 @@ import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../../private/common/auth/helper/loginHelper';
+import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -56,7 +57,7 @@ function BaseLayout({ children }) {
             <div className={wrapperClass}>
                 <Header layout={layout} layoutsName={layoutsName} />
                 <div className="header-sentinel" />
-                <DrawerMyAccount />
+                <DrawerMyAccount arcSite={arcSite} deployment={deployment} />
                 <main className={classNameMain}>{children}</main>
                 <Static id="footer-static">
                     <Footer
@@ -74,6 +75,11 @@ function BaseLayout({ children }) {
                         {...getConfigByLayout(layout, [toggleRecetarioDrawer])}
                     />
                 )}
+                <PwaInstallPrompt
+                    deployment={deployment}
+                    arcSite={arcSite}
+                    variant="snackBarDefault"
+                />
             </div>
         </AuthInitializer>
     );
