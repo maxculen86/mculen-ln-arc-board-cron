@@ -1567,6 +1567,10 @@ strong {
   width: 9.1875rem;
 }
 
+.w-194 {
+  width: 12.125rem;
+}
+
 .w-202 {
   width: 12.625rem;
 }
@@ -1608,6 +1612,9 @@ strong {
   .w-150_md {
     width: 9.375rem;
   }
+  .w-160_md {
+    width: 10rem;
+  }
   .w-328_md {
     width: 20.5rem;
   }
@@ -1627,6 +1634,9 @@ strong {
   }
   .w-110_lg {
     width: 6.875rem;
+  }
+  .w-194_lg {
+    width: 12.125rem;
   }
   .w-600_lg {
     width: 37.5rem;
@@ -2854,7 +2864,7 @@ input[type=checkbox] {
        appearance: none;
   -webkit-appearance: none;
   position: relative;
-  width: var(--_size);
+  min-width: var(--_size);
   height: var(--_size);
   border-radius: 0.25rem;
   border: solid 0.125rem var(--neutral-light-600);
