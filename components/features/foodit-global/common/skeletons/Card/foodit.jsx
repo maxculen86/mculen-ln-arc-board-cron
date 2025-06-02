@@ -1,9 +1,14 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 import { Skeleton } from '@ln/common-ui-skeleton';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 function SkeletonCard({ className = '', variant = 'recipe', isResultdata }) {
+    const { layout, siteProperties } = useAppContext();
+    const { layoutsName = {} } = siteProperties || {};
+    const isLayoutRecetario = layout === layoutsName.FooditRecetario;
+
     const containerClassName = classNames(
         'border border-all border-thin border-light-100 flex flex-column pb-16',
         { 'bg-positive p-16': variant === 'note' },
@@ -34,8 +39,11 @@ function SkeletonCard({ className = '', variant = 'recipe', isResultdata }) {
                         )}
                     >
                         <Skeleton
-                            className="rounded-4"
-                            width={!isResultdata ? 194 : '100%'}
+                            className={classNames(
+                                'rounded-4',
+                                isResultdata ? 'w-100' : 'w-194',
+                                isLayoutRecetario && 'w-194 w-160_md w-194_lg'
+                            )}
                             height={14}
                         />
                         <Skeleton

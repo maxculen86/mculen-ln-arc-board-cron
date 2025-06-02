@@ -14,6 +14,7 @@ import DrawerRecetario from '../drawerRecetario/foodit';
 import BookmarkedArticles from './components/BookmarkedArticles';
 import EditFolderModal from './components/EditFolderModal';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
+import { SkeletonRecetario } from '../skeletons/Recetario/foodit';
 
 function RecetarioBody() {
     const { loading, userBookmarks, setUserBookmarks } = useGetRecetarioData();
@@ -42,55 +43,62 @@ function RecetarioBody() {
     );
 
     return (
-        <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
-            {isSubscribed ? (
-                <aside className="sm-none col-span-4 bg-positive p-24 p-32_lg">
-                    <CollectionBox
-                        title="Colecciones"
-                        list={summaryList}
-                        onItemSelected={setSelectedItem}
-                    />
-                </aside>
-            ) : null}
-            <section className={classEmptyState}>
-                <div className="floating-button-sentinel" />
-                <div className="flex ai-center gap-24 mb-24">
-                    <Text
-                        className="prumo prumo-light text-24 text-32_md text-36_lg"
-                        as="h2"
-                    >
-                        {selectedItemId}
-                    </Text>
-                    {userBookmarks.length && selectedItemId !== 'Todas' ? (
-                        <Button
-                            data-testid="rename-collection-button"
-                            onClick={() => setIsModalOpen(true)}
-                            iconOnly
-                            variant="secondary"
-                            size={40}
-                            className="ml-auto ml-0_md"
-                        >
-                            <Icon size={16}>
-                                <IconSprite name="edit" />
-                            </Icon>
-                        </Button>
+        <>
+            {loading ? (
+                <SkeletonRecetario />
+            ) : (
+                <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
+                    {isSubscribed ? (
+                        <aside className="sm-none col-span-4 bg-positive p-24 p-32_lg">
+                            <CollectionBox
+                                title="Colecciones"
+                                list={summaryList}
+                                onItemSelected={setSelectedItem}
+                            />
+                        </aside>
                     ) : null}
+                    <section className={classEmptyState}>
+                        <div className="floating-button-sentinel" />
+                        <div className="flex ai-center gap-24 mb-24">
+                            <Text
+                                className="prumo prumo-light text-24 text-32_md text-36_lg"
+                                as="h2"
+                            >
+                                {selectedItemId}
+                            </Text>
+                            {userBookmarks.length &&
+                            selectedItemId !== 'Todas' ? (
+                                <Button
+                                    data-testid="rename-collection-button"
+                                    onClick={() => setIsModalOpen(true)}
+                                    iconOnly
+                                    variant="secondary"
+                                    size={40}
+                                    className="ml-auto ml-0_md"
+                                >
+                                    <Icon size={16}>
+                                        <IconSprite name="edit" />
+                                    </Icon>
+                                </Button>
+                            ) : null}
+                        </div>
+                        {userBookmarks.length ? (
+                            <BookmarkedArticles
+                                userBookmarks={userBookmarks}
+                                setUserBookmarks={setUserBookmarks}
+                                selectedItemId={selectedItemId}
+                                setSelectedItem={setSelectedItem}
+                                selectedItemQuantity={selectedItemQuantity}
+                            />
+                        ) : (
+                            <EmptyStateComponent
+                                userType={userType}
+                                loading={loading}
+                            />
+                        )}
+                    </section>
                 </div>
-                {userBookmarks.length ? (
-                    <BookmarkedArticles
-                        userBookmarks={userBookmarks}
-                        setUserBookmarks={setUserBookmarks}
-                        selectedItemId={selectedItemId}
-                        setSelectedItem={setSelectedItem}
-                        selectedItemQuantity={selectedItemQuantity}
-                    />
-                ) : (
-                    <EmptyStateComponent
-                        userType={userType}
-                        loading={loading}
-                    />
-                )}
-            </section>
+            )}
             <DrawerRecetario
                 summaryList={summaryList}
                 onItemSelected={setSelectedItem}
@@ -102,7 +110,7 @@ function RecetarioBody() {
                 setUserBookmarks={setUserBookmarks}
                 setSelectedItem={setSelectedItem}
             />
-        </div>
+        </>
     );
 }
 
