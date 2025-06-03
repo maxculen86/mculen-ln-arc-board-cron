@@ -7,7 +7,10 @@ import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit
 import { RoofFoodit } from '../../foodit-global/common/RoofFoodit/foodit';
 import getImageAltText from '../../foodit-global/common/utils/getImageAltText';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
-import { getFooditAuthor } from '../../foodit-global/common/utils/notaFooditHelper';
+import {
+    getFooditAuthor,
+    getHighestPriorityTag
+} from '../../foodit-global/common/utils/notaFooditHelper';
 
 function RelatedContent({ globalContent }) {
     const id = get(globalContent, '_id', '');
@@ -42,6 +45,7 @@ function RelatedContent({ globalContent }) {
             );
             const itemImage = get(item, 'promo_items.basic.url', '');
             const itemHasVideo = get(item, 'promo_items.video_jw', null);
+            const sections = get(item, 'taxonomy.sections', []);
 
             return (
                 <div className="w-100" key={itemId}>
@@ -55,7 +59,7 @@ function RelatedContent({ globalContent }) {
                         variant="recipe"
                         container="related-content"
                         size="small"
-                        tag="Facil"
+                        tag={getHighestPriorityTag(sections)}
                         src={resizedUrl || itemImage}
                         alt={itemAltText}
                         author={itemAuthorText}
