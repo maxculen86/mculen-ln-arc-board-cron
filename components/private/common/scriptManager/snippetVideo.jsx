@@ -9,8 +9,19 @@ import {
     getAlternativeDescription
 } from '../videoPlayerJw/utils/helperJw';
 
-const videoPlayerSnippet = ({ mediaData, minStream, paragraph, noteTitle }) => {
-    const { content: firstParagraph = '' } = paragraph || {};
+function videoPlayerSnippet({ mediaData, minStream, paragraph, noteTitle }) {
+    let firstParagraph = '';
+
+    if (
+        typeof paragraph === 'object' &&
+        paragraph !== null &&
+        typeof paragraph.content === 'string'
+    ) {
+        firstParagraph = paragraph.content;
+    } else if (typeof paragraph === 'string') {
+        firstParagraph = paragraph;
+    }
+
     const {
         promo_items: promoItems,
         created_date: createdDate = '',
@@ -29,7 +40,6 @@ const videoPlayerSnippet = ({ mediaData, minStream, paragraph, noteTitle }) => {
     const description =
         epigraph ||
         firstParagraph.trim() ||
-        (typeof paragraph === 'string' ? paragraph.trim() : '') ||
         getAlternativeDescription(uploadDate, noteTitle?.trim());
 
     const data = {
@@ -44,7 +54,7 @@ const videoPlayerSnippet = ({ mediaData, minStream, paragraph, noteTitle }) => {
     };
 
     return <SnippetRender data={data} />;
-};
+}
 
 videoPlayerSnippet.propTypes = {
     mediaData: PropTypes.shape({
