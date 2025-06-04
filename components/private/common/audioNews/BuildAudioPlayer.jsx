@@ -21,7 +21,7 @@ function BuildAudioPlayer({
     const [errorAudio, setErrorAudio] = useState(false);
     const [contentAvailable, setContentAvailable] = useState(false);
     const { setCookie } = handleCookie();
-    const { contentVariant, setContentVariant, setIsAudioPlaying } =
+    const { isSummary, setIsSummary, setIsAudioPlaying } =
         useSignatureContext();
 
     const playerRef = useRef(null);
@@ -67,10 +67,9 @@ function BuildAudioPlayer({
                         playbackState,
                         skipButtonStyle: 'seconds',
                         logoIconEnabled: false,
-                        widgetWidth: '40rem'
+                        widgetWidth: '40rem',
+                        summary: isSummary
                     });
-
-                    playerRef.current.contentVariant = contentVariant;
 
                     playerRef.current.addEventListener(
                         'NoContentAvailable',
@@ -89,7 +88,7 @@ function BuildAudioPlayer({
                         setIsAudioPlaying(true)
                     );
                 } else {
-                    playerRef.current.contentVariant = contentVariant;
+                    playerRef.current.summary = isSummary;
                     playerRef.current.playbackState = playbackState;
                 }
             } catch (error) {
@@ -122,11 +121,11 @@ function BuildAudioPlayer({
                 playerRef.current.playbackState = 'stopped';
             }
         };
-    }, [isScriptLoaded, noteId, contentVariant, playbackState]);
+    }, [isScriptLoaded, noteId, isSummary, playbackState]);
 
-    const handleToggleChange = newContentVariant => {
-        setContentVariant(newContentVariant);
-        setCookie('contentVariant', newContentVariant, 7);
+    const handleToggleChange = summary => {
+        setIsSummary(summary);
+        setCookie('summary', summary, 7);
         setIsAudioPlaying(true);
     };
     if (errorAudio) return null;
@@ -136,7 +135,7 @@ function BuildAudioPlayer({
             <div className="flex flex-column flex-row-reverse_lg gap-12 gap-16_lg">
                 <ToggleButton
                     handleToggle={handleToggleChange}
-                    contentVariant={contentVariant}
+                    isSummary={isSummary}
                 />
                 <div className="w-100 flex jc-center ai-center h-48 relative">
                     {!contentAvailable && (
@@ -152,7 +151,7 @@ function BuildAudioPlayer({
             </div>
             <div className="disclaimer-container as-start_l mt-8 mt-0_lg">
                 <DisclaimerIA
-                    text={getTextDisclaimer({ contentVariant, showVariantIa })}
+                    text={getTextDisclaimer({ isSummary, showVariantIa })}
                 />
             </div>
         </section>
