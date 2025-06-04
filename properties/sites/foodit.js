@@ -26,6 +26,7 @@ export default {
         FooditChef: 'Foodit-chef',
         Foodit404: 'Foodit-404',
         FooditRecipePaywall: 'Foodit-recipe-paywall',
+        FooditNotePaywall: 'Foodit-note-paywall',
         FooditBuscador: 'Foodit-buscador',
         FooditMenuSemanal: 'Foodit-menu-semanal'
     }

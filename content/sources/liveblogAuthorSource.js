@@ -1,7 +1,11 @@
 import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import logger from '../../components/private/common/utils/logger';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
+import { isEmptyString } from '../../components/private/common/utils/dataValidation';
+import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
+import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
+import logger from '../../components/private/common/utils/logger';
+import get from '../../components/private/common/utils/get';
 
 const isEncoded = str => {
     try {
@@ -11,7 +15,39 @@ const isEncoded = str => {
     }
 };
 
-const fetch = query => {
+const transform = (cachedCall, authorsData = []) => {
+    const transformedAuthors = authorsData.map(async author => {
+        const image = get(author, 'image', '');
+        let signingResponse = null;
+        if (!isEmptyString(image))
+            signingResponse = await signingServiceCachedCall(image, cachedCall);
+        const imagePreset = {
+            width: 280,
+            height: 280,
+            media: '(min-width: 320px)',
+            class: '',
+            type: 'image'
+        };
+
+        return {
+            ...author,
+            ...(image && {
+                image: resizeImgUrl({
+                    arcImage: {
+                        url: image,
+                        auth: { 1: get(signingResponse, 'hash') },
+                        type: 'image'
+                    },
+                    defaultResizeWithSmart: imagePreset
+                })
+            })
+        };
+    });
+
+    return Promise.all(transformedAuthors);
+};
+
+const fetch = (query, { cachedCall } = {}) => {
     const { authorName = '' } = query;
     const safeAuthorName = isEncoded(authorName)
         ? authorName
@@ -29,7 +65,8 @@ const fetch = query => {
         try {
             const response = await nodeFetch(url, opt);
             handleHttpError(response);
-            return await response.json();
+            const authorsData = await response.json();
+            return await transform(cachedCall, get(authorsData, 'authors', []));
         } catch (error) {
             return logger.push(error, {
                 source: 'content/sources/liveblogAuthorSource',

@@ -2,7 +2,10 @@ import React from 'react';
 import bodyComponents from '../utils/bodyComponents';
 import ConsecutiveImages from '../../../private-global/body/doubleImage/foodit';
 import { transformEmbedScript } from '../../../LN-nota/body/_utils/_embedHelper';
-import { STORYTELLING } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import {
+    NOTA_CERRADA,
+    STORYTELLING
+} from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 const setDataComponent = ({
     Component,
@@ -24,8 +27,10 @@ const setDataComponent = ({
             />
         );
     }
+    const isNote =
+        articleSubtype === STORYTELLING || articleSubtype === NOTA_CERRADA;
 
-    return articleSubtype === STORYTELLING ? (
+    return isNote ? (
         <section key={`body-${currentIndex}`} className="content">
             <Component
                 data={element}

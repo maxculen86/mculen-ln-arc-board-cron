@@ -39,3 +39,15 @@ export const getZocaloProps = (deployment, contextPath, path = '') => {
         label: zocaloData.label
     };
 };
+
+export const getZocaloAppsProps = (path = '') => {
+    if (!path) return null;
+    const section = path.split('/');
+    const zocaloData = get(zocaloOptions, section[1], undefined);
+    if (!zocaloData) return null;
+
+    return {
+        _t: 'card',
+        id: get(zocaloData, 'label', null)
+    };
+};

@@ -15,6 +15,7 @@ import { SkeletonResultdata } from '../../../features/foodit-global/common/skele
 import { DRAWER } from '../../../features/foodit-global/common/DrawerContainer/constants';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import DrawerBuscador from './drawerBuscador';
+import { RECETA } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 export default function ArticlesGrid() {
     const {
@@ -138,22 +139,35 @@ export default function ArticlesGrid() {
             {loading && <SkeletonResultdata />}
             <section className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32 mb-32">
                 {articlesGrid.map(
-                    ({
-                        guid,
-                        counter_time: counterTime,
-                        creator,
-                        link,
-                        title,
-                        subtype,
-                        promo_image: promoImage,
-                        video_jw: videoJw,
-                        section
-                    } = {}) => (
+                    (
+                        {
+                            guid,
+                            counter_time: counterTime,
+                            creator,
+                            link,
+                            title,
+                            subtype,
+                            promo_image: promoImage,
+                            video_jw: videoJw,
+                            section
+                        } = {},
+                        index = 0
+                    ) => (
                         <CommonCardFoodit
                             key={guid}
                             className="col-span-4"
                             articleId={guid}
                             time={counterTime}
+                            fetchPriority={
+                                index <= 1 && subtype === RECETA
+                                    ? 'high'
+                                    : 'low'
+                            }
+                            loading={
+                                index <= 1 && subtype === RECETA
+                                    ? 'eager'
+                                    : 'lazy'
+                            }
                             size="small"
                             author={creator}
                             tag={getTag(section)}

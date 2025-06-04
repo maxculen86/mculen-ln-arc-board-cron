@@ -7,7 +7,7 @@ import { getImagesToLoadWithPicture } from '../../../../../private/LN/common/uti
 
 import CommonCardFoodit from '../../CommonCardFoodit/foodit';
 
-function RecetarioArticle({ article, handleDeleteBookmark }) {
+function RecetarioArticle({ article, handleDeleteBookmark, isFirst = false }) {
     const {
         bookmarkTypeId,
         bookmarkId,
@@ -39,8 +39,8 @@ function RecetarioArticle({ article, handleDeleteBookmark }) {
             src={get(url, 'resizedUrl', '')}
             alt={title}
             sources={getImagesToLoadWithPicture(false, resizedUrls)}
-            loading="lazy"
-            fetchPriority="low"
+            loading={isFirst ? 'eager' : 'lazy'}
+            fetchPriority={isFirst ? 'high' : 'low'}
             tag={tag}
             fill
             title={title}
@@ -55,7 +55,8 @@ RecetarioArticle.propTypes = {
     article: PropTypes.shape({
         bookmarkContent: PropTypes.shape({})
     }).isRequired,
-    handleDeleteBookmark: PropTypes.func.isRequired
+    handleDeleteBookmark: PropTypes.func.isRequired,
+    isFirst: PropTypes.bool.isRequired
 };
 
 export default RecetarioArticle;

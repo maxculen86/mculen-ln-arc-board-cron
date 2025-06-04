@@ -21,6 +21,7 @@ const indexNota = dataNotaParam => {
         ...storyCommon(dataNota, elements.elements),
         ...storyHeadline(dataNota, 'mobile'),
         apertura: apertura(dataNota, elements.idsElements),
+        footer: dataNota.footer,
         isListenable: isNoteListenable(dataNota),
         audio_custom_voice: dataNota.audio_custom_voice
     };

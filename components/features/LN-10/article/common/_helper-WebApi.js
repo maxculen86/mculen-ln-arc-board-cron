@@ -125,11 +125,14 @@ export const getCardConfig = (
     return cardConfig && cardConfig[articlePosition];
 };
 
-// TODO agregar test unitario
+export const isBnPlayerDiagramation = config => {
+    const validLayouts = ['bn_player_3_grid', 'bn_player_4_grid'];
+    const layout = get(config, 'props.customFields.layout', '');
+    return validLayouts.includes(layout);
+};
+
 export const reorderArticlePositionForVideo = (chainConfig = {}) => {
-    const isBnPlayer =
-        get(chainConfig, 'props.customFields.layout', '') ===
-        'bn_player_3_grid';
+    const isBnPlayer = isBnPlayerDiagramation(chainConfig);
 
     if (isBnPlayer) {
         const children = get(chainConfig, 'children', []);

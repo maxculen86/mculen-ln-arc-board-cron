@@ -221,7 +221,7 @@ export const filterCustomPreparacion = (element = {}) => ({
     }
 });
 
-export const recipePaywallConfigCallbackContentElements = {
+export const paywallSoftConfigCallbackContentElements = {
     custom_embed: ({ element }) => {
         const subtype = get(element, 'subtype', '');
 
@@ -238,7 +238,7 @@ export const recipePaywallConfigCallbackContentElements = {
     },
     image: () => null,
     video: () => null,
-    text: () => null,
+    text: props => transformElementText(props),
     interstitial_link: () => null,
     list: () => null,
     header: () => null,

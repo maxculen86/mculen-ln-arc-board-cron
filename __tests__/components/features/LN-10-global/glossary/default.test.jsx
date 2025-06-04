@@ -50,12 +50,17 @@ describe('features - LN-10-GLOBAL - Glossary - default', () => {
             }
         });
 
-        render(<Glossary />);
+        render(<Glossary showGlossary />);
         expect(screen.getByTestId('dialog')).toBeInTheDocument();
         expect(screen.getByTestId('tooltip')).toBeInTheDocument();
         expect(
             screen.getByTestId('handle-glossary-script')
         ).toBeInTheDocument();
+    });
+    it('should render null when showGlossary is false', () => {
+        const { container } = render(<Glossary />);
+        expect(container.firstChild).toBeNull();
+        expect(screen.queryByTestId('dialog')).not.toBeInTheDocument();
     });
     it('should not render anything when glossaryData is empty array', () => {
         useAppContext.mockReturnValue({
@@ -72,7 +77,7 @@ describe('features - LN-10-GLOBAL - Glossary - default', () => {
             }
         });
 
-        const { container } = render(<Glossary />);
+        const { container } = render(<Glossary showGlossary />);
         expect(container.firstChild).toBeNull();
     });
 });

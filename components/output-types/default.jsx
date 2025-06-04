@@ -27,7 +27,6 @@ import {
 } from '../private/common/utils/outputTypeHelper';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
-import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
 import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 import { GetFonts } from './criticalCss/getFonts';
 import removeExtraSpaces from '../private/common/utils/removeExtraSpaces';
@@ -288,7 +287,6 @@ function Default(props) {
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
                 />
-                <ScriptVideoPowaHTML subtype={subtype} />
                 {addMetaNoIndexNoFollow({ requestUri })}
                 <OpeningRawHTML
                     contentElements={contentElements}

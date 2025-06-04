@@ -3,17 +3,22 @@ import { Text } from '@ln/common-ui-text';
 import { Link } from '@ln/foodit-ui-link';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { useAppContext } from 'fusion:context';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Logo } from '@ln/foodit-ui-logo';
+import PropTypes from 'prop-types';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
-function FooterFoodit() {
-    const { contextPath, deployment, layout, siteProperties } = useAppContext();
+function FooterFoodit({ contextPath, deployment, layout, siteProperties }) {
     const { layoutsName } = siteProperties || {};
 
-    if (layoutsName.FooditRecipePaywall === layout) return null;
+    if (
+        [
+            layoutsName.FooditRecipePaywall,
+            layoutsName.FooditNotePaywall
+        ].includes(layout)
+    )
+        return null;
 
     return (
         <div className="hidden print-hide">
@@ -211,5 +216,14 @@ function FooterFoodit() {
         </div>
     );
 }
+
+FooterFoodit.propTypes = {
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
+    siteProperties: PropTypes.shape({
+        layoutsName: PropTypes.shape({}).isRequired
+    }).isRequired
+};
 
 export default FooterFoodit;

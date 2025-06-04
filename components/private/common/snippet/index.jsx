@@ -7,7 +7,7 @@ import LiveblogSnippet from '../../LN/nota/snippet/liveblog';
 import PaywallSnippet from '../../LN/nota/snippet/paywall';
 import SnippetAcumulado from '../../LN/acumulado/snippet';
 import ProgramSnippet from '../../OTT/programa/snippet/programSnippet';
-import { LIVEBLOG } from '../utils/subtypes/subtypeHelper';
+import { LIVEBLOG, LIVEBLOG_EDITORIAL } from '../utils/subtypes/subtypeHelper';
 
 const config = {
     ott: {
@@ -21,7 +21,8 @@ const config = {
         'LN-nota-foto-al-100': NoticiaSnippet,
         'LN-nota-html-libre': NoticiaSnippet,
         'LN-acumulado': SnippetAcumulado,
-        'LN-nota-video': NoticiaSnippet
+        'LN-nota-video': NoticiaSnippet,
+        'LN-Nota-Liveblog_Editorial': NoticiaSnippet
     }
 };
 
@@ -38,7 +39,9 @@ function snippetIndex(props) {
     return (
         <>
             <Snippet {...props} />
-            {subtype === LIVEBLOG && <LiveblogSnippet {...props} />}
+            {(subtype === LIVEBLOG || subtype === LIVEBLOG_EDITORIAL) && (
+                <LiveblogSnippet {...props} />
+            )}
             {type === 'story' && <PaywallSnippet {...props} />}
         </>
     );

@@ -7,6 +7,7 @@ describe('Private - Common - scriptManager - videoPlayerSnippet =>', () => {
             expect(videoPlayerSnippet({})).toBeNull();
         });
     });
+
     describe('With proper parameters', () => {
         const { props: { data } = {} } = videoPlayerSnippet(snippetVideoProps);
         it('Should return correct video schema', () => {
@@ -26,6 +27,7 @@ describe('Private - Common - scriptManager - videoPlayerSnippet =>', () => {
             });
         });
     });
+
     describe('With video headline empty string', () => {
         snippetVideoProps.mediaData.headlines.basic = '  ';
         const { props: { data } = {} } = videoPlayerSnippet(snippetVideoProps);
@@ -33,6 +35,7 @@ describe('Private - Common - scriptManager - videoPlayerSnippet =>', () => {
             expect(data.description).toStrictEqual('MockCaption');
         });
     });
+
     describe('Without noteTitle, epigraph nor createdDate', () => {
         snippetVideoProps.noteTitle = undefined;
         snippetVideoProps.mediaData.headlines.basic = undefined;
@@ -52,19 +55,18 @@ describe('Private - Common - scriptManager - videoPlayerSnippet =>', () => {
             snippetVideoProps.paragraph = {
                 content: 'MockParagraph'
             };
-            const { props: { data: newData } = {} } = videoPlayerSnippet(
-                snippetVideoProps
-            );
+            const { props: { data: newData } = {} } =
+                videoPlayerSnippet(snippetVideoProps);
             expect(newData.description).toStrictEqual('MockParagraph');
         });
     });
+
     describe('Without epigraph or paragraph', () => {
         it('Should use note title as part of the description', () => {
             snippetVideoProps.noteTitle = 'Note Title';
             snippetVideoProps.paragraph = undefined;
-            const { props: { data: newData } = {} } = videoPlayerSnippet(
-                snippetVideoProps
-            );
+            const { props: { data: newData } = {} } =
+                videoPlayerSnippet(snippetVideoProps);
             expect(newData.description).toStrictEqual(
                 'Video de Note Title publicado el 04/09/2023 por LA NACION'
             );
@@ -72,10 +74,34 @@ describe('Private - Common - scriptManager - videoPlayerSnippet =>', () => {
         it('Should use alternative description when there is no note title', () => {
             snippetVideoProps.noteTitle = undefined;
             snippetVideoProps.paragraph = undefined;
-            const { props: { data: newData } = {} } = videoPlayerSnippet(
-                snippetVideoProps
-            );
+            const { props: { data: newData } = {} } =
+                videoPlayerSnippet(snippetVideoProps);
             expect(newData.description).toStrictEqual(
+                'Video publicado el 04/09/2023 por LA NACION'
+            );
+        });
+    });
+
+    describe('Paragraph input types', () => {
+        it('Should accept paragraph as a string and use it as description', () => {
+            snippetVideoProps.paragraph = 'StringParagraph';
+            const { props: { data } = {} } =
+                videoPlayerSnippet(snippetVideoProps);
+            expect(data.description).toBe('StringParagraph');
+        });
+
+        it('Should accept paragraph as an object with content string', () => {
+            snippetVideoProps.paragraph = { content: 'ParagraphContent' };
+            const { props: { data } = {} } =
+                videoPlayerSnippet(snippetVideoProps);
+            expect(data.description).toBe('ParagraphContent');
+        });
+
+        it('Should fallback gracefully if paragraph is an object without content string', () => {
+            snippetVideoProps.paragraph = { content: 12345 };
+            const { props: { data } = {} } =
+                videoPlayerSnippet(snippetVideoProps);
+            expect(data.description).toBe(
                 'Video publicado el 04/09/2023 por LA NACION'
             );
         });

@@ -1,17 +1,16 @@
-import request from 'request-promise-native';
+import nodeFetch from 'node-fetch';
 import { ARC_ACCESS_TOKEN } from 'fusion:environment';
 
 const getRequest = query => {
     const opt = {
-        uri: query,
-        json: true
+        method: 'GET'
     };
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
+        opt.headers = {
+            Authorization: `Bearer ${ARC_ACCESS_TOKEN}`
         };
     }
-    return request(opt).then(data => data);
+    return nodeFetch(query, opt).then(data => data.json());
 };
 
 export default getRequest;
