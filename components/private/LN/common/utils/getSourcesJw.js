@@ -11,5 +11,4 @@ const getSourcesJw = (streams = [], operator = '<') => {
         compare(prev.height, curr.height, operator) ? prev : curr
     );
 };
-
 export default getSourcesJw;

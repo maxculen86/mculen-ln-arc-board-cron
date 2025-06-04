@@ -14,13 +14,11 @@ describe('content - sources - videoFichaJwSource - helper', () => {
                 image: 'poster.jpg',
                 sources: [
                     {
-                        file:
-                            'https://cdn.jwplayer.com/manifests/3EZXXBG4.m3u8',
+                        file: 'https://cdn.jwplayer.com/manifests/3EZXXBG4.m3u8',
                         type: 'application/vnd.apple.mpegurl'
                     },
                     {
-                        file:
-                            'https://cdn.jwplayer.com/videos/3EZXXBG4-kTExGaWf.mp4',
+                        file: 'https://cdn.jwplayer.com/videos/3EZXXBG4-kTExGaWf.mp4',
                         type: 'video/mp4',
                         height: 180,
                         width: 320,
