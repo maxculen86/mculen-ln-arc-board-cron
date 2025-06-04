@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import handleCookie from '../../../LN/common/utils/handleCookie';
 
-const useGetContentVariant = initialValue => {
+const useGetContentVariant = () => {
     const { getCookie } = handleCookie();
-    const [contentVariant, setContentVariant] = useState(
-        getCookie('contentVariant') || initialValue
-    );
+    const [isSummary, setIsSummary] = useState(Boolean(getCookie('summary')));
 
     useEffect(() => {
-        setContentVariant(getCookie('contentVariant') || initialValue);
+        setIsSummary(Boolean(getCookie('summary')));
     }, []);
 
-    return { contentVariant, setContentVariant };
+    return { isSummary, setIsSummary };
 };
 
 export default useGetContentVariant;

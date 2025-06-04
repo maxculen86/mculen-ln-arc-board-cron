@@ -9,7 +9,7 @@ import IconSprite from '../../../features/private-global/common/iconSprite/IconS
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
 
-function ToggleButton({ contentVariant, handleToggle }) {
+function ToggleButton({ isSummary, handleToggle }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
 
     const notaCompletaBttn = classNames(
@@ -25,14 +25,14 @@ function ToggleButton({ contentVariant, handleToggle }) {
         <div className="toggle-bttn-audio flex ai-center ai-start_l">
             <Button
                 id="notaCompleta"
-                variant={contentVariant === 'article' ? 'primary' : 'secondary'}
+                variant={!isSummary ? 'primary' : 'secondary'}
                 className={notaCompletaBttn}
                 title="Nota Completa"
                 dataSection="Nota Completa"
                 dataEvent="LinkClick"
                 onClick={() => {
-                    handleToggle('article');
-                    if (contentVariant !== 'article') {
+                    handleToggle(false);
+                    if (isSummary) {
                         addEventToDataLayerV2({
                             event: 'page_listened',
                             rest: getAudioEvents(
@@ -55,14 +55,14 @@ function ToggleButton({ contentVariant, handleToggle }) {
             </Button>
             <Button
                 id="resumenConIA"
-                variant={contentVariant === 'summary' ? 'primary' : 'secondary'}
+                variant={isSummary ? 'primary' : 'secondary'}
                 className={resumenConIABttn}
                 title="Resumen con IA"
                 dataSection="Resumen con IA"
                 dataEvent="LinkClick"
                 onClick={() => {
-                    handleToggle('summary');
-                    if (contentVariant !== 'summary') {
+                    handleToggle(true);
+                    if (!isSummary) {
                         addEventToDataLayerV2({
                             event: 'page_listened',
                             rest: getAudioEvents(
@@ -88,7 +88,7 @@ function ToggleButton({ contentVariant, handleToggle }) {
 }
 
 ToggleButton.propTypes = {
-    contentVariant: PropTypes.string.isRequired,
+    isSummary: PropTypes.bool.isRequired,
     handleToggle: PropTypes.func.isRequired
 };
 

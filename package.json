@@ -32,7 +32,7 @@
         "postinstall": "npm run ln:copycss"
     },
     "dependencies": {
-        "@ln/common-ui-accordion": "0.0.9",
+        "@ln/common-ui-accordion": "0.0.10",
         "@ln/common-ui-adaptableimage": "1.1.4",
         "@ln/common-ui-animate": "0.0.2",
         "@ln/common-ui-badge": "1.1.0",
@@ -70,7 +70,7 @@
         "@ln/common-ui-video": "1.1.0",
         "@ln/contenidos-ui-advance": "1.1.30",
         "@ln/contenidos-ui-animatedicons": "0.0.3",
-        "@ln/contenidos-ui-author": "0.0.9",
+        "@ln/contenidos-ui-author": "0.0.11",
         "@ln/contenidos-ui-avatar": "0.0.3",
         "@ln/contenidos-ui-badge": "1.1.22",
         "@ln/contenidos-ui-banners": "1.1.11",
@@ -114,7 +114,7 @@
         "@ln/foodit-ui-modal": "0.0.7",
         "@ln/foodit-ui-note": "0.0.1",
         "@ln/foodit-ui-recipe": "0.0.1",
-        "@ln/foodit-ui-sass": "0.0.119",
+        "@ln/foodit-ui-sass": "0.0.121",
         "@ln/foodit-ui-spinner": "0.0.1",
         "@ln/foodit-ui-topnavigationbar": "0.0.2",
         "@ln/hooks": "1.1.2",

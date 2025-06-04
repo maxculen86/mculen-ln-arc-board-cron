@@ -9,7 +9,13 @@ import { DrawerItems } from './drawerItems';
 
 function DrawerMenu({ categories = [] }) {
     if (!categories.length) return null;
-    const TITLES_TO_EXCLUDE = ['Conocenos', 'Guías de cocina', 'Masterclass'];
+
+    // TODO: Manejar filtro de principalMenu y secondaryMenu a traves de una propiedad especifica desde sites, para evitar validar por titles.
+    const TITLES_TO_EXCLUDE = [
+        'Conocenos',
+        'Guías de cocina',
+        'Masterclass de chefs'
+    ];
 
     const principalMenu = categories.filter(
         item => !TITLES_TO_EXCLUDE.includes(item.title)
