@@ -47,7 +47,7 @@ exports[`components - feature - LN-nota - footer - _children - trustProject rend
       </div>
     </a>
     <div
-      class="inline-flex gap-2 "
+      class="inline-flex gap-2 ai-center text-12"
     >
       <span
         class="text ln-text text-light-800"

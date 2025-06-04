@@ -45,7 +45,7 @@ function TrustProject({ isInvalid, tooltipData }) {
                 </div>
             </Link>
             {tooltipData?.text && (
-                <div className="inline-flex gap-2 ">
+                <div className="inline-flex gap-2 ai-center text-12">
                     <Text className="text-light-800">Tipo de trabajo:</Text>
                     <Tooltip
                         toggleOn="hover"

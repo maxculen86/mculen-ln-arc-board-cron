@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from 'fusion:context';
-import Lazy from 'lazy-child';
 import useViewportSize from '../../private/common/hooks/useViewportSize';
 import StickyMobile from '../../private/LN/nota/StickyMobile';
 import { crtViewTracker } from '../../private/common/utils/noteTracker/ctrTracker';
@@ -80,13 +79,13 @@ function CTRNota() {
 
     if (!showComponent) return null;
     return (
-        <Lazy renderPlaceholder={ref => <div ref={ref} />} offsetTop={8000}>
+        <>
             <StickyMobile
                 headerText="Te puede interesar"
                 articleToShow={articleToShow}
             />
             {crtViewTracker(tracked, setTracker)}
-        </Lazy>
+        </>
     );
 }
 

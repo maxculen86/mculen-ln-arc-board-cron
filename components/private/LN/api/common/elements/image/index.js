@@ -65,11 +65,14 @@ export const getImageUrlBasedOnResizerVersion = url => {
     return url;
 };
 
-export const imageMobile = imageData => {
+export const imageMobile = (imageData, replaceHeight = true) => {
     const image = imageCommon(imageData);
+    const url = replaceHeight
+        ? image.absoluteUrl.replace(/[?&]height=\d+/, '')
+        : image.absoluteUrl;
     const resp = {
         _t: 'image',
-        url: image.absoluteUrl
+        url
     };
     const credits = epigrafeAndCreditsData(imageData);
     if (credits) resp.credits = credits;

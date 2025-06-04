@@ -1078,42 +1078,44 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
             class="flex flex-column flex-row_lg"
           />
         </div>
+        <div>
+          <div>
+            <a
+              class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-action="N/A"
+              data-category="header"
+              data-event="e_linkclick"
+              data-interaction="dataLayerInteraction"
+              data-label="masterclass"
+              data-test-id="header-menu-Masterclass"
+              data-variant="primary"
+              href="#"
+              role="link"
+              style="padding-top: 16px;"
+              target="_self"
+              title="Ir a Masterclass"
+            >
+              <span
+                class="text-left flex-grow-1"
+              >
+                Masterclass
+              </span>
+              <i
+                class="icon --icon-16 --inherit"
+              >
+                <mock-icon
+                  name="arrow-right"
+                />
+              </i>
+            </a>
+          </div>
+          <div
+            class="flex flex-column flex-row_lg"
+          />
+        </div>
         <div
           class="mt-auto sticky bottom-0 bg-light-1 z-15 border border-top border-thin border-light-100"
-        >
-          <div>
-            <div>
-              <a
-                class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
-                data-action="N/A"
-                data-category="header"
-                data-event="e_linkclick"
-                data-interaction="dataLayerInteraction"
-                data-label="masterclass"
-                data-test-id="header-menu-Masterclass"
-                data-variant="primary"
-                href="#"
-                role="link"
-                style="padding-top: 16px;"
-                target="_self"
-                title="Ir a Masterclass"
-              >
-                <span
-                  class="text-left flex-grow-1"
-                >
-                  Masterclass
-                </span>
-                <i
-                  class="icon --icon-16 --inherit"
-                >
-                  <mock-icon
-                    name="arrow-right"
-                  />
-                </i>
-              </a>
-            </div>
-          </div>
-        </div>
+        />
       </div>
     </div>
   </div>

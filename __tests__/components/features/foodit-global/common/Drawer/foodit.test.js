@@ -42,7 +42,11 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
 
         expect(secondaryMenuContainer).toBeInTheDocument();
 
-        const titlesToExclude = ['Conocenos', 'Guías de cocina', 'Masterclass'];
+        const titlesToExclude = [
+            'Conocenos',
+            'Guías de cocina',
+            'Masterclass de chefs'
+        ];
 
         const renderedTitles = Array.from(
             secondaryMenuContainer.querySelectorAll(
