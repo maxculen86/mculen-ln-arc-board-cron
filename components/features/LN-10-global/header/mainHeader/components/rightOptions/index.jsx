@@ -5,8 +5,9 @@ import { SubscribeButton } from './subscribeButton';
 import { UpsellingButton } from './upsellingButton';
 import { useHeaderContext } from '../../../context';
 import BellButton from './bellButton';
+import { OpenInApp } from './openInApp';
 
-export const RightOptions = () => {
+export function RightOptions() {
     const [loadingData, setLoadingData] = useState(true);
 
     const { loading } = useHeaderContext();
@@ -14,9 +15,10 @@ export const RightOptions = () => {
         setLoadingData(loading);
     }, []);
 
-    if (loadingData) return <></>;
+    if (loadingData) return null;
     return (
         <>
+            <OpenInApp />
             <BellButton />
             <UpsellingButton />
             <MenuUser />
@@ -24,6 +26,6 @@ export const RightOptions = () => {
             <SubscribeButton />
         </>
     );
-};
+}
 
 export default RightOptions;

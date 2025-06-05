@@ -1,17 +1,19 @@
+/* eslint-disable react/no-danger */
+/* eslint-disable camelcase */
 import React from 'react';
 import { MY_ACCOUNT_URL } from 'fusion:environment';
 import { Button } from '@ln/contenidos-ui-button';
 import { Tooltip } from '@ln/contenidos-ui-tooltip';
+import classNames from 'classnames';
 import { useHeaderContext } from '../../../context';
 import { getTermicaValues } from '../../_helper';
 import { termicaValuesUpselling } from './_helper';
 import useTermica from '../../../../../../private/common/hooks/useTermica';
 import get from '../../../../../../private/common/utils/get';
 import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
-import classNames from 'classnames';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
-export const UpsellingButton = () => {
+export function UpsellingButton() {
     const { userType, isHome } = useHeaderContext();
 
     const termicaUpselling = useTermica('termica_upselling');
@@ -65,7 +67,7 @@ export const UpsellingButton = () => {
         !upsellingUrl ||
         !termicaUpselling
     )
-        return <></>;
+        return null;
 
     return (
         <Button
@@ -98,4 +100,4 @@ export const UpsellingButton = () => {
             />
         </Button>
     );
-};
+}
