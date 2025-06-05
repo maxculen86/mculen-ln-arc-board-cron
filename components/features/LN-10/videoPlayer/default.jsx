@@ -91,6 +91,7 @@ function LN10VideoPlayer({
         instanceConfig: {
             mute: true,
             aspectRatio: '9:16',
+            fullscreenOrientationLock: 'portrait',
             playlist: playListWithoutTitle,
             preload: 'none',
             displaytitle: false
