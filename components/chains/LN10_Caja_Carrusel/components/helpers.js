@@ -1,4 +1,6 @@
+import React from 'react';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
+import get from '../../../private/common/utils/get';
 
 export const registeredIdsSetAndInteractions = new Set();
 
@@ -35,3 +37,39 @@ export const isScriptLoaded = id => {
         script.src.includes(`cdn.jwplayer.com/libraries/${id}`)
     );
 };
+
+export const transformNodes = ({
+    children,
+    isAdmin,
+    childProps = [],
+    isExpanded = false,
+    bannerRef
+}) =>
+    childProps.reduce((acc, properties, index) => {
+        const { video, title } = get(properties, 'customFields', {});
+        const type = get(properties, 'type', 'LN-10/itemCarrusel');
+        const isBanner = type === 'LN-common/bannerRefactor';
+        const child = children[index];
+        const newChildren = {
+            id: isBanner ? null : video,
+            title: isBanner ? null : title,
+            type,
+            isBanner,
+            node:
+                !isAdmin &&
+                !isExpanded &&
+                // Evitamos renderizar el nodo del banner en el carrusel para evitar el llamado al adserver cuando el banner aun no es visible.
+                // Se manda un div con una referencia para respetar la misma posición de cada item del carrusel
+                type === 'LN-common/bannerRefactor' ? (
+                    <div ref={bannerRef} id="bannerRoot" />
+                ) : (
+                    child
+                )
+        };
+
+        if (acc.length < 10) {
+            acc.push(newChildren);
+        }
+
+        return acc;
+    }, []);

@@ -6,6 +6,8 @@ import get from '../../../common/utils/get';
 import { GlobalContext } from '../../../common/context/globalContext';
 import bannersRules from '../../../common/banners/bannersRules';
 import isWebview from '../../../common/utils/isWebview';
+import getCustomTargeting from '../../../common/banners/helpers/getCustomTargeting';
+import hideParentNode from '../../../../features/private-global/common/utils/hideParentNode';
 
 export const suffixDevice = {
     desktop: '_dsk',
@@ -32,7 +34,8 @@ export const BANNERS_DESKTOP = [
     'middle_3_dsk',
     'middle_teads_dsk',
     '1x1_signwall_dsk',
-    'cajasuscriptores_dsk'
+    'cajasuscriptores_dsk',
+    'quesale_dsk'
 ];
 
 export const BANNERS_MOBILE = [
@@ -54,7 +57,8 @@ export const BANNERS_MOBILE = [
     'caja10_mob',
     'inread_mob',
     '1x1_signwall_mob',
-    'cajasuscriptores_mob'
+    'cajasuscriptores_mob',
+    'quesale_mob'
 ];
 
 export const BANNERS_TABLET = [
@@ -70,7 +74,8 @@ export const BANNERS_TABLET = [
     'middle_2_tab',
     'middle_teads_tab',
     '1x1_signwall_tab',
-    'cajasuscriptores_tab'
+    'cajasuscriptores_tab',
+    'quesale_tab'
 ];
 
 export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
@@ -424,6 +429,86 @@ export const getSlotForDevice = device => slots =>
         ? slots.find(slot => slot.name === device).slot || null
         : null;
 
+export const hideBanner = (
+    containerBannersToHide = [],
+    bannerRef = {},
+    isNodeHtml = false
+) => {
+    googletag
+        .pubads()
+        .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
+            const slotBannerId = slot.getSlotElementId();
+            const banner = document.getElementById(slotBannerId);
+            if (
+                containerBannersToHide.includes(slotBannerId) &&
+                isEmpty &&
+                banner
+            ) {
+                hideParentNode(bannerRef, 'LI', isNodeHtml);
+            }
+        });
+};
+
+export const defineSlot = ({
+    adUnitPath,
+    size,
+    opt_div: optDiv,
+    customTargeting
+}) => {
+    const slot = googletag
+        .defineSlot(adUnitPath, size, optDiv)
+        .addService(googletag.pubads());
+
+    if (customTargeting && Object.keys(customTargeting).length > 0) {
+        Object.keys(customTargeting).forEach(key => {
+            slot.setTargeting(key, customTargeting[key]);
+        });
+    }
+
+    return slot;
+};
+
+export const displayUnicBanner = ({
+    slotId,
+    adUnitPath,
+    size,
+    customTargeting
+} = {}) => {
+    googletag.cmd.push(() => {
+        const bannerExists = googletag
+            .pubads()
+            .getSlots()
+            .find(slot => slot.getSlotElementId() === slotId);
+
+        if (bannerExists) {
+            googletag.pubads().refresh([bannerExists]);
+        } else {
+            const slotElement = defineSlot({
+                adUnitPath,
+                size,
+                opt_div: slotId,
+                customTargeting
+            });
+
+            googletag.display(slotId);
+            googletag.pubads().refresh([slotElement]);
+        }
+        // TODO: Unificar la funcion de ocultar o mostrar banner para reutilizar en el resto de banners
+        googletag
+            .pubads()
+            .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
+                const banner = document.getElementById(slot.getSlotElementId());
+
+                const isBannerVisible =
+                    !isEmpty && banner && banner.getAttribute('id') === slotId;
+
+                if (isBannerVisible) {
+                    banner.parentNode.classList.remove('none');
+                }
+            });
+    });
+};
+
 export const queueGoogletagCommand = bannersToLoad => {
     function callAdserver(_headerBiddingSlots, fallback = false) {
         if (pbjs.adserverCalled) return;
@@ -437,25 +522,6 @@ export const queueGoogletagCommand = bannersToLoad => {
     }
 
     googletag.cmd.push(() => {
-        const defineSlot = ({
-            adUnitPath,
-            size,
-            opt_div: optDiv,
-            customTargeting
-        }) => {
-            const slot = googletag
-                .defineSlot(adUnitPath, size, optDiv)
-                .addService(googletag.pubads());
-
-            if (customTargeting && Object.keys(customTargeting).length > 0) {
-                Object.keys(customTargeting).forEach(key => {
-                    slot.setTargeting(key, customTargeting[key]);
-                });
-            }
-
-            return slot;
-        };
-
         const headerBiddingSlots = bannersToLoad
             .filter(e => e.prebidEnabled)
             .map(defineSlot);
@@ -527,4 +593,27 @@ export const queueGoogletagCommand = bannersToLoad => {
                 }
             });
     });
+};
+
+export const getUnicBannerInDom = (bannerId, device) => {
+    const banner = document.querySelector(
+        `div[data-device="${device}"][id="${bannerId}"]`
+    );
+
+    if (banner) {
+        return {
+            adUnitPath: banner.dataset.adUnitPath,
+            size: JSON.parse(banner.dataset.size),
+            opt_div: banner.id,
+            sizemap: JSON.parse(banner.dataset.sizemap),
+            prebidEnabled: banner.dataset.prebidEnabled === 'true',
+            targeting: JSON.parse(banner.dataset.targeting),
+            slotGroup: banner.dataset.slotGroup,
+            hideForSubscriptor: banner.dataset.subscription === 'true',
+            withoutHide: banner.dataset.withoutHide === 'true',
+            customTargeting: getCustomTargeting({ bannerId })
+        };
+    }
+
+    return null;
 };
