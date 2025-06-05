@@ -17,7 +17,7 @@ export function OpenInApp() {
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const isHomeLayout = layout === 'LN10-Home_Main';
 
-    if (!isMobileDevice || !isAndroid() || !subscription || isHomeLayout) {
+    if (!isMobileDevice || !isAndroid() || !subscription || !isHomeLayout) {
         return null;
     }
 

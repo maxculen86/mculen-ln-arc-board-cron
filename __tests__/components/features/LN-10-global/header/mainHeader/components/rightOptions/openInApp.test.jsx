@@ -41,7 +41,8 @@ describe('OpenInApp Component', () => {
         useAppContext.mockReturnValue({
             globalContent: {
                 canonical_url: ''
-            }
+            },
+            layout: 'LN10-Home_Main'
         });
         window.dataLayer = [];
         delete window.location;
@@ -72,24 +73,6 @@ describe('OpenInApp Component', () => {
     });
 
     it('should handle click and redirect to app for home page', () => {
-        render(<OpenInApp />);
-        const button = screen.getByText('ABRIR EN APP');
-        fireEvent.click(button);
-        expect(window.dataLayer).toContainEqual({
-            event: 'e_linkclick',
-            dynamic_action: 'abrir_app',
-            dynamic_category: 'header',
-            dynamic_label: 'android'
-        });
-    });
-
-    it('should handle click and redirect to app for article page', () => {
-        const articleUrl = 'https://www.lanacion.com.ar/articulo';
-        useAppContext.mockReturnValue({
-            globalContent: {
-                canonical_url: articleUrl
-            }
-        });
         render(<OpenInApp />);
         const button = screen.getByText('ABRIR EN APP');
         fireEvent.click(button);
