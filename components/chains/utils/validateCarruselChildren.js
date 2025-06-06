@@ -8,7 +8,11 @@ export const validateCarruselChildren = ({ children = [], childProps }) => {
         },
         {
             validation: childProps.some(
-                ({ type }) => !['LN-10/itemCarrusel'].includes(type)
+                ({ type }) =>
+                    ![
+                        'LN-10/itemCarrusel',
+                        'LN-common/bannerRefactor'
+                    ].includes(type)
             ),
             message:
                 'La Chain LN10 Caja Carrusel sólo admite features del tipo LN10 Item Carrusel'

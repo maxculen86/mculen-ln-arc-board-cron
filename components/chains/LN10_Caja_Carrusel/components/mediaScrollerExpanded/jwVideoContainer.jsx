@@ -10,9 +10,8 @@ import JwVideoPlayer from './jwVideoPlayer';
 import ShareV2 from '../../../../features/LN-common/shareV2/default';
 
 const JwVideoContainer = forwardRef(
-    ({ handleNextCallback, isLastVideo }, ref) => {
-        const { onCloseMediaScrollerExpanded, videosData } =
-            useCajaCarruselContext();
+    ({ handleNextCallback, isLastVideo, listVideoData = [] }, ref) => {
+        const { onCloseMediaScrollerExpanded } = useCajaCarruselContext();
 
         const [showLeyendSwipeUp, setShowLeyendSwipeUp] = useState(isLastVideo);
 
@@ -29,7 +28,7 @@ const JwVideoContainer = forwardRef(
             };
         }, []);
 
-        if (!videosData.length) return null;
+        if (!listVideoData.length) return null;
 
         const _className = cx(
             'scroll-y-auto scroll-y-none_md scroll-x-auto_md hide-scrollbar',
@@ -43,7 +42,7 @@ const JwVideoContainer = forwardRef(
                 className={_className}
                 style={{ willChange: 'transform, scroll-position' }}
             >
-                {videosData.map(({ id, title }, index) => (
+                {listVideoData.map(({ id, title, isBanner, node }, index) => (
                     <li
                         key={id}
                         data-scroller-index={index}
@@ -52,7 +51,7 @@ const JwVideoContainer = forwardRef(
                         className="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
                     >
                         <div className="flex h-100 w-100 ratio-9-16 relative py-16_m">
-                            <div className="w-100 absolute top-0 left-0 z-1 bg-gradient-dark bg-none_lg py-8 mt-16_m">
+                            <div className="w-100 absolute top-0 left-0 z-10 bg-gradient-dark bg-none_lg py-8 mt-16_m">
                                 <Button
                                     title="Cerrar"
                                     onClick={onCloseMediaScrollerExpanded}
@@ -66,17 +65,24 @@ const JwVideoContainer = forwardRef(
                                     </Icon>
                                     <span className="text-16">Volver</span>
                                 </Button>
-                                <ShareV2
-                                    videoId={id}
-                                    videoTitle={title}
-                                    className="absolute top-0 right-0 right--55_lg"
-                                />
+                                {!isBanner && (
+                                    <ShareV2
+                                        videoId={id}
+                                        videoTitle={title}
+                                        className="absolute top-0 right-0 right--55_lg"
+                                    />
+                                )}
                             </div>
-                            <JwVideoPlayer
-                                videoId={id}
-                                index={index}
-                                handleNextCallback={handleNextCallback}
-                            />
+                            {isBanner ? (
+                                node
+                            ) : (
+                                <JwVideoPlayer
+                                    videoId={id}
+                                    index={index}
+                                    handleNextCallback={handleNextCallback}
+                                />
+                            )}
+
                             {showLeyendSwipeUp && (
                                 <div
                                     className="flex flex-column ai-center w-100 absolute bottom-60 py-8 sm-only"
@@ -105,7 +111,8 @@ const JwVideoContainer = forwardRef(
 
 JwVideoContainer.propTypes = {
     handleNextCallback: PropTypes.func.isRequired,
-    isLastVideo: PropTypes.bool.isRequired
+    isLastVideo: PropTypes.bool.isRequired,
+    listVideoData: PropTypes.arrayOf().isRequired
 };
 
 export default memo(JwVideoContainer);

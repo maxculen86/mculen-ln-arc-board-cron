@@ -1,21 +1,16 @@
 import React from 'react';
 import { Avatar } from '@ln/contenidos-ui-avatar';
 import { Dropdown } from '@ln/common-ui-dropdown';
-import { getMenuUser } from '../../_helper';
 import { Link } from '@ln/contenidos-ui-link';
+import classNames from 'classnames';
+import { getMenuUser } from '../../_helper';
 import { useHeaderContext } from '../../../context';
 import getUserInitials from '../../../../../../private/common/utils/getUserInitials';
-import classNames from 'classnames';
 import '../../../../../../../resources/packages/css/@ln/common-ui-dropdown/index.css';
 
-export const MenuUser = () => {
-    const {
-        userType,
-        negative,
-        userName,
-        userEmail,
-        userLastName
-    } = useHeaderContext();
+export function MenuUser() {
+    const { userType, negative, userName, userEmail, userLastName } =
+        useHeaderContext();
 
     const initials = getUserInitials(userName, userLastName, userEmail);
     const menuUserData = getMenuUser() || [];
@@ -28,8 +23,8 @@ export const MenuUser = () => {
         )
     };
 
-    if (userType === 'unlogged') return <></>;
-    if (menuUserData.length === 0) return <></>;
+    if (userType === 'unlogged') return null;
+    if (menuUserData.length === 0) return null;
     return (
         <Dropdown className="flex cursor-pointer l-only pt-4" toggleOn="hover">
             <Dropdown.Toggle gap={0} iconProps={iconProps}>
@@ -75,4 +70,4 @@ export const MenuUser = () => {
             </Dropdown.Menu>
         </Dropdown>
     );
-};
+}

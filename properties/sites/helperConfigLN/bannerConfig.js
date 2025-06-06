@@ -14,6 +14,7 @@ const targetingHome = {
 const HEADER_ROUTE_DESK = 'la_nacion_desktop/logo_header_dsk_sticky';
 const HEADER_ROUTE_MOBILE = 'la_nacion_mobile/logo_header_mob';
 const HEADER_ROUTE_TAB = 'la_nacion_tablet/logo_header_tab';
+const SLOT_BANNER_QUESALE = 'la_nacion_video/Nota/quesale';
 
 export default {
     dfp_id: 133919216,
@@ -590,6 +591,16 @@ export default {
                 dimensions: [[305, 32]],
                 targeting: targetingAcumulado
             },
+            quesale_dsk: {
+                slotName: SLOT_BANNER_QUESALE,
+                dimensions: [
+                    [300, 250],
+                    [300, 600],
+                    [320, 480],
+                    [300, 450]
+                ],
+                targeting: targetingAcumulado
+            },
             megatop_dsk: {
                 slotName: `la_nacion_desktop/Acumulado/megatop_dsk`,
                 dimensions: [[800, 600]],
@@ -728,6 +739,16 @@ export default {
             logo_header_mob: {
                 slotName: HEADER_ROUTE_MOBILE,
                 dimensions: [[172, 19]],
+                targeting: targetingAcumulado
+            },
+            quesale_mob: {
+                slotName: SLOT_BANNER_QUESALE,
+                dimensions: [
+                    [300, 250],
+                    [300, 600],
+                    [320, 480],
+                    [300, 450]
+                ],
                 targeting: targetingAcumulado
             },
             megatop_mob: {
@@ -870,6 +891,16 @@ export default {
                 dimensions: [[172, 19]],
                 targeting: targetingAcumulado
             },
+            quesale_tab: {
+                slotName: SLOT_BANNER_QUESALE,
+                dimensions: [
+                    [300, 250],
+                    [300, 600],
+                    [320, 480],
+                    [300, 450]
+                ],
+                targeting: targetingAcumulado
+            },
             cabezal_tab: {
                 slotName: `la_nacion_tablet/Acumulado/cabezal_tab`,
                 dimensions: [[728, 90]],
@@ -922,6 +953,16 @@ export default {
             logo_header_dsk: {
                 slotName: 'la_nacion_desktop/logo_header_dsk',
                 dimensions: [[487, 48]]
+            },
+            quesale_dsk: {
+                slotName: SLOT_BANNER_QUESALE,
+                dimensions: [
+                    [300, 250],
+                    [300, 600],
+                    [320, 480],
+                    [300, 450]
+                ],
+                targeting: targetingHome
             },
             logo_header_dsk_sticky: {
                 slotName: HEADER_ROUTE_DESK,
@@ -1139,11 +1180,21 @@ export default {
                 slotName: HEADER_ROUTE_MOBILE,
                 dimensions: [[172, 19]]
             },
+            quesale_mob: {
+                slotName: SLOT_BANNER_QUESALE,
+                dimensions: [
+                    [300, 250],
+                    [300, 600],
+                    [320, 480],
+                    [300, 450]
+                ],
+                targeting: targetingHome
+            },
             sticky2_mob: {
                 slotName: `la_nacion_mobile/Home/sticky2_mob`,
                 dimensions: [
                     [300, 50],
-                    [320, 50],
+                    [320, 50]
                 ],
                 targeting: targetingHome
             },
@@ -1293,6 +1344,16 @@ export default {
             logo_header_tab: {
                 slotName: HEADER_ROUTE_TAB,
                 dimensions: [[305, 32]]
+            },
+            quesale_tab: {
+                slotName: SLOT_BANNER_QUESALE,
+                dimensions: [
+                    [300, 250],
+                    [300, 600],
+                    [320, 480],
+                    [300, 450]
+                ],
+                targeting: targetingHome
             },
             megatop_tab: {
                 slotName: `la_nacion_tablet/Home/megatop_tab`,

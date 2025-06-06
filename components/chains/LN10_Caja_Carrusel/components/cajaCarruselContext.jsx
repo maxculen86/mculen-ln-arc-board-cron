@@ -5,13 +5,11 @@ const CarouselBoxContext = createContext(undefined);
 
 const initialState = {
     currentIndex: 0,
-    videosData: [],
     isOpenMediaScrollerExpanded: false
 };
 
 const actionTypes = {
     SET_CURRENT_INDEX: 'SET_CURRENT_INDEX',
-    SET_VIDEOS_DATA: 'SET_VIDEOS_DATA',
     OPEN_MEDIA_SCROLLER: 'OPEN_MEDIA_SCROLLER',
     CLOSE_MEDIA_SCROLLER: 'CLOSE_MEDIA_SCROLLER'
 };
@@ -21,10 +19,6 @@ const reducer = (state, action) => {
         [actionTypes.SET_CURRENT_INDEX]: {
             ...state,
             currentIndex: action.payload
-        },
-        [actionTypes.SET_VIDEOS_DATA]: {
-            ...state,
-            videosData: [...state.videosData, action.payload]
         },
         [actionTypes.OPEN_MEDIA_SCROLLER]: {
             ...state,
@@ -54,19 +48,10 @@ function CajaCarruselProvider({ children }) {
         });
     };
 
-    const setVideosData = ({ id, title }) => {
-        dispatch({
-            type: actionTypes.SET_VIDEOS_DATA,
-            payload: { id, title }
-        });
-    };
-
-    const { currentIndex, videosData, isOpenMediaScrollerExpanded } = state;
+    const { currentIndex, isOpenMediaScrollerExpanded } = state;
 
     const value = useMemo(
         () => ({
-            videosData,
-            setVideosData,
             currentIndex,
             setCurrentIndex,
             isOpenMediaScrollerExpanded,

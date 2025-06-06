@@ -157,6 +157,20 @@
         }
     }
 
+    &.--quesale_mob,
+    &.--quesale_tab,
+    &.--quesale_dsk {
+        height: 100%;
+        width: 100%;
+        .ln-banner {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
     //TABLET
     @media ($media-m) {
         &.--fixed {

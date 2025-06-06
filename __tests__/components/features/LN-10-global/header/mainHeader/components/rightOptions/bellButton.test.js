@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { BellButton } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/bellButton';
+import BellButton from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/bellButton';
 import { useHeaderContext } from '../../../../../../../../components/features/LN-10-global/header/context';
 import { render } from '@testing-library/react';
 

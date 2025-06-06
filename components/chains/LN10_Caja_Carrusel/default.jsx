@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
@@ -10,24 +10,26 @@ import CajaCarruselProvider from './components/cajaCarruselContext';
 import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
 import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
 import MediaScroller from './components/mediaScroller/mediaScroller';
-import { isScriptLoaded } from './components/helpers';
+import { isScriptLoaded, transformNodes } from './components/helpers';
 import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 import loadJWPlayerScript from '../utils/loadJWPlayerScript';
-
+import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
 
 function CajaCarrusel(props) {
     const {
         children,
         customFields: { hideCarousel, ...propsForRoof },
-        childProps,
+        childProps = [],
         chainId,
         renderables
     } = props;
+
+    const divRefInCarrusel = useRef(null);
 
     const { isAdmin } = useAppContext();
     const playerId = 'OSRCuuxn';
@@ -73,15 +75,41 @@ function CajaCarrusel(props) {
         }
     }, []);
 
+    useEffect(() => {
+        if (!isAdmin) {
+            hideParentNode(divRefInCarrusel);
+        }
+    }, [divRefInCarrusel?.current]);
+
+    const nodes = transformNodes({
+        children,
+        isAdmin,
+        childProps,
+        bannerRef: divRefInCarrusel
+    });
+
+    const nodesByExpanded = useMemo(
+        () =>
+            transformNodes({
+                children,
+                isAdmin,
+                childProps,
+                isExpanded: true
+            }),
+        []
+    );
+
     return (
         <CajaCarruselProvider>
             <div {...extraOptsDiv}>
                 <section {...viewabilityData} data-chain-id={chainId}>
                     <MediaScroller roofData={roofData}>
-                        {children.slice(0, 10)}
+                        {nodes.map(child => child.node)}
                     </MediaScroller>
                     <MediaScrollerExpandedWrapper>
-                        <MediaScrollerExpanded />
+                        <MediaScrollerExpanded
+                            listVideoData={nodesByExpanded}
+                        />
                     </MediaScrollerExpandedWrapper>
                 </section>
             </div>
