@@ -1,9 +1,11 @@
 import defaultBody, {
     errorHandling
 } from '../../../../../../../../../../components/private/LN/api/common/elements/story/cuerpo/templates/default';
-import BackendLnError from '../../../../../../../../../../components/private/LN/api/common/models/backendLnError';
 
 describe('errorHandling', () => {
+    beforeEach(() => {
+        jest.spyOn(console, 'warn').mockImplementation(jest.fn());
+    });
     it('should return concatenated result when selectedComponent executes successfully', () => {
         const res = ['initial'];
         const selectedComponent = jest.fn((current, storyId) => ['newElement']);
@@ -16,19 +18,45 @@ describe('errorHandling', () => {
         expect(selectedComponent).toHaveBeenCalledWith(current, storyId);
     });
 
-    it('should log BackendError when selectedComponent throws an error', () => {
+    it('should include expected fields in BackendStructuredLog', () => {
+        const errorThrown = new Error('an error ocurred');
+        const res = [];
+        const selectedComponent = jest.fn(() => {
+            throw errorThrown;
+        });
+        const current = { type: 'x', data: 'abc' };
+        const storyId = 'ABCDFGHIKLMNOPQ';
+        const storyUrl = '/nota/ejemplo';
+
+        errorHandling(res, selectedComponent, current, storyId, storyUrl);
+
+        const loggedArg = console.warn.mock.calls[0][0];
+        expect(loggedArg).toContain('an error ocurred');
+        expect(loggedArg).toContain(storyId);
+        expect(loggedArg).toContain(storyUrl);
+        expect(loggedArg).toContain(errorThrown.stack.split('\n')[0]);
+    });
+
+    it('should log Warn when selectedComponent throws an error', () => {
         const res = ['initial'];
         const selectedComponent = jest.fn(() => {
             throw new Error('Test error');
         });
         const current = 'currentData';
         const storyId = '12345';
+        const storyUrl = 'storyUrl';
 
         console.error = jest.fn();
 
-        const result = errorHandling(res, selectedComponent, current, storyId);
+        const result = errorHandling(
+            res,
+            selectedComponent,
+            current,
+            storyId,
+            storyUrl
+        );
 
-        expect(console.error).toHaveBeenCalledWith(expect.any(BackendLnError));
+        expect(console.warn).toHaveBeenCalled();
     });
 });
 

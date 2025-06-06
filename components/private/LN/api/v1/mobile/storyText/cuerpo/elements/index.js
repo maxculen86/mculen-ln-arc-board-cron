@@ -48,19 +48,21 @@ const getStoryElementBySubtype = elements => {
 const storyBodyElements = (dataNota, elements) => {
     const { id } = dataNota;
     const subtype = get(dataNota, 'subtype', '');
+
     if (!subtype) throw Error('The story does not have subtype');
 
     const elementBySubtype = getStoryElementBySubtype(elements);
     const contentElements = get(dataNota, 'content_elements', '');
+    const url = get(dataNota, 'canonical_url', null);
 
     const templates = {
-        '7': recetaCuerpo,
-        '8': defaultCuerpo
+        7: recetaCuerpo,
+        8: defaultCuerpo
     }[subtype];
 
     return templates
-        ? templates(contentElements, elementBySubtype[subtype], id)
-        : defaultCuerpo(contentElements, elementBySubtype[1], id);
+        ? templates(contentElements, elementBySubtype[subtype], id, url)
+        : defaultCuerpo(contentElements, elementBySubtype[1], id, url);
 };
 
 export default storyBodyElements;
