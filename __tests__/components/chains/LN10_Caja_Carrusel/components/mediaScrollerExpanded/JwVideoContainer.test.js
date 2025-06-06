@@ -30,16 +30,16 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoContain
 
     const defaultProps = {
         handleNextCallback: jest.fn(),
-        isLastVideo: false
+        isLastVideo: false,
+        listVideoData: [
+            { id: 'video1', title: 'Video 1' },
+            { id: 'video2', title: 'Video 2' }
+        ]
     };
 
     it('renders correctly when videosData is available', () => {
         useCajaCarruselContext.mockReturnValue({
-            onCloseMediaScrollerExpanded: mockOnClose,
-            videosData: [
-                { id: 'video1', title: 'Video 1' },
-                { id: 'video2', title: 'Video 2' }
-            ]
+            onCloseMediaScrollerExpanded: mockOnClose
         });
 
         render(<JwVideoContainer {...defaultProps} />);
@@ -57,21 +57,28 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoContain
 
     it('does not render anything if videosData is empty', () => {
         useCajaCarruselContext.mockReturnValue({
-            onCloseMediaScrollerExpanded: mockOnClose,
-            videosData: []
+            onCloseMediaScrollerExpanded: mockOnClose
         });
 
-        const { container } = render(<JwVideoContainer {...defaultProps} />);
+        const { container } = render(
+            <JwVideoContainer {...{ ...defaultProps, listVideoData: [] }} />
+        );
         expect(container.firstChild).toBeNull();
     });
 
     it('calls onCloseMediaScrollerExpanded when the close button is clicked', () => {
         useCajaCarruselContext.mockReturnValue({
-            onCloseMediaScrollerExpanded: mockOnClose,
-            videosData: [{ id: 'video1', title: 'Video 1' }]
+            onCloseMediaScrollerExpanded: mockOnClose
         });
 
-        render(<JwVideoContainer {...defaultProps} />);
+        render(
+            <JwVideoContainer
+                {...{
+                    ...defaultProps,
+                    listVideoData: [{ id: 'video1', title: 'Video 1' }]
+                }}
+            />
+        );
 
         const closeButton = screen.getByTitle('Cerrar');
         fireEvent.click(closeButton);
@@ -80,11 +87,7 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoContain
     });
     it('should match snapshot', () => {
         useCajaCarruselContext.mockReturnValue({
-            onCloseMediaScrollerExpanded: mockOnClose,
-            videosData: [
-                { id: 'video1', title: 'Video 1' },
-                { id: 'video2', title: 'Video 2' }
-            ]
+            onCloseMediaScrollerExpanded: mockOnClose
         });
         const { asFragment } = render(<JwVideoContainer {...defaultProps} />);
         expect(asFragment()).toMatchSnapshot();

@@ -1028,6 +1028,18 @@
   height: 15.625rem;
   margin: 0;
 }
+.ln-banner-container.--quesale_mob, .ln-banner-container.--quesale_tab, .ln-banner-container.--quesale_dsk {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+.ln-banner-container.--quesale_mob .ln-banner, .ln-banner-container.--quesale_tab .ln-banner, .ln-banner-container.--quesale_dsk .ln-banner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (min-width: 48rem) {
   .ln-banner-container.--fixed {
     bottom: 3.625rem;

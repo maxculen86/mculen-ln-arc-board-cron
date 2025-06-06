@@ -1,61 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { API_ENV, LOGIN_URL } from 'fusion:environment';
+import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { getInitialState } from '../../_helper';
 import { toggleBellColor } from './_helper';
-import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { useHeaderContext } from '../../../context';
 import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
 import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
-export const BellButton = () => {
+function BellButton() {
     const { negative, intersectingSentinel } = useHeaderContext();
     const [showTooltip, setShowTooltip] = useState(false);
     const [props, setProps] = useState({});
     const { token, accessToken } = useAuthManager();
 
-    useEffect(() => {
-        if (token && accessToken) {
-            setProps(buildProps());
-        }
-    }, [token, accessToken]);
-
-    useEffect(() => {
-        initializeTooltip();
-    }, [showTooltip, intersectingSentinel]);
-    const initializeTooltip = () => {
-        const toggleTooltip = getInitialState() ? intersectingSentinel : false;
-        setShowTooltip(toggleTooltip);
-    };
-    toggleBellColor(negative);
-    const buildProps = () => {
-        return {
-            ...(token &&
-                accessToken && {
-                    userIdToken: token,
-                    userAccessToken: accessToken
-                }),
-            isTestEnvironment: API_ENV !== 'prod',
-            zone: 'lanacion',
-            showTooltip: false,
-            loginHref: LOGIN_URL,
-            notificationsRequestSize: 5,
-            messagesRequestSize: 5,
-            loginText:
-                'Si formas parte de nuestra comunidad de suscriptores, descubrí todas las novedades que tenemos para vos.',
-            tooltipText: 'Aquí encontrarás todas nuestras notificaciones',
-            loginOnClick: () => {
-                addEventToDataLayer({
-                    category: 'campanita',
-                    label: 'Iniciar Sesión',
-                    action: 'click',
-                    event: 'trackEvent'
-                });
-            },
-            onBellClick: handleBellClick,
-            onNotificationsClick: handleNotificationsClick,
-            onMessageButtonClick: handleMessageButtonClick
-        };
-    };
     const handleBellClick = () => {
         setShowTooltip(false);
         localStorage.setItem('showTooltip', false);
@@ -86,6 +43,50 @@ export const BellButton = () => {
             identifier: message.id
         });
     };
+
+    const buildProps = () => ({
+        ...(token &&
+            accessToken && {
+                userIdToken: token,
+                userAccessToken: accessToken
+            }),
+        isTestEnvironment: API_ENV !== 'prod',
+        zone: 'lanacion',
+        showTooltip: false,
+        loginHref: LOGIN_URL,
+        notificationsRequestSize: 5,
+        messagesRequestSize: 5,
+        loginText:
+            'Si formas parte de nuestra comunidad de suscriptores, descubrí todas las novedades que tenemos para vos.',
+        tooltipText: 'Aquí encontrarás todas nuestras notificaciones',
+        loginOnClick: () => {
+            addEventToDataLayer({
+                category: 'campanita',
+                label: 'Iniciar Sesión',
+                action: 'click',
+                event: 'trackEvent'
+            });
+        },
+        onBellClick: handleBellClick,
+        onNotificationsClick: handleNotificationsClick,
+        onMessageButtonClick: handleMessageButtonClick
+    });
+
+    const initializeTooltip = () => {
+        const toggleTooltip = getInitialState() ? intersectingSentinel : false;
+        setShowTooltip(toggleTooltip);
+    };
+    useEffect(() => {
+        if (token && accessToken) {
+            setProps(buildProps());
+        }
+    }, [token, accessToken]);
+
+    useEffect(() => {
+        initializeTooltip();
+    }, [showTooltip, intersectingSentinel]);
+    toggleBellColor(negative);
+
     return <NotificationsCentre {...props} />;
-};
+}
 export default BellButton;

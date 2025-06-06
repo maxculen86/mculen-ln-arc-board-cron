@@ -1,12 +1,12 @@
 import React from 'react';
 import { MainHeader } from '@ln/common-ui-header';
 import { useHeaderContext } from '../context';
-import RightOptions from './components/rightOptions';
+import { RightOptions } from './components/rightOptions';
 import { LeftOptions } from './components/leftOptions';
 import { CenterOptions } from './components/centerOptions';
 import MainHeaderEventsScript from '../../../../private/common/scriptManager/MainHeaderEventsScript';
 
-export const MainHeaderLN = () => {
+export function MainHeaderLN() {
     const {
         wrapperMainHeaderClassNames,
         mainHeaderClassNames,
@@ -31,6 +31,6 @@ export const MainHeaderLN = () => {
             </MainHeader>
         </div>
     );
-};
+}
 
 export default MainHeaderLN;
