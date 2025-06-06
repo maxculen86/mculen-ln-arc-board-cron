@@ -9,7 +9,7 @@ import { ModalRemoveIngredient } from '../../features/foodit-global/common/Modal
 function MenuSemanal() {
     return (
         <BaseLayout>
-            <div className="flex flex-column gap-32">
+            <div className="flex flex-column gap-32 min-h-50dvh">
                 <Static htmlOnly persistent id="menu-semanal-header">
                     <div>
                         <BreadcrumbCustomFoodit
@@ -25,7 +25,7 @@ function MenuSemanal() {
                             as="h1"
                             className="prumo prumo-semibold text-28 text-40_md text-48_lg"
                         >
-                            Mi Menú Semanal
+                            Mi menú semanal
                         </Text>
                     </div>
                 </Static>

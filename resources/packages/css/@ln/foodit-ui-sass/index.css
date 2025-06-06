@@ -1918,6 +1918,10 @@ strong {
   min-height: 100vh;
 }
 
+.min-h-50dvh {
+  min-height: 50dvh;
+}
+
 @media (min-width: 80rem) {
   .min-h-40_lg {
     min-height: 2.5rem;
