@@ -142,18 +142,18 @@ export const getClassAndIconByBookmark = bookmark =>
               bookmarkIcon: <IconSprite name="bookmark" critical />
           };
 
-export const getFirstGroupClassNames = ({ subtypeVideo }) => ({
+export const getFirstGroupClassNames = ({ isCustomLayout }) => ({
     firstGroupClasses: classNames(
         'first-buttons-group',
         'flex gap-16',
-        subtypeVideo ? 'pr-8' : 'pr-8_max1023 pb-16_l flex-column_l'
+        isCustomLayout ? 'pr-8' : 'pr-8_max1023 pb-16_l flex-column_l'
     ),
-    displayClasses: classNames(subtypeVideo ? 'none' : 'l-none'),
+    displayClasses: classNames(isCustomLayout ? 'none' : 'l-none'),
 
     commentsClasses: classNames(
         'comment-btn',
         'flex w-fit-content p-8 gap-4',
-        subtypeVideo
+        isCustomLayout
             ? 'h-40'
             : 'h-40_max1023 h-fit-content_min1024 w-40_min1024 flex-column_l'
     )

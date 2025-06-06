@@ -1,7 +1,10 @@
 import dynamicallyLoadScript from '../../../../private/LN/common/utils/dynamicallyLoadScript';
 import getViewport from '../../../../private/LN/common/utils/screenHelper';
 
-export const embedIntersectionObserver = scripts => {
+export const embedIntersectionObserver = (
+    scripts,
+    selector = '.cuerpo__nota'
+) => {
     const { device } = getViewport();
 
     const callback = entries => {
@@ -19,8 +22,8 @@ export const embedIntersectionObserver = scripts => {
         rootMargin:
             device === 'mobile' ? '0px 0px 200px 0px' : '0px 0px 100px 0px'
     });
-
-    const target = document.querySelector('.cuerpo__nota');
+    // TODO: Cambiar selector por ID en lugar de querySelector, asignar IDs en layouts donde usen clases.
+    const target = document.querySelector(selector);
 
     if (target && scripts.length > 0) interSectionObserver.observe(target);
 };
@@ -45,6 +48,19 @@ export const takeEmbedScriptToDiffer = contentElements => {
             }
         });
     return scriptsToDefer;
+};
+
+export const removeScript = string => {
+    const scriptStart = string.indexOf('<script');
+    const scriptEnd = string.indexOf('</script>') + '</script>'.length;
+
+    if (scriptStart !== -1 && scriptEnd !== -1) {
+        const part1 = string.substring(0, scriptStart);
+        const part2 = string.substring(scriptEnd);
+        return part1 + part2;
+    }
+
+    return string;
 };
 
 export const transformEmbedScript = element => {
@@ -89,17 +105,4 @@ export const transformEmbedScript = element => {
     return socialMedia[element.subtype]
         ? socialMedia[element.subtype](element)
         : element;
-};
-
-export const removeScript = string => {
-    const scriptStart = string.indexOf('<script');
-    const scriptEnd = string.indexOf('</script>') + '</script>'.length;
-
-    if (scriptStart !== -1 && scriptEnd !== -1) {
-        const part1 = string.substring(0, scriptStart);
-        const part2 = string.substring(scriptEnd);
-        return part1 + part2;
-    }
-
-    return string;
 };

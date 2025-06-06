@@ -12,6 +12,10 @@ import {
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import useShare from '../hooks/useShare';
+import {
+    LIVEBLOG_EDITORIAL,
+    VIDEO
+} from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 function BuildSecondButtonsGroup({
     requestUri,
@@ -19,7 +23,8 @@ function BuildSecondButtonsGroup({
     title: basic,
     mobileTitle,
     subtypeVideo,
-    articleId
+    articleId,
+    subtype
 } = {}) {
     const { copy, setCopy, shareButton } = useShare({
         mobileTitle,
@@ -28,11 +33,14 @@ function BuildSecondButtonsGroup({
         requestUri
     });
 
-    const paddingPosition = subtypeVideo
+    const subtypesWithCustomLayout = [VIDEO, LIVEBLOG_EDITORIAL];
+    const isCustomLayout = subtypesWithCustomLayout.includes(subtype);
+
+    const paddingPosition = isCustomLayout
         ? 'pl-8 ai-center gap-8 gap-24_m'
         : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m';
 
-    const flexVideo = subtypeVideo ? '' : 'flex-column_l';
+    const flexVideo = isCustomLayout ? '' : 'flex-column_l';
     const _classes = classNames(
         'second-buttons-group',
         'flex ai-center',
@@ -148,7 +156,8 @@ BuildSecondButtonsGroup.propTypes = {
     title: PropTypes.string.isRequired,
     mobileTitle: PropTypes.string.isRequired,
     subtypeVideo: PropTypes.string.isRequired,
-    articleId: PropTypes.string.isRequired
+    articleId: PropTypes.string.isRequired,
+    subtype: PropTypes.string.isRequired
 };
 
 export default BuildSecondButtonsGroup;
