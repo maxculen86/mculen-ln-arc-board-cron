@@ -19,7 +19,7 @@ function LiveBlogOpening({ children, data }) {
                 </div>
             </div>
             <OpeningEpigraph
-                className="pt-8 px-16"
+                className="pt-8 px-16 pt-0_m px-0_m"
                 variant="mobile"
                 title={caption}
                 credit={credit}

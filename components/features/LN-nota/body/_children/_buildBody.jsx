@@ -79,28 +79,26 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
 
 export default BuildBody;
 
-const setExtraProps = ({
+export const setExtraProps = ({
     tituloNota,
     capitalIndex,
     globalContent,
     contentElements,
     withSponsoredLink
-}) => {
-    return {
-        image: { withZoom: '--zoom', insideBody: true, globalContent },
-        gallery: { withZoom: '--zoom' },
-        video: {
-            tituloNota,
-            primerParrafo:
-                (capitalIndex !== -1 && contentElements[capitalIndex]) || ''
-        },
-        text: {
-            withSponsoredLink
-        }
-    };
-};
+}) => ({
+    image: { withZoom: '--zoom', insideBody: true, globalContent },
+    gallery: { withZoom: '--zoom' },
+    video: {
+        tituloNota,
+        primerParrafo:
+            (capitalIndex !== -1 && contentElements[capitalIndex]) || ''
+    },
+    text: {
+        withSponsoredLink
+    }
+});
 
-const setDataComponent = ({
+export const setDataComponent = ({
     Component,
     extraProps,
     element,

@@ -19,6 +19,10 @@ import BarrierRequiresSubscription from '../../LN-10-global/common/barrierRequir
 import { a11yAttrsBarrierSub } from '../../../private/common/audioNews/helpers';
 
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
+import {
+    LIVEBLOG_EDITORIAL,
+    VIDEO
+} from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function Share() {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -32,6 +36,9 @@ function Share() {
 
     const { token, accessToken } = useAuthManager();
     const termicaBookmark = useTermica('bookmark_web');
+
+    const subtypesWithCustomLayout = [VIDEO, LIVEBLOG_EDITORIAL];
+    const isCustomLayout = subtypesWithCustomLayout.includes(subtype);
     const subtypeVideo = getClassCondition(subtype);
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
 
@@ -56,24 +63,29 @@ function Share() {
     const shareContainer = useRef();
     const share = useRef();
 
-    const modShareContainerSubClasses = !subtypeVideo
-        ? 'sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024'
-        : '-order-1 ratio-auto order-initial_min1024';
+    const modShareContainerSubClasses = cx({
+        'sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024':
+            !isCustomLayout,
+        '-order-1 ratio-auto order-initial_min1024': subtype === VIDEO
+    });
 
     const modShareContainerClass = cx(
         'mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l',
         '--no-app',
         subtypeVideo,
-        modShareContainerSubClasses
+        modShareContainerSubClasses,
+        {
+            'border-transparent': subtype === LIVEBLOG_EDITORIAL
+        }
     );
 
-    const shareSubClasses = !subtypeVideo
-        ? 'flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l'
-        : 'mb-8_l';
+    const shareSubClasses = isCustomLayout
+        ? 'mb-8_l'
+        : 'flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l';
     const shareClasses = cx('share', 'flex relative z-100', shareSubClasses);
 
     const hrVideoClasses = cx(
-        subtypeVideo && 'vertical border border-neutral-dark-300'
+        isCustomLayout && 'vertical border border-neutral-dark-300'
     );
 
     return (
@@ -104,6 +116,7 @@ function Share() {
                         globalContent={globalContent}
                         suscription={suscription}
                         subtypeVideo={subtypeVideo}
+                        subtype={subtype}
                         openBarrier={openBarrier}
                     />
 
@@ -116,6 +129,7 @@ function Share() {
                         mobileTitle={mobileTitle}
                         subtypeVideo={subtypeVideo}
                         articleId={id}
+                        subtype={subtype}
                     />
                 </div>
             </div>

@@ -7,7 +7,7 @@ function MediaVideo({ data }) {
         <VideoPlayerJW
             data={data}
             hasAutoplay
-            videoContainerClassesProps="w-100 ml-0"
+            videoContainerClassesProps="w-100 liveBlog_video"
             mediaContainerClassesProps="mb-0"
         />
     );

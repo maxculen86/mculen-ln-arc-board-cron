@@ -18,6 +18,7 @@ import {
     getModifiedDate,
     getPublishDate
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
+import { LIVEBLOG_EDITORIAL } from '../../../common/utils/subtypes/subtypeHelper';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -132,7 +133,8 @@ function SnippetNoticia({
         display_date: displayDate = '',
         content_restrictions: { content_code: contentCode } = {},
         label,
-        owner: { sponsored }
+        owner: { sponsored },
+        subtype
     } = globalContent;
 
     const { name: distributorName } = distributor;
@@ -189,7 +191,8 @@ function SnippetNoticia({
             '@type': 'WebPageElement',
             isAccessibleForFree:
                 contentCode === 'abierta' || contentCode === 'comun',
-            cssSelector: '.nota'
+            cssSelector:
+                subtype === LIVEBLOG_EDITORIAL ? '.liveblog-editorial' : '.nota'
         },
         isPartOf: {
             '@type': ['CreativeWork', 'Product'],

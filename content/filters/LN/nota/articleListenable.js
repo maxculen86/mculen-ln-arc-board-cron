@@ -285,6 +285,22 @@ const customVideoJw = `
         }
     }
 `;
+
+const customLiveblog = `
+    id
+    mode
+    authors {
+        name
+        photo
+        link
+        id
+    }
+    isPinned
+    pinnedAt
+    customTime
+    showCustomTime
+`;
+
 const customPowerUps = `
     subtype
     embed {
@@ -318,6 +334,7 @@ const customPowerUps = `
             ${configPowerUpVideoJw}
             widgetUrl
             embedType
+            ${customLiveblog}
         }
     }
 `;

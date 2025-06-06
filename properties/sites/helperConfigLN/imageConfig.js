@@ -1110,6 +1110,34 @@ export default {
                         maxScreenWidth: 1920
                     }
                 ]
+            },
+            content_elements: {
+                sizes: [
+                    {
+                        width: 360,
+                        height: 270,
+                        proportion: '3:4',
+                        maxScreenWidth: 767
+                    },
+                    {
+                        width: 768,
+                        height: 500,
+                        proportion: '4:5',
+                        maxScreenWidth: 1279
+                    },
+                    {
+                        width: 720,
+                        height: 500,
+                        proportion: '4:5',
+                        maxScreenWidth: 1280
+                    },
+                    {
+                        width: 720,
+                        height: 500,
+                        proportion: '4:5',
+                        maxScreenWidth: 1920
+                    }
+                ]
             }
         },
         videoImage: {
