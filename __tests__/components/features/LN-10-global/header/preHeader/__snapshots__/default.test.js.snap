@@ -207,7 +207,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
           class="ln-weather flex ai-center jc-start w-max text-black"
         >
           <span
-            class="text ln-text place mr-8 text-light-800 text-12"
+            class="text ln-text place mr-8 text-light-800 text-14"
           >
             Capital Federal
           </span>
@@ -220,7 +220,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
             />
           </i>
           <span
-            class="text ln-text text-12 font-bold"
+            class="text ln-text text-14 font-bold"
           >
             24.5
           </span>
