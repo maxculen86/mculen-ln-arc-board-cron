@@ -3,7 +3,7 @@ import { getEditionDetails } from '../../../../../components/private/LN10/footer
 import {
     datesDiffInDays,
     getArgentinaDateMonthYear,
-    getArgentinaYear,
+    getArgentinaYear
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
 jest.mock(
@@ -11,23 +11,40 @@ jest.mock(
     () => ({
         datesDiffInDays: jest.fn(() => 100),
         getArgentinaDateMonthYear: jest.fn(() => '01/07/2024'),
-        getArgentinaYear: jest.fn(() => 2024),
-    }),
+        getArgentinaYear: jest.fn(() => 2024)
+    })
 );
 
 describe('Tests commonPropsFooter function', () => {
     const dinamycParameters = ['Economia', 'https://lanacion.com.ar/economia/'];
-    test('Should return an object with the specified parameters. (href and text)', () => {
+    test('Should return an object with the specified parameters and default target. (href and text)', () => {
         expect(
-            commonPropsFooter('Economia', 'https://lanacion.com.ar/economia/'),
+            commonPropsFooter('Economia', 'https://lanacion.com.ar/economia/')
         ).toStrictEqual({
             href: 'https://lanacion.com.ar/economia/',
             text: 'Economia',
+            target: '_self'
+        });
+    });
+
+    test('Should return an object with the specified parameters including target. (href, text and target)', () => {
+        expect(
+            commonPropsFooter(
+                'Economia',
+                'https://lanacion.com.ar/economia/',
+                '_blank'
+            )
+        ).toStrictEqual({
+            href: 'https://lanacion.com.ar/economia/',
+            text: 'Economia',
+            target: '_blank'
         });
     });
 
     test('It should return an empty object when the parameters are not defined.', () => {
-        expect(commonPropsFooter(undefined)).toStrictEqual({});
+        expect(commonPropsFooter(undefined)).toStrictEqual({
+            target: '_self'
+        });
     });
 });
 
@@ -38,9 +55,9 @@ describe('Tests getEditionDetails function', () => {
         expect(result).toEqual({
             edDate: {
                 date: '01/07/2024',
-                year: 2024,
+                year: 2024
             },
-            edNumber: 100,
+            edNumber: 100
         });
 
         expect(datesDiffInDays).toHaveBeenCalled();

@@ -9,6 +9,8 @@ import {
     getArgentinaYear
 } from '../../common/utils/dateAndTimeUtil';
 
+const TARGET_BLANK = '_blank';
+
 export const optionsIcons = (contextPath, deployment) => {
     const url = asset => getAssetsPath(contextPath)(deployment)(asset);
     return {
@@ -53,9 +55,11 @@ export const optionsIcons = (contextPath, deployment) => {
         )
     };
 };
-export const commonPropsFooter = (text, href) => ({
+
+export const commonPropsFooter = (text, href, target = '_self') => ({
     ...(text && { text }),
-    ...(href && { href })
+    ...(href && { href }),
+    ...(target && { target })
 });
 
 export const secciones = [
@@ -77,26 +81,56 @@ export const secciones = [
 ];
 
 export const revistas = [
-    commonPropsFooter('OHLALÁ!', 'https://www.somosohlala.com/'),
-    commonPropsFooter('¡HOLA!', `${SITE_LANACION}/revista-hola/`),
-    commonPropsFooter('LIVING', `${SITE_LANACION}/revista-living/`),
-    commonPropsFooter('JARDÍN', `${SITE_LANACION}/revista-jardin/`),
-    commonPropsFooter('LUGARES', `${SITE_LANACION}/revista-lugares/`),
-    commonPropsFooter('ROLLING STONE', 'https://es.rollingstone.com/arg/')
+    commonPropsFooter('OHLALÁ!', 'https://www.somosohlala.com/', TARGET_BLANK),
+    commonPropsFooter('¡HOLA!', `${SITE_LANACION}/revista-hola/`, TARGET_BLANK),
+    commonPropsFooter(
+        'LIVING',
+        `${SITE_LANACION}/revista-living/`,
+        TARGET_BLANK
+    ),
+    commonPropsFooter(
+        'JARDÍN',
+        `${SITE_LANACION}/revista-jardin/`,
+        TARGET_BLANK
+    ),
+    commonPropsFooter(
+        'LUGARES',
+        `${SITE_LANACION}/revista-lugares/`,
+        TARGET_BLANK
+    ),
+    commonPropsFooter(
+        'ROLLING STONE',
+        'https://es.rollingstone.com/arg/',
+        TARGET_BLANK
+    )
 ];
 
 export const productos = [
-    commonPropsFooter('Canchallena', 'https://canchallena.lanacion.com.ar/'),
-    commonPropsFooter('Foodit', 'https://foodit.lanacion.com.ar/'),
-    commonPropsFooter('Bonvivir', 'https://bonvivir.com/'),
-    commonPropsFooter('Colecciones', 'https://colecciones.lanacion.com.ar'),
+    commonPropsFooter(
+        'Canchallena',
+        'https://canchallena.lanacion.com.ar/',
+        TARGET_BLANK
+    ),
+    commonPropsFooter(
+        'Foodit',
+        'https://foodit.lanacion.com.ar/',
+        TARGET_BLANK
+    ),
+    commonPropsFooter('Bonvivir', 'https://bonvivir.com/', TARGET_BLANK),
+    commonPropsFooter(
+        'Colecciones',
+        'https://colecciones.lanacion.com.ar/',
+        TARGET_BLANK
+    ),
     commonPropsFooter(
         'Máster en periodismo',
-        'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327'
+        'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327',
+        TARGET_BLANK
     ),
     commonPropsFooter(
         'Fundación LA NACION',
-        'https://fundacionlanacion.org.ar/'
+        'https://fundacionlanacion.org.ar/',
+        TARGET_BLANK
     )
 ];
 

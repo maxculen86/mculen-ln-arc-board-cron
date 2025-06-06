@@ -253,7 +253,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://www.somosohlala.com/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a OHLALÁ!"
           >
             <span
@@ -269,7 +270,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://www.lanacion.com.ar/revista-hola/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a ¡HOLA!"
           >
             <span
@@ -285,7 +287,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://www.lanacion.com.ar/revista-living/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a LIVING"
           >
             <span
@@ -301,7 +304,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://www.lanacion.com.ar/revista-jardin/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a JARDÍN"
           >
             <span
@@ -317,7 +321,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://www.lanacion.com.ar/revista-lugares/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a LUGARES"
           >
             <span
@@ -333,7 +338,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://es.rollingstone.com/arg/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a ROLLING STONE"
           >
             <span
@@ -357,7 +363,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://canchallena.lanacion.com.ar/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a Canchallena"
           >
             <span
@@ -373,7 +380,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://foodit.lanacion.com.ar/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a Foodit"
           >
             <span
@@ -389,7 +397,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://bonvivir.com/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a Bonvivir"
           >
             <span
@@ -404,8 +413,9 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link text-start"
-            href="https://colecciones.lanacion.com.ar"
-            target="_self"
+            href="https://colecciones.lanacion.com.ar/"
+            rel="nofollow"
+            target="_blank"
             title="Ir a Colecciones"
           >
             <span
@@ -421,7 +431,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a Máster en periodismo"
           >
             <span
@@ -437,7 +448,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <a
             class="link text-start"
             href="https://fundacionlanacion.org.ar/"
-            target="_self"
+            rel="nofollow"
+            target="_blank"
             title="Ir a Fundación LA NACION"
           >
             <span
