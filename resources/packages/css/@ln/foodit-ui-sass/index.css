@@ -1618,6 +1618,9 @@ strong {
   .w-328_md {
     width: 20.5rem;
   }
+  .w-364_md {
+    width: 22.75rem;
+  }
   .w-450_md {
     width: 28.125rem;
   }
@@ -1918,6 +1921,10 @@ strong {
   min-height: 100vh;
 }
 
+.min-h-50dvh {
+  min-height: 50dvh;
+}
+
 @media (min-width: 80rem) {
   .min-h-40_lg {
     min-height: 2.5rem;
@@ -2001,6 +2008,10 @@ strong {
 
 .mt-16 {
   margin-top: 1rem;
+}
+
+.mt-22 {
+  margin-top: 1.375rem;
 }
 
 .mt-24 {
