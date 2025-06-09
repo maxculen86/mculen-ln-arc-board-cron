@@ -14,6 +14,8 @@ function LiveBlogEditorial({ children }) {
     return (
         <BaseLayout className="liveblog-editorial">
             <main id="content" className="relative" style={{ paddingTop: '0' }}>
+                {/* ---- BANNERS ---- */}
+                {children[0]}
                 {/* ---- APERTURA ---- */}
                 <LiveBlogEditorial.Opening data={dataEpigraph}>
                     <LiveBlogOpening.Media data={dataMedia} />

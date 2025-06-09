@@ -214,14 +214,14 @@ export const extractVisibleItemsWithShowMore = (items = []) => {
         if (item.type === 'text' && item.content?.trim()) {
             // eslint-disable-next-line no-plusplus
             textCount++;
-            return textCount === 2;
+            return textCount === 3;
         }
         return false;
     });
 
     const visibleItems =
-        cutoffIndex === -1 ? [...items] : items.slice(0, cutoffIndex + 1);
-    const hiddenItems = cutoffIndex === -1 ? [] : items.slice(cutoffIndex + 1);
+        cutoffIndex === -1 ? [...items] : items.slice(0, cutoffIndex);
+    const hiddenItems = cutoffIndex === -1 ? [] : items.slice(cutoffIndex);
 
     const isExpandable = hiddenItems.length > 0;
 
