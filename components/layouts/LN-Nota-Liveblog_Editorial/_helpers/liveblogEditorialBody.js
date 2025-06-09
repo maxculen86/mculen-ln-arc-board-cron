@@ -227,3 +227,8 @@ export const extractVisibleItemsWithShowMore = (items = []) => {
 
     return { visibleItems, hiddenItems, isExpandable };
 };
+
+export const shouldShowTopDivider = (index, posts) => {
+    const currentPost = posts[index];
+    return index === 0 && !currentPost?.isPinned;
+};
