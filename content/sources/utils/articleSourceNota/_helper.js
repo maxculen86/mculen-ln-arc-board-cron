@@ -314,11 +314,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
         'imageConfig.resize.l.promo_items',
         null
     );
-    const presetsContentElementsLiveblogEditorial = get(
-        siteProperties,
-        'imageConfig.resize.liveblogEditorial.content_elements',
-        null
-    );
+
     const presetsContentElements = get(
         siteProperties,
         'imageConfig.resize.l.content_elements',
@@ -342,7 +338,6 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
             contentElements:
                 presetsContentElementsCustom ||
                 presetsContentElementsFotoAl100 ||
-                presetsContentElementsLiveblogEditorial ||
                 presetsContentElements ||
                 presetsDefault,
             credits: presetsCreditsCustom || presetsCredits,

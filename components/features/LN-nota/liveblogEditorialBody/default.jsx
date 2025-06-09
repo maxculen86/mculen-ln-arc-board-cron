@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import {
     getContentBeforeLiveblogPosts,
     getLiveblogHeaderData,
     groupByLiveblogMarkers,
     reorderGroupsByPinnedBlock,
-    extractVisibleItemsWithShowMore
+    extractVisibleItemsWithShowMore,
+    shouldShowTopDivider
 } from '../../../layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody';
 import BuildLiveblogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/BuildLiveblogBody';
 import LiveBlogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/LiveBlogBody';
@@ -50,7 +51,7 @@ function BodyLiveblogEditorial() {
                 />
             </LiveBlogBody.Pre>
             <LiveBlogBody.Posts>
-                {posts.map(grupo => {
+                {posts.map((grupo, index) => {
                     const liveblogHeader = getLiveblogHeaderData(grupo);
                     const { visibleItems, hiddenItems, isExpandable } =
                         extractVisibleItemsWithShowMore(grupo.items);
@@ -60,14 +61,21 @@ function BodyLiveblogEditorial() {
                         isExpandable,
                         hiddenTextItems: hiddenItems
                     };
+
+                    const showTopDivider = shouldShowTopDivider(index, posts);
                     return (
-                        <LiveBlogBody.Post key={grupo?.id} {...dataPost}>
-                            <BuildLiveblogBody
-                                groupedElements={visibleItems}
-                                outputType={outputType}
-                                globalContent={globalContent}
-                            />
-                        </LiveBlogBody.Post>
+                        <Fragment key={grupo?.id}>
+                            {showTopDivider && <LiveBlogBody.Divider />}
+
+                            <LiveBlogBody.Post {...dataPost}>
+                                <BuildLiveblogBody
+                                    groupedElements={visibleItems}
+                                    outputType={outputType}
+                                    globalContent={globalContent}
+                                />
+                            </LiveBlogBody.Post>
+                            <LiveBlogBody.Divider />
+                        </Fragment>
                     );
                 })}
             </LiveBlogBody.Posts>

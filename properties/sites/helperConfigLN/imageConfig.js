@@ -1080,62 +1080,19 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 360,
-                        height: 202,
+                        minScreenWidth: 768,
+                        width: 717,
+                        height: 404,
                         proportion: '16:9',
-                        maxScreenWidth: 767
+                        media_preload: setMediaCondition({
+                            minWidth: 768
+                        })
                     },
                     {
-                        width: 768,
-                        height: 432,
+                        width: 420,
+                        height: 236,
                         proportion: '16:9',
-                        maxScreenWidth: 1023
-                    },
-                    {
-                        width: 476,
-                        height: 267,
-                        proportion: '16:9',
-                        maxScreenWidth: 1279
-                    },
-                    {
-                        width: 670,
-                        height: 376,
-                        proportion: '16:9',
-                        maxScreenWidth: 1366
-                    },
-                    {
-                        width: 716,
-                        height: 402,
-                        proportion: '16:9',
-                        maxScreenWidth: 1920
-                    }
-                ]
-            },
-            content_elements: {
-                sizes: [
-                    {
-                        width: 360,
-                        height: 270,
-                        proportion: '3:4',
-                        maxScreenWidth: 767
-                    },
-                    {
-                        width: 768,
-                        height: 500,
-                        proportion: '4:5',
-                        maxScreenWidth: 1279
-                    },
-                    {
-                        width: 720,
-                        height: 500,
-                        proportion: '4:5',
-                        maxScreenWidth: 1280
-                    },
-                    {
-                        width: 720,
-                        height: 500,
-                        proportion: '4:5',
-                        maxScreenWidth: 1920
+                        media_preload: setMediaCondition({ maxWidth: 767 })
                     }
                 ]
             }

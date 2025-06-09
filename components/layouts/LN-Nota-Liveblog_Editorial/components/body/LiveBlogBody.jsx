@@ -4,6 +4,7 @@ import BodyTop from './BodyTop';
 import BodyPre from './BodyPre';
 import BodyPost from './BodyPost';
 import BodyPosts from './BodyPosts';
+import PostDivider from './PostDivider';
 
 function LiveBlogBody({ children }) {
     return (
@@ -22,6 +23,7 @@ LiveBlogBody.Top = BodyTop;
 LiveBlogBody.Pre = BodyPre;
 LiveBlogBody.Posts = BodyPosts;
 LiveBlogBody.Post = BodyPost;
+LiveBlogBody.Divider = PostDivider;
 
 LiveBlogBody.propTypes = {
     children: PropTypes.node.isRequired
