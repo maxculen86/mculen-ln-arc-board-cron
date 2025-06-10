@@ -23,7 +23,8 @@ function ImageArticle(props) {
         searchableField,
         authors
     } = props;
-    const wwwImage = isApertura ? replaceUrlResizerToWWW(image) : image;
+    const wwwImage =
+        isApertura || shouldLoadEager ? replaceUrlResizerToWWW(image) : image;
     const {
         alt_text: altText,
         caption,

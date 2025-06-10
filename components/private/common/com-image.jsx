@@ -7,7 +7,7 @@ import ComLink from './com-link';
 import '../../../resources/dist/css/ln/components/com-image.css';
 import '../../../resources/dist/css/ln/modules/mod-media.css';
 
-const ComImage = props => {
+function ComImage(props) {
     const {
         src,
         srcset,
@@ -41,23 +41,19 @@ const ComImage = props => {
             className={classes}
             srcSet={srcset}
             loading={isApertura || shouldLoadEager ? 'eager' : 'lazy'}
-            fetchPriority={isApertura ? 'high' : 'low'}
+            fetchPriority={isApertura || shouldLoadEager ? 'high' : 'low'}
             decoding="async"
         />
     );
 
-    return (
-        <>
-            {href ? (
-                <ComLink link={href} target={target || ''} title={alt}>
-                    {image}
-                </ComLink>
-            ) : (
-                <>{image}</>
-            )}
-        </>
+    return href ? (
+        <ComLink link={href} target={target || ''} title={alt}>
+            {image}
+        </ComLink>
+    ) : (
+        image
     );
-};
+}
 
 ComImage.propTypes = {
     src: PropTypes.string.isRequired,
