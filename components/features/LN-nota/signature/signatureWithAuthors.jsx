@@ -5,6 +5,10 @@ import { cx } from '@ln/cva';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { place } from '../../../private/common/utils/firmaHelper';
 import { getAuthorData } from './signatureHelper';
+import {
+    VIDEO,
+    LIVEBLOG_EDITORIAL
+} from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureWithAuthors({
     showVariantIa,
@@ -16,7 +20,8 @@ function SignatureWithAuthors({
     position = 'Bottom',
     showSignatureWithAuthors,
     subtype,
-    isNotaFooter
+    isNotaFooter,
+    size = 16
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -29,7 +34,11 @@ function SignatureWithAuthors({
         <IconSprite name="ai" fill="#FEFEFE" />
     ) : null;
     const prefix = position === place.Bottom || hasMultipleAuthors;
-    const isVideoNote = subtype === '5' && position === place.Top;
+
+    const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO];
+
+    const isNegativeSubtype =
+        negativeSubtypes.includes(subtype) && position === place.Top;
 
     return (
         <div className="row">
@@ -43,17 +52,17 @@ function SignatureWithAuthors({
                 <Author
                     key={author?.name}
                     variant={variant}
-                    size={16}
+                    size={size}
                     author={authorNames}
                     imageSrc={photo}
                     href={authorLinks}
                     section={medio}
                     icon={iconAudio}
                     prefix={prefix}
-                    negative={isVideoNote}
+                    negative={isNegativeSubtype}
                     classnames={{
                         authorSection: 'uppercase',
-                        authorName: isVideoNote && 'text-blue-300'
+                        authorName: isNegativeSubtype && 'text-blue-300'
                     }}
                 />
                 {audioButton}
@@ -72,11 +81,13 @@ SignatureWithAuthors.propTypes = {
     position: PropTypes.oneOf([place.Top, place.Bottom]).isRequired,
     showSignatureWithAuthors: PropTypes.bool.isRequired,
     subtype: PropTypes.string.isRequired,
-    isNotaFooter: PropTypes.bool
+    isNotaFooter: PropTypes.bool,
+    size: PropTypes.number
 };
 
 SignatureWithAuthors.defaultProps = {
-    isNotaFooter: false
+    isNotaFooter: false,
+    size: 16
 };
 
 export default SignatureWithAuthors;

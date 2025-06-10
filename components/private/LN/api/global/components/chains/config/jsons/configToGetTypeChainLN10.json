@@ -36,6 +36,9 @@
     "bnPlayer": [
         {
             "customFields.layout": "bn_player_3_grid"
+        },
+        {
+            "customFields.layout": "bn_player_4_grid"
         }
     ]
 }

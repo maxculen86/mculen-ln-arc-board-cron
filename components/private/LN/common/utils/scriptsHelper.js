@@ -24,7 +24,8 @@ import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import HandleGlossary from '../../../common/scriptManager/handleGlossary';
-import JwPlayerHome from '../../../common/scriptManager/JwPlayerHome';
+import JwPlayerHome from '../../../common/scriptManager/JwPlayerHome/index';
+import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -146,6 +147,10 @@ const scriptList = [
     },
     {
         component: { name: 'JwPlayerHome', function: JwPlayerHome },
+        feature: ['LN-10/itemCarrusel', 'LN-10/videoPlayer']
+    },
+    {
+        component: { name: 'ScriptJwVideoHome', function: ScriptJwVideoHome },
         feature: ['LN-10/videoPlayer']
     }
 ];

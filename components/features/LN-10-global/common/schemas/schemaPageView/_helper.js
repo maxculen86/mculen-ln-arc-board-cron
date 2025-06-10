@@ -13,7 +13,8 @@ export const layoutsListWithPageview = [
     'LN-Home_Sports',
     'LN-Home_Main',
     'LN10-Home_Main',
-    'LN-acumulado'
+    'LN-acumulado',
+    'LN-Nota-Liveblog_Editorial'
 ];
 
 const getPageType = (layout = '', section = '') => {
@@ -25,6 +26,8 @@ const getPageType = (layout = '', section = '') => {
     }
     return 'nota';
 };
+
+const DEFAULT_VALOR_COMUN = 'comun';
 
 export const getObjectSchema = (globalContent, pagetype) => {
     const notAplly = 'N/A';
@@ -41,7 +44,11 @@ export const getObjectSchema = (globalContent, pagetype) => {
         },
         nota: {
             pagetype,
-            valor: get(globalContent, 'content_restrictions.content_code'),
+            valor: get(
+                globalContent,
+                'content_restrictions.content_code',
+                DEFAULT_VALOR_COMUN
+            ),
             subtype: get(globalContent, 'subtype'),
             nota_id: get(globalContent, '_id'),
             isListenable: get(globalContent, 'isListenable', false)

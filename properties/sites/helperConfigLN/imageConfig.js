@@ -1076,6 +1076,27 @@ export default {
                 ]
             }
         },
+        liveblogEditorial: {
+            promo_items: {
+                sizes: [
+                    {
+                        minScreenWidth: 768,
+                        width: 717,
+                        height: 404,
+                        proportion: '16:9',
+                        media_preload: setMediaCondition({
+                            minWidth: 768
+                        })
+                    },
+                    {
+                        width: 420,
+                        height: 236,
+                        proportion: '16:9',
+                        media_preload: setMediaCondition({ maxWidth: 767 })
+                    }
+                ]
+            }
+        },
         videoImage: {
             promo_items: {
                 sizes: [

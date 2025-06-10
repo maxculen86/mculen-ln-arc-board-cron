@@ -6,7 +6,8 @@ import {
     NOTICIA,
     RECETA,
     STORYTELLING,
-    VIDEO
+    VIDEO,
+    LIVEBLOG_EDITORIAL
 } from '../../../../common/utils/subtypes/subtypeHelper';
 
 const acumuladoLayout = 'LN-acumulado';
@@ -38,7 +39,8 @@ const allowSectionAndLayout = [
     { subtype: AGENCIA },
     { subtype: RECETA },
     { subtype: LIVEBLOG },
-    { subtype: INFOGRAFIA }
+    { subtype: INFOGRAFIA },
+    { subtype: LIVEBLOG_EDITORIAL }
 ];
 
 export default allowSectionAndLayout;

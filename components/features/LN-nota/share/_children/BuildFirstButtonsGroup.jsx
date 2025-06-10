@@ -22,6 +22,10 @@ import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEv
 import { getClassAndIconByClick, handleOpenIAFeature } from './helper';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
+import {
+    LIVEBLOG_EDITORIAL,
+    VIDEO
+} from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 function BuildFirtsButtonsGroup({
     termicaBookmark,
@@ -30,7 +34,8 @@ function BuildFirtsButtonsGroup({
     suscription,
     bookmark = '',
     subtypeVideo,
-    openBarrier
+    openBarrier,
+    subtype = ''
 } = {}) {
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
@@ -72,7 +77,10 @@ function BuildFirtsButtonsGroup({
     const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
     const { iaLogo, iaButtonClass } = getClassAndIconByClick(iaButtonIsClicked);
 
-    const classes = getFirstGroupClassNames({ subtypeVideo });
+    const subtypesWithCustomLayout = [VIDEO, LIVEBLOG_EDITORIAL];
+    const isCustomLayout = subtypesWithCustomLayout.includes(subtype);
+
+    const classes = getFirstGroupClassNames({ isCustomLayout });
 
     const defaultTab =
         summary && isThermalSummaryEnabled ? 'resumen_nota' : 'glosario';
@@ -197,7 +205,8 @@ BuildFirtsButtonsGroup.propTypes = {
     suscription: PropTypes.bool.isRequired,
     termicaBookmark: PropTypes.bool.isRequired,
     subtypeVideo: PropTypes.string.isRequired,
-    openBarrier: PropTypes.func.isRequired
+    openBarrier: PropTypes.func.isRequired,
+    subtype: PropTypes.string.isRequired
 };
 
 export default BuildFirtsButtonsGroup;

@@ -1,4 +1,6 @@
-import getPageType from '../../../../../../../components/features/LN-10-global/common/schemas/schemaPageView/_helper';
+import getPageType, {
+    getObjectSchema
+} from '../../../../../../../components/features/LN-10-global/common/schemas/schemaPageView/_helper';
 
 describe('getPageType', () => {
     it('should return "home" if isHomeLN10 returns true', () => {
@@ -29,5 +31,30 @@ describe('getPageType', () => {
     it('should return "receta" if layout is "LN-nota-receta"', () => {
         const result = getPageType('LN-nota-receta', '/recetas');
         expect(result).toBe('receta');
+    });
+});
+
+describe('getObjectSchema', () => {
+    it('should set valor to "comun" if content_restrictions.content_code does not exist', () => {
+        const globalContent = {
+            _id: '123',
+            subtype: '1',
+            isListenable: false
+        };
+        const schema = getObjectSchema(globalContent, 'nota');
+        expect(schema.nota.valor).toBe('comun');
+    });
+
+    it('should set valor to content_code if it exists', () => {
+        const globalContent = {
+            _id: '123',
+            subtype: '1',
+            isListenable: false,
+            content_restrictions: {
+                content_code: 'cerrada'
+            }
+        };
+        const schema = getObjectSchema(globalContent, 'nota');
+        expect(schema.nota.valor).toBe('cerrada');
     });
 });

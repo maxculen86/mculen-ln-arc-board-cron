@@ -19,6 +19,7 @@ import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../../private/common/auth/helper/loginHelper';
+import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -31,7 +32,10 @@ function BaseLayout({ children }) {
     const { layoutsName } = siteProperties || {};
 
     const classNameMain = cx('container flex flex-column gap-40', {
-        'pb-64': layoutsName.FooditRecipePaywall !== layout
+        'pb-64': ![
+            layoutsName.FooditRecipePaywall,
+            layoutsName.FooditNotePaywall
+        ].includes(layout)
     });
 
     const wrapperClass = cx('wrapper overflow-x-clip roboto', {
@@ -53,10 +57,15 @@ function BaseLayout({ children }) {
             <div className={wrapperClass}>
                 <Header layout={layout} layoutsName={layoutsName} />
                 <div className="header-sentinel" />
-                <DrawerMyAccount />
+                <DrawerMyAccount arcSite={arcSite} deployment={deployment} />
                 <main className={classNameMain}>{children}</main>
                 <Static id="footer-static">
-                    <Footer />
+                    <Footer
+                        contextPath={contextPath}
+                        deployment={deployment}
+                        layout={layout}
+                        siteProperties={siteProperties}
+                    />
                 </Static>
                 <DataLayerInteractions />
                 <Modal />
@@ -66,6 +75,11 @@ function BaseLayout({ children }) {
                         {...getConfigByLayout(layout, [toggleRecetarioDrawer])}
                     />
                 )}
+                <PwaInstallPrompt
+                    deployment={deployment}
+                    arcSite={arcSite}
+                    variant="snackBarDefault"
+                />
             </div>
         </AuthInitializer>
     );

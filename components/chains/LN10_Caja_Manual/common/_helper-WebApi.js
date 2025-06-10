@@ -49,9 +49,11 @@ const validateCajaManual = ({
                       'Solo se permite un feature de video en esta diagramación'
               },
               {
-                  validation: articles.length < 3,
-                  message: `Faltan ${3 - articles.length} artículo${
-                      3 - articles.length > 1 ? 's' : ''
+                  validation: articles.length < minimum - videos.length,
+                  message: `Faltan ${
+                      minimum - videos.length - articles.length
+                  } artículo${
+                      minimum - videos.length - articles.length > 1 ? 's' : ''
                   } para completar la diagramación`
               }
           ]

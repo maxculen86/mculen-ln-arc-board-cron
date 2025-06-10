@@ -106,34 +106,107 @@ export const handleIngredientListButton = async ({
     }
 };
 
+const parseFraction = value => {
+    if (!value) return 0;
+
+    const str = value.toString().trim();
+    const normalNumber = parseFloat(str);
+
+    if (!Number.isNaN(normalNumber) && !str.includes('/')) {
+        return normalNumber;
+    }
+
+    if (str.includes('/')) {
+        const parts = str.split(' ');
+        let wholeNumber = 0;
+        let fractionPart = str;
+
+        if (parts.length === 2) {
+            [wholeNumber, fractionPart] = [parseFloat(parts[0]) || 0, parts[1]];
+        }
+
+        const [numerator, denominator] = fractionPart.split('/');
+        if (numerator && denominator) {
+            const num = parseFloat(numerator) || 0;
+            const den = parseFloat(denominator) || 1;
+            return wholeNumber + num / den;
+        }
+    }
+
+    return 0;
+};
+
+const formatToFraction = decimal => {
+    if (decimal === 0) return '0';
+
+    if (decimal === Math.floor(decimal)) {
+        return decimal.toString();
+    }
+
+    const wholeNumber = Math.floor(decimal);
+    const decimalPart = decimal - wholeNumber;
+
+    const fractions = [
+        { decimal: 0.25, fraction: '1/4' },
+        { decimal: 0.5, fraction: '1/2' },
+        { decimal: 0.75, fraction: '3/4' }
+    ];
+
+    const match = fractions.find(
+        ({ decimal: decValue }) => Math.abs(decimalPart - decValue) < 0.001
+    );
+    if (match) {
+        return wholeNumber > 0
+            ? `${wholeNumber} ${match.fraction}`
+            : match.fraction;
+    }
+
+    return decimal.toFixed(1);
+};
+
+const parseNumericParam = (value, defaultValue = 0) => {
+    const parsed = parseFloat(value);
+    return Number.isNaN(parsed) ? defaultValue : parsed;
+};
+
 export function modifyPortionsQuantity({
     ingredientsArray = [],
     currentPortion = 0,
     defaultPortion = 1
 }) {
-    const roundTo = 0.5;
+    const ROUND_TO = 0.5;
+
+    const validCurrentPortion = parseNumericParam(currentPortion, 0);
+    const validDefaultPortion = parseNumericParam(defaultPortion, 1);
 
     return ingredientsArray?.map(list => ({
         ...list,
         items: list?.items?.map(item => {
-            const { amount, abbreviation, ingredient, fullIngredientString } =
-                item || {};
-            const originalAmount = parseFloat(amount) || 0;
+            const {
+                amount,
+                abbreviation = '',
+                ingredient = '',
+                fullIngredientString
+            } = item || {};
 
+            const originalAmount = parseFraction(amount);
             const newAmount =
-                (currentPortion * originalAmount) / defaultPortion;
-            const roundedAmount = Math.round(newAmount / roundTo) * roundTo;
-            const quantityNumber = `${roundedAmount === Math.floor(roundedAmount) ? roundedAmount : roundedAmount.toFixed(1)}`;
-            const fullText = `${abbreviation} de ${ingredient}`;
+                (validCurrentPortion * originalAmount) / validDefaultPortion;
+            const roundedAmount = Math.round(newAmount / ROUND_TO) * ROUND_TO;
 
-            const fullIngredientStringUpdated = `${String(Number(quantityNumber) || '')} ${fullText}`;
+            const safeAmount = Number.isNaN(roundedAmount) ? 0 : roundedAmount;
+
+            const formattedQuantity = formatToFraction(safeAmount);
+            const fullText = `${abbreviation} de ${ingredient}`;
+            const updatedIngredientString = `${formattedQuantity} ${fullText}`;
 
             return {
                 ...item,
-                amount: roundedAmount,
-                fullIngredientString: amount
-                    ? fullIngredientStringUpdated
-                    : fullIngredientString
+                amount: safeAmount,
+                fullIngredientString:
+                    amount && safeAmount > 0
+                        ? updatedIngredientString
+                        : fullIngredientString
             };
         })
     }));

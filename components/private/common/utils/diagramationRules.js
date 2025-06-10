@@ -407,6 +407,83 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             }
         ],
+        bn_player_4_grid: [
+            {
+                type: 'T1'
+            },
+            {
+                type: 'T2',
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.L,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: true,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.L,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T4',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.L,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T5',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.L,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            }
+        ],
 
         'bn-opening-4': [
             {

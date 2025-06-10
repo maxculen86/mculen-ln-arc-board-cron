@@ -53,7 +53,8 @@ export default {
         Video: 'LN-nota-video',
         HtmlLibre: 'LN-nota-html-libre',
         Infografia: 'LN-nota-infografia',
-        Receta: 'LN-nota-receta'
+        Receta: 'LN-nota-receta',
+        LiveBlog: 'LN-Nota-Liveblog_Editorial'
     },
     notRecommendedSections: ['recetas']
 };

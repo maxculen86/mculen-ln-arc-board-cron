@@ -1,7 +1,8 @@
 import nodeFetch from 'node-fetch';
 import liveblogAuthorSource from '../../../content/sources/liveblogAuthorSource';
-import { handleHttpError } from '../../../components/private/common/utils/handleHttpError';
 import logger from '../../../components/private/common/utils/logger';
+import { resizeImgUrl } from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
+import { signingServiceCachedCall } from '../../../content/sources/utils/signingServiceSource/getImagesAuth';
 
 jest.mock('node-fetch');
 jest.mock('../../../components/private/common/utils/handleHttpError');
@@ -9,8 +10,21 @@ jest.mock('../../../components/private/common/utils/logger');
 jest.mock('fusion:environment', () => ({
     CONTENT_BASE: 'https://api.sandbox.lanacionar.arcpublishing.com'
 }));
+jest.mock(
+    '../../../content/sources/utils/signingServiceSource/getImagesAuth',
+    () => ({
+        signingServiceCachedCall: jest.fn()
+    })
+);
 
-const mockResponse = {
+jest.mock(
+    '../../../components/private/common/utils/image/resizer/v2/resizerHelper',
+    () => ({
+        resizeImgUrl: jest.fn()
+    })
+);
+
+const mockAuthorsResponse = {
     authors: [
         {
             _id: 'micaela-palomo-2022',
@@ -92,38 +106,55 @@ const mockResponse = {
             education: [],
             awards: []
         }
-    ],
-    more: false,
-    _id: '29f788a5ec20aa3c54cfcf2364417bd95967c5e4db59028b9ce3af918b4adc1d'
+    ]
 };
 
 describe('liveblogAuthorSource.fetch', () => {
-    it('should return authors when authorName is "micaela"', async () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
         nodeFetch.mockResolvedValue({
             ok: true,
-            json: async () => mockResponse
+            json: async () => mockAuthorsResponse
         });
 
-        const result = await liveblogAuthorSource.fetch({
-            authorName: 'micaela'
-        });
+        signingServiceCachedCall.mockResolvedValue({ hash: 'mockedHash' });
 
-        expect(handleHttpError).toHaveBeenCalled();
-        expect(result).toEqual(mockResponse);
+        resizeImgUrl.mockImplementation(({ arcImage }) => {
+            return `https://sandbox-resizer.glanacion.com/resizer/v2/${encodeURIComponent(
+                arcImage.url
+            )}?auth=${arcImage.auth[1]}&width=280&quality=70&smart=false`;
+        });
     });
 
-    it('should log an error and return undefined on fetch failure', async () => {
-        const error = new Error('Network error');
-        nodeFetch.mockRejectedValue(error);
+    it('should return a transformed list of authors', async () => {
+        const result = await liveblogAuthorSource.fetch(
+            { authorName: 'micaela' },
+            { cachedCall: jest.fn() }
+        );
 
-        const result = await liveblogAuthorSource.fetch({
-            authorName: 'micaela'
-        });
+        expect(result).toHaveLength(4);
+        expect(result[0].byline).toBe('Micaela Palomo');
+        expect(result[1].image).toContain(
+            'sandbox-resizer.glanacion.com/resizer/v2/'
+        );
+        expect(resizeImgUrl).toHaveBeenCalled();
+    });
+
+    it('should log error and return undefined on failure', async () => {
+        nodeFetch.mockRejectedValue(new Error('Failed fetch'));
+
+        const result = await liveblogAuthorSource.fetch(
+            { authorName: 'micaela' },
+            { cachedCall: jest.fn() }
+        );
 
         expect(logger.push).toHaveBeenCalledWith(
-            error,
+            expect.any(Error),
             expect.objectContaining({
-                source: expect.stringContaining('liveblogAuthorSource')
+                source: 'content/sources/liveblogAuthorSource',
+                url: expect.stringContaining(
+                    '/author/v2/author-service?byline=micaela'
+                )
             })
         );
         expect(result).toBeUndefined();

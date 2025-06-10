@@ -24,17 +24,14 @@ function SingWall() {
                             as="h2"
                             className="prumo prumo-semibold text-light-800 text-28 text-36_md text-40_lg"
                         >
-                            Suscribite para ver todas las recetas de forma
-                            ilimitada.
-                            <span className="block">$500/mes por 6 meses</span>
+                            Este contenido es exclusivo para suscriptores.
                         </Text>
                         <Text
                             as="p"
                             className="prumo text-light-600 promo-medium text-20"
                         >
-                            Además podrás armar tu recetario y listas de
-                            compras, acceder a Masterclass con chefs referentes
-                            y guías de cocina.
+                            Suscribite a Foodit para ingresar y accedé a miles
+                            de ideas para cocinar mejor.
                         </Text>
                     </div>
                 </Static>

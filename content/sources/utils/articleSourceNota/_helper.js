@@ -16,6 +16,7 @@ import isNoteListenable from '../audioNews/helper';
 import {
     FOTOAL100,
     isFotoAl100orStorytelling,
+    LIVEBLOG_EDITORIAL,
     RECETA,
     STORYTELLING,
     translateStringFromSubitypeToID
@@ -301,11 +302,19 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
             'imageConfig.resize.fotoAl100.content_elements',
             null
         );
+    const presetsPromoItemLiveblogEditorial =
+        response.subtype === LIVEBLOG_EDITORIAL &&
+        get(
+            siteProperties,
+            'imageConfig.resize.liveblogEditorial.promo_items',
+            null
+        );
     const presetsPromoItems = get(
         siteProperties,
         'imageConfig.resize.l.promo_items',
         null
     );
+
     const presetsContentElements = get(
         siteProperties,
         'imageConfig.resize.l.content_elements',
@@ -322,6 +331,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
             promoItems:
                 presetsPromoItemsCustom ||
                 presetsPromoItemsFotoAl100 ||
+                presetsPromoItemLiveblogEditorial ||
                 presetsPromoItemsVideo ||
                 presetsPromoItems ||
                 presetsDefault,

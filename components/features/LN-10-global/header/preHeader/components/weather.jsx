@@ -20,17 +20,13 @@ function Weather({ weatherData }) {
             title="Clima"
         >
             <div className="ln-weather flex ai-center jc-start w-max text-black">
-                <Text
-                    className="place mr-8 text-light-800"
-                    size="xs"
-                    text={place}
-                />
+                <Text className="place mr-8 text-light-800 text-14">
+                    {place}
+                </Text>
                 <Icon size={16} className="mr-4">
                     {icon}
                 </Icon>
-                <Text size="xs" weight="bold">
-                    {temperature}
-                </Text>
+                <Text className="text-14 font-bold">{temperature}</Text>
             </div>
         </Link>
     );

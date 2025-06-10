@@ -25,7 +25,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://club.lanacion.com.ar/"
                     rel="nofollow"
@@ -50,7 +50,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://lnmas.lanacion.com.ar/"
                     rel="nofollow"
@@ -75,7 +75,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://foodit.lanacion.com.ar/"
                     rel="nofollow"
@@ -100,7 +100,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://canchallena.lanacion.com.ar/"
                     rel="nofollow"
@@ -125,7 +125,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://bonvivir.com/"
                     rel="nofollow"
@@ -150,7 +150,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default If 
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://masmusica.lanacion.com.ar/"
                     rel="nofollow"
@@ -207,7 +207,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
           class="ln-weather flex ai-center jc-start w-max text-black"
         >
           <span
-            class="text ln-text place mr-8 text-light-800 --font-xs"
+            class="text ln-text place mr-8 text-light-800 text-14"
           >
             Capital Federal
           </span>
@@ -220,7 +220,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
             />
           </i>
           <span
-            class="text ln-text --font-bold --font-xs"
+            class="text ln-text text-14 font-bold"
           >
             24.5
           </span>
@@ -239,7 +239,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                 data-event="e_linkclick"
                 href="https://club.lanacion.com.ar/"
                 rel="nofollow"
@@ -264,7 +264,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                 data-event="e_linkclick"
                 href="https://lnmas.lanacion.com.ar/"
                 rel="nofollow"
@@ -289,7 +289,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                 data-event="e_linkclick"
                 href="https://foodit.lanacion.com.ar/"
                 rel="nofollow"
@@ -314,7 +314,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                 data-event="e_linkclick"
                 href="https://canchallena.lanacion.com.ar/"
                 rel="nofollow"
@@ -339,7 +339,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                 data-event="e_linkclick"
                 href="https://bonvivir.com/"
                 rel="nofollow"
@@ -364,7 +364,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
               class="w-max flex ai-center text-neutral-light-800"
             >
               <a
-                class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                 data-event="e_linkclick"
                 href="https://masmusica.lanacion.com.ar/"
                 rel="nofollow"
@@ -418,7 +418,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://club.lanacion.com.ar/"
                     rel="nofollow"
@@ -443,7 +443,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://lnmas.lanacion.com.ar/"
                     rel="nofollow"
@@ -468,7 +468,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://foodit.lanacion.com.ar/"
                     rel="nofollow"
@@ -493,7 +493,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://canchallena.lanacion.com.ar/"
                     rel="nofollow"
@@ -518,7 +518,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://bonvivir.com/"
                     rel="nofollow"
@@ -543,7 +543,7 @@ exports[`Components - Features - LN-10-global - header - preHeader - default sho
                   class="w-max flex ai-center text-neutral-light-800"
                 >
                   <a
-                    class="link ln-link flex gap-8 uppercase ai-center --font-xs --unstyled"
+                    class="link ln-link flex gap-8 uppercase ai-center text-12 --unstyled"
                     data-event="e_linkclick"
                     href="https://masmusica.lanacion.com.ar/"
                     rel="nofollow"

@@ -1088,5 +1088,32 @@
                 "imagePosition": "Right"
             }
         }
+    ],
+    "bn_player_4_grid": [
+        {
+            "variants": [
+                "regular"
+            ],
+            "T1": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Right"
+            }
+        }
     ]
 }

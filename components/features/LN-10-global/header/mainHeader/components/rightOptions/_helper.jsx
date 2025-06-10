@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import classNames from 'classnames';
 
@@ -17,22 +18,13 @@ export const termicaValuesSubscribe = [
     'tooltip_text'
 ];
 
-export const getClassNameButtonSubscribe = ({
-    class_tooltip,
-    isHome,
-    negative
-}) => ({
-    tooltipClassName: classNames(
-        !isHome && 'none',
-        '--mobile-none',
-        class_tooltip
-    ),
+export const getClassNameButtonSubscribe = ({ class_tooltip, negative }) => ({
+    tooltipClassName: classNames('--mobile-none', class_tooltip),
     subscribeButtonClassName: classNames('relative text-neutral-light-800', {
         '--negative': negative
     })
 });
 
-// eslint-disable-next-line react/prop-types
 function TextButton({ sticky, isHome, stickyButtonText, buttonText }) {
     return sticky || !isHome ? (
         <span
@@ -53,7 +45,6 @@ function TextButton({ sticky, isHome, stickyButtonText, buttonText }) {
     );
 }
 
-// eslint-disable-next-line react/prop-types, prettier/prettier
 export function FallBackTextButton({
     buttonText,
     isHome,

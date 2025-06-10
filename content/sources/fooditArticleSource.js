@@ -5,8 +5,11 @@ import logger from '../../components/private/common/utils/logger';
 import { setRedirect } from './utils/articleSourceNota/_helper';
 import fooditBaseArticleSource from './fooditBaseArticleSource';
 import filter from '../filters/foodit/article/articleFilterNota';
-import { RECETA } from '../../components/private/common/utils/subtypes/subtypeHelper';
-import { recipePaywallConfigCallbackContentElements } from './utils/fooditSources/fooditArticleSource/_configs';
+import {
+    RECETA,
+    STORYTELLING
+} from '../../components/private/common/utils/subtypes/subtypeHelper';
+import { paywallSoftConfigCallbackContentElements } from './utils/fooditSources/fooditArticleSource/_configs';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
@@ -23,11 +26,13 @@ const fetch = (query, { cachedCall } = {}) => {
             );
 
             const isReceta = get(response, 'subtype', null) === RECETA;
+            const isNote = get(response, 'subtype', null) === STORYTELLING;
+
             const isPaywallSoftEnabled =
                 get(query, 'paywallSoftEnabled') === '1';
 
             const isExclusiveSuscriptor =
-                isReceta &&
+                (isReceta || isNote) &&
                 isPaywallSoftEnabled &&
                 get(query, 'meteringVariant') !== 'S' &&
                 get(response, 'content_restrictions.content_code') ===
@@ -37,11 +42,11 @@ const fetch = (query, { cachedCall } = {}) => {
                 ? {
                       isExclusiveSuscriptor,
                       customConfigCallbackContentElements:
-                          recipePaywallConfigCallbackContentElements
+                          paywallSoftConfigCallbackContentElements
                   }
                 : {};
 
-            if (!isReceta || !isPaywallSoftEnabled)
+            if (!(isReceta || isNote) || !isPaywallSoftEnabled)
                 setRedirect({
                     response,
                     query,

@@ -30,8 +30,7 @@ function Brands({ brandsData }) {
                                     key={title}
                                 >
                                     <Link
-                                        className="flex gap-8 uppercase ai-center"
-                                        size="xs"
+                                        className="flex gap-8 uppercase ai-center text-12"
                                         href={link}
                                         title={relTitle}
                                         data-event={dataEvent}
