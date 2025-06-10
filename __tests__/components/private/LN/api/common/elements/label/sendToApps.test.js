@@ -1,4 +1,5 @@
 import sentToApps from '../../../../../../../../components/private/LN/api/common/elements/label/sentToApps';
+import { LIVEBLOG_EDITORIAL } from '../../../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('components - private - LN - api - common - elements - label - sendToApps', () => {
     describe('sentToApps function test', () => {
@@ -46,6 +47,20 @@ describe('components - private - LN - api - common - elements - label - sendToAp
                 label: {
                     enviar_a_apps: {
                         text: 'Browser'
+                    }
+                }
+            };
+
+            const result = sentToApps(element);
+            expect(result).toBe(false);
+        });
+        it('sentToApps should return false when subtype is LIVEBLOG_EDITORIAL', () => {
+            const element = {
+                _id: 'JOLGEOYSHFAURFYQ3ZPRAKROM4',
+                subtype: LIVEBLOG_EDITORIAL,
+                label: {
+                    enviar_a_apps: {
+                        text: 'Si'
                     }
                 }
             };
