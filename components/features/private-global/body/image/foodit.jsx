@@ -103,7 +103,6 @@ export function Image({ data = {}, contentElements = [] }) {
         >
             <FooditImage
                 className={imageConfig.className}
-                style={imageConfig.style || {}}
                 src={imageSrc}
                 alt={imageAlt}
                 fetchPriority="low"
