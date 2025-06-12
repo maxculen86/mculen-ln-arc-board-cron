@@ -77,9 +77,7 @@ export function PowerupsReceta({ article = {} }) {
                     showButtonsConversor={showButtonsConversor}
                 />
                 <Static htmlOnly persistent id={`adintional-info-${_id}`}>
-                    <hr />
                     <MoreInfo />
-                    <hr />
                     <Nutritional nutritionLists={nutritionLists} />
                 </Static>
                 <Tags items={tags} />
