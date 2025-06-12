@@ -25,8 +25,12 @@ import { LAYOUTS, setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 
-const { BN_6_GRID_MAS_TIMELINE, BN_PLAYER_1_MAS_3, BN_PLAYER_1_MAS_4 } =
-    LAYOUTS;
+const {
+    BN_6_GRID_MAS_TIMELINE,
+    BN_PLAYER_1_MAS_3,
+    BN_PLAYER_1_MAS_4,
+    BN_PLAYER_HORIZONTAL
+} = LAYOUTS;
 
 function CajaManual(props) {
     const {
@@ -47,7 +51,11 @@ function CajaManual(props) {
     } = customFields;
 
     const isGrid6MasTimeline = layout === BN_6_GRID_MAS_TIMELINE;
-    const isBnPlayer = [BN_PLAYER_1_MAS_3, BN_PLAYER_1_MAS_4].includes(layout);
+    const isBnPlayer = [
+        BN_PLAYER_1_MAS_3,
+        BN_PLAYER_1_MAS_4,
+        BN_PLAYER_HORIZONTAL
+    ].includes(layout);
 
     const { position, positionInsideSection } = getCommonProps(props);
 

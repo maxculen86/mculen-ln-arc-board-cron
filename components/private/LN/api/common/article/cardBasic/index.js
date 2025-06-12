@@ -58,13 +58,18 @@ export const CardBasic = article => {
             get(article, 'additionalProperties.lead', null),
         autores,
         authors: autores,
-        marquesina: distributorOrAuthorSignature(distributor, autores, signature),
+        marquesina: distributorOrAuthorSignature(
+            distributor,
+            autores,
+            signature
+        ),
         seccionPadre: getArticleOpinionSubtype(article),
         opinion: get(article, 'additionalProperties.opinion', false),
         enviarApps,
         fechaPublicacion: getLastPublishDate(article),
         openingMode,
-        distributor
+        distributor,
+        videoData: article.videoData
     };
 };
 

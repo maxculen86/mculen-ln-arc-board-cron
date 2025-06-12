@@ -126,7 +126,11 @@ export const getCardConfig = (
 };
 
 export const isBnPlayerDiagramation = config => {
-    const validLayouts = ['bn_player_3_grid', 'bn_player_4_grid'];
+    const validLayouts = [
+        'bn_player_3_grid',
+        'bn_player_4_grid',
+        'bn_player_horizontal'
+    ];
     const layout = get(config, 'props.customFields.layout', '');
     return validLayouts.includes(layout);
 };
@@ -137,7 +141,9 @@ export const reorderArticlePositionForVideo = (chainConfig = {}) => {
     if (isBnPlayer) {
         const children = get(chainConfig, 'children', []);
         const modifiedChildren = children.reduce((acc, child) => {
-            const isVideoFeature = child.type === 'LN-10/videoPlayer';
+            const isVideoFeature =
+                child.type === 'LN-10/videoPlayer' ||
+                child.type === 'LN-10/videoPlayerNota';
 
             if (isVideoFeature) {
                 acc.unshift(child);
@@ -240,7 +246,9 @@ export const validateArticleFeature = ({
         {
             validation:
                 filesize &&
-                !['grilla1', 'grillaVideo1'].includes(layout) &&
+                !['grilla1', 'grillaVideo1', 'bn_player_horizontal'].includes(
+                    layout
+                ) &&
                 filesize > maxVideoSize,
             message: `El tamaño del video debe ser inferior a 3 MB. Peso actual ${(
                 filesize / oneMegabyte
