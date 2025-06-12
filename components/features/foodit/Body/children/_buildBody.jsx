@@ -17,7 +17,8 @@ const setDataComponent = ({
     subtype,
     articleSubtype,
     hasConsecutiveImages,
-    images
+    images,
+    contentElements
 }) => {
     if (hasConsecutiveImages && images) {
         return (
@@ -43,6 +44,7 @@ const setDataComponent = ({
         <Component
             key={`body-${currentIndex}`}
             data={element}
+            contentElements={contentElements}
             outputType="foodit"
             {...(extraProps[type] || extraProps[subtype] || {})}
         />
@@ -97,7 +99,8 @@ const buildBody = ({ globalContent = {} }) => {
                     subtype,
                     articleSubtype,
                     hasConsecutiveImages: true,
-                    images: [element, nextElement]
+                    images: [element, nextElement],
+                    contentElements
                 });
             }
         }
@@ -117,7 +120,8 @@ const buildBody = ({ globalContent = {} }) => {
                   type,
                   subtype,
                   articleSubtype,
-                  hasConsecutiveImages: false
+                  hasConsecutiveImages: false,
+                  contentElements
               })
             : null;
     });
