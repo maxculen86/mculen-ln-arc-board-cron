@@ -7,6 +7,7 @@ import ShoppingList from '../../../../../../components/features/foodit-global/co
 import { useShoppingList } from '../../../../../../components/features/foodit-global/common/shoppingList/hooks/useShoppingList';
 import getToken from '../../../../../../components/private/common/utils/getToken';
 import shoppingList from '../../../../../../__mocks__/data/fooditShoppingList/shoppingList.json';
+import { SkeletonShoppingList } from '../../../../../../components/features/foodit-global/common/skeletons/ShoppingList/foodit';
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -73,5 +74,15 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
         }));
         const { getAllByText } = render(<ShoppingList />);
         expect(getAllByText('Receta empanada de cazon').length).toBe(1);
+    });
+    it('Should render SkeletonShoppingList component', () => {
+        const { getByTestId } = render(<SkeletonShoppingList />);
+        expect(getByTestId('skeleton-shopping-list')).toBeInTheDocument();
+    });
+
+    it('Should render one main skeleton list container and five item skeletons', () => {
+        const { container } = render(<SkeletonShoppingList />);
+        const skeletons = container.querySelectorAll('.mt-24.rounded-4');
+        expect(skeletons.length).toBe(6);
     });
 });

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Spinner } from '@ln/foodit-ui-spinner';
 import { useShoppingList } from './hooks/useShoppingList';
 import { getVariantBarrier } from '../emptyState/helpers';
 import EmptyState from '../emptyState/foodit';
 import { ModalRemoveIngredient } from '../Modals/RemoveIngredients/foodit';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import TabIngredients from '../ingredientsList/components/TabIngredients';
+import { SkeletonShoppingList } from '../skeletons/ShoppingList/foodit';
 
 function ShoppingList() {
     const { loading, shoppingList, setShoppingList } = useShoppingList();
@@ -24,12 +24,7 @@ function ShoppingList() {
     if (selectedItem.id !== 'Todas' && !selectedArticle)
         setSelectedItem({ id: 'Todas' });
 
-    if (loading)
-        return (
-            <div className="min-h-344 flex jc-center ai-center">
-                <Spinner variant="secondary" />
-            </div>
-        );
+    if (loading) return <SkeletonShoppingList />;
 
     if (!shoppingList.length)
         return (
