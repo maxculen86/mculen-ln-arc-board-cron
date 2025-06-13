@@ -242,7 +242,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             const result = configClassName['la-nacion-ar'].horizontal;
 
             expect(result).toEqual({
-                container: 'content-media cursor-pointer',
+                container: 'content-media cursor-pointer container-center-100',
                 mediaContainer: 'mod-media ratio-16-9',
                 videoContainer: 'mod-video',
                 videoPlayer: 'video-player bg-black ratio-16-9',

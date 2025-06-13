@@ -6,14 +6,17 @@ import ModParagraph from '../../../common/mod-paragraph';
 import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import '../../../../../resources/dist/css/ln/components/blockquote.css';
 
-const blockQuote = ({
+function blockQuote({
     data: { content_elements: contentElements = [], subtype }
-}) => {
-    const { content, items, list_type: listType } =
-        contentElements.length === 0 ? {} : contentElements[0];
+}) {
+    const {
+        content,
+        items,
+        list_type: listType
+    } = contentElements.length === 0 ? {} : contentElements[0];
 
     return (content || items) && subtype === 'blockquote' ? (
-        <ModParagraph>
+        <ModParagraph classCondition="container-center-100">
             {content && (
                 <Paragraph
                     size="--l"
@@ -25,10 +28,8 @@ const blockQuote = ({
                 <ListOrderedOrUnordered data={{ items, list_type: listType }} />
             )}
         </ModParagraph>
-    ) : (
-        <></>
-    );
-};
+    ) : null;
+}
 
 blockQuote.arcType = 'blockquote';
 blockQuote.isStatic = true;
