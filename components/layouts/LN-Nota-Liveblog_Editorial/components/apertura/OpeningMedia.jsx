@@ -11,7 +11,10 @@ function OpeningMedia({ data }) {
 
     return (
         <div className="grid-col-7-13_md grid-col-6-13_md grid-col-8-17_lg grid-row-1_md">
-            <div className="h-100 flex flex-column jc-center">
+            <div
+                className="h-100 flex flex-column jc-center"
+                id="liveBlog-opening-media"
+            >
                 {mediaItem}
                 <OpeningEpigraph
                     variant="desktop"

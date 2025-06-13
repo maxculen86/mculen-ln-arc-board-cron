@@ -104,7 +104,7 @@ const getElementsWithHtmlPromoItems = (
 const storyBody = (dataNota, storyBodyElements) => {
     const { _id } = dataNota || {};
     const subtype = get(dataNota, 'subtype', '');
-
+    const url = get(dataNota, 'canonical_url', null);
     if (!subtype) throw Error('The story does not have subtype');
 
     const elementBySubtype = getStoryElementBySubtype(storyBodyElements);
@@ -135,7 +135,12 @@ const storyBody = (dataNota, storyBodyElements) => {
           }
         : {
               idsElements,
-              elements: defaultCuerpo(contentElements, elementBySubtype[1], _id)
+              elements: defaultCuerpo(
+                  contentElements,
+                  elementBySubtype[1],
+                  _id,
+                  url
+              )
           };
 };
 

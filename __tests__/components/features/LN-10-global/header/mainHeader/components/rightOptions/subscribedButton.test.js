@@ -59,7 +59,8 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
     it('should render a Tooltip component when the termicaSubscribe is true, and fields: "tooltip_text", "class_tooltip" are provided by siteService', () => {
         useTermica.mockImplementation(() => true);
         useHeaderContext.mockImplementation(() => ({
-            userType: 'unlogged'
+            userType: 'unlogged',
+            isHome: true
         }));
 
         useContext.mockReturnValue({
@@ -80,6 +81,32 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         );
         const tooltip = getByText(tooltip_text);
         expect(tooltip.parentNode).toHaveClass(class_tooltip);
+    });
+
+    it('should not render a Tooltip component when the termicaSubscribe is false and prop isHome is false', () => {
+        useTermica.mockImplementation(() => false);
+        useHeaderContext.mockImplementation(() => ({
+            userType: 'unlogged',
+            isHome: false
+        }));
+
+        useContext.mockReturnValue({
+            state: {
+                siteService: {
+                    termicas: [
+                        { key: 'tooltip_text', value: 'TooltipText' },
+                        { key: 'class_tooltip', value: 'TooltipClass' }
+                    ]
+                }
+            }
+        });
+
+        const { queryByText } = render(<SubscribeButton />);
+
+        const { tooltip_text } = getTermicaValues(termicaValuesSubscribe);
+        const tooltip = queryByText(tooltip_text);
+
+        expect(tooltip).toBeNull();
     });
 
     it('should render a fallback <span> when termicaSubscribe is true, and the field "button_text" provided by siteService is empty', () => {

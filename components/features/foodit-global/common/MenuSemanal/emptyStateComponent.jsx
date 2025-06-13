@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spinner } from '@ln/foodit-ui-spinner';
 import EmptyState from '../emptyState/foodit';
 import { getVariantBarrier } from '../emptyState/helpers';
+import { SkeletonMenuSemanal } from '../skeletons/MenuSemanal/foodit';
 
 export function EmptyStateComponent({ userType }) {
     const isLoading = userType === 'loading';
@@ -10,7 +10,7 @@ export function EmptyStateComponent({ userType }) {
     return (
         <div className="flex jc-center ai-center min-h-344">
             {isLoading ? (
-                <Spinner variant="secondary" />
+                <SkeletonMenuSemanal />
             ) : (
                 <EmptyState
                     variant={getVariantBarrier(userType)}
