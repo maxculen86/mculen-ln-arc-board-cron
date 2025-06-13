@@ -1,5 +1,6 @@
-import { SITE_FOODIT } from 'fusion:environment';
 import removeAccents from '../../../../private/common/utils/removeAccents';
+
+const RANDOM_SUFFIX_PATTERN = /-[a-z0-9]{6,}$/i;
 
 export const TRANSLATE_LAYOUTS = {
     'Foodit-home': 'home',
@@ -46,15 +47,21 @@ export const cleanUrl = url => {
         const urlObj = new URL(url);
         let pathname = urlObj.pathname.replace(/\/$/, '');
 
-        pathname = pathname.replace(/-[a-z0-9]{6,}$/i, '');
+        pathname = pathname.replace(RANDOM_SUFFIX_PATTERN, '');
 
         return `${urlObj.protocol}//${urlObj.host}${pathname}`;
     } catch (error) {
+        console.error('Error cleaning URL:', error);
         return url.split('?')[0].split('#')[0].replace(/\/$/, '');
     }
 };
 
-export const processUriParams = requestUri => {
+export const cleanSection = section => {
+    if (!section) return '';
+    return section.replace(RANDOM_SUFFIX_PATTERN, '');
+};
+
+export const processUriParams = (requestUri, siteUrl = '') => {
     if (!requestUri) {
         return {
             params: '',
@@ -75,10 +82,14 @@ export const processUriParams = requestUri => {
             .split('/')
             .filter(Boolean);
 
-    const [firstSection = '', secondSection = '', thirdSection = ''] =
+    const [rawFirstSection = '', rawSecondSection = '', rawThirdSection = ''] =
         sections || [];
 
-    const originalUrl = `${SITE_FOODIT}${params}`;
+    const firstSection = rawFirstSection;
+    const secondSection = cleanSection(rawSecondSection);
+    const thirdSection = rawThirdSection;
+
+    const originalUrl = siteUrl ? `${siteUrl}${params}` : params;
     const cleanedUrl = cleanUrl(originalUrl);
 
     return {
@@ -87,6 +98,11 @@ export const processUriParams = requestUri => {
         secondSection,
         thirdSection,
         originalUrl,
-        cleanedUrl
+        cleanedUrl,
+        rawSections: {
+            first: rawFirstSection,
+            second: rawSecondSection,
+            third: rawThirdSection
+        }
     };
 };

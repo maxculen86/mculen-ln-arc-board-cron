@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { register } from '../../../LN-10-global/pwaModal/register/serviceWorkerUtils';
 import { PromoteInstallation } from '../PromoteInstallation/foodit';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 function PwaInstallPrompt({ deployment, arcSite, variant }) {
     const [deferredPrompt, setDeferredPrompt] = useState(null);
     const [showInstallButton, setShowInstallButton] = useState(false);
+    const { isSubscribed } = useGetUserConfig();
     /*     const [showIosTip, setShowIosTip] = useState(false); */
 
     useEffect(() => {
@@ -51,7 +53,7 @@ function PwaInstallPrompt({ deployment, arcSite, variant }) {
 
     return (
         <>
-            {showInstallButton && (
+            {showInstallButton && isSubscribed && (
                 <PromoteInstallation
                     onClick={handleInstallClick}
                     variant={variant}
