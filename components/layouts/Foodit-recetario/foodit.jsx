@@ -11,7 +11,7 @@ const pageBuilderSections = ['Apertura', 'Bloque-1'];
 function RecetarioFoodit() {
     return (
         <BaseLayout>
-            <div className="flex flex-column gap-32">
+            <div className="flex flex-column gap-32 min-h-50dvh">
                 <Static htmlOnly persistent id="recetario-foodit-header">
                     <section className="flex flex-column gap-24">
                         <BreadcrumbCustomFoodit

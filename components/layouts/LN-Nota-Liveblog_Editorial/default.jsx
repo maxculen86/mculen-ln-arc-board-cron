@@ -19,7 +19,8 @@ const pageBuilderSections = [
     'Apertura',
     'Cuerpo',
     'Tercera',
-    'Bottom'
+    'Bottom',
+    'Bottom-Tercera'
 ];
 
 LnNotaLiveblogEditorial.sections = pageBuilderSections;

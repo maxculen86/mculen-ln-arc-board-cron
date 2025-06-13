@@ -34,6 +34,9 @@ export function SubscribeButton() {
             isHome,
             negative
         });
+    const shouldShowTooltip = Boolean(
+        termicaSubscribe && tooltipText && isHome
+    );
 
     if (userType === 'subscribed' || !hasSubscribeButton) return null;
     return (
@@ -55,7 +58,7 @@ export function SubscribeButton() {
                 });
             }}
         >
-            {termicaSubscribe && tooltipText && (
+            {shouldShowTooltip && (
                 <Tooltip className={tooltipClassName} text={tooltipText} />
             )}
             <Icon size={16} className="--mobile-none">

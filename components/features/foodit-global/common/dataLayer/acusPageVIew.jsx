@@ -1,12 +1,13 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
+import { SITE_FOODIT } from 'fusion:environment';
 import { DESCUBRIR_SECTIONS, processUriParams } from './_helpers';
 
 function AcusPageView() {
     const { contextPath, deployment, requestUri = '' } = useAppContext();
 
     const { firstSection, secondSection, thirdSection, cleanedUrl } =
-        processUriParams(requestUri);
+        processUriParams(requestUri, SITE_FOODIT);
 
     const isDescubrir = DESCUBRIR_SECTIONS.includes(firstSection);
 

@@ -20,7 +20,8 @@ function SignatureWithAuthors({
     position = 'Bottom',
     showSignatureWithAuthors,
     subtype,
-    isNotaFooter
+    isNotaFooter,
+    size = 16
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -51,7 +52,7 @@ function SignatureWithAuthors({
                 <Author
                     key={author?.name}
                     variant={variant}
-                    size={16}
+                    size={size}
                     author={authorNames}
                     imageSrc={photo}
                     href={authorLinks}
@@ -80,11 +81,13 @@ SignatureWithAuthors.propTypes = {
     position: PropTypes.oneOf([place.Top, place.Bottom]).isRequired,
     showSignatureWithAuthors: PropTypes.bool.isRequired,
     subtype: PropTypes.string.isRequired,
-    isNotaFooter: PropTypes.bool
+    isNotaFooter: PropTypes.bool,
+    size: PropTypes.number
 };
 
 SignatureWithAuthors.defaultProps = {
-    isNotaFooter: false
+    isNotaFooter: false,
+    size: 16
 };
 
 export default SignatureWithAuthors;
