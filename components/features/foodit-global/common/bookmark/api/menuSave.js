@@ -8,7 +8,6 @@ const postWeeklyMenu = async ({ article, food, day }) => {
     const { token, accessToken } = await getAuthTokens();
     const {
         title,
-        mobileTitle,
         articleId,
         canonicalUrl,
         primarySection,
@@ -41,7 +40,7 @@ const postWeeklyMenu = async ({ article, food, day }) => {
                         },
                         canonical_url: canonicalUrl,
                         food,
-                        title: mobileTitle || title,
+                        title,
                         variant,
                         tag
                     }

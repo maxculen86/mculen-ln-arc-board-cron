@@ -36,4 +36,6 @@ function MenuSemanal() {
     );
 }
 
+MenuSemanal.sections = ['Bloque-1'];
+
 export default MenuSemanal;
