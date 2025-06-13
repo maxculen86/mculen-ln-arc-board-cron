@@ -413,8 +413,8 @@ const diagramationRules = diagramation => {
             },
             {
                 type: 'T2',
-                titleTag: tag.h1,
-                subheadTag: tag.h2,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: true,
                 withMarquee: true,
                 withMarqueeImg: false,
