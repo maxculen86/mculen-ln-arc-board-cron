@@ -10,7 +10,7 @@ import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLa
 export const configClassName = {
     'la-nacion-ar': {
         horizontal: {
-            container: 'content-media cursor-pointer',
+            container: 'content-media cursor-pointer container-center-100',
             mediaContainer: 'mod-media ratio-16-9',
             videoContainer: 'mod-video',
             videoPlayer: 'video-player bg-black ratio-16-9',

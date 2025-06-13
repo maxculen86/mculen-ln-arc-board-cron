@@ -37,7 +37,9 @@ function RawHTML({
 
     return (
         <div
-            className={trim(`com-embed ${classes} ${modifier}`)}
+            className={trim(
+                `com-embed ${classes} ${modifier} container-center-100`
+            )}
             dangerouslySetInnerHTML={addPropertyLoading({
                 subtype,
                 tagHtml: html

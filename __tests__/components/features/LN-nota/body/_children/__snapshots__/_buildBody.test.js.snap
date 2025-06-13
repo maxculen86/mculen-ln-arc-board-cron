@@ -1214,7 +1214,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <div
-    class="com-embed --youtube"
+    class="com-embed --youtube container-center-100"
   >
     <iframe
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1304,7 +1304,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     t, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
   </p>
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -1357,7 +1357,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 
   </div>
   <blockquote
-    class="mod-paragraph "
+    class="mod-paragraph container-center-100"
   >
     <p
       class="com-paragraph --font-primary --font-extra  --l"
@@ -2314,7 +2314,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </div>
   </section>
   <div
-    class="com-embed --dailymotion"
+    class="com-embed --dailymotion container-center-100"
   >
     <iframe
       allow="autoplay"
@@ -2327,7 +2327,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --instagram"
+    class="com-embed --instagram container-center-100"
   >
     <blockquote
       class="instagram-media"
@@ -2492,7 +2492,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 
   </div>
   <div
-    class="com-embed --spotify"
+    class="com-embed --spotify container-center-100"
   >
     <iframe
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -2506,7 +2506,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --facebook"
+    class="com-embed --facebook container-center-100"
   >
     <div
       id="fb-root"
@@ -2772,10 +2772,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </script>
   </div>
   <blockquote
-    class="mod-paragraph "
+    class="mod-paragraph container-center-100"
   />
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -2847,7 +2847,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -2925,7 +2925,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --tiktok"
+    class="com-embed --tiktok container-center-100"
   >
     <blockquote
       cite="https://www.tiktok.com/@chatbacsi/video/6922498886074420486"
@@ -4565,7 +4565,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <div
-    class="com-embed --youtube"
+    class="com-embed --youtube container-center-100"
   >
     <iframe
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -4655,7 +4655,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     t, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
   </p>
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -4708,7 +4708,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 
   </div>
   <blockquote
-    class="mod-paragraph "
+    class="mod-paragraph container-center-100"
   >
     <p
       class="com-paragraph --font-primary --font-extra  --l"
@@ -5665,7 +5665,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </div>
   </section>
   <div
-    class="com-embed --dailymotion"
+    class="com-embed --dailymotion container-center-100"
   >
     <iframe
       allow="autoplay"
@@ -5678,7 +5678,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --instagram"
+    class="com-embed --instagram container-center-100"
   >
     <blockquote
       class="instagram-media"
@@ -5843,7 +5843,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 
   </div>
   <div
-    class="com-embed --spotify"
+    class="com-embed --spotify container-center-100"
   >
     <iframe
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -5857,7 +5857,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --facebook"
+    class="com-embed --facebook container-center-100"
   >
     <div
       id="fb-root"
@@ -6123,10 +6123,10 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </script>
   </div>
   <blockquote
-    class="mod-paragraph "
+    class="mod-paragraph container-center-100"
   />
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -6198,7 +6198,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -6276,7 +6276,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-embed --tiktok"
+    class="com-embed --tiktok container-center-100"
   >
     <blockquote
       cite="https://www.tiktok.com/@chatbacsi/video/6922498886074420486"
@@ -7916,7 +7916,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <div
-    class="com-embed --youtube"
+    class="com-embed --youtube container-center-100"
   >
     <iframe
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -8006,7 +8006,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     t, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
   </p>
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -8059,7 +8059,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
 
   </div>
   <blockquote
-    class="mod-paragraph "
+    class="mod-paragraph container-center-100"
   >
     <p
       class="com-paragraph --font-primary --font-extra  --l"
@@ -9016,7 +9016,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </div>
   </section>
   <div
-    class="com-embed --dailymotion"
+    class="com-embed --dailymotion container-center-100"
   >
     <iframe
       allow="autoplay"
@@ -9029,7 +9029,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <div
-    class="com-embed --instagram"
+    class="com-embed --instagram container-center-100"
   >
     <blockquote
       class="instagram-media"
@@ -9194,7 +9194,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
 
   </div>
   <div
-    class="com-embed --spotify"
+    class="com-embed --spotify container-center-100"
   >
     <iframe
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -9208,7 +9208,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <div
-    class="com-embed --facebook"
+    class="com-embed --facebook container-center-100"
   >
     <div
       id="fb-root"
@@ -9474,10 +9474,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </script>
   </div>
   <blockquote
-    class="mod-paragraph "
+    class="mod-paragraph container-center-100"
   />
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -9549,7 +9549,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <div
-    class="com-embed --twitter"
+    class="com-embed --twitter container-center-100"
   >
     <blockquote
       class="twitter-tweet"
@@ -9627,7 +9627,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <div
-    class="com-embed --tiktok"
+    class="com-embed --tiktok container-center-100"
   >
     <blockquote
       cite="https://www.tiktok.com/@chatbacsi/video/6922498886074420486"
