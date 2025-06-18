@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CajaCollection from '../../../../components/chains/foodit_Caja_Collection/foodit';
 import articlesCollection from ' ../../../__mocks__/data/CommonCollection/articles.json';
-import useGetArticleInCollectionFoodit from '../../../../components/chains/foodit-global/common/hooks/useGetArticleInCollectionFoodit';
+import { useGetArticleInCollectionFoodit } from '../../../../components/chains/foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -14,13 +14,13 @@ window.IntersectionObserver = jest.fn(() => ({
 }));
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
 jest.mock(
     '../../../../components/chains/foodit-global/common/hooks/useGetArticleInCollectionFoodit',
-    () => jest.fn()
+    () => ({ useGetArticleInCollectionFoodit: jest.fn() })
 );
 
 describe('Tests Chain FOODIT Caja Collection', () => {
@@ -124,6 +124,49 @@ describe('Tests Chain FOODIT Caja Collection', () => {
                 hideTitle: false,
                 hideCaja: false,
                 layout: 'carousel'
+            };
+            const props = {
+                isAdmin: true,
+                customFields
+            };
+
+            render(<CajaCollection {...props} />);
+            const link = screen.getByText('Titulo techo');
+            const buttonRoof = screen.getByRole('button', {
+                name: 'Guardar todo'
+            });
+
+            expect(buttonRoof).toBeTruthy();
+            expect(buttonRoof).toBeInTheDocument();
+            expect(link).toBeInTheDocument();
+            expect(link.href).toEqual('https://linktecho.com.ar/');
+            expect(link.textContent).toEqual('Titulo techo');
+            delete global.IntersectionObserver;
+        });
+
+        test('should show collection carousel_4', () => {
+            global.IntersectionObserver = jest.fn((callback, options) => {
+                return {
+                    observe: jest.fn(() => {
+                        callback([{ isIntersecting: true }]);
+                    }),
+                    disconnect: jest.fn(),
+                    unobserve: jest.fn()
+                };
+            });
+
+            useGetArticleInCollectionFoodit.mockImplementation(
+                () => articlesCollection
+            );
+
+            const customFields = {
+                idCollection: 'ASDWQSCZXVASDASD',
+                initialPosition: 1,
+                title: 'Titulo techo',
+                link: 'https://linktecho.com.ar',
+                hideTitle: false,
+                hideCaja: false,
+                layout: 'carousel_4'
             };
             const props = {
                 isAdmin: true,
