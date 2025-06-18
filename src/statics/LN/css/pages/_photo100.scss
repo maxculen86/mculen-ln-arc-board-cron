@@ -132,7 +132,6 @@
                 }
                 @media ($media-l) {
                     margin: 0;
-                    margin-bottom: px(-350);
                     position: sticky;
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 133px);
                 }
