@@ -48,7 +48,9 @@ describe('SchemaPageview', () => {
             valor: 'cerrada',
             subtype: '1',
             nota_id: 'nota-2',
-            isListenable: 'si'
+            isListenable: 'si',
+            lectura: '0',
+            palabras: 100
         });
     });
 
@@ -75,7 +77,9 @@ describe('SchemaPageview', () => {
             valor: 'abierta',
             subtype: '1',
             nota_id: 'nota-3',
-            isListenable: 'no'
+            isListenable: 'no',
+            lectura: '0',
+            palabras: 100
         });
     });
 
