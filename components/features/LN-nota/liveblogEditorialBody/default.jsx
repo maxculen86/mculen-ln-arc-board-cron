@@ -2,11 +2,10 @@ import React, { Fragment, useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import {
     getContentBeforeLiveblogPosts,
-    getLiveblogHeaderData,
     groupByLiveblogMarkers,
     reorderGroupsByPinnedBlock,
-    extractVisibleItemsWithShowMore,
-    shouldShowTopDivider
+    shouldShowTopDivider,
+    getPostRenderData
 } from '../../../layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody';
 import BuildLiveblogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/BuildLiveblogBody';
 import LiveBlogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/LiveBlogBody';
@@ -52,22 +51,14 @@ function BodyLiveblogEditorial() {
             </LiveBlogBody.Pre>
             <LiveBlogBody.Posts>
                 {posts.map((grupo, index) => {
-                    const liveblogHeader = getLiveblogHeaderData(grupo);
-                    const { visibleItems, hiddenItems, isExpandable } =
-                        extractVisibleItemsWithShowMore(grupo.items);
-                    const dataPost = {
-                        ...grupo,
-                        ...liveblogHeader,
-                        isExpandable,
-                        hiddenTextItems: hiddenItems
-                    };
-
                     const showTopDivider = shouldShowTopDivider(index, posts);
+                    const postData = getPostRenderData(grupo);
+                    const { visibleItems } = postData;
                     return (
                         <Fragment key={grupo?.id}>
                             {showTopDivider && <LiveBlogBody.Divider />}
 
-                            <LiveBlogBody.Post {...dataPost}>
+                            <LiveBlogBody.Post {...postData}>
                                 <BuildLiveblogBody
                                     groupedElements={visibleItems}
                                     outputType={outputType}
