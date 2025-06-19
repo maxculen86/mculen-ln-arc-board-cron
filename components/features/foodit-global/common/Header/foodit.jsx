@@ -16,13 +16,13 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import DrawerMenu from '../DrawerMenu/foodit';
 import { BellButton } from './components/rightOptions/bellButton';
 import { useLayoutHeader } from './hooks/useLayoutHeader';
-import HeaderTag from './components/HeaderTag';
 import { useNavigationData } from './hooks/useNavigationData';
 
 function HeaderFoodit({ layout, layoutsName }) {
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
 
-    const isAcu = layout === layoutsName.FooditAcumulado;
+    const isHome = layout === layoutsName.FooditHome;
+    const HeaderTag = isHome ? 'h1' : 'div';
 
     const {
         classNameHeaderContainer,
@@ -56,10 +56,7 @@ function HeaderFoodit({ layout, layoutsName }) {
                                 title="Ir a Foodit"
                                 className="flex"
                             >
-                                <HeaderTag
-                                    isAcu={isAcu}
-                                    className="flex relative"
-                                >
+                                <HeaderTag className="flex relative">
                                     <span className="visibility-hidden absolute">
                                         Foodit
                                     </span>
