@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
@@ -9,16 +10,18 @@ import {
     isElementInPosition
 } from './common/_helper';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import RenderCollection from '../foodit-global/common/RenderCollection/foodit';
+import { RenderCollection } from '../foodit-global/common/RenderCollection/foodit';
 import { transformArticleFoodit } from '../../features/foodit-global/common/utils/notaFooditHelper';
 import fooditRules from '../../features/foodit-global/common/utils/fooditRules';
-import useGetArticleInCollectionFoodit from '../foodit-global/common/hooks/useGetArticleInCollectionFoodit';
+import { useGetArticleInCollectionFoodit } from '../foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
 import get from '../../private/common/utils/get';
-import LazyLoad from '../../features/foodit-global/common/LazyLoad/foodit';
+import { LazyLoad } from '../../features/foodit-global/common/LazyLoad/foodit';
 import { getCarouselId } from './_helper';
+import { LAYOUTS } from '../foodit-global/common/utils/helper-WebApi';
 
 function CajaCollection(props) {
+    const { CAROUSEL, CAROUSEL_4 } = LAYOUTS;
     const [inViewport, setInViewport] = useState(false);
     const { isAdmin, customFields, id: chainId, tree } = props;
     const carouselId = getCarouselId(chainId);
@@ -38,7 +41,7 @@ function CajaCollection(props) {
     const { minArticles, maxArticles, size, isStatic } = rules;
 
     const isWithOutLazyLoad =
-        layout === 'carousel' &&
+        [CAROUSEL, CAROUSEL_4].includes(layout) &&
         isElementInPosition({
             positionElement: 0,
             positionBlock: 1,
@@ -122,13 +125,15 @@ function CajaCollection(props) {
 CajaCollection.label = 'foodit Caja Collection';
 
 CajaCollection.propTypes = {
+    id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         ...setChainFooditCustomFields('cajaCollection')
     }).isRequired,
     globalContent: PropTypes.shape({
         name: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    tree: PropTypes.shape({}).isRequired
 };
 
 export default Consumer(CajaCollection);
