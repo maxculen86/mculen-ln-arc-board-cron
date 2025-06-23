@@ -2,14 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 
-export function FooterMenu({
-    onClose,
-    saveMenuWeekly,
-    selectedDay,
-    selectedFood
-}) {
-    const isDisabled = !selectedDay || !selectedFood;
-
+export function FooterMenu({ onClose, saveMenuWeekly, isDisabled }) {
     return (
         <div className="flex gap-16">
             <Button
@@ -36,6 +29,5 @@ export function FooterMenu({
 FooterMenu.propTypes = {
     onClose: PropTypes.func.isRequired,
     saveMenuWeekly: PropTypes.func.isRequired,
-    selectedDay: PropTypes.string.isRequired,
-    selectedFood: PropTypes.string.isRequired
+    isDisabled: PropTypes.bool.isRequired
 };
