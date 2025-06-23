@@ -1,6 +1,6 @@
 import React from 'react';
 import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
-import { RECETA } from './subtypes/subtypeHelper';
+import { LIVEBLOG_EDITORIAL, RECETA } from './subtypes/subtypeHelper';
 import uncapitalizeFirstLetter from './uncapitalizeFirstLetter';
 import get from './get';
 
@@ -10,6 +10,33 @@ export const getSectionOfRequestUri = (requestUri = '') => {
         : [];
     return section || '';
 };
+// TODO: Revisar con producto todas las reglas de los titles y eliminar las que no son necesarias
+const nodeTypeTitles = {
+    receta: ({ basicTitle, shortTitle, metaTitle }) => {
+        if (metaTitle)
+            return `Receta de ${uncapitalizeFirstLetter(
+                metaTitle
+            )} - LA NACION`;
+
+        return `Receta de ${
+            shortTitle
+                ? uncapitalizeFirstLetter(shortTitle)
+                : uncapitalizeFirstLetter(basicTitle)
+        } - LA NACION`;
+    },
+    nota: ({ PBTitle, shortTitle, metaTitle, subtype }) => {
+        if (subtype === LIVEBLOG_EDITORIAL) {
+            return PBTitle;
+        }
+        if (metaTitle) return `${metaTitle} - LA NACION`;
+        return shortTitle ? `${shortTitle} - LA NACION` : PBTitle;
+    },
+    ott: ({ ottTitle }) => ottTitle,
+    home: ({ PBTitle, longTitle, defaultTitle }) =>
+        longTitle || PBTitle || defaultTitle,
+    default: ({ PBTitle, defaultTitle }) => PBTitle || defaultTitle
+};
+
 export const getTitle = ({
     title,
     basicTitle,
@@ -26,7 +53,6 @@ export const getTitle = ({
     if (subtype === RECETA) {
         return nodeTypeTitles.receta({ basicTitle, shortTitle: mobileTitle });
     }
-
     return nodeType === 'home' ? longTitle : title || defaultTitle;
 };
 
@@ -52,34 +78,20 @@ export const getTagTitle = ({
     if (subtype === RECETA) {
         return nodeTypeTitles.receta({ basicTitle, shortTitle, metaTitle });
     }
+
     return get(
         nodeTypeTitles,
         nodeType,
         nodeTypeTitles.default
-    )({ PBTitle, shortTitle, ottTitle, longTitle, defaultTitle, metaTitle });
-};
-
-const nodeTypeTitles = {
-    receta: ({ basicTitle, shortTitle, metaTitle }) => {
-        if (metaTitle)
-            return `Receta de ${uncapitalizeFirstLetter(
-                metaTitle
-            )} - LA NACION`;
-
-        return `Receta de ${
-            shortTitle
-                ? uncapitalizeFirstLetter(shortTitle)
-                : uncapitalizeFirstLetter(basicTitle)
-        } - LA NACION`;
-    },
-    nota: ({ PBTitle, shortTitle, metaTitle }) => {
-        if (metaTitle) return `${metaTitle} - LA NACION`;
-        return shortTitle ? `${shortTitle} - LA NACION` : PBTitle;
-    },
-    ott: ({ ottTitle }) => ottTitle,
-    home: ({ PBTitle, longTitle, defaultTitle }) =>
-        longTitle || PBTitle || defaultTitle,
-    default: ({ PBTitle, defaultTitle }) => PBTitle || defaultTitle
+    )({
+        PBTitle,
+        shortTitle,
+        ottTitle,
+        longTitle,
+        defaultTitle,
+        metaTitle,
+        subtype
+    });
 };
 
 export const getMetaDescriptionDefault = (
@@ -122,7 +134,7 @@ export const metasFromSiteServices = (metaTags = {}) => {
     const metas =
         metaTags && !Array.isArray(metaTags) && Object.entries(metaTags);
 
-    if (!metas || metas.length === 0) return <></>;
+    if (!metas || metas.length === 0) return null;
 
     return (
         <>
@@ -150,6 +162,4 @@ export const addMetaNoIndexNoFollow = ({
     ].includes(getSectionOfRequestUri(requestUri)) ||
     ['opta', 'widgets'].includes(outputType) ? (
         <meta name="robots" content="noindex, nofollow" />
-    ) : (
-        <></>
-    );
+    ) : null;
