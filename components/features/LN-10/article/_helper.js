@@ -529,10 +529,7 @@ export const shouldHighlightCustomVoice = (article = {}, config = {}) => {
     const textAudioNews = get(article, 'label.republicar_audio.text', '');
     const isAudioAllowedByLabel = textAudioNews !== 'No mostrar audio';
 
-    const isAudioValid =
-        audioStatus !== null
-            ? isAudioGenerated(audioStatus) && isAudioAllowedByLabel
-            : true;
+    const isAudioValid = isAudioGenerated(audioStatus) && isAudioAllowedByLabel;
 
     return (
         hasAuthorVoice &&

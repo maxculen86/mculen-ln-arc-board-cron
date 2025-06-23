@@ -1506,7 +1506,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(shouldHighlightCustomVoice(article, config)).toBe(false);
         });
 
-        it('should return true if audio_status is missing, to maintain previous behavior', () => {
+        it('should return false if audio_status is missing', () => {
             const article = {
                 credits: {
                     by: [
@@ -1533,10 +1533,10 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
             const config = { isCustomVoiceCandidate: true };
 
-            expect(shouldHighlightCustomVoice(article, config)).toBe(true);
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
         });
 
-        it('should return true if promo_items.audio_nota does not exist, to maintain previous behavior', () => {
+        it('should return false if promo_items.audio_nota does not exist', () => {
             const article = {
                 credits: {
                     by: [
@@ -1557,7 +1557,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
             const config = { isCustomVoiceCandidate: true };
 
-            expect(shouldHighlightCustomVoice(article, config)).toBe(true);
+            expect(shouldHighlightCustomVoice(article, config)).toBe(false);
         });
 
         it('should return false if republicar_audio.text is "No mostrar audio"', () => {
