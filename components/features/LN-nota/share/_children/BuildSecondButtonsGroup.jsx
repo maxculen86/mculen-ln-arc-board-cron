@@ -139,7 +139,7 @@ function BuildSecondButtonsGroup({
                         {id === 'copyLinkNote' && copy && (
                             <ModTooltip
                                 className="copy"
-                                label="Copiado"
+                                label="Link copiado"
                                 handleTimeout={() => setCopy(false)}
                             />
                         )}

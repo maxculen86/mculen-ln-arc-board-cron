@@ -206,7 +206,7 @@ describe('components - private - LN - nota - share', () => {
         expect(navigator.clipboard.writeText).toHaveBeenCalled();
         expect(
             container.querySelector('.mod-tooltip .com-text').innerHTML
-        ).toStrictEqual('Copiado');
+        ).toStrictEqual('Link copiado');
     });
 
     test('should open facebook in a new window and record the click on dataLayer', () => {
@@ -270,7 +270,7 @@ describe('components - private - LN - nota - share', () => {
 
         const { container } = component;
         const button = screen.getByRole('button', {
-            name: 'Notas guardadas'
+            name: 'Guardar nota'
         });
 
         expect(button).toBeTruthy();

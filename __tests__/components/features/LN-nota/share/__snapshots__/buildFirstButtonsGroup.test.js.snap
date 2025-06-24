@@ -35,7 +35,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
           data-section="Guardar Nota"
           data-variant="secondary"
           id="btnbookmark"
-          title="Notas guardadas"
+          title="Guardar nota"
           type="button"
         >
           <i
@@ -103,7 +103,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
         data-section="Guardar Nota"
         data-variant="secondary"
         id="btnbookmark"
-        title="Notas guardadas"
+        title="Guardar nota"
         type="button"
       >
         <i

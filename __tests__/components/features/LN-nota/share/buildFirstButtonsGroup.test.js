@@ -78,7 +78,7 @@ describe('Components - Features - LN-nota - share', () => {
                 globalContent={globalContent(false, false)}
             />
         );
-        expect(screen.getByTitle('Notas guardadas')).toBeInTheDocument();
+        expect(screen.getByTitle('Guardar nota')).toBeInTheDocument();
         expect(container.querySelector('i')).toBeInTheDocument();
     });
 
