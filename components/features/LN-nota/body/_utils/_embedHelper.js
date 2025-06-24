@@ -3,9 +3,11 @@ import getViewport from '../../../../private/LN/common/utils/screenHelper';
 
 export const embedIntersectionObserver = (
     scripts,
-    selector = '.cuerpo__nota'
+    elementId = 'cuerpo__nota'
 ) => {
     const { device } = getViewport();
+
+    let interSectionObserver;
 
     const callback = entries => {
         entries.forEach(entry => {
@@ -18,12 +20,12 @@ export const embedIntersectionObserver = (
         });
     };
 
-    const interSectionObserver = new IntersectionObserver(callback, {
+    interSectionObserver = new IntersectionObserver(callback, {
         rootMargin:
             device === 'mobile' ? '0px 0px 200px 0px' : '0px 0px 100px 0px'
     });
-    // TODO: Cambiar selector por ID en lugar de querySelector, asignar IDs en layouts donde usen clases.
-    const target = document.querySelector(selector);
+
+    const target = document.getElementById(elementId);
 
     if (target && scripts.length > 0) interSectionObserver.observe(target);
 };

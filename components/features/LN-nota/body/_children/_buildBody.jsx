@@ -1,12 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/prop-types */
-
 import React from 'react';
 import { bodyElementRules } from '../_utils/_bodyElementRules';
 import { BuildBanners } from './_buildBanners';
 import { supportedTypes } from '../_utils/_bodyRules';
 import get from '../../../../private/common/utils/get';
 import { transformEmbedScript } from '../_utils/_embedHelper';
+import { setDataComponent, setExtraProps } from '../_utils/helpers';
 
 const BuildBody = ({ banners, outputType, globalContent = {} }) => {
     const {
@@ -53,7 +51,7 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
 
         if (Component) {
             if (supportedTypes.includes(Component.arcType)) {
-                if (nodeType.length) return <></>;
+                if (nodeType.length) return null;
                 counter += 1;
                 const bannerToRedender = BuildBanners({
                     banners,
@@ -73,47 +71,8 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
             return ComponentWithProps;
         }
 
-        return <></>;
+        return null;
     });
 };
 
 export default BuildBody;
-
-export const setExtraProps = ({
-    tituloNota,
-    capitalIndex,
-    globalContent,
-    contentElements,
-    withSponsoredLink
-}) => ({
-    image: { withZoom: '--zoom', insideBody: true, globalContent },
-    gallery: { withZoom: '--zoom' },
-    video: {
-        tituloNota,
-        primerParrafo:
-            (capitalIndex !== -1 && contentElements[capitalIndex]) || ''
-    },
-    text: {
-        withSponsoredLink
-    }
-});
-
-export const setDataComponent = ({
-    Component,
-    extraProps,
-    element,
-    currentIndex,
-    capitalIndex,
-    outputType,
-    arcType
-}) =>
-    Component ? (
-        <Component
-            data={element}
-            capital={currentIndex === capitalIndex}
-            outputType={outputType}
-            {...(extraProps[arcType] || {})}
-        />
-    ) : (
-        <></>
-    );
