@@ -47,7 +47,7 @@ function lnNotaVideo({ children }) {
                     <div className="lay-sidebar">
                         {/* Cuerpo */}
                         <div className="sidebar__main">
-                            <section className="cuerpo__nota">
+                            <section id="cuerpo__nota" className="cuerpo__nota">
                                 <div className="row">
                                     <div className="col-12">{children[4]}</div>
                                 </div>

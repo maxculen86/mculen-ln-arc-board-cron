@@ -17,7 +17,7 @@ function body({ customFields }) {
         outputType,
         bodyOrigin: 'Body default',
         noteId: _id,
-        selector: '.cuerpo__nota'
+        selector: 'cuerpo__nota'
     });
 
     if (typeof window !== 'undefined') {

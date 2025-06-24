@@ -1,11 +1,11 @@
 import { bodyElementRules } from '../../../../features/LN-nota/body/_utils/_bodyElementRules';
 import { transformEmbedScript } from '../../../../features/LN-nota/body/_utils/_embedHelper';
-import get from '../../../../private/common/utils/get';
-import { supportedTypesLiveblog } from '../../_helpers/liveblogEditorialBody';
 import {
     setDataComponent,
     setExtraProps
-} from '../../../../features/LN-nota/body/_children/_buildBody';
+} from '../../../../features/LN-nota/body/_utils/helpers';
+import get from '../../../../private/common/utils/get';
+import { supportedTypesLiveblog } from '../../_helpers/liveblogEditorialBody';
 
 const BuildLiveblogBody = ({
     groupedElements = [],
