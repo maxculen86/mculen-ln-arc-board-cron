@@ -1,12 +1,14 @@
+import get from '../../../private/common/utils/get';
 import getAssetsPath from '../../../private/common/utils/getAssetsPath';
 import zocaloOptions from './ZocaloConfig';
-import get from '../../../private/common/utils/get';
 
-export const getZocaloProps = (deployment, contextPath, path = '') => {
-    if (!path) return { showZocalo: false };
-    const section = path.split('/');
-    const zocaloData = get(zocaloOptions, section[1], undefined);
-    if (!zocaloData) return { showZocalo: false };
+const VIOLENCE_ZOCALO_KEY = 'violencia-de-genero';
+
+const mapZocaloData = (zocaloData, deployment, contextPath) => {
+    if (!zocaloData || Object.keys(zocaloData).length === 0)
+        return { showZocalo: false };
+
+    const getPath = getAssetsPath(contextPath)(deployment);
 
     return {
         showZocalo: true,
@@ -16,26 +18,24 @@ export const getZocaloProps = (deployment, contextPath, path = '') => {
             ...(zocaloData.target && { target: zocaloData.target })
         },
         imgProps: {
-            src: getAssetsPath(contextPath)(deployment)(zocaloData.imgMob),
+            src: getPath(zocaloData.imgMob),
             alt: zocaloData.imgAlt,
             sources: [
                 {
                     minWidth: 768,
-                    srcSet: getAssetsPath(contextPath)(deployment)(
-                        zocaloData.imgDsk
-                    )
+                    srcSet: getPath(zocaloData.imgDsk)
                 }
             ],
             className: zocaloData.imgClassName,
             width: zocaloData.imgWidth
         },
         logoProps: {
-            src: getAssetsPath(contextPath)(deployment)(zocaloData.logo),
+            src: getPath(zocaloData.logo),
             alt: zocaloData.logoAlt,
             className: zocaloData.logoClassName,
             width: zocaloData.logoWidth
         },
-        description: zocaloData.description,
+        descriptionProps: zocaloData.descriptionProps,
         label: zocaloData.label
     };
 };
@@ -50,4 +50,20 @@ export const getZocaloAppsProps = (path = '') => {
         _t: 'card',
         id: get(zocaloData, 'label', null)
     };
+};
+
+export const getViolenceTagsZocaloProps = (
+    deployment,
+    contextPath,
+    path = ''
+) => {
+    const violenceZocaloData = get(zocaloOptions, VIOLENCE_ZOCALO_KEY, path);
+
+    return mapZocaloData(violenceZocaloData, deployment, contextPath);
+};
+
+export const getZocaloProps = (deployment, contextPath, path = '') => {
+    const section = path.split('/')[1] || '';
+    const zocaloData = get(zocaloOptions, section, {});
+    return mapZocaloData(zocaloData, deployment, contextPath);
 };
