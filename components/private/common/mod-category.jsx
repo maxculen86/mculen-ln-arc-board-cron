@@ -3,12 +3,12 @@ import PropTypes from 'fusion:prop-types';
 import ModNavigation from './mod-navigation';
 import ComImage from './com-image';
 import ComTitle from './com-title';
-
+import replaceUrlResizerToWWW from '../../../content/sources/utils/replaceUrlResizerToWWW';
 import get from './utils/get';
 import useGetLogoImage from './hooks/useGetLogoImage';
 import '../../../resources/dist/css/ln/modules/mod-category.css';
 
-const ModCategory = props => {
+function ModCategory(props) {
     const {
         imageId,
         revista,
@@ -19,12 +19,13 @@ const ModCategory = props => {
     } = props;
 
     const image = useGetLogoImage(imageId) || {};
+    const wwwImage = replaceUrlResizerToWWW(image);
     const {
         width,
         height,
         url: imageUrl,
         resized_urls: [firstResizedUrl] = []
-    } = image || {};
+    } = wwwImage || {};
 
     const resizedUrl = get(firstResizedUrl, 'resizedUrl', '');
     const { width: resizedWidth, height: resizedHeight } = get(
@@ -67,7 +68,7 @@ const ModCategory = props => {
             />
         </div>
     );
-};
+}
 
 ModCategory.propTypes = {
     revista: PropTypes.string,
@@ -77,7 +78,6 @@ ModCategory.propTypes = {
         color: PropTypes.string
     }),
     navigation: PropTypes.string,
-    outputType: PropTypes.string.isRequired,
     imageId: PropTypes.string
 };
 
