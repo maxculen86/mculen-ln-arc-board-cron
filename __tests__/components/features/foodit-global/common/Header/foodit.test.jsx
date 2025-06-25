@@ -6,6 +6,7 @@ import { useContent } from 'fusion:content';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 import useGetUserData from '../../../../../../components/private/common/auth/hooks/useGetUserData';
 import { useNavigationData } from '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData';
+import { debug } from 'request-promise-native';
 
 jest.mock(
     '../../../../../../components/private/common/auth/hooks/useGetUserData'
@@ -102,7 +103,6 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
         expect(screen.getAllByText('HM')).toHaveLength(1);
     });
-
     it('Should show the initials and button "SUSCRIBITE" when the user is not sucribed', () => {
         useContent.mockReturnValue(menuCategories);
         useGetUserData.mockReturnValue({
@@ -125,5 +125,52 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
         expect(screen.getAllByText('HO')).toHaveLength(1);
         expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
+    });
+
+    it('The logo should render as an "h1" tag on the homepage.', () => {
+        useGetUserData.mockReturnValue({
+            userType: 'subscribed',
+            userEmail: 'hola@mundo.com',
+            userName: 'Hola',
+            userLastName: 'Mundo',
+            isSubscribed: true
+        });
+
+        render(
+            <HeaderFoodit
+                layout="Foodit-home"
+                layoutsName={{
+                    FooditHome: 'Foodit-home',
+                    FooditAcumulado: 'Foodit-acumulado'
+                }}
+            />
+        );
+
+        const logoText = screen.getByText('Foodit');
+        expect(logoText).toBeInTheDocument();
+        expect(logoText.parentElement.tagName).toBe('H1');
+    });
+    it('The logo should render as an "div" tag on the other layouts.', () => {
+        useGetUserData.mockReturnValue({
+            userType: 'subscribed',
+            userEmail: 'hola@mundo.com',
+            userName: 'Hola',
+            userLastName: 'Mundo',
+            isSubscribed: true
+        });
+
+        render(
+            <HeaderFoodit
+                layout="Foodit-acumulado"
+                layoutsName={{
+                    FooditHome: 'Foodit-home',
+                    FooditAcumulado: 'Foodit-acumulado'
+                }}
+            />
+        );
+
+        const logoText = screen.getByText('Foodit');
+        expect(logoText).toBeInTheDocument();
+        expect(logoText.parentElement.tagName).toBe('DIV');
     });
 });

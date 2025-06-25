@@ -11,6 +11,7 @@ import Signature from './_children/signature';
 import Themes from './_children/themes';
 import { getSectionLogo } from '../../../private/common/utils/sectionUtils';
 import { isInvalidLogo } from './_utils/helper';
+import { RECETA } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function Footer(props) {
     const { globalContent, layout } = props;
@@ -32,7 +33,7 @@ function Footer(props) {
         trust === 'No mostrar Trust' ||
         advertiser ||
         sponsored ||
-        subtype === '7';
+        subtype === RECETA;
 
     const siteService = get(globalContext, 'state.siteService', {});
     const tooltip = getTooltip(trust, siteService);
@@ -44,31 +45,28 @@ function Footer(props) {
     const showLogoOrTrust = !isInvalidLogo(logoData) || !isInvalid;
 
     return (
-        <>
-            <section className="container-center-100 mb-40">
-                <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
-                    <div className="flex flex-column gap-4">
-                        <ExternalSignature globalContent={globalContent} />
-                        <Signature globalContent={globalContent} isNotaFooter />
-                    </div>
-                    <Themes globalContent={globalContent} />
+        <section className="container-center-100 mb-40 border border-bottom border-thin border-neutral-light-700">
+            <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
+                <div className="flex flex-column gap-4">
+                    <ExternalSignature globalContent={globalContent} />
+                    <Signature globalContent={globalContent} isNotaFooter />
                 </div>
-                {showLogoOrTrust && (
-                    <>
-                        <hr />
-                        <div className="flex flex-column flex-row_m gap-16 mb-8 ai-stretch py-16 py-12_m">
-                            <Logo logoData={logoData} />
-                            {showDivider && <hr className="vertical sm-none" />}
-                            <TrustProject
-                                isInvalid={isInvalid}
-                                tooltipData={tooltip}
-                            />
-                        </div>
-                    </>
-                )}
-            </section>
-            <hr className="border border-bottom border-thin border-neutral-light-700 mb-32" />
-        </>
+                <Themes globalContent={globalContent} />
+            </div>
+            {showLogoOrTrust && (
+                <>
+                    <hr />
+                    <div className="flex flex-column flex-row_m gap-16 mb-40 ai-stretch py-16 py-12_m">
+                        <Logo logoData={logoData} />
+                        {showDivider && <hr className="vertical sm-none" />}
+                        <TrustProject
+                            isInvalid={isInvalid}
+                            tooltipData={tooltip}
+                        />
+                    </div>
+                </>
+            )}
+        </section>
     );
 }
 

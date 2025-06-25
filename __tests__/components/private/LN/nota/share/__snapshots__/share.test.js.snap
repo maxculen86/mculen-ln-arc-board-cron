@@ -60,7 +60,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             data-section="Guardar Nota"
             data-variant="secondary"
             id="btnbookmark"
-            title="Notas guardadas"
+            title="Guardar nota"
             type="button"
           >
             <i
@@ -252,7 +252,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
             data-section="Guardar Nota"
             data-variant="secondary"
             id="btnbookmark"
-            title="Notas guardadas"
+            title="Guardar nota"
             type="button"
           >
             <i
@@ -479,7 +479,7 @@ exports[`components - private - LN - nota - share Test click button bookmark 1`]
             data-section="Guardar Nota"
             data-variant="secondary"
             id="btnbookmark"
-            title="Notas guardadas"
+            title="Guardar nota"
             type="button"
           >
             <i

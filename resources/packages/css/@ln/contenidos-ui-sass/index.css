@@ -1231,6 +1231,7 @@ a {
   --danger-300: #E95E66;
   --red-700: #b40d15;
   --yellow-subscribe: #ffff24;
+  --yellow-secondary: #f2f20d;
   --la-nacion: #006998;
   --ln-campo: #008561;
   --comunidad-negocios: #e2342d;
@@ -1833,6 +1834,10 @@ a {
 
 .bg-yellow-subscribe {
   background: var(--yellow-subscribe);
+}
+
+.bg-yellow-secondary {
+  background: var(--yellow-secondary);
 }
 
 .bg-orange-200 {
@@ -5160,6 +5165,7 @@ body:has(.disable-body-scroll) {
 .preLiveBlog_p p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.125rem;
+  font-weight: 400;
 }
 
 @media (max-width: 767px) {

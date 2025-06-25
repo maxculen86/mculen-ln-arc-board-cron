@@ -7,7 +7,7 @@ import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcru
 function ListadoComprasFoodit() {
     return (
         <BaseLayout>
-            <div className="flex flex-column gap-32 relative">
+            <div className="flex flex-column gap-32 relative min-h-50dvh">
                 <section className="flex flex-column">
                     <BreadcrumbCustomFoodit
                         className="mb-24"

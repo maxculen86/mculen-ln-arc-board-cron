@@ -82,7 +82,11 @@ function ArticlesAcum({
                         withCategory={typeAcumRules[typeArticle].withCategory}
                         withTags={typeAcumRules[typeArticle].withTags}
                         isApertura={isApertura}
-                        shouldLoadEager={shouldLoadEager(requestUri, index)}
+                        shouldLoadEager={shouldLoadEager(
+                            index,
+                            isWiki,
+                            requestUri
+                        )}
                         openBarrier={openBarrier}
                     >
                         {banner}

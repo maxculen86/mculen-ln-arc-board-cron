@@ -19,7 +19,7 @@ import {
     BOOKMARK_PLUS
 } from '../../../../features/foodit-global/common/bookmark/iconHelper';
 
-const { CAROUSEL, BN_12_GRID } = LAYOUTS;
+const { CAROUSEL, CAROUSEL_4, BN_12_GRID } = LAYOUTS;
 
 export function RenderCollection({
     rules,
@@ -84,6 +84,10 @@ export function RenderCollection({
                     fill: bookmarkedArticles.includes(articleId),
                     titleEllipsis: 2
                 },
+                [CAROUSEL_4]: {
+                    fill: bookmarkedArticles.includes(articleId),
+                    titleEllipsis: 2
+                },
                 [BN_12_GRID]: {
                     className: classNameChildren
                 }
@@ -113,26 +117,28 @@ export function RenderCollection({
             );
         }
     );
+    const getCarouselFromType = type => (
+        <div className="carousel-container">
+            <RoofFoodit
+                title={{ text: title, as: roofAs }}
+                hide={hideTitle}
+                className={classNameRoof}
+                linkProps={{ href: link, text: title }}
+                buttonProps={buttonsProps}
+                icon={
+                    <IconSprite
+                        name={fill ? BOOKMARK_FILLED : BOOKMARK_PLUS}
+                        critical={false}
+                    />
+                }
+            />
+            <Carousel type={type}>{renderArticles}</Carousel>
+        </div>
+    );
 
     const options = {
-        [CAROUSEL]: (
-            <div className="carousel-container">
-                <RoofFoodit
-                    title={{ text: title, as: roofAs }}
-                    hide={hideTitle}
-                    className={classNameRoof}
-                    linkProps={{ href: link, text: title }}
-                    buttonProps={buttonsProps}
-                    icon={
-                        <IconSprite
-                            name={fill ? BOOKMARK_FILLED : BOOKMARK_PLUS}
-                            critical={false}
-                        />
-                    }
-                />
-                <Carousel type="collection">{renderArticles}</Carousel>
-            </div>
-        ),
+        [CAROUSEL]: getCarouselFromType('collection'),
+        [CAROUSEL_4]: getCarouselFromType('collection_4'),
         [BN_12_GRID]: (
             <>
                 <RoofFoodit

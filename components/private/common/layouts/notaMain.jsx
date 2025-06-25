@@ -29,7 +29,7 @@ function NotaMain({ children, className }) {
                                 {children[3]}
                             </div>
                         </div>
-                        <section className="cuerpo__nota">
+                        <section id="cuerpo__nota" className="cuerpo__nota">
                             <div className="row">
                                 <div className="col-12 col-desksm-1">
                                     {/* hlp-mobile-show */}

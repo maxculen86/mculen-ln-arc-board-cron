@@ -70,7 +70,7 @@ function lnNotaStorytelling({
 
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
-                            <section className="cuerpo__nota">
+                            <section id="cuerpo__nota" className="cuerpo__nota">
                                 <div className="row">
                                     <div className="col-12 col-desksm-1">
                                         {children[2]}

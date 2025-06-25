@@ -29,6 +29,14 @@ function OptionEdit({
     const [selectedFood, setSelectedFood] = useState(
         menuToEdit?.bookmarkContent?.food || ''
     );
+    const initialDayRef = React.useRef(menuToEdit?.bookmarkGroup || '');
+    const initialFoodRef = React.useRef(
+        menuToEdit?.bookmarkContent?.food || ''
+    );
+
+    const isDisabled =
+        selectedDay === initialDayRef.current &&
+        selectedFood === initialFoodRef.current;
     const classContainer = cx(
         'mx-auto rounded-4 overflow-visible py-16 py-24_md py-32_lg px-16 px-24_md px-32_lg w-328 min-w-344_lg'
     );
@@ -123,6 +131,7 @@ function OptionEdit({
                         selectedFood={selectedFood}
                         onClose={onClose}
                         saveMenuWeekly={editMenuWeekly}
+                        isDisabled={isDisabled}
                     />
                 </div>
             </Dialog.Body>

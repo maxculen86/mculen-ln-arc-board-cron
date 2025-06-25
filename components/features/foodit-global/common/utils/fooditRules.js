@@ -3,6 +3,7 @@ import { LAYOUTS } from '../../../../chains/foodit-global/common/utils/helper-We
 const {
     BN_12_GRID,
     CAROUSEL,
+    CAROUSEL_4,
     BN_2_GRID,
     BN_FOCAL_1_MAS_4,
     BN_FOCAL_1
@@ -26,6 +27,17 @@ const fooditRules = diagramation => {
             minRelatedArticles: 4,
             maxRelatedArticles: 8,
             maxArticles: 8,
+            roofAs: tag.h3,
+            isStatic: false,
+            classNameRoof: 'mb-24',
+            layoutImgConfig: 'm'
+        },
+        [CAROUSEL_4]: {
+            size: size.small,
+            minArticles: 4,
+            minRelatedArticles: 4,
+            maxRelatedArticles: 4,
+            maxArticles: 4,
             roofAs: tag.h3,
             isStatic: false,
             classNameRoof: 'mb-24',

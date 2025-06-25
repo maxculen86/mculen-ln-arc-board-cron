@@ -9,7 +9,7 @@ describe('components - private - LN - common - utils - getSourcesJw', () => {
             width: 1280,
             label: '720p',
             bitrate: 2000000,
-            filesize: 1024000,
+            filesize: 5024000,
             framerate: 30
         },
         {
@@ -55,12 +55,12 @@ describe('components - private - LN - common - utils - getSourcesJw', () => {
         }
     ];
 
-    it('should return the source with the highest resolution when operator is ">"', () => {
+    it('should return the source with the highest filesize when operator is ">"', () => {
         const result = getSourcesJw(testStreams, '>');
         expect(result).toEqual(testStreams[0]);
     });
 
-    it('should return the source with the lowest resolution when operator is "<"', () => {
+    it('should return the source with the lowest filesize when operator is "<"', () => {
         const result = getSourcesJw(testStreams, '<');
         expect(result).toEqual(testStreams[1]);
     });

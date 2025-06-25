@@ -1,5 +1,8 @@
-import { productClickFromClientVideoJW } from '../../../../../components/features/LN-10/videoPlayer/_helper';
-
+import {
+    createJWVisibilityAndMetarefreshCallback,
+    productClickFromClientVideoJW,
+    isMostlyInViewport
+} from '../../../../../components/features/LN-10/videoPlayer/_helper';
 describe('Components - features - LN-10 - videoPlayer', () => {
     describe('productClickFromClientVideoJW', () => {
         let mockElement;
@@ -66,6 +69,164 @@ describe('Components - features - LN-10 - videoPlayer', () => {
             productClickFromClientVideoJW(mockElement, 'Video sin ID');
 
             expect(window.dataLayer).toHaveLength(0);
+        });
+    });
+    describe('createJWVisibilityAndMetarefreshCallback', () => {
+        let instance;
+        let metaRefreshActive;
+        let callback;
+
+        beforeEach(() => {
+            instance = {
+                getState: jest.fn(),
+                pause: jest.fn()
+            };
+
+            metaRefreshActive = { active: true };
+
+            window.LN = {
+                observable: {
+                    publish: jest.fn()
+                }
+            };
+
+            callback = createJWVisibilityAndMetarefreshCallback(
+                instance,
+                metaRefreshActive
+            );
+        });
+
+        afterEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should deactivate metaRefresh when video enters viewport and is buffering', () => {
+            instance.getState.mockReturnValue('buffering');
+
+            const entry = { isIntersecting: true };
+            callback(entry);
+
+            expect(window.LN.observable.publish).toHaveBeenCalledWith(
+                'clearTimeout'
+            );
+            expect(metaRefreshActive.active).toBe(false);
+        });
+
+        it('should reactivate metaRefresh when video leaves viewport', () => {
+            metaRefreshActive.active = false;
+            instance.getState.mockReturnValue('paused');
+
+            const entry = { isIntersecting: false };
+            callback(entry);
+
+            expect(instance.pause).not.toHaveBeenCalled();
+            expect(window.LN.observable.publish).toHaveBeenCalledWith(
+                'retriggerTimeout'
+            );
+            expect(metaRefreshActive.active).toBe(true);
+        });
+
+        it('should pause video and reactivate metaRefresh when video is playing and leaves viewport', () => {
+            metaRefreshActive.active = false;
+            instance.getState.mockReturnValue('playing');
+
+            const entry = { isIntersecting: false };
+            callback(entry);
+
+            expect(instance.pause).toHaveBeenCalled();
+            expect(window.LN.observable.publish).toHaveBeenCalledWith(
+                'retriggerTimeout'
+            );
+            expect(metaRefreshActive.active).toBe(true);
+        });
+    });
+
+    describe('isMostlyInViewport', () => {
+        let element;
+
+        beforeEach(() => {
+            element = document.createElement('div');
+            document.body.appendChild(element);
+        });
+
+        afterEach(() => {
+            document.body.innerHTML = '';
+            jest.restoreAllMocks();
+        });
+
+        it('should return false if element is null', () => {
+            expect(isMostlyInViewport(null)).toBe(false);
+        });
+
+        it('should return false if element is out of viewport from below ', () => {
+            //screen de 800px y el elemento aparece esta mas abajo.
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 800,
+                bottom: 900,
+                height: 100
+            });
+            Object.defineProperty(window, 'innerHeight', { value: 800 });
+
+            expect(isMostlyInViewport(element)).toBe(false);
+        });
+
+        it('should return false if element is out of viewport from top', () => {
+            //screen de 800px y el elemento aparece esta mas arriba.
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: -100,
+                bottom: 0,
+                height: 100
+            });
+            Object.defineProperty(window, 'innerHeight', { value: 800 });
+
+            expect(isMostlyInViewport(element)).toBe(false);
+        });
+
+        it('should return false if visible height ratio is below threshold', () => {
+            //Se ven 20px del objeto, lo cual al treshold ser 50%, no cumple.
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 780,
+                bottom: 880,
+                height: 100
+            });
+            Object.defineProperty(window, 'innerHeight', { value: 800 });
+
+            expect(isMostlyInViewport(element)).toBe(false);
+        });
+
+        it('should return true if visible height ratio meets the threshold', () => {
+            //Se ven 60px del objeto, lo cual al treshold ser 50%, cumple.
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 740,
+                bottom: 840,
+                height: 100
+            });
+            Object.defineProperty(window, 'innerHeight', { value: 800 });
+
+            expect(isMostlyInViewport(element)).toBe(true);
+        });
+
+        it('should allow custom ratio threshold (e.g., 0.8)', () => {
+            //Se ven 60px del objeto, lo cual al treshold ser 80%, no cumple.
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 740,
+                bottom: 800,
+                height: 100
+            });
+            Object.defineProperty(window, 'innerHeight', { value: 800 });
+
+            expect(isMostlyInViewport(element, 0.8)).toBe(false);
+        });
+
+        it('should return true if element is fully in viewport', () => {
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 100,
+                bottom: 200,
+                height: 100
+            });
+            Object.defineProperty(window, 'innerHeight', { value: 800 });
+
+            expect(isMostlyInViewport(element)).toBe(true);
         });
     });
 });

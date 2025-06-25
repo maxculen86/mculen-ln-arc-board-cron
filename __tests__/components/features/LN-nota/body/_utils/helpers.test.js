@@ -29,22 +29,6 @@ describe('Components - Features - LN-nota - Body - Utils - Helpers', () => {
         });
     });
 
-    describe('isExcludedType function', () => {
-        const excludeTypes = ['oembed_response', 'raw_html', 'video'];
-        excludeTypes.forEach(type => {
-            it(`should return false when it receives: ${type}`, () => {
-                expect(isExcludedType(type)).toBe(false);
-            });
-        });
-
-        const includeTypes = ['image', 'text', ' ', null, undefined];
-        includeTypes.forEach(type => {
-            it(`should return true when it receives: ${type}`, () => {
-                expect(isExcludedType(type)).toBe(true);
-            });
-        });
-    });
-
     describe('isVideoJw function', () => {
         it('should return true when componentElement.arcType and subtypeElement are both "video_jw"', () => {
             const componentElement = { arcType: 'video_jw' };

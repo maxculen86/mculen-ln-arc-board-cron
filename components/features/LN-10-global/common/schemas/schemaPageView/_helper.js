@@ -1,5 +1,6 @@
 import { isHomeLN10 } from '../../../../../private/common/utils/image/getDataToLinkImage/_helper/common/helper-WebApi';
 import get from '../../../../../private/common/utils/get';
+import { countWords, getWordsAndReadingTime } from '../../readingTime/_helpers';
 
 export const layoutsListWithPageview = [
     'LN-nota-receta',
@@ -30,6 +31,21 @@ const getPageType = (layout = '', section = '') => {
 const DEFAULT_VALOR_COMUN = 'comun';
 
 export const getObjectSchema = (globalContent, pagetype) => {
+    const subheadline = get(globalContent, 'subheadlines.basic', '');
+    const headline = get(globalContent, 'headlines.basic', '');
+
+    const subheadlineWordCount = countWords(subheadline);
+    const headlineWordCount = countWords(headline);
+    const bodyWordCount = get(
+        globalContent,
+        'planning.story_length.word_count_actual',
+        ''
+    );
+    const totalWordCount =
+        subheadlineWordCount + headlineWordCount + bodyWordCount;
+
+    const { words, readingTime } = getWordsAndReadingTime(totalWordCount);
+
     const notAplly = 'N/A';
     return {
         home: {
@@ -53,7 +69,9 @@ export const getObjectSchema = (globalContent, pagetype) => {
             nota_id: get(globalContent, '_id'),
             isListenable: get(globalContent, 'isListenable', false)
                 ? 'si'
-                : 'no'
+                : 'no',
+            palabras: words,
+            lectura: readingTime
         },
         // TODO: Eliminar cuando se elimine recetas de LN
         receta: {
