@@ -13,6 +13,7 @@ import { GetFonts } from './criticalCss/getFonts';
 import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import get from '../private/common/utils/get';
 import FooditSchemas from '../features/foodit-global/schemas/foodit';
+import { FontPreload } from './fontPreload/foodit';
 
 function Foodit({
     children,
@@ -72,6 +73,7 @@ function Foodit({
                         `${contextPath}/resources/json/foodit/manifest.json`
                     )}
                 />
+
                 {isArcPreview && (
                     <meta name="robots" content="noindex, nofollow" />
                 )}
@@ -81,6 +83,10 @@ function Foodit({
                     renderables={renderables}
                     globalContent={globalContent}
                     isAdmin={isAdmin}
+                />
+                <FontPreload
+                    deployment={deployment}
+                    contextPath={contextPath}
                 />
                 <MetaFoodit
                     metaValue={metaValue}
