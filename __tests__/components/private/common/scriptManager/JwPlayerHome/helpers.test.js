@@ -22,20 +22,37 @@ describe('selectJwPlayerId', () => {
         expect(result).toBe('OSRCuuxn');
     });
 
-    it('returns Vertical Video Id if theres is a vertical video and no Carousel in the UI', () => {
+    it('returns Vertical Video Id if there is a visible Caja Manual with vertical video inside', () => {
         const renderables = [
             {
-                collection: 'features',
-                type: 'LN-10/videoPlayer'
-            },
-            {
-                collection: 'features',
-                type: 'LN-10/article'
+                type: 'LN10_Caja_Manual',
+                props: {
+                    customFields: {
+                        hideCaja: false
+                    }
+                },
+                children: [
+                    {
+                        type: 'LN-10/videoPlayer'
+                    }
+                ]
             }
         ];
 
         const result = selectJwPlayerId(renderables);
         expect(result).toBe('tMVdYMxO');
+    });
+
+    it('returns Horizontal Video Id if there is a videoPlayerNota', () => {
+        const renderables = [
+            {
+                collection: 'features',
+                type: 'LN-10/videoPlayerNota'
+            }
+        ];
+
+        const result = selectJwPlayerId(renderables);
+        expect(result).toBe('XD8x4oQD');
     });
 
     it('returns null if there is no match', () => {

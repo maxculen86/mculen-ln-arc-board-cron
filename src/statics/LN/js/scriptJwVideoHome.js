@@ -37,7 +37,14 @@ window.addEventListener('load', function () {
                 videoID: mediaId || ''
             });
 
-            if (articleElement) {
+            const articleElement = document.querySelector(
+                `article[data-video-id-jw="${mediaId}"]`
+            );
+
+            if (
+                articleElement &&
+                !articleElement.hasAttribute('data-skip-product-click')
+            ) {
                 productClickFromClientVideoJW(articleElement, title || '');
 
                 if (
