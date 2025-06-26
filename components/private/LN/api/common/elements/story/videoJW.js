@@ -1,7 +1,6 @@
 import get from '../../../../../common/utils/get';
 import { videoJWCommon, videosJW, videoJWM3u8 } from '../videoJW';
 import { videoJWThumbnail, videoJWThumbnailGlobal } from '../videoJW/thumbnail';
-import { BackendLnError } from '../../models/backendLnError';
 import { enumTypeError } from '../../enums/enumTypeError';
 
 export const videoJWNota = (videoData, notaId = '') => {
@@ -64,14 +63,22 @@ export const videoJWNota = (videoData, notaId = '') => {
 
         return resp;
     } catch (error) {
-        console.error(
-            new BackendLnError(
-                `StoryId: ${notaId} - videoJWNota - msj: ${
-                    error.message
-                } - content: ${JSON.stringify(videoData || {})}`,
-                enumTypeError.storyContentError
+        console.warn(
+            JSON.stringify(
+                {
+                    name: 'BackendLnWarn',
+                    customErrorType: 'BackendLnWarn',
+                    customType: enumTypeError.storyContentError,
+                    log_details: {
+                        message: `videoJWNota - msj: ${error.message} - content: ${JSON.stringify(videoData || {})}`,
+                        reference_id: notaId
+                    }
+                },
+                null,
+                2
             )
         );
+
         return null;
     }
 };
@@ -139,12 +146,19 @@ export const videoJWNotaMobile = (videoData, notaId = '') => {
 
         return resp;
     } catch (error) {
-        console.error(
-            new BackendLnError(
-                `StoryId: ${notaId} - videoJWNotaMobile - msj: ${
-                    error.message
-                } -  content: ${JSON.stringify(videoData || {})}`,
-                enumTypeError.storyContentError
+        console.warn(
+            JSON.stringify(
+                {
+                    name: 'BackendLnWarn',
+                    customErrorType: 'BackendLnWarn',
+                    customType: enumTypeError.storyContentError,
+                    log_details: {
+                        message: `videoJWNotaMobile - msj: ${error.message} - content: ${JSON.stringify(videoData || {})}`,
+                        reference_id: notaId
+                    }
+                },
+                null,
+                2
             )
         );
         return null;

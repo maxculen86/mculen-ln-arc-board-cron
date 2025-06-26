@@ -1,33 +1,45 @@
 import { SITE_LANACION } from 'fusion:environment';
-import BackendStructuredLog from '../../../../utils/backendStructuredLog';
+import { enumTypeError } from '../../../../enums/enumTypeError';
+import get from '../../../../../../../common/utils/get';
 
 export const errorHandling = (
     res,
     selectedComponent,
     current,
     storyId,
-    storyUrl = null
+    dataNota
 ) => {
     try {
         const functElement = selectedComponent(current, storyId);
         return res.concat(functElement);
     } catch (error) {
+        const canonicalUrl = get(dataNota, 'canonical_url', null);
+        const storyCreatedDate = get(dataNota, 'created_date', null);
+        const storyDisplayDate = get(dataNota, 'display_date', null);
         console.warn(
-            BackendStructuredLog(error.message, storyId, {
-                url: `${SITE_LANACION}${storyUrl}`,
-                content: current,
-                error: {
-                    message: error.message,
-                    name: error.name,
-                    stack: error.stack
-                }
-            })
+            JSON.stringify(
+                {
+                    name: 'BackendLnWarn',
+                    customErrorType: 'BackendLnWarn',
+                    customType: enumTypeError.storyContentError,
+                    log_details: {
+                        message: error.message,
+                        reference_id: storyId,
+                        storyUrl: `${SITE_LANACION}${canonicalUrl}`,
+                        content: current,
+                        storyCreatedDate,
+                        storyDisplayDate
+                    }
+                },
+                null,
+                2
+            )
         );
     }
     return res;
 };
 
-const defaultBody = (contentElements, components, storyId, storyUrl = null) =>
+const defaultBody = (contentElements, components, storyId, dataNota) =>
     contentElements.reduce((res, current) => {
         const selectedComponent = components[current.type];
         if (selectedComponent) {
@@ -36,7 +48,7 @@ const defaultBody = (contentElements, components, storyId, storyUrl = null) =>
                 selectedComponent,
                 current,
                 storyId,
-                storyUrl
+                dataNota
             );
         }
         return res;
