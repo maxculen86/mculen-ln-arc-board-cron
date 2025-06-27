@@ -10,13 +10,14 @@ import {
 } from '../../../../../../private/common/auth/helper/loginHelper';
 
 export function OpenInApp() {
-    const { globalContent } = useAppContext();
+    const { globalContent, layout } = useAppContext();
     const currentUrl = globalContent?.canonical_url || '';
     const device = getTypeOfDevice({ breakpoints: { sm: 768 } });
     const isMobileDevice = device === 'mobile';
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
+    const isHomeLayout = layout === 'LN10-Home_Main';
 
-    if (!isMobileDevice || !isAndroid() || !subscription) {
+    if (!isMobileDevice || !isAndroid() || !subscription || !isHomeLayout) {
         return null;
     }
 
