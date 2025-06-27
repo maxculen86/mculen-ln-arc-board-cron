@@ -37,16 +37,10 @@ window.addEventListener('load', function () {
                 videoID: mediaId || ''
             });
 
-            const articleElement = document.querySelector(
-                `article[data-video-id-jw="${mediaId}"]`
-            );
-
-            if (
-                articleElement &&
-                !articleElement.hasAttribute('data-skip-product-click')
-            ) {
-                productClickFromClientVideoJW(articleElement, title || '');
-
+            if (articleElement) {
+                if (!articleElement.hasAttribute('data-skip-product-click')) {
+                    productClickFromClientVideoJW(articleElement, title || '');
+                }
                 if (
                     isMostlyInViewport(articleElement) &&
                     metaRefreshActive.active
