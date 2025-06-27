@@ -1268,6 +1268,7 @@ a {
   --nexos: #8969E9;
   --circuitos: #42D369;
   --ranking: #74D1E5;
+  --adivinanzas: #81B6E2;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1924,6 +1925,10 @@ a {
   background: #E8F3F3;
 }
 
+.bg-adivinanzas {
+  background: var(--adivinanzas);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -2048,6 +2053,10 @@ a {
   background: var(--ranking);
 }
 
+.bg-adivinanzas__hover:hover {
+  background: var(--adivinanzas);
+}
+
 .bg-secondary__hover:hover {
   background: var(--neutral-light-50);
 }
@@ -2150,6 +2159,11 @@ a {
 
 .ln-card-games-circuitos__hover:hover .cardGame__hover {
   border-color: var(--circuitos);
+  background-color: white;
+}
+
+.ln-card-games-adivinanzas__hover:hover .cardGame__hover {
+  border-color: var(--adivinanzas);
   background-color: white;
 }
 
@@ -3509,6 +3523,9 @@ strong:not(.--font-primary),
   .w-140_max512.w-140_max512 {
     width: 8.75rem;
   }
+  .w-160_max512.w-160_max512 {
+    width: 10rem;
+  }
 }
 @media (min-width: 48rem) {
   .w-32_md.w-32_md {
@@ -3561,6 +3578,11 @@ strong:not(.--font-primary),
   }
   .w-306_l.w-306_l {
     width: 19.125rem;
+  }
+}
+@media (min-width: 32rem) {
+  .w-width_min512.w-width_min512 {
+    width: auto;
   }
 }
 @media (min-width: 64rem) {

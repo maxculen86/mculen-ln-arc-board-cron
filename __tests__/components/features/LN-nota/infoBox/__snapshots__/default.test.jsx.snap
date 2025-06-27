@@ -1,79 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfoBoxFeature Should not render if path does not contain /deportes or /juegos and has no violence-related tags 1`] = `<div />`;
+exports[`InfoBoxFeature Should not render if tag slugs do not match tagList and no valid path 1`] = `<div />`;
 
-exports[`InfoBoxFeature Should render if article has a violence-related tag 1`] = `
-<div>
-  <article
-    class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
-  >
-    <a
-      class="link"
-      href="https://www.lanacion.com.ar/asistencia-violencia-genero"
-      rel="nofollow"
-      target="_blank"
-      title="Recibir asistencia en casos de violencia de género"
-    >
-      <div
-        class="flex flex-row_m flex-column ai-center ai-stretch_m gap-24"
-      >
-        <div
-          class="mb-0_m flex-shrink-0"
-        >
-          <picture>
-            <source
-              media="(min-width: 768px)"
-              srcset=""
-            />
-            <img
-              alt="Imagen de asistencia contra violencia de género"
-              class="image flex w-100 none --cover"
-              decoding="async"
-              fetchpriority="low"
-              loading="lazy"
-              src=""
-            />
-          </picture>
-        </div>
-        <div
-          class="flex flex-column gap-24 ai-start_m ai-center jc-center flex-shrink-1"
-        >
-          <div
-            class="flex gap-16 flex-wrap jc-start_m jc-center"
-          >
-            <img
-              alt="Logo de asistencia contra violencia de género"
-              class="image flex none --cover"
-              decoding="async"
-              fetchpriority="low"
-              loading="lazy"
-              src=""
-              width="150"
-            />
-            <p
-              class="text prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 bg-yellow-secondary uppercase"
-            >
-              Violencia de género
-            </p>
-            <p
-              class="text prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800"
-            >
-              Si estás pasando por una situación de violencia de género, te invitamos a recibir ayuda profesional y apoyo. Haz clic aquí para más información.
-            </p>
-          </div>
-          <div
-            class="py-12 px-16 rounded-4 --font-2xs --font-bold bg-blue-500 text-light-0 uppercase transition transition-all transition-duration-800 mb-24_m"
-          >
-            Recibir asistencia en casos de violencia de género
-          </div>
-        </div>
-      </div>
-    </a>
-  </article>
-</div>
-`;
-
-exports[`InfoBoxFeature Should render if customFields has a tagList and override the link 1`] = `
+exports[`InfoBoxFeature Should override the link if tagList matches tag slug and link is present 1`] = `
 <div>
   <article
     class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
@@ -122,9 +51,11 @@ exports[`InfoBoxFeature Should render if customFields has a tagList and override
               width="150"
             />
             <p
-              class="text prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 bg-yellow-secondary uppercase"
+              class="text prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512"
             >
-              Violencia de género
+              <mark>
+                Violencia de género
+              </mark>
             </p>
             <p
               class="text prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800"
@@ -144,7 +75,80 @@ exports[`InfoBoxFeature Should render if customFields has a tagList and override
 </div>
 `;
 
-exports[`InfoBoxFeature Should render if path has /deportes in it 1`] = `
+exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
+<div>
+  <article
+    class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
+  >
+    <a
+      class="link"
+      href="https://www.lanacion.com.ar/comunidad/violencia-de-genero-nid08032024/"
+      rel="nofollow"
+      target="_blank"
+      title="Recibir asistencia en casos de violencia de género"
+    >
+      <div
+        class="flex flex-row_m flex-column ai-center ai-stretch_m gap-24"
+      >
+        <div
+          class="mb-0_m flex-shrink-0"
+        >
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset=""
+            />
+            <img
+              alt="Imagen de asistencia contra violencia de género"
+              class="image flex w-100 none --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src=""
+            />
+          </picture>
+        </div>
+        <div
+          class="flex flex-column gap-24 ai-start_m ai-center jc-center flex-shrink-1"
+        >
+          <div
+            class="flex gap-16 flex-wrap jc-start_m jc-center"
+          >
+            <img
+              alt="Logo de asistencia contra violencia de género"
+              class="image flex none --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src=""
+              width="150"
+            />
+            <p
+              class="text prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512"
+            >
+              <mark>
+                Violencia de género
+              </mark>
+            </p>
+            <p
+              class="text prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800"
+            >
+              Si estás pasando por una situación de violencia de género, te invitamos a recibir ayuda profesional y apoyo. Haz clic aquí para más información.
+            </p>
+          </div>
+          <div
+            class="py-12 px-16 rounded-4 --font-2xs --font-bold bg-blue-500 text-light-0 uppercase transition transition-all transition-duration-800 mb-24_m"
+          >
+            Recibir asistencia en casos de violencia de género
+          </div>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
+`;
+
+exports[`InfoBoxFeature Should render if primary_section path has /deportes 1`] = `
 <div>
   <article
     class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"

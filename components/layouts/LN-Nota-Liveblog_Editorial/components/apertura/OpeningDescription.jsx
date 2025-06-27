@@ -14,7 +14,7 @@ function OpeningDescription({ data }) {
             <div className="flex flex-column ai-center jc-center px-16 gap-16 h-100 ai-start_m px-0_m">
                 {badge && <Badge text="en vivo" type="live" />}
                 <div className="flex flex-column text-center prumo text-28 text-start_m text-40_md text-48_lg">
-                    <Text font="prumo" as="h2">
+                    <Text font="prumo" weight="bold" as="h1">
                         {title}
                     </Text>
                 </div>
