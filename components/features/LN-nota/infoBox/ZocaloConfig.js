@@ -47,7 +47,7 @@ const zocaloOptions = {
         }
     },
     'violencia-de-genero': {
-        href: 'https://www.lanacion.com.ar/asistencia-violencia-genero',
+        href: 'https://www.lanacion.com.ar/comunidad/violencia-de-genero-nid08032024/',
         title: 'Recibir asistencia en casos de violencia de género',
         target: '_blank',
         imgDsk: 'violencia-genero-desk.webp',
@@ -61,7 +61,7 @@ const zocaloOptions = {
             title: 'Violencia de género',
             text: 'Si estás pasando por una situación de violencia de género, te invitamos a recibir ayuda profesional y apoyo. Haz clic aquí para más información.',
             classnames: {
-                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 bg-yellow-secondary uppercase',
+                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
                 text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
                 button: 'mb-24_m'
             }
