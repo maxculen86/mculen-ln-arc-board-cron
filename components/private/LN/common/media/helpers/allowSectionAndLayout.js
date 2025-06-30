@@ -7,7 +7,8 @@ import {
     RECETA,
     STORYTELLING,
     VIDEO,
-    LIVEBLOG_EDITORIAL
+    LIVEBLOG_EDITORIAL,
+    VIDEOAL100
 } from '../../../../common/utils/subtypes/subtypeHelper';
 
 const acumuladoLayout = 'LN-acumulado';
@@ -40,7 +41,8 @@ const allowSectionAndLayout = [
     { subtype: RECETA },
     { subtype: LIVEBLOG },
     { subtype: INFOGRAFIA },
-    { subtype: LIVEBLOG_EDITORIAL }
+    { subtype: LIVEBLOG_EDITORIAL },
+    { subtype: VIDEOAL100 }
 ];
 
 export default allowSectionAndLayout;
