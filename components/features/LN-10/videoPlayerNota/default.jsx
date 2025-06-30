@@ -79,7 +79,7 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
 
     const article = transform(articleContent, customFields);
 
-    const withSubhead = validateSubhead(config, customFields);
+    const withSubhead = validateSubhead(config, false, customFields, 'regular');
 
     const videoData = useContent({
         source: checkForId(videoId) ? 'videosJwSource' : null,
@@ -101,12 +101,15 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
         instanceConfig: {
             mute: true,
             aspectratio: '16:9',
-            autostart: true,
-            repeat: true,
+            autostart: false,
+            repeat: false,
             playlist,
             preload: 'metadata',
             displaytitle: false,
-            controls: true
+            controls: true,
+            autoPause: {
+                viewability: true
+            }
         }
     };
 
