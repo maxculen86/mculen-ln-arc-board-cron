@@ -2,7 +2,7 @@ import get from '../../../../../../../common/utils/get';
 import { dateAndTimeForAppsUtil } from '../../../../../../../common/utils/dateAndTimeUtil';
 import { imageMobile } from '../../../../../common/elements/image';
 
-const gallery = (nodo, dataNota) => {
+const gallery = nodo => {
     if (!nodo) return null;
 
     const {
