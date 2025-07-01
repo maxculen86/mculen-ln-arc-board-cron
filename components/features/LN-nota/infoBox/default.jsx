@@ -2,7 +2,13 @@ import React from 'react';
 import { Zocalo } from '@ln/contenidos-ui-zocalo';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import { getZocaloProps, getViolenceTagsZocaloProps } from './helper';
+import {
+    getZocaloProps,
+    getViolenceTagsZocaloProps,
+    generateGroupedCustomFieldsPropTypes,
+    getMatchedZocaloGroup,
+    groupNames
+} from './helper';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 function InfoBoxFeature({ customFields }) {
@@ -13,16 +19,19 @@ function InfoBoxFeature({ customFields }) {
             taxonomy: { tags = [], primary_section: { path = '' } = {} } = {}
         } = {}
     } = useAppContext();
-    const { link = '', tagList = [] } = customFields;
 
-    const isTagViolence = tags.some(tag => tagList.includes(tag.slug));
-    const hasLink = link.length > 0;
+    const matched = getMatchedZocaloGroup(groupNames, customFields, tags);
 
-    const zocaloConfig = isTagViolence
-        ? getViolenceTagsZocaloProps(deployment, contextPath, path)
+    const matchedLink = matched?.link || '';
+    const zocaloGroup = matched?.group || '';
+
+    const isTagMatched = matched !== null;
+
+    const zocaloConfig = isTagMatched
+        ? getViolenceTagsZocaloProps(deployment, contextPath, zocaloGroup)
         : getZocaloProps(deployment, contextPath, path);
 
-    const titleContent = isTagViolence ? (
+    const titleContent = isTagMatched ? (
         <mark>{zocaloConfig.descriptionProps.title}</mark>
     ) : (
         zocaloConfig.descriptionProps?.title
@@ -33,7 +42,7 @@ function InfoBoxFeature({ customFields }) {
         title: titleContent
     };
 
-    if (hasLink && isTagViolence) zocaloConfig.linkProps.href = link;
+    if (matchedLink && isTagMatched) zocaloConfig.linkProps.href = matchedLink;
     if (!zocaloConfig.showZocalo) return null;
 
     return (
@@ -60,16 +69,7 @@ InfoBoxFeature.lazy = true;
 
 InfoBoxFeature.propTypes = {
     customFields: PropTypes.shape({
-        tagList: PropTypes.list.tag({
-            label: 'Tag',
-            group: 'Tags'
-        }).isRequired,
-        link: PropTypes.string.tag({
-            name: 'Enlace Personalizado',
-            description: 'Introduzca tags para mostrar el enlace de este campo',
-            defaultValue: '',
-            group: 'Tags'
-        })
+        ...generateGroupedCustomFieldsPropTypes(groupNames)
     }).isRequired
 };
 

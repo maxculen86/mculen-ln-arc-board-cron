@@ -62,15 +62,15 @@ describe('InfoBoxFeature', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
                 taxonomy: {
-                    tags: [{ slug: 'violencia' }],
+                    tags: [{ slug: 'violencia-de-genero-tid47009' }],
                     primary_section: { path: '/mundo' }
                 }
             }
         }));
 
         const customFields = {
-            tagList: ['violencia'],
-            link: ''
+            'tagList-Violencia-de-genero': ['violencia-de-genero-tid47009'],
+            'link-Violencia-de-genero': ''
         };
 
         const { container } = render(
@@ -97,8 +97,8 @@ describe('InfoBoxFeature', () => {
         }));
 
         const customFields = {
-            tagList: ['seguridad'],
-            link: ''
+            'tagList-Abuso': ['seguridad'],
+            'link-Abuso': ''
         };
 
         render(
@@ -128,8 +128,8 @@ describe('InfoBoxFeature', () => {
         }));
 
         const customFields = {
-            tagList: ['salud'],
-            link: 'https://custom-link.com'
+            'tagList-Suicidio': ['salud'],
+            'link-Suicidio': 'https://custom-link.com'
         };
 
         const { container } = render(

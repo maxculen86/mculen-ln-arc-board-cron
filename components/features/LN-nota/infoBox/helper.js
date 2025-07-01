@@ -1,8 +1,68 @@
+import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import getAssetsPath from '../../../private/common/utils/getAssetsPath';
 import zocaloOptions from './ZocaloConfig';
 
-const VIOLENCE_ZOCALO_KEY = 'violencia-de-genero';
+export const groupNames = [
+    'Violencia de genero',
+    'Abuso',
+    'Bullying',
+    'Suicidio',
+    'Generico'
+];
+
+export const getSuffix = groupName => groupName.replace(/\s+/g, '-');
+
+export const getMatchedZocaloGroup = (groups, customFields, tags) =>
+    groups
+        .map(group => {
+            const suffix = getSuffix(group);
+            const tagListKey = `tagList-${suffix}`;
+            const linkKey = `link-${suffix}`;
+
+            const tagList = customFields[tagListKey] || [];
+            const link = customFields[linkKey] || '';
+
+            const hasMatch = tags.some(tag => tagList.includes(tag.slug));
+
+            if (hasMatch) {
+                return { group, tagList, link };
+            }
+
+            return null;
+        })
+        .find(Boolean) || null;
+
+export const getZocaloConfigKeyFromGroup = groupName => {
+    const suffix = getSuffix(groupName).toLowerCase();
+
+    const directKey = suffix;
+    const prefixedKey = `hablemos-de-${suffix}`;
+
+    if (zocaloOptions[directKey]) return directKey;
+    if (zocaloOptions[prefixedKey]) return prefixedKey;
+
+    return 'generico';
+};
+
+export const generateGroupedCustomFieldsPropTypes = groups =>
+    groups.reduce((acc, groupName) => {
+        const keySuffix = getSuffix(groupName);
+
+        acc[`tagList-${keySuffix}`] = PropTypes.list.tag({
+            label: 'Tag',
+            group: groupName
+        });
+
+        acc[`link-${keySuffix}`] = PropTypes.string.tag({
+            name: 'Enlace Personalizado',
+            description: 'Introduzca tags para mostrar el enlace de este campo',
+            defaultValue: '',
+            group: groupName
+        });
+
+        return acc;
+    }, {});
 
 const mapZocaloData = (zocaloData, deployment, contextPath) => {
     if (!zocaloData || Object.keys(zocaloData).length === 0)
@@ -55,10 +115,10 @@ export const getZocaloAppsProps = (path = '') => {
 export const getViolenceTagsZocaloProps = (
     deployment,
     contextPath,
-    path = ''
+    groupName
 ) => {
-    const violenceZocaloData = get(zocaloOptions, VIOLENCE_ZOCALO_KEY, path);
-
+    const configKey = getZocaloConfigKeyFromGroup(groupName);
+    const violenceZocaloData = get(zocaloOptions, configKey, {});
     return mapZocaloData(violenceZocaloData, deployment, contextPath);
 };
 

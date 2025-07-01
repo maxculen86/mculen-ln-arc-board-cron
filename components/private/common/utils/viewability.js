@@ -216,7 +216,9 @@ export const createIntersectionObserver = () => {
 
         const observeElements = () => {
             document
-                .querySelectorAll('article, .live-body > article')
+                .querySelectorAll(
+                    'article:not([data-skip-impression="true"]), .live-body > article'
+                )
                 .forEach(element => {
                     if (element && !observedElements.has(element)) {
                         observer.observe(element);

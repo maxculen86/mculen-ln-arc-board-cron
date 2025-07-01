@@ -47,8 +47,8 @@ const zocaloOptions = {
         }
     },
     'violencia-de-genero': {
-        href: 'https://www.lanacion.com.ar/comunidad/violencia-de-genero-nid08032024/',
-        title: 'Recibir asistencia en casos de violencia de género',
+        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
+        title: 'IR A LAS GUÍAS',
         target: '_blank',
         imgDsk: 'violencia-genero-desk.webp',
         imgMob: 'violencia-genero-mob.webp',
@@ -59,7 +59,91 @@ const zocaloOptions = {
         label: 'violencia_genero',
         descriptionProps: {
             title: 'Violencia de género',
-            text: 'Si estás pasando por una situación de violencia de género, te invitamos a recibir ayuda profesional y apoyo. Haz clic aquí para más información.',
+            text: 'Entrá a la guía de servicio y encontrá los tips de los expertos sobre cómo prevenir, actuar y encontrar ayuda frente a este problema.',
+            classnames: {
+                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
+                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
+                button: 'mb-24_m'
+            }
+        }
+    },
+    'hablemos-de-abuso': {
+        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
+        title: 'IR A LAS GUÍAS',
+        target: '_blank',
+        imgDsk: 'violencia-genero-desk.webp',
+        imgMob: 'violencia-genero-mob.webp',
+        imgAlt: 'Imagen de asistencia contra abuso',
+        imgClassName: 'w-100',
+        logoAlt: 'Logo de asistencia contra abuso',
+        logoWidth: 150,
+        label: 'abuso',
+        descriptionProps: {
+            title: 'Abuso',
+            text: 'Entrá a la guía de servicio y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
+            classnames: {
+                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
+                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
+                button: 'mb-24_m'
+            }
+        }
+    },
+    'hablemos-de-bullying': {
+        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
+        title: 'IR A LAS GUÍAS',
+        target: '_blank',
+        imgDsk: 'violencia-genero-desk.webp',
+        imgMob: 'violencia-genero-mob.webp',
+        imgAlt: 'Imagen de asistencia contra bullying',
+        imgClassName: 'w-100',
+        logoAlt: 'Logo de asistencia contra bullying',
+        logoWidth: 150,
+        label: 'Bullying',
+        descriptionProps: {
+            title: 'Bullying',
+            text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
+            classnames: {
+                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
+                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
+                button: 'mb-24_m'
+            }
+        }
+    },
+    'hablemos-de-suicidio': {
+        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
+        title: 'IR A LAS GUÍAS',
+        target: '_blank',
+        imgDsk: 'violencia-genero-desk.webp',
+        imgMob: 'violencia-genero-mob.webp',
+        imgAlt: 'Imagen de asistencia contra suicidio',
+        imgClassName: 'w-100',
+        logoAlt: 'Logo de asistencia contra suicidio',
+        logoWidth: 150,
+        label: 'suicidio',
+        descriptionProps: {
+            title: 'suicidio',
+            text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
+            classnames: {
+                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
+                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
+                button: 'mb-24_m'
+            }
+        }
+    },
+    generico: {
+        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
+        title: 'IR A LAS GUÍAS',
+        target: '_blank',
+        imgDsk: 'violencia-genero-desk.webp',
+        imgMob: 'violencia-genero-mob.webp',
+        imgAlt: 'Imagen de asistencia contra abuso',
+        imgClassName: 'w-100',
+        logoAlt: 'Logo de asistencia contra abuso',
+        logoWidth: 150,
+        label: 'hablemos de todo',
+        descriptionProps: {
+            title: '',
+            text: 'Encontrá las guías de servicio con tips de los expertos sobre como actuar frente a problemas cotidianos: Adicciones, violencia, abuso, tecnología, depresión, suicidio, apuestas online, bullying, transtornos de la conducta alimentaria y más.',
             classnames: {
                 title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
                 text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
