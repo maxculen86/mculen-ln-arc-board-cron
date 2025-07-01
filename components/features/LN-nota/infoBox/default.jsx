@@ -4,7 +4,6 @@ import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { getZocaloProps, getViolenceTagsZocaloProps } from './helper';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
-import { VIOLENCE_TAGS } from './constants/tags';
 
 function InfoBoxFeature({ customFields }) {
     const {
@@ -14,17 +13,27 @@ function InfoBoxFeature({ customFields }) {
             taxonomy: { tags = [], primary_section: { path = '' } = {} } = {}
         } = {}
     } = useAppContext();
-    const { link, tagList = [] } = customFields;
-    const hasCustomTags = tagList.length > 0;
+    const { link = '', tagList = [] } = customFields;
 
-    const isTagViolence = tags.some(tag => VIOLENCE_TAGS.includes(tag.slug));
+    const isTagViolence = tags.some(tag => tagList.includes(tag.slug));
+    const hasLink = link.length > 0;
 
-    const zocaloConfig =
-        isTagViolence || hasCustomTags
-            ? getViolenceTagsZocaloProps(deployment, contextPath, path)
-            : getZocaloProps(deployment, contextPath, path);
+    const zocaloConfig = isTagViolence
+        ? getViolenceTagsZocaloProps(deployment, contextPath, path)
+        : getZocaloProps(deployment, contextPath, path);
 
-    if (hasCustomTags) zocaloConfig.linkProps.href = link;
+    const titleContent = isTagViolence ? (
+        <mark>{zocaloConfig.descriptionProps.title}</mark>
+    ) : (
+        zocaloConfig.descriptionProps?.title
+    );
+
+    const descriptionContent = {
+        ...zocaloConfig.descriptionProps,
+        title: titleContent
+    };
+
+    if (hasLink && isTagViolence) zocaloConfig.linkProps.href = link;
     if (!zocaloConfig.showZocalo) return null;
 
     return (
@@ -33,7 +42,7 @@ function InfoBoxFeature({ customFields }) {
             imgProps={zocaloConfig.imgProps}
             className="mb-32"
             logoProps={zocaloConfig.logoProps}
-            descriptionProps={zocaloConfig.descriptionProps}
+            descriptionProps={descriptionContent}
             onClick={() =>
                 addEventToDataLayerV2({
                     event: 'e_linkclick',

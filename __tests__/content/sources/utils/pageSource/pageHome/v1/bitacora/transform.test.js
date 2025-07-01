@@ -533,4 +533,93 @@ describe('Transform bitacora v1 test', () => {
 
         expect(result).toEqual(expected);
     });
+
+    test('transforms bn_player_horizontal', async () => {
+        const page = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            },
+            content_elements: [
+                {
+                    type: 0,
+                    sectionAliasMobile: 'ln10_caja_manual',
+                    information: {
+                        idCollection: '',
+                        layout: 'bn_player_horizontal',
+                        initialPosition: 1,
+                        chainStyle: '',
+                        title: 'caja bn_player_horizontal',
+                        link: '',
+                        logoId: '',
+                        hideTitle: false,
+                        navigator: '',
+                        buttonLogo: '',
+                        buttonText: '',
+                        linkButton: '',
+                        buttonStyle: 'generic',
+                        hideCaja: false,
+                        typeChain: 'LN10_Caja_Manual',
+                        viewabilityRoof: 'caja bn_player_horizontal',
+                        nameChain: 'LN10_Caja_Manual',
+                        idRender: 'c0fLEMY8RmQeMP'
+                    },
+                    articles: [
+                        {
+                            _id: 'AIWKATG3ABF6NATFOSAAUBTLZE',
+                            website_url:
+                                '/sociedad/medicos-jovenes-muchos-estan-barajando-la-posibilidad-de-cambiar-de-profesion-nid14092023/',
+                            videoData: {
+                                id: '9SP9fXDX',
+                                posterUrl:
+                                    'https://cdn.jwplayer.com/v2/media/9SP9fXDX/poster.jpg?width=320',
+                                previewVideoUrl:
+                                    'https://assets-jpcust.jwpsrv.com/thumbnails/sh0dhtyg-320.mp4',
+                                fullVideoUrl:
+                                    'https://cdn.jwplayer.com/manifests/9SP9fXDX.m3u8',
+                                fullVideoDuration: 10,
+                                badgeStyle: 'default'
+                            }
+                        }
+                    ],
+                    configurations: {
+                        arcSite: 'la-nacion-ar'
+                    },
+                    sectionWeb: 'Apertura'
+                }
+            ]
+        };
+        const {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate
+        } = queryParams.information;
+        const expected = {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate,
+            cajas: [
+                {
+                    id_caja: '01',
+                    visible: true,
+                    feature: 'tema',
+                    diagramacion_caja: 'bn_player_horizontal',
+                    item_category: 'caja bn_player_horizontal',
+                    notas: [
+                        {
+                            id_nota: 'AIWKATG3ABF6NATFOSAAUBTLZE',
+                            url_nota:
+                                '/sociedad/medicos-jovenes-muchos-estan-barajando-la-posibilidad-de-cambiar-de-profesion-nid14092023/',
+                            posicion: '01'
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const result = await transform(page, queryParams);
+
+        expect(result).toEqual(expected);
+    });
 });

@@ -7,6 +7,7 @@ import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilte
 import { validateVideoPlayer } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { getDataAttributesForViewability } from '../article/_helper';
+import VideoCommonJw from '../../LN-10-global/common/videoCommon/default';
 
 function LN10VideoPlayer({
     id,
@@ -90,7 +91,7 @@ function LN10VideoPlayer({
         title,
         instanceConfig: {
             mute: true,
-            aspectRatio: '9:16',
+            aspectratio: '9:16',
             fullscreenOrientationLock: 'portrait',
             playlist: playListWithoutTitle,
             preload: 'none',
@@ -100,15 +101,13 @@ function LN10VideoPlayer({
 
     return (
         !error && (
-            <article
-                className="content-media cursor-pointer w-100 flex flex-column ai-center bg-black ratio-9-16"
-                data-has-jwplayer="true"
-                data-video-id-jw={videoId}
-                data-config={JSON.stringify(videoConfig)}
-                {...extraOpts}
-            >
-                {mediaId && <div id={mediaId} />}
-            </article>
+            <VideoCommonJw
+                videoId={videoId}
+                mediaId={mediaId}
+                videoConfig={videoConfig}
+                extraOpts={extraOpts}
+                ratio="ratio-9-16"
+            />
         )
     );
 }

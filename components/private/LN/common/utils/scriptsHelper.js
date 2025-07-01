@@ -147,11 +147,15 @@ const scriptList = [
     },
     {
         component: { name: 'JwPlayerHome', function: JwPlayerHome },
-        feature: ['LN-10/itemCarrusel', 'LN-10/videoPlayer']
+        feature: [
+            'LN-10/itemCarrusel',
+            'LN-10/videoPlayer',
+            'LN-10/videoPlayerNota'
+        ]
     },
     {
         component: { name: 'ScriptJwVideoHome', function: ScriptJwVideoHome },
-        feature: ['LN-10/videoPlayer']
+        feature: ['LN-10/videoPlayer', 'LN-10/videoPlayerNota']
     }
 ];
 

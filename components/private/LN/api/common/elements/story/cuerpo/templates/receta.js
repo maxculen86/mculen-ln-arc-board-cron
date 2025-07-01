@@ -1,12 +1,7 @@
 import CustomRecetaList from '../elements/customRecetaList';
 import DefaultCuerpo from './default';
 
-const recetaCuerpo = (
-    contentElements,
-    components,
-    storyId,
-    storyUrl = null
-) => {
+const recetaCuerpo = (contentElements, components, storyId, dataNota) => {
     const resp = [];
 
     const ingredientes = contentElements.filter(
@@ -25,7 +20,7 @@ const recetaCuerpo = (
 
     const tip = contentElements.filter(v => v.type !== 'custom_embed');
 
-    const tipRendered = DefaultCuerpo(tip, components, storyId, storyUrl);
+    const tipRendered = DefaultCuerpo(tip, components, storyId, dataNota);
     if (tipRendered) {
         tipRendered.forEach(v => resp.push(v));
     }

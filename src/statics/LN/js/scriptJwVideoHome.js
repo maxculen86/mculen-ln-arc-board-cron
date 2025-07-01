@@ -1,9 +1,4 @@
-import {
-    isMostlyInViewport,
-    createJWVisibilityAndMetarefreshCallback,
-    productClickFromClientVideoJW,
-    setupVideoObserver
-} from '../../../../components/features/LN-10/videoPlayer/_helper';
+import { productClickFromClientVideoJW } from '../../../../components/features/LN-10/videoPlayer/_helper';
 
 window.addEventListener('load', function () {
     const hasJwVideos = document.querySelectorAll('[data-has-jwplayer="true"]');
@@ -22,8 +17,6 @@ window.addEventListener('load', function () {
             `article[data-video-id-jw="${mediaId}"]`
         );
 
-        const metaRefreshActive = { active: true };
-
         instance.setup({
             ...instanceConfig,
             width: '100%'
@@ -37,29 +30,12 @@ window.addEventListener('load', function () {
                 videoID: mediaId || ''
             });
 
-            if (articleElement) {
+            if (
+                articleElement &&
+                !articleElement.hasAttribute('data-skip-product-click')
+            ) {
                 productClickFromClientVideoJW(articleElement, title || '');
-
-                if (
-                    isMostlyInViewport(articleElement) &&
-                    metaRefreshActive.active
-                ) {
-                    window.LN?.observable?.publish?.('clearTimeout');
-                    metaRefreshActive.active = false;
-                }
             }
         });
-
-        if (articleElement) {
-            const jwVisibilityAndMetarefreshHandler =
-                createJWVisibilityAndMetarefreshCallback(
-                    instance,
-                    metaRefreshActive
-                );
-            setupVideoObserver(
-                articleElement,
-                jwVisibilityAndMetarefreshHandler
-            );
-        }
     });
 });

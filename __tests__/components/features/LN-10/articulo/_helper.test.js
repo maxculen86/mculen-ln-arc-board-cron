@@ -25,7 +25,8 @@ import {
     transformVideoData,
     generateLazyLoadEmbedCode,
     getCllBoard,
-    shouldHighlightCustomVoice
+    shouldHighlightCustomVoice,
+    getIndexOfFeature
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -1594,6 +1595,73 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             const config = { isCustomVoiceCandidate: true };
 
             expect(shouldHighlightCustomVoice(article, config)).toBe(false);
+        });
+    });
+
+    describe('getIndexOfFeature', () => {
+        it('returns the custom index if isException is true (bn_player_horizontal diagramation)', () => {
+            document.body.innerHTML = `
+                <section data-diagramacion-id="bn_player_horizontal">
+                  <article data-feature-id="Mq6lzDXf"></article>
+                </section>
+            `;
+
+            const elementChain = document.querySelector(
+                '[data-diagramacion-id="bn_player_horizontal"]'
+            );
+
+            const index = getIndexOfFeature({
+                elementChain,
+                isException: true,
+                customIndex: 0,
+                featureId: 'Mq6lzDXf'
+            });
+
+            expect(index).toBe(0);
+        });
+
+        it('returns the correct index using findIndex when diagramation is not bn_player_horizontal', () => {
+            document.body.innerHTML = `
+            <section data-diagramacion-id="bn_player_3_grid">
+            <article data-feature-id="f0fR1PJ7ScLF7U1"></article>
+            <article data-feature-id="f0fr3ZokRcLF7Io"></article>
+            <article data-feature-id="f0ffxZZTRcLF731"></article>
+            <article data-feature-id="f0ff3iCZRcLF738"></article>
+          </section>
+            `;
+
+            const elementChain = document.querySelector(
+                '[data-diagramacion-id="bn_player_3_grid"]'
+            );
+
+            const index = getIndexOfFeature({
+                elementChain,
+                isException: false,
+                featureId: 'f0fr3ZokRcLF7Io'
+            });
+
+            expect(index).toBe(1);
+        });
+
+        it('returns -1 when the featureId is not found in elementChain', () => {
+            document.body.innerHTML = `
+              <section data-diagramacion-id="bn_player_3_grid">
+                <article data-feature-id="f0fR1PJ7ScLF7U1"></article>
+                <article data-feature-id="f0fr3ZokRcLF7Io"></article>
+              </section>
+            `;
+
+            const elementChain = document.querySelector(
+                '[data-diagramacion-id="bn_player_3_grid"]'
+            );
+
+            const index = getIndexOfFeature({
+                elementChain,
+                isException: false,
+                featureId: 'Mq6lzDXf'
+            });
+
+            expect(index).toBe(-1);
         });
     });
 });
