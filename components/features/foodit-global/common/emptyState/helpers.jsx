@@ -39,17 +39,17 @@ export const descriptionByVariant = ({ layout, variant }) => {
 
     if (isLayoutShoppingList) {
         emptyStateMessage = getEmptyStateMessage(
-            'en la receta para agregar los ingredientes que necesitas y ¡Listo!',
+            'AGREGAR A LA LISTA en la receta para agregar los ingredientes que necesitas y ¡Listo!',
             'shopping-list'
         );
     } else if (isLayoutMenuSemanal) {
         emptyStateMessage = getEmptyStateMessage(
-            'en la receta para organizar tus comidas y ¡Listo!',
+            'AGREGAR AL MENÚ SEMANAL en la receta para organizar tus comidas y ¡Listo!',
             'weekly-menu'
         );
     } else {
         emptyStateMessage = getEmptyStateMessage(
-            'para guardar el contenido que te gusta y ¡Listo!',
+            'GUARDAR en la receta para acceder al contenido cuando quieras y ¡Listo!',
             'bookmark'
         );
     }
