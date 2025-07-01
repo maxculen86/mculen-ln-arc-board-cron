@@ -6,6 +6,7 @@ jest.mock('fusion:environment', () => ({
     FONT_PRUMO: '/fonts/prumo.woff2',
     ROBOTO_LIGHT: '/fonts/roboto-light.woff2',
     ROBOTO_REGULAR: '/fonts/roboto-regular.woff2',
+    ROBOTO_MEDIUM: '/fonts/roboto-medium.woff2',
     ROBOTO_BOLD: '/fonts/roboto-bold.woff2'
 }));
 
@@ -18,7 +19,7 @@ describe('FontPreload', () => {
             <FontPreload deployment={deployment} contextPath={contextPath} />
         );
         const links = container.querySelectorAll('link');
-        expect(links).toHaveLength(4);
+        expect(links).toHaveLength(5);
 
         expect(links[0]).toHaveAttribute(
             'href',
@@ -33,6 +34,10 @@ describe('FontPreload', () => {
             'https://foodit.com.ar/pf/fonts/roboto-regular.woff2'
         );
         expect(links[3]).toHaveAttribute(
+            'href',
+            'https://foodit.com.ar/pf/fonts/roboto-medium.woff2'
+        );
+        expect(links[4]).toHaveAttribute(
             'href',
             'https://foodit.com.ar/pf/fonts/roboto-bold.woff2'
         );

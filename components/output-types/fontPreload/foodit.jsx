@@ -4,6 +4,7 @@ import {
     FONT_PRUMO,
     ROBOTO_LIGHT,
     ROBOTO_REGULAR,
+    ROBOTO_MEDIUM,
     ROBOTO_BOLD
 } from 'fusion:environment';
 
@@ -22,6 +23,11 @@ export function FontPreload({ deployment, contextPath }) {
             />
             <link
                 href={deployment(`${contextPath}${ROBOTO_REGULAR}`)}
+                rel="preload"
+                as="font"
+            />
+            <link
+                href={deployment(`${contextPath}${ROBOTO_MEDIUM}`)}
                 rel="preload"
                 as="font"
             />

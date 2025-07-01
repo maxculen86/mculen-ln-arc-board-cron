@@ -2,6 +2,7 @@ import {
     FONT_PRUMO,
     ROBOTO_LIGHT,
     ROBOTO_REGULAR,
+    ROBOTO_MEDIUM,
     ROBOTO_BOLD
 } from 'fusion:environment';
 import getWebFont from '../../../../private/common/utils/getWebFont';
@@ -22,6 +23,11 @@ export const fontFaceFoodit = ({ contextPath, deployment }) => `
     contextPath,
     deployment
 })}') format('woff2-variations'); font-weight: 400; font-display: swap;}}
+@font-face {font-family:'Roboto';src:url('${getWebFont({
+    font: ROBOTO_MEDIUM,
+    contextPath,
+    deployment
+})}') format('woff2-variations'); font-weight: 500; font-display: swap;}
 @font-face {font-family:'Roboto';src:url('${getWebFont({
     font: ROBOTO_BOLD,
     contextPath,
