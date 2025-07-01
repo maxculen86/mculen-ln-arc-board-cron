@@ -29,6 +29,7 @@ describe('Test-CardLiveblog when size is M', () => {
                 'titulo',
                 'url',
                 'video',
+                'videoData',
                 'videoYouTube',
                 'videos',
                 'volanta'

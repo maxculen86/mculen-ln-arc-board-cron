@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FontPreload matches snapshot 1`] = `
+<DocumentFragment>
+  <link
+    as="font"
+    href="https://foodit.com.ar/pf/fonts/prumo.woff2"
+    rel="preload"
+  />
+  <link
+    as="font"
+    href="https://foodit.com.ar/pf/fonts/roboto-light.woff2"
+    rel="preload"
+  />
+  <link
+    as="font"
+    href="https://foodit.com.ar/pf/fonts/roboto-regular.woff2"
+    rel="preload"
+  />
+  <link
+    as="font"
+    href="https://foodit.com.ar/pf/fonts/roboto-bold.woff2"
+    rel="preload"
+  />
+</DocumentFragment>
+`;

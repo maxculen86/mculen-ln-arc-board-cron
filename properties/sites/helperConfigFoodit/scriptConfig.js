@@ -8,10 +8,6 @@ export default {
         props: { id: 'GTM-M5NBFQW9', excludeInArcPreview: true },
         location: [HEAD, BODYTOP]
     },
-    PostBid: {
-        props: {},
-        location: [HEAD]
-    },
     ComscoreFoodit: {
         props: {
             config: {
@@ -39,6 +35,5 @@ export default {
     },
     Marfeel: { props: {}, location: [HEAD] },
     Observable: { props: {}, location: [BODYBOTTOM] },
-    DataModal: { props: {}, location: [BODYBOTTOM] },
     FooditEventsHelper: { props: {}, location: [BODYBOTTOM] }
 };

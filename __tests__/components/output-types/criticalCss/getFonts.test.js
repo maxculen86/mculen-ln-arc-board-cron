@@ -9,7 +9,6 @@ jest.mock('fusion:environment', () => {
         FONT_PRUMO_ITALIC: '/resources/fonts/prumo/Prumo-ItalicLNVF.woff2',
         ROBOTO_LIGHT: '/resources/fonts/roboto/Roboto-Light.woff2',
         ROBOTO_REGULAR: '/resources/fonts/roboto/Roboto-Regular.woff2',
-        ROBOTO_MEDIUM: '/resources/fonts/roboto/Roboto-Medium.woff2',
         ROBOTO_BOLD: '/resources/fonts/roboto/Roboto-Bold.woff2'
     };
 });

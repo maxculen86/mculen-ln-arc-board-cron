@@ -417,20 +417,39 @@ export const getDataAttributesForViewability = (
     return extraOpts;
 };
 
-export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
-    const chainParent = getChainParentOfFeature(featureId, renderables);
-    const elementChain = document.querySelector(
-        `section[data-chain-id="${get(chainParent, 'props.id')}"]`
-    );
-    const indexOfFeature =
+export const getIndexOfFeature = ({
+    elementChain,
+    isException,
+    customIndex = 0,
+    featureId
+}) => {
+    if (isException) {
+        return customIndex;
+    }
+
+    return (
         elementChain &&
         [...elementChain.querySelectorAll('article')].findIndex(
             featureNode =>
                 featureNode &&
                 featureNode.getAttribute('data-feature-id') === featureId
-        );
+        )
+    );
+};
+
+export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
+    const chainParent = getChainParentOfFeature(featureId, renderables);
+    const elementChain = document.querySelector(
+        `section[data-chain-id="${get(chainParent, 'props.id')}"]`
+    );
     const layoutChain =
         elementChain && elementChain.getAttribute('data-diagramacion-id');
+    const indexOfFeature = getIndexOfFeature({
+        elementChain,
+        isException: layoutChain === 'bn_player_horizontal',
+        customIndex: 0,
+        featureId
+    });
     const chainId = elementChain && elementChain.getAttribute('data-chain-id');
     const cardConfig = diagramationRules(layoutChain);
     const firstBombaChainId = get(

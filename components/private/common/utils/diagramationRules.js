@@ -1148,6 +1148,20 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             }
         ],
+        bn_player_horizontal: [
+            {
+                type: 'T1',
+                variantsDisabled: [author],
+                cardSize: size.XLL,
+                imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                isCustomVoiceCandidate: true
+            }
+        ],
         bn_1_grid: [
             {
                 variantsDisabled: [author],

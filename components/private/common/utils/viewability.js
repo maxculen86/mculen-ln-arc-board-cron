@@ -47,7 +47,9 @@ const getName = element => {
     if (subtitle && subtitle.length > 0) {
         return (subtitle[0].innerText && subtitle[0].innerText.trim()) || '';
     }
-    return '';
+
+    const fallbackForVideo = element.getAttribute('data-title');
+    return fallbackForVideo?.trim() || '';
 };
 
 const shouldAddArticle = (entry, articlesSeen) => {
