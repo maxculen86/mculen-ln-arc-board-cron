@@ -99,10 +99,7 @@ function CTRNota() {
     if (!showComponent) return null;
     return (
         <>
-            <StickyMobile
-                headerText="Te puede interesar"
-                articleToShow={articleToShow}
-            />
+            <StickyMobile articleToShow={articleToShow} />
             {crtViewTracker(tracked, setTracker)}
         </>
     );
