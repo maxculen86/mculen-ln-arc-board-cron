@@ -11,11 +11,13 @@ const CustomButtonTag = React.forwardRef((props, ref) => (
 export function Carousel({ children, type }) {
     const dataTestId = {
         category: 'container-category-cards-carousel',
-        collection: 'container-cards-carousel'
+        collection: 'container-cards-carousel',
+        collection_4: 'container-cards-carousel-4'
     };
     const classMediaScroller = {
         category: '--carousel-category',
-        collection: 'hide-mobile'
+        collection: 'hide-mobile',
+        collection_4: 'hide-mobile'
     };
     const propsTrack = {
         category: {
@@ -23,11 +25,15 @@ export function Carousel({ children, type }) {
         },
         collection: {
             fullWidth: true
+        },
+        collection_4: {
+            fullWidth: true
         }
     };
     const classProgress = {
         category: 'lg-none',
-        collection: ''
+        collection: '',
+        collection_4: ''
     };
 
     const containerClassName = classNames(
@@ -45,7 +51,7 @@ export function Carousel({ children, type }) {
             >
                 {children}
             </Mediascroller.Track>
-            {type === 'collection' && (
+            {['collection'].includes(type) && (
                 <Mediascroller.Arrows
                     arrowSize={16}
                     className="bg-light-1"

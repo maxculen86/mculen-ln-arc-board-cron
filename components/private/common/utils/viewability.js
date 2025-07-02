@@ -47,7 +47,9 @@ const getName = element => {
     if (subtitle && subtitle.length > 0) {
         return (subtitle[0].innerText && subtitle[0].innerText.trim()) || '';
     }
-    return '';
+
+    const fallbackForVideo = element.getAttribute('data-title');
+    return fallbackForVideo?.trim() || '';
 };
 
 const shouldAddArticle = (entry, articlesSeen) => {
@@ -214,7 +216,9 @@ export const createIntersectionObserver = () => {
 
         const observeElements = () => {
             document
-                .querySelectorAll('article, .live-body > article')
+                .querySelectorAll(
+                    'article:not([data-skip-impression="true"]), .live-body > article'
+                )
                 .forEach(element => {
                     if (element && !observedElements.has(element)) {
                         observer.observe(element);

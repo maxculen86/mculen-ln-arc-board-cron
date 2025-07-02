@@ -1,4 +1,3 @@
-import { SITE_FOODIT } from 'fusion:environment';
 import postIngredientsList from '../../../common/bookmark/api/postIngredientsList';
 import {
     addToast,
@@ -28,19 +27,6 @@ export const saveIngredientsList = async ({ text, sections, id, portions }) => {
     addErrorToast();
     return '';
 };
-
-export const moreInfoElements = [
-    {
-        iconName: 'percent',
-        text: 'Guía de equivalencias',
-        url: `${SITE_FOODIT}/guia-de-cocina/guia-de-equivalencias-nid16042024/`
-    },
-    {
-        iconName: 'swap-box',
-        text: 'Guía de sustitutos de ingredientes',
-        url: `${SITE_FOODIT}/guia-de-cocina/guia-de-sustituciones-nid16042024/`
-    }
-];
 
 export const ingredientsListReduce = (accumulator, currentList) => {
     if (currentList.typeList === 'ingredientes')

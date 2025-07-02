@@ -1,0 +1,55 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Accordion } from '@ln/common-ui-accordion';
+import { Text } from '@ln/contenidos-ui-text';
+import BuildLiveblogBody from './BuildLiveblogBody';
+
+function PostExpandable({
+    isOpen,
+    onToggle,
+    label,
+    outputType,
+    hiddenTextItems = [],
+    globalContent = {}
+}) {
+    return (
+        <Accordion
+            visible={isOpen}
+            className="flex flex-column-reverse border-secondary-positive__hover"
+        >
+            <Accordion.Header
+                onClick={onToggle}
+                iconProps={{
+                    color: 'inherit',
+                    size: 20
+                }}
+                className="text-blue-500"
+                style={{
+                    justifyContent: 'center'
+                }}
+            >
+                <Text className="text-16 " weight="bold">
+                    {label}
+                </Text>
+            </Accordion.Header>
+            <Accordion.Body>
+                <BuildLiveblogBody
+                    groupedElements={hiddenTextItems}
+                    outputType={outputType}
+                    globalContent={globalContent}
+                />
+            </Accordion.Body>
+        </Accordion>
+    );
+}
+
+PostExpandable.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired,
+    hiddenTextItems: PropTypes.shape({}).isRequired,
+    outputType: PropTypes.string.isRequired,
+    globalContent: PropTypes.shape({}).isRequired
+};
+
+export default PostExpandable;

@@ -1,4 +1,5 @@
 import getOpeningMode from '../../../../../../../../components/private/LN/api/common/elements/label/openingMode';
+import { LIVEBLOG_EDITORIAL } from '../../../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('components - private - LN - api - common - elements - label - openingMode', () => {
     describe('getOpeningMode function test', () => {
@@ -52,6 +53,20 @@ describe('components - private - LN - api - common - elements - label - openingM
 
             const result = getOpeningMode(element);
             expect(result).toEqual('ExternalBrowser');
+        });
+        it('getOpeningMode should return NativeBrowser when subtype is LIVEBLOG_EDITORIAL regardless of label', () => {
+            const element = {
+                _id: 'JOLGEOYSHFAURFYQ3ZPRAKROM4',
+                subtype: LIVEBLOG_EDITORIAL,
+                label: {
+                    enviar_a_apps: {
+                        text: 'Si'
+                    }
+                }
+            };
+
+            const result = getOpeningMode(element);
+            expect(result).toEqual('NativeBrowser');
         });
     });
 });

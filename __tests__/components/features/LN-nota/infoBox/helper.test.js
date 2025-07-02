@@ -1,4 +1,7 @@
-import { getZocaloProps } from '../../../../../components/features/LN-nota/infoBox/helper';
+import {
+    getZocaloProps,
+    getViolenceTagsZocaloProps
+} from '../../../../../components/features/LN-nota/infoBox/helper';
 
 jest.mock('fusion:environment', () => ({
     ARC_STATIC: 'https://arc-static.glanacion.com'
@@ -21,5 +24,22 @@ describe('components - features - LN-Nota - infoBox - helper', () => {
         const zocaloProps = getZocaloProps(arg => arg, '/pf', '/mundo');
 
         expect(zocaloProps).toStrictEqual({ showZocalo: false });
+    });
+
+    test('should handle invalid section and return false config', () => {
+        const zocaloProps = getZocaloProps(arg => arg, '/pf', '/invalidPath');
+
+        expect(zocaloProps).toStrictEqual({ showZocalo: false });
+    });
+
+    test('should return the correct config for violence zocalo', () => {
+        const zocaloProps = getViolenceTagsZocaloProps(
+            arg => arg,
+            '/pf',
+            'Violencia de genero'
+        );
+
+        expect(zocaloProps).toMatchSnapshot();
+        expect(zocaloProps.showZocalo).toBe(true);
     });
 });

@@ -11,13 +11,13 @@ import '@testing-library/jest-dom';
 import * as utils from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -185,23 +185,22 @@ describe('BuildBody', () => {
                 }
             })
         );
-
         expect(container).toBeTruthy();
         expect(container).toMatchSnapshot();
         /* paragraph */
         expect(
             container.querySelectorAll(`p[class*="com-paragraph"]`)
-        ).toHaveLength(55);
+        ).toHaveLength(57);
         /* order and unorder list */
         expect(
             container.querySelectorAll(`ul[class*="com-ordered"]`)
         ).toHaveLength(2);
         expect(
             container.querySelectorAll(`ul[class*="com-unordered"]`)
-        ).toHaveLength(2);
+        ).toHaveLength(4);
         expect(
             container.querySelectorAll(`ol[class*="com-ordered"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         /* subtitles */
         expect(
             container.querySelectorAll(
@@ -221,25 +220,25 @@ describe('BuildBody', () => {
         /* oembed_response */
         expect(
             container.querySelectorAll(`div[class*="com-embed --facebook"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         expect(
             container.querySelectorAll(`div[class*="com-embed --instagram"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         expect(
             container.querySelectorAll(`div[class*="com-embed --spotify"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         expect(
             container.querySelectorAll(`div[class*="com-embed --twitter"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(3);
         expect(
             container.querySelectorAll(`div[class*="com-embed --youtube"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         expect(
             container.querySelectorAll(`div[class*="com-embed --dailymotion"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         expect(
             container.querySelectorAll(`div[class*="com-embed --tiktok"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         /* interstitial_link */
         expect(
             container.querySelectorAll(`div[class*="com-container --button"]`)
@@ -257,32 +256,32 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="mod-video"]`)
         ).toHaveLength(0);
-        /* blockquiote no renderiza porque no matchea subtype en las rules */
+        /* blockquote */
         expect(
             container.querySelectorAll(`blockquote[class*="mod-paragraph"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(2);
         /* pullquote no renderiza porque no matchea subtype en las rules */
         expect(
             container.querySelectorAll(`section[class*="com-cita autor"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         /* raw_html */
         expect(
             container.querySelectorAll(`div[class*="com-embed"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(17);
         /* banner */
         expect(
             container.querySelectorAll(`div[class*="ln-banner"]`)
         ).toHaveLength(14);
-        /* powerup receta no renderiza porque no matchea subtype en las rules */
+        /* powerup receta */
         expect(
             container.querySelectorAll(`div[class*="--ingredients"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         expect(
             container.querySelectorAll(`div[class*="--preparation"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         expect(
             container.querySelectorAll(`table[class*="table"]`)
-        ).toHaveLength(0);
+        ).toHaveLength(1);
         /* divider */
         expect(
             container.querySelectorAll(`div[class*="divider"]`)

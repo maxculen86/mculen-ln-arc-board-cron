@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body - BodyPost should match snapshot when PostExpandable is collapsed 1`] = `
+<div>
+  <div
+    class="accordion relative w-100 flex flex-column-reverse border-secondary-positive__hover"
+  >
+    <button
+      class="accordion-header transition-regular flex ai-center jc-between w-100 gap-4 text-blue-500"
+      style="justify-content: center;"
+    >
+      <span
+        class="text ln-text text-16  --font-bold"
+      >
+        Mostrar más
+      </span>
+      <i
+        class="icon accordion-icon --icon-20 --inherit"
+      >
+        <svg
+          fill="none"
+          height="17"
+          viewBox="0 0 16 17"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+            fill="#272727"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </i>
+    </button>
+    <div
+      aria-hidden="true"
+      class="accordion-body transition-regular grid"
+    >
+      <div
+        class="accordion-body-content overflow-hidden"
+      >
+        <p
+          class="com-paragraph   --s"
+        >
+          Texto oculto
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body - BodyPost should match snapshot when PostExpandable is expanded 1`] = `
+<div>
+  <div
+    class="accordion relative w-100 flex flex-column-reverse border-secondary-positive__hover"
+  >
+    <button
+      class="accordion-header transition-regular flex ai-center jc-between w-100 gap-4 text-blue-500 --selected"
+      style="justify-content: center;"
+    >
+      <span
+        class="text ln-text text-16  --font-bold"
+      >
+        Mostrar más
+      </span>
+      <i
+        class="icon accordion-icon --rotate --icon-20 --inherit"
+      >
+        <svg
+          fill="none"
+          height="17"
+          viewBox="0 0 16 17"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+            fill="#272727"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </i>
+    </button>
+    <div
+      aria-hidden="false"
+      class="accordion-body transition-regular grid --visible"
+    >
+      <div
+        class="accordion-body-content overflow-hidden"
+      >
+        <p
+          class="com-paragraph   --s"
+        >
+          Texto oculto
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

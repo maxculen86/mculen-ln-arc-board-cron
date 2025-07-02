@@ -329,6 +329,7 @@ describe('Viewability', () => {
         it('getDataSetProps should return excSuscriptor_[diagramacionId] for product.brand and item.item_brand when subscriptor = true', () => {
             const element = {
                 dataset: {},
+                getAttribute: jest.fn(() => ''),
                 closest: () => {
                     return {
                         dataset: {

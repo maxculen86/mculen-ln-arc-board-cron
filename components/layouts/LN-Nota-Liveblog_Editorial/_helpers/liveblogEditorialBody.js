@@ -1,3 +1,4 @@
+import { cx } from '@ln/cva';
 import { convertMillisecondsToMinutes } from '../../../features/LN-common/LN10_En_Vivo/_helpers';
 import { supportedTypes } from '../../../features/LN-nota/body/_utils/_bodyRules';
 import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers';
@@ -231,4 +232,48 @@ export const extractVisibleItemsWithShowMore = (items = []) => {
 export const shouldShowTopDivider = (index, posts) => {
     const currentPost = posts[index];
     return index === 0 && !currentPost?.isPinned;
+};
+
+export const getPostRenderData = grupo => {
+    const liveblogHeader = getLiveblogHeaderData(grupo);
+    const { visibleItems, hiddenItems, isExpandable } =
+        extractVisibleItemsWithShowMore(grupo.items);
+
+    const displayTime =
+        liveblogHeader?.relative ||
+        liveblogHeader?.time ||
+        liveblogHeader?.customTimeOrText;
+
+    const dataAuthor = {
+        author: liveblogHeader.author,
+        authors: liveblogHeader.authors,
+        showSignatureWithAuthors: liveblogHeader.hasAuthors,
+        position: liveblogHeader.position,
+        size: 12,
+        photo: liveblogHeader.author?.photo || null
+    };
+
+    const wrapperPostClasses = cx(
+        '-ml-16 -mr-16 ml-0_m mr-0_m liveBlog_post',
+        !grupo.isPinned && 'liveBlog_post--unpinned'
+    );
+
+    return {
+        id: grupo.id,
+        isPinned: grupo.isPinned,
+        title: liveblogHeader.title,
+        isExpandable,
+        wrapperPostClasses,
+        visibleItems,
+        headerProps: {
+            displayTime,
+            date: liveblogHeader.date,
+            title: liveblogHeader.title,
+            dataAuthor
+        },
+        expandableProps: {
+            hiddenTextItems: hiddenItems,
+            visibleItems
+        }
+    };
 };

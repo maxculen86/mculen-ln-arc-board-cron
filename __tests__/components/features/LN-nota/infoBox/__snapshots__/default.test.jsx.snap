@@ -1,8 +1,154 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfoBox Should not render if path is null or undefined 1`] = `<div />`;
+exports[`InfoBoxFeature Should not render if tag slugs do not match tagList and no valid path 1`] = `<div />`;
 
-exports[`InfoBox Should render if path has /deportes in it 1`] = `
+exports[`InfoBoxFeature Should override the link if tagList matches tag slug and link is present 1`] = `
+<div>
+  <article
+    class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
+  >
+    <a
+      class="link"
+      href="https://custom-link.com"
+      rel="nofollow"
+      target="_blank"
+      title="IR A LAS GUÍAS"
+    >
+      <div
+        class="flex flex-row_m flex-column ai-center ai-stretch_m gap-24"
+      >
+        <div
+          class="mb-0_m flex-shrink-0"
+        >
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset=""
+            />
+            <img
+              alt="Imagen de asistencia contra suicidio"
+              class="image flex w-100 none --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src=""
+            />
+          </picture>
+        </div>
+        <div
+          class="flex flex-column gap-24 ai-start_m ai-center jc-center flex-shrink-1"
+        >
+          <div
+            class="flex gap-16 flex-wrap jc-start_m jc-center"
+          >
+            <img
+              alt="Logo de asistencia contra suicidio"
+              class="image flex none --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src=""
+              width="150"
+            />
+            <p
+              class="text prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512"
+            >
+              <mark>
+                suicidio
+              </mark>
+            </p>
+            <p
+              class="text prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800"
+            >
+              Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema
+            </p>
+          </div>
+          <div
+            class="py-12 px-16 rounded-4 --font-2xs --font-bold bg-blue-500 text-light-0 uppercase transition transition-all transition-duration-800 mb-24_m"
+          >
+            IR A LAS GUÍAS
+          </div>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
+`;
+
+exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
+<div>
+  <article
+    class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
+  >
+    <a
+      class="link"
+      href="https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/"
+      rel="nofollow"
+      target="_blank"
+      title="IR A LAS GUÍAS"
+    >
+      <div
+        class="flex flex-row_m flex-column ai-center ai-stretch_m gap-24"
+      >
+        <div
+          class="mb-0_m flex-shrink-0"
+        >
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset=""
+            />
+            <img
+              alt="Imagen de asistencia contra violencia de género"
+              class="image flex w-100 none --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src=""
+            />
+          </picture>
+        </div>
+        <div
+          class="flex flex-column gap-24 ai-start_m ai-center jc-center flex-shrink-1"
+        >
+          <div
+            class="flex gap-16 flex-wrap jc-start_m jc-center"
+          >
+            <img
+              alt="Logo de asistencia contra violencia de género"
+              class="image flex none --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src=""
+              width="150"
+            />
+            <p
+              class="text prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512"
+            >
+              <mark>
+                Violencia de género
+              </mark>
+            </p>
+            <p
+              class="text prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800"
+            >
+              Entrá a la guía de servicio y encontrá los tips de los expertos sobre cómo prevenir, actuar y encontrar ayuda frente a este problema.
+            </p>
+          </div>
+          <div
+            class="py-12 px-16 rounded-4 --font-2xs --font-bold bg-blue-500 text-light-0 uppercase transition transition-all transition-duration-800 mb-24_m"
+          >
+            IR A LAS GUÍAS
+          </div>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
+`;
+
+exports[`InfoBoxFeature Should render if primary_section path has /deportes 1`] = `
 <div>
   <article
     class="ln-zocalo p-16 p-24_m pb-0_m border border-all border-1 border-neutral-light-100 mb-32"
@@ -66,5 +212,3 @@ exports[`InfoBox Should render if path has /deportes in it 1`] = `
   </article>
 </div>
 `;
-
-exports[`InfoBox shouldnt render if path not contain /deportes or /juegos in it 1`] = `<div />`;

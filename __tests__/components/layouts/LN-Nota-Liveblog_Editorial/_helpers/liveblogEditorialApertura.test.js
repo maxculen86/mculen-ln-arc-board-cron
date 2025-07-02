@@ -166,7 +166,6 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
 
             expect(result).toEqual({
                 dataDescripcion: {
-                    volanta: 'Volanta para dolo',
                     title: 'Prueba Liveblog Editorial',
                     date: '19 de mayo de 2025',
                     time: '10:51',

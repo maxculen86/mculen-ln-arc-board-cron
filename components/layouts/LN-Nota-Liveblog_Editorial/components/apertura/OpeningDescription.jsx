@@ -7,19 +7,14 @@ import StaticContentV2 from '../../../../chains/LN10-global/staticContentV2';
 function OpeningDescription({ data }) {
     if (!data || !data.title) return null;
 
-    const { signature, date, time, title, badge, volanta } = data;
+    const { signature, date, time, title, badge } = data;
 
     return (
         <div className="grid-col-1-7_md grid-col-1-6_md grid-col-1-8_lg grid-row-1_md">
             <div className="flex flex-column ai-center jc-center px-16 gap-16 h-100 ai-start_m px-0_m">
                 {badge && <Badge text="en vivo" type="live" />}
                 <div className="flex flex-column text-center prumo text-28 text-start_m text-40_md text-48_lg">
-                    {volanta && (
-                        <Text font="prumo" weight="bold" as="h1">
-                            {volanta}
-                        </Text>
-                    )}
-                    <Text font="prumo" as="h2">
+                    <Text font="prumo" weight="bold" as="h1">
                         {title}
                     </Text>
                 </div>

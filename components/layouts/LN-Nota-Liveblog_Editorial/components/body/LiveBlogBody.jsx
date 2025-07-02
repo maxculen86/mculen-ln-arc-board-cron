@@ -8,12 +8,12 @@ import PostDivider from './PostDivider';
 
 function LiveBlogBody({ children }) {
     return (
-        <div className="grid pt-32_m grid-cols-12_m">
+        <div className="grid grid-cols-12_m">
             <section
-                className="pt-8 pb-24 grid-col-2-2_m grid-col-2-11_lg"
+                className="pt-8 grid-col-2-2_m grid-col-2-11_lg"
                 id="body-liveblog-editorial"
             >
-                <div className="pb-24">{children}</div>
+                <div>{children}</div>
             </section>
         </div>
     );

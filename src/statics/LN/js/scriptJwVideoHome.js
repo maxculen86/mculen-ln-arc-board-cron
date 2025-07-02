@@ -13,6 +13,10 @@ window.addEventListener('load', function () {
         const instance = window.jwplayer && window.jwplayer(mediaId);
         if (!instance || !playlist.length) return;
 
+        const articleElement = document.querySelector(
+            `article[data-video-id-jw="${mediaId}"]`
+        );
+
         instance.setup({
             ...instanceConfig,
             width: '100%'
@@ -26,11 +30,10 @@ window.addEventListener('load', function () {
                 videoID: mediaId || ''
             });
 
-            const articleElement = document.querySelector(
-                `article[data-video-id-jw="${mediaId}"]`
-            );
-
-            if (articleElement) {
+            if (
+                articleElement &&
+                !articleElement.hasAttribute('data-skip-product-click')
+            ) {
                 productClickFromClientVideoJW(articleElement, title || '');
             }
         });

@@ -17,6 +17,7 @@ const validateCajaManual = ({
     const LN_CARD_HTML = 'LN-10/CardHtml';
     const LN_TIMELINE = 'LN-10/timeline';
     const LN_VIDEOPLAYER = 'LN-10/videoPlayer';
+    const LN_VIDEOPLAYERNOTA = 'LN-10/videoPlayerNota';
 
     const minimum = setQuantityByLayout({
         layout,
@@ -30,30 +31,82 @@ const validateCajaManual = ({
             c.collection === COLLECTION_FEATURES && c.type === LN_COMMON_ARTICLE
     );
 
-    const videos = childProps.filter(
+    const videoPlayerVertical = childProps.filter(
+        c => c.collection === COLLECTION_FEATURES && c.type === LN_VIDEOPLAYER
+    );
+
+    const videoPlayerNota = childProps.filter(
         c =>
             c.collection === COLLECTION_FEATURES &&
-            (c.type === 'T1' || c.type === LN_VIDEOPLAYER)
+            c.type === LN_VIDEOPLAYERNOTA
     );
+
+    const isPlayerHorizontal = layout === 'bn_player_horizontal';
+    const isPlayerVertical = layout === 'bn_player_3_grid';
+
+    const totalVideoPlayers =
+        videoPlayerVertical.length + videoPlayerNota.length;
+
+    const horizontalPlayerRules = isPlayerHorizontal
+        ? [
+              {
+                  validation: videoPlayerNota.length === 0,
+                  message:
+                      'Esta diagramación requiere al menos un feature del tipo VideoPlayerNota'
+              },
+              {
+                  validation: videoPlayerNota.length > 1,
+                  message:
+                      'Solo se permite un feature del tipo VideoPlayerNota; se tomará solo el primero'
+              },
+              {
+                  validation: videoPlayerVertical.length > 0,
+                  message:
+                      'No se permite usar VideoPlayer (vertical) en esta diagramación'
+              }
+          ]
+        : [];
+
+    const verticalPlayerRules = isPlayerVertical
+        ? [
+              {
+                  validation: videoPlayerVertical.length === 0,
+                  message:
+                      'Esta diagramación requiere al menos un feature del tipo VideoPlayer (vertical)'
+              },
+              {
+                  validation: videoPlayerVertical.length > 1,
+                  message:
+                      'Solo se permite un feature del tipo VideoPlayer (vertical); se tomará solo el primero'
+              },
+              {
+                  validation: videoPlayerNota.length > 0,
+                  message:
+                      'No se permite usar VideoPlayerNota (horizontal) en esta diagramación'
+              }
+          ]
+        : [];
 
     const bnPlayerRules = isBnPlayer
         ? [
               {
-                  validation: videos.length === 0,
+                  validation: totalVideoPlayers === 0,
                   message:
                       'Esta diagramación requiere al menos un feature de video'
               },
               {
-                  validation: videos.length > 1,
+                  validation: totalVideoPlayers > 1,
                   message:
                       'Solo se permite un feature de video en esta diagramación'
               },
               {
-                  validation: articles.length < minimum - videos.length,
+                  validation: articles.length < minimum - totalVideoPlayers,
                   message: `Faltan ${
-                      minimum - videos.length - articles.length
+                      minimum - totalVideoPlayers - articles.length
                   } artículo${
-                      minimum - videos.length - articles.length > 1 ? 's' : ''
+                      minimum - totalVideoPlayers - articles.length > 1
+                          ? 's'
+                          : ''
                   } para completar la diagramación`
               }
           ]
@@ -87,7 +140,8 @@ const validateCajaManual = ({
                             ([LN_COMMON_ARTICLE, LN_CARD_HTML].includes(type) ||
                                 (isGrid6MasTimeline &&
                                     type === LN_TIMELINE))) ||
-                        (isBnPlayer && type === LN_VIDEOPLAYER)
+                        (isBnPlayer &&
+                            [LN_VIDEOPLAYER, LN_VIDEOPLAYERNOTA].includes(type))
                     )
             ),
             message:
@@ -101,7 +155,12 @@ const validateCajaManual = ({
         }
     ];
 
-    return pageBuilderValidator([...bnPlayerRules, ...rules]);
+    return pageBuilderValidator([
+        ...horizontalPlayerRules,
+        ...verticalPlayerRules,
+        ...bnPlayerRules,
+        ...rules
+    ]);
 };
 
 // TODO: agregar test unitario

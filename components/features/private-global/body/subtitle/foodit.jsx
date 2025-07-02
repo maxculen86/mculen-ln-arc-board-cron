@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { normalize } from '../image/helpers';
 
 function Subtitle({ data }) {
     const tagConfigByLevel = {
@@ -21,6 +22,7 @@ function Subtitle({ data }) {
     return (
         <Component
             className={`-mb-8 ${fontClass} ${_props.className}`}
+            data-section={normalize(content)}
             dangerouslySetInnerHTML={{ __html: content }}
         />
     );

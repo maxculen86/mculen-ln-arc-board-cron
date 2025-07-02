@@ -68,13 +68,11 @@ export const getLiveBlogEditorialDataApertura = (
 ) => {
     const {
         headlines: { basic = '' } = {},
-        label = {},
         display_date: displayDate,
         promo_items: promoItems = {}
     } = globalContent;
 
     const coverageEndTime = !isOlderThanXHoursAgo(displayDate, 12);
-    const volanta = get(label, 'volanta.text', null);
     const { date, time } = dateAndTimeUtil(displayDate);
 
     const mediaData = getMediaData(promoItems);
@@ -83,7 +81,6 @@ export const getLiveBlogEditorialDataApertura = (
     const epigraph = { caption, credit };
 
     const dataDescripcion = {
-        volanta,
         title: basic,
         date,
         time,

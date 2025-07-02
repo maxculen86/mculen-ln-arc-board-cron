@@ -4,7 +4,7 @@ import {
     takeEmbedScriptToDiffer
 } from '../../LN-nota/body/_utils/_embedHelper';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
-// TODO: testear hook
+
 const useLazyEmbeds = ({
     contentElements = [],
     outputType = 'default',

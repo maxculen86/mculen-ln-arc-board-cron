@@ -27,14 +27,14 @@ describe('errorHandling', () => {
         const current = { type: 'x', data: 'abc' };
         const storyId = 'ABCDFGHIKLMNOPQ';
         const storyUrl = '/nota/ejemplo';
+        const dataNota = { canonical_url: storyUrl };
 
-        errorHandling(res, selectedComponent, current, storyId, storyUrl);
+        errorHandling(res, selectedComponent, current, storyId, dataNota);
 
         const loggedArg = console.warn.mock.calls[0][0];
-        expect(loggedArg).toContain('an error ocurred');
+        expect(loggedArg).toContain('BackendLnWarn');
         expect(loggedArg).toContain(storyId);
         expect(loggedArg).toContain(storyUrl);
-        expect(loggedArg).toContain(errorThrown.stack.split('\n')[0]);
     });
 
     it('should log Warn when selectedComponent throws an error', () => {

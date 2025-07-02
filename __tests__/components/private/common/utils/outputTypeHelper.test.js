@@ -12,7 +12,7 @@ import {
 import { RECETA } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -289,7 +289,7 @@ describe('Tests - metasFromSiteServices', () => {
     });
 
     test('Return test when metaTags is not defined', () => {
-        expect(metasFromSiteServices(undefined)).toStrictEqual(<></>);
+        expect(metasFromSiteServices(undefined)).toStrictEqual(null);
     });
 
     test('Return test when one of the properties does not have a value', () => {
@@ -305,7 +305,7 @@ describe('Tests - metasFromSiteServices', () => {
     });
 
     test('Return tests when the parameter received is an array', () => {
-        expect(metasFromSiteServices([{}])).toStrictEqual(<></>);
+        expect(metasFromSiteServices([{}])).toStrictEqual(null);
     });
 });
 
@@ -379,6 +379,23 @@ describe('getTagTitle function test', () => {
                     arcSite: 'la-nacion-ar'
                 })
             ).toBe('Titulo de pagebuilder - LA NACION');
+        });
+
+        test('Return when PBtitle when the subtype is LIVEBLOG_EDITORIAL', () => {
+            const PBTitle =
+                'Titulo de pagebuilder (liveblog editorial) - LA NACION';
+            expect(
+                getTagTitle({
+                    PBTitle,
+                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: 'Titulo corto',
+                    nodeType: 'nota',
+                    siteProps: {},
+                    arcSite: 'la-nacion-ar',
+                    metaTitle: '',
+                    subtype: '11'
+                })
+            ).toBe(PBTitle);
         });
     });
     describe('getTagTitle for ott', () => {
@@ -467,7 +484,7 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     requestUri: '/homepage-ln10/'
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when when the page is not LN10', () => {
@@ -481,7 +498,7 @@ describe('getTagTitle function test', () => {
                     },
                     layout: 'LN-acumulado'
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when layout is not LN10', () => {
@@ -489,7 +506,7 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     requestUri: 'politica'
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when requestUri is a empty string', () => {
@@ -497,7 +514,7 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     requestUri: ''
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when everything is undefined', () => {
@@ -506,7 +523,7 @@ describe('getTagTitle function test', () => {
                     siteProperties: undefined,
                     layout: undefined
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when everything is undefined', () => {
@@ -514,7 +531,7 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     requestUri: undefined
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when everything is null', () => {
@@ -522,7 +539,7 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     requestUri: null
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
     });
 
@@ -554,13 +571,11 @@ describe('getTagTitle function test', () => {
                     layout: 'LN-Home-Sports',
                     outputType: 'default'
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when receiving an empty object', () => {
-            expect(addMetaNoIndexNoFollow({})).toStrictEqual(
-                <React.Fragment />
-            );
+            expect(addMetaNoIndexNoFollow({})).toStrictEqual(null);
         });
 
         test('Return fragment when receiving outputType undefined', () => {
@@ -568,7 +583,7 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     outputType: undefined
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
 
         test('Return fragment when receiving outputType as an empty string', () => {
@@ -576,7 +591,7 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     outputType: ''
                 })
-            ).toStrictEqual(<React.Fragment />);
+            ).toStrictEqual(null);
         });
     });
 

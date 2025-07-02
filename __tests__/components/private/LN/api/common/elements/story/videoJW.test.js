@@ -238,7 +238,7 @@ describe('components - private - LN - api - common - elements - story - videoJW'
         const newElementVideoJW = { ...elementVideoJW };
         newElementVideoJW.embed.config.videoJw.playlist = [];
         const resp = videoJWNotaMobile(newElementVideoJW, '123');
-        expect(console.error).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledTimes(1);
         expect(resp).toBe(null);
     });
 });

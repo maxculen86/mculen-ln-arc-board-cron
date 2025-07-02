@@ -142,7 +142,7 @@ function BuildFirtsButtonsGroup({
                     }}
                     variant="secondary"
                     iconOnly
-                    title="Notas guardadas"
+                    title="Guardar nota"
                     className={bookmarkClassCondition}
                     isNegative={subtypeVideo}
                 >

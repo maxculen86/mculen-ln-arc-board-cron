@@ -2,48 +2,145 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Context from 'fusion:context';
 import InfoBoxFeature from '../../../../../components/features/LN-nota/infoBox/default';
+import * as helper from '../../../../../components/features/LN-nota/infoBox/helper';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
-describe('InfoBox', () => {
-    it('Should render if path has /deportes in it', () => {
+describe('InfoBoxFeature', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    const baseCustomFields = {
+        tagList: [],
+        link: ''
+    };
+
+    it('Should render if primary_section path has /deportes', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
-                taxonomy: { primary_section: { path: '/deportes' } }
+                taxonomy: {
+                    tags: [],
+                    primary_section: { path: '/deportes' }
+                }
             }
         }));
 
         const { container } = render(
-            <InfoBoxFeature contextPath={'/pf'} deployment={arg => arg} />
+            <InfoBoxFeature
+                contextPath="/pf"
+                deployment={x => x}
+                customFields={baseCustomFields}
+            />
         );
         expect(container).toMatchSnapshot();
     });
 
-    it('shouldnt render if path not contain /deportes or /juegos in it', () => {
+    it('Should not render if tag slugs do not match tagList and no valid path', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
-                taxonomy: { primary_section: { path: '/mundo' } }
+                taxonomy: {
+                    tags: [{ slug: 'politica' }],
+                    primary_section: { path: '/mundo' }
+                }
             }
         }));
 
         const { container } = render(
-            <InfoBoxFeature contextPath={'/pf'} deployment={arg => arg} />
+            <InfoBoxFeature
+                contextPath="/pf"
+                deployment={x => x}
+                customFields={baseCustomFields}
+            />
         );
         expect(container).toMatchSnapshot();
     });
 
-    it('Should not render if path is null or undefined', () => {
-        Context.useAppContext.mockReturnValue({
+    it('Should render if any tag slug matches tagList', () => {
+        Context.useAppContext = jest.fn(() => ({
             globalContent: {
-                taxonomy: { primary_section: { path: null } }
+                taxonomy: {
+                    tags: [{ slug: 'violencia-de-genero-tid47009' }],
+                    primary_section: { path: '/mundo' }
+                }
             }
-        });
+        }));
+
+        const customFields = {
+            'tagList-Violencia-de-genero': ['violencia-de-genero-tid47009'],
+            'link-Violencia-de-genero': ''
+        };
 
         const { container } = render(
-            <InfoBoxFeature contextPath={'/pf'} deployment={arg => arg} />
+            <InfoBoxFeature
+                contextPath="/pf"
+                deployment={x => x}
+                customFields={customFields}
+            />
         );
+
         expect(container).toMatchSnapshot();
+    });
+
+    it('Should not call getZocaloProps if tagList matches tag slug', () => {
+        jest.spyOn(helper, 'getZocaloProps');
+
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {
+                taxonomy: {
+                    tags: [{ slug: 'seguridad' }],
+                    primary_section: { path: '/mundo' }
+                }
+            }
+        }));
+
+        const customFields = {
+            'tagList-Abuso': ['seguridad'],
+            'link-Abuso': ''
+        };
+
+        render(
+            <InfoBoxFeature
+                contextPath="/pf"
+                deployment={x => x}
+                customFields={customFields}
+            />
+        );
+
+        expect(helper.getZocaloProps).not.toHaveBeenCalled();
+    });
+
+    it('Should override the link if tagList matches tag slug and link is present', () => {
+        const getViolenceTagsSpy = jest.spyOn(
+            helper,
+            'getViolenceTagsZocaloProps'
+        );
+
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {
+                taxonomy: {
+                    tags: [{ slug: 'salud' }],
+                    primary_section: { path: '/mundo' }
+                }
+            }
+        }));
+
+        const customFields = {
+            'tagList-Suicidio': ['salud'],
+            'link-Suicidio': 'https://custom-link.com'
+        };
+
+        const { container } = render(
+            <InfoBoxFeature
+                contextPath="/pf"
+                deployment={x => x}
+                customFields={customFields}
+            />
+        );
+
+        expect(container).toMatchSnapshot();
+        expect(getViolenceTagsSpy).toHaveBeenCalled();
     });
 });

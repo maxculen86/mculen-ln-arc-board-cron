@@ -1618,6 +1618,9 @@ strong {
   .w-328_md {
     width: 20.5rem;
   }
+  .w-364_md {
+    width: 22.75rem;
+  }
   .w-450_md {
     width: 28.125rem;
   }
@@ -2005,6 +2008,10 @@ strong {
 
 .mt-16 {
   margin-top: 1rem;
+}
+
+.mt-22 {
+  margin-top: 1.375rem;
 }
 
 .mt-24 {
