@@ -85,7 +85,8 @@ function ArticlesAcum({
                         shouldLoadEager={shouldLoadEager(
                             index,
                             isWiki,
-                            requestUri
+                            requestUri,
+                            hasCollectionApertura
                         )}
                         openBarrier={openBarrier}
                     >

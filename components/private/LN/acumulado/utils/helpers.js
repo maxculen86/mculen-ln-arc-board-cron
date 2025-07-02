@@ -1,8 +1,18 @@
-export const shouldLoadEager = (index, isWiki = false, requestUri = '') => {
+export const shouldLoadEager = (
+    index,
+    isWiki = false,
+    requestUri = '',
+    isApertura = false
+) => {
     const matchesTargetPath =
         requestUri.includes('/dolar-hoy/') || requestUri.includes('/tema/');
 
-    return matchesTargetPath && !isWiki && (index === 1 || index === 2);
+    return (
+        matchesTargetPath &&
+        !isWiki &&
+        (index === 1 || index === 2) &&
+        !isApertura
+    );
 };
 
 export const shouldHideSubheaderText = requestUri => {
