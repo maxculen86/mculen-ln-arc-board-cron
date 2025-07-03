@@ -4,7 +4,7 @@ import configInfoSectionsByLayout from '../../../../../../../../../../components
 describe('boxInfoCajaJuegos test suite', () => {
     test('Should return right values', () => {
         const typeSection = configInfoSectionsByLayout('LN10-Home_Main-V2');
-        const section = 'ln10_caja_juegos';
+        const section = 'ln10_caja_juegos_v2';
         const information = {
             link: 'https://www.lanacion.com.ar/juegos/'
         };
@@ -23,7 +23,7 @@ describe('boxInfoCajaJuegos test suite', () => {
 
     test('Should return idSeccion 705', () => {
         const typeSection = configInfoSectionsByLayout('LN10-Home_Main-V2');
-        const section = 'ln10_caja_juegos';
+        const section = 'ln10_caja_juegos_v2';
         const information = {};
 
         const result = boxInfoCajaJuegos(information, section, typeSection);

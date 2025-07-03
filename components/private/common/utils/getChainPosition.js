@@ -6,7 +6,7 @@ const getChainPosition = (chainId, renderables = []) =>
             element =>
                 get(element, 'collection', '') === 'chains' &&
                 !get(element, 'props.customFields.hideCaja', false) &&
-                get(element, 'type') !== 'LN10_Caja_Juegos'
+                get(element, 'type') !== 'LN10_Caja_Juegos_v2'
         )
         .findIndex(chain => chain.props.id === chainId) || 0;
 
