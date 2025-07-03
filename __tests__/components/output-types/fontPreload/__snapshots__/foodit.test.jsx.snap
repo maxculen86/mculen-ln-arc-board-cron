@@ -19,6 +19,11 @@ exports[`FontPreload matches snapshot 1`] = `
   />
   <link
     as="font"
+    href="https://foodit.com.ar/pf/fonts/roboto-medium.woff2"
+    rel="preload"
+  />
+  <link
+    as="font"
     href="https://foodit.com.ar/pf/fonts/roboto-bold.woff2"
     rel="preload"
   />

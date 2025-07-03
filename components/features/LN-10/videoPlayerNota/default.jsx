@@ -188,7 +188,8 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
                     videoConfig={videoConfig}
                     extraOpts={{
                         ...extraOpts,
-                        'data-skip-product-click': true
+                        'data-skip-product-click': true,
+                        'data-skip-impression': true
                     }}
                     ratio="ratio-16-9"
                     isAdmin={isAdmin}

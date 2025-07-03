@@ -35,5 +35,6 @@ export default {
     },
     Marfeel: { props: {}, location: [HEAD] },
     Observable: { props: {}, location: [BODYBOTTOM] },
+    DataModal: { props: {}, location: [BODYBOTTOM] },
     FooditEventsHelper: { props: {}, location: [BODYBOTTOM] }
 };

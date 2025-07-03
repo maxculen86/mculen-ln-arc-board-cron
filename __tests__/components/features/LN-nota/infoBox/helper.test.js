@@ -36,7 +36,7 @@ describe('components - features - LN-Nota - infoBox - helper', () => {
         const zocaloProps = getViolenceTagsZocaloProps(
             arg => arg,
             '/pf',
-            '/deportes'
+            'Violencia de genero'
         );
 
         expect(zocaloProps).toMatchSnapshot();
