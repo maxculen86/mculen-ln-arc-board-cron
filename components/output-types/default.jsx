@@ -237,6 +237,7 @@ function Default(props) {
                     site={site}
                     template={template}
                     layout={layout}
+                    requestUri={requestUri}
                 />
                 {layout !== lnBuscador && (
                     <MetaTitle
