@@ -1594,7 +1594,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/"]
+                                        "default": [
+                                            "/"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "8010",
@@ -1615,7 +1617,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8010",
@@ -6433,7 +6437,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/deportes"]
+                                        "default": [
+                                            "/deportes"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "140",
@@ -6454,7 +6460,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/deportes"]
+                                            "default": [
+                                                "/deportes"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "140",
@@ -7993,7 +8001,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/deportes"]
+                                            "default": [
+                                                "/deportes"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -8009,7 +8019,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/deportes"]
+                                            "default": [
+                                                "/deportes"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "132",
@@ -8132,7 +8144,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/deportes"]
+                                            "default": [
+                                                "/deportes"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "247",
@@ -8298,7 +8312,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/deportes"]
+                                            "default": [
+                                                "/deportes"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "140",
@@ -8617,7 +8633,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/"]
+                                        "default": [
+                                            "/"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "8010",
@@ -8638,7 +8656,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8010",
@@ -10477,7 +10497,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/propiedades"]
+                                        "default": [
+                                            "/propiedades"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "6251",
@@ -10498,7 +10520,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/propiedades"]
+                                            "default": [
+                                                "/propiedades"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "6251",
@@ -11687,7 +11711,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/autos"]
+                                        "default": [
+                                            "/autos"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "371",
@@ -11708,7 +11734,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/autos"]
+                                            "default": [
+                                                "/autos"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "371",
@@ -11956,7 +11984,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/propiedades"]
+                                        "default": [
+                                            "/propiedades"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "6251",
@@ -11977,7 +12007,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/propiedades"]
+                                            "default": [
+                                                "/propiedades"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "6251",
@@ -12082,9 +12114,9 @@
             "2": [],
             "3": [],
             "type": 8,
-            "sectionAliasMobile": "ln10_caja_juegos",
+            "sectionAliasMobile": "ln10_caja_juegos_v2",
             "information": {
-                "nameChain": "LN10_Caja_Juegos",
+                "nameChain": "LN10_Caja_Juegos_v2",
                 "idRender": "c0fU1OqL2uBK1s3"
             },
             "configurations": {
@@ -12322,7 +12354,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/"]
+                                        "default": [
+                                            "/"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "8010",
@@ -12343,7 +12377,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8010",
@@ -13568,7 +13604,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/"]
+                                        "default": [
+                                            "/"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "8011",
@@ -13589,7 +13627,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8011",
@@ -14033,7 +14073,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/"]
+                                        "default": [
+                                            "/"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "8010",
@@ -14054,7 +14096,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8010",
@@ -14333,7 +14377,9 @@
                             "additional_properties": {
                                 "original": {
                                     "ancestors": {
-                                        "default": ["/"]
+                                        "default": [
+                                            "/"
+                                        ]
                                     },
                                     "migration": {
                                         "id_section_ln9": "8011",
@@ -14354,7 +14400,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8011",
@@ -14392,7 +14440,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8010",
@@ -14605,7 +14655,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/deportes"]
+                                            "default": [
+                                                "/deportes"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "140",
@@ -14750,7 +14802,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/propiedades"]
+                                            "default": [
+                                                "/propiedades"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "6251",
@@ -15149,7 +15203,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/economia"]
+                                            "default": [
+                                                "/economia"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8018",
@@ -17343,7 +17399,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/lifestyle"]
+                                            "default": [
+                                                "/lifestyle"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -17667,7 +17725,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/deportes"]
+                                            "default": [
+                                                "/deportes"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "140",
@@ -18405,7 +18465,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8010",
@@ -18530,7 +18592,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "8010",
@@ -18899,7 +18963,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -18915,7 +18981,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -19056,7 +19124,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -19072,7 +19142,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -19088,7 +19160,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -19217,7 +19291,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -19384,7 +19460,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -19400,7 +19478,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/salud"]
+                                            "default": [
+                                                "/salud"
+                                            ]
                                         },
                                         "site": {}
                                     }
@@ -20162,7 +20242,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/propiedades"]
+                                            "default": [
+                                                "/propiedades"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "6251",
@@ -20325,7 +20407,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/propiedades"]
+                                            "default": [
+                                                "/propiedades"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "6251",
@@ -20476,7 +20560,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/propiedades"]
+                                            "default": [
+                                                "/propiedades"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "6251",
@@ -20614,7 +20700,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/propiedades"]
+                                            "default": [
+                                                "/propiedades"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "6251",
@@ -21818,7 +21906,9 @@
                                 "additional_properties": {
                                     "original": {
                                         "ancestors": {
-                                            "default": ["/"]
+                                            "default": [
+                                                "/"
+                                            ]
                                         },
                                         "migration": {
                                             "id_section_ln9": "121",
