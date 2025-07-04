@@ -3,7 +3,7 @@ import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import { isExcludedSubtype, calcReadingMinutes } from './_helpers';
+import { isExcludedSubtype, calcReadingMinutes, countWords } from './_helpers';
 import get from '../../../../private/common/utils/get';
 
 function ReadingTime() {
@@ -13,12 +13,20 @@ function ReadingTime() {
         globalContent = {}
     } = useAppContext() || {};
 
-    const wordCount = get(
+    const subheadline = get(globalContent, 'subheadlines.basic', '');
+    const headline = get(globalContent, 'headlines.basic', '');
+
+    const subheadlineWordCount = countWords(subheadline);
+    const headlineWordCount = countWords(headline);
+    const bodyWordCount = get(
         globalContent,
         'planning.story_length.word_count_actual',
         ''
     );
-    const readingMinutes = calcReadingMinutes(wordCount);
+    const totalWordCount =
+        subheadlineWordCount + headlineWordCount + bodyWordCount;
+
+    const readingMinutes = calcReadingMinutes(totalWordCount);
     const formattedReadingTime = readingMinutes.toString();
 
     const minuteOrMinutes = readingMinutes === 1 ? 'minuto' : 'minutos';
