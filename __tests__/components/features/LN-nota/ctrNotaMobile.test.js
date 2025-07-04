@@ -187,21 +187,14 @@ describe('CTRNota', () => {
     });
 
     it('should render text in StickyMobile and check variables', () => {
-        const headerText = 'Te puede interesar';
         const articleToShow = {
             title: 'Sample Article',
             url: '/sample-article'
         };
 
-        render(
-            <StickyMobile
-                headerText={headerText}
-                articleToShow={articleToShow}
-            />
-        );
+        render(<StickyMobile articleToShow={articleToShow} />);
 
-        expect(screen.getByText('Te puede interesar')).toBeInTheDocument();
-        expect(!!headerText).toBe(true);
+        expect(screen.getByText('Lo más leído')).toBeInTheDocument();
         expect(!!articleToShow).toBe(true);
     });
 

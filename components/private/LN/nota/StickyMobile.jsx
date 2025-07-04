@@ -1,17 +1,16 @@
-/* eslint-disable react/jsx-curly-newline */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../../../../resources/dist/css/ln/components/sticky-mobile.css';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { Link } from '@ln/contenidos-ui-link';
 import { Text } from '@ln/contenidos-ui-text';
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import { cx } from '@ln/cva';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
-import ModPicture from '../../common/mod-picture';
 import { handleClickForCTRcomponent } from '../../common/utils/noteTracker/ctrTracker';
 import get from '../../common/utils/get';
 
-function StickyMobile({ headerText, alt, articleToShow }) {
+function StickyMobile({ alt, articleToShow }) {
     const {
         promo_items: promoItems = {},
         website_url: websiteUrl = '',
@@ -26,60 +25,78 @@ function StickyMobile({ headerText, alt, articleToShow }) {
 
     const headlineToUse = headlinesMobile || headlinesBasic;
     const [displaySticky, setDisplaySticky] = useState(true);
+
+    const classNameContainer = cx(
+        'sticky-mobile',
+        'animation animation-name-fade-in-up animation-duration-300 transition transition-ease-in',
+        'bg-light-50 rounded-top-left-16 rounded-top-right-16 fixed bottom-0 min-h-246 w-100 z-101 -ml-16',
+        !displaySticky && 'none'
+    );
+
     return (
-        <section
-            className={`sticky-mobile flex jc-center${!displaySticky && ' hlp-none'}`}
-        >
+        <section className={classNameContainer}>
             <div
-                className="sticky-mobile-container flex flex-column gap-8 flex-grow-1"
+                className="sticky-mobile-container flex flex-column flex-grow-1"
                 data-mrf-recirculation="n_sticky"
             >
                 <div className="header-sticky">
-                    <div className="flex gap-16 ai-center">
-                        <div className="flex p-4 rounded-4 bg-la-nacion">
-                            <Icon size={12}>
+                    <div className="flex ai-center bg-blue-500 rounded-top-left-16 rounded-top-right-16 jc-center">
+                        <div className="w-100 px-16 flex flex-row ai-center jc-between max-w-511">
+                            <Icon size={28}>
                                 <IconSprite name="productLn" fill="#fff" />
                             </Icon>
+                            <Text
+                                tag="h3"
+                                className="arial text-16 text-neutral-light-1"
+                                weight="bold"
+                            >
+                                Lo más leído
+                            </Text>
+                            <Button
+                                onClick={() => {
+                                    setDisplaySticky(false);
+                                    handleClickForCTRcomponent('close');
+                                }}
+                                id="stickyMobileTestId"
+                                iconOnly
+                                size="inherit"
+                                aria-hidden="true"
+                            >
+                                <Icon size={24}>
+                                    <IconSprite
+                                        name="close"
+                                        fill="var(--neutral-light-1)"
+                                    />
+                                </Icon>
+                            </Button>
                         </div>
-                        <Text
-                            className="--prumo --font-black text-16 flex-grow-1"
-                            tag="h3"
-                        >
-                            {headerText}
-                        </Text>
-                        <Button
-                            onClick={() => {
-                                setDisplaySticky(false);
-                                handleClickForCTRcomponent('close');
-                            }}
-                            id="stickyMobileTestId"
-                            iconOnly
-                            size="inherit"
-                            aria-hidden="true"
-                        >
-                            <Icon size={24}>
-                                <IconSprite name="close" />
-                            </Icon>
-                        </Button>
                     </div>
                 </div>
                 <div
                     aria-hidden="true"
                     onClick={() => handleClickForCTRcomponent('open')}
+                    className="pt-8 px-16 mx-auto max-w-511"
                 >
                     <Link
                         href={websiteUrl}
                         title={headlineToUse}
-                        className="flex ai-start ml-auto mr-auto gap-8"
+                        className="flex gap-8 ai-center mb-125"
                     >
-                        <ModPicture
+                        <Adaptableimage
                             src={get(resizedUrls[0], 'resizedUrl', url)}
                             alt={alt || headlineToUse}
                             sources={resizedUrls}
+                            width={96}
                         />
-                        <Text className="arial text-16 --font-regular" tag="h2">
-                            {headlineToUse}
-                        </Text>
+                        {headlineToUse && (
+                            <Text
+                                className="arial text-16_110 text-neutral-light-800 text-ellipsis-3"
+                                weight="bold"
+                                tag="h2"
+                            >
+                                {headlineToUse}
+                            </Text>
+                        )}
                     </Link>
                 </div>
             </div>
@@ -88,7 +105,6 @@ function StickyMobile({ headerText, alt, articleToShow }) {
 }
 
 StickyMobile.propTypes = {
-    headerText: PropTypes.string,
     alt: PropTypes.string,
     articleToShow: PropTypes.shape({
         promo_items: PropTypes.shape({
@@ -114,7 +130,6 @@ StickyMobile.propTypes = {
 };
 
 StickyMobile.defaultProps = {
-    headerText: '',
     alt: '',
     articleToShow: {}
 };
