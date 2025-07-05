@@ -10,13 +10,12 @@ import CajaCarruselProvider from './components/cajaCarruselContext';
 import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
 import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
 import MediaScroller from './components/mediaScroller/mediaScroller';
-import { isScriptLoaded, transformNodes } from './components/helpers';
+import { transformNodes } from './components/helpers';
 import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
-import loadJWPlayerScript from '../utils/loadJWPlayerScript';
 import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
 
@@ -32,7 +31,6 @@ function CajaCarrusel(props) {
     const divRefInCarrusel = useRef(null);
 
     const { isAdmin } = useAppContext();
-    const playerId = 'OSRCuuxn';
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -68,12 +66,6 @@ function CajaCarrusel(props) {
     if (hideCarousel) {
         return null;
     }
-
-    useEffect(() => {
-        if (!isScriptLoaded(playerId)) {
-            loadJWPlayerScript(playerId);
-        }
-    }, []);
 
     useEffect(() => {
         if (!isAdmin) {
