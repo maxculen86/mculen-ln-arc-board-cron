@@ -5,10 +5,20 @@ import get from '../../components/private/common/utils/get';
 import pages from './utils/pageSource/index';
 import transformBitacorav1 from './utils/pageSource/pageHome/v1/bitacora/transform';
 import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
-import { BackendLnError } from '../../components/private/LN/api/common/models/backendLnError';
+
+function splitObjectForLogging(obj, maxSize = 20000) {
+    const json = JSON.stringify(obj);
+    const parts = [];
+    for (let i = 0; i < json.length; i += maxSize) {
+        parts.push(json.substring(i, i + maxSize));
+    }
+    return parts;
+}
 
 // Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
 const fetch = async (query, { cachedCall } = {}) => {
+    let resultPage = {};
+    const executionSteps = [];
     let queryParams = {};
     const configPages = {
         home: {
@@ -89,15 +99,22 @@ const fetch = async (query, { cachedCall } = {}) => {
 
         const apiPageHomeSourceFetchDate = new Date();
 
-        const resultPage = await cachedCall(keyCachedCall, pages.fetch, {
+        executionSteps.push(
+            `execute page fetch - query: ${JSON.stringify(queryParams)}`
+        );
+
+        resultPage = await cachedCall(keyCachedCall, pages.fetch, {
             query: queryParams,
             ttl: 120,
             independent: true
         });
 
         if (!resultPage) {
+            executionSteps.push(`Fetch Home page - Not found page`);
             throw new Error('Not found page');
         }
+
+        executionSteps.push(`Fetch Home page Ok`);
 
         const { information, homeFetchDate } = resultPage;
         queryParams.information = {
@@ -106,6 +123,8 @@ const fetch = async (query, { cachedCall } = {}) => {
             keyCachedCall,
             apiPageHomeSourceFetchDate
         };
+        executionSteps.push(`Set queryParams: ${JSON.stringify(queryParams)}`);
+
         // Para revisar la data transformada que viene del Layout
         // return resultPage;
         if (
@@ -115,10 +134,16 @@ const fetch = async (query, { cachedCall } = {}) => {
             return resultPage;
         }
 
+        executionSteps.push(
+            `execute transformPage - query: ${JSON.stringify(queryParams)}`
+        );
+
         const resultPageTransform = await configItemPage.transformPage[version](
             resultPage,
             queryParams
         );
+
+        executionSteps.push(`resultPageTransform page Ok`);
         // Para revisar la data formateada con la informacion de todas la secciones
         // return resultPageTransform;
 
@@ -130,22 +155,48 @@ const fetch = async (query, { cachedCall } = {}) => {
         }
 
         // Para ver el resultado final de la home
-
+        executionSteps.push(
+            `execute transformHome - query: ${JSON.stringify(queryParams)}`
+        );
         const resultHome = configItemPage.transformHome[version](
             resultPageTransform,
             queryParams
         );
+        executionSteps.push(`execute resultHome Ok `);
 
         return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {
         // eslint-disable-next-line no-console
+        const guid = `${Date.now()}${Math.floor(Math.random() * 1e9)}`;
+
+        if (typeof resultPage !== 'undefined' && resultPage !== null) {
+            const parts = splitObjectForLogging(resultPage);
+            parts.forEach((part, idx) => {
+                console.warn(
+                    JSON.stringify({
+                        name: 'BackendLnWarn',
+                        customType: 'apiPageHomeSourceError',
+                        log_details: {
+                            logId: guid,
+                            part: `${idx + 1}/${parts.length}`,
+                            page: part
+                        }
+                    })
+                );
+            });
+        }
+
         console.error(
-            new BackendLnError(
-                `Error content/apiPageHomeSource : ${JSON.stringify(
-                    queryParams
-                )} - errorMsj:${error.message}`,
-                'apiPegeHomeSourceError'
-            )
+            JSON.stringify({
+                name: 'BackendLnError',
+                customErrorType: 'BackendLnError',
+                customType: 'apiPageHomeSourceError',
+                log_details: {
+                    logId: guid,
+                    executionSteps,
+                    message: `Error content/apiPageHomeSource QueryParams: ${JSON.stringify(queryParams)} errorMsj: ${error.message}`
+                }
+            })
         );
         return null;
     }
