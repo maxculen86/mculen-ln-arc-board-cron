@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Image as FooditImage } from '@ln/foodit-ui-image';
 import PropTypes from 'fusion:prop-types';
+import { cx } from '@ln/cva';
 import EpigraphComponent from '../../../foodit-global/common/epigraph/foodit';
 import {
     getImagesToLoadWithPicture,
@@ -96,9 +97,13 @@ export function Image({ data = {}, contentElements = [] }) {
         return null;
     }
 
+    const imageClassName = cx('flex flex-column gap-8', {
+        '-mt-20': imageConfig.section === 'preparacion'
+    });
+
     return (
         <figure
-            className="flex flex-column gap-8"
+            className={imageClassName}
             data-image-section={imageConfig.section}
         >
             <FooditImage
