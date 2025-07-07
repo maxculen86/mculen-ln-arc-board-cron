@@ -1,35 +1,78 @@
 {
     "short_name": "LA NACION",
     "name": "LA NACION",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff",
+    "description": "Noticias de Argentina y del mundo en tiempo real - LA NACION",
+    "id": "/?utm_source=pwa",
+    "background_color": "#fefefe",
+    "theme_color": "#fefefe",
     "orientation": "portrait",
     "display": "standalone",
+    "display_override": ["window-controls-overlay"],
+    "scope": "/",
     "icons": [
         {
             "src": "https://www.lanacion.com.ar/pwa_128.png",
             "type": "image/png",
-            "sizes": "128x128"
+            "sizes": "128x128",
+            "purpose": "any"
         },
         {
             "src": "https://www.lanacion.com.ar/pwa_152.png",
             "type": "image/png",
-            "sizes": "152x152"
+            "sizes": "152x152",
+            "purpose": "any"
         },
         {
-            "src": "https://www.lanacion.com.ar/pwa_144.png",
+            "src": "https://www.lanacion.com.ar/pwa_152.png",
             "type": "image/png",
-            "sizes": "144x144"
+            "sizes": "152x152",
+            "purpose": "maskable"
         },
         {
             "src": "https://www.lanacion.com.ar/pwa_192.png",
             "type": "image/png",
-            "sizes": "192x192"
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "https://www.lanacion.com.ar/pwa_192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
         },
         {
             "src": "https://www.lanacion.com.ar/pwa_512.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "https://ln-static.glanacion.com/www/ln_screenshot_desktop.jpg",
+            "type": "image/jpeg",
+            "sizes": "1080x1705",
+            "form_factor": "wide"
+        },
+        {
+            "src": "https://ln-static.glanacion.com/www/ln_screenshot_desktop.jpg",
+            "type": "image/jpeg",
+            "sizes": "1080x1705",
+            "form_factor": "narrow"
+        }
+    ],
+    "protocol_handlers": [
+        {
+            "protocol": "mailto",
+            "url": "/compartir?email=%s"
+        },
+        {
+            "protocol": "tel",
+            "url": "/contacto?telefono=%s"
+        },
+        {
+            "protocol": "web+lanacion",
+            "url": "/abrir?url=%s"
         }
     ],
     "start_url": "/?utm_source=(direct)&utm_medium=pwa",
