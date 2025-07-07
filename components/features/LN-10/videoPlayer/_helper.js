@@ -67,3 +67,18 @@ export const productClickFromClientVideoJW = (element = {}, name = '') => {
         });
     }
 };
+
+export const setupVideoObserver = (
+    articleElement,
+    callback,
+    threshold = 0.5
+) => {
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => callback(entry, observer));
+        },
+        { threshold }
+    );
+
+    observer.observe(articleElement);
+};

@@ -1117,6 +1117,30 @@ export default {
                 ]
             }
         },
+        videoHorizontal: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 460,
+                        height: 263,
+                        proportion: '3:4'
+                    }
+                ]
+            },
+            credits: creditsSizes
+        },
+        videoVertical: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 320,
+                        height: 588,
+                        proportion: '2:3'
+                    }
+                ]
+            },
+            credits: creditsSizes
+        },
         videoJwImage: {
             promo_items: {
                 sizes: [
@@ -1523,13 +1547,13 @@ export default {
                     {
                         width: 280,
                         height: 373,
-                        proportion: '3:4',
+                        proportion: '2:3',
                         maxScreenWidth: 767
                     },
                     {
                         width: 220,
                         height: 293,
-                        proportion: '3:4'
+                        proportion: '2:3'
                     }
                 ]
             }

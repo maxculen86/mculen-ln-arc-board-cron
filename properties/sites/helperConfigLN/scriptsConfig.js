@@ -101,6 +101,8 @@ export default {
     Observable: { props: {}, location: [BODYBOTTOM] },
     HandleGlossary: { props: {}, location: [BODYBOTTOM] },
     MetaRobots: { props: {}, location: [HEAD] },
-    JwPlayerHome: { props: {}, location: [BODYTOP] },
-    ScriptJwVideoHome: { props: {}, location: [BODYBOTTOM] }
+    ScriptJwVideoHome: {
+        props: {},
+        location: [BODYBOTTOM]
+    }
 };
