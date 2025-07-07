@@ -1,5 +1,7 @@
+import React from 'react';
 import { formatDateHoursAndMint } from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
+import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 
 const setTimelineProps = ({ articles, roof, url, hideTitle }) => {
     const data = articles.map(article => {
@@ -32,7 +34,8 @@ const setTimelineProps = ({ articles, roof, url, hideTitle }) => {
             ? {
                   text: roof,
                   title: roof,
-                  href: url
+                  href: url,
+                  icon: <IconSprite name="arrow" fill="#333" />
               }
             : {})
     };

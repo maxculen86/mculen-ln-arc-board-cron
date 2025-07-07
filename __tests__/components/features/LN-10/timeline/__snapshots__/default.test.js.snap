@@ -14,10 +14,20 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
         class="uppercase mb-16 --bbt"
       >
         <h3
-          class="text ln-text --font-s pb-12 --bbt --tm-weight --prumo"
+          class="text ln-text --bbt --font-s pb-12 --tm-weight --prumo"
         >
           Últimas Noticias
         </h3>
+        <i
+          class="icon --roof-href-arrow"
+          data-icon="Últimas Noticias"
+          style="height: 16.8px;"
+        >
+          <mock-icon
+            fill="#333"
+            name="arrow"
+          />
+        </i>
       </div>
     </div>
     <ul
@@ -255,10 +265,20 @@ exports[`features - LN10 - Timeline should render timeline component when source
         class="uppercase mb-16 --bbt"
       >
         <h3
-          class="text ln-text --font-s pb-12 --bbt --tm-weight --prumo"
+          class="text ln-text --bbt --font-s pb-12 --tm-weight --prumo"
         >
           Últimas Noticias
         </h3>
+        <i
+          class="icon --roof-href-arrow"
+          data-icon="Últimas Noticias"
+          style="height: 16.8px;"
+        >
+          <mock-icon
+            fill="#333"
+            name="arrow"
+          />
+        </i>
       </div>
     </div>
     <ul
