@@ -3,10 +3,12 @@ import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import { cx } from '@ln/cva';
+import PropTypes from 'prop-types';
 import { isExcludedSubtype, calcReadingMinutes, countWords } from './_helpers';
 import get from '../../../../private/common/utils/get';
 
-function ReadingTime() {
+function ReadingTime({ isLight }) {
     const {
         deployment,
         contextPath,
@@ -34,19 +36,25 @@ function ReadingTime() {
 
     const hasReadingTime = readingMinutes !== 0 && !isExcludedSubtype(subtype);
 
+    const isLightImage = isLight ? '-white' : '';
+
     if (!hasReadingTime) return null;
     return (
         <li className="reading-time flex bullet-sm-none ml-auto_max767 flex gap-2 ai-center">
             <Icon height={20}>
                 <Adaptableimage
                     src={deployment(
-                        `${contextPath}/resources/images/svgDegrade/timer-ia.webp`
+                        `${contextPath}/resources/images/svgDegrade/timer-ia${isLightImage}.webp`
                     )}
                     height={21}
                     alt="icono tiempo de lectura"
                 />
             </Icon>
-            <Text className="text-neutral-light-700">
+            <Text
+                className={cx(
+                    isLight ? 'text-neutral-light-1' : 'text-neutral-light-700'
+                )}
+            >
                 {formattedReadingTime}{' '}
                 <span className="sm-none">{minuteOrMinutes} de lectura</span>
                 <span className="sm-only">&apos;</span>
@@ -54,5 +62,13 @@ function ReadingTime() {
         </li>
     );
 }
+
+ReadingTime.propTypes = {
+    isLight: PropTypes.bool
+};
+
+ReadingTime.defaultProps = {
+    isLight: false
+};
 
 export default ReadingTime;

@@ -1097,6 +1097,37 @@ export default {
                 ]
             }
         },
+        videoAl100: {
+            promo_items: {
+                sizes: [
+                    {
+                        minScreenWidth: 1024,
+                        width: 1260,
+                        height: 708,
+                        proportion: '16:9',
+                        media_preload: setMediaCondition({
+                            minWidth: 1024
+                        })
+                    },
+                    {
+                        minScreenWidth: 768,
+                        width: 720,
+                        height: 405,
+                        proportion: '16:9',
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1023
+                        })
+                    },
+                    {
+                        width: 480,
+                        height: 270,
+                        proportion: '16:9',
+                        media_preload: setMediaCondition({ maxWidth: 767 })
+                    }
+                ]
+            }
+        },
         videoImage: {
             promo_items: {
                 sizes: [

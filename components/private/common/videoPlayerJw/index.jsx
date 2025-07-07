@@ -12,7 +12,8 @@ import FigureCaption from '../../../features/LN-10-global/common/figCaption/defa
 import {
     STORYTELLING,
     VIDEO,
-    LIVEBLOG_EDITORIAL
+    LIVEBLOG_EDITORIAL,
+    VIDEOAL100
 } from '../utils/subtypes/subtypeHelper';
 
 const videoPlayerJW = ({
@@ -49,7 +50,8 @@ const videoPlayerJW = ({
     const isSubtypeWithoutFigureCaption = [
         STORYTELLING,
         VIDEO,
-        LIVEBLOG_EDITORIAL
+        LIVEBLOG_EDITORIAL,
+        VIDEOAL100
     ].includes(subtype);
 
     const shouldShowFigureCaption =

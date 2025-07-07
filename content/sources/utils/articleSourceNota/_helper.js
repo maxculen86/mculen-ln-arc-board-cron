@@ -19,7 +19,8 @@ import {
     LIVEBLOG_EDITORIAL,
     RECETA,
     STORYTELLING,
-    translateStringFromSubitypeToID
+    translateStringFromSubitypeToID,
+    VIDEOAL100
 } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 import addParallaxData from '../addParallaxData';
 import { recipePowerUps } from '../powerUp';
@@ -309,6 +310,9 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
             'imageConfig.resize.liveblogEditorial.promo_items',
             null
         );
+    const presetsPromoItemVideoAl100 =
+        response.subtype === VIDEOAL100 &&
+        get(siteProperties, 'imageConfig.resize.videoAl100.promo_items', null);
     const presetsPromoItems = get(
         siteProperties,
         'imageConfig.resize.l.promo_items',
@@ -332,6 +336,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
                 presetsPromoItemsCustom ||
                 presetsPromoItemsFotoAl100 ||
                 presetsPromoItemLiveblogEditorial ||
+                presetsPromoItemVideoAl100 ||
                 presetsPromoItemsVideo ||
                 presetsPromoItems ||
                 presetsDefault,
