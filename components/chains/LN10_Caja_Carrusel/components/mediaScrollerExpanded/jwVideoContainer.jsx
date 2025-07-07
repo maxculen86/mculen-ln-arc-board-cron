@@ -8,6 +8,8 @@ import { useCajaCarruselContext } from '../cajaCarruselContext';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import JwVideoPlayer from './jwVideoPlayer';
 import ShareV2 from '../../../../features/LN-common/shareV2/default';
+import { isScriptLoaded } from '../helpers';
+import loadJWPlayerScript from '../../../utils/loadJWPlayerScript';
 
 const JwVideoContainer = forwardRef(
     ({ handleNextCallback, isLastVideo, listVideoData = [] }, ref) => {
@@ -15,6 +17,22 @@ const JwVideoContainer = forwardRef(
 
         const [showLeyendSwipeUp, setShowLeyendSwipeUp] = useState(isLastVideo);
 
+        const [isLoadedScriptJw, setIsLoadedScriptJw] = useState(false);
+
+        const playerId = 'OSRCuuxn';
+        useEffect(() => {
+            const isLoadedScript = isScriptLoaded(playerId);
+
+            if (!isLoadedScript) {
+                loadJWPlayerScript(playerId, () => {
+                    setIsLoadedScriptJw(true);
+                });
+            }
+
+            if (isLoadedScript) {
+                setIsLoadedScriptJw(true);
+            }
+        }, []);
         useEffect(() => {
             let timer;
             if (showLeyendSwipeUp) {
@@ -80,6 +98,7 @@ const JwVideoContainer = forwardRef(
                                     videoId={id}
                                     index={index}
                                     handleNextCallback={handleNextCallback}
+                                    isLoadedScriptJw={isLoadedScriptJw}
                                 />
                             )}
 
