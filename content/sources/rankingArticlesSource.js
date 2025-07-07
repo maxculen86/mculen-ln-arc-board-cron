@@ -33,9 +33,8 @@ const transform = async (data, query, cachedCall) => {
 };
 
 const getAsyncRankingStories = async (query, { cachedCall } = {}) => {
+    const { newQuery, uriArcServicesAPI, size, arcSite } = getQueryData(query);
     try {
-        const { newQuery, uriArcServicesAPI, size } = getQueryData(query);
-
         const storiesUrls = await request({
             uri: uriArcServicesAPI,
             json: true,
@@ -69,7 +68,11 @@ const getAsyncRankingStories = async (query, { cachedCall } = {}) => {
 
         return response;
     } catch (error) {
-        logger.error(`Error in getRankingStories: ${error.message}`, error);
+        logger.push(
+            error,
+            `Error in getRankingStories: ${error.message}`,
+            arcSite
+        );
         return [];
     }
 };

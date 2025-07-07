@@ -24,7 +24,8 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoPlayer'
     const defaultProps = {
         videoId: 'test-video-id',
         index: 0,
-        handleNextCallback: () => {}
+        handleNextCallback: () => {},
+        isLoadedScriptJw: true
     };
 
     it('should render placeholder video when not in view, index !== currentIndex', () => {

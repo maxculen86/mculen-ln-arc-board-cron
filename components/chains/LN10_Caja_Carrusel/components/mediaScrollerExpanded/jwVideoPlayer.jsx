@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 import { useVideoJwCustomSettings } from '../hooks';
 
-function JwVideoPlayer({ videoId, index, handleNextCallback }) {
+function JwVideoPlayer({
+    videoId,
+    index,
+    handleNextCallback,
+    isLoadedScriptJw
+}) {
     const { currentIndex } = useCajaCarruselContext();
 
     const [loading, setLoading] = useState(true);
-
     const playerRef = useRef(null);
 
     const isInView = currentIndex === index;
@@ -18,7 +22,7 @@ function JwVideoPlayer({ videoId, index, handleNextCallback }) {
     }, [currentIndex]);
 
     useEffect(() => {
-        if (!playerRef.current && shouldInstanceVideo) {
+        if (!playerRef.current && shouldInstanceVideo && isLoadedScriptJw) {
             const playerInstance = window?.jwplayer?.(videoId);
             playerRef.current = playerInstance?.setup({
                 file: `https://cdn.jwplayer.com/videos/${videoId}.mp4`,
@@ -30,7 +34,7 @@ function JwVideoPlayer({ videoId, index, handleNextCallback }) {
                 window?.localStorage?.getItem('jwplayer.mute') === 'true'
             );
         }
-    }, [shouldInstanceVideo]);
+    }, [shouldInstanceVideo, isLoadedScriptJw]);
 
     useVideoJwCustomSettings({
         isInView,
@@ -49,7 +53,8 @@ function JwVideoPlayer({ videoId, index, handleNextCallback }) {
 JwVideoPlayer.propTypes = {
     videoId: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
-    handleNextCallback: PropTypes.func.isRequired
+    handleNextCallback: PropTypes.func.isRequired,
+    isLoadedScriptJw: PropTypes.bool.isRequired
 };
 
 export default memo(JwVideoPlayer);

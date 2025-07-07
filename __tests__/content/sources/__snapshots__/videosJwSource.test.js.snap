@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests transformVideosJW should handle empty data object 1`] = `
+{
+  "image": undefined,
+  "images": [],
+  "mediaid": undefined,
+  "poster": undefined,
+  "resizedImages": {
+    "promo_items": {
+      "basic": {
+        "auth": {
+          "1": "319089acd32a1ac9aed455a5bbfbf2a1b6e6a625c47ea6845408c4d78170c838",
+        },
+        "embed": {
+          "config": {
+            "videoJw": {
+              "playlist": [
+                {
+                  "playlist": [
+                    {
+                      "image": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=720",
+                      "images": [
+                        {
+                          "src": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=320",
+                          "type": "image/jpeg",
+                          "width": 320,
+                        },
+                      ],
+                      "mediaid": "DXpufCFv",
+                      "sources": [
+                        {
+                          "file": "https://cdn.jwplayer.com/manifests/DXpufCFv.m3u8",
+                          "type": "application/vnd.apple.mpegurl",
+                        },
+                      ],
+                      "title": "Accidente del avión en India: qué pasó con el vuelo ",
+                      "tracks": [
+                        {
+                          "file": "https://cdn.jwplayer.com/strips/DXpufCFv-120.vtt",
+                          "kind": "thumbnails",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+        "height": 513,
+        "resized_urls": [
+          {
+            "option": {
+              "height": 513,
+              "media": "(min-width: 768px)",
+              "width": 768,
+            },
+            "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FDXpufCFv%2Fposter.jpg%3Fwidth%3D720?auth=319089acd32a1ac9aed455a5bbfbf2a1b6e6a625c47ea6845408c4d78170c838&width=768&quality=70&smart=false",
+          },
+        ],
+        "resized_urls_zoom": [],
+        "type": "image",
+        "url": "https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FDXpufCFv%2Fposter.jpg%3Fwidth%3D720?auth=319089acd32a1ac9aed455a5bbfbf2a1b6e6a625c47ea6845408c4d78170c838&width=768&quality=70&smart=false",
+        "width": 768,
+      },
+      "subtype": "video_jw",
+    },
+  },
+  "sources": [],
+  "title": "Video sin título",
+  "tracks": [],
+  "type": "video",
+}
+`;
+
+exports[`Tests transformVideosJW should transform data correctly with complete data and query  1`] = `
+{
+  "image": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=720",
+  "images": [
+    {
+      "src": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=320",
+      "type": "image/jpeg",
+      "width": 320,
+    },
+  ],
+  "mediaid": "DXpufCFv",
+  "poster": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=720",
+  "resizedImages": {
+    "promo_items": {
+      "basic": {
+        "auth": {
+          "1": "319089acd32a1ac9aed455a5bbfbf2a1b6e6a625c47ea6845408c4d78170c838",
+        },
+        "embed": {
+          "config": {
+            "videoJw": {
+              "playlist": [
+                {
+                  "playlist": [
+                    {
+                      "image": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=720",
+                      "images": [
+                        {
+                          "src": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=320",
+                          "type": "image/jpeg",
+                          "width": 320,
+                        },
+                      ],
+                      "mediaid": "DXpufCFv",
+                      "sources": [
+                        {
+                          "file": "https://cdn.jwplayer.com/manifests/DXpufCFv.m3u8",
+                          "type": "application/vnd.apple.mpegurl",
+                        },
+                      ],
+                      "title": "Accidente del avión en India: qué pasó con el vuelo ",
+                      "tracks": [
+                        {
+                          "file": "https://cdn.jwplayer.com/strips/DXpufCFv-120.vtt",
+                          "kind": "thumbnails",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+        "height": 513,
+        "resized_urls": [
+          {
+            "option": {
+              "height": 513,
+              "media": "(min-width: 768px)",
+              "width": 768,
+            },
+            "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FDXpufCFv%2Fposter.jpg%3Fwidth%3D720?auth=319089acd32a1ac9aed455a5bbfbf2a1b6e6a625c47ea6845408c4d78170c838&width=768&quality=70&smart=false",
+          },
+        ],
+        "resized_urls_zoom": [],
+        "type": "image",
+        "url": "https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FDXpufCFv%2Fposter.jpg%3Fwidth%3D720?auth=319089acd32a1ac9aed455a5bbfbf2a1b6e6a625c47ea6845408c4d78170c838&width=768&quality=70&smart=false",
+        "width": 768,
+      },
+      "subtype": "video_jw",
+    },
+  },
+  "sources": [
+    {
+      "file": "https://cdn.jwplayer.com/manifests/DXpufCFv.m3u8",
+      "type": "application/vnd.apple.mpegurl",
+    },
+  ],
+  "title": "Accidente del avión en India: qué pasó con el vuelo ",
+  "tracks": [
+    {
+      "file": "https://cdn.jwplayer.com/strips/DXpufCFv-120.vtt",
+      "kind": "thumbnails",
+    },
+  ],
+  "type": "video",
+}
+`;

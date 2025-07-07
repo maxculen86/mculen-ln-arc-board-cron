@@ -3,7 +3,6 @@ import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { checkForId, getChainConfig } from '../article/common/_helper-WebApi';
-import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
 import { validateVideoPlayer } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { getDataAttributesForViewability } from '../article/_helper';
@@ -20,7 +19,7 @@ function LN10VideoPlayer({
         query: {
             id: checkForId(videoId),
             website: 'la-nacion-ar',
-            filter: videoFilterLN10
+            imageConfig: 'videoVertical'
         }
     });
 
@@ -88,14 +87,11 @@ function LN10VideoPlayer({
     const videoConfig = {
         videoId,
         mediaId,
+        playerId: 'tMVdYMxO',
         title,
+        withAutoplay: true,
         instanceConfig: {
-            mute: true,
-            aspectratio: '9:16',
-            fullscreenOrientationLock: 'portrait',
-            playlist: playListWithoutTitle,
-            preload: 'none',
-            displaytitle: false
+            playlist: playListWithoutTitle
         }
     };
 
@@ -106,6 +102,7 @@ function LN10VideoPlayer({
                 mediaId={mediaId}
                 videoConfig={videoConfig}
                 extraOpts={extraOpts}
+                videoData={videoData}
                 ratio="ratio-9-16"
             />
         )
