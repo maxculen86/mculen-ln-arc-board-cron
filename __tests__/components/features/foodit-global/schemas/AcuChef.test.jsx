@@ -36,14 +36,6 @@ describe('components - features- foodit-global - schemas - AcuChefSchema', () =>
                     '@id': 'https://foodit.lanacion.com.ar/',
                     name: 'Foodit'
                 }
-            },
-            {
-                '@type': 'ListItem',
-                position: 1,
-                item: {
-                    '@id': '/chefs-protagonistas/',
-                    name: 'Chefs protagonistas'
-                }
             }
         ]);
         const { name, url } = scriptSnippetRender;

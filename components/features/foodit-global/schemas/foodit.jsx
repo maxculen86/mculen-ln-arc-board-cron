@@ -9,6 +9,7 @@ import { StorytellingSchema } from './Note';
 import { AcuChefSchema } from './AcuChef';
 import { RecetarioSchema } from './Recetario';
 import { ListaComprasSchema } from './ListaCompras';
+import { MenuSemanalSchema } from './MenuSemanal';
 
 const schemas = {
     'Foodit-home': HomeSchema,
@@ -19,7 +20,8 @@ const schemas = {
     'Foodit-acumulado': AcuSchema,
     'Foodit-acumulado-chef': AcuChefSchema,
     'Foodit-recetario': RecetarioSchema,
-    'Foodit-compras': ListaComprasSchema
+    'Foodit-compras': ListaComprasSchema,
+    'Foodit-menu-semanal': MenuSemanalSchema
 };
 
 function FooditSchemas(props) {
