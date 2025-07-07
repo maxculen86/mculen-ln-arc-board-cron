@@ -22,7 +22,6 @@ import {
     checkForId
 } from '../article/common/_helper-WebApi';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
-import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import get from '../../../private/common/utils/get';
@@ -86,7 +85,7 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
         query: {
             id: checkForId(videoId),
             website: 'la-nacion-ar',
-            filter: videoFilterLN10
+            imageConfig: 'videoHorizontal'
         }
     });
 
@@ -98,18 +97,10 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
         videoId,
         mediaId,
         title: videoTitle,
+        playerId: 'XD8x4oQD',
         instanceConfig: {
-            mute: true,
-            aspectratio: '16:9',
-            autostart: false,
-            repeat: false,
             playlist,
-            preload: 'metadata',
-            displaytitle: false,
-            controls: true,
-            autoPause: {
-                viewability: true
-            }
+            autostart: true
         }
     };
 
