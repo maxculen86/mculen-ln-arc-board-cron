@@ -98,7 +98,7 @@ export function reorderGroupsByPinnedBlock(groups) {
 
     if (pinnedGroupIndex === -1) return groups;
 
-    const reorderedGroups = [
+    return [
         {
             ...groups[pinnedGroupIndex],
             isPinned: true
@@ -106,8 +106,6 @@ export function reorderGroupsByPinnedBlock(groups) {
         ...groups.slice(0, pinnedGroupIndex),
         ...groups.slice(pinnedGroupIndex + 1)
     ];
-
-    return reorderedGroups;
 }
 
 export const supportedTypesLiveblog = [

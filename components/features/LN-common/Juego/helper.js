@@ -28,11 +28,10 @@ export const getParentLayout = parent => {
 export const getFirstCard = (cardPosition, parentLayout) => {
     if (cardPosition !== 0) return false;
 
-    const isValidLayout = [
+    return [
         DIAGRAMATIONS.oneLargeFourSmall,
         DIAGRAMATIONS.oneHorizontalThreeVertical
     ].includes(parentLayout);
-    return isValidLayout;
 };
 
 export const getClassName = (parentLayout, firstCard) => {
