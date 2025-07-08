@@ -72,7 +72,7 @@ describe('MediaScrollerExpandedWrapper', () => {
 
     it('should publish clearTimeout when expanded', () => {
         render(<MediaScrollerExpandedWrapper {...defaultProps} />);
-        expect(mockPublish).toHaveBeenCalledWith('clearTimeout');
+        expect(mockPublish).toHaveBeenCalledWith('pauseTimeout');
     });
 
     it('should publish retriggerTimeout when not expanded', () => {
@@ -81,7 +81,7 @@ describe('MediaScrollerExpandedWrapper', () => {
             isOpenMediaScrollerExpanded: false
         });
         render(<MediaScrollerExpandedWrapper {...defaultProps} />);
-        expect(mockPublish).toHaveBeenCalledWith('retriggerTimeout');
+        expect(mockPublish).toHaveBeenCalledWith('resumeTimeout');
     });
 
     it('should render children', () => {
