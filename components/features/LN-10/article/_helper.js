@@ -312,12 +312,10 @@ export const generateLazyLoadEmbedCode = embedCode => {
 
     if (isAutoplay) dataSrc += '?autoplay=1&mute=1';
 
-    const modifiedEmbedCode = embedCode.replace(
+    return embedCode.replace(
         /src="(https:\/\/www\.youtube\.com\/embed\/[\w-]+[^"]*)"/,
         `src="" data-src="${dataSrc}" id="${uniqueId}" style="background-image: url(${thumbnailUrl}); background-size: cover; background-position: center; width: 100%; height: 100%;"`
     );
-
-    return modifiedEmbedCode;
 };
 
 export const getMediaData = ({
