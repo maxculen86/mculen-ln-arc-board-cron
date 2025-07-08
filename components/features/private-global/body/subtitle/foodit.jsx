@@ -4,7 +4,7 @@ import { normalize } from '../image/helpers';
 
 function Subtitle({ data }) {
     const tagConfigByLevel = {
-        1: { tag: 'h3', className: 'text-28 text-32_md text-36_lg' },
+        1: { tag: 'h3', className: 'text-24 text-32_md text-36_lg' },
         2: { tag: 'h3', className: 'text-24 text-28_md text-32_lg' },
         3: { tag: 'h3', className: 'text-24' },
         4: { tag: 'h4', className: 'text-16 text-18_md' },
