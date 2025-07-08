@@ -30,16 +30,24 @@ function BreadcrumbCustomFoodit({ className, sectionsCustom = [] }) {
                 >
                     {sections.map((section, index) => {
                         const { name, url } = section || {};
+                        const isDisabled =
+                            sections.length > 1 &&
+                            index === sections.length - 1;
+
+                        if (isDisabled) {
+                            return (
+                                <span
+                                    key={name}
+                                    className="link foodit-link flex gap-8 ai-center roboto-regular --disabled"
+                                    data-variant="primary"
+                                >
+                                    {capitalizeFirstLetter(name)}
+                                </span>
+                            );
+                        }
+
                         return (
-                            <Link
-                                href={url}
-                                title={`Ir a ${name}`}
-                                key={name}
-                                disabled={
-                                    sections.length > 1 &&
-                                    index === sections.length - 1
-                                }
-                            >
+                            <Link href={url} title={`Ir a ${name}`} key={name}>
                                 {capitalizeFirstLetter(name)}
                             </Link>
                         );
@@ -49,12 +57,15 @@ function BreadcrumbCustomFoodit({ className, sectionsCustom = [] }) {
         </Static>
     );
 }
+
 BreadcrumbCustomFoodit.propTypes = {
     sectionsCustom: PropTypes.arrayOf(PropTypes.shape({})),
     className: PropTypes.string
 };
+
 BreadcrumbCustomFoodit.defaultProps = {
     sectionsCustom: [],
     className: ''
 };
+
 export default BreadcrumbCustomFoodit;

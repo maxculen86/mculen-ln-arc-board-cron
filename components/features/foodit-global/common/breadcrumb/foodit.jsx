@@ -19,20 +19,30 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
     );
     const breadcrumbExclude = ['Que cocinar hoy'];
 
-    const renderSections = sections.reduce(
-        (acc, { url = '', name = '', disabled = false } = {}) => {
-            if (!breadcrumbExclude.includes(name)) {
+    const validSections = sections.filter(
+        ({ name = '' }) => !breadcrumbExclude.includes(name)
+    );
+
+    const renderSections = validSections.reduce(
+        (acc, { url = '', name = '', disabled = false }) => {
+            if (disabled) {
                 acc.push(
-                    <Link
-                        href={url}
-                        title={`Ir a ${name}`}
+                    <span
                         key={name}
-                        disabled={disabled}
+                        className="link foodit-link flex gap-8 ai-center roboto-regular --disabled"
+                        data-variant="primary"
                     >
+                        {name}
+                    </span>
+                );
+            } else {
+                acc.push(
+                    <Link href={url} title={`Ir a ${name}`} key={name}>
                         {name}
                     </Link>
                 );
             }
+
             return acc;
         },
         []

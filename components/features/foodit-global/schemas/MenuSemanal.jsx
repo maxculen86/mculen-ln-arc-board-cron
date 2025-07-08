@@ -7,14 +7,14 @@ import { fooditSchemaLogo } from './_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export function ListaComprasSchema() {
+export function MenuSemanalSchema() {
     const { contextPath, deployment } = useAppContext();
 
-    const listaComprasSchema = {
+    const menuSemanalSchema = {
         '@context': 'http://schema.org',
         '@type': 'WebPage',
-        name: `Lista de compras`,
-        url: `${SITE_FOODIT}/lista-de-compras/`,
+        name: `Mi menu semanal`,
+        url: `${SITE_FOODIT}/mi-menu-semanal/`,
         publisher: {
             '@type': 'Organization',
             name: 'Foodit',
@@ -26,9 +26,9 @@ export function ListaComprasSchema() {
     return (
         <>
             <SnippetRender
-                key="listado-compras-schema"
-                id="listado-compras-schema"
-                data={listaComprasSchema}
+                key="mi-menu-semanal-schema"
+                id="mi-menu-semanal-schema"
+                data={menuSemanalSchema}
             />
             <BreadcrumbSchema
                 sections={[

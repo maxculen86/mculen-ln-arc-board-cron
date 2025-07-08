@@ -12,11 +12,11 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
   "publisher": {
     "@type": "Organization",
     "name": "Foodit",
-    "url": "undefined/",
+    "url": "https://foodit.lanacion.com.ar/",
     "logo": {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "url": "pathDeployment/undefinedcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
       "height": 112,
       "width": 112
     }
@@ -116,6 +116,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
       "@type": "ListItem",
       "position": 0,
       "item": {
+        "@id": "https://foodit.lanacion.com.ar",
         "name": "Foodit"
       }
     },
@@ -123,7 +124,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
       "@type": "ListItem",
       "position": 1,
       "item": {
-        "@id": "undefined/recetas/",
+        "@id": "https://foodit.lanacion.com.ar/recetas/",
         "name": "Recetas"
       }
     },
@@ -131,7 +132,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
       "@type": "ListItem",
       "position": 2,
       "item": {
-        "@id": "undefined/recetas/saladas/",
+        "@id": "https://foodit.lanacion.com.ar/recetas/saladas/",
         "name": "Saladas"
       }
     },
@@ -139,7 +140,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
       "@type": "ListItem",
       "position": 3,
       "item": {
-        "@id": "undefined/recetas/saladas/pizza-y-empanadas/",
+        "@id": "https://foodit.lanacion.com.ar/recetas/saladas/pizza-y-empanadas/",
         "name": "Pizza y empanadas"
       }
     }

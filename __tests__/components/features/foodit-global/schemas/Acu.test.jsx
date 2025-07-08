@@ -47,14 +47,6 @@ describe('components - features- foodit-global - schemas - AcuSchema', () => {
                     '@id': 'https://foodit.lanacion.com.ar/recetas/',
                     name: 'Recetas'
                 }
-            },
-            {
-                '@type': 'ListItem',
-                position: 2,
-                item: {
-                    '@id': 'https://foodit.lanacion.com.ar/recetas/saladas/',
-                    name: 'Saladas'
-                }
             }
         ]);
         const { name, url } = scriptSnippetRender;
