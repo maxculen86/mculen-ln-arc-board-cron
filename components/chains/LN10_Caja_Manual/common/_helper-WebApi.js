@@ -5,6 +5,13 @@ import { validateStyle } from '../../utils/checkValidationStyle';
 import { assignPropsToChildren } from '../../LN10_Caja_Collection/common/_helper-WebApi';
 import { reorderArticlesWithTimeline } from '../../utils/reorderArticlesWithTimeline';
 
+const LN_COMMON_ARTICLE = 'LN-10/article';
+const COLLECTION_FEATURES = 'features';
+const LN_CARD_HTML = 'LN-10/CardHtml';
+const LN_TIMELINE = 'LN-10/timeline';
+const LN_VIDEOPLAYER = 'LN-10/videoPlayer';
+const LN_VIDEOPLAYERNOTA = 'LN-10/videoPlayerNota';
+
 const validateCajaManual = ({
     layout,
     childProps = [],
@@ -12,13 +19,6 @@ const validateCajaManual = ({
     isGrid6MasTimeline = false,
     isBnPlayer = false
 }) => {
-    const LN_COMMON_ARTICLE = 'LN-10/article';
-    const COLLECTION_FEATURES = 'features';
-    const LN_CARD_HTML = 'LN-10/CardHtml';
-    const LN_TIMELINE = 'LN-10/timeline';
-    const LN_VIDEOPLAYER = 'LN-10/videoPlayer';
-    const LN_VIDEOPLAYERNOTA = 'LN-10/videoPlayerNota';
-
     const minimum = setQuantityByLayout({
         layout,
         countTimeline: isGrid6MasTimeline
@@ -168,11 +168,11 @@ export const reorderArticlesWithVideo = (articles = [], childProps = []) => {
     const articlesWithProps = assignPropsToChildren(articles, childProps);
 
     const videoFeature = articlesWithProps.find(
-        article => article.type === 'LN-10/videoPlayer'
+        article => article.type === LN_VIDEOPLAYER
     );
 
     const otherFeatures = articlesWithProps.filter(
-        article => article.type !== 'LN-10/videoPlayer'
+        article => article.type !== LN_VIDEOPLAYER
     );
 
     const orderedArticles = videoFeature

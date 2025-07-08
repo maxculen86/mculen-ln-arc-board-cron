@@ -1,3 +1,14 @@
+const VIOLENCE_BASE_URL =
+    'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/';
+const VIOLENCE_BASE_TITLE = 'IR A LAS GUÍAS';
+const VIOLENCE_IMAGE_DESKTOP = 'violencia-genero-desk.webp';
+const VIOLENCE_IMAGE_MOBILE = 'violencia-genero-mob.webp';
+const VIOLENCE_DEFAULT_CLASSNAMES = {
+    title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
+    text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
+    button: 'mb-24_m'
+};
+
 const zocaloOptions = {
     deportes: {
         href: 'https://canchallena.lanacion.com.ar/',
@@ -47,11 +58,11 @@ const zocaloOptions = {
         }
     },
     'violencia-de-genero': {
-        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
-        title: 'IR A LAS GUÍAS',
+        href: VIOLENCE_BASE_URL,
+        title: VIOLENCE_BASE_TITLE,
         target: '_blank',
-        imgDsk: 'violencia-genero-desk.webp',
-        imgMob: 'violencia-genero-mob.webp',
+        imgDsk: VIOLENCE_IMAGE_DESKTOP,
+        imgMob: VIOLENCE_IMAGE_MOBILE,
         imgAlt: 'Imagen de asistencia contra violencia de género',
         imgClassName: 'w-100',
         logoAlt: 'Logo de asistencia contra violencia de género',
@@ -60,19 +71,15 @@ const zocaloOptions = {
         descriptionProps: {
             title: 'Violencia de género',
             text: 'Entrá a la guía de servicio y encontrá los tips de los expertos sobre cómo prevenir, actuar y encontrar ayuda frente a este problema.',
-            classnames: {
-                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
-                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
-                button: 'mb-24_m'
-            }
+            classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     },
     'hablemos-de-abuso': {
-        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
-        title: 'IR A LAS GUÍAS',
+        href: VIOLENCE_BASE_URL,
+        title: VIOLENCE_BASE_TITLE,
         target: '_blank',
-        imgDsk: 'violencia-genero-desk.webp',
-        imgMob: 'violencia-genero-mob.webp',
+        imgDsk: VIOLENCE_IMAGE_DESKTOP,
+        imgMob: VIOLENCE_IMAGE_MOBILE,
         imgAlt: 'Imagen de asistencia contra abuso',
         imgClassName: 'w-100',
         logoAlt: 'Logo de asistencia contra abuso',
@@ -81,19 +88,15 @@ const zocaloOptions = {
         descriptionProps: {
             title: 'Abuso',
             text: 'Entrá a la guía de servicio y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
-            classnames: {
-                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
-                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
-                button: 'mb-24_m'
-            }
+            classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     },
     'hablemos-de-bullying': {
-        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
-        title: 'IR A LAS GUÍAS',
+        href: VIOLENCE_BASE_URL,
+        title: VIOLENCE_BASE_TITLE,
         target: '_blank',
-        imgDsk: 'violencia-genero-desk.webp',
-        imgMob: 'violencia-genero-mob.webp',
+        imgDsk: VIOLENCE_IMAGE_DESKTOP,
+        imgMob: VIOLENCE_IMAGE_MOBILE,
         imgAlt: 'Imagen de asistencia contra bullying',
         imgClassName: 'w-100',
         logoAlt: 'Logo de asistencia contra bullying',
@@ -102,19 +105,15 @@ const zocaloOptions = {
         descriptionProps: {
             title: 'Bullying',
             text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
-            classnames: {
-                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
-                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
-                button: 'mb-24_m'
-            }
+            classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     },
     'hablemos-de-suicidio': {
-        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
-        title: 'IR A LAS GUÍAS',
+        href: VIOLENCE_BASE_URL,
+        title: VIOLENCE_BASE_TITLE,
         target: '_blank',
-        imgDsk: 'violencia-genero-desk.webp',
-        imgMob: 'violencia-genero-mob.webp',
+        imgDsk: VIOLENCE_IMAGE_DESKTOP,
+        imgMob: VIOLENCE_IMAGE_MOBILE,
         imgAlt: 'Imagen de asistencia contra suicidio',
         imgClassName: 'w-100',
         logoAlt: 'Logo de asistencia contra suicidio',
@@ -123,19 +122,15 @@ const zocaloOptions = {
         descriptionProps: {
             title: 'suicidio',
             text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
-            classnames: {
-                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
-                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
-                button: 'mb-24_m'
-            }
+            classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     },
     generico: {
-        href: 'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/',
-        title: 'IR A LAS GUÍAS',
+        href: VIOLENCE_BASE_URL,
+        title: VIOLENCE_BASE_TITLE,
         target: '_blank',
-        imgDsk: 'violencia-genero-desk.webp',
-        imgMob: 'violencia-genero-mob.webp',
+        imgDsk: VIOLENCE_IMAGE_DESKTOP,
+        imgMob: VIOLENCE_IMAGE_MOBILE,
         imgAlt: 'Imagen de asistencia contra abuso',
         imgClassName: 'w-100',
         logoAlt: 'Logo de asistencia contra abuso',
@@ -144,11 +139,7 @@ const zocaloOptions = {
         descriptionProps: {
             title: '',
             text: 'Encontrá las guías de servicio con tips de los expertos sobre como actuar frente a problemas cotidianos: Adicciones, violencia, abuso, tecnología, depresión, suicidio, apuestas online, bullying, transtornos de la conducta alimentaria y más.',
-            classnames: {
-                title: 'prumo --prumo-italic prumo-slab text-28 font-bold text-neutral-light-800 uppercase text-center text-start_m w-160_max512 w-width_min512',
-                text: 'prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800',
-                button: 'mb-24_m'
-            }
+            classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     }
 };
