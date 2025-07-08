@@ -197,21 +197,6 @@ export const transformPromoItems = async ({
         }
     });
 
-    // for (const property in promoItemObjectCopy) {
-    //     const callabckSelected =
-    //         configCallbacks[get(promoItemObjectCopy, `${property}.type`, '')];
-
-    //     if (callabckSelected) {
-    //         promiseArr.push(
-    //             callabckSelected({
-    //                 element: promoItemObjectCopy[property],
-    //                 cachedCall,
-    //                 arcSite
-    //             }).then(newValue => ({ [property]: newValue }))
-    //         );
-    //     }
-    // }
-
     const results = await Promise.all(promiseArr);
 
     return Object.assign({ ...promoItemObjectCopy }, ...results);
