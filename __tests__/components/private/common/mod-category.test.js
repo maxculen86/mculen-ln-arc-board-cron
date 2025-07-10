@@ -13,11 +13,26 @@ jest.mock('../../../../components/private/common/hooks/useGetLogoImage', () =>
     jest.fn()
 );
 
+jest.mock('../../../../content/sources/utils/replaceUrlResizerToWWW', () =>
+    jest.fn(image => ({
+        ...image,
+        url: 'https://sandbox.lanacion.com.ar/mock-www-url.jpeg',
+        resized_urls: [
+            {
+                resizedUrl:
+                    'https://sandbox.lanacion.com.ar/mock-www-resized.jpeg',
+                option: { width: 200, height: 150 }
+            }
+        ]
+    }))
+);
+
 describe('components - private - common - mod-category', () => {
     Context.useAppContext = jest.fn(() => ({
         deployment: jest.fn(),
         contextPath: '/pf'
     }));
+
     const props = {
         revista: 'QJFKLBWXHVGUFA3O65BIHPFILA',
         imageId: 'QJFKLBWXHVGUFA3O65BIHPFILA',
@@ -64,8 +79,7 @@ describe('components - private - common - mod-category', () => {
             },
             {
                 key: 'link-HBNZD3H8FH1516540X8ZY6WY8G',
-                link:
-                    'https://www.lanacion.com.ar/tema/emprendedores-tid53673/',
+                link: 'https://www.lanacion.com.ar/tema/emprendedores-tid53673/',
                 textname: 'Emprendedores',
                 title: 'Ir a Emprendedores',
                 style: {
@@ -85,23 +99,40 @@ describe('components - private - common - mod-category', () => {
         outputType: 'default',
         url: 'https://www.lanacion.com.ar/economia/'
     };
-    describe('Mod category snapshot test', () => {
+
+    describe('Mod category snapshot and transformed image URL', () => {
         const imageMock = {
             width: 100,
             height: 100,
-            url: 'https://lanacion.com.ar/mock.jpeg',
+            type: 'image',
+            url: 'https://resizer.glanacion.com/mock-original.jpeg',
+            resized_urls: [
+                {
+                    resizedUrl:
+                        'https://resizer.glanacion.com/mock-original-resized.jpeg',
+                    option: { width: 200, height: 150 }
+                }
+            ],
             caption: 'LA NACION'
         };
 
-        useGetLogoImage.mockImplementationOnce(() => imageMock);
+        beforeEach(() => {
+            useGetLogoImage.mockImplementation(() => imageMock);
+        });
 
-        const { container } = render(<ModCategory {...props} />);
-        test('Snapshot and check values from attributos loading and getchPriority', () => {
+        test('Snapshot, attributes, and transformed image URL', () => {
+            const { container, getByAltText } = render(
+                <ModCategory {...props} />
+            );
             expect(container).toMatchSnapshot();
 
-            const img = container.getElementsByTagName('img');
-            expect(img[0].getAttribute('loading')).toBe('eager');
-            expect(img[0].getAttribute('fetchPriority')).toBe('high');
+            const img = getByAltText('Economía');
+            expect(img).toBeInTheDocument();
+            expect(img.getAttribute('src')).toBe(
+                'https://sandbox.lanacion.com.ar/mock-www-resized.jpeg'
+            );
+            expect(img.getAttribute('loading')).toBe('eager');
+            expect(img.getAttribute('fetchPriority')).toBe('high');
         });
     });
 });

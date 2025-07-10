@@ -31,10 +31,6 @@ export function AcuChefSchema() {
                     {
                         name: 'Foodit',
                         url: `${SITE_FOODIT}/`
-                    },
-                    {
-                        name: 'Chefs protagonistas',
-                        url: `/chefs-protagonistas/`
                     }
                 ]}
             />

@@ -33,7 +33,6 @@ function LN10VideoPlayer({
     }));
 
     const cardPosition = 0;
-
     const { boxPosition } = getChainConfig({ featureId: id, renderables });
 
     const extraOpts = getDataAttributesForViewability(
@@ -42,6 +41,10 @@ function LN10VideoPlayer({
         cardPosition,
         true
     );
+
+    if (renderables && renderables.length) {
+        extraOpts['data-renderables'] = JSON.stringify(renderables);
+    }
 
     const error = validateVideoPlayer({
         video: videoData,
@@ -83,7 +86,6 @@ function LN10VideoPlayer({
             </article>
         );
     }
-
     const videoConfig = {
         videoId,
         mediaId,
@@ -91,6 +93,7 @@ function LN10VideoPlayer({
         title,
         withAutoplay: true,
         instanceConfig: {
+            aspectratio: '9:16',
             playlist: playListWithoutTitle
         }
     };

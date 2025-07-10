@@ -9,8 +9,6 @@ self.addEventListener('activate', function (event) {
     // Perform some task
 });
 
-self.addEventListener('fetch', function (event) {});
-
 self.addEventListener('notificationclick', event => {
     event.preventDefault();
     event.notification.close();
@@ -53,7 +51,6 @@ self.addEventListener('push', function (event) {
         data = event.data.json();
         data = data.data;
 
-        console.log(data);
         sendAnalyticsEvent('received', 'notification', data);
 
         // Abre notificacion

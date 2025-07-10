@@ -49,8 +49,10 @@ function MainSaveRecipe(props) {
         <div data-test-id="button-bookmark-show-collections">
             {showSelect && (
                 <Select
-                    label="Colección"
+                    label="Seleccionar colección"
+                    floatingLabelText="Colección"
                     openClassName="border-secondary-positive"
+                    className="roboto roboto-regular text-12"
                     hoverClassName="border-accent-lechuga__hover"
                     listClassName="text-12 roboto roboto-regular shadow-modal bg-white p-16 rounded-8 border border-all border-thin border-light-100"
                     onChange={handleSelectChange}
@@ -85,7 +87,7 @@ function MainSaveRecipe(props) {
                         type="text"
                         onChange={onInputFolderChange}
                         value={newFolder}
-                        focusClassName="border-secondary-positive"
+                        focusClassName="border-secondary-positive roboto roboto-regular text-12"
                         hoverClassName="border-accent-lechuga__hover"
                         inputRef={inputRef}
                         label="Colección"

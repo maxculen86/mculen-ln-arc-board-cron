@@ -5260,6 +5260,9 @@ a {
 .animation.animation-name-rotate {
   animation-name: rotate;
 }
+.animation.animation-name-fade-in-up {
+  animation-name: fade-in-up;
+}
 .animation.animation-timing-ease {
   animation-timing-function: ease;
 }
@@ -5416,6 +5419,22 @@ a {
   border-width: 0.3125rem;
 }
 
+.rounded-top-left-4 {
+  border-top-left-radius: 0.25rem;
+}
+
+.rounded-top-right-4 {
+  border-top-right-radius: 0.25rem;
+}
+
+.rounded-bottom-left-4 {
+  border-bottom-left-radius: 0.25rem;
+}
+
+.rounded-bottom-right-4 {
+  border-bottom-right-radius: 0.25rem;
+}
+
 .rounded-top-left-0 {
   border-top-left-radius: 0rem;
 }
@@ -5430,6 +5449,14 @@ a {
 
 .rounded-bottom-right-0 {
   border-bottom-right-radius: 0rem;
+}
+
+.rounded-top-left-16 {
+  border-top-left-radius: 1rem;
+}
+
+.rounded-top-right-16 {
+  border-top-right-radius: 1rem;
 }
 
 @media (min-width: 64rem) {
@@ -6333,6 +6360,11 @@ strong:not(.--font-primary),
   font-size: 1.5rem;
 }
 
+.text-16_110 {
+  font-size: 1rem;
+  line-height: var(--line-110);
+}
+
 .m-auto {
   margin: auto;
 }
@@ -6383,6 +6415,10 @@ strong:not(.--font-primary),
 
 .mb-40 {
   margin-bottom: 2.5rem;
+}
+
+.mb-125 {
+  margin-bottom: 7.8125rem;
 }
 
 .-mt-65 {
@@ -7507,6 +7543,10 @@ strong:not(.--font-primary),
   max-width: 22.8125rem;
 }
 
+.max-w-511.max-w-511 {
+  max-width: 31.9375rem;
+}
+
 .max-w-1366.max-w-1366 {
   max-width: 85.375rem;
 }
@@ -7799,6 +7839,10 @@ strong:not(.--font-primary),
   min-height: 13rem;
 }
 
+.min-h-246.min-h-246 {
+  min-height: 15.375rem;
+}
+
 .min-h-272.min-h-272 {
   min-height: 17rem;
 }
@@ -7860,6 +7904,10 @@ strong:not(.--font-primary),
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.32), 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
 }
 
+.shadow-sticky-mobile {
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.06);
+}
+
 @media (min-width: 48rem) {
   .shadow-post-md {
     box-shadow: 0px 16px 32px 0px rgba(16, 16, 16, 0.08);
@@ -7905,6 +7953,14 @@ strong:not(.--font-primary),
   max-width: 80ch;
   overflow-wrap: break-word;
   overflow: hidden;
+}
+
+.text-ellipsis-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .text-wrap {

@@ -60,13 +60,11 @@ const getAsyncRankingStories = async (query, { cachedCall } = {}) => {
         if (filterArticles.length === 0)
             return transform([], query, cachedCall);
 
-        const response = await transform(
+        return await transform(
             sortData(filterArticles, stories, size),
             query,
             cachedCall
         );
-
-        return response;
     } catch (error) {
         logger.push(
             error,
@@ -101,8 +99,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         getQueryData(query);
 
     if (isApiFetch) {
-        const ranking = await getApiRanking(query, cachedCall);
-        return ranking;
+        return getApiRanking(query, cachedCall);
     }
 
     return request({

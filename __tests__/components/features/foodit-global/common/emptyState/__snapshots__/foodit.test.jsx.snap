@@ -15,7 +15,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
           Exclusivo para suscriptores
         </p>
         <p
-          class="text text-16 text-light-800"
+          class="text text-16 text-light-600"
         >
           Para realizar esta acción es necesario que tengas una suscripción.
         </p>
@@ -64,7 +64,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
           Exclusivo para suscriptores
         </p>
         <p
-          class="text text-16 text-light-800"
+          class="text text-16 text-light-600"
         >
           Para realizar esta acción es necesario que tengas una suscripción.
         </p>
@@ -121,7 +121,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
           ¡Aún no hay nada por acá!
         </p>
         <p
-          class="text text-16 text-light-800"
+          class="text text-16 text-light-600"
         >
           <span>
             Presioná el botón
@@ -133,7 +133,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
                 name="bookmark"
               />
             </i>
-            para guardar el contenido que te gusta y ¡Listo!
+            GUARDAR en la receta para acceder al contenido cuando quieras y ¡Listo!
           </span>
         </p>
       </div>

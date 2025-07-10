@@ -142,6 +142,7 @@ export function SelectMenu({
                         ? daysMap[selectedDay]
                         : 'Seleccionar día'
                 }
+                floatingLabelText="Seleccionar día"
                 className="roboto roboto-regular text-12"
                 openClassName="border-secondary-positive"
                 hoverClassName="border-accent-lechuga__hover"
@@ -187,6 +188,7 @@ export function SelectMenu({
                         ? mealsMap[selectedFood]
                         : 'Seleccionar comida'
                 }
+                floatingLabelText="Seleccionar comida"
                 className="roboto roboto-regular text-12"
                 openClassName="border-secondary-positive"
                 hoverClassName="border-accent-lechuga__hover"

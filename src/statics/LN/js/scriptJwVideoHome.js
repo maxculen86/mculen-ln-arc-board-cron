@@ -4,6 +4,8 @@ import {
 } from '../../../../components/features/LN-10/videoPlayer/_helper';
 import loadJWPlayerScript from '../../../../components/chains/utils/loadJWPlayerScript';
 import { addEventToDataLayerV2 } from '../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { videoContainer } from '../../../../components/features/LN-10/videoPlayer/share/utils';
+import { handleShare } from '../../../../components/features/LN-10/videoPlayer/share/shareHandler';
 
 window.addEventListener('load', function () {
     const hasJwVideos = document.querySelectorAll('[data-has-jwplayer="true"]');
@@ -60,5 +62,12 @@ window.addEventListener('load', function () {
                 observer.unobserve(articleElement);
             }
         });
+
+        videoContainer(articleElement, mediaId)?.addEventListener(
+            'click',
+            () => {
+                handleShare(mediaId, title, mediaId);
+            }
+        );
     });
 });

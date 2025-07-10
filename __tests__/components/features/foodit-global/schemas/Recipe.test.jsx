@@ -4,6 +4,12 @@ import '@testing-library/jest-dom';
 import { RecipeSchema } from '../../../../../components/features/foodit-global/schemas/Recipe';
 import mockArticle from '../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/fichaReceta2.json';
 
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+    };
+});
+
 describe('components - features- foodit-global - schemas - RecipeSchema', () => {
     it('renders the correct number of schema script tags', () => {
         const { container } = render(
@@ -54,32 +60,27 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
         expect(scriptContent.recipeInstructions).toEqual([
             {
                 '@type': 'HowToStep',
-                text:
-                    'Poner en un bol la harina cernida y colocar en el centro la grasa a temperatura ambiente.',
+                text: 'Poner en un bol la harina cernida y colocar en el centro la grasa a temperatura ambiente.',
                 name: 'Paso 1'
             },
             {
                 '@type': 'HowToStep',
-                text:
-                    'Con la punta de los dedos ir tomando la masa, agregando de a poco el agua con la sal y seguir hasta formar un bollo.',
+                text: 'Con la punta de los dedos ir tomando la masa, agregando de a poco el agua con la sal y seguir hasta formar un bollo.',
                 name: 'Paso 2'
             },
             {
                 '@type': 'HowToStep',
-                text:
-                    'Amasarlo enérgicamente hasta que la masa forme ampollas en su superficie.',
+                text: 'Amasarlo enérgicamente hasta que la masa forme ampollas en su superficie.',
                 name: 'Paso 3'
             },
             {
                 '@type': 'HowToStep',
-                text:
-                    'Dejar reposar durante 1 o 2 horas y luego cortar pequeñas pelotitas, achatarlas con la palma de la mano y pincharlas con un tenedor.',
+                text: 'Dejar reposar durante 1 o 2 horas y luego cortar pequeñas pelotitas, achatarlas con la palma de la mano y pincharlas con un tenedor.',
                 name: 'Paso 4'
             },
             {
                 '@type': 'HowToStep',
-                text:
-                    'Freírlas enseguida en abundante aceite o grasa muy caliente, retirar con espumadera y colocar sobre papel blanco las torta fritas para que se escurran.',
+                text: 'Freírlas enseguida en abundante aceite o grasa muy caliente, retirar con espumadera y colocar sobre papel blanco las torta fritas para que se escurran.',
                 name: 'Paso 5'
             },
             {

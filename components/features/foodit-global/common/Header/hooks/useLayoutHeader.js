@@ -44,6 +44,7 @@ export const useLayoutHeader = () => {
         [layoutsName.FooditFichaReceta]: DEFAULT_MARGIN,
         [layoutsName.FooditRecipePaywall]: DEFAULT_MARGIN,
         [layoutsName.FooditFichaNota]: 'mb-0',
+        [layoutsName.FooditNotePaywall]: 'mb-0',
         default: 'mb-40'
     };
 

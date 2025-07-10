@@ -10,22 +10,20 @@ import {
 } from '../../../../../../private/common/auth/helper/loginHelper';
 
 export function OpenInApp() {
-    const { globalContent, layout } = useAppContext();
+    const { globalContent } = useAppContext();
     const currentUrl = globalContent?.canonical_url || '';
     const device = getTypeOfDevice({ breakpoints: { sm: 768 } });
     const isMobileDevice = device === 'mobile';
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
-    const isHomeLayout = layout === 'LN10-Home_Main';
 
-    if (!isMobileDevice || !isAndroid() || !subscription || !isHomeLayout) {
+    if (!isMobileDevice || !isAndroid() || !subscription) {
         return null;
     }
 
     const getAppLink = (path = '') => {
         const rawUrl = SITE_LANACION + path;
         const encodedUrl = encodeURIComponent(rawUrl);
-        const returnUrl = `intent://handle?url=${encodedUrl}#Intent;scheme=lanacion;package=app.lanacion.activity;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dapp.lanacion.activity;end`;
-        return returnUrl;
+        return `intent://handle?url=${encodedUrl}#Intent;scheme=lanacion;package=app.lanacion.activity;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dapp.lanacion.activity;end`;
     };
 
     const handleClick = () => {

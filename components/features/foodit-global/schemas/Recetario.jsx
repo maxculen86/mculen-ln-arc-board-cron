@@ -7,7 +7,7 @@ import { fooditSchemaLogo } from './_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const RecetarioSchema = () => {
+export function RecetarioSchema() {
     const { contextPath, deployment } = useAppContext();
 
     const recetarioSchema = {
@@ -31,8 +31,13 @@ export const RecetarioSchema = () => {
                 data={recetarioSchema}
             />
             <BreadcrumbSchema
-                sections={[{ name: 'Mis recetas', url: '/recetario/' }]}
+                sections={[
+                    {
+                        name: 'Foodit',
+                        url: `${SITE_FOODIT}/`
+                    }
+                ]}
             />
         </>
     );
-};
+}

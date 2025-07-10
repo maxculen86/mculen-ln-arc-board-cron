@@ -80,8 +80,8 @@ export function PowerupsReceta({ article = {} }) {
                     <MoreInfo />
                     <Nutritional nutritionLists={nutritionLists} />
                 </Static>
-                <Tags items={tags} />
             </div>
+            <Tags items={tags} />
         </>
     );
 }

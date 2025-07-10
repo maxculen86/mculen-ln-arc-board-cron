@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import generateProps from './utils/GetPropsForComLink';
-// import '../../../resources/dist/css/ln/components/com-link.css';
-// import '../../../resources/dist/css/ln/components/com-text.css';
 
 function ComLink(props) {
     const {
