@@ -2,8 +2,12 @@ import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import { addToast, TOAST, addErrorToast } from './_helper';
 import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
 import { toggleBookmarks } from '../iconHelper';
-import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { removeFromStorageFolder } from '../foldersHelper';
+import {
+    safeGetJSON,
+    safeSetJSON
+} from '../../../../../private/LN/common/utils/safeLocalStorageHelpers';
 
 const deleteBookmark = async bookmarks => {
     const { token, accessToken } = await getAuthTokens();
@@ -42,19 +46,25 @@ const deleteBookmark = async bookmarks => {
                 console.error(
                     `Error al eliminar nota ${bookmarkTypeId}, status: ${response.status}`
                 );
-                return { bookmarkTypeId };
+                return { bookmarkTypeId, bookmarkId };
             }
 
-            return { bookmarkTypeId, bookmarkId };
+            return { bookmarkTypeId, bookmarkId, success: true };
         })
     );
 
     const { successfullResponses, failureResponses } = results.reduce(
         (acum, response) => {
-            if (response.bookmarkId) {
-                acum.successfullResponses.push(response.bookmarkTypeId);
-            } else {
-                acum.failureResponses.push(response.bookmarkTypeId);
+            if (response && response.success) {
+                acum.successfullResponses.push({
+                    bookmarkTypeId: response.bookmarkTypeId,
+                    bookmarkId: response.bookmarkId
+                });
+            } else if (response) {
+                acum.failureResponses.push({
+                    bookmarkTypeId: response.bookmarkTypeId,
+                    bookmarkId: response.bookmarkId
+                });
             }
             return acum;
         },
@@ -70,12 +80,16 @@ const setClientSideBookmarks = ({
     setSelectedItem,
     userBookmarksQuantity
 }) => {
+    const deletedBookmarkIds = new Set(
+        successfullResponses.map(response => response.bookmarkId)
+    );
+
     setUserBookmarks(previousBookmarks =>
         previousBookmarks.filter(
-            ({ bookmarkTypeId }) =>
-                !successfullResponses.includes(bookmarkTypeId)
+            bookmark => !deletedBookmarkIds.has(bookmark.bookmarkId)
         )
     );
+
     if (setSelectedItem && userBookmarksQuantity)
         setSelectedItem(({ id: prevId, quantity: prevQuantity }) => {
             const quantity = prevQuantity - successfullResponses.length;
@@ -94,46 +108,73 @@ const setClientSideBookmarks = ({
 };
 
 const setLocalStorageBookmarks = successfullResponses => {
-    const bookmarkedItems = safeJSONParse(
-        localStorage?.getItem('bookmarkedItems'),
-        []
+    const bookmarkedItems = safeGetJSON('bookmarkedItems', []);
+
+    const deletedBookmarkIds = new Set(
+        successfullResponses.map(response => response.bookmarkId)
     );
 
-    localStorage?.setItem(
-        'bookmarkedItems',
-        JSON.stringify(
-            bookmarkedItems.filter(
-                article =>
-                    !successfullResponses.includes(article.bookmarkTypeId)
-            )
-        )
+    const filteredItems = bookmarkedItems.filter(
+        article => !deletedBookmarkIds.has(article.bookmarkId)
     );
+
+    safeSetJSON('bookmarkedItems', filteredItems);
+};
+
+const updateFolderCountsAfterDelete = (successfullResponses, allBookmarks) => {
+    successfullResponses.forEach(({ bookmarkId }) => {
+        const deletedBookmark = allBookmarks?.find(
+            bookmark => bookmark.bookmarkId === bookmarkId
+        );
+
+        if (deletedBookmark?.bookmarkGroup) {
+            removeFromStorageFolder(deletedBookmark.bookmarkGroup);
+        }
+    });
 };
 
 const fetchDeleteBookmark = async (
     bookmarkedArticles,
     setUserBookmarks,
     setSelectedItem,
-    userBookmarksQuantity = 0
+    userBookmarksQuantity = 0,
+    bookmarkInfo = null,
+    allBookmarks = null
 ) => {
     const { successfullResponses, failureResponses } =
         await deleteBookmark(bookmarkedArticles);
 
     if (successfullResponses && successfullResponses.length) {
-        if (setUserBookmarks)
+        if (allBookmarks) {
+            updateFolderCountsAfterDelete(successfullResponses, allBookmarks);
+        }
+
+        setLocalStorageBookmarks(successfullResponses);
+
+        if (setUserBookmarks) {
             setClientSideBookmarks({
                 successfullResponses,
                 setUserBookmarks,
                 setSelectedItem,
                 userBookmarksQuantity
             });
-        else setLocalStorageBookmarks(successfullResponses);
+        }
 
         if (successfullResponses.length === bookmarkedArticles.length) {
+            let toastMessage;
+
+            if (bookmarkInfo) {
+                if (bookmarkInfo.variant === 'note') {
+                    toastMessage = `La nota ${bookmarkInfo.name} se quitó de tu colección.`;
+                } else if (bookmarkInfo.variant === 'recipe') {
+                    toastMessage = `La receta ${bookmarkInfo.name} se quitó de tu colección.`;
+                }
+            }
+
             addToast({
                 variant: TOAST.SUCCESS.VARIANT,
                 title: TOAST.SUCCESS.TITLE,
-                message: TOAST.SUCCESS.MESSAGE.DELETE_ARTICLE
+                message: toastMessage || TOAST.SUCCESS.MESSAGE.DELETE_ARTICLE
             });
         } else {
             addErrorToast();
@@ -143,8 +184,13 @@ const fetchDeleteBookmark = async (
     }
 
     if (!setUserBookmarks && failureResponses && failureResponses.length) {
-        toggleBookmarks(failureResponses, true);
+        const failureTypeIds = failureResponses.map(
+            response => response.bookmarkTypeId
+        );
+        toggleBookmarks(failureTypeIds, true);
     }
+
+    return successfullResponses?.length > 0;
 };
 
 export default fetchDeleteBookmark;

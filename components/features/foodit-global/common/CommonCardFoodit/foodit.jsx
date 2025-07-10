@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Card } from '@ln/foodit-ui-card';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { BOOKMARK_FILLED } from '../bookmark/iconHelper';
+import { CardButton } from './components/CardButton';
+import { DropdownCard } from './components/DropdownCard';
 
 function CommonCardFoodit({
     articleId,
@@ -31,9 +32,35 @@ function CommonCardFoodit({
     fill = false,
     isOpening = false,
     hasVideo = false,
-    mediaVariant = 'image'
+    mediaVariant = 'image',
+    isMyRecipesLayout = false,
+    onDelete = null,
+    onMove = null
 }) {
     const showIconVideo = hasVideo && mediaVariant !== 'video';
+
+    const handleBookmarkClick = e => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!isMyRecipesLayout) {
+            if (bookmarkAction) {
+                bookmarkAction();
+            } else {
+                window?.LN?.observable?.publish('openModal', {
+                    ids: [articleId],
+                    fatherType
+                });
+            }
+        }
+    };
+
+    const buttonProps = {
+        'data-id': articleId,
+        'data-modal': 'open-modal',
+        'data-test-id': `button-bookmark-${articleId}`,
+        ...(fatherType && { 'data-father-type': fatherType })
+    };
 
     return (
         <Card
@@ -45,6 +72,7 @@ function CommonCardFoodit({
             variant={variant}
             className={className}
             {...(container && { container })}
+            style={isMyRecipesLayout ? { overflow: 'visible' } : {}}
         >
             <Card.Top>
                 <Card.Media
@@ -75,33 +103,22 @@ function CommonCardFoodit({
                     showTime={Boolean(time) && showTime}
                     time={`${time} min`}
                     icon={<IconSprite name="timer" />}
-                    buttonProps={{
-                        title: 'Guardar receta',
-                        'data-id': articleId,
-                        'data-modal': 'open-modal',
-                        'data-test-id': `button-bookmark-${articleId}`,
-                        ...(fatherType && { 'data-father-type': fatherType }),
-                        text: 'Guardar',
-                        icon: (
-                            <IconSprite
-                                name={fill ? BOOKMARK_FILLED : 'bookmark'}
-                                critical={!fill}
+                    action={
+                        isMyRecipesLayout ? (
+                            <DropdownCard
+                                bookmarkId={articleId}
+                                onDelete={onDelete}
+                                onMove={onMove}
                             />
-                        ),
-                        onClick: e => {
-                            e.preventDefault();
-                            e.stopPropagation();
-
-                            if (bookmarkAction) {
-                                bookmarkAction();
-                            } else {
-                                window?.LN?.observable?.publish('openModal', {
-                                    ids: [articleId],
-                                    fatherType
-                                });
-                            }
-                        }
-                    }}
+                        ) : (
+                            <CardButton
+                                container={container}
+                                fill={fill}
+                                buttonProps={buttonProps}
+                                handleBookmarkClick={handleBookmarkClick}
+                            />
+                        )
+                    }
                 />
             </Card.Main>
         </Card>
@@ -142,7 +159,10 @@ CommonCardFoodit.propTypes = {
     poster: PropTypes.string,
     mediaVariant: PropTypes.oneOf(['image', 'video']),
     hasVideo: PropTypes.bool,
-    fatherType: PropTypes.string
+    fatherType: PropTypes.string,
+    isMyRecipesLayout: PropTypes.bool,
+    onDelete: PropTypes.func,
+    onMove: PropTypes.func
 };
 
 CommonCardFoodit.defaultProps = {
@@ -161,7 +181,7 @@ CommonCardFoodit.defaultProps = {
     subtitle: '',
     titleEllipsis: 3,
     contentCode: '',
-    container: '',
+    container: 'grid',
     className: '',
     bookmarkAction: null,
     fill: false,
@@ -169,7 +189,10 @@ CommonCardFoodit.defaultProps = {
     poster: '',
     mediaVariant: 'image',
     hasVideo: false,
-    fatherType: ''
+    fatherType: '',
+    isMyRecipesLayout: false,
+    onDelete: null,
+    onMove: null
 };
 
 export default CommonCardFoodit;

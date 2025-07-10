@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 import OptionEdit from './OptionEdit';
 import OptionDelete from './OptionDelete';
+import deleteWeeklyMenu from '../../../bookmark/api/menuDelete';
 
 function DropdownToggle(props) {
     return (
@@ -97,12 +98,14 @@ export function MenuOptions({
                 subscription={subscription}
             />
             <OptionDelete
-                weeklyMenu={weeklyMenu}
-                setWeeklyMenu={setWeeklyMenu}
+                items={weeklyMenu}
+                setItems={setWeeklyMenu}
+                deleteFunction={() => deleteWeeklyMenu({ bookmarkId })}
+                filterKey="bookmarkId"
                 isOpen={del}
-                onOpen={openDel}
                 onClose={closeDel}
                 bookmarkId={bookmarkId}
+                messageType="menu"
             />
         </>
     );

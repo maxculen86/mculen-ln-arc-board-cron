@@ -2,37 +2,52 @@ import React from 'react';
 import { Dialog } from '@ln/common-ui-dialog';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-
 import PropTypes from 'prop-types';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
-
-import deleteWeeklyMenu from '../../../bookmark/api/menuDelete';
 import { Message } from '../../../Modals/RemoveIngredients/components/Message';
 
 function OptionDelete({
-    weeklyMenu,
     bookmarkId,
-    setWeeklyMenu,
+    items,
+    setItems,
+    deleteFunction,
+    filterKey = 'bookmarkId',
     isOpen,
-    onClose
+    onClose,
+    messageType = 'menu'
 }) {
-    const deleteMenuWeekly = async () => {
+    const handleDelete = async () => {
         try {
-            const { bookmarkId: bookmarkIdResponse } = await deleteWeeklyMenu({
-                bookmarkId
-            });
-            if (bookmarkIdResponse) {
-                const updatedMenu = weeklyMenu.filter(
-                    menu => menu.bookmarkId !== bookmarkId
+            if (!deleteFunction || deleteFunction.toString() === '() => {}') {
+                const updatedItems = items.filter(
+                    item => item[filterKey] !== bookmarkId
                 );
-                setWeeklyMenu(updatedMenu);
+                setItems(updatedItems);
+                onClose();
+                return;
+            }
+
+            const result = await deleteFunction({ bookmarkId });
+
+            let bookmarkIdResponse;
+            if (result && typeof result === 'object') {
+                bookmarkIdResponse = result.bookmarkId;
+            } else {
+                bookmarkIdResponse = bookmarkId;
+            }
+
+            if (bookmarkIdResponse) {
+                const updatedItems = items.filter(
+                    item => item[filterKey] !== bookmarkId
+                );
+                setItems(updatedItems);
                 onClose();
             } else {
-                console.error('Failed to delete menu.');
+                console.error('Failed to delete item.');
                 onClose();
             }
         } catch (error) {
-            console.error('Error deleting menu:', error);
+            console.error('Error deleting item:', error);
             onClose();
         }
     };
@@ -61,10 +76,14 @@ function OptionDelete({
                 </Button>
             </Dialog.Header>
             <Dialog.Body>
-                <Message type="menu" />
+                <Message
+                    type={messageType}
+                    bookmarkId={bookmarkId}
+                    userBookmarks={items}
+                />
                 <div className="flex gap-16 border border-top border-thin border-light-100 pt-16 mt-16 pt-24_md mt-24_md pt-32_lg mt-32_lg">
                     <Button
-                        onClick={() => deleteMenuWeekly()}
+                        onClick={() => handleDelete()}
                         fullWidth
                         title="aceptar"
                         variant="primary"
@@ -84,11 +103,16 @@ function OptionDelete({
         </Dialog>
     );
 }
+
 OptionDelete.propTypes = {
     bookmarkId: PropTypes.string.isRequired,
-    weeklyMenu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    setWeeklyMenu: PropTypes.func.isRequired,
+    items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    setItems: PropTypes.func.isRequired,
+    deleteFunction: PropTypes.func.isRequired,
+    filterKey: PropTypes.string.isRequired,
     isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired,
+    messageType: PropTypes.string.isRequired
 };
+
 export default OptionDelete;
