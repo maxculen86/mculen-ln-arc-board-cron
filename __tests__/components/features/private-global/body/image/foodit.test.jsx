@@ -76,7 +76,7 @@ jest.mock(
                       .toLowerCase()
                 : ''
         ),
-        PREPARATION_KEYWORDS: ['preparación', 'preparacion', /^para la \w+/i],
+        PREPARATION_KEYWORDS: ['preparación', 'preparacion'],
         TIPS_KEYWORDS: ['tips', 'curiosidades']
     })
 );
@@ -266,7 +266,7 @@ describe('BodyComponents - Foodit - Image', () => {
             );
         });
 
-        it('detects preparation section with regex keyword', () => {
+        it('does not detect preparation section with "Para la" header alone', () => {
             const elementsWithPrepRegex = [
                 {
                     type: 'header',
@@ -283,6 +283,48 @@ describe('BodyComponents - Foodit - Image', () => {
                 <Image
                     data={mockData}
                     contentElements={elementsWithPrepRegex}
+                />
+            );
+            const figure = screen.getByRole('img').closest('figure');
+            expect(figure).toHaveAttribute('data-image-section', 'contenido');
+            expect(screen.getByRole('img')).toHaveClass(
+                'w-100',
+                'ratio-3-2',
+                'content-image'
+            );
+        });
+
+        it('maintains preparation section when "Para la" appears as sub-header', () => {
+            const elementsWithSubHeaders = [
+                {
+                    type: 'header',
+                    content: 'Preparación',
+                    level: 2
+                },
+                {
+                    type: 'header',
+                    content: 'Para la masa',
+                    level: 4
+                },
+                {
+                    type: 'text',
+                    content: 'Mix ingredients'
+                },
+                {
+                    type: 'header',
+                    content: 'Para el relleno',
+                    level: 4
+                },
+                {
+                    type: 'image',
+                    _id: 'img1'
+                }
+            ];
+
+            render(
+                <Image
+                    data={mockData}
+                    contentElements={elementsWithSubHeaders}
                 />
             );
             const figure = screen.getByRole('img').closest('figure');
@@ -358,6 +400,47 @@ describe('BodyComponents - Foodit - Image', () => {
                 'ratio-3-2',
                 'content-image'
             );
+        });
+
+        it('handles multiple preparation sections correctly', () => {
+            const elementsWithMultiplePrep = [
+                {
+                    type: 'header',
+                    content: 'Preparación inicial',
+                    level: 1
+                },
+                {
+                    type: 'image',
+                    _id: 'img1'
+                },
+                {
+                    type: 'header',
+                    content: 'Ingredientes',
+                    level: 1
+                },
+                {
+                    type: 'image',
+                    _id: 'img2'
+                },
+                {
+                    type: 'header',
+                    content: 'Preparación final',
+                    level: 1
+                },
+                {
+                    type: 'image',
+                    _id: 'img3'
+                }
+            ];
+
+            render(
+                <Image
+                    data={{ ...mockData, _id: 'img1' }}
+                    contentElements={elementsWithMultiplePrep}
+                />
+            );
+            const figure = screen.getByRole('img').closest('figure');
+            expect(figure).toHaveAttribute('data-image-section', 'preparacion');
         });
     });
 });

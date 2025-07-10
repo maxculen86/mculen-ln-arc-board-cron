@@ -32,7 +32,7 @@ export function Image({ data = {}, contentElements = [] }) {
         }
 
         let inPreparationSection = false;
-        let preparationHeaderLevel = null;
+        let mainPreparationLevel = null;
 
         for (let i = 0; i < contentElements.length; i += 1) {
             const element = contentElements[i];
@@ -43,25 +43,23 @@ export function Image({ data = {}, contentElements = [] }) {
             ) {
                 const headerContent = normalize(element.content || '');
 
-                const isPreparation = PREPARATION_KEYWORDS.some(keyword =>
-                    typeof keyword === 'string'
-                        ? headerContent.includes(normalize(keyword))
-                        : keyword.test(headerContent)
+                const isMainPreparation = PREPARATION_KEYWORDS.some(keyword =>
+                    headerContent.includes(normalize(keyword))
                 );
 
                 const isTips = TIPS_KEYWORDS.some(tip =>
                     headerContent.includes(tip)
                 );
 
-                if (isPreparation) {
+                if (isMainPreparation) {
                     inPreparationSection = true;
-                    preparationHeaderLevel = element.level;
+                    mainPreparationLevel = element.level;
                 } else if (
                     inPreparationSection &&
-                    (element.level <= preparationHeaderLevel || isTips)
+                    (element.level <= mainPreparationLevel || isTips)
                 ) {
                     inPreparationSection = false;
-                    preparationHeaderLevel = null;
+                    mainPreparationLevel = null;
                 }
             }
 
