@@ -135,7 +135,6 @@ const fetchSectionSource = async (
 };
 
 const fetch = async (query, { cachedCall } = {}) => {
-    let restriction = 'true';
     let configuration = null;
 
     try {
@@ -165,7 +164,7 @@ const fetch = async (query, { cachedCall } = {}) => {
 
         const { title } = sectionSourceResult;
 
-        restriction = get(sectionSourceResult, 'restriction', true);
+        const restriction = get(sectionSourceResult, 'restriction', true);
         configuration = get(sectionSourceResult, 'configuration', null);
 
         const queryParams = {
