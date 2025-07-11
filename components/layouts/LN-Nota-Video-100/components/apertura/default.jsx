@@ -1,34 +1,20 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import {
-    getLiveBlogEditorialDataApertura,
-    getMediaItem
-} from '../../../LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura';
-import BreadcrumbArticle from '../../../../features/LN-nota/breadcrumbArticle';
-import ReadingTime from '../../../../features/LN-10-global/common/readingTime/default';
+import { getLiveBlogEditorialDataApertura } from '../../../LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura';
+import MediaVideo100 from './MediaVideo100';
+import DescriptionVideo100 from './DescriptionVideo100';
 
-function AperturaVideo100() {
-    // TODO: SE DEBE AGREGAR EN EL IMAGE CONFIG LAS DIMENSIONES DEL VIDEO EN LA APERTURA CUANDO SE DEFINA PARA EL RESIZER.
+function AperturaVideo100({ children }) {
     const { globalContent } = useAppContext();
-    const { dataMedia, dataDescripcion, dataEpigraph } =
+    const { dataMedia, dataDescripcion } =
         getLiveBlogEditorialDataApertura(globalContent);
 
-    const mediaItem = getMediaItem(dataMedia.mediaData);
-
-    const { title, date, time } = dataDescripcion;
-
-    const { caption, credit } = dataEpigraph;
-
     return (
-        <div>
-            {mediaItem}
-            <h1>{title}</h1>
-            <p>Fecha: {date}</p>
-            <p>Hora: {time}</p>
-            <p>{caption}</p>
-            <p>{credit}</p>
-            <ReadingTime />
-            <BreadcrumbArticle />
+        <div className="video-100-opening">
+            <MediaVideo100 data={dataMedia} />
+            <DescriptionVideo100 data={dataDescripcion} />
+            <div className="lay pt-24">{children}</div>
         </div>
     );
 }

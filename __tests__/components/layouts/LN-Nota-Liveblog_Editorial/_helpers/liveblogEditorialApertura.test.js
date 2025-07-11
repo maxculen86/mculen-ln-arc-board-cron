@@ -7,7 +7,7 @@ import dateAndTimeUtil, {
     isOlderThanXHoursAgo
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 import { getMediaData } from '../../../../../components/private/LN/common/utils/mediaHelper';
-import MediaVideo from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaVideo';
+import VideoPlayerJW from '../../../../../components/private/common/videoPlayerJw';
 import MediaIframe from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaIframe';
 import MediaImage from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaImage';
 
@@ -45,13 +45,10 @@ jest.mock(
     })
 );
 
-jest.mock(
-    '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaVideo',
-    () => ({
-        __esModule: true,
-        default: ({ data }) => <div>Video: {data.videoJw?.url}</div>
-    })
-);
+jest.mock('../../../../../components/private/common/videoPlayerJw', () => ({
+    __esModule: true,
+    default: ({ data }) => <div>Video: {data.videoJw?.url}</div>
+}));
 
 jest.mock(
     '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaIframe',
@@ -232,11 +229,11 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                 width: 768
             };
 
-            const result = getMediaItem(mediaData);
+            const result = getMediaItem({ mediaData, hasAutoplay: true });
             expect(result.type).toBe(MediaImage);
         });
 
-        it('should return MediaVideo component for video_jw', () => {
+        it('should return VideoPlayerJW component for video_jw', () => {
             const mediaData = {
                 embed: {
                     config: {
@@ -267,8 +264,8 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                 subtype: 'video_jw'
             };
 
-            const result = getMediaItem(mediaData);
-            expect(result.type).toBe(MediaVideo);
+            const result = getMediaItem({ mediaData, hasAutoplay: true });
+            expect(result.type).toBe(VideoPlayerJW);
             expect(
                 result.props.data.embed.config.videoJw.playlist[0].mediaid
             ).toBe('82L5uCqQ');
@@ -284,7 +281,7 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                     '<iframe width="560" height="315" src="https://www.youtube.com/embed/QCZZwZQ4qNs?si=Rq33uZRUeu47nZcb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             };
 
-            const result = getMediaItem(mediaData);
+            const result = getMediaItem({ mediaData, hasAutoplay: true });
             expect(result.type).toBe(MediaIframe);
             expect(result.props.html).toContain(
                 '<iframe width="560" height="315" src="https://www.youtube.com/embed/QCZZwZQ4qNs?si=Rq33uZRUeu47nZcb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
@@ -292,7 +289,7 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
         });
 
         it('should return null if mediaData is falsy', () => {
-            const result = getMediaItem(null);
+            const result = getMediaItem({ mediaData: null });
             expect(result).toBeNull();
         });
     });
