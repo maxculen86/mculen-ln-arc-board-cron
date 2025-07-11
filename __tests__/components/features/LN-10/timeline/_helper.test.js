@@ -123,7 +123,9 @@ describe('Components - Features - LN-10 - Timeline - _helper', () => {
             'text',
             'title',
             'href',
-            'icon'
+            'icon',
+            'target',
+            'rel'
         ]);
     });
 
