@@ -72,10 +72,6 @@ function masNotas(props) {
         staticMode: false
     });
 
-    if (isFilteringByTags) {
-        content = filterType.byTags(searchParameters);
-    }
-
     const filteredContentElements = getFilteredContentElements(
         articlesList,
         idArticle,
