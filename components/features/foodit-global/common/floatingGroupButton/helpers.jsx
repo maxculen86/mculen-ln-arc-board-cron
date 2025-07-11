@@ -55,7 +55,7 @@ export const floatingButtonConfig = {
     [layoutsName.FooditAcumulado]: defaultConfig,
     [layoutsName.FooditAcumuladoChef]: defaultConfig,
     [layoutsName.FooditChef]: defaultConfig,
-    [layoutsName.FooditMenuSemanal]: defaultConfig,
+    [layoutsName.FooditMenuSemanal]: null,
     [layoutsName.FooditRecetario]: (callbacks = []) => {
         const [toggleDrawerRecetario = () => null] = callbacks;
         return {
