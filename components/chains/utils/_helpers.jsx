@@ -163,7 +163,7 @@ export const useRoofData = props => {
     } = props;
 
     const logo = useGetLogo(logoId, title, isStatic);
-    const buttonLogoData = useGetLogo(buttonLogo, title, useGetLogo);
+    const buttonLogoData = useGetLogo(buttonLogo, title, isStatic);
     const links = useGetLinks({ navigationSection: navigator });
 
     return {
