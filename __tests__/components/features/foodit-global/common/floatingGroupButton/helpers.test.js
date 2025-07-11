@@ -13,6 +13,11 @@ describe('FloatingGroupButton getConfigByLayout helper', () => {
         expect(actualConfig).toEqual(expectedConfig);
     });
 
+    it('should return null if the layout is foodit menu semanal', () => {
+        const layout = 'Foodit-menu-semanal';
+        expect(getConfigByLayout(layout)).toEqual({});
+    });
+
     it('config should have the expected structure', () => {
         const layout = 'Foodit-home';
         const config = floatingButtonConfig[layout];
