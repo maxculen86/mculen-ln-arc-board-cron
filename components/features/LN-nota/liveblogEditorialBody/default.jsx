@@ -10,6 +10,9 @@ import {
 import BuildLiveblogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/BuildLiveblogBody';
 import LiveBlogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/LiveBlogBody';
 import useLazyEmbeds from '../../LN-common/hooks/useLazyEmbeds';
+import useScrollDispatcher, {
+    registerScrollTrigger
+} from '../../LN-common/hooks/useScrollDispatcher';
 
 function BodyLiveblogEditorial() {
     const { globalContent, outputType, _id } = useAppContext();
@@ -27,6 +30,12 @@ function BodyLiveblogEditorial() {
         noteId: _id,
         selector: '#body-liveblog-editorial'
     });
+
+    useScrollDispatcher({
+        startSelector: 'h1', // titulo
+        endSelector: '#fin-de-nota'
+    });
+
     useEffect(() => {
         const hashWidthId = window.location.hash;
         const id = hashWidthId.slice(1);
@@ -38,6 +47,22 @@ function BodyLiveblogEditorial() {
                 block: 'center'
             });
         }
+
+        registerScrollTrigger({
+            id: 'scroll-body-GA',
+            type: 'percentage',
+            threshold: 10,
+            thresholdStep: 10,
+            callback: percent => {
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        event: 'scroll_tracking_nota',
+                        scroll_percent: percent,
+                        content_type: 'nota'
+                    });
+                }
+            }
+        });
     }, []);
 
     return (
