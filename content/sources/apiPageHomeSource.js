@@ -198,7 +198,9 @@ const fetch = async (query, { cachedCall } = {}) => {
                 }
             })
         );
-        return null;
+        throw new Error(
+            `Error content/apiPageHomeSource QueryParams: ${JSON.stringify(queryParams)} errorMsj: ${error.message}`
+        );
     }
 };
 

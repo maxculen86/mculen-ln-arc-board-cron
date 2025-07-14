@@ -19,7 +19,7 @@ jest.mock('../../../content/sources/utils/pageSource/index', () => {
 jest.mock(
     '../../../content/sources/utils/pageSource/pageHome/v1/mobile/transform',
     (layoutPage, query) => {
-        return function(layoutPage, query) {
+        return function (layoutPage, query) {
             return [];
         };
     }
@@ -30,7 +30,7 @@ jest.mock(
 jest.mock(
     '../../../content/sources/utils/pageSource/pageHome/v2/mobile/transform',
     (layoutPage, query) => {
-        return function(layoutPage, query) {
+        return function (layoutPage, query) {
             return null;
         };
     }
@@ -41,7 +41,7 @@ jest.mock(
 jest.mock(
     '../../../components/private/LN/api/v1/mobile/home/index',
     (layoutPage, query) => {
-        return function(layoutPage, query) {
+        return function (layoutPage, query) {
             return [{}];
         };
     }
@@ -52,7 +52,7 @@ jest.mock(
 jest.mock(
     '../../../components/private/LN/api/v2/mobile/home/index',
     (layoutPage, query) => {
-        return function(layoutPage, query) {
+        return function (layoutPage, query) {
             return null;
         };
     }
@@ -63,7 +63,7 @@ jest.mock(
 jest.mock(
     '../../../content/sources/utils/pageSource/pageHome/v1/bitacora/transform',
     (layoutPage, query) => {
-        return function(layoutPage, query) {
+        return function (layoutPage, query) {
             return { cajas: [] };
         };
     }
@@ -177,12 +177,17 @@ describe('content - sources - apiPageHomeSource', () => {
     });
 
     test('receive page LN10Main when is null', async () => {
-        const query = Object.assign({}, paramQuery);
+        try {
+            const query = Object.assign({}, paramQuery);
 
-        const result = await apiPageHomeSource.fetch(query, {
-            cachedCall: jest.fn().mockReturnValue(Promise.resolve(null))
-        });
-        expect(result).toBeNull();
-        expect(console.error).toHaveBeenCalledTimes(1);
+            await apiPageHomeSource.fetch(query, {
+                cachedCall: jest.fn().mockReturnValue(Promise.resolve(null))
+            });
+        } catch (error) {
+            expect(error.message).toBe(
+                'Error content/apiPageHomeSource QueryParams: {"rootPath":"https://wwww.lanacion.com.arr/homepage","ticksCache":"01","website":"la-nacion-ar","isPage":true,"versionDeploy":null,"cookie":null} errorMsj: Not found page'
+            );
+            expect(console.error).toHaveBeenCalledTimes(1);
+        }
     });
 });
