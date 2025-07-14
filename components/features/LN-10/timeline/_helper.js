@@ -1,7 +1,9 @@
 import React from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import { formatDateHoursAndMint } from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
+import { isExternalUrl } from '../../../private/common/utils/isExternalUrl';
 
 const setTimelineProps = ({ articles, roof, url, hideTitle }) => {
     const data = articles.map(article => {
@@ -29,13 +31,17 @@ const setTimelineProps = ({ articles, roof, url, hideTitle }) => {
         };
     });
 
+    const isExternal = isExternalUrl(url, SITE_LANACION);
+
     const dataRoof = {
         ...(!hideTitle
             ? {
                   text: roof,
                   title: roof,
                   href: url,
-                  icon: <IconSprite name="arrow" fill="#333" />
+                  icon: url ? <IconSprite name="arrow" fill="#333" /> : null,
+                  target: isExternal ? '_blank' : '_self',
+                  rel: isExternal ? 'noopener noreferrer nofollow' : undefined
               }
             : {})
     };
