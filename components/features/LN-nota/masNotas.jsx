@@ -20,8 +20,6 @@ import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
-// TODO fixes de eslint
-
 function masNotas(props) {
     const {
         customFields: {
