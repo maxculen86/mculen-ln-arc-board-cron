@@ -66,6 +66,7 @@ function Footer(props) {
                     </div>
                 </>
             )}
+            <div id="fin-de-nota" />
         </section>
     );
 }
