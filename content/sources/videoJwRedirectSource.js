@@ -26,7 +26,7 @@ const fetch = async (query, { cachedCall }) => {
         }
 
         throw new NotFoundError(
-            `The video with URL: ${addForwardSlash(`${SITE_OTT}${url}`)} does not have an associated ID in JW`
+            `The video with URL: ${addForwardSlash(SITE_OTT + url)} does not have an associated ID in JW`
         );
     } catch (error) {
         const { statusCode } = error || {};
