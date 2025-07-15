@@ -13,7 +13,7 @@ class EnVivo {
         this.customFields = customFields || {};
         if (customFields) {
             const paramsNotes = [1, 2, 3, 4];
-            this.notes = paramsNotes.map((e, i) => {
+            this.notes = paramsNotes.map(e => {
                 if (get(customFields, 'noteId'.concat(e), null)) {
                     return {
                         orden: e,
@@ -30,7 +30,7 @@ class EnVivo {
                 .map(x => x.noteId)
                 .join(',');
 
-            const regex = new RegExp(`/,,/`);
+            const regex = /,,/g;
             notesIds = notesIds.replace(regex, ',');
 
             this.fetchContent({
@@ -53,14 +53,13 @@ class EnVivo {
             return null;
         }
         let resp = {};
-        const chapita = get(this.customFields, 'chapita', 'VIVO') || 'VIVO';
         const chapitaStyle = get(this.customFields, 'chapitaStyle', 2) || 2;
 
         resp = {
             information: {
                 hideCaja: show == null ? false : show,
                 chapita: 'TEST - JSON VERSION 2',
-                chapitaStyle: typeBadge[chapitaStyle],
+                chapitaStyle: typeBadge[chapitaStyle]
             },
             articles:
                 (acuArticlesENVIVO.content_elements &&

@@ -7,15 +7,7 @@ function NotaVideo100({ children }) {
     return (
         <BaseLayout className="liveblog-editorial">
             <main id="content" className="--header-fixed-margin">
-                {children[1]}
-                <div className="lay --apertura">
-                    <div className="row">
-                        <div className="col-12">
-                            <AperturaVideo100 />
-                            {children[2]}
-                        </div>
-                    </div>
-                </div>
+                <AperturaVideo100>{children[2]}</AperturaVideo100>
                 <div className="lay-sidebar">
                     {/* Cuerpo */}
                     <div className="sidebar__main">

@@ -15,19 +15,56 @@ export const monthNames = [
     'diciembre'
 ];
 
+export function formatDateTreeHoursMore(originalDate) {
+    return new Date(originalDate - 3600000 * 3);
+}
+
+const setMonth = ({ date, capitalize }) => {
+    const month = date.getMonth();
+    const name = monthNames[month];
+
+    return capitalize ? capitalizeFirstLetter(name) : name;
+};
+
+export function addHours(hours, originalDate) {
+    const dateInJS = new Date(originalDate);
+    dateInJS.setHours(dateInJS.getHours() + hours);
+    return dateInJS;
+}
+
+export function convertToFormat(dateInJS) {
+    return `${dateInJS.getFullYear().toString().padStart(4, '0')}-${(
+        dateInJS.getMonth() + 1
+    )
+        .toString()
+        .padStart(2, '0')}-${dateInJS
+        .getDate()
+        .toString()
+        .padStart(2, '0')}T${dateInJS
+        .getHours()
+        .toString()
+        .padStart(2, '0')}:${dateInJS
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}:${dateInJS
+        .getSeconds()
+        .toString()
+        .padStart(2, '0')}`;
+}
+
 export const getSpecificDate = (year, month, day) => {
     const date = new Date(year, month - 1, day);
-    return isNaN(date.getMonth()) ? null : date;
+    return Number.isNaN(date.getMonth()) ? null : date;
 };
 
 export function datesDiffInDays(firstDate, secondDate) {
     if (
         !firstDate ||
         typeof firstDate !== 'object' ||
-        isNaN(firstDate.getMonth()) ||
+        Number.isNaN(firstDate.getMonth()) ||
         !secondDate ||
         typeof secondDate !== 'object' ||
-        isNaN(secondDate.getMonth())
+        Number.isNaN(secondDate.getMonth())
     )
         return null;
     return Math.ceil((secondDate - firstDate) / (1000 * 3600 * 24));
@@ -49,13 +86,6 @@ export function formatDate(originalDate) {
 const setDay = date => {
     const day = String(date.getDate());
     return day < 10 ? day.padStart(2, '0') : day;
-};
-
-const setMonth = ({ date, capitalize }) => {
-    const month = date.getMonth();
-    const name = monthNames[month];
-
-    return capitalize ? capitalizeFirstLetter(name) : name;
 };
 
 export const formatDateWithoutAddingHours = ({ date, capitalize }) => {
@@ -86,10 +116,6 @@ function formatDateHoursMinAndSecond(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
     const formatSeconds = `00${date.getSeconds()}`.slice(-2);
     return `${formatDateHoursAndMint(originalDate)}:${formatSeconds}`;
-}
-
-export function formatDateTreeHoursMore(originalDate) {
-    return new Date(originalDate - 3600000 * 3);
 }
 
 function formatMonthDigits(originalDate) {
@@ -147,33 +173,6 @@ export function addHoursAndFormat(hours, originalDate) {
     return convertToFormat(dateInJS);
 }
 
-export function addHours(hours, originalDate) {
-    const dateInJS = new Date(originalDate);
-    dateInJS.setHours(dateInJS.getHours() + hours);
-    return dateInJS;
-}
-
-export function convertToFormat(dateInJS) {
-    return `${dateInJS
-        .getFullYear()
-        .toString()
-        .padStart(4, '0')}-${(dateInJS.getMonth() + 1)
-        .toString()
-        .padStart(2, '0')}-${dateInJS
-        .getDate()
-        .toString()
-        .padStart(2, '0')}T${dateInJS
-        .getHours()
-        .toString()
-        .padStart(2, '0')}:${dateInJS
-        .getMinutes()
-        .toString()
-        .padStart(2, '0')}:${dateInJS
-        .getSeconds()
-        .toString()
-        .padStart(2, '0')}`;
-}
-
 export function differenceInMinutes(firstDate, secondDate) {
     const date1 = new Date(firstDate);
     const date2 = new Date(secondDate);
@@ -206,26 +205,29 @@ export const getArgentinaDateMonthYear = () => {
     });
 };
 
-export const getUpdateDateMoreYears = (publish_date, last_updated_date) => {
-    const publishDate = new Date(publish_date);
-    const lastUpdatedDate = new Date(last_updated_date);
+export const getUpdateDateMoreYears = (publishDateStr, lastUpdatedDateStr) => {
+    const publishDate = new Date(publishDateStr);
+    const lastUpdatedDate = new Date(lastUpdatedDateStr);
 
-    if (isNaN(publishDate.getTime()) || isNaN(lastUpdatedDate.getTime())) {
+    if (
+        Number.isNaN(publishDate.getTime()) ||
+        Number.isNaN(lastUpdatedDate.getTime())
+    ) {
         return false;
     }
 
     const timeDifference = lastUpdatedDate - publishDate;
     const yearDifference = timeDifference / (1000 * 60 * 60 * 24 * 365.25);
 
-    return yearDifference >= 1 ? last_updated_date : false;
+    return yearDifference >= 1 ? lastUpdatedDateStr : false;
 };
 
-export const getFormattedStringDate = last_updated_date => {
-    if (!last_updated_date || last_updated_date === false) {
+export const getFormattedStringDate = lastUpdatedDate => {
+    if (!lastUpdatedDate || lastUpdatedDate === false) {
         return '';
     }
-    const date = new Date(last_updated_date);
-    if (isNaN(date.getTime())) {
+    const date = new Date(lastUpdatedDate);
+    if (Number.isNaN(date.getTime())) {
         return '';
     }
     return formatDate(date);

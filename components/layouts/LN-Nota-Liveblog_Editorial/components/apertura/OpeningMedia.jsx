@@ -6,7 +6,14 @@ import OpeningEpigraph from './OpeningEpigraph';
 function OpeningMedia({ data }) {
     const { mediaData, caption, credit } = data;
 
-    const mediaItem = getMediaItem(mediaData);
+    const mediaItem = getMediaItem({
+        mediaData,
+        classes: {
+            videoContainerClassesProps: 'w-100 liveBlog_video',
+            mediaContainerClassesProps: 'mb-0'
+        },
+        hasAutoplay: true
+    });
     if (!mediaItem) return null;
 
     return (
