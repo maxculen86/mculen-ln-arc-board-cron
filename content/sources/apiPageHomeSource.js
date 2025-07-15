@@ -67,6 +67,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         const version = get(query, 'versionUri', 1);
         const cookie = get(query, 'useCookie', null);
         const alias = get(query, 'namePage', 'home');
+        const useCachedCall = get(query, 'useCachedCall', 'true') !== 'false';
 
         let configItemPage = configPages[alias];
         if (!configItemPage) {
@@ -103,11 +104,32 @@ const fetch = async (query, { cachedCall } = {}) => {
             `execute page fetch - query: ${JSON.stringify(queryParams)}`
         );
 
-        resultPage = await cachedCall(keyCachedCall, pages.fetch, {
-            query: queryParams,
-            ttl: 120,
-            independent: true
-        });
+        if (useCachedCall) {
+            executionSteps.push(
+                `execute page fetch with cachedCall - query: ${JSON.stringify(queryParams)}`
+            );
+            resultPage = await cachedCall(keyCachedCall, pages.fetch, {
+                query: queryParams,
+                ttl: 120,
+                independent: true
+            });
+        } else {
+            executionSteps.push(
+                `execute page fetch without cachedCall - query: ${JSON.stringify(queryParams)}`
+            );
+
+            console.warn(
+                JSON.stringify({
+                    name: 'BackendLnWarn',
+                    customType: 'apiPageHomeSource',
+                    log_details: {
+                        message: 'se ejecuto el fetch sin cachedCall'
+                    }
+                })
+            );
+
+            resultPage = await pages.fetch(queryParams);
+        }
 
         if (!resultPage) {
             executionSteps.push(`Fetch Home page - Not found page`);
@@ -212,7 +234,8 @@ export default {
         namePage: 'text',
         ticks: 'text',
         versionDeploy: 'text',
-        useCookie: 'text'
+        useCookie: 'text',
+        useCachedCall: 'boolean'
     },
     ttl: 120
 };
