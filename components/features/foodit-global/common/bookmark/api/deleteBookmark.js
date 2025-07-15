@@ -121,22 +121,46 @@ const setLocalStorageBookmarks = successfullResponses => {
     safeSetJSON('bookmarkedItems', filteredItems);
 };
 
-const updateFolderCountsAfterDelete = (successfullResponses, allBookmarks) => {
+const updateFolderCountsAfterDelete = (
+    successfullResponses,
+    bookmarkedArticles,
+    allBookmarks
+) => {
     successfullResponses.forEach(({ bookmarkId }) => {
-        const deletedBookmark = allBookmarks?.find(
-            bookmark => bookmark.bookmarkId === bookmarkId
-        );
+        let deletedBookmark = null;
+
+        if (bookmarkedArticles && Array.isArray(bookmarkedArticles)) {
+            deletedBookmark = bookmarkedArticles.find(
+                bookmark =>
+                    bookmark.bookmarkId === bookmarkId && bookmark.bookmarkGroup
+            );
+        }
+
+        if (!deletedBookmark && allBookmarks && Array.isArray(allBookmarks)) {
+            deletedBookmark = allBookmarks.find(
+                bookmark => bookmark.bookmarkId === bookmarkId
+            );
+        }
+
+        if (!deletedBookmark) {
+            const bookmarkedItems = safeGetJSON('bookmarkedItems', []);
+            deletedBookmark = bookmarkedItems.find(
+                bookmark => bookmark.bookmarkId === bookmarkId
+            );
+        }
 
         if (deletedBookmark?.bookmarkGroup) {
             removeFromStorageFolder(deletedBookmark.bookmarkGroup);
+        } else {
+            console.error('No bookmarkGroup found for bookmark:', bookmarkId);
         }
     });
 };
 
 const fetchDeleteBookmark = async (
     bookmarkedArticles,
-    setUserBookmarks,
-    setSelectedItem,
+    setUserBookmarks = null,
+    setSelectedItem = null,
     userBookmarksQuantity = 0,
     bookmarkInfo = null,
     allBookmarks = null
@@ -145,9 +169,11 @@ const fetchDeleteBookmark = async (
         await deleteBookmark(bookmarkedArticles);
 
     if (successfullResponses && successfullResponses.length) {
-        if (allBookmarks) {
-            updateFolderCountsAfterDelete(successfullResponses, allBookmarks);
-        }
+        updateFolderCountsAfterDelete(
+            successfullResponses,
+            bookmarkedArticles,
+            allBookmarks
+        );
 
         setLocalStorageBookmarks(successfullResponses);
 
