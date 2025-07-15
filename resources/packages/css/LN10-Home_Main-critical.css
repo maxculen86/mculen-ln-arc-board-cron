@@ -5494,13 +5494,19 @@ a {
 
 @media (min-width: 48rem) {
   .rounded-8_m {
-    border-radius: 8px;
+    border-radius: 0.5rem;
   }
   .border-thin_m {
     border-width: thin;
   }
+  .border-2_m {
+    border-width: 0.125rem;
+  }
   .border-neutral-light-100_m {
-    border-color: #E6E6E6;
+    border-color: var(--neutral-light-100);
+  }
+  .border-danger-600_m {
+    border-color: var(--danger-600);
   }
 }
 .-z-1 {
@@ -7622,6 +7628,10 @@ strong:not(.--font-primary),
 
 .h-1.h-1 {
   height: 0.0625rem;
+}
+
+.h-2.h-2 {
+  height: 0.125rem;
 }
 
 .h-4.h-4 {
