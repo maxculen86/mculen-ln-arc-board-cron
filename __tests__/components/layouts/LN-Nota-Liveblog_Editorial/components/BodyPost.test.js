@@ -60,11 +60,20 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - components - body 
 
     it('should render PostPinned when isPinned is true', () => {
         render(
-            <BodyPost {...commonBodyPostProps} isPinned={true}>
+            <BodyPost {...commonBodyPostProps} isPinned={true} id="post-1">
                 <div>Post Content</div>
             </BodyPost>
         );
         expect(document.querySelector('.w-40')).toBeInTheDocument();
+
+        const wrapper = document.getElementById('post-1');
+        expect(wrapper).toHaveClass('liveBlog_post');
+        expect(wrapper).not.toHaveClass('liveBlog_post--unpinned');
+
+        const border = wrapper.querySelector('.border');
+        expect(border).toHaveClass(
+            'border-2_m border-danger-600_m bg-neutral-light-50'
+        );
     });
 
     it('should render only displayTime when date is not provided', () => {
