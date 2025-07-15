@@ -1,8 +1,8 @@
 import Consumer from 'fusion:consumer';
-import nodeFetch from 'node-fetch';
-import get from '../../../private/common/utils/get';
 import { SITE_LANACION } from 'fusion:environment';
+import nodeFetch from 'node-fetch';
 import transformv1 from '../../../../content/sources/utils/pageSource/pageHome/v1/mobile/transform';
+import get from '../../../private/common/utils/get';
 import homev2 from '../../../private/LN/api/v2/mobile/home';
 
 const resolve = query => {
@@ -37,7 +37,7 @@ class HomeUpdate {
 
         this.query = props.globalContentConfig.query;
         this.aliasPage = '/homepage';
-        this.regexVersionDeploy = new RegExp('[0-9]+');
+        this.regexVersionDeploy = /[0-9]+/;
         this.versionDeploy = get(this.query, 'versionDeploy', null);
         this.versionDeploy =
             this.regexVersionDeploy.exec(this.versionDeploy) &&
@@ -75,7 +75,10 @@ class HomeUpdate {
                 this.queryParams
             );
 
-            const resultHome = homev2(resultPageTransform, this.queryParams);
+            const resultHome = await homev2(
+                resultPageTransform,
+                this.queryParams
+            );
 
             let hashContentVersion = '';
 
@@ -83,8 +86,7 @@ class HomeUpdate {
 
             if (
                 Array.isArray(resultHome) &&
-                resultHome[0].hasOwnProperty('metadata') &&
-                resultHome[0].metadata.hasOwnProperty('contentVersion')
+                resultHome[0]?.metadata?.contentVersion !== undefined
             ) {
                 hashContentVersion = resultHome[0].metadata.contentVersion;
 
@@ -94,8 +96,31 @@ class HomeUpdate {
                 };
             }
 
-            return null;
+            console.warn(
+                JSON.stringify({
+                    name: 'BackendLnWarn',
+                    customType: 'homeUpdateFeature',
+                    log_details: {
+                        message: 'No se pudo obtener la version del contenido',
+                        queryParams: this.queryParams
+                    }
+                })
+            );
+
+            return {
+                homeUpdated: true
+            };
         } catch (err) {
+            console.warn(
+                JSON.stringify({
+                    name: 'BackendLnWarn',
+                    customType: 'homeUpdateFeatureError',
+                    log_details: {
+                        errorMessage: err.message,
+                        queryParams: this.queryParams
+                    }
+                })
+            );
             return { Success: false, Message: err.message };
         }
     }
