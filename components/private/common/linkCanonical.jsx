@@ -29,9 +29,16 @@ function LinkCanonicalAndAlternate(props = {}) {
         !siteUrl.includes(_id) &&
         template.includes('page');
 
+    const isHomepage = uri => {
+        const cleaned = uri.split('?')[0].replace(/^\/+|\/+$/g, '');
+        return cleaned === '' || cleaned === 'homepage';
+    };
+
+    const section = getSectionOfRequestUri(requestUri);
+
     const canonicalId =
         (!mustUseSiteUrl && canonicalIdChecker(_id)) ||
-        `/${getSectionOfRequestUri(requestUri)}`;
+        (isHomepage(requestUri) ? '' : `/${section}`);
     const canonicalSlash = addInitialSlash(canonicalId) ?? '';
 
     const baseUrlByArcType = {
