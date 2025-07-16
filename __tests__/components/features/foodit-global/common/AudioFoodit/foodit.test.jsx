@@ -46,7 +46,7 @@ describe('AudioFoodit', () => {
             <AudioFoodit article={articleAudio} setIsAudioPlaying={jest.fn()} />
         );
 
-        expect(screen.getByText('Marinado de la Carne')).toBeInTheDocument();
+        expect(screen.getByText('Para la Carne')).toBeInTheDocument();
 
         expect(
             screen.getByText(

@@ -94,16 +94,23 @@ export function getPreparationItems(contentElements) {
         i += 1
     ) {
         if (contentElements[i].type === 'list') {
-            const mappedList = contentElements[i].items.map((item, index) => ({
-                indexList: index,
-                showTitle: index === 0,
-                titleList: contentElements[i - 1]?.content || 'Preparación',
-                step: item.content
-            }));
+            const previousElement = contentElements[i - 1];
+            const shouldIncludeList =
+                previousElement?.type === 'header' &&
+                previousElement?.content?.toLowerCase().startsWith('para');
 
-            preparationLists.push(...mappedList);
+            if (shouldIncludeList) {
+                const mappedList = contentElements[i].items.map(
+                    (item, index) => ({
+                        indexList: index,
+                        showTitle: index === 0,
+                        titleList: previousElement.content,
+                        step: item.content
+                    })
+                );
 
-            return mappedList;
+                preparationLists.push(...mappedList);
+            }
         }
 
         if (
