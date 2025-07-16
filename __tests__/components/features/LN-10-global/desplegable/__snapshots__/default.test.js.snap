@@ -342,7 +342,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
-                    href="https://www.lanacion.com.ar/economia/indices"
+                    href="https://www.lanacion.com.ar/economia/indices/"
                     target="_self"
                     title="Índices"
                   >
@@ -1135,7 +1135,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   <a
                     class="link ln-link dd-link"
                     href="https://www.somosohlala.com/"
-                    target="_self"
+                    rel="nofollow"
+                    target="_blank"
                     title="Revista OHLALÁ!"
                   >
                     Revista OHLALÁ!
@@ -1147,7 +1148,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   <a
                     class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/revista-hola/"
-                    target="_self"
+                    rel="nofollow"
+                    target="_blank"
                     title="Revista ¡HOLA!"
                   >
                     Revista ¡HOLA!
@@ -1159,7 +1161,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   <a
                     class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/revista-lugares/"
-                    target="_self"
+                    rel="nofollow"
+                    target="_blank"
                     title="Revista Lugares"
                   >
                     Revista Lugares
@@ -1171,7 +1174,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   <a
                     class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/revista-living/"
-                    target="_self"
+                    rel="nofollow"
+                    target="_blank"
                     title="Revista Living"
                   >
                     Revista Living
@@ -1183,7 +1187,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   <a
                     class="link ln-link dd-link"
                     href="https://es.rollingstone.com/arg/"
-                    target="_self"
+                    rel="nofollow"
+                    target="_blank"
                     title="Revista Rolling Stone"
                   >
                     Revista Rolling Stone
@@ -1195,7 +1200,8 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                   <a
                     class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/revista-jardin/"
-                    target="_self"
+                    rel="nofollow"
+                    target="_blank"
                     title="Revista Jardín"
                   >
                     Revista Jardín

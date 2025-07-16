@@ -67,7 +67,7 @@ export const menuData = [
                 },
                 {
                     name: 'Índices',
-                    href: 'https://www.lanacion.com.ar/economia/indices',
+                    href: 'https://www.lanacion.com.ar/economia/indices/',
                     title: 'Índices'
                 }
             ]
@@ -304,32 +304,38 @@ export const menuData = [
                 {
                     name: 'Revista OHLALÁ!',
                     href: 'https://www.somosohlala.com/',
-                    title: 'Revista OHLALÁ!'
+                    title: 'Revista OHLALÁ!',
+                    target: '_blank'
                 },
                 {
                     name: 'Revista ¡HOLA!',
                     href: 'https://www.lanacion.com.ar/revista-hola/',
-                    title: 'Revista ¡HOLA!'
+                    title: 'Revista ¡HOLA!',
+                    target: '_blank'
                 },
                 {
                     name: 'Revista Lugares',
                     href: 'https://www.lanacion.com.ar/revista-lugares/',
-                    title: 'Revista Lugares'
+                    title: 'Revista Lugares',
+                    target: '_blank'
                 },
                 {
                     name: 'Revista Living',
                     href: 'https://www.lanacion.com.ar/revista-living/',
-                    title: 'Revista Living'
+                    title: 'Revista Living',
+                    target: '_blank'
                 },
                 {
                     name: 'Revista Rolling Stone',
                     href: 'https://es.rollingstone.com/arg/',
-                    title: 'Revista Rolling Stone'
+                    title: 'Revista Rolling Stone',
+                    target: '_blank'
                 },
                 {
                     name: 'Revista Jardín',
                     href: 'https://www.lanacion.com.ar/revista-jardin/',
-                    title: 'Revista Jardín'
+                    title: 'Revista Jardín',
+                    target: '_blank'
                 }
             ]
         }
