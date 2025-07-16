@@ -122,7 +122,10 @@ describe('Components - Features - LN-10 - Timeline - _helper', () => {
         expect(Object.keys(timelineProps.dataRoof)).toEqual([
             'text',
             'title',
-            'href'
+            'href',
+            'icon',
+            'target',
+            'rel'
         ]);
     });
 

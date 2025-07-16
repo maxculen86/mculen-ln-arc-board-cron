@@ -71,7 +71,7 @@ function EmptyState({ variant, className, direction = 'row' }) {
                     >
                         {titleByVariant[variant]}
                     </Text>
-                    <Text as="p" className="text-16 text-light-800">
+                    <Text as="p" className="text-16 text-light-600">
                         {descriptionByVariant({ layout, variant })}
                     </Text>
                 </div>

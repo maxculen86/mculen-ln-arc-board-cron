@@ -53,6 +53,7 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
             if (supportedTypes.includes(Component.arcType)) {
                 if (nodeType.length) return null;
                 counter += 1;
+
                 const bannerToRedender = BuildBanners({
                     banners,
                     globalContent,

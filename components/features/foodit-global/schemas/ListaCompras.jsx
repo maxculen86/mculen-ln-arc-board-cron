@@ -7,7 +7,7 @@ import { fooditSchemaLogo } from './_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const ListaComprasSchema = () => {
+export function ListaComprasSchema() {
     const { contextPath, deployment } = useAppContext();
 
     const listaComprasSchema = {
@@ -33,11 +33,11 @@ export const ListaComprasSchema = () => {
             <BreadcrumbSchema
                 sections={[
                     {
-                        name: 'Lista de compras',
-                        url: '/listado-compras/'
+                        name: 'Foodit',
+                        url: `${SITE_FOODIT}/`
                     }
                 ]}
             />
         </>
     );
-};
+}

@@ -34,6 +34,9 @@ exports[`components - feature - LN-nota - Footer Component renders correctly wit
           TrustProject
         </div>
       </div>
+      <div
+        id="fin-de-nota"
+      />
     </section>
   </div>
 </body>

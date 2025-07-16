@@ -2,11 +2,15 @@ import React from 'react';
 
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 
-export const BreadcrumbSchema = ({ sections = [] }) => {
+export function BreadcrumbSchema({ sections = [] }) {
+    const validSections = sections.filter(
+        ({ disabled = false, url = '' }) => !disabled && url?.trim() !== ''
+    );
+
     const breadcrumbSchema = {
         '@context': 'http://schema.org',
         '@type': 'BreadcrumbList',
-        itemListElement: sections.map(({ name, url }, index) => ({
+        itemListElement: validSections.map(({ name, url }, index) => ({
             '@type': 'ListItem',
             position: index,
             item: {
@@ -17,4 +21,4 @@ export const BreadcrumbSchema = ({ sections = [] }) => {
     };
 
     return <SnippetRender id="breadcrumb-schema" data={breadcrumbSchema} />;
-};
+}

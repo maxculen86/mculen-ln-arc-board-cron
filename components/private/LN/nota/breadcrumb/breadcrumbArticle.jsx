@@ -11,25 +11,26 @@ const getPrimaryTree = (sections, section, resultSections) => {
             name: section.name,
             path: section.path
         });
-
-        section.parent_id &&
-            section.parent_id !== '/' &&
+        if (section.parent_id && section.parent_id !== '/') {
             getPrimaryTree(
                 sections,
                 sections.find(parent => parent._id === section.parent_id),
                 resultSections
             );
+        }
     }
 };
 
-const BreadcrumbArticle = ({
+function BreadcrumbArticle({
     globalContent: {
         taxonomy: { primary_section, sections },
         website_url,
         _id
     } = {},
-    siteProperties: { title: siteTitle, host }
-}) => {
+    siteProperties: { title: siteTitle, host },
+    className = '',
+    ...props
+}) {
     let allSections = [];
     if (primary_section) {
         getPrimaryTree(sections, primary_section, allSections);
@@ -44,15 +45,16 @@ const BreadcrumbArticle = ({
     return (
         <>
             <BreadcrumbComponent
-                extraClasses=""
+                extraClasses={className}
                 sections={allSections}
                 lastLinked
                 host={host}
+                {...props}
             />
             <BreadCrumbSchema sections={allSections} host={domainForRecetas} />
         </>
     );
-};
+}
 
 BreadcrumbArticle.propTypes = {
     globalContent: PropTypes.shape({
@@ -74,7 +76,12 @@ BreadcrumbArticle.propTypes = {
     siteProperties: PropTypes.shape({
         title: PropTypes.string.isRequired,
         host: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    className: PropTypes.string
+};
+
+BreadcrumbArticle.defaultProps = {
+    className: ''
 };
 
 export default BreadcrumbArticle;

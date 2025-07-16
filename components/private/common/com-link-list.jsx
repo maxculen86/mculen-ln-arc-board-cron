@@ -5,8 +5,6 @@ import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import setClassName from './utils/setClassName';
 
-// import '../../../resources/dist/css/ln/modules/mod-linklist.css';
-
 function ComLinkList({
     list,
     extraClass,
@@ -52,7 +50,9 @@ function ComLinkList({
 ComLinkList.propTypes = {
     list: PropTypes.arrayOf(PropTypes.obj),
     extraClass: PropTypes.string,
-    _ref: PropTypes.obj
+    _ref: PropTypes.obj,
+    isEditoriales: PropTypes.bool,
+    isHome: PropTypes.bool
 };
 
 ComLinkList.defaultProps = {

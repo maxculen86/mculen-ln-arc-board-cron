@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components - private - common - mod-category Mod category snapshot test Snapshot and check values from attributos loading and getchPriority 1`] = `
+exports[`components - private - common - mod-category Mod category snapshot and transformed image URL Snapshot, attributes, and transformed image URL 1`] = `
 <div>
   <div
     class="mod-categories"
@@ -17,10 +17,10 @@ exports[`components - private - common - mod-category Mod category snapshot test
           class="com-image "
           decoding="async"
           fetchpriority="high"
-          height="100"
+          height="150"
           loading="eager"
-          src="https://lanacion.com.ar/mock.jpeg"
-          width="100"
+          src="https://sandbox.lanacion.com.ar/mock-www-resized.jpeg"
+          width="200"
         />
       </h1>
     </div>

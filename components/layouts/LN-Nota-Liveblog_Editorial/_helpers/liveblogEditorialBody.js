@@ -98,7 +98,7 @@ export function reorderGroupsByPinnedBlock(groups) {
 
     if (pinnedGroupIndex === -1) return groups;
 
-    const reorderedGroups = [
+    return [
         {
             ...groups[pinnedGroupIndex],
             isPinned: true
@@ -106,8 +106,6 @@ export function reorderGroupsByPinnedBlock(groups) {
         ...groups.slice(0, pinnedGroupIndex),
         ...groups.slice(pinnedGroupIndex + 1)
     ];
-
-    return reorderedGroups;
 }
 
 export const supportedTypesLiveblog = [
@@ -157,14 +155,14 @@ export const calculateTimePublish = (config = {}, currentDate = new Date()) => {
         return { relative: `Hace ${diffMinutes} min` };
     }
 
-    if (diffMinutes <= 120) {
-        return { relative: 'Hace una hora' };
+    const match = timeToUse.match(/\d{2}:\d{2}/);
+    const time = match ? match[0] : null;
+
+    if (diffMinutes <= 720) {
+        return { time };
     }
 
     const date = formatDateToSpanish(dateC);
-
-    const match = timeToUse.match(/\d{2}:\d{2}/);
-    const time = match ? match[0] : null;
 
     return { time, date };
 };

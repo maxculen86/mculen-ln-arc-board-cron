@@ -1692,7 +1692,7 @@ export const homeSections = [
     },
     {
         type: 8,
-        sectionAliasMobile: 'ln10_caja_juegos',
+        sectionAliasMobile: 'ln10_caja_juegos_v2',
         items: [
             {
                 closed: 'NO',
@@ -1712,7 +1712,7 @@ export const homeSections = [
             }
         ],
         information: {
-            nameChain: 'LN10_Caja_Juegos',
+            nameChain: 'LN10_Caja_Juegos_v2',
             idRender: 'c0fU1OqL2uBK1s3',
             logoId: '4L5K3PAGEREHFPJOPLZXX2DESI',
             link: 'https://www.lanacion.com.ar/juegos/',

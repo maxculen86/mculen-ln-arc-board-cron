@@ -1,30 +1,54 @@
-import { getContentBeforeLiveblogPosts, reorderGroupsByPinnedBlock } from "../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody";
+import { convertMillisecondsToMinutes } from '../../../../../components/features/LN-common/LN10_En_Vivo/_helpers';
+import {
+    calculateTimePublish,
+    formatDateToSpanish,
+    getContentBeforeLiveblogPosts,
+    reorderGroupsByPinnedBlock
+} from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody';
 
-jest.mock('../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody', () => {
-    const originalModule = jest.requireActual('../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody');
-    return {
-        ...originalModule,
-        isLiveblogMarker: jest.fn((element) => element.type === 'custom_embed' && element.subtype === 'custom-liveblog'),
-    };
-});
+jest.mock(
+    '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody',
+    () => {
+        const originalModule = jest.requireActual(
+            '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody'
+        );
+        return {
+            ...originalModule,
+            isLiveblogMarker: jest.fn(
+                element =>
+                    element.type === 'custom_embed' &&
+                    element.subtype === 'custom-liveblog'
+            ),
+            formatDateToSpanish: jest.fn(() => '30/06/2025')
+        };
+    }
+);
+
+jest.mock(
+    '../../../../../components/features/LN-common/LN10_En_Vivo/_helpers',
+    () => ({
+        convertMillisecondsToMinutes: jest.fn()
+    })
+);
 
 describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblogEditorialBody', () => {
     describe('getContentBeforeLiveblogPosts', () => {
         const content = [
             {
-                _id: "6QUYKQ2CERHTTLF644T4JBZJYY",
+                _id: '6QUYKQ2CERHTTLF644T4JBZJYY',
                 additional_properties: {},
-                content: "Fue Bergoglio quien en 2023 lo llevó a la curia romana para que se encargara del Dicasterio para los Obispos",
-                type: "text"
+                content:
+                    'Fue Bergoglio quien en 2023 lo llevó a la curia romana para que se encargara del Dicasterio para los Obispos',
+                type: 'text'
             },
             {
-                _id: "XFIUMFX2DJENTGZ4AXGYPNOL5Y",
+                _id: 'XFIUMFX2DJENTGZ4AXGYPNOL5Y',
                 additional_properties: {
-                    mime_type: "image/jpeg"
+                    mime_type: 'image/jpeg'
                 },
                 type: 'image',
                 url: 'https://sandbox-resizer.glanacion.com/resizer/v2/XFIUMFX2DJENTGZ4AXGYPNOL5Y.jpg?auth=c3257e97aa8eb1d566362cb3a6dfcd6b3fbdecd81441e73af01d82a7727fa880&width=768&height=432&quality=70&smart=true'
-            },
+            }
         ];
 
         it('should return an empty array if input is not an array', () => {
@@ -42,24 +66,26 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
             const contentElements = [
                 ...content,
                 {
-                    _id: "CAWHD2JZYJHPNKUTHB75CZYBII",
+                    _id: 'CAWHD2JZYJHPNKUTHB75CZYBII',
                     embed: {},
-                    subtype: "custom-liveblog",
-                    type: "custom_embed"
+                    subtype: 'custom-liveblog',
+                    type: 'custom_embed'
                 },
                 ...content
             ];
 
-            expect(getContentBeforeLiveblogPosts(contentElements)).toEqual(content);
+            expect(getContentBeforeLiveblogPosts(contentElements)).toEqual(
+                content
+            );
         });
 
         it('should return an empty array if the liveblog marker is the first element', () => {
             const contentElements = [
                 {
-                    _id: "CAWHD2JZYJHPNKUTHB75CZYBII",
+                    _id: 'CAWHD2JZYJHPNKUTHB75CZYBII',
                     embed: {},
-                    subtype: "custom-liveblog",
-                    type: "custom_embed"
+                    subtype: 'custom-liveblog',
+                    type: 'custom_embed'
                 },
                 ...content
             ];
@@ -80,12 +106,18 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
 
         it('should reorder groups putting the one with the most recent pinned item first and add isPinned: true', () => {
             const now = new Date().toISOString();
-            const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+            const yesterday = new Date(
+                Date.now() - 24 * 60 * 60 * 1000
+            ).toISOString();
 
             const post = [
                 {
                     items: [
-                        { embed: { config: { isPinned: true, pinnedAt: yesterday } } }
+                        {
+                            embed: {
+                                config: { isPinned: true, pinnedAt: yesterday }
+                            }
+                        }
                     ]
                 },
                 {
@@ -94,9 +126,7 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                     ]
                 },
                 {
-                    items: [
-                        { embed: { config: { isPinned: false } } }
-                    ]
+                    items: [{ embed: { config: { isPinned: false } } }]
                 }
             ];
 
@@ -114,11 +144,109 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
             const post = [
                 { items: [{}] },
                 { items: [{ embed: {} }] },
-                { items: [{ embed: { config: { isPinned: true, pinnedAt: '2024-01-01T00:00:00Z' } } }] }
+                {
+                    items: [
+                        {
+                            embed: {
+                                config: {
+                                    isPinned: true,
+                                    pinnedAt: '2024-01-01T00:00:00Z'
+                                }
+                            }
+                        }
+                    ]
+                }
             ];
 
             const result = reorderGroupsByPinnedBlock(post);
             expect(result[0].isPinned).toBe(true);
+        });
+    });
+
+    describe('calculateTimePublish', () => {
+        const baseConfig = {
+            date: '2025-06-30',
+            time: '12:00',
+            showCustomTime: false
+        };
+
+        const currentDate = new Date('2025-06-30T13:00:00');
+
+        afterEach(() => jest.clearAllMocks());
+
+        it('returns "Hace X min" when diff is less than 60 minutes', () => {
+            convertMillisecondsToMinutes.mockReturnValue(45);
+
+            const result = calculateTimePublish(baseConfig, currentDate);
+            expect(result).toEqual({ relative: 'Hace 45 min' });
+        });
+
+        it('returns exact time when diff is between 60 and 720 minutes (inclusive)', () => {
+            convertMillisecondsToMinutes.mockReturnValue(120);
+
+            const result = calculateTimePublish(baseConfig, currentDate);
+            expect(result).toEqual({ time: '12:00' });
+        });
+
+        it('returns time and formatted date when diff is more than 720 minutes', () => {
+            convertMillisecondsToMinutes.mockReturnValue(800);
+
+            const result = calculateTimePublish(baseConfig, currentDate);
+            expect(result).toEqual({
+                time: '12:00',
+                date: '30 de Junio de 2025'
+            });
+        });
+
+        it('returns empty object if config is empty', () => {
+            const result = calculateTimePublish({});
+            expect(result).toEqual({});
+        });
+
+        it('returns empty object if showCustomTime is true', () => {
+            const result = calculateTimePublish({
+                ...baseConfig,
+                showCustomTime: true
+            });
+            expect(result).toEqual({});
+        });
+
+        it('returns empty object if date or time is missing', () => {
+            expect(calculateTimePublish({ time: '12:00' })).toEqual({});
+            expect(calculateTimePublish({ date: '2025-06-30' })).toEqual({});
+        });
+    });
+
+    describe('originalFormatDateToSpanish', () => {
+        const { formatDateToSpanish: originalFormatDateToSpanish } =
+            jest.requireActual(
+                '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody'
+            );
+
+        it('should format valid date string to Spanish format', () => {
+            expect(originalFormatDateToSpanish('2025-07-02')).toBe(
+                '02 de Julio de 2025'
+            );
+            expect(originalFormatDateToSpanish('2020-01-01')).toBe(
+                '01 de Enero de 2020'
+            );
+        });
+
+        it('should return empty string for invalid month', () => {
+            expect(originalFormatDateToSpanish('2025-13-02')).toBe('');
+        });
+
+        it('should return empty string for invalid input', () => {
+            expect(originalFormatDateToSpanish('')).toBe('');
+            expect(originalFormatDateToSpanish(null)).toBe('');
+            expect(originalFormatDateToSpanish(undefined)).toBe('');
+            expect(originalFormatDateToSpanish(123)).toBe('');
+        });
+
+        it('should handle single-digit days correctly', () => {
+            expect(originalFormatDateToSpanish('2025-04-7')).toBe(
+                '07 de Abril de 2025'
+            );
         });
     });
 });

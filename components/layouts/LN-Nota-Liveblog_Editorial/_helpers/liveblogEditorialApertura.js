@@ -10,7 +10,7 @@ import dateAndTimeUtil, {
     isOlderThanXHoursAgo
 } from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
-import MediaVideo from '../components/apertura/MediaVideo';
+import VideoPlayerJW from '../../../private/common/videoPlayerJw';
 import MediaIframe from '../components/apertura/MediaIframe';
 import epigrafeAndCreditsData from '../../../private/common/utils/epigrafeAndCreditsData';
 
@@ -100,7 +100,7 @@ export const getLiveBlogEditorialDataApertura = (
     };
 };
 
-export const getMediaItem = mediaData => {
+export const getMediaItem = ({ mediaData, classes, hasAutoplay }) => {
     if (!mediaData) return null;
 
     const { type, subtype: subtypeJw } = mediaData || {};
@@ -129,7 +129,13 @@ export const getMediaItem = mediaData => {
                 sources={sourcesToLoad}
             />
         ),
-        video_jw: <MediaVideo data={mediaData} />,
+        video_jw: (
+            <VideoPlayerJW
+                data={mediaData}
+                hasAutoplay={hasAutoplay}
+                {...classes}
+            />
+        ),
         iframe: (
             <MediaIframe html={mediaData.content} className="iframe-wrapper" />
         )

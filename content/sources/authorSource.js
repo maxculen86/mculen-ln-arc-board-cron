@@ -37,18 +37,22 @@ const transform = (authorsData, query, creditHash) => {
     const imageUrl =
         get(authorsData, 'image.url', '') || get(authorsData, 'image', '');
 
+    const finalImageUrl = imageUrl
+        ? resizeImgUrl({
+              arcImage: {
+                  url: imageUrl,
+                  auth: { 1: creditHash },
+                  type: 'image'
+              },
+              defaultResizeWithSmart: imagePreset
+          })
+        : null;
+
     return {
         ...authorsData,
-        ...(imageUrl && {
+        ...(finalImageUrl && {
             image: {
-                url: resizeImgUrl({
-                    arcImage: {
-                        url: imageUrl,
-                        auth: { 1: creditHash },
-                        type: 'image'
-                    },
-                    defaultResizeWithSmart: imagePreset
-                })
+                url: finalImageUrl
             }
         }),
         node_type: 'author',
@@ -105,7 +109,8 @@ export default {
         website: 'text',
         outputType: 'text',
         redirectUrl: 'text',
-        meteringVariant: 'text'
+        meteringVariant: 'text',
+        imageConfig: 'text'
     },
     filter,
     transform,

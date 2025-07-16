@@ -43,7 +43,7 @@ exports[`SaveRecipe Component should match snapshot when userType is logged 1`] 
                 Exclusivo para suscriptores
               </p>
               <p
-                class="text text-16 text-light-800"
+                class="text text-16 text-light-600"
               >
                 Para realizar esta acción es necesario que tengas una suscripción.
               </p>
@@ -289,7 +289,7 @@ exports[`SaveRecipe Component should match snapshot when userType is unlogged 1`
                 Exclusivo para suscriptores
               </p>
               <p
-                class="text text-16 text-light-800"
+                class="text text-16 text-light-600"
               >
                 Para realizar esta acción es necesario que tengas una suscripción.
               </p>

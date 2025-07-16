@@ -3,7 +3,10 @@ import { SITE_LANACION, SITE_FOODIT, SITE_OTT } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
-import { isUSALangHtml } from './utils/outputTypeHelper';
+import {
+    isUSALangHtml,
+    getSectionOfRequestUri
+} from './utils/outputTypeHelper';
 import { addInitialSlash } from '../LN/common/utils/addInitialSlash';
 import getCanonicalLink from './helpers/getCanonicalLink';
 
@@ -15,7 +18,8 @@ function LinkCanonicalAndAlternate(props = {}) {
         nodeType = '',
         site = {},
         template = '',
-        layout = ''
+        layout = '',
+        requestUri = ''
     } = props;
 
     const { site_url: siteUrl = null } = site;
@@ -25,7 +29,9 @@ function LinkCanonicalAndAlternate(props = {}) {
         !siteUrl.includes(_id) &&
         template.includes('page');
 
-    const canonicalId = (!mustUseSiteUrl && canonicalIdChecker(_id)) || '';
+    const canonicalId =
+        (!mustUseSiteUrl && canonicalIdChecker(_id)) ||
+        `/${getSectionOfRequestUri(requestUri)}`;
     const canonicalSlash = addInitialSlash(canonicalId) ?? '';
 
     const baseUrlByArcType = {
@@ -63,6 +69,7 @@ LinkCanonicalAndAlternate.propTypes = {
         site_url: PropTypes.string
     }).isRequired,
     template: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired
+    layout: PropTypes.string.isRequired,
+    requestUri: PropTypes.string.isRequired
 };
 export default LinkCanonicalAndAlternate;

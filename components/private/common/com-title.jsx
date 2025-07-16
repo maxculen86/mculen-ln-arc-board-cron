@@ -3,10 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import setClassName from './utils/setClassName';
 
-// import '../../../resources/dist/css/ln/components/com-title.css';
-// import '../../../resources/dist/css/ln/components/com-lead.css';
-
-const ComTitle = ({
+function ComTitle({
     lead,
     tag,
     size,
@@ -18,7 +15,7 @@ const ComTitle = ({
     preTitle,
     customTitle,
     style = undefined
-}) => {
+}) {
     if (!content) return null;
 
     const ALLOWED_TAGS = ['h1', 'h2', 'h3', 'h4'];
@@ -59,7 +56,7 @@ const ComTitle = ({
         (ALLOWED_TAGS.includes(tag.toLowerCase()) && tag) || 'h4',
         { ..._props }
     );
-};
+}
 
 ComTitle.propTypes = {
     lead: PropTypes.string,

@@ -24,25 +24,19 @@ describe('BreadcrumbCustomFoodit', () => {
         );
 
         expect(
-            screen.getByRole('link', {
-                name: 'Foodit'
-            })
+            screen.getByRole('link', { name: 'Foodit' })
         ).toBeInTheDocument();
         expect(
-            screen.getByRole('link', {
-                name: 'Recetas'
-            })
+            screen.getByRole('link', { name: 'Recetas' })
         ).toBeInTheDocument();
         expect(
-            screen.getByRole('link', {
-                name: 'Saladas'
-            })
+            screen.getByRole('link', { name: 'Saladas' })
         ).toBeInTheDocument();
-        expect(
-            screen.getByRole('link', {
-                name: 'Pollo'
-            })
-        ).toBeInTheDocument();
+
+        const lastElement = screen.getByText('Pollo');
+        expect(lastElement).toBeInTheDocument();
+        expect(lastElement.tagName).toBe('SPAN');
+        expect(lastElement).not.toHaveAttribute('href');
     });
 
     it('If there are no sections, it should show the Foodit anchor', () => {

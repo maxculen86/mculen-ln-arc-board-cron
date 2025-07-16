@@ -54,7 +54,8 @@ export default {
         HtmlLibre: 'LN-nota-html-libre',
         Infografia: 'LN-nota-infografia',
         Receta: 'LN-nota-receta',
-        LiveBlog: 'LN-Nota-Liveblog_Editorial'
+        LiveBlog: 'LN-Nota-Liveblog_Editorial',
+        VideoAl100: 'LN-Nota-Video-100'
     },
     notRecommendedSections: ['recetas']
 };

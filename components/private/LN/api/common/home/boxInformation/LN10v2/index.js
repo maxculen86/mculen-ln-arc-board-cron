@@ -19,7 +19,7 @@ export const boxInfoBySectionAliasLN10v2 = {
     bombita: boxInfoBomba,
     'ln-common/ln10_opinion': boxInfoOpinion,
     'ln-common/ln10_editorial': boxInfoEditorial,
-    ln10_caja_juegos: boxInfoCajaJuegos,
+    ln10_caja_juegos_v2: boxInfoCajaJuegos,
     default: boxInfoComplete
 };
 

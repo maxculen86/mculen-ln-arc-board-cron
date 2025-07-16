@@ -34,7 +34,7 @@ describe('BodyComponents - Foodit - Subtitle', () => {
 
     it('applies correct class names based on level', () => {
         const testData = {
-            1: 'text-28 text-32_md text-36_lg',
+            1: 'text-24 text-32_md text-36_lg',
             2: 'text-24 text-28_md text-32_lg',
             3: 'text-24',
             4: 'text-16 text-18_md',
