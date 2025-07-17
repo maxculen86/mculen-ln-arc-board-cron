@@ -28,6 +28,7 @@ const config = {
         'Foodit-ficha-receta': PageViewDataLayer,
         'Foodit-recipe-paywall': PageViewDataLayer,
         'Foodit-ficha-nota': PageViewDataLayer,
+        'Foodit-note-paywall': PageViewDataLayer,
         'Foodit-chef': PageViewDataLayer,
         'Foodit-compras': AutogestionPageView,
         'Foodit-recetario': AutogestionPageView,
