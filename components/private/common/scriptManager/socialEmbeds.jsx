@@ -36,12 +36,38 @@ export const hasTwitterEmbed = contentElements =>
             contentElement.oembed?.html?.includes('twitter-tweet')
     );
 
+const hasLazyEmbedsPattern = layout => {
+    const lazyPatterns = [
+        /^LN-nota-/, // Todos los layouts de nota LN
+        /^LN-Nota-/, // Variante con mayúscula
+        /^Foodit-nota/, // Notas de Foodit
+        /^Foodit-receta/, // Recetas de Foodit
+        /-liveblog/i, // Cualquier liveblog
+        /-editorial/i // Cualquier editorial
+    ];
+
+    const exceptions = [
+        'LN-nota-paywall', // Paywall no usa lazy embeds
+        'LN-nota-preview' // Preview no usa lazy embeds
+    ];
+
+    if (exceptions.includes(layout)) {
+        return false;
+    }
+
+    return lazyPatterns.some(pattern => pattern.test(layout));
+};
+
 function SocialEmbeds(props) {
     const { globalContent } = props;
     const { type, content_elements: contentElements } = globalContent || {};
-    const { deployment, contextPath } = useAppContext();
+    const { deployment, contextPath, layout } = useAppContext();
 
     if (!contentElements) return null;
+
+    if (hasLazyEmbedsPattern(layout)) {
+        return null;
+    }
 
     const content = filterEmbeds(contentElements);
 

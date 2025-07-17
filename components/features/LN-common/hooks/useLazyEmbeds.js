@@ -17,10 +17,12 @@ const useLazyEmbeds = ({
             if (noteId) {
                 setStorageConfiguration(noteId);
             }
-            embedIntersectionObserver(
-                takeEmbedScriptToDiffer(contentElements),
-                selector
-            );
+
+            const scriptsToLoad = takeEmbedScriptToDiffer(contentElements);
+
+            if (scriptsToLoad.length > 0) {
+                embedIntersectionObserver(scriptsToLoad, selector);
+            }
         } catch (error) {
             console.error(`Error en setear Local Storage, ${bodyOrigin}`, {
                 error,
