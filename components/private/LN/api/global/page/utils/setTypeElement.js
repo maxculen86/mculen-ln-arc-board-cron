@@ -1,10 +1,13 @@
 import configsTypesByLayout from '../config/configTypesByLayout';
 
-const setTypeElement = (information, sectionAliasMobile, layoutPage) => {
+const setTypeElement = (sectionAliasMobile, layoutPage) => {
     const sectionAlias = sectionAliasMobile
         ? sectionAliasMobile.toLowerCase()
         : sectionAliasMobile;
-    return Number(configsTypesByLayout(layoutPage)(sectionAlias));
+
+    const getTypeNumberBySectionAlias = configsTypesByLayout(layoutPage);
+
+    return Number(getTypeNumberBySectionAlias(sectionAlias));
 };
 
 export default setTypeElement;
