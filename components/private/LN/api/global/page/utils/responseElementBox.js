@@ -36,25 +36,21 @@ const responseElementBox = (box, sectionWeb, configurations, layoutPage) => {
         }
         return boxElement;
     };
-    let respBox = {
-        sectionAliasMobile: setSectionAliasbyFeatureOrChain(
-            box.information,
-            sectionWeb,
-            layoutPage
-        ),
+
+    const sectionAliasMobile = setSectionAliasbyFeatureOrChain(
+        box.information,
+        sectionWeb
+    );
+
+    const typeElement = setTypeElement(sectionAliasMobile, layoutPage);
+
+    return {
+        type: typeElement,
+        sectionAliasMobile,
         ...restRespElementBox(box, sectionWeb, configurations, layoutPage),
         configurations,
         sectionWeb
     };
-    respBox = {
-        type: setTypeElement(
-            box.information,
-            respBox.sectionAliasMobile,
-            layoutPage
-        ),
-        ...respBox
-    };
-    return respBox;
 };
 
 export default responseElementBox;
