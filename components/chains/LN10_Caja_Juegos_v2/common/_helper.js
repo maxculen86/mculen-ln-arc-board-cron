@@ -7,11 +7,11 @@ const GAME_LAYOUT_RULES = {
         'oneLargeFourSmall',
         'twoHorizontal',
         'oneHorizontalThreeVertical'
-    ]
+    ],
+    'LN-nota-infografia': ['fourVertical']
 };
 
 const DIAGRAMATION_ITEM_LIMITS = {
-    fourVertical: 4,
     oneHorizontalThreeVertical: 4,
     oneLargeFourSmall: 5
 };
