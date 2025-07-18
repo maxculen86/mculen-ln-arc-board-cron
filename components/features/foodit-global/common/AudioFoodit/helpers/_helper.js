@@ -76,51 +76,166 @@ export function getSteps(contentElement) {
     return contentElement.reduce(createStepList, []);
 }
 
-export function getPreparationItems(contentElements) {
-    const preparationHeaderIndex = contentElements.findIndex(element =>
-        element.content?.toLowerCase().includes('preparación')
-    );
+function isMediaElement(element) {
+    if (!element) return false;
 
-    if (preparationHeaderIndex === -1) {
-        console.warn('No "Preparación" header found');
-        return [];
+    return element.type === 'image' || element.subtype === 'video_jw';
+}
+
+function findPreviousHeader(
+    contentElements,
+    startIndex,
+    preparationHeaderIndex
+) {
+    for (let j = startIndex - 2; j > preparationHeaderIndex; j -= 1) {
+        if (contentElements[j]?.type === 'header') {
+            return contentElements[j].content;
+        }
+    }
+    return 'Preparación';
+}
+
+function getTitleForList(contentElements, listIndex, preparationHeaderIndex) {
+    const previousElement = contentElements[listIndex - 1];
+
+    if (previousElement?.type === 'header') {
+        return previousElement.content;
     }
 
-    const preparationLists = [];
+    if (isMediaElement(previousElement)) {
+        return findPreviousHeader(
+            contentElements,
+            listIndex,
+            preparationHeaderIndex
+        );
+    }
+
+    return null;
+}
+
+function isEndOfPreparationSection(
+    element,
+    currentIndex,
+    preparationHeaderIndex
+) {
+    return (
+        element.type === 'header' &&
+        element.level <= 3 &&
+        currentIndex > preparationHeaderIndex + 1
+    );
+}
+
+function hasValidPreparationHeaders(contentElements, preparationHeaderIndex) {
+    for (
+        let i = preparationHeaderIndex + 1;
+        i < contentElements.length;
+        i += 1
+    ) {
+        const element = contentElements[i];
+
+        if (isEndOfPreparationSection(element, i, preparationHeaderIndex)) {
+            break;
+        }
+
+        if (
+            element.type === 'header' &&
+            element.level === 4 &&
+            element.content?.toLowerCase().includes('para')
+        ) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function findValidPreparationSection(contentElements) {
+    for (
+        let startIndex = 0;
+        startIndex < contentElements.length;
+        startIndex += 1
+    ) {
+        const element = contentElements[startIndex];
+
+        if (element.content?.toLowerCase().includes('preparación')) {
+            if (hasValidPreparationHeaders(contentElements, startIndex)) {
+                return startIndex;
+            }
+        }
+    }
+
+    return -1;
+}
+
+function collectValidLists(contentElements, preparationHeaderIndex) {
+    const validLists = [];
 
     for (
         let i = preparationHeaderIndex + 1;
         i < contentElements.length;
         i += 1
     ) {
-        if (contentElements[i].type === 'list') {
-            const previousElement = contentElements[i - 1];
-            const shouldIncludeList =
-                previousElement?.type === 'header' &&
-                previousElement?.content?.toLowerCase().startsWith('para');
+        const element = contentElements[i];
 
-            if (shouldIncludeList) {
-                const mappedList = contentElements[i].items.map(
-                    (item, index) => ({
-                        indexList: index,
-                        showTitle: index === 0,
-                        titleList: previousElement.content,
-                        step: item.content
-                    })
-                );
-
-                preparationLists.push(...mappedList);
-            }
+        if (isEndOfPreparationSection(element, i, preparationHeaderIndex)) {
+            break;
         }
 
-        if (
-            contentElements[i].type === 'header' &&
-            contentElements[i].level <= 2 &&
-            i > preparationHeaderIndex + 1
-        ) {
-            break;
+        if (element.type === 'list') {
+            const titleList = getTitleForList(
+                contentElements,
+                i,
+                preparationHeaderIndex
+            );
+            if (titleList) {
+                validLists.push({ list: element, title: titleList });
+            }
         }
     }
 
-    return preparationLists;
+    return validLists;
+}
+
+function processListsByTitle(validLists) {
+    const titleGroups = new Map();
+
+    validLists.forEach(({ list, title }) => {
+        if (!titleGroups.has(title)) {
+            titleGroups.set(title, []);
+        }
+        titleGroups.get(title).push(list);
+    });
+
+    const result = [];
+    titleGroups.forEach((lists, title) => {
+        let currentIndex = 0;
+
+        lists.forEach((list, groupIndex) => {
+            const mappedItems = list.items.map((item, itemIndex) => ({
+                indexList: currentIndex + itemIndex,
+                showTitle: groupIndex === 0 && itemIndex === 0,
+                titleList: title,
+                step: item.content
+            }));
+
+            currentIndex += list.items.length;
+            result.push(...mappedItems);
+        });
+    });
+
+    return result;
+}
+
+export function getPreparationItems(contentElements) {
+    const preparationHeaderIndex = findValidPreparationSection(contentElements);
+
+    if (preparationHeaderIndex === -1) {
+        console.warn('No valid "Preparación" section found');
+        return [];
+    }
+
+    const validLists = collectValidLists(
+        contentElements,
+        preparationHeaderIndex
+    );
+    return processListsByTitle(validLists);
 }
