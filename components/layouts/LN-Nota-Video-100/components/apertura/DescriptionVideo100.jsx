@@ -10,7 +10,7 @@ function DescriptionVideo100({ data }) {
     if (!data || !data.title) return null;
     const { date, time, title } = data;
     return (
-        <div className="grid-col-1-7_md grid-col-1-6_md grid-col-1-8_lg grid-row-1_md bg-neutral-dark-1 py-32">
+        <div className="bg-neutral-dark-1 pt-16 pt-24_m pb-24 pb-32_m">
             <div className="lay flex flex-column ai-center gap-16 h-100 ai-start_m container">
                 <div className="flex flex-column w-100 prumo text-28 text-start_m text-40_md text-48_lg">
                     <BreadcrumbArticle

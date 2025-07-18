@@ -3007,6 +3007,9 @@ strong:not(.--font-primary),
   .pb-12_m {
     padding-bottom: 0.75rem;
   }
+  .pb-32_m {
+    padding-bottom: 2rem;
+  }
   .pb-40_m {
     padding-bottom: 2.5rem;
   }
@@ -3018,6 +3021,9 @@ strong:not(.--font-primary),
   }
   .pt-4_m {
     padding-top: 0.25rem;
+  }
+  .pt-24_m {
+    padding-top: 1.5rem;
   }
   .pt-32_m {
     padding-top: 2rem;
