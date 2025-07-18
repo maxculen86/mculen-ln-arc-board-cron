@@ -1,8 +1,11 @@
 import getAuthorByline from '../../getAuthorByline';
-import { differenceInMinutes, restMinutes } from '../../dateAndTimeUtil';
+import {
+    differenceInMinutes,
+    restMinutes,
+    convertArgentinaTimeToGMT
+} from '../../dateAndTimeUtil';
 import get from '../../get';
 import removeHtmlTags from '../../removeHtmlTags';
-import createDateObject from '../../createDateObject';
 import isCustomLiveblog from '../../isCustomLiveblog';
 
 const extracDataFromCredits = by => {
@@ -122,7 +125,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     return postElements.map((elem, i) => {
         const { config = {}, content = '', url = '' } = elem;
         const { date = '', time = '' } = config;
-        const dateObject = createDateObject(date, time) || '';
+        const dateObject = convertArgentinaTimeToGMT(date, time);
 
         return {
             '@type': 'BlogPosting',
@@ -187,8 +190,8 @@ export const generatePostObjectWithoutPowerUp = (
             url: `${url.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },
-            datePublished: dateModified,
-            dateModified,
+            datePublished: createISODate(dateModified),
+            dateModified: createISODate(dateModified),
             articleBody: removeHtmlTags(elem.content),
             image: {
                 '@type': 'ImageObject',
