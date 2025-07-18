@@ -82,12 +82,14 @@ function StickyMobile({ alt, articleToShow }) {
                         title={headlineToUse}
                         className="flex gap-8 ai-center mb-125"
                     >
-                        <Adaptableimage
-                            src={get(resizedUrls[0], 'resizedUrl', url)}
-                            alt={alt || headlineToUse}
-                            sources={resizedUrls}
-                            width={96}
-                        />
+                        <div className="ratio-1-1" style={{ width: '96px' }}>
+                            <Adaptableimage
+                                src={get(resizedUrls[0], 'resizedUrl', url)}
+                                alt={alt || headlineToUse}
+                                height={96}
+                                width={96}
+                            />
+                        </div>
                         {headlineToUse && (
                             <Text
                                 className="arial text-16_110 text-neutral-light-800 text-ellipsis-3"

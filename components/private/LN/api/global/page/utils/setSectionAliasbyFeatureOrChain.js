@@ -17,11 +17,7 @@ const findAliasSectionBySectionWeb = (sectionWeb, nameChain) => {
     return aliasSection ? aliasSection.toLowerCase() : aliasSection;
 };
 
-const setSectionAliasbyFeatureOrChain = (
-    information,
-    sectionWeb,
-    layoutPage
-) => {
+const setSectionAliasbyFeatureOrChain = (information, sectionWeb) => {
     if (information && information.nameFeature) {
         return information.nameFeature
             ? information.nameFeature.toLowerCase()

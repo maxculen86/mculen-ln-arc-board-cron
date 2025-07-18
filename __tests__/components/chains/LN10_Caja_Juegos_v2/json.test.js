@@ -61,7 +61,7 @@ describe('components - chains - LN10_Caja_Juegos_v2 - json', () => {
         }
     ];
 
-    test('It should return 4 items because the layout is LN10-Home_Main and diagramation is fourVertical', () => {
+    test('The diagramation fourVertical must allow for rendering all the games that are loaded in the chain.', () => {
         const props = Object.assign({}, propsChain);
         const customFields = Object.assign({}, propsChain.customFields);
         props.customFields = customFields;
@@ -69,7 +69,7 @@ describe('components - chains - LN10_Caja_Juegos_v2 - json', () => {
         const chain = new CajaJuegosV2(props);
         const resultCajaJuegos = chain.render();
         expect(resultCajaJuegos.information.layout).toBe('fourVertical');
-        expect(resultCajaJuegos.items.length).toBe(4);
+        expect(resultCajaJuegos.items.length).toBe(6);
     });
 
     test('It should return 5 items because the layout is LN-acumulado and diagramation is oneLargeFourSmall', () => {

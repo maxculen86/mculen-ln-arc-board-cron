@@ -65,9 +65,6 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
                 return (
                     <>
                         {ComponentWithProps}
-                        {currentIndex === contentElements.length - 1 && (
-                            <div id="fin-de-nota"></div>
-                        )}
                         {bannerToRedender}
                     </>
                 );
