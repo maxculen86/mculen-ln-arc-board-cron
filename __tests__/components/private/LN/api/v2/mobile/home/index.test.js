@@ -44,6 +44,7 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
         expect(home[0].items[36]).toEqual({
             idSeccion: 705,
             parameters: {
+                logoId: '4L5K3PAGEREHFPJOPLZXX2DESI',
                 title: 'Juegos',
                 url: 'https://www.lanacion.com.ar/juegos/'
             },
@@ -112,7 +113,9 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
     });
 
     it('Testeo Secciones Seccion Apertura sin information', () => {
-        const spy = jest.spyOn(console, 'error').mockImplementation(() => void 0);
+        const spy = jest
+            .spyOn(console, 'error')
+            .mockImplementation(() => void 0);
         const Seccion = [
             {
                 type: 0,
@@ -129,7 +132,7 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
         expect(home[0].items.length).toBe(0);
         expect(spy).toHaveBeenCalledWith(
             expect.stringContaining(
-                'Cannot read properties of undefined (reading \'layout\')'
+                "Cannot read properties of undefined (reading 'layout')"
             )
         );
         spy.mockRestore();

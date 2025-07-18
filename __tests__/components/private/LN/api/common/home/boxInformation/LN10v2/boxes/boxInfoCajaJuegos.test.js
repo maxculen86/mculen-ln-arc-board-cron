@@ -2,7 +2,7 @@ import { boxInfoCajaJuegos } from '../../../../../../../../../../components/priv
 import configInfoSectionsByLayout from '../../../../../../../../../../components/private/LN/api/common/home/config/configInfoSectionsByLayout';
 
 describe('boxInfoCajaJuegos test suite', () => {
-    test('Should return right values', () => {
+    it('Should return right values', () => {
         const typeSection = configInfoSectionsByLayout('LN10-Home_Main-V2');
         const section = 'ln10_caja_juegos_v2';
         const information = {
@@ -21,7 +21,7 @@ describe('boxInfoCajaJuegos test suite', () => {
         });
     });
 
-    test('Should return idSeccion 705', () => {
+    it('Should return idSeccion 705', () => {
         const typeSection = configInfoSectionsByLayout('LN10-Home_Main-V2');
         const section = 'ln10_caja_juegos_v2';
         const information = {};
@@ -29,5 +29,18 @@ describe('boxInfoCajaJuegos test suite', () => {
         const result = boxInfoCajaJuegos(information, section, typeSection);
 
         expect(result.idSeccion).toBe(705);
+    });
+
+    it('Should return logoId', () => {
+        const typeSection = configInfoSectionsByLayout('LN10-Home_Main-V2');
+        const section = 'ln10_caja_juegos_v2';
+        const information = {
+            logoId: 'logo123'
+        };
+
+        const result = boxInfoCajaJuegos(information, section, typeSection);
+
+        expect(result.idSeccion).toBe(705);
+        expect(result.parameters.logoId).toBe('logo123');
     });
 });
