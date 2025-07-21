@@ -5,15 +5,14 @@ import configDiagramationsByLayout from '../../../../../../../../components/priv
 import responsesForFirstTransform from '../../../../../../../../__mocks__/data/homes/responsesForFirstTransform.json';
 
 const layoutPage = 'LN10-Home_Main';
-const positionsArticlesbyDiagramation = configOrderArticlesbyDiagramation(
-    layoutPage
-);
+const positionsArticlesbyDiagramation =
+    configOrderArticlesbyDiagramation(layoutPage);
 const diagramations = configDiagramationsByLayout(layoutPage);
 let paramSectionChildren = {};
 let paramElement = {};
 
 describe('components - private - LN - api - global - page - utils  - addPropertiesByLayout', () => {
-    it('When Section have LN10_Caja_Manual / LN-common/anexo / LN10_Caja_Collection', () => {
+    it('When Section have LN10_Caja_Manual / LN-common/anexo / LN10_Caja_Collection / LN10_Caja_Juegos_v2', () => {
         paramSectionChildren =
             paramsForFirstTransform.paramsFirstTransform[3].sectionChildren;
         paramElement = paramsForFirstTransform.paramsFirstTransform[3].elements;
@@ -61,6 +60,12 @@ describe('components - private - LN - api - global - page - utils  - addProperti
             typeChain: null,
             nameChain: 'LN10_Caja_Collection',
             idRender: 'c0fOjLLHuwHz1uw'
+        });
+
+        expect(elements[19].information).toMatchObject({
+            logoId: 'MXMTK56WXJEVBKKVTWDF6LUQCM',
+            link: 'https://www.lanacion.com.ar/juegos/',
+            title: 'Ln Juegos'
         });
     });
 

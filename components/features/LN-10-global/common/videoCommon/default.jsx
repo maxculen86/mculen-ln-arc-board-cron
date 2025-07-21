@@ -33,7 +33,7 @@ function VideoCommonJw({
     });
 
     const baseArticleClasses =
-        'content-media cursor-pointer w-100 flex flex-column ai-center bg-black';
+        'content-media cursor-pointer w-100 flex flex-column ai-center bg-black videoCommonJw-wrapper';
     const articleWithLnCardClass = cx('ln-card', baseArticleClasses, ratio);
     const articleWithRelativeClass = cx('relative', baseArticleClasses, ratio);
 
@@ -101,7 +101,7 @@ function VideoCommonJw({
                             resizeImages
                         )}
                         src={resizedUrl}
-                        className="flex w-100 h-100 z-1"
+                        className="flex w-100 h-100"
                         alt={title}
                         loading="lazy"
                         fetchPriority="low"
@@ -117,34 +117,37 @@ function VideoCommonJw({
                 </div>
                 <div id={mediaId} />
                 {isVertical && (
-                    <div className="absolute top-8 right-8 z-100">
-                        <TooltipSSR
-                            className="none"
-                            position="left-center"
-                            content="Link copiado"
-                        >
-                            <Button
-                                id={`share-video-button-${mediaId}`}
-                                data-video-id={videoId}
-                                data-title={videoConfig.title || ''}
-                                title="Copiar link del video"
-                                iconOnly
+                    <>
+                        <div className="videoCommonJw-gradient transition transition-opacity transition-duration-250 transition-ease pointer-events-none absolute w-100 top-0 z-1 bg-gradient-dark h-70 opacity-0" />
+                        <div className="absolute top-8 right-8 z-100">
+                            <TooltipSSR
+                                className="none"
+                                position="left-center"
+                                content="Link copiado"
                             >
-                                <Icon size={24} className="--mobile-none">
-                                    <IconSprite
-                                        name="fileCopy"
-                                        fill="var(--light-neutral-50)"
-                                    />
-                                </Icon>
-                                <Icon size={24} className="--mobile-only">
-                                    <IconSprite
-                                        name="reply"
-                                        fill="var(--light-neutral-50)"
-                                    />
-                                </Icon>
-                            </Button>
-                        </TooltipSSR>
-                    </div>
+                                <Button
+                                    id={`share-video-button-${mediaId}`}
+                                    data-video-id={videoId}
+                                    data-title={videoConfig.title || ''}
+                                    title="Copiar link del video"
+                                    iconOnly
+                                >
+                                    <Icon size={24} className="--mobile-none">
+                                        <IconSprite
+                                            name="fileCopy"
+                                            fill="var(--light-neutral-50)"
+                                        />
+                                    </Icon>
+                                    <Icon size={24} className="--mobile-only">
+                                        <IconSprite
+                                            name="reply"
+                                            fill="var(--light-neutral-50)"
+                                        />
+                                    </Icon>
+                                </Button>
+                            </TooltipSSR>
+                        </div>
+                    </>
                 )}
             </article>
         )
