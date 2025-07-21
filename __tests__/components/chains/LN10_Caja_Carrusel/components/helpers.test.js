@@ -2,7 +2,8 @@ import React from 'react';
 import {
     handleEventSwipeVideo,
     registeredIdsSetAndInteractions,
-    transformNodes
+    transformNodes,
+    getAdsConfigVideoJw
 } from '../../../../../components/chains/LN10_Caja_Carrusel/components/helpers';
 import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
@@ -82,6 +83,7 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                     customFields: { video: 'video2', title: 'Carrusel title 1' }
                 },
                 {
+                    type: 'LN-10/itemCarrusel',
                     customFields: { video: 'video3', title: 'Carrusel title 2' }
                 }
             ],
@@ -149,6 +151,122 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
             expect(result[0].title).toBe(undefined);
             expect(result[0].type).toBe('LN-10/itemCarrusel');
             expect(result[0].isBanner).toBe(false);
+        });
+
+        it('The counterVideos property should return only for videos. For banners, it should return 0.', () => {
+            const props = getProps();
+            const result = transformNodes(props);
+            expect(result[0].counterVideo).toBe(0);
+            expect(result[1].counterVideo).toBe(1);
+            expect(result[2].counterVideo).toBe(2);
+        });
+    });
+
+    describe('getAdsConfigVideoJw', () => {
+        const adsUrl = 'http://example.com/adtag';
+        const expectedConfig = {
+            advertising: {
+                client: 'googima',
+                schedule: [
+                    {
+                        tag: adsUrl,
+                        offset: 'pre'
+                    }
+                ]
+            },
+            intl: {
+                en: {
+                    advertising: {
+                        admessage: 'El video empezará en xx segúndos',
+                        cuetext: 'Publicidad',
+                        skipmessage: 'Saltar aviso en xx segúndos'
+                    },
+                    related: {
+                        autoplaymessage: '',
+                        heading: 'More Videos'
+                    }
+                }
+            }
+        };
+
+        it('should return an empty object when adsUrl is empty but customValidation is true', () => {
+            const adsUrl = '';
+            const customValidation = true;
+
+            const result = getAdsConfigVideoJw({ adsUrl, customValidation });
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object when adsUrl is valid but customValidation is false', () => {
+            const adsUrl = 'http://example.com/adtag';
+            const customValidation = false;
+
+            const result = getAdsConfigVideoJw({ adsUrl, customValidation });
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object when both adsUrl and customValidation are false (default values)', () => {
+            const result = getAdsConfigVideoJw();
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object when adsUrl is null and customValidation is true', () => {
+            const adsUrl = null;
+            const customValidation = true;
+
+            const result = getAdsConfigVideoJw({ adsUrl, customValidation });
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object when adsUrl is undefined and customValidation is true', () => {
+            const adsUrl = undefined;
+            const customValidation = true;
+
+            const result = getAdsConfigVideoJw({ adsUrl, customValidation });
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object when adsUrl is valid and customValidation is null', () => {
+            const adsUrl = 'http://example.com/adtag';
+            const customValidation = null;
+
+            const result = getAdsConfigVideoJw({ adsUrl, customValidation });
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object when adsUrl is valid and customValidation is undefined', () => {
+            const adsUrl = 'http://example.com/adtag';
+            const customValidation = undefined;
+
+            const result = getAdsConfigVideoJw({ adsUrl, customValidation });
+            expect(result).toEqual({});
+        });
+
+        it('should return an empty object when adsUrl is a number (0) and customValidation is true', () => {
+            const adsUrl = 0;
+            const customValidation = true;
+
+            const result = getAdsConfigVideoJw({ adsUrl, customValidation });
+            expect(result).toEqual({});
+        });
+
+        it('should return the full ad configuration when customValidation is a truthy non-boolean', () => {
+            const adsUrl = 'http://example.com/adtag';
+            const customValidation = 1;
+
+            const result = getAdsConfigVideoJw({
+                adsUrl,
+                customValidation
+            });
+            expect(result).toEqual(expectedConfig);
+        });
+
+        it('should return the full ad configuration when adsUrl has spaces and customValidation is true', () => {
+            const result = getAdsConfigVideoJw({
+                adsUrl,
+                customValidation: true
+            });
+            expect(result).toEqual(expectedConfig);
         });
     });
 });
