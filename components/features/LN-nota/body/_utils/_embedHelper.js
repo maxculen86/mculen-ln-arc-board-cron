@@ -6,7 +6,6 @@ export const embedIntersectionObserver = (
     elementId = 'cuerpo__nota'
 ) => {
     const { device } = getViewport();
-
     let interSectionObserver;
 
     const callback = entries => {
@@ -27,13 +26,16 @@ export const embedIntersectionObserver = (
 
     const target = document.getElementById(elementId);
 
-    if (target && scripts.length > 0) interSectionObserver.observe(target);
+    if (target && scripts.length > 0) {
+        interSectionObserver.observe(target);
+    }
 };
 
 export const takeEmbedScriptToDiffer = contentElements => {
     const scripts = {
         twitter: 'https://platform.twitter.com/widgets.js',
         tiktok: 'https://www.tiktok.com/embed.js',
+        instagram: 'https://www.instagram.com/embed.js',
         'facebook-post': 'https://connect.facebook.net/en_US/sdk.js',
         'facebook-video': 'https://connect.facebook.net/en_US/sdk.js'
     };
