@@ -8744,17 +8744,23 @@ strong:not(.--font-primary),
 .transition.transition-ease-in {
   transition-timing-function: ease-in;
 }
+.transition.transition-ease {
+  transition-timing-function: ease;
+}
 .transition.transition-duration-1000 {
   transition-duration: 1000ms;
 }
 .transition.transition-duration-800 {
   transition-duration: 800ms;
 }
-.transition.transition-duration-250 {
-  transition-duration: 250ms;
-}
 .transition.transition-duration-500 {
   transition-duration: 500ms;
+}
+.transition.transition-duration-200 {
+  transition-duration: 200ms;
+}
+.transition.transition-duration-250 {
+  transition-duration: 250ms;
 }
 
 .transition-regular {
@@ -9150,6 +9156,10 @@ body:has(.disable-body-scroll) {
     width: 100%;
     margin-left: 0;
   }
+}
+
+.videoCommonJw-wrapper:hover .videoCommonJw-gradient {
+  opacity: 1;
 }header .text.ln-text {
   color: #000000;
 }.ln-timeline > div .--bbt {
