@@ -68,7 +68,8 @@ export default {
         id: 'text',
         url: 'text',
         website: 'text',
-        imageConfig: 'text'
+        imageConfig: 'text',
+        isInApertura: 'bool'
     },
     ttl: 900
 };
