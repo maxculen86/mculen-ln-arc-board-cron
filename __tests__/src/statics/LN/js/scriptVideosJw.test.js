@@ -1,4 +1,4 @@
-import { buildTagsUrl } from '../../../../../src/statics/LN/js/scriptVideosJw';
+import { buildTagsUrl } from '../../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 describe('buildTagsUrl', () => {
     const baseUrl = 'https://ads.test.com?cust_params=tags_nuevos%3Dtest_tag';
