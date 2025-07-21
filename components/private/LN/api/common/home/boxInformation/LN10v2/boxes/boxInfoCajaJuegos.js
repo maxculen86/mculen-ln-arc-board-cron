@@ -7,9 +7,10 @@ export const boxInfoCajaJuegos = (information, section, typeSection) => {
             ...type,
             parameters: {
                 title: 'Juegos',
-                url: information.link
+                url: information.link,
+                logoId: information?.logoId
             }
         };
     }
-    return box;
+    return null;
 };
