@@ -232,3 +232,17 @@ export const getFormattedStringDate = lastUpdatedDate => {
     }
     return formatDate(date);
 };
+
+export const convertArgentinaTimeToGMT = (date, time) => {
+    if (!date || !time) {
+        return '';
+    }
+
+    try {
+        const localDateTime = new Date(`${date}T${time}`);
+        const gmtDateTime = addHours(3, localDateTime);
+        return gmtDateTime.toISOString();
+    } catch (error) {
+        return '';
+    }
+};
