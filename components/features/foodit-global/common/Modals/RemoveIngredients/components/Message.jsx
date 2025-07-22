@@ -5,11 +5,21 @@ import { useAppContext } from 'fusion:context';
 import { Image } from '@ln/common-ui-image';
 import { Text } from '@ln/common-ui-text';
 import getAssetsPath from '../../../../../../private/common/utils/getAssetsPath';
+import { findBookmarkById } from '../helpers/findByBookmarkId';
 import { getModalMessages } from '../helpers/messagesConfig';
 
-export function Message({ type }) {
+export function Message({ type, bookmarkId = null, userBookmarks = [] }) {
     const { contextPath, deployment } = useAppContext();
-    const { title = '', description = '' } = getModalMessages(type);
+
+    let messages;
+    if (type === 'bookmark' && bookmarkId && userBookmarks.length > 0) {
+        const bookmarkInfo = findBookmarkById(userBookmarks, bookmarkId);
+        messages = getModalMessages(type, bookmarkInfo);
+    } else {
+        messages = getModalMessages(type);
+    }
+
+    const { title = '', description = '' } = messages;
 
     return (
         <div className="flex flex-column gap-8 text-center">
@@ -28,5 +38,7 @@ export function Message({ type }) {
 }
 
 Message.propTypes = {
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
+    bookmarkId: PropTypes.string.isRequired,
+    userBookmarks: PropTypes.arrayOf(PropTypes.shape()).isRequired
 };

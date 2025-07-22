@@ -1,11 +1,10 @@
-import React, { useEffect, useState, HTMLInputElement } from 'react';
+import React, { HTMLInputElement } from 'react';
 import PropTypes from 'prop-types';
 import { Inputfield } from '@ln/common-ui-inputfield';
 import { Select } from '@ln/common-ui-select';
-import { loadBookmarkFolders } from '../../../bookmark/foldersHelper';
-import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
 import { ErrorMessage } from '../../../errorMessage/foodit';
 import RenderOption from './options';
+import { useFolders } from '../hooks/useFolders';
 
 function MainSaveRecipe(props) {
     const {
@@ -16,27 +15,15 @@ function MainSaveRecipe(props) {
         showInputFolder,
         showSelect,
         inputRef,
-        restoreInputValue
+        restoreInputValue,
+        mode = 'save',
+        currentCollectionId = null
     } = props;
 
-    const [folders, setFolders] = useState([
-        { bookmarkGroup: 'Crear colección', value: 'new' }
-    ]);
-
-    useEffect(() => {
-        const fetchFolders = async () => {
-            const localFolders = localStorage.getItem('bookmarkFolders');
-
-            if (localFolders) {
-                setFolders([...folders, ...safeJSONParse(localFolders)]);
-            } else {
-                const fetchedFolders = await loadBookmarkFolders();
-                setFolders([...folders, ...safeJSONParse(fetchedFolders)]);
-            }
-        };
-
-        fetchFolders();
-    }, []);
+    const folders = useFolders({
+        mode,
+        currentCollectionId
+    });
 
     const handleSelectChange = event => {
         if (event.value === 'new') {
@@ -80,6 +67,7 @@ function MainSaveRecipe(props) {
                     </div>
                 </Select>
             )}
+
             {showInputFolder && (
                 <div className="flex flex-column">
                     <Inputfield
@@ -118,7 +106,14 @@ MainSaveRecipe.propTypes = {
     inputRef: PropTypes.shape({
         current: PropTypes.instanceOf(HTMLInputElement)
     }).isRequired,
-    restoreInputValue: PropTypes.func.isRequired
+    restoreInputValue: PropTypes.func.isRequired,
+    mode: PropTypes.oneOf(['save', 'move']),
+    currentCollectionId: PropTypes.string
+};
+
+MainSaveRecipe.defaultProps = {
+    mode: 'save',
+    currentCollectionId: null
 };
 
 export default MainSaveRecipe;

@@ -17,10 +17,13 @@ export function UserBookmarks() {
         const fetchUserBookmarks = async () => {
             const { data = [] } = await getBookmarks(token, accessToken);
 
-            const bookmarks = data.map(({ bookmarkTypeId, bookmarkId }) => ({
-                bookmarkTypeId,
-                bookmarkId
-            }));
+            const bookmarks = data.map(
+                ({ bookmarkTypeId, bookmarkId, bookmarkGroup }) => ({
+                    bookmarkTypeId,
+                    bookmarkId,
+                    bookmarkGroup
+                })
+            );
             localStorage.setItem('bookmarkedItems', JSON.stringify(bookmarks));
 
             if (bookmarks.length) {

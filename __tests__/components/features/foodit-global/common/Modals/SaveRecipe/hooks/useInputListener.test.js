@@ -49,7 +49,7 @@ describe('useInputListener', () => {
         const longValue = 'a'.repeat(46);
         fireEvent.change(input, { target: { value: longValue } });
 
-        expect(input.value).toBe('');
+        expect(input.value).toBe(longValue);
         expect(getByTestId('error').textContent).toBe('Máximo 45 caracteres');
     });
 
@@ -66,7 +66,6 @@ describe('useInputListener', () => {
 
         unmount();
 
-        // Verificar que al desmontar, el valor se restablece correctamente
         const { getByTestId: getByTestIdAfterUnmount } = render(
             <HookWrapper initialValue={initialValue} />
         );
@@ -98,10 +97,20 @@ describe('useInputListener', () => {
         const input = getByTestId('input');
         fireEvent.change(input, { target: { value: '' } });
 
-        expect(input.value).toBe(initialValue);
-        expect(getByTestId('error').textContent).not.toBe('');
+        expect(input.value).toBe('');
         expect(getByTestId('error').textContent).toBe(
             'Completa el nombre de la colección para continuar'
         );
+    });
+
+    it('should show error but keep invalid value visible', () => {
+        const { getByTestId } = render(<HookWrapper initialValue="" />);
+
+        const input = getByTestId('input');
+        const invalidValue = 'a'.repeat(50);
+        fireEvent.change(input, { target: { value: invalidValue } });
+
+        expect(input.value).toBe(invalidValue);
+        expect(getByTestId('error').textContent).toBe('Máximo 45 caracteres');
     });
 });

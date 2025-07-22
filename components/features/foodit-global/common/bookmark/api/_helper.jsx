@@ -24,6 +24,7 @@ export const TOAST = {
             ),
             RENAME_COLLECTION:
                 'Podes ver los cambios aplicados en la colección.',
+            MOVE_COLLECTION: 'Podes ver los cambios aplicados en la colección.',
             DELETE_ARTICLE: 'Se quito de tu colección.',
             SAVE_ARTICLE: (
                 <>

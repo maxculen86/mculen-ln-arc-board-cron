@@ -11,7 +11,7 @@ import {
     SATURDAY
 } from '../MenuSemanal/helpers/daysIds';
 
-export const loadBookmarkFolders = async (accessToken, token) => {
+export const loadBookmarkFolders = async () => {
     const daysIds = [
         SUNDAY,
         MONDAY,
@@ -21,7 +21,7 @@ export const loadBookmarkFolders = async (accessToken, token) => {
         FRIDAY,
         SATURDAY
     ];
-    const { data = [] } = await getBookmarkGroups(accessToken, token);
+    const { data = [] } = await getBookmarkGroups();
     localStorage.setItem(
         'bookmarkFolders',
         JSON.stringify(
@@ -38,17 +38,57 @@ export const loadBookmarkFolders = async (accessToken, token) => {
 };
 
 export const addStorageFolder = newFolder => {
-    const folders = safeJSONParse(localStorage.getItem('bookmarkFolders'));
+    const folders =
+        safeJSONParse(localStorage.getItem('bookmarkFolders')) || [];
 
-    if (
-        !folders ||
-        !folders.some(folder => folder.bookmarkGroup === newFolder)
-    ) {
-        localStorage.setItem(
-            'bookmarkFolders',
-            JSON.stringify([...folders, { bookmarkGroup: newFolder }])
+    const existingFolderIndex = folders.findIndex(
+        folder => folder.bookmarkGroup === newFolder
+    );
+
+    if (existingFolderIndex >= 0) {
+        folders[existingFolderIndex].bookmarkCount += 1;
+    } else {
+        const newFolderEntry = {
+            bookmarkGroup: newFolder,
+            bookmarkCount: 1
+        };
+        folders.push(newFolderEntry);
+    }
+
+    localStorage.setItem('bookmarkFolders', JSON.stringify(folders));
+
+    window.dispatchEvent(
+        new CustomEvent('bookmarkFoldersChanged', {
+            detail: { action: 'add', folderName: newFolder, folders }
+        })
+    );
+
+    return folders;
+};
+
+export const removeFromStorageFolder = folderName => {
+    const folders =
+        safeJSONParse(localStorage.getItem('bookmarkFolders')) || [];
+
+    const existingFolderIndex = folders.findIndex(
+        folder => folder.bookmarkGroup === folderName
+    );
+
+    if (existingFolderIndex >= 0) {
+        folders[existingFolderIndex].bookmarkCount -= 1;
+
+        if (folders[existingFolderIndex].bookmarkCount <= 0) {
+            folders.splice(existingFolderIndex, 1);
+        }
+
+        localStorage.setItem('bookmarkFolders', JSON.stringify(folders));
+
+        window.dispatchEvent(
+            new CustomEvent('bookmarkFoldersChanged', {
+                detail: { action: 'remove', folderName, folders }
+            })
         );
     }
 
-    return null;
+    return folders;
 };
