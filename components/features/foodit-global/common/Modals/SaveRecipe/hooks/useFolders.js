@@ -69,42 +69,38 @@ export const useFolders = ({ mode, currentCollectionId }) => {
     useEffect(() => {
         fetchFolders();
     }, [fetchFolders]);
-
     useEffect(() => {
-        if (typeof window === 'undefined') {
-            return;
-        }
+        if (typeof window !== 'undefined') {
+            const handleStorageChange = e => {
+                if (e.key === 'bookmarkFolders') {
+                    debouncedFetchFolders();
+                }
+            };
 
-        const handleStorageChange = e => {
-            if (e.key === 'bookmarkFolders') {
+            const handleCustomFoldersChange = () => {
                 debouncedFetchFolders();
-            }
-        };
+            };
 
-        const handleCustomFoldersChange = () => {
-            debouncedFetchFolders();
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-        window.addEventListener(
-            'bookmarkFoldersChanged',
-            handleCustomFoldersChange
-        );
-
-        const cleanup = () => {
-            window.removeEventListener('storage', handleStorageChange);
-            window.removeEventListener(
+            window.addEventListener('storage', handleStorageChange);
+            window.addEventListener(
                 'bookmarkFoldersChanged',
                 handleCustomFoldersChange
             );
 
-            if (debounceTimeoutRef.current) {
-                clearTimeout(debounceTimeoutRef.current);
-            }
-        };
+            return () => {
+                window.removeEventListener('storage', handleStorageChange);
+                window.removeEventListener(
+                    'bookmarkFoldersChanged',
+                    handleCustomFoldersChange
+                );
 
-        // eslint-disable-next-line consistent-return
-        return cleanup;
+                if (debounceTimeoutRef.current) {
+                    clearTimeout(debounceTimeoutRef.current);
+                }
+            };
+        }
+
+        return undefined;
     }, [debouncedFetchFolders]);
 
     return folders;

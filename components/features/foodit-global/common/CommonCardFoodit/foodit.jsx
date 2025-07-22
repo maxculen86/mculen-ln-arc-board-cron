@@ -43,16 +43,19 @@ function CommonCardFoodit({
         e.preventDefault();
         e.stopPropagation();
 
-        if (!isMyRecipesLayout) {
-            if (bookmarkAction) {
-                bookmarkAction();
-            } else {
-                window?.LN?.observable?.publish('openModal', {
-                    ids: [articleId],
-                    fatherType
-                });
-            }
+        if (isMyRecipesLayout) {
+            return;
         }
+
+        if (bookmarkAction) {
+            bookmarkAction();
+            return;
+        }
+
+        window?.LN?.observable?.publish('openModal', {
+            ids: [articleId],
+            fatherType
+        });
     };
 
     const buttonProps = {
@@ -61,6 +64,21 @@ function CommonCardFoodit({
         'data-test-id': `button-bookmark-${articleId}`,
         ...(fatherType && { 'data-father-type': fatherType })
     };
+
+    const cardAction = isMyRecipesLayout ? (
+        <DropdownCard
+            bookmarkId={articleId}
+            onDelete={onDelete}
+            onMove={onMove}
+        />
+    ) : (
+        <CardButton
+            container={container}
+            fill={fill}
+            buttonProps={buttonProps}
+            handleBookmarkClick={handleBookmarkClick}
+        />
+    );
 
     return (
         <Card
@@ -103,22 +121,7 @@ function CommonCardFoodit({
                     showTime={Boolean(time) && showTime}
                     time={`${time} min`}
                     icon={<IconSprite name="timer" />}
-                    action={
-                        isMyRecipesLayout ? (
-                            <DropdownCard
-                                bookmarkId={articleId}
-                                onDelete={onDelete}
-                                onMove={onMove}
-                            />
-                        ) : (
-                            <CardButton
-                                container={container}
-                                fill={fill}
-                                buttonProps={buttonProps}
-                                handleBookmarkClick={handleBookmarkClick}
-                            />
-                        )
-                    }
+                    action={cardAction}
                 />
             </Card.Main>
         </Card>

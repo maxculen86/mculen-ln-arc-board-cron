@@ -73,30 +73,30 @@ function FooterSaveRecipe({
     };
 
     const isDisabled = (() => {
-        if (isLoading) return true;
+        const trimmedName = newFolder?.trim();
 
-        if (mode === 'save' && articlesDetails?.length === 0) {
-            return true;
-        }
+        const conditions = [
+            isLoading,
+            mode === 'save' && articlesDetails?.length === 0,
+            indexStep === 1 && !selectedFolder?.value,
+            indexStep === 2 && (!trimmedName || hasInputError),
+            !selectedFolder?.value
+        ];
 
-        if (indexStep === 1 && !selectedFolder?.value) {
-            return true;
-        }
-
-        if (indexStep === 2) {
-            const trimmedName = newFolder?.trim();
-            return !trimmedName || trimmedName.length === 0 || hasInputError;
-        }
-
-        return !selectedFolder?.value;
+        return conditions.some(Boolean);
     })();
 
     const getButtonText = () => {
-        if (isLoading) {
-            if (leftButton.action === 'move') return 'Moviendo...';
-            if (leftButton.action === 'save') return 'Guardando...';
+        if (!isLoading) {
+            return leftButton.text;
         }
-        return leftButton.text;
+
+        const loadingTexts = {
+            move: 'Moviendo...',
+            save: 'Guardando...'
+        };
+
+        return loadingTexts[leftButton?.action] || 'Procesando...';
     };
 
     return (

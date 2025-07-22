@@ -20,11 +20,34 @@ function OptionMove({
         onClose();
     };
 
+    const hasRealChanges = (targetCollectionId, newCollectionName) => {
+        const targetCollection = newCollectionName || targetCollectionId;
+        const currentItem = items.find(item => item[filterKey] === bookmarkId);
+
+        if (!currentItem) {
+            console.warn('Item not found for validation');
+            return false;
+        }
+
+        const isSameCollection = targetCollection === currentItem.bookmarkGroup;
+        const isSameAsCurrentId = targetCollection === currentCollectionId;
+
+        return !isSameCollection && !isSameAsCurrentId;
+    };
+
     const handleConfirmMove = async (targetCollectionId, newCollectionName) => {
         try {
             if (!moveFunction) {
                 handleClose();
                 return false;
+            }
+
+            if (!hasRealChanges(targetCollectionId, newCollectionName)) {
+                console.warn(
+                    'No real changes detected, skipping move operation'
+                );
+                handleClose();
+                return true;
             }
 
             const result = await moveFunction({
@@ -51,7 +74,6 @@ function OptionMove({
                 handleClose();
                 return true;
             }
-            console.error('Failed to move item.');
             handleClose();
             return false;
         } catch (error) {

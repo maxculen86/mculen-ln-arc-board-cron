@@ -16,22 +16,58 @@ const useBookmarkedArticles = (
         setDisplayArticlesNum(24);
     }, [selectedItemId]);
 
+    const isValidBookmarkId = useCallback(
+        bookmarkId =>
+            bookmarkId &&
+            typeof bookmarkId === 'string' &&
+            bookmarkId.trim().length > 0 &&
+            userBookmarks.some(bookmark => bookmark.bookmarkId === bookmarkId),
+        [userBookmarks]
+    );
+
+    const updateSelectedItemAfterChange = useCallback(
+        updatedBookmarks => {
+            if (selectedItemId === 'Todas') return;
+
+            const remainingInCurrentCollection = updatedBookmarks.filter(
+                bookmark => bookmark.bookmarkGroup === selectedItemId
+            );
+
+            if (remainingInCurrentCollection.length === 0) {
+                setSelectedItem({
+                    id: 'Todas',
+                    quantity: updatedBookmarks.length
+                });
+            } else {
+                setSelectedItem(prevSelected => ({
+                    ...prevSelected,
+                    quantity: remainingInCurrentCollection.length
+                }));
+            }
+        },
+        [selectedItemId, setSelectedItem]
+    );
+
     const executeDeleteBookmark = useCallback(
         async (bookmarkId, bookmarkTypeId) => {
             try {
+                if (!isValidBookmarkId(bookmarkId)) {
+                    return false;
+                }
+
                 const bookmarkInfo = findBookmarkById(
                     userBookmarks,
                     bookmarkId
                 );
 
+                if (!bookmarkInfo) {
+                    return false;
+                }
+
                 const fullBookmark = userBookmarks.find(
                     bookmark => bookmark.bookmarkId === bookmarkId
                 );
                 const bookmarkCollection = fullBookmark?.bookmarkGroup;
-
-                const bookmarksInCurrentCollection = userBookmarks.filter(
-                    bookmark => bookmark.bookmarkGroup === bookmarkCollection
-                );
 
                 const result = await fetchDeleteBookmark(
                     [{ bookmarkId, bookmarkTypeId }],
@@ -42,22 +78,11 @@ const useBookmarkedArticles = (
                     userBookmarks
                 );
 
-                if (
-                    result &&
-                    selectedItemId !== 'Todas' &&
-                    selectedItemId === bookmarkCollection
-                ) {
-                    if (bookmarksInCurrentCollection.length === 1) {
-                        setSelectedItem({
-                            id: 'Todas',
-                            quantity: userBookmarks.length - 1
-                        });
-                    } else {
-                        setSelectedItem(prevSelected => ({
-                            ...prevSelected,
-                            quantity: bookmarksInCurrentCollection.length - 1
-                        }));
-                    }
+                if (result && selectedItemId === bookmarkCollection) {
+                    const updatedBookmarks = userBookmarks.filter(
+                        bookmark => bookmark.bookmarkId !== bookmarkId
+                    );
+                    updateSelectedItemAfterChange(updatedBookmarks);
                 }
 
                 return result;
@@ -66,7 +91,14 @@ const useBookmarkedArticles = (
                 return false;
             }
         },
-        [setUserBookmarks, setSelectedItem, userBookmarks, selectedItemId]
+        [
+            isValidBookmarkId,
+            setUserBookmarks,
+            setSelectedItem,
+            userBookmarks,
+            selectedItemId,
+            updateSelectedItemAfterChange
+        ]
     );
 
     const executeMoveBookmark = useCallback(
@@ -79,6 +111,27 @@ const useBookmarkedArticles = (
             bookmarkParent
         }) => {
             try {
+                if (!isValidBookmarkId(bookmarkId)) {
+                    return false;
+                }
+
+                const targetCollection =
+                    targetCollectionName || targetCollectionId;
+                if (!targetCollection) {
+                    return false;
+                }
+
+                const currentBookmark = userBookmarks.find(
+                    bookmark => bookmark.bookmarkId === bookmarkId
+                );
+
+                if (
+                    currentBookmark &&
+                    currentBookmark.bookmarkGroup === targetCollection
+                ) {
+                    return true;
+                }
+
                 const result = await moveBookmark({
                     bookmarkId,
                     bookmarkTypeId,
@@ -89,9 +142,6 @@ const useBookmarkedArticles = (
                 });
 
                 if (result?.success) {
-                    const targetCollection =
-                        targetCollectionName || targetCollectionId;
-
                     setUserBookmarks(prevBookmarks => {
                         const updatedBookmarks = prevBookmarks.map(bookmark => {
                             if (bookmark.bookmarkId === bookmarkId) {
@@ -109,28 +159,7 @@ const useBookmarkedArticles = (
                             return bookmark;
                         });
 
-                        if (selectedItemId !== 'Todas') {
-                            const remainingInCurrentCollection =
-                                updatedBookmarks.filter(
-                                    bookmark =>
-                                        bookmark.bookmarkGroup ===
-                                        selectedItemId
-                                );
-
-                            if (remainingInCurrentCollection.length === 0) {
-                                setSelectedItem({
-                                    id: 'Todas',
-                                    quantity: updatedBookmarks.length
-                                });
-                            } else {
-                                setSelectedItem(prevSelected => ({
-                                    ...prevSelected,
-                                    quantity:
-                                        remainingInCurrentCollection.length
-                                }));
-                            }
-                        }
-
+                        updateSelectedItemAfterChange(updatedBookmarks);
                         return updatedBookmarks;
                     });
 
@@ -142,7 +171,12 @@ const useBookmarkedArticles = (
                 return false;
             }
         },
-        [setUserBookmarks, selectedItemId, setSelectedItem]
+        [
+            isValidBookmarkId,
+            setUserBookmarks,
+            updateSelectedItemAfterChange,
+            userBookmarks
+        ]
     );
 
     const filteredAndSlicedBookmarks = useMemo(() => {
