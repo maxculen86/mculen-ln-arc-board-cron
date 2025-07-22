@@ -83,7 +83,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     let description = [];
     const postElements = contentElements
         .slice(postingStart)
-        .reduce((acc, elem, i) => {
+        .reduce((acc, elem, i, slicedArray) => {
             const { type = '' } = elem;
 
             if (isCustomLiveblog(elem)) {
@@ -111,9 +111,8 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
             });
 
             if (
-                (contentElements[i + 1] &&
-                    isCustomLiveblog(contentElements[i + 1])) ||
-                i + 1 === contentElements.length
+                (slicedArray[i + 1] && isCustomLiveblog(slicedArray[i + 1])) ||
+                i + 1 === slicedArray.length
             ) {
                 post = { ...post, content: description.join(' ') };
                 acc.push(post);
