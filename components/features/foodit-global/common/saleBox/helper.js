@@ -21,11 +21,11 @@ export const imgsPhoneFoodit = assetsPath => [
 export const imgsIngredientsBackground = [
     {
         asset: 'ingredient-background-left-top.webp',
-        className: 'top-0 left-0 absolute'
+        className: 'top-0 left-0 w-40 absolute'
     },
     {
         asset: 'ingredient-background-right-top.webp',
-        className: 'top-0 right-0 absolute'
+        className: 'top-0 right-0 w-136 absolute'
     },
     {
         asset: 'ingredient-background-middle-bottom.webp',
