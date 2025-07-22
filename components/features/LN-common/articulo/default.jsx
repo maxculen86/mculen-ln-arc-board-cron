@@ -19,6 +19,7 @@ import { productClickFromClient } from '../../../private/common/utils/viewabilit
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import { getChainConfig } from '../../LN-10/article/common/_helper-WebApi';
+import useTermica from '../../../private/common/hooks/useTermica';
 
 function ArticleFeature({
     id: featureId,
@@ -30,12 +31,14 @@ function ArticleFeature({
 
     const { cajaTemaConfig } = getProperties(arcSite);
     const { registerSuccessEvent } = useComponentContext();
+    const termicaCajaSegmentada = useTermica('caja_segmentada');
 
     const { config, index, boxPosition, layout, imageConfig } = getChainConfig({
         isBomba,
         featureId,
         renderables,
-        cajaTemaConfig
+        cajaTemaConfig,
+        termicaCajaSegmentada
     });
 
     const checkForId = idValue => idValue && idValue.trim();
@@ -152,11 +155,16 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
-        ...(featureArticleCustomsFields('articuloGeneral') || {})
+        ...(featureArticleCustomsFields('articuloGeneral') || {}),
+        noteId: PropTypes.string,
+        imageId: PropTypes.string,
+        video: PropTypes.string,
+        mobileImageId: PropTypes.string
     }),
     searchableField: PropTypes.shape({
         imageId: PropTypes.string
-    })
+    }),
+    isBomba: PropTypes.bool
 };
 
 export default Consumer(ArticleFeature);

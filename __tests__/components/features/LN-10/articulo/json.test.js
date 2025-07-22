@@ -108,6 +108,10 @@ jest.mock('../../../../../content/filters/LN/home/videoFilter', () => {
     };
 });
 
+jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn(() => true)
+);
+
 describe('components - feature - LN10 Articulo - json', () => {
     beforeEach(() => {
         jest.clearAllMocks();

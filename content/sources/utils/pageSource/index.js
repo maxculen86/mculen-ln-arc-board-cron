@@ -9,7 +9,6 @@ const resolve = query => {
     const paramasVersionDeploy =
         versionDeploy != null ? `&d=${versionDeploy}` : '';
     const paramsTicks = ticksCache != null ? `&ticks=${ticksCache}` : '';
-
     return `${rootPath}/?_website=${arcSite}&outputType=json${paramsTicks}${paramasVersionDeploy}`;
 };
 

@@ -4,7 +4,7 @@ import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 import getChainPosition from '../../../common/utils/getChainPosition';
-
+import useTermica from '../../../common/hooks/useTermica';
 // TODO: Eliminar estas reglas cuando se remplacen chains viejas por las de LN10 en todo el sitio
 const ajustCollection = 'Ajuste Collection';
 const featuredRules = {
@@ -263,6 +263,7 @@ export const getCommonProps = props => {
         globalContent: { name, acumuladoGeneral } = {},
         layout: pageBuilderLayout
     } = props;
+    const termicaCajaSegmentada = useTermica('caja_segmentada');
 
     const { cajaTemaConfig = {}, layoutsName = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
@@ -274,7 +275,11 @@ export const getCommonProps = props => {
     const classCondition =
         (cajaTemaConfig[layout] && cajaTemaConfig[layout].className) || '';
 
-    const position = getChainPosition(idFeature, renderables);
+    const position = getChainPosition(
+        idFeature,
+        termicaCajaSegmentada,
+        renderables
+    );
 
     const positionInsideSection = findPositionInsideSection(
         idFeature,
@@ -303,7 +308,8 @@ export const getCommonProps = props => {
             showDatalayerMark !== 'false' &&
             `0${Number(position) + 1}`.slice(-2),
         sectionName,
-        positionInsideSection
+        positionInsideSection,
+        termicaCajaSegmentada
     };
 };
 

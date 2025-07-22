@@ -7,6 +7,7 @@ import { validateVideoPlayer } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { getDataAttributesForViewability } from '../article/_helper';
 import VideoCommonJw from '../../LN-10-global/common/videoCommon/default';
+import useTermica from '../../../private/common/hooks/useTermica';
 
 function LN10VideoPlayer({
     id,
@@ -33,7 +34,12 @@ function LN10VideoPlayer({
     }));
 
     const cardPosition = 0;
-    const { boxPosition } = getChainConfig({ featureId: id, renderables });
+    const termicaCajaSegmentada = useTermica('caja_segmentada');
+    const { boxPosition } = getChainConfig({
+        featureId: id,
+        renderables,
+        termicaCajaSegmentada
+    });
 
     const extraOpts = getDataAttributesForViewability(
         videoId,

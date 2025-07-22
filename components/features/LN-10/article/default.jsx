@@ -45,6 +45,7 @@ import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
 import { isEmptyObject } from '../../../private/common/utils/isEmptyObject';
 import MarqueeHighlight from '../../LN-10-global/common/marqueeHighlight/default';
+import useTermica from '../../../private/common/hooks/useTermica';
 
 function ArticleFeature({ id: featureId, customFields, searchableField }) {
     const {
@@ -74,7 +75,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
     } = useAppContext();
 
     const { layoutsName = {} } = siteConfig || {};
-
+    const termicaCajaSegmentada = useTermica('caja_segmentada');
     const {
         config: initialConfig = {},
         index,
@@ -83,7 +84,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         boxPosition,
         isBomba,
         chainId
-    } = getChainConfig({ featureId, renderables });
+    } = getChainConfig({ featureId, renderables, termicaCajaSegmentada });
 
     const extraOpts = getDataAttributesForViewability(
         articleId,

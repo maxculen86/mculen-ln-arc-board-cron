@@ -10,6 +10,10 @@ jest.mock('fusion:consumer', () => {
         };
 });
 
+jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn(() => true)
+);
+
 describe('Video Player Nota Feature test', () => {
     const arcSite = 'la-nacion-ar';
 

@@ -28,7 +28,10 @@ const transform = async (dataPage, query) => {
         elementsPageHome =
             (Array.isArray(elementsPageHome) &&
                 elementsPageHome.filter(
-                    elem => (elem && elem.type < 9) || elem.type === 10
+                    elem =>
+                        (elem && elem.type < 9) ||
+                        elem.type === 10 ||
+                        elem.type === 12
                 )) ||
             elementsPageHome;
 

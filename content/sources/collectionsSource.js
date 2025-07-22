@@ -19,8 +19,16 @@ import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import { processVolanta } from './utils/common/volantaHelper';
 
+const getParamFromQuery = (query, paramName) => {
+    const pattern = new RegExp(`${paramName}:(\\d+)`);
+    const regexForParam = new RegExp(pattern);
+    const matchForParam = regexForParam.exec(get(query, 'params', ''));
+    return matchForParam && matchForParam.length > 1 ? matchForParam[1] : null;
+};
+
 const resolve = key => {
-    const { id, size, website, from = 0 } = key;
+    const { id, size, website, from = 0, params = null } = key;
+    let fromParam = from;
     if (!id)
         throw new Error(
             'Debe definir un id para realizar la consulta - Collections Source'
@@ -36,9 +44,13 @@ const resolve = key => {
         }`
     ].join('');
 
+    if (params) {
+        fromParam = getParamFromQuery(key, 'from') || fromParam;
+    }
+
     let basePath = `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${
         size || 2
-    }&from=${from}`;
+    }&from=${fromParam}`;
 
     if (uriParams && uriParams !== '') {
         basePath = `${basePath}${uriParams}`;
@@ -52,8 +64,15 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
         filterRecomendar = false,
         filterRepetead = false,
         filterFutureDisplayDate = false,
-        notesQuantity = 3
+        params
     } = siteProps || {};
+
+    let notesQuantity = get(siteProps, 'notesQuantity', 3);
+
+    if (params) {
+        const paramNoteCount = getParamFromQuery(siteProps, 'noteCount');
+        if (paramNoteCount) notesQuantity = parseInt(paramNoteCount, 10);
+    }
 
     const articlesStoryOnly = filterArticlesTypeStory(originalArticles);
 
@@ -188,7 +207,8 @@ export default {
         diagramation: 'text',
         filterFutureDisplayDate: 'bool',
         notesQuantity: 'text',
-        isFocal: 'bool'
+        isFocal: 'bool',
+        params: 'text'
     },
     ttl: 120
 };

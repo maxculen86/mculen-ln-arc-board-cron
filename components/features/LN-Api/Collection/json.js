@@ -12,7 +12,7 @@ const tranformsFuntion = [
         transformFn: transformToChainCollectionNotes
     }
 ];
-class CollectionExternalClient {
+class Collection {
     constructor(props) {
         this.props = props;
     }
@@ -40,4 +40,4 @@ class CollectionExternalClient {
     }
 }
 
-export default Consumer(CollectionExternalClient);
+export default Consumer(Collection);
