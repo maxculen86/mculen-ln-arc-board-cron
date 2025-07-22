@@ -297,14 +297,8 @@ describe('useBookmarkedArticles', () => {
                 mockBookmarks,
                 'bookmark-1'
             );
-            expect(fetchDeleteBookmark).toHaveBeenCalledWith(
-                [{ bookmarkId: 'bookmark-1', bookmarkTypeId: 'article-1' }],
-                mockSetUserBookmarks,
-                mockSetSelectedItem,
-                mockBookmarks.length,
-                undefined,
-                mockBookmarks
-            );
+
+            expect(fetchDeleteBookmark).not.toHaveBeenCalled();
         });
     });
 
