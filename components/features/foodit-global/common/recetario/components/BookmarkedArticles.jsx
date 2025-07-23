@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import { Button } from '@ln/foodit-ui-button';
@@ -58,9 +58,4 @@ BookmarkedArticles.propTypes = {
     setUserBookmarks: PropTypes.func.isRequired
 };
 
-export default memo(
-    BookmarkedArticles,
-    (prevProps, nextProps) =>
-        prevProps.userBookmarks === nextProps.userBookmarks &&
-        prevProps.selectedItemId === nextProps.selectedItemId
-);
+export default BookmarkedArticles;

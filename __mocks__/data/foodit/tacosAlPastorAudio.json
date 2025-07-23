@@ -11,13 +11,6 @@
       "type": "header"
     },
     {
-      "_id": "ACKBTOT2TZEMXPA3LEWYGRQ7GQ",
-      "additional_properties": {},
-      "content": "Para la Carne",
-      "level": 3,
-      "type": "header"
-    },
-    {
       "_id": "E6PEDKZ36FH4BPC3UCY2MQPZHQ",
       "items": [
         {
@@ -95,8 +88,8 @@
     },
     {
       "_id": "GHDAPMZZZRFUTGLILSBGZHUHGI",
-      "content": "Marinado de la Carne",
-      "level": 3,
+      "content": "Para la Carne",
+      "level": 4,
       "type": "header"
     },
     {
@@ -112,7 +105,7 @@
     },
     {
       "_id": "VR2ZXJUZJVBKXPAKTAK3TU4FD4",
-      "content": " Cocción",
+      "content": "Para la Cocción",
       "level": 3,
       "type": "header"
     },

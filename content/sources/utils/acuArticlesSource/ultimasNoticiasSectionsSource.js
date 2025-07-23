@@ -32,10 +32,10 @@ const fetch = async query => {
                 response.content_elements &&
                 response.content_elements.length > 0
             ) {
-                const content_elements = response.content_elements;
-                const sectionsElement = content_elements.filter(
-                    content_element =>
-                        content_element.sectionAliasMobile ===
+                const contentElements = response.content_elements;
+                const sectionsElement = contentElements.filter(
+                    contentElement =>
+                        contentElement.sectionAliasMobile ===
                         'ln-acumulado/ultimasnoticias'
                 );
                 return sectionsElement[0]?.information?.sections;

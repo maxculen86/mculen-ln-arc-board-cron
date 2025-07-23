@@ -5,7 +5,6 @@ import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
-import { Image } from '@ln/common-ui-image';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import {
     mockBenefits,
@@ -82,10 +81,10 @@ export function SaleBox({ ...props }) {
             </div>
             {imgsIngredientsBackground.map(({ className, asset }) => (
                 <div key={useId()} className={className}>
-                    <Image
+                    <Adaptableimage
+                        className="w-100"
                         src={assetsPath(asset)}
                         alt="Imagen de ingredientes para el fondo"
-                        loading="eager"
                     />
                 </div>
             ))}

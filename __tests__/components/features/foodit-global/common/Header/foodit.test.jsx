@@ -6,7 +6,6 @@ import { useContent } from 'fusion:content';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 import useGetUserData from '../../../../../../components/private/common/auth/hooks/useGetUserData';
 import { useNavigationData } from '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData';
-import { debug } from 'request-promise-native';
 
 jest.mock(
     '../../../../../../components/private/common/auth/hooks/useGetUserData'
@@ -37,6 +36,13 @@ jest.mock(
     })
 );
 
+jest.mock(
+    '../../../../../../components/features/foodit-global/common/Header/hooks/useStickyHeader',
+    () => ({
+        useStickyHeader: () => ({ sticky: true })
+    })
+);
+
 describe('Components - Features - foodit-global - Common - HeaderFoodit', () => {
     Context.useAppContext = jest.fn(() => ({
         layout: 'Foodit-home',
@@ -46,6 +52,9 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
             }
         }
     }));
+    beforeEach(() => {
+        useNavigationData.mockReturnValue({ categories: [] });
+    });
 
     // TODO: testear comportamiento topnavigation cuando se defina el contenido
     // it('when the header state sticky is true, should contain fixed class', () => {
@@ -150,6 +159,30 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         expect(logoText).toBeInTheDocument();
         expect(logoText.parentElement.tagName).toBe('H1');
     });
+    it('should apply correct classes when layout is FooditBuscador', () => {
+        useGetUserData.mockReturnValue({
+            userType: 'logged',
+            userEmail: 'hola@mundo.com',
+            userName: '',
+            userLastName: '',
+            isSubscribed: false
+        });
+
+        const layoutsName = {
+            FooditHome: 'Foodit-home',
+            FooditAcumulado: 'Foodit-acumulado',
+            FooditBuscador: 'Foodit-buscador'
+        };
+
+        const { container } = render(
+            <HeaderFoodit layout="Foodit-buscador" layoutsName={layoutsName} />
+        );
+
+        const headerContainer = container.querySelector('.z-15');
+
+        expect(headerContainer).not.toHaveClass('--hide-search');
+    });
+
     it('The logo should render as an "div" tag on the other layouts.', () => {
         useGetUserData.mockReturnValue({
             userType: 'subscribed',

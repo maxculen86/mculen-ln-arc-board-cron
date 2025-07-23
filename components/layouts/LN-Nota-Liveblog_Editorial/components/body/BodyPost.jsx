@@ -12,12 +12,12 @@ import PostExpandable from './PostExpandable';
 import PostHeader from './PostHeader';
 import PostPinned from './PostPinned';
 import '../../../../../resources/packages/css/@ln/common-ui-accordion/index.css';
+import { borderPostVariant, wrapperPostVariant } from './styles';
 
 function BodyPost({
     id,
     isPinned,
     children,
-    wrapperPostClasses,
     outputType,
     globalContent,
     isExpandable = false,
@@ -48,10 +48,12 @@ function BodyPost({
     };
 
     const { title } = headerProps;
+    const wrapperClassName = wrapperPostVariant({ isPinned });
+    const borderClassName = borderPostVariant({ isPinned });
 
     return (
-        <div className={wrapperPostClasses} id={id}>
-            <div className="relative border border-all border-thin_m border-neutral-light-100_m rounded-8_m shadow-post-md">
+        <div className={wrapperClassName} id={id}>
+            <div className={borderClassName}>
                 {isPinned && <PostPinned />}
                 <PostHeader {...headerProps}>
                     <Tooltip {...tooltipConfig}>
@@ -74,7 +76,10 @@ function BodyPost({
                             iconOnly
                         >
                             <Icon size={24}>
-                                <IconSprite name="fileCopy" fill="#333333" />
+                                <IconSprite
+                                    name="fileCopy"
+                                    fill="var(--light-neutral-700)"
+                                />
                             </Icon>
                         </Button>
                     </Tooltip>
@@ -85,6 +90,9 @@ function BodyPost({
                         <PostExpandable {...postExpandableProps} />
                     )}
                 </div>
+                {isPinned && (
+                    <span className="bg-danger-600 block h-2 w-100 --mobile-only" />
+                )}
             </div>
         </div>
     );
@@ -94,7 +102,6 @@ BodyPost.propTypes = {
     id: PropTypes.string.isRequired,
     isPinned: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
-    wrapperPostClasses: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({}).isRequired,
     isExpandable: PropTypes.bool.isRequired,

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import { Button } from '@ln/foodit-ui-button';
 import { transformBookmarkContent } from '../../../bookmark/_helper';
@@ -19,18 +19,85 @@ function FooterSaveRecipe({
     layout,
     collectionArticles = [],
     carouselTitle = '',
-    fatherType
+    fatherType,
+    mode = 'save',
+    onConfirmMove,
+    isLoading = false,
+    setIsLoading = () => {}
 }) {
     const articles = useGetFooditArticles(
-        (!collectionArticles.length && ids) || []
+        (mode === 'save' && !collectionArticles?.length && ids) || []
     );
 
     const articlesDetails =
-        (collectionArticles.length &&
-            collectionArticles.map(article =>
+        (mode === 'save' &&
+            collectionArticles?.length &&
+            collectionArticles?.map(article =>
                 transformBookmarkContent(article)
             )) ||
         articles;
+
+    const handleLeftButtonClick = () => {
+        actionButtons({
+            action: leftButton.action,
+            close,
+            indexStep,
+            newFolder,
+            selectedFolder,
+            setIndexStep,
+            articlesDetails,
+            carouselTitle,
+            layout,
+            fatherType,
+            mode,
+            onConfirmMove,
+            isLoading,
+            setIsLoading
+        });
+    };
+
+    const handleRightButtonClick = () => {
+        if (isLoading) return;
+
+        actionButtons({
+            action: rightButton.action,
+            close,
+            ids,
+            indexStep,
+            newFolder,
+            selectedFolder,
+            setIndexStep,
+            mode,
+            onConfirmMove
+        });
+    };
+
+    const isDisabled = (() => {
+        const trimmedName = newFolder?.trim();
+
+        const conditions = [
+            isLoading,
+            mode === 'save' && articlesDetails?.length === 0,
+            indexStep === 1 && !selectedFolder?.value,
+            indexStep === 2 && (!trimmedName || hasInputError),
+            !selectedFolder?.value
+        ];
+
+        return conditions.some(Boolean);
+    })();
+
+    const getButtonText = () => {
+        if (!isLoading) {
+            return leftButton.text;
+        }
+
+        const loadingTexts = {
+            move: 'Moviendo...',
+            save: 'Guardando...'
+        };
+
+        return loadingTexts[leftButton?.action] || 'Procesando...';
+    };
 
     return (
         <footer className="flex gap-16">
@@ -39,45 +106,18 @@ function FooterSaveRecipe({
                 title={leftButton.title}
                 fullWidth
                 size={40}
-                onClick={() =>
-                    actionButtons({
-                        action: leftButton.action,
-                        close,
-                        indexStep,
-                        newFolder,
-                        selectedFolder,
-                        setIndexStep,
-                        articlesDetails,
-                        carouselTitle,
-                        layout,
-                        fatherType
-                    })
-                }
-                disabled={
-                    hasInputError ||
-                    !selectedFolder?.value ||
-                    !articlesDetails.length ||
-                    (indexStep === 2 && !newFolder)
-                }
+                onClick={handleLeftButtonClick}
+                disabled={isDisabled}
             >
-                {leftButton.text}
+                {getButtonText()}
             </Button>
             <Button
                 variant="secondary"
                 title={rightButton.title}
                 size={40}
                 fullWidth
-                onClick={() =>
-                    actionButtons({
-                        action: rightButton.action,
-                        close,
-                        ids,
-                        indexStep,
-                        newFolder,
-                        selectedFolder,
-                        setIndexStep
-                    })
-                }
+                onClick={handleRightButtonClick}
+                disabled={isLoading}
             >
                 {rightButton.text}
             </Button>
@@ -106,9 +146,13 @@ FooterSaveRecipe.propTypes = {
     setIndexStep: PropTypes.func.isRequired,
     ids: PropTypes.arrayOf(PropTypes.string),
     layout: PropTypes.string,
-    collectionArticles: PropTypes.arrayOf(PropTypes.object),
+    collectionArticles: PropTypes.arrayOf(PropTypes.shape({})),
     carouselTitle: PropTypes.string,
-    fatherType: PropTypes.string
+    fatherType: PropTypes.string,
+    mode: PropTypes.oneOf(['save', 'move']).isRequired,
+    onConfirmMove: PropTypes.func,
+    isLoading: PropTypes.bool,
+    setIsLoading: PropTypes.func
 };
 
 FooterSaveRecipe.defaultProps = {
@@ -117,7 +161,10 @@ FooterSaveRecipe.defaultProps = {
     layout: '',
     collectionArticles: [],
     carouselTitle: '',
-    fatherType: ''
+    fatherType: '',
+    onConfirmMove: null,
+    isLoading: false,
+    setIsLoading: () => {}
 };
 
 export default FooterSaveRecipe;

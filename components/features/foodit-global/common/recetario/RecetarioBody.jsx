@@ -54,6 +54,7 @@ function RecetarioBody() {
                                 title="Colecciones"
                                 list={summaryList}
                                 onItemSelected={setSelectedItem}
+                                selectedItemId={selectedItemId}
                             />
                         </aside>
                     ) : null}

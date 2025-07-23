@@ -77,14 +77,15 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
     return { successfullResponses, failureResponses };
 };
 
-const saveBookmarks = async (articlesDetails, nameFolder, newFolder) => {
+const saveBookmarks = async (articlesDetails, nameFolder) => {
     const { successfullResponses, failureResponses } = await postBookmarks(
         articlesDetails,
         nameFolder
     );
 
     if (successfullResponses && successfullResponses.length) {
-        if (newFolder) addStorageFolder(nameFolder);
+        addStorageFolder(nameFolder);
+
         successfullResponses.forEach(({ bookmarkTypeId, bookmarkId }) => {
             const bookmarkedArticles = safeJSONParse(
                 localStorage.getItem('bookmarkedItems')
@@ -93,7 +94,7 @@ const saveBookmarks = async (articlesDetails, nameFolder, newFolder) => {
                 'bookmarkedItems',
                 JSON.stringify([
                     ...bookmarkedArticles,
-                    { bookmarkTypeId, bookmarkId }
+                    { bookmarkTypeId, bookmarkId, bookmarkGroup: nameFolder }
                 ])
             );
         });

@@ -60,69 +60,72 @@ const JwVideoContainer = forwardRef(
                 className={_className}
                 style={{ willChange: 'transform, scroll-position' }}
             >
-                {listVideoData.map(({ id, title, isBanner, node }, index) => (
-                    <li
-                        key={id}
-                        data-scroller-index={index}
-                        data-scroller-id={id}
-                        data-title={title}
-                        className="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
-                    >
-                        <div className="flex h-100 w-100 ratio-9-16 relative py-16_m">
-                            <div className="w-100 absolute top-0 left-0 z-10 bg-gradient-dark bg-none_lg py-8 mt-16_m">
-                                <Button
-                                    title="Cerrar"
-                                    onClick={onCloseMediaScrollerExpanded}
-                                    className="py-8 px-16 text-white relative_lg left--130_lg"
-                                    variant="custom"
-                                    size="inherit"
-                                    iconOnly
-                                >
-                                    <Icon size={24}>
-                                        <IconSprite name="arrowLeft" />
-                                    </Icon>
-                                    <span className="text-16">Volver</span>
-                                </Button>
-                                {!isBanner && (
-                                    <ShareV2
+                {listVideoData.map(
+                    ({ id, title, isBanner, node, counterVideo }, index) => (
+                        <li
+                            key={id}
+                            data-scroller-index={index}
+                            data-scroller-id={id}
+                            data-title={title}
+                            className="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
+                        >
+                            <div className="flex h-100 w-100 ratio-9-16 relative py-16_m">
+                                <div className="w-100 absolute top-0 left-0 z-10 bg-gradient-dark bg-none_lg py-8 mt-16_m">
+                                    <Button
+                                        title="Cerrar"
+                                        onClick={onCloseMediaScrollerExpanded}
+                                        className="py-8 px-16 text-white relative_lg left--130_lg"
+                                        variant="custom"
+                                        size="inherit"
+                                        iconOnly
+                                    >
+                                        <Icon size={24}>
+                                            <IconSprite name="arrowLeft" />
+                                        </Icon>
+                                        <span className="text-16">Volver</span>
+                                    </Button>
+                                    {!isBanner && (
+                                        <ShareV2
+                                            videoId={id}
+                                            videoTitle={title}
+                                            className="absolute top-0 right-0 right--55_lg"
+                                        />
+                                    )}
+                                </div>
+                                {isBanner ? (
+                                    node
+                                ) : (
+                                    <JwVideoPlayer
                                         videoId={id}
-                                        videoTitle={title}
-                                        className="absolute top-0 right-0 right--55_lg"
+                                        index={index}
+                                        counterVideo={counterVideo}
+                                        handleNextCallback={handleNextCallback}
+                                        isLoadedScriptJw={isLoadedScriptJw}
                                     />
                                 )}
-                            </div>
-                            {isBanner ? (
-                                node
-                            ) : (
-                                <JwVideoPlayer
-                                    videoId={id}
-                                    index={index}
-                                    handleNextCallback={handleNextCallback}
-                                    isLoadedScriptJw={isLoadedScriptJw}
-                                />
-                            )}
 
-                            {showLeyendSwipeUp && (
-                                <div
-                                    className="flex flex-column ai-center w-100 absolute bottom-60 py-8 sm-only"
-                                    style={{
-                                        animation: 'float-up 1.5s infinite'
-                                    }}
-                                >
-                                    <Icon
-                                        size={20}
-                                        className="rotate-180 text-white"
+                                {showLeyendSwipeUp && (
+                                    <div
+                                        className="flex flex-column ai-center w-100 absolute bottom-60 py-8 sm-only"
+                                        style={{
+                                            animation: 'float-up 1.5s infinite'
+                                        }}
                                     >
-                                        <IconSprite name="arrowDown" />
-                                    </Icon>
-                                    <Text className="font-bold text-white">
-                                        Desliza hacia arriba para continuar
-                                    </Text>
-                                </div>
-                            )}
-                        </div>
-                    </li>
-                ))}
+                                        <Icon
+                                            size={20}
+                                            className="rotate-180 text-white"
+                                        >
+                                            <IconSprite name="arrowDown" />
+                                        </Icon>
+                                        <Text className="font-bold text-white">
+                                            Desliza hacia arriba para continuar
+                                        </Text>
+                                    </div>
+                                )}
+                            </div>
+                        </li>
+                    )
+                )}
             </ul>
         );
     }

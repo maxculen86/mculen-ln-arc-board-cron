@@ -1,4 +1,3 @@
-import { cx } from '@ln/cva';
 import { convertMillisecondsToMinutes } from '../../../features/LN-common/LN10_En_Vivo/_helpers';
 import { supportedTypes } from '../../../features/LN-nota/body/_utils/_bodyRules';
 import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers';
@@ -251,17 +250,11 @@ export const getPostRenderData = grupo => {
         photo: liveblogHeader.author?.photo || null
     };
 
-    const wrapperPostClasses = cx(
-        '-ml-16 -mr-16 ml-0_m mr-0_m liveBlog_post',
-        !grupo.isPinned && 'liveBlog_post--unpinned'
-    );
-
     return {
         id: grupo.id,
         isPinned: grupo.isPinned,
         title: liveblogHeader.title,
         isExpandable,
-        wrapperPostClasses,
         visibleItems,
         headerProps: {
             displayTime,

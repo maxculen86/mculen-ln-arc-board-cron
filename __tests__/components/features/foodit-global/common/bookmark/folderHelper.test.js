@@ -5,6 +5,19 @@ import {
 } from '../../../../../../components/features/foodit-global/common/bookmark/foldersHelper';
 
 jest.mock(
+    '../../../../../../components/features/private-global/common/utils/safeJSONParse',
+    () => {
+        return jest.fn(value => {
+            try {
+                return value ? JSON.parse(value) : [];
+            } catch {
+                return [];
+            }
+        });
+    }
+);
+
+jest.mock(
     '../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarkGroups',
     () => ({
         __esModule: true,
@@ -27,6 +40,7 @@ describe('Bookmark Functions', () => {
     })();
 
     beforeEach(() => {
+        mockLocalStorage.clear();
         mockLocalStorage.getItem.mockClear();
         mockLocalStorage.setItem.mockClear();
 
@@ -72,39 +86,89 @@ describe('Bookmark Functions', () => {
 
     describe('addStorageFolder', () => {
         it('should add a new bookmark group when localStorage is empty', () => {
-            addStorageFolder('newFolder');
-            expect(localStorage.setItem).toHaveBeenCalledWith(
-                'bookmarkFolders',
-                JSON.stringify([{ bookmarkGroup: 'newFolder' }])
-            );
-        });
+            localStorage.getItem.mockReturnValueOnce(null);
 
-        it('should not add a bookmark group that already exists', () => {
-            localStorage.setItem(
-                'bookmarkFolders',
-                JSON.stringify([{ bookmarkGroup: 'existingFolder' }])
-            );
-            localStorage.setItem.mockClear();
-            addStorageFolder('existingFolder');
-            expect(localStorage.setItem).not.toHaveBeenCalledWith(
-                'bookmarkFolders',
-                expect.anything()
-            );
-        });
+            const result = addStorageFolder('newFolder');
 
-        it('should add a new bookmark group to existing ones', () => {
-            localStorage.setItem(
-                'bookmarkFolders',
-                JSON.stringify([{ bookmarkGroup: 'existingFolder' }])
-            );
-            addStorageFolder('newFolder');
             expect(localStorage.setItem).toHaveBeenCalledWith(
                 'bookmarkFolders',
                 JSON.stringify([
-                    { bookmarkGroup: 'existingFolder' },
-                    { bookmarkGroup: 'newFolder' }
+                    {
+                        bookmarkGroup: 'newFolder',
+                        bookmarkCount: 1
+                    }
                 ])
             );
+
+            expect(result).toEqual([
+                { bookmarkGroup: 'newFolder', bookmarkCount: 1 }
+            ]);
+        });
+
+        it('should increment count for existing bookmark group', () => {
+            const existingFolders = [
+                { bookmarkGroup: 'existingFolder', bookmarkCount: 2 }
+            ];
+            localStorage.getItem.mockReturnValueOnce(
+                JSON.stringify(existingFolders)
+            );
+
+            const result = addStorageFolder('existingFolder');
+
+            expect(localStorage.setItem).toHaveBeenCalledWith(
+                'bookmarkFolders',
+                JSON.stringify([
+                    { bookmarkGroup: 'existingFolder', bookmarkCount: 3 }
+                ])
+            );
+
+            expect(result).toEqual([
+                { bookmarkGroup: 'existingFolder', bookmarkCount: 3 }
+            ]);
+        });
+
+        it('should add a new bookmark group to existing ones', () => {
+            const existingFolders = [
+                { bookmarkGroup: 'existingFolder', bookmarkCount: 2 }
+            ];
+            localStorage.getItem.mockReturnValueOnce(
+                JSON.stringify(existingFolders)
+            );
+
+            const result = addStorageFolder('newFolder');
+
+            expect(localStorage.setItem).toHaveBeenCalledWith(
+                'bookmarkFolders',
+                JSON.stringify([
+                    { bookmarkGroup: 'existingFolder', bookmarkCount: 2 },
+                    { bookmarkGroup: 'newFolder', bookmarkCount: 1 }
+                ])
+            );
+
+            expect(result).toEqual([
+                { bookmarkGroup: 'existingFolder', bookmarkCount: 2 },
+                { bookmarkGroup: 'newFolder', bookmarkCount: 1 }
+            ]);
+        });
+
+        it('should handle corrupted localStorage data', () => {
+            localStorage.getItem.mockReturnValueOnce('invalid json');
+
+            const result = addStorageFolder('newFolder');
+
+            expect(localStorage.setItem).toHaveBeenCalledWith(
+                'bookmarkFolders',
+                JSON.stringify([
+                    {
+                        bookmarkGroup: 'newFolder',
+                        bookmarkCount: 1
+                    }
+                ])
+            );
+
+            expect(result).toEqual([
+                { bookmarkGroup: 'newFolder', bookmarkCount: 1 }
+            ]);
         });
     });
 });
