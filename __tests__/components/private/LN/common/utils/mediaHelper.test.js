@@ -230,18 +230,6 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             expect(container).toMatchSnapshot();
         });
 
-        test('Load image without tag picture: Should return only a preload link', () => {
-            const { container } = render(
-                <LinkImagePreload
-                    resizedUrls={mockDataResizedUrls}
-                    isLoadWithPicture={false}
-                />
-            );
-
-            expect(container.querySelectorAll('link')).toHaveLength(1);
-            expect(container).toMatchSnapshot();
-        });
-
         test('should a empty node when the resizedUrls is not defined', () => {
             const { container } = render(
                 <LinkImagePreload resizedUrls={[]} isLoadWithPicture={false} />

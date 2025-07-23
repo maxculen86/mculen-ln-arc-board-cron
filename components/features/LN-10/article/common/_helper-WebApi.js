@@ -29,7 +29,7 @@ const getImageConfig = ({ renderables, layoutsName, config }) =>
     renderables.some(
         elem =>
             get(elem, 'collection') === 'layouts' &&
-            get(elem, 'type', '') === layoutsName.HomeLN10
+            Object.values(layoutsName).includes(get(elem, 'type', ''))
     )
         ? get(config, 'imageConfig', 'boxArticles')
         : '';

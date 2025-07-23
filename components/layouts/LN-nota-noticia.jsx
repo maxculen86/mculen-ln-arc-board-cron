@@ -64,6 +64,7 @@ lnNotaNoticia.sections = pageBuilderSections;
 
 lnNotaNoticia.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node),
+    outputType: PropTypes.string,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
     isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({

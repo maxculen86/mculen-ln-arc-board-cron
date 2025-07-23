@@ -3,6 +3,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
@@ -15,12 +16,10 @@ import {
     getArticlesFromMyCurrentCollection
 } from '../../private/LN/common/utils/cajaTemasValidators';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../private/common/utils/get';
 import { productClickFromClient } from '../../private/common/utils/viewability';
-import Static from 'fusion:static';
 
-const CajaCollection = props => {
+function CajaCollection(props) {
     const {
         id: featureId,
         isAdmin,
@@ -36,12 +35,11 @@ const CajaCollection = props => {
             website
         },
         outputType,
-        renderables = [],
         tree = {},
         layout: pageLayout
     } = props;
 
-    if (hideCaja) return <></>;
+    if (hideCaja) return null;
 
     const {
         collectionsInPage,
@@ -52,22 +50,13 @@ const CajaCollection = props => {
         positionInsideSection
     } = getCommonProps(props);
 
-    const { layoutsName = {} } = siteConfig;
-
-    const diagramation = renderables.some(
-        elem =>
-            get(elem, 'collection') === 'layouts' &&
-            get(elem, 'type') === layoutsName.Home
-    )
-        ? layout
-        : '';
-
-    const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
-        collectionsInPage,
-        idCollection,
-        Number(initialPosition) - 1,
-        notesQuantity
-    );
+    const articlesFromCollectionSiteService =
+        getArticlesFromMyCurrentCollection(
+            collectionsInPage,
+            idCollection,
+            Number(initialPosition) - 1,
+            notesQuantity
+        );
 
     const idCollectionsInPage = get(
         props,
@@ -87,7 +76,7 @@ const CajaCollection = props => {
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
               notesQuantity,
-              diagramation,
+              diagramation: layout,
               idCollection,
               size: 20,
               initialPosition: Number(initialPosition) - 1,
@@ -131,10 +120,10 @@ const CajaCollection = props => {
             imageId={imageId}
             outputType={outputType}
             layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
+            classCondition={`${classCondition}${
+                (isInApertura && layout.includes('focal') && ' --apertura') ||
+                ''
+            }`}
             notesQuantity={notesQuantity}
             position={position}
             positionInsideSection={positionInsideSection}
@@ -147,7 +136,7 @@ const CajaCollection = props => {
     );
 
     return <Static id={featureId}>{Component}</Static>;
-};
+}
 
 CajaCollection.label = 'LN Caja Collection';
 
@@ -155,18 +144,6 @@ CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool,
     outputType: PropTypes.string,
-    renderables: PropTypes.arrayOf(
-        PropTypes.shape({
-            type: PropTypes.string,
-            props: PropTypes.shape({
-                customFields: PropTypes.shape({
-                    layout: PropTypes.string,
-                    idCollection: PropTypes.string,
-                    initialPosition: PropTypes.number
-                })
-            })
-        })
-    ),
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaCollection')
     }),
