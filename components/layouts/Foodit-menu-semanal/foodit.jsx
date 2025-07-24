@@ -16,7 +16,7 @@ function MenuSemanal() {
                             className="mb-24"
                             sectionsCustom={[
                                 {
-                                    name: 'Mi Menú Semanal',
+                                    name: 'Mi menú semanal',
                                     url: '/mi-menu-semanal/'
                                 }
                             ]}
