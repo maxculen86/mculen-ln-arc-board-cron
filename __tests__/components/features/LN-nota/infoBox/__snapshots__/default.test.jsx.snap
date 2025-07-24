@@ -12,7 +12,7 @@ exports[`InfoBoxFeature Should override the link if tagList matches tag slug and
       href="https://custom-link.com"
       rel="nofollow"
       target="_blank"
-      title="IR A LAS GUÍAS"
+      title="IR A LA GUÍA"
     >
       <div
         class="flex flex-row_m flex-column ai-center ai-stretch_m gap-24"
@@ -60,13 +60,13 @@ exports[`InfoBoxFeature Should override the link if tagList matches tag slug and
             <p
               class="text prumo prumo-slab prumo-medium text-18 text-center text-initial_m text-neutral-light-800"
             >
-              Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema
+              Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre cómo prevenir, actuar y encontrar ayuda frente a este problema
             </p>
           </div>
           <div
             class="py-12 px-16 rounded-4 --font-2xs --font-bold bg-blue-500 text-light-0 uppercase transition transition-all transition-duration-800 mb-24_m"
           >
-            IR A LAS GUÍAS
+            IR A LA GUÍA
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
       href="https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/"
       rel="nofollow"
       target="_blank"
-      title="IR A LAS GUÍAS"
+      title="IR A LA GUÍA"
     >
       <div
         class="flex flex-row_m flex-column ai-center ai-stretch_m gap-24"
@@ -139,7 +139,7 @@ exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
           <div
             class="py-12 px-16 rounded-4 --font-2xs --font-bold bg-blue-500 text-light-0 uppercase transition transition-all transition-duration-800 mb-24_m"
           >
-            IR A LAS GUÍAS
+            IR A LA GUÍA
           </div>
         </div>
       </div>
