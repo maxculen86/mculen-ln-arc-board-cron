@@ -50,7 +50,7 @@ function lnNotaFotoAl100({
                 <main id="content" className="--header-fixed-margin">
                     {preTitulo}
                     <AperturaStorytelling />
-                    <div className="row">
+                    <div id="cuerpo__nota" className="row">
                         {leftCuerpo}
                         {cuerpo}
                     </div>

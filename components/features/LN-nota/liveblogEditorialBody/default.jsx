@@ -28,7 +28,7 @@ function BodyLiveblogEditorial() {
         outputType,
         bodyOrigin: 'Body Liveblog Editorial',
         noteId: _id,
-        selector: '#body-liveblog-editorial'
+        selector: 'body-liveblog-editorial'
     });
 
     useScrollDispatcher({
