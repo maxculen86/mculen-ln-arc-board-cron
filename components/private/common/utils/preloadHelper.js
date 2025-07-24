@@ -32,7 +32,11 @@ export const getFirstChainItem = (renderables = []) => {
         } = get(firstChain, 'children[0].props.customFields', {});
 
         return !hideImage
-            ? { articleId: noteId, imageId, imageConfig: '' }
+            ? {
+                  articleId: noteId,
+                  imageId,
+                  imageConfig: 'featuredFocalIzquierdo'
+              }
             : {};
     }
 
@@ -58,7 +62,7 @@ export const getFirstChainItem = (renderables = []) => {
 export const verifyChainsBeforeGrid = (renderables = []) => {
     const sectionChildrens = [];
 
-    renderables.forEach(({ collection, children, type }) => {
+    renderables.forEach(({ collection, children }) => {
         if (collection === 'sections') {
             const cleanElements = children.map(child => ({
                 type: child.type,
@@ -89,23 +93,13 @@ export const haveFeatureAcumuladoApertura = (renderables = []) =>
             collection === 'features' && type === 'LN-acumulado/apertura'
     ) || false;
 
-const getImageConfig = (isLoadWithPicture, idCollectionApertura) => {
-    if (isLoadWithPicture) {
-        return idCollectionApertura ? 'newAperturaAcu' : 'newBoxArticles';
-    }
+const getImageConfig = idCollectionApertura =>
+    idCollectionApertura ? 'newAperturaAcu' : 'newBoxArticles';
 
-    return idCollectionApertura ? 'aperturaAcu' : 'boxArticles';
-};
-
-export const getDataPreloadAcu = (
-    idCollectionApertura,
-    nodeType,
-    isLoadWithPicture = false
-) => ({
+export const getDataPreloadAcu = (idCollectionApertura, nodeType) => ({
     nodeType: idCollectionApertura ? '' : nodeType,
     collectionId: idCollectionApertura || '',
-    // TODO: Sacar funcion getImageConfig y agregar el imageConfig respectivo una vez se implemente carga con picture en todos los acumulados
-    imageConfig: getImageConfig(isLoadWithPicture, idCollectionApertura)
+    imageConfig: getImageConfig(idCollectionApertura)
 });
 
 export const excludePreloadAcu = ({
