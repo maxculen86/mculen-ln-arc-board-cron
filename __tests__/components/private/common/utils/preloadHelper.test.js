@@ -8,10 +8,10 @@ import acuDeportesRenderables from '../../../../../__mocks__/data/renderables/da
 describe('Preload helper', () => {
     describe('getDataPreloadAcu', () => {
         const cases = [
-            ['QJ3BOEZVQNEYZEVBXHF4C7KAWY', 'section', '', 'aperturaAcu'],
-            ['', 'section', 'section', 'boxArticles'],
-            ['', '', '', 'boxArticles'],
-            ['QJ3BOEZVQNEYZEVBXHF4C7KAWY', '', '', 'aperturaAcu']
+            ['QJ3BOEZVQNEYZEVBXHF4C7KAWY', 'section', '', 'newAperturaAcu'],
+            ['', 'section', 'section', 'newBoxArticles'],
+            ['', '', '', 'newBoxArticles'],
+            ['QJ3BOEZVQNEYZEVBXHF4C7KAWY', '', '', 'newAperturaAcu']
         ];
         test.each(cases)(
             'should return data of preload %p as idCollection and %p as nodeType',
@@ -68,8 +68,7 @@ describe('Preload helper', () => {
                 false,
                 {
                     nodeType: 'tags',
-                    id:
-                        '3cf09432d5c3e56daa92236477ad963f485d5c10aeccff6a874f489950050b2c',
+                    id: '3cf09432d5c3e56daa92236477ad963f485d5c10aeccff6a874f489950050b2c',
                     hasFeatureAcumuladoApertura: {},
                     idCollectionApertura: '',
                     hasChainBeforeGrid: false
@@ -118,7 +117,7 @@ describe('Preload helper', () => {
         test('should return first articleId from caja manual', () => {
             expectedItem = {
                 articleId: 'HSPZIST4PJC2VHU3KCSFV7LHFA',
-                imageConfig: '',
+                imageConfig: 'featuredFocalIzquierdo',
                 imageId: ''
             };
 

@@ -149,12 +149,6 @@ describe('Tests component - imageBase', () => {
     describe('Cases without tag picture', () => {
         const properties = { ...props, isValidSection: false };
 
-        test('should return a tag img when the prop isValidSection is false', () => {
-            const { container } = render(<ImageArticle {...properties} />);
-
-            expect(container.querySelectorAll('picture')).toHaveLength(0);
-        });
-
         test('should return the attributes fetchpriority low and loading lazy when is not opening ', () => {
             const props = {
                 ...properties,

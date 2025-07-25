@@ -11,8 +11,8 @@ import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import setArticleClassName from './utils/setArticleClassName';
-import '../../../resources/dist/css/ln/modules/mod-article.css';
 import { useBookmarkContext } from './bookmark/hooks/BookmarkContext';
+import '../../../resources/dist/css/ln/modules/mod-article.css';
 
 const ModArticle = forwardRef((props, ref) => {
     const {
@@ -58,7 +58,8 @@ const ModArticle = forwardRef((props, ref) => {
         openBarrier
     } = props;
 
-    const { layout: layoutPageBuilder, globalContent } = useAppContext() || {};
+    const { layout: layoutPageBuilder } = useAppContext() || {};
+
     const { setBookmarkId } = useBookmarkContext();
 
     const {
@@ -133,9 +134,6 @@ const ModArticle = forwardRef((props, ref) => {
                     shouldLoadEager={shouldLoadEager}
                     withMobileImage={withMobileImage}
                     searchableField={searchableField}
-                    // TODO: Eliminar estas propiedades cuando se implemente carga de imagen con picture en todo el sitio.
-                    layoutPageBuilder={layoutPageBuilder}
-                    globalContent={globalContent}
                     authors={hasAuthorName && authors}
                 />
             )}

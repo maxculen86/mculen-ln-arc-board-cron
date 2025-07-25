@@ -70,6 +70,13 @@ function PwaModal({ className }) {
         </div>
     );
 }
+PwaModal.propTypes = {
+    className: PropTypes.string
+};
+
+PwaModal.defaultProps = {
+    className: ''
+};
 
 PwaModal.propTypes = {
     className: PropTypes.string
