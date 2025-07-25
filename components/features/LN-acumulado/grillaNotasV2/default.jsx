@@ -47,6 +47,8 @@ function GrillaNotasFeatureV2(props) {
     );
 }
 
+GrillaNotasFeatureV2.label = 'LN-Acumulado-Grilla-NotasV2';
+
 GrillaNotasFeatureV2.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string,

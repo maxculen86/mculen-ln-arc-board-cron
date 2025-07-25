@@ -10,7 +10,7 @@ export function GrillaNotasServer({
     getBanner,
     globalContent
 }) {
-    const { articles } = useGridArticlesLN({ id, layout, staticMode: true });
+    const { articles } = useGridArticlesLN({ id, staticMode: true });
 
     return (
         <ArticleCardsList
