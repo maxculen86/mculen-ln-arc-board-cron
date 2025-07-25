@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/common-ui-link';
+import Static from 'fusion:static';
 import get from '../../../private/common/utils/get';
 import ModPicture from '../../../private/common/mod-picture';
 import Text from '../../../private/common/text';
@@ -13,14 +14,38 @@ import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import { wikiImagesWithWWW } from '../../../private/LN/common/utils/mediaHelper';
-import Static from 'fusion:static';
 
-const WikiFeature = ({ id: featureId }) => {
+export const getAltImg = (
+    isOrganization,
+    givenName,
+    additionalName,
+    familyName,
+    legalName
+) =>
+    !isOrganization
+        ? `${givenName} ${additionalName} ${familyName}`
+        : legalName;
+
+export const getIconTitle = (
+    isOrganization,
+    iconType,
+    legalName,
+    givenName,
+    familyName
+) =>
+    isOrganization
+        ? `Ir al ${iconType} de ${legalName}`
+        : `Ir al ${iconType} de ${givenName} ${familyName}`;
+
+export const getIconHref = (iconType, url) =>
+    iconType === 'Instagram' ? url.concat('/') : url;
+
+function WikiFeature({ id: featureId }) {
     const props = get(useAppContext(), 'globalContent', {});
     const { isWiki } = props;
     const { wikiSourceData = {} } = props;
 
-    if (!isWiki || !wikiSourceData) return <></>;
+    if (!isWiki || !wikiSourceData) return null;
 
     const {
         social_networks: socialNetworks = [],
@@ -56,10 +81,7 @@ const WikiFeature = ({ id: featureId }) => {
         { text: 'Profesión', value: `${jobTitle}` },
         {
             text: 'Fecha de nacimiento',
-            value: `${birthDate
-                .split('-')
-                .reverse()
-                .join('/')}`
+            value: `${birthDate.split('-').reverse().join('/')}`
         },
         {
             text: 'Lugar de nacimiento',
@@ -87,7 +109,7 @@ const WikiFeature = ({ id: featureId }) => {
                 className={`wiki-tags ${isOrganization && '--organization'}`}
             >
                 <ModPicture
-                    src={resizedUrl}
+                    imgDefault={resizedUrl}
                     alt={getAltImg(
                         isOrganization,
                         givenName,
@@ -95,8 +117,6 @@ const WikiFeature = ({ id: featureId }) => {
                         familyName,
                         legalName
                     )}
-                    sources={resizedUrls}
-                    isApertura
                 />
                 <div className="extra-info --font-primary --font-medium">
                     {(isOrganization ? schemaOrganization : schemaPerson).map(
@@ -123,10 +143,8 @@ const WikiFeature = ({ id: featureId }) => {
                     <div className="social-networks flex ai-center --font-primary --font-medium mb-24 gap-16 pl-16_m pl-0_lg">
                         <Text>Conectar:</Text>
                         {socialNetworks.map(iconInfo => {
-                            const {
-                                type: iconType = '',
-                                url: iconUrl = ''
-                            } = iconInfo;
+                            const { type: iconType = '', url: iconUrl = '' } =
+                                iconInfo;
                             return (
                                 <Link
                                     href={getIconHref(iconType, iconUrl)}
@@ -172,32 +190,7 @@ const WikiFeature = ({ id: featureId }) => {
             </article>
         </Static>
     );
-};
-
-export const getAltImg = (
-    isOrganization,
-    givenName,
-    additionalName,
-    familyName,
-    legalName
-) =>
-    !isOrganization
-        ? `${givenName} ${additionalName} ${familyName}`
-        : legalName;
-
-export const getIconTitle = (
-    isOrganization,
-    iconType,
-    legalName,
-    givenName,
-    familyName
-) =>
-    isOrganization
-        ? `Ir al ${iconType} de ${legalName}`
-        : `Ir al ${iconType} de ${givenName} ${familyName}`;
-
-export const getIconHref = (iconType, url) =>
-    iconType === 'Instagram' ? url.concat('/') : url;
+}
 
 WikiFeature.propTypes = {
     isWiki: PropTypes.string

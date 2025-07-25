@@ -24,7 +24,6 @@ describe('Componentes- Layouts - LNMapaDelSitio', () => {
     describe('LNMapaDelSitio', () => {
         test('should render the component correctly with children', () => {
             render(<LNMapaDelSitio>Children</LNMapaDelSitio>);
-
             expect(screen.getByText('Copyright Component')).toBeInTheDocument();
             expect(screen.getByText('PwaModal Component')).toBeInTheDocument();
             expect(screen.getByText('ComLogo Component')).toBeInTheDocument();
