@@ -22,6 +22,7 @@ export const getRegex = sectionId => {
         /\/(lnmas)/,
         /^\/(propiedades)(?:\/.+)?/,
         /^\/(economia\/campo)(?:\/.+)?/,
+        /^\/(comunidad)(?:\/.+)?/,
         /^\/(salud)(?:\/.+)?/,
         /^\/(autos)(?:\/.+)?/,
         /^\/(canchallena)(?:\/.+)?/,
@@ -74,6 +75,7 @@ export const getLogoData = sections => {
             ($1 === 'economia/IA' && 'futuria') ||
             ($1 === 'que-sale' && 'que-sale') ||
             ($1 === 'masmusica' && 'ln-radio') ||
+            ($1 === 'comunidad' && 'fundacion') ||
             $1;
 
         const path = generatePath(sectionId, regex, fullMatch, $1);
