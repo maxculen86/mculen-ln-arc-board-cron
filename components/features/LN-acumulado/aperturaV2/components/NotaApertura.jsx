@@ -1,42 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from '@ln/contenidos-ui-card';
-import { getCardPropsFromArticle } from '../_helpers';
+import { replaceAllUrlsResizerObject } from '../../../../private/LN/common/utils/mediaHelper';
+import { getCardPropsFromArticle } from '../../grillaNotasV2/_helpers';
 
-function ArticleCardsList({
-    articles,
-    isUltimasNoticias = false,
-    getBanner,
-    globalContent,
-    pageBuilderLayout
-}) {
+function NotaApertura({ articles = [] }) {
+    if (!articles.length) return null;
+
     return (
         <>
-            {articles.map((article, index) => {
-                const cardProps = getCardPropsFromArticle(
-                    article,
-                    isUltimasNoticias,
-                    globalContent,
-                    pageBuilderLayout
-                );
-                const banner = getBanner ? getBanner(index) : null;
-
+            {articles.map(art => {
+                const article = replaceAllUrlsResizerObject(art);
+                const cardProps = getCardPropsFromArticle(article);
                 return (
                     <Card
                         {...cardProps}
                         variant="regular"
                         titleTag="h2"
                         cardSize="m-l"
-                    >
-                        {banner}
-                    </Card>
+                        titleSize="--twoxl"
+                        titleWeight="--font-medium"
+                    />
                 );
             })}
         </>
     );
 }
 
-ArticleCardsList.propTypes = {
+NotaApertura.propTypes = {
     articles: PropTypes.arrayOf(
         PropTypes.shape({
             _id: PropTypes.string.isRequired,
@@ -59,13 +50,7 @@ ArticleCardsList.propTypes = {
             display_date: PropTypes.string,
             website_url: PropTypes.string
         })
-    ).isRequired,
-    getBanner: PropTypes.func.isRequired,
-    isUltimasNoticias: PropTypes.bool.isRequired,
-    globalContent: PropTypes.shape({
-        name: PropTypes.string
-    }).isRequired,
-    pageBuilderLayout: PropTypes.string.isRequired
+    ).isRequired
 };
 
-export default ArticleCardsList;
+export default NotaApertura;

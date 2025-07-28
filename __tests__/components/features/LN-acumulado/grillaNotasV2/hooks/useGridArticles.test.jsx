@@ -60,7 +60,6 @@ describe('Components - features - LN-acumulado - grillaNotasV2 - hooks - useGrid
 
         const hookResult = useGridArticlesLN({
             id: '/economia',
-            layout: 'LN-acumulado-v2',
             page: 1
         });
 
