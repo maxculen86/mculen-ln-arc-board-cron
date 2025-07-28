@@ -38,7 +38,7 @@ export function ModalRemoveIngredient() {
         >
             <Dialog.Header className="flex jc-end pb-16 pb-24_md pb-32_lg">
                 <Button
-                    onClick={close}
+                    onClick={() => close()}
                     variant="link"
                     title="Cerrar"
                     aria-label="Cerrar"
