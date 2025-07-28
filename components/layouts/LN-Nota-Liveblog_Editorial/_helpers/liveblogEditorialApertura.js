@@ -62,14 +62,12 @@ export const getEpigrafe = (basic, dataIframe) => {
     return renderFn ? renderFn() : { caption: null, credit: null };
 };
 
-export const getLiveBlogEditorialDataApertura = (
-    globalContent = {},
-    children = []
-) => {
+export const getLiveBlogEditorialDataApertura = (globalContent = {}) => {
     const {
         headlines: { basic = '' } = {},
         display_date: displayDate,
-        promo_items: promoItems = {}
+        promo_items: promoItems = {},
+        subheadlines: { basic: subheadline = '' } = {}
     } = globalContent;
 
     const coverageEndTime = !isOlderThanXHoursAgo(displayDate, 12);
@@ -82,10 +80,8 @@ export const getLiveBlogEditorialDataApertura = (
 
     const dataDescripcion = {
         title: basic,
-        date,
-        time,
         badge: coverageEndTime,
-        signature: children?.[1]
+        subheadline
     };
 
     const dataMedia = {
@@ -93,10 +89,16 @@ export const getLiveBlogEditorialDataApertura = (
         ...epigraph
     };
 
+    const dataDateTime = {
+        date,
+        time
+    };
+
     return {
         dataDescripcion,
         dataMedia,
-        dataEpigraph: epigraph
+        dataEpigraph: epigraph,
+        dataDateTime
     };
 };
 

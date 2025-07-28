@@ -8,7 +8,7 @@ import LiveBlogBody from './body/LiveBlogBody';
 
 function LiveBlogEditorial({ children }) {
     const { globalContent } = useAppContext();
-    const { dataMedia, dataDescripcion, dataEpigraph } =
+    const { dataMedia, dataDescripcion, dataEpigraph, dataDateTime } =
         getLiveBlogEditorialDataApertura(globalContent, children);
 
     return (
@@ -18,14 +18,16 @@ function LiveBlogEditorial({ children }) {
                 {children[0]}
                 {/* ---- APERTURA ---- */}
                 <LiveBlogEditorial.Opening data={dataEpigraph}>
-                    <LiveBlogOpening.Media data={dataMedia} />
                     <LiveBlogOpening.Description data={dataDescripcion} />
+                    <LiveBlogOpening.Media data={dataMedia} />
                 </LiveBlogEditorial.Opening>
-                <div className="lay-sidebar pt-32_m">
+                <div className="lay-sidebar pt-16 pt-32_m">
                     <div className="row">
                         {/* ---- CUERPO ---- */}
                         <LiveBlogEditorial.Body>
-                            <LiveBlogBody.Top>{children[2]}</LiveBlogBody.Top>
+                            <LiveBlogBody.Top dateTime={dataDateTime}>
+                                {children[2]}
+                            </LiveBlogBody.Top>
                         </LiveBlogEditorial.Body>
                     </div>
                     {/* ---- TERCERA ---- */}
