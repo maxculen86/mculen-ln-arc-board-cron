@@ -143,8 +143,6 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                 }
             };
 
-            const children = [null, 'Florencia Fernández Blanco'];
-
             dateAndTimeUtil.mockReturnValue({
                 date: '19 de mayo de 2025',
                 time: '10:51'
@@ -156,18 +154,13 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                 url: 'https://sandbox-resizer.glanacion.com/resizer/v2/YOMDQEB4MBETLKVQYGDYTR53WA.jpg?auth=1f0c40ad1f20c36277197c020ba99070a7178b9a37f8b888a2c00b8233747c45&width=768&quality=70&smart=false'
             });
 
-            const result = getLiveBlogEditorialDataApertura(
-                globalContent,
-                children
-            );
+            const result = getLiveBlogEditorialDataApertura(globalContent);
 
             expect(result).toEqual({
                 dataDescripcion: {
                     title: 'Prueba Liveblog Editorial',
-                    date: '19 de mayo de 2025',
-                    time: '10:51',
                     badge: true,
-                    signature: 'Florencia Fernández Blanco'
+                    subheadline: ''
                 },
                 dataMedia: {
                     mediaData: {
@@ -179,6 +172,10 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                 dataEpigraph: {
                     caption: null,
                     credit: null
+                },
+                dataDateTime: {
+                    date: '19 de mayo de 2025',
+                    time: '10:51'
                 }
             });
         });
