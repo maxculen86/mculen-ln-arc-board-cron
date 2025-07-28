@@ -70,7 +70,7 @@ describe('SingWall Component', () => {
 
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'subscription_start',
-            button: 'Suscribite'
+            button: 'soft_paywall'
         });
     });
 

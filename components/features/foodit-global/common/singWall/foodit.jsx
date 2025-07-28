@@ -12,8 +12,7 @@ import useGetUserConfig from '../../hooks/useGetUserConfig';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function SingWall() {
-    const { userType = 'loading', promotions } = useGetUserConfig();
-    const { buttonSubscribeText } = promotions;
+    const { userType = 'loading' } = useGetUserConfig();
 
     return (
         <section className="bg-neutral-light-100 relative w-100vw as-center shadow-top">
@@ -45,7 +44,7 @@ function SingWall() {
                             onClick={() => {
                                 addEventToDataLayerV2({
                                     event: 'subscription_start',
-                                    button: buttonSubscribeText
+                                    button: 'soft_paywall'
                                 });
                             }}
                         >
@@ -60,6 +59,14 @@ function SingWall() {
                                 href={`${FOODIT_LOGIN_URL}${window?.btoa(
                                     window.location?.href
                                 )}`}
+                                onClick={() => {
+                                    addEventToDataLayerV2({
+                                        event: 'e_linkclick',
+                                        action: 'N/A',
+                                        category: 'soft_paywall',
+                                        label: 'inicia_sesion'
+                                    });
+                                }}
                             >
                                 <span className="uppercase">iniciá sesión</span>
                             </Button>

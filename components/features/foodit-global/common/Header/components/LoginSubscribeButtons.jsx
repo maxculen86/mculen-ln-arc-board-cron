@@ -36,13 +36,20 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
         });
         addEventToDataLayerV2({
             event: 'subscription_start',
-            button: buttonSubscribeText
+            button: 'header'
         });
     };
+
     const handleLoginClick = () => {
         const href = `${FOODIT_LOGIN_URL}${window?.btoa(window.location.href)}`;
         requestAnimationFrame(() => {
             window.location.href = href;
+        });
+        addEventToDataLayerV2({
+            event: 'e_linkclick',
+            action: 'N/A',
+            category: 'header',
+            label: 'inicia_sesion'
         });
     };
 

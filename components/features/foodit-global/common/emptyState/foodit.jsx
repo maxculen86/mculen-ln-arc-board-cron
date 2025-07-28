@@ -14,7 +14,7 @@ import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import RenderButtons from './ButtonEmptyState';
 import CardInfo from './cardInfo';
 
-function EmptyState({ variant, className, direction = 'row' }) {
+function EmptyState({ variant, className, direction = 'row', comesFrom = '' }) {
     const { userType, isSubscribed } = useGetUserConfig();
     const { contextPath, deployment, layout } = useAppContext();
     const directionEmptyState = direction === 'row';
@@ -49,7 +49,7 @@ function EmptyState({ variant, className, direction = 'row' }) {
 
     if (!variant) return null;
 
-    const buttons = RenderButtons({ variant, userType });
+    const buttons = RenderButtons({ variant, userType, comesFrom });
 
     return (
         <div>
@@ -100,13 +100,15 @@ function EmptyState({ variant, className, direction = 'row' }) {
 EmptyState.propTypes = {
     variant: PropTypes.string,
     direction: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    comesFrom: PropTypes.string
 };
 
 EmptyState.defaultProps = {
     variant: '',
     direction: 'row',
-    className: ''
+    className: '',
+    comesFrom: ''
 };
 
 export default EmptyState;
