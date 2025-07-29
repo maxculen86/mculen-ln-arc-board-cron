@@ -25,7 +25,7 @@ function OpeningMedia({ data }) {
                 {mediaItem}
                 <div className="px-16 px-0_m pt-8 border border-bottom border-thin border-neutral-light-800 border-bottom-none_m">
                     <ModFigcaption
-                        className="border-bottom-none mb-0"
+                        className="border-bottom-none mb-0 text-light-400"
                         title={caption}
                         credit={credit}
                     />
