@@ -38,7 +38,7 @@ function NotaMain({ children, className }) {
                                 </div>
                                 <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                     <div className="row">
-                                        <div className="col-12 break-word">
+                                        <div className="col-12">
                                             {/* Pos-Apertura */}
                                             {children[5]}
                                         </div>
