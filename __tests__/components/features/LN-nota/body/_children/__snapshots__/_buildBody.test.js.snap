@@ -61,7 +61,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Commodo 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -71,7 +71,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
      cubilia laoreet 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -83,7 +83,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     , fames 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -95,7 +95,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
      etiam enim nec 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -109,7 +109,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     , risus ut libero suspendisse maecenas
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -124,7 +124,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     . Dictumst 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -140,7 +140,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     , libero iaculis taciti platea urna, purus convallis placerat dui. Ad non lacinia arcu habitasse inceptos habitant nullam nisi placerat, orci cras porttitor lacus elementum sapien vestibulum 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -418,7 +418,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -432,7 +432,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -450,7 +450,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -468,7 +468,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -486,7 +486,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -508,7 +508,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -530,7 +530,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -556,7 +556,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -1292,7 +1292,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Esto es un párrafo. Lorem ipsum dolor sit amet, 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.google.com/"
       rel="nofollow"
@@ -1739,7 +1739,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Esto es un 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
       target="_self"
@@ -3451,7 +3451,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Commodo 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -3461,7 +3461,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
      cubilia laoreet 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -3473,7 +3473,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     , fames 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -3485,7 +3485,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
      etiam enim nec 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -3499,7 +3499,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     , risus ut libero suspendisse maecenas
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -3514,7 +3514,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     . Dictumst 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -3530,7 +3530,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </a>
     , libero iaculis taciti platea urna, purus convallis placerat dui. Ad non lacinia arcu habitasse inceptos habitant nullam nisi placerat, orci cras porttitor lacus elementum sapien vestibulum 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -3808,7 +3808,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -3822,7 +3822,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -3840,7 +3840,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -3858,7 +3858,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -3876,7 +3876,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -3898,7 +3898,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -3920,7 +3920,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -3946,7 +3946,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -4682,7 +4682,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Esto es un párrafo. Lorem ipsum dolor sit amet, 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.google.com/"
       rel="nofollow"
@@ -5129,7 +5129,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Esto es un 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
       target="_self"
@@ -6841,7 +6841,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
   >
     Commodo 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -6851,7 +6851,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </a>
      cubilia laoreet 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -6863,7 +6863,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </a>
     , fames 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -6875,7 +6875,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </a>
      etiam enim nec 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -6889,7 +6889,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </a>
     , risus ut libero suspendisse maecenas
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -6904,7 +6904,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </a>
     . Dictumst 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -6920,7 +6920,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </a>
     , libero iaculis taciti platea urna, purus convallis placerat dui. Ad non lacinia arcu habitasse inceptos habitant nullam nisi placerat, orci cras porttitor lacus elementum sapien vestibulum 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/"
       target="_self"
@@ -7198,7 +7198,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -7212,7 +7212,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -7230,7 +7230,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -7248,7 +7248,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -7266,7 +7266,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -7288,7 +7288,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -7310,7 +7310,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -7336,7 +7336,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="com-paragraph   --s"
   >
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
       target="_self"
@@ -8072,7 +8072,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
   >
     Esto es un párrafo. Lorem ipsum dolor sit amet, 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.google.com/"
       rel="nofollow"
@@ -8519,7 +8519,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
   >
     Esto es un 
     <a
-      class="com-link"
+      class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
       href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
       target="_self"
