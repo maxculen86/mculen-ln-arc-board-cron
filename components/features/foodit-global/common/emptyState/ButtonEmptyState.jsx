@@ -2,11 +2,18 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { buttonPropsByVariant } from './helpers';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const BARRIER_LOGGED = 'barrier-logged';
 const BARRIER_UNLOGGED = 'barrier-unlogged';
 
-function RenderButtons({ variant, userType }) {
+function RenderButtons({ variant, userType, comesFrom = '' }) {
+    const buttonCategorys = {
+        DialogFoodit: 'modal_funcionalidades',
+        CommentFoodit: 'funcionalidad_comentarios'
+    };
+    const button = buttonCategorys[comesFrom] || 'paginas_exclusivas';
+
     if (variant === '404' || variant === 'search-engine') return null;
 
     const {
@@ -21,12 +28,26 @@ function RenderButtons({ variant, userType }) {
                 <Button
                     variant={buttonPropsByVariant[BARRIER_LOGGED].variant}
                     href={buttonPropsByVariant[BARRIER_LOGGED].href}
+                    onClick={() => {
+                        addEventToDataLayerV2({
+                            event: 'subscription_start',
+                            button
+                        });
+                    }}
                 >
                     {buttonPropsByVariant[BARRIER_LOGGED].label}
                 </Button>
                 <Button
                     variant={buttonPropsByVariant[BARRIER_UNLOGGED].variant}
                     href={buttonPropsByVariant[BARRIER_UNLOGGED].href}
+                    onClick={() => {
+                        addEventToDataLayerV2({
+                            event: 'e_linkclick',
+                            action: 'N/A',
+                            label: 'inicia_sesion',
+                            category: button
+                        });
+                    }}
                 >
                     <span className="uppercase">
                         {buttonPropsByVariant[BARRIER_UNLOGGED].label}
@@ -38,7 +59,16 @@ function RenderButtons({ variant, userType }) {
 
     if (userType === 'logged') {
         return (
-            <Button variant={buttonVariant} href={href}>
+            <Button
+                variant={buttonVariant}
+                href={href}
+                onClick={() => {
+                    addEventToDataLayerV2({
+                        event: 'subscription_start',
+                        button
+                    });
+                }}
+            >
                 {label}
             </Button>
         );
@@ -49,7 +79,8 @@ function RenderButtons({ variant, userType }) {
 
 RenderButtons.propTypes = {
     variant: PropTypes.isRequired,
-    userType: PropTypes.isRequired
+    userType: PropTypes.isRequired,
+    comesFrom: PropTypes.string.isRequired
 };
 
 export default RenderButtons;

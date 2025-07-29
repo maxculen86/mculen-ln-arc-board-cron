@@ -5,6 +5,7 @@ import { Avatar } from '@ln/foodit-ui-avatar';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { AccountItem } from './accountItem';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function MyAccount({
     avatarProps = {},
@@ -42,6 +43,12 @@ export function MyAccount({
                             href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?cv=670&fc=825&callback=${window.btoa(
                                 window.location.href
                             )}`}
+                            onClick={() => {
+                                addEventToDataLayerV2({
+                                    event: 'subscription_start',
+                                    button: 'mi_cuenta'
+                                });
+                            }}
                         >
                             Suscribite
                         </Button>

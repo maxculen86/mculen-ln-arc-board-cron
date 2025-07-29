@@ -13,6 +13,7 @@ import {
 } from './helper';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
 import { scheduleTask } from '../../../../private/common/utils/scheduleTask';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function SaleBox({ ...props }) {
     const { deployment, contextPath } = useAppContext();
@@ -29,6 +30,10 @@ export function SaleBox({ ...props }) {
     const handleRedirectSubscription = () => {
         scheduleTask(() => {
             window.location.href = paywallUrl;
+        });
+        addEventToDataLayerV2({
+            event: 'subscription_start',
+            button: 'home'
         });
     };
     return (
