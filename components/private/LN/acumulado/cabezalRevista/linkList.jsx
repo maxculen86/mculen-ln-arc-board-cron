@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import WithNavigation from '../../../common/hocs/withNavigation';
 
-const LinkList = ({ navigations, id }) => {
+// TODO: Evaluar uso de hoc WithNavigation
+
+function LinkList({ navigations, id }) {
     const nav = navigations.find(el => el._id === id);
     let links = [];
     if (nav) {
@@ -13,7 +16,7 @@ const LinkList = ({ navigations, id }) => {
         ));
     }
     return <div className="links">{links}</div>;
-};
+}
 
 LinkList.propTypes = {
     navigations: PropTypes.arrayOf(

@@ -2,438 +2,218 @@
 
 exports[`SaveRecipe Component should match snapshot when userType is logged 1`] = `
 <body>
-  <div />
-  <dialog
-    class="dialog disable-body-scroll p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
-    data-position="center"
-    style="animation-name: fade-in-up; animation-fill-mode: forwards; animation-duration: 200ms;"
-  >
+  <div>
     <div
-      class="flex flex-column gap-16 gap-24_md gap-32_lg"
+      class="p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
+      data-testid="dialog"
+      role="dialog"
     >
-      <header
-        class="flex flex flex-column ai-end"
+      <div
+        class="flex flex-column gap-16 gap-24_md gap-32_lg"
       >
-        <button
-          aria-label="Cerrar"
-          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-          data-variant="link"
-          title="Cerrar"
+        <div
+          class="flex flex-column ai-end"
+          data-testid="dialog-header"
         >
-          <i
-            class="icon"
+          <button
+            aria-label="Cerrar"
+            title="Cerrar"
+            variant="link"
           >
-            <mock-icon
-              name="close"
-            />
-          </i>
-        </button>
-      </header>
-      <section>
-        <div>
-          <section
-            class="flex ai-center px-24 px-32_lg flex-column"
-          >
-            <div
-              class="flex flex-column gap-8 text-center ai-center "
-            >
-              <p
-                class="text prumo prumo-medium text-24 text-light-800"
+            <span>
+              <span
+                data-icon="close"
               >
-                Exclusivo para suscriptores
-              </p>
-              <p
-                class="text text-16 text-light-600"
-              >
-                Para realizar esta acción es necesario que tengas una suscripción.
-              </p>
-            </div>
-            <div
-              class="flex gap-24 ai-center  pt-24"
-            >
-              <a
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
-                data-variant="accent"
-                href="undefined/suscripcion/V/4/?cv=670&fc=826&callback=aHR0cDovL2xvY2FsaG9zdC8="
-                target="_self"
-              >
-                Suscribite
-              </a>
-            </div>
-          </section>
+                close
+              </span>
+            </span>
+          </button>
+        </div>
+        <div
+          data-testid="dialog-body"
+        >
           <div
-            class="flex flex-column jc-center ai-center"
+            data-direction="column"
           >
-            <hr
-              class="w-95 my-32"
-            />
             <div
-              class="w-100"
+              data-testid="empty-state-barrier-logged"
             >
-              <p
-                class="text text-center prumo prumo-light text-24"
-              >
-                ¿Por qué suscribirme a Foodit?
-              </p>
-              <div
-                class="pt-24"
-              >
-                <div
-                  class="media-scroller relative grid gap-16 gap-24_md --carousel-info"
-                  data-scroller="container"
-                >
-                  <ul
-                    class="relative overflow-container jc-center_lg"
-                    data-scroller="track"
-                    data-scroller-elements="3"
-                  >
-                    <li
-                      class=""
-                      data-scroller="element"
-                    >
-                      <div
-                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
-                      >
-                        <i
-                          class="icon --icon-32"
-                        >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <div
-                          class="flex flex-column text-center jc-center ai-center gap-4"
-                        >
-                          <span
-                            class="text prumo prumo-semibold text-18"
-                          >
-                            Guardá tu receta favorita
-                          </span>
-                          <span
-                            class="text roboto roboto-regular text-16 text-light-600"
-                          >
-                            Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                    <li
-                      class=""
-                      data-scroller="element"
-                    >
-                      <div
-                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
-                      >
-                        <i
-                          class="icon --icon-32"
-                        >
-                          <mock-icon
-                            critical="true"
-                            name="shopping-list"
-                          />
-                        </i>
-                        <div
-                          class="flex flex-column text-center jc-center ai-center gap-4"
-                        >
-                          <span
-                            class="text prumo prumo-semibold text-18"
-                          >
-                            Agregá ingredientes a la lista de compras
-                          </span>
-                          <span
-                            class="text roboto roboto-regular text-16 text-light-600"
-                          >
-                            Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                    <li
-                      class=""
-                      data-scroller="element"
-                    >
-                      <div
-                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
-                      >
-                        <i
-                          class="icon --icon-32"
-                        >
-                          <mock-icon
-                            critical="true"
-                            name="weekly-menu"
-                          />
-                        </i>
-                        <div
-                          class="flex flex-column text-center jc-center ai-center gap-4"
-                        >
-                          <span
-                            class="text prumo prumo-semibold text-18"
-                          >
-                            Planificá tu semana
-                          </span>
-                          <span
-                            class="text roboto roboto-regular text-16 text-light-600"
-                          >
-                            Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <button>
+                Suscribite
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
-  </dialog>
+  </div>
 </body>
 `;
 
 exports[`SaveRecipe Component should match snapshot when userType is subscribed 1`] = `
 <body>
-  <div />
-  <dialog
-    class="dialog disable-body-scroll p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
-    data-position="center"
-    style="animation-name: fade-in-up; animation-fill-mode: forwards; animation-duration: 200ms;"
-  >
+  <div>
     <div
-      class="flex flex-column gap-16 gap-24_md gap-32_lg"
+      class="w-328 overflow-visible rounded-4 h-fit p-16 p-24_md p-32_lg gap-16 gap-24_md gap-32_lg bg-light-1"
+      data-testid="dialog"
+      role="dialog"
     >
-      <header
-        class="flex flex jc-between ai-center w-100 border border-bottom border-thin border-light-100 pb-16"
+      <div
+        class="flex flex-column gap-16 gap-24_md gap-32_lg"
       >
-        <header>
+        <div
+          class="flex jc-between ai-center w-100 border border-bottom border-thin border-light-100 pb-16"
+          data-testid="dialog-header"
+        >
           <h2
-            class="prumo prumo-semibold text-24 text-28_md text-32_lg"
+            data-testid="header-title"
           >
             Save Recipe Title
           </h2>
-        </header>
-        <button
-          aria-label="Cerrar"
-          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-          data-variant="link"
-          title="Cerrar"
-        >
-          <i
-            class="icon"
+          <button
+            aria-label="Cerrar"
+            title="Cerrar"
+            variant="link"
           >
-            <mock-icon
-              name="close"
+            <span>
+              <span
+                data-icon="close"
+              >
+                close
+              </span>
+            </span>
+          </button>
+        </div>
+        <div
+          data-testid="dialog-body"
+        >
+          <div
+            data-testid="main-save-recipe"
+          >
+            MainSaveRecipe Component
+            <select
+              data-testid="collection-select"
+            >
+              <option
+                value="new"
+              >
+                Crear colección
+              </option>
+              <option
+                value="Collection1"
+              >
+                Collection1
+              </option>
+              <option
+                value="Collection2"
+              >
+                Collection2
+              </option>
+            </select>
+            <input
+              data-testid="folder-input"
+              placeholder="Colección"
+              value="New Folder Name"
             />
-          </i>
-        </button>
-      </header>
-      <section>
-        <div>
-          MainSaveRecipe Component
+          </div>
         </div>
-      </section>
-      <footer
-        class="flex flex-column gap-16 gap-24_md gap-32_lg"
-      >
-        <hr />
-        <div>
-          FooterSaveRecipe Component
+        <div
+          class="flex flex-column gap-16 gap-24_md gap-32_lg"
+          data-testid="dialog-footer"
+        >
+          <hr />
+          <div
+            data-testid="footer-save-recipe"
+          >
+            FooterSaveRecipe Component
+            <button
+              data-testid="left-button"
+              disabled=""
+            >
+              Left Button
+            </button>
+            <button
+              data-testid="right-button"
+            >
+              Right Button
+            </button>
+            <span
+              data-testid="has-error"
+            >
+              false
+            </span>
+            <span
+              data-testid="mode"
+            >
+              save
+            </span>
+            <span
+              data-testid="is-disabled"
+            >
+              true
+            </span>
+            <span
+              data-testid="is-loading"
+            >
+              false
+            </span>
+          </div>
         </div>
-      </footer>
+      </div>
     </div>
-  </dialog>
+  </div>
 </body>
 `;
 
 exports[`SaveRecipe Component should match snapshot when userType is unlogged 1`] = `
 <body>
-  <div />
-  <dialog
-    class="dialog disable-body-scroll p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
-    data-position="center"
-    style="animation-name: fade-in-up; animation-fill-mode: forwards; animation-duration: 200ms;"
-  >
+  <div>
     <div
-      class="flex flex-column gap-16 gap-24_md gap-32_lg"
+      class="p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
+      data-testid="dialog"
+      role="dialog"
     >
-      <header
-        class="flex flex flex-column ai-end"
+      <div
+        class="flex flex-column gap-16 gap-24_md gap-32_lg"
       >
-        <button
-          aria-label="Cerrar"
-          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-          data-variant="link"
-          title="Cerrar"
+        <div
+          class="flex flex-column ai-end"
+          data-testid="dialog-header"
         >
-          <i
-            class="icon"
+          <button
+            aria-label="Cerrar"
+            title="Cerrar"
+            variant="link"
           >
-            <mock-icon
-              name="close"
-            />
-          </i>
-        </button>
-      </header>
-      <section>
-        <div>
-          <section
-            class="flex ai-center px-24 px-32_lg flex-column"
-          >
-            <div
-              class="flex flex-column gap-8 text-center ai-center "
-            >
-              <p
-                class="text prumo prumo-medium text-24 text-light-800"
+            <span>
+              <span
+                data-icon="close"
               >
-                Exclusivo para suscriptores
-              </p>
-              <p
-                class="text text-16 text-light-600"
-              >
-                Para realizar esta acción es necesario que tengas una suscripción.
-              </p>
-            </div>
-            <div
-              class="flex gap-24 ai-center  pt-24"
-            >
-              <a
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                data-variant="link"
-                href="undefinedaHR0cDovL2xvY2FsaG9zdC8="
-                target="_self"
-              >
-                Iniciá sesión
-              </a>
-            </div>
-          </section>
+                close
+              </span>
+            </span>
+          </button>
+        </div>
+        <div
+          data-testid="dialog-body"
+        >
           <div
-            class="flex flex-column jc-center ai-center"
+            data-direction="column"
           >
-            <hr
-              class="w-95 my-32"
-            />
             <div
-              class="w-100"
+              data-testid="empty-state-barrier-unlogged"
             >
-              <p
-                class="text text-center prumo prumo-light text-24"
-              >
-                ¿Por qué suscribirme a Foodit?
-              </p>
-              <div
-                class="pt-24"
-              >
-                <div
-                  class="media-scroller relative grid gap-16 gap-24_md --carousel-info"
-                  data-scroller="container"
-                >
-                  <ul
-                    class="relative overflow-container jc-center_lg"
-                    data-scroller="track"
-                    data-scroller-elements="3"
-                  >
-                    <li
-                      class=""
-                      data-scroller="element"
-                    >
-                      <div
-                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
-                      >
-                        <i
-                          class="icon --icon-32"
-                        >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <div
-                          class="flex flex-column text-center jc-center ai-center gap-4"
-                        >
-                          <span
-                            class="text prumo prumo-semibold text-18"
-                          >
-                            Guardá tu receta favorita
-                          </span>
-                          <span
-                            class="text roboto roboto-regular text-16 text-light-600"
-                          >
-                            Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                    <li
-                      class=""
-                      data-scroller="element"
-                    >
-                      <div
-                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
-                      >
-                        <i
-                          class="icon --icon-32"
-                        >
-                          <mock-icon
-                            critical="true"
-                            name="shopping-list"
-                          />
-                        </i>
-                        <div
-                          class="flex flex-column text-center jc-center ai-center gap-4"
-                        >
-                          <span
-                            class="text prumo prumo-semibold text-18"
-                          >
-                            Agregá ingredientes a la lista de compras
-                          </span>
-                          <span
-                            class="text roboto roboto-regular text-16 text-light-600"
-                          >
-                            Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                    <li
-                      class=""
-                      data-scroller="element"
-                    >
-                      <div
-                        class="flex flex-column ai-center border border-all border-thin border-light-200 p-16 p-24_md p-32_lg gap-16 w-100 h-100"
-                      >
-                        <i
-                          class="icon --icon-32"
-                        >
-                          <mock-icon
-                            critical="true"
-                            name="weekly-menu"
-                          />
-                        </i>
-                        <div
-                          class="flex flex-column text-center jc-center ai-center gap-4"
-                        >
-                          <span
-                            class="text prumo prumo-semibold text-18"
-                          >
-                            Planificá tu semana
-                          </span>
-                          <span
-                            class="text roboto roboto-regular text-16 text-light-600"
-                          >
-                            Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <button>
+                Suscribite
+              </button>
+              <button>
+                Iniciá sesión
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
-  </dialog>
+  </div>
 </body>
 `;

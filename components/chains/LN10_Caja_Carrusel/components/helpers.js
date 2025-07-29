@@ -44,16 +44,20 @@ export const transformNodes = ({
     childProps = [],
     isExpanded = false,
     bannerRef
-}) =>
-    childProps.reduce((acc, properties, index) => {
+}) => {
+    let counterVideos = 0;
+    return childProps.reduce((acc, properties, index) => {
         const { video, title } = get(properties, 'customFields', {});
         const type = get(properties, 'type', 'LN-10/itemCarrusel');
         const isBanner = type === 'LN-common/bannerRefactor';
         const child = children[index];
+        counterVideos += isBanner ? 0 : 1;
+
         const newChildren = {
             id: isBanner ? null : video,
             title: isBanner ? null : title,
             type,
+            counterVideo: counterVideos,
             isBanner,
             node:
                 !isAdmin &&
@@ -73,3 +77,37 @@ export const transformNodes = ({
 
         return acc;
     }, []);
+};
+
+export const getAdsConfigVideoJw = ({
+    adsUrl = '',
+    customValidation = false
+} = {}) => {
+    if (adsUrl && customValidation) {
+        return {
+            advertising: {
+                client: 'googima',
+                schedule: [
+                    {
+                        tag: adsUrl,
+                        offset: 'pre'
+                    }
+                ]
+            },
+            intl: {
+                en: {
+                    advertising: {
+                        admessage: 'El video empezará en xx segúndos',
+                        cuetext: 'Publicidad',
+                        skipmessage: 'Saltar aviso en xx segúndos'
+                    },
+                    related: {
+                        autoplaymessage: '',
+                        heading: 'More Videos'
+                    }
+                }
+            }
+        };
+    }
+    return {};
+};

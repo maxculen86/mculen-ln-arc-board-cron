@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownCard should match snapshot 1`] = `
+<div>
+  <div
+    class="dropdown relative h-max ml-auto ml-0_md"
+  >
+    <button
+      class="dropdown-toggle inline-flex text-light-800 text-accent-lechuga__hover gap-4"
+      data-testid="dropdown-toggle"
+    >
+      <mock-icon
+        name="more-vertical"
+      />
+    </button>
+    <div
+      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-1 p-24 rounded-4 shadow-center visibility-hidden opacity-0"
+      data-position="right"
+      data-visible="false"
+      role="menu"
+    >
+      <ul
+        class="w-202"
+      >
+        <button
+          class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+          role="button"
+          title="Ir a Mover"
+        >
+          <i
+            class="icon --icon-20 --inherit"
+          >
+            <mock-icon
+              name="move"
+            />
+          </i>
+          <span
+            class="text-left"
+          >
+            Mover
+          </span>
+        </button>
+        <button
+          class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100 --accent text-danger-500"
+          role="button"
+          title="Ir a Eliminar"
+        >
+          <i
+            class="icon --icon-20 --inherit"
+          >
+            <mock-icon
+              name="delete"
+            />
+          </i>
+          <span
+            class="text-left"
+          >
+            Eliminar
+          </span>
+        </button>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

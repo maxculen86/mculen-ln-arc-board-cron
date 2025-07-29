@@ -8,6 +8,7 @@ import useSelectListener from '../../../../../../../components/features/LN-commo
 import useInputListener from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/hooks/useInputListener';
 import MainSaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/main';
 import FooterSaveRecipe from '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/footer';
+
 import {
     saveRecipeConfig,
     getConfig
@@ -38,11 +39,44 @@ jest.mock(
 );
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/main',
-    () => jest.fn(() => <div>MainSaveRecipe Component</div>)
+    () =>
+        jest.fn(() => (
+            <div data-testid="main-save-recipe">
+                MainSaveRecipe Component
+                <select data-testid="collection-select">
+                    <option value="new">Crear colección</option>
+                    <option value="Collection1">Collection1</option>
+                    <option value="Collection2">Collection2</option>
+                </select>
+                <input
+                    data-testid="folder-input"
+                    placeholder="Colección"
+                    value="New Folder Name"
+                />
+            </div>
+        ))
 );
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/footer',
-    () => jest.fn(() => <div>FooterSaveRecipe Component</div>)
+    () =>
+        jest.fn(() => (
+            <div data-testid="footer-save-recipe">
+                FooterSaveRecipe Component
+                <button data-testid="left-button" disabled>
+                    Left Button
+                </button>
+                <button data-testid="right-button">Right Button</button>
+                <span data-testid="has-error">false</span>
+                <span data-testid="mode">save</span>
+                <span data-testid="is-disabled">true</span>
+                <span data-testid="is-loading">false</span>
+            </div>
+        ))
+);
+
+jest.mock(
+    '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/components/header',
+    () => jest.fn(({ title }) => <h2 data-testid="header-title">{title}</h2>)
 );
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/Modals/SaveRecipe/helpers',
@@ -51,6 +85,102 @@ jest.mock(
         saveRecipeConfig: {}
     })
 );
+
+jest.mock('@ln/common-ui-dialog', () => {
+    const Dialog = ({ isOpen, children, classnames }) => {
+        if (!isOpen) return null;
+        return (
+            <div
+                className={classnames?.base}
+                data-testid="dialog"
+                role="dialog"
+            >
+                <div
+                    className={
+                        classnames?.wrapper ||
+                        'flex flex-column gap-16 gap-24_md gap-32_lg'
+                    }
+                >
+                    {children}
+                </div>
+            </div>
+        );
+    };
+    Dialog.Header = ({ children, className }) => (
+        <div className={className} data-testid="dialog-header">
+            {children}
+        </div>
+    );
+    Dialog.Body = ({ children }) => (
+        <div data-testid="dialog-body">{children}</div>
+    );
+    Dialog.Footer = ({ children, className }) => (
+        <div
+            className={
+                className || 'flex flex-column gap-16 gap-24_md gap-32_lg'
+            }
+            data-testid="dialog-footer"
+        >
+            {children}
+        </div>
+    );
+    return { Dialog };
+});
+
+jest.mock('@ln/foodit-ui-button', () => ({
+    Button: ({
+        children,
+        onClick,
+        'aria-label': ariaLabel,
+        title,
+        variant
+    }) => (
+        <button
+            onClick={onClick}
+            aria-label={ariaLabel}
+            title={title}
+            variant={variant}
+        >
+            {children}
+        </button>
+    )
+}));
+
+jest.mock('@ln/common-ui-icon', () => ({
+    Icon: ({ children }) => <span>{children}</span>
+}));
+
+jest.mock(
+    '../../../../../../../components/features/private-global/common/iconSprite/IconSprite',
+    () =>
+        ({ name }) => <span data-icon={name}>{name}</span>
+);
+
+jest.mock(
+    '../../../../../../../components/features/foodit-global/common/emptyState/foodit',
+    () =>
+        ({ variant, direction }) => (
+            <div data-direction={direction}>
+                <div data-testid={`empty-state-${variant}`}>
+                    <button>Suscribite</button>
+                    {variant === 'barrier-unlogged' && (
+                        <button>Iniciá sesión</button>
+                    )}
+                </div>
+            </div>
+        )
+);
+
+jest.mock(
+    '../../../../../../../components/features/foodit-global/common/emptyState/helpers',
+    () => ({
+        getVariantBarrier: userType => `barrier-${userType}`
+    })
+);
+
+jest.mock('@ln/cva', () => ({
+    cx: (...args) => args.filter(Boolean).join(' ')
+}));
 
 describe('SaveRecipe Component', () => {
     const mockClose = jest.fn();
@@ -65,7 +195,10 @@ describe('SaveRecipe Component', () => {
     beforeEach(() => {
         jest.clearAllMocks();
 
-        useAppContext.mockReturnValue({ layout: 'Foodit-home' });
+        useAppContext.mockReturnValue({
+            layout: 'Foodit-home',
+            siteProperties: { layoutsName: {} }
+        });
 
         useInputListener.mockReturnValue({
             onChange: jest.fn(),
@@ -88,9 +221,13 @@ describe('SaveRecipe Component', () => {
             showSelect: true,
             title: 'Save Recipe Title'
         });
+
+        useGetUserConfig.mockReturnValue({
+            userType: 'subscribed',
+            isSubscribed: true
+        });
     });
 
-    useGetUserConfig.mockReturnValue({ userType: 'subscribed' });
     const defaultProps = {
         showModal: true,
         close: mockClose,
@@ -182,7 +319,9 @@ describe('SaveRecipe Component', () => {
     it('renders Header, Main, and Footer components', () => {
         render(<SaveRecipe {...defaultProps} />);
 
-        expect(screen.getByText('Save Recipe Title')).toBeInTheDocument();
+        expect(screen.getByTestId('header-title')).toHaveTextContent(
+            'Save Recipe Title'
+        );
         expect(
             screen.getByText('MainSaveRecipe Component')
         ).toBeInTheDocument();
@@ -205,8 +344,10 @@ describe('SaveRecipe Component', () => {
     it('renders the correct title based on getConfig', () => {
         render(<SaveRecipe {...defaultProps} />);
 
-        expect(getConfig).toHaveBeenCalledWith(saveRecipeConfig, 1);
-        expect(screen.getByText('Save Recipe Title')).toBeInTheDocument();
+        expect(getConfig).toHaveBeenCalledWith(saveRecipeConfig, 1, 'save');
+        expect(screen.getByTestId('header-title')).toHaveTextContent(
+            'Save Recipe Title'
+        );
     });
 
     it('passes correct props to FooterSaveRecipe', () => {
@@ -228,8 +369,12 @@ describe('SaveRecipe Component', () => {
             {}
         );
     });
+
     it('should render emptyState when userType is unlogged', () => {
-        useGetUserConfig.mockReturnValue({ userType: 'unlogged' });
+        useGetUserConfig.mockReturnValue({
+            userType: 'unlogged',
+            isSubscribed: false
+        });
 
         render(<SaveRecipe {...defaultProps} />);
         const buttonSubscribe = screen.getByText('Suscribite');
@@ -237,39 +382,53 @@ describe('SaveRecipe Component', () => {
         expect(buttonSubscribe).toBeInTheDocument();
         expect(buttonLogin).toBeInTheDocument();
     });
+
     it('should render emptyState when userType is logged', () => {
-        useGetUserConfig.mockReturnValue({ userType: 'logged' });
+        useGetUserConfig.mockReturnValue({
+            userType: 'logged',
+            isSubscribed: false
+        });
 
         render(<SaveRecipe {...defaultProps} />);
         const buttonSubscribe = screen.getByText('Suscribite');
         expect(buttonSubscribe).toBeInTheDocument();
     });
+
     it('dialog should return null when showModal is false', () => {
         const { baseElement } = render(
             <SaveRecipe {...defaultProps} showModal={false} />
         );
-        const dialog = baseElement.querySelector('dialog');
+        const dialog = baseElement.querySelector('[role="dialog"]');
         expect(dialog).toBeNull();
     });
+
     it('should match snapshot when userType is subscribed', () => {
-        useGetUserConfig.mockReturnValueOnce({ userType: 'subscribed' });
+        useGetUserConfig.mockReturnValueOnce({
+            userType: 'subscribed',
+            isSubscribed: true
+        });
 
-        const { baseElement, debug } = render(<SaveRecipe {...defaultProps} />);
-        debug();
+        const { baseElement } = render(<SaveRecipe {...defaultProps} />);
         expect(baseElement).toMatchSnapshot();
     });
+
     it('should match snapshot when userType is unlogged', () => {
-        useGetUserConfig.mockReturnValueOnce({ userType: 'unlogged' });
+        useGetUserConfig.mockReturnValueOnce({
+            userType: 'unlogged',
+            isSubscribed: false
+        });
 
         const { baseElement } = render(<SaveRecipe {...defaultProps} />);
-
         expect(baseElement).toMatchSnapshot();
     });
+
     it('should match snapshot when userType is logged', () => {
-        useGetUserConfig.mockReturnValueOnce({ userType: 'logged' });
+        useGetUserConfig.mockReturnValueOnce({
+            userType: 'logged',
+            isSubscribed: false
+        });
 
         const { baseElement } = render(<SaveRecipe {...defaultProps} />);
-
         expect(baseElement).toMatchSnapshot();
     });
 });

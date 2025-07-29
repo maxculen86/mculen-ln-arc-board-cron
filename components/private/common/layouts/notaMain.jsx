@@ -24,7 +24,7 @@ function NotaMain({ children, className }) {
                     {/* Cuerpo */}
                     <div className="sidebar__main">
                         <div className="row">
-                            <div className="col-12 ">
+                            <div className="col-12">
                                 {/* Bajada y autor fecha más apertura */}
                                 {children[3]}
                             </div>
@@ -38,7 +38,7 @@ function NotaMain({ children, className }) {
                                 </div>
                                 <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                     <div className="row">
-                                        <div className="col-12">
+                                        <div className="col-12 break-word">
                                             {/* Pos-Apertura */}
                                             {children[5]}
                                         </div>

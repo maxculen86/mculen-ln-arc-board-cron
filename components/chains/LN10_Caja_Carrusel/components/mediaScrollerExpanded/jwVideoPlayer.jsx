@@ -2,10 +2,14 @@ import React, { useEffect, useRef, memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 import { useVideoJwCustomSettings } from '../hooks';
+import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
+import { buildTagsUrl } from '../../../../private/common/videoPlayerJw/utils/helperJw';
+import { getAdsConfigVideoJw } from '../helpers';
 
 function JwVideoPlayer({
     videoId,
     index,
+    counterVideo,
     handleNextCallback,
     isLoadedScriptJw
 }) {
@@ -16,19 +20,26 @@ function JwVideoPlayer({
 
     const isInView = currentIndex === index;
     const shouldInstanceVideo = !loading && isInView;
+    const urlAds = urlForPrerollAds();
 
     useEffect(() => {
         if (isInView) setLoading(false);
     }, [currentIndex]);
 
     useEffect(() => {
+        const urlWithPermutiveSegment = buildTagsUrl(urlAds);
+
         if (!playerRef.current && shouldInstanceVideo && isLoadedScriptJw) {
             const playerInstance = window?.jwplayer?.(videoId);
             playerRef.current = playerInstance?.setup({
                 file: `https://cdn.jwplayer.com/videos/${videoId}.mp4`,
                 image: `https://cdn.jwplayer.com/v2/media/${videoId}/poster.jpg`,
                 width: '100%',
-                allowFullscreen: false
+                allowFullscreen: false,
+                ...getAdsConfigVideoJw({
+                    adsUrl: urlWithPermutiveSegment,
+                    customValidation: counterVideo === 3
+                })
             });
             playerRef?.current?.setMute(
                 window?.localStorage?.getItem('jwplayer.mute') === 'true'
@@ -54,7 +65,8 @@ JwVideoPlayer.propTypes = {
     videoId: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
     handleNextCallback: PropTypes.func.isRequired,
-    isLoadedScriptJw: PropTypes.bool.isRequired
+    isLoadedScriptJw: PropTypes.bool.isRequired,
+    counterVideo: PropTypes.number.isRequired
 };
 
 export default memo(JwVideoPlayer);

@@ -9,8 +9,6 @@ import {
 } from '../../private/common/auth/helper/loginHelper';
 import { getSectionId } from '../LN-10/ranking/common/_helper-WebApi';
 import { useRankingArticles } from '../LN-10/ranking/_helper';
-import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
-import stickyMobileAllowedSections from '../../private/LN/common/utils/stickyMobileAllowedSections';
 
 export const ctrRecommendNote = (
     articleList,
@@ -29,13 +27,8 @@ export const ctrRecommendNote = (
 };
 
 function CTRNota() {
-    const {
-        website = '',
-        arcSite = '',
-        globalContent = {},
-        layout = ''
-    } = useAppContext();
-    const { _id, subtype = '' } = globalContent;
+    const { website = '', arcSite = '', globalContent = {} } = useAppContext();
+    const { _id } = globalContent;
     const sectionId = getSectionId(globalContent) || '';
 
     const [trigger, setTrigger] = useState(false);
@@ -43,13 +36,6 @@ function CTRNota() {
     const [excludeItems, setExcludeItems] = useState([]);
     const [source, setSource] = useState(null);
     const STICKY_MOBILE_SCROLL_TRIGGER = 1800;
-
-    const isSectionAllowed = isAllowedSection({
-        globalContent,
-        listOfAllowedSection: stickyMobileAllowedSections,
-        layout,
-        noteType: subtype
-    });
 
     useEffect(() => {
         if (localStorage) {
@@ -63,11 +49,7 @@ function CTRNota() {
             if (!source && scrolledInAxisY >= 1000)
                 setSource('rankingArticlesSource');
 
-            if (
-                !trigger &&
-                scrolledInAxisY >= STICKY_MOBILE_SCROLL_TRIGGER &&
-                isSectionAllowed
-            ) {
+            if (!trigger && scrolledInAxisY >= STICKY_MOBILE_SCROLL_TRIGGER) {
                 setTrigger(true);
                 window.removeEventListener('scroll', handleScroll);
             }

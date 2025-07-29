@@ -1,10 +1,7 @@
-export const PREPARATION_KEYWORDS = [
-    'preparación',
-    'preparacion',
-    /^para la \w+/i
-];
+export const PREPARATION_KEYWORDS = ['preparación', 'preparacion'];
 
 export const headerLevels = [1, 2, 3, 4, 5, 6];
+
 export const TIPS_KEYWORDS = ['tips', 'curiosidades'];
 
 export const normalize = str =>

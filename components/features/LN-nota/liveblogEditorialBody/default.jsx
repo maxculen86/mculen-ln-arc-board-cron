@@ -28,7 +28,7 @@ function BodyLiveblogEditorial() {
         outputType,
         bodyOrigin: 'Body Liveblog Editorial',
         noteId: _id,
-        selector: '#body-liveblog-editorial'
+        selector: 'body-liveblog-editorial'
     });
 
     useScrollDispatcher({
@@ -77,6 +77,7 @@ function BodyLiveblogEditorial() {
             <LiveBlogBody.Posts>
                 {posts.map((grupo, index) => {
                     const showTopDivider = shouldShowTopDivider(index, posts);
+                    const showBottomDivider = !grupo.isPinned;
                     const postData = getPostRenderData(grupo);
                     const { visibleItems } = postData;
                     return (
@@ -90,7 +91,7 @@ function BodyLiveblogEditorial() {
                                     globalContent={globalContent}
                                 />
                             </LiveBlogBody.Post>
-                            <LiveBlogBody.Divider />
+                            {showBottomDivider && <LiveBlogBody.Divider />}
                         </Fragment>
                     );
                 })}

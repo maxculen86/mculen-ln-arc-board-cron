@@ -1559,6 +1559,10 @@ strong {
   width: 100vw;
 }
 
+.w-136 {
+  width: 8.5rem;
+}
+
 .w-144 {
   width: 9rem;
 }
@@ -1930,6 +1934,10 @@ strong {
     min-height: 2.5rem;
   }
 }
+.skeleton-loader.skeleton-loader {
+  background: var(--neutral-light-50);
+}
+
 .m-8 {
   margin: 0.5rem;
 }

@@ -1,25 +1,7 @@
-import { getJWScript } from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
-
-export const buildTagsUrl = baseUrl => {
-    try {
-        const pdfLocalStorage = localStorage.getItem('_pdfps') || '[]';
-        const permutiveSegment = encodeURIComponent(
-            `&permutive=${encodeURIComponent(
-                JSON.parse(pdfLocalStorage).slice(0, 250).join(',')
-            )}`
-        );
-
-        const urlWithPermutiveSegment = baseUrl.replace(
-            /(cust_params[^&]+)/,
-            '$1' + permutiveSegment
-        );
-
-        return urlWithPermutiveSegment;
-    } catch (e) {
-        console.warn('Error building permutive segment', e);
-        return baseUrl;
-    }
-};
+import {
+    getJWScript,
+    buildTagsUrl
+} from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 const scriptVideosJw = document.querySelectorAll('.video-jw');
 

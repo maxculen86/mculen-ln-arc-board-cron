@@ -28,13 +28,36 @@ const removeIngredientsConfig = {
         },
         toast: {
             title: '¡Listo!',
-            description: 'Se quito del menú semanal.'
+            description: 'Se quitó del menú semanal.'
+        }
+    },
+    bookmark: {
+        modal: {
+            title: 'Eliminar nota/receta',
+            description: 'Se sacará de la colección.<br />¿Está seguro?'
+        },
+        toast: {
+            title: '¡Listo!',
+            description: 'Se quitó de tu colección.'
         }
     }
 };
 
-export const getModalMessages = type =>
-    get(removeIngredientsConfig[type], 'modal', {});
+export const getModalMessages = (type, bookmarkInfo = null) => {
+    const messages = get(removeIngredientsConfig[type], 'modal', {});
+
+    if (type === 'bookmark' && bookmarkInfo?.variant) {
+        return {
+            ...messages,
+            title:
+                bookmarkInfo.variant === 'note'
+                    ? 'Eliminar nota'
+                    : 'Eliminar receta'
+        };
+    }
+
+    return messages;
+};
 
 export const getToastMessages = type =>
     get(removeIngredientsConfig[type], 'toast', {});

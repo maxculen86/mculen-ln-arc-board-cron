@@ -74,41 +74,6 @@ describe('CTRNota', () => {
         expect(mockSetTrigger).toHaveBeenCalledWith(true);
     });
 
-    it('should NOT trigger scroll in non-allowed sections', () => {
-        useAppContext.mockReturnValue({
-            globalContent: {
-                _id: '456',
-                taxonomy: {
-                    primary_section: {
-                        _id: '/deportes'
-                    }
-                }
-            },
-            layout: 'LN-nota-noticia'
-        });
-        useViewportSize.mockReturnValue('mobile');
-        isSubscribed.mockReturnValue(false);
-        useRankingArticles.mockReturnValue({
-            articles: [
-                {
-                    _id: 'test-article',
-                    canonical_url: '/test-article',
-                    headlines: { basic: 'Test Article' },
-                    promo_items: { basic: { url: 'test-image.jpg' } },
-                    website_url: '/test-article'
-                }
-            ]
-        });
-
-        render(<CTRNota />);
-        act(() => {
-            window.scrollY = 1801;
-            fireEvent.scroll(window);
-        });
-        // En secciones no permitidas, el trigger NO debe activarse
-        expect(mockSetTrigger).not.toHaveBeenCalledWith(true);
-    });
-
     it('should NOT render component in non-allowed sections', () => {
         useAppContext.mockReturnValue({
             globalContent: {

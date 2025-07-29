@@ -25,6 +25,10 @@ jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
+beforeAll(() => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
+});
+
 beforeEach(() => {
     useAppContext.mockImplementation(() => ({
         contextPath: '/some/path',

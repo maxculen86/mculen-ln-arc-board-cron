@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getMediaItem } from '../../_helpers/liveblogEditorialApertura';
-import OpeningEpigraph from './OpeningEpigraph';
+import ModFigcaption from '../../../../private/common/mod-figcaption';
 
 function OpeningMedia({ data }) {
     const { mediaData, caption, credit } = data;
@@ -23,11 +23,13 @@ function OpeningMedia({ data }) {
                 id="liveBlog-opening-media"
             >
                 {mediaItem}
-                <OpeningEpigraph
-                    variant="desktop"
-                    title={caption}
-                    credit={credit}
-                />
+                <div className="px-16 px-0_m pt-8 border border-bottom border-thin border-neutral-light-800 border-bottom-none_m">
+                    <ModFigcaption
+                        className="border-bottom-none mb-0"
+                        title={caption}
+                        credit={credit}
+                    />
+                </div>
             </div>
         </div>
     );

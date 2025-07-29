@@ -1,20 +1,58 @@
 import dynamicallyLoadScript from '../../../../private/LN/common/utils/dynamicallyLoadScript';
 import getViewport from '../../../../private/LN/common/utils/screenHelper';
 
+/* global FB */
+
+const FACEBOOK_APP_ID_FALLBACK = '246891475813003';
+const FACEBOOK_META_SELECTOR = 'meta[property="fb:app_id"]';
+const FACEBOOK_SDK_URL = 'connect.facebook.net/en_US/sdk.js';
+
+const getFacebookAppId = () => {
+    const metaAppId = document.querySelector(FACEBOOK_META_SELECTOR);
+    return metaAppId
+        ? metaAppId.getAttribute('content')
+        : FACEBOOK_APP_ID_FALLBACK;
+};
+
+const initializeFacebookSDK = appId => {
+    FB.init({
+        appId,
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v18.0'
+    });
+
+    setTimeout(() => {
+        if (FB.XFBML && FB.XFBML.parse) {
+            FB.XFBML.parse();
+        }
+    }, 100);
+};
+
 export const embedIntersectionObserver = (
     scripts,
     elementId = 'cuerpo__nota'
 ) => {
     const { device } = getViewport();
-
     let interSectionObserver;
+
+    const loadScriptWithInitialization = async src => {
+        try {
+            await dynamicallyLoadScript(src, 'head');
+
+            if (src.includes(FACEBOOK_SDK_URL) && typeof FB !== 'undefined') {
+                const appId = getFacebookAppId();
+                initializeFacebookSDK(appId);
+            }
+        } catch (error) {
+            console.error(`Error cargando script ${src}:`, error);
+        }
+    };
 
     const callback = entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                scripts.forEach(src => {
-                    dynamicallyLoadScript(src, 'head');
-                });
+                scripts.forEach(loadScriptWithInitialization);
                 interSectionObserver.unobserve(entry.target);
             }
         });
@@ -27,13 +65,16 @@ export const embedIntersectionObserver = (
 
     const target = document.getElementById(elementId);
 
-    if (target && scripts.length > 0) interSectionObserver.observe(target);
+    if (target && scripts.length > 0) {
+        interSectionObserver.observe(target);
+    }
 };
 
 export const takeEmbedScriptToDiffer = contentElements => {
     const scripts = {
         twitter: 'https://platform.twitter.com/widgets.js',
         tiktok: 'https://www.tiktok.com/embed.js',
+        instagram: 'https://www.instagram.com/embed.js',
         'facebook-post': 'https://connect.facebook.net/en_US/sdk.js',
         'facebook-video': 'https://connect.facebook.net/en_US/sdk.js'
     };

@@ -1,6 +1,7 @@
 const VIOLENCE_BASE_URL =
     'https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/';
-const VIOLENCE_BASE_TITLE = 'IR A LAS GUÍAS';
+const VIOLENCE_BASE_TITLE_SINGULAR = 'IR A LA GUÍA';
+const VIOLENCE_BASE_TITLE_PLURAL = 'IR A LAS GUÍAS';
 const VIOLENCE_IMAGE_DESKTOP = 'violencia-genero-desk.webp';
 const VIOLENCE_IMAGE_MOBILE = 'violencia-genero-mob.webp';
 const VIOLENCE_DEFAULT_CLASSNAMES = {
@@ -59,7 +60,7 @@ const zocaloOptions = {
     },
     'violencia-de-genero': {
         href: VIOLENCE_BASE_URL,
-        title: VIOLENCE_BASE_TITLE,
+        title: VIOLENCE_BASE_TITLE_SINGULAR,
         target: '_blank',
         imgDsk: VIOLENCE_IMAGE_DESKTOP,
         imgMob: VIOLENCE_IMAGE_MOBILE,
@@ -76,7 +77,7 @@ const zocaloOptions = {
     },
     'hablemos-de-abuso': {
         href: VIOLENCE_BASE_URL,
-        title: VIOLENCE_BASE_TITLE,
+        title: VIOLENCE_BASE_TITLE_SINGULAR,
         target: '_blank',
         imgDsk: VIOLENCE_IMAGE_DESKTOP,
         imgMob: VIOLENCE_IMAGE_MOBILE,
@@ -87,13 +88,13 @@ const zocaloOptions = {
         label: 'abuso',
         descriptionProps: {
             title: 'Abuso',
-            text: 'Entrá a la guía de servicio y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
+            text: 'Entrá a la guía de servicio y encontrá los tips de los expertos sobre cómo prevenir, actuar y encontrar ayuda frente a este problema',
             classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     },
     'hablemos-de-bullying': {
         href: VIOLENCE_BASE_URL,
-        title: VIOLENCE_BASE_TITLE,
+        title: VIOLENCE_BASE_TITLE_SINGULAR,
         target: '_blank',
         imgDsk: VIOLENCE_IMAGE_DESKTOP,
         imgMob: VIOLENCE_IMAGE_MOBILE,
@@ -104,13 +105,13 @@ const zocaloOptions = {
         label: 'Bullying',
         descriptionProps: {
             title: 'Bullying',
-            text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
+            text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre cómo prevenir, actuar y encontrar ayuda frente a este problema',
             classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     },
     'hablemos-de-suicidio': {
         href: VIOLENCE_BASE_URL,
-        title: VIOLENCE_BASE_TITLE,
+        title: VIOLENCE_BASE_TITLE_SINGULAR,
         target: '_blank',
         imgDsk: VIOLENCE_IMAGE_DESKTOP,
         imgMob: VIOLENCE_IMAGE_MOBILE,
@@ -121,13 +122,13 @@ const zocaloOptions = {
         label: 'suicidio',
         descriptionProps: {
             title: 'suicidio',
-            text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre como prevenir, actuar y encontrar ayuda frente a este problema',
+            text: 'Entrá a la guía de Fundación La Nación y encontrá los tips de los expertos sobre cómo prevenir, actuar y encontrar ayuda frente a este problema',
             classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     },
     generico: {
         href: VIOLENCE_BASE_URL,
-        title: VIOLENCE_BASE_TITLE,
+        title: VIOLENCE_BASE_TITLE_PLURAL,
         target: '_blank',
         imgDsk: VIOLENCE_IMAGE_DESKTOP,
         imgMob: VIOLENCE_IMAGE_MOBILE,
@@ -138,7 +139,7 @@ const zocaloOptions = {
         label: 'hablemos de todo',
         descriptionProps: {
             title: '',
-            text: 'Encontrá las guías de servicio con tips de los expertos sobre como actuar frente a problemas cotidianos: Adicciones, violencia, abuso, tecnología, depresión, suicidio, apuestas online, bullying, transtornos de la conducta alimentaria y más.',
+            text: 'Encontrá las guías de servicio con tips de los expertos sobre cómo actuar frente a problemas cotidianos: Adicciones, violencia, abuso, tecnología, depresión, suicidio, apuestas online, bullying, transtornos de la conducta alimentaria y más.',
             classnames: VIOLENCE_DEFAULT_CLASSNAMES
         }
     }

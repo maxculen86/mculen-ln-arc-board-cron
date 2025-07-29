@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Dialog } from '@ln/common-ui-dialog';
@@ -24,13 +24,22 @@ function SaveRecipe({
     ids,
     indexStep,
     setIndexStep,
+    onConfirmMove,
     collectionArticles,
     carouselTitle,
-    fatherType
+    fatherType,
+    currentCollectionId
 }) {
-    const { layout } = useAppContext() || {};
+    const {
+        layout,
+        siteProperties: { layoutsName = {} }
+    } = useAppContext() || {};
+    const isMyRecipesLayout = layout === layoutsName.FooditRecetario;
     const inputRef = useRef(null);
     const { userType, isSubscribed } = useGetUserConfig();
+    const [isLoading, setIsLoading] = useState(false);
+
+    const modeConfig = isMyRecipesLayout ? 'move' : 'save';
 
     const classNameModal = cx(
         isSubscribed
@@ -53,21 +62,52 @@ function SaveRecipe({
 
     const handleCLoseDialog = () => {
         restoreSelectValue();
+        restoreInputValue();
         close();
     };
 
     const { leftButton, rightButton, showInputFolder, showSelect, title } =
-        getConfig(saveRecipeConfig, indexStep);
+        getConfig(saveRecipeConfig, indexStep, modeConfig);
 
     const handleRestoreInputValue = () => {
         restoreInputValue();
     };
 
+    const availableCollections = useMemo(() => {
+        if (modeConfig === 'move') {
+            const filtered = collectionArticles.filter(collection => {
+                const collectionGroup = collection.bookmarkGroup;
+
+                if (
+                    currentCollectionId &&
+                    collectionGroup === currentCollectionId
+                ) {
+                    return false;
+                }
+
+                const specialCollections = [
+                    'Todas',
+                    'INGREDIENTS_BOOKMARK_GROUP'
+                ];
+                if (specialCollections.includes(collectionGroup)) {
+                    return false;
+                }
+
+                return Boolean(collectionGroup);
+            });
+
+            return filtered;
+        }
+
+        return collectionArticles;
+    }, [collectionArticles, currentCollectionId, modeConfig]);
+
     useEffect(() => {
         if (selectValue.value === 'new') {
             setIndexStep(prev => prev + 1);
         }
-    }, [selectValue]);
+    }, [selectValue, setIndexStep]);
+
     const renderDialogHeader = (className, children) => (
         <Dialog.Header className={className}>
             {children}
@@ -113,6 +153,8 @@ function SaveRecipe({
                             showSelect={showSelect}
                             inputRef={inputRef}
                             restoreInputValue={handleRestoreInputValue}
+                            mode={modeConfig}
+                            currentCollectionId={currentCollectionId}
                         />
                     </Dialog.Body>
                     <Dialog.Footer className="flex flex-column gap-16 gap-24_md gap-32_lg">
@@ -127,10 +169,15 @@ function SaveRecipe({
                             selectedFolder={selectValue}
                             setIndexStep={setIndexStep}
                             ids={ids}
-                            collectionArticles={collectionArticles}
+                            collectionArticles={availableCollections}
                             carouselTitle={carouselTitle}
                             layout={layout}
                             fatherType={fatherType}
+                            mode={modeConfig}
+                            onConfirmMove={onConfirmMove}
+                            currentCollectionId={currentCollectionId}
+                            isLoading={isLoading}
+                            setIsLoading={setIsLoading}
                         />
                     </Dialog.Footer>
                 </>
@@ -157,6 +204,8 @@ SaveRecipe.propTypes = {
     setIndexStep: PropTypes.func.isRequired,
     carouselTitle: PropTypes.string,
     fatherType: PropTypes.string,
+    onConfirmMove: PropTypes.func,
+    currentCollectionId: PropTypes.string,
     collectionArticles: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string
@@ -167,7 +216,9 @@ SaveRecipe.propTypes = {
 SaveRecipe.defaultProps = {
     collectionArticles: [],
     carouselTitle: '',
-    fatherType: ''
+    fatherType: '',
+    onConfirmMove: null,
+    currentCollectionId: null
 };
 
 export default SaveRecipe;

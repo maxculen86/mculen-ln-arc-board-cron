@@ -29,14 +29,8 @@ export const useLayoutHeader = () => {
         layoutsName.FooditAcumuladoChef,
         layoutsName.FooditRecipePaywall,
         layoutsName.FooditChef,
-        layoutsName.FooditMenuSemanal
-    ];
-
-    const layoutsWithoutSearch = [
-        layoutsName.FooditHome,
-        layoutsName.FooditFichaReceta,
-        layoutsName.FooditFichaNota,
-        layoutsName.FooditChef
+        layoutsName.FooditMenuSemanal,
+        layoutsName.FooditNotePaywall
     ];
 
     const marginByLayouts = {
@@ -50,30 +44,25 @@ export const useLayoutHeader = () => {
 
     const showSubheaderInSheet = layoutSheets.includes(layout) && isOpen;
     const showSubheaderInLayout = layoutsWithSubheader.includes(layout);
-    const shouldHaveExtraPadding = !layoutsWithoutSearch.includes(layout);
 
     const getSubheaderSearchClasses = () => {
         const SHOW_CLASS = '--show-subheader --show-search';
         const HIDE_CLASS = '--hide-subheader --hide-search';
-        const withoutSearch = layoutsWithoutSearch.includes(layout);
+        const isLayoutBuscador = layout === layoutsName.FooditBuscador;
 
-        if (!withoutSearch && !isSubscribed) {
-            return sticky ? SHOW_CLASS : '';
+        if (isLayoutBuscador) {
+            return '--show-search --hide-subheader';
         }
-        if (!isSubscribed) {
-            return sticky ? SHOW_CLASS : '--hide-search';
-        }
-        if (withoutSearch) {
+        if (isSubscribed) {
             return sticky ? SHOW_CLASS : HIDE_CLASS;
         }
-        return sticky ? '--show-subheader' : '--hide-subheader';
+        return sticky ? SHOW_CLASS : '--hide-search';
     };
 
     const classNameHeaderContainer = classNames(
         'z-15 w-100 sticky top-0 print-hide',
         marginByLayouts[layout] || marginByLayouts.default,
-        getSubheaderSearchClasses(),
-        shouldHaveExtraPadding && '--extra-padding'
+        getSubheaderSearchClasses()
     );
 
     return {

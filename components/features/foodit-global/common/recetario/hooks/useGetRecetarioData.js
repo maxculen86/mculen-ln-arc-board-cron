@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import getBookmarks from '../../bookmark/api/getBookmarks';
 import {
@@ -12,7 +12,7 @@ const useGetRecetarioData = () => {
     const [userBookmarks, setUserBookmarks] = useState([]);
     const { token, accessToken } = useAuthManager();
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const fetchBookmarks = async () => {
             try {
                 const { data = [] } = await getBookmarks(token, accessToken);
