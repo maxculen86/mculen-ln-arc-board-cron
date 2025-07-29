@@ -1,7 +1,10 @@
 import { useContent } from 'fusion:content';
-import videoFilterLN10 from '../../../../../../../../content/filters/LN/home/LN10/videoFilterLN10';
+import videoPosterFilter from '../../../../../../../../content/filters/LN/home/LN10/videoPosterFilter';
 import isSSR from '../../../../../../LN/common/utils/isSSR';
 import { checkForId } from '../index';
+import replaceUrlResizerToWWW from '../../../../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import get from '../../../../get';
+import { getShortestImage } from '../../../../../../LN/common/utils/mediaHelper';
 
 const useGetVideoPosterResized = ({
     videoID,
@@ -9,9 +12,9 @@ const useGetVideoPosterResized = ({
     isInApertura,
     isAdmin,
     arcSite
-}) =>
-    useContent({
-        source: (videoID && videoID.trim() && 'videoSource') || null,
+}) => {
+    const data = useContent({
+        source: (videoID && videoID.trim() && 'videosJwSource') || null,
         query: {
             id: checkForId(videoID),
             website: 'la-nacion-ar',
@@ -21,7 +24,24 @@ const useGetVideoPosterResized = ({
             arcSite
         },
         staticMode: isSSR(),
-        filter: videoFilterLN10
+        filter: videoPosterFilter
     });
 
+    if (!data) return null;
+
+    const promoItemsBasic = get(data, 'resizedImages.promo_items.basic', {});
+    const basicWithWWW = replaceUrlResizerToWWW(promoItemsBasic);
+    const resizedUrls = get(basicWithWWW, 'resized_urls', []);
+
+    const shortest = getShortestImage(resizedUrls);
+
+    return {
+        promo_items: {
+            basic: {
+                ...basicWithWWW,
+                resized_urls: [shortest]
+            }
+        }
+    };
+};
 export default useGetVideoPosterResized;

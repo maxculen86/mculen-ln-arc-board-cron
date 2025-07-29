@@ -22,6 +22,7 @@ import getElementFromRenderables from '../../../private/common/utils/getElementF
 import getSourcesJw from '../../../private/LN/common/utils/getSourcesJw';
 import { transformUrl } from './common/_helper';
 import { isAudioGenerated } from '../../../../content/sources/utils/audioNews/helper';
+import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -255,7 +256,8 @@ export const transformVideoData = (
     videoData,
     cardSize,
     isAdmin = false,
-    isHome = false
+    isHome = false,
+    isInApertura = false
 ) => {
     // TODO: Quitar logica de videocenter una vez que se pase a JW tanto en LN como en OTT
     const streams = get(videoData, 'streams', []);
@@ -263,12 +265,16 @@ export const transformVideoData = (
     const poster = get(videoData, 'poster', '');
     const videoImagesResized = get(
         videoData,
-        'promo_items.basic.resized_urls',
-        []
+        'resizedImages.promo_items.basic',
+        {}
     );
+    const basicWithWWW = isInApertura
+        ? replaceUrlResizerToWWW(videoImagesResized)
+        : videoImagesResized;
 
     const type = get(videoData, 'type', '');
-    const { resizedUrl } = getShortestImage(videoImagesResized);
+    const resizedUrls = get(basicWithWWW, 'resized_urls', []);
+    const { resizedUrl } = getShortestImage(resizedUrls);
 
     const streamOperator = getDynamicStreamOperator(
         size,
@@ -327,7 +333,8 @@ export const getMediaData = ({
     config = {},
     isAdmin = false,
     isHome = false,
-    isLoadWithPicture
+    isLoadWithPicture,
+    isInApertura = false
 } = {}) => {
     const {
         video: videoId,
@@ -371,7 +378,13 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(video, config.cardSize, isAdmin, isHome)
+            data: transformVideoData(
+                video,
+                config.cardSize,
+                isAdmin,
+                isHome,
+                isInApertura
+            )
         },
         {
             validation: imageId && image,
