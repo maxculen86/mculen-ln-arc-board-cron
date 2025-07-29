@@ -288,7 +288,7 @@ function Default(props) {
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
                 />
-                {addMetaNoIndexNoFollow({ requestUri })}
+                {addMetaNoIndexNoFollow({ requestUri, distributorName })}
                 <OpeningRawHTML
                     contentElements={contentElements}
                     layoutName={layout}

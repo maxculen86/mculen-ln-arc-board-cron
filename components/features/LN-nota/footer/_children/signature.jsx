@@ -14,7 +14,7 @@ function Signature({ globalContent, isNotaFooter }) {
         subtype
     } = globalContent;
 
-    const { name, mode } = distributor;
+    const { name, mode, subcategory } = distributor;
     const showSignatureWithDistributor =
         withFirmaDistributor && name !== 'lanacionar';
 
@@ -35,6 +35,7 @@ function Signature({ globalContent, isNotaFooter }) {
             <SignatureWithDistributor
                 name={name}
                 mode={mode}
+                subcategory={subcategory}
                 showSignatureWithDistributor={showSignatureWithDistributor}
             />
             <SignatureWithAuthors

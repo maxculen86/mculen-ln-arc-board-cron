@@ -105,4 +105,56 @@ describe('components - feature - LN-nota - signature - signatureWithDistributor'
         expect(distributor).toBeInTheDocument();
         expect(audioButton).toBeNull();
     });
+
+    describe('subcategory disclaimer', () => {
+        it('shows the subcategory text when name is "EL PAIS" and subcategory is provided', () => {
+            render(
+                <SignatureWithDistributor
+                    name="EL PAIS"
+                    mode="other"
+                    subcategory="Cultura"
+                    audioButton={<button>Escuchar Nota</button>}
+                    showSignatureWithDistributor={true}
+                />
+            );
+
+            expect(
+                screen.getByRole('link', { name: 'EL PAIS' })
+            ).toBeInTheDocument();
+            expect(screen.getByText('Cultura')).toBeInTheDocument();
+        });
+
+        it('does NOT show the subcategory text for non "EL PAIS" names even if subcategory is provided', () => {
+            render(
+                <SignatureWithDistributor
+                    name="New York Times"
+                    mode="other"
+                    subcategory="Cultura"
+                    audioButton={<button>Escuchar Nota</button>}
+                    showSignatureWithDistributor={true}
+                />
+            );
+
+            expect(
+                screen.getByRole('link', { name: 'New York Times' })
+            ).toBeInTheDocument();
+            expect(screen.queryByText('Cultura')).toBeNull();
+        });
+
+        it('does NOT show the subcategory text when mode is "custom"', () => {
+            render(
+                <SignatureWithDistributor
+                    name="EL PAIS"
+                    mode="custom"
+                    subcategory="Cultura"
+                    audioButton={<button>Escuchar Nota</button>}
+                    showSignatureWithDistributor={true}
+                />
+            );
+
+            expect(screen.getByText('EL PAIS')).toBeInTheDocument();
+            expect(screen.queryByRole('link')).toBeNull();
+            expect(screen.queryByText('Cultura')).toBeNull();
+        });
+    });
 });
