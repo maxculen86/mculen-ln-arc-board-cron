@@ -76,4 +76,11 @@ describe('components - features - LN-10-global - cardVerticalCarrusel - default'
         );
         expect(container).toMatchSnapshot();
     });
+    it('should match snapshot without title', () => {
+        const { container } = renderWithProvider(
+            <CardVertical {...defaultProps} title={undefined} />,
+            {}
+        );
+        expect(container).toMatchSnapshot();
+    });
 });
