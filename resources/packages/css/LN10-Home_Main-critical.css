@@ -5132,10 +5132,10 @@ a {
   --cruci-tematico: #b09c03;
   --panal-de-letras: #dce11f;
   --memograma: #295dea;
-  --nexos: #8969E9;
-  --circuitos: #42D369;
-  --ranking: #74D1E5;
-  --adivinanzas: #81B6E2;
+  --nexos: #8969e9;
+  --circuitos: #42d369;
+  --ranking: #74d1e5;
+  --adivinanzas: #81b6e2;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -5157,6 +5157,13 @@ a {
     rgba(0, 22, 49, 0.4) 53.98%,
     rgba(0, 22, 49, 0.75) 67.75%,
     rgba(0, 22, 49, 0.9) 81.15%
+  );
+  --gradient-accent-sm: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 80%,
+    rgba(0, 22, 49, 0.4) 85%,
+    rgba(0, 22, 49, 0.75) 90%,
+    rgba(0, 22, 49, 0.9) 95%
   );
 }
 
@@ -5373,6 +5380,9 @@ a {
 .border.border-neutral-light-700 {
   border-color: var(--neutral-light-700);
 }
+.border.border-neutral-light-800 {
+  border-color: var(--neutral-light-800);
+}
 .border.border-neutral-light-900 {
   border-color: var(--neutral-light-900);
 }
@@ -5476,6 +5486,10 @@ a {
   border-left: none;
 }
 
+.border-bottom-none.border-bottom-none {
+  border-bottom: none;
+}
+
 @media (min-width: 512px) {
   .border-left-solid_min512 {
     border-left-style: solid;
@@ -5507,6 +5521,9 @@ a {
   }
   .border-danger-600_m {
     border-color: var(--danger-600);
+  }
+  .border-bottom-none_m.border-bottom-none_m {
+    border-bottom: none;
   }
 }
 .-z-1 {
@@ -5881,6 +5898,10 @@ a {
   background: var(--gradient-accent);
 }
 
+.bg-gradient-accent-sm {
+  background: var(--gradient-accent-sm);
+}
+
 .bg-panal-de-letras__hover:hover {
   background: var(--panal-de-letras);
 }
@@ -6172,6 +6193,13 @@ a {
 }
 @media (min-width: 80rem) {
   .prumo.text-48_lg {
+    font-size: 3rem;
+    line-height: 100%;
+    --prumo-letter-spacing: -0.64px;
+  }
+}
+@media (min-width: 83.75rem) {
+  .prumo.text-48_xl {
     font-size: 3rem;
     line-height: 100%;
     --prumo-letter-spacing: -0.64px;
@@ -7013,6 +7041,10 @@ strong:not(.--font-primary),
 }
 .p-0.p-0 {
   padding: 0rem;
+}
+
+.mb-0.mb-0 {
+  margin-bottom: 0rem;
 }
 
 .none.none {
