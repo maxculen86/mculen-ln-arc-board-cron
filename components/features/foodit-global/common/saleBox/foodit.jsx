@@ -1,19 +1,15 @@
 import React, { useId } from 'react';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
-import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import {
     mockBenefits,
     imgsIngredientsBackground,
     imgsPhoneFoodit
 } from './helper';
-import isSSR from '../../../../private/LN/common/utils/isSSR';
-import { scheduleTask } from '../../../../private/common/utils/scheduleTask';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
 
 export function SaleBox({ ...props }) {
     const { deployment, contextPath } = useAppContext();
@@ -23,19 +19,6 @@ export function SaleBox({ ...props }) {
             `${contextPath}/resources/foodit/assets/images/saleBox/${file}`
         );
 
-    const paywallUrl = !isSSR()
-        ? `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=831&callback=${window.btoa(window.location.href)}`
-        : '';
-
-    const handleRedirectSubscription = () => {
-        scheduleTask(() => {
-            window.location.href = paywallUrl;
-        });
-        addEventToDataLayerV2({
-            event: 'subscription_start',
-            button: 'home'
-        });
-    };
     return (
         <section className="bg-positive relative w-100vw as-center" {...props}>
             <div className="container relative pt-56 pb-0_md px-16 px-24_md px-32_lg grid grid-cols-12_md grid-cols-16_lg jc-center ai-center ai-start_md gap-24 gap-64_md">
@@ -66,13 +49,7 @@ export function SaleBox({ ...props }) {
                             </div>
                         ))}
                     </div>
-                    <Button
-                        title="Ir a Suscribirse"
-                        variant="accent"
-                        onClick={handleRedirectSubscription}
-                    >
-                        ¡suscribite!
-                    </Button>
+                    <LoginSubscribeButtons comesFrom="SaleBox" />
                 </div>
                 <div className="col-span-8 col-span-5_md col-span-7_lg js-center as-end">
                     <Adaptableimage

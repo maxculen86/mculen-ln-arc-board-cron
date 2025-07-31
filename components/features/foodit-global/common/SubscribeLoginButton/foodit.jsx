@@ -1,16 +1,23 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@ln/foodit-ui-button';
 import {
     FOODIT_LOGIN_URL,
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useOnClickOutside } from '@ln/hooks';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
-import useGetUserConfig from '../../../hooks/useGetUserConfig';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
+import getButtonCategory from './helpers/getButtonCategory';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { SubscribeButton } from './components/subscribeButton';
+import { LoginButton } from './components/loginButton';
 
-function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
+function LoginSubscribeButtons({
+    classNameButtons = '',
+    termicasData = {},
+    comesFrom = '',
+    loginClassName = ''
+}) {
     const { promotions } = useGetUserConfig();
     const { buttonLogginText, buttonSubscribeText } = promotions;
     const [tooltipState, setTooltipState] = useState({
@@ -18,6 +25,8 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
         shouldShow: false
     });
     const refTooltipText = useRef(null);
+
+    const { categoryEvent, url } = getButtonCategory(comesFrom);
 
     useEffect(() => {
         if (termicasData) {
@@ -30,13 +39,13 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
     }, [termicasData]);
 
     const handleSubscribeClick = () => {
-        const href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window?.btoa(window.location.href)}`;
+        const href = `${SITIO_SEGURO_REGISTRACION}${url}${window?.btoa(window.location.href)}`;
         requestAnimationFrame(() => {
             window.location.href = href;
         });
         addEventToDataLayerV2({
             event: 'subscription_start',
-            button: 'header'
+            button: categoryEvent
         });
     };
 
@@ -48,7 +57,7 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
         addEventToDataLayerV2({
             event: 'e_linkclick',
             action: 'N/A',
-            category: 'header',
+            category: categoryEvent,
             label: 'inicia_sesion'
         });
     };
@@ -74,34 +83,20 @@ function LoginSubscribeButtons({ classNameButtons = '', termicasData = {} }) {
                     visible={tooltipState.shouldShow && tooltipState.text}
                     disableTrigger
                 >
-                    <Button
-                        className={classNameButtons}
-                        title={buttonSubscribeText}
-                        variant="accent"
-                        size={{ sm: 32, md: 32, lg: 40 }}
-                        data-test-id="button-suscribe"
-                        data-interaction="dataLayerInteraction"
-                        data-event="subscription_start"
-                        data-button="buttonSubscribeText"
-                        onClick={handleSubscribeClick}
-                    >
-                        <span className="roboto-bold">
-                            {buttonSubscribeText}
-                        </span>
-                    </Button>
+                    <SubscribeButton
+                        classNameButtons={classNameButtons}
+                        buttonSubscribeText={buttonSubscribeText}
+                        handleSubscribeClick={handleSubscribeClick}
+                    />
                 </Tooltip>
             )}
-            {buttonLogginText && (
-                <Button
-                    data-test-id="button-login"
-                    className={classNameButtons}
-                    title={buttonLogginText}
-                    variant="link"
-                    data-variant="link"
-                    onClick={handleLoginClick}
-                >
-                    <span className="roboto-regular">{buttonLogginText}</span>
-                </Button>
+            {buttonLogginText && categoryEvent !== 'home' && (
+                <LoginButton
+                    classNameButtons={classNameButtons}
+                    buttonLogginText={buttonLogginText}
+                    handleLoginClick={handleLoginClick}
+                    loginClassName={loginClassName}
+                />
             )}
         </>
     );
@@ -112,7 +107,9 @@ LoginSubscribeButtons.defaultProps = {
     termicasData: {
         tooltip_subscribe_foodit_text: '',
         tooltip_subscribe_foodit_show: false
-    }
+    },
+    comesFrom: '',
+    loginClassName: 'roboto-regular'
 };
 
 LoginSubscribeButtons.propTypes = {
@@ -123,7 +120,9 @@ LoginSubscribeButtons.propTypes = {
             PropTypes.string,
             PropTypes.bool
         ])
-    })
+    }),
+    comesFrom: PropTypes.string,
+    loginClassName: PropTypes.string
 };
 
 export default LoginSubscribeButtons;
