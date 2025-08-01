@@ -510,6 +510,7 @@ export default `
         audio_nota {
             embed {
                 config {
+                    audio_id
                     audio_status
                 }
             }

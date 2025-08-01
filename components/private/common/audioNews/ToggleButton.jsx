@@ -38,7 +38,7 @@ function ToggleButton({ isSummary, handleToggle }) {
                             rest: getAudioEvents(
                                 globalContent,
                                 globalContentConfig,
-                                'article'
+                                false
                             )
                         });
                     }
@@ -68,7 +68,7 @@ function ToggleButton({ isSummary, handleToggle }) {
                             rest: getAudioEvents(
                                 globalContent,
                                 globalContentConfig,
-                                'summary'
+                                true
                             )
                         });
                     }
