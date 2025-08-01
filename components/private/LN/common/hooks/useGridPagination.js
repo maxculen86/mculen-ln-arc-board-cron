@@ -26,7 +26,9 @@ const useGridPagination = props => {
         // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
         pageLayout,
         globalContent,
-        requestUri
+        requestUri,
+        filterNotes,
+        isPage
     } = props;
 
     const hideSubheaderText = shouldHideSubheaderText(requestUri);
@@ -42,7 +44,9 @@ const useGridPagination = props => {
         isWiki,
         // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
         pageLayout,
-        globalContent
+        globalContent,
+        filterNotes,
+        isPage
     });
 
     const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;

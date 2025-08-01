@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -13,9 +11,14 @@ import useGridPagination from '../../../private/LN/common/hooks/useGridPaginatio
 import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
 
 import { verifyChainsBeforeGrid } from '../../../private/common/utils/preloadHelper';
+import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 
-const GrillaNotasFeature = props => {
-    const { customFields, globalContentConfig, globalContent, id } = props;
+function GrillaNotasFeature(props) {
+    const { customFields, globalContentConfig, globalContent, id, template } =
+        props;
+
+    const isPage = template?.includes('page');
+
     const globalProviderAcu = useGlobalProviderAcu();
 
     const {
@@ -35,6 +38,8 @@ const GrillaNotasFeature = props => {
         layout: pageLayout
     } = useAppContext();
 
+    const { filterNotes, ...customFieldsForBanner } = customFields;
+
     const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
 
     const appContextProps = {
@@ -49,7 +54,7 @@ const GrillaNotasFeature = props => {
     };
 
     const getBanner = Banner({
-        customFields,
+        customFields: customFieldsForBanner,
         globalContentConfig,
         outputType,
         globalContent
@@ -64,7 +69,9 @@ const GrillaNotasFeature = props => {
             // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
             globalContent,
             pageLayout,
-            requestUri
+            requestUri,
+            filterNotes,
+            isPage
         });
 
     return (
@@ -78,14 +85,20 @@ const GrillaNotasFeature = props => {
             featureId={id}
         />
     );
-};
+}
 
 GrillaNotasFeature.label = 'LN-Acumulado-Grilla-Notas';
 
 GrillaNotasFeature.propTypes = {
     customFields: PropTypes.shape({
+        filterNotes: PropTypes.boolean.tag({
+            name: 'Filtrar Nota por K&L',
+            defaultValue: false,
+            group: groupCustomFields
+        }),
         ...buildCustomFieldsForBanners()
     }).isRequired,
+    id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         name: PropTypes.string.isRequired
     }).isRequired,
@@ -93,7 +106,8 @@ GrillaNotasFeature.propTypes = {
         query: PropTypes.shape({
             id: PropTypes.string
         })
-    }).isRequired
+    }).isRequired,
+    template: PropTypes.string.isRequired
 };
 
 export default Consumer(GrillaNotasFeature);

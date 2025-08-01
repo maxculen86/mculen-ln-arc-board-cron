@@ -27,7 +27,9 @@ const useGridArticles = props => {
         isWiki = false,
         // TODO: Eliminar esta prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
         globalContent,
-        pageLayout
+        pageLayout,
+        filterNotes,
+        isPage
     } = props || {};
 
     const DEFAULT_QUANTITY = 30;
@@ -93,7 +95,9 @@ const useGridArticles = props => {
         page,
         hasCollectionApertura,
         sourceOrigin,
-        excludePreload: excludeUrl
+        excludePreload: excludeUrl,
+        filterNotes,
+        isPage
     };
 
     const { articles, moreArticles } =
