@@ -7,13 +7,15 @@ import DescriptionVideo100 from './DescriptionVideo100';
 
 function AperturaVideo100({ children }) {
     const { globalContent } = useAppContext();
-    const { dataMedia, dataDescripcion } =
+    const { dataMedia, dataDescripcion, dataDateTime } =
         getLiveBlogEditorialDataApertura(globalContent);
 
     return (
         <div className="video-100-opening">
             <MediaVideo100 data={dataMedia} />
-            <DescriptionVideo100 data={dataDescripcion} />
+            <DescriptionVideo100
+                data={{ ...dataDescripcion, ...dataDateTime }}
+            />
             <div className="lay pt-24">{children}</div>
         </div>
     );
