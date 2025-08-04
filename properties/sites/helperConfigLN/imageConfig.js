@@ -171,44 +171,30 @@ export default {
             promo_items: {
                 sizes: [
                     {
+                        width: 510,
+                        height: 340,
+                        maxScreenWidth: 767,
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 490,
+                        height: 330,
+                        minScreenWidth: 768,
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1023
+                        }),
+                        proportion: '3:2'
+                    },
+                    {
                         width: 560,
-                        height: 373,
-                        media: minWidth1280,
-                        useFullSize: true,
-                        proportion: '3:2',
-                        media_preload: minWidthPreload1280
-                    },
-                    {
-                        width: 637,
-                        height: 424,
-                        media: minWidth1024,
-                        useFullSize: true,
-                        proportion: '3:2',
-                        media_preload: min1024max1280
-                    },
-                    {
-                        width: 465,
-                        height: 310,
-                        media: minWidth768,
-                        useFullSize: true,
-                        proportion: '3:2',
-                        media_preload: min768max1024
-                    },
-                    {
-                        width: 375,
-                        height: 250,
-                        // media: minWidth375,
-                        useFullSize: true,
-                        proportion: '2:3',
-                        media_preload: min375max768
-                    },
-                    {
-                        width: 320,
-                        height: 213,
-                        // media: minWidth320,
-                        useFullSize: true,
-                        proportion: '2:3',
-                        media_preload: maxWidth375
+                        height: 375,
+                        minScreenWidth: 1024,
+                        media_preload: setMediaCondition({
+                            minWidth: 1024
+                        }),
+                        proportion: '3:2'
                     }
                 ]
             },
@@ -249,6 +235,7 @@ export default {
                         width: 292,
                         height: 194,
                         media: minWidth1280,
+                        minScreenWidth: 1280,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -256,6 +243,7 @@ export default {
                         width: 316,
                         height: 210,
                         media: minWidth1024,
+                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -263,13 +251,15 @@ export default {
                         width: 231,
                         height: 154,
                         media: minWidth768,
+                        minScreenWidth: 768,
                         useFullSize: true,
                         proportion: '3:2'
                     },
                     {
-                        width: 375,
-                        height: 229,
-                        // media: minWidth375,
+                        width: 510,
+                        height: 320,
+                        media: minWidth375,
+                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '2:3'
                     },
@@ -316,44 +306,30 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 595,
-                        height: 399,
-                        media: minWidth1280,
-                        useFullSize: true,
-                        proportion: '3:2',
-                        media_preload: minWidthPreload1280
+                        width: 510,
+                        height: 340,
+                        maxScreenWidth: 767,
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        proportion: '3:2'
                     },
                     {
-                        width: 635,
-                        height: 424,
-                        media: minWidth1024,
-                        useFullSize: true,
-                        proportion: '3:2',
-                        media_preload: min1024max1280
+                        width: 490,
+                        height: 330,
+                        minScreenWidth: 768,
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1023
+                        }),
+                        proportion: '3:2'
                     },
                     {
-                        width: 465,
-                        height: 311,
-                        media: minWidth768,
-                        useFullSize: true,
-                        proportion: '3:2',
-                        media_preload: min768max1024
-                    },
-                    {
-                        width: 375,
-                        height: 229,
-                        // media: minWidth375,
-                        useFullSize: true,
-                        proportion: '2:3',
-                        media_preload: min375max768
-                    },
-                    {
-                        width: 320,
-                        height: 192,
-                        // media: minWidth320,
-                        useFullSize: true,
-                        proportion: '2:3',
-                        media_preload: maxWidth375
+                        width: 560,
+                        height: 375,
+                        minScreenWidth: 1024,
+                        media_preload: setMediaCondition({
+                            minWidth: 1024
+                        }),
+                        proportion: '3:2'
                     }
                 ]
             },
@@ -387,23 +363,25 @@ export default {
                 ]
             }
         },
-        // solo se visualiza imagen en mobile
         mediumFocalDerecho: {
             promo_items: {
                 sizes: [
                     {
-                        width: 375,
-                        height: 229,
-                        // media: minWidth375,
-                        useFullSize: true,
-                        proportion: '2:3'
+                        width: 510,
+                        height: 340,
+                        maxScreenWidth: 511,
+                        proportion: '3:2',
+                        media_preload: setMediaCondition({ maxWidth: 511 })
                     },
                     {
-                        width: 320,
-                        height: 192,
-                        // media: minWidth320,
-                        useFullSize: true,
-                        proportion: '2:3'
+                        width: 512,
+                        height: 220,
+                        minScreenWidth: 512,
+                        proportion: '3:2',
+                        media_preload: setMediaCondition({
+                            minWidth: 512,
+                            maxWidth: 767
+                        })
                     }
                 ]
             },
@@ -508,39 +486,38 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 1250,
-                        height: 500,
+                        width: 880,
+                        height: 586,
                         media: minWidth1280,
-                        useFullSize: true,
-                        proportion: '5:2'
+                        minScreenWidth: 1280,
+                        useFullSize: true
                     },
                     {
-                        width: 1024,
-                        height: 682,
+                        width: 992,
+                        height: 397,
                         media: minWidth1024,
-                        useFullSize: true,
-                        proportion: '5:2'
+                        minScreenWidth: 1024,
+                        useFullSize: true
                     },
                     {
                         width: 736,
                         height: 294,
                         media: minWidth768,
-                        useFullSize: true,
-                        proportion: '5:2'
+                        minScreenWidth: 768,
+                        useFullSize: true
                     },
                     {
-                        width: 375,
-                        height: 429,
+                        width: 510,
+                        height: 590,
                         // media: minWidth375,
-                        useFullSize: true,
-                        proportion: '3:4'
+                        minScreenWidth: 375,
+                        useFullSize: true
                     },
                     {
                         width: 320,
                         height: 360,
                         // media: minWidth320,
-                        useFullSize: true,
-                        proportion: '3:4'
+                        useFullSize: true
                     }
                 ]
             },
@@ -578,38 +555,20 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 449,
-                        height: 300,
-                        media: minWidth1280,
-                        useFullSize: true,
+                        width: 510,
+                        height: 320,
+                        maxScreenWidth: 1023,
+                        media_preload: setMediaCondition({
+                            maxWidth: 1023
+                        }),
                         proportion: '3:2'
                     },
                     {
-                        width: 486,
-                        height: 325,
-                        media: minWidth1024,
-                        useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 358,
-                        height: 240,
-                        media: minWidth768,
-                        useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 375,
-                        height: 250,
-                        // media: minWidth375,
-                        useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 320,
-                        height: 213,
-                        // media: minWidth320,
-                        useFullSize: true,
+                        width: 480,
+                        height: 320,
+                        media_preload: setMediaCondition({
+                            minWidth: 1024
+                        }),
                         proportion: '3:2'
                     }
                 ]
@@ -695,14 +654,12 @@ export default {
                 }
             }
         },
-        // TODO: Borrar esta config cuando se reemplace por los tamaños nuevos en todos los lugares donde se usa.
         boxArticles: {
             promo_items: {
                 sizes: [
                     {
                         width: 375,
                         height: 250,
-                        // media: minWidth375,
                         minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '3:2'
@@ -710,7 +667,6 @@ export default {
                     {
                         width: 300,
                         height: 200,
-                        // media: minWidth320,
                         useFullSize: true,
                         proportion: '3:2'
                     }
@@ -858,48 +814,6 @@ export default {
                         width: 420,
                         height: 280,
                         media_preload: setMediaCondition({ maxWidth: 1023 }),
-                        useFullSize: true,
-                        proportion: '3:2'
-                    }
-                ]
-            }
-        },
-        // TODO: Borrar esta config cuando se migren todas las aperturas de Acu a los tamaños nuevos
-        aperturaAcu: {
-            promo_items: {
-                sizes: [
-                    {
-                        width: 608,
-                        height: 407,
-                        media: minWidth1280,
-                        useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 486,
-                        height: 325,
-                        media: minWidth1024,
-                        useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 358,
-                        height: 240,
-                        media: minWidth768,
-                        useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 375,
-                        height: 250,
-                        // media: minWidth375,
-                        useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 320,
-                        height: 213,
-                        // media: minWidth320,
                         useFullSize: true,
                         proportion: '3:2'
                     }

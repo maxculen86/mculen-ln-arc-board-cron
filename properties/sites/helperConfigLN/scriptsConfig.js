@@ -62,10 +62,6 @@ export default {
         props: {},
         location: [HEAD]
     },
-    SocialEmbeds: {
-        props: {},
-        location: [BODYTOP]
-    },
     OptaEmbed: {
         props: {},
         location: [HEAD]

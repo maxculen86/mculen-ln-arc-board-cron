@@ -127,10 +127,10 @@ export default {
         articles: {
             0: {
                 titleSizeNoMedia: fontSize.m,
-                imageConfig: 'boxArticles'
+                imageConfig: 'newBoxArticles'
             },
-            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' }
+            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' }
         }
     },
     grilla6: {
@@ -138,13 +138,13 @@ export default {
         articles: {
             0: {
                 titleSizeNoMedia: fontSize.m,
-                imageConfig: 'boxArticles'
+                imageConfig: 'newBoxArticles'
             },
-            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            3: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            4: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            5: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' }
+            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            3: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            4: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            5: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' }
         }
     },
     grilla9: {
@@ -152,16 +152,16 @@ export default {
         articles: {
             0: {
                 titleSizeNoMedia: fontSize.m,
-                imageConfig: 'boxArticles'
+                imageConfig: 'newBoxArticles'
             },
-            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            3: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            4: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            5: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            6: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            7: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
-            8: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' }
+            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            3: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            4: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            5: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            6: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            7: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' },
+            8: { titleSizeNoMedia: fontSize.m, imageConfig: 'newBoxArticles' }
         }
     },
     bomba1: {
