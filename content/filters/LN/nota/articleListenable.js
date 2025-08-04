@@ -442,6 +442,7 @@ export default `
         name
         category
         reference_id
+        subcategory
         mode
     }
     promo_items {

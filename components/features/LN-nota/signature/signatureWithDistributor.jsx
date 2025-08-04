@@ -9,11 +9,14 @@ import formatDistributorName from '../../../private/LN/common/utils/formatDistri
 function SignatureWithDistributor({
     name,
     mode,
+    subcategory = '',
     audioButton,
     showSignatureWithDistributor,
     classNameSignature
 }) {
     if (!showSignatureWithDistributor) return null;
+
+    const showDisclaimer = subcategory.length > 0 && name === 'EL PAIS';
 
     const signatureDistributorHtml = nombre =>
         nombre === 'LA NACION' || mode === 'custom' ? (
@@ -21,14 +24,23 @@ function SignatureWithDistributor({
                 {nombre}
             </Text>
         ) : (
-            <Link
-                href={`${SITE_LANACION}/distributor/${formatDistributorName(nombre)}/`}
-                title={nombre}
-            >
-                <Text className={cx('font-bold --twoxs', classNameSignature)}>
-                    {nombre}
-                </Text>
-            </Link>
+            <div className="flex gap-4 ai-center">
+                <Link
+                    href={`${SITE_LANACION}/distributor/${formatDistributorName(nombre)}/`}
+                    title={nombre}
+                >
+                    <Text
+                        className={cx('font-bold --twoxs', classNameSignature)}
+                    >
+                        {nombre}
+                    </Text>
+                </Link>
+                {showDisclaimer && (
+                    <Text className="text-12 text-neutral-light-800">
+                        {subcategory}
+                    </Text>
+                )}
+            </div>
         );
 
     return (
@@ -41,6 +53,7 @@ function SignatureWithDistributor({
 
 SignatureWithDistributor.propTypes = {
     name: PropTypes.string.isRequired,
+    subcategory: PropTypes.string.isRequired,
     mode: PropTypes.string.isRequired,
     audioButton: PropTypes.node.isRequired,
     showSignatureWithDistributor: PropTypes.bool.isRequired,
