@@ -16,8 +16,14 @@ describe('Generate post object function', () => {
         expect(postObjects.length).toBe(3);
     });
     it('Every object must have the powerUp headline, and isoDate', () => {
+        const expectedHeadlines = [
+            'Gym 1 Ciudad Plateada',
+            'Gym 2 ciudad Celeste',
+            'Gym 3 ciudad Carmin'
+        ];
+
         postObjects.forEach((element, i) => {
-            expect(element.headline).toBe('Paaawer ap dos');
+            expect(element.headline).toBe(expectedHeadlines[i]);
             expect(element.datePublished).not.toBe('');
         });
     });
