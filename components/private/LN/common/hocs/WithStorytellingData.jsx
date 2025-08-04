@@ -27,7 +27,6 @@ export default function WithStorytellingData(WrappedComponent) {
             const videoJw = get(promoItems, 'video_jw', null);
             const type = get(props, 'globalContent.type', null);
             const subtype = get(props, 'globalContent.subtype', null);
-            const isLoadWithPicture = get(props, 'isLoadWithPicture', false);
             const device = getTypeOfDevice({
                 breakpoints: { mobile: 768, tablet: 1024 }
             });
@@ -42,7 +41,6 @@ export default function WithStorytellingData(WrappedComponent) {
                       basicImage,
                       videoBackground,
                       storytellingMobile,
-                      isLoadWithPicture,
                       device,
                       videoJw
                   )
@@ -73,8 +71,7 @@ export default function WithStorytellingData(WrappedComponent) {
                 type: PropTypes.string,
                 subtype: PropTypes.string
             })
-        }),
-        isLoadWithPicture: PropTypes.bool
+        })
     };
 
     Component.defaultProps = {
@@ -86,8 +83,7 @@ export default function WithStorytellingData(WrappedComponent) {
             },
             type: '',
             subtype: ''
-        },
-        isLoadWithPicture: false
+        }
     };
 
     return Component;

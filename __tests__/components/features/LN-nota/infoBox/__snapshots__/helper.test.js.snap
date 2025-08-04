@@ -92,7 +92,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
   "linkProps": {
     "href": "https://www.lanacion.com.ar/comunidad/hablemos-de-todo/hablemos-de-todo-nid09052025/",
     "target": "_blank",
-    "title": "IR A LAS GUÍAS",
+    "title": "IR A LA GUÍA",
   },
   "logoProps": {
     "alt": "Logo de asistencia contra violencia de género",

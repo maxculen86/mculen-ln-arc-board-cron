@@ -8,11 +8,6 @@ import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import AnexoDefault from '../../features/LN-common/anexo/default';
 import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
-
-import '../../../resources/dist/css/ln/pages/acumulado.css';
-import '../../../resources/dist/css/ln/pages/lotteries.css';
-import '../../../resources/dist/css/ln/pages/wiki-tags.css';
-
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
@@ -23,6 +18,9 @@ import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json'
 import InitControlGroup from '../helpers/initCtrlGrp';
 import Toasts from '../../features/LN-10-global/common/toasts/default';
 import { CLASS_ACU_REVISTA, revistas, getSectionClassName } from './helpers';
+import '../../../resources/dist/css/ln/pages/acumulado.css';
+import '../../../resources/dist/css/ln/pages/lotteries.css';
+import '../../../resources/dist/css/ln/pages/wiki-tags.css';
 
 const acumToSearchAperturaChain = ['tags'];
 
@@ -136,8 +134,6 @@ function LNAcumuladoLayout(props) {
                 acumuladoColor={acumuladoColor}
                 idCollectionsInPage={idCollectionsInPage}
                 idCollectionApertura={idCollectionApertura}
-                // TODO: Eliminar esta prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
-                globalContent={globalContent}
             >
                 {bannerMegatop}
                 <div id="wrapper" className={classNameWrapper}>

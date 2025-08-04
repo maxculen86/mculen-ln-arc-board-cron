@@ -26,13 +26,8 @@ describe('WithStorytellingData', () => {
             subtype: '4'
         };
 
-        const isLoadWithPicture = true;
-
         const { container } = render(
-            <WrappedComponent
-                globalContent={globalContent}
-                isLoadWithPicture={isLoadWithPicture}
-            />
+            <WrappedComponent globalContent={globalContent} />
         );
 
         const storytellingDataElement =
