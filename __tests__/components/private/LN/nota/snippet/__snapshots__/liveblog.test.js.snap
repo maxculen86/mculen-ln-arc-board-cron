@@ -65,7 +65,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
   "liveBlogUpdate": [
     {
       "@type": "BlogPosting",
-      "headline": "Paaawer ap dos",
+      "headline": "Esto es un titulo",
       "url": "https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_1",
       "@id": "#parrafo_1",
       "mainEntityOfPage": {
@@ -73,7 +73,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
       },
       "datePublished": "",
       "dateModified": "",
-      "articleBody": "Esto es un titulo El gimnasio de Plateada es el primer gimnasio de Kanto. Su tipo dominante es el roca. El líder de gimnasio es Brock. Los entrenadores que lo derrotan reciben la medalla Roca.",
+      "articleBody": "El gimnasio de Plateada es el primer gimnasio de Kanto. Su tipo dominante es el roca. El líder de gimnasio es Brock. Los entrenadores que lo derrotan reciben la medalla Roca.",
       "image": {
         "@type": "ImageObject",
         "url": "https://resizer.glanacion.com/resizer/7K_yKMxoPihLDNi5fuAcK7CyaZk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PKRXY5HMUZCPVHZESCXJJSN66U.jpg"
@@ -89,7 +89,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
     },
     {
       "@type": "BlogPosting",
-      "headline": "Paaawer ap dos",
+      "headline": "Gym 2 ciudad Celeste",
       "url": "https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_2",
       "@id": "#parrafo_2",
       "mainEntityOfPage": {
@@ -97,7 +97,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
       },
       "datePublished": "",
       "dateModified": "",
-      "articleBody": "Gym 2 ciudad Celeste El Gimnasio Celeste es el segundo de la región de Kanto. Se encuentra en Ciudad Celeste y su líder es Misty, experta en los Pokémon de tipo agua. Con su medalla Cascada todos los Pokémon del nivel 30 o inferior te obedecerán.",
+      "articleBody": "El Gimnasio Celeste es el segundo de la región de Kanto. Se encuentra en Ciudad Celeste y su líder es Misty, experta en los Pokémon de tipo agua. Con su medalla Cascada todos los Pokémon del nivel 30 o inferior te obedecerán.",
       "image": {
         "@type": "ImageObject",
         "url": "https://resizer.glanacion.com/resizer/InkxW3rrh4Wud4c-HzaGUcdDlhw=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BIV4XOQKQVGNRF7QGI5EYLJBMA.jpg"
@@ -113,7 +113,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
     },
     {
       "@type": "BlogPosting",
-      "headline": "Paaawer ap dos",
+      "headline": "Gym 3 ciudad Carmin",
       "url": "https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_3",
       "@id": "#parrafo_3",
       "mainEntityOfPage": {
@@ -121,7 +121,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
       },
       "datePublished": "",
       "dateModified": "",
-      "articleBody": "Gym 3 ciudad Carmin El gimnasio Carmín (Vermilion Gym en inglés, クチバジム en japonés) es el tercer gimnasio de la región de Kanto. El líder de este gimnasio es un ex-soldado llamado Lt. Surge, y sus Pokémon son de tipo eléctrico. Se ubica en Ciudad Carmín. 18 obuses de 155 mm.; 36.000 cartuchos de munición de 155 mm.; 18 vehículos tácticos para remolcar obuses de 155 mm.; Munición adicional para sistemas de cohetes de artillería de alta movilidad.; Cuatro vehículos tácticos para recuperar equipos.; Repuestos y otros equipos.; Dos sistemas de defensa costera Harpoon.; Miles de radios de seguridad.; Miles de dispositivos de visión nocturna, visores térmicos y otras ópticas; ",
+      "articleBody": "El gimnasio Carmín (Vermilion Gym en inglés, クチバジム en japonés) es el tercer gimnasio de la región de Kanto. El líder de este gimnasio es un ex-soldado llamado Lt. Surge, y sus Pokémon son de tipo eléctrico. Se ubica en Ciudad Carmín. 18 obuses de 155 mm.; 36.000 cartuchos de munición de 155 mm.; 18 vehículos tácticos para remolcar obuses de 155 mm.; Munición adicional para sistemas de cohetes de artillería de alta movilidad.; Cuatro vehículos tácticos para recuperar equipos.; Repuestos y otros equipos.; Dos sistemas de defensa costera Harpoon.; Miles de radios de seguridad.; Miles de dispositivos de visión nocturna, visores térmicos y otras ópticas; ",
       "image": {
         "@type": "ImageObject",
         "url": "https://resizer.glanacion.com/resizer/av26y64NWYetao2gcdBB_PMqJtg=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QPBCCE3TCFAQXA2ZKVH5NZXCFQ.jpg"
