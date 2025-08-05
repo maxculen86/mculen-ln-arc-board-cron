@@ -30,7 +30,7 @@ import {
     isInApertura,
     checkForId
 } from './common/_helper-WebApi';
-import filter from '../../../../content/filters/LN/nota/articleAcu';
+import filter from '../../../../content/filters/LN/home/LN10/articleHomeBaseFilter';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
 import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
@@ -112,7 +112,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
     });
 
     const articleContent = useContent({
-        source: articleId ? 'articleSourceNota' : null,
+        source: articleId ? 'lnHomeBaseArticleSource' : null,
         query: {
             id: articleId,
             published: true,
@@ -121,8 +121,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
             isInApertura: onlyOneApeturaValidateForWWW,
             isAdmin,
             variant,
-            isLiveblog,
-            isHome
+            isLiveblog
         },
         staticMode: isSSR() && !hasVariants,
         filter: isLiveblog ? liveblogFilter : filter

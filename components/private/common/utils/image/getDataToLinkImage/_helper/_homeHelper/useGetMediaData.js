@@ -57,7 +57,7 @@ const useGetMediaData = ({
     const imagesByPromoItems = useContent({
         source: conditionallyCallSource(
             noteID,
-            'articleSourceNota',
+            'lnHomeBaseArticleSource',
             isHideImage,
             !videoData && !imageByCustomField
         ),
