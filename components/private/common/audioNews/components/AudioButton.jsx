@@ -39,7 +39,7 @@ export function AudioButton({
     const { enableButton, onOpenAudioPlayer, isOpenAudioPlayer } =
         audioPlayerProps;
 
-    const { contentVariant, isAudioPlaying } = useSignatureContext();
+    const { isSummary, isAudioPlaying } = useSignatureContext();
 
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const token = getToken();
@@ -55,7 +55,7 @@ export function AudioButton({
             onOpenAudioPlayer,
             globalContent,
             globalContentConfig,
-            contentVariant,
+            isSummary,
             closeTooltipIAAuthor,
             subscription,
             token,
@@ -63,7 +63,7 @@ export function AudioButton({
         );
     };
 
-    const { text, iconColor } = getTextAndIconColor(contentVariant, variant);
+    const { text, iconColor } = getTextAndIconColor(isSummary, variant);
 
     const TooltipContent = (
         <>
