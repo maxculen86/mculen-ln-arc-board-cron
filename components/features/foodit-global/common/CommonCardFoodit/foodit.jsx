@@ -22,6 +22,7 @@ function CommonCardFoodit({
     customTitle,
     author,
     subtitle,
+    label,
     titleEllipsis,
     contentCode,
     fatherType,
@@ -79,7 +80,13 @@ function CommonCardFoodit({
             handleBookmarkClick={handleBookmarkClick}
         />
     );
+    const MAX_LENGTH = 32;
+    const safeLabel = label || '';
 
+    const shortLabel =
+        safeLabel.length > MAX_LENGTH
+            ? `${safeLabel.slice(0, MAX_LENGTH)}…`
+            : safeLabel;
     return (
         <Card
             data-test-id={`${
@@ -111,6 +118,12 @@ function CommonCardFoodit({
                 {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
             <Card.Main
+                labelProps={{
+                    children: shortLabel,
+                    'aria-label': label,
+                    title: label,
+                    ...(label && { 'data-testid': 'card-label' })
+                }}
                 title={customTitle || title}
                 titleTag={isOpening ? 'h1' : 'h2'}
                 subtitle={subtitle}
@@ -149,6 +162,7 @@ CommonCardFoodit.propTypes = {
     fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
     tag: PropTypes.string,
     title: PropTypes.string.isRequired,
+    label: PropTypes.string,
     customTitle: PropTypes.string,
     author: PropTypes.string,
     subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -182,6 +196,7 @@ CommonCardFoodit.defaultProps = {
     customTitle: '',
     author: '',
     subtitle: '',
+    label: '',
     titleEllipsis: 3,
     contentCode: '',
     container: 'grid',

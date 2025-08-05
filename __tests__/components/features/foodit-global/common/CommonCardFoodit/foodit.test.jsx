@@ -199,4 +199,82 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
 
         expect(container).toMatchSnapshot();
     });
+
+    it('should render label when it is less than or equal to 32 characters', () => {
+        const shortLabel = 'Recetas deliciosas';
+        render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime
+                linksProps={{ href, title }}
+                time={time}
+                size={size}
+                variant="day-recipe"
+                tag={tag}
+                title={title}
+                author={author}
+                label={shortLabel}
+            />
+        );
+
+        expect(screen.getByText(shortLabel)).toBeInTheDocument();
+    });
+
+    it('should truncate label when variant is "day-recipe" and label exceeds 32 characters', () => {
+        const longLabel =
+            'Este es un label muy largo que debe truncarse al renderizar';
+        const truncated = `${longLabel.slice(0, 32)}…`;
+        render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime
+                linksProps={{ href, title }}
+                time={time}
+                size={size}
+                variant="day-recipe"
+                tag={tag}
+                title={title}
+                author={author}
+                label={longLabel}
+            />
+        );
+
+        expect(screen.getByText(truncated)).toBeInTheDocument();
+    });
+    it('should NOT render label if label is an empty string', () => {
+        const emptyLabel = '';
+        render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime
+                linksProps={{ href, title }}
+                time={time}
+                size={size}
+                variant="day-recipe"
+                tag={tag}
+                title={title}
+                author={author}
+                label={emptyLabel}
+            />
+        );
+
+        expect(screen.queryByTestId('card-label')).not.toBeInTheDocument();
+    });
+
+    it('should NOT render label if label is undefined', () => {
+        render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime
+                linksProps={{ href, title }}
+                time={time}
+                size={size}
+                variant="day-recipe"
+                tag={tag}
+                title={title}
+                author={author}
+            />
+        );
+        expect(screen.queryByTestId('card-label')).not.toBeInTheDocument();
+    });
 });
