@@ -9,16 +9,8 @@ import {
 import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 function ImageArticle(props) {
-    const {
-        image,
-        href,
-        active,
-        isApertura,
-        shouldLoadEager,
-        searchableField
-    } = props;
-    const wwwImage =
-        isApertura || shouldLoadEager ? replaceUrlResizerToWWW(image) : image;
+    const { image, href, active, isApertura, searchableField } = props;
+    const wwwImage = isApertura ? replaceUrlResizerToWWW(image) : image;
     const {
         alt_text: altText,
         caption,
@@ -85,14 +77,12 @@ ImageArticle.propTypes = {
     active: PropTypes.bool,
     href: PropTypes.string,
     isApertura: PropTypes.bool,
-    shouldLoadEager: PropTypes.bool,
     searchableField: PropTypes.string
 };
 
 ImageArticle.defaultProps = {
     active: false,
     isApertura: false,
-    shouldLoadEager: false,
     searchableField: '',
     href: ''
 };

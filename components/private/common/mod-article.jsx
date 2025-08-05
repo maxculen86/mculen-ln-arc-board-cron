@@ -50,7 +50,6 @@ const ModArticle = forwardRef((props, ref) => {
         handleClick,
         layout,
         isApertura,
-        shouldLoadEager,
         registerSuccessEvent,
         typeArticle,
         mobileImage,
@@ -131,7 +130,6 @@ const ModArticle = forwardRef((props, ref) => {
                     titleText={titleText}
                     isPowa={isPowa}
                     isApertura={isApertura}
-                    shouldLoadEager={shouldLoadEager}
                     withMobileImage={withMobileImage}
                     searchableField={searchableField}
                     authors={hasAuthorName && authors}
@@ -236,7 +234,6 @@ ModArticle.propTypes = {
     }),
     withMedia: PropTypes.bool,
     isApertura: PropTypes.bool,
-    shouldLoadEager: PropTypes.bool,
     typeArticle: PropTypes.string,
     mobileImage: PropTypes.shape({
         _id: PropTypes.string,
@@ -284,7 +281,6 @@ ModArticle.defaultProps = {
     videoBackground: undefined,
     withMedia: false,
     isApertura: false,
-    shouldLoadEager: false,
     typeArticle: '',
     mobileImage: undefined,
     searchableField: undefined

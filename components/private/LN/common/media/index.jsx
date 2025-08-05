@@ -23,7 +23,6 @@ function Media({
     outputType,
     handleClick,
     isApertura,
-    shouldLoadEager,
     parrafo,
     tituloNota,
     active,
@@ -93,7 +92,6 @@ function Media({
                         outputType={outputType}
                         zoom={zoom}
                         isApertura={isApertura}
-                        shouldLoadEager={shouldLoadEager}
                         searchableField={searchableField}
                         authors={authors}
                     />
@@ -173,7 +171,6 @@ Media.propTypes = {
         PropTypes.string
     ]),
     isApertura: PropTypes.bool,
-    shouldLoadEager: PropTypes.bool,
     html: PropTypes.string,
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node,
@@ -193,7 +190,6 @@ Media.defaultProps = {
     itsGallery: false,
     withZoom: false,
     isApertura: false,
-    shouldLoadEager: false,
     href: '',
     html: '',
     titleText: '',
