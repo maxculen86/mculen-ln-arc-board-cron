@@ -13,15 +13,16 @@ const checkIsApertura = ({
     const isNodeTypeValid = nodeType !== 'author' && nodeType !== 'tags';
     const notHaveArticlesInCollection = !articlesInCollection.length;
     const isAperturaAcuTemasWithoutWiki =
-        isTagWithoutWiki &&
-        [0, 1, 2].includes(articleIndex) &&
-        (requestUri.includes('/dolar-hoy/') || requestUri.includes('/tema/'));
+        isTagWithoutWiki && requestUri.includes('/tema/');
+    const isDolarHoy =
+        requestUri.includes('/dolar-hoy/') && nodeType === 'section';
 
     return (
         (isBefore &&
             ((isNodeTypeValid && notHaveArticlesInCollection) ||
                 isTagWithoutWiki)) ||
-        isAperturaAcuTemasWithoutWiki
+        ((isAperturaAcuTemasWithoutWiki || isDolarHoy) &&
+            [0, 1, 2].includes(articleIndex))
     );
 };
 

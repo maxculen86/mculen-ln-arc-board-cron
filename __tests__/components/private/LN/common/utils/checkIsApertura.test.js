@@ -16,28 +16,31 @@ describe('Components - Private - LN - Common - utils - checkIsApertura', () => {
                 checkIsApertura({ ...data, nodeType: 'section' })
             ).toBeTruthy();
         });
-        it('should return true because is tags without wiki with dolar-hoy URI at index 0', () => {
+        it('should return true because is section with dolar-hoy URI at index 0', () => {
             expect(
                 checkIsApertura({
                     ...data,
+                    nodeType: 'section',
                     articleIndex: 0,
                     requestUri: '/dolar-hoy/'
                 })
             ).toBeTruthy();
         });
-        it('should return true because is tags without wiki with dolar-hoy URI at index 1', () => {
+        it('should return true because is section with dolar-hoy URI at index 1', () => {
             expect(
                 checkIsApertura({
                     ...data,
+                    nodeType: 'section',
                     articleIndex: 1,
                     requestUri: '/dolar-hoy/'
                 })
             ).toBeTruthy();
         });
-        it('should return true because is tags without wiki with dolar-hoy URI at index 2', () => {
+        it('should return true because is section with dolar-hoy URI at index 2', () => {
             expect(
                 checkIsApertura({
                     ...data,
+                    nodeType: 'section',
                     articleIndex: 2,
                     requestUri: '/dolar-hoy/'
                 })
@@ -119,6 +122,16 @@ describe('Components - Private - LN - Common - utils - checkIsApertura', () => {
                     ...data,
                     articleIndex: 1,
                     requestUri: '/otro/'
+                })
+            ).toBeFalsy();
+        });
+
+        it('should return false because is tags with dolar-hoy URI at index 1 (nodeType should be section)', () => {
+            expect(
+                checkIsApertura({
+                    ...data,
+                    articleIndex: 1,
+                    requestUri: '/dolar-hoy/'
                 })
             ).toBeFalsy();
         });
