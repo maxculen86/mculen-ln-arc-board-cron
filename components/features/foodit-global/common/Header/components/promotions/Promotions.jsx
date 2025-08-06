@@ -1,10 +1,10 @@
 import React from 'react';
-import { RenderPlans } from './RenderPlans';
-import LoginSubscribeButtons from '../LoginSubscribeButtons';
-import useGetUserConfig from '../../../../hooks/useGetUserConfig';
 import classNames from 'classnames';
+import { RenderPlans } from './RenderPlans';
+import useGetUserConfig from '../../../../hooks/useGetUserConfig';
+import LoginSubscribeButtons from '../../../SubscribeLoginButton/foodit';
 
-export const Promotions = () => {
+export function Promotions() {
     const { promotions } = useGetUserConfig();
 
     const {
@@ -30,9 +30,11 @@ export const Promotions = () => {
             />
 
             <LoginSubscribeButtons
+                comesFrom="HeaderFoodit"
+                loginClassName="roboto-regular"
                 buttonSubscribeText={buttonSubscribeText}
                 buttonLogginText={buttonLogginText}
             />
         </div>
     );
-};
+}

@@ -182,7 +182,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 title="INICIÁ SESIÓN"
               >
                 <span
-                  class="roboto-regular"
+                  class="roboto roboto-regular"
                 >
                   INICIÁ SESIÓN
                 </span>
