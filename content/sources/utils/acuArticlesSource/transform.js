@@ -109,8 +109,7 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
         console.warn(
             `Error Transform - content/acuArticlesSource : ${JSON.stringify(
                 data
-            )} - siteprops: ${JSON.stringify(siteProps)} - errorMsj:${error.message
-            }`
+            )} - siteprops: ${JSON.stringify(siteProps)} - errorMsj:${error.message}`
         );
         throw new Error(error);
     }

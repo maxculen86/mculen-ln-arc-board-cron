@@ -23,7 +23,9 @@ const useGridPagination = props => {
         isWiki = false,
         acumuladoGeneral = {},
         hasChainBeforeGrid = false,
-        requestUri
+        requestUri,
+        filterNotes,
+        isPage
     } = props;
 
     const hideSubheaderText = shouldHideSubheaderText(requestUri);
@@ -36,7 +38,9 @@ const useGridPagination = props => {
         page: currentPage,
         hasCollectionApertura,
         hasChainBeforeGrid,
-        isWiki
+        isWiki,
+        filterNotes,
+        isPage
     });
 
     const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;
