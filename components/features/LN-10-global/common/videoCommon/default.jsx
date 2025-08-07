@@ -119,7 +119,10 @@ function VideoCommonJw({
                 {isVertical && (
                     <>
                         <div className="videoCommonJw-gradient transition transition-opacity transition-duration-250 transition-ease pointer-events-none absolute w-100 top-0 z-1 bg-gradient-dark h-70 opacity-0" />
-                        <div className="absolute top-8 right-8 z-100">
+                        <div
+                            className="absolute z-100"
+                            style={{ right: '26px', top: '5px' }}
+                        >
                             <TooltipSSR
                                 className="none"
                                 position="left-center"

@@ -58,8 +58,12 @@ describe('getAudioEvents', () => {
                 ]
             },
             promo_items: {
-                audio: {
-                    audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13'
+                audio_nota: {
+                    embed: {
+                        config: {
+                            audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13'
+                        }
+                    }
                 }
             }
         };
@@ -71,8 +75,8 @@ describe('getAudioEvents', () => {
 
         get.mockImplementation((obj, path, defaultValue) => {
             if (path === '_id') return obj._id;
-            if (path === 'promo_items.audio.audio_id')
-                return obj.promo_items.audio.audio_id;
+            if (path === 'promo_items.audio_nota.embed.config.audio_id')
+                return obj.promo_items.audio_nota.embed.config.audio_id;
             if (path === 'credits.by') return obj.credits.by;
             return defaultValue;
         });
@@ -86,7 +90,7 @@ describe('getAudioEvents', () => {
         const result = getAudioEvents(
             globalContent,
             globalContentConfig,
-            'article'
+            false
         );
 
         expect(result).toEqual({
@@ -116,8 +120,12 @@ describe('getAudioEvents', () => {
             _id: 'TG4KFKTNOFH53CM6B6OFKOGSGQ',
             credits: { by: [] },
             promo_items: {
-                audio: {
-                    audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13'
+                audio_nota: {
+                    embed: {
+                        config: {
+                            audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13'
+                        }
+                    }
                 }
             }
         };
@@ -130,8 +138,8 @@ describe('getAudioEvents', () => {
 
         get.mockImplementation((obj, path, defaultValue) => {
             if (path === '_id') return obj._id;
-            if (path === 'promo_items.audio.audio_id')
-                return obj.promo_items.audio.audio_id;
+            if (path === 'promo_items.audio_nota.embed.config.audio_id')
+                return obj.promo_items.audio_nota.embed.config.audio_id;
             if (path === 'credits.by') return obj.credits.by;
             return defaultValue;
         });
@@ -143,7 +151,7 @@ describe('getAudioEvents', () => {
         const result = getAudioEvents(
             globalContent,
             globalContentConfig,
-            'article'
+            false
         );
 
         expect(result).toEqual({
@@ -181,8 +189,12 @@ describe('getAudioEvents', () => {
                 ]
             },
             promo_items: {
-                audio: {
-                    audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13'
+                audio_nota: {
+                    embed: {
+                        config: {
+                            audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13'
+                        }
+                    }
                 }
             }
         };
@@ -195,8 +207,8 @@ describe('getAudioEvents', () => {
 
         get.mockImplementation((obj, path, defaultValue) => {
             if (path === '_id') return obj._id;
-            if (path === 'promo_items.audio.audio_id')
-                return obj.promo_items.audio.audio_id;
+            if (path === 'promo_items.audio_nota.embed.config.audio_id')
+                return obj.promo_items.audio_nota.embed.config.audio_id;
             if (path === 'credits.by') return obj.credits.by;
             if (path === 'credits.by[0].additional_properties.original')
                 return obj.credits.by[0].additional_properties.original;
@@ -207,11 +219,7 @@ describe('getAudioEvents', () => {
         isCustomVoice.mockReturnValue(true);
         extractDataFromCredits.mockReturnValue({ autores: 'José María Costa' });
 
-        const result = getAudioEvents(
-            globalContent,
-            globalContentConfig,
-            'summary'
-        );
+        const result = getAudioEvents(globalContent, globalContentConfig, true);
 
         expect(result).toEqual({
             autor_nombre: 'José María Costa',

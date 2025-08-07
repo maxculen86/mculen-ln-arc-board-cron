@@ -34,8 +34,7 @@ function GrillaNotasFeature(props) {
         } = {},
         outputType = 'default',
         requestUri = '',
-        renderables = [],
-        layout: pageLayout
+        renderables = []
     } = useAppContext();
 
     const { filterNotes, ...customFieldsForBanner } = customFields;
@@ -68,7 +67,6 @@ function GrillaNotasFeature(props) {
             hasChainBeforeGrid,
             // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
             globalContent,
-            pageLayout,
             requestUri,
             filterNotes,
             isPage

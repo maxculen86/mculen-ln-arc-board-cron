@@ -1,3 +1,7 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable react/no-unstable-nested-components */
+// TODO: REFACTOR ES-LINT RULES
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from '../../get';
@@ -20,8 +24,6 @@ import {
 import { getUltimasNoticiasSectionsIds } from '../../../../../features/LN-acumulado/tagList';
 import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
 import { getResizedUrls, getResizerUrlJw } from './_helper';
-import isAllowedSection from '../../../../LN/common/utils/isAllowedSection';
-import allowSectionAndLayout from '../../../../LN/common/media/helpers/allowSectionAndLayout';
 import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
 
 function GetDataToLinkImage({
@@ -43,13 +45,6 @@ function GetDataToLinkImage({
         node_type: nodeType
     } = data || {};
 
-    const isValidSection = isAllowedSection({
-        globalContent: data,
-        listOfAllowedSection: allowSectionAndLayout,
-        layout,
-        noteType: subtype
-    });
-
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
     const isAuthor = nodeType === 'author';
     const isDeportes = id === '/deportes';
@@ -60,12 +55,7 @@ function GetDataToLinkImage({
         Nota: () => {
             const resizedUrls = getResizedUrls(subtype, promoItems, basic);
 
-            return (
-                <LinkImagePreload
-                    isLoadWithPicture={isValidSection}
-                    resizedUrls={resizedUrls}
-                />
-            );
+            return <LinkImagePreload resizedUrls={resizedUrls} />;
         },
 
         Acumulado: () => {
@@ -92,7 +82,6 @@ function GetDataToLinkImage({
                             initialPosition > 0 ? initialPosition - 1 : 0
                         }
                         isFocal={isFocal}
-                        isLoadWithPicture={isValidSection}
                     />
                 );
             }
@@ -138,8 +127,7 @@ function GetDataToLinkImage({
                     : '';
             const dataPreloadAcu = getDataPreloadAcu(
                 idCollectionApertura,
-                nodeType,
-                isValidSection
+                nodeType
             );
             return (
                 <ImagePreloadlAcu
@@ -147,7 +135,6 @@ function GetDataToLinkImage({
                     sectionsIds={sectionsIds}
                     arcSite={arcSite}
                     accumulated={{ id, canonicalUrl, name }}
-                    isLoadWithPicture={isValidSection}
                 />
             );
         },
@@ -166,10 +153,7 @@ function GetDataToLinkImage({
             />
         ),
         VideoJw: () => (
-            <LinkImagePreload
-                resizedUrls={getResizerUrlJw(promoItems)}
-                isLoadWithPicture
-            />
+            <LinkImagePreload resizedUrls={getResizerUrlJw(promoItems)} />
         )
     };
     const sectionAsComponent = capitalizeFirstLetter(section);

@@ -69,18 +69,13 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
 
     const { authors } = extracDataFromCredits(by);
 
-    const headline = get(
-        globalContent,
-        'headlines.basic',
-        'LA NACION - Noticia'
-    );
-
     const postingStart = contentElements.findIndex(elem =>
         isCustomLiveblog(elem)
     );
 
     let post = {};
     let description = [];
+    let postTitle = '';
     const postElements = contentElements
         .slice(postingStart)
         .reduce((acc, elem, i, slicedArray) => {
@@ -89,10 +84,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
             if (isCustomLiveblog(elem)) {
                 post = {};
                 description = [];
-
-                if (elem?.embed?.config?.title?.trim()) {
-                    description.push(elem.embed.config.title);
-                }
+                postTitle = get(elem, 'embed.config.title', '').trim();
             }
 
             if (type === 'list' && elem.items) {
@@ -114,7 +106,11 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                 (slicedArray[i + 1] && isCustomLiveblog(slicedArray[i + 1])) ||
                 i + 1 === slicedArray.length
             ) {
-                post = { ...post, content: description.join(' ') };
+                post = {
+                    ...post,
+                    content: description.join(' '),
+                    title: postTitle
+                };
                 acc.push(post);
             }
 
@@ -122,13 +118,15 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
         }, []);
 
     return postElements.map((elem, i) => {
-        const { config = {}, content = '', url = '' } = elem;
+        const { config = {}, content = '', url = '', title = '' } = elem;
         const { date = '', time = '' } = config;
         const dateObject = convertArgentinaTimeToGMT(date, time);
 
         return {
             '@type': 'BlogPosting',
-            headline,
+            headline:
+                title ||
+                get(globalContent, 'headlines.basic', 'LA NACION - Noticia'),
             url: `${urlNota.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },

@@ -10,7 +10,7 @@ function LiveBlogBody({ children }) {
     return (
         <div className="grid grid-cols-12_m">
             <section
-                className="pt-8 grid-col-2-2_m grid-col-2-11_lg"
+                className="grid-col-2-2_m grid-col-2-11_lg"
                 id="body-liveblog-editorial"
             >
                 <div>{children}</div>

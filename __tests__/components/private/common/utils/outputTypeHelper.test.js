@@ -541,6 +541,22 @@ describe('getTagTitle function test', () => {
                 })
             ).toStrictEqual(null);
         });
+
+        test('Return Googlebot meta tag when distributorName is EL PAIS', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    distributorName: 'EL PAIS'
+                })
+            ).toStrictEqual(<meta name="googlebot" content="noindex" />);
+        });
+
+        test('Return Googlebot meta when requestUri includes /distributor/el-pais', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/distributor/el-pais/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(<meta name="googlebot" content="noindex" />);
+        });
     });
 
     describe('addNoIndexNoFollow for outputType widgets and opta-embeds', () => {

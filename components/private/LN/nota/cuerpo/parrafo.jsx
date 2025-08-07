@@ -52,7 +52,8 @@ const setExternalLinks = ({ content = '', withSponsoredLink } = {}) =>
                             : '_self',
                         title: deleteTagsForTitle(title),
                         withSponsoredLink,
-                        marfeelTrack: true
+                        marfeelTrack: true,
+                        classCondition: 'break-word'
                     },
                     string
                 )

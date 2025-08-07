@@ -3,11 +3,7 @@ import { render } from '@testing-library/react';
 import { FontPreload } from '../../../../components/output-types/fontPreload/foodit';
 
 jest.mock('fusion:environment', () => ({
-    FONT_PRUMO: '/fonts/prumo.woff2',
-    ROBOTO_LIGHT: '/fonts/roboto-light.woff2',
-    ROBOTO_REGULAR: '/fonts/roboto-regular.woff2',
-    ROBOTO_MEDIUM: '/fonts/roboto-medium.woff2',
-    ROBOTO_BOLD: '/fonts/roboto-bold.woff2'
+    FONT_PRUMO: '/fonts/prumo.woff2'
 }));
 
 describe('FontPreload', () => {
@@ -18,34 +14,15 @@ describe('FontPreload', () => {
         const { container } = render(
             <FontPreload deployment={deployment} contextPath={contextPath} />
         );
-        const links = container.querySelectorAll('link');
-        expect(links).toHaveLength(5);
-
-        expect(links[0]).toHaveAttribute(
+        const link = container.querySelector('link');
+        expect(link).toBeDefined();
+        expect(link).toHaveAttribute(
             'href',
             'https://foodit.com.ar/pf/fonts/prumo.woff2'
         );
-        expect(links[1]).toHaveAttribute(
-            'href',
-            'https://foodit.com.ar/pf/fonts/roboto-light.woff2'
-        );
-        expect(links[2]).toHaveAttribute(
-            'href',
-            'https://foodit.com.ar/pf/fonts/roboto-regular.woff2'
-        );
-        expect(links[3]).toHaveAttribute(
-            'href',
-            'https://foodit.com.ar/pf/fonts/roboto-medium.woff2'
-        );
-        expect(links[4]).toHaveAttribute(
-            'href',
-            'https://foodit.com.ar/pf/fonts/roboto-bold.woff2'
-        );
 
-        links.forEach(link => {
-            expect(link).toHaveAttribute('rel', 'preload');
-            expect(link).toHaveAttribute('as', 'font');
-        });
+        expect(link).toHaveAttribute('rel', 'preload');
+        expect(link).toHaveAttribute('as', 'font');
     });
     it('matches snapshot', () => {
         const { asFragment } = render(

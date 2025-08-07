@@ -7,7 +7,6 @@ import {
     updatesTitleTag
 } from '../../../../../../components/features/LN-10/article/common/_helper-WebApi.js';
 import diagramationRules from '../../../../../../components/private/common/utils/diagramationRules.js';
-import get from '../../../../../../components/private/common/utils/get.js';
 import getElementFromRenderables from '../../../../../../components/private/common/utils/getElementFromRenderables.js';
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar.js';
 import sectionsValidationLN10 from '../../../../../../components/layouts/config/LN10-Home.config.json';
@@ -19,62 +18,62 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                 hidefirstBox = false,
                 hideSecondBox = false
             } = {}) => [
-                    {
-                        collection: 'layouts',
-                        type: 'LN-acumulado'
-                    },
-                    {
+                {
+                    collection: 'layouts',
+                    type: 'LN-acumulado'
+                },
+                {
+                    collection: 'chains',
+                    type: 'Ln_Caja_Manual',
+                    props: {
                         collection: 'chains',
                         type: 'Ln_Caja_Manual',
-                        props: {
-                            collection: 'chains',
-                            type: 'Ln_Caja_Manual',
-                            id: 'c0fVElWb9v7fbgC',
-                            customFields: {
-                                layout: 'grilla2',
-                                hideCaja: hidefirstBox
+                        id: 'c0fVElWb9v7fbgC',
+                        customFields: {
+                            layout: 'grilla2',
+                            hideCaja: hidefirstBox
+                        }
+                    },
+                    children: [
+                        {
+                            collection: 'features',
+                            type: 'LN-common/articulo',
+                            props: {
+                                id: 'f0fDCrUjW0Oi4qT'
                             }
                         },
-                        children: [
-                            {
-                                collection: 'features',
-                                type: 'LN-common/articulo',
-                                props: {
-                                    id: 'f0fDCrUjW0Oi4qT'
-                                }
-                            },
-                            {
-                                collection: 'features',
-                                type: 'LN-common/articulo',
-                                props: {
-                                    id: 'f0fTGHntMbtK2TB'
-                                }
+                        {
+                            collection: 'features',
+                            type: 'LN-common/articulo',
+                            props: {
+                                id: 'f0fTGHntMbtK2TB'
                             }
-                        ]
-                    },
-                    {
+                        }
+                    ]
+                },
+                {
+                    collection: 'chains',
+                    type: 'Ln_Caja_Manual',
+                    props: {
                         collection: 'chains',
                         type: 'Ln_Caja_Manual',
-                        props: {
-                            collection: 'chains',
-                            type: 'Ln_Caja_Manual',
-                            id: 'c0fVElWb9v7fbgC',
-                            customFields: {
-                                layout: 'grilla3',
-                                hideCaja: hideSecondBox
+                        id: 'c0fVElWb9v7fbgC',
+                        customFields: {
+                            layout: 'grilla3',
+                            hideCaja: hideSecondBox
+                        }
+                    },
+                    children: [
+                        {
+                            collection: 'features',
+                            type: 'LN-common/articulo',
+                            props: {
+                                id: 'f0fDCrUjW0Oi4q'
                             }
-                        },
-                        children: [
-                            {
-                                collection: 'features',
-                                type: 'LN-common/articulo',
-                                props: {
-                                    id: 'f0fDCrUjW0Oi4q'
-                                }
-                            }
-                        ]
-                    }
-                ];
+                        }
+                    ]
+                }
+            ];
 
             it('should return config the first box', () => {
                 expect(
@@ -85,13 +84,13 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                     })
                 ).toStrictEqual({
                     config: {
-                        imageConfig: 'boxArticles',
+                        imageConfig: 'newBoxArticles',
                         titleSizeNoMedia: '--m'
                     },
                     index: 0,
                     boxPosition: '01',
                     layout: 'grilla3',
-                    imageConfig: '',
+                    imageConfig: 'newBoxArticles',
                     chainId: 'c0fVElWb9v7fbgC'
                 });
             });
@@ -112,14 +111,18 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                     index: 1,
                     boxPosition: '01',
                     layout: 'grilla2',
-                    imageConfig: '',
+                    imageConfig: 'boxArticlesTwoArticles',
                     chainId: 'c0fVElWb9v7fbgC'
                 });
             });
         });
 
         describe('Tests in HOME LN10', () => {
-            const getRenderables = ({ hideBomba, hideApertura, hideManual }) => {
+            const getRenderables = ({
+                hideBomba,
+                hideApertura,
+                hideManual
+            }) => {
                 return [
                     {
                         collection: 'layouts',
@@ -537,9 +540,9 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
             const config = {
                 props: {
                     customFields: {
-                        layout: 'bn_player_3_grid',
-                    },
-                },
+                        layout: 'bn_player_3_grid'
+                    }
+                }
             };
             expect(isBnPlayerDiagramation(config)).toBe(true);
         });
@@ -548,9 +551,9 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
             const config = {
                 props: {
                     customFields: {
-                        layout: 'bn_player_4_grid',
-                    },
-                },
+                        layout: 'bn_player_4_grid'
+                    }
+                }
             };
             expect(isBnPlayerDiagramation(config)).toBe(true);
         });
@@ -559,9 +562,9 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
             const config = {
                 props: {
                     customFields: {
-                        layout: 'bn_1_1_grid',
-                    },
-                },
+                        layout: 'bn_1_1_grid'
+                    }
+                }
             };
             expect(isBnPlayerDiagramation(config)).toBe(false);
         });
@@ -569,8 +572,8 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
         it('should return false if layout is missing', () => {
             const config = {
                 props: {
-                    customFields: {},
-                },
+                    customFields: {}
+                }
             };
             expect(isBnPlayerDiagramation(config)).toBe(false);
         });
@@ -587,12 +590,10 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
             const config = {
                 props: {
                     customFields: {
-                        layout: 'bn_1_1_grid',
-                    },
+                        layout: 'bn_1_1_grid'
+                    }
                 },
-                children: [
-                    { type: 'article', id: '1' },
-                ],
+                children: [{ type: 'article', id: '1' }]
             };
 
             const result = reorderArticlePositionForVideo(config);
@@ -603,14 +604,14 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
             const config = {
                 props: {
                     customFields: {
-                        layout: 'bn_player_3_grid',
-                    },
+                        layout: 'bn_player_3_grid'
+                    }
                 },
                 children: [
                     { type: 'article', id: '1' },
                     { type: 'LN-10/videoPlayer', id: '2' },
-                    { type: 'article', id: '3' },
-                ],
+                    { type: 'article', id: '3' }
+                ]
             };
 
             const result = reorderArticlePositionForVideo(config);
@@ -622,34 +623,39 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
             const config = {
                 props: {
                     customFields: {
-                        layout: 'bn_player_4_grid',
-                    },
+                        layout: 'bn_player_4_grid'
+                    }
                 },
                 children: [
                     { type: 'article', id: '1' },
                     { type: 'LN-10/videoPlayer', id: '2' },
                     { type: 'LN-10/videoPlayer', id: '3' },
-                    { type: 'article', id: '4' },
-                ],
+                    { type: 'article', id: '4' }
+                ]
             };
 
             const result = reorderArticlePositionForVideo(config);
-            expect(result.children.map(c => c.id)).toEqual(['3', '2', '1', '4']);
+            expect(result.children.map(c => c.id)).toEqual([
+                '3',
+                '2',
+                '1',
+                '4'
+            ]);
         });
 
         it('should return the same config if no children exist', () => {
             const config = {
                 props: {
                     customFields: {
-                        layout: 'bn_player_3_grid',
-                    },
-                },
+                        layout: 'bn_player_3_grid'
+                    }
+                }
             };
 
             const result = reorderArticlePositionForVideo(config);
             expect(result).toEqual({
                 ...config,
-                children: [],
+                children: []
             });
         });
     });

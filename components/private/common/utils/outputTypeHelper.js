@@ -148,9 +148,11 @@ export const metasFromSiteServices = (metaTags = {}) => {
 
 export const addMetaNoIndexNoFollow = ({
     outputType = 'default',
-    requestUri
-}) =>
-    [
+    requestUri,
+    distributorName = ''
+}) => {
+    const section = getSectionOfRequestUri(requestUri);
+    const blockedSections = [
         'home-vivo',
         'home-temas',
         'cajaafondo',
@@ -159,7 +161,24 @@ export const addMetaNoIndexNoFollow = ({
         'preview-arc',
         'home-content',
         'carrusel-home'
-    ].includes(getSectionOfRequestUri(requestUri)) ||
-    ['opta', 'widgets'].includes(outputType) ? (
-        <meta name="robots" content="noindex, nofollow" />
-    ) : null;
+    ];
+    const blockedOutputTypes = ['opta', 'widgets'];
+
+    const showRobotsMeta =
+        blockedSections.includes(section) ||
+        blockedOutputTypes.includes(outputType);
+    const normalizedUri = requestUri?.toLowerCase?.() || '';
+    const showGooglebotMeta =
+        distributorName === 'EL PAIS' ||
+        normalizedUri.includes('/distributor/el-pais');
+
+    if (showRobotsMeta) {
+        return <meta name="robots" content="noindex, nofollow" />;
+    }
+
+    if (showGooglebotMeta) {
+        return <meta name="googlebot" content="noindex" />;
+    }
+
+    return null;
+};

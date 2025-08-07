@@ -1,10 +1,6 @@
 import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/foodit-ui-link';
-import {
-    SITIO_SEGURO_REGISTRACION,
-    FOODIT_LOGIN_URL
-} from 'fusion:environment';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import siteProperties from '../../../../../properties/sites/foodit';
 
@@ -79,30 +75,6 @@ export const descriptionByVariant = ({ layout, variant }) => {
         )
     };
     return optionsDescription[variant];
-};
-
-export const buttonPropsByVariant = {
-    'barrier-logged': {
-        label: 'Suscribite',
-        variant: 'accent',
-        href: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${
-            typeof window !== 'undefined'
-                ? window.btoa(window.location.href)
-                : ''
-        }`
-    },
-    'barrier-unlogged': {
-        label: 'Iniciá sesión',
-        variant: 'link',
-        href:
-            FOODIT_LOGIN_URL +
-            (typeof window !== 'undefined'
-                ? window.btoa(window.location.href)
-                : '')
-    },
-    'empty-state': {
-        label: false
-    }
 };
 
 export const imagePropsByVariant = {
