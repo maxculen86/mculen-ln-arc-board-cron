@@ -23,9 +23,6 @@ const useGridPagination = props => {
         isWiki = false,
         acumuladoGeneral = {},
         hasChainBeforeGrid = false,
-        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
-        pageLayout,
-        globalContent,
         requestUri,
         filterNotes,
         isPage
@@ -42,9 +39,6 @@ const useGridPagination = props => {
         hasCollectionApertura,
         hasChainBeforeGrid,
         isWiki,
-        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
-        pageLayout,
-        globalContent,
         filterNotes,
         isPage
     });

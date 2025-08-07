@@ -217,9 +217,6 @@ const labels = `
             display
             text
         }
-        basic {
-            url
-        }
     }
 `;
 const table = `

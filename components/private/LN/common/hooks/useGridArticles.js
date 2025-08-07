@@ -23,7 +23,6 @@ const useGridArticles = props => {
         sourceOrigin = '',
         hasChainBeforeGrid = false,
         isWiki = false,
-        // TODO: Eliminar esta prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
         filterNotes,
         isPage
     } = props || {};

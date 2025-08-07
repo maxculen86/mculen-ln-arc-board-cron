@@ -65,8 +65,6 @@ function GrillaNotasFeature(props) {
             ...globalProviderAcu,
             ...appContextProps,
             hasChainBeforeGrid,
-            // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
-            globalContent,
             requestUri,
             filterNotes,
             isPage
