@@ -18,7 +18,6 @@ export function GrillaNotasClient({
 
     const { articles, totalCount, hasMoreArticles } = useGridArticlesLN({
         id,
-        layout,
         page: currentPage
     });
 

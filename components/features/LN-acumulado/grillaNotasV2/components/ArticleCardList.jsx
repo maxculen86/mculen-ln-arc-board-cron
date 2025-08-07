@@ -23,7 +23,6 @@ function ArticleCardsList({
 
                 return (
                     <Card
-                        key={cardProps.id || index}
                         {...cardProps}
                         variant="regular"
                         titleTag="h2"
@@ -36,6 +35,7 @@ function ArticleCardsList({
         </>
     );
 }
+
 ArticleCardsList.propTypes = {
     articles: PropTypes.arrayOf(
         PropTypes.shape({

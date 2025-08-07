@@ -32,7 +32,7 @@ import {
 } from './common/_helper-WebApi';
 import filter from '../../../../content/filters/LN/home/LN10/articleHomeBaseFilter';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
-import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
+import videoPosterFilter from '../../../../content/filters/LN/home/LN10/videoPosterFilter';
 import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
 import { getImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
@@ -164,7 +164,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
                 isAdmin,
                 arcSite
             },
-            filter: videoFilterLN10
+            filter: videoPosterFilter
         }) || null;
 
     const {
@@ -212,7 +212,8 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         config,
         isAdmin,
         isHome,
-        isLoadWithPicture
+        isLoadWithPicture,
+        isInApertura: onlyOneApeturaValidateForWWW
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);

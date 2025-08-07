@@ -59,6 +59,7 @@ function CommentFoodit(props) {
                     variant={getVariantBarrier(userType)}
                     direction="row"
                     className="bg-positive mb-40"
+                    comesFrom="CommentFoodit"
                 />
             )}
             <LazyLoadComponent

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import getSignatureRenderOptions, {
     getSectionsAsTags
 } from '../../../../../../components/features/LN-nota/footer/_utils/helper';
@@ -10,8 +10,10 @@ jest.mock(
         ({ children }) => <span>{children}</span>
 );
 jest.mock('@ln/contenidos-ui-text', () => ({
-    Text: ({ children }) => (
-        <strong data-testid="text-component">{children}</strong>
+    Text: ({ children, ...rest }) => (
+        <strong data-testid="text-component" {...rest}>
+            {children}
+        </strong>
     )
 }));
 jest.mock(
@@ -79,6 +81,22 @@ describe('components - feature - LN-nota - footer - _utils - helper ', () => {
             });
 
             expect(options[2].shouldRender).toBe(false);
+        });
+
+        it('renders subcategory label when name is "EL PAIS" and subcategory is provided', () => {
+            const options = getSignatureRenderOptions({
+                isCustomDistributor: false,
+                isLaNacion: false,
+                withFirmaDistributor: false,
+                name: 'EL PAIS',
+                subcategory: 'Internacional'
+            });
+
+            expect(options[2].shouldRender).toBe(true);
+            render(options[2].signatureContent);
+            const link = screen.getByRole('link', { name: /EL PAIS/i });
+            expect(link).toBeInTheDocument();
+            expect(screen.getByText('Internacional')).toBeInTheDocument();
         });
     });
 

@@ -6,7 +6,7 @@ export const handleClickAudioNews = (
     onOpenAudioPlayer,
     globalContent,
     globalContentConfig,
-    contentVariant,
+    isSummary,
     closeTooltipIAAuthor,
     subscription,
     token,
@@ -22,16 +22,15 @@ export const handleClickAudioNews = (
 
     addEventToDataLayerV2({
         event: 'page_listened',
-        rest: getAudioEvents(globalContent, globalContentConfig, contentVariant)
+        rest: getAudioEvents(globalContent, globalContentConfig, isSummary)
     });
 };
 
-export const getTextAndIconColor = (contentVariant, variant) => {
+export const getTextAndIconColor = (isSummary, variant) => {
     const defaultText = 'Escuchando';
 
     if (variant === 'ia') {
-        const text =
-            contentVariant === 'article' ? 'Escuchando al autor' : defaultText;
+        const text = !isSummary ? 'Escuchando al autor' : defaultText;
         return { text, iconColor: '#27D2BE' };
     }
 

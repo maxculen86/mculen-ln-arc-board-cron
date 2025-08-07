@@ -10,13 +10,13 @@ import { SubHeader } from './components/subHeader/SubHeader';
 import { Search } from './components/Search';
 import { TopNavigationBar } from './components/TopNavigationBar';
 import { Promotions } from './components/promotions/Promotions';
-import LoginSubscribeButtons from './components/LoginSubscribeButtons';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import DrawerMenu from '../DrawerMenu/foodit';
 import { BellButton } from './components/rightOptions/bellButton';
 import { useLayoutHeader } from './hooks/useLayoutHeader';
 import { useNavigationData } from './hooks/useNavigationData';
+import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
 
 function HeaderFoodit({ layout, layoutsName }) {
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
@@ -71,6 +71,8 @@ function HeaderFoodit({ layout, layoutsName }) {
                         </MainHeader.Content.Center>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
                             <LoginSubscribeButtons
+                                comesFrom="HeaderFoodit"
+                                loginClassName="roboto roboto-regular"
                                 classNameButtons="lg-only"
                                 termicasData={termicasData}
                             />

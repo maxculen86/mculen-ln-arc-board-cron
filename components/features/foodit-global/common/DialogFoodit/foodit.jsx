@@ -56,6 +56,7 @@ export function DialogFoodit({
                         variant={getVariantBarrier(userType)}
                         className="pt-4 pt-12_md pt-20_lg"
                         direction="column"
+                        comesFrom="DialogFoodit"
                     />
                 )}
             </Dialog.Body>

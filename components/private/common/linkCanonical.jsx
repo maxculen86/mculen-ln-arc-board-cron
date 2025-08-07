@@ -29,16 +29,20 @@ function LinkCanonicalAndAlternate(props = {}) {
         !siteUrl.includes(_id) &&
         template.includes('page');
 
-    const isHomepage = uri => {
-        const cleaned = uri.split('?')[0].replace(/^\/+|\/+$/g, '');
-        return cleaned === '' || cleaned === 'homepage';
-    };
-
     const section = getSectionOfRequestUri(requestUri);
 
-    const canonicalId =
-        (!mustUseSiteUrl && canonicalIdChecker(_id)) ||
-        (isHomepage(requestUri) ? '' : `/${section}`);
+    const getCleanedPath = (uri = '') => {
+        const path = uri.split('?')[0];
+        if (path === '/homepage') return '/';
+        return path.endsWith('/') ? path : `${path}/`;
+    };
+    const cleanedPath = getCleanedPath(requestUri);
+
+    const canonicalId = requestUri?.includes('/chefs-protagonistas')
+        ? cleanedPath
+        : (!mustUseSiteUrl && canonicalIdChecker(_id)) ||
+          (cleanedPath === '/' ? '' : `/${section}`);
+
     const canonicalSlash = addInitialSlash(canonicalId) ?? '';
 
     const baseUrlByArcType = {

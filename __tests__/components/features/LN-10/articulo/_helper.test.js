@@ -4,6 +4,17 @@ import responseRelatedImageSource from '../../../../../__mocks__/data/images/res
 import article from '../../../../../__mocks__/data/articles/RGC7MFGFYBGJJGPGZJ5OITBFI4.json';
 import article2 from '../../../../../__mocks__/data/articles/RGC7MFGFYBGJJGPGZJ5OITBFI4-2.json';
 
+jest.mock('fusion:environment', () => {
+    return {
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    };
+});
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 import {
     getMediaData,
     validateVariant,
@@ -410,6 +421,26 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         });
 
         test('should return the video as priority when the image and video are defined in the customFields', () => {
+            const mockVideoWithResized = {
+                ...responseVideoSource,
+                resizedImages: {
+                    promo_items: {
+                        basic: {
+                            resized_urls: [
+                                {
+                                    resizedUrl:
+                                        'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
+                                    option: {
+                                        width: 768,
+                                        height: 513,
+                                        media: '(min-width: 768px)'
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            };
             expect(
                 getMediaData(
                     getProps({
@@ -417,7 +448,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                             video: videoId,
                             imageId
                         },
-                        video: responseVideoSource,
+                        video: mockVideoWithResized,
                         image: responseRelatedImageSource
                     })
                 )
@@ -1121,6 +1152,22 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
     describe('Test function transformVideoData', () => {
         const videoData = {
+            resizedImages: {
+                promo_items: {
+                    basic: {
+                        resized_urls: [
+                            {
+                                resizedUrl:
+                                    'https://example.com/promo_items_image_high.jpg'
+                            },
+                            {
+                                resizedUrl:
+                                    'https://example.com/promo_items_image_low.jpg'
+                            }
+                        ]
+                    }
+                }
+            },
             promo_items: {
                 basic: {
                     resized_urls: [
@@ -1286,6 +1333,40 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 poster: '',
                 type: ''
             });
+        });
+
+        it('should replace poster URL with www.lanacion.com.ar host when video is in Apertura', () => {
+            const videoDataMock = {
+                resizedImages: {
+                    promo_items: {
+                        basic: {
+                            type: 'image',
+                            url: 'https://cdn.jwplayer.com/thumb/some-id.jpg',
+                            resized_urls: [
+                                {
+                                    resizedUrl:
+                                        'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fthumb%2Fsome-id.jpg'
+                                }
+                            ]
+                        }
+                    }
+                },
+                sources: [],
+                streams: [],
+                type: 'video'
+            };
+
+            const result = transformVideoData(
+                videoDataMock,
+                'T1',
+                false,
+                false,
+                true
+            );
+
+            expect(result.poster).toBe(
+                'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fthumb%2Fsome-id.jpg'
+            );
         });
     });
 

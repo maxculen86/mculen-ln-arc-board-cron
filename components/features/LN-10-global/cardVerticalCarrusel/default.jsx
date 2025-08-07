@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Cardv2 } from '@ln/contenidos-ui-cardv2';
 import { Icon } from '@ln/common-ui-icon';
 import { Badge } from '@ln/contenidos-ui-badge';
+import { cx } from '@ln/cva';
 import Video from './video';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { secondsToMinutes } from './helpers';
@@ -65,14 +66,20 @@ function CardVertical({
         }
     }, []);
 
+    const _className = cx(
+        'card-vertical-carousel',
+        'cursor-pointer',
+        title ? 'bg-gradient-accent' : 'bg-gradient-accent-sm'
+    );
+
     return (
         <div ref={containerCardRef}>
             <Cardv2
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleClickCard}
-                className="card-vertical-carousel cursor-pointer"
                 variant="vertical"
+                className={_className}
                 {...viewabilityData}
             >
                 <Cardv2.Media>
