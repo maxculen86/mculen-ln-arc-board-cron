@@ -261,7 +261,8 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
         expect(screen.queryByTestId('card-label')).not.toBeInTheDocument();
     });
 
-    it('should NOT render label if label is undefined', () => {
+    it('should render "Receta del día" if label is undefined', () => {
+        const label = 'Receta del día';
         render(
             <CommonCardFoodit
                 articleId={articleId}
@@ -275,6 +276,6 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
                 author={author}
             />
         );
-        expect(screen.queryByTestId('card-label')).not.toBeInTheDocument();
+        expect(screen.getByText(label)).toBeInTheDocument();
     });
 });
