@@ -72,7 +72,7 @@ export const logout = (callback = () => {}) => {
 
     logoutFunction({
         embedShortCircuit: true,
-        redirectToLogin: false,
+        redirect: null,
         isVoluntary: true
     }).then(response => {
         callback(response);
@@ -101,7 +101,7 @@ export const setUserData = async (token, accessToken, RefreshAsync) => {
             const { Usuario: userData } = JSON.parse(response) || {};
             setMultiplyCookies({
                 userData,
-                token,
+                newToken: token,
                 RefreshAsync
             });
 
@@ -118,13 +118,23 @@ export const setUserData = async (token, accessToken, RefreshAsync) => {
 const initializeAuth = async ({ website = 'la-nacion-ar', setTokens } = {}) => {
     try {
         if (getCookie('token')) {
-            const keyDatadog = get(
-                DATADOG_CONFIG,
-                `${website}.clientTokenLogs`,
-                ''
+            const datadogConfig = get(DATADOG_CONFIG, website, {});
+            const keyDatadog = get(datadogConfig, 'clientTokenLogs', '');
+            const serviceDatadog = get(
+                datadogConfig,
+                'service',
+                'lanacion-arc'
             );
+            const environment = get(datadogConfig, 'env', 'prod');
+            const siteId = website;
 
-            const methodsUCL = init({ keyDatadog }) || {};
+            const methodsUCL =
+                init({
+                    keyDatadog,
+                    serviceDatadog,
+                    siteId,
+                    environment
+                }) || {};
             window.UCL = methodsUCL;
 
             const {
