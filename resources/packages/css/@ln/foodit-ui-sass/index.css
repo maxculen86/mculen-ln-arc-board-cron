@@ -89,6 +89,7 @@ input[type=checkbox]:hover {
   --accent-tomate: #a92c2c;
   --accent-mandarina: #f65a22;
   --background-positive: #f3f0eb;
+  --accent-vino-light: #e4c1d2;
   --feedback-info-700: #2F3A4E;
   --feedback-danger-500: #C61B25;
   --feedback-danger-600: #99151D;
@@ -162,6 +163,20 @@ input[type=checkbox]:hover {
 @media (min-width: 80rem) {
   .media-scroller.--carousel-info [data-scroller=track] {
     --scroller-element-columns: 5.3;
+  }
+}
+
+.media-scroller.--info-nutricional [data-scroller=track] {
+  --scroller-element-columns: 3;
+}
+@media (min-width: 48rem) {
+  .media-scroller.--info-nutricional [data-scroller=track] {
+    --scroller-element-columns: 2.8;
+  }
+}
+@media (min-width: 80rem) {
+  .media-scroller.--info-nutricional [data-scroller=track] {
+    --scroller-element-columns: 2.66;
   }
 }
 
@@ -587,6 +602,10 @@ input[type=checkbox]:hover {
 
 .bg-accent-vino {
   background: var(--accent-vino);
+}
+
+.bg-accent-vino-light {
+  background: var(--accent-vino-light);
 }
 
 .bg-accent-lechuga {
@@ -2134,6 +2153,10 @@ strong {
   padding-block: 4.5rem;
 }
 
+.px-4 {
+  padding-inline: 0.25rem;
+}
+
 .px-8 {
   padding-inline: 0.5rem;
 }
@@ -2269,6 +2292,9 @@ strong {
   }
   .p-24_md {
     padding: 1.5rem;
+  }
+  .px-8_md {
+    padding-inline: 0.5rem;
   }
   .px-24_md {
     padding-inline: 1.5rem;

@@ -9,6 +9,7 @@ import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import RelatedContent from '../../features/foodit/RelatedContent/foodit';
+import { InfoNutricional } from '../../features/foodit-global/common/InfoNutricional/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -44,12 +45,11 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                     {body}
                 </div>
             </section>
-            <div className="print-hide">
+            <div className="print-hide flex flex-column gap-40">
+                <InfoNutricional />
+                <hr className="sm-none" />
+                <RelatedContent globalContent={globalContent} />
                 <Breadcrumb globalContent={globalContent} className="lg-none" />
-                <div className="pt-40 pt-0_lg pb-40_lg">
-                    <RelatedContent globalContent={globalContent} />
-                </div>
-                <hr className="lg-none my-40" />
                 <section className="flex flex-column gap-40">{bottom}</section>
             </div>
         </BaseLayout>

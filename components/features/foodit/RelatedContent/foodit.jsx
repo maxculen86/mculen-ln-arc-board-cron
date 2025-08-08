@@ -78,14 +78,16 @@ function RelatedContent({ globalContent }) {
 
     return (
         <Static id="related-content-static">
-            <RoofFoodit
-                title={{ text: 'Versiones de esta receta', as: 'h3' }}
-            />
-            <div
-                className="flex flex-column flex-row_md gap-24_md gap-32 gap-32_lg"
-                role="list"
-            >
-                {renderRelatedContent()}
+            <div>
+                <RoofFoodit
+                    title={{ text: 'Versiones de esta receta', as: 'h3' }}
+                />
+                <div
+                    className="flex flex-column flex-row_md gap-24_md gap-32 gap-32_lg"
+                    role="list"
+                >
+                    {renderRelatedContent()}
+                </div>
             </div>
         </Static>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import articlesTransformed from '../../../../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed';
 import Carousel from '../../../../../../components/chains/foodit-global/common/Carousel/foodit';
 import CommonCardFoodit from '../../../../../../components/features/foodit-global/common/CommonCardFoodit/foodit';
@@ -71,5 +71,20 @@ describe('Tests Carousel', () => {
             'media-scroller relative flex flex-column gap-16'
         );
         expect(container).toMatchSnapshot();
+    });
+
+    it.each([
+        ['nutricional', '--info-nutricional'],
+        ['category', '--carousel-category'],
+        ['collection', 'hide-mobile'],
+        ['collection_4', 'hide-mobile']
+    ])('applies correct class for type %s', (type, expectedClass) => {
+        const { container } = render(
+            <Carousel type={type}>
+                <div>Item</div>
+            </Carousel>
+        );
+        const scrollerDiv = container.querySelector('.media-scroller');
+        expect(scrollerDiv).toHaveClass(expectedClass);
     });
 });
