@@ -195,6 +195,12 @@ describe('Tests functions loginHelper', () => {
             });
 
             expect(getCookie).toHaveBeenCalledWith('token');
+            expect(init).toHaveBeenCalledWith({
+                keyDatadog: expect.any(String),
+                serviceDatadog: expect.any(String),
+                siteId: 'test-website',
+                environment: expect.any(String)
+            });
             expect(GetIdTokenValidatedAsync).toHaveBeenCalled();
             expect(BuildBearerAccessTokenAsync).toHaveBeenCalled();
 
