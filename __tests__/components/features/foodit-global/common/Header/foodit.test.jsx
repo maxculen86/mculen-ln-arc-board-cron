@@ -86,7 +86,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         );
 
         expect(screen.getAllByText('INICIÁ SESIÓN')).toHaveLength(2);
-        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE POR $250')).toHaveLength(2);
         expect(container).toMatchSnapshot();
     });
 
@@ -133,7 +133,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         );
 
         expect(screen.getAllByText('HO')).toHaveLength(1);
-        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE POR $250')).toHaveLength(2);
     });
 
     it('The logo should render as an "h1" tag on the homepage.', () => {

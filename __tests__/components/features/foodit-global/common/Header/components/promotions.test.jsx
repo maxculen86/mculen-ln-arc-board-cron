@@ -4,7 +4,9 @@ import { Promotions } from '../../../../../../../components/features/foodit-glob
 import '@testing-library/jest-dom';
 import useGetUserData from '../../../../../../../components/private/common/auth/hooks/useGetUserData';
 
-jest.mock('../../../../../../../components/private/common/auth/hooks/useGetUserData');
+jest.mock(
+    '../../../../../../../components/private/common/auth/hooks/useGetUserData'
+);
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
     useContext: jest.fn()
@@ -35,7 +37,7 @@ describe('Components - Features - foodit-global - common - Header - components -
 
         expect(PromotionContainer).toHaveClass('jc-center');
         expect(screen.getByText('INICIÁ SESIÓN')).toBeInTheDocument();
-        expect(screen.getByText('SUSCRIBITE')).toBeInTheDocument();
+        expect(screen.getByText('SUSCRIBITE POR $250')).toBeInTheDocument();
     });
     it('renders correctly for user type "logged"', () => {
         useGetUserData.mockReturnValue({
@@ -50,7 +52,7 @@ describe('Components - Features - foodit-global - common - Header - components -
         );
 
         expect(PromotionContainer).toHaveClass('jc-between');
-        expect(screen.getByText('SUSCRIBITE')).toBeInTheDocument();
+        expect(screen.getByText('SUSCRIBITE POR $250')).toBeInTheDocument();
         expect(screen.getByText('Gratis')).toBeInTheDocument();
     });
 

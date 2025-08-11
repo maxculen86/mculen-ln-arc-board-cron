@@ -9,10 +9,12 @@ export const mockConfigUserTypes = {
     unlogged: {
         buttonLogginText: 'INICIÁ SESIÓN',
         buttonSubscribeText: 'SUSCRIBITE',
+        buttonSubscribeHeader: 'SUSCRIBITE POR $250',
         containerClassName: 'jc-center'
     },
     logged: {
         buttonSubscribeText: 'SUSCRIBITE',
+        buttonSubscribeHeader: 'SUSCRIBITE POR $250',
         plan: 'Gratis',
         containerClassName: JC_BETWEEN
     },
@@ -48,6 +50,11 @@ export const getConfig = user => ({
     buttonSubscribeText: get(
         mockConfigUserTypes,
         `${user}.buttonSubscribeText`,
+        ''
+    ),
+    buttonSubscribeHeader: get(
+        mockConfigUserTypes,
+        `${user}.buttonSubscribeHeader`,
         ''
     ),
     plan: get(mockConfigUserTypes, `${user}.plan`, ''),

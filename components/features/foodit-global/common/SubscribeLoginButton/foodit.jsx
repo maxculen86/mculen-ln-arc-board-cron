@@ -19,7 +19,8 @@ function LoginSubscribeButtons({
     loginClassName = ''
 }) {
     const { promotions } = useGetUserConfig();
-    const { buttonLogginText, buttonSubscribeText } = promotions;
+    const { buttonLogginText, buttonSubscribeText, buttonSubscribeHeader } =
+        promotions;
     const [tooltipState, setTooltipState] = useState({
         text: '',
         shouldShow: false
@@ -27,6 +28,11 @@ function LoginSubscribeButtons({
     const refTooltipText = useRef(null);
 
     const { categoryEvent, url } = getButtonCategory(comesFrom);
+
+    const subscribeButtonText =
+        categoryEvent === 'header'
+            ? buttonSubscribeHeader
+            : buttonSubscribeText;
 
     useEffect(() => {
         if (termicasData) {
@@ -85,7 +91,7 @@ function LoginSubscribeButtons({
                 >
                     <SubscribeButton
                         classNameButtons={classNameButtons}
-                        buttonSubscribeText={buttonSubscribeText}
+                        buttonSubscribeText={subscribeButtonText}
                         handleSubscribeClick={handleSubscribeClick}
                     />
                 </Tooltip>
