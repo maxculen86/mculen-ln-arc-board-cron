@@ -10,7 +10,8 @@ export const handleClickAudioNews = (
     closeTooltipIAAuthor,
     subscription,
     token,
-    openBarrier
+    openBarrier,
+    dataAudio
 ) => {
     if (subscription && token) {
         onOpenAudioPlayer();
@@ -22,7 +23,12 @@ export const handleClickAudioNews = (
 
     addEventToDataLayerV2({
         event: 'page_listened',
-        rest: getAudioEvents(globalContent, globalContentConfig, isSummary)
+        rest: getAudioEvents(
+            globalContent,
+            globalContentConfig,
+            isSummary,
+            dataAudio
+        )
     });
 };
 
