@@ -24,6 +24,7 @@ const section = `
         }
     }
 }`;
+
 const image = `
     type
     resized_urls {
@@ -73,6 +74,7 @@ const image = `
         basic
     }
 `;
+
 const video = `
     type
     _id
@@ -137,6 +139,7 @@ const video = `
         }
     }
 `;
+
 const oembed = `
     type
     subtype
@@ -167,6 +170,7 @@ const labels = `
         }
     }
 `;
+
 const table = `
     header {
         _id
@@ -215,7 +219,7 @@ const videoJwObject = `
         },
         variations
     }
-    `;
+`;
 
 const configPowerUpVideoJw = `
     idVideo
@@ -276,10 +280,61 @@ const customPowerUps = `
             date
             time
             isoDate
-            ${configPowerUpVideoJw}
+            ${configPowerUpVideoJw}  
+            altTextImage
+            arcData {
+                _id
+                canonical_url
+                headlines {
+                    basic
+                }
+                credits {
+                    by {
+                        name
+                        type
+                    }
+                }
+                taxonomy {
+                    primary_section {
+                        _id
+                        name
+                        path
+                        type
+                    }
+                    sections {
+                        _id
+                        name
+                        path
+                        type
+                    }
+                }
+                content_restrictions {
+                    content_code
+                }
+            }
+            author
+            category
+            description
+            image
+            noteId
+            preparationTime
+            publishDate
+            url
+            hasVideo {
+                _id
+            }
+            sections {
+                _id
+                _website
+                name
+                path
+                type
+                parent_id
+            }
         }
     }
 `;
+
 const customReceta = `
     subtype
     embed {
@@ -438,7 +493,6 @@ export default `
             ${listCommonProps}
         }
         level
-        content
         powerUp{
             _id
             type

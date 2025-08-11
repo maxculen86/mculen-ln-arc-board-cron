@@ -11,6 +11,7 @@ import RawHTML from '../../../private-global/body/rawHTML/foodit';
 import PowerUpPreparacionComponent from '../../../private-global/body/powerUpPreparacion/foodit';
 import TableComponent from '../../../private-global/body/table/foodit';
 import ConsecutiveImages from '../../../private-global/body/doubleImage/foodit';
+import PowerUpEmbedCard from '../../../private-global/body/powerUpEmbedCard/foodit';
 
 const bodyComponents = {
     text: Paragraph,
@@ -25,7 +26,8 @@ const bodyComponents = {
     divider: DividerComponent,
     video_jw: VideoPlayer,
     'custom-preparacion': PowerUpPreparacionComponent,
-    table: TableComponent
+    table: TableComponent,
+    'custom-card-embebida': PowerUpEmbedCard
 };
 
 export default bodyComponents;
