@@ -121,6 +121,9 @@ export default `
             autor{
                 text
             }
+            basic {
+                url
+            }
         }
         related_content {
             basic{

@@ -8,9 +8,11 @@ import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../../../../private/common/auth/helper/loginHelper';
+import { useHeaderContext } from '../../../context';
 
 export function OpenInApp() {
     const { globalContent } = useAppContext();
+    const { negative } = useHeaderContext();
     const currentUrl = globalContent?.canonical_url || '';
     const device = getTypeOfDevice({ breakpoints: { sm: 768 } });
     const isMobileDevice = device === 'mobile';
@@ -44,6 +46,7 @@ export function OpenInApp() {
             variant="secondary"
             id="btnabrirenapp"
             onClick={handleClick}
+            isNegative={negative}
         >
             ABRIR EN APP
         </Button>

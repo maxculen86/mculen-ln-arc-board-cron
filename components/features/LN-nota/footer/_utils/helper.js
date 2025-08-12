@@ -12,7 +12,8 @@ const getSignatureRenderOptions = ({
     isLaNacion,
     isCustomDistributor,
     withFirmaDistributor,
-    name
+    name,
+    subcategory
 }) => [
     {
         shouldRender: isHtmlLibre,
@@ -30,11 +31,18 @@ const getSignatureRenderOptions = ({
             isLaNacion || isCustomDistributor ? (
                 <Text className="font-bold --twoxs">{name}</Text>
             ) : (
-                <ComLink
-                    link={`${SITE_LANACION}/distributor/${formatDistributorName(name)}/`}
-                >
-                    <ComPartner size="--twoxs">{name}</ComPartner>
-                </ComLink>
+                <div className="flex gap-4 ai-center">
+                    <ComLink
+                        link={`${SITE_LANACION}/distributor/${formatDistributorName(name)}/`}
+                    >
+                        <ComPartner size="--twoxs">{name}</ComPartner>
+                    </ComLink>
+                    {subcategory?.length > 0 && name === 'EL PAIS' && (
+                        <Text className="text-12 text-neutral-light-800">
+                            {subcategory}
+                        </Text>
+                    )}
+                </div>
             )
     }
 ];

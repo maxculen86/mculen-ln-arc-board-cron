@@ -63,9 +63,19 @@ export const getPropsBellEvents = ({ setTooltip }) => {
         handleItemClick(message, ANALYTICS_EVENTS.NOTIFICATION_ACTION);
     };
 
+    const handleLoginClick = () => {
+        addEventToDataLayerV2({
+            event: 'e_linkclick',
+            action: 'N/A',
+            category: 'notificaciones',
+            label: 'inicia_sesion'
+        });
+    };
+
     return {
         onBellClick: handleBellClick,
         onNotificationsClick: handleNotificationsClick,
-        onMessageButtonClick: handleMessageButtonClick
+        onMessageButtonClick: handleMessageButtonClick,
+        loginOnClick: handleLoginClick
     };
 };

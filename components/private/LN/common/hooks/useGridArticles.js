@@ -22,7 +22,9 @@ const useGridArticles = props => {
         hasCollectionApertura = false,
         sourceOrigin = '',
         hasChainBeforeGrid = false,
-        isWiki = false
+        isWiki = false,
+        filterNotes,
+        isPage
     } = props || {};
 
     const DEFAULT_QUANTITY = 30;
@@ -79,7 +81,9 @@ const useGridArticles = props => {
         page,
         hasCollectionApertura,
         sourceOrigin,
-        excludePreload: excludeUrl
+        excludePreload: excludeUrl,
+        filterNotes,
+        isPage
     };
 
     const { articles, moreArticles } =

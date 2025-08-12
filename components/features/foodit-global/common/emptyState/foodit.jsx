@@ -11,11 +11,11 @@ import {
 } from './helpers';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
-import RenderButtons from './ButtonEmptyState';
 import CardInfo from './cardInfo';
+import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
 
-function EmptyState({ variant, className, direction = 'row' }) {
-    const { userType, isSubscribed } = useGetUserConfig();
+function EmptyState({ variant, className, direction = 'row', comesFrom }) {
+    const { isSubscribed } = useGetUserConfig();
     const { contextPath, deployment, layout } = useAppContext();
     const directionEmptyState = direction === 'row';
     const barrierEmptyState =
@@ -27,7 +27,7 @@ function EmptyState({ variant, className, direction = 'row' }) {
             'flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg':
                 direction === 'row'
         },
-        { 'flex-column': direction === 'column' },
+        { 'flex-column gap-24': direction === 'column' },
         className
     );
     const descriptionClassNames = cx(
@@ -39,17 +39,10 @@ function EmptyState({ variant, className, direction = 'row' }) {
         }
     );
 
-    const buttonsClassName = cx(
-        'flex gap-24 ai-center',
-        { ' pt-24': direction === 'column' },
-        {
-            '': direction === 'row'
-        }
-    );
-
     if (!variant) return null;
 
-    const buttons = RenderButtons({ variant, userType });
+    const shouldRenderButtons =
+        variant !== 'search-engine' && variant !== '404';
 
     return (
         <div>
@@ -75,7 +68,14 @@ function EmptyState({ variant, className, direction = 'row' }) {
                         {descriptionByVariant({ layout, variant })}
                     </Text>
                 </div>
-                {buttons && <div className={buttonsClassName}>{buttons}</div>}
+                {shouldRenderButtons && (
+                    <div className="flex ai-center gap-24">
+                        <LoginSubscribeButtons
+                            loginClassName="roboto roboto-bold"
+                            comesFrom={comesFrom}
+                        />
+                    </div>
+                )}
             </section>
             {!isSubscribed && barrierEmptyState && !directionEmptyState ? (
                 <div className="flex flex-column jc-center ai-center">
@@ -100,13 +100,15 @@ function EmptyState({ variant, className, direction = 'row' }) {
 EmptyState.propTypes = {
     variant: PropTypes.string,
     direction: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    comesFrom: PropTypes.string
 };
 
 EmptyState.defaultProps = {
     variant: '',
     direction: 'row',
-    className: ''
+    className: '',
+    comesFrom: ''
 };
 
 export default EmptyState;

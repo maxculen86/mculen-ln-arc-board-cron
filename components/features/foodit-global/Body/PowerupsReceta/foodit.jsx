@@ -68,20 +68,22 @@ export function PowerupsReceta({ article = {} }) {
                     counterTime={counterTime}
                 />
             </Static>
-            <div className="bg-positive flex flex-column gap-16 gap-24_md gap-32_lg p-16 p-24_md p-32_lg">
-                <Ingredients
-                    articleId={_id}
-                    ingredientsLists={ingredientsLists}
-                    title={get(headlines, 'basic', '')}
-                    portions={counterPortion}
-                    showButtonsConversor={showButtonsConversor}
-                />
-                <Static htmlOnly persistent id={`adintional-info-${_id}`}>
-                    <MoreInfo />
-                    <Nutritional nutritionLists={nutritionLists} />
-                </Static>
+            <div className="flex flex-column gap-32">
+                <div className="bg-positive flex flex-column gap-16 gap-24_md gap-32_lg p-16 p-24_md p-32_lg">
+                    <Ingredients
+                        articleId={_id}
+                        ingredientsLists={ingredientsLists}
+                        title={get(headlines, 'basic', '')}
+                        portions={counterPortion}
+                        showButtonsConversor={showButtonsConversor}
+                    />
+                    <Static htmlOnly persistent id={`adintional-info-${_id}`}>
+                        <MoreInfo />
+                        <Nutritional nutritionLists={nutritionLists} />
+                    </Static>
+                </div>
+                <Tags items={tags} />
             </div>
-            <Tags items={tags} />
         </>
     );
 }

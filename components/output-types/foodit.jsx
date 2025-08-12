@@ -109,6 +109,7 @@ function Foodit({
                     nodeType={_nodeType}
                     site={site}
                     template={template}
+                    requestUri={requestUri}
                 />
                 <GetFonts
                     contextPath={contextPath}

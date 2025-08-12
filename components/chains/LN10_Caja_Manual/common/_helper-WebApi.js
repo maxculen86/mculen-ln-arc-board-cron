@@ -163,7 +163,6 @@ const validateCajaManual = ({
     ]);
 };
 
-// TODO: agregar test unitario
 export const reorderArticlesWithVideo = (articles = [], childProps = []) => {
     const articlesWithProps = assignPropsToChildren(articles, childProps);
 

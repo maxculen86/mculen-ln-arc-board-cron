@@ -39,7 +39,8 @@ describe('Components - features - CardFoodit', () => {
                 noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
                 isDayRecipe: true,
                 videoId: '',
-                isDayRecipe: false
+                isDayRecipe: false,
+                label: 'Receta del día'
             }
         };
 

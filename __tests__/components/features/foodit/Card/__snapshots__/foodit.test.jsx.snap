@@ -55,7 +55,10 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               class="flex flex-column gap-4"
             >
               <span
+                aria-label="Receta del día"
                 class="text text-accent-tomate prumo prumo-medium text-16 uppercase"
+                data-testid="card-label"
+                title="Receta del día"
               >
                 Receta del día
               </span>

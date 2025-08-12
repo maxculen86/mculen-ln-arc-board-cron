@@ -18,7 +18,6 @@ function ComImage(props) {
         href,
         target,
         isApertura,
-        shouldLoadEager,
         svg,
         searchableField
     } = props;
@@ -40,8 +39,8 @@ function ComImage(props) {
             {...searchableField}
             className={classes}
             srcSet={srcset}
-            loading={isApertura || shouldLoadEager ? 'eager' : 'lazy'}
-            fetchPriority={isApertura || shouldLoadEager ? 'high' : 'low'}
+            loading={isApertura ? 'eager' : 'lazy'}
+            fetchPriority={isApertura ? 'high' : 'low'}
             decoding="async"
         />
     );
@@ -66,7 +65,6 @@ ComImage.propTypes = {
     target: PropTypes.string,
     layout: PropTypes.string,
     isApertura: PropTypes.bool,
-    shouldLoadEager: PropTypes.bool,
     svg: PropTypes.bool,
     searchableField: PropTypes.shape({
         imageId: PropTypes.string
@@ -81,7 +79,6 @@ ComImage.defaultProps = {
     target: '',
     layout: undefined,
     isApertura: false,
-    shouldLoadEager: false,
     svg: false,
     height: undefined,
     width: undefined,

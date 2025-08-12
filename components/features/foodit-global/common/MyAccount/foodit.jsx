@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@ln/foodit-ui-button';
 import { Avatar } from '@ln/foodit-ui-avatar';
-import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { AccountItem } from './accountItem';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
+import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
 
 export function MyAccount({
     avatarProps = {},
@@ -36,15 +35,7 @@ export function MyAccount({
                         </Avatar>
                     </div>
                     {!hasSubscription && (
-                        <Button
-                            title="Ir a Suscribirse"
-                            variant="accent"
-                            href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?cv=670&fc=825&callback=${window.btoa(
-                                window.location.href
-                            )}`}
-                        >
-                            Suscribite
-                        </Button>
+                        <LoginSubscribeButtons comesFrom="MyAccount" />
                     )}
                 </div>
             )}

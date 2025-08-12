@@ -5132,10 +5132,10 @@ a {
   --cruci-tematico: #b09c03;
   --panal-de-letras: #dce11f;
   --memograma: #295dea;
-  --nexos: #8969E9;
-  --circuitos: #42D369;
-  --ranking: #74D1E5;
-  --adivinanzas: #81B6E2;
+  --nexos: #8969e9;
+  --circuitos: #42d369;
+  --ranking: #74d1e5;
+  --adivinanzas: #81b6e2;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -5157,6 +5157,13 @@ a {
     rgba(0, 22, 49, 0.4) 53.98%,
     rgba(0, 22, 49, 0.75) 67.75%,
     rgba(0, 22, 49, 0.9) 81.15%
+  );
+  --gradient-accent-sm: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 80%,
+    rgba(0, 22, 49, 0.4) 85%,
+    rgba(0, 22, 49, 0.75) 90%,
+    rgba(0, 22, 49, 0.9) 95%
   );
 }
 
@@ -5889,6 +5896,10 @@ a {
 
 .bg-gradient-accent {
   background: var(--gradient-accent);
+}
+
+.bg-gradient-accent-sm {
+  background: var(--gradient-accent-sm);
 }
 
 .bg-panal-de-letras__hover:hover {

@@ -15,7 +15,7 @@ function ExternalSignature({ globalContent }) {
         withFirmaDistributor
     } = globalContent || {};
 
-    const { name, mode } = distributor;
+    const { name, mode, subcategory } = distributor;
     const { by = [] } = credits || {};
 
     if (name && name === 'lanacionar') return null;
@@ -35,7 +35,8 @@ function ExternalSignature({ globalContent }) {
         isLaNacion,
         isCustomDistributor,
         withFirmaDistributor,
-        name
+        name,
+        subcategory
     });
 
     const selectedSignature = signatureRenderOptions?.find(

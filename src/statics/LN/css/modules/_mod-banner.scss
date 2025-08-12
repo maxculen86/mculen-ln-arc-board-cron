@@ -106,6 +106,9 @@
             color: $neutral-white;
             font-size: px(16);
             cursor: pointer;
+            @media (min-width: 370px) {
+                position: relative;
+            }
         }
     }
 
@@ -204,6 +207,9 @@
 
         &.--logo_tag_tab {
             height: px(280);
+        }
+        &.--fixed.--adhesion_dsk {
+            background: transparent;
         }
     }
 

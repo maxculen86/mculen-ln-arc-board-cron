@@ -442,6 +442,7 @@ export default `
         name
         category
         reference_id
+        subcategory
         mode
     }
     promo_items {
@@ -509,6 +510,7 @@ export default `
         audio_nota {
             embed {
                 config {
+                    audio_id
                     audio_status
                 }
             }
