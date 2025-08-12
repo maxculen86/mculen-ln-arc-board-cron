@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Consumer from 'fusion:consumer';
@@ -11,7 +10,7 @@ import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import { validateOpeningFoodit } from './common/_helper';
 import RenderManualBox from '../foodit-global/common/RenderManualBox/foodit';
 
-const OpeningRecipeBox = props => {
+function OpeningRecipeBox(props) {
     const {
         id: chainId,
         isAdmin = false,
@@ -20,7 +19,7 @@ const OpeningRecipeBox = props => {
         children
     } = props;
 
-    const { layout = '' } = customFields;
+    const { layout = '', hideCaja = false } = customFields;
 
     const error = validateOpeningFoodit({ layout, childProps });
 
@@ -28,6 +27,8 @@ const OpeningRecipeBox = props => {
         config: { layout },
         children
     });
+
+    if (hideCaja) return React.Fragment;
 
     return (
         <Static id={chainId}>
@@ -41,23 +42,23 @@ const OpeningRecipeBox = props => {
                         <RenderManualBox
                             layout={layout}
                             cards={cards}
-                            boxType={'opening'}
+                            boxType="opening"
                         />
                     )
                 }
             })}
         </Static>
     );
-};
+}
 
 OpeningRecipeBox.label = 'Foodit Caja Apertura';
 
 OpeningRecipeBox.propTypes = {
-    id: PropTypes.string,
-    isAdmin: PropTypes.bool,
+    id: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         ...setChainFooditCustomFields('cajaApertura')
-    })
+    }).isRequired
 };
 
 export default Consumer(OpeningRecipeBox);

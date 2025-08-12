@@ -40,7 +40,7 @@ const customFieldsRules = {
     cajaApertura: {
         hideInitialPosition: true,
         hideIdCollection: true,
-        hideHideCaja: true,
+        hideHideCaja: false,
         hideButton: true,
         hideRoofProps: true,
         groupName: 'Ajuste Apertura',
