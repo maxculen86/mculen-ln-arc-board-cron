@@ -82,31 +82,34 @@ function PowerUpEmbedCard({ data = {} }) {
     if (!itemId || !itemHeadline) return null;
 
     return (
-        <div className="w-100">
-            <CommonCardFoodit
-                articleId={itemId}
-                linksProps={{
-                    href: itemLinkUrl,
-                    title: itemHeadline
-                }}
-                title={itemHeadline}
-                variant="recipe"
-                container="related-content"
-                size="small"
-                tag={priorityTag}
-                src={resizedUrl || itemImage}
-                alt={itemAltText}
-                author={itemAuthorText}
-                showTime={Boolean(itemPreparationTime)}
-                time={String(itemPreparationTime)}
-                contentCode="receta"
-                mediaVariant="image"
-                isOpening={false}
-                loading="lazy"
-                fetchPriority="low"
-                hasVideo={itemHasVideo}
-            />
-        </div>
+        <>
+            <div className="w-100">
+                <CommonCardFoodit
+                    articleId={itemId}
+                    linksProps={{
+                        href: itemLinkUrl,
+                        title: itemHeadline
+                    }}
+                    title={itemHeadline}
+                    variant="recipe"
+                    container="link"
+                    size="small"
+                    tag={priorityTag}
+                    src={resizedUrl || itemImage}
+                    alt={itemAltText}
+                    author={itemAuthorText}
+                    showTime={Boolean(itemPreparationTime)}
+                    time={String(itemPreparationTime)}
+                    contentCode="receta"
+                    mediaVariant="image"
+                    isOpening={false}
+                    loading="lazy"
+                    fetchPriority="low"
+                    hasVideo={itemHasVideo}
+                />
+            </div>
+            <hr />
+        </>
     );
 }
 

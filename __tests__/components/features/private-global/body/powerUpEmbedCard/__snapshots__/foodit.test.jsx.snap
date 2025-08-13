@@ -43,5 +43,6 @@ exports[`PowerUpEmbedCard Match snapshot matches snapshot with complete data 1`]
       </div>
     </article>
   </div>
+  <hr />
 </DocumentFragment>
 `;

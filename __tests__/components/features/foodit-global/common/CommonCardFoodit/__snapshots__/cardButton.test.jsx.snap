@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardButton should match snapshot container="grid" 1`] = `
+<div>
+  <button
+    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+    data-id="test-id"
+    data-modal="open-modal"
+    data-test-id="button-bookmark-test-id"
+    data-variant="link"
+    title="Guardar receta"
+  >
+    <i
+      class="icon w-24 --dark"
+    >
+      <mock-icon
+        critical="true"
+        name="bookmark"
+      />
+    </i>
+    <span
+      class="uppercase none"
+    >
+      Guardar
+    </span>
+  </button>
+</div>
+`;
+
+exports[`CardButton should match snapshot container="link" 1`] = `
+<div>
+  <button
+    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+    data-id="test-id"
+    data-modal="open-modal"
+    data-test-id="button-bookmark-test-id"
+    data-variant="link"
+    title="Guardar receta"
+  >
+    <i
+      class="icon w-24 w-16_md --dark"
+    >
+      <mock-icon
+        critical="true"
+        name="bookmark"
+      />
+    </i>
+    <span
+      class="uppercase sm-none"
+    >
+      Guardar
+    </span>
+  </button>
+</div>
+`;
+
+exports[`CardButton should match snapshot container="opening-grid" 1`] = `
+<div>
+  <button
+    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+    data-id="test-id"
+    data-modal="open-modal"
+    data-test-id="button-bookmark-test-id"
+    data-variant="link"
+    title="Guardar receta"
+  >
+    <i
+      class="icon w-24 w-20_lg --dark"
+    >
+      <mock-icon
+        critical="true"
+        name="bookmark"
+      />
+    </i>
+    <span
+      class="uppercase lg-only"
+    >
+      Guardar
+    </span>
+  </button>
+</div>
+`;
+
+exports[`CardButton should match snapshot container="related-content" 1`] = `
+<div>
+  <button
+    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+    data-id="test-id"
+    data-modal="open-modal"
+    data-test-id="button-bookmark-test-id"
+    data-variant="link"
+    title="Guardar receta"
+  >
+    <i
+      class="icon w-24 w-20_lg --dark"
+    >
+      <mock-icon
+        critical="true"
+        name="bookmark"
+      />
+    </i>
+    <span
+      class="uppercase none"
+    >
+      Guardar
+    </span>
+  </button>
+</div>
+`;
