@@ -254,17 +254,6 @@
             height: px(48);
         }
     }
-    &.fundacion,
-    &.fundacion-blanco {
-        &.--xs {
-            height: px(22);
-            width: inherit;
-        }
-        &.--sm {
-            height: px(48);
-            width: inherit;
-        }
-    }
 
     &.android-store,
     &.ios-store {
