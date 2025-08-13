@@ -10,7 +10,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
       class="relative --full-width"
       data-scroller="track"
       data-scroller-elements="12"
-      data-test-id="container-cards-carousel"
+      data-testid="container-cards-carousel"
     >
       <li
         class=""
