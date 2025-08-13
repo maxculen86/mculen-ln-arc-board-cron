@@ -159,12 +159,8 @@ export class EventsHelper {
             [];
 
         roofs.forEach(roof => {
-            const {
-                anchorLeft,
-                actionLeft,
-                anchorRight,
-                actionRight
-            } = this.getAnchorsFromGroup(roof);
+            const { anchorLeft, actionLeft, anchorRight, actionRight } =
+                this.getAnchorsFromGroup(roof);
 
             const roofTitle = this.getRoofTitle(roof);
 
@@ -277,6 +273,25 @@ export class EventsHelper {
         });
     }
 
+    setEventsVideoPodcast() {
+        const podcasts = window.document.querySelectorAll(
+            '[data-videopodcast-link="true"]'
+        );
+        const ACTION = 'escuchar';
+        const VIDEOPODCAST = 'podcast_ln10';
+        podcasts.forEach(podcast => {
+            if (!podcast) return;
+            const titleFormatted = this.createDynamicLabel(podcast.title);
+            const payload = {
+                action: ACTION,
+                label: `${ACTION}_${titleFormatted}`,
+                category: VIDEOPODCAST
+            };
+
+            this.addEventListeners(podcast, payload);
+        });
+    }
+
     setEventsFoodit() {
         const buttonFooditGrid = document.getElementById('btn-foodit-grid');
         const ACTION = 'caja_foodit';
@@ -300,10 +315,10 @@ const handler = {
 
         // Crear un proxy para interceptar llamadas a métodos
         return new Proxy(instance, {
-            get: function(target, property, receiver) {
+            get: function (target, property, receiver) {
                 const origMethod = target[property];
                 if (typeof origMethod === 'function') {
-                    return function(...args) {
+                    return function (...args) {
                         setTimeout(() => origMethod.apply(target, args), 0);
                     };
                 }

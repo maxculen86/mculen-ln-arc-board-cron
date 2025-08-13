@@ -4,10 +4,10 @@ export const cardDiagramationVariant = cva('grid', {
     variants: {
         variant: {
             oneLargeFourSmall:
-                'grid-cols-12_m grid-rows_m gap-24 oneLargeFourSmall',
-            twoHorizontal: 'grid-cols-2_m grid-col-2_m gap-24',
-            fourVertical: 'grid-cols-8 grid-cols-12_sm gap-16 mb-32',
-            oneHorizontalThreeVertical: 'grid-cols-12_m gap-24'
+                'grid-cols-12_m grid-rows_m oneLargeFourSmall gap-24 gap-32_lg',
+            twoHorizontal: 'grid-cols-2_m grid-col-2_m gap-24 gap-32_lg',
+            fourVertical: 'grid-cols-8 grid-cols-12_sm gap-24 gap-32_lg',
+            oneHorizontalThreeVertical: 'grid-cols-12_m gap-16'
         }
     },
     defaultVariants: {

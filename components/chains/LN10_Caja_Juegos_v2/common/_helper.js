@@ -24,7 +24,8 @@ const MIN_DIAGRAMATION_ITEMS = {
 export const validateGamesChain = (
     layout = '',
     customFields = {},
-    gameItems = []
+    gameItems = [],
+    contentLabel = 'juego'
 ) => {
     const { layout: selectedDiagramation } = customFields;
 
@@ -44,7 +45,7 @@ export const validateGamesChain = (
         },
         {
             validation: gameItems.length < minItemsRequired,
-            message: `Se requiere la carga de ${minItemsRequired - gameItems.length} juego${minItemsRequired - gameItems.length > 1 ? 's' : ''}`
+            message: `Se requiere la carga de ${minItemsRequired - gameItems.length} ${contentLabel}${minItemsRequired - gameItems.length > 1 ? 's' : ''}`
         }
     ];
 
