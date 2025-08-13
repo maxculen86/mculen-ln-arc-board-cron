@@ -20,15 +20,15 @@ const resolve = key => {
         distributorId,
         sectionsIds,
         sourceOrigin,
-        excludeSourceOrigin
+        excludeSourceOrigin,
+        filterNotes,
+        isPage
     } = key;
 
     const arcSite = key['arc-site'];
     const cant = size;
     const from = ((page || 1) - 1) * cant;
-    const basePath = `/content/v4/search/published/?website=${
-        website || arcSite
-    }`;
+    const basePath = `/content/v4/search/published/?website=${website || arcSite}`;
 
     if (distributorId)
         return `${basePath}&q=type:story&include_distributor_name=${distributorId}&size=${cant}&from=${from}
@@ -145,6 +145,17 @@ const resolve = key => {
             }
         }`;
 
+    const labelFilter =
+        filterNotes &&
+        isPage &&
+        `,"must_not": [
+        {
+            "match":{
+                "label.basic.url":"no"
+            }
+        }
+      ]`;
+
     const query = `&body={
             "query":{
                 "bool": {
@@ -168,6 +179,7 @@ const resolve = key => {
                         ${stringFallback(suscriptorFilter)}
                     ]
                     ${stringFallback(notSectionFiltered)}
+                    ${stringFallback(labelFilter)}
                     ${stringFallback(notSourceSystemFiltered)}
                 }
             }
@@ -225,7 +237,9 @@ export default {
         shouldNotFilter: 'text',
         excludePreload: 'bool',
         hasCollectionApertura: 'bool',
-        collectionId: 'text'
+        collectionId: 'text',
+        filterNotes: 'bool',
+        isPage: 'bool'
     },
     filter,
     ttl: 120

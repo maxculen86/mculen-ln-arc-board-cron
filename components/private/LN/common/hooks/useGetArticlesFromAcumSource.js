@@ -17,7 +17,9 @@ export default function useGetArticlesFromAcumSource({
     withPagination = false,
     page,
     hasCollectionApertura = false,
-    excludePreload = false
+    excludePreload = false,
+    filterNotes,
+    isPage
 }) {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
@@ -52,7 +54,9 @@ export default function useGetArticlesFromAcumSource({
             shouldNotFilter,
             page,
             hasCollectionApertura,
-            excludePreload
+            excludePreload,
+            filterNotes,
+            isPage
         },
         filter,
         staticMode

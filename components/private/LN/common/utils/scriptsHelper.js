@@ -31,6 +31,7 @@ import EventsHelpers from './EventsHelpers';
 import FundingChoices from '../../../common/scriptManager/scriptFundingChoices';
 import get from '../../../common/utils/get';
 import MetaRobots from '../../../common/scriptManager/MetaRobots';
+import TikTokPixel from '../../../common/scriptManager/TikTokPixel';
 
 const scriptList = [
     {
@@ -147,6 +148,10 @@ const scriptList = [
     {
         component: { name: 'ScriptJwVideoHome', function: ScriptJwVideoHome },
         feature: ['LN-10/videoPlayer', 'LN-10/videoPlayerNota']
+    },
+    {
+        component: { name: 'TikTokPixel', function: TikTokPixel },
+        feature: 'none'
     }
 ];
 

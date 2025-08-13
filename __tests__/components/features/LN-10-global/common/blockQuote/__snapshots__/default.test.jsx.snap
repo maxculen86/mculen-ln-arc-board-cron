@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockQuote renders correctly and matches snapshot 1`] = `
+<div
+  class="destacado-blockquote px-16 py-24 container-center-100"
+  data-testid="blockquote"
+>
+  <hr
+    class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
+  />
+  <blockquote
+    class="flex jc-center ai-center py-16"
+  >
+    <p
+      class="text ln-text prumo text-24 --prumo --font-bold"
+    >
+      Texto destacado
+    </p>
+  </blockquote>
+  <hr
+    class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-90"
+  />
+</div>
+`;

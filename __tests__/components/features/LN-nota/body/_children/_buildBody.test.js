@@ -6,7 +6,7 @@ import Context from 'fusion:context';
 import BuildBody from '../../../../../../components/features/LN-nota/body/_children/_buildBody';
 import content_elements from '../../../../../../__mocks__/data/nota/body/contentElements.json';
 import siteProperties from '../../../../../../__mocks__/data/nota/body/siteProperties.json';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import * as utils from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
 
@@ -80,7 +80,18 @@ describe('BuildBody', () => {
         );
         expect(
             container.querySelectorAll(`p[class*="com-paragraph"]`)
-        ).toHaveLength(57);
+        ).toHaveLength(55);
+        /* blockquote */
+        const blockquoteDiv = screen.getByText('Esto es un destacado');
+        expect(blockquoteDiv).toBeInTheDocument();
+        /* pullquote */
+        const pullquoteDiv = screen.getByText('Esto es una cita');
+        expect(pullquoteDiv).toBeInTheDocument();
+        /* interstitial */
+        const interstitial = screen.getByText(
+            'Dólar blue hoy: a cuánto cotiza el lunes 8 de junio'
+        );
+        expect(interstitial).toBeInTheDocument();
         /* order and unorder list */
         expect(
             container.querySelectorAll(`ul[class*="com-ordered"]`)
@@ -129,12 +140,6 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="com-embed --tiktok"]`)
         ).toHaveLength(1);
-        /* interstitial_link */
-        expect(
-            container.querySelectorAll(`div[class*="com-container --button"]`)
-        ).toHaveLength(1);
-        //expect(getAllByText('Dólar blue hoy: a cuánto cotiza el lunes 8 de junio')).toHaveLength(1);
-        /* gallery */
         expect(container.querySelectorAll(`div[class*="slide"]`)).toHaveLength(
             3
         );
@@ -142,14 +147,6 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`img[class*="com-image"]`)
         ).toHaveLength(13);
-        /* blockquiote */
-        expect(
-            container.querySelectorAll(`blockquote[class*="mod-paragraph"]`)
-        ).toHaveLength(2);
-        /* pullquote */
-        expect(
-            container.querySelectorAll(`section[class*="com-cita autor"]`)
-        ).toHaveLength(1);
         /* raw_html */
         expect(
             container.querySelectorAll(`div[class*="com-embed"]`)
@@ -190,7 +187,7 @@ describe('BuildBody', () => {
         /* paragraph */
         expect(
             container.querySelectorAll(`p[class*="com-paragraph"]`)
-        ).toHaveLength(57);
+        ).toHaveLength(55);
         /* order and unorder list */
         expect(
             container.querySelectorAll(`ul[class*="com-ordered"]`)
@@ -239,11 +236,11 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="com-embed --tiktok"]`)
         ).toHaveLength(1);
-        /* interstitial_link */
-        expect(
-            container.querySelectorAll(`div[class*="com-container --button"]`)
-        ).toHaveLength(1);
-        //expect(getAllByText('Dólar blue hoy: a cuánto cotiza el lunes 8 de junio')).toHaveLength(1);
+        /* interstitial */
+        const interstitial = screen.getByText(
+            'Dólar blue hoy: a cuánto cotiza el lunes 8 de junio'
+        );
+        expect(interstitial).toBeInTheDocument();
         /* gallery */
         expect(container.querySelectorAll(`div[class*="slide"]`)).toHaveLength(
             3
@@ -257,13 +254,11 @@ describe('BuildBody', () => {
             container.querySelectorAll(`div[class*="mod-video"]`)
         ).toHaveLength(0);
         /* blockquote */
-        expect(
-            container.querySelectorAll(`blockquote[class*="mod-paragraph"]`)
-        ).toHaveLength(2);
-        /* pullquote no renderiza porque no matchea subtype en las rules */
-        expect(
-            container.querySelectorAll(`section[class*="com-cita autor"]`)
-        ).toHaveLength(1);
+        const blockquoteDiv = screen.getByText('Esto es un destacado');
+        expect(blockquoteDiv).toBeInTheDocument();
+        /* pullquote */
+        const pullquoteDiv = screen.getByText('Esto es una cita');
+        expect(pullquoteDiv).toBeInTheDocument();
         /* raw_html */
         expect(
             container.querySelectorAll(`div[class*="com-embed"]`)
