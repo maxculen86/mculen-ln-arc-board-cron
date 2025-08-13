@@ -6,8 +6,9 @@ const childrenFilter = `
 export default `
     {
         Termicas {
-            tooltip_subscribe_foodit_show,
+            tooltip_subscribe_foodit_show
             tooltip_subscribe_foodit_text
+            show_nutritional_info
         },
         children {
             ${childrenFilter}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { Button } from '@ln/foodit-ui-button';
@@ -6,46 +7,91 @@ import { Icon } from '@ln/common-ui-icon';
 import { CardInfoNutricional } from './component/cardInfo';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Carousel } from '../../../../chains/foodit-global/common/Carousel/foodit';
+import { useNavigationData } from '../Header/hooks/useNavigationData';
 
-export function InfoNutricional() {
-    const infoNutricionalMock = [
+export function InfoNutricional({ globalContent = {} }) {
+    const {
+        termicasData: { show_nutritional_info: showNutritionalInfo } = {}
+    } = useNavigationData();
+
+    const {
+        promo_items: {
+            informacion_nutricional: {
+                embed: {
+                    config: {
+                        items: {
+                            calories: cal = 0,
+                            carbohydrates: carbs = 0,
+                            totalFat: fat = 0,
+                            protein: prot = 0,
+                            sodium: sod = 0,
+                            fiber: fib = 0
+                        } = {}
+                    } = {}
+                } = {}
+            } = {}
+        } = {},
+        label: { info_nutricional: { text = '' } } = {}
+    } = globalContent;
+
+    const shouldShowNutritionalInfo = (() => {
+        if (showNutritionalInfo === 'true') {
+            return true;
+        }
+
+        if (showNutritionalInfo === 'false') {
+            return false;
+        }
+
+        return !text || text.toLowerCase().trim() !== 'ocultar';
+    })();
+
+    const infoNutricional = [
         {
             title: 'Calorías',
-            cant: '182',
+            cant: cal?.toString() || null,
             udm: 'kcal'
         },
         {
             title: 'Carbohidratos',
-            cant: '24.5',
+            cant: carbs?.toString() || null,
             udm: 'g'
         },
         {
             title: 'Grasa total',
-            cant: '6.2',
+            cant: fat?.toString() || null,
             udm: 'g'
         },
         {
             title: 'Proteína',
-            cant: '4.8',
+            cant: prot?.toString() || null,
             udm: 'g'
         },
         {
             title: 'Sodio',
-            cant: '115',
+            cant: sod?.toString() || null,
             udm: 'mg'
         },
         {
             title: 'Fibra',
-            cant: '3.1',
+            cant: fib?.toString() || null,
             udm: 'g'
         }
     ];
+
+    const validNutritionalData = infoNutricional.filter(
+        ({ cant }) => !!cant && cant !== '0'
+    );
+
+    const hasValidNutritionalData = validNutritionalData.length > 0;
+
+    if (!hasValidNutritionalData || !shouldShowNutritionalInfo) return null;
 
     return (
         <div className="flex flex-column gap-24">
             <div className="flex ai-center gap-24 roof-sticky py-12 py-0_md">
                 <Text className="roof-text-sticky pl-16 pl-0_md">
-                    Informacion nutricional
+                    Información nutricional
                 </Text>
                 <Tooltip
                     toggleOn="click"
@@ -72,15 +118,41 @@ export function InfoNutricional() {
                 </Tooltip>
             </div>
             <Carousel type="nutricional">
-                {infoNutricionalMock.map(({ title, cant, udm }) => (
+                {validNutritionalData.map(({ title, cant, udm }) => (
                     <CardInfoNutricional
+                        key={title}
                         title={title}
                         cant={cant}
                         udm={udm}
-                        key={title}
                     />
                 ))}
             </Carousel>
         </div>
     );
 }
+
+InfoNutricional.propTypes = {
+    globalContent: PropTypes.shape({
+        promo_items: PropTypes.shape({
+            informacion_nutricional: PropTypes.shape({
+                embed: PropTypes.shape({
+                    config: PropTypes.shape({
+                        items: PropTypes.shape({
+                            calories: PropTypes.number,
+                            carbohydrates: PropTypes.number,
+                            totalFat: PropTypes.number,
+                            protein: PropTypes.number,
+                            sodium: PropTypes.number,
+                            fiber: PropTypes.number
+                        })
+                    })
+                })
+            })
+        }),
+        label: PropTypes.shape({
+            info_nutricional: PropTypes.shape({
+                text: PropTypes.string
+            })
+        })
+    }).isRequired
+};

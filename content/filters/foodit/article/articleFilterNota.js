@@ -162,6 +162,11 @@ const labels = `
         conversion_porciones{
             text
         }
+        info_nutricional{
+            text
+            display
+            url
+        }
     }
 `;
 const table = `
@@ -302,6 +307,26 @@ const listCommonProps = `
    _id  
 `;
 
+const nutritionalInfo = `
+    _id
+    type
+    subtype
+    embed {
+        config {
+            items {
+                carbohydrates
+                calories
+                protein
+                totalFat
+                sodium
+                fiber
+            }
+        }
+        id
+        url
+    }
+`;
+
 export default `
 {
     _id
@@ -347,7 +372,10 @@ export default `
             ${video}
             content
             ${customVideoJw}
-        },
+        }
+        informacion_nutricional {
+            ${nutritionalInfo}
+        }
     }
     credits {
         by {
