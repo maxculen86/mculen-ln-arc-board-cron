@@ -20,6 +20,7 @@ import IconSprite from '../../../../features/private-global/common/iconSprite/Ic
 import useTermica from '../../hooks/useTermica';
 import { useSignatureContext } from '../hooks/SignatureContext';
 import BarrierRequiresSubscription from '../../../../features/LN-10-global/common/barrierRequiresSubscription/default';
+import useAudioIdData from '../hooks/useAudioIdData';
 
 export function AudioButton({
     audioPlayerProps = {},
@@ -29,6 +30,9 @@ export function AudioButton({
     variant
 }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
+
+    const dataAudio = useAudioIdData(globalContent);
+
     const { isListenable } = globalContent;
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
@@ -59,7 +63,8 @@ export function AudioButton({
             closeTooltipIAAuthor,
             subscription,
             token,
-            openBarrier
+            openBarrier,
+            dataAudio
         );
     };
 

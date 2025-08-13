@@ -235,4 +235,53 @@ describe('getAudioEvents', () => {
             globalContent.credits.by
         );
     });
+
+    it('should use legacy audio_id when promo_items.audio_nota is missing', () => {
+        const globalContent = {
+            _id: 'TG4KFKTNOFH53CM6B6OFKOGSGQ',
+            credits: { by: [] },
+            promo_items: {}
+        };
+        const globalContentConfig = {
+            query: {
+                uri: '/seguridad/misterio-en-tucuman-una-nina-de-11-anos-desaparecio-el-domingo-al-mediodia-cuando-fue-a-compras-a-un-nid09092024/'
+            }
+        };
+
+        const dataAudio = { audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13' };
+
+        get.mockImplementation((obj, path, def) => {
+            if (path === '_id') return obj._id;
+            if (path === 'promo_items.audio_nota.embed.config.audio_id')
+                return undefined;
+            if (path === 'credits.by') return obj.credits.by;
+
+            if (obj === dataAudio && path === 'audio_id')
+                return dataAudio.audio_id;
+
+            return def;
+        });
+
+        getSectionOfRequestUri.mockReturnValue('seguridad');
+        isCustomVoice.mockReturnValue(false);
+        extractDataFromCredits.mockReturnValue({ autores: 'N/A' });
+
+        const result = getAudioEvents(
+            globalContent,
+            globalContentConfig,
+            false,
+            dataAudio
+        );
+
+        expect(result).toEqual({
+            autor_nombre: 'N/A',
+            method: 'MP3',
+            origin: 'nota',
+            mode: 'full',
+            seccion: 'seguridad',
+            nota_id: 'TG4KFKTNOFH53CM6B6OFKOGSGQ',
+            audio_id: 'e76f4051-10f2-4835-9145-f4f3cf826d13',
+            custom_voice: false
+        });
+    });
 });
