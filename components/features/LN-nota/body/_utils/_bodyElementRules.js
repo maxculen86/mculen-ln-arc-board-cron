@@ -1,7 +1,5 @@
 // Components
 import Paragraph from '../../../../private/LN/nota/cuerpo/parrafo';
-import PullQuote from '../../../../private/LN/nota/cuerpo/pullQuote';
-import BlockQuote from '../../../../private/LN/nota/cuerpo/blockQuote';
 import Tags from '../../../../private/LN/nota/cuerpo/tags';
 import Subtitle from '../../../../private/LN/nota/cuerpo/subtitle';
 import Gallery from '../../../../private/LN/common/carrousell';
@@ -10,7 +8,6 @@ import Image from '../../../../private/LN/nota/cuerpo/image';
 import Video from '../../../../private/LN/nota/cuerpo/video';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
 import RawHTML from '../../../../private/LN/common/rawHTML';
-import BotonLink from '../../../../private/LN/nota/cuerpo/botonLink';
 import Html from '../../../../private/LN/nota/cuerpo/html';
 import Table from '../../../../private/LN/nota/cuerpo/table';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
@@ -18,6 +15,9 @@ import Divider from '../../../../private/LN/nota/cuerpo/divider';
 import Parallax from '../../../../private/LN/nota/cuerpo/powerUpParallax';
 import PowerUpLiveBlog from '../../../../private/LN/nota/cuerpo/powerUpLiveBlog';
 import EmbedCll from '../../../../private/LN/nota/cuerpo/EmbedCll';
+import Interstitial from '../../../LN-10-global/common/body/interstitial/default';
+import PullQuote from '../../../LN-10-global/common/body/pullQuote/default';
+import BlockQuote from '../../../LN-10-global/common/body/blockQuote/default';
 // utils
 import { selectRule } from './_bodyRules';
 
@@ -33,7 +33,7 @@ const bodyComponents = [
     Video,
     VideoJW,
     RawHTML,
-    BotonLink,
+    Interstitial,
     Html,
     Table,
     powerUpsReceta,

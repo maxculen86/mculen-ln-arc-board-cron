@@ -5469,6 +5469,10 @@ a {
   border-top-right-radius: 1rem;
 }
 
+.border-1-5 {
+  border-width: 0.09375rem;
+}
+
 @media (min-width: 64rem) {
   .border.border-0_l {
     border-width: 0;
@@ -6731,6 +6735,10 @@ strong:not(.--font-primary),
   padding-left: 2rem;
 }
 
+.pl-40 {
+  padding-left: 2.5rem;
+}
+
 .pr-8 {
   padding-right: 0.5rem;
 }
@@ -7454,6 +7462,10 @@ strong:not(.--font-primary),
   width: 9.5rem;
 }
 
+.w-154.w-154 {
+  width: 9.625rem;
+}
+
 .w-160.w-160 {
   width: 10rem;
 }
@@ -7848,6 +7860,10 @@ strong:not(.--font-primary),
     height: 8.75rem;
   }
 }
+.h-1-5 {
+  height: 0.09375rem;
+}
+
 .max-h-48.max-h-48 {
   max-height: 3rem;
 }
