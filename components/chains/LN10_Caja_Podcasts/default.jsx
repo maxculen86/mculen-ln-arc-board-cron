@@ -55,7 +55,7 @@ function CajaPodcasts({ customFields, children, ...props }) {
         <Static id={featureId}>
             <BuildRoof {...roofData} />
             <div className="grid gap-24 mb-32">
-                <DiagramationCard variant={diagramation}>
+                <DiagramationCard variant={diagramation} type="podcast">
                     {getGameDiagramationItems(children, diagramation)}
                 </DiagramationCard>
             </div>
