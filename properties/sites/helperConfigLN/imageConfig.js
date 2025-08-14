@@ -1503,6 +1503,34 @@ export default {
                 ]
             }
         },
+        cardCoverT1: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 280,
+                        height: 280,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    {
+                        width: 144,
+                        height: 144,
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
+        cardCoverDefault: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 100,
+                        height: 100,
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
         default: [
             {
                 width: 1033,
