@@ -5,8 +5,9 @@ const getFirstIndex = (elements, alias) =>
         el => el?.sectionAliasMobile?.toLowerCase() === alias.toLowerCase()
     );
 
-const getLastIndex = (elements, alias) => {
-    for (let i = elements.length - 1; i > 0; i -= 1) {
+const getLastIndex = (elements, alias, bottomIndex) => {
+    const startFrom = bottomIndex !== 0 ? bottomIndex : elements.length - 1;
+    for (let i = startFrom; i > 0; i -= 1) {
         if (
             elements[i]?.sectionAliasMobile?.toLowerCase() ===
             alias.toLowerCase()
@@ -45,7 +46,8 @@ export const setLiveByConfig = async (elementsPage, layoutPage) => {
         );
         const lastIndexUpper = getLastIndex(
             elementsPage,
-            liveConfig.bottomTo.sectionAliasMobile
+            liveConfig.bottomTo.sectionAliasMobile,
+            firstIndexBottom === -1 ? 0 : firstIndexBottom
         );
 
         const enVivoItems = getItemsByAlias(
