@@ -65,20 +65,27 @@ jest.mock(
 
 jest.mock(
     '../../../../../../components/features/private-global/body/image/helpers',
-    () => ({
-        __esModule: true,
-        headerLevels: [1, 2, 3, 4, 5, 6],
-        normalize: jest.fn(text =>
-            typeof text === 'string'
-                ? text
-                      .normalize('NFD')
-                      .replace(/[\u0300-\u036f]/g, '')
-                      .toLowerCase()
-                : ''
-        ),
-        PREPARATION_KEYWORDS: ['preparación', 'preparacion'],
-        TIPS_KEYWORDS: ['tips', 'curiosidades']
-    })
+    () => {
+        const helperActual = jest.requireActual(
+            '../../../../../../components/features/private-global/body/image/helpers'
+        );
+        return {
+            __esModule: true,
+            ...helperActual,
+            headerLevels: [1, 2, 3, 4, 5, 6],
+            normalize: jest.fn(text =>
+                typeof text === 'string'
+                    ? text
+                          .normalize('NFD')
+                          .replace(/[\u0300-\u036f]/g, '')
+                          .toLowerCase()
+                    : ''
+            ),
+            PREPARATION_KEYWORDS: ['preparación', 'preparacion'],
+            TIPS_KEYWORDS: ['tips', 'curiosidades'],
+            processHeaderElement: helperActual.processHeaderElement
+        };
+    }
 );
 
 const mediaHelper = require('../../../../../../components/private/LN/common/utils/mediaHelper');
