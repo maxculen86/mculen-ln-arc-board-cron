@@ -74,7 +74,7 @@ describe('Tests Carousel', () => {
     });
 
     it.each([
-        ['nutricional', '--info-nutricional'],
+        ['nutritional', '--info-nutricional'],
         ['category', '--carousel-category'],
         ['collection', 'hide-mobile'],
         ['collection_4', 'hide-mobile']

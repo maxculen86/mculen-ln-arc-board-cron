@@ -117,7 +117,7 @@ export function NutritionalInfo({ globalContent = {} }) {
                     </Button>
                 </Tooltip>
             </div>
-            <Carousel type="nutricional">
+            <Carousel type="nutritional">
                 {validNutritionalData.map(({ title, cant, udm }) => (
                     <NutritionalInfoCard
                         key={title}
