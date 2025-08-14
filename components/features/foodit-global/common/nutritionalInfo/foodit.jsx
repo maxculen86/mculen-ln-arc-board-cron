@@ -16,7 +16,7 @@ export function NutritionalInfo({ globalContent = {} }) {
 
     const {
         promo_items: {
-            informacion_nutricional: {
+            nutritional_information: {
                 embed: {
                     config: {
                         items: {
@@ -34,17 +34,13 @@ export function NutritionalInfo({ globalContent = {} }) {
         label: { info_nutricional: { text = '' } } = {}
     } = globalContent;
 
-    const shouldShowNutritionalInfo = (() => {
-        if (showNutritionalInfo === 'true') {
-            return true;
-        }
-
-        if (showNutritionalInfo === 'false') {
-            return false;
-        }
-
-        return !text || text.toLowerCase().trim() !== 'ocultar';
-    })();
+    const visibilityMap = new Map([
+        ['true', true],
+        ['false', false]
+    ]);
+    const shouldShowNutritionalInfo =
+        visibilityMap.get(showNutritionalInfo) ??
+        (!text || text.toLowerCase().trim() !== 'ocultar');
 
     const nutritionalInfo = [
         {

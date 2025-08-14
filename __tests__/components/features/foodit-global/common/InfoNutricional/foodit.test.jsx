@@ -40,7 +40,7 @@ describe('InfoNutricional', () => {
 
     const validNutritionalData = {
         promo_items: {
-            informacion_nutricional: {
+            nutritional_information: {
                 embed: {
                     config: {
                         items: {
@@ -64,7 +64,7 @@ describe('InfoNutricional', () => {
 
     const emptyNutritionalData = {
         promo_items: {
-            informacion_nutricional: {
+            nutritional_information: {
                 embed: {
                     config: {
                         items: {
@@ -88,7 +88,7 @@ describe('InfoNutricional', () => {
 
     const partialNutritionalData = {
         promo_items: {
-            informacion_nutricional: {
+            nutritional_information: {
                 embed: {
                     config: {
                         items: {
@@ -267,7 +267,7 @@ describe('InfoNutricional', () => {
 
             const dataWithNulls = {
                 promo_items: {
-                    informacion_nutricional: {
+                    nutritional_information: {
                         embed: {
                             config: {
                                 items: {

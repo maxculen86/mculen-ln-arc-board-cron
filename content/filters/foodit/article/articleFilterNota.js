@@ -164,8 +164,6 @@ const labels = `
         }
         info_nutricional{
             text
-            display
-            url
         }
     }
 `;
@@ -373,7 +371,7 @@ export default `
             content
             ${customVideoJw}
         }
-        informacion_nutricional {
+        nutritional_information {
             ${nutritionalInfo}
         }
     }
