@@ -6,7 +6,7 @@ const getFirstIndex = (elements, alias) =>
     );
 
 const getLastIndex = (elements, alias) => {
-    for (let i = elements.length - 1; i >= 0; i = -1) {
+    for (let i = elements.length - 1; i > 0; i -= 1) {
         if (
             elements[i]?.sectionAliasMobile?.toLowerCase() ===
             alias.toLowerCase()
@@ -37,7 +37,7 @@ export const setLiveByConfig = async (elementsPage, layoutPage) => {
             liveConfig.bottomTo.sectionAliasMobile
         );
 
-        if (!bottomItems.length) return elementsPage;
+        if (bottomItems.length === 0) return elementsPage;
 
         const firstIndexBottom = getFirstIndex(
             elementsPage,
