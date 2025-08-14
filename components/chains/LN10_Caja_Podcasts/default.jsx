@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
-import get from '../../private/common/utils/get';
 import BuildRoof from '../utils/_BuildRoof/default';
 import { useRoofData } from '../utils/_helpers';
-import config from '../../../properties/sites/la-nacion-ar';
-import GameEventScript from '../../private/common/scriptManager/GameEventsScript';
+import VideoPodcastEventsScript from '../../private/common/scriptManager/VideoPodcastEventsScript';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import { getGameDiagramationItems, validateGamesChain } from './common/_helper';
+import {
+    getGameDiagramationItems,
+    validateGamesChain
+} from '../LN10_Caja_Juegos_v2/common/_helper';
 import DiagramationCard from '../../features/LN-common/Juego/diagramationCard';
-import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
-const { layoutsName = {} } = config || {};
+function CajaPodcasts({ customFields, children, ...props }) {
+    const { isAdmin, layout } = useAppContext();
+    const { id: featureId } = props;
 
-function CajaJuegosV2({ customFields, children, ...props }) {
-    const { globalContent = {}, layout, isAdmin } = useAppContext() || {};
     const {
         logoId,
         link,
@@ -30,8 +30,6 @@ function CajaJuegosV2({ customFields, children, ...props }) {
         buttonStyle,
         layout: diagramation
     } = customFields;
-
-    const { id: featureId } = props;
 
     const roofData = useRoofData({
         logoId,
@@ -47,50 +45,43 @@ function CajaJuegosV2({ customFields, children, ...props }) {
         isStatic: true
     });
 
-    const shouldShowGame =
-        layout === layoutsName.Infografia
-            ? get(globalContent, 'label.mostrar_caja_juegos.text', '') ===
-              'Mostrar'
-            : true;
-
-    const error = validateGamesChain(layout, customFields, children);
+    const error = validateGamesChain(layout, customFields, children, 'podcast');
 
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
 
-    return shouldShowGame && !hideCaja ? (
+    return !hideCaja ? (
         <Static id={featureId}>
             <BuildRoof {...roofData} />
             <div className="grid gap-24 mb-32">
-                <DiagramationCard variant={diagramation} type="game">
+                <DiagramationCard variant={diagramation} type="podcast">
                     {getGameDiagramationItems(children, diagramation)}
                 </DiagramationCard>
             </div>
-            <GameEventScript />
+            <VideoPodcastEventsScript />
         </Static>
     ) : null;
 }
 
-CajaJuegosV2.label = 'LN10 Caja Juegos v2';
+CajaPodcasts.label = 'LN10 Caja Podcasts';
 
-CajaJuegosV2.propTypes = {
+CajaPodcasts.propTypes = {
     id: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     customFields: PropTypes.shape({
         layout: PropTypes.oneOf([
             'oneLargeFourSmall',
             'twoHorizontal',
-            'fourVertical',
-            'oneHorizontalThreeVertical'
+            'fourVertical'
         ]).tag({
             label: 'Diagramación',
             description: 'Cambiar el diseño de la caja',
-            group: 'Ajuste Juegos',
+            group: 'Ajuste Podcasts',
             labels: {
-                oneLargeFourSmall: 'Juegos 1 + 4',
-                twoHorizontal: 'Juegos x 2',
-                fourVertical: 'Juegos x 4',
-                oneHorizontalThreeVertical: 'Juegos 1 + 3'
+                oneLargeFourSmall: 'Podcasts 1 + 4',
+                twoHorizontal: 'Podcasts x 2',
+                fourVertical: 'Podcasts x 4'
             }
         }),
         logoId: PropTypes.string.tag({
@@ -132,7 +123,7 @@ CajaJuegosV2.propTypes = {
             group: 'Techo'
         }),
         buttonLogo: PropTypes.string.tag({
-            name: 'Logo Boton',
+            name: 'Logo Botón',
             description: 'Ingrese aquí el id del botón',
             defaultValue: '',
             group: 'Techo',
@@ -161,8 +152,7 @@ CajaJuegosV2.propTypes = {
             labels: typesButtonStyle,
             hidden: false
         })
-    }).isRequired,
-    children: PropTypes.node.isRequired
+    }).isRequired
 };
 
-export default CajaJuegosV2;
+export default CajaPodcasts;

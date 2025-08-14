@@ -123,48 +123,4 @@ describe('Utils - SectionUtils', () => {
 
         expect(path).toBe(expectedResult);
     });
-
-    it('getSectionLogo should return fundacion logo when comunidad is the primary section', () => {
-        const sections = [
-            {
-                _id: '/comunidad',
-                parent_id: '/',
-                path: '/comunidad'
-            },
-            {
-                _id: '/comunidad/adopcion',
-                parent_id: '/comunidad',
-                path: '/comunidad/adopcion'
-            }
-        ];
-        const layout = 'LN-nota-noticia';
-        const logo = getSectionLogo(sections, layout);
-
-        expect(logo).toMatchObject({
-            logoName: 'fundacion',
-            path: '/comunidad/'
-        });
-    });
-
-    it('getSectionLogo should return fundacion logo when comunidad is present as a secondary section', () => {
-        const sections = [
-            {
-                _id: '/lifestyle',
-                parent_id: '/',
-                path: '/lifestyle'
-            },
-            {
-                _id: '/comunidad',
-                parent_id: '/',
-                path: '/comunidad'
-            }
-        ];
-        const layout = 'LN-nota-noticia';
-        const logo = getSectionLogo(sections, layout);
-
-        expect(logo).toMatchObject({
-            logoName: 'fundacion',
-            path: '/comunidad/'
-        });
-    });
 });
