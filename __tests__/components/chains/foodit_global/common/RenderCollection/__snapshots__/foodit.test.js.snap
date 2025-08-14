@@ -1303,7 +1303,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         class="relative --full-width"
         data-scroller="track"
         data-scroller-elements="12"
-        data-test-id="container-cards-carousel"
+        data-testid="container-cards-carousel"
       >
         <li
           class=""
@@ -2648,7 +2648,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
         class="relative --full-width"
         data-scroller="track"
         data-scroller-elements="0"
-        data-test-id="container-cards-carousel"
+        data-testid="container-cards-carousel"
       />
     </div>
   </div>
