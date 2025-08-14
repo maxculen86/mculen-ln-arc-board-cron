@@ -1,15 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { InfoNutricional } from '../../../../../../components/features/foodit-global/common/InfoNutricional/foodit';
 import { useNavigationData } from '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData';
+import { NutritionalInfo } from '../../../../../../components/features/foodit-global/common/nutritionalInfo/foodit';
 
 jest.mock(
     '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData'
 );
 jest.mock(
-    '../../../../../../components/features/foodit-global/common/InfoNutricional/component/cardInfo.jsx',
+    '../../../../../../components/features/foodit-global/common/nutritionalInfo/component/cardInfo.jsx',
     () => ({
-        CardInfoNutricional: ({ title, cant, udm }) => (
+        NutritionalInfoCard: ({ title, cant, udm }) => (
             <div data-testid={`card-${title.toLowerCase()}`}>
                 {title}: {cant} {udm}
             </div>
@@ -116,7 +116,7 @@ describe('InfoNutricional', () => {
                 termicasData: { show_nutritional_info: 'true' }
             });
 
-            render(<InfoNutricional globalContent={validNutritionalData} />);
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(
                 screen.getByText('Información nutricional')
@@ -133,7 +133,7 @@ describe('InfoNutricional', () => {
                 termicasData: { show_nutritional_info: 'false' }
             });
 
-            render(<InfoNutricional globalContent={validNutritionalData} />);
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(
                 screen.queryByText('Información nutricional')
@@ -145,7 +145,7 @@ describe('InfoNutricional', () => {
                 termicasData: { show_nutritional_info: 'true' }
             });
 
-            render(<InfoNutricional globalContent={emptyNutritionalData} />);
+            render(<NutritionalInfo globalContent={emptyNutritionalData} />);
 
             expect(
                 screen.queryByText('Información nutricional')
@@ -166,7 +166,7 @@ describe('InfoNutricional', () => {
                 }
             };
 
-            render(<InfoNutricional globalContent={dataWithHideText} />);
+            render(<NutritionalInfo globalContent={dataWithHideText} />);
 
             expect(
                 screen.queryByText('Información nutricional')
@@ -189,7 +189,7 @@ describe('InfoNutricional', () => {
                 }
             };
 
-            render(<InfoNutricional globalContent={dataWithHideText} />);
+            render(<NutritionalInfo globalContent={dataWithHideText} />);
 
             expect(
                 screen.getByText('Información nutricional')
@@ -210,7 +210,7 @@ describe('InfoNutricional', () => {
                 }
             };
 
-            render(<InfoNutricional globalContent={dataWithShowText} />);
+            render(<NutritionalInfo globalContent={dataWithShowText} />);
 
             expect(
                 screen.queryByText('Información nutricional')
@@ -231,7 +231,7 @@ describe('InfoNutricional', () => {
                 }
             };
 
-            render(<InfoNutricional globalContent={dataWithShowText} />);
+            render(<NutritionalInfo globalContent={dataWithShowText} />);
 
             expect(
                 screen.getByText('Información nutricional')
@@ -245,7 +245,7 @@ describe('InfoNutricional', () => {
                 termicasData: { show_nutritional_info: 'true' }
             });
 
-            render(<InfoNutricional globalContent={partialNutritionalData} />);
+            render(<NutritionalInfo globalContent={partialNutritionalData} />);
 
             expect(screen.getByTestId('card-calorías')).toBeInTheDocument();
             expect(screen.getByTestId('card-grasa total')).toBeInTheDocument();
@@ -289,7 +289,7 @@ describe('InfoNutricional', () => {
                 }
             };
 
-            render(<InfoNutricional globalContent={dataWithNulls} />);
+            render(<NutritionalInfo globalContent={dataWithNulls} />);
 
             expect(screen.getByTestId('card-calorías')).toBeInTheDocument();
             expect(screen.getByTestId('card-sodio')).toBeInTheDocument();
@@ -310,7 +310,7 @@ describe('InfoNutricional', () => {
         });
 
         it('should show tooltip text on click', () => {
-            render(<InfoNutricional globalContent={validNutritionalData} />);
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             fireEvent.click(screen.getByTitle('Mostrar tooltip'));
 
@@ -322,7 +322,7 @@ describe('InfoNutricional', () => {
         });
 
         it('should have tooltip button with correct accessibility attributes', () => {
-            render(<InfoNutricional globalContent={validNutritionalData} />);
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             const tooltipButton = screen.getByTitle('Mostrar tooltip');
             expect(tooltipButton).toBeInTheDocument();
@@ -338,7 +338,7 @@ describe('InfoNutricional', () => {
         });
 
         it('should render correct nutritional values in cards', () => {
-            render(<InfoNutricional globalContent={validNutritionalData} />);
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(screen.getByText('Calorías: 116 kcal')).toBeInTheDocument();
             expect(
@@ -351,7 +351,7 @@ describe('InfoNutricional', () => {
         });
 
         it('should use correct units for each nutrient', () => {
-            render(<InfoNutricional globalContent={validNutritionalData} />);
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(screen.getByText(/kcal/)).toBeInTheDocument();
 
@@ -369,7 +369,7 @@ describe('InfoNutricional', () => {
         });
 
         it('should render all required UI components', () => {
-            render(<InfoNutricional globalContent={validNutritionalData} />);
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(
                 screen.getByText('Información nutricional')

@@ -4,12 +4,12 @@ import { Text } from '@ln/common-ui-text';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { CardInfoNutricional } from './component/cardInfo';
+import { NutritionalInfoCard } from './component/cardInfo';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Carousel } from '../../../../chains/foodit-global/common/Carousel/foodit';
 import { useNavigationData } from '../Header/hooks/useNavigationData';
 
-export function InfoNutricional({ globalContent = {} }) {
+export function NutritionalInfo({ globalContent = {} }) {
     const {
         termicasData: { show_nutritional_info: showNutritionalInfo } = {}
     } = useNavigationData();
@@ -46,7 +46,7 @@ export function InfoNutricional({ globalContent = {} }) {
         return !text || text.toLowerCase().trim() !== 'ocultar';
     })();
 
-    const infoNutricional = [
+    const nutritionalInfo = [
         {
             title: 'Calorías',
             cant: cal?.toString() || null,
@@ -79,7 +79,7 @@ export function InfoNutricional({ globalContent = {} }) {
         }
     ];
 
-    const validNutritionalData = infoNutricional.filter(
+    const validNutritionalData = nutritionalInfo.filter(
         ({ cant }) => !!cant && cant !== '0'
     );
 
@@ -89,11 +89,15 @@ export function InfoNutricional({ globalContent = {} }) {
 
     return (
         <div className="flex flex-column gap-24">
-            <div className="flex ai-center gap-24 roof-sticky py-12 py-0_md">
+            <div
+                className="flex ai-center gap-24 roof-sticky py-12 py-0_md"
+                style={{ position: 'static' }}
+            >
                 <Text className="roof-text-sticky pl-16 pl-0_md">
                     Información nutricional
                 </Text>
                 <Tooltip
+                    position="top-center"
                     toggleOn="click"
                     style={{ maxWidth: '198px' }}
                     content={
@@ -119,7 +123,7 @@ export function InfoNutricional({ globalContent = {} }) {
             </div>
             <Carousel type="nutricional">
                 {validNutritionalData.map(({ title, cant, udm }) => (
-                    <CardInfoNutricional
+                    <NutritionalInfoCard
                         key={title}
                         title={title}
                         cant={cant}
@@ -131,7 +135,7 @@ export function InfoNutricional({ globalContent = {} }) {
     );
 }
 
-InfoNutricional.propTypes = {
+NutritionalInfo.propTypes = {
     globalContent: PropTypes.shape({
         promo_items: PropTypes.shape({
             informacion_nutricional: PropTypes.shape({
