@@ -1,26 +1,33 @@
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 
+const SECTION_PREFIX_MAP = {
+    games: '/juegos/',
+    videopodcast: '/videopodcast/'
+};
+
 function getGameProperties(
     sectionTitle,
     contextPath,
     deployment,
-    sectionId = ''
+    sectionId = '',
+    contentFolder = 'games'
 ) {
     if (!sectionId || sectionId.trim() === '') {
         return false;
     }
 
-    const gameTitle = sectionId.toLowerCase().replace('/juegos/', '');
+    const sectionPrefix =
+        SECTION_PREFIX_MAP[contentFolder] || `/${contentFolder}/`;
+    const slug = sectionId.toLowerCase().replace(sectionPrefix, '');
 
     if (contextPath && deployment) {
-        const gameLogo = getAssetsPath(contextPath)(deployment)(
-            `games/${gameTitle}.svg`
-        );
+        const assetPath = `${contentFolder}/${slug}.svg`;
+        const gameLogo = getAssetsPath(contextPath)(deployment)(assetPath);
 
         return {
             title: sectionTitle,
             logo: { src: gameLogo },
-            game: `${gameTitle}`
+            game: slug
         };
     }
 

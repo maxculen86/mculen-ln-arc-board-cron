@@ -81,12 +81,9 @@ function CommonCardFoodit({
         />
     );
     const MAX_LENGTH = 32;
-    const safeLabel = label || '';
-
     const shortLabel =
-        safeLabel.length > MAX_LENGTH
-            ? `${safeLabel.slice(0, MAX_LENGTH)}…`
-            : safeLabel;
+        label.length > MAX_LENGTH ? `${label.slice(0, MAX_LENGTH)}…` : label;
+
     return (
         <Card
             data-test-id={`${
@@ -196,7 +193,7 @@ CommonCardFoodit.defaultProps = {
     customTitle: '',
     author: '',
     subtitle: '',
-    label: '',
+    label: 'Receta del día',
     titleEllipsis: 3,
     contentCode: '',
     container: 'grid',

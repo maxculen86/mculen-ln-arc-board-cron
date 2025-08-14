@@ -22,7 +22,9 @@ const checkIsApertura = ({
             ((isNodeTypeValid && notHaveArticlesInCollection) ||
                 isTagWithoutWiki)) ||
         ((isAperturaAcuTemasWithoutWiki || isDolarHoy) &&
-            [0, 1, 2].includes(articleIndex))
+            [0, 1, 2].includes(articleIndex) &&
+            !hasCollectionApertura &&
+            notHaveArticlesInCollection)
     );
 };
 

@@ -166,12 +166,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   data-interaction="dataLayerInteraction"
                   data-test-id="button-suscribe"
                   data-variant="accent"
-                  title="SUSCRIBITE"
+                  title="SUSCRIBITE POR $250"
                 >
                   <span
                     class="roboto-bold"
                   >
-                    SUSCRIBITE
+                    SUSCRIBITE POR $250
                   </span>
                 </button>
               </div>
@@ -1458,12 +1458,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               data-interaction="dataLayerInteraction"
               data-test-id="button-suscribe"
               data-variant="accent"
-              title="SUSCRIBITE"
+              title="SUSCRIBITE POR $250"
             >
               <span
                 class="roboto-bold"
               >
-                SUSCRIBITE
+                SUSCRIBITE POR $250
               </span>
             </button>
           </div>
