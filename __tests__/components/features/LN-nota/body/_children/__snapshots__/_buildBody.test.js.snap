@@ -2642,14 +2642,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="flex jc-center ai-center w-100"
     >
       <a
-        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 theme-button interstitial-button uppercase py-12 px-16 --secondary"
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
         data-mrf-recirculation="n_interstitial"
-        data-variant="secondary"
         href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
         rel="nofollow"
         target="_blank"
         title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
-        type="button"
       >
         Dólar blue hoy: a cuánto cotiza el lunes 8 de junio
         <i
@@ -6061,14 +6059,12 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="flex jc-center ai-center w-100"
     >
       <a
-        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 theme-button interstitial-button uppercase py-12 px-16 --secondary"
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
         data-mrf-recirculation="n_interstitial"
-        data-variant="secondary"
         href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
         rel="nofollow"
         target="_blank"
         title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
-        type="button"
       >
         Dólar blue hoy: a cuánto cotiza el lunes 8 de junio
         <i
@@ -9480,14 +9476,12 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="flex jc-center ai-center w-100"
     >
       <a
-        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 theme-button interstitial-button uppercase py-12 px-16 --secondary"
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
         data-mrf-recirculation="n_interstitial"
-        data-variant="secondary"
         href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
         rel="nofollow"
         target="_blank"
         title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
-        type="button"
       >
         Dólar blue hoy: a cuánto cotiza el lunes 8 de junio
         <i

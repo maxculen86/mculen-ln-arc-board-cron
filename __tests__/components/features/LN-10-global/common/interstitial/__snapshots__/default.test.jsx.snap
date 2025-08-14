@@ -9,14 +9,12 @@ exports[`Interstitial renders correctly and matches snapshot 1`] = `
     class="flex jc-center ai-center w-100"
   >
     <a
-      class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 theme-button interstitial-button uppercase py-12 px-16 --secondary"
+      class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
       data-mrf-recirculation="n_interstitial"
-      data-variant="secondary"
       href="https://ejemplo.com"
       rel="nofollow"
       target="_blank"
       title="Texto del botón"
-      type="button"
     >
       Texto del botón
       <i
@@ -40,14 +38,12 @@ exports[`Interstitial renders with FotoAl100 layout and matches snapshot 1`] = `
     class="flex jc-center ai-center w-100"
   >
     <a
-      class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 theme-button interstitial-button uppercase py-12 px-16 --secondary"
+      class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
       data-mrf-recirculation="n_interstitial"
-      data-variant="secondary"
       href="https://ejemplo.com"
       rel="nofollow"
       target="_blank"
       title="Texto del botón"
-      type="button"
     >
       Texto del botón
       <i
