@@ -434,6 +434,13 @@ describe('Components - features - LN-10 - articulo - default', () => {
         );
     });
 
+    it('Should show the live badge when the subtype is liveblog editorial.', () => {
+        useContent.mockReturnValue({ ...article(), subtype: '11' });
+        render(<ArticleFeature {...getProps()} />);
+
+        expect(screen.getByText('vivo')).toBeVisible();
+    });
+
     describe('getImageIdValidations', () => {
         test('should return imageIdParam when isHtmlParam is false, isVideoParam is false, and imageIdParam is not an empty string', () => {
             const result = _helper.getImageIdValidations(
