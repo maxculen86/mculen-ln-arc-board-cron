@@ -22,7 +22,8 @@ import {
     getTypeOfMedia,
     getImageIdValidations,
     getCllBoard,
-    shouldHighlightCustomVoice
+    shouldHighlightCustomVoice,
+    isSubtypeLiveblog
 } from './_helper';
 import {
     getChainConfig,
@@ -41,7 +42,6 @@ import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
-import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
 import { isEmptyObject } from '../../../private/common/utils/isEmptyObject';
 import MarqueeHighlight from '../../LN-10-global/common/marqueeHighlight/default';
@@ -103,7 +103,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
 
     const isVideo = Boolean(videoId);
 
-    const isLiveblog = variant === 'liveblog';
+    const isVariantLiveblog = variant === 'liveblog';
 
     const isHome = layoutPageBuilder === layoutsName.HomeLN10;
 
@@ -122,10 +122,10 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
             isInApertura: onlyOneApeturaValidateForWWW,
             isAdmin,
             variant,
-            isLiveblog
+            isLiveblog: isVariantLiveblog
         },
         staticMode: isSSR() && !hasVariants,
-        filter: isLiveblog ? liveblogFilter : filter
+        filter: isVariantLiveblog ? liveblogFilter : filter
     });
 
     const resolveImageId = getImageIdValidations(isHtml, isVideo, imageId);
@@ -225,7 +225,7 @@ function ArticleFeature({ id: featureId, customFields, searchableField }) {
         article,
         style: chapitaStyle,
         text: chapita,
-        isLiveblog: isLiveblog || get(article, 'subtype') === LIVEBLOG,
+        isLiveblog: isVariantLiveblog || isSubtypeLiveblog(article),
         withMedia,
         typeOfMedia,
         hideBadget: !isEmptyObject(widgetOverlay) || hideBadget
