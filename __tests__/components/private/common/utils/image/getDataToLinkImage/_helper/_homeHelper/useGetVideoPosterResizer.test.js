@@ -64,4 +64,57 @@ describe('Tests hook useGetVideoPosterResized', () => {
         useContent.mockReturnValueOnce(null);
         expect(useGetVideoPosterResized({ ...props })).toBeNull();
     });
+
+    it('should pick MOBILE poster when diagramacion is center-focal', () => {
+        const MOBILE = '(max-width: 767px)';
+        const TABLET = '(min-width: 768px)';
+
+        useContent.mockReturnValueOnce({
+            resizedImages: {
+                promo_items: {
+                    basic: {
+                        auth: { 1: 'auth-token' },
+                        resized_urls: [
+                            {
+                                option: {
+                                    height: 280,
+                                    media_preload: MOBILE,
+                                    proportion: '3:2',
+                                    width: 420
+                                },
+                                resizedUrl:
+                                    'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FzFvrSWaI%2Fposter.jpg%3Fwidth%3D720?auth=xxx&width=420&height=280&quality=70&smart=false'
+                            },
+                            {
+                                option: {
+                                    height: 201,
+                                    media_preload: TABLET,
+                                    proportion: '3:2',
+                                    width: 302
+                                },
+                                resizedUrl:
+                                    'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FzFvrSWaI%2Fposter.jpg%3Fwidth%3D720?auth=xxx&width=302&height=201&quality=70&smart=false'
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+
+        const result = useGetVideoPosterResized({
+            ...props,
+            diagramacion: 'center-focal'
+        });
+
+        const urls = result.promo_items.basic.resized_urls;
+        expect(urls).toHaveLength(1);
+
+        const poster = urls[0];
+        expect(poster.option.media_preload).toBe(MOBILE);
+        expect(poster.option.width).toBe(420);
+        expect(poster.option.height).toBe(280);
+        expect(poster.resizedUrl).toContain('www.lanacion.com.ar/resizer/v2/');
+        expect(poster.resizedUrl).toContain('width=420');
+        expect(poster.resizedUrl).toContain('height=280');
+    });
 });

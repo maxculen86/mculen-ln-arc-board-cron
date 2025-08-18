@@ -134,7 +134,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isFetchPriorityHigh: true
             },
             {
                 titleTag: tag.h2,
@@ -273,7 +274,8 @@ const diagramationRules = diagramation => {
                     desktop: img.top
                 },
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isFetchPriorityHigh: true
             },
             {
                 type: 'T3',
@@ -1852,7 +1854,8 @@ const diagramationRules = diagramation => {
 
 export const diagramationExceptions = [
     'left-focal',
-    'left-focal-without-timeline'
+    'left-focal-without-timeline',
+    'center-focal'
 ];
 
 export default diagramationRules;

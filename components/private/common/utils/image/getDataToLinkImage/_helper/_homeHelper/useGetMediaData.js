@@ -26,14 +26,16 @@ const useGetMediaData = ({
     imageConfig = '',
     isHideImage = true,
     isInApertura = true,
-    arcSite
+    arcSite,
+    diagramacion
 }) => {
     const videoData = useGetVideoPosterResized({
         videoID,
         imageConfig,
         isInApertura,
         isAdmin,
-        arcSite
+        arcSite,
+        diagramacion
     });
 
     const imageByCustomField = useContent({
