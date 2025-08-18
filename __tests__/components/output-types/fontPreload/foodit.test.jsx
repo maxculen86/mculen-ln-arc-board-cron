@@ -3,7 +3,8 @@ import { render } from '@testing-library/react';
 import { FontPreload } from '../../../../components/output-types/fontPreload/foodit';
 
 jest.mock('fusion:environment', () => ({
-    FONT_PRUMO: '/fonts/prumo.woff2'
+    FONT_PRUMO: '/fonts/prumo.woff2',
+    ROBOTO_REGULAR: '/fonts/roboto-regular.woff2'
 }));
 
 describe('FontPreload', () => {
@@ -15,10 +16,9 @@ describe('FontPreload', () => {
             <FontPreload deployment={deployment} contextPath={contextPath} />
         );
         const link = container.querySelector('link');
-        expect(link).toBeDefined();
         expect(link).toHaveAttribute(
             'href',
-            'https://foodit.com.ar/pf/fonts/prumo.woff2'
+            'https://foodit.com.ar/pf/fonts/roboto-regular.woff2'
         );
 
         expect(link).toHaveAttribute('rel', 'preload');
