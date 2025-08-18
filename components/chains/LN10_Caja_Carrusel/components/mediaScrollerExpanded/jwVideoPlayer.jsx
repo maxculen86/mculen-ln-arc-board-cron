@@ -28,7 +28,6 @@ function JwVideoPlayer({
 
     useEffect(() => {
         const urlWithPermutiveSegment = buildTagsUrl(urlAds);
-
         if (!playerRef.current && shouldInstanceVideo && isLoadedScriptJw) {
             const playerInstance = window?.jwplayer?.(videoId);
             playerRef.current = playerInstance?.setup({
@@ -44,14 +43,16 @@ function JwVideoPlayer({
             playerRef?.current?.setMute(
                 window?.localStorage?.getItem('jwplayer.mute') === 'true'
             );
+            playerRef?.current?.on('complete', () => {
+                handleNextCallback();
+            });
         }
     }, [shouldInstanceVideo, isLoadedScriptJw]);
 
     useVideoJwCustomSettings({
         isInView,
         loading,
-        playerRef,
-        handleNextCallback
+        playerRef
     });
 
     if (shouldInstanceVideo) return <div id={videoId} />;
