@@ -136,12 +136,7 @@ export function useUpdateVideoWidth({ containerRef, viewportWidth, isMobile }) {
     }, [containerRef?.current, viewportWidth, isMobile]);
 }
 
-export function useVideoJwCustomSettings({
-    isInView,
-    loading,
-    playerRef,
-    handleNextCallback
-}) {
+export function useVideoJwCustomSettings({ isInView, loading, playerRef }) {
     useEffect(() => {
         if (isInView) {
             if (playerRef?.current?.getState() === 'idle') {
@@ -150,9 +145,6 @@ export function useVideoJwCustomSettings({
             const isMuted =
                 window?.localStorage.getItem('jwplayer.mute') === 'true';
             playerRef?.current?.setMute(isMuted);
-            playerRef?.current?.on('complete', () => {
-                handleNextCallback();
-            });
         } else {
             playerRef?.current?.stop();
         }
