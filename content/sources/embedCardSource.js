@@ -1,6 +1,7 @@
 import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
+import filter from '../filters/foodit/embedCardFilter';
 import logger from '../../components/private/common/utils/logger';
 
 const isEncoded = str => {
@@ -65,5 +66,6 @@ const fetch = query => {
 export default {
     fetch,
     params: { noteId: 'text' },
+    filter,
     ttl: 120
 };
