@@ -18,6 +18,7 @@ export const boxTypesLN10v2 = {
     6: sectionAcuBox,
     7: storyBox,
     8: emptyBox,
-    10: carouselBox
+    10: carouselBox,
+    12: emptyBox
 };
 export default boxTypesLN10v2;

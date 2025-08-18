@@ -1844,6 +1844,50 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true,
                 hideBadget: true
             }
+        ],
+        logo_3_grid: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            }
         ]
     };
 
