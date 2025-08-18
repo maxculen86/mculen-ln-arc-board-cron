@@ -12,10 +12,11 @@ const postObjects = generatePostObject(
 );
 
 describe('Generate post object function', () => {
-    it('With the provided globalContent must build an object with length of 3', () => {
+    it('should build an object with length of 3', () => {
         expect(postObjects.length).toBe(3);
     });
-    it('Every object must have the powerUp headline, and isoDate', () => {
+
+    it('should include the expected headline and an isoDate for each object', () => {
         const expectedHeadlines = [
             'Gym 1 Ciudad Plateada',
             'Gym 2 ciudad Celeste',
@@ -28,39 +29,63 @@ describe('Generate post object function', () => {
         });
     });
 
-    test('Create ISO Date with valid date and time', () => {
+    test('should create ISO Date with valid date and time', () => {
         const isoDate = createISODate('2023-12-13', '14:30:00');
         expect(isoDate).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,}Z/);
     });
 
-    test('Create ISO Date with valid date and empty time', () => {
+    test('should create ISO Date with valid date and empty time', () => {
         const isoDate = createISODate('2023-12-13', '');
         expect(isoDate).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,}Z/);
     });
 
-    test('Create ISO Date with valid date and undefined time', () => {
+    test('should create ISO Date with valid date and undefined time', () => {
         const isoDate = createISODate('2023-12-13', undefined);
         expect(isoDate).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,}Z/);
     });
 
     const testCases = [
         [
-            'Si la fecha recibe InvalidTime, retorna un string vacío',
+            'should return an empty string if time is invalid',
             '2023-12-13',
             'InvalidTime',
             ''
         ],
-        ['Si la fecha es un string vacío, retorna un string vacío', '', '', ''],
+        ['should return an empty string if date is empty', '', '', ''],
         [
-            'Si la fecha es undefined, retorna un string vacío',
+            'should return an empty string if date is undefined',
             undefined,
             undefined,
             ''
         ]
     ];
 
-    test.each(testCases)('%s', (description, date, time, expected) => {
+    test.each(testCases)('%s', (_description, date, time, expected) => {
         const isoDate = createISODate(date, time);
         expect(isoDate).toBe(expected);
+    });
+});
+
+describe('Generate post object - oembed_response handling', () => {
+    it('should add description only for mapped subtype (twitter)', () => {
+        const post1 = postObjects[0];
+        expect(post1.articleBody).toMatch(
+            /Publicación de X incluida como parte de la cobertura en vivo\./
+        );
+
+        const post2 = postObjects[1];
+        expect(post2.articleBody).not.toMatch(
+            /Publicación de .* incluida como parte de la cobertura en vivo\./
+        );
+        expect(post2.articleBody).not.toMatch(/undefined/);
+
+        const post3 = postObjects[2];
+        expect(post3.articleBody).not.toMatch(/undefined/);
+    });
+
+    it('should never contain "undefined" in any articleBody', () => {
+        postObjects.forEach(p => {
+            expect(p.articleBody).not.toMatch(/undefined/);
+        });
     });
 });
