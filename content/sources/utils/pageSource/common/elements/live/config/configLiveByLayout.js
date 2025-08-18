@@ -9,7 +9,7 @@ const boxPositionLN10Main = {
         sectionAliasMobile: 'dolar'
     }
 };
-const configBannerByLayout = layout => {
+const configLiveByLayout = layout => {
     const boxPositionsMerge = {
         'LN10-Home_Main': boxPositionLN10Main
     };
@@ -17,4 +17,4 @@ const configBannerByLayout = layout => {
     return boxPositionsMerge[layout];
 };
 
-export default configBannerByLayout;
+export default configLiveByLayout;
