@@ -54,7 +54,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -160,7 +160,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -266,7 +266,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -356,7 +356,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -462,7 +462,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
         >
           <div
             class="flex flex-column gap-12"
@@ -568,7 +568,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
         >
           <div
             class="flex flex-column gap-12"
@@ -674,7 +674,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -764,7 +764,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -854,7 +854,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -960,7 +960,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -1071,7 +1071,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -1182,7 +1182,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -1345,7 +1345,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1456,7 +1456,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1567,7 +1567,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1662,7 +1662,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1773,7 +1773,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1884,7 +1884,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1995,7 +1995,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2090,7 +2090,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2185,7 +2185,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2296,7 +2296,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </div>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2412,7 +2412,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </span>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2528,7 +2528,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
                 </span>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+                class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
               >
                 <div
                   class="flex flex-column gap-12"

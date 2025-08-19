@@ -31,8 +31,15 @@ const setDataComponent = ({
     const isNote =
         articleSubtype === STORYTELLING || articleSubtype === NOTA_CERRADA;
 
+    const firstCardEmbeddedIndex = contentElements.findIndex(
+        el => el?.subtype === 'custom-card-embebida'
+    );
+
+    const isFirstCardEmbedded = currentIndex === firstCardEmbeddedIndex;
+
     return isNote ? (
         <section key={`body-${currentIndex}`} className="content">
+            {isFirstCardEmbedded && <hr />}
             <Component
                 data={element}
                 capital={currentIndex === capitalIndex}

@@ -31,7 +31,7 @@ export function NutritionalInfo({ globalContent = {} }) {
                 } = {}
             } = {}
         } = {},
-        label: { info_nutricional: { text = '' } } = {}
+        label: { info_nutricional: { text = '' } = {} } = {}
     } = globalContent;
 
     const visibilityMap = new Map([
@@ -40,7 +40,7 @@ export function NutritionalInfo({ globalContent = {} }) {
     ]);
     const shouldShowNutritionalInfo =
         visibilityMap.get(showNutritionalInfo) ??
-        (!text || text.toLowerCase().trim() !== 'ocultar');
+        (!text || text?.toLowerCase()?.trim() !== 'ocultar');
 
     const nutritionalInfo = [
         {
@@ -134,7 +134,7 @@ export function NutritionalInfo({ globalContent = {} }) {
 NutritionalInfo.propTypes = {
     globalContent: PropTypes.shape({
         promo_items: PropTypes.shape({
-            informacion_nutricional: PropTypes.shape({
+            nutritional_information: PropTypes.shape({
                 embed: PropTypes.shape({
                     config: PropTypes.shape({
                         items: PropTypes.shape({
