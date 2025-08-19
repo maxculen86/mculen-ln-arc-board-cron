@@ -1,6 +1,12 @@
 import {
+    isMostlyInViewport,
+    createJWVisibilityAndMetarefreshCallback,
     productClickFromClientVideoJW,
-    setupVideoObserver
+    setupVideoObserver,
+    setVideoStatus,
+    getPlayingVideosCount,
+    getVideoStatus,
+    handleVideoStop
 } from '../../../../components/features/LN-10/videoPlayer/_helper';
 import loadJWPlayerScript from '../../../../components/chains/utils/loadJWPlayerScript';
 import { addEventToDataLayerV2 } from '../../../../components/private/LN/common/utils/addEventToDataLayer';
@@ -29,6 +35,9 @@ window.addEventListener('load', function () {
                         width: '100%'
                     });
 
+                    setVideoStatus(mediaId);
+                    const videoState = getVideoStatus(mediaId);
+
                     instance.on('play', () => {
                         addEventToDataLayerV2({
                             event: 'videoPlay',
@@ -48,9 +57,36 @@ window.addEventListener('load', function () {
                                 title || ''
                             );
                         }
+
+                        if (
+                            isMostlyInViewport(articleElement) &&
+                            !videoState.isPlayingInViewport
+                        ) {
+                            videoState.isPlayingInViewport = true;
+                            window.LN?.observable?.publish?.('pauseTimeout');
+                        }
                     });
+
+                    instance.on('pause', () =>
+                        handleVideoStop(articleElement, videoState)
+                    );
+                    instance.on('complete', () =>
+                        handleVideoStop(articleElement, videoState)
+                    );
+
+                    const jwVisibilityAndMetarefreshHandler =
+                        createJWVisibilityAndMetarefreshCallback(
+                            instance,
+                            getPlayingVideosCount,
+                            videoState
+                        );
+                    setupVideoObserver(
+                        articleElement,
+                        jwVisibilityAndMetarefreshHandler
+                    );
                 }
             });
+
         setupVideoObserver(articleElement, (entry, observer) => {
             const isVisible = entry.isIntersecting;
             if (isVisible) {

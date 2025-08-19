@@ -52,8 +52,13 @@ function Component(props) {
         }
 
         let timeoutId = null;
+        let startTime = null;
+        let remainingTime = interval;
+        let isPaused = false;
 
-        const handleSetTimeout = () => {
+        const handleSetTimeout = (customInterval = remainingTime) => {
+            startTime = Date.now();
+
             timeoutId = setTimeout(() => {
                 if (!cookieProductoPremium || template === 'home') {
                     localStorage.setItem('CDmetaRefresh', true);
@@ -67,7 +72,7 @@ function Component(props) {
                 } else {
                     window.location.reload();
                 }
-            }, interval);
+            }, customInterval);
         };
 
         const handleClearTimeout = () => {
@@ -77,7 +82,25 @@ function Component(props) {
 
         const handleRetriggerTimeout = () => {
             handleClearTimeout();
+            remainingTime = interval;
+            isPaused = false;
             handleSetTimeout();
+        };
+
+        const handlePauseTimeout = () => {
+            if (timeoutId && startTime && !isPaused) {
+                const elapsed = Date.now() - startTime;
+                remainingTime = Math.max(0, remainingTime - elapsed);
+                isPaused = true;
+                handleClearTimeout();
+            }
+        };
+
+        const handleResumeTimeout = () => {
+            if (isPaused) {
+                isPaused = false;
+                handleSetTimeout(remainingTime);
+            }
         };
 
         window.LN.observable.subscribe('clearTimeout', handleClearTimeout);
@@ -85,6 +108,9 @@ function Component(props) {
             'retriggerTimeout',
             handleRetriggerTimeout
         );
+
+        window.LN.observable.subscribe('pauseTimeout', handlePauseTimeout);
+        window.LN.observable.subscribe('resumeTimeout', handleResumeTimeout);
 
         handleSetTimeout();
 
@@ -96,6 +122,14 @@ function Component(props) {
             window.LN.observable.unsubscribe(
                 'retriggerTimeout',
                 handleRetriggerTimeout
+            );
+            window.LN.observable.unsubscribe(
+                'pauseTimeout',
+                handlePauseTimeout
+            );
+            window.LN.observable.unsubscribe(
+                'resumeTimeout',
+                handleResumeTimeout
             );
             handleClearTimeout();
         };

@@ -1,4 +1,8 @@
-import { productClickFromClientVideoJW } from '../../../../../components/features/LN-10/videoPlayer/_helper';
+import {
+    productClickFromClientVideoJW,
+    createJWVisibilityAndMetarefreshCallback,
+    isMostlyInViewport
+} from '../../../../../components/features/LN-10/videoPlayer/_helper';
 
 describe('Components - features - LN-10 - videoPlayer', () => {
     describe('productClickFromClientVideoJW', () => {
@@ -66,6 +70,146 @@ describe('Components - features - LN-10 - videoPlayer', () => {
             productClickFromClientVideoJW(mockElement, 'Video sin ID');
 
             expect(window.dataLayer).toHaveLength(0);
+        });
+    });
+    describe('createJWVisibilityAndMetarefreshCallback', () => {
+        let instance;
+        let getPlayingVideosCount;
+        let videoState;
+        let callback;
+
+        beforeEach(() => {
+            instance = {
+                getState: jest.fn(),
+                pause: jest.fn()
+            };
+
+            getPlayingVideosCount = jest.fn();
+            videoState = { isPlayingInViewport: false };
+
+            window.LN = {
+                observable: {
+                    publish: jest.fn()
+                }
+            };
+
+            callback = createJWVisibilityAndMetarefreshCallback(
+                instance,
+                getPlayingVideosCount,
+                videoState
+            );
+        });
+
+        afterEach(() => {
+            jest.clearAllMocks();
+            jest.restoreAllMocks();
+        });
+
+        it('should pause timeout when video enters viewport and is buffering', () => {
+            instance.getState.mockReturnValue('buffering');
+
+            callback({ isIntersecting: true });
+
+            expect(window.LN.observable.publish).toHaveBeenCalledWith(
+                'pauseTimeout'
+            );
+        });
+
+        it('should pause video and resume timeout when video leaves viewport and no other videos playing', () => {
+            instance.getState.mockReturnValue('playing');
+            videoState.isPlayingInViewport = true;
+            getPlayingVideosCount.mockReturnValue(0);
+
+            callback({ isIntersecting: false });
+
+            expect(instance.pause).toHaveBeenCalled();
+            expect(videoState.isPlayingInViewport).toBe(false);
+            expect(window.LN.observable.publish).toHaveBeenCalledWith(
+                'resumeTimeout'
+            );
+        });
+
+        it('should pause video but not resume timeout when other videos are still playing', () => {
+            instance.getState.mockReturnValue('playing');
+            videoState.isPlayingInViewport = true;
+            getPlayingVideosCount.mockReturnValue(1);
+
+            callback({ isIntersecting: false });
+
+            expect(instance.pause).toHaveBeenCalled();
+            expect(window.LN.observable.publish).not.toHaveBeenCalledWith(
+                'resumeTimeout'
+            );
+        });
+
+        it('should not change videoState if video was not playing in viewport', () => {
+            instance.getState.mockReturnValue('playing');
+            videoState.isPlayingInViewport = false;
+
+            callback({ isIntersecting: false });
+
+            expect(instance.pause).toHaveBeenCalled();
+            expect(window.LN.observable.publish).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('isMostlyInViewport', () => {
+        let element;
+
+        beforeEach(() => {
+            element = document.createElement('div');
+            Object.defineProperty(window, 'innerHeight', {
+                value: 800,
+                configurable: true
+            });
+        });
+
+        afterEach(() => {
+            jest.restoreAllMocks();
+        });
+
+        it('should return false if element is null', () => {
+            expect(isMostlyInViewport(null)).toBe(false);
+        });
+
+        it('should return false if element is out of viewport', () => {
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 800,
+                bottom: 900,
+                height: 100
+            });
+
+            expect(isMostlyInViewport(element)).toBe(false);
+        });
+
+        it('should return false if visible height is below threshold', () => {
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 780,
+                bottom: 880,
+                height: 100
+            });
+
+            expect(isMostlyInViewport(element)).toBe(false);
+        });
+
+        it('should return true if visible height meets threshold', () => {
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 740,
+                bottom: 840,
+                height: 100
+            });
+
+            expect(isMostlyInViewport(element)).toBe(true);
+        });
+
+        it('should respect custom ratio threshold', () => {
+            jest.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+                top: 740,
+                bottom: 800,
+                height: 100
+            });
+
+            expect(isMostlyInViewport(element, 0.8)).toBe(false);
         });
     });
 });
