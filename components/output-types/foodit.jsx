@@ -88,11 +88,6 @@ function Foodit({
                     deployment={deployment}
                     contextPath={contextPath}
                 />
-                <GetFonts
-                    contextPath={contextPath}
-                    deployment={deployment}
-                    arcSite={arcSite}
-                />
                 <MetaFoodit
                     metaValue={metaValue}
                     globalContent={globalContent}
@@ -115,6 +110,11 @@ function Foodit({
                     site={site}
                     template={template}
                     requestUri={requestUri}
+                />
+                <GetFonts
+                    contextPath={contextPath}
+                    deployment={deployment}
+                    arcSite={arcSite}
                 />
                 <CssLinksByArcSite />
                 <Scripts location="head" />

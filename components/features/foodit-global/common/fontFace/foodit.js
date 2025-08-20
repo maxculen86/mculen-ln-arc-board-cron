@@ -12,7 +12,7 @@ export const fontFaceFoodit = ({ contextPath, deployment }) => `
     font: FONT_PRUMO,
     contextPath,
     deployment
-})}') format('woff2-variations'); font-weight: 90; font-display: optional;}
+})}') format('woff2-variations'); font-weight: 90; font-display: swap;}
 @font-face {font-family:'Roboto';src:url('${getWebFont({
     font: ROBOTO_LIGHT,
     contextPath,
@@ -22,15 +22,15 @@ export const fontFaceFoodit = ({ contextPath, deployment }) => `
     font: ROBOTO_REGULAR,
     contextPath,
     deployment
-})}') format('woff2-variations'); font-weight: 400; font-display: optional;}}
+})}') format('woff2-variations'); font-weight: 400; font-display: swap;}}
 @font-face {font-family:'Roboto';src:url('${getWebFont({
     font: ROBOTO_MEDIUM,
     contextPath,
     deployment
-})}') format('woff2-variations'); font-weight: 500; font-display: optional;}
+})}') format('woff2-variations'); font-weight: 500; font-display: swap;}
 @font-face {font-family:'Roboto';src:url('${getWebFont({
     font: ROBOTO_BOLD,
     contextPath,
     deployment
-})}') format('woff2-variations'); font-weight: 700; font-display: optional;}
+})}') format('woff2-variations'); font-weight: 700; font-display: swap;}
 `;
