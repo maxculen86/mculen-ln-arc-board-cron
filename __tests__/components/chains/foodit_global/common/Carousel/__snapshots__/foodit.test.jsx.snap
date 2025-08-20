@@ -10,7 +10,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
       class="relative --full-width"
       data-scroller="track"
       data-scroller-elements="12"
-      data-test-id="container-cards-carousel"
+      data-testid="container-cards-carousel"
     >
       <li
         class=""
@@ -46,7 +46,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -151,7 +151,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -256,7 +256,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -345,7 +345,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -450,7 +450,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
             >
               <div
                 class="flex flex-column gap-12"
@@ -555,7 +555,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
             >
               <div
                 class="flex flex-column gap-12"
@@ -660,7 +660,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -749,7 +749,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -838,7 +838,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -943,7 +943,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </div>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -1053,7 +1053,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </span>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"
@@ -1163,7 +1163,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               </span>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+              class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
             >
               <div
                 class="flex flex-column gap-12"

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PowerUpEmbedCard Match snapshot matches snapshot with complete data 1`] = `
+<DocumentFragment>
+  <div
+    class="w-100"
+  >
+    <article
+      data-href="/recetas/pizza-estilo-tortugas-ninja-la-receta-definitiva-nid03012024/"
+      data-testid="foodit-card"
+    >
+      <h2>
+        Pizza estilo Tortugas Ninja: La Receta Definitiva!
+      </h2>
+      <img
+        alt="Probá esta versión vegetariana de la pizza"
+        src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6E3ED45ARFBZ3ADKYOXZVZDP2A.jpg"
+      />
+      <div
+        class="author"
+      >
+        Juan Pravata
+      </div>
+      <div
+        class="time"
+      >
+        30 min
+      </div>
+      <div
+        class="tag"
+      >
+        Fácil
+      </div>
+      <div
+        class="video-indicator"
+      >
+        Has Video
+      </div>
+      <div
+        class="article-id"
+      >
+        FJ5UOR2HONA5RGOM226UQF24MI
+      </div>
+    </article>
+  </div>
+  <hr />
+</DocumentFragment>
+`;

@@ -248,7 +248,7 @@ const transform = async (dataPage, query) => {
             elements = elementsPage;
         }
         elements.forEach(elem => {
-            const acceptedTypes = [0, 7, 10, 11];
+            const acceptedTypes = [0, 7, 10, 11, 12];
             if (!acceptedTypes.includes(elem.type)) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
             const boxType =

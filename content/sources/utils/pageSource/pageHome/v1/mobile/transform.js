@@ -5,6 +5,7 @@ import { setDolarByLayout } from '../../../common/elements/dolars/index';
 import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
 import { setRankingByLayout } from '../../../common/elements/ranking/index';
 import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
+import { setLiveLayout } from '../../../common/elements/live';
 
 const transform = async (dataPage, query) => {
     const {
@@ -28,7 +29,10 @@ const transform = async (dataPage, query) => {
         elementsPageHome =
             (Array.isArray(elementsPageHome) &&
                 elementsPageHome.filter(
-                    elem => (elem && elem.type < 9) || elem.type === 10
+                    elem =>
+                        (elem && elem.type < 9) ||
+                        elem.type === 10 ||
+                        elem.type === 12
                 )) ||
             elementsPageHome;
 
@@ -53,6 +57,14 @@ const transform = async (dataPage, query) => {
                 ))) ||
             elementsPageHome;
 
+        // Add Component live set file /pageSource/common/elements/live/config/configLivePositionbySection.js
+        elementsPageHome =
+            (setLiveLayout[layoutPage] &&
+                (await setLiveLayout[layoutPage](
+                    elementsPageHome,
+                    layoutPage
+                ))) ||
+            elementsPageHome;
         // Add Ranking by Configuration set in file /pageSource/common/elements/ranking/config/configRankingPositionbySection.json
         const propsRanking = {
             website: query && query.website,

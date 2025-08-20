@@ -1,5 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Components - Features - Foodit-global - common - CommonCardFoodit should match snapshot card link 1`] = `
+<div>
+  <article
+    class="card relative w-100 mx-auto bg-light-1"
+    data-container="link"
+    data-test-id="card---TDEG3VTIAFEW7BKS676OUVQAVE"
+    data-variant=""
+  >
+    <a
+      class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit card-gap-link"
+      data-variant="primary"
+      href="/rapidas-y-faciles/prueba-nota-recetas-nuevo-nid04092023/"
+      target="_self"
+      title="Prueba nota recetas nuevo"
+    >
+      <div
+        class="relative w-50_lg"
+      >
+        <div
+          class="foodit-placeholder object-cover card-image ratio-3-2 w-100 w-147 w-224_md w-100_lg"
+        >
+          <img
+            alt=""
+            class="image flex object-cover card-image ratio-3-2 w-100 w-147 w-224_md w-100_lg none --cover"
+            decoding="async"
+            fetchpriority="low"
+            loading="lazy"
+            src=""
+          />
+        </div>
+        <span
+          class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute sm-none m-8"
+        >
+          rica
+        </span>
+      </div>
+      <div
+        class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 w-50_lg"
+      >
+        <div
+          class="flex flex-column gap-12"
+        >
+          <div
+            class="flex flex-column gap-4"
+          >
+            <h2
+              class="text card-title prumo transition-regular prumo-semibold text-16 text-20_md text-32_lg text-ellipsis-2 text-ellipsis-3_lg"
+            >
+              Prueba nota recetas nuevo
+            </h2>
+          </div>
+        </div>
+        <div
+          class="flex gap-16 text-light-800 flex-column_md ai-center gap-24_md ai-start_md"
+        >
+          <div
+            class="flex flex-column gap-8 flex-grow-1"
+          >
+            <span
+              class="text text-14"
+            >
+              Por Carlos Pagni
+            </span>
+            <div
+              class="flex ai-center gap-4"
+            >
+              <i
+                class="icon --icon-12 --inherit"
+              >
+                <mock-icon
+                  name="timer"
+                />
+              </i>
+              <span
+                class="text text-12 roboto-light"
+              >
+                30 min
+              </span>
+            </div>
+          </div>
+          <button
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-variant="link"
+            title="Guardar receta"
+          >
+            <i
+              class="icon w-24 w-16_md --dark"
+            >
+              <mock-icon
+                critical="true"
+                name="bookmark"
+              />
+            </i>
+            <span
+              class="uppercase sm-none"
+            >
+              Guardar
+            </span>
+          </button>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
+`;
+
 exports[`Components - Features - Foodit-global - common - CommonCardFoodit should render the card with the correct data 1`] = `
 <div>
   <article
@@ -43,7 +152,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
         </span>
       </div>
       <div
-        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+        class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
       >
         <div
           class="flex flex-column gap-12"
@@ -178,7 +287,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
         </span>
       </div>
       <div
-        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+        class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
       >
         <div
           class="flex flex-column gap-12"
@@ -290,7 +399,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
         </span>
       </div>
       <div
-        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+        class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
       >
         <div
           class="flex flex-column gap-12"

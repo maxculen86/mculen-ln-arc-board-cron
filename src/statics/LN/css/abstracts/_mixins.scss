@@ -386,8 +386,8 @@ $guion: '-';
                 color: $primario;
             }
 
-            .cuerpo__nota .com-button {
-                &.--secondary {
+            .cuerpo__nota {
+                .theme-button {
                     color: $primario;
                     border-color: $primario;
 
@@ -395,14 +395,14 @@ $guion: '-';
                         background-color: $primario;
                         color: $neutral-white;
 
-                        .com-icon {
+                        .theme-icon {
                             path {
                                 fill: $neutral-white;
                             }
                         }
                     }
 
-                    .com-icon {
+                    .theme-icon {
                         path {
                             fill: $primario;
                         }

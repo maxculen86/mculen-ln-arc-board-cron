@@ -122,10 +122,9 @@ export default {
             credits: creditsSizes,
             poster: {
                 sizes: {
-                    width: 880,
-                    height: 587,
-                    minScreenWidth: 768,
-                    media_preload: setMediaCondition({ minWidth: 768 }),
+                    width: 420,
+                    height: 280,
+                    media_preload: setMediaCondition({ maxWidth: 767 }),
                     useFullSize: true,
                     proportion: '3:2'
                 }

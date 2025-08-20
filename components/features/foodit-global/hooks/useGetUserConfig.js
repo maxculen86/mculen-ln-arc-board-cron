@@ -1,7 +1,7 @@
-import { getConfig } from '../common/utils/promotions';
 import getUserInitials from '../../../private/common/utils/getUserInitials';
 import useGetUserData from '../../../private/common/auth/hooks/useGetUserData';
 import { SUBSCRIBED_HELPER } from '../../../private/common/auth/helper/loginHelper';
+import { useUserConfig } from './useUserConfig';
 
 const useGetUserConfig = () => {
     const {
@@ -12,6 +12,8 @@ const useGetUserConfig = () => {
         userLastName = ''
     } = useGetUserData(SUBSCRIBED_HELPER.FOODIT);
 
+    const { config: promotions } = useUserConfig(userType);
+
     return {
         userType,
         initials: getUserInitials(userName, userLastName, userEmail),
@@ -21,7 +23,7 @@ const useGetUserConfig = () => {
         email: userEmail,
         suscription: isSubscribed ? 'Suscriptor digital' : 'Sin suscripción',
         isSubscribed,
-        promotions: getConfig(userType)
+        promotions
     };
 };
 

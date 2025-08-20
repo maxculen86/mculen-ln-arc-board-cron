@@ -23,6 +23,10 @@ import getSourcesJw from '../../../private/LN/common/utils/getSourcesJw';
 import { transformUrl } from './common/_helper';
 import { isAudioGenerated } from '../../../../content/sources/utils/audioNews/helper';
 import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
+import {
+    LIVEBLOG_EDITORIAL,
+    LIVEBLOG
+} from '../../../private/common/utils/subtypes/subtypeHelper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -158,6 +162,12 @@ export const getBadgetConfig = ({
             (text || get(article, 'label.chapita.text'))
     };
 };
+
+export const isSubtypeLiveblog = article => {
+    const subtype = get(article, 'subtype', '');
+    return subtype === LIVEBLOG || subtype === LIVEBLOG_EDITORIAL;
+};
+
 export const getOnlyHoursMinutes = (time = '') =>
     time.split(':').slice(0, 2).join(':');
 
@@ -165,7 +175,7 @@ export const getLiveblogTitles = articleData => {
     const contentElements = get(articleData, 'content_elements', []);
 
     return contentElements.reduce((acc, currentValue) => {
-        if (currentValue.type === 'custom_embed' && acc.length < 3) {
+        if (currentValue.subtype === 'custom-liveblog' && acc.length < 3) {
             return [
                 ...acc,
                 {

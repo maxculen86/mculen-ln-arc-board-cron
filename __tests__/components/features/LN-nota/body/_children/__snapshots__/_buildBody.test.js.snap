@@ -1356,41 +1356,59 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 
 
   </div>
-  <blockquote
-    class="mod-paragraph container-center-100"
+  <div
+    class="destacado-blockquote px-16 py-24 container-center-100"
+    outputtype="default"
   >
-    <p
-      class="com-paragraph --font-primary --font-extra  --l"
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
+    />
+    <blockquote
+      class="flex jc-center ai-center py-16"
     >
-      Esto es un destacado
-    </p>
-  </blockquote>
+      <p
+        class="text ln-text prumo text-24 --prumo --font-bold"
+      >
+        Esto es un destacado
+      </p>
+    </blockquote>
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-90"
+    />
+  </div>
   <section
-    class="com-cita autor"
+    class="cita-autor flex flex-column gap-16 flex-nowrap w-100 px-16 py-24"
+    outputtype="default"
   >
-    <section
-      class="cont-cita"
+    <div
+      class="cita-content border border-left border-1-5 border-neutral-light-800 container-center-100"
     >
       <div
-        class="title-cita"
+        class="title-cita flex gap-8 pl-8 pb-16"
       >
-        <p
-          class="com-paragraph --font-primary --font-extra  --l"
+        <i
+          class="icon --icon-24"
         >
-          "Esto es una cita"
+          <mock-icon
+            name="quote"
+          />
+        </i>
+        <p
+          class="text ln-text prumo prumo-extra --prumo-italic text-24 --prumo --font-bold"
+        >
+          <span>
+            Esto es una cita
+          </span>
+          ”
         </p>
       </div>
-      <div
-        class="cont-firma-autor"
+      <h3
+        class="text ln-text text-14 pl-40 --arial"
       >
-         
-        <h3
-          class="nombre-firma --twoxs"
-        >
-          Ignacio Madrid
-        </h3>
-      </div>
-    </section>
+        — 
+        Ignacio Madrid
+      </h3>
+    </div>
   </section>
   <div
     class="content-media"
@@ -2617,38 +2635,30 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-container --button "
+    class="interstitial-container container-center-100"
+    outputtype="default"
   >
-    <a
-      class="com-link"
-      data-mrf-recirculation="n_interstitial"
-      href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
-      target="_blank"
-      title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
+    <div
+      class="flex jc-center ai-center w-100"
     >
-      <button
-        class="com-button --secondary"
-        data-event=""
-        data-section=""
-        id=""
-        on=""
-        title=""
-        type="button"
+      <a
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
+        data-mrf-recirculation="n_interstitial"
+        href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
+        rel="nofollow"
+        target="_blank"
+        title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
       >
-        <span
-          class="com-text --fivexs"
-        >
-          DÓLAR BLUE HOY: A CUÁNTO COTIZA EL LUNES 8 DE JUNIO
-        </span>
+        Dólar blue hoy: a cuánto cotiza el lunes 8 de junio
         <i
-          class="icon --icon-20"
+          class="icon theme-icon --icon-20"
         >
           <mock-icon
             name="arrowRight"
           />
         </i>
-      </button>
-    </a>
+      </a>
+    </div>
   </div>
   <div
     class="com-embed --html"
@@ -2810,9 +2820,26 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
  			
     </script>
   </div>
-  <blockquote
-    class="mod-paragraph container-center-100"
-  />
+  <div
+    class="destacado-blockquote px-16 py-24 container-center-100"
+    outputtype="default"
+  >
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
+    />
+    <blockquote
+      class="flex jc-center ai-center py-16"
+    >
+      <p
+        class="text ln-text prumo text-24 --prumo --font-bold"
+      >
+        &lt;br/&gt;
+      </p>
+    </blockquote>
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-90"
+    />
+  </div>
   <div
     class="com-embed --twitter container-center-100"
   >
@@ -4746,41 +4773,59 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 
 
   </div>
-  <blockquote
-    class="mod-paragraph container-center-100"
+  <div
+    class="destacado-blockquote px-16 py-24 container-center-100"
+    outputtype="default"
   >
-    <p
-      class="com-paragraph --font-primary --font-extra  --l"
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
+    />
+    <blockquote
+      class="flex jc-center ai-center py-16"
     >
-      Esto es un destacado
-    </p>
-  </blockquote>
+      <p
+        class="text ln-text prumo text-24 --prumo --font-bold"
+      >
+        Esto es un destacado
+      </p>
+    </blockquote>
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-90"
+    />
+  </div>
   <section
-    class="com-cita autor"
+    class="cita-autor flex flex-column gap-16 flex-nowrap w-100 px-16 py-24"
+    outputtype="default"
   >
-    <section
-      class="cont-cita"
+    <div
+      class="cita-content border border-left border-1-5 border-neutral-light-800 container-center-100"
     >
       <div
-        class="title-cita"
+        class="title-cita flex gap-8 pl-8 pb-16"
       >
-        <p
-          class="com-paragraph --font-primary --font-extra  --l"
+        <i
+          class="icon --icon-24"
         >
-          "Esto es una cita"
+          <mock-icon
+            name="quote"
+          />
+        </i>
+        <p
+          class="text ln-text prumo prumo-extra --prumo-italic text-24 --prumo --font-bold"
+        >
+          <span>
+            Esto es una cita
+          </span>
+          ”
         </p>
       </div>
-      <div
-        class="cont-firma-autor"
+      <h3
+        class="text ln-text text-14 pl-40 --arial"
       >
-         
-        <h3
-          class="nombre-firma --twoxs"
-        >
-          Ignacio Madrid
-        </h3>
-      </div>
-    </section>
+        — 
+        Ignacio Madrid
+      </h3>
+    </div>
   </section>
   <div
     class="content-media"
@@ -6007,38 +6052,30 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="com-container --button "
+    class="interstitial-container container-center-100"
+    outputtype="default"
   >
-    <a
-      class="com-link"
-      data-mrf-recirculation="n_interstitial"
-      href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
-      target="_blank"
-      title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
+    <div
+      class="flex jc-center ai-center w-100"
     >
-      <button
-        class="com-button --secondary"
-        data-event=""
-        data-section=""
-        id=""
-        on=""
-        title=""
-        type="button"
+      <a
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
+        data-mrf-recirculation="n_interstitial"
+        href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
+        rel="nofollow"
+        target="_blank"
+        title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
       >
-        <span
-          class="com-text --fivexs"
-        >
-          DÓLAR BLUE HOY: A CUÁNTO COTIZA EL LUNES 8 DE JUNIO
-        </span>
+        Dólar blue hoy: a cuánto cotiza el lunes 8 de junio
         <i
-          class="icon --icon-20"
+          class="icon theme-icon --icon-20"
         >
           <mock-icon
             name="arrowRight"
           />
         </i>
-      </button>
-    </a>
+      </a>
+    </div>
   </div>
   <div
     class="com-embed --html"
@@ -6200,9 +6237,26 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
  			
     </script>
   </div>
-  <blockquote
-    class="mod-paragraph container-center-100"
-  />
+  <div
+    class="destacado-blockquote px-16 py-24 container-center-100"
+    outputtype="default"
+  >
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
+    />
+    <blockquote
+      class="flex jc-center ai-center py-16"
+    >
+      <p
+        class="text ln-text prumo text-24 --prumo --font-bold"
+      >
+        &lt;br/&gt;
+      </p>
+    </blockquote>
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-90"
+    />
+  </div>
   <div
     class="com-embed --twitter container-center-100"
   >
@@ -8136,41 +8190,59 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
 
 
   </div>
-  <blockquote
-    class="mod-paragraph container-center-100"
+  <div
+    class="destacado-blockquote px-16 py-24 container-center-100"
+    outputtype="default"
   >
-    <p
-      class="com-paragraph --font-primary --font-extra  --l"
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
+    />
+    <blockquote
+      class="flex jc-center ai-center py-16"
     >
-      Esto es un destacado
-    </p>
-  </blockquote>
+      <p
+        class="text ln-text prumo text-24 --prumo --font-bold"
+      >
+        Esto es un destacado
+      </p>
+    </blockquote>
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-90"
+    />
+  </div>
   <section
-    class="com-cita autor"
+    class="cita-autor flex flex-column gap-16 flex-nowrap w-100 px-16 py-24"
+    outputtype="default"
   >
-    <section
-      class="cont-cita"
+    <div
+      class="cita-content border border-left border-1-5 border-neutral-light-800 container-center-100"
     >
       <div
-        class="title-cita"
+        class="title-cita flex gap-8 pl-8 pb-16"
       >
-        <p
-          class="com-paragraph --font-primary --font-extra  --l"
+        <i
+          class="icon --icon-24"
         >
-          "Esto es una cita"
+          <mock-icon
+            name="quote"
+          />
+        </i>
+        <p
+          class="text ln-text prumo prumo-extra --prumo-italic text-24 --prumo --font-bold"
+        >
+          <span>
+            Esto es una cita
+          </span>
+          ”
         </p>
       </div>
-      <div
-        class="cont-firma-autor"
+      <h3
+        class="text ln-text text-14 pl-40 --arial"
       >
-         
-        <h3
-          class="nombre-firma --twoxs"
-        >
-          Ignacio Madrid
-        </h3>
-      </div>
-    </section>
+        — 
+        Ignacio Madrid
+      </h3>
+    </div>
   </section>
   <div
     class="content-media"
@@ -9397,38 +9469,30 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <div
-    class="com-container --button "
+    class="interstitial-container container-center-100"
+    outputtype="default"
   >
-    <a
-      class="com-link"
-      data-mrf-recirculation="n_interstitial"
-      href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
-      target="_blank"
-      title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
+    <div
+      class="flex jc-center ai-center w-100"
     >
-      <button
-        class="com-button --secondary"
-        data-event=""
-        data-section=""
-        id=""
-        on=""
-        title=""
-        type="button"
+      <a
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
+        data-mrf-recirculation="n_interstitial"
+        href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
+        rel="nofollow"
+        target="_blank"
+        title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
       >
-        <span
-          class="com-text --fivexs"
-        >
-          DÓLAR BLUE HOY: A CUÁNTO COTIZA EL LUNES 8 DE JUNIO
-        </span>
+        Dólar blue hoy: a cuánto cotiza el lunes 8 de junio
         <i
-          class="icon --icon-20"
+          class="icon theme-icon --icon-20"
         >
           <mock-icon
             name="arrowRight"
           />
         </i>
-      </button>
-    </a>
+      </a>
+    </div>
   </div>
   <div
     class="com-embed --html"
@@ -9590,9 +9654,26 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
  			
     </script>
   </div>
-  <blockquote
-    class="mod-paragraph container-center-100"
-  />
+  <div
+    class="destacado-blockquote px-16 py-24 container-center-100"
+    outputtype="default"
+  >
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
+    />
+    <blockquote
+      class="flex jc-center ai-center py-16"
+    >
+      <p
+        class="text ln-text prumo text-24 --prumo --font-bold"
+      >
+        &lt;br/&gt;
+      </p>
+    </blockquote>
+    <hr
+      class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-90"
+    />
+  </div>
   <div
     class="com-embed --twitter container-center-100"
   >

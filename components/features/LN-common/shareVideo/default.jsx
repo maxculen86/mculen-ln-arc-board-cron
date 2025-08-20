@@ -15,8 +15,7 @@ function ShareVideo({ videoId }) {
     useVideoJwCustomSettings({
         isInView: true,
         loading: false,
-        playerRef,
-        handleNextCallback: null
+        playerRef
     });
 
     return (

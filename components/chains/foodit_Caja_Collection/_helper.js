@@ -3,7 +3,8 @@ const collectionToCarouselMap = new Map();
 
 export const getCarouselId = id => {
     if (!collectionToCarouselMap.has(id)) {
-        collectionToCarouselMap.set(id, (nextId += 1));
+        nextId += 1;
+        collectionToCarouselMap.set(id, nextId);
     }
     return `carousel-${collectionToCarouselMap.get(id)}`;
 };

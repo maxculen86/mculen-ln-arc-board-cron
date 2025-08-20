@@ -8,6 +8,12 @@ import get from '../../get';
 import removeHtmlTags from '../../removeHtmlTags';
 import isCustomLiveblog from '../../isCustomLiveblog';
 
+const socialMediaNames = {
+    twitter: 'X',
+    instagram: 'Instagram',
+    'facebook-video': 'Facebook'
+};
+
 const extracDataFromCredits = by => {
     let authors = [];
 
@@ -61,6 +67,9 @@ const calculateDateModified = (
     return restMinutes(new Date(lastUpdatedDate), minutesToAdd);
 };
 
+const getSocialMediaDescription = socialMediaName =>
+    `Publicación de ${socialMediaName} incluida como parte de la cobertura en vivo.`;
+
 export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     const {
         content_elements: contentElements,
@@ -79,12 +88,19 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     const postElements = contentElements
         .slice(postingStart)
         .reduce((acc, elem, i, slicedArray) => {
-            const { type = '' } = elem;
+            const { type = '', subtype = '' } = elem;
 
             if (isCustomLiveblog(elem)) {
                 post = {};
                 description = [];
                 postTitle = get(elem, 'embed.config.title', '').trim();
+            }
+
+            if (type === 'oembed_response') {
+                const name = socialMediaNames[subtype];
+                if (name) {
+                    description.push(getSocialMediaDescription(name));
+                }
             }
 
             if (type === 'list' && elem.items) {

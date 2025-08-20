@@ -1,8 +1,6 @@
 import React from 'react';
-import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
-// TODO: Aplicar logica para obtener promociones de suscripcion desde sites.
 const JC_BETWEEN = 'jc-between';
 
 export const mockConfigUserTypes = {
@@ -45,24 +43,3 @@ export const mockConfigUserTypes = {
         containerClassName: JC_BETWEEN
     }
 };
-export const getConfig = user => ({
-    buttonLogginText: get(mockConfigUserTypes, `${user}.buttonLogginText`, ''),
-    buttonSubscribeText: get(
-        mockConfigUserTypes,
-        `${user}.buttonSubscribeText`,
-        ''
-    ),
-    buttonSubscribeHeader: get(
-        mockConfigUserTypes,
-        `${user}.buttonSubscribeHeader`,
-        ''
-    ),
-    plan: get(mockConfigUserTypes, `${user}.plan`, ''),
-    iconFoodit: get(mockConfigUserTypes, `${user}.icons.foodit`, false),
-    iconClubLn: get(mockConfigUserTypes, `${user}.icons.clubLn`, false),
-    containerClassName: get(
-        mockConfigUserTypes,
-        `${user}.containerClassName`,
-        ''
-    )
-});

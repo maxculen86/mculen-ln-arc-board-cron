@@ -82,6 +82,36 @@ describe('Features - LN-10-Global - Common - Caja Dolar', () => {
             expect(screen.getByText('Euro')).toBeDefined();
             expect(screen.getAllByRole('heading')).toHaveLength(9);
         });
+
+        it('should render all 8 types of dollars from the mock with their corresponding title and the general title when the kicker and label is enabled and is liveblog editorial', () => {
+            Context.useAppContext = jest.fn(() => ({
+                outputType: 'default',
+                layout: 'LN-Nota-Liveblog_Editorial',
+                globalContent: {
+                    type: 'story',
+                    label: {
+                        mostrar_caja_dolar: {
+                            text: 'Mostrar'
+                        }
+                    }
+                }
+            }));
+            useContent.mockImplementation(() => API_RESPONSE);
+            render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+
+            expect(
+                screen.getByText('Cotización del dólar de hoy')
+            ).toBeDefined();
+            expect(screen.getByText('Dólar oficial')).toBeDefined();
+            expect(screen.getByText('Dólar blue')).toBeDefined();
+            expect(screen.getByText('Dólar tarjeta')).toBeDefined();
+            expect(screen.getByText('Dólar turista')).toBeDefined();
+            expect(screen.getByText('Dólar MEP')).toBeDefined();
+            expect(screen.getByText('Dólar CCL')).toBeDefined();
+            expect(screen.getByText('Dólar mayorista')).toBeDefined();
+            expect(screen.getByText('Euro')).toBeDefined();
+            expect(screen.getAllByRole('heading')).toHaveLength(9);
+        });
     });
 
     describe('CajaDolar', () => {
@@ -127,6 +157,24 @@ describe('Features - LN-10-Global - Common - Caja Dolar', () => {
             Context.useAppContext = jest.fn(() => ({
                 outputType: 'default',
                 layout: 'LN-nota-noticia',
+                globalContent: {
+                    label: {
+                        mostrar_caja_dolar: {
+                            text: ''
+                        }
+                    }
+                }
+            }));
+
+            useContent.mockImplementation(() => API_RESPONSE);
+            const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+            expect(container).toBeEmptyDOMElement();
+        });
+
+        it('should render empty fragment in a note with the kicker and label disabled in liveblog editorial', () => {
+            Context.useAppContext = jest.fn(() => ({
+                outputType: 'default',
+                layout: 'LN-Nota-Liveblog_Editorial',
                 globalContent: {
                     label: {
                         mostrar_caja_dolar: {

@@ -37,7 +37,8 @@ import {
     generateLazyLoadEmbedCode,
     getCllBoard,
     shouldHighlightCustomVoice,
-    getIndexOfFeature
+    getIndexOfFeature,
+    isSubtypeLiveblog
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -1743,6 +1744,34 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             });
 
             expect(index).toBe(-1);
+        });
+    });
+
+    describe('isSubtypeLiveblog', () => {
+        it('should return true for subtype liveblog editorial', () => {
+            const article = {
+                subtype: '11'
+            };
+            expect(isSubtypeLiveblog(article)).toBe(true);
+        });
+
+        it('should return true for subtype liveblog', () => {
+            const article = {
+                subtype: '6'
+            };
+            expect(isSubtypeLiveblog(article)).toBe(true);
+        });
+
+        it('should return false for subtype noticia', () => {
+            const article = {
+                subtype: '1'
+            };
+            expect(isSubtypeLiveblog(article)).toBe(false);
+        });
+
+        it('should return false when the article data is not defined or null', () => {
+            expect(isSubtypeLiveblog(null)).toBe(false);
+            expect(isSubtypeLiveblog()).toBe(false);
         });
     });
 });

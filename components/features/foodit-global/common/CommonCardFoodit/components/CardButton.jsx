@@ -12,15 +12,20 @@ export function CardButton({
     container = 'grid',
     buttonProps
 }) {
-    const _textClassName = cx(
-        'uppercase',
-        container !== 'grid' && container !== 'related-content'
-            ? 'lg-only'
-            : 'none'
+    const getTextClass = () => {
+        if (container === 'link') return 'sm-none';
+        if (container === 'grid' || container === 'related-content')
+            return 'none';
+        return 'lg-only';
+    };
+
+    const _textClassName = cx('uppercase', getTextClass());
+
+    const _iconClassName = cx(
+        'w-24',
+        { 'w-20_lg': container !== 'grid' && container !== 'link' },
+        { 'w-16_md': container === 'link' }
     );
-
-    const _iconClassName = cx('w-24', { 'w-20_lg': container !== 'grid' });
-
     return (
         <Button
             variant="link"
