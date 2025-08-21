@@ -11,8 +11,8 @@ function MediaScrollerExpandedWrapper({ children }) {
 
     useEffect(() => {
         const eventName = isOpenMediaScrollerExpanded
-            ? 'clearTimeout'
-            : 'retriggerTimeout';
+            ? 'pauseTimeout'
+            : 'resumeTimeout';
 
         window?.LN?.observable?.publish?.(eventName);
     }, [isOpenMediaScrollerExpanded]);

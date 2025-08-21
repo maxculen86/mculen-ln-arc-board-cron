@@ -33,7 +33,7 @@ export default function CommonCollection({
     isFoodit,
     children = null
 }) {
-    const { linkButton, titleLink } = roofData;
+    const { linkButton, titleLink, buttonText } = roofData;
     const hrefButtonFoodit = isFoodit && linkButton;
     const targetButton = targetUrlRedirect(linkButton);
     return (
@@ -45,6 +45,7 @@ export default function CommonCollection({
                 hrefButton={hrefButtonFoodit}
                 hrefLink={titleLink}
                 targetButton={targetButton}
+                textButtonFooditCard={buttonText}
                 timeline={children}
             >
                 {articles.map((article, index) => {

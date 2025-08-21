@@ -11,6 +11,7 @@ import PageBuilderMessage from '../../../private/LN/home/common/components/pageB
 import { addInitialSlash } from '../../../private/LN/common/utils/addInitialSlash';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import {
+    getButtonProps,
     getCardPosition,
     getClassName,
     getDescriptionData,
@@ -95,6 +96,7 @@ function Game({ id: featureId, customFields, isAdmin }) {
 
     const hrefLink = getHrefLink(gameType, sectionId, articleLink);
     const badge = newGame ? 'Nuevo' : null;
+    const buttonProps = getButtonProps(game, isFirstCard, parentLayout);
     const ribbon = forSubscriber ? (
         <IconSprite name="ribbonColor" color />
     ) : null;
@@ -102,8 +104,6 @@ function Game({ id: featureId, customFields, isAdmin }) {
     const slotsProps = {
         description: { className: 'text-18 sm-none' }
     };
-
-    const buttonProps = game === 'ranking' ? { label: 'Ver Ranking' } : {};
 
     return (
         <CardGame
