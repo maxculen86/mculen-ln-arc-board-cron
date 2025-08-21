@@ -124,6 +124,7 @@
         "@ln/ott-ui-sass": "0.0.3",
         "@ln/segmentacion-control-group": "1.1.0",
         "@ln/user.client.libs": "7.0.1",
+        "@ln/utility-hooks": "0.0.1",
         "@ln/utils": "0.0.6",
         "classnames": "2.3.2",
         "copyfiles": "2.4.1",
