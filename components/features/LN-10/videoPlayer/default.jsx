@@ -1,36 +1,26 @@
 import React from 'react';
-import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { checkForId, getChainConfig } from '../article/common/_helper-WebApi';
-import { validateVideoPlayer } from './_helper';
-import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import { getChainConfig } from '../article/common/_helper-WebApi';
 import { getDataAttributesForViewability } from '../article/_helper';
 import VideoCommonJw from '../../LN-10-global/common/videoCommon/default';
-
+import useGetVideoData from '../videoPlayerNota/common/hooks/useGetVideoConfig';
+import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import { validateVideoPlayer } from './_helper';
+// TODO: Testear todas las implementaciones de video en home. Este componente y el feature del video horizontal
 function LN10VideoPlayer({
     id,
     customFields: { video: videoId },
     isAdmin,
     renderables = []
 }) {
-    const videoData = useContent({
-        source: checkForId(videoId) ? 'videosJwSource' : null,
-        query: {
-            id: checkForId(videoId),
-            website: 'la-nacion-ar',
-            imageConfig: 'videoVertical'
-        }
+    const videoData = useGetVideoData({
+        videoId,
+        imageConfig: 'videoVertical',
+        staticMode: true
     });
 
-    const { title } = videoData || {};
-
-    const mediaId = videoData?.mediaid || '';
-    const playlist = videoData ? [videoData] : [];
-    const playListWithoutTitle = playlist.map(video => ({
-        ...video,
-        title: ''
-    }));
+    const { title, mediaId, videoFile, playlist } = videoData || {};
 
     const cardPosition = 0;
     const { boxPosition } = getChainConfig({ featureId: id, renderables });
@@ -42,40 +32,12 @@ function LN10VideoPlayer({
         true
     );
 
-    if (renderables && renderables.length) {
-        extraOpts['data-renderables'] = JSON.stringify(renderables);
-    }
-
     const error = validateVideoPlayer({
-        video: videoData,
+        video: videoFile,
         videoId
     });
 
-    if (isAdmin) {
-        return (
-            <article data-feature-id={id}>
-                <video
-                    src={videoData?.sources[0]?.file}
-                    poster={videoData?.poster}
-                    controls
-                    style={{ width: '100%', maxWidth: '500px' }}
-                >
-                    <track
-                        kind="captions"
-                        srcLang="es"
-                        label="Español"
-                        src=""
-                    />
-                </video>
-            </article>
-        );
-    }
-
-    if (!mediaId) {
-        return null;
-    }
-
-    if (error) {
+    if (error && isAdmin) {
         return (
             <article data-feature-id={id}>
                 <WarningMessage
@@ -86,6 +48,11 @@ function LN10VideoPlayer({
             </article>
         );
     }
+
+    if (!mediaId) {
+        return null;
+    }
+
     const videoConfig = {
         videoId,
         mediaId,
@@ -94,7 +61,7 @@ function LN10VideoPlayer({
         withAutoplay: true,
         instanceConfig: {
             aspectratio: '9:16',
-            playlist: playListWithoutTitle
+            playlist
         }
     };
 
@@ -107,6 +74,7 @@ function LN10VideoPlayer({
                 extraOpts={extraOpts}
                 videoData={videoData}
                 ratio="ratio-9-16"
+                isAdmin={isAdmin}
             />
         )
     );
