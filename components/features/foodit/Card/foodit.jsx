@@ -22,14 +22,10 @@ import WarningMessage from '../../../private/common/warningMessage/warningMessag
 import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit';
 import getFooditMediaContent from '../../foodit-global/common/utils/mediaHelper';
 
+const DEFAULT_LABEL = 'RECETA DEL DÍA';
+
 function CardFoodit({ id: featureId, customFields }) {
-    const {
-        noteId: id,
-        isDayRecipe,
-        videoId,
-        customTitle,
-        label
-    } = customFields;
+    const { noteId: id, videoId, customTitle, label } = customFields;
 
     const articleId = checkForId(id);
     const validVideoId = checkForId(videoId);
@@ -114,6 +110,11 @@ function CardFoodit({ id: featureId, customFields }) {
         isAdmin
     });
 
+    const finalLabel =
+        isOpening && (!label || label.trim() === '') ? DEFAULT_LABEL : label;
+    const isDayRecipeVariant =
+        finalLabel === DEFAULT_LABEL || layout === 'bn_1_grid';
+
     return (
         <div className={staticContentClassName} key={featureId}>
             {!error && articleContent && (
@@ -124,16 +125,12 @@ function CardFoodit({ id: featureId, customFields }) {
                     linksProps={{ href, title }}
                     size={!isOpening && size}
                     container={isOpening ? containerConfig : 'grid'}
-                    variant={
-                        isDayRecipe || layout === 'bn_1_grid'
-                            ? 'day-recipe'
-                            : variant
-                    }
+                    variant={isDayRecipeVariant ? 'day-recipe' : variant}
                     loading={isOpening ? 'eager' : 'lazy'}
                     fetchPriority={isOpening ? 'high' : 'low'}
                     tag={tag}
                     title={title}
-                    label={label}
+                    label={finalLabel}
                     customTitle={customTitle}
                     author={author}
                     subtitle={
@@ -157,11 +154,6 @@ CardFoodit.propTypes = {
             description: 'Ingrese aquí el id de la nota',
             default: ''
         }).isRequired,
-        isDayRecipe: PropTypes.boolean.tag({
-            name: 'Receta del día',
-            description: 'Marque para seleccionar la receta del dia',
-            defaultValue: false
-        }),
         videoId: PropTypes.string.tag({
             name: 'VideoJW',
             description: 'Ingrese aquí el ID del video',
@@ -173,9 +165,10 @@ CardFoodit.propTypes = {
             default: ''
         }),
         label: PropTypes.string.tag({
-            name: 'Etiqueta personalizada',
-            description: 'Cantidad de caracteres máximo 32',
-            default: ''
+            name: 'Etiqueta portada',
+            description:
+                "El valor por defecto es 'Receta del día'. Máximo 32 caracteres.",
+            default: DEFAULT_LABEL
         })
     }).isRequired
 };

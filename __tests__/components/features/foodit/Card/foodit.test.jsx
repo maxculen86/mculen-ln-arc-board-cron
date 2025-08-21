@@ -26,7 +26,7 @@ jest.mock('fusion:context', Component => {
 });
 
 describe('Components - features - CardFoodit', () => {
-    it('should test CardFoodit - variant day-recipe', () => {
+    it('should test CardFoodit - variant day-recipe with default label', () => {
         Context.useAppContext = jest.fn(() => ({
             isAdmin: false,
             renderables,
@@ -37,10 +37,8 @@ describe('Components - features - CardFoodit', () => {
             id: 'f0fujPmnOyutm2Tj',
             customFields: {
                 noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
-                isDayRecipe: true,
                 videoId: '',
-                isDayRecipe: false,
-                label: 'Receta del día'
+                label: 'RECETA DEL DÍA'
             }
         };
 
@@ -58,7 +56,66 @@ describe('Components - features - CardFoodit', () => {
         );
     });
 
-    it('should test CardFoodit - variant recipe', () => {
+    it('should test CardFoodit - variant day-recipe with empty label (fallback to default)', () => {
+        Context.useAppContext = jest.fn(() => ({
+            isAdmin: false,
+            renderables,
+            arcSite: 'foodit'
+        }));
+
+        const props = {
+            id: 'f0fujPmnOyutm2Tj',
+            customFields: {
+                noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
+                videoId: '',
+                label: ''
+            }
+        };
+
+        useContent.mockReturnValue(articleFoodit);
+
+        const { container } = render(<CardFoodit {...props} />);
+        expect(container).toMatchSnapshot();
+
+        expect(screen.getByRole('article')).toHaveClass('--day-recipe');
+        expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+
+        expect(screen.getByRole('img').getAttribute('loading')).toBe('eager');
+        expect(screen.getByRole('img').getAttribute('fetchPriority')).toBe(
+            'high'
+        );
+    });
+
+    it('should test CardFoodit - variant recipe with custom label', () => {
+        Context.useAppContext = jest.fn(() => ({
+            isAdmin: false,
+            renderables,
+            arcSite: 'foodit'
+        }));
+
+        const props = {
+            id: 'f0fK1lyE9F7t1Mr',
+            customFields: {
+                noteId: 'D3SATI3N45FQTB5PYSC7TRFTTU',
+                label: 'Mi Etiqueta Personalizada'
+            }
+        };
+
+        useContent.mockReturnValue(articleFoodit);
+
+        const { container } = render(<CardFoodit {...props} />);
+        expect(container).toMatchSnapshot();
+
+        expect(screen.getByRole('article')).toHaveClass('bg-light-1');
+        expect(screen.getByRole('article')).not.toHaveClass('--day-recipe');
+
+        expect(screen.getByRole('img').getAttribute('loading')).toBe('lazy');
+        expect(screen.getByRole('img').getAttribute('fetchPriority')).toBe(
+            'low'
+        );
+    });
+
+    it('should test CardFoodit - variant recipe without label', () => {
         Context.useAppContext = jest.fn(() => ({
             isAdmin: false,
             renderables,
@@ -77,8 +134,14 @@ describe('Components - features - CardFoodit', () => {
         const { container } = render(<CardFoodit {...props} />);
         expect(container).toMatchSnapshot();
 
-        expect(screen.getByRole('article')).toHaveClass('bg-light-1');
-        expect(screen.getByRole('article')).not.toHaveClass('--day-recipe');
+        const cardElement = container.querySelector(
+            '[data-test-id*="card-recipe"]'
+        );
+        expect(cardElement).toBeInTheDocument();
+
+        expect(
+            container.querySelector('[data-testid="card-label"]')
+        ).not.toBeInTheDocument();
 
         expect(screen.getByRole('img').getAttribute('loading')).toBe('lazy');
         expect(screen.getByRole('img').getAttribute('fetchPriority')).toBe(
@@ -96,7 +159,8 @@ describe('Components - features - CardFoodit', () => {
         const props = {
             id: 'f0fRSQq3v9qt15n',
             customFields: {
-                noteId: 'FMLGIYTL2ZBCRAKQTSO27CCQ6U'
+                noteId: 'FMLGIYTL2ZBCRAKQTSO27CCQ6U',
+                label: 'Nota Especial'
             }
         };
 
