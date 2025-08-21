@@ -67,20 +67,56 @@ describe('Generate post object function', () => {
 });
 
 describe('Generate post object - oembed_response handling', () => {
-    it('should add description only for mapped subtype (twitter)', () => {
+    it('should use the generic copy only when there is no body text', () => {
         const post1 = postObjects[0];
-        expect(post1.articleBody).toMatch(
+        const post2 = postObjects[1];
+        const post3 = postObjects[2];
+
+        expect(post1.articleBody).not.toMatch(
             /Publicación de X incluida como parte de la cobertura en vivo\./
         );
 
-        const post2 = postObjects[1];
         expect(post2.articleBody).not.toMatch(
             /Publicación de .* incluida como parte de la cobertura en vivo\./
         );
         expect(post2.articleBody).not.toMatch(/undefined/);
 
-        const post3 = postObjects[2];
         expect(post3.articleBody).not.toMatch(/undefined/);
+    });
+
+    it('should include the generic copy for mapped subtype when there is no body text (twitter)', () => {
+        const minimalGlobalContent = {
+            content_elements: [
+                {
+                    type: 'custom_liveblog',
+                    embed: {
+                        config: {
+                            date: '2025-08-01',
+                            time: '13:00:00',
+                            title: 'Only Embed'
+                        }
+                    }
+                },
+                {
+                    type: 'oembed_response',
+                    subtype: 'twitter'
+                }
+            ],
+            credits: { by: [{ type: 'author', name: 'Juan Perez' }] },
+            headlines: { basic: 'Titular' }
+        };
+
+        const res = generatePostObject(
+            minimalGlobalContent,
+            urlNota,
+            PLACEHOLDER
+        );
+        expect(res).toHaveLength(1);
+        expect(res[0]['@type']).toBe('BlogPosting');
+        expect(res[0].articleBody).toBe(
+            'Publicación de X incluida como parte de la cobertura en vivo.'
+        );
+        expect(res[0].articleBody).not.toMatch(/undefined/);
     });
 
     it('should never contain "undefined" in any articleBody', () => {
