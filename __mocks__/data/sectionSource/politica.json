@@ -1,0 +1,41 @@
+{
+    "_id": "/politica",
+    "_website": "la-nacion-ar",
+    "name": "Política",
+    "inactive": false,
+    "ancestors": {
+        "Header-FirstNav": [
+            "/"
+        ],
+        "Home-Elecciones": [],
+        "navigationRedaccion": [
+            "/"
+        ]
+    },
+    "parent": {
+        "default": "/",
+        "Header-FirstNav": "/",
+        "navigationRedaccion": "/",
+        "Home-Elecciones": null
+    },
+    "order": {
+        "Header-FirstNav": 1002,
+        "default": 1020,
+        "navigationRedaccion": 1031
+    },
+    "acumuladoGeneral": {
+        "colecciones": [],
+        "id_collection_promo_items": "JUDGKNFHYZETZJDKOF2TNP4AYE"
+    },
+    "migration": {
+        "id_section_ln9": "30",
+        "migrated_mob": "false"
+    },
+    "site": {
+        "site_url": "https://www.lanacion.com.ar/politica/"
+    },
+    "node_type": "section",
+    "children": [],
+    "date": "25 de agosto",
+    "subscription": "a"
+}
