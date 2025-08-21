@@ -9,7 +9,7 @@ export function TagCategories({ tagLinks = [] }) {
 
     return (
         <nav className="flex ai-end_md">
-            <ul className="flex flex-wrap gap-8 mb-8_md">
+            <ul className="flex flex-wrap gap-8 gap-12_md">
                 {tagLinks.map((link, i) => (
                     <li
                         key={link.href}
@@ -19,12 +19,14 @@ export function TagCategories({ tagLinks = [] }) {
                             variant="secondary"
                             href={link.href}
                             title={link.title}
-                            className="uppercase roboto-bold text-12"
+                            className="uppercase roboto-bold text-12 border border-all_md border-thin rounded-4"
                         >
-                            {link.title}
+                            <span className="py-8_md px-16_md">
+                                {link.title}
+                            </span>
                         </Link>
                         {i < tagLinks.length - 1 && (
-                            <Icon size={16}>
+                            <Icon className="sm-only" size={16}>
                                 <IconSprite name="bullet-nav" fill="#CCCCCC" />
                             </Icon>
                         )}
