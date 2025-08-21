@@ -7,7 +7,7 @@ export const validateVideoPlayer = ({ video, videoId }) => {
             message: 'Advertencia. El campo Video es obligatorio'
         },
         {
-            validation: videoId && video === null,
+            validation: videoId && !video,
             message: 'Advertencia. El ID del video es incorrecto'
         }
     ];
