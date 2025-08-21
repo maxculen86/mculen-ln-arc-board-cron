@@ -1,14 +1,17 @@
 import React, { Fragment, useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import {
-    getContentBeforeLiveblogPosts,
-    groupByLiveblogMarkers,
     reorderGroupsByPinnedBlock,
     shouldShowTopDivider,
-    getPostRenderData
+    getPostRenderData,
+    supportedTypesLiveblog
 } from '../../../layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody';
-import BuildLiveblogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/BuildLiveblogBody';
+import {
+    getContentBeforeMarkers,
+    groupByMarkers
+} from '../../../layouts/helpers/groupingUtils';
 import LiveBlogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/LiveBlogBody';
+import BuildBody from '../body/_children/_buildBody';
 import useLazyEmbeds from '../../LN-common/hooks/useLazyEmbeds';
 import useScrollDispatcher, {
     registerScrollTrigger
@@ -18,9 +21,12 @@ function BodyLiveblogEditorial() {
     const { globalContent, outputType, _id } = useAppContext();
     const { content_elements: contentElements = [] } = globalContent;
 
-    const preLiveblog = getContentBeforeLiveblogPosts(contentElements);
+    const preLiveblog = getContentBeforeMarkers(
+        contentElements,
+        'custom-liveblog'
+    );
     const posts = reorderGroupsByPinnedBlock(
-        groupByLiveblogMarkers(contentElements)
+        groupByMarkers(contentElements, 'custom-liveblog', 'liveblog')
     );
 
     useLazyEmbeds({
@@ -68,10 +74,14 @@ function BodyLiveblogEditorial() {
     return (
         <>
             <LiveBlogBody.Pre>
-                <BuildLiveblogBody
+                <BuildBody
                     groupedElements={preLiveblog}
                     outputType={outputType}
                     globalContent={globalContent}
+                    supportedTypesOverride={supportedTypesLiveblog}
+                    useCapitalIndex={false}
+                    useBanners={false}
+                    useCounter={false}
                 />
             </LiveBlogBody.Pre>
             <LiveBlogBody.Posts>
@@ -85,10 +95,16 @@ function BodyLiveblogEditorial() {
                             {showTopDivider && <LiveBlogBody.Divider />}
 
                             <LiveBlogBody.Post {...postData}>
-                                <BuildLiveblogBody
+                                <BuildBody
                                     groupedElements={visibleItems}
                                     outputType={outputType}
                                     globalContent={globalContent}
+                                    supportedTypesOverride={
+                                        supportedTypesLiveblog
+                                    }
+                                    useCapitalIndex={false}
+                                    useBanners={false}
+                                    useCounter={false}
                                 />
                             </LiveBlogBody.Post>
                             {showBottomDivider && <LiveBlogBody.Divider />}

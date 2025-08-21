@@ -4,68 +4,7 @@ import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
 import { monthNames } from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
-
-export function isLiveblogMarker(element) {
-    return (
-        element.type === 'custom_embed' && element.subtype === 'custom-liveblog'
-    );
-}
-
-export function getContentBeforeLiveblogPosts(contentElements) {
-    if (!Array.isArray(contentElements)) return [];
-
-    const firstMarkerIndex = contentElements.findIndex(isLiveblogMarker);
-
-    return firstMarkerIndex === -1
-        ? contentElements
-        : contentElements.slice(0, firstMarkerIndex);
-}
-
-export function groupByLiveblogMarkers(contentElements) {
-    if (!Array.isArray(contentElements) || contentElements.length === 0) {
-        return [];
-    }
-
-    const initialState = {
-        groups: [],
-        currentGroup: [],
-        currentGroupName: null,
-        liveblogStarted: false
-    };
-
-    const result = contentElements.reduce((acc, element) => {
-        if (!acc.liveblogStarted && !isLiveblogMarker(element)) {
-            return acc;
-        }
-
-        if (isLiveblogMarker(element)) {
-            if (acc.currentGroup.length) {
-                acc.groups.push({
-                    id: acc.currentGroupName,
-                    items: acc.currentGroup
-                });
-            }
-
-            acc.currentGroup = [element];
-            const { _id: id } = element;
-            acc.currentGroupName = `liveblog_${id}`;
-            acc.liveblogStarted = true;
-            return acc;
-        }
-
-        acc.currentGroup.push(element);
-        return acc;
-    }, initialState);
-
-    if (result.currentGroup.length) {
-        result.groups.push({
-            id: result.currentGroupName,
-            items: result.currentGroup
-        });
-    }
-
-    return result.groups;
-}
+import { isMarker } from '../../helpers/groupingUtils';
 
 export function reorderGroupsByPinnedBlock(groups) {
     let latestPinnedItem = null;
@@ -168,7 +107,9 @@ export const calculateTimePublish = (config = {}, currentDate = new Date()) => {
 
 export const getLiveblogHeaderData = post => {
     const items = get(post, 'items', []);
-    const liveblogElement = items.find(isLiveblogMarker);
+    const liveblogElement = items.find(element =>
+        isMarker(element, 'custom-liveblog')
+    );
     if (!liveblogElement) return null;
 
     const data = get(liveblogElement, 'embed.config', {});
