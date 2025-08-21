@@ -37,7 +37,7 @@ describe('Components - Features - foodit-global - common - Header - components -
 
         expect(PromotionContainer).toHaveClass('jc-center');
         expect(screen.getByText('INICIÁ SESIÓN')).toBeInTheDocument();
-        expect(screen.getByText('SUSCRIBITE POR $250')).toBeInTheDocument();
+        expect(screen.getByText('SUSCRIBITE GRATIS')).toBeInTheDocument();
     });
     it('renders correctly for user type "logged"', () => {
         useGetUserData.mockReturnValue({
@@ -52,7 +52,7 @@ describe('Components - Features - foodit-global - common - Header - components -
         );
 
         expect(PromotionContainer).toHaveClass('jc-between');
-        expect(screen.getByText('SUSCRIBITE POR $250')).toBeInTheDocument();
+        expect(screen.getByText('SUSCRIBITE GRATIS')).toBeInTheDocument();
         expect(screen.getByText('Gratis')).toBeInTheDocument();
     });
 

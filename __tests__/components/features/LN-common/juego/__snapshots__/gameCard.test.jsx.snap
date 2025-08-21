@@ -33,18 +33,14 @@ exports[`Component - Features - LN Common - juego - GameCard should match the sn
           >
             Criptograma
           </h2>
-          <div
-            class="pt-8_m"
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-32 px-12 py-8 cardGame__hover opacity-1__hover bg-white --secondary"
+            data-variant="secondary"
+            title="Criptograma"
+            type="button"
           >
-            <button
-              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-32 px-12 py-8 cardGame__hover opacity-1__hover bg-white --secondary"
-              data-variant="secondary"
-              title="Criptograma"
-              type="button"
-            >
-              Jugar
-            </button>
-          </div>
+            Jugar
+          </button>
         </div>
       </div>
     </a>

@@ -53,3 +53,17 @@ export const getDescriptionData = (firstCard, parentLayout, description) => {
 
 export const getHrefLink = (type, section, link) =>
     type === 'Externo' ? addForwardSlash(section) : addForwardSlash(link);
+
+export const getButtonProps = (game, firstCard, parentLayout) => {
+    const isRanking = game === 'ranking';
+    const isOneHorizontalThreeVertical =
+        parentLayout === DIAGRAMATIONS.oneHorizontalThreeVertical;
+    const shouldApplyTopMargin = firstCard || !isOneHorizontalThreeVertical;
+
+    const buttonProps = {
+        ...(isRanking && { label: 'Ver Ranking' }),
+        ...(shouldApplyTopMargin && { className: 'mt-8_m' })
+    };
+
+    return buttonProps;
+};

@@ -7,12 +7,12 @@ export const mockConfigUserTypes = {
     unlogged: {
         buttonLogginText: 'INICIÁ SESIÓN',
         buttonSubscribeText: 'SUSCRIBITE',
-        buttonSubscribeHeader: 'SUSCRIBITE POR $250',
+        buttonSubscribeHeader: 'SUSCRIBITE GRATIS',
         containerClassName: 'jc-center'
     },
     logged: {
         buttonSubscribeText: 'SUSCRIBITE',
-        buttonSubscribeHeader: 'SUSCRIBITE POR $250',
+        buttonSubscribeHeader: 'SUSCRIBITE GRATIS',
         plan: 'Gratis',
         containerClassName: JC_BETWEEN
     },
