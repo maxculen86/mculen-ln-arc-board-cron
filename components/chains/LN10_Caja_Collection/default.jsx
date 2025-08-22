@@ -115,7 +115,8 @@ function CajaCollection(props) {
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website: isFoodit ? 'foodit' : 'la-nacion-ar'
+              website: isFoodit ? 'foodit' : 'la-nacion-ar',
+              staticMode: true
           })
         : [];
 

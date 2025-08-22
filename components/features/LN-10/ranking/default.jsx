@@ -22,7 +22,8 @@ function RankingFeature({ id: featureId }) {
     const {
         title = '',
         sectionId,
-        rankingLayout
+        rankingLayout,
+        isHome
     } = getRankingProps(layout, featureId, globalContent);
 
     const { articles = [] } =
@@ -31,7 +32,8 @@ function RankingFeature({ id: featureId }) {
             website || arcSite,
             layout,
             '',
-            'rankingArticlesSource'
+            'rankingArticlesSource',
+            isHome
         ) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
@@ -44,7 +46,7 @@ function RankingFeature({ id: featureId }) {
 
     const rules = diagramationRules(RANKING_LAYOUT) || [];
 
-    if (!articles?.length) return null;
+    if (!articles?.length && !isHome) return null;
 
     return (
         <Static id={featureId} htmlOnly>

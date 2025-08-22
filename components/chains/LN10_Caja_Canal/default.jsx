@@ -65,7 +65,8 @@ function CajaCanal(props) {
         isInSiteService,
         articlesFromCollectionSiteService,
         idsArticlesToExclude,
-        diagramation
+        diagramation,
+        isHome
     } = getDataChainCollection({
         idCollection,
         pageLayout,
@@ -91,7 +92,8 @@ function CajaCanal(props) {
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website
+              website,
+              staticMode: isHome
           })
         : [];
 

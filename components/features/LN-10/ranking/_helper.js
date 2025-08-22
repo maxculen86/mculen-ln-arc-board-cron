@@ -8,7 +8,8 @@ export const useRankingArticles = (
     website,
     layout,
     fromSection,
-    source
+    source,
+    isHome
 ) => {
     const data = useContent({
         source,
@@ -19,7 +20,8 @@ export const useRankingArticles = (
             website,
             layout,
             section: fromSection
-        }
+        },
+        staticMode: isHome
     });
 
     return hasArticles(data) ? data : {};
