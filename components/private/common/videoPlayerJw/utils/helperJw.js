@@ -76,28 +76,47 @@ export const getAlternativeDescription = (uploadDate, noteTitle) => {
         : baseDescription;
 };
 
-export const handleVideoEventsScript = (title, idVideo) => {
-    window.jwplayer(`${idVideo}`).on('ready', () => {
+export const handleVideoEventsScript = (
+    title,
+    idVideo,
+    initialVideoMode = ''
+) => {
+    const player = window.jwplayer(`${idVideo}`);
+    player.on('ready', () => {
         const element = document.querySelector('.video-player');
         if (element) element.classList.remove('bg-black');
     });
 
-    const events = [
-        { jwEvent: 'play', eventName: 'videoPlay' },
-        { jwEvent: 'pause', eventName: 'videoPause' }
-    ];
+    let firstPlay = true;
 
-    events.forEach(event => {
-        window.jwplayer(`${idVideo}`).on(event.jwEvent, () => {
-            addEventToDataLayerV2({
-                event: event.eventName,
-                videoName: `${title}`,
-                videoID: `${idVideo}`
-            });
+    player.on('play', (e = {}) => {
+        let mode;
+        if (firstPlay && initialVideoMode) {
+            mode = initialVideoMode;
+        } else {
+            const reason = e.playReason;
+            const isAutoplay = reason === 'autostart' || reason === 'viewable';
+            mode = isAutoplay ? 'autoplay' : 'manual';
+        }
+        firstPlay = false;
+
+        addEventToDataLayerV2({
+            event: 'videoPlay',
+            videoName: `${title}`,
+            videoID: `${idVideo}`,
+            rest: { mode }
         });
     });
 
-    window.jwplayer(`${idVideo}`).on('time', e => {
+    player.on('pause', () => {
+        addEventToDataLayerV2({
+            event: 'videoPause',
+            videoName: `${title}`,
+            videoID: `${idVideo}`
+        });
+    });
+
+    player.on('time', e => {
         const percent = Math.floor((e.currentTime / e.duration) * 100);
         const percentagesToCheck = [25, 50, 75];
 
@@ -115,7 +134,7 @@ export const handleVideoEventsScript = (title, idVideo) => {
         });
     });
 
-    window.jwplayer(`${idVideo}`).on('complete', () => {
+    player.on('complete', () => {
         if (!isInDatalayerEvent('videoComplete', `${idVideo}`)) {
             addEventToDataLayerV2({
                 event: 'videoComplete',
@@ -163,6 +182,7 @@ export const getJWScript = (
     arcSite = ''
 ) => {
     const facadeDiv = document.getElementById(`facade-${idVideo}`);
+    let initialVideoMode;
 
     const setJwScript = () => {
         const scriptElement = document.createElement('script');
@@ -194,7 +214,7 @@ export const getJWScript = (
                 })
             });
 
-            handleVideoEventsScript(title, idVideo);
+            handleVideoEventsScript(title, idVideo, initialVideoMode);
         });
 
         if (facadeDiv) {
@@ -204,10 +224,14 @@ export const getJWScript = (
 
     if (hasAutoplay) {
         setTimeout(() => {
+            initialVideoMode = 'autoplay';
             setJwScript();
         }, 1000);
     } else {
-        facadeDiv.addEventListener('click', setJwScript);
+        facadeDiv.addEventListener('click', () => {
+            initialVideoMode = 'manual';
+            setJwScript();
+        });
     }
 
     addVideoDisplayEvent({ title, idVideo });

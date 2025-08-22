@@ -40,10 +40,11 @@ describe('Components - features - LN-10 - videoPlayer', () => {
             jest.restoreAllMocks();
         });
 
-        it('pushes the correct item to dataLayer when item_id exists', () => {
+        it('pushes the correct item to dataLayer when item_id exists and mode is provided', () => {
             productClickFromClientVideoJW(
                 mockElement,
-                'El juego ideal para esta Navidad en familia'
+                'El juego ideal para esta Navidad en familia',
+                'manual'
             );
 
             expect(window.dataLayer).toHaveLength(1);
@@ -57,6 +58,7 @@ describe('Components - features - LN-10 - videoPlayer', () => {
                     item_list_name: 'h_tema-03',
                     item_name: 'El juego ideal para esta Navidad en familia',
                     item_category: 'Actualidad',
+                    item_category2: 'manual',
                     price: 1,
                     index: 1,
                     quantity: 1

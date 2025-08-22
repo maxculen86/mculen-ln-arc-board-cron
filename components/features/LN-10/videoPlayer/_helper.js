@@ -15,7 +15,11 @@ export const validateVideoPlayer = ({ video, videoId }) => {
     return pageBuilderValidator(rules);
 };
 
-export const productClickFromClientVideoJW = (element = {}, name = '') => {
+export const productClickFromClientVideoJW = (
+    element = {},
+    name = '',
+    mode = ''
+) => {
     if (!element) return;
 
     const { dataset: articleDataSet = {} } = element;
@@ -55,6 +59,7 @@ export const productClickFromClientVideoJW = (element = {}, name = '') => {
         item_list_name: blockName,
         item_name: name,
         item_category: isLive ? diagramacionId : roof,
+        item_category2: mode,
         price: 1,
         index: 1,
         quantity: 1
