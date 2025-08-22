@@ -116,7 +116,7 @@ describe('CajaSegmentada', () => {
         renderables: [],
         customFields: {
             idCollection: 'test-collection',
-            segmentNumber: 1,
+            segment: 1,
             enabledDays: ['lunes', 'martes'],
             hideCaja: false,
             initialPosition: 1
