@@ -33,7 +33,7 @@ function AcumuladoFoodit(props) {
             <div className="flex flex-column gap-32">
                 <section className="flex flex-column gap-24">
                     <BreadcrumbFoodit globalContent={globalContent} />
-                    <div className="flex flex-column flex-row_md gap-16 gap-24_md">
+                    <div className="flex flex-column gap-16 gap-24_md">
                         <Text
                             as="h1"
                             className="prumo prumo-semibold text-28 text-40_md text-48_lg min-w-fit"
@@ -43,7 +43,9 @@ function AcumuladoFoodit(props) {
                         <TagCategories tagLinks={tagCategories} />
                     </div>
                 </section>
-                <section className="grid gap-32">{renderAcu}</section>
+                <section className="flex flex-column gap-40">
+                    {renderAcu}
+                </section>
             </div>
         </BaseLayout>
     );

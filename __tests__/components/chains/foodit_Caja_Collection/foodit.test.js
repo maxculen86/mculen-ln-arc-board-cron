@@ -123,6 +123,7 @@ describe('Tests Chain FOODIT Caja Collection', () => {
                 link: 'https://linktecho.com.ar',
                 hideTitle: false,
                 hideCaja: false,
+                carouselMobile: false,
                 layout: 'carousel'
             };
             const props = {
@@ -130,18 +131,57 @@ describe('Tests Chain FOODIT Caja Collection', () => {
                 customFields
             };
 
-            render(<CajaCollection {...props} />);
+            const { container } = render(<CajaCollection {...props} />);
             const link = screen.getByText('Titulo techo');
             const buttonRoof = screen.getByRole('button', {
                 name: 'Guardar todo'
             });
+            const classNameCarousel = container.querySelector('.hide-mobile');
 
             expect(buttonRoof).toBeTruthy();
+            expect(classNameCarousel).toBeInTheDocument();
             expect(buttonRoof).toBeInTheDocument();
             expect(link).toBeInTheDocument();
             expect(link.href).toEqual('https://linktecho.com.ar/');
             expect(link.textContent).toEqual('Titulo techo');
             delete global.IntersectionObserver;
+            expect(container).toMatchSnapshot();
+        });
+
+        test('should not have the class .hide-mobile if carousel mobile is true', () => {
+            global.IntersectionObserver = jest.fn((callback, options) => {
+                return {
+                    observe: jest.fn(() => {
+                        callback([{ isIntersecting: true }]);
+                    }),
+                    disconnect: jest.fn(),
+                    unobserve: jest.fn()
+                };
+            });
+
+            useGetArticleInCollectionFoodit.mockImplementation(
+                () => articlesCollection
+            );
+
+            const customFields = {
+                idCollection: 'ASDWQSCZXVASDASD',
+                initialPosition: 1,
+                title: 'Titulo techo',
+                link: 'https://linktecho.com.ar',
+                hideTitle: false,
+                hideCaja: false,
+                carouselMobile: true,
+                layout: 'carousel'
+            };
+            const props = {
+                customFields
+            };
+
+            const { container } = render(<CajaCollection {...props} />);
+            const classNameCarousel = container.querySelector('.hide-mobile');
+
+            expect(classNameCarousel).not.toBeInTheDocument();
+            expect(container).toMatchSnapshot();
         });
 
         test('should show collection carousel_4', () => {
@@ -166,6 +206,7 @@ describe('Tests Chain FOODIT Caja Collection', () => {
                 link: 'https://linktecho.com.ar',
                 hideTitle: false,
                 hideCaja: false,
+                carouselMobile: false,
                 layout: 'carousel_4'
             };
             const props = {
@@ -173,13 +214,15 @@ describe('Tests Chain FOODIT Caja Collection', () => {
                 customFields
             };
 
-            render(<CajaCollection {...props} />);
+            const { container } = render(<CajaCollection {...props} />);
+            const classNameCarousel = container.querySelector('.hide-mobile');
             const link = screen.getByText('Titulo techo');
             const buttonRoof = screen.getByRole('button', {
                 name: 'Guardar todo'
             });
 
             expect(buttonRoof).toBeTruthy();
+            expect(classNameCarousel).toBeInTheDocument();
             expect(buttonRoof).toBeInTheDocument();
             expect(link).toBeInTheDocument();
             expect(link.href).toEqual('https://linktecho.com.ar/');

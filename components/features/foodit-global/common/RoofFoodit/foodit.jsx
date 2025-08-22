@@ -10,12 +10,16 @@ export function RoofFoodit({
     hide,
     icon,
     title = {},
-    linkProps = {}
+    linkProps = {},
+    carouselMobile
 }) {
     const { text = '', as = 'h3' } = title;
     if (hide) return null;
     return (
-        <div className="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky">
+        <div
+            style={{ position: carouselMobile && 'static' }}
+            className="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky"
+        >
             {linkProps.href ? (
                 <Link
                     className="roof-text-sticky ml-16 ml-0_md border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-lechuga__hover"
@@ -67,7 +71,8 @@ RoofFoodit.propTypes = {
     linkProps: PropTypes.shape({
         href: PropTypes.string,
         text: PropTypes.string
-    })
+    }),
+    carouselMobile: PropTypes.bool
 };
 
 RoofFoodit.defaultProps = {
@@ -80,7 +85,8 @@ RoofFoodit.defaultProps = {
     linkProps: {
         href: '',
         text: ''
-    }
+    },
+    carouselMobile: false
 };
 
 export default RoofFoodit;

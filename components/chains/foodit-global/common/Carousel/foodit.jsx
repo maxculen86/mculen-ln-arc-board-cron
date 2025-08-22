@@ -8,7 +8,11 @@ const CustomButtonTag = React.forwardRef((props, ref) => (
     <Button variant="secondary" rounded="rounded-circle" ref={ref} {...props} />
 ));
 
-export function Carousel({ children, type }) {
+export function Carousel({ children, type, carouselMobile }) {
+    const classCarouselMobile = carouselMobile
+        ? 'pt-24 pt-0_md'
+        : 'hide-mobile';
+
     const dataTestId = {
         nutritional: 'container-carousel-nutritional',
         category: 'container-category-cards-carousel',
@@ -18,8 +22,8 @@ export function Carousel({ children, type }) {
     const classMediaScroller = {
         nutritional: '--info-nutricional',
         category: '--carousel-category',
-        collection: 'hide-mobile',
-        collection_4: 'hide-mobile'
+        collection: classCarouselMobile,
+        collection_4: classCarouselMobile
     };
     const propsTrack = {
         nutritional: { fullWidth: true },
@@ -72,7 +76,12 @@ export function Carousel({ children, type }) {
 
 Carousel.propTypes = {
     children: PropTypes.node.isRequired,
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
+    carouselMobile: PropTypes.bool
+};
+
+Carousel.defaultProps = {
+    carouselMobile: false
 };
 
 export default Carousel;

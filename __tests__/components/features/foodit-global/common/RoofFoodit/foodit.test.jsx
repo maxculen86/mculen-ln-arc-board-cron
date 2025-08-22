@@ -45,6 +45,12 @@ describe('Tests RoofFoodit', () => {
 
         expect(container.firstChild).toBeNull();
     });
+
+    it('should have style static when carouselMobile is true', () => {
+        const props = { ...defaultMockProps, carouselMobile: true };
+        const { container } = render(<RoofFoodit {...props} />);
+        expect(container.firstChild).toHaveStyle('position: static');
+    });
     it('Should match snapshot', () => {
         const { container } = render(<RoofFoodit {...defaultMockProps} />);
         expect(container).toMatchSnapshot();

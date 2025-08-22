@@ -1,0 +1,1743 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have the class .hide-mobile if carousel mobile is true 1`] = `
+<div>
+  <div
+    id="carousel-1"
+    style="scroll-margin-top: 80px; scroll-behavior: smooth;"
+  >
+    <div
+      class="carousel-container"
+    >
+      <div
+        class="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky"
+        style="position: static;"
+      >
+        <a
+          class="link foodit-link flex gap-8 ai-center roboto-regular roof-text-sticky ml-16 ml-0_md border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-lechuga__hover"
+          data-variant="primary"
+          href="https://linktecho.com.ar"
+          target="_self"
+          title="Ir a Titulo techo"
+        >
+          Titulo techo
+        </a>
+        <button
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto pr-16 pr-0_md"
+          data-collectionid="ASDWQSCZXVASDASD"
+          data-variant="link"
+          text="Guardar todo"
+          title="Guardar todo"
+        >
+          <i
+            class="icon w-24 w-20_md --dark"
+          >
+            <mock-icon
+              critical="false"
+              name="bookmark-plus"
+            />
+          </i>
+          <span
+            class="text text-12 sm-none uppercase"
+          >
+            Guardar todo
+          </span>
+        </button>
+      </div>
+      <div
+        class="media-scroller relative flex flex-column gap-16 pt-24 pt-0_md"
+        data-scroller="container"
+      >
+        <ul
+          class="relative --full-width"
+          data-scroller="track"
+          data-scroller-elements="8"
+          data-testid="container-cards-carousel"
+        >
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card--comun-6LWA56W2Q5CTLKNU7UEBLABMM4"
+              data-variant=""
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                target="_self"
+                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+              >
+                <div
+                  class="relative w-100"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Merkel, mostró su satisfacción, tras la votación del fondo de rescate"
+                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                      >
+                        Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14"
+                      >
+                        Por Carlos Pagni
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-6LWA56W2Q5CTLKNU7UEBLABMM4"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card--comun-UV32UCCHWZH6LKMZKHGOQJHR4I"
+              data-variant=""
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                target="_self"
+                title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+              >
+                <div
+                  class="relative w-100"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                      >
+                        Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14"
+                      >
+                        Por Celina Chatruc
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-UV32UCCHWZH6LKMZKHGOQJHR4I"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card--comun-KLCMCRBJMFCUBFE55NDGERCTJQ"
+              data-variant=""
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
+                target="_self"
+                title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+              >
+                <div
+                  class="relative w-100"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                      />
+                      <img
+                        alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                      >
+                        Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14"
+                      >
+                        Por Francisco Jueguen
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-KLCMCRBJMFCUBFE55NDGERCTJQ"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card--comun-HSPZIST4PJC2VHU3KCSFV7LHFA"
+              data-variant=""
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
+                target="_self"
+                title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
+              >
+                <div
+                  class="relative w-100"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                      />
+                      <img
+                        alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
+                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                      >
+                        El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14"
+                      >
+                        Por Redacción - BBC News Mundo
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="HSPZIST4PJC2VHU3KCSFV7LHFA"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-HSPZIST4PJC2VHU3KCSFV7LHFA"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card--comun-GVFJYOZFHZAR7G6JCFNMQDXVCA"
+              data-variant=""
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
+                target="_self"
+                title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+              >
+                <div
+                  class="relative w-100"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                      />
+                      <img
+                        alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                      >
+                        El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14"
+                      >
+                        Por José Luis Domínguez
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card--comun-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+              data-variant=""
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/deportes/test-noticia-en-arc-nid16032021-2/"
+                target="_self"
+                title="Test noticia en ARC"
+              >
+                <div
+                  class="relative w-100"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                      />
+                      <img
+                        alt="Test noticia en ARC"
+                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                      >
+                        Test noticia en ARC
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14"
+                      >
+                        Por Tomás Girón
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-positive max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card-note-comun-QXMSDT6FFZBAPI4IMLUZRZOOLI"
+              data-variant="note"
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/revista-living/test-noticia-en-arc-nid03012023/"
+                target="_self"
+                title="Test noticia en ARC"
+              >
+                <div
+                  class="relative w-100 px-16 pt-16"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                      />
+                      <source
+                        media="(min-width: 375px)"
+                        srcset="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                      />
+                      <img
+                        alt="Test noticia en ARC"
+                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-semibold prumo-medium text-20 text-ellipsis-2"
+                      >
+                        Test noticia en ARC
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14 mb-24"
+                      >
+                        Por Foodit
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li
+            class=""
+            data-scroller="element"
+          >
+            <article
+              class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+              data-container="grid"
+              data-test-id="card--comun-M3JPASZJAVBIRIZPVCSSVBUAHI"
+              data-variant=""
+            >
+              <a
+                class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                data-variant="primary"
+                href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                target="_self"
+                title="Bullrich visita El Calafate y presenta libro"
+              >
+                <div
+                  class="relative w-100"
+                >
+                  <div
+                    class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                  >
+                    <img
+                      alt="Bullrich visita El Calafate y presenta libro"
+                      class="image flex object-cover card-image ratio-3-2 w-100 none --cover"
+                      decoding="async"
+                      fetchpriority="low"
+                      loading="lazy"
+                      src=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                >
+                  <div
+                    class="flex flex-column gap-12"
+                  >
+                    <div
+                      class="flex flex-column gap-4"
+                    >
+                      <h2
+                        class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                      >
+                        Bullrich visita El Calafate y presenta libro
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    class="flex gap-16 text-light-800 ai-center"
+                  >
+                    <div
+                      class="flex flex-column gap-8 flex-grow-1"
+                    >
+                      <span
+                        class="text text-14"
+                      >
+                        Por Mariela Arias
+                      </span>
+                    </div>
+                    <button
+                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                      data-father-type="carousel"
+                      data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                      data-modal="open-modal"
+                      data-test-id="button-bookmark-M3JPASZJAVBIRIZPVCSSVBUAHI"
+                      data-variant="link"
+                      title="Guardar receta"
+                    >
+                      <i
+                        class="icon w-24 --dark"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      <span
+                        class="uppercase none"
+                      >
+                        Guardar
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tests Chain FOODIT Caja Collection Tests cases success should show collection carousel 1`] = `
+<div>
+  <div>
+    <div
+      class="hidden"
+    >
+      <div
+        class="carousel-container"
+      >
+        <div
+          class="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky"
+        >
+          <a
+            class="link foodit-link flex gap-8 ai-center roboto-regular roof-text-sticky ml-16 ml-0_md border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-lechuga__hover"
+            data-variant="primary"
+            href="https://linktecho.com.ar"
+            target="_self"
+            title="Ir a Titulo techo"
+          >
+            Titulo techo
+          </a>
+          <button
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto pr-16 pr-0_md"
+            data-collectionid="ASDWQSCZXVASDASD"
+            data-variant="link"
+            text="Guardar todo"
+            title="Guardar todo"
+          >
+            <i
+              class="icon w-24 w-20_md --dark"
+            >
+              <mock-icon
+                critical="false"
+                name="bookmark-plus"
+              />
+            </i>
+            <span
+              class="text text-12 sm-none uppercase"
+            >
+              Guardar todo
+            </span>
+          </button>
+        </div>
+        <div
+          class="media-scroller relative flex flex-column gap-16 hide-mobile"
+          data-scroller="container"
+        >
+          <ul
+            class="relative --full-width"
+            data-scroller="track"
+            data-scroller-elements="8"
+            data-testid="container-cards-carousel"
+          >
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card--comun-6LWA56W2Q5CTLKNU7UEBLABMM4"
+                data-variant=""
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
+                  title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                >
+                  <div
+                    class="relative w-100"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 1024px)"
+                          srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                        />
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                        />
+                        <img
+                          alt="Merkel, mostró su satisfacción, tras la votación del fondo de rescate"
+                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                        >
+                          Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14"
+                        >
+                          Por Carlos Pagni
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-6LWA56W2Q5CTLKNU7UEBLABMM4"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card--comun-UV32UCCHWZH6LKMZKHGOQJHR4I"
+                data-variant=""
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <div
+                    class="relative w-100"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 1024px)"
+                          srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                        />
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                        />
+                        <img
+                          alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                        >
+                          Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14"
+                        >
+                          Por Celina Chatruc
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-UV32UCCHWZH6LKMZKHGOQJHR4I"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card--comun-KLCMCRBJMFCUBFE55NDGERCTJQ"
+                data-variant=""
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
+                  target="_self"
+                  title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+                >
+                  <div
+                    class="relative w-100"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 1024px)"
+                          srcset="https://resizer.glanacion.com/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                        />
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="https://resizer.glanacion.com/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                        />
+                        <img
+                          alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                        >
+                          Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14"
+                        >
+                          Por Francisco Jueguen
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-KLCMCRBJMFCUBFE55NDGERCTJQ"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card--comun-HSPZIST4PJC2VHU3KCSFV7LHFA"
+                data-variant=""
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
+                  target="_self"
+                  title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
+                >
+                  <div
+                    class="relative w-100"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 1024px)"
+                          srcset="https://resizer.glanacion.com/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                        />
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="https://resizer.glanacion.com/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                        />
+                        <img
+                          alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
+                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                        >
+                          El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14"
+                        >
+                          Por Redacción - BBC News Mundo
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="HSPZIST4PJC2VHU3KCSFV7LHFA"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-HSPZIST4PJC2VHU3KCSFV7LHFA"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card--comun-GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                data-variant=""
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
+                  target="_self"
+                  title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+                >
+                  <div
+                    class="relative w-100"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 1024px)"
+                          srcset="https://resizer.glanacion.com/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                        />
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="https://resizer.glanacion.com/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                        />
+                        <img
+                          alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                        >
+                          El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14"
+                        >
+                          Por José Luis Domínguez
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card--comun-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                data-variant=""
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/deportes/test-noticia-en-arc-nid16032021-2/"
+                  target="_self"
+                  title="Test noticia en ARC"
+                >
+                  <div
+                    class="relative w-100"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="https://resizer.glanacion.com/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                        />
+                        <img
+                          alt="Test noticia en ARC"
+                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                        >
+                          Test noticia en ARC
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14"
+                        >
+                          Por Tomás Girón
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-positive max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card-note-comun-QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                data-variant="note"
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/revista-living/test-noticia-en-arc-nid03012023/"
+                  target="_self"
+                  title="Test noticia en ARC"
+                >
+                  <div
+                    class="relative w-100 px-16 pt-16"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 1024px)"
+                          srcset="https://resizer.glanacion.com/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                        />
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="https://resizer.glanacion.com/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                        />
+                        <source
+                          media="(min-width: 375px)"
+                          srcset="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                        />
+                        <img
+                          alt="Test noticia en ARC"
+                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-semibold prumo-medium text-20 text-ellipsis-2"
+                        >
+                          Test noticia en ARC
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14 mb-24"
+                        >
+                          Por Foodit
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li
+              class=""
+              data-scroller="element"
+            >
+              <article
+                class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+                data-container="grid"
+                data-test-id="card--comun-M3JPASZJAVBIRIZPVCSSVBUAHI"
+                data-variant=""
+              >
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+                  data-variant="primary"
+                  href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  target="_self"
+                  title="Bullrich visita El Calafate y presenta libro"
+                >
+                  <div
+                    class="relative w-100"
+                  >
+                    <div
+                      class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+                    >
+                      <img
+                        alt="Bullrich visita El Calafate y presenta libro"
+                        class="image flex object-cover card-image ratio-3-2 w-100 none --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+                  >
+                    <div
+                      class="flex flex-column gap-12"
+                    >
+                      <div
+                        class="flex flex-column gap-4"
+                      >
+                        <h2
+                          class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-2"
+                        >
+                          Bullrich visita El Calafate y presenta libro
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="flex gap-16 text-light-800 ai-center"
+                    >
+                      <div
+                        class="flex flex-column gap-8 flex-grow-1"
+                      >
+                        <span
+                          class="text text-14"
+                        >
+                          Por Mariela Arias
+                        </span>
+                      </div>
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-M3JPASZJAVBIRIZPVCSSVBUAHI"
+                        data-variant="link"
+                        title="Guardar receta"
+                      >
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
