@@ -30,6 +30,7 @@
 }
 .ln-liveblog li:last-child {
   border: none;
+  margin-left: 1px;
 }
 .ln-card {
   overflow-wrap: break-word;
