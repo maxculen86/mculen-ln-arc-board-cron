@@ -16,8 +16,8 @@ export const isTodayEnabled = (enabledDays = []) => {
     return normalizedEnabledDays.includes(diasSemana[new Date().getDay()]);
 };
 
-export const isSegmentInUserSegments = (userSegments, segmentNumber) =>
-    Array.isArray(userSegments) && userSegments.includes(segmentNumber);
+export const isSegmentInUserSegments = (userSegments, segment) =>
+    Array.isArray(userSegments) && userSegments.includes(segment);
 
 export const hasValidationFailed = ({
     isAdmin,

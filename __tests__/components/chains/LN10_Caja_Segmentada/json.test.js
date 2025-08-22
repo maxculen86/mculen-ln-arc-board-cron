@@ -52,7 +52,7 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
             requestUri: '',
             customFields: {
                 idCollection: 'test-collection',
-                segmentNumber: 'test-segment',
+                segment: 'test-segment',
                 initialPosition: 1,
                 title: 'Test Title',
                 hideTitle: false
@@ -140,7 +140,7 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
             expect(validateChain).toHaveBeenCalledWith(
                 {
                     idCollection: 'test-collection',
-                    segmentNumber: 'test-segment',
+                    segment: 'test-segment',
                     articles: []
                 },
                 true
@@ -182,7 +182,7 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
             expect(validateChain).toHaveBeenCalledWith(
                 {
                     idCollection: 'test-collection',
-                    segmentNumber: 'test-segment',
+                    segment: 'test-segment',
                     articles: []
                 },
                 true
@@ -211,7 +211,7 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
             expect(result).toEqual({
                 information: {
                     idCollection: 'test-collection',
-                    segmentNumber: 'test-segment',
+                    segment: 'test-segment',
                     layout: 'bn_3_grid',
                     noteCount: 3,
                     initialPosition: 0,
@@ -231,7 +231,7 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
         it('should handle missing optional properties', () => {
             mockProps.customFields = {
                 idCollection: 'test-collection',
-                segmentNumber: 'test-segment',
+                segment: 'test-segment',
                 enabledDays: ['lunes', 'martes']
             };
             validateChain.mockReturnValue(null);
@@ -254,7 +254,7 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
             expect(result).toEqual({
                 information: {
                     idCollection: 'test-collection',
-                    segmentNumber: 'test-segment',
+                    segment: 'test-segment',
                     layout: 'bn_3_grid',
                     noteCount: 3,
                     initialPosition: 0,

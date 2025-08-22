@@ -8,7 +8,7 @@ export const boxInfoCajaSegmentada = (information, section, typeSection) => {
             parameters: {
                 buttonLogo: information?.buttonLogo,
                 idCollection: information?.idCollection || null,
-                idSegment: information?.segmentNumber || null,
+                idSegment: information?.segment || null,
                 from: information?.initialPosition ?? 0,
                 logoId: information?.logoId,
                 noteCount: information?.noteCount || 3,

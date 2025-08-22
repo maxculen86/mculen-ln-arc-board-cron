@@ -2,11 +2,7 @@ import { useState, useEffect } from 'react';
 import { getUserSegments } from '../api/segmentationService';
 import { isSegmentInUserSegments } from '../../_helpers';
 
-export function useSegmentMatch(
-    segmentNumber,
-    hasEnteredViewport,
-    validationFailed
-) {
+export function useSegmentMatch(segment, hasEnteredViewport, validationFailed) {
     const [loading, setLoading] = useState(false);
     const [segmentMatches, setSegmentMatches] = useState(false);
     const [attemptedLoad, setAttemptedLoad] = useState(false);
@@ -24,7 +20,7 @@ export function useSegmentMatch(
             try {
                 const userSegments = await getUserSegments();
                 setSegmentMatches(
-                    isSegmentInUserSegments(userSegments, segmentNumber)
+                    isSegmentInUserSegments(userSegments, segment)
                 );
             } catch (error) {
                 console.error('Error en useSegmentMatch:', error);

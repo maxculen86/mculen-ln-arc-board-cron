@@ -1,7 +1,7 @@
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 
 export const validateChain = (
-    { idCollection, segmentNumber, articles = [] },
+    { idCollection, segment, articles = [] },
     shouldValidateCollectionArticles = false
 ) => {
     const idCollectionTrimmed = idCollection?.trim();
@@ -11,7 +11,7 @@ export const validateChain = (
             message: 'Se requiere el id de la colección'
         },
         {
-            validation: !segmentNumber,
+            validation: !segment,
             message: 'Se requiere configurar el id del segmento'
         },
         {

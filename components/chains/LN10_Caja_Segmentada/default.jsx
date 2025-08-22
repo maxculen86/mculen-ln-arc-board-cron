@@ -39,7 +39,7 @@ function CajaSegmentada(props) {
 
     const {
         idCollection,
-        segmentNumber = 0,
+        segment = '',
         enabledDays = [],
         hideCaja = false,
         initialPosition,
@@ -63,7 +63,7 @@ function CajaSegmentada(props) {
 
     const configError = validateChain({
         idCollection,
-        segmentNumber
+        segment
     });
 
     const validationFailed = hasValidationFailed({
@@ -81,7 +81,7 @@ function CajaSegmentada(props) {
         loading: isLoadingSegmentation,
         segmentMatches,
         attemptedLoad
-    } = useSegmentMatch(segmentNumber, hasEnteredViewport, validationFailed);
+    } = useSegmentMatch(segment, hasEnteredViewport, validationFailed);
 
     const shouldFetch = shouldFetchContent({
         validationFailed,
@@ -134,7 +134,7 @@ function CajaSegmentada(props) {
                 chainId,
                 viewabilityData: {
                     ...viewabilityData,
-                    Segmento_ID: segmentNumber
+                    Segmento_ID: segment
                 },
                 isAdmin,
                 error: configError,
@@ -265,11 +265,10 @@ CajaSegmentada.propTypes = {
             labels: typesButtonStyle,
             hidden: false
         }),
-        segmentNumber: PropTypes.number.tag({
-            name: 'Numero de Segmento',
-            description:
-                'Ingrese el ID numérico del segmento para el mostrar la caja (ej: 1, 2, 3)',
-            defaultValue: 0
+        segment: PropTypes.string.tag({
+            name: 'ID de Segmento',
+            description: 'Ingrese el ID del segmento para el mostrar la caja',
+            defaultValue: ''
         }),
         enabledDays: PropTypes.list.tag({
             name: 'Días habilitados',
