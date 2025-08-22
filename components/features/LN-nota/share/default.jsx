@@ -75,7 +75,7 @@ function Share() {
         subtypeVideo,
         modShareContainerSubClasses,
         {
-            'border-transparent': subtype === LIVEBLOG_EDITORIAL
+            'border-transparent py-24_m': subtype === LIVEBLOG_EDITORIAL
         }
     );
 
