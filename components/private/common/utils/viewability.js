@@ -153,12 +153,14 @@ export const getDataSetProps = element => {
     return {};
 };
 
-export const productClickFromClient = (element = {}) => {
+export const productClickFromClient = (element = {}, mode = '') => {
     const { item } = getDataSetProps(element.currentTarget);
     if (item.item_id) {
+        const itemToSend = mode ? { ...item, item_category2: mode } : item;
+
         window?.dataLayer?.push({
-            event: `productClickScore`,
-            item
+            event: 'productClickScore',
+            item: itemToSend
         });
     }
     return true;

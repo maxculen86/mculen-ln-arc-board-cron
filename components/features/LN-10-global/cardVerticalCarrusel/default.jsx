@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 import { Cardv2 } from '@ln/contenidos-ui-cardv2';
 import { Icon } from '@ln/common-ui-icon';
@@ -27,13 +28,19 @@ function CardVertical({
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
 
+    const { globalContent = {} } = useAppContext();
+    const { _id = '' } = globalContent;
+    const skipProductClickScore =
+        _id.includes('quesale') || _id.includes('que-sale');
+
     const { setCurrentIndex, onOpenMediaScrollerExpanded } =
         useCajaCarruselContext();
 
     const containerCardRef = useRef(null);
 
     const handleProductClick = event => {
-        productClickFromClient(event);
+        if (skipProductClickScore) return;
+        productClickFromClient(event, 'manual');
     };
 
     const isDesktop = !isSSR() && window?.innerWidth > 1279;

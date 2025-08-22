@@ -38,12 +38,18 @@ window.addEventListener('load', function () {
                     setVideoStatus(mediaId);
                     const videoState = getVideoStatus(mediaId);
 
-                    instance.on('play', () => {
+                    instance.on('play', (e = {}) => {
+                        const reason = e?.playReason;
+                        const isAutoplay =
+                            reason === 'autostart' || reason === 'viewable';
+
+                        const mode = isAutoplay ? 'autoplay' : 'manual';
                         addEventToDataLayerV2({
                             event: 'videoPlay',
                             rest: {
                                 videoName: title || '',
-                                videoID: mediaId || ''
+                                videoID: mediaId || '',
+                                mode
                             }
                         });
 
@@ -54,7 +60,8 @@ window.addEventListener('load', function () {
                         ) {
                             productClickFromClientVideoJW(
                                 articleElement,
-                                title || ''
+                                title || '',
+                                mode
                             );
                         }
 
