@@ -31,6 +31,7 @@ import MarqueeHighlight from '../../LN-10-global/common/marqueeHighlight/default
 import VideoCommonJw from '../../LN-10-global/common/videoCommon/default';
 import { validateVideoPlayer } from '../videoPlayer/_helper';
 import useTermica from '../../../private/common/hooks/useTermica';
+import useGetVideoData from './common/hooks/useGetVideoConfig';
 
 function LN10VideoPlayerNota({ id: featureId, customFields }) {
     const {
@@ -82,18 +83,13 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
 
     const withSubhead = validateSubhead(config, false, customFields, 'regular');
 
-    const videoData = useContent({
-        source: checkForId(videoId) ? 'videosJwSource' : null,
-        query: {
-            id: checkForId(videoId),
-            website: 'la-nacion-ar',
-            imageConfig: 'videoHorizontal'
-        }
+    const videoData = useGetVideoData({
+        videoId,
+        imageConfig: 'videoHorizontal',
+        staticMode: true
     });
 
-    const mediaId = videoData?.mediaid;
-    const videoTitle = videoData?.title || '';
-    const playlist = videoData ? [{ ...videoData, title: '' }] : [];
+    const { title: videoTitle, mediaId, playlist } = videoData || {};
 
     const videoConfig = {
         videoId,
