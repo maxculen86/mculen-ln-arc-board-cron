@@ -16,7 +16,8 @@ export const layoutsListWithPageview = [
     'LN10-Home_Main',
     'LN-acumulado',
     'LN-Nota-Liveblog_Editorial',
-    'LN-Nota-Video-100'
+    'LN-Nota-Video-100',
+    'LN-Nota-Cards'
 ];
 
 const getPageType = (layout = '', section = '') => {

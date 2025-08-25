@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-    getLiveBlogEditorialDataApertura,
-    getMediaItem
-} from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura';
+import { getLiveBlogEditorialDataApertura } from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura';
+import { getMediaItem } from '../../../../../components/layouts/_helpers/mediaHelper';
 import dateAndTimeUtil, {
     isOlderThanXHoursAgo
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
@@ -70,19 +68,10 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura',
-    () => ({
-        ...jest.requireActual(
-            '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura'
-        ),
-        getEpigrafe: jest.fn()
-    })
-);
-
-jest.mock(
     '../../../../../components/private/common/utils/epigrafeAndCreditsData',
     () => ({
-        epigrafeAndCreditsData: jest.fn()
+        __esModule: true,
+        default: jest.fn()
     })
 );
 
