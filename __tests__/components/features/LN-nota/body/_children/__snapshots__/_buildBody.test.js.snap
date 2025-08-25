@@ -2635,7 +2635,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="interstitial-container container-center-100"
+    class="interstitial-container container-center-100 pb-32"
     outputtype="default"
   >
     <div
@@ -6052,7 +6052,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <div
-    class="interstitial-container container-center-100"
+    class="interstitial-container container-center-100 pb-32"
     outputtype="default"
   >
     <div
@@ -9469,7 +9469,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <div
-    class="interstitial-container container-center-100"
+    class="interstitial-container container-center-100 pb-32"
     outputtype="default"
   >
     <div
