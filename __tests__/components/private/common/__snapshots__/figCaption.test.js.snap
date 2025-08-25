@@ -2,10 +2,29 @@
 
 exports[`Components - Features - LN-10-global - Common - FigureCaption should not render figcaption without epigraphTitle 1`] = `<div />`;
 
+exports[`Components - Features - LN-10-global - Common - FigureCaption should render figcaption with className 1`] = `
+<div>
+  <figcaption
+    class="border border-1 border-bottom border-light-300 relative px-16 py-8 min-h-36 w-100_md bg-white"
+  >
+    <span
+      class="text ln-text text-16 block"
+    >
+      mocked content
+    </span>
+    <span
+      class="text ln-text text-16 text-dark-neutral-400 block"
+    >
+      mocked credit
+    </span>
+  </figcaption>
+</div>
+`;
+
 exports[`Components - Features - LN-10-global - Common - FigureCaption should render figcaption with epigraphTitle but without credit 1`] = `
 <div>
   <figcaption
-    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md"
+    class="border border-1 border-bottom border-light-300 relative px-16 py-8 min-h-36 w-100_md"
   >
     <span
       class="text ln-text text-16 block"
@@ -19,7 +38,7 @@ exports[`Components - Features - LN-10-global - Common - FigureCaption should re
 exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle 1`] = `
 <div>
   <figcaption
-    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md"
+    class="border border-1 border-bottom border-light-300 relative px-16 py-8 min-h-36 w-100_md"
   >
     <span
       class="text ln-text text-16 block"
@@ -33,7 +52,7 @@ exports[`Components - Features - LN-10-global - Common - FigureCaption should re
 exports[`Components - Features - LN-10-global - Common - FigureCaption should render the figcaption with epigraphTitle and credit 1`] = `
 <div>
   <figcaption
-    class="border border-1 border-bottom border-light-300 bg-white relative px-16 py-8 min-h-36 w-100_md"
+    class="border border-1 border-bottom border-light-300 relative px-16 py-8 min-h-36 w-100_md"
   >
     <span
       class="text ln-text text-16 block"

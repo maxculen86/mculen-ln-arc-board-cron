@@ -5,7 +5,11 @@ import { cx } from '@ln/cva';
 import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
-import { configClassName, getVerticalPlayer } from './utils/helperJw';
+import {
+    configClassName,
+    getCaptionBgClass,
+    getVerticalPlayer
+} from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import getSourcesJw from '../../LN/common/utils/getSourcesJw';
 import FigureCaption from '../../../features/LN-10-global/common/figCaption/default';
@@ -54,6 +58,8 @@ const videoPlayerJW = ({
         VIDEOAL100
     ].includes(subtype);
 
+    const bgClass = getCaptionBgClass(subtype);
+
     const shouldShowFigureCaption =
         !isPromoItemVideo || !isSubtypeWithoutFigureCaption;
 
@@ -82,6 +88,8 @@ const videoPlayerJW = ({
         mediaContainer,
         mediaContainerClassesProps
     );
+
+    const captionFigureClasses = cx(captionClasses, bgClass);
 
     return (
         <Static id={mediaid}>
@@ -120,7 +128,7 @@ const videoPlayerJW = ({
                         {shouldShowFigureCaption && (
                             <FigureCaption
                                 epigraphTitle={epigraphTitle}
-                                className={captionClasses}
+                                className={captionFigureClasses}
                             />
                         )}
                     </figure>
