@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
+import '../../../../../../resources/dist/css/ln/components/com-lead.css';
+import '../../../../../../resources/dist/css/ln/modules/mod-linklist.css';
 
 function PullQuote({ data, className, ...r }) {
     const {
