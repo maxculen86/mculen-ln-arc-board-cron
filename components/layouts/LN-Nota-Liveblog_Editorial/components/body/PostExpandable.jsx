@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Accordion } from '@ln/common-ui-accordion';
 import { Text } from '@ln/contenidos-ui-text';
-import BuildLiveblogBody from './BuildLiveblogBody';
+import BuildBody from '../../../../features/LN-nota/body/_children/_buildBody';
+import { supportedTypesLiveblog } from '../../_helpers/liveblogEditorialBody';
 
 function PostExpandable({
     isOpen,
@@ -33,10 +34,14 @@ function PostExpandable({
                 </Text>
             </Accordion.Header>
             <Accordion.Body>
-                <BuildLiveblogBody
+                <BuildBody
                     groupedElements={hiddenTextItems}
                     outputType={outputType}
                     globalContent={globalContent}
+                    supportedTypesOverride={supportedTypesLiveblog}
+                    useCapitalIndex={false}
+                    useBanners={false}
+                    useCounter={false}
                 />
             </Accordion.Body>
         </Accordion>

@@ -39,11 +39,78 @@ export const setDataComponent = ({
     outputType,
     arcType
 }) =>
-    Component ? (
-        <Component
-            data={element}
-            capital={currentIndex === capitalIndex}
-            outputType={outputType}
-            {...(extraProps[arcType] || {})}
-        />
-    ) : null;
+    Component
+        ? React.createElement(Component, {
+              data: element,
+              capital: currentIndex === capitalIndex,
+              outputType,
+              ...(extraProps[arcType] || {})
+          })
+        : null;
+
+export const createExtraProps = (globalContent, elements, useCapitalIndex) => {
+    const { headlines: { basic: tituloNota } = {}, withSponsoredLink } =
+        globalContent;
+
+    const baseProps = {
+        tituloNota,
+        globalContent,
+        contentElements: elements,
+        withSponsoredLink
+    };
+
+    if (useCapitalIndex) {
+        baseProps.capitalIndex = elements.findIndex(v => v.type === 'text');
+    }
+
+    return setExtraProps(baseProps);
+};
+
+export const shouldRenderComponent = (Component, supportedTypes, nodeType) =>
+    Component && supportedTypes.includes(Component.arcType) && !nodeType.length;
+
+export const createCounter = () => {
+    let count = 0;
+    const increment = () => {
+        count += 1;
+        increment.counter = count;
+    };
+    increment.counter = count;
+    return increment;
+};
+
+export const createPropsFactory = ({
+    Component,
+    ComponentWithProps,
+    element,
+    currentIndex,
+    nodeType,
+    supportedTypes,
+    globalContent,
+    elements,
+    outputType,
+    incrementCounter
+}) => ({
+    Component,
+    ComponentWithProps,
+    element,
+    currentIndex,
+    nodeType,
+    supportedTypes,
+    arcType: Component?.arcType || '',
+    counter: incrementCounter.counter,
+    globalContent,
+    elements,
+    outputType,
+    incrementCounter
+});
+
+export const renderElementDefault = (
+    Component,
+    ComponentWithProps,
+    supportedTypes,
+    nodeType
+) =>
+    shouldRenderComponent(Component, supportedTypes, nodeType)
+        ? ComponentWithProps
+        : null;
