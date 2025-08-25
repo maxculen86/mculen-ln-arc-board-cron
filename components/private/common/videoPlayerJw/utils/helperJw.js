@@ -3,7 +3,10 @@ import {
     addVideoDisplayEvent
 } from '../../utils/videoPlayerHelper';
 
-import { FOTOAL100 } from '../../utils/subtypes/subtypeHelper';
+import {
+    FOTOAL100,
+    LIVEBLOG_EDITORIAL
+} from '../../utils/subtypes/subtypeHelper';
 import transformISODate from '../../utils/transformISODate';
 import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
 
@@ -236,3 +239,6 @@ export const getJWScript = (
 
     addVideoDisplayEvent({ title, idVideo });
 };
+
+export const getCaptionBgClass = subtype =>
+    subtype === LIVEBLOG_EDITORIAL ? 'bg-transparent' : 'bg-white';
