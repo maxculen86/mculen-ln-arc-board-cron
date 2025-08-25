@@ -2,7 +2,7 @@
 
 exports[`Interstitial renders correctly and matches snapshot 1`] = `
 <div
-  class="interstitial-container container-center-100"
+  class="interstitial-container container-center-100 pb-32"
   data-testid="interstitial"
 >
   <div

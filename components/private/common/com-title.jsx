@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import setClassName from './utils/setClassName';
+import '../../../resources/dist/css/ln/components/com-title.css';
 
 function ComTitle({
     lead,
