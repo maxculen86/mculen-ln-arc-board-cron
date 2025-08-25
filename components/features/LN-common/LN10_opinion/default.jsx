@@ -69,7 +69,7 @@ function Opinion(props) {
         renderables
     });
 
-    const { isInSiteService, idsArticlesToExclude, diagramation } =
+    const { isInSiteService, idsArticlesToExclude, diagramation, isHome } =
         getDataChainCollection({
             idCollectionOpinion,
             pageLayout,
@@ -93,7 +93,8 @@ function Opinion(props) {
         layout,
         notesQuantity,
         rules,
-        website
+        website,
+        isHome
     });
 
     const error = validateFeatureOpinion({
