@@ -24,6 +24,7 @@ window.addEventListener('load', function () {
             config || {};
 
         const facade = document.getElementById(`facade-${mediaId}`);
+        let initialMode = null;
         const setInstancePlayer = () =>
             loadJWPlayerScript(playerId, () => {
                 const instance = window.jwplayer && window.jwplayer(mediaId);
@@ -43,7 +44,10 @@ window.addEventListener('load', function () {
                         const isAutoplay =
                             reason === 'autostart' || reason === 'viewable';
 
-                        const mode = isAutoplay ? 'autoplay' : 'manual';
+                        const mode =
+                            initialMode ?? (isAutoplay ? 'autoplay' : 'manual');
+                        initialMode = null;
+
                         addEventToDataLayerV2({
                             event: 'videoPlay',
                             rest: {
@@ -98,9 +102,13 @@ window.addEventListener('load', function () {
             const isVisible = entry.isIntersecting;
             if (isVisible) {
                 if (facade && withAutoplay) {
+                    initialMode = 'autoplay';
                     setInstancePlayer();
                 } else {
-                    facade.addEventListener('click', setInstancePlayer);
+                    facade.addEventListener('click', () => {
+                        initialMode = 'manual';
+                        setInstancePlayer();
+                    });
                 }
                 observer.unobserve(articleElement);
             }
