@@ -5282,6 +5282,30 @@ a {
   animation-play-state: paused;
 }
 
+@media (min-width: 48rem) {
+  .rotate-0_m {
+    transform: rotate(0deg);
+  }
+}
+
+@media (min-width: 48rem) {
+  .rotate-180_m {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 47.994rem) {
+  .rotate-0_max767 {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 47.994rem) {
+  .rotate-180_max767 {
+    transform: rotate(180deg);
+  }
+}
+
 .ratio-1-1 {
   aspect-ratio: 1 / 1;
 }
@@ -7267,6 +7291,9 @@ strong:not(.--font-primary),
   }
   .ai-start_m {
     align-items: flex-start;
+  }
+  .ai-end_m {
+    align-items: flex-end;
   }
   .as-center_m {
     align-self: center;
