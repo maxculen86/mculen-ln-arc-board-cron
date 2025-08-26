@@ -63,7 +63,8 @@ function CardFoodit({ id: featureId, customFields }) {
         source: validVideoId ? 'fooditVideoSource' : null,
         query: {
             id: validVideoId,
-            imageConfig
+            imageConfig,
+            isInApertura: isOpening
         },
         staticMode: true,
         filter: videoJwFilter
