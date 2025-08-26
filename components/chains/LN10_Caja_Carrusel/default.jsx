@@ -10,7 +10,7 @@ import CajaCarruselProvider from './components/cajaCarruselContext';
 import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
 import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
 import MediaScroller from './components/mediaScroller/mediaScroller';
-import { transformNodes } from './components/helpers';
+import { shouldHideCarrusel, transformNodes } from './components/helpers';
 import {
     getCommonProps,
     getMarkupForDatalayer
@@ -21,12 +21,16 @@ import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
 
 function CajaCarrusel(props) {
     const {
+        siteProperties: { layoutsName = {} },
+        layout,
         children,
-        customFields: { hideCarousel, ...propsForRoof },
+        customFields: { hideCarousel, enabledDays = [], ...propsForRoof },
         childProps = [],
         chainId,
         renderables
     } = props;
+
+    const isHome = layout === layoutsName.HomeLN10;
 
     const divRefInCarrusel = useRef(null);
 
@@ -59,11 +63,19 @@ function CajaCarrusel(props) {
 
     const error = validateCarruselChildren({ children, childProps });
 
-    if (isAdmin && error) {
+    const { error: hasError, hide } = shouldHideCarrusel({
+        isAdmin,
+        error,
+        isHome,
+        hideCarousel,
+        enabledDays
+    });
+
+    if (hasError) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
 
-    if (hideCarousel) {
+    if (hide) {
         return null;
     }
 
@@ -183,10 +195,22 @@ CajaCarrusel.propTypes = {
             name: 'Ocultar Carousel',
             description: 'Marque para ocultar el carousel',
             defaultValue: false
-        }).isRequired
+        }).isRequired,
+        enabledDays: PropTypes.list.tag({
+            name: 'Días habilitados',
+            description:
+                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
+            defaultValue: []
+        })
     }).isRequired,
     chainId: PropTypes.string.isRequired,
-    renderables: PropTypes.array.isRequired
+    renderables: PropTypes.array.isRequired,
+    siteProperties: PropTypes.shape({
+        layoutsName: PropTypes.shape({
+            Home: PropTypes.string
+        })
+    }).isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default Consumer(CajaCarrusel);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import get from '../../../private/common/utils/get';
+import { hasValidationFailed } from '../../LN10_Caja_Segmentada/_helpers';
 
 export const registeredIdsSetAndInteractions = new Set();
 
@@ -110,4 +111,29 @@ export const getAdsConfigVideoJw = ({
         };
     }
     return {};
+};
+
+export const shouldHideCarrusel = ({
+    isAdmin,
+    error,
+    isHome,
+    hideCarousel,
+    enabledDays
+}) => {
+    if (isAdmin && error) return { hide: false, error: true };
+
+    const failedValidation =
+        isHome &&
+        hasValidationFailed({
+            isAdmin,
+            hideCaja: hideCarousel,
+            enabledDays,
+            termica: true,
+            configError: error,
+            token: true
+        });
+
+    if (failedValidation || hideCarousel) return { hide: true, error: false };
+
+    return { hide: false, error: false };
 };

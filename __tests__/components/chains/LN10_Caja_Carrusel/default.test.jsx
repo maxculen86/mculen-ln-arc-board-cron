@@ -51,7 +51,10 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
             hideCarousel: false,
             roofProp: 'mockRoofProp'
         },
-        childProps: [childPropBase, childPropBase]
+        siteProperties: { layoutsName: { HomeLN10: 'LN10-Home_Main' } },
+        layout: 'LN10-LN-Home_Sports',
+        childProps: [childPropBase, childPropBase],
+        enabledDays: ['lunes', 'martes', 'miercoles']
     };
 
     beforeAll(() => {
