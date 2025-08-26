@@ -37,7 +37,21 @@
     width: 100%;
   }
 }
-.card[data-container=related-content] .related-content.related-content {
+.card[data-container=related-content] .card-gap-related-content.card-gap-related-content {
   align-items: stretch;
   gap: 12px;
+}
+.card[data-container=link] .card-gap-link.card-gap-link {
+  align-items: stretch;
+  gap: 12px;
+}
+@media (min-width: 48rem) {
+  .card[data-container=link] .card-gap-link.card-gap-link {
+    gap: 24px;
+  }
+}
+@media (min-width: 80rem) {
+  .card[data-container=link] .card-gap-link.card-gap-link {
+    gap: 32px;
+  }
 }

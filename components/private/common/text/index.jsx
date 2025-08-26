@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import setClassName from '../utils/setClassName';
 import { getFontFamily, getFontSize, getFontWeight } from './getFontData';
+import '../../../../resources/dist/css/ln/components/com-text.css';
 
-const Text = ({
+function Text({
     tag,
     id,
     extraClass,
@@ -14,7 +15,7 @@ const Text = ({
     size,
     weight,
     styles
-}) => {
+}) {
     const CustomTag = tag;
     const _content = children || text;
 
@@ -37,7 +38,7 @@ const Text = ({
             )}
         </CustomTag>
     );
-};
+}
 
 Text.propTypes = {
     tag: PropTypes.string,

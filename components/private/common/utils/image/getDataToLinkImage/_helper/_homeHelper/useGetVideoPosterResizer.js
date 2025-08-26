@@ -11,7 +11,8 @@ const useGetVideoPosterResized = ({
     imageConfig,
     isInApertura,
     isAdmin,
-    arcSite
+    arcSite,
+    diagramacion
 }) => {
     const data = useContent({
         source: (videoID && videoID.trim() && 'videosJwSource') || null,
@@ -35,11 +36,26 @@ const useGetVideoPosterResized = ({
 
     const shortest = getShortestImage(resizedUrls);
 
+    const MOBILE = '(max-width: 767px)';
+
+    const MEDIA_RULES = {
+        'center-focal': MOBILE
+    };
+
+    const mediaTarget = MEDIA_RULES[diagramacion];
+
+    const posterCandidate = mediaTarget
+        ? resizedUrls.find(
+              resizedUrl =>
+                  get(resizedUrl, 'option.media_preload', '') === mediaTarget
+          ) || resizedUrls[0]
+        : shortest;
+
     return {
         promo_items: {
             basic: {
                 ...basicWithWWW,
-                resized_urls: [shortest]
+                resized_urls: [posterCandidate]
             }
         }
     };

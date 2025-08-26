@@ -21,6 +21,19 @@
             "type": "custom_embed"
         },
         {
+            "_id": "MZT7XC5ICJEWLBJFNYOGHWUEGM",
+            "raw_oembed": {
+                "height": null,
+                "html": "<blockquote class=\"twitter-tweet\"><p lang=\"es\" dir=\"ltr\">FIN DEL SOVIET...</p></blockquote>",
+                "type": "twitter",
+                "url": "https://twitter.com/fedesturze/status/1955616518827356669",
+                "width": 550
+            },
+            "url": "https://twitter.com/fedesturze/status/1955616518827356669",
+            "subtype": "twitter",
+            "type": "oembed_response"
+        },
+        {
             "_id": "66KDKX577BGSNOIGEXYL6OAGLQ",
             "additional_properties": {},
             "content": "El gimnasio de Plateada es el primer gimnasio de Kanto. Su tipo dominante es el roca. El líder de gimnasio es Brock. Los entrenadores que lo derrotan reciben la medalla Roca.",
@@ -89,6 +102,16 @@
             },
             "subtype": "custom-liveblog",
             "type": "custom_embed"
+        },
+        {
+            "_id": "OEBED_TIKTOK_EXAMPLE",
+            "raw_oembed": {
+                "type": "tiktok",
+                "url": "https://www.tiktok.com/@user/video/1234567890"
+            },
+            "url": "https://www.tiktok.com/@user/video/1234567890",
+            "subtype": "tiktok",
+            "type": "oembed_response"
         },
         {
             "_id": "77JFEYSESBACPDCDS2I7JTEQWY",

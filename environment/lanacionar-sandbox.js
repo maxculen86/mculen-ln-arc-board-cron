@@ -85,6 +85,9 @@ export default {
     AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
     AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',
     AUDIONEWS_APIKEY: 'iviw9999Fp1pqX7e6c18n4VwvChUctzu1DraBnAE',
+    SEGMENTATION_API:
+        'https://qa-segmentacion.clanacion.com.ar/api/segmentacion/v1/segments/',
+    SEGMENTATION_APIKEY: '4eb3veay0sdzr12xuosyb09l6aw32zw8bj6y',
     API_KEY_ARC_SERVICES:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGVtL6D05n1qBS+FZ1snZ2aAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJkSKWmqE+lK4ElWVwIBEIA/hXbb5b5JTYv6ym8qNVzsywSH90F+dkEDnYqOW/3Vwbqn05Z6BtLO+bNFeiIaM7G8otc9bJ5LmGMyjgfUwJFq}',
     API_KEY_ARC_SERVICES_PROD:

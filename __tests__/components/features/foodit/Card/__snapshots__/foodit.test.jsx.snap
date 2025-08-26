@@ -46,7 +46,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 max-w-483_lg pt-16 pt-0_lg pt-16"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 max-w-483_lg pt-16 pt-0_lg pt-16 jc-between"
         >
           <div
             class="flex flex-column gap-12"
@@ -168,7 +168,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20 px-16 pt-24 pb-16"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between px-16 pt-24 pb-16"
         >
           <div
             class="flex flex-column gap-12"
@@ -287,7 +287,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 text-light-800 px-16 pb-16 pt-20"
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
         >
           <div
             class="flex flex-column gap-12"

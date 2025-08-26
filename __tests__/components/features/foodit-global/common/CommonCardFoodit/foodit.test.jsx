@@ -278,4 +278,22 @@ describe('Components - Features - Foodit-global - common - CommonCardFoodit', ()
         );
         expect(screen.getByText(label)).toBeInTheDocument();
     });
+
+    it('should match snapshot card link', () => {
+        const { container } = render(
+            <CommonCardFoodit
+                articleId={articleId}
+                showTime
+                linksProps={{ href, title }}
+                time={time}
+                size={size}
+                container="link"
+                tag={tag}
+                title={title}
+                author={author}
+            />
+        );
+
+        expect(container).toMatchSnapshot();
+    });
 });

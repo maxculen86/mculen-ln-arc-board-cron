@@ -13,6 +13,7 @@ import {
 } from '../article/common/_helper-WebApi';
 import get from '../../../private/common/utils/get';
 import { getDataAttributesForViewability } from '../article/_helper';
+import useTermica from '../../../private/common/hooks/useTermica';
 
 function itemCarrusel({
     isAdmin,
@@ -51,7 +52,12 @@ function itemCarrusel({
         elem => elem && get(elem, 'props.id') === featureId
     );
 
-    const { boxPosition } = getChainConfig({ featureId, renderables });
+    const termicaCajaSegmentada = useTermica('caja_segmentada');
+    const { boxPosition } = getChainConfig({
+        featureId,
+        renderables,
+        termicaCajaSegmentada
+    });
 
     const extraOpts = getDataAttributesForViewability(
         videoId,

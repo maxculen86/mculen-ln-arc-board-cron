@@ -4,10 +4,13 @@ import PropTypes from 'fusion:prop-types';
 import { getChainConfig } from '../article/common/_helper-WebApi';
 import { getDataAttributesForViewability } from '../article/_helper';
 import VideoCommonJw from '../../LN-10-global/common/videoCommon/default';
+import useTermica from '../../../private/common/hooks/useTermica';
 import useGetVideoData from '../videoPlayerNota/common/hooks/useGetVideoConfig';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { validateVideoPlayer } from './_helper';
+
 // TODO: Testear todas las implementaciones de video en home. Este componente y el feature del video horizontal
+
 function LN10VideoPlayer({
     id,
     customFields: { video: videoId },
@@ -23,7 +26,12 @@ function LN10VideoPlayer({
     const { title, mediaId, videoFile, playlist } = videoData || {};
 
     const cardPosition = 0;
-    const { boxPosition } = getChainConfig({ featureId: id, renderables });
+    const termicaCajaSegmentada = useTermica('caja_segmentada');
+    const { boxPosition } = getChainConfig({
+        featureId: id,
+        renderables,
+        termicaCajaSegmentada
+    });
 
     const extraOpts = getDataAttributesForViewability(
         videoId,

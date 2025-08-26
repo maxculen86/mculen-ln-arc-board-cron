@@ -9,12 +9,7 @@ import {
 } from '../../../../private/LN/common/utils/mediaHelper';
 import { getFooditAuthor } from '../../../foodit-global/common/utils/notaFooditHelper';
 import getImageAltText from '../../../foodit-global/common/utils/getImageAltText';
-import {
-    headerLevels,
-    normalize,
-    PREPARATION_KEYWORDS,
-    TIPS_KEYWORDS
-} from './helpers';
+import { headerLevels, processHeaderElement } from './helpers';
 
 export function Image({ data = {}, contentElements = [] }) {
     const {
@@ -27,44 +22,24 @@ export function Image({ data = {}, contentElements = [] }) {
     const { resizedUrl = '' } = getShortestImage(resizedUrls);
 
     const belongsToPreparation = useMemo(() => {
-        if (!imageId || contentElements.length === 0) {
-            return false;
-        }
+        if (!imageId || !contentElements.length) return false;
 
-        let inPreparationSection = false;
-        let mainPreparationLevel = null;
+        let state = {
+            inPreparationSection: false,
+            mainPreparationLevel: null
+        };
 
-        for (let i = 0; i < contentElements.length; i += 1) {
-            const element = contentElements[i];
-
+        // eslint-disable-next-line no-restricted-syntax
+        for (const element of contentElements) {
             if (
                 element.type === 'header' &&
                 headerLevels.includes(element.level)
             ) {
-                const headerContent = normalize(element.content || '');
-
-                const isMainPreparation = PREPARATION_KEYWORDS.some(keyword =>
-                    headerContent.includes(normalize(keyword))
-                );
-
-                const isTips = TIPS_KEYWORDS.some(tip =>
-                    headerContent.includes(tip)
-                );
-
-                if (isMainPreparation) {
-                    inPreparationSection = true;
-                    mainPreparationLevel = element.level;
-                } else if (
-                    inPreparationSection &&
-                    (element.level <= mainPreparationLevel || isTips)
-                ) {
-                    inPreparationSection = false;
-                    mainPreparationLevel = null;
-                }
+                state = processHeaderElement(element, state);
             }
 
             if (element.type === 'image' && element._id === imageId) {
-                return inPreparationSection;
+                return state.inPreparationSection;
             }
         }
 

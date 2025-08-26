@@ -84,9 +84,10 @@ export const getLiveBlogEditorialDataApertura = (globalContent = {}) => {
         subheadline
     };
 
+    const isAIframe = mediaData?.type === 'raw_html';
     const dataMedia = {
         mediaData,
-        ...epigraph
+        ...(!isAIframe ? epigraph : {})
     };
 
     const dataDateTime = {

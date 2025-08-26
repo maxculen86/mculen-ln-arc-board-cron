@@ -11,6 +11,10 @@ import getElementFromRenderables from '../../../../../../components/private/comm
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar.js';
 import sectionsValidationLN10 from '../../../../../../components/layouts/config/LN10-Home.config.json';
 
+jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn(() => true)
+);
+
 describe('Components - features - LN-10 - articulo - common - _helper-WebApi', () => {
     describe('getChainConfig', () => {
         describe('Tests in ACUMULADOS', () => {
@@ -80,7 +84,8 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                     getChainConfig({
                         featureId: 'f0fDCrUjW0Oi4q',
                         renderables: getRenderables(),
-                        cajaTemaConfig: siteConfig.cajaTemaConfig
+                        cajaTemaConfig: siteConfig.cajaTemaConfig,
+                        termicaCajaSegmentada: true
                     })
                 ).toStrictEqual({
                     config: {
@@ -100,7 +105,8 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                     getChainConfig({
                         featureId: 'f0fTGHntMbtK2TB',
                         renderables: getRenderables({ hidefirstBox: true }),
-                        cajaTemaConfig: siteConfig.cajaTemaConfig
+                        cajaTemaConfig: siteConfig.cajaTemaConfig,
+                        termicaCajaSegmentada: true
                     })
                 ).toStrictEqual({
                     config: {
@@ -213,7 +219,8 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                         renderables: getRenderables({
                             hideBomba: true,
                             hideApertura: true
-                        })
+                        }),
+                        termicaCajaSegmentada: true
                     })
                 ).toStrictEqual({
                     imageConfig: 'T1',
@@ -232,7 +239,8 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                         renderables: getRenderables({
                             hideBomba: true,
                             hideApertura: false
-                        })
+                        }),
+                        termicaCajaSegmentada: true
                     })
                 ).toStrictEqual({
                     imageConfig: 'T1',
@@ -251,7 +259,8 @@ describe('Components - features - LN-10 - articulo - common - _helper-WebApi', (
                         renderables: getRenderables({
                             hideBomba: true,
                             hideApertura: false
-                        })
+                        }),
+                        termicaCajaSegmentada: true
                     })
                 ).toStrictEqual({
                     imageConfig: 's',

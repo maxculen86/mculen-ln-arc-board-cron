@@ -1,10 +1,7 @@
 {
     "left-focal": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -27,9 +24,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -49,10 +44,7 @@
     ],
     "left-focal-without-timeline": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -79,9 +71,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -104,10 +94,7 @@
     ],
     "center-focal": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -126,9 +113,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -145,10 +130,7 @@
     ],
     "focal-70": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -163,9 +145,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -179,11 +159,7 @@
     ],
     "focal-100": [
         {
-            "variants": [
-                "regular",
-                "author",
-                "liveblog"
-            ],
+            "variants": ["regular", "author", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -192,10 +168,7 @@
     ],
     "bn-opening-4": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Right"
@@ -214,9 +187,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -233,9 +204,7 @@
     ],
     "vertical": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -244,9 +213,7 @@
     ],
     "horizontal": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -255,9 +222,7 @@
     ],
     "bombita": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL"
             },
@@ -281,9 +246,7 @@
     ],
     "bombitaMas4": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL"
             },
@@ -307,10 +270,7 @@
     ],
     "bn_1_4_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -333,9 +293,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -355,10 +313,7 @@
     ],
     "bn_1_3_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -377,9 +332,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -396,10 +349,7 @@
     ],
     "bn_1_2_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -414,9 +364,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T2": {
                 "size": "M"
             },
@@ -427,10 +375,7 @@
     ],
     "bn_1_1_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -441,9 +386,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -454,10 +397,7 @@
     ],
     "sub-exclusive": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -480,9 +420,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -502,10 +440,7 @@
     ],
     "bn_2_1_2_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -528,9 +463,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -550,10 +483,7 @@
     ],
     "bn_1_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -562,10 +492,7 @@
     ],
     "bn_2_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Right"
@@ -576,9 +503,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -589,12 +514,7 @@
     ],
     "bn_3_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog",
-                "author",
-                "html"
-            ],
+            "variants": ["regular", "liveblog", "author", "html"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Top"
@@ -611,10 +531,7 @@
     ],
     "bnGrilla4": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Top"
@@ -633,9 +550,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -652,10 +567,7 @@
     ],
     "bnGrilla8": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Top"
@@ -690,9 +602,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -721,9 +631,7 @@
     ],
     "cajaContent1": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -732,9 +640,7 @@
     ],
     "bnFondo": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -743,9 +649,7 @@
     ],
     "canal_1_2_grid": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -762,10 +666,7 @@
     ],
     "canal_1_3_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -784,9 +685,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -803,10 +702,7 @@
     ],
     "canal_1_4_grid": [
         {
-            "variants": [
-                "regular",
-                "liveblog"
-            ],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -829,9 +725,7 @@
             }
         },
         {
-            "variants": [
-                "author"
-            ],
+            "variants": ["author"],
             "T1": {
                 "size": "M"
             },
@@ -851,9 +745,7 @@
     ],
     "hash-1-2-2-2_grid": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -886,9 +778,7 @@
     ],
     "bn-4-8": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Top"
@@ -909,9 +799,7 @@
     ],
     "timeline": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XS"
             },
@@ -937,9 +825,7 @@
     ],
     "editoriales2": [
         {
-            "variants": [
-                "opinion"
-            ],
+            "variants": ["opinion"],
             "T1": {
                 "size": "M"
             },
@@ -950,9 +836,7 @@
     ],
     "opinion4": [
         {
-            "variants": [
-                "opinion"
-            ],
+            "variants": ["opinion"],
             "T1": {
                 "size": "XL"
             },
@@ -972,9 +856,7 @@
     ],
     "opinion8": [
         {
-            "variants": [
-                "opinion"
-            ],
+            "variants": ["opinion"],
             "T1": {
                 "size": "XL"
             },
@@ -1006,9 +888,7 @@
     ],
     "ranking-1-2-2_grid": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -1033,11 +913,9 @@
     ],
     "bn_6_timeline": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
-                "size": "XL",
+                "size": "L",
                 "imagePosition": "Right"
             },
             "T2": {
@@ -1068,9 +946,7 @@
     ],
     "bn_player_3_grid": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Right"
@@ -1091,9 +967,7 @@
     ],
     "bn_player_4_grid": [
         {
-            "variants": [
-                "regular"
-            ],
+            "variants": ["regular"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Right"

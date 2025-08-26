@@ -8,6 +8,12 @@ import get from '../../get';
 import removeHtmlTags from '../../removeHtmlTags';
 import isCustomLiveblog from '../../isCustomLiveblog';
 
+const socialMediaNames = {
+    twitter: 'X',
+    instagram: 'Instagram',
+    'facebook-video': 'Facebook'
+};
+
 const extracDataFromCredits = by => {
     let authors = [];
 
@@ -61,6 +67,9 @@ const calculateDateModified = (
     return restMinutes(new Date(lastUpdatedDate), minutesToAdd);
 };
 
+const getSocialMediaDescription = socialMediaName =>
+    `Publicación de ${socialMediaName} incluida como parte de la cobertura en vivo.`;
+
 export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     const {
         content_elements: contentElements,
@@ -76,23 +85,36 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     let post = {};
     let description = [];
     let postTitle = '';
+    let currentPostHasBodyText = false;
+    let currentPostSocialName = null;
     const postElements = contentElements
         .slice(postingStart)
         .reduce((acc, elem, i, slicedArray) => {
-            const { type = '' } = elem;
+            const { type = '', subtype = '' } = elem;
 
             if (isCustomLiveblog(elem)) {
                 post = {};
                 description = [];
                 postTitle = get(elem, 'embed.config.title', '').trim();
+                currentPostHasBodyText = false;
+                currentPostSocialName = null;
+            }
+
+            if (type === 'oembed_response') {
+                const name = socialMediaNames[subtype];
+                if (name) {
+                    currentPostSocialName = name;
+                }
             }
 
             if (type === 'list' && elem.items) {
                 description.push(concatenateBullets(elem.items).join('; '));
+                currentPostHasBodyText = true;
             }
 
             if (type === 'text' && elem.content) {
                 description.push(elem.content);
+                currentPostHasBodyText = true;
             }
 
             Object.assign(post, {
@@ -106,9 +128,13 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                 (slicedArray[i + 1] && isCustomLiveblog(slicedArray[i + 1])) ||
                 i + 1 === slicedArray.length
             ) {
+                const finalContent =
+                    !currentPostHasBodyText && currentPostSocialName
+                        ? getSocialMediaDescription(currentPostSocialName)
+                        : description.join(' ');
                 post = {
                     ...post,
-                    content: description.join(' '),
+                    content: finalContent,
                     title: postTitle
                 };
                 acc.push(post);

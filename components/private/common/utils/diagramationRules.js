@@ -134,7 +134,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isFetchPriorityHigh: true
             },
             {
                 titleTag: tag.h2,
@@ -273,7 +274,8 @@ const diagramationRules = diagramation => {
                     desktop: img.top
                 },
                 withPreload: true,
-                isLoadWithPicture: true
+                isLoadWithPicture: true,
+                isFetchPriorityHigh: true
             },
             {
                 type: 'T3',
@@ -1842,6 +1844,50 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true,
                 hideBadget: true
             }
+        ],
+        logo_3_grid: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            }
         ]
     };
 
@@ -1852,7 +1898,8 @@ const diagramationRules = diagramation => {
 
 export const diagramationExceptions = [
     'left-focal',
-    'left-focal-without-timeline'
+    'left-focal-without-timeline',
+    'center-focal'
 ];
 
 export default diagramationRules;

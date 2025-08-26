@@ -622,4 +622,125 @@ describe('Transform bitacora v1 test', () => {
 
         expect(result).toEqual(expected);
     });
+
+    test('transforms LN10_Caja_Segmentada', async () => {
+        const page = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            },
+            content_elements: [
+                {
+                    type: 12,
+                    sectionAliasMobile: 'ln10_caja_segmentada',
+                    information: {
+                        idCollection: 'RNZ32HBHMRBGHJGFC4PNMCZUF4',
+                        layout: 'bn_3_grid',
+                        initialPosition: 1,
+                        title: 'BN CAJA SEGMENTADA',
+                        link: 'https://www.lanacion.com.ar/',
+                        logoId: 'S56VIXO3KZHK5EVKODOIX3CO2Y',
+                        hideTitle: false,
+                        buttonText: 'texto',
+                        linkButton: '',
+                        hideCaja: false,
+                        buttonLogo: 'S56VIXO3KZHK5EVKODOIX3CO2Y',
+                        segmentName: '1',
+                        enabledDays: [
+                            'lunes',
+                            'martes',
+                            'jueves',
+                            'miercoles',
+                            'viernes'
+                        ],
+                        segment: 1,
+                        noteCount: 3,
+                        viewabilityRoof: 'BN CAJA SEGMENTADA',
+                        nameChain: 'LN10_Caja_Segmentada',
+                        idRender: 'c0fTWxcnMLl75Sf'
+                    },
+                    articles: [
+                        {
+                            _id: 'WCOTZQDWQZCBXJXB2JL4RFQGOA',
+                            website_url:
+                                '/economia/prueba-liveblog-editorial-video-inframe-nid20052025/',
+                            additionalProperties: {
+                                originPosition: 'T1',
+                                nameFeature: null,
+                                idRender: null
+                            }
+                        },
+                        {
+                            _id: 'B77EOPD2MRFHBNMMUDG6GYUCMA',
+                            website_url:
+                                '/revista-hola/probando-composer-20-nid23012025/',
+                            additionalProperties: {
+                                originPosition: 'T2',
+                                nameFeature: null,
+                                idRender: null
+                            }
+                        },
+                        {
+                            _id: 'RRAHEKIZW5AETKOBOTI3QNAC6A',
+                            website_url:
+                                '/revista-brando/la-casa-rosada-vuelve-a-la-carga-contra-villarruel-por-la-sesion-por-kueider-en-este-gobierno-no-se-nid13122024/',
+                            additionalProperties: {
+                                originPosition: 'T3',
+                                nameFeature: null,
+                                idRender: null
+                            }
+                        }
+                    ],
+                    configurations: {
+                        arcSite: 'la-nacion-ar'
+                    },
+                    sectionWeb: 'Breaking_1'
+                }
+            ]
+        };
+        const {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate
+        } = queryParams.information;
+        const expected = {
+            apiPageHomeSourceFetchDate,
+            homeFetchDate,
+            keyCachedCall,
+            layoutDate,
+            cajas: [
+                {
+                    id_caja: '01',
+                    visible: true,
+                    feature: 'segmento',
+                    diagramacion_caja: 'bn_3_grid',
+                    item_category: 'BN CAJA SEGMENTADA',
+                    notas: [
+                        {
+                            id_nota: 'WCOTZQDWQZCBXJXB2JL4RFQGOA',
+                            url_nota:
+                                '/economia/prueba-liveblog-editorial-video-inframe-nid20052025/',
+                            posicion: '01'
+                        },
+                        {
+                            id_nota: 'B77EOPD2MRFHBNMMUDG6GYUCMA',
+                            url_nota:
+                                '/revista-hola/probando-composer-20-nid23012025/',
+                            posicion: '02'
+                        },
+                        {
+                            id_nota: 'RRAHEKIZW5AETKOBOTI3QNAC6A',
+                            url_nota:
+                                '/revista-brando/la-casa-rosada-vuelve-a-la-carga-contra-villarruel-por-la-sesion-por-kueider-en-este-gobierno-no-se-nid13122024/',
+                            posicion: '03'
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const result = await transform(page, queryParams);
+
+        expect(result).toEqual(expected);
+    });
 });

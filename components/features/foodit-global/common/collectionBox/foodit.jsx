@@ -40,13 +40,7 @@ function CollectionBox({ title, list, onItemSelected, selectedItemId }) {
     };
 
     const renderContent = () => {
-        if (validList.length === 0) {
-            return (
-                <Itemcard text="Todas (0)" type="button" selected disabled />
-            );
-        }
-
-        return validList.map(item => {
+        const itemsToRender = validList.map(item => {
             const { text, quantity, id } = item;
 
             return (
@@ -60,6 +54,14 @@ function CollectionBox({ title, list, onItemSelected, selectedItemId }) {
                 />
             );
         });
+
+        if (validList.length === 0) {
+            itemsToRender.push(
+                <Itemcard text="Todas (0)" type="button" selected disabled />
+            );
+        }
+
+        return itemsToRender;
     };
 
     return (

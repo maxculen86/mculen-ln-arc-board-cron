@@ -8,6 +8,61 @@ import diagramationRules, {
 } from '../../../../diagramationRules';
 import { getValidElementForPreload } from './common/helper-WebApi';
 
+const MOBILE = '(max-width: 767px)';
+const TABLET = '(min-width: 768px)';
+const DESKTOP = '(min-width: 1024px)';
+
+export const FIRST_ARTICLE_TARGET_MEDIA = {
+    'center-focal': MOBILE
+};
+
+export const SECOND_ARTICLE_TARGET_MEDIA = {
+    'center-focal': TABLET,
+    'left-focal': DESKTOP,
+    'left-focal-without-timeline': DESKTOP
+};
+
+export const getPromoItemMedia = (promoItem = {}) =>
+    get(promoItem, 'media', '') || get(promoItem, 'option.media_preload', '');
+
+export const getTargetMedia = (diagramation, mediaRules = {}) =>
+    mediaRules[diagramation] || null;
+
+export function applyFirstArticleRules(diagramation, promoItems = []) {
+    const targetMedia = getTargetMedia(
+        diagramation,
+        FIRST_ARTICLE_TARGET_MEDIA
+    );
+    if (!targetMedia) return promoItems;
+    return promoItems.filter(
+        promoItem => getPromoItemMedia(promoItem) === targetMedia
+    );
+}
+
+export function buildSecondArticlePreload(diagramation, promoItems = []) {
+    const targetMedia = getTargetMedia(
+        diagramation,
+        SECOND_ARTICLE_TARGET_MEDIA
+    );
+    if (!targetMedia) return [];
+
+    const basePromoItem = promoItems.find(
+        promoItem => getPromoItemMedia(promoItem) === TABLET
+    );
+    if (!basePromoItem) return [];
+
+    return [
+        {
+            ...basePromoItem,
+            media: targetMedia,
+            option: {
+                ...basePromoItem.option,
+                media_preload: targetMedia
+            }
+        }
+    ];
+}
+
 const getImageConfig = (configArticle, diagramacion, arcSite, layout) => {
     if (isHomeLN10(layout)) {
         return get(configArticle, 'imageConfig', 'boxArticles');
@@ -95,8 +150,15 @@ const useGetMediaApertura = ({
         videoID,
         arcSite,
         layout,
-        noteID
+        noteID,
+        diagramacion
     });
+    const promoItemsFirstArticle = getPromoItems(mediaDataFirstArticle);
+
+    const preloadFirstArticle = applyFirstArticleRules(
+        diagramacion,
+        promoItemsFirstArticle
+    );
 
     const mediaDataSecondArticle = useGetMediaData({
         imageConfig: secondImageConfig,
@@ -106,34 +168,16 @@ const useGetMediaApertura = ({
         videoID: secondArticleData.videoID,
         arcSite,
         layout,
-        noteID: secondArticleData.noteID
+        noteID: secondArticleData.noteID,
+        diagramacion
     });
     const promoItemsSecondArticle = getPromoItems(mediaDataSecondArticle) || [];
 
-    const preloadSecondArticle = promoItemsSecondArticle.reduce(
-        (acc, promoItem = {}) => {
-            if (promoItem.media === '(min-width: 768px)') {
-                const desktopPromoItem = {
-                    ...promoItem,
-                    media: '(min-width: 1024px)',
-                    option: {
-                        ...promoItem.option,
-                        media_preload: '(min-width: 1024px)'
-                    }
-                };
-                acc.push(desktopPromoItem);
-            }
-            return acc;
-        },
-        []
+    const preloadSecondArticle = buildSecondArticlePreload(
+        diagramacion,
+        promoItemsSecondArticle
     );
-
-    const allMediaData = [
-        ...getPromoItems(mediaDataFirstArticle),
-        ...preloadSecondArticle
-    ];
-
-    return allMediaData || [];
+    return [...preloadFirstArticle, ...preloadSecondArticle];
 };
 
 export default useGetMediaApertura;

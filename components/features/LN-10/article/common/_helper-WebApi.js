@@ -156,13 +156,23 @@ export const reorderArticlePositionForVideo = (chainConfig = {}) => {
     return chainConfig;
 };
 
-export const getChainConfig = ({ featureId, renderables, cajaTemaConfig }) => {
+export const getChainConfig = ({
+    featureId,
+    renderables,
+    cajaTemaConfig,
+    termicaCajaSegmentada
+}) => {
     const { layoutsName = {} } = siteConfig || {};
     const parent = reorderArticlePositionForVideo(
         getChainParentOfFeature(featureId, renderables)
     );
+
     const chainId = get(parent, 'props.id', '');
-    const chainPosition = getChainPosition(chainId, renderables);
+    const chainPosition = getChainPosition(
+        chainId,
+        termicaCajaSegmentada,
+        renderables
+    );
     const layout = get(parent, 'props.customFields.layout', '');
     const firstBombaChainId = get(
         getElementFromRenderables({

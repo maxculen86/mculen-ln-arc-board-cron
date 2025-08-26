@@ -30,6 +30,7 @@ import WarningMessage from '../../../private/common/warningMessage/warningMessag
 import MarqueeHighlight from '../../LN-10-global/common/marqueeHighlight/default';
 import VideoCommonJw from '../../LN-10-global/common/videoCommon/default';
 import { validateVideoPlayer } from '../videoPlayer/_helper';
+import useTermica from '../../../private/common/hooks/useTermica';
 import useGetVideoData from './common/hooks/useGetVideoConfig';
 
 function LN10VideoPlayerNota({ id: featureId, customFields }) {
@@ -47,6 +48,7 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
     const { isAdmin, renderables, layout: layoutPageBuilder } = useAppContext();
 
     const { layoutsName = {} } = siteConfig || {};
+    const termicaCajaSegmentada = useTermica('caja_segmentada');
 
     const {
         config: initialConfig = {},
@@ -54,7 +56,7 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
         layout,
         imageConfig,
         boxPosition
-    } = getChainConfig({ featureId, renderables });
+    } = getChainConfig({ featureId, renderables, termicaCajaSegmentada });
 
     const extraOpts = getDataAttributesForViewability(
         articleId,
