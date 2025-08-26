@@ -2642,7 +2642,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="flex jc-center ai-center w-100"
     >
       <a
-        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12_130 font-bold text-center break-word flex jc-center ai-center"
         data-mrf-recirculation="n_interstitial"
         href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
         rel="nofollow"
@@ -6059,7 +6059,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="flex jc-center ai-center w-100"
     >
       <a
-        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12_130 font-bold text-center break-word flex jc-center ai-center"
         data-mrf-recirculation="n_interstitial"
         href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
         rel="nofollow"
@@ -9476,7 +9476,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="flex jc-center ai-center w-100"
     >
       <a
-        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
+        class="link ln-link theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12_130 font-bold text-center break-word flex jc-center ai-center"
         data-mrf-recirculation="n_interstitial"
         href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
         rel="nofollow"
