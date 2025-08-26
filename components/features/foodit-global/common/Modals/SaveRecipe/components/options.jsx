@@ -4,7 +4,8 @@ import { Icon } from '@ln/common-ui-icon';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 
-function RenderOption({ value, bookmarkGroup, propsAs }) {
+function RenderOption({ value, bookmarkGroup, propsAs, currentCollectionId }) {
+    const itemDisabled = value === currentCollectionId;
     if (value === 'new') {
         return (
             <span
@@ -18,7 +19,14 @@ function RenderOption({ value, bookmarkGroup, propsAs }) {
             </span>
         );
     }
-    return <Itemcard type="button" {...propsAs} />;
+    return (
+        <Itemcard
+            disabled={itemDisabled}
+            className={itemDisabled && 'card-item-disabled'}
+            type="button"
+            {...propsAs}
+        />
+    );
 }
 
 RenderOption.propTypes = {
@@ -26,11 +34,13 @@ RenderOption.propTypes = {
     bookmarkGroup: PropTypes.string.isRequired,
     propsAs: PropTypes.shape({
         children: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    currentCollectionId: PropTypes.string
 };
 
 RenderOption.defaultProps = {
-    value: ''
+    value: '',
+    currentCollectionId: null
 };
 
 export default RenderOption;
