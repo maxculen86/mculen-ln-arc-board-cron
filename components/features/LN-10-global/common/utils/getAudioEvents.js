@@ -3,20 +3,13 @@ import get from '../../../../private/common/utils/get';
 import { getSectionOfRequestUri } from '../../../../private/common/utils/outputTypeHelper';
 import { extractDataFromCredits } from '../../../../private/LN/nota/snippet/extractData/extractDataReceta';
 
-const getAudioEvents = (
-    globalContent,
-    globalContentConfig,
-    isSummary,
-    dataAudio
-) => {
+const getAudioEvents = (globalContent, globalContentConfig, isSummary) => {
     const noteId = get(globalContent, '_id', '');
-    const audioIdPromoItems = get(
+    const audioId = get(
         globalContent,
         'promo_items.audio_nota.embed.config.audio_id',
         ''
     );
-    const audioIdOldSource = get(dataAudio, 'audio_id', '');
-    const audioId = audioIdPromoItems || audioIdOldSource;
     const section = getSectionOfRequestUri(globalContentConfig.query.uri);
     const creditsBy = get(globalContent, 'credits.by', '');
     const dataAuthor = get(creditsBy, '[0].additional_properties.original', {});
