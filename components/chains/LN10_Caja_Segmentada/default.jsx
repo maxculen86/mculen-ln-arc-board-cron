@@ -5,7 +5,9 @@ import useAuthManager from '../../private/common/auth/hooks/useAuthManager';
 import {
     hasValidationFailed,
     shouldFetchContent,
-    shouldHideComponent
+    shouldHideComponent,
+    shouldShowComponent,
+    shouldShowPlaceholder
 } from './_helpers';
 import { validateChain } from './common/_helper-WebApi';
 import setRender from '../utils/setRender';
@@ -26,6 +28,10 @@ import useProductClickTracker from './common/hooks/useProductClickTracker';
 
 function SimpleSkeleton() {
     return <div>Cargando contenido segmentado...</div>;
+}
+
+function Noop() {
+    return null;
 }
 
 function CajaSegmentada(props) {
@@ -98,14 +104,27 @@ function CajaSegmentada(props) {
         layout
     });
 
-    const isLoadingArticles = shouldFetch && !articles;
+    const isLoadingArticles = shouldFetch && articles.length === 0;
 
     const hideBox = shouldHideComponent({
         isAdmin,
         attemptedLoad,
         validationFailed,
+        isLoadingArticles,
         segmentMatches,
         articles
+    });
+
+    const showComponent = shouldShowComponent({
+        hasEnteredViewport,
+        attemptedLoad,
+        isLoadingArticles,
+        isLoadingSegmentation
+    });
+
+    const showPlaceholder = shouldShowPlaceholder({
+        attemptedLoad,
+        isLoadingArticles
     });
 
     useProductClickTracker(articles, chainId);
@@ -143,12 +162,10 @@ function CajaSegmentada(props) {
                     default: (
                         <LazyLoad
                             hide={hideBox}
-                            showComponent={
-                                hasEnteredViewport &&
-                                !isLoadingSegmentation &&
-                                !isLoadingArticles
+                            showComponent={showComponent}
+                            PlaceholderComponent={
+                                showPlaceholder ? SimpleSkeleton : Noop
                             }
-                            PlaceholderComponent={SimpleSkeleton}
                             rootMargin="700px"
                             threshold={0.1}
                             onViewport={() => {

@@ -51,15 +51,30 @@ export const shouldHideComponent = ({
     attemptedLoad,
     validationFailed,
     segmentMatches,
+    isLoadingArticles,
     articles
 }) => {
     if (isAdmin) return false;
 
     return (
-        attemptedLoad &&
-        (validationFailed ||
-            !segmentMatches ||
-            !Array.isArray(articles) ||
-            articles.length === 0)
+        validationFailed ||
+        (attemptedLoad &&
+            (!segmentMatches ||
+                (!isLoadingArticles &&
+                    (!Array.isArray(articles) || articles.length === 0))))
     );
 };
+
+export const shouldShowComponent = ({
+    hasEnteredViewport,
+    attemptedLoad,
+    isLoadingArticles,
+    isLoadingSegmentation
+}) =>
+    hasEnteredViewport &&
+    attemptedLoad &&
+    !isLoadingSegmentation &&
+    !isLoadingArticles;
+
+export const shouldShowPlaceholder = ({ attemptedLoad, isLoadingArticles }) =>
+    attemptedLoad && isLoadingArticles;
