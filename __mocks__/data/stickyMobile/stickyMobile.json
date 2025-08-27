@@ -1,0 +1,146 @@
+{
+    "stickyMobileData": [
+    {
+        "_id": "SQS5IFD77FCFLMSKRV67VO3KR4",
+        "canonical_url": "/deportes/que-fallo-minuto-a-minuto-la-secuencia-de-errores-y-negligencias-que-derivo-en-la-noche-de-horror-en-nid21082025/",
+        "display_date": "2025-08-21T20:52:44.687Z",
+        "first_publish_date": "2025-08-21T20:52:44.687Z",
+        "headlines": {
+            "basic": "¿Qué falló? Minuto a minuto: la secuencia de errores y negligencias que derivó en la noche de horror en Independiente",
+            "mobile": "Minuto a minuto: la secuencia de errores y negligencias que derivó en la noche de horror en Independiente",
+            "web": "¿Qué falló?"
+        },
+        "label": {
+            "republicar_audio": {
+                "text": "Si"
+            },
+            "volanta": "¿Qué falló?"
+        },
+        "promo_items": {
+            "basic": {
+                "auth": {
+                    "1": "fdbb5d1a0e2ef858c4776272abf6474e352ca4929700891348d4bd2bdcad4073"
+                },
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 80,
+                            "width": 80
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/v2/‎-foto-fotobaires-octavos-de-final-copa-IJJ5A7IUFVFMHPJ5GTDJLZRH6U.jpg?auth=fdbb5d1a0e2ef858c4776272abf6474e352ca4929700891348d4bd2bdcad4073&width=80&height=80&quality=70&smart=true"
+                    }
+                ],
+                "subtitle": "",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/v2/‎-foto-fotobaires-octavos-de-final-copa-IJJ5A7IUFVFMHPJ5GTDJLZRH6U.jpg?auth=fdbb5d1a0e2ef858c4776272abf6474e352ca4929700891348d4bd2bdcad4073&width=768&quality=70&smart=false",
+                "width": 768
+            }
+        },
+        "source": {
+            "system": "composer"
+        },
+        "subtype": "9",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/deportes"
+            }
+        },
+        "website_url": "/deportes/que-fallo-minuto-a-minuto-la-secuencia-de-errores-y-negligencias-que-derivo-en-la-noche-de-horror-en-nid21082025/"
+    },
+    {
+        "_id": "5WW6O3SCERBZLKZ2ZYAUCZSUDQ",
+        "canonical_url": "/deportes/futbol/independiente-vs-universidad-de-chile-se-suspendio-el-partido-por-incidentes-entre-los-hinchas-nid20082025/",
+        "display_date": "2025-08-22T06:09:16.034Z",
+        "first_publish_date": "2025-08-21T01:56:01.939Z",
+        "headlines": {
+            "basic": "Independiente vs. Universidad de Chile: se canceló el partido por graves incidentes entre hinchas",
+            "mobile": "Cómo fueron los gravísimos incidentes que forzaron la cancelación de Independiente vs. U. de Chile",
+            "web": "Hinchas golpeados y desnudados."
+        },
+        "label": {
+            "republicar_audio": {
+                "text": "Si"
+            },
+            "volanta": "Hinchas golpeados y desnudados."
+        },
+        "promo_items": {
+            "basic": {
+                "auth": {
+                    "1": "cfcc66c836a30e14702cfbdd1fdd5412786ffecfd016ccfadb545b366a3905e5"
+                },
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 80,
+                            "width": 80
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/v2/un-ejemplo-entre-muchos-un-simpatizante-sangrante-ATKAFVKXJBGOFFRSPRWXACF25I.jpg?auth=cfcc66c836a30e14702cfbdd1fdd5412786ffecfd016ccfadb545b366a3905e5&width=80&height=80&quality=70&smart=true"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/v2/un-ejemplo-entre-muchos-un-simpatizante-sangrante-ATKAFVKXJBGOFFRSPRWXACF25I.jpg?auth=cfcc66c836a30e14702cfbdd1fdd5412786ffecfd016ccfadb545b366a3905e5&width=768&quality=70&smart=false",
+                "width": 768
+            }
+        },
+        "source": {
+            "system": "composer"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/deportes/futbol"
+            }
+        },
+        "website_url": "/deportes/futbol/independiente-vs-universidad-de-chile-se-suspendio-el-partido-por-incidentes-entre-los-hinchas-nid20082025/"
+    },
+    {
+        "_id": "PSCH2AULIRGEHAK4GUNZJENEZA",
+        "canonical_url": "/deportes/futbol/el-comunicado-de-conmebol-tras-los-gravisimos-incidentes-en-independiente-vs-universidad-de-chile-nid21082025/",
+        "display_date": "2025-08-21T23:21:02.569Z",
+        "first_publish_date": "2025-08-21T04:24:57.594Z",
+        "headlines": {
+            "basic": "El comunicado de Conmebol tras los gravísimos incidentes en Independiente vs. Universidad de Chile",
+            "mobile": "Qué dijo la Conmebol tras los gravísimos incidentes en Independiente vs. Universidad de Chile",
+            "web": "\"Partido cancelado\"."
+        },
+        "label": {
+            "republicar_audio": {
+                "text": "Si"
+            },
+            "volanta": "\"Partido cancelado\"."
+        },
+        "promo_items": {
+            "basic": {
+                "auth": {
+                    "1": "86b2efc5918c7882645ba58d39272f388e0f63787f677d9392065798ec103453"
+                },
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 80,
+                            "width": 80
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/v2/jugadores-de-independiente-y-universidad-de-chile-MPX3GBLHYFCPDL6RCFW4WVTFZM.jpg?auth=86b2efc5918c7882645ba58d39272f388e0f63787f677d9392065798ec103453&width=80&height=80&quality=70&smart=true"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/v2/jugadores-de-independiente-y-universidad-de-chile-MPX3GBLHYFCPDL6RCFW4WVTFZM.jpg?auth=86b2efc5918c7882645ba58d39272f388e0f63787f677d9392065798ec103453&width=768&quality=70&smart=false",
+                "width": 768
+            }
+        },
+        "source": {
+            "system": "composer"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/deportes/futbol"
+            }
+        },
+        "website_url": "/deportes/futbol/el-comunicado-de-conmebol-tras-los-gravisimos-incidentes-en-independiente-vs-universidad-de-chile-nid21082025/"
+    }
+]
+}

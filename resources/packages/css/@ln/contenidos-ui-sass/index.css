@@ -2612,6 +2612,14 @@ strong:not(.--font-primary),
   margin-bottom: 2.5rem;
 }
 
+.mb-50 {
+  margin-bottom: 3.125rem;
+}
+
+.mb-62 {
+  margin-bottom: 3.875rem;
+}
+
 .mb-125 {
   margin-bottom: 7.8125rem;
 }
@@ -4780,6 +4788,10 @@ strong:not(.--font-primary),
   bottom: 3.75rem;
 }
 
+.bottom-62 {
+  bottom: 3.875rem;
+}
+
 .bottom-64 {
   bottom: 4rem;
 }
@@ -5440,4 +5452,17 @@ body:has(.disable-body-scroll) {
 
 .videoCommonJw-wrapper:hover .videoCommonJw-gradient {
   opacity: 1;
+}
+
+.fade-content-16 {
+  -webkit-mask-image: linear-gradient(to bottom, #fefefe calc(100% - 1rem), transparent 100%);
+  mask-image: linear-gradient(to bottom, #fefefe calc(100% - 1rem), transparent 100%);
+}
+
+.sticky-mobile-v2-body {
+  max-height: 9.25rem;
+  transition: max-height 0.3s ease-in-out;
+}
+.sticky-mobile-v2-body.open {
+  max-height: 22.5rem;
 }
