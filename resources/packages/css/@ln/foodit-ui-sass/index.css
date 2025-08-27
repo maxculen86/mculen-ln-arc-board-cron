@@ -336,11 +336,23 @@ input[type=checkbox]:hover {
 .animation.animation-duration-300 {
   animation-duration: 300ms;
 }
+.animation.animation-duration-1200 {
+  animation-duration: 1200ms;
+}
 .animation.animation-fill-forwards {
   animation-fill-mode: forwards;
 }
+.animation.animation-iteration-infinite {
+  animation-iteration-count: infinite;
+}
+.animation.animation-name-rotate {
+  animation-name: rotate;
+}
 .animation.animation-timing-ease {
   animation-timing-function: ease;
+}
+.animation.animation-timing-linear {
+  animation-timing-function: linear;
 }
 
 .animation-paused {
@@ -458,6 +470,12 @@ input[type=checkbox]:hover {
 .border.border-thin {
   border-width: thin;
 }
+.border.border-2 {
+  border-width: 2px;
+}
+.border.border-4 {
+  border-width: 4px;
+}
 
 @media (min-width: 48rem) {
   .border-all_md {
@@ -485,6 +503,16 @@ input[type=checkbox]:hover {
 
 .border.border-secondary-positive__focus:focus {
   border-color: var(--secondary-positive);
+}
+
+.border-spinner {
+  --_secondary-color: #e6e6e6;
+  border-color: currentColor var(--_secondary-color) var(--_secondary-color);
+}
+
+.border-spinner-inverted {
+  --_secondary-color: rgba(255, 255, 255, 0.64);
+  border-color: currentColor var(--_secondary-color) var(--_secondary-color);
 }
 
 .text-inherit {
@@ -1604,6 +1632,10 @@ strong {
   width: 9.1875rem;
 }
 
+.w-160 {
+  width: 10rem;
+}
+
 .w-194 {
   width: 12.125rem;
 }
@@ -1701,8 +1733,16 @@ strong {
   max-width: 2rem;
 }
 
+.max-w-48 {
+  max-width: 3rem;
+}
+
 .max-w-72 {
   max-width: 4.5rem;
+}
+
+.max-w-96 {
+  max-width: 6rem;
 }
 
 .max-w-100 {
@@ -1934,6 +1974,14 @@ strong {
 
 .max-h-32 {
   max-height: 2rem;
+}
+
+.max-h-48 {
+  max-height: 3rem;
+}
+
+.max-h-96 {
+  max-height: 6rem;
 }
 
 .max-h-100 {
