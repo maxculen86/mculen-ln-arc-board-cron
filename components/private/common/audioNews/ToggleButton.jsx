@@ -8,12 +8,9 @@ import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
-import useAudioIdData from './hooks/useAudioIdData';
 
 function ToggleButton({ isSummary, handleToggle }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
-
-    const dataAudio = useAudioIdData(globalContent);
 
     const notaCompletaBttn = classNames(
         'audio-toggle-left border-neutral-light-200 rounded-top-left-4',
@@ -41,8 +38,7 @@ function ToggleButton({ isSummary, handleToggle }) {
                             rest: getAudioEvents(
                                 globalContent,
                                 globalContentConfig,
-                                false,
-                                dataAudio
+                                false
                             )
                         });
                     }
@@ -72,8 +68,7 @@ function ToggleButton({ isSummary, handleToggle }) {
                             rest: getAudioEvents(
                                 globalContent,
                                 globalContentConfig,
-                                true,
-                                dataAudio
+                                true
                             )
                         });
                     }

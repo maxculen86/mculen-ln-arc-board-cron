@@ -19,7 +19,7 @@ function Interstitial({ data, ...r }) {
                     target="_blank"
                     href={url}
                     title={content}
-                    className="theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12 font-bold text-center break-word flex jc-center ai-center"
+                    className="theme-button interstitial-button py-12 px-16 gap-8 bg-secondary__hover rounded-4 border border-all border-thin border-neutral-light-800 text-neutral-light-800 uppercase text-12_130 font-bold text-center break-word flex jc-center ai-center"
                     data-mrf-recirculation="n_interstitial"
                 >
                     {content}
