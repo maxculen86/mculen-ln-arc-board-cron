@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../../../../resources/dist/css/ln/components/com-button.css';
 
 function Button({ onClickHandler, name, loading, loadingIcon, textButton }) {
     const notesName = name ? ` de ${name.toUpperCase()}` : '';

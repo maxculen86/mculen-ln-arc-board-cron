@@ -652,7 +652,7 @@ describe('Transform bitacora v1 test', () => {
                             'miercoles',
                             'viernes'
                         ],
-                        segmentNumber: 1,
+                        segment: 1,
                         noteCount: 3,
                         viewabilityRoof: 'BN CAJA SEGMENTADA',
                         nameChain: 'LN10_Caja_Segmentada',

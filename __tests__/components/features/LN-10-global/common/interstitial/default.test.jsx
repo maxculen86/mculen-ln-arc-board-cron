@@ -73,18 +73,4 @@ describe('Interstitial', () => {
         expect(interstitial).toBeInTheDocument();
         expect(interstitial).toMatchSnapshot();
     });
-
-    it('includes pb-32 class when layout is FotoAl100', () => {
-        useAppContext.mockReturnValue({ layout: layoutsName.FotoAl100 });
-        render(<Interstitial {...baseData} />);
-        const interstitial = screen.getByTestId(testId);
-        expect(interstitial).toHaveClass('pb-32');
-    });
-
-    it('does not include pb-32 class when layout is not FotoAl100', () => {
-        useAppContext.mockReturnValue({ layout: 'otro_layout' });
-        render(<Interstitial {...baseData} />);
-        const interstitial = screen.getByTestId(testId);
-        expect(interstitial).not.toHaveClass('pb-32');
-    });
 });

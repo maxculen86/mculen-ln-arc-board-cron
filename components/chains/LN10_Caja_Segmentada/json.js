@@ -92,7 +92,7 @@ class CajaSegmentada {
 
             const {
                 idCollection,
-                segmentNumber = '',
+                segment = '',
                 ...propsForRoof
             } = this.customFields;
 
@@ -105,7 +105,7 @@ class CajaSegmentada {
             const configError = validateChain(
                 {
                     idCollection,
-                    segmentNumber,
+                    segment,
                     articles
                 },
                 true
