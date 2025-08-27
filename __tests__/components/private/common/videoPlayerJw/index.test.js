@@ -39,7 +39,13 @@ describe('componentes - private - common - videoPlayerJw', () => {
                             ],
                             image: 'main-image.jpg',
                             pubdate: 16809218408,
-                            mediaid: 'yPJ53Pzg'
+                            mediaid: 'yPJ53Pzg',
+                            sources: [
+                                {
+                                    file: 'https://cdn.jwplayer.com/videos/abc123.mp4',
+                                    type: 'video/mp4'
+                                }
+                            ]
                         }
                     ]
                 }
