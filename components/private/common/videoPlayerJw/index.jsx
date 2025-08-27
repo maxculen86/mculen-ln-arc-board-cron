@@ -45,7 +45,7 @@ const videoPlayerJW = ({
 
     const player = isOtt ? '81YXy6Mt' : idPlayer || 'ih0086X3';
     const [video] = playlist || [];
-    const { mediaid = '' } = video || {};
+    const { mediaid = '', sources = [] } = video || {};
     const { arcSite, deployment, contextPath, globalContent } = useAppContext();
     const subtype = get(globalContent, 'subtype', '');
     const promoItems = get(globalContent, 'promo_items', {});
@@ -115,7 +115,9 @@ const videoPlayerJW = ({
                                 id="scriptVideosJw"
                                 data-title={title}
                                 data-player={player}
-                                data-playlist={JSON.stringify(playlist)}
+                                data-playlist={JSON.stringify([
+                                    { mediaid, sources }
+                                ])}
                                 data-has-autoplay={hasAutoplay}
                                 data-media-id={mediaid}
                                 data-tags-url={urlForPrerollAds()}
