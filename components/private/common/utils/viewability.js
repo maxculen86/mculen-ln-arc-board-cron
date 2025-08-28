@@ -170,7 +170,7 @@ export const createIntersectionObserver = () => {
     try {
         const observedElements = new Set();
 
-        const callback = (entries, observer) => {
+        const callback = (entries, observerRef) => {
             const articlesToAdd = [];
             const articlesToAddFiltered = [];
             const itemsToAdd = [];
@@ -188,7 +188,7 @@ export const createIntersectionObserver = () => {
                     articlesToAdd.push(product);
                     itemsToAdd.push(item);
 
-                    observer.unobserve(entry.target);
+                    observerRef.unobserve(entry.target);
                     observedElements.delete(entry.target);
                 }
             });

@@ -74,7 +74,7 @@ export const productClickFromClientVideoJW = (
 };
 
 export const createJWVisibilityAndMetarefreshCallback =
-    (instance, getPlayingVideosCount, videoState) => entry => {
+    (instance, getActiveVideosCount, videoState) => entry => {
         const isVisible = entry.isIntersecting;
         const state = instance.getState?.() || '';
         const isBuffering = state === 'buffering';
@@ -92,7 +92,7 @@ export const createJWVisibilityAndMetarefreshCallback =
                 if (videoState && videoState.isPlayingInViewport) {
                     // eslint-disable-next-line no-param-reassign
                     videoState.isPlayingInViewport = false;
-                    if (getPlayingVideosCount() === 0) {
+                    if (getActiveVideosCount() === 0) {
                         window.LN?.observable?.publish?.('resumeTimeout');
                     }
                 }
