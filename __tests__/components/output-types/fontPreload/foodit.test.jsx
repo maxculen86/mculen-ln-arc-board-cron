@@ -3,7 +3,8 @@ import { render } from '@testing-library/react';
 import { FontPreload } from '../../../../components/output-types/fontPreload/foodit';
 
 jest.mock('fusion:environment', () => ({
-    FONT_PRUMO: '/fonts/prumo.woff2'
+    ROBOTO_REGULAR: '/fonts/roboto_regular.woff2',
+    FONT_PRUMO: '/fonts/font_prumo.woff2'
 }));
 
 describe('FontPreload', () => {
@@ -14,15 +15,27 @@ describe('FontPreload', () => {
         const { container } = render(
             <FontPreload deployment={deployment} contextPath={contextPath} />
         );
-        const link = container.querySelector('link');
-        expect(link).toBeDefined();
-        expect(link).toHaveAttribute(
+        const links = container.querySelectorAll('link');
+        expect(links).toBeDefined();
+        expect(links).toHaveLength(2);
+        expect(links[0]).toHaveAttribute(
             'href',
-            'https://foodit.com.ar/pf/fonts/prumo.woff2'
+            'https://foodit.com.ar/pf/fonts/roboto_regular.woff2'
         );
 
-        expect(link).toHaveAttribute('rel', 'preload');
-        expect(link).toHaveAttribute('as', 'font');
+        expect(links[0]).toHaveAttribute('rel', 'preload');
+        expect(links[0]).toHaveAttribute('as', 'font');
+        expect(links[0]).toHaveAttribute('type', 'font/woff2');
+        expect(links[0]).toHaveAttribute('crossOrigin', 'anonymous');
+         expect(links[1]).toHaveAttribute(
+            'href',
+            'https://foodit.com.ar/pf/fonts/font_prumo.woff2'
+        );
+
+        expect(links[1]).toHaveAttribute('rel', 'preload');
+        expect(links[1]).toHaveAttribute('as', 'font');
+        expect(links[1]).toHaveAttribute('type', 'font/woff2');
+        expect(links[1]).toHaveAttribute('crossOrigin', 'anonymous');
     });
     it('matches snapshot', () => {
         const { asFragment } = render(
