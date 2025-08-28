@@ -1,9 +1,9 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import getViewabilityRoof from '../utils/getViewabilityRoof';
-import { isTodayEnabled } from './_helpers';
-import { validateChain } from './common/_helper-WebApi';
 import { getCommonPropsJson } from '../../private/LN/common/utils/cajaTemasValidators';
+import getViewabilityRoof from '../utils/getViewabilityRoof';
+import isTodayEnabled from '../utils/isTodayEnabled';
+import { validateChain } from './common/_helper-WebApi';
 
 const LAYOUT_DIAGRAMATION = 'bn_3_grid';
 const shouldSkipRender = (

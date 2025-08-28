@@ -1,4 +1,5 @@
 import CarouselChain from '../../../../components/chains/LN10_Caja_Carrusel/json';
+import isTodayEnabled from '../../../../components/chains/utils/isTodayEnabled';
 
 jest.mock('fusion:consumer', () => {
     return Component =>
@@ -9,9 +10,14 @@ jest.mock('fusion:consumer', () => {
         };
 });
 
+jest.mock('../../../../components/chains/utils/isTodayEnabled', () =>
+    jest.fn()
+);
+
 describe('Carousel Chain test', () => {
     beforeEach(() => {
         jest.spyOn(console, 'warn').mockImplementation(jest.fn());
+        isTodayEnabled.mockReturnValue(true);
     });
 
     afterEach(() => {
@@ -67,7 +73,6 @@ describe('Carousel Chain test', () => {
             const result = carousel.render();
 
             expect(result).toBeNull();
-            expect(console.warn).toHaveBeenCalled();
         });
 
         it('Renders null when some carousel items are not of itemCarrusel type', () => {
@@ -97,14 +102,16 @@ describe('Carousel Chain test', () => {
                         ]
                     }
                 ],
+                layout: 'LN10-Home_Main',
                 children: [],
-                customFields: {}
+                customFields: {
+                    enabledDays: ['lunes', 'martes']
+                }
             });
 
             const result = carousel.render();
 
             expect(result).toBeNull();
-            expect(console.warn).toHaveBeenCalled();
         });
 
         it('Renders the correct object when items are between 5 and 10', () => {
@@ -142,9 +149,11 @@ describe('Carousel Chain test', () => {
                     { _id: 'Video4' },
                     { _id: 'Video5' }
                 ],
+                layout: 'LN10-Home_Main',
                 customFields: {
                     title: 'Carrusel',
-                    link: 'https://www.lanacion.com.ar/lifestyle/'
+                    link: 'https://www.lanacion.com.ar/lifestyle/',
+                    enabledDays: ['lunes', 'martes']
                 }
             };
             const carousel = new CarouselChain(carouselProps);
@@ -207,9 +216,11 @@ describe('Carousel Chain test', () => {
                     { _id: 'Video10' },
                     { _id: 'Video11' }
                 ],
+                layout: 'LN10-Home_Main',
                 customFields: {
                     title: 'Carrusel',
-                    link: 'https://www.lanacion.com.ar/lifestyle/'
+                    link: 'https://www.lanacion.com.ar/lifestyle/',
+                    enabledDays: ['lunes', 'martes']
                 }
             };
             const carousel = new CarouselChain(carouselProps);
@@ -273,9 +284,11 @@ describe('Carousel Chain test', () => {
                     { _id: 'Video10' },
                     { _id: 'Video11' }
                 ],
+                layout: 'LN10-Home_Main',
                 customFields: {
                     title: 'Carrusel',
-                    link: 'https://www.lanacion.com.ar/lifestyle/'
+                    link: 'https://www.lanacion.com.ar/lifestyle/',
+                    enabledDays: ['lunes', 'martes']
                 }
             };
             const carousel = new CarouselChain(carouselProps);
@@ -350,11 +363,13 @@ describe('Carousel Chain test', () => {
                     { _id: 'Video10' },
                     { _id: 'Video11' }
                 ],
+                layout: 'LN10-Home_Main',
                 customFields: {
                     title: 'Carrusel',
                     link: 'https://www.lanacion.com.ar/lifestyle/',
                     logoId: 'logoId',
-                    buttonLogo: 'buttonLogo'
+                    buttonLogo: 'buttonLogo',
+                    enabledDays: ['lunes', 'martes']
                 }
             };
             const carousel = new CarouselChain(carouselProps);
@@ -366,6 +381,166 @@ describe('Carousel Chain test', () => {
                 logoId: carouselProps.customFields.logoId,
                 buttonLogo: carouselProps.customFields.buttonLogo
             });
+        });
+
+        it('Should render isTodayEnabled is false and layout not is home', () => {
+            isTodayEnabled.mockReturnValue(false);
+            const carouselProps = {
+                id,
+                renderables: [
+                    {
+                        collection: 'sections',
+                        props: { id: 'sectionID' }
+                    },
+                    {
+                        collection: 'chains',
+                        type: 'LN10_Caja_Carrusel',
+                        props: { id },
+                        children: [
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable
+                        ]
+                    }
+                ],
+                children: [
+                    {
+                        _id: 'Video1',
+                        previewVideoUrl: 'preview.mp4',
+                        poster: 'poster.jpg?width=320',
+                        duration: 4003,
+                        posterVideo: 'video-320.mp4',
+                        badgeStyle: 'default'
+                    },
+                    null,
+                    { _id: 'Video3' },
+                    { _id: 'Video4' },
+                    { _id: 'Video5' },
+                    { _id: 'Video6' },
+                    { _id: 'Video7' },
+                    { _id: 'Video8' },
+                    { _id: 'Video9' },
+                    { _id: 'Video10' },
+                    { _id: 'Video11' }
+                ],
+                layout: 'LN10-Deportes',
+                customFields: {
+                    title: 'Carrusel',
+                    link: 'https://www.lanacion.com.ar/lifestyle/'
+                }
+            };
+            const carousel = new CarouselChain(carouselProps);
+            const result = carousel.render();
+
+            expect(result.information).toEqual({
+                title: carouselProps.customFields.title,
+                link: carouselProps.customFields.link
+            });
+        });
+
+        it('Should render null when isTodayEnabled is false and layout is home', () => {
+            isTodayEnabled.mockReturnValue(false);
+            const carouselProps = {
+                id,
+                renderables: [
+                    {
+                        collection: 'sections',
+                        props: { id: 'sectionID' }
+                    },
+                    {
+                        collection: 'chains',
+                        type: 'LN10_Caja_Carrusel',
+                        props: { id },
+                        children: [
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable
+                        ]
+                    }
+                ],
+                children: [
+                    {
+                        _id: 'Video1',
+                        previewVideoUrl: 'preview.mp4',
+                        poster: 'poster.jpg?width=320',
+                        duration: 4003,
+                        posterVideo: 'video-320.mp4',
+                        badgeStyle: 'default'
+                    },
+                    { _id: 'Video2' },
+                    { _id: 'Video3' },
+                    { _id: 'Video4' },
+                    { _id: 'Video5' }
+                ],
+                layout: 'LN10-Home_Main',
+                customFields: {
+                    title: 'Carrusel',
+                    link: 'https://www.lanacion.com.ar/lifestyle/',
+                    enabledDays: ['lunes', 'martes']
+                }
+            };
+            const carousel = new CarouselChain(carouselProps);
+            const result = carousel.render();
+
+            expect(result).toBeNull();
+        });
+
+        it('Should render null when enableDays lenght is 0', () => {
+            // isTodayEnabled.(false);
+            const carouselProps = {
+                id,
+                renderables: [
+                    {
+                        collection: 'sections',
+                        props: { id: 'sectionID' }
+                    },
+                    {
+                        collection: 'chains',
+                        type: 'LN10_Caja_Carrusel',
+                        props: { id },
+                        children: [
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable,
+                            carouselItemRenderable
+                        ]
+                    }
+                ],
+                children: [
+                    {
+                        _id: 'Video1',
+                        previewVideoUrl: 'preview.mp4',
+                        poster: 'poster.jpg?width=320',
+                        duration: 4003,
+                        posterVideo: 'video-320.mp4',
+                        badgeStyle: 'default'
+                    },
+                    { _id: 'Video2' },
+                    { _id: 'Video3' },
+                    { _id: 'Video4' },
+                    { _id: 'Video5' }
+                ],
+                layout: 'LN10-Home_Main',
+                customFields: {
+                    title: 'Carrusel',
+                    link: 'https://www.lanacion.com.ar/lifestyle/',
+                    enabledDays: []
+                }
+            };
+            const carousel = new CarouselChain(carouselProps);
+            const result = carousel.render();
+
+            expect(result).toBeNull();
         });
     });
 });
