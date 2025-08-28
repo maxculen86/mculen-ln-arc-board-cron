@@ -8,11 +8,9 @@ jest.mock(
         validateChain: jest.fn()
     })
 );
-jest.mock(
-    '../../../../components/chains/LN10_Caja_Segmentada/_helpers',
-    () => ({
-        isTodayEnabled: jest.fn()
-    })
+
+jest.mock('../../../../components/chains/utils/isTodayEnabled', () =>
+    jest.fn()
 );
 
 jest.mock('fusion:consumer', component => {
@@ -35,7 +33,7 @@ jest.mock('fusion:consumer', component => {
 
 import CajaSegmentada from '../../../../components/chains/LN10_Caja_Segmentada/json';
 import { validateChain } from '../../../../components/chains/LN10_Caja_Segmentada/common/_helper-WebApi';
-import { isTodayEnabled } from '../../../../components/chains/LN10_Caja_Segmentada/_helpers';
+import isTodayEnabled from '../../../../components/chains/utils/isTodayEnabled';
 
 describe('components - chains - LN10_Caja_Segmentada - json', () => {
     let component;
