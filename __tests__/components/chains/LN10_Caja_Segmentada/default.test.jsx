@@ -12,7 +12,9 @@ jest.mock(
         isTodayEnabled: jest.fn(),
         hasValidationFailed: jest.fn(),
         shouldFetchContent: jest.fn(),
-        shouldHideComponent: jest.fn()
+        shouldHideComponent: jest.fn(),
+        shouldShowComponent: jest.fn(),
+        shouldShowPlaceholder: jest.fn()
     })
 );
 
@@ -88,7 +90,9 @@ describe('CajaSegmentada', () => {
         isTodayEnabled,
         hasValidationFailed,
         shouldFetchContent,
-        shouldHideComponent
+        shouldHideComponent,
+        shouldShowComponent,
+        shouldShowPlaceholder
     } = require('../../../../components/chains/LN10_Caja_Segmentada/_helpers');
     const {
         validateChain
@@ -133,6 +137,8 @@ describe('CajaSegmentada', () => {
         hasValidationFailed.mockReturnValue(false);
         shouldFetchContent.mockReturnValue(true);
         shouldHideComponent.mockReturnValue(false);
+        shouldShowComponent.mockReturnValue(true);
+        shouldShowPlaceholder.mockReturnValue(false);
         validateChain.mockReturnValue(null);
         getCommonProps.mockReturnValue({
             notesQuantity: 5,
