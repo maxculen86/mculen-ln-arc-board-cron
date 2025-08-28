@@ -1,36 +1,15 @@
-import {
-    FONT_PRUMO,
-    ROBOTO_LIGHT,
-    ROBOTO_REGULAR,
-    ROBOTO_MEDIUM,
-    ROBOTO_BOLD
-} from 'fusion:environment';
+import { ROBOTO_REGULAR, FONT_PRUMO } from 'fusion:environment';
 import getWebFont from '../../../../private/common/utils/getWebFont';
 
 export const fontFaceFoodit = ({ contextPath, deployment }) => `
-@font-face {font-family:'Prumo';src:url('${getWebFont({
-    font: FONT_PRUMO,
-    contextPath,
-    deployment
-})}') format('woff2-variations'); font-weight: 90; font-display: swap;}
-@font-face {font-family:'Roboto';src:url('${getWebFont({
-    font: ROBOTO_LIGHT,
-    contextPath,
-    deployment
-})}') format('woff2-variations'); font-weight: 300; font-display: swap;}
 @font-face {font-family:'Roboto';src:url('${getWebFont({
     font: ROBOTO_REGULAR,
     contextPath,
     deployment
-})}') format('woff2-variations'); font-weight: 400; font-display: swap;}}
-@font-face {font-family:'Roboto';src:url('${getWebFont({
-    font: ROBOTO_MEDIUM,
+})}') format('woff2'); font-weight: 400; font-display: swap;}
+@font-face {font-family:'Prumo';src:url('${getWebFont({
+    font: FONT_PRUMO,
     contextPath,
     deployment
-})}') format('woff2-variations'); font-weight: 500; font-display: swap;}
-@font-face {font-family:'Roboto';src:url('${getWebFont({
-    font: ROBOTO_BOLD,
-    contextPath,
-    deployment
-})}') format('woff2-variations'); font-weight: 700; font-display: swap;}
+})}') format('woff2'); font-weight: 90; font-display: swap;}
 `;

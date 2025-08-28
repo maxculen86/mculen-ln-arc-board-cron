@@ -4,8 +4,17 @@ exports[`FontPreload matches snapshot 1`] = `
 <DocumentFragment>
   <link
     as="font"
-    href="https://foodit.com.ar/pf/fonts/prumo.woff2"
+    crossorigin="anonymous"
+    href="https://foodit.com.ar/pf/fonts/roboto_regular.woff2"
     rel="preload"
+    type="font/woff2"
+  />
+  <link
+    as="font"
+    crossorigin="anonymous"
+    href="https://foodit.com.ar/pf/fonts/font_prumo.woff2"
+    rel="preload"
+    type="font/woff2"
   />
 </DocumentFragment>
 `;

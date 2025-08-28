@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Static from 'fusion:static';
+import { useIdleTask } from '@ln/utility-hooks';
 import { useAppContext } from 'fusion:context';
 import { useDrawer } from '@ln/common-ui-drawer';
 import { cx } from '@ln/cva';
@@ -45,6 +46,10 @@ function BaseLayout({ children }) {
     const excludeLayoutsFloatingGroupButton = [layoutsName.FooditBuscador];
     const showFloatingGroupButton =
         !excludeLayoutsFloatingGroupButton.includes(layout);
+
+    useIdleTask(() => {
+        import('./fonts-deferred.scss');
+    });
 
     return (
         <AuthInitializer website="foodit">
