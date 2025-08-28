@@ -153,7 +153,7 @@ export const getVerticalPlayer = playerId => {
     return idsPlayersVertical.includes(playerId);
 };
 
-export const buildTagsUrl = baseUrl => {
+export const buildTagsUrl = (baseUrl = '') => {
     try {
         const pdfLocalStorage = localStorage.getItem('_pdfps') || '[]';
         const permutiveSegment = encodeURIComponent(
