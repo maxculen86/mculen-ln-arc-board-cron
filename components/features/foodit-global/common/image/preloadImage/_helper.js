@@ -28,20 +28,16 @@ export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
         (id && 'fooditBaseArticleSource') ||
         null;
 
-    const queryConfig = validVideoId
-        ? {
-              imageConfig: openingImgConfig,
-              id: validVideoId,
-              isInApertura: true
-          }
-        : {
-              imageConfig: openingImgConfig,
-              id,
-              published: true,
-              isInApertura: true,
-              isAdmin,
-              checkExclusiveAccess: false
-          };
+    const queryConfig = {
+        imageConfig: openingImgConfig,
+        id: validVideoId || id,
+        ...(!validVideoId && {
+            published: true,
+            isInApertura: true,
+            isAdmin,
+            checkExclusiveAccess: false
+        })
+    };
 
     const preloadContent = useContent({
         source,
