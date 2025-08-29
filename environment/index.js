@@ -115,7 +115,7 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGLUM58BbaA0IDztD/ncA/aAAAApjCBowYJKoZIhvcNAQcGoIGVMIGSAgEAMIGMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP0ymvk7Aa4QPi8U6QIBEIBfrjC4+oDkJvJn8tKOIRkjAl1GRYfHmu39S49s7DoJ6Z+NvjmK+aSjmpeJVEftron7lwhHVI1N8uT3OBLJJFL8QcZPxFraWqpPprmPu4CbZ42qCOCNqj3HVI1QkWxPrGE=}',
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
-    MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
+    MY_ACCOUNT_URL: 'https://micuenta.lanacion.com.ar',
     SITE_FOODIT: 'https://foodit.lanacion.com.ar',
     API_QUERYLY: 'https://api.queryly.com',
     // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta
