@@ -21,22 +21,21 @@ function PowerUpEmbedCard({ data = {} }) {
                 image = '',
                 altTextImage = '',
                 hasVideo = {},
-                arcData: {
-                    _id: arcDataId = '',
-                    headlines: { basic: arcHeadline = '' } = {},
-                    canonical_url: arcCanonicalUrl = '',
-                    promo_items: {
-                        basic: {
-                            url: promoImageUrl = '',
-                            alt_text: promoAltText = ''
-                        } = {}
-                    } = {}
-                } = {},
+                arcData = {},
                 sections = [],
                 resizedImages = []
             } = {}
         } = {}
     } = data;
+
+    const {
+        _id: arcDataId = '',
+        headlines: { basic: arcHeadline = '' } = {},
+        canonical_url: arcCanonicalUrl = '',
+        promo_items: {
+            basic: { url: promoImageUrl = '', alt_text: promoAltText = '' } = {}
+        } = {}
+    } = arcData;
 
     const itemId = noteId || arcDataId || dataId;
     const itemHeadline = title || arcHeadline;
@@ -48,7 +47,7 @@ function PowerUpEmbedCard({ data = {} }) {
 
     let itemAuthorText = '';
     try {
-        itemAuthorText = getFooditAuthor(data.embed?.config?.arcData) || '';
+        itemAuthorText = getFooditAuthor(arcData) || '';
     } catch (error) {
         console.warn('Error getting author from arcData:', error);
     }
@@ -133,8 +132,8 @@ PowerUpEmbedCard.propTypes = {
                 arcData: PropTypes.shape({}),
                 sections: PropTypes.arrayOf(
                     PropTypes.shape({
-                        _id: PropTypes.string,
-                        name: PropTypes.string
+                        name: PropTypes.string,
+                        path: PropTypes.string
                     })
                 ),
                 resizedImages: PropTypes.arrayOf(
