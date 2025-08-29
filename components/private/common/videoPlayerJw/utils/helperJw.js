@@ -162,12 +162,7 @@ export const buildTagsUrl = (baseUrl = '') => {
             )}`
         );
 
-        const urlWithPermutiveSegment = baseUrl.replace(
-            /(cust_params[^&]+)/,
-            `$1${permutiveSegment}`
-        );
-
-        return urlWithPermutiveSegment;
+        return baseUrl.replace(/(cust_params[^&]+)/, `$1${permutiveSegment}`);
     } catch (e) {
         console.warn('Error building permutive segment', e);
         return baseUrl;
