@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ComTitle from '../../../common/com-title';
 
-const Subtitle = ({ data }) => {
+function Subtitle({ data }) {
     const fontExtra = '--font-extra';
     const tagConfigByLevel = {
         1: {
@@ -15,13 +15,9 @@ const Subtitle = ({ data }) => {
             size: '--l',
             weight: fontExtra
         },
-        3: { tag: 'h4', size: '--twoxs', font: '--arial' },
-        4: { tag: 'h4', size: '--twoxs', font: '--arial' },
-        5: { tag: 'h4', size: '--twoxs', font: '--arial' },
-        6: { tag: 'h4', size: '--twoxs', font: '--arial' },
         default: {
-            tag: 'h2',
-            size: '--xl',
+            tag: 'h4',
+            size: '--m',
             weight: fontExtra
         }
     };
@@ -37,7 +33,7 @@ const Subtitle = ({ data }) => {
             font={_props.font}
         />
     );
-};
+}
 
 Subtitle.arcType = 'header';
 Subtitle.isStatic = true;
