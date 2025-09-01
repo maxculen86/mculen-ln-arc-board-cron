@@ -4,6 +4,7 @@ import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/media
 import { getImageData } from '../../../getApertura';
 import { transformImages } from '../../../../videoPlayerJw/utils/helperJw';
 import setMediaCondition from '../../../../../../../properties/sites/utils/setMediaCondition';
+import replaceUrlResizerToWWW from '../../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 const getImageListStorytelling = (imageData, proportion) =>
     replaceAllUrlsResizerArray(getImageData(imageData, proportion));
@@ -80,10 +81,16 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     return get(basicDefault, 'resized_urls', []);
 };
 
-export const getResizerUrlJw = promoItems => {
-    const allImages = get(promoItems, 'basic.resized_urls', []);
+export const getWWWResizedUrls = (promoItems = {}) => {
+    const promoItemsBasic = get(promoItems, 'basic', {});
+    const basicWithWWW = replaceUrlResizerToWWW(promoItemsBasic);
+    return get(basicWithWWW, 'resized_urls', []);
+};
 
-    const imagesJwPlayer = fillMaxWidth(allImages);
+export const getResizerUrlJw = promoItems => {
+    const resizedUrls = getWWWResizedUrls(promoItems);
+
+    const imagesJwPlayer = fillMaxWidth(resizedUrls);
 
     return imagesJwPlayer.map(imageJw => {
         const minWidth = get(imageJw, 'option.minScreenWidth', 0);
