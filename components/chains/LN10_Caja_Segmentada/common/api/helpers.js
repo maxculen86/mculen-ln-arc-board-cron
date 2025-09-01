@@ -53,7 +53,7 @@ export async function fetchUserSegments() {
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000);
-    const siteId = '2';
+    const siteId = '1';
 
     const response = await fetch(`${SEGMENTATION_API}${siteId}`, {
         method: 'GET',
