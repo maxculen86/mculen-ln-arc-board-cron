@@ -9,11 +9,19 @@ import sentToApps from '../../elements/label/sentToApps';
 import getOpeningMode from '../../elements/label/openingMode';
 import getDistributor from '../../elements/distributor';
 
+const transformAuthors = (articleAuthors, isListenable) => {
+    if (!articleAuthors) return null;
+    return articleAuthors.map(author => {
+        if (isListenable || !author?.voice) return author;
+        const { voice, ...newAuthor } = author;
+        return newAuthor;
+    });
+};
+
 export const CardBasic = article => {
     const { subtype: templateId, label } = article;
 
     const id = get(article, '_id', null);
-
     if (!id) {
         const itemArticle =
             typeof article === 'object' ? JSON.stringify(article) : '';
@@ -39,7 +47,9 @@ export const CardBasic = article => {
     if (!titulo) {
         throw new Error(`La nota con el id: ${id}: No posee el valor Titulo`);
     }
-    const autores = getArticleAuthor(article);
+    const isListenable = get(article, 'isListenable', null);
+    const articleAuthors = getArticleAuthor(article);
+    const transformatedAuthors = transformAuthors(articleAuthors, isListenable);
     const signature = get(article, 'additionalProperties.authors', null);
     const enviarApps = sentToApps(article);
     const openingMode = getOpeningMode(article);
@@ -56,11 +66,11 @@ export const CardBasic = article => {
         volanta:
             get(label, 'volanta.text', null) ||
             get(article, 'additionalProperties.lead', null),
-        autores,
-        authors: autores,
+        autores: transformatedAuthors,
+        authors: transformatedAuthors,
         marquesina: distributorOrAuthorSignature(
             distributor,
-            autores,
+            transformatedAuthors,
             signature
         ),
         seccionPadre: getArticleOpinionSubtype(article),
