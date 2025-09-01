@@ -1,7 +1,17 @@
 import {
     getResizedUrls,
-    getResizerUrlJw
+    getResizerUrlJw,
+    getWWWResizedUrls
 } from '../../../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper';
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar',
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
+}));
 
 describe('getDataToLinkImage - _helper', () => {
     describe('getResizedUrls', () => {
@@ -460,6 +470,96 @@ describe('getDataToLinkImage - _helper', () => {
         it('should return an empty array when promo items is empty', () => {
             const result = getResizerUrlJw({});
             expect(result).toStrictEqual([]);
+        });
+    });
+
+    describe('getWWWResizedUrls', () => {
+        const promoItems = {
+            basic: {
+                url: 'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FX763KUZa%2Fposter.jpg%3Fwidth%3D720?auth=cdd5a50bf880b3009eb40ba9c2d9e5b1c0079d7fce5339bfa1639958c7fe6a56&width=768&quality=70&smart=false',
+                type: 'image',
+                width: 768,
+                height: 513,
+                resized_urls: [
+                    {
+                        resizedUrl:
+                            'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FX763KUZa%2Fposter.jpg%3Fwidth%3D720?auth=cdd5a50bf880b3009eb40ba9c2d9e5b1c0079d7fce5339bfa1639958c7fe6a56&width=510&quality=70&smart=false',
+                        option: {
+                            width: 510,
+                            height: 765,
+                            maxScreenWidth: 511,
+                            media_preload: '(max-width: 511px)',
+                            proportion: '2:3'
+                        }
+                    },
+                    {
+                        resizedUrl:
+                            'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FX763KUZa%2Fposter.jpg%3Fwidth%3D720?auth=cdd5a50bf880b3009eb40ba9c2d9e5b1c0079d7fce5339bfa1639958c7fe6a56&width=767&quality=70&smart=false',
+                        option: {
+                            width: 767,
+                            height: 1151,
+                            minScreenWidth: 512,
+                            media_preload:
+                                '(min-width: 512px) and (max-width: 767px)',
+                            proportion: '2:3'
+                        }
+                    },
+                    {
+                        resizedUrl:
+                            'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FX763KUZa%2Fposter.jpg%3Fwidth%3D720?auth=cdd5a50bf880b3009eb40ba9c2d9e5b1c0079d7fce5339bfa1639958c7fe6a56&width=1023&quality=70&smart=false',
+                        option: {
+                            width: 1023,
+                            height: 1535,
+                            minScreenWidth: 768,
+                            media_preload:
+                                '(min-width: 768px) and (max-width: 1023px)',
+                            proportion: '2:3'
+                        }
+                    },
+                    {
+                        resizedUrl:
+                            'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FX763KUZa%2Fposter.jpg%3Fwidth%3D720?auth=cdd5a50bf880b3009eb40ba9c2d9e5b1c0079d7fce5339bfa1639958c7fe6a56&width=1279&quality=70&smart=false',
+                        option: {
+                            width: 1279,
+                            height: 1919,
+                            minScreenWidth: 1024,
+                            media_preload:
+                                '(min-width: 1024px) and (max-width: 1279px)',
+                            proportion: '2:3'
+                        }
+                    },
+                    {
+                        resizedUrl:
+                            'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FX763KUZa%2Fposter.jpg%3Fwidth%3D720?auth=cdd5a50bf880b3009eb40ba9c2d9e5b1c0079d7fce5339bfa1639958c7fe6a56&width=1366&quality=70&smart=false',
+                        option: {
+                            width: 1366,
+                            height: 2049,
+                            minScreenWidth: 1280,
+                            media_preload:
+                                '(min-width: 1280px) and (max-width: 1366px)',
+                            proportion: '2:3'
+                        }
+                    }
+                ]
+            }
+        };
+
+        it('should normalize host to www', () => {
+            const resizedUrls = getWWWResizedUrls(promoItems);
+
+            expect(resizedUrls).toHaveLength(5);
+            expect(
+                resizedUrls.every(result =>
+                    result.resizedUrl.startsWith(
+                        'https://www.lanacion.com.ar/resizer/'
+                    )
+                )
+            ).toBe(true);
+        });
+
+        it('should return [] if promoItems is undefined or empty', () => {
+            expect(getWWWResizedUrls(undefined)).toEqual([]);
+            expect(getWWWResizedUrls({})).toEqual([]);
         });
     });
 });
