@@ -2,7 +2,7 @@
   max-width: unset;
   max-height: unset;
   inset-block-start: unset;
-  inset-block-end: unset;
+  inset-block-end: 0;
   --_background-dialog: var(--background-dialog, rgba(0, 0, 0, 0.5));
 }
 .dialog::backdrop {

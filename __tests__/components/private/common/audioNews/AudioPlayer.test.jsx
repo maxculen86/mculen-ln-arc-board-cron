@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AudioPlayer from '../../../../../components/private/common/audioNews/AudioPlayer';
-import hooks, { useDisclosure } from '@ln/hooks';
+import hooks, { useDisclosure, useMergeRefs } from '@ln/hooks';
 import isSSR from '../../../../../components/private/LN/common/utils/isSSR';
 
 jest.mock('../../../../../components/private/LN/common/utils/isSSR', () => {
@@ -12,7 +12,8 @@ jest.mock('@ln/hooks', () => {
     return {
         useWindowSize: jest.fn(),
         useOnClickOutside: jest.fn(),
-        useDisclosure: jest.fn()
+        useDisclosure: jest.fn(),
+        useMergeRefs: jest.fn()
     };
 });
 
