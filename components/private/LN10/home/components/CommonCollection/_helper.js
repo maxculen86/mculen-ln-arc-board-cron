@@ -4,20 +4,13 @@ import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
 import { LIVEBLOG } from '../../../../common/utils/subtypes/subtypeHelper';
-import isExternalDistributor from '../../../../common/utils/isExternalDistributor';
+import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
+import {
+    showMarqueeImage,
+    showMarquee
+} from '../../../../../features/LN-10/article/_helper';
 
-export const getDataAuthorCollection = (article, distributor = {}) => {
-    const distributorName = distributor?.name || '';
-    const distributorCategory = distributor?.category || '';
-    const author = get(article, 'credits.by[0]', {});
-    const authorName = author?.name || '';
-    const authorType = author?.additional_properties?.author_type || '';
-    if (isExternalDistributor(distributorName, distributorCategory, authorType))
-        return distributorName;
-    return authorName.trim() ? authorName : null;
-};
-
-const getCardConfig = (config, articleData) => {
+const getCardConfig = (config, articleData, isHomeLN10 = false) => {
     const {
         withMarquee,
         withMarqueeImg,
@@ -27,20 +20,35 @@ const getCardConfig = (config, articleData) => {
         isLoadWithPicture,
         href = ''
     } = config || {};
-    const distributor = get(articleData, 'distributor', {});
+
     const promoItems = get(articleData, 'promo_items.basic');
     const containsImage =
         get(articleData, 'promo_items.basic.type', '') === 'image';
 
-    const dataAuthor = getDataAuthorCollection(articleData, distributor);
+    const authorsArr = get(articleData, 'credits.by', []);
+    const authorsAsString = getAuthorsAsString(articleData, isHomeLN10);
+
+    const marqueeImg = showMarqueeImage({
+        withMarqueeImg,
+        authorsQuantity: authorsArr.length,
+        authors: undefined,
+        url: get(getAuthorsPhoto(articleData), 'url', '')
+    });
+
+    const marquee = showMarquee({
+        withMarquee,
+        hideAuthors: false,
+        authors: undefined,
+        marquesina: authorsAsString
+    });
+
     return {
         withImage: containsImage && withMedia,
         subhead:
             (!containsImage || withSubhead) &&
             get(articleData, 'subheadlines.basic'),
-        marquee: withMarquee && dataAuthor,
-        marqueeImg:
-            withMarqueeImg && get(getAuthorsPhoto(articleData), 'url', ''),
+        marquee,
+        marqueeImg,
         cardSize: get(config, 'cardSize'),
         mediaData: transformImageData({
             articleData,
