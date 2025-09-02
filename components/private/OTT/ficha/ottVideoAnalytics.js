@@ -1,8 +1,9 @@
+// TODO: limpieza OTT - Borrar en iteración 2 de 5
 export default function loadOTTVideoAnalytics(titulo, videoId) {
     const datalayer = window.dataLayer;
     if (!datalayer) return null;
     return window.addEventListener('powaRender', event => {
-        const powa = event.detail.powa;
+        const { powa } = event.detail;
 
         powa.on(PoWa.EVENTS.START, evPowa => {
             dataLayer.push({
