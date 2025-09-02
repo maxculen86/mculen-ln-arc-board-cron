@@ -8,6 +8,10 @@ import {
 } from '../../../../../../../components/features/foodit-global/common/image/preloadImage/_helper';
 import { getImagesToLoadWithPicture } from '../../../../../../../components/private/LN/common/utils/mediaHelper';
 
+jest.mock('fusion:content', () => ({
+    useContent: jest.fn()
+}));
+
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/image/preloadImage/_helper',
     () => ({
@@ -74,11 +78,10 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
         );
 
         expect(getHomeOpeningImages).toHaveBeenCalledWith(renderables, false);
-
         expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(true, mockUrls);
 
         const linkElements = screen.getAllByRole('link', { hidden: true });
-        expect(linkElements).toHaveLength(mockImages.length); // Asegurarse de que el número de elementos coincide
+        expect(linkElements).toHaveLength(mockImages.length);
 
         mockImages.forEach((image, index) => {
             expect(linkElements[index]).toHaveAttribute('href', image.href);
@@ -92,6 +95,120 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
                 'media',
                 image.mediaPreload
             );
+        });
+    });
+
+    describe('Video Poster Domain Tests', () => {
+        const { useContent } = require('fusion:content');
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should use foodit domain for video poster when isInApertura is true', () => {
+            const mockVideoContent = {
+                poster: 'https://foodit.lanacion.com.ar/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FatylCTVp%2Fposter.jpg?width=420&height=280'
+            };
+
+            useContent.mockReturnValue(mockVideoContent);
+
+            const mockUrls = [{ resizedUrl: mockVideoContent.poster }];
+            getHomeOpeningImages.mockReturnValue(mockUrls);
+            getImagesToLoadWithPicture.mockReturnValue([
+                {
+                    mediaPreload: '(min-width: 320px)',
+                    href: mockVideoContent.poster
+                }
+            ]);
+
+            render(
+                <PreloadFooditImages
+                    layout="Foodit-home"
+                    renderables={[]}
+                    isAdmin={false}
+                />
+            );
+
+            expect(getHomeOpeningImages).toHaveBeenCalled();
+
+            const linkElements = screen.getAllByRole('link', { hidden: true });
+            expect(linkElements.length).toBeGreaterThan(0);
+
+            const posterLink = linkElements.find(link =>
+                link.getAttribute('href')?.includes('foodit.lanacion.com.ar')
+            );
+            expect(posterLink).toBeInTheDocument();
+        });
+
+        it('should use external resizer domain for video poster when isInApertura is false', () => {
+            const mockVideoContent = {
+                poster: 'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2Fsgmv18Ps%2Fposter.jpg?width=420&height=280'
+            };
+
+            useContent.mockReturnValue(mockVideoContent);
+
+            const mockUrls = [{ resizedUrl: mockVideoContent.poster }];
+            getHomeOpeningImages.mockReturnValue(mockUrls);
+            getImagesToLoadWithPicture.mockReturnValue([
+                {
+                    mediaPreload: '(min-width: 320px)',
+                    href: mockVideoContent.poster
+                }
+            ]);
+
+            render(
+                <PreloadFooditImages
+                    layout="Foodit-home"
+                    renderables={[]}
+                    isAdmin={false}
+                />
+            );
+
+            expect(getHomeOpeningImages).toHaveBeenCalled();
+
+            const linkElements = screen.getAllByRole('link', { hidden: true });
+            expect(linkElements.length).toBeGreaterThan(0);
+
+            const posterLink = linkElements.find(link =>
+                link
+                    .getAttribute('href')
+                    ?.includes('sandbox-resizer.glanacion.com')
+            );
+            expect(posterLink).toBeInTheDocument();
+        });
+
+        it('should have fetchPriority="high" for video poster preload in apertura', () => {
+            const mockVideoContent = {
+                poster: 'https://foodit.lanacion.com.ar/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FatylCTVp%2Fposter.jpg?width=420&height=280'
+            };
+
+            useContent.mockReturnValue(mockVideoContent);
+
+            const mockUrls = [{ resizedUrl: mockVideoContent.poster }];
+            getHomeOpeningImages.mockReturnValue(mockUrls);
+            getImagesToLoadWithPicture.mockReturnValue([
+                {
+                    mediaPreload: '(min-width: 320px)',
+                    href: mockVideoContent.poster
+                }
+            ]);
+
+            render(
+                <PreloadFooditImages
+                    layout="Foodit-home"
+                    renderables={[]}
+                    isAdmin={false}
+                />
+            );
+
+            const linkElements = screen.getAllByRole('link', { hidden: true });
+            const videoPosterLink = linkElements.find(link =>
+                link.getAttribute('href')?.includes('foodit.lanacion.com.ar')
+            );
+
+            expect(videoPosterLink).toHaveAttribute('fetchpriority', 'high');
+            expect(videoPosterLink).toHaveAttribute('rel', 'preload');
+            expect(videoPosterLink).toHaveAttribute('as', 'image');
         });
     });
 
@@ -139,7 +256,7 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
     });
 
     it('renders empty PreloadImages when layout does not match any configuration', () => {
-        getImagesToLoadWithPicture.mockReturnValue([]); // Mock para devolver un array vacío
+        getImagesToLoadWithPicture.mockReturnValue([]);
 
         render(<PreloadFooditImages layout="unknown-layout" />);
 
