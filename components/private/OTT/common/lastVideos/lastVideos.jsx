@@ -1,11 +1,12 @@
 import React from 'react';
+import { useContent } from 'fusion:content';
 import get from '../../../common/utils/get';
 import Carousell from '../../../common/carousell';
 import VideoArticle from '../videoArticle';
 import Title from '../../../common/title';
-import { useContent } from 'fusion:content';
 
-const LastVideos = () => {
+// TODO: limpieza OTT - Borrar en iteración 2 de 5
+function LastVideos() {
     const media = useContent({
         source: 'ottLastVideoJwSource',
         query: {}
@@ -34,6 +35,6 @@ const LastVideos = () => {
             </section>
         )
     );
-};
+}
 
 export default LastVideos;
