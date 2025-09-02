@@ -4,6 +4,7 @@ import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
 import { monthNames } from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
+import isCustomLiveblog from '../../../private/common/utils/isCustomLiveblog';
 import { isMarker } from '../../helpers/groupingUtils';
 
 export function reorderGroupsByPinnedBlock(groups) {
@@ -150,7 +151,10 @@ export const extractVisibleItemsWithShowMore = (items = []) => {
     let textCount = 0;
 
     const cutoffIndex = items.findIndex(item => {
-        if (item.type === 'text' && item.content?.trim()) {
+        if (
+            get(item, 'type', '') === 'text' &&
+            get(item, 'content', '').trim()
+        ) {
             // eslint-disable-next-line no-plusplus
             textCount++;
             return textCount === 3;
@@ -174,8 +178,13 @@ export const shouldShowTopDivider = (index, posts) => {
 
 export const getPostRenderData = grupo => {
     const liveblogHeader = getLiveblogHeaderData(grupo);
+
+    const contentItems = get(grupo, 'items', []).filter(
+        item => !isCustomLiveblog(item)
+    );
+
     const { visibleItems, hiddenItems, isExpandable } =
-        extractVisibleItemsWithShowMore(grupo.items);
+        extractVisibleItemsWithShowMore(contentItems);
 
     const displayTime =
         liveblogHeader?.relative ||
