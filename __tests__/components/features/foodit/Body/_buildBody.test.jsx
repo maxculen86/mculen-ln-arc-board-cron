@@ -1,11 +1,34 @@
+import React from 'react';
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useAppContext } from 'fusion:context';
-
-import buildBody from '../../../../../components/features/foodit/Body/children/_buildBody'; // Ajusta la ruta según sea necesario
+import bodyComponents from '../../../../../components/features/foodit/Body/utils/bodyComponents';
+import buildBody from '../../../../../components/features/foodit/Body/children/_buildBody';
+import { STORYTELLING } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
+
+jest.mock(
+    '../../../../../components/features/foodit/Body/utils/bodyComponents',
+    () => {
+        const actual = jest.requireActual(
+            '../../../../../components/features/foodit/Body/utils/bodyComponents'
+        ).default;
+
+        return {
+            __esModule: true,
+            default: {
+                ...actual,
+                'custom-card-embebida': ({ data }) => (
+                    <div data-testid="mock-card-embebida">
+                        Mock Card Embebida {data?.embed ? 'con embed' : ''}
+                    </div>
+                )
+            }
+        };
+    }
+);
 
 describe('buildBody', () => {
     describe('STORYTELLING', () => {
@@ -64,6 +87,46 @@ describe('buildBody', () => {
             expect(
                 container.querySelector('section.content')
             ).toBeInTheDocument();
+        });
+        it('should render <hr /> before and after if only one custom-card-embebida exists', () => {
+            const globalContent = {
+                content_elements: [
+                    {
+                        type: 'custom_embed',
+                        subtype: 'custom-card-embebida',
+                        embed: { config: {} }
+                    }
+                ],
+                subtype: STORYTELLING
+            };
+
+            const { container } = render(buildBody({ globalContent }));
+            const hrs = container.querySelectorAll('section.content hr');
+            expect(hrs.length).toBe(2);
+            screen.debug();
+        });
+
+        it('should render 3 <hr /> when there are two custom-card-embebida in a row', () => {
+            const globalContent = {
+                content_elements: [
+                    {
+                        type: 'custom_embed',
+                        subtype: 'custom-card-embebida',
+                        embed: { config: {} }
+                    },
+                    {
+                        type: 'custom_embed',
+                        subtype: 'custom-card-embebida',
+                        embed: { config: {} }
+                    }
+                ],
+                subtype: STORYTELLING
+            };
+
+            const { container } = render(buildBody({ globalContent }));
+            const hrs = container.querySelectorAll('section.content hr');
+            expect(hrs.length).toBe(3);
+            screen.debug();
         });
     });
 
