@@ -3,34 +3,34 @@ import PropTypes from 'prop-types';
 import ComTitle from '../../../common/com-title';
 
 function Subtitle({ data }) {
-    const fontExtra = '--font-extra';
-    const tagConfigByLevel = {
-        1: {
-            tag: 'h2',
-            size: '--xl',
-            weight: fontExtra
-        },
-        2: {
-            tag: 'h3',
-            size: '--l',
-            weight: fontExtra
-        },
-        default: {
-            tag: 'h4',
-            size: '--m',
-            weight: fontExtra
-        }
-    };
     const { level, content } = data;
-    const _props = tagConfigByLevel[level] || tagConfigByLevel.default;
+
+    const SUBTITLE_CONFIG = {
+        defaults: {
+            weight: '--font-extra',
+            tag: 'h4',
+            size: '--m'
+        },
+        variantsByLevel: new Map([
+            [1, { tag: 'h2', size: '--xl' }],
+            [2, { tag: 'h3', size: '--l' }],
+            [4, { classCondition: 'underline' }]
+        ])
+    };
+
+    const config = {
+        ...SUBTITLE_CONFIG.defaults,
+        ...SUBTITLE_CONFIG.variantsByLevel.get(level)
+    };
+
     return (
         <ComTitle
-            tag={_props.tag}
-            size={_props.size}
-            classCondition={_props.classCondition}
+            tag={config.tag}
+            size={config.size}
+            classCondition={config.classCondition}
             content={content}
-            weight={_props.weight}
-            font={_props.font}
+            weight={config.weight}
+            font={config.font}
         />
     );
 }
