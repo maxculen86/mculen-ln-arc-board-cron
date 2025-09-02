@@ -7,11 +7,7 @@ import { resizeImgUrl } from '../../components/private/common/utils/image/resize
 import get from '../../components/private/common/utils/get';
 
 const fetch = (query, { cachedCall } = {}) => {
-    const {
-        id = '',
-        imageConfig = 'grid2notes',
-        isInApertura = false
-    } = query || {};
+    const { id = '', imageConfig = 'grid2notes' } = query || {};
 
     const resolveData = async () => {
         try {
@@ -44,9 +40,7 @@ const fetch = (query, { cachedCall } = {}) => {
                     auth: { 1: get(signingResponse, 'hash') },
                     type: 'image'
                 },
-                defaultResizeWithSmart: imagePreset,
-                isInApertura,
-                arcSite: 'foodit'
+                defaultResizeWithSmart: imagePreset
             });
 
             return {
@@ -75,8 +69,7 @@ export default {
     params: {
         id: 'text',
         website: 'text',
-        imageConfig: 'text',
-        isInApertura: 'bool'
+        imageConfig: 'text'
     },
     ttl: 900
 };
