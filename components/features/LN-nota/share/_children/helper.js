@@ -6,7 +6,8 @@ import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEv
 import {
     FOTOAL100,
     LIVEBLOG_EDITORIAL,
-    VIDEO
+    VIDEO,
+    CARDS
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
@@ -63,7 +64,8 @@ export const shareContainerVariant = cva('', {
             video: '-order-1 ratio-auto order-initial_min1024',
             fotoAl100:
                 'float-l_l transition transition-all transition-duration-250',
-            liveblogEditorial: 'border-transparent py-24_m'
+            liveblogEditorial: 'border-transparent py-24_m',
+            cards: 'border-transparent'
         }
     },
     defaultVariants: {
@@ -75,7 +77,8 @@ export const shareContainerVariant = cva('', {
 export const layoutBySubtype = {
     [FOTOAL100]: 'fotoAl100',
     [VIDEO]: 'video',
-    [LIVEBLOG_EDITORIAL]: 'liveblogEditorial'
+    [LIVEBLOG_EDITORIAL]: 'liveblogEditorial',
+    [CARDS]: 'cards'
 };
 
 export const subtypesWithHorizontalShare = [VIDEO, LIVEBLOG_EDITORIAL];

@@ -11,6 +11,7 @@ export const HTMLLIBRE = '9';
 export const AGENCIA = '10';
 export const LIVEBLOG_EDITORIAL = '11';
 export const VIDEOAL100 = '12';
+export const CARDS = '13';
 
 export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
 
@@ -25,7 +26,8 @@ export const Subtypes = [
     { id: '9', nombre: 'HtmlLibre' },
     { id: '10', nombre: 'Agencia' },
     { id: '11', nombre: 'Liveblog-Editorial' },
-    { id: '12', nombre: 'VideoAl100' }
+    { id: '12', nombre: 'VideoAl100' },
+    { id: '13', nombre: 'Cards' }
 ];
 
 export const translateStringFromSubitypeToID = (subtype = '') => {
@@ -40,7 +42,8 @@ export const translateStringFromSubitypeToID = (subtype = '') => {
         HtmlLibre: HTMLLIBRE,
         Agencia: AGENCIA,
         LiveblogEditorial: LIVEBLOG_EDITORIAL,
-        VideoAl100: VIDEOAL100
+        VideoAl100: VIDEOAL100,
+        Cards: CARDS
     };
 
     return dictionarySubtypes[subtype] || subtype;

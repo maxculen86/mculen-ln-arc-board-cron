@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getMediaItem } from '../../_helpers/liveblogEditorialApertura';
+import { getMediaItem } from '../../../_helpers/mediaHelper';
 import ModFigcaption from '../../../../private/common/mod-figcaption';
 
 function OpeningMedia({ data }) {
