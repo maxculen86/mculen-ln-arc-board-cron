@@ -14,7 +14,7 @@ function CardChef({ customFields: { id = '' } }) {
     const author = useContent({
         source: 'chefsSource',
         query: {
-            _id: idAuthor,
+            _id: encodeURIComponent(idAuthor),
             website: arcSite
         },
         filter,

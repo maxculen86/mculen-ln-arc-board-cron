@@ -64,7 +64,7 @@ function LinkCanonicalAndAlternate(props = {}) {
 
     return arcSite && (canonicalUrl || _id || nodeType === 'home') ? (
         <>
-            <link rel="canonical" href={canonicalLink} />
+            <link rel="canonical" href={decodeURIComponent(canonicalLink)} />
             {isUSALangHtml(_id, canonicalUrl) && (
                 <link rel="alternate" href={canonicalLink} hrefLang="es-US" />
             )}
