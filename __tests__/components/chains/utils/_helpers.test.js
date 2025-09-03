@@ -399,6 +399,7 @@ describe('Components - Chains - Utils - _helpers', () => {
 
             expect(result).toEqual({
                 src: 'https://example.com/logo.png',
+                className: 'w-100',
                 alt: 'logo-title',
                 height: '50px',
                 width: '100px'
@@ -411,6 +412,7 @@ describe('Components - Chains - Utils - _helpers', () => {
             expect(resultNull).toEqual({
                 src: '',
                 alt: 'logo-title',
+                className: 'w-100',
                 height: '',
                 width: ''
             });
@@ -420,6 +422,7 @@ describe('Components - Chains - Utils - _helpers', () => {
             expect(resultUndefined).toEqual({
                 src: '',
                 alt: 'logo-title',
+                className: 'w-100',
                 height: '',
                 width: ''
             });
@@ -449,6 +452,7 @@ describe('Components - Chains - Utils - _helpers', () => {
                 logo: {
                     src: 'https://example.com/logo.png',
                     alt: 'Test Title',
+                    className: 'w-100',
                     height: '50px',
                     width: '100px'
                 },
@@ -456,6 +460,7 @@ describe('Components - Chains - Utils - _helpers', () => {
                 buttonLogo: {
                     src: 'https://example.com/logo.png',
                     alt: 'Test Title',
+                    className: 'w-100 sm-only',
                     height: '50px',
                     width: '100px'
                 },
@@ -489,6 +494,7 @@ describe('Components - Chains - Utils - _helpers', () => {
                 logo: {
                     src: '',
                     alt: 'Test Title',
+                    className: 'w-100',
                     height: '',
                     width: ''
                 },
@@ -496,6 +502,7 @@ describe('Components - Chains - Utils - _helpers', () => {
                 buttonLogo: {
                     src: '',
                     alt: 'Test Title',
+                    className: 'w-100 sm-only',
                     height: '',
                     width: ''
                 },

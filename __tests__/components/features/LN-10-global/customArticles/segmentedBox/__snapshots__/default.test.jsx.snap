@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomArticleSegmentedBox matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="as-article flex flex-column gap-8 uppercase text-neutral-light-800"
+  >
+    <span
+      class="inline-flex ai-center gap-4 font-bold text-12"
+      data-testid="text"
+    >
+      <span
+        data-size="16"
+        data-testid="icon"
+      >
+        <mock-icon
+          name="arrowContainer"
+        />
+      </span>
+      CALCULADORAS
+    </span>
+    <ul
+      class="flex flex-column gap-4 pl-20 mb-8 text-12_130"
+    >
+      <li>
+        <a
+          aria-label="Ir a calculadora de ganancias"
+          class="text-12_130"
+          data-testid="link"
+          data-unstyled="true"
+          href="https://example.com/ganancias"
+          title="Ir a calculadora de ganancias"
+        >
+          de Ganancias
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Ir a calculadora de créditos hipotecarios"
+          class="text-12_130"
+          data-testid="link"
+          data-unstyled="true"
+          href="https://example.com/creditos"
+          title="Ir a calculadora de créditos hipotecarios"
+        >
+          De créditos hipotecarios
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Ir a calculadora de inflación"
+          class="text-12_130"
+          data-testid="link"
+          data-unstyled="true"
+          href="https://example.com/inflacion"
+          title="Ir a calculadora de inflación"
+        >
+          De inflación
+        </a>
+      </li>
+    </ul>
+    <a
+      aria-label="Ir a cotizaciones"
+      class="inline-flex ai-center gap-4 text-12 font-bold mb-8"
+      data-testid="link"
+      data-unstyled="true"
+      href="https://www.lanacion.com.ar/dolar-hoy"
+      title="Ir a cotizaciones"
+    >
+      <span
+        data-size="16"
+        data-testid="icon"
+      >
+        <mock-icon
+          name="arrowContainer"
+        />
+      </span>
+      COTIZACIONES
+    </a>
+    <hr
+      class="mb-8"
+    />
+    <a
+      aria-label="Ir a economía"
+      data-testid="link"
+      data-unstyled="true"
+      href="https://www.lanacion.com.ar/economia/"
+      title="Ir a economía"
+    >
+      <img
+        alt="Logo test"
+        class="h-36 w-auto"
+        data-testid="image"
+        src="https://example.com/logo.png"
+      />
+    </a>
+  </div>
+</DocumentFragment>
+`;
