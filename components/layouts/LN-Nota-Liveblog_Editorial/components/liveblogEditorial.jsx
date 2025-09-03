@@ -25,9 +25,8 @@ function LiveBlogEditorial({ children }) {
                     <div className="row">
                         {/* ---- CUERPO ---- */}
                         <LiveBlogEditorial.Body>
-                            <LiveBlogBody.Top dateTime={dataDateTime}>
-                                {children[2]}
-                            </LiveBlogBody.Top>
+                            <LiveBlogBody.Top dateTime={dataDateTime} />
+                            {children[2]}
                         </LiveBlogEditorial.Body>
                     </div>
                     {/* ---- TERCERA ---- */}

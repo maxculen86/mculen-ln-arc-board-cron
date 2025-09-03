@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StickyMobile matches snapshot 1`] = `
+<div>
+  <div
+    class="sticky-mobile-v2 animation animation-duration-300 transition transition-ease-in bg-light-50 rounded-top-left-16 rounded-top-right-16 mb-62 z-101 overflow-hidden"
+    data-mrf-recirculation="n_sticky"
+    data-testid="n_sticky"
+    position="bottom"
+    role="dialog"
+  >
+    <div
+      class="sticky-v2-header bg-blue-500 jc-between ai-center px-16"
+    >
+      <div
+        size="28"
+      >
+        <div
+          data-icon="productLn"
+          fill="var(--neutral-light-1)"
+        />
+      </div>
+      <h3
+        class="arial text-16 text-neutral-light-1 font-bold"
+      >
+        Lo más leído
+      </h3>
+      <button
+        aria-hidden="true"
+        id="stickyMobileCloseTestId"
+      >
+        <div
+          size="24"
+        >
+          <div
+            data-icon="close"
+            fill="var(--neutral-light-1)"
+          />
+        </div>
+      </button>
+    </div>
+    <div
+      class="sticky-mobile-v2-body flex flex-column px-16 py-8 gap-8 mb-50 fade-content-16"
+    >
+      <a
+        class="link ln-link flex gap-8"
+        href="/deportes/que-fallo-minuto-a-minuto-la-secuencia-de-errores-y-negligencias-que-derivo-en-la-noche-de-horror-en-nid21082025/"
+        target="_self"
+        title="Minuto a minuto: la secuencia de errores y negligencias que derivó en la noche de horror en Independiente"
+      >
+        <div
+          class="ratio-1-1"
+          style="width: 90px;"
+        >
+          <img
+            alt="Minuto a minuto: la secuencia de errores y negligencias que derivó en la noche de horror en Independiente"
+            class="image flex --cover"
+            decoding="async"
+            fetchpriority="low"
+            height="90"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/v2/‎-foto-fotobaires-octavos-de-final-copa-IJJ5A7IUFVFMHPJ5GTDJLZRH6U.jpg?auth=fdbb5d1a0e2ef858c4776272abf6474e352ca4929700891348d4bd2bdcad4073&width=80&height=80&quality=70&smart=true"
+            width="90"
+          />
+        </div>
+        <div
+          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 h-52"
+          tag="h2"
+          weight="bold"
+        >
+          Minuto a minuto: la secuencia de errores y negligencias que derivó en la noche de horror en Independiente
+        </div>
+      </a>
+      <hr />
+      <a
+        class="link ln-link flex gap-8"
+        href="/deportes/futbol/independiente-vs-universidad-de-chile-se-suspendio-el-partido-por-incidentes-entre-los-hinchas-nid20082025/"
+        target="_self"
+        title="Cómo fueron los gravísimos incidentes que forzaron la cancelación de Independiente vs. U. de Chile"
+      >
+        <div
+          class="ratio-1-1"
+          style="width: 90px;"
+        >
+          <img
+            alt="Cómo fueron los gravísimos incidentes que forzaron la cancelación de Independiente vs. U. de Chile"
+            class="image flex --cover"
+            decoding="async"
+            fetchpriority="low"
+            height="90"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/v2/un-ejemplo-entre-muchos-un-simpatizante-sangrante-ATKAFVKXJBGOFFRSPRWXACF25I.jpg?auth=cfcc66c836a30e14702cfbdd1fdd5412786ffecfd016ccfadb545b366a3905e5&width=80&height=80&quality=70&smart=true"
+            width="90"
+          />
+        </div>
+        <div
+          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 h-52"
+          tag="h2"
+          weight="bold"
+        >
+          Cómo fueron los gravísimos incidentes que forzaron la cancelación de Independiente vs. U. de Chile
+        </div>
+      </a>
+      <hr />
+      <a
+        class="link ln-link flex gap-8"
+        href="/deportes/futbol/el-comunicado-de-conmebol-tras-los-gravisimos-incidentes-en-independiente-vs-universidad-de-chile-nid21082025/"
+        target="_self"
+        title="Qué dijo la Conmebol tras los gravísimos incidentes en Independiente vs. Universidad de Chile"
+      >
+        <div
+          class="ratio-1-1"
+          style="width: 90px;"
+        >
+          <img
+            alt="Qué dijo la Conmebol tras los gravísimos incidentes en Independiente vs. Universidad de Chile"
+            class="image flex --cover"
+            decoding="async"
+            fetchpriority="low"
+            height="90"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/v2/jugadores-de-independiente-y-universidad-de-chile-MPX3GBLHYFCPDL6RCFW4WVTFZM.jpg?auth=86b2efc5918c7882645ba58d39272f388e0f63787f677d9392065798ec103453&width=80&height=80&quality=70&smart=true"
+            width="90"
+          />
+        </div>
+        <div
+          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 h-52"
+          tag="h2"
+          weight="bold"
+        >
+          Qué dijo la Conmebol tras los gravísimos incidentes en Independiente vs. Universidad de Chile
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;

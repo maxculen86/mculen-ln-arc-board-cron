@@ -65,7 +65,7 @@ describe('cardRegular', () => {
                 valor: undefined
             },
             title: 'Test article',
-            autores: null,
+            autores: undefined,
             authors: undefined,
             marquesina: undefined,
             volanta: null,
@@ -130,7 +130,7 @@ describe('cardRegular', () => {
                 valor: undefined
             },
             title: 'Test article',
-            autores: null,
+            autores: undefined,
             authors: undefined,
             marquesina: undefined,
             volanta: null,
@@ -178,7 +178,7 @@ describe('cardRegular', () => {
             widgetEmbed: undefined,
             imagen: undefined,
             videoYouTube: undefined,
-            autores: null,
+            autores: undefined,
             authors: undefined,
             marquesina: undefined,
             volanta: null,
@@ -270,7 +270,9 @@ describe('cardRegular', () => {
             marquesina: 'Por autor'
         });
         get.mockImplementation((_, path, defaultValue) =>
-            path === 'informationBox.sectionAliasMobile' ? 'hashtag' : defaultValue
+            path === 'informationBox.sectionAliasMobile'
+                ? 'hashtag'
+                : defaultValue
         );
         const expectedCardRegular = {
             id: 1,

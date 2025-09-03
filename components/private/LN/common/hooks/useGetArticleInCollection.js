@@ -13,7 +13,8 @@ const useGetArticleInCollection = ({
     filterRecomendar = false,
     filterRepetead = false,
     layout = '',
-    website = 'la-nacion-ar'
+    website = 'la-nacion-ar',
+    staticMode = false
 }) => {
     const checkIdCollection =
         idCollection && idCollection.trim() && idCollection;
@@ -36,7 +37,8 @@ const useGetArticleInCollection = ({
             (diagramation &&
                 diagramation === 'editoriales2' &&
                 filterEditoriales) ||
-            filter
+            filter,
+        staticMode
     });
 
     return get(articleList, 'content_elements', []);

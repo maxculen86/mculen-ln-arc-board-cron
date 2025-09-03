@@ -16,7 +16,6 @@ export default `
     canonical_url
     website_url
     website
-    canonical_website
     publish_date
     created_date
     display_date
@@ -24,48 +23,68 @@ export default `
     credits {
         by {
             name
+            type
         }
     }
-    author
+    label {
+        autor {
+            text
+        }
+    }
     taxonomy {
         primary_section {
             name
+            path
         }
         sections {
             name
+            path
         }
-        tags
-    }
-    section {
-        name
     }
     promo_items {
         basic {
             url
-            resized_urls
             alt_text
+            resized_urls {
+                resizedUrl
+                option {
+                    width
+                    height
+                    media
+                }
+            }
         }
         receta {
             embed {
-                config
+                config {
+                    prepTime
+                    cookTime
+                    counterTime
+                    counterPortion
+                    title
+                    cookingTypes
+                    occasions
+                    regions
+                }
             }
         }
         video_jw {
+            _id
             embed {
-                config
+                config {
+                    idPlayer
+                    idVideo
+                }
             }
         }
         audio_nota {
+            _id
             embed {
-                config
+                config {
+                    audio_id
+                    audio_url
+                }
             }
-        }
-    }
-    content_elements {
-        type
-        subtype
-        embed {
-            config
         }
     }
     workflow {

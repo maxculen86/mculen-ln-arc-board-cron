@@ -21,22 +21,21 @@ function PowerUpEmbedCard({ data = {} }) {
                 image = '',
                 altTextImage = '',
                 hasVideo = {},
-                arcData: {
-                    _id: arcDataId = '',
-                    headlines: { basic: arcHeadline = '' } = {},
-                    canonical_url: arcCanonicalUrl = '',
-                    promo_items: {
-                        basic: {
-                            url: promoImageUrl = '',
-                            alt_text: promoAltText = ''
-                        } = {}
-                    } = {}
-                } = {},
+                arcData = {},
                 sections = [],
                 resizedImages = []
             } = {}
         } = {}
     } = data;
+
+    const {
+        _id: arcDataId = '',
+        headlines: { basic: arcHeadline = '' } = {},
+        canonical_url: arcCanonicalUrl = '',
+        promo_items: {
+            basic: { url: promoImageUrl = '', alt_text: promoAltText = '' } = {}
+        } = {}
+    } = arcData;
 
     const itemId = noteId || arcDataId || dataId;
     const itemHeadline = title || arcHeadline;
@@ -48,7 +47,7 @@ function PowerUpEmbedCard({ data = {} }) {
 
     let itemAuthorText = '';
     try {
-        itemAuthorText = getFooditAuthor(data.embed?.config?.arcData) || '';
+        itemAuthorText = getFooditAuthor(arcData) || '';
     } catch (error) {
         console.warn('Error getting author from arcData:', error);
     }
@@ -82,34 +81,31 @@ function PowerUpEmbedCard({ data = {} }) {
     if (!itemId || !itemHeadline) return null;
 
     return (
-        <>
-            <div className="w-100">
-                <CommonCardFoodit
-                    articleId={itemId}
-                    linksProps={{
-                        href: itemLinkUrl,
-                        title: itemHeadline
-                    }}
-                    title={itemHeadline}
-                    variant="recipe"
-                    container="link"
-                    size="small"
-                    tag={priorityTag}
-                    src={resizedUrl || itemImage}
-                    alt={itemAltText}
-                    author={itemAuthorText}
-                    showTime={Boolean(itemPreparationTime)}
-                    time={String(itemPreparationTime)}
-                    contentCode="receta"
-                    mediaVariant="image"
-                    isOpening={false}
-                    loading="lazy"
-                    fetchPriority="low"
-                    hasVideo={itemHasVideo}
-                />
-            </div>
-            <hr />
-        </>
+        <div className="w-100">
+            <CommonCardFoodit
+                articleId={itemId}
+                linksProps={{
+                    href: itemLinkUrl,
+                    title: itemHeadline
+                }}
+                title={itemHeadline}
+                variant="recipe"
+                container="link"
+                size="small"
+                tag={priorityTag}
+                src={resizedUrl || itemImage}
+                alt={itemAltText}
+                author={itemAuthorText}
+                showTime={Boolean(itemPreparationTime)}
+                time={String(itemPreparationTime)}
+                contentCode="receta"
+                mediaVariant="image"
+                isOpening={false}
+                loading="lazy"
+                fetchPriority="low"
+                hasVideo={itemHasVideo}
+            />
+        </div>
     );
 }
 
@@ -133,8 +129,8 @@ PowerUpEmbedCard.propTypes = {
                 arcData: PropTypes.shape({}),
                 sections: PropTypes.arrayOf(
                     PropTypes.shape({
-                        _id: PropTypes.string,
-                        name: PropTypes.string
+                        name: PropTypes.string,
+                        path: PropTypes.string
                     })
                 ),
                 resizedImages: PropTypes.arrayOf(

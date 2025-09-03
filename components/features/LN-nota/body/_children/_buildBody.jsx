@@ -1,78 +1,50 @@
-import React from 'react';
-import { bodyElementRules } from '../_utils/_bodyElementRules';
-import { BuildBanners } from './_buildBanners';
 import { supportedTypes } from '../_utils/_bodyRules';
-import get from '../../../../private/common/utils/get';
-import { transformEmbedScript } from '../_utils/_embedHelper';
-import { setDataComponent, setExtraProps } from '../_utils/helpers';
+import { createComponentProps } from '../_utils/buildBodyCommon';
+import { renderElement, createElementProps } from '../_utils/renderHelpers';
 
-const BuildBody = ({ banners, outputType, globalContent = {} }) => {
-    const {
-        content_elements: contentElements,
-        headlines: { basic: tituloNota },
-        subtype = '',
-        withSponsoredLink
-    } = globalContent;
+const BuildBody = ({
+    banners,
+    outputType,
+    globalContent = {},
+    groupedElements,
+    supportedTypesOverride,
+    useCapitalIndex = true
+}) => {
+    const elements = groupedElements || globalContent.content_elements;
+    const finalSupportedTypes = supportedTypesOverride || supportedTypes;
+    const { subtype = '' } = globalContent;
 
-    let counter = 0;
-    return contentElements.map((element, currentIndex) => {
-        const newElement = element.subtype
-            ? transformEmbedScript(element)
-            : element;
+    const elementProps = createElementProps(
+        globalContent,
+        elements,
+        useCapitalIndex
+    );
+    const counter = { current: 0 };
 
-        const nodeType = get(newElement, 'additional_properties.nodeType', {});
-        const capitalIndex = contentElements.findIndex(v => v.type === 'text');
-
-        const Component = bodyElementRules({
-            element: newElement,
-            outputType,
-            subtype
-        });
-
-        const arcType = get(Component, 'arcType', '');
-
-        const extraProps = setExtraProps({
-            tituloNota,
-            capitalIndex,
-            globalContent,
-            contentElements,
-            withSponsoredLink
-        });
-
-        const ComponentWithProps = setDataComponent({
-            Component,
-            extraProps,
+    return elements.map((element, currentIndex) => {
+        const renderedElement = renderElement(
             element,
             currentIndex,
-            capitalIndex,
+            elementProps,
             outputType,
-            arcType
-        });
+            subtype,
+            finalSupportedTypes,
+            banners,
+            globalContent,
+            elements,
+            counter,
+            createComponentProps
+        );
 
-        if (Component) {
-            if (supportedTypes.includes(Component.arcType)) {
-                if (nodeType.length) return null;
-                counter += 1;
-
-                const bannerToRedender = BuildBanners({
-                    banners,
-                    globalContent,
-                    elementPosition: counter,
-                    contentElements,
-                    outputType
-                });
-
-                return (
-                    <>
-                        {ComponentWithProps}
-                        {bannerToRedender}
-                    </>
-                );
-            }
-            return ComponentWithProps;
+        if (
+            renderedElement &&
+            banners &&
+            finalSupportedTypes.includes(element.type)
+        ) {
+            counter.current += 1;
         }
 
-        return null;
+        return renderedElement;
     });
 };
 

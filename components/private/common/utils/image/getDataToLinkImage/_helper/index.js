@@ -4,6 +4,7 @@ import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/media
 import { getImageData } from '../../../getApertura';
 import { transformImages } from '../../../../videoPlayerJw/utils/helperJw';
 import setMediaCondition from '../../../../../../../properties/sites/utils/setMediaCondition';
+import replaceUrlResizerToWWW from '../../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 const getImageListStorytelling = (imageData, proportion) =>
     replaceAllUrlsResizerArray(getImageData(imageData, proportion));
@@ -80,21 +81,36 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     return get(basicDefault, 'resized_urls', []);
 };
 
+export const getWWWResizedUrls = (promoItems = {}) => {
+    const promoItemsBasic = get(promoItems, 'basic', {});
+    const basicWithWWW = replaceUrlResizerToWWW(promoItemsBasic);
+    return get(basicWithWWW, 'resized_urls', []);
+};
+
 export const getResizerUrlJw = promoItems => {
-    const allImages = get(promoItems, 'basic.resized_urls', []);
+    const resizedUrls = getWWWResizedUrls(promoItems);
 
-    const imagesJwPlayer = fillMaxWidth(allImages);
+    const imagesJwPlayer = fillMaxWidth(resizedUrls);
 
-    return imagesJwPlayer.map(
-        ({ minWidth = '', maxWidth = '', resizedUrl = '' }) => ({
+    return imagesJwPlayer.map(imageJw => {
+        const minWidth = get(imageJw, 'option.minScreenWidth', 0);
+        const maxWidth = get(imageJw, 'option.maxScreenWidth', 0);
+        const width = get(imageJw, 'option.width', 0);
+
+        const mediaPreload =
+            get(imageJw, 'option.media_preload', '') ||
+            setMediaCondition({ minWidth, maxWidth });
+
+        return {
             option: {
-                media_preload: setMediaCondition({ minWidth, maxWidth }),
-                minScreenWidth: minWidth || 0,
-                width: minWidth || 0
+                media_preload: mediaPreload,
+                minScreenWidth: minWidth,
+                maxScreenWidth: maxWidth,
+                width
             },
-            resizedUrl
-        })
-    );
+            resizedUrl: get(imageJw, 'resizedUrl', '')
+        };
+    });
 };
 
 export const getcustomFieldsData = fieldsData => ({

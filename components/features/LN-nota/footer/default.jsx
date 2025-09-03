@@ -48,8 +48,8 @@ function Footer(props) {
         <section className="container-center-100 mb-40 border border-bottom border-thin border-neutral-light-700">
             <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
                 <div className="flex flex-column gap-4">
-                    <ExternalSignature globalContent={globalContent} />
                     <Signature globalContent={globalContent} isNotaFooter />
+                    <ExternalSignature globalContent={globalContent} />
                 </div>
                 <Themes globalContent={globalContent} />
             </div>

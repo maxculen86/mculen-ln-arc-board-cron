@@ -1,17 +1,8 @@
 import React from 'react';
-import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
-import {
-    getImagesToLoadWithPicture,
-    getMediaData,
-    getShortestImage
-} from '../../../private/LN/common/utils/mediaHelper';
-import MediaImage from '../components/apertura/MediaImage';
+import { getMediaData } from '../../../private/LN/common/utils/mediaHelper';
 import dateAndTimeUtil, {
     isOlderThanXHoursAgo
 } from '../../../private/common/utils/dateAndTimeUtil';
-import get from '../../../private/common/utils/get';
-import VideoPlayerJW from '../../../private/common/videoPlayerJw';
-import MediaIframe from '../components/apertura/MediaIframe';
 import epigrafeAndCreditsData from '../../../private/common/utils/epigrafeAndCreditsData';
 
 export const getEpigrafe = (basic, dataIframe) => {
@@ -101,48 +92,4 @@ export const getLiveBlogEditorialDataApertura = (globalContent = {}) => {
         dataEpigraph: epigraph,
         dataDateTime
     };
-};
-
-export const getMediaItem = ({ mediaData, classes, hasAutoplay }) => {
-    if (!mediaData) return null;
-
-    const { type, subtype: subtypeJw } = mediaData || {};
-    const key = type === 'raw_html' ? 'iframe' : type || subtypeJw;
-
-    const wwwImage = replaceUrlResizerToWWW(mediaData);
-    const {
-        alt_text: altText,
-        caption: imageCaption,
-        titleText,
-        url
-    } = wwwImage;
-
-    const altBasic = altText || imageCaption || titleText || '';
-    const sources = get(wwwImage, 'resized_urls', []).filter(
-        image => !!image.option
-    );
-    const { resizedUrl } = getShortestImage(sources);
-    const sourcesToLoad = getImagesToLoadWithPicture(false, sources);
-
-    const components = {
-        image: (
-            <MediaImage
-                alt={altBasic}
-                src={resizedUrl || url}
-                sources={sourcesToLoad}
-            />
-        ),
-        video_jw: (
-            <VideoPlayerJW
-                data={mediaData}
-                hasAutoplay={hasAutoplay}
-                {...classes}
-            />
-        ),
-        iframe: (
-            <MediaIframe html={mediaData.content} className="iframe-wrapper" />
-        )
-    };
-
-    return components[key] || null;
 };

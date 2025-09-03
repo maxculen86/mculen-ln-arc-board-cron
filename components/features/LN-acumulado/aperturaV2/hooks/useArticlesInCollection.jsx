@@ -11,7 +11,7 @@ const useArticlesInCollection = () => {
         ''
     );
 
-    const articles = useContent({
+    return useContent({
         source: id ? 'collectionsSource' : null,
         query: {
             id: id?.trim(),
@@ -23,8 +23,6 @@ const useArticlesInCollection = () => {
         filter,
         transform: response => (response ? response.content_elements : [])
     });
-
-    return articles;
 };
 
 export default useArticlesInCollection;

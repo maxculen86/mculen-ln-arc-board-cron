@@ -2,9 +2,9 @@ import { convertMillisecondsToMinutes } from '../../../../../components/features
 import {
     calculateTimePublish,
     formatDateToSpanish,
-    getContentBeforeLiveblogPosts,
     reorderGroupsByPinnedBlock
 } from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody';
+import { getContentBeforeMarkers } from '../../../../../components/layouts/helpers/groupingUtils';
 
 jest.mock(
     '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody',
@@ -32,7 +32,7 @@ jest.mock(
 );
 
 describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblogEditorialBody', () => {
-    describe('getContentBeforeLiveblogPosts', () => {
+    describe('getContentBeforeMarkers for liveblog', () => {
         const content = [
             {
                 _id: '6QUYKQ2CERHTTLF644T4JBZJYY',
@@ -52,14 +52,22 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
         ];
 
         it('should return an empty array if input is not an array', () => {
-            expect(getContentBeforeLiveblogPosts(null)).toEqual([]);
-            expect(getContentBeforeLiveblogPosts(undefined)).toEqual([]);
-            expect(getContentBeforeLiveblogPosts({})).toEqual([]);
-            expect(getContentBeforeLiveblogPosts('string')).toEqual([]);
+            expect(getContentBeforeMarkers(null, 'custom-liveblog')).toEqual(
+                []
+            );
+            expect(
+                getContentBeforeMarkers(undefined, 'custom-liveblog')
+            ).toEqual([]);
+            expect(getContentBeforeMarkers({}, 'custom-liveblog')).toEqual([]);
+            expect(
+                getContentBeforeMarkers('string', 'custom-liveblog')
+            ).toEqual([]);
         });
 
         it('should return the entire array if no liveblog marker is found', () => {
-            expect(getContentBeforeLiveblogPosts(content)).toEqual(content);
+            expect(getContentBeforeMarkers(content, 'custom-liveblog')).toEqual(
+                content
+            );
         });
 
         it('should return elements before the first liveblog marker', () => {
@@ -74,9 +82,9 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                 ...content
             ];
 
-            expect(getContentBeforeLiveblogPosts(contentElements)).toEqual(
-                content
-            );
+            expect(
+                getContentBeforeMarkers(contentElements, 'custom-liveblog')
+            ).toEqual(content);
         });
 
         it('should return an empty array if the liveblog marker is the first element', () => {
@@ -89,7 +97,9 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
                 },
                 ...content
             ];
-            expect(getContentBeforeLiveblogPosts(contentElements)).toEqual([]);
+            expect(
+                getContentBeforeMarkers(contentElements, 'custom-liveblog')
+            ).toEqual([]);
         });
     });
 

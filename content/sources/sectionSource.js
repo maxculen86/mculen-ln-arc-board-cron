@@ -1,9 +1,14 @@
+/* eslint-disable no-underscore-dangle */
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { getTodayDateForAcuDolar } from '../../components/private/common/utils/dateAndTimeUtil';
 import NotFoundError from './utils/notFoundError';
 
+const mapSections = {
+    '/dolar-hoy': '/dolar-hoy',
+    '/suscriptores': '/suscriptores'
+};
 export const resolve = key => {
     const { id, website } = key;
     const finalWebsite = website || key['arc-site'];
@@ -19,6 +24,12 @@ export const resolve = key => {
         );
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
+
+const transform = (data, { meteringVariant }) => ({
+    ...data,
+    date: getTodayDateForAcuDolar(),
+    subscription: meteringVariant
+});
 
 const fetch = query => {
     const { id = '' } = query;
@@ -41,18 +52,17 @@ const fetch = query => {
              * de origen
              */
             const { id: idQuery } = query;
-
-            if (idQuery === '/suscriptores' && query.api === 'true') {
-                // como /suscriptores no es una seccion real, se setea el id asi para evitar caer en la validacion de NotFound
-                response._id = '/suscriptores';
+            if (query.api === 'true') {
+                response._id = mapSections[idQuery] || idQuery;
             }
 
             const { _id: idData } = response;
 
             if (!idData || !idQuery || idData !== idQuery) {
-                throw new NotFoundError(
-                    `La sección '${idQuery}' que intenta consultar no existe`
-                );
+                if (!mapSections[idQuery])
+                    throw new NotFoundError(
+                        `La sección '${idQuery}' que intenta consultar no existe`
+                    );
             }
             return transform(response, query);
         })
@@ -63,13 +73,6 @@ const fetch = query => {
                 arcSite
             );
         });
-};
-const transform = (data, { meteringVariant }) => {
-    return {
-        ...data,
-        date: getTodayDateForAcuDolar(),
-        subscription: meteringVariant
-    };
 };
 
 export default {

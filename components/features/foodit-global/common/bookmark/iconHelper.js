@@ -5,10 +5,10 @@ const updateIconHref = (icon, shouldFill) => {
     const href = icon.getAttribute('href');
     const newHref = shouldFill
         ? href
-              .replace('bookmark', BOOKMARK_FILLED)
+              ?.replace('bookmark', BOOKMARK_FILLED)
               .replace('critical', 'default')
         : href
-              .replace(BOOKMARK_FILLED, 'bookmark')
+              ?.replace(BOOKMARK_FILLED, 'bookmark')
               .replace('default', 'critical');
     icon.setAttribute('href', newHref);
 };

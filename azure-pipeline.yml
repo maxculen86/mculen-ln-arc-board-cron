@@ -13,7 +13,7 @@ trigger:
 pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
 
 variables:
-    FUSION_RELEASE: '6.0.0'
+    FUSION_RELEASE: '6.1.0'
     NODE_VERSION: 20.x
 
 jobs:

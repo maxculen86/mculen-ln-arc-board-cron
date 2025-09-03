@@ -58,7 +58,7 @@ function Themes({ globalContent }) {
 
     return (
         <div
-            className="flex jc-between ai-center gap-8"
+            className="flex jc-between gap-8 ai-end_m"
             data-mrf-recirculation="n_temas"
         >
             <ul className="flex flex-wrap w-100 jc-start jc-end_m brand-color">
@@ -75,7 +75,11 @@ function Themes({ globalContent }) {
                         size={12}
                         hasWrapper
                         bgColor="var(--neutral-light-100)"
-                        className={cx(!isCollapsed && 'rotate-180')}
+                        className={cx(
+                            isCollapsed
+                                ? 'rotate-0_max767 rotate-180_m'
+                                : 'rotate-180_max767 rotate-0_m'
+                        )}
                     >
                         <IconSprite name="arrowDown" type="default" />
                     </Icon>

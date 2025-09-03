@@ -64,7 +64,7 @@ describe('BuildBody', () => {
         { mobile: 'caja5_mob', position: 11 }
     ];
 
-    it('deberia renderizar todos los elementos del cuerpo para default', () => {
+    it('should render all body elements for default', () => {
         const { container } = render(
             BuildBody({
                 banners,
@@ -115,8 +115,8 @@ describe('BuildBody', () => {
         ).toHaveLength(1);
         expect(
             container.querySelectorAll(
-                `h4[class*="com-title --arial --twoxs --font-medium"]`
-            ) // TODO: REVISAR COMPORTAMIENTO DE FONT EN TITLE
+                `h4[class*="com-title --font-primary --m --font-extra"]`
+            )
         ).toHaveLength(1);
         /* oembed_response */
         expect(
@@ -171,7 +171,7 @@ describe('BuildBody', () => {
         ).toHaveLength(1);
     });
 
-    it('deberia renderizar solo los elementos del cuerpo permitidos para FOTO al 100', () => {
+    it('should render only allowed body elements for FOTO al 100', () => {
         const { container } = render(
             BuildBody({
                 banners,
@@ -211,7 +211,7 @@ describe('BuildBody', () => {
         ).toHaveLength(1);
         expect(
             container.querySelectorAll(
-                `h4[class*="com-title --arial --twoxs --font-medium"]`
+                `h4[class*="com-title --font-primary --m --font-extra"]`
             )
         ).toHaveLength(1);
         /* oembed_response */
@@ -283,7 +283,8 @@ describe('BuildBody', () => {
         ).toHaveLength(1);
         expect(container).toMatchSnapshot();
     });
-    it('deberia ejecutar funcion para transformar el oembedScript', () => {
+
+    it('should execute function to transform oembedScript', () => {
         jest.spyOn(utils, 'transformEmbedScript').mockImplementation(() =>
             jest.fn()
         );

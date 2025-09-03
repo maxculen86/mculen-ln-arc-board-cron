@@ -14,6 +14,7 @@ import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import { getFooditAuthor } from '../../features/foodit-global/common/utils/notaFooditHelper';
+import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -33,6 +34,7 @@ function FichaNotaFoodit({ children = [], globalContent = {} }) {
     return (
         <BaseLayout>
             <UserBookmarks />
+            {BannersFoodit.modal_1x1()}
             <div className="flex flex-column">
                 <div
                     className={`note-media-container w-100vw as-center ratio-unset_lg overflow-hidden ${

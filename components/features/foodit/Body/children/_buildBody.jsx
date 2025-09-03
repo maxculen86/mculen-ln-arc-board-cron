@@ -31,21 +31,22 @@ const setDataComponent = ({
     const isNote =
         articleSubtype === STORYTELLING || articleSubtype === NOTA_CERRADA;
 
-    const firstCardEmbeddedIndex = contentElements.findIndex(
-        el => el?.subtype === 'custom-card-embebida'
-    );
+    const cardEmbeddedIndex = element.subtype === 'custom-card-embebida';
 
-    const isFirstCardEmbedded = currentIndex === firstCardEmbeddedIndex;
+    const shouldRenderTopDivider =
+        cardEmbeddedIndex &&
+        contentElements[currentIndex - 1]?.subtype !== 'custom-card-embebida';
 
     return isNote ? (
         <section key={`body-${currentIndex}`} className="content">
-            {isFirstCardEmbedded && <hr />}
+            {shouldRenderTopDivider && <hr />}
             <Component
                 data={element}
                 capital={currentIndex === capitalIndex}
                 outputType="foodit"
                 {...(extraProps[type] || extraProps[subtype] || {})}
             />
+            {cardEmbeddedIndex && <hr />}
         </section>
     ) : (
         <Component

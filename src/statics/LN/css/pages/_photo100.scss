@@ -88,7 +88,7 @@
             }
             .com-breadcrumb {
                 @media ($media-l) {
-                    left: px(-16);
+                    left: 0;
                 }
             }
             .mod-figure {
@@ -132,7 +132,7 @@
                 }
                 @media ($media-l) {
                     margin: 0;
-                    position: sticky;
+                    position: absolute;
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 133px);
                 }
                 @media ($media-lm) {
