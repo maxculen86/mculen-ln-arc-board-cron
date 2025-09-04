@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RenderCustomArticle matches snapshot when rendering FooditBox 1`] = `
+<DocumentFragment>
+  <div
+    content="Test content"
+    data-testid="custom-article-foodit-box"
+    id="123"
+    title="Test Article"
+  >
+    Foodit Box Component
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RenderCustomArticle matches snapshot when rendering SegmentedBox 1`] = `
+<DocumentFragment>
+  <div
+    content="Test content"
+    data-testid="custom-article-segmented-box"
+    id="123"
+    title="Test Article"
+  >
+    Segmented Box Component
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RenderCustomArticle matches snapshot when returning null 1`] = `<DocumentFragment />`;

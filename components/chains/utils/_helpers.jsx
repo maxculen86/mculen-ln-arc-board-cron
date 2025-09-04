@@ -73,7 +73,7 @@ export const checkChangeChildrenForPB = ({
     }
 };
 
-export const useGetLinks = ({ navigationSection = '' }) => {
+export const useGetLinks = ({ navigationSection = '', staticMode = true }) => {
     const { children = [] } =
         useContent({
             source:
@@ -84,7 +84,7 @@ export const useGetLinks = ({ navigationSection = '' }) => {
                 hierarchy: navigationSection,
                 website: 'la-nacion-ar'
             },
-            staticMode: true,
+            staticMode,
             filter: `
             children {
                 _id
@@ -140,7 +140,8 @@ export const useGetLogo = (logoId, title, isStatic) => {
             src: resizedUrl || get(logo, 'url', ''),
             alt: title,
             height: resizedHeight || get(logo, 'height', ''),
-            width: resizedWidth || get(logo, 'width', '')
+            width: resizedWidth || get(logo, 'width', ''),
+            className: 'w-100'
         }
     );
 };
@@ -164,14 +165,20 @@ export const useRoofData = props => {
 
     const logo = useGetLogo(logoId, title, isStatic);
     const buttonLogoData = useGetLogo(buttonLogo, title, isStatic);
-    const links = useGetLinks({ navigationSection: navigator });
+    const links = useGetLinks({
+        navigationSection: navigator,
+        staticMode: isStatic
+    });
 
     return {
         title,
         titleLink: link,
         logo,
         logoId,
-        buttonLogo: buttonLogoData,
+        buttonLogo: {
+            ...buttonLogoData,
+            className: links ? 'w-100 sm-only' : undefined
+        },
         buttonText,
         linkButton,
         buttonStyle,

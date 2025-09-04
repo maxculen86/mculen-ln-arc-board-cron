@@ -260,7 +260,8 @@
   grid-template-columns: repeat(8, 1fr);
   gap: 1rem;
 }
-.ln-bngrid.--bn_player_horizontal .grid-item.--0 .content-media, .ln-bngrid.--bn_player_horizontal .grid-item.--0 .ln-card {
+.ln-bngrid.--bn_player_horizontal .grid-item.--0 .content-media,
+.ln-bngrid.--bn_player_horizontal .grid-item.--0 .ln-card {
   grid-column: 8 span;
 }
 @media (min-width: 48rem) {
@@ -271,7 +272,8 @@
   .ln-bngrid.--bn_player_horizontal .grid-item.--0 .content-media {
     order: 1;
   }
-  .ln-bngrid.--bn_player_horizontal .grid-item.--0 .content-media, .ln-bngrid.--bn_player_horizontal .grid-item.--0 .ln-card {
+  .ln-bngrid.--bn_player_horizontal .grid-item.--0 .content-media,
+  .ln-bngrid.--bn_player_horizontal .grid-item.--0 .ln-card {
     grid-column: 6 span;
   }
 }
@@ -387,7 +389,7 @@
   }
 }
 @media (min-width: 48rem) {
-  .ln-bngrid.--bn-4-8 .grid .grid-item article::before, .ln-bngrid.--foodit_3_grid .grid .grid-item article::before {
+  .ln-bngrid.--bn-4-8 .grid .grid-item article::before, .ln-bngrid.--foodit_3_grid .grid .grid-item article::before, .ln-bngrid.--logo_3_grid .grid .grid-item article::before {
     content: "";
     height: calc(100% - 0.25rem);
     width: 0.0625rem;
@@ -397,7 +399,7 @@
   }
 }
 @media (min-width: 80rem) {
-  .ln-bngrid.--bn-4-8 .grid .grid-item article::before, .ln-bngrid.--foodit_3_grid .grid .grid-item article::before {
+  .ln-bngrid.--bn-4-8 .grid .grid-item article::before, .ln-bngrid.--foodit_3_grid .grid .grid-item article::before, .ln-bngrid.--logo_3_grid .grid .grid-item article::before {
     content: "";
     height: calc(100% - 0.25rem);
     width: 0.0625rem;
@@ -413,7 +415,10 @@
   .ln-bngrid.--bn-4-8 .grid .--0 > .as-article::before, .ln-bngrid.--foodit_3_grid .grid .--4 article::before,
   .ln-bngrid.--foodit_3_grid .grid .--4 > .as-article::before,
   .ln-bngrid.--foodit_3_grid .grid .--0 article::before,
-  .ln-bngrid.--foodit_3_grid .grid .--0 > .as-article::before {
+  .ln-bngrid.--foodit_3_grid .grid .--0 > .as-article::before, .ln-bngrid.--logo_3_grid .grid .--4 article::before,
+  .ln-bngrid.--logo_3_grid .grid .--4 > .as-article::before,
+  .ln-bngrid.--logo_3_grid .grid .--0 article::before,
+  .ln-bngrid.--logo_3_grid .grid .--0 > .as-article::before {
     content: "";
     height: 0.0625rem;
     width: calc(400% + 4.5rem);
@@ -430,7 +435,10 @@
   .ln-bngrid.--bn-4-8 .grid .--0 > .as-article::before, .ln-bngrid.--foodit_3_grid .grid .--4 article::before,
   .ln-bngrid.--foodit_3_grid .grid .--4 > .as-article::before,
   .ln-bngrid.--foodit_3_grid .grid .--0 article::before,
-  .ln-bngrid.--foodit_3_grid .grid .--0 > .as-article::before {
+  .ln-bngrid.--foodit_3_grid .grid .--0 > .as-article::before, .ln-bngrid.--logo_3_grid .grid .--4 article::before,
+  .ln-bngrid.--logo_3_grid .grid .--4 > .as-article::before,
+  .ln-bngrid.--logo_3_grid .grid .--0 article::before,
+  .ln-bngrid.--logo_3_grid .grid .--0 > .as-article::before {
     content: "";
     height: 0.03125rem;
     width: calc(400% + 6rem);
@@ -443,12 +451,14 @@
 @media (min-width: 48rem) {
   .ln-bngrid.--bn-4-8 .grid .--4 :nth-child(-n+4),
   .ln-bngrid.--bn-4-8 .grid .--0 :nth-child(-n+4), .ln-bngrid.--foodit_3_grid .grid .--4 :nth-child(-n+4),
-  .ln-bngrid.--foodit_3_grid .grid .--0 :nth-child(-n+4) {
+  .ln-bngrid.--foodit_3_grid .grid .--0 :nth-child(-n+4), .ln-bngrid.--logo_3_grid .grid .--4 :nth-child(-n+4),
+  .ln-bngrid.--logo_3_grid .grid .--0 :nth-child(-n+4) {
     grid-row: 1/span 1;
   }
   .ln-bngrid.--bn-4-8 .grid .--4 :nth-child(n+5),
   .ln-bngrid.--bn-4-8 .grid .--0 :nth-child(n+5), .ln-bngrid.--foodit_3_grid .grid .--4 :nth-child(n+5),
-  .ln-bngrid.--foodit_3_grid .grid .--0 :nth-child(n+5) {
+  .ln-bngrid.--foodit_3_grid .grid .--0 :nth-child(n+5), .ln-bngrid.--logo_3_grid .grid .--4 :nth-child(n+5),
+  .ln-bngrid.--logo_3_grid .grid .--0 :nth-child(n+5) {
     grid-row: 2/span 1;
   }
 }
