@@ -188,7 +188,7 @@ describe('LN10_Caja_Segmentada helpers', () => {
 
             expect(getAuthTokens).toHaveBeenCalled();
             expect(fetch).toHaveBeenCalledWith(
-                'https://qrnsxguohj5bj3np6dwvc5xgue0wbmwh.lambda-url.us-east-1.on.aws/api/segmentacion/v1/segments/2',
+                'https://qrnsxguohj5bj3np6dwvc5xgue0wbmwh.lambda-url.us-east-1.on.aws/api/segmentacion/v1/segments/1',
                 {
                     method: 'GET',
                     headers: {
