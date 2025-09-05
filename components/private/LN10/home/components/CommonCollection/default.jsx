@@ -60,7 +60,7 @@ export default function CommonCollection({
                         className = '',
                         withSection,
                         href
-                    } = getCardConfig(rules[index], article);
+                    } = getCardConfig(rules[index], article, true);
 
                     const extraOpts = getDataAttributesForViewability(
                         article._id,
@@ -88,6 +88,7 @@ export default function CommonCollection({
                         showSection({
                             withSection,
                             article,
+                            authors: marquee,
                             authorPhoto: marqueeImg
                         })
                     );
