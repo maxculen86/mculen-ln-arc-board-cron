@@ -1,5 +1,9 @@
 import { getTrustProject } from '../../../../../../components/private/LN/nota/snippet/noticia';
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
 describe('Tests getTrustProject() function', () => {
     const publishingPrinciples =
         'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';

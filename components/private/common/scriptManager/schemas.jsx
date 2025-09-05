@@ -1,25 +1,27 @@
 import React from 'react';
-import { ARC_STATIC } from 'fusion:environment';
+import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
+import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 
 function Schemas({ section }) {
     const { contextPath, deployment } = useAppContext();
     const _deployment = `${contextPath}/resources/images/placeholderLN-1280x1280.jpg`;
     const logoUrl = `${ARC_STATIC}${deployment(_deployment)}`;
+    const siteUrl = addForwardSlash(SITE_LANACION);
 
     const newsMedia = `{
         "@context": "http://schema.org",
         "@type": "NewsMediaOrganization",
         "name": "LA NACION",
-        "url": "https://www.lanacion.com.ar/",
+        "url": "${siteUrl}",
         "description": "Últimas noticias de Argentina y el mundo – LA NACION",
         "alternateName": "LN",
-        "diversityPolicy": "https://www.lanacion.com.ar/sociedad/diversidad-redaccion-nid2413327/",
-        "ethicsPolicy": "https://www.lanacion.com.ar/sociedad/la-nacion-mision-estructura-empresarial-principios-eticos-nid2393569/",
-        "masthead": "https://www.lanacion.com.ar/sociedad/equipo-editorial-la-nacion-nid2390490/",
-        "publishingPrinciples": "https://www.lanacion.com.ar/sociedad/los-veinte-20-principios-del-periodismo-la-nid2390521/",
-        "verificationFactCheckingPolicy": "https://www.lanacion.com.ar/sociedad/verificacion-chequeo-datos-nid2406825/",
+        "diversityPolicy": "${siteUrl}sociedad/diversidad-redaccion-nid2413327/",
+        "ethicsPolicy": "${siteUrl}sociedad/la-nacion-mision-estructura-empresarial-principios-eticos-nid2393569/",
+        "masthead": "${siteUrl}sociedad/equipo-editorial-la-nacion-nid2390490/",
+        "publishingPrinciples": "${siteUrl}sociedad/los-veinte-20-principios-del-periodismo-la-nid2390521/",
+        "verificationFactCheckingPolicy": "${siteUrl}sociedad/verificacion-chequeo-datos-nid2406825/",
         "foundingDate": "1870-01-04",
         "logo": {
             "@context": "https://schema.org",
@@ -38,7 +40,7 @@ function Schemas({ section }) {
         "@context":"http://schema.org",
         "@type":"WebSite",
         "name": "LA NACION",
-        "url":"https://www.lanacion.com.ar/"
+        "url":"${siteUrl}"
     }`;
 
     const createScript = childrens =>

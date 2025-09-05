@@ -9,14 +9,14 @@ import {
     differenceInMinutes,
     addHours
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+import { SITE_LANACION as SITE_LANACION_MOCK } from 'fusion:environment';
 
 jest.mock('fusion:environment', () => ({
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
-    SITE_LANACION:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    SITE_LANACION: 'https://www.lanacion.com.ar',
     ARC_STATIC: 'https://arc-static.glanacion.com'
 }));
 
@@ -93,7 +93,7 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
         expect(context).toBe('https://schema.org');
         expect(type).toBe('LiveBlogPosting');
         expect(headline).toBe(metaTitle);
-        expect(url).toBe(`${host}${canonical_url}`);
+        expect(url).toBe(`${SITE_LANACION_MOCK}${canonical_url}`);
         expect(coverageStartTime).toBe(
             new Date(firstPublishDate).toISOString()
         );
@@ -101,7 +101,7 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
 
         expect(publisherType).toBe('Organization');
         expect(publisherName).toBe('');
-        expect(publisherUrl).toBe(host);
+        expect(publisherUrl).toBe(SITE_LANACION_MOCK);
         expect(logoContext).toBe('https://schema.org');
         expect(logoType).toBe('ImageObject');
         expect(logoUrl).toBe(
