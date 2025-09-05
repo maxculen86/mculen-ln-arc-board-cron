@@ -88,6 +88,34 @@ describe('Tests component BuildRoof', () => {
             ...props,
             isAdmin: false
         };
+        describe('Roof.Right render', () => {
+            it('should render correctly', () => {
+                const { container } = render(<BuildRoof {...props} />);
+
+                const roofRightElement = container.querySelector(
+                    '[roof-group="right"]'
+                );
+                expect(roofRightElement).toBeVisible();
+            });
+            it('should render buttonLogo correctly', () => {
+                const props = {
+                    ...properties,
+                    buttonLogo: {
+                        src: 'mock.url',
+                        alt: 'logo alt'
+                    }
+                };
+
+                render(<BuildRoof {...props} />);
+
+                const buttonLogo = screen.getByRole('img', {
+                    name: 'logo alt'
+                });
+
+                expect(buttonLogo).toHaveAttribute('src', props.buttonLogo.src);
+                expect(buttonLogo).toHaveAttribute('alt', props.buttonLogo.alt);
+            });
+        });
 
         test('should return the roof with the title and the title link', () => {
             render(<BuildRoof {...properties} />);

@@ -460,7 +460,7 @@ describe('Components - Chains - Utils - _helpers', () => {
                 buttonLogo: {
                     src: 'https://example.com/logo.png',
                     alt: 'Test Title',
-                    className: 'w-100 sm-only',
+                    className: undefined,
                     height: '50px',
                     width: '100px'
                 },
@@ -502,7 +502,7 @@ describe('Components - Chains - Utils - _helpers', () => {
                 buttonLogo: {
                     src: '',
                     alt: 'Test Title',
-                    className: 'w-100 sm-only',
+                    className: undefined,
                     height: '',
                     width: ''
                 },
