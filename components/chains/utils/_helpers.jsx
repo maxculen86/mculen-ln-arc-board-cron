@@ -169,7 +169,6 @@ export const useRoofData = props => {
         navigationSection: navigator,
         staticMode: isStatic
     });
-
     return {
         title,
         titleLink: link,
@@ -177,7 +176,7 @@ export const useRoofData = props => {
         logoId,
         buttonLogo: {
             ...buttonLogoData,
-            className: links ? 'w-100 sm-only' : undefined
+            className: links?.length ? 'w-100 sm-only' : undefined
         },
         buttonText,
         linkButton,
