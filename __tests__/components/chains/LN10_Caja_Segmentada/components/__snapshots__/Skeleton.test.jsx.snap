@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonSegmentedBox matches snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="flex flex-column mt-72"
+  >
+    <div
+      class="flex jc-between py-24 border border-top border-1-5"
+    >
+      <div
+        class="rounded-4"
+        data-testid="skeleton"
+        height="40"
+        width="150"
+      />
+      <div
+        class="rounded-4 sm-only"
+        data-testid="skeleton"
+        height="40"
+        width="150"
+      />
+      <div
+        class="flex gap-24 sm-none ai-center"
+      >
+        <div
+          class="rounded-4"
+          data-testid="skeleton"
+          height="16"
+          width="110"
+        />
+        <div
+          class="rounded-4"
+          data-testid="skeleton"
+          height="16"
+          width="110"
+        />
+        <div
+          class="rounded-4"
+          data-testid="skeleton"
+          height="16"
+          width="110"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="bngrid"
+      gridstyle="foodit"
+      gridtype="logo_3_grid"
+      itemprops="[object Object]"
+    >
+      <article
+        aria-busy="true"
+        class="flex flex-column gap-8 as-article"
+      >
+        <div
+          class="flex gap-8"
+        >
+          <div
+            class="rounded-circle"
+            data-testid="skeleton"
+            height="16"
+            width="16"
+          />
+          <div
+            data-testid="skeleton"
+            height="16"
+            width="100"
+          />
+        </div>
+        <div
+          class="flex pl-24 flex-column gap-8 mb-8"
+        >
+          <div
+            data-testid="skeleton"
+            height="16"
+            width="115"
+          />
+          <div
+            data-testid="skeleton"
+            height="16"
+            width="135"
+          />
+          <div
+            data-testid="skeleton"
+            height="16"
+            width="100"
+          />
+        </div>
+        <div
+          class="flex gap-8 mb-8"
+        >
+          <div
+            class="rounded-circle"
+            data-testid="skeleton"
+            height="16"
+            width="16"
+          />
+          <div
+            data-testid="skeleton"
+            height="16"
+            width="90"
+          />
+        </div>
+        <hr
+          class="mb-8"
+        />
+        <div
+          class="rounded-4"
+          data-testid="skeleton"
+          height="36"
+          width="150"
+        />
+      </article>
+      <article
+        aria-busy="true"
+        class="flex flex-column gap-12"
+      >
+        <div
+          class="w-100 ratio-3-2 rounded-4"
+          data-testid="skeleton"
+        />
+        <div
+          class="w-100 rounded-4"
+          data-testid="skeleton"
+          height="32"
+        />
+        <div
+          class="w-100 rounded-4 mb-8"
+          data-testid="skeleton"
+          height="16"
+        />
+      </article>
+      <article
+        aria-busy="true"
+        class="flex flex-column gap-12"
+      >
+        <div
+          class="w-100 ratio-3-2 rounded-4"
+          data-testid="skeleton"
+        />
+        <div
+          class="w-100 rounded-4"
+          data-testid="skeleton"
+          height="32"
+        />
+        <div
+          class="w-100 rounded-4 mb-8"
+          data-testid="skeleton"
+          height="16"
+        />
+      </article>
+      <article
+        aria-busy="true"
+        class="flex flex-column gap-12"
+      >
+        <div
+          class="w-100 ratio-3-2 rounded-4"
+          data-testid="skeleton"
+        />
+        <div
+          class="w-100 rounded-4"
+          data-testid="skeleton"
+          height="32"
+        />
+        <div
+          class="w-100 rounded-4 mb-8"
+          data-testid="skeleton"
+          height="16"
+        />
+      </article>
+    </div>
+  </section>
+</DocumentFragment>
+`;
