@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomArticleFooditBox matches snapshot with all props 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-column as-article jc-between pb-12 w-100 h-100 min-h-190"
+  >
+    <a
+      class="flex m-none lowercase"
+      data-testid="link"
+      href="https://example.com/foodit"
+      target="_blank"
+      title="Ir a Foodit"
+    >
+      <span
+        class="foodit-text --prumo flex ai-end text-neutral-light-800 mt-32 max-w-165"
+        data-testid="text"
+      >
+        <span
+          class="min-w-170"
+        >
+          recetas, menús y tips para cocinar
+          <span
+            class="ml-4"
+            data-height="16.8"
+            data-testid="icon"
+          >
+            <svg
+              fill="none"
+              height="18"
+              viewBox="0 0 10 18"
+              width="10"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 16.335L8.04 8.89504V8.81504L0 1.29504V0.415039L9.88 8.53504V9.17504L0 17.215V16.335Z"
+                fill="#5A5A5A"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+    </a>
+    <button
+      data-href="https://example.com/suscripcion"
+      data-size="32"
+      data-target="_blank"
+      data-testid="button"
+      data-variant="secondary"
+      id="btn-foodit-grid"
+      title="Suscribite a Foodit"
+    >
+      SUSCRIBITE A FOODIT
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CustomArticleFooditBox matches snapshot without button 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-column as-article jc-between pb-12 w-100 h-100 min-h-190"
+  >
+    <a
+      class="flex m-none lowercase"
+      data-testid="link"
+      href="https://example.com/foodit"
+      target="_blank"
+      title="Ir a Foodit"
+    >
+      <span
+        class="foodit-text --prumo flex ai-end text-neutral-light-800 mt-32 max-w-165"
+        data-testid="text"
+      >
+        <span
+          class="min-w-170"
+        >
+          recetas, menús y tips para cocinar
+          <span
+            class="ml-4"
+            data-height="16.8"
+            data-testid="icon"
+          >
+            <svg
+              fill="none"
+              height="18"
+              viewBox="0 0 10 18"
+              width="10"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 16.335L8.04 8.89504V8.81504L0 1.29504V0.415039L9.88 8.53504V9.17504L0 17.215V16.335Z"
+                fill="#5A5A5A"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+    </a>
+  </div>
+</DocumentFragment>
+`;

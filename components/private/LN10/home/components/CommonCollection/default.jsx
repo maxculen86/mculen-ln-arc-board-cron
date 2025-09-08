@@ -9,7 +9,9 @@ import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig, {
     getArticleHref,
     getBadge,
-    getTitleAndLeadForHome
+    getItemProps,
+    getTitleAndLeadForHome,
+    createArticlesWithCustomMarker
 } from './_helper';
 
 import {
@@ -19,6 +21,7 @@ import {
 } from '../../../../../features/LN-10/article/_helper';
 import { targetUrlRedirect } from '../../../../../chains/utils/targetUrlRedirect';
 import MarqueeHighlight from '../../../../../features/LN-10-global/common/marqueeHighlight/default';
+import { RenderCustomArticle } from './renderCustomArticle';
 
 export default function CommonCollection({
     roofData = {},
@@ -31,24 +34,53 @@ export default function CommonCollection({
     isContentLab100,
     isExclusiveSub,
     isFoodit,
+    isSegmentedBox,
     children = null
 }) {
-    const { linkButton, titleLink, buttonText } = roofData;
+    const { linkButton, titleLink, buttonText, chainStyle, buttonLogo } =
+        roofData;
     const hrefButtonFoodit = isFoodit && linkButton;
     const targetButton = targetUrlRedirect(linkButton);
+
+    const hasCustomCard = isFoodit || isSegmentedBox;
+
+    const articlesWithCustomNode = createArticlesWithCustomMarker({
+        articles,
+        shouldInclude: hasCustomCard
+    });
+
     return (
         <>
             <BuildRoof {...roofData} isAFondo={layout === 'bnFondo'} />
             <ContainerCards
                 gridType={gridType}
-                gridStyle={roofData.chainStyle}
-                hrefButton={hrefButtonFoodit}
-                hrefLink={titleLink}
-                targetButton={targetButton}
-                textButtonFooditCard={buttonText}
+                gridStyle={chainStyle}
+                itemProps={getItemProps({ isSegmentedBox, isFoodit })}
                 timeline={children}
             >
-                {articles.map((article, index) => {
+                {articlesWithCustomNode.map((article, index) => {
+                    if (article.__isCustomArticle) {
+                        return (
+                            <RenderCustomArticle
+                                key="custom-article"
+                                layout={layout}
+                                isFoodit={isFoodit}
+                                isSegmentedBox={isSegmentedBox}
+                                articleData={{
+                                    targetButton,
+                                    titleLink,
+                                    buttonText,
+                                    hrefButtonFoodit,
+                                    buttonLogo
+                                }}
+                            />
+                        );
+                    }
+
+                    const rulesIndex = hasCustomCard
+                        ? rules[index - 1]
+                        : rules[index];
+
                     const {
                         withImage,
                         subhead,
@@ -65,7 +97,7 @@ export default function CommonCollection({
                     const extraOpts = getDataAttributesForViewability(
                         article._id,
                         position,
-                        index
+                        hasCustomCard ? index - 1 : index
                     );
 
                     const { title, lead } = getTitleAndLeadForHome(article);
@@ -75,11 +107,11 @@ export default function CommonCollection({
                         isExclusiveSub,
                         isFoodit
                     });
-                    const targetFoodit = isFoodit && `_blank`;
+                    const targetFoodit = isFoodit ? `_blank` : undefined;
 
                     const hasCustomVoice = shouldHighlightCustomVoice(
                         article,
-                        rules[index]
+                        rulesIndex
                     );
 
                     const sectionText = hasCustomVoice ? (
@@ -95,6 +127,7 @@ export default function CommonCollection({
 
                     return (
                         <Card
+                            key={article._id}
                             withMedia={withImage}
                             title={title}
                             lead={lead}

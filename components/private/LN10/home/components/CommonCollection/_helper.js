@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { SITE_FOODIT } from 'fusion:environment';
+import { cx } from '@ln/cva';
 import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
@@ -89,6 +90,19 @@ export const getTitleAndLeadForHome = (
     };
 };
 
+export function getItemProps({ isSegmentedBox, isFoodit }) {
+    return {
+        0: {
+            className: cx(
+                {
+                    'sm-none': isSegmentedBox
+                },
+                { 'flex ai-end sm-none': isFoodit }
+            )
+        }
+    };
+}
+
 export const getBadge = ({ article, isExclusiveSub, isFoodit }) => {
     if (
         get(article, 'content_restrictions.content_code') === 'cerrada' &&
@@ -130,6 +144,11 @@ export const getBadge = ({ article, isExclusiveSub, isFoodit }) => {
         badgeStyle: 'negative',
         badgeText: get(article, 'label.chapita.text')
     };
+};
+
+export const createArticlesWithCustomMarker = ({ articles, shouldInclude }) => {
+    const CUSTOM_ARTICLE_MARKER = { __isCustomArticle: true };
+    return shouldInclude ? [CUSTOM_ARTICLE_MARKER, ...articles] : articles;
 };
 
 export default getCardConfig;
