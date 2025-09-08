@@ -6,7 +6,11 @@ import { render, screen } from '@testing-library/react';
 import diagramationRules from '../../../../../../../components/private/common/utils/diagramationRules';
 import articles from '../../../../../../../__mocks__/data/CommonCollection/articles.json';
 import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
-import { CHAIN_STYLE } from '../../../../../../../components/chains/utils/common/_helpers-WebApi';
+
+import {
+    CHAIN_STYLE,
+    LAYOUTS
+} from '../../../../../../../components/chains/utils/common/_helpers-WebApi';
 import {
     getTitleAndLeadForHome,
     getDataAuthorCollection,
@@ -22,6 +26,34 @@ jest.mock('fusion:consumer', Component => {
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
+
+jest.mock(
+    '../../../../../../../components/features/LN-10-global/customArticles/fooditBox/default',
+    () => ({
+        CustomArticleFooditBox: function MockCustomArticleFooditBox(props) {
+            return (
+                <div data-testid="custom-article-foodit-box" {...props}>
+                    Foodit Box Component
+                </div>
+            );
+        }
+    })
+);
+
+jest.mock(
+    '../../../../../../../components/features/LN-10-global/customArticles/segmentedBox/default',
+    () => ({
+        CustomArticleSegmentedBox: function MockCustomArticleSegmentedBox(
+            props
+        ) {
+            return (
+                <div data-testid="custom-article-segmented-box" {...props}>
+                    Segmented Box Component
+                </div>
+            );
+        }
+    })
+);
 
 describe('Tests Component CommonCollection', () => {
     Context.useAppContext = jest.fn(() => ({
@@ -42,11 +74,20 @@ describe('Tests Component CommonCollection', () => {
         chainId: 'njsaiodnJ'
     };
 
-    const getProps = ({ articles, rules, dataRoof, gridType }) => ({
+    const getProps = ({
+        articles,
+        rules,
+        dataRoof,
+        gridType,
+        isSegmentedBox,
+        isFoodit
+    }) => ({
         roofData: dataRoof,
         rules,
         gridType,
-        articles
+        articles,
+        isSegmentedBox,
+        isFoodit
     });
 
     test('should return 8 articles', () => {
@@ -99,6 +140,50 @@ describe('Tests Component CommonCollection', () => {
         });
         expect(container.querySelector('.ln-caja-hashtag')).toBeInTheDocument();
         expect(container).toMatchSnapshot();
+    });
+    it('should render correctly extra node component when isSegmented is true', () => {
+        const dataRoof = {
+            ...roofData,
+            logo: { src: 'logo.png', alt: 'Logo' }
+        };
+
+        const props = {
+            ...getProps({
+                articles: articles.slice(0, 3),
+                gridType: LAYOUTS.LOGO_3_GRID,
+                rules: diagramationRules(LAYOUTS.LOGO_3_GRID),
+                isSegmentedBox: true,
+                dataRoof
+            })
+        };
+
+        render(<CommonCollection {...props} ContainerCards={Cajahashtag} />);
+
+        expect(
+            screen.getByTestId('custom-article-segmented-box')
+        ).toBeInTheDocument();
+    });
+    it('should render correctly extra node component when isFoodit is true', () => {
+        const dataRoof = {
+            ...roofData,
+            logo: { src: 'logo.png', alt: 'Logo' }
+        };
+
+        const props = {
+            ...getProps({
+                articles: articles.slice(0, 3),
+                gridType: LAYOUTS.LOGO_3_GRID,
+                rules: diagramationRules(LAYOUTS.LOGO_3_GRID),
+                isFoodit: true,
+                dataRoof
+            })
+        };
+
+        render(<CommonCollection {...props} ContainerCards={Cajahashtag} />);
+
+        expect(
+            screen.getByTestId('custom-article-foodit-box')
+        ).toBeInTheDocument();
     });
 });
 
