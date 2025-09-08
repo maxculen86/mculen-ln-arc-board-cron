@@ -7,7 +7,6 @@ export const setDollarData = dollarValue => {
         'Dólar oficial',
         'Dólar blue',
         'Dólar tarjeta',
-        'Dólar CCL',
         'Dólar MEP'
     ];
 
