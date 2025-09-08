@@ -12,7 +12,7 @@
         align-items: center;
         padding-top: $picture;
         position: relative;
-        iframe{
+        iframe {
             position: absolute;
             object-fit: cover;
             height: 100%;
@@ -27,5 +27,11 @@
 
     .nota & {
         margin-bottom: $spacing-2xl;
+    }
+
+    @media ($media-m) {
+        .liveblog-editorial .preLiveBlog_p & {
+            margin-bottom: $spacing-lg;
+        }
     }
 }

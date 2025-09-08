@@ -25,10 +25,8 @@ import useGetArticlesForSegment from '../../private/LN/common/hooks/useGetArticl
 import { useSegmentMatch } from './common/hooks/useSegmentMatch';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
 import useProductClickTracker from './common/hooks/useProductClickTracker';
-
-function SimpleSkeleton() {
-    return <div>Cargando contenido segmentado...</div>;
-}
+import { LAYOUTS } from '../utils/common/_helpers-WebApi';
+import { SkeletonSegmentedBox } from './components/Skeleton';
 
 function Noop() {
     return null;
@@ -52,10 +50,11 @@ function CajaSegmentada(props) {
         ...propsForRoof
     } = customFields;
 
-    const layout = 'logo_3_grid';
+    const layout = LAYOUTS.LOGO_3_GRID;
 
     const roofData = useRoofData({
         ...propsForRoof,
+        chainStyle: undefined,
         isAdmin,
         isStatic: false
     });
@@ -164,7 +163,7 @@ function CajaSegmentada(props) {
                             hide={hideBox}
                             showComponent={showComponent}
                             PlaceholderComponent={
-                                showPlaceholder ? SimpleSkeleton : Noop
+                                showPlaceholder ? SkeletonSegmentedBox : Noop
                             }
                             rootMargin="700px"
                             threshold={0.1}
@@ -183,6 +182,7 @@ function CajaSegmentada(props) {
                                 isContentLab100={false}
                                 isExclusiveSub
                                 isFoodit={false}
+                                isSegmentedBox
                             />
                         </LazyLoad>
                     )

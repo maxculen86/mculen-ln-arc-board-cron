@@ -27,7 +27,8 @@ export const LAYOUTS = {
     OPINION_4: 'opinion4',
     OPINION_8: 'opinion8',
     FOODIT_1_GRID: 'foodit_1_grid',
-    FOODIT_3_GRID: 'foodit_3_grid'
+    FOODIT_3_GRID: 'foodit_3_grid',
+    LOGO_3_GRID: 'logo_3_grid'
 };
 
 export const VERTICALS = [

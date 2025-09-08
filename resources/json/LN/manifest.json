@@ -11,37 +11,37 @@
     "scope": "/",
     "icons": [
         {
-            "src": "https://www.lanacion.com.ar/pwa_128.png",
+            "src": "https://ln-static.glanacion.com/www/pwa_128.png",
             "type": "image/png",
             "sizes": "128x128",
             "purpose": "any"
         },
         {
-            "src": "https://www.lanacion.com.ar/pwa_152.png",
+            "src": "https://ln-static.glanacion.com/www/pwa_152.png",
             "type": "image/png",
             "sizes": "152x152",
             "purpose": "any"
         },
         {
-            "src": "https://www.lanacion.com.ar/pwa_152.png",
+            "src": "https://ln-static.glanacion.com/www/pwa_152.png",
             "type": "image/png",
             "sizes": "152x152",
             "purpose": "maskable"
         },
         {
-            "src": "https://www.lanacion.com.ar/pwa_192.png",
+            "src": "https://ln-static.glanacion.com/www/pwa_192.png",
             "type": "image/png",
             "sizes": "192x192",
             "purpose": "any"
         },
         {
-            "src": "https://www.lanacion.com.ar/pwa_192.png",
+            "src": "https://ln-static.glanacion.com/www/pwa_192.png",
             "type": "image/png",
             "sizes": "192x192",
             "purpose": "maskable"
         },
         {
-            "src": "https://www.lanacion.com.ar/pwa_512.png",
+            "src": "https://ln-static.glanacion.com/www/pwa_512.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "any"
