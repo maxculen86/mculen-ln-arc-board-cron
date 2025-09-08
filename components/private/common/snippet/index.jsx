@@ -6,13 +6,9 @@ import NoticiaSnippet from '../../LN/nota/snippet/noticia';
 import LiveblogSnippet from '../../LN/nota/snippet/liveblog';
 import PaywallSnippet from '../../LN/nota/snippet/paywall';
 import SnippetAcumulado from '../../LN/acumulado/snippet';
-import ProgramSnippet from '../../OTT/programa/snippet/programSnippet';
 import { LIVEBLOG, LIVEBLOG_EDITORIAL } from '../utils/subtypes/subtypeHelper';
 
 const config = {
-    ott: {
-        'OTT-ficha': ProgramSnippet
-    },
     'la-nacion-ar': {
         'LN-nota-receta': NotaSnippet,
         'LN-nota-noticia': NoticiaSnippet,
@@ -31,6 +27,7 @@ function snippetIndex(props) {
     const { arcSite, layout, globalContent = {} } = props;
     const { subtype, type } = globalContent;
 
+    // TODO: limpieza OTT - Ajustar lógica ya que config['ott'] dejó de existir en iteración 5 de 5
     const sitio = config[arcSite];
     if (!sitio) return null;
 

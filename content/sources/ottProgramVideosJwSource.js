@@ -10,6 +10,7 @@ import NotFoundError from './utils/notFoundError';
 import badRequestHandler from './utils/badRequestHandler';
 import { isEmptyObject } from '../../components/private/common/utils/isEmptyObject';
 
+// TODO: limpieza OTT - Borrar en iteración 3 de 5 (antes, validar que no se use en algun lugar activo en PB)
 const sectionConfig = {
     '+ Nación': { pageLimit: 24, filter: true },
     'El noticiero': { pageLimit: 24, filter: true },
