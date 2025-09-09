@@ -2,7 +2,7 @@ import request from 'request-promise-native';
 import { JWP_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { transform } from './utils/ottJwVideoTransform/jwVideoTransform';
-
+// TODO: limpieza OTT - Borrar en iteración 3 de 5 (antes, validar que no se use en algun lugar activo en PB)
 const fetch = ({ website }) => {
     const arcSite = 'la-nacion-ar';
 
