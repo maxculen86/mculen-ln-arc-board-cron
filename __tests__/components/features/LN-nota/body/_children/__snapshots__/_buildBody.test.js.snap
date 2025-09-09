@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos para FOTO al 100 1`] = `
+exports[`BuildBody should render all body elements for default 1`] = `
 <div>
   <p
     class="com-paragraph  --capital --s"
@@ -1283,7 +1283,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <h4
-    class="com-title --arial --twoxs --font-medium"
+    class="com-title --font-primary --m --font-extra"
   >
     Subtitulo 3
   </h4>
@@ -3417,7 +3417,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 </div>
 `;
 
-exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos para FOTO al 100 2`] = `
+exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] = `
 <div>
   <p
     class="com-paragraph  --capital --s"
@@ -4700,7 +4700,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     />
   </div>
   <h4
-    class="com-title --arial --twoxs --font-medium"
+    class="com-title --font-primary --m --font-extra"
   >
     Subtitulo 3
   </h4>
@@ -6834,7 +6834,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
 </div>
 `;
 
-exports[`BuildBody deberia renderizar todos los elementos del cuerpo para default 1`] = `
+exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] = `
 <div>
   <p
     class="com-paragraph  --capital --s"
@@ -8117,7 +8117,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <h4
-    class="com-title --arial --twoxs --font-medium"
+    class="com-title --font-primary --m --font-extra"
   >
     Subtitulo 3
   </h4>

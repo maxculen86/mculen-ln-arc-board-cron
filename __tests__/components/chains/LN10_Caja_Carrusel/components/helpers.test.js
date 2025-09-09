@@ -3,9 +3,11 @@ import {
     handleEventSwipeVideo,
     registeredIdsSetAndInteractions,
     transformNodes,
-    getAdsConfigVideoJw
+    getAdsConfigVideoJw,
+    shouldHideCarrusel
 } from '../../../../../components/chains/LN10_Caja_Carrusel/components/helpers';
 import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { hasValidationFailed } from '../../../../../components/chains/LN10_Caja_Segmentada/_helpers';
 
 jest.mock(
     '../../../../../components/private/LN/common/utils/addEventToDataLayer',
@@ -13,6 +15,8 @@ jest.mock(
         addEventToDataLayerV2: jest.fn()
     })
 );
+
+jest.mock('../../../../../components/chains/LN10_Caja_Segmentada/_helpers');
 
 describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
     describe('handleEventSwipeVideo', () => {
@@ -267,6 +271,85 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 customValidation: true
             });
             expect(result).toEqual(expectedConfig);
+        });
+    });
+
+    describe('shouldHideCarrusel', () => {
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should return { error: true, hide: false } if admin and there is an error', () => {
+            const result = shouldHideCarrusel({
+                isAdmin: true,
+                error: { type: 'warning', message: 'some error' },
+                isHome: false,
+                hideCarousel: false,
+                enabledDays: ['lunes', 'martes']
+            });
+            expect(result).toEqual({ error: true, hide: false });
+        });
+
+        it("should return { error: false, hide: true } if it's home and hasValidationFailed returns true", () => {
+            hasValidationFailed.mockReturnValue(true);
+
+            const result = shouldHideCarrusel({
+                isAdmin: false,
+                error: null,
+                isHome: true,
+                hideCarousel: false,
+                enabledDays: ['lunes', 'martes']
+            });
+
+            expect(hasValidationFailed).toHaveBeenCalledWith({
+                isAdmin: false,
+                hideCaja: false,
+                enabledDays: ['lunes', 'martes'],
+                termica: true,
+                configError: null,
+                token: true
+            });
+            expect(result).toEqual({ error: false, hide: true });
+        });
+
+        it("should return { error: false, hide: false } if it's home and hasValidationFailed returns false", () => {
+            hasValidationFailed.mockReturnValue(false);
+
+            const result = shouldHideCarrusel({
+                isAdmin: false,
+                error: null,
+                isHome: true,
+                hideCarousel: false,
+                enabledDays: ['lunes', 'martes']
+            });
+
+            expect(result).toEqual({ error: false, hide: false });
+        });
+
+        it('should return { error: false, hide: true } if hideCarousel is true', () => {
+            const result = shouldHideCarrusel({
+                isAdmin: false,
+                error: null,
+                isHome: false,
+                hideCarousel: true,
+                enabledDays: ['lunes', 'martes']
+            });
+
+            expect(result).toEqual({ error: false, hide: true });
+        });
+
+        it('should return { error: false, hide: false } if no condition is met', () => {
+            hasValidationFailed.mockReturnValue(false);
+
+            const result = shouldHideCarrusel({
+                isAdmin: false,
+                error: null,
+                isHome: false,
+                hideCarousel: false,
+                enabledDays: ['lunes', 'martes']
+            });
+
+            expect(result).toEqual({ error: false, hide: false });
         });
     });
 });

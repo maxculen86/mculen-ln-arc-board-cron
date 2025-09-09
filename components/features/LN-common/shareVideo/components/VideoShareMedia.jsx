@@ -11,6 +11,7 @@ import {
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { useJWPlayer } from '../hooks/useJWPlayer';
 import get from '../../../../private/common/utils/get';
+import { getWWWResizedUrls } from '../../../../private/common/utils/image/getDataToLinkImage/_helper';
 
 function VideoShareMedia({ id }) {
     const { globalContent } = useAppContext();
@@ -18,8 +19,10 @@ function VideoShareMedia({ id }) {
     const [showPlayer, setShowPlayer] = useState(false);
     const { loadPlayer, setupPlayer, isScriptLoaded } = useJWPlayer(id);
 
-    const allImages = get(globalContent, `promo_items.basic.resized_urls`, []);
-    const { resizedUrl } = getShortestImage(allImages);
+    const promoItems = get(globalContent, 'promo_items', {});
+    const resizedUrls = getWWWResizedUrls(promoItems);
+
+    const { resizedUrl } = getShortestImage(resizedUrls);
 
     useEffect(() => {
         if (!showPlayer) return;
@@ -47,8 +50,10 @@ function VideoShareMedia({ id }) {
                 <Adaptableimage
                     src={resizedUrl}
                     alt="Imagen poster de video"
-                    sources={getImagesToLoadWithPicture(false, allImages)}
+                    sources={getImagesToLoadWithPicture(false, resizedUrls)}
                     className="w-100"
+                    loading="eager"
+                    fetchPriority="high"
                 />
                 <div
                     className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-dark-top"

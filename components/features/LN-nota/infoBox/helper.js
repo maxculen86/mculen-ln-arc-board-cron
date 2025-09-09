@@ -11,7 +11,7 @@ export const groupNames = [
     'Generico'
 ];
 
-export const getSuffix = groupName => groupName.replace(/\s+/g, '-');
+export const getSuffix = groupName => (groupName ?? '').replace(/\s+/g, '-');
 
 export const getMatchedZocaloGroup = (groups, customFields, tags) =>
     groups

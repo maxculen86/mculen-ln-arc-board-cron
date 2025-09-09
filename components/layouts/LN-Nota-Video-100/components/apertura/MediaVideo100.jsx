@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getMediaItem } from '../../../LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura';
+import { getMediaItem } from '../../../_helpers/mediaHelper';
 
 function MediaVideo100({ data }) {
     const { mediaData } = data;

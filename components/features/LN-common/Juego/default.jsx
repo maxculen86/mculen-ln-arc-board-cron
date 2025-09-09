@@ -45,7 +45,8 @@ function Game({ id: featureId, customFields, isAdmin }) {
             query: {
                 id: addInitialSlash(sectionId),
                 website: arcSite
-            }
+            },
+            staticMode: true
         }) || {};
 
     const gameProperties = getGameProperties(
@@ -84,7 +85,8 @@ function Game({ id: featureId, customFields, isAdmin }) {
                 sectionId,
                 size: 1,
                 website: arcSite
-            }
+            },
+            staticMode: true
         }) || {};
 
     const articleLink = get(articleData, 'content_elements[0].website_url', '');

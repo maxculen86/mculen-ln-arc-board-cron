@@ -29,6 +29,7 @@ const customFieldsRules = {
         hideHideCaja: false,
         hideButton: false,
         hideRoofProps: false,
+        carouselMobile: false,
         groupName: 'Ajuste Collection',
         layouts: {
             [CAROUSEL]: 'Carrusel',
@@ -76,6 +77,12 @@ const setChainFooditCustomFields = featuredName => ({
         group: customFieldsRules[featuredName].groupName,
         hidden: customFieldsRules[featuredName].hideInitialPosition
     }).isRequired,
+    carouselMobile: PropTypes.boolean.tag({
+        label: 'Carrusel en mobile',
+        description: 'Marque para mostrar el carrusel en mobile',
+        defaultValue: false,
+        group: customFieldsRules[featuredName].groupName
+    }),
     hideCaja: PropTypes.boolean.tag({
         name: 'Ocultar Caja',
         description: 'Marque para ocultar la caja',

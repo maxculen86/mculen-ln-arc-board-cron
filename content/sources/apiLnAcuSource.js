@@ -58,7 +58,8 @@ export default {
         promoItemsOnly: 'text',
         excludePreload: 'bool',
         apiTransform: 'text',
-        page: 'text'
+        page: 'text',
+        distributorId: 'text'
     },
     ttl: 120
 };

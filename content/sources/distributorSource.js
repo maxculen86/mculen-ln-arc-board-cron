@@ -16,6 +16,20 @@ const resolve = key => {
     return `/site/v3/navigation/${website}/`;
 };
 
+const transform = (data, query) => {
+    const { uri, slug, meteringVariant } = query || {};
+    const name = data[slug];
+
+    return {
+        distributorId: name,
+        name,
+        byline: name,
+        node_type: 'distributor',
+        canonical_url: uri,
+        subscription: meteringVariant,
+        slug: `/${slug}`
+    };
+};
 const fetch = query => {
     const { uri = '', slug = '' } = query;
     const arcSite = query['arc-site'];
@@ -45,20 +59,6 @@ const fetch = query => {
                 arcSite
             );
         });
-};
-
-const transform = (data, query) => {
-    const { uri, slug, meteringVariant } = query || {};
-    const name = data[slug];
-
-    return {
-        distributorId: name,
-        name,
-        byline: name,
-        node_type: 'distributor',
-        canonical_url: uri,
-        subscription: meteringVariant
-    };
 };
 
 export default {

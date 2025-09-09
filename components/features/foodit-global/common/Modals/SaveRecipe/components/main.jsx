@@ -17,12 +17,11 @@ function MainSaveRecipe(props) {
         inputRef,
         restoreInputValue,
         mode = 'save',
-        currentCollectionId = null
+        currentCollectionId
     } = props;
 
     const folders = useFolders({
-        mode,
-        currentCollectionId
+        mode
     });
 
     const handleSelectChange = event => {
@@ -36,7 +35,7 @@ function MainSaveRecipe(props) {
         <div data-test-id="button-bookmark-show-collections">
             {showSelect && (
                 <Select
-                    label="Seleccionar colección"
+                    label={currentCollectionId || 'Seleccionar colección'}
                     floatingLabelText="Colección"
                     openClassName="border-secondary-positive"
                     className="roboto roboto-regular text-12"
@@ -57,6 +56,9 @@ function MainSaveRecipe(props) {
                                 // eslint-disable-next-line react/no-unstable-nested-components
                                 as={propsAs => (
                                     <RenderOption
+                                        currentCollectionId={
+                                            currentCollectionId
+                                        }
                                         value={value}
                                         bookmarkGroup={bookmarkGroup}
                                         propsAs={propsAs}

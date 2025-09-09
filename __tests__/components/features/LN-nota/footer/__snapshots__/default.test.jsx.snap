@@ -13,10 +13,10 @@ exports[`components - feature - LN-nota - Footer Component renders correctly wit
           class="flex flex-column gap-4"
         >
           <div>
-            ExternalSignature
+            Signature
           </div>
           <div>
-            Signature
+            ExternalSignature
           </div>
         </div>
         <div>

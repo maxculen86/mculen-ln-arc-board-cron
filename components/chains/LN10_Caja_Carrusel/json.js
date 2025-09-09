@@ -1,5 +1,15 @@
 import Consumer from 'fusion:consumer';
+import isTodayEnabled from '../utils/isTodayEnabled';
 import { validateCarruselChildren } from '../utils/validateCarruselChildren';
+
+const LAYOUT = 'LN10-Home_Main';
+const shouldSkipRender = ({
+    hideCarousel = false,
+    enabledDays = [],
+    isHome = false
+}) =>
+    hideCarousel ||
+    (isHome && (enabledDays.length === 0 || !isTodayEnabled(enabledDays)));
 
 class CarouselChain {
     constructor(props) {
@@ -7,7 +17,9 @@ class CarouselChain {
     }
 
     render() {
-        const { hideCarousel = false } = this.props.customFields;
+        const { layout, customFields } = this.props;
+        const { hideCarousel = false, enabledDays = [] } = customFields;
+        const isHome = layout === LAYOUT;
         if (hideCarousel) {
             return null;
         }
@@ -16,8 +28,7 @@ class CarouselChain {
             children,
             childProps: this.childProps
         });
-        if (error) {
-            console.warn(error.message);
+        if (error || shouldSkipRender({ hideCarousel, enabledDays, isHome })) {
             return null;
         }
         const { title, link, logoId, buttonLogo } = this.props.customFields;

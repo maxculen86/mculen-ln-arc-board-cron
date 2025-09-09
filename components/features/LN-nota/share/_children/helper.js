@@ -1,7 +1,14 @@
 import React, { Suspense, lazy } from 'react';
+import { cva } from '@ln/cva';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import '../../../../../resources/packages/css/@ln/contenidos-ui-animatedicons/index.css';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import {
+    FOTOAL100,
+    LIVEBLOG_EDITORIAL,
+    VIDEO,
+    CARDS
+} from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
 
@@ -47,3 +54,35 @@ export const getClassAndIconByClick = iaButtonIsClicked =>
               ),
               iaButtonClass: 'p-0'
           };
+
+export const shareContainerVariant = cva('', {
+    variants: {
+        sticky: {
+            true: 'sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024'
+        },
+        subtype: {
+            video: '-order-1 ratio-auto order-initial_min1024',
+            fotoAl100:
+                'float-l_l transition transition-all transition-duration-250',
+            liveblogEditorial: 'border-transparent py-24_m',
+            cards: 'border-transparent'
+        }
+    },
+    defaultVariants: {
+        sticky: true,
+        subtype: ''
+    }
+});
+
+export const layoutBySubtype = {
+    [FOTOAL100]: 'fotoAl100',
+    [VIDEO]: 'video',
+    [LIVEBLOG_EDITORIAL]: 'liveblogEditorial',
+    [CARDS]: 'cards'
+};
+
+export const subtypesWithHorizontalShare = [VIDEO, LIVEBLOG_EDITORIAL];
+
+export const subtypesWithoutSticky = [VIDEO, LIVEBLOG_EDITORIAL, FOTOAL100];
+
+export const hasSticky = subtype => !subtypesWithoutSticky.includes(subtype);

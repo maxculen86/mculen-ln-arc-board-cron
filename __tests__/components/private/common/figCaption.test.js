@@ -47,4 +47,16 @@ describe('Components - Features - LN-10-global - Common - FigureCaption', () => 
         expect(element).not.toHaveTextContent('mocked credit');
         expect(container).toMatchSnapshot();
     });
+
+    it('should render figcaption with className', () => {
+        const props = {
+            epigraphTitle: 'mocked content',
+            credit: 'mocked credit',
+            className: 'bg-white'
+        };
+        const { container } = render(<FigureCaption {...props} />);
+        const element = container.querySelector('figcaption');
+        expect(element).toHaveClass('bg-white');
+        expect(container).toMatchSnapshot();
+    });
 });

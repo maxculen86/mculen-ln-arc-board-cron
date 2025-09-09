@@ -7,6 +7,7 @@ import PageViewDataLayer from '../../features/foodit-global/common/dataLayer/pag
 import AcusPageView from '../../features/foodit-global/common/dataLayer/acusPageVIew';
 import AutogestionPageView from '../../features/foodit-global/common/dataLayer/autogestionPageView';
 import ChefsPageView from '../../features/foodit-global/common/dataLayer/chefsPageView';
+import DataLayerOrigin from '../../features/foodit-global/common/dataLayer/origin';
 
 const config = {
     OTT: {},
@@ -47,7 +48,12 @@ function dataLayerIndex(props) {
     const DataLayer = sitio[layout];
     if (!DataLayer) return null;
 
-    return <DataLayer {...props} />;
+    return (
+        <>
+            {arcSite === 'foodit' && <DataLayerOrigin />}
+            <DataLayer {...props} />
+        </>
+    );
 }
 
 dataLayerIndex.propTypes = {

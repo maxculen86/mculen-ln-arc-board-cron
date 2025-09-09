@@ -1,3 +1,4 @@
+// TODO: limpieza OTT - Borrar en iteración 2 de 5
 export default function loadHeaderEvents() {
     if (typeof window === 'undefined') return;
 

@@ -25,7 +25,8 @@ export const getDataOpinion = ({
     diagramation,
     isInSiteService,
     layout,
-    website
+    website,
+    isHome
 }) => {
     const articlesOpinion = !isInSiteService
         ? getArticleInCollection({
@@ -38,7 +39,8 @@ export const getDataOpinion = ({
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website
+              website,
+              staticMode: isHome
           })
         : [];
 
@@ -53,7 +55,8 @@ export const getDataOpinion = ({
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website
+              website,
+              staticMode: isHome
           })
         : [];
     return {
@@ -81,44 +84,39 @@ export const editorialRules = [
         isLoadWithPicture: true
     }
 ];
-const createCards = ({ articles = [], skipCard = 0, rules }) => {
-    return (
-        articles.map((article, indexArray) => {
-            const index = indexArray + skipCard;
-            const {
-                cardSize,
-                marqueeImg,
-                withImage,
-                mediaData
-            } = getCardConfig(rules[index], article);
-            const { titleTag, subheadTag } = rules[index];
+const createCards = ({ articles = [], skipCard = 0, rules }) =>
+    articles.map((article, indexArray) => {
+        const index = indexArray + skipCard;
+        const { cardSize, marqueeImg, withImage, mediaData } = getCardConfig(
+            rules[index],
+            article
+        );
+        const { titleTag, subheadTag } = rules[index];
 
-            const extraOpts = getDataAttributesForViewability(
-                article._id,
-                '98',
-                index
-            );
+        const extraOpts = getDataAttributesForViewability(
+            article._id,
+            '98',
+            index
+        );
 
-            const { title } = getTitleAndLeadForHome(article, true);
-            const author = getAuthorsAsString(article, true);
-            return (
-                <Card
-                    variant="author"
-                    title={title}
-                    href={get(article, 'website_url', '')}
-                    titleTag={titleTag}
-                    subheadTag={subheadTag}
-                    marquee={author}
-                    marqueeImg={marqueeImg}
-                    mediaData={mediaData}
-                    cardSize={cardSize}
-                    withMedia={withImage}
-                    {...extraOpts}
-                />
-            );
-        }) || []
-    );
-};
+        const { title } = getTitleAndLeadForHome(article, true);
+        const author = getAuthorsAsString(article, true);
+        return (
+            <Card
+                variant="author"
+                title={title}
+                href={get(article, 'website_url', '')}
+                titleTag={titleTag}
+                subheadTag={subheadTag}
+                marquee={author}
+                marqueeImg={marqueeImg}
+                mediaData={mediaData}
+                cardSize={cardSize}
+                withMedia={withImage}
+                {...extraOpts}
+            />
+        );
+    }) || [];
 export const getCardsOpinion = ({ articlesOpinion = [], rules }) => {
     const quantityOpinionTop = 4;
     const haveCardsBottom = articlesOpinion.length === 8;
@@ -141,34 +139,31 @@ export const getCardsOpinion = ({ articlesOpinion = [], rules }) => {
     };
 };
 
-export const getCardsEditorial = (articlesEditorial = []) => {
-    return (
-        articlesEditorial.map((article, index) => {
-            const { cardSize, imagePosition, mediaData } = getCardConfig(
-                editorialRules[index],
-                article
-            );
+export const getCardsEditorial = (articlesEditorial = []) =>
+    articlesEditorial.map((article, index) => {
+        const { cardSize, imagePosition, mediaData } = getCardConfig(
+            editorialRules[index],
+            article
+        );
 
-            const extraOpts = getDataAttributesForViewability(
-                article._id,
-                '99',
-                index
-            );
+        const extraOpts = getDataAttributesForViewability(
+            article._id,
+            '99',
+            index
+        );
 
-            const { title } = getTitleAndLeadForHome(article, true);
-            return (
-                <Card
-                    title={title}
-                    href={get(article, 'website_url', '')}
-                    mediaData={mediaData}
-                    cardSize={cardSize}
-                    imagePosition={imagePosition}
-                    {...extraOpts}
-                />
-            );
-        }) || []
-    );
-};
+        const { title } = getTitleAndLeadForHome(article, true);
+        return (
+            <Card
+                title={title}
+                href={get(article, 'website_url', '')}
+                mediaData={mediaData}
+                cardSize={cardSize}
+                imagePosition={imagePosition}
+                {...extraOpts}
+            />
+        );
+    }) || [];
 
 export const customFieldsOpinion = {
     idCollectionOpinion: PropTypes.string.tag({

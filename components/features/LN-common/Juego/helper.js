@@ -60,10 +60,8 @@ export const getButtonProps = (game, firstCard, parentLayout) => {
         parentLayout === DIAGRAMATIONS.oneHorizontalThreeVertical;
     const shouldApplyTopMargin = firstCard || !isOneHorizontalThreeVertical;
 
-    const buttonProps = {
+    return {
         ...(isRanking && { label: 'Ver Ranking' }),
         ...(shouldApplyTopMargin && { className: 'mt-8_m' })
     };
-
-    return buttonProps;
 };

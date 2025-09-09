@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '@ln/foodit-ui-button';
+import { Spinner } from '@ln/common-ui-spinner';
 import { transformBookmarkContent } from '../../../bookmark/_helper';
 import { useGetFooditArticles } from '../../../bookmark/hooks/useGetFooditArticle';
 import { actionButtons } from '../helpers';
@@ -96,7 +97,14 @@ function FooterSaveRecipe({
             save: 'Guardando...'
         };
 
-        return loadingTexts[leftButton?.action] || 'Procesando...';
+        return (
+            (
+                <div className="flex ai-center gap-8">
+                    <Spinner inverted variant="text-neutral-light-1" />
+                    {loadingTexts[leftButton?.action]}
+                </div>
+            ) || 'Procesando...'
+        );
     };
 
     return (

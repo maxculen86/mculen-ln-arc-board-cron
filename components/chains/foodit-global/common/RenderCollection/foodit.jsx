@@ -28,6 +28,7 @@ export function RenderCollection({
     hideTitle,
     layout,
     error,
+    carouselMobile,
     link = '',
     collectionId = '',
     articles = []
@@ -120,6 +121,7 @@ export function RenderCollection({
     const getCarouselFromType = type => (
         <div className="carousel-container">
             <RoofFoodit
+                carouselMobile={carouselMobile}
                 title={{ text: title, as: roofAs }}
                 hide={hideTitle}
                 className={classNameRoof}
@@ -132,7 +134,9 @@ export function RenderCollection({
                     />
                 }
             />
-            <Carousel type={type}>{renderArticles}</Carousel>
+            <Carousel carouselMobile={carouselMobile} type={type}>
+                {renderArticles}
+            </Carousel>
         </div>
     );
 
@@ -167,6 +171,7 @@ RenderCollection.propTypes = {
     title: PropTypes.string.isRequired,
     hideCaja: PropTypes.bool,
     hideTitle: PropTypes.bool,
+    carouselMobile: PropTypes.bool,
     layout: PropTypes.oneOf([CAROUSEL, BN_12_GRID]).isRequired,
     error: PropTypes.shape({
         message: PropTypes.string
@@ -201,6 +206,7 @@ RenderCollection.propTypes = {
 RenderCollection.defaultProps = {
     hideCaja: false,
     hideTitle: false,
+    carouselMobile: false,
     link: '',
     collectionId: '',
     error: null,

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - features - CardFoodit should test CardFoodit - variant day-recipe 1`] = `
+exports[`Components - features - CardFoodit should test CardFoodit - variant day-recipe with default label 1`] = `
 <div>
   <div
     class="hidden"
@@ -55,12 +55,139 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               class="flex flex-column gap-4"
             >
               <span
-                aria-label="Receta del día"
+                aria-label="RECETA DEL DÍA"
                 class="text text-accent-tomate prumo prumo-medium text-16 uppercase"
                 data-testid="card-label"
-                title="Receta del día"
+                title="RECETA DEL DÍA"
               >
-                Receta del día
+                RECETA DEL DÍA
+              </span>
+              <h1
+                class="text card-title prumo transition-regular prumo-book text-28 text-40_md text-48_lg"
+              >
+                Receta para comer mas rico con ...POLLITO 2
+              </h1>
+            </div>
+          </div>
+          <div
+            class="flex gap-16 text-light-800 flex-row ai-center flex-column_lg ai-start_lg"
+          >
+            <div
+              class="flex flex-column gap-8 flex-grow-1"
+            >
+              <span
+                class="text text-14"
+              >
+                Por Foodit
+              </span>
+              <div
+                class="flex ai-center gap-4"
+              >
+                <i
+                  class="icon --icon-12 --inherit"
+                >
+                  <mock-icon
+                    name="timer"
+                  />
+                </i>
+                <span
+                  class="text text-12 roboto-light"
+                >
+                  4 min
+                </span>
+              </div>
+            </div>
+            <button
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+              data-modal="open-modal"
+              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
+              data-variant="link"
+              title="Guardar receta"
+            >
+              <i
+                class="icon w-24 w-20_lg --dark"
+              >
+                <mock-icon
+                  critical="true"
+                  name="bookmark"
+                />
+              </i>
+              <span
+                class="uppercase lg-only"
+              >
+                Guardar
+              </span>
+            </button>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`Components - features - CardFoodit should test CardFoodit - variant day-recipe with empty label (fallback to default) 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <article
+      class="card relative w-100 mx-auto --day-recipe bg-light-1 max-w-1366"
+      data-container="opening-alone"
+      data-test-id="opening-card-day-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
+      data-variant="day-recipe"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit flex-row_lg row-gap-0 column-gap-32 flex-column"
+        data-variant="primary"
+        href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
+        target="_self"
+        title="Receta para comer mas rico con ...POLLITO 2"
+      >
+        <div
+          class="relative w-100 --img-full-width_max1280"
+        >
+          <div
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+          >
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+              <img
+                alt="Receta para comer mas rico con ...POLLITO 2"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                decoding="async"
+                fetchpriority="high"
+                loading="eager"
+                src="https://www.lanacion.com.ar/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+            </picture>
+          </div>
+          <span
+            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute m-8 bottom-0 left-0"
+          >
+            FÁCIL
+          </span>
+        </div>
+        <div
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 max-w-483_lg pt-16 pt-0_lg pt-16 jc-between"
+        >
+          <div
+            class="flex flex-column gap-12"
+          >
+            <div
+              class="flex flex-column gap-4"
+            >
+              <span
+                aria-label="RECETA DEL DÍA"
+                class="text text-accent-tomate prumo prumo-medium text-16 uppercase"
+                data-testid="card-label"
+                title="RECETA DEL DÍA"
+              >
+                RECETA DEL DÍA
               </span>
               <h1
                 class="text card-title prumo transition-regular prumo-book text-28 text-40_md text-48_lg"
@@ -241,7 +368,126 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
 </div>
 `;
 
-exports[`Components - features - CardFoodit should test CardFoodit - variant recipe 1`] = `
+exports[`Components - features - CardFoodit should test CardFoodit - variant recipe with custom label 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <article
+      class="card relative w-100 mx-auto overflow-hidden h-100 bg-light-1 max-w-1366 border border-all border-thin border-light-100"
+      data-container="grid"
+      data-test-id="card-recipe-comun-D3SATI3N45FQTB5PYSC7TRFTTU"
+      data-variant="recipe"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container h-100 text-inherit row-gap-0 column-gap-32 flex-column"
+        data-variant="primary"
+        href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
+        target="_self"
+        title="Receta para comer mas rico con ...POLLITO 2"
+      >
+        <div
+          class="relative w-100"
+        >
+          <div
+            class="foodit-placeholder object-cover card-image ratio-3-2 w-100"
+          >
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+              <img
+                alt="Receta para comer mas rico con ...POLLITO 2"
+                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="https://www.lanacion.com.ar/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+            </picture>
+          </div>
+          <span
+            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute translate-y-50 bottom-0 left-0"
+          >
+            FÁCIL
+          </span>
+        </div>
+        <div
+          class="card-main w-100 flex flex-column flex-grow-1 gap-16 text-light-800 px-16 pb-16 pt-20 jc-between"
+        >
+          <div
+            class="flex flex-column gap-12"
+          >
+            <div
+              class="flex flex-column gap-4"
+            >
+              <h2
+                class="text card-title prumo transition-regular prumo-medium text-20 text-ellipsis-3"
+              >
+                Receta para comer mas rico con ...POLLITO 2
+              </h2>
+            </div>
+          </div>
+          <div
+            class="flex gap-16 text-light-800 ai-center"
+          >
+            <div
+              class="flex flex-column gap-8 flex-grow-1"
+            >
+              <span
+                class="text text-14"
+              >
+                Por Foodit
+              </span>
+              <div
+                class="flex ai-center gap-4"
+              >
+                <i
+                  class="icon --icon-12 --inherit"
+                >
+                  <mock-icon
+                    name="timer"
+                  />
+                </i>
+                <span
+                  class="text text-12 roboto-light"
+                >
+                  4 min
+                </span>
+              </div>
+            </div>
+            <button
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+              data-modal="open-modal"
+              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
+              data-variant="link"
+              title="Guardar receta"
+            >
+              <i
+                class="icon w-24 --dark"
+              >
+                <mock-icon
+                  critical="true"
+                  name="bookmark"
+                />
+              </i>
+              <span
+                class="uppercase none"
+              >
+                Guardar
+              </span>
+            </button>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`Components - features - CardFoodit should test CardFoodit - variant recipe without label 1`] = `
 <div>
   <div
     class="hidden"

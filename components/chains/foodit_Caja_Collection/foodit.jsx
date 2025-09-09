@@ -33,7 +33,8 @@ function CajaCollection(props) {
         hideTitle,
         link,
         title = '',
-        layout = ''
+        layout = '',
+        carouselMobile
     } = customFields;
 
     const rules = fooditRules(layout) || {};
@@ -95,6 +96,7 @@ function CajaCollection(props) {
             collectionId={idCollection}
             layout={layout}
             error={error}
+            carouselMobile={carouselMobile}
         />
     );
 

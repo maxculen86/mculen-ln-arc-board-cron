@@ -79,6 +79,7 @@ function CTRNota() {
         showCtr && trigger && Object.keys(articleToShow)?.length > 0;
 
     if (!showComponent) return null;
+
     return (
         <>
             <StickyMobile articleToShow={articleToShow} />

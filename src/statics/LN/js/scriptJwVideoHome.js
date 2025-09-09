@@ -24,6 +24,7 @@ window.addEventListener('load', function () {
             config || {};
 
         const facade = document.getElementById(`facade-${mediaId}`);
+        let initialMode = null;
         const setInstancePlayer = () =>
             loadJWPlayerScript(playerId, () => {
                 const instance = window.jwplayer && window.jwplayer(mediaId);
@@ -38,12 +39,21 @@ window.addEventListener('load', function () {
                     setVideoStatus(mediaId);
                     const videoState = getVideoStatus(mediaId);
 
-                    instance.on('play', () => {
+                    instance.on('play', (e = {}) => {
+                        const reason = e?.playReason;
+                        const isAutoplay =
+                            reason === 'autostart' || reason === 'viewable';
+
+                        const mode =
+                            initialMode ?? (isAutoplay ? 'autoplay' : 'manual');
+                        initialMode = null;
+
                         addEventToDataLayerV2({
                             event: 'videoPlay',
                             rest: {
                                 videoName: title || '',
-                                videoID: mediaId || ''
+                                videoID: mediaId || '',
+                                mode
                             }
                         });
 
@@ -54,7 +64,8 @@ window.addEventListener('load', function () {
                         ) {
                             productClickFromClientVideoJW(
                                 articleElement,
-                                title || ''
+                                title || '',
+                                mode
                             );
                         }
 
@@ -91,9 +102,13 @@ window.addEventListener('load', function () {
             const isVisible = entry.isIntersecting;
             if (isVisible) {
                 if (facade && withAutoplay) {
+                    initialMode = 'autoplay';
                     setInstancePlayer();
                 } else {
-                    facade.addEventListener('click', setInstancePlayer);
+                    facade.addEventListener('click', () => {
+                        initialMode = 'manual';
+                        setInstancePlayer();
+                    });
                 }
                 observer.unobserve(articleElement);
             }

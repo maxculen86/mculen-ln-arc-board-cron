@@ -5,7 +5,11 @@ import { cx } from '@ln/cva';
 import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
-import { configClassName, getVerticalPlayer } from './utils/helperJw';
+import {
+    configClassName,
+    getCaptionBgClass,
+    getVerticalPlayer
+} from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import getSourcesJw from '../../LN/common/utils/getSourcesJw';
 import FigureCaption from '../../../features/LN-10-global/common/figCaption/default';
@@ -41,7 +45,7 @@ const videoPlayerJW = ({
 
     const player = isOtt ? '81YXy6Mt' : idPlayer || 'ih0086X3';
     const [video] = playlist || [];
-    const { mediaid = '' } = video || {};
+    const { mediaid = '', sources = [] } = video || {};
     const { arcSite, deployment, contextPath, globalContent } = useAppContext();
     const subtype = get(globalContent, 'subtype', '');
     const promoItems = get(globalContent, 'promo_items', {});
@@ -53,6 +57,8 @@ const videoPlayerJW = ({
         LIVEBLOG_EDITORIAL,
         VIDEOAL100
     ].includes(subtype);
+
+    const bgClass = getCaptionBgClass(subtype);
 
     const shouldShowFigureCaption =
         !isPromoItemVideo || !isSubtypeWithoutFigureCaption;
@@ -83,6 +89,8 @@ const videoPlayerJW = ({
         mediaContainerClassesProps
     );
 
+    const captionFigureClasses = cx(captionClasses, bgClass);
+
     return (
         <Static id={mediaid}>
             <div className={container}>
@@ -107,7 +115,9 @@ const videoPlayerJW = ({
                                 id="scriptVideosJw"
                                 data-title={title}
                                 data-player={player}
-                                data-playlist={JSON.stringify(playlist)}
+                                data-playlist={JSON.stringify([
+                                    { mediaid, sources }
+                                ])}
                                 data-has-autoplay={hasAutoplay}
                                 data-media-id={mediaid}
                                 data-tags-url={urlForPrerollAds()}
@@ -120,7 +130,7 @@ const videoPlayerJW = ({
                         {shouldShowFigureCaption && (
                             <FigureCaption
                                 epigraphTitle={epigraphTitle}
-                                className={captionClasses}
+                                className={captionFigureClasses}
                             />
                         )}
                     </figure>

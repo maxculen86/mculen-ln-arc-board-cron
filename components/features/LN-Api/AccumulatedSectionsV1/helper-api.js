@@ -6,6 +6,7 @@ import { addResizedUrls } from '../../../private/common/utils/image/resizer/addR
 import getPresets from '../../../../content/sources/utils/presets';
 import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
 import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
+import { getAllImagesAuth } from '../../../../content/sources/utils/signingServiceSource/getImagesAuth';
 
 const resolve = query => {
     const { imageId, arcSite } = query;
@@ -165,6 +166,39 @@ export const getNewAcuElements = async (
             }
             return setResizerv2(
                 elem,
+                presets,
+                isInApertura,
+                presetsPromoItems,
+                presetsDefault,
+                arcSite
+            );
+        })
+    );
+    return newAcuArticlesSourceSection;
+};
+
+export const getAcuElements = async (
+    newAcuArticlesSourceSection,
+    oldAcuArticlesSourceSection,
+    query,
+    arcSite
+) => {
+    const { presets, presetsDefault } = getPresets(query);
+    const presetsPromoItems = get(presets, 'promo_items', null);
+
+    const newObjAcuArticlesSourceSection = newAcuArticlesSourceSection;
+    newObjAcuArticlesSourceSection.content_elements = await Promise.all(
+        oldAcuArticlesSourceSection.content_elements.map(async (elem, i) => {
+            let isInApertura = false;
+            if (!elem) {
+                return elem;
+            }
+            const newElem = await getAllImagesAuth(elem, {});
+            if (i === 0) {
+                isInApertura = true;
+            }
+            return setResizerv2(
+                newElem,
                 presets,
                 isInApertura,
                 presetsPromoItems,
