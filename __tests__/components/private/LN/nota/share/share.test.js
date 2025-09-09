@@ -125,7 +125,10 @@ describe('components - private - LN - nota - share', () => {
     let component;
 
     beforeEach(() => {
-        toggleBookmark.mockImplementation(() => 200);
+        toggleBookmark.mockResolvedValue({
+            status: 200,
+            bookmarkContent: {}
+        });
         useCheckBookmark.mockImplementation(
             () => '2aa355fd-2679-4e54-b552-ea404096c323'
         );
@@ -263,20 +266,20 @@ describe('components - private - LN - nota - share', () => {
         expect(window.open).toHaveBeenCalled();
     });
 
-    test('Test click button bookmark', () => {
+    test('Click on bookmark should SAVE the note if it was not saved', () => {
         getToken.mockImplementation(
             () => '9B979333-C7F4-4F46-8EA8-8BBCBB3F14DF'
         );
 
-        const { container } = component;
-        const button = screen.getByRole('button', {
-            name: 'Guardar nota'
-        });
+        useCheckBookmark.mockImplementation(() => '');
+
+        component.rerender(<Share />);
+
+        const button = screen.getByRole('button', { name: 'Guardar nota' });
 
         expect(button).toBeTruthy();
-        expect(button.classList.contains('--is-saved')).toBeTruthy();
 
-        button.click();
+        fireEvent.click(button);
 
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
@@ -284,6 +287,30 @@ describe('components - private - LN - nota - share', () => {
             category: 'nota_ln9',
             label: 'guardar_nota'
         });
+    });
+
+    test('Clicking on bookmark should DELETE the note if it was already saved', () => {
+        getToken.mockImplementation(
+            () => '9B979333-C7F4-4F46-8EA8-8BBCBB3F14DF'
+        );
+
+        component.rerender(<Share bookmark="bookmarkId" />);
+
+        const { container } = component;
+        const button = screen.getByRole('button', { name: 'Guardar nota' });
+
+        expect(button).toBeTruthy();
+        expect(button.classList.contains('--is-saved')).toBeTruthy();
+
+        fireEvent.click(button);
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            action: 'toolbard',
+            category: 'nota_ln9',
+            label: 'eliminar_nota_guardada'
+        });
+
         expect(useCheckBookmark).toHaveBeenCalled();
         expect(container).toMatchSnapshot();
     });

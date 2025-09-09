@@ -11,7 +11,6 @@ import toggleBookmark, {
 import renderToast from '../../../../features/private-global/common/utils/renderToast';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import { addEventToDataLayerV2 } from './addEventToDataLayer';
 
 const noPaddingSmNone = 'p-0 sm-none';
 
@@ -166,13 +165,6 @@ export const onButtonClicked = (
     setBookmark,
     openBarrier
 ) => {
-    addEventToDataLayerV2({
-        event: 'e_linkclick',
-        action: 'toolbard',
-        category: 'nota_ln9',
-        label: 'guardar_nota'
-    });
-
     if (suscription) {
         toggleBookmark({
             isDelete: bookmark,
