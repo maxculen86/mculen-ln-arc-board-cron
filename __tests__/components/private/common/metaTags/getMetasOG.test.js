@@ -41,6 +41,7 @@ jest.mock('fusion:environment', () => {
     return {
         SITE_FOODIT: 'https://foodit.lanacion.com.ar',
         SITE_LANACION: 'https://www.lanacion.com.ar',
+        // TODO: limpieza OTT - Borrar en iteración 5 de 5 y actualizar tests
         SITE_OTT: 'https://lnmas.lanacion.com.ar',
         ARC_STATIC: 'https://arc-static.glanacion.com'
     };

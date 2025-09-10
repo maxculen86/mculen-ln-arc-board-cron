@@ -200,7 +200,7 @@ export const getData = ({
     const { basic: promoItemsBasic = {} } = promoItems;
 
     let url = '';
-
+    // TODO: limpieza OTT - Borrar en iteración 5 de 5
     if (arcSite === 'ott' && ottProgramsLayouts.includes(layout)) {
         url = _id ? `/programas${_id}` : '/programas/';
     } else {

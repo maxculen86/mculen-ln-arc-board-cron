@@ -32,7 +32,6 @@ import { GetFonts } from './criticalCss/getFonts';
 import removeExtraSpaces from '../private/common/utils/removeExtraSpaces';
 import SchemaPageview from '../features/LN-10-global/common/schemas/schemaPageView/default';
 import ScriptRegisterPageview from '../private/common/scriptManager/scriptRegisterPageview';
-import OTTPaywall from '../private/common/scriptManager/ottPaywall';
 
 const lnBuscador = 'LN-buscador';
 
@@ -210,7 +209,6 @@ function Default(props) {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
-                <OTTPaywall arcSite={arcSite} isAdmin={isAdmin} />
                 <TagsLoadingList
                     section={_nodeType}
                     location="head"
