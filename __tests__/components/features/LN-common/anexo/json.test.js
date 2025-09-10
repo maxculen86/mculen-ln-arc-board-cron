@@ -1,7 +1,34 @@
 import Consumer from 'fusion:consumer';
 import * as Anexo from '../../../../../components/features/LN-common/anexo/json';
 
+jest.mock('fusion:consumer', () => ({
+    __esModule: true,
+    default: C => C
+}));
+
+jest.mock(
+    '../../../../../components/chains/utils/isTodayEnabled',
+    () => ({ __esModule: true, default: jest.fn(() => true) }),
+    { virtual: true }
+);
+
+jest.mock(
+    '../../../../../components/features/LN-common/anexo/common/_helper-WebApi',
+    () => ({
+        __esModule: true,
+        isInSection: jest.fn(() => false),
+        getErrorMessage: jest.fn(() => '')
+    })
+);
+import { getErrorMessage } from '../../../../../components/features/LN-common/anexo/common/_helper-WebApi';
+import isTodayEnabled from '../../../../../components/chains/utils/isTodayEnabled';
+
 describe('features - LN-common - anexo - json', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        isTodayEnabled.mockReturnValue(true);
+    });
+
     describe('With HTML anexo props', () => {
         const props = {
             collection: 'features',
@@ -95,6 +122,10 @@ describe('features - LN-common - anexo - json', () => {
         });
 
         it('Error Anexo Url altos', () => {
+            getErrorMessage.mockReturnValueOnce(
+                'Los tres altos fijos del anexo son requeridos'
+            );
+
             const newProps = { ...props };
             newProps.customFields = {
                 url: `https://especialess3.lanacion.com.ar/interactivos/24/07/anexo-crucigrama-juegos/anexoCruciJJOO2.html`,
@@ -105,6 +136,87 @@ describe('features - LN-common - anexo - json', () => {
             const anexo = new Anexo.default(newProps);
             const resp = anexo.render();
             expect(resp).toBe(null);
+        });
+    });
+
+    describe('Calendar/Home validation (replica carrusel) - json', () => {
+        const baseProps = {
+            collection: 'features',
+            type: 'LN-common/anexo',
+            id: 'calendar-json',
+            name: null
+        };
+
+        it('retorna null en Home cuando enabledDays está vacío', () => {
+            const props = {
+                ...baseProps,
+                layout: 'LN10-Home_Main',
+                customFields: {
+                    html: '<p>Contenido Anexo Home</p>',
+                    hideByHtml: false,
+                    enabledDays: []
+                }
+            };
+
+            const anexo = new Anexo.default(props);
+            const resp = anexo.render();
+            expect(resp).toBeNull();
+        });
+
+        it('renderiza en Home cuando hoy está habilitado (nombres de días)', () => {
+            const props = {
+                ...baseProps,
+                layout: 'LN10-Home_Main',
+                customFields: {
+                    html: '<p>Contenido Anexo Home Enabled</p>',
+                    hideByHtml: false,
+                    enabledDays: [
+                        'lunes',
+                        'martes',
+                        'miercoles',
+                        'jueves',
+                        'viernes',
+                        'sabado',
+                        'domingo'
+                    ]
+                }
+            };
+
+            const anexo = new Anexo.default(props);
+            const resp = anexo.render();
+
+            expect(resp).toMatchObject({
+                information: expect.objectContaining({
+                    hideCaja: false,
+                    layout: 'grilla1'
+                }),
+                articles: [{ html: '<p>Contenido Anexo Home Enabled</p>' }]
+            });
+        });
+
+        it('fuera de Home renderiza aunque enabledDays esté vacío', () => {
+            isTodayEnabled.mockReturnValue(false);
+
+            const props = {
+                ...baseProps,
+                layout: '', // no es Home
+                customFields: {
+                    html: '<p>Contenido Anexo Not Home</p>',
+                    hideByHtml: false,
+                    enabledDays: []
+                }
+            };
+
+            const anexo = new Anexo.default(props);
+            const resp = anexo.render();
+
+            expect(resp).toMatchObject({
+                information: expect.objectContaining({
+                    hideCaja: false,
+                    layout: 'grilla1'
+                }),
+                articles: [{ html: '<p>Contenido Anexo Not Home</p>' }]
+            });
         });
     });
 });
