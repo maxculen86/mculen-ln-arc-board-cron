@@ -183,6 +183,7 @@ function Default(props) {
                     layoutsName={layoutsName}
                     arcSite={arcSite}
                     Resource={Resource}
+                    globalContent={globalContent}
                 />
                 <CssLinksLn10
                     deployment={deployment}

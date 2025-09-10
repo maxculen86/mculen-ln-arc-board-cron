@@ -1,39 +1,65 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-danger */
 import React from 'react';
 import get from '../../private/common/utils/get';
 import { criticalCssPathsBySite } from './helpers';
+import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
 
-export const GetCriticalCss = props => {
-    const { arcSite, layout, Resource } = props;
+export function GetCriticalCss({
+    arcSite,
+    layout,
+    // layoutsName,
+    Resource,
+    globalContent
+}) {
+    if (!Resource || typeof Resource !== 'function') {
+        return null;
+    }
 
-    const stylePath = get(
-        criticalCssPathsBySite[arcSite],
-        `.${layout}`,
-        criticalCssPathsBySite[arcSite].default || ''
-    );
+    const siteConfig = criticalCssPathsBySite[arcSite] || {};
+    const stylePath = get(siteConfig, `.${layout}`, siteConfig.default || '');
+
+    const listOfAllowedSection = [
+        // { pageLayout: layoutsName.Noticia },
+        // { pageLayout: layoutsName.HomeLN10 }
+    ];
+    const shouldLoadTailwidcss = isAllowedSection({
+        globalContent,
+        listOfAllowedSection,
+        layout
+    });
 
     return (
         <>
-            {stylePath ? (
-                <Resource path={stylePath}>
-                    {({ data }) => {
-                        return (
-                            data && (
-                                <style
-                                    id="critical-css"
-                                    dangerouslySetInnerHTML={{
-                                        __html: data.replace(
-                                            '@charset "UTF-8";',
-                                            ''
-                                        )
-                                    }}
-                                />
-                            )
-                        );
-                    }}
+            <Resource path={stylePath} encoding="utf8">
+                {({ data }) =>
+                    data && (
+                        <style
+                            id="critical-css"
+                            dangerouslySetInnerHTML={{
+                                __html: data
+                            }}
+                        />
+                    )
+                }
+            </Resource>
+            {shouldLoadTailwidcss && (
+                <Resource
+                    path="resources/dist/css/ln/tailwind/global.css"
+                    encoding="utf8"
+                >
+                    {({ data }) =>
+                        data && (
+                            <style
+                                id="critical-css-tailwind"
+                                dangerouslySetInnerHTML={{
+                                    __html: data
+                                }}
+                            />
+                        )
+                    }
                 </Resource>
-            ) : (
-                <></>
             )}
         </>
     );
-};
+}
