@@ -42,6 +42,9 @@ export function NutritionalInfo({ globalContent = {} }) {
         visibilityMap.get(showNutritionalInfo) ??
         (!text || text?.toLowerCase()?.trim() !== 'ocultar');
 
+    const nutritionalValues = [cal, carbs, fat, prot, sod, fib];
+    const allValuesAreValid = nutritionalValues.every(value => value !== null);
+
     const nutritionalInfo = [
         {
             title: 'Calorías',
@@ -74,14 +77,7 @@ export function NutritionalInfo({ globalContent = {} }) {
             udm: 'g'
         }
     ];
-
-    const validNutritionalData = nutritionalInfo.filter(
-        ({ cant }) => !!cant && cant !== '0'
-    );
-
-    const hasValidNutritionalData = validNutritionalData.length > 0;
-
-    if (!hasValidNutritionalData || !shouldShowNutritionalInfo) return null;
+    if (!allValuesAreValid || !shouldShowNutritionalInfo) return null;
 
     return (
         <div className="flex flex-column gap-24">
@@ -118,7 +114,7 @@ export function NutritionalInfo({ globalContent = {} }) {
                 </Tooltip>
             </div>
             <Carousel type="nutritional">
-                {validNutritionalData.map(({ title, cant, udm }) => (
+                {nutritionalInfo.map(({ title, cant, udm }) => (
                     <NutritionalInfoCard
                         key={title}
                         title={title}

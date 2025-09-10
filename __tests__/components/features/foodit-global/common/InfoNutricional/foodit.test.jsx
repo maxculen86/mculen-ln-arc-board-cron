@@ -62,7 +62,7 @@ describe('InfoNutricional', () => {
         }
     };
 
-    const emptyNutritionalData = {
+    const zeroNutritionalData = {
         promo_items: {
             nutritional_information: {
                 embed: {
@@ -74,6 +74,30 @@ describe('InfoNutricional', () => {
                             protein: 0,
                             sodium: 0,
                             fiber: 0
+                        }
+                    }
+                }
+            }
+        },
+        label: {
+            info_nutricional: {
+                text: ''
+            }
+        }
+    };
+
+    const nullNutritionalData = {
+        promo_items: {
+            nutritional_information: {
+                embed: {
+                    config: {
+                        items: {
+                            calories: null,
+                            carbohydrates: null,
+                            totalFat: null,
+                            protein: null,
+                            sodium: null,
+                            fiber: null
                         }
                     }
                 }
@@ -140,12 +164,24 @@ describe('InfoNutricional', () => {
             ).not.toBeInTheDocument();
         });
 
-        it('should not render when there is no valid nutritional data', () => {
+        it('should render when all nutritional values are 0', () => {
             mockUseNavigationData.mockReturnValue({
                 termicasData: { show_nutritional_info: 'true' }
             });
 
-            render(<NutritionalInfo globalContent={emptyNutritionalData} />);
+            render(<NutritionalInfo globalContent={zeroNutritionalData} />);
+
+            expect(
+                screen.getByText('Información nutricional')
+            ).toBeInTheDocument();
+        });
+
+        it('should not render when all nutritional values are null', () => {
+            mockUseNavigationData.mockReturnValue({
+                termicasData: { show_nutritional_info: 'true' }
+            });
+
+            render(<NutritionalInfo globalContent={nullNutritionalData} />);
 
             expect(
                 screen.queryByText('Información nutricional')
@@ -239,28 +275,20 @@ describe('InfoNutricional', () => {
         });
     });
 
-    describe('Data Filtering', () => {
-        it('should only render cards with valid nutritional values', () => {
+    describe('Null-only data validation', () => {
+        it('should render when any nutritional value is 0', () => {
             mockUseNavigationData.mockReturnValue({
                 termicasData: { show_nutritional_info: 'true' }
             });
 
             render(<NutritionalInfo globalContent={partialNutritionalData} />);
-
-            expect(screen.getByTestId('card-calorías')).toBeInTheDocument();
-            expect(screen.getByTestId('card-grasa total')).toBeInTheDocument();
-            expect(screen.getByTestId('card-sodio')).toBeInTheDocument();
-
             expect(
-                screen.queryByTestId('card-carbohidratos')
-            ).not.toBeInTheDocument();
-            expect(
-                screen.queryByTestId('card-proteína')
-            ).not.toBeInTheDocument();
-            expect(screen.queryByTestId('card-fibra')).not.toBeInTheDocument();
+                screen.getByText('Información nutricional')
+            ).toBeInTheDocument();
+            expect(screen.getByTestId('carousel')).toBeInTheDocument();
         });
 
-        it('should handle null values correctly', () => {
+        it('should not render when any value is null', () => {
             mockUseNavigationData.mockReturnValue({
                 termicasData: { show_nutritional_info: 'true' }
             });
@@ -272,11 +300,11 @@ describe('InfoNutricional', () => {
                             config: {
                                 items: {
                                     calories: 100,
-                                    carbohydrates: null,
-                                    totalFat: undefined,
-                                    protein: 0,
-                                    sodium: 150,
-                                    fiber: ''
+                                    carbohydrates: 24.3,
+                                    totalFat: 0.4,
+                                    protein: 2.6,
+                                    sodium: 0.2,
+                                    fiber: null
                                 }
                             }
                         }
@@ -291,14 +319,26 @@ describe('InfoNutricional', () => {
 
             render(<NutritionalInfo globalContent={dataWithNulls} />);
 
+            expect(
+                screen.queryByText('Información nutricional')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should render all cards when all values are valid', () => {
+            mockUseNavigationData.mockReturnValue({
+                termicasData: { show_nutritional_info: 'true' }
+            });
+
+            render(<NutritionalInfo globalContent={validNutritionalData} />);
+
             expect(screen.getByTestId('card-calorías')).toBeInTheDocument();
+            expect(
+                screen.getByTestId('card-carbohidratos')
+            ).toBeInTheDocument();
+            expect(screen.getByTestId('card-grasa total')).toBeInTheDocument();
+            expect(screen.getByTestId('card-proteína')).toBeInTheDocument();
             expect(screen.getByTestId('card-sodio')).toBeInTheDocument();
-            expect(
-                screen.queryByTestId('card-carbohidratos')
-            ).not.toBeInTheDocument();
-            expect(
-                screen.queryByTestId('card-grasa total')
-            ).not.toBeInTheDocument();
+            expect(screen.getByTestId('card-fibra')).toBeInTheDocument();
         });
     });
 
@@ -354,9 +394,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(screen.getByText(/kcal/)).toBeInTheDocument();
-
             expect(screen.getAllByText(/\bg\b/)).toHaveLength(4); // carbs, fat, protein, fiber
-
             expect(screen.getByText(/mg/)).toBeInTheDocument();
         });
     });
@@ -374,11 +412,8 @@ describe('InfoNutricional', () => {
             expect(
                 screen.getByText('Información nutricional')
             ).toBeInTheDocument();
-
             expect(screen.getByTitle('Mostrar tooltip')).toBeInTheDocument();
-
             expect(screen.getByTestId('carousel')).toBeInTheDocument();
-
             expect(screen.getAllByTestId(/^card-/)).toHaveLength(6);
         });
     });
