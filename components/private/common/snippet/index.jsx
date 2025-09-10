@@ -19,7 +19,8 @@ const config = {
         'LN-acumulado': SnippetAcumulado,
         'LN-nota-video': NoticiaSnippet,
         'LN-Nota-Liveblog_Editorial': NoticiaSnippet,
-        'LN-Nota-Video-100': NoticiaSnippet
+        'LN-Nota-Video-100': NoticiaSnippet,
+        'LN-Nota-Cards': NoticiaSnippet
     }
 };
 
