@@ -27,7 +27,7 @@ function snippetIndex(props) {
     const { arcSite, layout, globalContent = {} } = props;
     const { subtype, type } = globalContent;
 
-    // TODO: limpieza OTT - Ajustar lógica ya que config['ott'] dejó de existir en iteración 5 de 5
+    // TODO: limpieza OTT - Borrar en iteración 5 de 5 - Ajustar lógica ya que config['ott'] dejó de existir
     const sitio = config[arcSite];
     if (!sitio) return null;
 

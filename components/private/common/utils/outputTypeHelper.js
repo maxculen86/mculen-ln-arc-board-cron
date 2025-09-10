@@ -68,6 +68,7 @@ export const getTagTitle = ({
     metaTitle
 }) => {
     const { longTitle, title: defaultTitle } = siteProps;
+    // TODO: limpieza OTT - Borrar en iteración 5 de 5
     if (arcSite === 'ott') {
         return get(
             nodeTypeTitles,

@@ -39,9 +39,6 @@ jest.mock('fusion:consumer', component => {
                             ? query.website
                             : 'la-nacion-ar';
                         return require(`./data/navigationTree/${website}`);
-                    case 'ottVideosSource':
-                        return require(`./data/ottVideos/${query.ids[0]}`);
-                        break;
                     default:
                         console.error('Mock de Consumer no encontrado! ');
                         break;
