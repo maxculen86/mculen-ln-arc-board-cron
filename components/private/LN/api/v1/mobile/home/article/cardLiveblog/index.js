@@ -1,14 +1,12 @@
 import { cardRegular as Article } from '../../../../../common/article/cardRegular/index';
-import { getLiveblogSubtitles } from '../elements/title/index';
+import { getLiveblogTimeline } from '../elements/title/index';
 import { getBadgebyConfig } from '../elements/chapita/index';
 
-export const CardLiveblog = article => {
-    return {
-        ...Article(article),
-        ...getBadgebyConfig(article),
-        subtitles: getLiveblogSubtitles(article),
-        opinion: false
-    };
-};
+export const CardLiveblog = article => ({
+    ...Article(article),
+    ...getBadgebyConfig(article),
+    timeline: getLiveblogTimeline(article),
+    opinion: false
+});
 
 export default CardLiveblog;
