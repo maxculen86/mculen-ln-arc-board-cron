@@ -1,3 +1,5 @@
+import { SITE_LANACION } from 'fusion:environment';
+
 export const stringToArray = (string = '') => {
     if (string === '') return undefined;
     const array = string.split(',');
@@ -12,9 +14,7 @@ export const formatForOneElementArray = (array = []) => {
 
 export const formatForObjectArray = (objectArray = []) => {
     if (objectArray.length === 0) return undefined;
-    const arrayFormated = objectArray.map(obj => {
-        return (obj && obj.name) || '';
-    });
+    const arrayFormated = objectArray.map(obj => (obj && obj.name) || '');
     return arrayFormated[0] === '' ? undefined : arrayFormated;
 };
 
@@ -22,16 +22,14 @@ export const extractAffilations = (affilations = '') => {
     if (affilations === '') return undefined;
     const affis = affilations.split(',');
 
-    const affilationsMapped = affis.map(elem => {
-        return {
-            '@type': 'NewsMediaOrganization',
-            name: elem.trim()
-        };
-    });
+    const affilationsMapped = affis.map(elem => ({
+        '@type': 'NewsMediaOrganization',
+        name: elem.trim()
+    }));
     affilationsMapped.push({
         '@type': 'NewsMediaOrganization',
         name: 'La Nación',
-        url: 'https: //www.lanacion.com.ar'
+        url: SITE_LANACION
     });
 
     return formatForOneElementArray(affilationsMapped);
@@ -40,25 +38,28 @@ export const extractAffilations = (affilations = '') => {
 export const getBooksAndPodcasts = (books = [], podcasts = []) => {
     const arraysMerged = [];
 
-    books.length > 0 &&
+    if (books.length > 0) {
         books.forEach((book = {}) => {
             const { title = '', publisher = '' } = book;
-            title &&
+            if (title) {
                 arraysMerged.push({
                     '@type': 'Book',
                     name: title,
                     ...(publisher && { author: publisher }),
                     bookFormat: 'https://schema.org/Paperback'
                 });
+            }
         });
-    podcasts.length > 0 &&
+    }
+
+    if (podcasts.length > 0) {
         podcasts.forEach((podcast = {}) => {
             const {
                 download_url: donwloadUrl = '',
                 name = '',
                 url = ''
             } = podcast;
-            name &&
+            if (name) {
                 arraysMerged.push({
                     '@type': 'PodcastSeries',
                     name,
@@ -70,7 +71,9 @@ export const getBooksAndPodcasts = (books = [], podcasts = []) => {
                         }
                     })
                 });
+            }
         });
+    }
 
     return arraysMerged.length === 0 ? undefined : arraysMerged;
 };
@@ -82,13 +85,11 @@ export const authorBasicInfo = (
     url,
     longBio,
     bio
-) => {
-    return {
-        ...(byline && { name: byline }),
-        ...(location && { birthPlace: location }),
-        ...(bioPage && { url: `http://www.lanacion.com.ar${bioPage}` }),
-        ...(url && { image: url }),
-        ...(longBio && { description: longBio }),
-        ...(bio && { disambiguatingDescription: bio })
-    };
-};
+) => ({
+    ...(byline && { name: byline }),
+    ...(location && { birthPlace: location }),
+    ...(bioPage && { url: `${SITE_LANACION}${bioPage}` }),
+    ...(url && { image: url }),
+    ...(longBio && { description: longBio }),
+    ...(bio && { disambiguatingDescription: bio })
+});

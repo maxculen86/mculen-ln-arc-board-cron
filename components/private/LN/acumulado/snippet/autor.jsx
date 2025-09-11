@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 import {
@@ -12,7 +13,7 @@ import {
     authorBasicInfo
 } from './helpers/snippetAuthorHelper';
 
-const SnippetAutor = ({ globalContent = {} }) => {
+function SnippetAutor({ globalContent = {} }) {
     const {
         affiliations = '',
         byline = '',
@@ -66,7 +67,7 @@ const SnippetAutor = ({ globalContent = {} }) => {
                     contactType: `${byline}: ${role}`,
                     ...(email && { email }),
                     ...(bioPage && {
-                        url: `http://www.lanacion.com.ar${bioPage}`
+                        url: `${SITE_LANACION}${bioPage}`
                     })
                 }
             }),
@@ -82,7 +83,7 @@ const SnippetAutor = ({ globalContent = {} }) => {
     };
 
     return <SnippetRender data={data} />;
-};
+}
 
 SnippetAutor.propTypes = {
     globalContent: PropTypes.shape({

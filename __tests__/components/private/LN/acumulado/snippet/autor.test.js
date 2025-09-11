@@ -3,6 +3,10 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SnippetAutor from '../../../../../../components/private/LN/acumulado/snippet/autor';
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
 describe('Private - LN - nota - snippet - noticia ', () => {
     const props = {
         globalContent: {
@@ -10,12 +14,10 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             author_type: 'Estándar',
             awards: [
                 {
-                    name:
-                        'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.'
+                    name: 'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.'
                 },
                 {
-                    name:
-                        'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.'
+                    name: 'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.'
                 }
             ],
             bio_page: '/autor/javier-blanco-170/',
@@ -38,8 +40,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             ],
             email: 'javier_blanco@lanacion.com.ar',
             image: {
-                url:
-                    'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/JQRxXq2iDva6pauwin-CdNwiWD8=/80x80/smart/filters:quality(100)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png'
+                url: 'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/JQRxXq2iDva6pauwin-CdNwiWD8=/80x80/smart/filters:quality(100)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png'
             },
             languages: 'Ingles, Frances',
             longBio:
