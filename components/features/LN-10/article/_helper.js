@@ -12,7 +12,8 @@ import transformImageData from '../../../private/common/LN-10/transformImageData
 import setClassName from '../../../private/common/utils/setClassName';
 import {
     getChainParentOfFeature,
-    handleTagWithBomba
+    handleTagWithBomba,
+    getChainConfig
 } from './common/_helper-WebApi';
 import sectionsValidationLN10 from '../../../layouts/config/LN10-Home.config.json';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
@@ -23,6 +24,7 @@ import getSourcesJw from '../../../private/LN/common/utils/getSourcesJw';
 import { transformUrl } from './common/_helper';
 import { isAudioGenerated } from '../../../../content/sources/utils/audioNews/helper';
 import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { checkVariants } from '../../../chains/utils/_helpers';
 import {
     LIVEBLOG_EDITORIAL,
     LIVEBLOG
@@ -561,4 +563,93 @@ export const shouldHighlightCustomVoice = (article = {}, config = {}) => {
         isCustomVoiceCandidate &&
         isAudioValid
     );
+};
+
+export const getRenderType = data => {
+    const renderRules = [
+        {
+            type: 'adminError',
+            condition: data.isAdmin && !!data.error
+        },
+        {
+            type: 'null',
+            condition:
+                !data.isAdmin &&
+                (!data.transformedArticle || !data.articleContent)
+        },
+        {
+            type: 'card',
+            condition: true
+        }
+    ];
+
+    const matchingRule = renderRules.find(rule => rule.condition);
+    return matchingRule.type;
+};
+
+export const getEditorConfig = customFields => {
+    const {
+        noteId: id,
+        imageId,
+        video: videoId,
+        lead,
+        html,
+        title,
+        authors,
+        chapita,
+        chapitaStyle,
+        description,
+        hideAuthors,
+        hideImage,
+        variant = 'regular',
+        cllBoard = '',
+        videoComercial
+    } = customFields ?? {};
+
+    return {
+        id,
+        imageId,
+        videoId,
+        video: videoId,
+        html,
+        lead,
+        title,
+        authors,
+        chapita,
+        chapitaStyle,
+        description,
+        hideAuthors,
+        hideImage,
+        variant,
+        cllBoard,
+        videoComercial,
+        isHtml: Boolean(html),
+        isVideo: Boolean(videoId),
+        isLiveblog: variant === 'liveblog'
+    };
+};
+
+export const getInitialChainConfig = (featureId, renderables) => {
+    const {
+        config: initialConfig = {},
+        index,
+        layout,
+        imageConfig,
+        boxPosition,
+        isBomba,
+        chainId
+    } = getChainConfig({ featureId, renderables }) || {};
+
+    const hasVariants = checkVariants({ renderables, featureId });
+
+    return {
+        initialConfig,
+        index,
+        layout,
+        imageConfig,
+        boxPosition,
+        isBomba,
+        chainId,
+        hasVariants
+    };
 };
