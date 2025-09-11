@@ -1,6 +1,5 @@
 import { convertMillisecondsToMinutes } from '../../../features/LN-common/LN10_En_Vivo/_helpers';
 import { supportedTypes } from '../../../features/LN-nota/body/_utils/_bodyRules';
-import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
 import { monthNames } from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
@@ -106,6 +105,39 @@ export const calculateTimePublish = (config = {}, currentDate = new Date()) => {
     return { time, date };
 };
 
+const normalizeAuthorsData = (authors = []) =>
+    authors.reduce((acc, author) => {
+        if (!author) return acc;
+
+        const id = get(author, 'id') || '';
+        const name = get(author, 'name', '');
+        const link = get(author, 'link') || (id ? `/autor/${id}/` : '');
+        const photo = get(author, 'photo', '');
+
+        acc.push({ name, link, photo });
+        return acc;
+    }, []);
+
+const buildSignature = (authors = []) => {
+    const normalizedAuthorsDatas = normalizeAuthorsData(authors);
+    const hasMultiple = normalizedAuthorsDatas.length > 1;
+
+    const photo = hasMultiple ? null : normalizedAuthorsDatas[0]?.photo;
+    const author =
+        normalizedAuthorsDatas.length === 1
+            ? {
+                  name: normalizedAuthorsDatas[0].name,
+                  link: normalizedAuthorsDatas[0].link
+              }
+            : null;
+    const authorsList = normalizedAuthorsDatas.map(({ name, link }) => ({
+        name,
+        link
+    }));
+
+    return { author, authors: authorsList, photo };
+};
+
 export const getLiveblogHeaderData = post => {
     const items = get(post, 'items', []);
     const liveblogElement = items.find(element =>
@@ -118,10 +150,9 @@ export const getLiveblogHeaderData = post => {
     const customTimeOrText = showCustomTime
         ? get(data, 'customTime', '')
         : null;
-    const authors = get(data, 'authors', []);
-    const { author } = getAuthorsNameAndLink(authors);
-    const photo = get(authors[0], 'photo', '');
-    const hasAuthors = author || authors.length > 0;
+    const rawAuthors = get(data, 'authors', []);
+    const { author, authors, photo } = buildSignature(rawAuthors);
+    const hasAuthors = Boolean(author || authors.length > 0);
     const { time, date, relative } = calculateTimePublish(data);
     const title = get(data, 'title', '');
     const position = 'Top';
@@ -197,7 +228,7 @@ export const getPostRenderData = grupo => {
         showSignatureWithAuthors: liveblogHeader.hasAuthors,
         position: liveblogHeader.position,
         size: 12,
-        photo: liveblogHeader.author?.photo || null
+        photo: liveblogHeader.photo
     };
 
     return {

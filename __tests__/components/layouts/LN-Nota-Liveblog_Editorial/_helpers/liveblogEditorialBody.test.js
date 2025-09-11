@@ -32,6 +32,86 @@ jest.mock(
 );
 
 describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblogEditorialBody', () => {
+    describe('getLiveblogHeaderData author/link/photo logic', () => {
+        const {
+            getLiveblogHeaderData
+        } = require('../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialBody');
+
+        const buildGroup = (authors, extraConfig = {}) => ({
+            _id: 'group_1',
+            items: [
+                {
+                    type: 'custom_embed',
+                    subtype: 'custom-liveblog',
+                    embed: {
+                        config: {
+                            title: 'Título',
+                            authors,
+                            showCustomTime: true,
+                            customTime: 'Ahora',
+                            ...extraConfig
+                        }
+                    }
+                }
+            ]
+        });
+
+        it('single author: shows photo and link when both provided', () => {
+            const group = buildGroup([
+                {
+                    id: 'ana-333',
+                    name: 'Ana',
+                    link: '/autor/ana/',
+                    photo: 'https://img/ana.jpg'
+                }
+            ]);
+
+            const header = getLiveblogHeaderData(group);
+            expect(header.author).toEqual({ name: 'Ana', link: '/autor/ana/' });
+            expect(header.photo).toBe('https://img/ana.jpg');
+            expect(header.hasAuthors).toBe(true);
+        });
+
+        it('single author: no photo but has link then no photo and linkable name', () => {
+            const group = buildGroup([
+                {
+                    _id: 'ana-333',
+                    name: 'Ana',
+                    link: '/autor/ana/'
+                }
+            ]);
+            const header = getLiveblogHeaderData(group);
+            expect(header.author).toEqual({ name: 'Ana', link: '/autor/ana/' });
+            expect(header.photo).toBe('');
+        });
+
+        it('single author: has photo but no link on BioPage and no id -> non-linkable name, photo shown', () => {
+            const group = buildGroup([
+                {
+                    name: 'Ana',
+                    photo: 'https://img/ana.jpg'
+                }
+            ]);
+            const header = getLiveblogHeaderData(group);
+            expect(header.author).toEqual({ name: 'Ana', link: '' });
+            expect(header.photo).toBe('https://img/ana.jpg');
+        });
+
+        it('multiple authors: no photo, linkable authors list', () => {
+            const group = buildGroup([
+                { id: 'ana-333', name: 'Ana' },
+                { name: 'Bob', link: '/autor/bob/' }
+            ]);
+            const header = getLiveblogHeaderData(group);
+            expect(header.author).toBeNull();
+            expect(header.photo).toBeNull();
+            expect(header.authors).toEqual([
+                { name: 'Ana', link: '/autor/ana-333/' },
+                { name: 'Bob', link: '/autor/bob/' }
+            ]);
+            expect(header.hasAuthors).toBe(true);
+        });
+    });
     describe('getContentBeforeMarkers for liveblog', () => {
         const content = [
             {
