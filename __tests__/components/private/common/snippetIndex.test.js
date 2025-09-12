@@ -23,7 +23,7 @@ describe('SnippetIndex Component', () => {
 
     const FAKE_MOCK_NOTA = {
         _id: 'DWFMIO47BZHVBPCUPI3GELE2CY',
-        subtype: '13',
+        subtype: '14',
         type: 'story',
         canonical_url: '/economia/prueba-template-cards-nid08082025/',
         headlines: {
