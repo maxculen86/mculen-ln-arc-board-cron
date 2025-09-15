@@ -43,7 +43,6 @@ describe('features - LN-common - anexo - json', () => {
                 url: null,
                 heightMobile: null,
                 vivoYoutube: null,
-                // Roof properties
                 title: null,
                 link: null,
                 hideTitle: null
@@ -121,9 +120,9 @@ describe('features - LN-common - anexo - json', () => {
             expect(resp).toMatchObject(respMock);
         });
 
-        it('Error Anexo Url altos', () => {
+        it('returns null when URL heights are invalid', () => {
             getErrorMessage.mockReturnValueOnce(
-                'Los tres altos fijos del anexo son requeridos'
+                'URL anexo requires Desktop/Tablet/Mobile fixed heights'
             );
 
             const newProps = { ...props };
@@ -139,7 +138,7 @@ describe('features - LN-common - anexo - json', () => {
         });
     });
 
-    describe('Calendar/Home validation (replica carrusel) - json', () => {
+    describe('Calendar/Home validation - json', () => {
         const baseProps = {
             collection: 'features',
             type: 'LN-common/anexo',
@@ -147,12 +146,12 @@ describe('features - LN-common - anexo - json', () => {
             name: null
         };
 
-        it('retorna null en Home cuando enabledDays está vacío', () => {
+        it('returns null on Home when enabledDays is empty', () => {
             const props = {
                 ...baseProps,
                 layout: 'LN10-Home_Main',
                 customFields: {
-                    html: '<p>Contenido Anexo Home</p>',
+                    html: '<p>Home Anexo Content</p>',
                     hideByHtml: false,
                     enabledDays: []
                 }
@@ -163,12 +162,12 @@ describe('features - LN-common - anexo - json', () => {
             expect(resp).toBeNull();
         });
 
-        it('renderiza en Home cuando hoy está habilitado (nombres de días)', () => {
+        it('renders on Home when today is enabled (weekday names)', () => {
             const props = {
                 ...baseProps,
                 layout: 'LN10-Home_Main',
                 customFields: {
-                    html: '<p>Contenido Anexo Home Enabled</p>',
+                    html: '<p>Home Anexo Enable</p>',
                     hideByHtml: false,
                     enabledDays: [
                         'lunes',
@@ -190,18 +189,18 @@ describe('features - LN-common - anexo - json', () => {
                     hideCaja: false,
                     layout: 'grilla1'
                 }),
-                articles: [{ html: '<p>Contenido Anexo Home Enabled</p>' }]
+                articles: [{ html: '<p>Home Anexo Enable</p>' }]
             });
         });
 
-        it('fuera de Home renderiza aunque enabledDays esté vacío', () => {
+        it('renders outside Home even if enabledDays is empty', () => {
             isTodayEnabled.mockReturnValue(false);
 
             const props = {
                 ...baseProps,
-                layout: '', // no es Home
+                layout: '',
                 customFields: {
-                    html: '<p>Contenido Anexo Not Home</p>',
+                    html: '<p>Not Home Anexo Content</p>',
                     hideByHtml: false,
                     enabledDays: []
                 }
@@ -215,7 +214,7 @@ describe('features - LN-common - anexo - json', () => {
                     hideCaja: false,
                     layout: 'grilla1'
                 }),
-                articles: [{ html: '<p>Contenido Anexo Not Home</p>' }]
+                articles: [{ html: '<p>Not Home Anexo Content</p>' }]
             });
         });
     });
