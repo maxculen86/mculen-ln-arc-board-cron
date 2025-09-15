@@ -10,6 +10,9 @@ handleCookie.mockImplementation(() => ({
 }));
 
 describe('private - common - banners - helpers - getCustomTargeting', () => {
+    const mockAuthToken =
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
     beforeEach(() => {
         jest.clearAllMocks();
         localStorage.clear();
@@ -28,7 +31,7 @@ describe('private - common - banners - helpers - getCustomTargeting', () => {
             }),
             usuarioDetalleClubNacion: 'P',
             metering_arc_counter: '5',
-            cookieLogin: 'yes'
+            token: mockAuthToken
         };
 
         mockGetCookie.mockImplementation(
