@@ -301,6 +301,11 @@ const customLiveblog = `
     showCustomTime
 `;
 
+const galleryEmbed = `
+    galleryId
+    diagram
+`;
+
 const customPowerUps = `
     subtype
     embed {
@@ -335,6 +340,7 @@ const customPowerUps = `
             widgetUrl
             embedType
             ${customLiveblog}
+            ${galleryEmbed}
         }
     }
 `;
