@@ -16,16 +16,13 @@ class AnexoFeature {
         const { id, layout, customFields = {} } = this.props;
 
         const {
-            // flags de visibilidad
             hideByHtml = false,
             hideByUrl = false,
             hideByVivoYoutube = false,
-            // fuentes de contenido
             url,
             heightMobile,
             html,
             vivoYoutube,
-            // “roof” properties
             title,
             link,
             hideTitle,
@@ -34,9 +31,7 @@ class AnexoFeature {
 
         const isHome = layout === LAYOUT;
 
-        if (shouldSkipRender({ enabledDays, isHome })) {
-            return null;
-        }
+        const hideByFlags = hideByHtml && hideByUrl && hideByVivoYoutube;
 
         const isApertura = isInSection({
             sectionName: 'Pre_Apertura',
@@ -49,7 +44,11 @@ class AnexoFeature {
             customFields
         });
 
-        if (errorMessage || (hideByHtml && hideByUrl && hideByVivoYoutube)) {
+        if (
+            shouldSkipRender({ enabledDays, isHome }) ||
+            errorMessage ||
+            hideByFlags
+        ) {
             return null;
         }
 
