@@ -30,7 +30,7 @@ const useArticleMedia = ({
                 id: checkForId(get(editorData, 'videoId', '')),
                 website: 'la-nacion-ar',
                 imageConfig: get(chainData, 'imageConfig', ''),
-                isInApetura: onlyOneApeturaValidateForWWW,
+                isInApertura: onlyOneApeturaValidateForWWW,
                 isAdmin: get(appData, 'isAdmin', false),
                 arcSite: get(appData, 'arcSite', '')
             },
@@ -70,7 +70,7 @@ const useArticleMedia = ({
         isAdmin: get(appData, 'isAdmin', false),
         isHome: get(appData, 'isHome', false),
         isLoadWithPicture: get(chainData, 'config.isLoadWithPicture', false),
-        isInApetura: onlyOneApeturaValidateForWWW
+        isInApertura: onlyOneApeturaValidateForWWW
     });
 
     const typeOfMedia = getTypeOfMedia(editorData);
