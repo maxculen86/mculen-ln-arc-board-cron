@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-    addHours,
-    addHoursAndFormat,
     hasFutureDisplayDate,
     isOlderThanXHoursAgo
 } from '../../../common/utils/dateAndTimeUtil';
@@ -67,7 +65,7 @@ export const setTLArticles = (source, articles = []) => {
 
         const isLiveblog = subtype === LIVEBLOG;
         const artPosition = `0${index + 1}`;
-        const displayDateWithThreeHours = addHours(3, displayDate);
+        const displayDateWithThreeHours = displayDate;
 
         return {
             artPosition,
@@ -81,6 +79,7 @@ export const setTLArticles = (source, articles = []) => {
                     size="--fivexs"
                 />
             ),
+            originalDisplayDate: displayDate,
             articleData: {
                 _id,
                 content_restrictions: contentRestrictions
@@ -148,7 +147,7 @@ export const transformLastNewsContent = data => {
                 ) {
                     acc.push({
                         ...story,
-                        display_date: addHoursAndFormat(-3, story.display_date),
+                        display_date: story.display_date,
                         website_url: story.canonical_url
                     });
                 }
@@ -156,4 +155,5 @@ export const transformLastNewsContent = data => {
             }, [])
         };
     }
+    return null;
 };
