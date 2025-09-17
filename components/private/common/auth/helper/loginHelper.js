@@ -11,6 +11,11 @@ export const SUBSCRIBED_HELPER = {
     FOODIT: '22'
 };
 
+const siteIds = {
+    'la-nacion-ar': 1,
+    foodit: 19
+};
+
 export const isSubscribed = valueSuscription => {
     const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
     const cookieArray = ProductoPremiumId.split(',');
@@ -126,7 +131,7 @@ const initializeAuth = async ({ website = 'la-nacion-ar', setTokens } = {}) => {
                 'lanacion-arc'
             );
             const environment = get(datadogConfig, 'env', 'prod');
-            const siteId = website;
+            const siteId = siteIds[website];
 
             const methodsUCL =
                 init({
