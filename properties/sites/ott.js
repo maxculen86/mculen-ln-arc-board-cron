@@ -9,6 +9,7 @@ export default {
     header: {
         hierarchy: 'Header'
     },
+    // TODO: limpieza OTT - Borrar en iteración 5 de 5 (archivo completo)
     host: 'https://lnmas.lanacion.com.ar',
     activeProgramsHierarchy: 'ActivePrograms',
     scripts: {

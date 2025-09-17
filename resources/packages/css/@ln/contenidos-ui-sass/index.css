@@ -1270,6 +1270,7 @@ a {
     --circuitos: #42d369;
     --ranking: #74d1e5;
     --adivinanzas: #81b6e2;
+    --cruci-experto: #666666;
     --success-700: #008759;
     --warning-500: #ffc402;
     --danger-500: #c61b25;
@@ -2015,6 +2016,10 @@ a {
     background: var(--adivinanzas);
 }
 
+.bg-cruci-experto {
+    background: var(--cruci-experto);
+}
+
 .bg-green {
     background: #008759;
 }
@@ -2147,6 +2152,10 @@ a {
     background: var(--adivinanzas);
 }
 
+.bg-cruci-experto__hover:hover {
+    background: var(--cruci-experto);
+}
+
 .bg-secondary__hover:hover {
     background: var(--neutral-light-50);
 }
@@ -2254,6 +2263,11 @@ a {
 
 .ln-card-games-adivinanzas__hover:hover .cardGame__hover {
     border-color: var(--adivinanzas);
+    background-color: white;
+}
+
+.ln-card-games-cruci-experto__hover:hover .cardGame__hover {
+    border-color: var(--cruci-experto);
     background-color: white;
 }
 

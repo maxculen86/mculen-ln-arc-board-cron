@@ -1,6 +1,6 @@
 const paths = require('./paths');
 const getConfig = require('./getConfig');
-const config = require('./config');
+const config = require('./config.json');
 
 module.exports = (env = 'prod') =>
     config.map(siteConfig => getConfig(siteConfig, { env, paths }));

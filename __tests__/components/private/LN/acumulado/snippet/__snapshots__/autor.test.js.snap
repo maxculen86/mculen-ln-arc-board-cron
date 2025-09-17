@@ -5,7 +5,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
   "@context": "http://schema.org",
   "@type": "Person",
   "name": "Javier Blanco",
-  "url": "http://www.lanacion.com.ar/autor/javier-blanco-170/",
+  "url": "https://www.lanacion.com.ar/autor/javier-blanco-170/",
   "image": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/JQRxXq2iDva6pauwin-CdNwiWD8=/80x80/smart/filters:quality(100)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png",
   "description": "Columnista político del diario LA NACION. Es profesor de Historia en la Universidad Nacional de Mar del Plata y fue docente de la cátedra de Historia de las Ideas Políticas de la Facultad de Derecho de la Universidad Nacional de Mar del Plata, e investigador del Instituto Emilio Ravignani de la Facultad de Filosofía y Letras de la UBA. Presta servicios de consultoría política para instituciones y empresas del país y el exterior. En 2002 fue condecorado por el gobierno de la República de Brasil con la Orden de Río Branco.",
   "knowsLanguage": [
@@ -39,7 +39,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
     "@type": "ContactPoint",
     "contactType": "Javier Blanco: LA NACION",
     "email": "javier_blanco@lanacion.com.ar",
-    "url": "http://www.lanacion.com.ar/autor/javier-blanco-170/"
+    "url": "https://www.lanacion.com.ar/autor/javier-blanco-170/"
   },
   "affiliation": [
     {
@@ -49,7 +49,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
     {
       "@type": "NewsMediaOrganization",
       "name": "La Nación",
-      "url": "https: //www.lanacion.com.ar"
+      "url": "https://www.lanacion.com.ar"
     }
   ],
   "owns": {

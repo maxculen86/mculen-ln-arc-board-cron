@@ -7,6 +7,10 @@ import {
     authorBasicInfo
 } from '../../../../../../../components/private/LN/acumulado/snippet/helpers/snippetAuthorHelper';
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
 describe('components - private - LN - acumulado - snippet - helpers - snippetAuthorHelper', () => {
     describe('formatForObjectArray function test', () => {
         it('When corrent array format should return a string array', () => {
@@ -55,7 +59,7 @@ describe('components - private - LN - acumulado - snippet - helpers - snippetAut
                 {
                     '@type': 'NewsMediaOrganization',
                     name: 'La Nación',
-                    url: 'https: //www.lanacion.com.ar'
+                    url: 'https://www.lanacion.com.ar'
                 }
             ]);
         });
@@ -151,8 +155,7 @@ describe('components - private - LN - acumulado - snippet - helpers - snippetAut
                 byline: 'Juan Pravata',
                 location: 'Argentina',
                 bioPage: '/autor/juan-pravata-666/',
-                url:
-                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                url: 'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
                 longBio:
                     'El Desarrollador Full Stack es un profesional capacitado para desarrollar distintas etapas de un proyecto web. Trabaja tanto en el back-end como en el front-end.',
                 bio: 'Programador web'
@@ -164,9 +167,8 @@ describe('components - private - LN - acumulado - snippet - helpers - snippetAut
             ).toStrictEqual({
                 name: 'Juan Pravata',
                 birthPlace: 'Argentina',
-                url: 'http://www.lanacion.com.ar/autor/juan-pravata-666/',
-                image:
-                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                url: 'https://www.lanacion.com.ar/autor/juan-pravata-666/',
+                image: 'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
                 description:
                     'El Desarrollador Full Stack es un profesional capacitado para desarrollar distintas etapas de un proyecto web. Trabaja tanto en el back-end como en el front-end.',
                 disambiguatingDescription: 'Programador web'
@@ -178,8 +180,7 @@ describe('components - private - LN - acumulado - snippet - helpers - snippetAut
                 byline: 'Juan Pravata',
                 location: '',
                 bioPage: '/autor/juan-pravata-666/',
-                url:
-                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                url: 'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
                 longBio: '',
                 bio: 'Programador web'
             };
@@ -189,9 +190,8 @@ describe('components - private - LN - acumulado - snippet - helpers - snippetAut
                 authorBasicInfo(byline, location, bioPage, url, longBio, bio)
             ).toStrictEqual({
                 name: 'Juan Pravata',
-                url: 'http://www.lanacion.com.ar/autor/juan-pravata-666/',
-                image:
-                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                url: 'https://www.lanacion.com.ar/autor/juan-pravata-666/',
+                image: 'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
                 disambiguatingDescription: 'Programador web'
             });
         });

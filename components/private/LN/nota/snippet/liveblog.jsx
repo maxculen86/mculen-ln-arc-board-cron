@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import { addHours } from '../../../common/utils/dateAndTimeUtil';
@@ -14,6 +15,7 @@ import {
     generatePostObjectWithoutPowerUp
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
+import { addForwardSlash } from '../../common/utils/addForwardSlash';
 
 function SnippetLiveblog(props) {
     const { siteProperties, globalContent, contextPath, deployment } = props;
@@ -40,7 +42,7 @@ function SnippetLiveblog(props) {
 
     const { image } = extractDataFromPromoItems(promoItems, PLACEHOLDER);
 
-    const url = `${siteProperties.host}${canonicalUrl || ''}`;
+    const url = `${SITE_LANACION}${canonicalUrl || ''}`;
     const blogObjects =
         checkForLiveBlogElements === -1
             ? generatePostObjectWithoutPowerUp(globalContent, url, PLACEHOLDER)
@@ -62,7 +64,7 @@ function SnippetLiveblog(props) {
         publisher: {
             '@type': 'Organization',
             name: `${siteProperties.title || ''}`,
-            url: `${siteProperties.host || ''}`,
+            url: `${SITE_LANACION || ''}`,
             logo: {
                 '@context': urlShema,
                 '@type': 'ImageObject',
@@ -88,12 +90,12 @@ function SnippetLiveblog(props) {
             organizer: {
                 '@type': 'Organization',
                 name: 'La Nación',
-                url: 'https://lanacion.com.ar/'
+                url: addForwardSlash(SITE_LANACION)
             },
             performer: {
                 '@type': 'Organization',
                 name: 'La Nación',
-                url: 'https://lanacion.com.ar/'
+                url: addForwardSlash(SITE_LANACION)
             },
             eventstatus: 'https://schema.org/EventScheduled',
             eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',

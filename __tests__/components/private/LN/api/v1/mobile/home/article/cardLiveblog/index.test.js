@@ -4,7 +4,7 @@ import article from '../../../../../../../../../../__mocks__/data/LN10_CardLiveb
 describe('Test-CardLiveblog when size is M', () => {
     it('ok', () => {
         const resp = CardLiveblog(article);
-        expect(resp.subtitles).toBeNull();
+        expect(resp.timeline).toBeNull();
         expect(Object.keys(resp).sort()).toEqual(
             [
                 'authors',
@@ -24,7 +24,7 @@ describe('Test-CardLiveblog when size is M', () => {
                 'opinion',
                 'seccionPadre',
                 'sitioId',
-                'subtitles',
+                'timeline',
                 'templateId',
                 'titulo',
                 'url',
@@ -37,7 +37,7 @@ describe('Test-CardLiveblog when size is M', () => {
         );
     });
 
-    test('Should return bajada when hideDescription property is false', () => {
+    it('Should return bajada when hideDescription property is false', () => {
         // ARRANGE
         article.additionalProperties['hideDescription'] = false;
 
@@ -49,7 +49,7 @@ describe('Test-CardLiveblog when size is M', () => {
         expect(resp).toHaveProperty('bajada');
     });
 
-    test('Should return null when hideDescription property is true', () => {
+    it('Should return null when hideDescription property is true', () => {
         // ARRANGE
         article.additionalProperties['hideDescription'] = true;
 
@@ -67,34 +67,26 @@ describe('Test-CardLiveblog when size is XL', () => {
     it('ok', () => {
         const newArticle = JSON.parse(JSON.stringify(article));
         newArticle.additionalProperties.diseno.size = 'XL';
+        const liveblogs = newArticle.content_elements.filter(
+            el => el.type === 'custom_embed' && el.subtype === 'custom-liveblog'
+        );
         const resp = CardLiveblog(newArticle);
-        expect(resp.subtitles).not.toBeNull();
-        expect(resp.subtitles.length).toBe(3);
-        expect(resp.subtitles[0].title).toBe(
-            newArticle.content_elements[0].embed.config.title
-        );
-        expect(resp.subtitles[0].time).toBe(
-            newArticle.content_elements[0].embed.config.time
-        );
-        expect(resp.subtitles[1].title).toBe(
-            newArticle.content_elements[2].embed.config.title
-        );
-        expect(resp.subtitles[1].time).toBe(
-            newArticle.content_elements[2].embed.config.time
-        );
-        expect(resp.subtitles[2].title).toBe(
-            newArticle.content_elements[4].embed.config.title
-        );
-        expect(resp.subtitles[2].time).toBe(
-            newArticle.content_elements[4].embed.config.time
-        );
+
+        expect(resp.timeline).not.toBeNull();
+        expect(resp.timeline.length).toBe(3);
+        expect(resp.timeline[0].title).toBe(liveblogs[0].embed.config.title);
+        expect(resp.timeline[0].time).toBe(liveblogs[0].embed.config.time);
+        expect(resp.timeline[1].title).toBe(liveblogs[1].embed.config.title);
+        expect(resp.timeline[1].time).toBe(liveblogs[1].embed.config.time);
+        expect(resp.timeline[2].title).toBe(liveblogs[2].embed.config.title);
+        expect(resp.timeline[2].time).toBe(liveblogs[2].embed.config.time);
     });
 });
 
 describe('Time Test for liveblog', () => {
-    function timeIterator(subtitles) {
-        for (let index = 0; index < subtitles.length; index++) {
-            const subtitleTime = subtitles[index].time;
+    function timeIterator(timeline) {
+        for (let index = 0; index < timeline.length; index++) {
+            const subtitleTime = timeline[index].time;
 
             if (subtitleTime !== subtitleTime.split(':').slice(0, 2).join(':'))
                 return false;
@@ -106,6 +98,6 @@ describe('Time Test for liveblog', () => {
 
         const resp = CardLiveblog(newArticle);
 
-        expect(timeIterator(newArticle, resp.subtitles)).toBeTruthy();
+        expect(timeIterator(newArticle, resp.timeline)).toBeTruthy();
     });
 });

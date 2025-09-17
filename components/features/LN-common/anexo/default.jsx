@@ -21,6 +21,7 @@ import BuildRoof from '../../../chains/utils/_BuildRoof/default';
 import { typesButtonStyle } from '../../../chains/utils/setCommonCustomFields';
 import { setupIntersectionObserver } from '../../LN-10-global/common/utils/intersectionObserver';
 import { handleIframeProps } from './helpers/iframeHelper';
+import { isTodayEnabled } from '../../../chains/LN10_Caja_Segmentada/_helpers';
 
 const disableAnexo = 'Marque para ocultar el anexo';
 
@@ -162,7 +163,8 @@ function AnexoFeature(props) {
         linkButton,
         buttonStyle,
         mobileFullWidth,
-        hideTitle
+        hideTitle,
+        enabledDays = []
     } = customFields;
 
     const isPreApertura = isInSection({
@@ -175,6 +177,12 @@ function AnexoFeature(props) {
 
     const errorMessage = getErrorMessage({ isPreApertura, customFields });
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
+
+    const isHome = layout === get(siteProperties, 'layoutsName.HomeLN10');
+
+    if (isHome && !isTodayEnabled(enabledDays)) {
+        return null;
+    }
 
     const isIframe = _type === 'Iframe';
 
@@ -202,8 +210,7 @@ function AnexoFeature(props) {
     );
 
     const { bannerMob = undefined, bannerDsk = undefined } =
-        layout === get(siteProperties, 'layoutsName.HomeLN10') &&
-        getDynamicBanners({ renderables, featureId: id });
+        isHome && getDynamicBanners({ renderables, featureId: id });
 
     const comp = () =>
         getComponentFromConfig(
@@ -387,6 +394,12 @@ AnexoFeature.propTypes = {
             description:
                 'Marque para que el anexo ocupe el ancho completo en mobile',
             defaultValue: false
+        }),
+        enabledDays: PropTypes.list.tag({
+            name: 'Días habilitados',
+            description:
+                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
+            defaultValue: []
         })
     }).isRequired
 };

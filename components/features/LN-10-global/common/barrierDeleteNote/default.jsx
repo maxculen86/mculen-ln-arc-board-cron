@@ -7,6 +7,7 @@ import toggleBookmark, {
 } from '../../../../private/common/utils/bookmarkHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import renderToast from '../../../private-global/common/utils/renderToast';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function BarrierDeleteNote({
     closeBarrier = () => null,
@@ -49,6 +50,12 @@ function BarrierDeleteNote({
                     variant="primary"
                     title="Confirmar"
                     onClick={() => {
+                        addEventToDataLayerV2({
+                            event: 'e_linkclick',
+                            action: 'toolbard',
+                            category: 'nota_ln9',
+                            label: 'eliminar_nota_guardada'
+                        });
                         toggleBookmark({
                             isDelete: bookmarkId
                         }).then(({ status, bookmarkContent }) => {

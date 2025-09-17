@@ -36,6 +36,7 @@ describe('Components - outputType - criticalCss - GetFonts', () => {
     });
 
     it('should match snapshot for arcSite = "ott"', () => {
+        // TODO: limpieza OTT - Borrar en iteración 5 de 5
         mockProps.arcSite = 'ott';
         const { container } = render(<GetFonts {...mockProps} />);
         expect(container).toMatchSnapshot();

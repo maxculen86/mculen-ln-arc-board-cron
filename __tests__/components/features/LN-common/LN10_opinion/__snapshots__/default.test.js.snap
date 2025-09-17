@@ -495,16 +495,7 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                     >
                       <picture
                         class="marquee-placeholder flex jc-center ai-center relative"
-                      >
-                        <img
-                          alt="Javier Blanco, Diego Japas y José Del Rio"
-                          class="image flex marquee-img --cover"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/ul__ravfTXHGsE9dUj5-Lf2QC50=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
-                        />
-                      </picture>
+                      />
                       <div
                         class="marquee-text flex --font-2xs w-100 flex-column"
                       >

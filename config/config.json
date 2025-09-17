@@ -17,11 +17,22 @@
         "site": "LN",
         "entries": [
             { "[site]/base": "css/base/*.scss" },
+            { "[site]/[basename]": "css/*.css" },
             { "[site]/abstracts": "css/abstracts/*.scss" },
             {
                 "[site]/[dirname]/[basename]": {
-                    "pattern": "css/*/*.scss",
+                    "pattern": "css/*/*.{scss,css}",
                     "ignore": ["css/abstracts/**", "css/amp/**"]
+                }
+            }
+        ]
+    },
+    {
+        "site": "FOODIT",
+        "entries": [
+            {
+                "[site]/[dirname]/[basename]": {
+                    "pattern": "css/*/*.{scss,css}"
                 }
             }
         ]

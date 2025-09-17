@@ -6,7 +6,7 @@ import {
 } from '../../private/LN/common/utils/mediaHelper';
 import get from '../../private/common/utils/get';
 
-import MediaImage from '../LN-Nota-Liveblog_Editorial/components/apertura/MediaImage';
+import MediaImage from '../../features/LN-10-global/common/mediaImage/default';
 import VideoPlayerJW from '../../private/common/videoPlayerJw';
 import MediaIframe from '../LN-Nota-Liveblog_Editorial/components/apertura/MediaIframe';
 

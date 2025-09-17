@@ -2,16 +2,17 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import ModMedia from '../mod-media';
 import CarousellNextButton from './carousellNextButton';
 import CarousellPrevButton from './carousellPrevButton';
 import withSlider from '../hocs/withSlider';
-import classNames from 'classnames';
 
 const DEFAULT_PAGESIZE = 4;
 
-const Carousell = ({ slider, children, itsGallery, active, arcSite }) => {
+function Carousell({ slider, children, itsGallery, active, arcSite }) {
+    // TODO: limpieza OTT - Borrar en iteración 5 de 5
     if (arcSite === 'ott')
         return (
             <section className="slider com-slider">
@@ -69,7 +70,7 @@ const Carousell = ({ slider, children, itsGallery, active, arcSite }) => {
             </div>
         </ModMedia>
     );
-};
+}
 
 Carousell.propTypes = {
     slider: PropTypes.shape({

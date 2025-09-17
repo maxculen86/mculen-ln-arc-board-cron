@@ -2809,14 +2809,11 @@
 }
 .ln-liveblog li div {
     margin-top: -0.25rem;
-    gap: var(--size-2xs);
+    gap: 0.125rem;
     flex-direction: column;
 }
 .ln-liveblog li div time {
     color: var(--danger-600);
-}
-.ln-liveblog li div h3 {
-    margin-top: -0.375rem;
 }
 .ln-liveblog li:before {
     content: '';
@@ -3329,6 +3326,7 @@
 .ln-card.--liveblog.--3xl .subtitle-list,
 .ln-card.--liveblog.--4xl .subtitle-list {
     flex-direction: row;
+    gap: 0.5rem;
 }
 .ln-card:not(.--author).--xl .media-container {
     max-width: none;
@@ -5897,6 +5895,7 @@ a {
     --circuitos: #42d369;
     --ranking: #74d1e5;
     --adivinanzas: #81b6e2;
+    --cruci-experto: #666666;
     --success-700: #008759;
     --warning-500: #ffc402;
     --danger-500: #c61b25;
@@ -6642,6 +6641,10 @@ a {
     background: var(--adivinanzas);
 }
 
+.bg-cruci-experto {
+    background: var(--cruci-experto);
+}
+
 .bg-green {
     background: #008759;
 }
@@ -6774,6 +6777,10 @@ a {
     background: var(--adivinanzas);
 }
 
+.bg-cruci-experto__hover:hover {
+    background: var(--cruci-experto);
+}
+
 .bg-secondary__hover:hover {
     background: var(--neutral-light-50);
 }
@@ -6881,6 +6888,11 @@ a {
 
 .ln-card-games-adivinanzas__hover:hover .cardGame__hover {
     border-color: var(--adivinanzas);
+    background-color: white;
+}
+
+.ln-card-games-cruci-experto__hover:hover .cardGame__hover {
+    border-color: var(--cruci-experto);
     background-color: white;
 }
 

@@ -4,15 +4,13 @@ import isSSR from '../../../../../../LN/common/utils/isSSR';
 import { checkForId } from '../index';
 import replaceUrlResizerToWWW from '../../../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import get from '../../../../get';
-import { getShortestImage } from '../../../../../../LN/common/utils/mediaHelper';
 
 const useGetVideoPosterResized = ({
     videoID,
     imageConfig,
     isInApertura,
     isAdmin,
-    arcSite,
-    diagramacion
+    arcSite
 }) => {
     const data = useContent({
         source: (videoID && videoID.trim() && 'videosJwSource') || null,
@@ -34,28 +32,11 @@ const useGetVideoPosterResized = ({
     const basicWithWWW = replaceUrlResizerToWWW(promoItemsBasic);
     const resizedUrls = get(basicWithWWW, 'resized_urls', []);
 
-    const shortest = getShortestImage(resizedUrls);
-
-    const MOBILE = '(max-width: 767px)';
-
-    const MEDIA_RULES = {
-        'center-focal': MOBILE
-    };
-
-    const mediaTarget = MEDIA_RULES[diagramacion];
-
-    const posterCandidate = mediaTarget
-        ? resizedUrls.find(
-              resizedUrl =>
-                  get(resizedUrl, 'option.media_preload', '') === mediaTarget
-          ) || resizedUrls[0]
-        : shortest;
-
     return {
         promo_items: {
             basic: {
                 ...basicWithWWW,
-                resized_urls: [posterCandidate]
+                resized_urls: resizedUrls
             }
         }
     };
