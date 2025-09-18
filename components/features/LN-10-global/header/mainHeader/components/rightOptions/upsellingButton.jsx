@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable camelcase */
 import React from 'react';
-import { MY_ACCOUNT_URL } from 'fusion:environment';
 import { Button } from '@ln/contenidos-ui-button';
 import { Tooltip } from '@ln/contenidos-ui-tooltip';
 import classNames from 'classnames';
@@ -40,15 +39,16 @@ export function UpsellingButton() {
     const upsellingData = {
         'ga-combo2': {
             text: duo_button_text,
-            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277`
+            // TODO: por  pedido del equipo de experiencias, se dejan dominios viejos de myaccount en upselling, una vez terminen la migracion, se deben apuntar nuevamente usando la variable de entorno MY_ACCOUNT_URL
+            url: `https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277`
         },
         'ga-comboDuo': {
             text: triple_button_text,
-            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277`
+            url: `https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277`
         },
         'ga-comboTriple': {
             text: black_button_text,
-            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277`
+            url: `https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277`
         }
     };
 
