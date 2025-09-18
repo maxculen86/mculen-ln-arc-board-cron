@@ -54,7 +54,7 @@ export function Image({ data = {}, contentElements = [] }) {
 
         if (belongsToPreparation) {
             return {
-                className: 'preparation-image w-100 max-w-260_md max-w-286_lg',
+                className: 'preparation-image w-100 w-364_md',
                 section: 'preparacion'
             };
         }
@@ -71,7 +71,7 @@ export function Image({ data = {}, contentElements = [] }) {
     }
 
     const imageClassName = cx('flex flex-column gap-8', {
-        '-mt-16 pl-20 pr-20 pr-0_md': imageConfig.section === 'preparacion'
+        '-mt-20': imageConfig.section === 'preparacion'
     });
 
     return (
