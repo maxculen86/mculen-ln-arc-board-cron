@@ -17,19 +17,19 @@ jest.mock(
                     target: '_self'
                 },
                 {
-                    url: 'https://myaccount.lanacion.com.ar/',
+                    url: 'https://micuenta.lanacion.com.ar/',
                     text: 'Mi cuenta',
                     title: 'Ir a mi cuenta',
                     target: '_self'
                 },
                 {
-                    url: 'https://myaccount.lanacion.com.ar/datos-personales/',
+                    url: 'https://micuenta.lanacion.com.ar/datos-personales/',
                     text: 'Mis datos',
                     title: 'Ir a mis datos',
                     target: '_self'
                 },
                 {
-                    url: 'https://micuenta.lanacion.com.ar/mis-suscripciones/',
+                    url: 'https://micuenta.lanacion.com.ar/',
                     text: 'Mis suscripciones',
                     title: 'Ir a mis suscripciones',
                     target: '_self'

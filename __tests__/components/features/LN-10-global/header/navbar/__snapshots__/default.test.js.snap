@@ -91,7 +91,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
       >
         <a
           class="link ln-link --font-2xs"
-          href="https://myaccount.lanacion.com.ar/mi-usuario/"
+          href="https://micuenta.lanacion.com.ar/"
           target="_self"
           title="Ir a Mi cuenta"
         >

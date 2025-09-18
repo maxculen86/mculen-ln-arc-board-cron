@@ -111,7 +111,7 @@ export default {
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
     // TODO: limpieza OTT - Borrar en iteración 5 de 5
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
-    MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
+    MY_ACCOUNT_URL: 'https://micuenta.lanacion.com.ar',
     SITE_FOODIT: 'https://foodit.lanacion.com.ar',
     API_QUERYLY: 'https://api.queryly.com',
     // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta
