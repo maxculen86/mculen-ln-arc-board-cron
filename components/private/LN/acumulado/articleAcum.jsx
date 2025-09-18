@@ -94,7 +94,7 @@ const ArticleAcum = forwardRef(
             <ComHour
                 display_date={displayDate}
                 size={typeAcumRules[typeArticle].dateClassNames || '--twoxs'}
-                isUltimasNoticias={typeArticle === 'Timeline'}
+                isUltimasNoticias={sectionName === 'ultimas-noticias'}
             />
         );
 

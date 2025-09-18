@@ -1,5 +1,4 @@
 import { setTLArticles } from '../../../../../../components/private/LN/common/utils/timeline';
-import { addHours } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 import { LIVEBLOG } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('Private - Common - Utils - timeline - setTLArticles', () => {
@@ -13,8 +12,7 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
                 },
                 display_date: '2022-07-14T11:58:43',
                 headlines: {
-                    basic:
-                        'Dólar hoy y Dólar blue hoy: la cotización minuto a minuto del 14 de julio'
+                    basic: 'Dólar hoy y Dólar blue hoy: la cotización minuto a minuto del 14 de julio'
                 },
                 subtype: '1',
                 website_url:
@@ -27,8 +25,7 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
                 },
                 display_date: '2022-07-14T11:49:43',
                 headlines: {
-                    basic:
-                        '¿Qué es el dólar turista y cuál es el dólar solidario?'
+                    basic: '¿Qué es el dólar turista y cuál es el dólar solidario?'
                 },
                 subtype: '1',
                 website_url:
@@ -41,8 +38,7 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
                 },
                 display_date: '2022-07-14T11:45:11',
                 headlines: {
-                    basic:
-                        'Dólar turista: se desató una polémica porque la nueva retención supera la alícuota'
+                    basic: 'Dólar turista: se desató una polémica porque la nueva retención supera la alícuota'
                 },
                 subtype: '1',
                 website_url:
@@ -55,8 +51,7 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
                 },
                 display_date: '2022-07-14T11:38:32',
                 headlines: {
-                    basic:
-                        'El Fondo respaldó los primeros anuncios de Batakis y reiteró que los objetivos siguen igual'
+                    basic: 'El Fondo respaldó los primeros anuncios de Batakis y reiteró que los objetivos siguen igual'
                 },
                 subtype: '1',
                 website_url:
@@ -69,8 +64,7 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
                 },
                 display_date: '2022-07-14T11:35:35',
                 headlines: {
-                    basic:
-                        'Dólar hoy: el blue sube y supera su récord histórico, tras las nuevas medidas del Gobierno'
+                    basic: 'Dólar hoy: el blue sube y supera su récord histórico, tras las nuevas medidas del Gobierno'
                 },
                 subtype: '1',
                 website_url:
@@ -101,12 +95,10 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
 
             const { basic: mockTtitle } = headlines;
             const { content_code: mockContentCode } = content_restrictions;
-            const newDisplayDate = addHours(3, mockDisplayDate);
-
             expect(article.artPosition).toEqual(`0${index + 1}`);
             expect(article.key).toEqual(mockId);
             expect(article.titleText).toEqual(mockTtitle);
-            expect(article.hour.props.display_date).toEqual(newDisplayDate);
+            expect(article.hour.props.display_date).toEqual(mockDisplayDate);
             expect(article.link).toEqual(mockWebsiteUrl);
             expect(article.articleData._id).toEqual(mockId);
             expect(
