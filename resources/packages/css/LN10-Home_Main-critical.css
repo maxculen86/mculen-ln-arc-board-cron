@@ -6956,6 +6956,11 @@ a {
     line-height: 150%;
 }
 
+.text-22 {
+    font-size: 1.375rem;
+    line-height: 130%;
+}
+
 @media (min-width: 80rem) {
     .text-12_lg {
         font-size: 0.75rem;
@@ -7000,6 +7005,11 @@ a {
     line-height: 116%;
     --prumo-letter-spacing: -0.3px;
 }
+.prumo.text-32 {
+    font-size: 2rem;
+    line-height: 116%;
+    --prumo-letter-spacing: -0.64px;
+}
 @media (min-width: 48rem) {
     .prumo.text-40_md {
         font-size: 2.5rem;
@@ -7015,6 +7025,11 @@ a {
     }
 }
 @media (min-width: 83.75rem) {
+    .prumo.text-40_xl {
+        font-size: 2.5rem;
+        line-height: 116%;
+        --prumo-letter-spacing: -0.64px;
+    }
     .prumo.text-48_xl {
         font-size: 3rem;
         line-height: 100%;
@@ -7237,9 +7252,8 @@ strong:not(.--font-primary),
     font-size: 1.5rem;
 }
 
-.text-16_110 {
-    font-size: 1rem;
-    line-height: var(--line-110);
+.line-height-100.line-height-100 {
+    line-height: var(--line-100);
 }
 
 .m-auto {
