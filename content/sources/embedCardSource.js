@@ -1,8 +1,12 @@
 import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
-import filter from '../filters/foodit/embedCardFilter';
 import logger from '../../components/private/common/utils/logger';
+import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
+import get from '../../components/private/common/utils/get';
+import { isEmptyString } from '../../components/private/common/utils/dataValidation';
+import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
+import filter from '../filters/foodit/embedCardFilter';
 
 const isEncoded = str => {
     try {
@@ -12,7 +16,68 @@ const isEncoded = str => {
     }
 };
 
-const fetch = query => {
+const transformImages = async (data, cachedCall) => {
+    if (!data || !cachedCall) return data;
+
+    const imagePreset = {
+        width: 400,
+        height: 300,
+        media: '(min-width: 320px)',
+        class: '',
+        type: 'image'
+    };
+
+    const resizeImage = async imageUrl => {
+        if (!imageUrl || isEmptyString(imageUrl)) return imageUrl;
+
+        try {
+            const signingResponse = await signingServiceCachedCall(
+                imageUrl,
+                cachedCall
+            );
+
+            const resizedUrl = resizeImgUrl({
+                arcImage: {
+                    url: imageUrl,
+                    auth: { 1: get(signingResponse, 'hash') },
+                    type: 'image'
+                },
+                defaultResizeWithSmart: imagePreset
+            });
+
+            return resizedUrl;
+        } catch (error) {
+            logger.push(error, {
+                source: 'content/sources/embedCardSource.js - transformImages',
+                imageUrl,
+                errorDetails: error.message
+            });
+            return imageUrl;
+        }
+    };
+
+    const processImageObject = async imageObj => {
+        if (!imageObj || !imageObj.url) return imageObj;
+
+        const resizedUrl = await resizeImage(imageObj.url);
+        return {
+            ...imageObj,
+            url: resizedUrl
+        };
+    };
+
+    const transformedData = { ...data };
+
+    if (transformedData.promo_items?.basic) {
+        transformedData.promo_items.basic = await processImageObject(
+            transformedData.promo_items.basic
+        );
+    }
+
+    return transformedData;
+};
+
+const fetch = (query, { cachedCall } = {}) => {
     const { noteId = '' } = query;
 
     if (!noteId || !noteId.trim()) {
@@ -44,7 +109,7 @@ const fetch = query => {
                 };
             }
 
-            return data;
+            return await transformImages(data, cachedCall);
         } catch (error) {
             logger.push(error, {
                 source: 'content/sources/embedCardSource.js',

@@ -17,7 +17,8 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
         dataSection: 'CuerpoAcu',
         article: article,
         typeArticle: 'Grilla',
-        withSubhead: false
+        withSubhead: false,
+        sectionName: 'test-section'
     };
 
     it('Props validation for Grid type to ModArticle', () => {
