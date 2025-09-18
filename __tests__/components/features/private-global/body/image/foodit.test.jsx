@@ -210,7 +210,8 @@ describe('BodyComponents - Foodit - Image', () => {
             expect(imageElement).toHaveClass(
                 'preparation-image',
                 'w-100',
-                'w-364_md'
+                'max-w-260_md',
+                'max-w-286_lg'
             );
 
             const figure = imageElement.closest('figure');
@@ -269,7 +270,8 @@ describe('BodyComponents - Foodit - Image', () => {
             expect(screen.getByRole('img')).toHaveClass(
                 'preparation-image',
                 'w-100',
-                'w-364_md'
+                'max-w-260_md',
+                'max-w-286_lg'
             );
         });
 
@@ -339,7 +341,8 @@ describe('BodyComponents - Foodit - Image', () => {
             expect(screen.getByRole('img')).toHaveClass(
                 'preparation-image',
                 'w-100',
-                'w-364_md'
+                'max-w-260_md',
+                'max-w-286_lg'
             );
         });
 
