@@ -18,9 +18,10 @@ function Subtitle({ data }) {
     const Component = _props.tag;
 
     const fontClass = level === 4 ? 'roboto roboto-bold' : 'prumo prumo-light';
+
     return (
         <Component
-            className={`${fontClass} ${_props.className}`}
+            className={`-mb-8 ${fontClass} ${_props.className}`}
             data-section={normalize(content)}
             dangerouslySetInnerHTML={{ __html: content }}
         />
