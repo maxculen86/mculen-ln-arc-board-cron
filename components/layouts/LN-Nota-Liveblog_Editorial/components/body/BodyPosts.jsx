@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 function BodyPosts({ children }) {
     if (!children) return null;
-    return <div className="grid_md gap-32_m mb-32">{children}</div>;
+    return (
+        <div className="liveblog-editorial-body-posts grid_md gap-32_m mb-32">
+            {children}
+        </div>
+    );
 }
 
 BodyPosts.propTypes = {
