@@ -575,7 +575,9 @@ export const getRenderType = data => {
             type: 'null',
             condition:
                 !data.isAdmin &&
-                (!data.transformedArticle || !data.articleContent)
+                (!!data.error ||
+                    !data.transformedArticle ||
+                    !data.articleContent)
         },
         {
             type: 'card',
