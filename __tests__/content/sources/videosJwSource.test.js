@@ -95,7 +95,7 @@ describe('Tests transformVideosJW', () => {
 
     it('should transform data correctly with complete data and query ', async () => {
         const result = await transform({
-            data: JSON.stringify(mockVideoData),
+            data: mockVideoData,
             query: { 'arc-site': 'la-nacion-ar', imageConfig: 'T1' },
             cachedCall: mockCachedCall
         });
