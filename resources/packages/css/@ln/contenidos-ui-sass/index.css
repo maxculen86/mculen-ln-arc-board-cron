@@ -4241,6 +4241,10 @@ strong:not(.--font-primary),
     min-height: 17rem;
 }
 
+.min-h-100dvh.min-h-100dvh {
+    min-height: 100dvh;
+}
+
 @media (min-width: 48rem) {
     .min-h-54_md.min-h-54_md {
         min-height: 3.375rem;
@@ -5114,6 +5118,10 @@ strong:not(.--font-primary),
     overflow-x: auto;
 }
 
+.overflow-x-clip {
+    overflow-x: clip;
+}
+
 .overflow-y-hidden {
     overflow-y: hidden;
 }
@@ -5574,4 +5582,20 @@ body:has(.disable-body-scroll) {
 }
 .sticky-mobile-v2-body.open {
     max-height: 22.5rem;
+}
+
+.contain-layout-style {
+    contain: layout style;
+}
+
+.w-100-1px.w-100-1px {
+    width: calc(100% + 1px);
+}
+
+.will-change-auto {
+    will-change: auto;
+}
+
+.content-visibility-auto {
+    content-visibility: auto;
 }
