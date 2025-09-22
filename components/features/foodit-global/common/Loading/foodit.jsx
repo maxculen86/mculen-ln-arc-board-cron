@@ -1,16 +1,12 @@
 import React from 'react';
-const LoadingFoodit = () => {
+import { Spinner } from '@ln/common-ui-spinner';
+
+function LoadingFoodit() {
     return (
-        <>
-            <div className="text-center">
-                <span
-                    role="status"
-                    className="foodit-spinner inline-block w-16 ratio-1-1 rounded-circle border border-all border-thin"
-                    data-variant="secondary"
-                ></span>
-            </div>
-        </>
+        <div className="text-center">
+            <Spinner className="text-secondary-positive" />
+        </div>
     );
-};
+}
 
 export default LoadingFoodit;
