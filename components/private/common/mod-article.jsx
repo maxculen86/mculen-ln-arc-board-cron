@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { forwardRef } from 'react';
+import { cx } from '@ln/cva';
 import PropTypes from 'prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
@@ -10,7 +11,6 @@ import getMediaData from '../LN/common/utils/modArticleHelper';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
-import setArticleClassName from './utils/setArticleClassName';
 import { useBookmarkContext } from './bookmark/hooks/BookmarkContext';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 
@@ -106,15 +106,20 @@ const ModArticle = forwardRef((props, ref) => {
             handleClick(event, websiteUrl);
         }
     };
+
+    const classNameArticle = cx(
+        'mod-article',
+        { '--no-media': !withMedia },
+        { '--author': hasAuthorName },
+        { 'w-100-1px contain-layout-style': isApertura },
+        classCondition
+    );
+
     // TODO: Reemplazar el elemento <article> por un elemento interactivo semántico (<button> o <a>) cuando sea posible para poder eliminar los comentarios de ESLint.
     return (
         <article
             ref={ref}
-            className={setArticleClassName({
-                classCondition,
-                withMedia,
-                hasAuthorName
-            })}
+            className={classNameArticle}
             {...extraOpts}
             onClick={onCLick}
             onAuxClick={onCLick}
