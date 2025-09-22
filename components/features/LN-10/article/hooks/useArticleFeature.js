@@ -75,7 +75,8 @@ const useArticleFeature = (featureId, customFields, searchableField) => {
         variantsDisabled: get(chainData, 'config.variantsDisabled', []),
         isBomba: get(chainData, 'isBomba', false),
         chapita: get(editorData, 'chapita', ''),
-        cllBoard: get(editorData, 'cllBoard', false)
+        cllBoard: get(editorData, 'cllBoard', false),
+        isHtml: get(editorData, 'isHtml', false)
     });
 
     useEffect(() => {
