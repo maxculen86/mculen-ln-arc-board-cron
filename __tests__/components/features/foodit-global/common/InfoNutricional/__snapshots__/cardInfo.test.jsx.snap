@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NutritionalInfoCard should match snapshot 1`] = `
+<div>
+  <article
+    class="text-center border border-all border-thin border-light-300 px-4 pt-8 pb-4 px-8_md py-8_md w-100 h-100"
+  >
+    <span
+      class="text prumo prumo-medium text-16 pb-4"
+    >
+      Proteínas
+    </span>
+    <div
+      class="bg-accent-vino-light py-4"
+    >
+      <span
+        class="text roboto roboto-bold text-20 text-light-800"
+      >
+        15
+         
+        <span
+          class="text-light-700 roboto-regular text-12"
+        >
+          g
+        </span>
+      </span>
+    </div>
+  </article>
+</div>
+`;
