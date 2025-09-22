@@ -247,7 +247,8 @@ describe('Test json integracion Article', () => {
                 'fechaActualizacion',
                 'fecha',
                 'apertura',
-                'isListenable'
+                'isListenable',
+                'footer'
             ].sort()
         );
     });
