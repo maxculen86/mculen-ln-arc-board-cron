@@ -9,7 +9,7 @@ exports[`Tests component - imageBase Cases with tag Picture should return a link
       class="placeholder "
     >
       <div
-        class="com-image"
+        class="com-image content-visibility-auto will-change-auto"
       >
         <picture>
           <source
@@ -22,7 +22,7 @@ exports[`Tests component - imageBase Cases with tag Picture should return a link
           />
           <img
             alt="Adentro y afuera se confunden en esta casa con gran quincho junto a un jardín semicubierto"
-            class="image flex com-image --cover"
+            class="image flex com-image will-change-auto --cover"
             decoding="async"
             fetchpriority="high"
             height="513"
@@ -46,7 +46,7 @@ exports[`Tests component - imageBase Cases without tag picture The image should 
       class="placeholder "
     >
       <div
-        class="com-image"
+        class="com-image content-visibility-auto will-change-auto"
       >
         <picture>
           <source
@@ -59,7 +59,7 @@ exports[`Tests component - imageBase Cases without tag picture The image should 
           />
           <img
             alt="Adentro y afuera se confunden en esta casa con gran quincho junto a un jardín semicubierto"
-            class="image flex com-image --cover"
+            class="image flex com-image will-change-auto --cover"
             decoding="async"
             fetchpriority="high"
             height="513"
