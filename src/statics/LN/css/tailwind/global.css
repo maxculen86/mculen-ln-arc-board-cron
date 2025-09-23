@@ -1,5 +1,4 @@
 @import 'tailwindcss' important source(none);
-
 @import '@ln/theme-base';
 @import './tokens.css';
 
@@ -9,15 +8,11 @@
 /* Source a incluir en el mapeo de clases utilizadas */
 
 @source '../../../../../node_modules/@ln/ds-*/**/*.{js,jsx,ts,tsx}';
-
+@source '../../../../../components/layouts/*.{js,jsx,ts,tsx}';
 @source '../../../../../components/layouts/LN*/**/*.{js,jsx,ts,tsx}';
 @source '../../../../../components/features/LN*/**/*.{js,jsx,ts,tsx}';
-@source '../../../../../components/layouts/*.{js,jsx,ts,tsx}';
+@source '../../../../../components/chains/LN*/**/*.{js,jsx,ts,tsx}';
 
 @source '../../../../../components/features/ui-ln/**/default.{js,jsx,ts,tsx}';
 
-/* Estilo momentaneo hasta remover contenidos-ui-sass que utiliza misma nomenclatura de variable --spacing */
-
-[data-tw] {
-    --spacing: 1px !important;
-}
+@import './overrides.css';
