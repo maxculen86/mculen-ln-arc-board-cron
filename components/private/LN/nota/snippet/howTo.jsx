@@ -32,7 +32,7 @@ function SnippetHowTo({ globalContent }) {
 
     const { promo_items: promoItems } = addRelatedImage(globalContent);
     const { image } = extractDataFromPromoItems(promoItems);
-
+    const hasValidImage = !!get(image, 'url', '');
     const noteTitle = get(headlines, 'basic', '');
     const noteDescription = get(subheadlines, 'basic', '');
 
@@ -71,7 +71,7 @@ function SnippetHowTo({ globalContent }) {
         '@type': 'HowTo',
         name: noteTitle,
         ...(noteDescription && { description: noteDescription }),
-        ...(image && {
+        ...(hasValidImage && {
             image: {
                 '@type': 'ImageObject',
                 url: image.url,
