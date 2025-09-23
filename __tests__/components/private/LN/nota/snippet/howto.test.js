@@ -130,4 +130,17 @@ describe('Schema HowTo - SnippetHowTo', () => {
         expect(schemaScript).not.toBeNull();
         expect(container).toMatchSnapshot();
     });
+
+    test('Should not include "image" when there is no promo image', () => {
+        const globalContentWithoutImage = {
+            ...globalContent,
+            promo_items: {}
+        };
+
+        render(<SnippetHowTo globalContent={globalContentWithoutImage} />);
+        const script = document.getElementById('Schema_HowTo');
+        const json = JSON.parse(script.textContent);
+
+        expect(json.image).toBeUndefined();
+    });
 });
