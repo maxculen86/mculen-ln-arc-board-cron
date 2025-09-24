@@ -12,7 +12,7 @@
     height: 0.3125rem;
     border-radius: var(--size-2xs);
     background: var(--danger-600);
-    top: 0;
+    top: 3px;
     left: -0.1875rem;
     z-index: 2;
     position: absolute;
@@ -518,7 +518,6 @@
 .ln-card.--liveblog.--4xl .subtitle-list {
     flex-direction: row;
     gap: 0.5rem;
-    align-items: center;
 }
 .ln-card:not(.--author).--xl .media-container {
     max-width: none;
