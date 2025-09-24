@@ -4,12 +4,12 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - video sho
 <div>
   <img
     alt="Imagen poster de video"
-    class="w-100 h-100 absolute z-2"
-    data-testid="Adaptableimage"
+    class="w-full h-full absolute object-cover z-2"
+    data-testid="poster-image"
     src="poster.jpg"
   />
   <video
-    class="w-100 h-100 absolute object-cover transition transition-opacity transition-ease-in transition-duration-500 opacity-0 z-1"
+    class="w-full h-full absolute object-cover transition transition-opacity transition-ease-in transition-duration-500 opacity-0 z-1"
     data-testid="video-element"
     loop=""
     playsinline=""

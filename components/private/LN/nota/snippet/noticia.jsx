@@ -54,8 +54,7 @@ const extracDataFromCredits = (by, config = {}) => {
     return { authors: authors.length ? authors : [] };
 };
 
-const publishingPrinciples =
-    'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
+const publishingPrinciples = `${SITE_LANACION}/tema/the-trust-project-tid68036/`;
 
 export const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
@@ -177,13 +176,11 @@ function SnippetNoticia({
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         ...(articleBody && { articleBody }),
-        url: `${siteProperties.host}${canonicalUrl}`,
+        url: `${SITE_LANACION}${canonicalUrl}`,
         dateCreated: createISODate(createdDate),
         datePublished: datePublishedISO,
         dateModified: dateModifiedISO,
-        mainEntityOfPage: addForwardSlash(
-            `${siteProperties.host}${canonicalUrl}`
-        ),
+        mainEntityOfPage: addForwardSlash(`${SITE_LANACION}${canonicalUrl}`),
         articleSection: `${name}`,
         isAccessibleForFree:
             contentCode === 'abierta' || contentCode === 'comun',
@@ -205,7 +202,7 @@ function SnippetNoticia({
         publisher: {
             '@type': 'Organization',
             name: `${siteProperties.title || ''}`,
-            url: `${siteProperties.host || ''}`,
+            url: `${SITE_LANACION || ''}`,
             logo: {
                 '@context': urlShema,
                 '@type': 'ImageObject',

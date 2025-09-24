@@ -139,6 +139,14 @@ function BuildFirtsButtonsGroup({
                             setBookmark,
                             openBarrier
                         );
+                        addEventToDataLayerV2({
+                            event: 'e_linkclick',
+                            action: 'toolbard',
+                            category: 'nota_ln9',
+                            label: bookmark
+                                ? 'eliminar_nota_guardada'
+                                : 'guardar_nota'
+                        });
                     }}
                     variant="secondary"
                     iconOnly

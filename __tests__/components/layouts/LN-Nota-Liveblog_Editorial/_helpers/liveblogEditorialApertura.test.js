@@ -1,4 +1,3 @@
-import React from 'react';
 import { getLiveBlogEditorialDataApertura } from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/liveblogEditorialApertura';
 import { getMediaItem } from '../../../../../components/layouts/_helpers/mediaHelper';
 import dateAndTimeUtil, {
@@ -7,7 +6,7 @@ import dateAndTimeUtil, {
 import { getMediaData } from '../../../../../components/private/LN/common/utils/mediaHelper';
 import VideoPlayerJW from '../../../../../components/private/common/videoPlayerJw';
 import MediaIframe from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaIframe';
-import MediaImage from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaImage';
+import MediaImage from '../../../../../components/features/LN-10-global/common/mediaImage/default';
 
 jest.mock(
     '../../../../../components/private/common/utils/dateAndTimeUtil',
@@ -32,7 +31,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/apertura/MediaImage',
+    '../../../../../components/features/LN-10-global/common/mediaImage/default',
     () => ({
         __esModule: true,
         default: ({ alt, src }) => (

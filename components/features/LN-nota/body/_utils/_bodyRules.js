@@ -1,5 +1,6 @@
 import get from '../../../../private/common/utils/get';
-import { matchesArcType, isFotoAl100, isVideoJw } from './helpers';
+import { HOWTO } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import { matchesArcType, isFotoAl100, isVideoJw, isHowTo } from './helpers';
 
 export const bodyRules = {
     custom_embed: ({ componentElement, subtypeElement }) =>
@@ -26,6 +27,8 @@ export const bodyRules = {
     },
     videoJw: ({ componentElement, subtypeElement }) =>
         componentElement.arcType === subtypeElement,
+    howTo: ({ componentElement, subtypeElement }) =>
+        componentElement.arcType === subtypeElement,
     default: ({ componentElement, type }) =>
         componentElement.arcType && matchesArcType(componentElement, type)
 };
@@ -44,6 +47,16 @@ export const selectRule = ({
         {
             check: () => isVideoJw(componentElement, subtypeElement),
             rule: bodyRules.videoJw
+        },
+        {
+            check: () =>
+                isHowTo(componentElement, subtypeElement) && subtype !== HOWTO,
+            rule: () => false
+        },
+        {
+            check: () =>
+                subtype === HOWTO && isHowTo(componentElement, subtypeElement),
+            rule: bodyRules.howTo
         }
     ];
 

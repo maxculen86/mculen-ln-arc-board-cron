@@ -1,9 +1,10 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import BarrierDeleteNote from '../../../../../../components/features/LN-10-global/common/barrierDeleteNote/default';
 import renderToast from '../../../../../../components/features/private-global/common/utils/renderToast';
 import * as bookmarkHelper from '../../../../../../components/private/common/utils/bookmarkHelper';
+import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
     '../../../../../../components/private/common/utils/bookmarkHelper',
@@ -19,10 +20,20 @@ jest.mock(
         }))
     })
 );
+
 jest.mock(
     '../../../../../../components/features/private-global/common/utils/renderToast',
     () => jest.fn()
 );
+
+jest.mock(
+    '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        __esModule: true,
+        addEventToDataLayerV2: jest.fn()
+    })
+);
+
 describe('Features - LN-10-Global - Common - BarrierDeleteNote - default', () => {
     const mockProps = {
         closeBarrier: jest.fn(),
@@ -68,6 +79,12 @@ describe('Features - LN-10-Global - Common - BarrierDeleteNote - default', () =>
             expect(mockProps.deleteArticle).toHaveBeenCalledWith(
                 '2d67ad69-1f2d-4123-bf91-7c69efe2f895'
             );
+            expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+                event: 'e_linkclick',
+                action: 'toolbard',
+                category: 'nota_ln9',
+                label: 'eliminar_nota_guardada'
+            });
             expect(mockProps.substractOne).toHaveBeenCalledTimes(1);
 
             expect(mockProps.closeBarrier).toHaveBeenCalledTimes(1);

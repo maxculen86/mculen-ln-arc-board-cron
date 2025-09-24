@@ -1,0 +1,11 @@
+@import 'tailwindcss' important;
+
+@import '@ln/theme-base';
+/* Agregar import correspondiente cuando se defina */
+/* @import '@ln/theme-foodit'; */
+
+@source '../../../../node_modules/@ln/ds-**/*.{js,jsx,ts,tsx}';
+
+[data-tw] {
+    --spacing: 1px !important;
+}

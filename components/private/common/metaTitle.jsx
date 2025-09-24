@@ -12,9 +12,11 @@ function MetaTitle({
     ottMetaTitle,
     requestUri
 }) {
+    // TODO: limpieza OTT - Borrar en iteración 5 de 5
     if (!['la-nacion-ar', 'ott'].includes(arcSite)) return null;
 
     const setContent = () => {
+        // TODO: limpieza OTT - Borrar en iteración 5 de 5
         if (arcSite === 'ott') return ottMetaTitle;
 
         if (getSectionOfRequestUri(requestUri) === 'mis-notas') return title;

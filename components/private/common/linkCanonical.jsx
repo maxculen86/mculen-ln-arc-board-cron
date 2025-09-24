@@ -41,11 +41,12 @@ function LinkCanonicalAndAlternate(props = {}) {
     const canonicalId = requestUri?.includes('/chefs-protagonistas')
         ? cleanedPath
         : (!mustUseSiteUrl && canonicalIdChecker(_id)) ||
-          (cleanedPath === '/' ? '' : `/${section}`);
+        (cleanedPath === '/' ? '' : `/${section}`);
 
     const canonicalSlash = addInitialSlash(canonicalId) ?? '';
 
     const baseUrlByArcType = {
+        // TODO: limpieza OTT - Borrar en iteración 5 de 5
         ott: SITE_OTT,
         foodit: SITE_FOODIT,
         'la-nacion-ar': SITE_LANACION

@@ -81,7 +81,7 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
                 'link'
             ]);
 
-            expect(dollarData).toHaveLength(5);
+            expect(dollarData).toHaveLength(4);
 
             dollarData.forEach(currentDollar => {
                 const mockDollar = dollar.find(
@@ -113,7 +113,6 @@ describe('component - features - LN-10-global - SubHeader - helper =>', () => {
                 'Dólar oficial',
                 'Dólar blue',
                 'Dólar tarjeta',
-                'Dólar CCL',
                 'Dólar MEP'
             ];
 

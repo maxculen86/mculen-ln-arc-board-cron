@@ -28,24 +28,22 @@ exports[`components - chains - LN10_Caja_Carrusel - components - mediaScroller -
       </div>
     </div>
     <div
-      class="media-scroller relative grid w-100"
-      data-scroller="container"
+      data-tw="true"
     >
-      <ul
-        class="relative pb-32"
-        data-scroller="track"
-        data-scroller-elements="1"
-        style="grid-auto-columns: 280px;"
+      <div
+        class="ds-mediascroller relative flex flex-col gap-16 gap-32"
+        style="--scroller-is-fixed: 1; --scroller-fixed-width: 280px; --scroller-gap: 16px;"
       >
-        <li
-          class="--x-scroll-boundary-swipe"
-          data-scroller="element"
+        <div
+          aria-roledescription="carousel"
+          class="ds-mediascroller-track overflow-x-auto overscroll-behavior-contain snap-x snap-mandatory scrollbar-hidden grid grid-flow-col"
+          role="region"
         >
           <div>
             Test Child
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>

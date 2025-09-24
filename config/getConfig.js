@@ -1,8 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const path = require('path');
 const glob = require('glob');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const importer = require('node-sass-glob-importer');
+const postCssLoader = require('./loaders/postcssLoader');
+const cssLoader = require('./loaders/cssLoader');
+const sassLoader = require('./loaders/sassLoader');
+const resolveUrlLoader = require('./loaders/resolveUrlLoader');
+const miniCssExtractPluginLoader = require('./loaders/miniCssExtractPluginLoader');
+const fileLoader = require('./loaders/fileLoader');
 
 const { isProduction } = require('./aux');
 
@@ -20,57 +27,30 @@ const getModule = settings => {
             {
                 test: /\.scss$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {}
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: { url: false }
-                    },
-                    {
-                        loader: 'resolve-url-loader',
-                        options: {}
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sassOptions: {
-                                sourceMap: true,
-                                importer: importer(),
-                                outputStyle: isProd ? 'compressed' : 'expanded'
-                            }
-                        }
-                    }
+                    miniCssExtractPluginLoader,
+                    cssLoader,
+                    resolveUrlLoader,
+                    sassLoader(isProd)
+                ]
+            },
+            {
+                test: /\.css$/,
+                include: /\/tailwind\//,
+                use: [
+                    miniCssExtractPluginLoader,
+                    cssLoader,
+                    postCssLoader(isProd)
                 ]
             },
             {
                 test: /\.(ttf|eot|svg|woff(2?))(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 exclude: [/images/, /img/],
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            outputPath: paths.outputPath.fonts,
-                            publicPath: paths.urlPath.fonts,
-                            name: isProd ? '[hash].[ext]' : '[name].[ext]'
-                        }
-                    }
-                ]
+                use: [fileLoader(isProd, paths)]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 exclude: [/fonts/],
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            outputPath: paths.outputPath.images,
-                            publicPath: paths.urlPath.images,
-                            name: isProd ? '[hash].[ext]' : '[name].[ext]'
-                        }
-                    }
-                ]
+                use: [fileLoader(isProd, paths)]
             }
         ]
     };

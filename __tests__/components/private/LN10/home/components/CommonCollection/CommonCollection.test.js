@@ -13,7 +13,6 @@ import {
 } from '../../../../../../../components/chains/utils/common/_helpers-WebApi';
 import {
     getTitleAndLeadForHome,
-    getDataAuthorCollection,
     getBadge
 } from '../../../../../../../components/private/LN10/home/components/CommonCollection/_helper';
 
@@ -270,28 +269,6 @@ describe('Tests function getTitleAndLeadForHome', () => {
             lead: '',
             title: 'Bullrich en el calafate.'
         });
-    });
-});
-
-describe('Tests function getDataAuthorCollection', () => {
-    const getArticle = (withCredits, nameAuthor = 'Juan Perez') => ({
-        credits: {
-            by: [withCredits && { name: nameAuthor }]
-        }
-    });
-    test('should return only one name author', () => {
-        expect(getDataAuthorCollection(getArticle(true))).toStrictEqual(
-            'Juan Perez'
-        );
-    });
-    test('shoudl return null if no credits', () => {
-        expect(getDataAuthorCollection(getArticle(false))).toStrictEqual(null);
-    });
-
-    test('shoudl return null when the name author is a blank space', () => {
-        expect(getDataAuthorCollection(getArticle(true, ' '))).toStrictEqual(
-            null
-        );
     });
 });
 

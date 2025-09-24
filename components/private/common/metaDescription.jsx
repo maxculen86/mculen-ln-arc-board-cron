@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import getMetaDescription from './utils/getMetaDescription';
 import { isInPVS } from './utils/getMetaDescriptionForAcum';
 
-const MetaDescription = ({
+function MetaDescription({
     subtype,
     description,
     metaTitleBasic,
@@ -15,15 +15,17 @@ const MetaDescription = ({
     metaDescription,
     ottMetaDescription,
     displayDate
-}) => {
+}) {
     if (
         !subtype &&
         section !== 'home' &&
+        // TODO: limpieza OTT - Borrar en iteración 5 de 5
         !['la-nacion-ar', 'ott'].includes(arcSite)
     )
         return <></>;
 
     const setContent = () => {
+        // TODO: limpieza OTT - Borrar en iteración 5 de 5
         if (arcSite === 'ott') return ottMetaDescription;
 
         return (
@@ -48,8 +50,8 @@ const MetaDescription = ({
                 name="description"
                 content={
                     _id === '/recetas' ||
-                    acuRecetaRegExp.test(_id) ||
-                    isInPVS(_id)
+                        acuRecetaRegExp.test(_id) ||
+                        isInPVS(_id)
                         ? metaDescription
                         : `${metaDescription} - LA NACION`
                 }
@@ -60,7 +62,7 @@ const MetaDescription = ({
     const content = setContent();
 
     return <meta name="description" content={content} />;
-};
+}
 
 MetaDescription.propTypes = {
     metaDescription: PropTypes.string.isRequired,

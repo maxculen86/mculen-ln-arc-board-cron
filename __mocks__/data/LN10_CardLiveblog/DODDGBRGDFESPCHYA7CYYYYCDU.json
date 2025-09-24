@@ -17,6 +17,30 @@
             "type": "custom_embed"
         },
         {
+            "_id": "K6A3YNYMBNFOLAGNCNQNNFHYLE",
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "0sDglzUR",
+                    "videoJw": {
+                        "description": " ",
+                        "epigraphTitle": "a Fondo Video Papa",
+                        "feed_instance_id": "1db444e7-da34-4851-8ada-635d98eb292e",
+                        "idPlayer": "ih0086X3",
+                        "idVideo": "0sDglzUR",
+                        "kind": "Single Item",
+                        "playerName": "Player with Ads",
+                        "showEpigraph": true,
+                        "title": "a Fondo Video Papa"
+                    }
+                },
+                "id": "1e8d376f9c9477",
+                "url": "https://www.lanacion.com.ar/"
+            },
+            "subtype": "video_jw",
+            "type": "custom_embed"
+        },
+        {
             "_id": "GHCZ7HTS4ZDNDCXGI3GADUHK34",
             "items": [
                 {

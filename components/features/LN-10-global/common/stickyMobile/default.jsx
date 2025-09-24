@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import { Dialog } from '@ln/common-ui-dialog';
-import { useStickyMobile } from './_helpers/useStickyMobile';
+import { useStickyMobile } from './hooks/useStickyMobile';
 import { NotaStickyMobile } from './components/notaStickyMobile';
 import { HeaderSticky } from './components/headerSticky';
 import { handleClickForCTRcomponent } from '../../../../private/common/utils/noteTracker/ctrTracker';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { getComboIds, getComboTitles, getTitle } from './_helpers';
 
 export function StickyMobile({ articlesToShow, ...r }) {
     const {
@@ -30,6 +32,41 @@ export function StickyMobile({ articlesToShow, ...r }) {
         closeHandler();
         handleClickForCTRcomponent('close');
     };
+    const comboIds = getComboIds(articlesToShow);
+    const comboTitles = getComboTitles(articlesToShow);
+
+    const lastSentRef = useRef(null);
+
+    useEffect(() => {
+        if (!displaySticky || articlesToShow.length === 0) return;
+
+        const state = isCollapsed ? 'collapsed' : 'expanded';
+        if (lastSentRef.current === state) return;
+
+        if (isCollapsed) {
+            const firstArticle = articlesToShow[0];
+            if (firstArticle?._id) {
+                addEventToDataLayerV2({
+                    event: 'ImpresionStickyMobile',
+                    articleId: firstArticle._id,
+                    title: getTitle(firstArticle),
+                    rest: {
+                        number_note: 1
+                    }
+                });
+            }
+        } else {
+            addEventToDataLayerV2({
+                event: 'ImpresionStickyMobileCombo',
+                rest: {
+                    combo_notas: comboIds,
+                    combo_titles: comboTitles
+                }
+            });
+        }
+
+        lastSentRef.current = state;
+    }, [displaySticky, isCollapsed, articlesToShow]);
 
     return (
         <Dialog
@@ -51,7 +88,11 @@ export function StickyMobile({ articlesToShow, ...r }) {
             >
                 {articlesToShow.map((article, index) => (
                     <Fragment key={`sticky-article-${article._id}`}>
-                        <NotaStickyMobile article={article} />
+                        <NotaStickyMobile
+                            article={article}
+                            index={index}
+                            articles={articlesToShow}
+                        />
                         {index + 1 < articlesToShow.length && <hr />}
                     </Fragment>
                 ))}

@@ -11,6 +11,7 @@ const getCanonicalLink = ({
     canonicalUrl,
     canonicalSlash
 }) => {
+    // TODO: limpieza OTT - Borrar en iteración 5 de 5
     if (arcSite === 'ott' && ottProgramsLayouts.includes(layout)) {
         return addForwardSlash(
             _id

@@ -3,7 +3,8 @@ import { render } from '@testing-library/react';
 import SnippetNoticia from '../../../../../../components/private/LN/nota/snippet/noticia';
 
 jest.mock('fusion:environment', () => ({
-    ARC_STATIC: 'https://arc-static.glanacion.com'
+    ARC_STATIC: 'https://arc-static.glanacion.com',
+    SITE_LANACION: 'https://www.lanacion.com.ar'
 }));
 
 const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;

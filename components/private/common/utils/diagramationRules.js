@@ -106,7 +106,7 @@ const diagramationRules = diagramation => {
         ],
         'center-focal': [
             {
-                variantsDisabled: [author],
+                variantsDisabled: [author, liveblog],
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
                 withSection: true,
@@ -149,7 +149,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
-                variantsDisabled: [author],
+                variantsDisabled: [author, liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: false,
@@ -200,7 +200,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
-                variantsDisabled: ['author'],
+                variantsDisabled: ['author', liveblog],
                 titleTag: tag.h2,
                 cardSize: size.ML,
                 withSection: false,
@@ -352,7 +352,8 @@ const diagramationRules = diagramation => {
         ],
         bn_player_3_grid: [
             {
-                type: 'T1'
+                type: 'T1',
+                variantsDisabled: [liveblog]
             },
             {
                 type: 'T2',
@@ -374,6 +375,7 @@ const diagramationRules = diagramation => {
             },
             {
                 type: 'T3',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: false,
@@ -392,6 +394,7 @@ const diagramationRules = diagramation => {
             },
             {
                 type: 'T4',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: false,
@@ -411,10 +414,12 @@ const diagramationRules = diagramation => {
         ],
         bn_player_4_grid: [
             {
-                type: 'T1'
+                type: 'T1',
+                variantsDisabled: [liveblog]
             },
             {
                 type: 'T2',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: true,
@@ -433,6 +438,7 @@ const diagramationRules = diagramation => {
             },
             {
                 type: 'T3',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: false,
@@ -451,6 +457,7 @@ const diagramationRules = diagramation => {
             },
             {
                 type: 'T4',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: false,
@@ -914,6 +921,7 @@ const diagramationRules = diagramation => {
         ],
         'ranking-1-2-2_grid': [
             {
+                variantsDisabled: [liveblog],
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.top,
@@ -926,6 +934,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 imagePosition: {
                     mobile: img.right,
                     tablet: img.none,
@@ -938,6 +947,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 imagePosition: {
                     mobile: img.right,
                     tablet: img.none,
@@ -950,6 +960,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 imagePosition: {
                     mobile: img.right,
                     tablet: img.none,
@@ -962,6 +973,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 imagePosition: {
                     mobile: img.right,
                     tablet: img.none,
@@ -977,6 +989,7 @@ const diagramationRules = diagramation => {
         'hash-1-2-2-2_grid': [
             // TO-DO size.L imagePosition{mobile:img.right} => className: tabTextCenter //
             {
+                variantsDisabled: [liveblog],
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -991,6 +1004,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -1005,6 +1019,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -1019,6 +1034,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -1033,6 +1049,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -1047,6 +1064,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -1061,6 +1079,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -1185,6 +1204,7 @@ const diagramationRules = diagramation => {
         ],
         bn_2_grid: [
             {
+                variantsDisabled: [liveblog],
                 cardSize: size.ML,
                 imageConfig: size.T1,
                 withMarquee: true,
@@ -1199,6 +1219,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog],
                 cardSize: size.ML,
                 imageConfig: size.S,
                 withMarquee: true,
@@ -1530,7 +1551,7 @@ const diagramationRules = diagramation => {
         ],
         bn_1_1_grid: [
             {
-                variantsDisabled: [author],
+                variantsDisabled: [author, liveblog],
                 cardSize: '2xl',
                 imageConfig: size.T1,
                 withMarquee: true,
@@ -1562,7 +1583,7 @@ const diagramationRules = diagramation => {
         ],
         bn_2_1_2_grid: [
             {
-                variantsDisabled: [liveblog, author],
+                variantsDisabled: [author],
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
@@ -1578,6 +1599,7 @@ const diagramationRules = diagramation => {
                 isLoadWithPicture: true
             },
             {
+                variantsDisabled: [liveblog, author],
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
@@ -1770,6 +1792,7 @@ const diagramationRules = diagramation => {
         ],
         cajaContent1: [
             {
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: true,

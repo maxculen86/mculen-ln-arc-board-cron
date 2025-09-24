@@ -7,6 +7,10 @@ jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
 const mockContext = {
     contextPath: '/test-context',
     deployment: jest.fn(path => path)

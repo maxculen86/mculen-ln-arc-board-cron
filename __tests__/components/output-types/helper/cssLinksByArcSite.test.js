@@ -21,6 +21,7 @@ describe('CssLinksBySite', () => {
             arcSite: arcSite
         }));
         it('should be a tag link', () => {
+            // TODO: limpieza OTT - Borrar en iteración 5 de 5
             arcSite = 'ott';
             render(<CssLinksBySite />);
             const element = document.querySelector('link');

@@ -1,11 +1,17 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { StickyMobile } from '../../../../../../components/features/LN-10-global/common/stickyMobile/default';
-import { useStickyMobile } from '../../../../../../components/features/LN-10-global/common/stickyMobile/_helpers/useStickyMobile';
+import { useStickyMobile } from '../../../../../../components/features/LN-10-global/common/stickyMobile/hooks/useStickyMobile';
+import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 import stickyMobileData from '../../../../../../__mocks__/data/stickyMobile/stickyMobile.json';
+import {
+    getComboIds,
+    getComboTitles,
+    getTitle
+} from '../../../../../../components/features/LN-10-global/common/stickyMobile/_helpers';
 
 jest.mock(
-    '../../../../../../components/features/LN-10-global/common/stickyMobile/_helpers/useStickyMobile',
+    '../../../../../../components/features/LN-10-global/common/stickyMobile/hooks/useStickyMobile',
     () => ({
         useStickyMobile: jest.fn()
     })
@@ -90,8 +96,14 @@ jest.mock(
     }
 );
 
-const articlesToShow = stickyMobileData.stickyMobileData;
+jest.mock(
+    '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        addEventToDataLayerV2: jest.fn()
+    })
+);
 
+const articlesToShow = stickyMobileData.stickyMobileData;
 describe('StickyMobile', () => {
     beforeEach(() => {
         jest.clearAllMocks();
@@ -142,5 +154,89 @@ describe('StickyMobile', () => {
         );
         expect(container.querySelector('.sticky-mobile-v2')).toBeNull();
         expect(screen.queryByTestId('n_sticky')).not.toBeInTheDocument();
+    });
+
+    it('fires ImpressionStickyMobile (collapsed) for the first article only once', () => {
+        render(<StickyMobile articlesToShow={articlesToShow} />);
+
+        const first = articlesToShow[0];
+        const expected = {
+            event: 'ImpresionStickyMobile',
+            articleId: first._id,
+            title: getTitle(first),
+            rest: { number_note: 1 }
+        };
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledTimes(1);
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith(
+            expect.objectContaining(expected)
+        );
+
+        act(() => {});
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledTimes(1);
+    });
+
+    it('fires ImpresionStickyMobileCombo (expanded) with combo_notas and combo_titles', () => {
+        useStickyMobile.mockReturnValue({
+            displaySticky: true,
+            isCollapsed: false,
+            ref: React.createRef(),
+            closeHandler: jest.fn()
+        });
+
+        render(<StickyMobile articlesToShow={articlesToShow} />);
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledTimes(1);
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith(
+            expect.objectContaining({
+                event: 'ImpresionStickyMobileCombo',
+                rest: {
+                    combo_notas: getComboIds(articlesToShow),
+                    combo_titles: getComboTitles(articlesToShow)
+                }
+            })
+        );
+    });
+
+    it('sends collapsed impression first, then expanded impression when state changes', () => {
+        const hookState = {
+            displaySticky: true,
+            isCollapsed: true,
+            ref: React.createRef(),
+            closeHandler: jest.fn()
+        };
+        useStickyMobile.mockReturnValue(hookState);
+
+        const { rerender } = render(
+            <StickyMobile articlesToShow={articlesToShow} />
+        );
+
+        const first = articlesToShow[0];
+        expect(addEventToDataLayerV2).toHaveBeenCalledTimes(1);
+        expect(addEventToDataLayerV2).toHaveBeenLastCalledWith(
+            expect.objectContaining({
+                event: 'ImpresionStickyMobile',
+                articleId: first._id,
+                title: getTitle(first),
+                rest: { number_note: 1 }
+            })
+        );
+
+        useStickyMobile.mockReturnValue({
+            ...hookState,
+            isCollapsed: false
+        });
+        rerender(<StickyMobile articlesToShow={articlesToShow} />);
+        expect(addEventToDataLayerV2).toHaveBeenCalledTimes(2);
+        expect(addEventToDataLayerV2).toHaveBeenLastCalledWith(
+            expect.objectContaining({
+                event: 'ImpresionStickyMobileCombo',
+                rest: {
+                    combo_notas: getComboIds(articlesToShow),
+                    combo_titles: getComboTitles(articlesToShow)
+                }
+            })
+        );
     });
 });

@@ -4,6 +4,7 @@ import { addForwardSlash } from '../../../../../components/private/LN/common/uti
 
 describe('getCanonicalLink', () => {
     const baseUrlByArcType = {
+        // TODO: limpieza OTT - Borrar en iteración 5 de 5 y actualizar tests
         ott: 'https://lnmas.lanacion.com.ar',
         foodit: 'https://foodit.lanacion.com.ar',
         'la-nacion-ar': 'https://www.lanacion.com.ar'

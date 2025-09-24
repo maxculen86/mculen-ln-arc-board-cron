@@ -24,7 +24,7 @@ const getCustomTargeting = banner => {
                 p_controlGroupV3: controlGroupV3Value || '',
                 p_credencialClub: getCookie('usuarioDetalleClubNacion') || '',
                 p_notaMeetering: getCookie('metering_arc_counter') || '',
-                p_logeado: getCookie('cookieLogin') ? 'yes' : 'no',
+                p_logeado: getCookie('token') ? 'yes' : 'no',
                 p_suscriptor: localStorage.getItem('CDpayUser') || ''
             };
         }
