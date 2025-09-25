@@ -1,37 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { handleEventSwipeVideo } from '../helpers';
-
-export function useGetElementsToScroll() {
-    const [visibleItems, setVisibleItems] = useState(0);
-    const itemCarouselWidth = 280;
-
-    const getVisibleItems = (containerRef, itemWidth) => {
-        if (containerRef?.current) {
-            const containerWidth = containerRef.current.offsetWidth;
-            return Math.floor(containerWidth / itemWidth);
-        }
-        return 0;
-    };
-
-    const viewportRef = useRef(null);
-
-    useEffect(() => {
-        const updateVisibleItems = () => {
-            setVisibleItems(getVisibleItems(viewportRef, itemCarouselWidth));
-        };
-
-        updateVisibleItems();
-
-        window.addEventListener('resize', updateVisibleItems);
-        return () => window.removeEventListener('resize', updateVisibleItems);
-    }, []);
-
-    return {
-        containerRef: viewportRef,
-        elementsToScroll: visibleItems,
-        itemCarouselWidth
-    };
-}
 
 export function useObserverItems({ containerRef, setCurrentIndex }) {
     useEffect(() => {

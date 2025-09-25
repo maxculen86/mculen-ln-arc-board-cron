@@ -87,7 +87,7 @@ export function Image({ data = {}, contentElements = [] }) {
                 loading="lazy"
                 sources={imageSources}
             />
-            {data && (
+            {data && !belongsToPreparation && (
                 <EpigraphComponent
                     credits={getFooditAuthor(data, true)}
                     caption={caption}

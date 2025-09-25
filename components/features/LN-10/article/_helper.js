@@ -98,7 +98,7 @@ export const showSection = ({ withSection, article, authors, authorPhoto }) => {
     const sectionName =
         translateSectionName(sectionKey) || primarySection.name || '';
 
-    return !authors && authorPhoto && withSection && sectionName;
+    return authors && authorPhoto && withSection && sectionName;
 };
 
 export const validateSubhead = (config, withMedia, customFields, variant) =>
@@ -575,7 +575,9 @@ export const getRenderType = data => {
             type: 'null',
             condition:
                 !data.isAdmin &&
-                (!data.transformedArticle || !data.articleContent)
+                (!!data.error ||
+                    !data.transformedArticle ||
+                    !data.articleContent)
         },
         {
             type: 'card',

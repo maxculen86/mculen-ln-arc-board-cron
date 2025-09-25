@@ -5,13 +5,7 @@ import get from '../../private/common/utils/get';
 import { criticalCssPathsBySite } from './helpers';
 import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
 
-export function GetCriticalCss({
-    arcSite,
-    layout,
-    // layoutsName,
-    Resource,
-    globalContent
-}) {
+export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
     if (!Resource || typeof Resource !== 'function') {
         return null;
     }
@@ -20,8 +14,9 @@ export function GetCriticalCss({
     const stylePath = get(siteConfig, `.${layout}`, siteConfig.default || '');
 
     const listOfAllowedSection = [
-        // { pageLayout: layoutsName.Noticia },
-        // { pageLayout: layoutsName.HomeLN10 }
+        { pageLayout: 'LN-acumulado' },
+        { pageLayout: 'LN-Home_Sports' },
+        { pageLayout: 'LN10-Home_Main' }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

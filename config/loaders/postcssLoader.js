@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = isProd => ({
     loader: 'postcss-loader',
     options: {
         postcssOptions: {
@@ -17,8 +17,9 @@ module.exports = {
                         }
                     }
                 ],
-                ['autoprefixer', {}]
+                ['autoprefixer', {}],
+                ...(isProd ? [['cssnano', { preset: 'default' }]] : [])
             ]
         }
     }
-};
+});

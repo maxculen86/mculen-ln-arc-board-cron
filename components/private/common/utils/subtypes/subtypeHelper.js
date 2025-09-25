@@ -11,6 +11,7 @@ export const HTMLLIBRE = '9';
 export const AGENCIA = '10';
 export const LIVEBLOG_EDITORIAL = '11';
 export const VIDEOAL100 = '12';
+export const HOWTO = '13';
 export const CARDS = '14';
 
 export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
@@ -27,6 +28,7 @@ export const Subtypes = [
     { id: '10', nombre: 'Agencia' },
     { id: '11', nombre: 'Liveblog-Editorial' },
     { id: '12', nombre: 'VideoAl100' },
+    { id: '13', nombre: 'HowTo' },
     { id: '14', nombre: 'Cards' }
 ];
 
@@ -43,6 +45,7 @@ export const translateStringFromSubitypeToID = (subtype = '') => {
         Agencia: AGENCIA,
         LiveblogEditorial: LIVEBLOG_EDITORIAL,
         VideoAl100: VIDEOAL100,
+        HowTo: HOWTO,
         Cards: CARDS
     };
 

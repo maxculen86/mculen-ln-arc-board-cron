@@ -18,6 +18,7 @@ import EmbedCll from '../../../../private/LN/nota/cuerpo/EmbedCll';
 import Interstitial from '../../../LN-10-global/common/body/interstitial/default';
 import PullQuote from '../../../LN-10-global/common/body/pullQuote/default';
 import BlockQuote from '../../../LN-10-global/common/body/blockQuote/default';
+import HowToBody from '../../howTo/body';
 // utils
 import { selectRule } from './_bodyRules';
 
@@ -40,7 +41,8 @@ const bodyComponents = [
     Parallax,
     Divider,
     PowerUpLiveBlog,
-    EmbedCll
+    EmbedCll,
+    HowToBody
 ];
 
 export const bodyElementRules = (props = {}) => {
