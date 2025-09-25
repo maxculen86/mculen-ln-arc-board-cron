@@ -168,7 +168,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             const result = showSection({
                 withSection: true,
                 article,
-                authors: '',
+                authors: 'Autor de prueba',
                 authorPhoto: true
             });
             expect(result).toBeTruthy();
@@ -186,7 +186,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             const result = showSection({
                 withSection: false,
                 article,
-                authors: ''
+                authors: 'Autor de prueba'
             });
             expect(result).toBeFalsy();
         });
@@ -210,7 +210,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             const result = showSection({
                 withSection: true,
                 article: customArticle,
-                authors: '',
+                authors: 'Autor de prueba',
                 authorPhoto: true
             });
             expect(result).toBe('LN+');

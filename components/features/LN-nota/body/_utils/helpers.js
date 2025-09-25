@@ -8,6 +8,10 @@ export const isVideoJw = (componentElement, subtypeElement) =>
     componentElement.arcType === subtypeElement &&
     componentElement.arcType === 'video_jw';
 
+export const isHowTo = (componentElement, subtypeElement) =>
+    componentElement.arcType === subtypeElement &&
+    componentElement.arcType === 'custom-how-to';
+
 export const matchesArcType = (componentElement, type) =>
     componentElement.arcType === type;
 

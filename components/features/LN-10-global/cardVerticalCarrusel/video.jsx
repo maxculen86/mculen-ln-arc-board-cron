@@ -1,6 +1,5 @@
 import React, { useRef, memo } from 'react';
 import PropTypes from 'prop-types';
-import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { useHandlePlayVideoCarrusel, useObserverMobAndTab } from './hooks';
 import { getClassNamesMedia } from './helpers';
 
@@ -19,12 +18,14 @@ function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
         setIsPlaying
     });
 
+    // TODO: CAMBIAR EL TAG <img> POR COMPONENTE DE ds-common-image
     return (
         <>
-            <Adaptableimage
+            <img
                 src={poster}
                 alt="Imagen poster de video"
                 className={classNamePoster}
+                data-testid="poster-image"
             />
             <video
                 className={classNameVideo}

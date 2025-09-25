@@ -6,7 +6,12 @@ import NoticiaSnippet from '../../LN/nota/snippet/noticia';
 import LiveblogSnippet from '../../LN/nota/snippet/liveblog';
 import PaywallSnippet from '../../LN/nota/snippet/paywall';
 import SnippetAcumulado from '../../LN/acumulado/snippet';
-import { LIVEBLOG, LIVEBLOG_EDITORIAL } from '../utils/subtypes/subtypeHelper';
+import SnippetHowTo from '../../LN/nota/snippet/howTo';
+import {
+    LIVEBLOG,
+    LIVEBLOG_EDITORIAL,
+    HOWTO
+} from '../utils/subtypes/subtypeHelper';
 
 const config = {
     'la-nacion-ar': {
@@ -41,6 +46,7 @@ function snippetIndex(props) {
             {(subtype === LIVEBLOG || subtype === LIVEBLOG_EDITORIAL) && (
                 <LiveblogSnippet {...props} />
             )}
+            {subtype === HOWTO && <SnippetHowTo {...props} />}
             {type === 'story' && <PaywallSnippet {...props} />}
         </>
     );

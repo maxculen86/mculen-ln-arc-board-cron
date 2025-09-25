@@ -9,7 +9,7 @@ import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import CajaCarruselProvider from './components/cajaCarruselContext';
 import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
 import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
-import MediaScroller from './components/mediaScroller/mediaScroller';
+import MediaScrollerContainer from './components/mediaScroller/mediaScroller';
 import { shouldHideCarrusel, transformNodes } from './components/helpers';
 import {
     getCommonProps,
@@ -18,6 +18,7 @@ import {
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
+import { MediaScroller } from '../../features/ui-ln/mediaScroller/default';
 
 function CajaCarrusel(props) {
     const {
@@ -81,7 +82,7 @@ function CajaCarrusel(props) {
 
     useEffect(() => {
         if (!isAdmin) {
-            hideParentNode(divRefInCarrusel);
+            hideParentNode(divRefInCarrusel, 'DIV');
         }
     }, [divRefInCarrusel?.current]);
 
@@ -107,9 +108,17 @@ function CajaCarrusel(props) {
         <CajaCarruselProvider>
             <div {...extraOptsDiv}>
                 <section {...viewabilityData} data-chain-id={chainId}>
-                    <MediaScroller roofData={roofData}>
-                        {nodes.map(child => child.node)}
-                    </MediaScroller>
+                    <MediaScrollerContainer roofData={roofData}>
+                        {nodes.map(child => (
+                            <MediaScroller.Item key={child.key}>
+                                {child.isBanner ? (
+                                    <div ref={divRefInCarrusel} />
+                                ) : (
+                                    child.node
+                                )}
+                            </MediaScroller.Item>
+                        ))}
+                    </MediaScrollerContainer>
                     <MediaScrollerExpandedWrapper>
                         <MediaScrollerExpanded
                             listVideoData={nodesByExpanded}

@@ -452,5 +452,11 @@ describe('BodyComponents - Foodit - Image', () => {
             const figure = screen.getByRole('img').closest('figure');
             expect(figure).toHaveAttribute('data-image-section', 'preparacion');
         });
+        it('does NOT render epigraph when image IS in preparation section', () => {
+            render(
+                <Image data={mockData} contentElements={mockContentElements} />
+            );
+            expect(screen.queryByTestId('epigraph')).not.toBeInTheDocument();
+        });
     });
 });
