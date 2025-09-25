@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { GetCriticalCss } from '../../../../components/output-types/criticalCss/getCriticalCss';
+import { GetCriticalCss } from '../../../../components/output-types/criticalCss/default';
 
 const MockResource = ({ path, encoding, children }) => {
     const mockData = `.test-css { color: red; }`;

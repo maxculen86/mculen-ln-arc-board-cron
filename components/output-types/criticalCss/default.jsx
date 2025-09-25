@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React from 'react';
+import PropTypes from 'prop-types';
 import get from '../../private/common/utils/get';
 import { criticalCssPathsBySite } from './helpers';
 import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
@@ -28,14 +28,14 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
         <>
             <Resource path={stylePath} encoding="utf8">
                 {({ data }) =>
-                    data && (
+                    data ? (
                         <style
                             id="critical-css"
                             dangerouslySetInnerHTML={{
                                 __html: data
                             }}
                         />
-                    )
+                    ) : null
                 }
             </Resource>
             {shouldLoadTailwidcss && (
@@ -44,17 +44,24 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
                     encoding="utf8"
                 >
                     {({ data }) =>
-                        data && (
+                        data ? (
                             <style
                                 id="critical-css-tailwind"
                                 dangerouslySetInnerHTML={{
                                     __html: data
                                 }}
                             />
-                        )
+                        ) : null
                     }
                 </Resource>
             )}
         </>
     );
 }
+
+GetCriticalCss.propTypes = {
+    arcSite: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
+    Resource: PropTypes.func.isRequired,
+    globalContent: PropTypes.shape({}).isRequired
+};
