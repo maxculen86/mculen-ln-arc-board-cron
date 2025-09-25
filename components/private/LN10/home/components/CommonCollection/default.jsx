@@ -92,7 +92,7 @@ export default function CommonCollection({
                         className = '',
                         withSection,
                         href
-                    } = getCardConfig(rules[index], article, true);
+                    } = getCardConfig(rulesIndex, article, true);
 
                     const extraOpts = getDataAttributesForViewability(
                         article._id,
