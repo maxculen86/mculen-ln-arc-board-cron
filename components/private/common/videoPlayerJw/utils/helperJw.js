@@ -73,7 +73,8 @@ export const getAlternativeDescription = (uploadDate, noteTitle) => {
 export const handleVideoEventsScript = (
     title,
     idVideo,
-    initialVideoMode = ''
+    initialVideoMode = '',
+    videoOrientation = 'horizontal'
 ) => {
     const player = window.jwplayer(`${idVideo}`);
     player.on('ready', () => {
@@ -98,7 +99,7 @@ export const handleVideoEventsScript = (
             event: 'videoPlay',
             videoName: `${title}`,
             videoID: `${idVideo}`,
-            rest: { mode }
+            rest: { mode, videoOrientation }
         });
     });
 
@@ -202,8 +203,16 @@ export const getJWScript = (
                     fullscreenOrientationLock: 'portrait'
                 })
             });
+            const videoOrientation = getVerticalPlayer(player)
+                ? 'vertical'
+                : 'horizontal';
 
-            handleVideoEventsScript(title, idVideo, initialVideoMode);
+            handleVideoEventsScript(
+                title,
+                idVideo,
+                initialVideoMode,
+                videoOrientation
+            );
         });
 
         if (facadeDiv) {
