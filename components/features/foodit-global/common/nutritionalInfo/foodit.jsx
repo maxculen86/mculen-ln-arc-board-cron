@@ -20,12 +20,12 @@ export function NutritionalInfo({ globalContent = {} }) {
                 embed: {
                     config: {
                         items: {
-                            calories: cal = 0,
-                            carbohydrates: carbs = 0,
-                            totalFat: fat = 0,
-                            protein: prot = 0,
-                            sodium: sod = 0,
-                            fiber: fib = 0
+                            calories: cal,
+                            carbohydrates: carbs,
+                            totalFat: fat,
+                            protein: prot,
+                            sodium: sod,
+                            fiber: fib
                         } = {}
                     } = {}
                 } = {}
@@ -43,7 +43,9 @@ export function NutritionalInfo({ globalContent = {} }) {
         (!text || text?.toLowerCase()?.trim() !== 'ocultar');
 
     const nutritionalValues = [cal, carbs, fat, prot, sod, fib];
-    const allValuesAreValid = nutritionalValues.every(value => value !== null);
+    const allValuesAreValid = nutritionalValues.every(
+        value => value !== null && value !== undefined && value !== ''
+    );
 
     const nutritionalInfo = [
         {
