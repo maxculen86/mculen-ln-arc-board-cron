@@ -9,7 +9,8 @@ import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEvent
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import { registeredIdsSetAndInteractions } from '../../../chains/LN10_Caja_Carrusel/components/helpers';
 import isSSR from '../../../private/LN/common/utils/isSSR';
-import { CardVertical } from '../../ui-ln/card/default';
+import CardVertical from '../../ui-ln/card/default';
+import Icon from '../../ui-ln/icon/default';
 
 function CardVerticalContainer({
     title = '',
@@ -104,9 +105,13 @@ function CardVerticalContainer({
                     )}
                     <CardVertical.Title title={title} />
                     {Boolean(duration) && (
-                        <div className="flex ai-center gap-8 text-14 text-neutral-light-100">
+                        <div className="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100">
                             <div className="h-20 w-20 flex ai-center jc-center">
-                                <span className="inline-block w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[9px] border-l-white" />
+                                <Icon
+                                    name="mediaPlay"
+                                    size={20}
+                                    className="custom-class"
+                                />
                             </div>
                             <time className="pr-8">
                                 {secondsToMinutes(duration)}

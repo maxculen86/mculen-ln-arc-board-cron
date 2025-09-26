@@ -2,6 +2,7 @@ import React, { useRef, memo } from 'react';
 import PropTypes from 'prop-types';
 import { useHandlePlayVideoCarrusel, useObserverMobAndTab } from './hooks';
 import { getClassNamesMedia } from './helpers';
+import Image from '../../ui-ln/image/default';
 
 function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
     const videoRef = useRef(null);
@@ -18,10 +19,9 @@ function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
         setIsPlaying
     });
 
-    // TODO: CAMBIAR EL TAG <img> POR COMPONENTE DE ds-common-image
     return (
         <>
-            <img
+            <Image
                 src={poster}
                 alt="Imagen poster de video"
                 className={classNamePoster}
