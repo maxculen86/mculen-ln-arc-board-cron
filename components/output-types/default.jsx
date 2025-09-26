@@ -15,7 +15,7 @@ import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
-import { GetCriticalCss } from './criticalCss/getCriticalCss';
+import { GetCriticalCss } from './criticalCss/default';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import {
