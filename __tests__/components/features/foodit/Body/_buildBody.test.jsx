@@ -103,7 +103,6 @@ describe('buildBody', () => {
             const { container } = render(buildBody({ globalContent }));
             const hrs = container.querySelectorAll('section.content hr');
             expect(hrs.length).toBe(2);
-            screen.debug();
         });
 
         it('should render 3 <hr /> when there are two custom-card-embebida in a row', () => {
@@ -126,7 +125,6 @@ describe('buildBody', () => {
             const { container } = render(buildBody({ globalContent }));
             const hrs = container.querySelectorAll('section.content hr');
             expect(hrs.length).toBe(3);
-            screen.debug();
         });
     });
 

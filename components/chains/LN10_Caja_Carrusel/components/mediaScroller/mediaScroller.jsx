@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import BuildRoof from '../../../utils/_BuildRoof/default';
-import { MediaScroller } from '../../../../features/ui-ln/mediaScroller/default';
+import MediaScroller from '../../../../features/ui-ln/mediaScroller/default';
 
 function MediaScrollerContainer({ children, roofData }) {
     const containerRef = useRef(null);

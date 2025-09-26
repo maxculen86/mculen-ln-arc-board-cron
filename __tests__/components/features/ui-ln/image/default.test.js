@@ -1,0 +1,116 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Image from '../../../../../components/features/ui-ln/image/default';
+
+describe('components - features - ui-ln - image', () => {
+    const { getByTestId } = screen;
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+    const commonProps = {
+        src: 'test.jpg',
+        'data-testid': 'ds-image'
+    };
+
+    describe('Custom props integration', () => {
+        it('should apply default objectFit="contain"', () => {
+            render(<Image {...commonProps} />);
+            const image = getByTestId('ds-image');
+
+            expect(image).toHaveClass('object-contain');
+        });
+
+        it('should apply custom classnames to image and placeholder', () => {
+            const customClassnames = {
+                placeholder: 'custom-placeholder',
+                image: 'custom-image'
+            };
+
+            render(<Image {...commonProps} classnames={customClassnames} />);
+            const image = getByTestId('ds-image');
+            const placeholder = getByTestId('image-placeholder');
+
+            expect(placeholder).toHaveClass(
+                'absolute inset-0 z-0 bg-muted bg-[url("/pf/resources/images/ln-placeholder.svg")] bg-no-repeat bg-center bg-[length:67px] custom-placeholder'
+            );
+            expect(image).toHaveClass('h-full w-full custom-image');
+        });
+
+        it('should apply default classes when no custom classnames provided', () => {
+            render(<Image {...commonProps} />);
+
+            const image = getByTestId('ds-image');
+            const placeholder = getByTestId('image-placeholder');
+
+            expect(image).toHaveClass('h-full w-full');
+            expect(placeholder).toHaveClass(
+                'bg-[url("/pf/resources/images/ln-placeholder.svg")] bg-no-repeat bg-center bg-[length:67px]'
+            );
+        });
+    });
+
+    describe('Props Passthrough', () => {
+        it('should pass through additional props to DS component', () => {
+            render(
+                <Image
+                    {...commonProps}
+                    alt="Test image"
+                    id="custom-id"
+                    data-custom="test-value"
+                />
+            );
+
+            const image = getByTestId('ds-image');
+            expect(image).toHaveAttribute('src', 'test.jpg');
+            expect(image).toHaveAttribute('alt', 'Test image');
+            expect(image).toHaveAttribute('id', 'custom-id');
+            expect(image).toHaveAttribute('data-custom', 'test-value');
+        });
+    });
+
+    describe('DOM Structure Tracking', () => {
+        it('should maintain expected DOM structure with default props', () => {
+            const { asFragment } = render(<Image src="test.jpg" />);
+            expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('should maintain expected DOM structure with custom classnames', () => {
+            const { asFragment } = render(
+                <Image
+                    src="test.jpg"
+                    alt="Custom image"
+                    classnames={{
+                        wrapper: 'custom-wrapper',
+                        image: 'custom-image',
+                        placeholder: 'custom-placeholder'
+                    }}
+                />
+            );
+            expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('should maintain expected DOM structure with error state', () => {
+            const mockRef = { current: null };
+            const useRefSpy = jest
+                .spyOn(React, 'useRef')
+                .mockReturnValue(mockRef);
+
+            const mockSetError = jest.fn();
+            const useStateSpy = jest
+                .spyOn(React, 'useState')
+                .mockReturnValueOnce([true, mockSetError]);
+
+            const useEffectSpy = jest
+                .spyOn(React, 'useEffect')
+                .mockImplementation(() => {});
+
+            const { asFragment } = render(<Image src="broken.jpg" />);
+            expect(asFragment()).toMatchSnapshot();
+
+            useRefSpy.mockRestore();
+            useStateSpy.mockRestore();
+            useEffectSpy.mockRestore();
+        });
+    });
+});

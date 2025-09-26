@@ -165,7 +165,6 @@ describe('Tests component - imageBase', () => {
 
         test('the image should contain the attributes srcSet with media condition', () => {
             const { container } = render(<ImageArticle {...properties} />);
-            screen.debug();
             const resultSrcset =
                 'https://www.lanacion.com.ar/resizer/9JkXATNcqzYXNsQ2bYSGvpitwUA=/608x405/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg 608w, https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg 375w';
 
