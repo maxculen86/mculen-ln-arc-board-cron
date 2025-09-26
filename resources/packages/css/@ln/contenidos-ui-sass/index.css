@@ -5489,12 +5489,6 @@ body:has(.disable-body-scroll) {
   margin-left: 0;
 }
 
-.preLiveBlog_p p {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.125rem;
-  font-weight: 400;
-}
-
 @media (max-width: 767px) {
   .liveBlog_post--unpinned .content-media .mod-figure .placeholder {
     width: 100%;
