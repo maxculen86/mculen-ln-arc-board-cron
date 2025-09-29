@@ -20,6 +20,7 @@ import {
 } from '../../../../features/foodit-global/common/bookmark/iconHelper';
 
 const { CAROUSEL, CAROUSEL_4, BN_12_GRID } = LAYOUTS;
+const ELEMENTS_TO_OPTIMIZE_IN_MOBILE_CAROUSEL = 1;
 
 export function RenderCollection({
     rules,
@@ -31,7 +32,8 @@ export function RenderCollection({
     carouselMobile,
     link = '',
     collectionId = '',
-    articles = []
+    articles = [],
+    carouselIndex = 0
 }) {
     const bookmarkedArticles = filterBookmarksByArticledIs(articles);
     const fill =
@@ -64,21 +66,40 @@ export function RenderCollection({
     };
 
     const renderArticles = articles.map(
-        ({
-            articleId,
-            author,
-            href,
-            size,
-            tag,
-            time,
-            title: titleArticle,
-            variant,
-            image = {},
-            contentCode = '',
-            hasVideo
-        }) => {
+        (
+            {
+                articleId,
+                author,
+                href,
+                size,
+                tag,
+                time,
+                title: titleArticle,
+                variant,
+                image = {},
+                contentCode = '',
+                hasVideo
+            },
+            index
+        ) => {
             const { resized_urls: resizedUrls, url } = image;
             const { resizedUrl = '' } = getShortestImage(resizedUrls);
+
+            const isFirstCarousel = carouselIndex === 0;
+            const isMobile =
+                typeof window !== 'undefined' && window.innerWidth <= 768;
+            const shouldOptimize =
+                isFirstCarousel && isMobile && carouselMobile;
+
+            const elementsToOptimize = [CAROUSEL, CAROUSEL_4].includes(layout)
+                ? ELEMENTS_TO_OPTIMIZE_IN_MOBILE_CAROUSEL
+                : 0;
+            const hasEagerLoading =
+                shouldOptimize && index < elementsToOptimize;
+
+            const imageProps = hasEagerLoading
+                ? { loading: 'eager', fetchPriority: 'high' }
+                : { loading: 'lazy', fetchPriority: 'low' };
 
             const propsCard = {
                 [CAROUSEL]: {
@@ -93,6 +114,7 @@ export function RenderCollection({
                     className: classNameChildren
                 }
             };
+
             return (
                 <CommonCardFoodit
                     fatherType={layout}
@@ -105,8 +127,8 @@ export function RenderCollection({
                     src={resizedUrl || url}
                     alt={getImageAltText(image)}
                     sources={getImagesToLoadWithPicture(false, resizedUrls)}
-                    loading="lazy"
-                    fetchPriority="low"
+                    loading={imageProps.loading}
+                    fetchPriority={imageProps.fetchPriority}
                     tag={tag}
                     title={titleArticle}
                     author={author}
@@ -118,6 +140,7 @@ export function RenderCollection({
             );
         }
     );
+
     const getCarouselFromType = type => (
         <div className="carousel-container">
             <RoofFoodit
@@ -200,7 +223,8 @@ RenderCollection.propTypes = {
             hasVideo: PropTypes.bool
         })
     ).isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
+    carouselIndex: PropTypes.number
 };
 
 RenderCollection.defaultProps = {
