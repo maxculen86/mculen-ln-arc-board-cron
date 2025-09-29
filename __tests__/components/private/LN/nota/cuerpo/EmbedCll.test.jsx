@@ -12,6 +12,22 @@ describe('EmbedCll Component', () => {
         expect(container.firstChild).toBeNull();
     });
 
+    it('should render nothing when embedType is invalid', () => {
+        const { container } = render(
+            <EmbedCll
+                data={{ embed: { config: { embedType: 'invalidType' } } }}
+            />
+        );
+        expect(container.firstChild).toBeNull();
+    });
+
+    it('should render nothing when widgetUrl is empty', () => {
+        const { container } = render(
+            <EmbedCll data={{ embed: { config: { widgetUrl: '' } } }} />
+        );
+        expect(container.firstChild).toBeNull();
+    });
+
     it('should generate correct content when embedType is "isGroupTable"', () => {
         const groupsTable =
             'https://widget-canchallena.clanacion.com.ar/futbol/primera-b-metropolitana-2025/grupos/widget/';
@@ -106,5 +122,73 @@ describe('EmbedCll Component', () => {
         expect(iframe).toHaveAttribute('title', iframeTitle);
         expect(iframe).toHaveAttribute('src', matchDetail);
         expect(iframe).toHaveClass('h-100');
+    });
+
+    it('should generate correct content when embedType is "isAnnualTable"', () => {
+        const annualTable =
+            'https://widget-canchallena.clanacion.com.ar/futbol/tabla-anual/2025/widget/';
+        const testData = {
+            embed: {
+                config: { widgetUrl: annualTable, embedType: 'isAnnualTable' }
+            },
+            _id: '99999'
+        };
+        const { container } = render(<EmbedCll data={testData} />);
+
+        const htmlContent = container.querySelector('.com-embed.--html');
+        expect(htmlContent).toBeInTheDocument();
+
+        const wrapperDiv = htmlContent.querySelector('div.p-overflow_max767');
+        expect(wrapperDiv).toBeInTheDocument();
+        expect(wrapperDiv.className).not.toMatch(/h-303/);
+
+        const innerDiv = wrapperDiv.querySelector('div');
+        expect(innerDiv).toBeInTheDocument();
+        expect(innerDiv.className.trim()).toBe('');
+
+        const iframe = container.querySelector('iframe');
+        expect(iframe).toBeInTheDocument();
+        expect(iframe).toHaveAttribute('title', iframeTitle);
+        expect(iframe.getAttribute('src')).toMatch(
+            /^https:\/\/widget-canchallena\.clanacion\.com\.ar\/futbol\/tabla-anual\/2025\/widget\//
+        );
+
+        const parentDiv = iframe.closest('div.com-anexo');
+        expect(parentDiv).toBeInTheDocument();
+        expect(parentDiv).toHaveClass('pym');
+    });
+
+    it('should generate correct content when embedType is "isAverageTable"', () => {
+        const averageTable =
+            'https://widget-canchallena.clanacion.com.ar/futbol/promedios/2024/widget/';
+        const testData = {
+            embed: {
+                config: { widgetUrl: averageTable, embedType: 'isAverageTable' }
+            },
+            _id: '88888'
+        };
+        const { container } = render(<EmbedCll data={testData} />);
+
+        const htmlContent = container.querySelector('.com-embed.--html');
+        expect(htmlContent).toBeInTheDocument();
+
+        const wrapperDiv = htmlContent.querySelector('div.p-overflow_max767');
+        expect(wrapperDiv).toBeInTheDocument();
+        expect(wrapperDiv.className).not.toMatch(/h-303/);
+
+        const innerDiv = wrapperDiv.querySelector('div');
+        expect(innerDiv).toBeInTheDocument();
+        expect(innerDiv.className.trim()).toBe('');
+
+        const iframe = container.querySelector('iframe');
+        expect(iframe).toBeInTheDocument();
+        expect(iframe).toHaveAttribute('title', iframeTitle);
+        expect(iframe.getAttribute('src')).toMatch(
+            /^https:\/\/widget-canchallena\.clanacion\.com\.ar\/futbol\/promedios\/2024\/widget\//
+        );
+
+        const parentDiv = iframe.closest('div.com-anexo');
+        expect(parentDiv).toBeInTheDocument();
+        expect(parentDiv).toHaveClass('pym');
     });
 });
