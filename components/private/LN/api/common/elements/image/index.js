@@ -1,5 +1,6 @@
 import get from '../../../../../common/utils/get';
 import epigrafeAndCreditsData from '../../../../../common/utils/epigrafeAndCreditsData';
+import { getFocalPoint } from '../../utils/resizer';
 
 const removeInvisibleChracters = textToFix => {
     let textFixed = (textToFix || '').toString();
@@ -11,6 +12,7 @@ const removeInvisibleChracters = textToFix => {
 
 const imageCommon = image => {
     if (!image) return null;
+
     const { _id: id, resized_urls: resizedUrlsWithInvisibleChracters } = image;
     if (
         !resizedUrlsWithInvisibleChracters ||
@@ -25,14 +27,16 @@ const imageCommon = image => {
 
     const hrefRegexV2 =
         /(https?:\/\/[^/]+\/resizer\/v2\/[a-zA-Z0-9-]+.*)[?]auth=(.*)/;
-    const urlResult = hrefRegexV2.exec(resizedUrls[0].resizedUrl);
-    const baseUrl = urlResult ? urlResult[1] : resizedUrls[0].resizedUrl;
 
+    const { resizedUrl } = resizedUrls[0];
+    const urlResult = hrefRegexV2.exec(resizedUrl);
+    const baseUrl = urlResult ? urlResult[1] : resizedUrl;
+    const focalPint = getFocalPoint(resizedUrl);
     return {
         id,
         _t: 'img',
         baseUrl,
-        absoluteUrl: `${baseUrl}?${image.auth?.[1] ? `auth=${image.auth[1]}&` : ''}width=512&height=341&quality=90&smart=true`
+        absoluteUrl: `${baseUrl}?${image.auth?.[1] ? `auth=${image.auth[1]}&` : ''}width=512&height=341&quality=90${focalPint ? `&focal=${focalPint}` : '&smart=true'}`
     };
 };
 
