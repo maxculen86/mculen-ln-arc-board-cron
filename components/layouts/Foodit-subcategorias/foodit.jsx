@@ -5,7 +5,7 @@ import { useAppContext } from 'fusion:context';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import { getPageTitleFromUrl } from './_helpers';
-import { CardCategory } from './CardCategory';
+import { CardCategory } from './Card/CardCategory';
 import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit';
 
 const pageBuilderSections = ['Apertura', 'Notas'];
@@ -60,7 +60,9 @@ function Subcategories({ children }) {
                     <div className="flex flex-column gap-32">
                         <CardCategory />
                     </div>
-                    <div className="lg-only">{notas}</div>
+                    <div className="lg-only flex flex-column gap-40">
+                        {notas}
+                    </div>
                 </section>
             </div>
         </BaseLayout>

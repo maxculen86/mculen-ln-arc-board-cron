@@ -64,7 +64,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src="https://example.com/pf/resources/foodit/assets/images/ejes/cocina-a-tu-medida.webp"
+              src="https://example.com/pf/resources/foodit/assets/images/ejes/cocina-facil.webp"
             />
           </div>
         </div>
@@ -101,7 +101,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src="https://example.com/pf/resources/foodit/assets/images/ejes/cocina-facil.webp"
+              src="https://example.com/pf/resources/foodit/assets/images/ejes/cocina-a-tu-medida.webp"
             />
           </div>
         </div>

@@ -10,6 +10,7 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
+import { getTypeOfDevicev2 } from '@ln/utils';
 import {
     getIdCollection,
     validateChainFoodit,
@@ -26,6 +27,7 @@ import { LazyLoad } from '../../features/foodit-global/common/LazyLoad/foodit';
 import { getCarouselId } from './_helper';
 import { LAYOUTS } from '../foodit-global/common/utils/helper-WebApi';
 import { getShortestImage } from '../../private/LN/common/utils/mediaHelper';
+import isSSR from '../../private/LN/common/utils/isSSR';
 
 function CajaCollection(props) {
     const { CAROUSEL, CAROUSEL_4 } = LAYOUTS;
@@ -34,7 +36,6 @@ function CajaCollection(props) {
     const carouselId = getCarouselId(chainId);
     const preloadedRef = useRef(false);
     const currentPreloadUrl = useRef(null);
-
     const {
         idCollection,
         initialPosition,
@@ -45,10 +46,8 @@ function CajaCollection(props) {
         layout = '',
         carouselMobile
     } = customFields;
-
     const rules = fooditRules(layout) || {};
     const { minArticles, maxArticles, size, isStatic } = rules;
-
     const isWithOutLazyLoad =
         [CAROUSEL, CAROUSEL_4].includes(layout) &&
         isElementInPosition({
@@ -57,7 +56,6 @@ function CajaCollection(props) {
             id: chainId,
             tree
         });
-
     const articles = useGetArticleInCollectionFoodit({
         idCollection: getIdCollection({
             isStatic,
@@ -70,16 +68,13 @@ function CajaCollection(props) {
         initialPosition: Number(initialPosition) - 1,
         staticMode: isStatic
     });
-
     const addPreloadToHead = useCallback(
         imageUrl => {
-            if (typeof document === 'undefined' || !imageUrl) return false;
-
+            if (isSSR() || !imageUrl) return false;
             const existingPreload = document.querySelector(
                 `link[href="${imageUrl}"][rel="preload"]`
             );
             if (existingPreload) return false;
-
             try {
                 const linkTag = document.createElement('link');
                 linkTag.rel = 'preload';
@@ -87,7 +82,6 @@ function CajaCollection(props) {
                 linkTag.fetchPriority = 'high';
                 linkTag.href = imageUrl;
                 linkTag.dataset.carouselPreload = chainId;
-
                 document.head.appendChild(linkTag);
                 return true;
             } catch (error) {
@@ -97,12 +91,12 @@ function CajaCollection(props) {
         },
         [chainId]
     );
-
-    const isMobile = useMemo(
-        () => typeof window !== 'undefined' && window.innerWidth <= 768,
-        []
-    );
-
+    const device = getTypeOfDevicev2({
+        breakpoints: {
+            mobile: 768
+        }
+    });
+    const isMobile = device === 'mobile';
     const preloadConditions = useMemo(() => {
         const isFirstCarousel =
             isElementInPosition({
@@ -111,7 +105,6 @@ function CajaCollection(props) {
                 id: chainId,
                 tree
             }) && [CAROUSEL, CAROUSEL_4].includes(layout);
-
         return {
             isFirstCarousel,
             shouldPreload:
@@ -130,19 +123,15 @@ function CajaCollection(props) {
         isMobile,
         articles.length
     ]);
-
     const preloadImageData = useMemo(() => {
         if (!preloadConditions.shouldPreload) return null;
-
         const firstArticle = articles[0];
         if (!firstArticle) return null;
-
         try {
             const { promo_items: { basic = {} } = {} } = firstArticle;
             const { resized_urls: resizedUrls, url } = basic;
             const { resizedUrl = '' } = getShortestImage(resizedUrls) || {};
             const imageUrl = resizedUrl || url;
-
             return imageUrl
                 ? { url: imageUrl, articleId: firstArticle._id }
                 : null;
@@ -151,7 +140,6 @@ function CajaCollection(props) {
             return null;
         }
     }, [preloadConditions.shouldPreload, articles]);
-
     useEffect(() => {
         if (
             preloadImageData &&
@@ -164,9 +152,8 @@ function CajaCollection(props) {
                 currentPreloadUrl.current = preloadImageData.url;
             }
         }
-
         return () => {
-            if (typeof document !== 'undefined') {
+            if (!isSSR()) {
                 const specificPreload = document.querySelector(
                     `link[data-carousel-preload="${chainId}"]`
                 );
@@ -178,18 +165,15 @@ function CajaCollection(props) {
             currentPreloadUrl.current = null;
         };
     }, [preloadImageData, addPreloadToHead, chainId]);
-
     const error = validateChainFoodit({
         minArticles,
         idCollection,
         layout,
         articles
     });
-
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
-
     const articlesWithSize = articles.map(article => ({
         ...transformArticleFoodit(article),
         size
@@ -197,12 +181,10 @@ function CajaCollection(props) {
     const articlesTransformed = articlesWithSize.filter(
         article => article.href
     );
-
     const staticContentClassName = classNames(
         'hidden',
         get(rules, 'classStatic', '')
     );
-
     const isFirstCarousel =
         isElementInPosition({
             positionElement: 0,
@@ -210,9 +192,7 @@ function CajaCollection(props) {
             id: chainId,
             tree
         }) && [CAROUSEL, CAROUSEL_4].includes(layout);
-
     const carouselIndex = isFirstCarousel ? 0 : 1;
-
     const Component = (
         <RenderCollection
             rules={rules}
@@ -228,11 +208,9 @@ function CajaCollection(props) {
             carouselIndex={carouselIndex}
         />
     );
-
     if (!isStatic && isWithOutLazyLoad) {
         return Component;
     }
-
     return !isStatic && !isAdmin ? (
         <LazyLoad
             id={carouselId}
@@ -252,9 +230,7 @@ function CajaCollection(props) {
         </Static>
     );
 }
-
 CajaCollection.label = 'foodit Caja Collection';
-
 CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
@@ -266,5 +242,4 @@ CajaCollection.propTypes = {
     }).isRequired,
     tree: PropTypes.shape({}).isRequired
 };
-
 export default Consumer(CajaCollection);

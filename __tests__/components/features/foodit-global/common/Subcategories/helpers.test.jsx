@@ -21,7 +21,7 @@ describe('Mocks & factory', () => {
             '/tema/tutorial-pasteler%C3%ADa-qat7qtvzy5dmzd6opl4ap2d2se/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa'
         ],
         ['Masterclass de chef', '/masterclass/'],
-        ['Guías de cocina', '/guias-de-cocina/'],
+        ['Guías de cocina', '/guias/'],
         ['Recomendaciones del chef', '/chefs/'],
         ['Trucos y secretos', '/trucos/'],
         ['Protocolo en la mesa', '/protocolo/']
@@ -36,7 +36,7 @@ describe('Mocks & factory', () => {
     });
 
     it.each([
-        ['Meal prep', '/recetas/que-cocinar-hoy/meal-prep/'],
+        ['Mealprep', '/recetas/que-cocinar-hoy/meal-prep/'],
         ['Recetas fáciles', '/recetas/que-cocinar-hoy/facil/'],
         ['Recetas rápidas', '/recetas/que-cocinar-hoy/rapida/']
     ])('la ruta de "%s" es "%s"', (title, expectedHref) => {
@@ -50,7 +50,7 @@ describe('Mocks & factory', () => {
     });
 
     it.each([
-        ['Menú semanal', '/menu-semanal/'],
+        ['Menú semanal', '/menus/'],
         ['Ingredientes de cocina', '/ingredientes/'],
         ['Vegetariana', '/recetas/dieta/vegetariana/'],
         ['Sin gluten', '/recetas/dieta/sin-gluten/'],
@@ -82,16 +82,18 @@ describe('Mocks & factory', () => {
     });
 
     it('getMockBySubcategory returns the expected mock', () => {
-        expect(getMockBySubcategory('/aprende-en-la-cocina/')).toBe(
+        expect(getMockBySubcategory('/aprende-en-la-cocina/')).toStrictEqual(
             aprendeEnCocinaMock
         );
-        expect(getMockBySubcategory('/cocina-facil-y-rapido/')).toBe(
+        expect(getMockBySubcategory('/cocina-facil-y-rapido/')).toStrictEqual(
             cocinaFacilMock
         );
-        expect(getMockBySubcategory('/cocina-a-tu-medida/')).toBe(
+        expect(getMockBySubcategory('/cocina-a-tu-medida/')).toStrictEqual(
             cocinaAMedidaMock
         );
-        expect(getMockBySubcategory('/subcategoria-receta/')).toBe(recetasMock);
+        expect(getMockBySubcategory('/subcategoria-receta/')).toStrictEqual(
+            recetasMock
+        );
     });
 
     it('getMockBySubcategory returns empty array for unknown paths', () => {

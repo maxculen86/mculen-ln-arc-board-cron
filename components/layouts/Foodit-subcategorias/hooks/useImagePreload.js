@@ -2,10 +2,8 @@ import { useEffect } from 'react';
 
 export const useImagePreload = (imageSrcs = [], shouldPreload = true) => {
     useEffect(() => {
-        if (!shouldPreload || !Array.isArray(imageSrcs)) return;
-
+        if (!shouldPreload || !Array.isArray(imageSrcs)) return undefined;
         const preloadLinks = [];
-
         imageSrcs.forEach(src => {
             if (src) {
                 const link = document.createElement('link');
@@ -16,8 +14,6 @@ export const useImagePreload = (imageSrcs = [], shouldPreload = true) => {
                 preloadLinks.push(link);
             }
         });
-
-        // eslint-disable-next-line consistent-return
         return () => {
             preloadLinks.forEach(link => {
                 if (document.head.contains(link)) {

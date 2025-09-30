@@ -1,7 +1,7 @@
 import React from 'react';
 import { Category } from '@ln/foodit-ui-category';
 import { useAppContext } from 'fusion:context';
-import { currentMock } from './helpers';
+import { ejesHomeMock } from '../subcategorias/helpers';
 import { trackHomeCard } from '../../../../layouts/Foodit-subcategorias/_helpers';
 
 export function EjesHome() {
@@ -14,7 +14,7 @@ export function EjesHome() {
 
     return (
         <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg pt-24 pt-0_lg gap-16 gap-24_md gap-32_lg">
-            {currentMock.map(
+            {ejesHomeMock.map(
                 ({
                     title,
                     container,

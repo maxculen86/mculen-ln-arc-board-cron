@@ -1,9 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { CardCategory } from '../../../../../../components/layouts/Foodit-subcategorias/CardCategory';
+import { CardCategory } from '../../../../../../components/layouts/Foodit-subcategorias/Card/CardCategory';
+import { getTypeOfDevicev2 } from '@ln/utils';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
+}));
+
+jest.mock('@ln/utils', () => ({
+    ...jest.requireActual('@ln/utils'),
+    getTypeOfDevicev2: jest.fn()
 }));
 
 jest.mock('@ln/foodit-ui-category', () => ({
@@ -235,7 +241,7 @@ describe('CardCategory snapshots', () => {
             uri: '/cocina-facil-y-rapido/',
             mockData: [
                 {
-                    title: 'Meal prep',
+                    title: 'Mealprep',
                     imageProps: {
                         src: 'mealprep.webp',
                         alt: 'Imagen de Meal prep'
@@ -545,7 +551,7 @@ describe('CardCategory snapshots', () => {
                 configurable: true,
                 value: 500
             });
-
+            getTypeOfDevicev2.mockReturnValue('mobile');
             useAppContext.mockReturnValue({
                 requestUri: '/aprende-en-la-cocina/',
                 deployment: file => `/deployed${file}`,
@@ -565,7 +571,7 @@ describe('CardCategory snapshots', () => {
                 deployment: file => `/deployed${file}`,
                 contextPath: '/pf'
             });
-
+            getTypeOfDevicev2.mockReturnValue('desktop');
             getMockBySubcategory.mockReturnValue([]);
 
             render(<CardCategory />);

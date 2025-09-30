@@ -17,7 +17,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/layouts/Foodit-subcategorias/CardCategory',
+    '../../../../../../components/layouts/Foodit-subcategorias/Card/CardCategory',
     () => ({
         CardCategory: () => <div data-testid="card-category" />
     })

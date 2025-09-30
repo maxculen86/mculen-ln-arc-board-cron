@@ -653,7 +653,7 @@ exports[`CardCategory snapshots renders snapshot for cocina-facil 1`] = `
           <span
             class="text roboto roboto-bold text-16"
           >
-            Meal prep
+            Mealprep
           </span>
         </div>
       </a>
