@@ -236,6 +236,9 @@ input[type='checkbox']:hover {
     .ai-start_lg {
         align-items: flex-start;
     }
+    .jc-start_lg {
+        justify-content: flex-start;
+    }
     .jc-center_lg {
         justify-content: center;
     }
@@ -2054,6 +2057,18 @@ strong {
     min-height: 0.875rem;
 }
 
+.min-h-113 {
+    min-height: 7.0625rem;
+}
+
+.min-h-120 {
+    min-height: 7.5rem;
+}
+
+.min-h-134 {
+    min-height: 8.375rem;
+}
+
 .min-h-344 {
     min-height: 21.5rem;
 }
@@ -2071,6 +2086,12 @@ strong {
 }
 
 @media (min-width: 48rem) {
+    .min-h-113_md {
+        min-height: 7.0625rem;
+    }
+    .min-h-120_md {
+        min-height: 7.5rem;
+    }
     .min-h-140_md {
         min-height: 8.75rem;
     }
