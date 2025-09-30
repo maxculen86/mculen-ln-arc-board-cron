@@ -3,6 +3,7 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import ComLinkList from '../../private/common/com-link-list';
 import get from '../../private/common/utils/get';
@@ -13,9 +14,8 @@ import {
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
-import Static from 'fusion:static';
 
-const TagsListFeature = ({ id: featureId, title }) => {
+function TagsListFeature({ id: featureId, title }) {
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         renderables = [],
@@ -27,7 +27,7 @@ const TagsListFeature = ({ id: featureId, title }) => {
         acumuladoColor: { navigation_color_tags: colorTags } = {}
     } = useGlobalProviderAcu() || {};
 
-    const sectionName = getSectionName({ nodeType, type, arcSite });
+    const sectionName = getSectionName({ nodeType, type });
     const sectionIsHome = sectionName === 'home';
 
     const { sourceName, query } = getSectionProps({
@@ -51,9 +51,8 @@ const TagsListFeature = ({ id: featureId, title }) => {
                     }
                 }
             }`,
-        transform: data => {
-            return getOrderAndCountTags(get(data, 'content_elements', []));
-        }
+        transform: data =>
+            getOrderAndCountTags(get(data, 'content_elements', []))
     });
 
     const tagList = transformTagsForAcu(orderAndCountTags, colorTags);
@@ -69,7 +68,7 @@ const TagsListFeature = ({ id: featureId, title }) => {
     )) || <></>;
 
     return <Static id={featureId}>{Component}</Static>;
-};
+}
 
 TagsListFeature.label = 'LN-Acumulado-Tag-List';
 
@@ -94,17 +93,16 @@ export const getUltimasNoticiasSectionsIds = renderables => {
     );
 };
 
-const getUltimasNoticiasProps = ({ sectionId, renderables = [] }) => {
-    return sectionId === '/ultimas-noticias'
+const getUltimasNoticiasProps = ({ sectionId, renderables = [] }) =>
+    sectionId === '/ultimas-noticias'
         ? {
-              sectionsIds: getUltimasNoticiasSectionsIds(renderables),
-              sourceOrigin: 'composer'
-          }
+            sectionsIds: getUltimasNoticiasSectionsIds(renderables),
+            sourceOrigin: 'composer'
+        }
         : {
-              sectionsIds: undefined,
-              sourceOrigin: undefined
-          };
-};
+            sectionsIds: undefined,
+            sourceOrigin: undefined
+        };
 
 export const getSectionProps = ({
     sectionName,

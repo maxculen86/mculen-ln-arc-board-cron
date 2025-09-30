@@ -31,15 +31,6 @@ export const configClassName = {
             facadeContainer: 'w-320 ratio-9-16',
             captionClasses: 'w-100'
         }
-    },
-    ott: {
-        horizontal: {
-            container: 'container cursor-pointer pt-32',
-            mediaContainer: 'ratio-16-9',
-            videoPlayer: 'video-player bg-black ratio-16-9',
-            facade: 'flex w-100 h-100',
-            captionClasses: 'px-0_l mb-8'
-        }
     }
 };
 

@@ -83,19 +83,6 @@ export function formatDate(originalDate) {
     return `${date.getDate()} de ${month} de ${date.getFullYear()}`;
 }
 
-const setDay = date => {
-    const day = String(date.getDate());
-    return day < 10 ? day.padStart(2, '0') : day;
-};
-
-export const formatDateWithoutAddingHours = ({ date, capitalize }) => {
-    const day = setDay(date);
-    const month = setMonth({ date, capitalize });
-    const year = date.getFullYear();
-
-    return `${day} de ${month} de ${year}`;
-};
-
 export const getTodayDateForAcuDolar = () => {
     const date = new Date();
 

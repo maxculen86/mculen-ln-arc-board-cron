@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { GetFonts } from '../../../../components/output-types/criticalCss/getFonts';
 
 jest.mock('fusion:environment', () => {
@@ -31,13 +30,6 @@ describe('Components - outputType - criticalCss - GetFonts', () => {
 
     it('should match snapshot for arcSite = "la-nacion-ar"', () => {
         mockProps.arcSite = 'la-nacion-ar';
-        const { container } = render(<GetFonts {...mockProps} />);
-        expect(container).toMatchSnapshot();
-    });
-
-    it('should match snapshot for arcSite = "ott"', () => {
-        // TODO: limpieza OTT - Borrar en iteración 5 de 5
-        mockProps.arcSite = 'ott';
         const { container } = render(<GetFonts {...mockProps} />);
         expect(container).toMatchSnapshot();
     });

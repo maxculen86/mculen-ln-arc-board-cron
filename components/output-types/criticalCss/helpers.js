@@ -11,9 +11,6 @@ export const criticalCssPathsBySite = {
             'resources/dist/css/ln/pages/ln10-home-critical.css',
         default: 'resources/dist/css/ln/pages/critical-internas.css'
     },
-    ott: {
-        default: ''
-    },
     foodit: {
         default: 'resources/dist/css/foodit/base/index.css'
     }
@@ -27,9 +24,6 @@ export const cssPathsBySiteAndLayout = {
     },
     foodit: {
         default: 'resources/packages/css/@ln/foodit-ui-logo/index.css'
-    },
-    ott: {
-        default: ''
     }
 };
 
@@ -40,7 +34,6 @@ export const fontsBySite = (contextPath, deployment) => ({
         contextPath,
         deployment
     }),
-    ott: '',
     foodit: fontFaceFoodit({
         contextPath,
         deployment

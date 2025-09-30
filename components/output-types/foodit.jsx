@@ -49,7 +49,7 @@ function Foodit({
         true
     );
 
-    const _nodeType = getSectionName({ nodeType, type, arcSite });
+    const _nodeType = getSectionName({ nodeType, type });
 
     const isArcPreview = isAdmin || requestUri.includes('preview-arc');
 

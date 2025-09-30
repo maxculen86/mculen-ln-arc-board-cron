@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import BreadcrumbComponent from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
-import getDomain from '../../../common/utils/getDomain';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     if (section) {
@@ -22,11 +22,7 @@ const getPrimaryTree = (sections, section, resultSections) => {
 };
 
 function BreadcrumbArticle({
-    globalContent: {
-        taxonomy: { primary_section, sections },
-        website_url,
-        _id
-    } = {},
+    globalContent: { taxonomy: { primary_section, sections } } = {},
     siteProperties: { title: siteTitle, host },
     className = '',
     ...props
@@ -40,7 +36,6 @@ function BreadcrumbArticle({
         path: '/'
     });
     allSections = allSections.reverse();
-    const domainForRecetas = getDomain({ _id, website_url });
 
     return (
         <>
@@ -51,7 +46,7 @@ function BreadcrumbArticle({
                 host={host}
                 {...props}
             />
-            <BreadCrumbSchema sections={allSections} host={domainForRecetas} />
+            <BreadCrumbSchema sections={allSections} host={SITE_LANACION} />
         </>
     );
 }

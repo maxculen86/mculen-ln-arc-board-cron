@@ -31,7 +31,6 @@ const nodeTypeTitles = {
         if (metaTitle) return `${metaTitle} - LA NACION`;
         return shortTitle ? `${shortTitle} - LA NACION` : PBTitle;
     },
-    ott: ({ ottTitle }) => ottTitle,
     home: ({ PBTitle, longTitle, defaultTitle }) =>
         longTitle || PBTitle || defaultTitle,
     default: ({ PBTitle, defaultTitle }) => PBTitle || defaultTitle
@@ -60,22 +59,12 @@ export const getTagTitle = ({
     PBTitle,
     basicTitle,
     shortTitle,
-    ottTitle,
     nodeType,
     siteProps,
-    arcSite,
     subtype,
     metaTitle
 }) => {
     const { longTitle, title: defaultTitle } = siteProps;
-    // TODO: limpieza OTT - Borrar en iteración 5 de 5
-    if (arcSite === 'ott') {
-        return get(
-            nodeTypeTitles,
-            arcSite,
-            nodeTypeTitles.default
-        )({ ottTitle });
-    }
     if (subtype === RECETA) {
         return nodeTypeTitles.receta({ basicTitle, shortTitle, metaTitle });
     }
@@ -87,7 +76,6 @@ export const getTagTitle = ({
     )({
         PBTitle,
         shortTitle,
-        ottTitle,
         longTitle,
         defaultTitle,
         metaTitle,

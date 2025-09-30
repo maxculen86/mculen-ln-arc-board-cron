@@ -4,7 +4,7 @@ import {
     getMediaJwData,
     transformResultWithResizer
 } from './utils/videoFichaJwSource/_helper';
-// TODO: limpieza OTT - Borrar en iteración 5 de 5
+
 // ESTE SOURCE SE UTILIZA TANTO PARA OTT COMO PARA EL VIDEO EXPANDIDO DEL CARROUSEL
 const transform = (data, url) => getMediaJwData(data, url);
 
@@ -23,10 +23,6 @@ const fetch = async (query, { cachedCall } = {}) => {
     try {
         const mediaResponse = await request(mediaUrl);
         const result = transform(mediaResponse, url);
-        // TODO: limpieza OTT - Borrar en iteración 5 de 5
-        if (arcSite === 'ott') {
-            return result;
-        }
 
         return await transformResultWithResizer({
             result,
