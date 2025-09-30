@@ -325,7 +325,6 @@ const customPowerUps = `
                     }
                 }
             }
-            title
             step
             paragraph
             typeList
@@ -335,6 +334,13 @@ const customPowerUps = `
             ${configPowerUpVideoJw}
             widgetUrl
             embedType
+            cardColor
+            cardNumber
+            title
+            description
+            buttonText
+            cardId
+            useNumbering
             ${customLiveblog}
         }
     }

@@ -1,46 +1,80 @@
 import get from '../../../../private/common/utils/get';
 
-export const createCardWithId = (cardGroup, index) => {
-    const cardData = cardGroup.items[0];
-    const cardId =
-        get(cardData, 'embed.config.cardId') ||
-        get(cardData, 'embed.config.id') ||
-        `card-${index + 1}`;
-    return {
-        ...cardData,
-        embed: {
-            ...cardData.embed,
-            config: { ...get(cardData, 'embed.config', {}), cardId }
+export const DEFAULT_CARD_COLOR = '#0250C9';
+
+const getEmbedConfig = cardData => get(cardData, 'embed.config', {});
+
+const mergeEmbedConfig = (cardData, overrides) => ({
+    ...cardData,
+    embed: {
+        ...(cardData?.embed || {}),
+        config: {
+            ...getEmbedConfig(cardData),
+            ...overrides
         }
+    }
+});
+
+export const normalizeCardColor = color => {
+    if (!color && color !== 0) return DEFAULT_CARD_COLOR;
+
+    const rawValue = `${color}`.trim();
+    if (!rawValue) return DEFAULT_CARD_COLOR;
+
+    return rawValue.startsWith('#') ? rawValue : `#${rawValue}`;
+};
+
+export const generateCardId = (cardData, index) => {
+    const embedConfig = getEmbedConfig(cardData);
+    return embedConfig.cardId || embedConfig.id || `card-${index + 1}`;
+};
+
+export const getNormalizedCardFields = (
+    embedConfig = {},
+    fallbackIndex = 0
+) => {
+    const defaultNumber = fallbackIndex + 1;
+
+    return {
+        cardNumber: get(
+            embedConfig,
+            'cardNumber',
+            get(embedConfig, 'id', defaultNumber)
+        ),
+        title: get(embedConfig, 'title', ''),
+        description: get(embedConfig, 'description', ''),
+        buttonText: get(embedConfig, 'buttonText', 'Ver más'),
+        useNumbering: get(embedConfig, 'useNumbering'),
+        cardColor: normalizeCardColor(get(embedConfig, 'cardColor'))
     };
+};
+
+export const createCardWithId = (cardGroup, index) => {
+    const cardData = get(cardGroup, 'items[0]', {});
+    const cardId = generateCardId(cardData, index);
+    const embedConfig = getEmbedConfig(cardData);
+    const normalizedFields = getNormalizedCardFields(embedConfig, index);
+
+    return mergeEmbedConfig(cardData, {
+        ...normalizedFields,
+        cardId
+    });
 };
 
 export const getCardRenderData = (group, cardIndex) => {
     const cardElement = get(group, 'items[0]', {});
     const cardContent = get(group, 'items', []).slice(1);
-    const embedConfig = get(cardElement, 'embed.config', {});
-    const cardId =
-        embedConfig.cardId || embedConfig.id || `card-${cardIndex + 1}`;
+    const embedConfig = getEmbedConfig(cardElement);
+    const cardId = generateCardId(cardElement, cardIndex);
+    const normalizedFields = getNormalizedCardFields(embedConfig, cardIndex);
 
     const cardData = {
-        ...cardElement,
+        ...mergeEmbedConfig(cardElement, {
+            ...normalizedFields,
+            cardId
+        }),
         cardIndex,
-        cardId,
-        embed: {
-            ...cardElement.embed,
-            config: {
-                ...embedConfig,
-                cardId,
-                numero: embedConfig.numero || embedConfig.id || cardIndex + 1,
-                titulo: embedConfig.titulo || embedConfig.title,
-                texto: embedConfig.texto,
-                botonTexto: get(
-                    cardElement,
-                    'embed.config.botonTexto',
-                    'Ver más'
-                )
-            }
-        }
+        cardId
     };
 
     return {
@@ -57,24 +91,20 @@ export const getGridColumns = totalCards => {
     return 4; // Por defecto para más de 10 cards
 };
 
-export const generateCardId = (cardData, index) =>
-    get(cardData, 'embed.config.cardId', `card-${index + 1}`);
-
 export const addAutoNumbering = (cards = []) =>
     cards.map((card, index) => {
-        if (!get(card, 'embed.config.numero')) {
-            return {
-                ...card,
-                embed: {
-                    ...card.embed,
-                    config: {
-                        ...get(card, 'embed.config', {}),
-                        numero: index + 1
-                    }
-                }
-            };
+        const embedConfig = getEmbedConfig(card);
+        const cardNumber = get(embedConfig, 'cardNumber');
+
+        if (cardNumber) {
+            return mergeEmbedConfig(card, {
+                cardNumber
+            });
         }
-        return card;
+
+        return mergeEmbedConfig(card, {
+            cardNumber: index + 1
+        });
     });
 
 export const supportedTypesCards = [
