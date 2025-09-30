@@ -33,6 +33,16 @@ function CajaJuegosV2({ customFields, children, ...props }) {
 
     const { id: featureId } = props;
 
+    const shouldShowGame =
+        layout === layoutsName.Infografia
+            ? get(globalContent, 'label.mostrar_caja_juegos.text', '') ===
+              'Mostrar'
+            : true;
+
+    const error = validateGamesChain(layout, customFields, children);
+
+    const shouldLoadRoof = shouldShowGame && !hideCaja && !error;
+
     const roofData = useRoofData({
         logoId,
         link,
@@ -44,16 +54,9 @@ function CajaJuegosV2({ customFields, children, ...props }) {
         buttonText,
         linkButton,
         buttonStyle,
-        isStatic: true
+        isStatic: true,
+        shouldLoadRoof
     });
-
-    const shouldShowGame =
-        layout === layoutsName.Infografia
-            ? get(globalContent, 'label.mostrar_caja_juegos.text', '') ===
-              'Mostrar'
-            : true;
-
-    const error = validateGamesChain(layout, customFields, children);
 
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;

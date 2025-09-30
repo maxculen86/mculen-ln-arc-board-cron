@@ -39,12 +39,6 @@ function CajaCarrusel(props) {
 
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const roofData = useRoofData({
-        ...propsForRoof,
-        isAdmin,
-        isStatic: false
-    });
-
     const viewabilityRoof = getViewabilityRoof(
         chainId,
         renderables,
@@ -70,6 +64,13 @@ function CajaCarrusel(props) {
         isHome,
         hideCarousel,
         enabledDays
+    });
+
+    const roofData = useRoofData({
+        ...propsForRoof,
+        isAdmin,
+        isStatic: false,
+        shouldLoadRoof: !hide && !hasError
     });
 
     if (hasError) {

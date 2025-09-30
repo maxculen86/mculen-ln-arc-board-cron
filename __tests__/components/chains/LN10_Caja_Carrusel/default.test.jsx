@@ -127,7 +127,8 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         expect(useRoofData).toHaveBeenCalledWith({
             roofProp: 'mockRoofProp',
             isAdmin: false,
-            isStatic: false
+            isStatic: false,
+            shouldLoadRoof: true
         });
     });
 
