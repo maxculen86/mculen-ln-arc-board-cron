@@ -95,24 +95,6 @@ describe('componentes - private - common - videoPlayerJw', () => {
         expect(buttonPlay).toBeInTheDocument();
     });
 
-    it('should test component for ott', () => {
-        Context.useAppContext = jest.fn(() => ({
-            outputType: 'default',
-            arcSite: 'ott',
-            deployment: jest.fn(),
-            contextPath: '/pf'
-        }));
-
-        render(
-            <VideoPlayerJW
-                data={mockData}
-                parrafo="MockParrafo"
-                tituloNota="MockTituloNota"
-                hasAutoplay={true}
-            />
-        );
-    });
-
     it('matches snapshot', () => {
         const { asFragment } = render(
             <VideoPlayerJW

@@ -20,13 +20,7 @@ describe('CssLinksBySite', () => {
             contextPath: contextPath,
             arcSite: arcSite
         }));
-        it('should be a tag link', () => {
-            // TODO: limpieza OTT - Borrar en iteración 5 de 5
-            arcSite = 'ott';
-            render(<CssLinksBySite />);
-            const element = document.querySelector('link');
-            expect(element).toBeTruthy();
-        });
+        
         it('should have as base href to import styles', () => {
             arcSite = 'foodit';
             render(<CssLinksBySite />);
@@ -50,11 +44,6 @@ describe('CssLinksBySite', () => {
                   />
                 </DocumentFragment>
             `);
-        });
-        it('should match snapshot', () => {
-            arcSite = 'ott';
-            const { container } = render(<CssLinksBySite />);
-            expect(container).toMatchSnapshot();
         });
     });
 });

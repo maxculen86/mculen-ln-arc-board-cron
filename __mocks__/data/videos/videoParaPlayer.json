@@ -1,12 +1,12 @@
 {
-    "arcSite": "ott",
+    "arcSite": "la-nacion-ar",
     "contextPath": "/pf",
     "globalContent": {
         "_id": "e1b5e723-75f5-4c26-8256-b20c088fa8f1",
         "type": "video",
         "version": "0.8.0",
         "canonical_url": "/video/190330-pgm-campo-web-vide1b5e72",
-        "canonical_website": "ott",
+        "canonical_website": "la-nacion-ar",
         "short_url": "/video/190330-pgm-campo-web-vide1b5e72",
         "created_date": "2019-05-14T20:10:02Z",
         "last_updated_date": "2019-05-14T20:11:56Z",
@@ -46,7 +46,7 @@
             ],
             "primary_section": {
                 "_id": "/ln-campo",
-                "_website": "ott",
+                "_website": "la-nacion-ar",
                 "type": "section",
                 "version": "0.6.0",
                 "name": "LN+ Campo",
@@ -54,7 +54,7 @@
                 "additional_properties": {
                     "original": {
                         "_id": "/ln-campo",
-                        "_website": "ott",
+                        "_website": "la-nacion-ar",
                         "name": "LN+ Campo",
                         "inactive": false,
                         "node_type": "section"
@@ -64,7 +64,7 @@
             "sections": [
                 {
                     "_id": "/ln-campo",
-                    "_website": "ott",
+                    "_website": "la-nacion-ar",
                     "type": "section",
                     "version": "0.6.0",
                     "name": "LN+ Campo",
@@ -72,13 +72,13 @@
                     "additional_properties": {
                         "original": {
                             "_id": "/ln-campo",
-                            "_website": "ott",
+                            "_website": "la-nacion-ar",
                             "name": "LN+ Campo",
                             "inactive": false,
                             "node_type": "section"
                         }
                     },
-                    "_website_section_id": "ott./ln-campo"
+                    "_website_section_id": "la-nacion-ar./ln-campo"
                 }
             ],
             "seo_keywords": []
@@ -185,10 +185,10 @@
         },
         "embed_html": "<div class=\"powa\" id=\"powa-e1b5e723-75f5-4c26-8256-b20c088fa8f1\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"e1b5e723-75f5-4c26-8256-b20c088fa8f1\" data-aspect-ratio=\"0.562\"><script src=\"https://d1zp4l5vb5htxp.cloudfront.net/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
         "websites": {
-            "ott": {
+            "la-nacion-ar": {
                 "website_section": {
-                    "_website": "ott",
-                    "name": "LN+ Campo",
+                    "_website": "la-nacion-ar",
+                    "name": "LN Campo",
                     "_id": "/ln-campo",
                     "type": "section",
                     "version": "0.6.0",
@@ -206,20 +206,20 @@
                 "unpublish_edition": []
             }
         },
-        "website": "ott",
+        "website": "la-nacion-ar",
         "website_url": "/video/190330-pgm-campo-web-vide1b5e72"
     },
     "globalContentConfig": {
         "source": "videoSource",
         "query": {
             "id": "e1b5e723-75f5-4c26-8256-b20c088fa8f1",
-            "website": "ott",
+            "website": "la-nacion-ar",
             "ids": "e1b5e723-75f5-4c26-8256-b20c088fa8f1"
         }
     },
     "isAdmin": true,
     "outputType": "default",
-    "requestUri": "/api/v3/render/?isAdmin=true&outputType=default&_website=ott",
+    "requestUri": "/api/v3/render/?isAdmin=true&outputType=default&_website=la-nacion-ar",
     "siteProperties": {
         "organizationId": "lanacionar",
         "videoBaseUrl": "/",
@@ -263,7 +263,7 @@
         ],
         "title": "LN+ Mirá todos los programas y videos online",
         "className": {
-            "body": "ott"
+            "body": "la-nacion-ar"
         },
         "tagManagerId": "GTM-GHV6",
         "comscoreId": "6906398",
@@ -274,11 +274,11 @@
     },
     "tree": {
         "collection": "layouts",
-        "type": "OTT-ficha",
+        "type": "la-nacion-ar-ficha",
         "props": {
-            "key": "OTT-ficha",
+            "key": "la-nacion-ar-ficha",
             "collection": "layouts",
-            "type": "OTT-ficha"
+            "type": "la-nacion-ar-ficha"
         },
         "children": [
             {
@@ -291,11 +291,11 @@
                 "children": [
                     {
                         "collection": "features",
-                        "type": "OTT/videoFicha",
+                        "type": "la-nacion-ar/videoFicha",
                         "props": {
                             "key": "0fOG6Dy6rrP",
                             "collection": "features",
-                            "type": "OTT/videoFicha",
+                            "type": "la-nacion-ar/videoFicha",
                             "id": "0fOG6Dy6rrP",
                             "contentConfig": {
                                 "contentService": "",
@@ -323,11 +323,11 @@
     "renderables": [
         {
             "collection": "layouts",
-            "type": "OTT-ficha",
+            "type": "la-nacion-ar-ficha",
             "props": {
-                "key": "OTT-ficha",
+                "key": "la-nacion-ar-ficha",
                 "collection": "layouts",
-                "type": "OTT-ficha"
+                "type": "la-nacion-ar-ficha"
             },
             "children": [
                 {
@@ -340,11 +340,11 @@
                     "children": [
                         {
                             "collection": "features",
-                            "type": "OTT/videoFicha",
+                            "type": "la-nacion-ar/videoFicha",
                             "props": {
                                 "key": "0fOG6Dy6rrP",
                                 "collection": "features",
-                                "type": "OTT/videoFicha",
+                                "type": "la-nacion-ar/videoFicha",
                                 "id": "0fOG6Dy6rrP",
                                 "contentConfig": {
                                     "contentService": "",
@@ -379,11 +379,11 @@
             "children": [
                 {
                     "collection": "features",
-                    "type": "OTT/videoFicha",
+                    "type": "la-nacion-ar/videoFicha",
                     "props": {
                         "key": "0fOG6Dy6rrP",
                         "collection": "features",
-                        "type": "OTT/videoFicha",
+                        "type": "la-nacion-ar/videoFicha",
                         "id": "0fOG6Dy6rrP",
                         "contentConfig": {
                             "contentService": "",
@@ -408,11 +408,11 @@
         },
         {
             "collection": "features",
-            "type": "OTT/videoFicha",
+            "type": "la-nacion-ar/videoFicha",
             "props": {
                 "key": "0fOG6Dy6rrP",
                 "collection": "features",
-                "type": "OTT/videoFicha",
+                "type": "la-nacion-ar/videoFicha",
                 "id": "0fOG6Dy6rrP",
                 "contentConfig": {
                     "contentService": "",
@@ -425,7 +425,7 @@
             }
         }
     ],
-    "layout": "OTT-ficha",
+    "layout": "la-nacion-ar-ficha",
     "videoId": "e1b5e723-75f5-4c26-8256-b20c088fa8f1",
     "enableAds": true,
     "loadVideoOnInit": true

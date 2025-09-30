@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { GetCriticalCss } from '../../../../components/output-types/criticalCss/default';
 
 const MockResource = ({ path, encoding, children }) => {
@@ -124,12 +123,6 @@ describe('GetCriticalCss - Critical Tests for Production', () => {
                 render(
                     <GetCriticalCss {...defaultProps} arcSite="la-nacion-ar" />
                 );
-            }).not.toThrow();
-        });
-
-        it('should handle ott correctly', () => {
-            expect(() => {
-                render(<GetCriticalCss {...defaultProps} arcSite="ott" />);
             }).not.toThrow();
         });
 

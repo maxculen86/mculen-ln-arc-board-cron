@@ -34,6 +34,10 @@ jest.mock(
     })
 );
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
 describe('Test return functions by getMetasOGHelper', () => {
     it('Test return default function getAppId', () => {
         const siteProperties = undefined;
@@ -149,19 +153,6 @@ describe('Test return functions by getMetasOGHelper', () => {
             'Todas las noticias de Argentina y el mundo en La Nacion'
         );
     });
-
-    it('Test return default function setMetaDescription ott', () => {
-        const props = {
-            arcSite: 'ott',
-            ottMetaDescription:
-                'Ingresá a LN+ para ver todos los programas y videos online: La Cornisa, Odisea Argentina, El diario de Leuco, Mesa chica y mucho más!'
-        };
-
-        expect(setMetaDescription(props)).toStrictEqual(
-            props.ottMetaDescription
-        );
-    });
-
     it('Test return function setMetaDescription subtype VIDEO without description', () => {
         const props = {
             data: {
@@ -545,9 +536,7 @@ describe('Case return buildOgMetas', () => {
         pageBuilderTitle: 'Test Title',
         section: 'home',
         siteProperties: { title: 'My Website' },
-        ottMetaTitle: 'OTT Title',
         data: { description: 'text description' },
-        ottMetaDescription: 'OTT Description',
         requestUri: '/test-uri',
         metaValue: 'testMetaValue',
         image: {
@@ -558,8 +547,7 @@ describe('Case return buildOgMetas', () => {
             height: '630'
         },
         url: 'https://example.com',
-        layout: 'default',
-        layoutsName: { OttFicha: 'ottFicha' }
+        layout: 'default'
     };
 
     it('should return the OG meta tags correctly', () => {
@@ -571,10 +559,7 @@ describe('Case return buildOgMetas', () => {
                 property: 'og:title',
                 content: setMetaTitle({
                     arcSite: 'la-nacion-ar',
-                    pageBuilderTitle: 'Test Title',
-                    section: 'home',
-                    siteProperties: { title: 'My Website' },
-                    ottMetaTitle: 'OTT Title'
+                    pageBuilderTitle: 'Test Title'
                 })
             },
             {
@@ -583,7 +568,6 @@ describe('Case return buildOgMetas', () => {
                     data: { description: 'text description' },
                     section: 'home',
                     arcSite: 'la-nacion-ar',
-                    ottMetaDescription: 'OTT Description',
                     requestUri: '/',
                     metaValue: '/'
                 })
@@ -615,8 +599,7 @@ describe('Case return buildOgMetas', () => {
                     arcSite: 'la-nacion-ar',
                     pageBuilderTitle: 'Test Title',
                     section: 'home',
-                    siteProperties: { title: 'My Website' },
-                    ottMetaTitle: 'OTT Title'
+                    siteProperties: { title: 'My Website' }
                 })
             },
             {
@@ -625,7 +608,6 @@ describe('Case return buildOgMetas', () => {
                     data: { description: 'text description' },
                     section: 'home',
                     arcSite: 'la-nacion-ar',
-                    ottMetaDescription: 'OTT Description',
                     requestUri: '/',
                     metaValue: '/'
                 })
@@ -746,7 +728,6 @@ describe('Case return buildOgMetas', () => {
             { property: 'profile:username', content: 'bruno-díaz' }
         ]);
 
-        
         expect(
             buildOgMetas({
                 ...params,
@@ -769,10 +750,7 @@ describe('Case return buildOgMetas', () => {
             { property: 'profile:last_name', content: 'Pravata' },
             { property: 'profile:username', content: 'bruno-díaz' }
         ]);
-
-    })
-    
-
+    });
 });
 
 describe('getDataForProfileType function', () => {
@@ -834,7 +812,13 @@ describe('getDataForProfileType function', () => {
                     lastName: 'Pravata',
                     middleName: 'Guillermo',
                     node_type: 'author',
-                    wikiSourceData: {schemas_info:{additional_name: '', family_name:'Messi', given_name: 'Juan'}}
+                    wikiSourceData: {
+                        schemas_info: {
+                            additional_name: '',
+                            family_name: 'Messi',
+                            given_name: 'Juan'
+                        }
+                    }
                 },
                 globalContentConfig
             )
@@ -854,7 +838,13 @@ describe('getDataForProfileType function', () => {
                     lastName: 'Pravata',
                     middleName: 'Guillermo',
                     node_type: 'author',
-                    wikiSourceData: {schemas_info:{additional_name: 'Pedro', family_name:'Messi', given_name: 'Juan'}}
+                    wikiSourceData: {
+                        schemas_info: {
+                            additional_name: 'Pedro',
+                            family_name: 'Messi',
+                            given_name: 'Juan'
+                        }
+                    }
                 },
                 globalContentConfig
             )
@@ -864,7 +854,6 @@ describe('getDataForProfileType function', () => {
             profileUsername: 'el-messi-slug'
         });
     });
-
 });
 
 describe('Case return buildArticleMetas', () => {
@@ -945,10 +934,7 @@ describe('Case return buildTwitterMetas', () => {
             arcSite: 'la-nacion-ar',
             pageBuilderTitle: 'Test Title',
             section: 'home',
-            siteProperties: { title: 'My Website' },
-            ottMetaTitle: 'OTT Title',
             data: { description: 'text description' },
-            ottMetaDescription: 'OTT Description',
             requestUri: '/test-uri',
             metaValue: 'testMetaValue',
             url: 'https://example.com',

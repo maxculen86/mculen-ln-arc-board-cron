@@ -128,7 +128,6 @@
         "@ln/hooks": "1.1.2",
         "@ln/lib-newsletter": "1.1.0",
         "@ln/lib-personalizacion": "1.2.2",
-        "@ln/ott-ui-sass": "0.0.3",
         "@ln/segmentacion-control-group": "1.1.0",
         "@ln/theme-base": "1.8.5",
         "@ln/user.client.libs": "7.0.1",

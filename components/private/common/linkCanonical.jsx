@@ -1,5 +1,5 @@
 import React from 'react';
-import { SITE_LANACION, SITE_FOODIT, SITE_OTT } from 'fusion:environment';
+import { SITE_LANACION, SITE_FOODIT } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
@@ -18,7 +18,6 @@ function LinkCanonicalAndAlternate(props = {}) {
         nodeType = '',
         site = {},
         template = '',
-        layout = '',
         requestUri = ''
     } = props;
 
@@ -41,21 +40,17 @@ function LinkCanonicalAndAlternate(props = {}) {
     const canonicalId = requestUri?.includes('/chefs-protagonistas')
         ? cleanedPath
         : (!mustUseSiteUrl && canonicalIdChecker(_id)) ||
-        (cleanedPath === '/' ? '' : `/${section}`);
+          (cleanedPath === '/' ? '' : `/${section}`);
 
     const canonicalSlash = addInitialSlash(canonicalId) ?? '';
 
     const baseUrlByArcType = {
-        // TODO: limpieza OTT - Borrar en iteración 5 de 5
-        ott: SITE_OTT,
         foodit: SITE_FOODIT,
         'la-nacion-ar': SITE_LANACION
     };
 
     const canonicalLink = getCanonicalLink({
-        _id,
         arcSite,
-        layout,
         baseUrlByArcType,
         mustUseSiteUrl,
         siteUrl,
@@ -81,7 +76,6 @@ LinkCanonicalAndAlternate.propTypes = {
         site_url: PropTypes.string
     }).isRequired,
     template: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
     requestUri: PropTypes.string.isRequired
 };
 export default LinkCanonicalAndAlternate;

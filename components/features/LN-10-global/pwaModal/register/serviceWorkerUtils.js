@@ -26,7 +26,6 @@ export const unregister = async () => {
 export const register = async ({ deployment, arcSite = 'la-nacion-ar' }) => {
     const dictionarySites = {
         'la-nacion-ar': 'LN',
-        ott: 'OTT',
         foodit: 'FOODIT'
     };
 
