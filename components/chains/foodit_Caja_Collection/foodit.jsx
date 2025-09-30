@@ -91,11 +91,13 @@ function CajaCollection(props) {
         },
         [chainId]
     );
-    const device = getTypeOfDevicev2({
-        breakpoints: {
-            mobile: 768
-        }
-    });
+    const device = !isSSR()
+        ? getTypeOfDevicev2({
+              breakpoints: {
+                  mobile: 768
+              }
+          })
+        : 'desktop';
     const isMobile = device === 'mobile';
     const preloadConditions = useMemo(() => {
         const isFirstCarousel =

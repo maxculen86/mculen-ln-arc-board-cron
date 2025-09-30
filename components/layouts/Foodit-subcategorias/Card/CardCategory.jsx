@@ -38,11 +38,13 @@ export function CardCategory() {
         assetsPath
     );
 
-    const device = getTypeOfDevicev2({
-        breakpoints: {
-            mobile: 768
-        }
-    });
+    const device = !isSSR()
+        ? getTypeOfDevicev2({
+              breakpoints: {
+                  mobile: 768
+              }
+          })
+        : 'desktop';
 
     const isMobile = !isSSR() && device === 'mobile';
 
