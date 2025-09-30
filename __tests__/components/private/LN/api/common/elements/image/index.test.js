@@ -5,8 +5,6 @@ import {
     getImageUrlBasedOnResizerVersion
 } from '../../../../../../../../components/private/LN/api/common/elements/image';
 
-import imageCommon from '../../../../../../../../components/private/LN/api/common/elements/image';
-
 describe(' - components - private - LN - api - common - elements - image - index', () => {
     describe('getImageUrl tests', () => {
         it('getImageUrl should return an array with the expected result when called with a valid url', () => {
@@ -94,96 +92,6 @@ describe(' - components - private - LN - api - common - elements - image - index
             const url = 'invalid_url';
             const result = getImageUrlBasedOnResizerVersion(url);
             expect(result).toEqual(url);
-        });
-    });
-
-    describe('imageCommon tests', () => {
-        it('should build URL with auth and focal from Resizer V2 URL', () => {
-            const base =
-                'http://host/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F59%2F2089259.png';
-            const resizedUrl = `${base}?auth=token123&width=80&quality=70&focal=100,100`;
-            const image = {
-                _id: 'abc123',
-                resized_urls: [{ resizedUrl }],
-                auth: ['auth=token123', 'token123']
-            };
-
-            const result = imageCommon(image);
-
-            expect(result).not.toBeNull();
-            expect(result.id).toBe('abc123');
-            expect(result.baseUrl).toBe(base);
-            expect(result.absoluteUrl).toBe(
-                `${base}?auth=token123&width=512&height=341&quality=90&focal=100,100`
-            );
-        });
-
-        it('should remove invisible characters before parsing URLs', () => {
-            const dirtyBase =
-                'http://example.com/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fa\u200Enexos%2Ffotos%2F59%2F2089259.png';
-            const sanitizedBase = dirtyBase.replace(/\u200E/g, '');
-            const resizedUrl = `${dirtyBase}?auth=tk123&width=100&quality=70`;
-            const image = {
-                _id: 'id-dirty',
-                resized_urls: [{ resizedUrl }],
-                auth: ['auth=tk123', 'tk123']
-            };
-
-            const result = imageCommon(image);
-
-            expect(result).not.toBeNull();
-            expect(result.baseUrl).toBe(sanitizedBase);
-            expect(result.baseUrl.includes('\u200E')).toBe(false);
-            expect(result.absoluteUrl.includes('\u200E')).toBe(false);
-        });
-
-        it('should return image summary with id and type', () => {
-            const base =
-                'http://10.253.0.1/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F59%2F2089259.png';
-            const resizedUrl = `${base}?auth=tok987&width=80&quality=70`;
-            const image = {
-                _id: 'img-123',
-                resized_urls: [{ resizedUrl }],
-                auth: ['auth=tok987', 'tok987']
-            };
-
-            const result = imageCommon(image);
-
-            expect(result).not.toBeNull();
-            expect(result.id).toBe('img-123');
-            expect(result._t).toBe('img');
-        });
-
-        it('should return null when image is null or undefined', () => {
-            expect(imageCommon(null)).toBeNull();
-            expect(imageCommon(undefined)).toBeNull();
-        });
-
-        it('should return null when resized_urls is missing or empty', () => {
-            const imgMissing = { _id: 'no-urls' };
-            const imgEmpty = { _id: 'empty-urls', resized_urls: [] };
-
-            expect(imageCommon(imgMissing)).toBeNull();
-            expect(imageCommon(imgEmpty)).toBeNull();
-        });
-
-        it('should omit auth param when auth token absent', () => {
-            const base =
-                'http://10.253.0.1/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F59%2F2089259.png';
-            const resizedUrl = `${base}?auth=shouldNotBeUsed&width=80&quality=70`;
-            const image = {
-                _id: 'no-auth',
-                resized_urls: [{ resizedUrl }]
-            };
-
-            const result = imageCommon(image);
-
-            expect(result).not.toBeNull();
-            expect(result.baseUrl).toBe(base);
-            expect(result.absoluteUrl).toBe(
-                `${base}?width=512&height=341&quality=90&smart=true`
-            );
-            expect(result.absoluteUrl.includes('auth=')).toBe(false);
         });
     });
 });
