@@ -66,7 +66,7 @@ const buildCardConfig = ({
         showSection({
             withSection: get(chainData, 'config.withSection', false),
             article: transformedArticle,
-            authors: get(editorData, 'authors', []),
+            authors: get(editorData, 'authors', []) || [],
             authorPhoto: marqueeImg
         })
     );

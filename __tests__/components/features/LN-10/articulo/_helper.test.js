@@ -40,6 +40,8 @@ import {
     getIndexOfFeature,
     isSubtypeLiveblog
 } from '../../../../../components/features/LN-10/article/_helper';
+import * as helperModule from '../../../../../components/features/LN-10/article/_helper';
+import buildCardConfig from '../../../../../components/features/LN-10/article/utils/card-building/buildCardConfig';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import {
@@ -1856,6 +1858,72 @@ describe('generateLazyLoadEmbedCode', () => {
                 embedCode: `<iframe src=https://widget-canchallena.clanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/widget/?isHome=true title="Embebido canchallena" class="w-100 h-82" scrolling="no"> </iframe>`,
                 classNames: 'h-82'
             });
+        });
+    });
+
+    describe('buildCardConfig', () => {
+        it('should pass an empty array as authors when editor authors is an empty string', () => {
+            const showSectionSpy = jest.spyOn(helperModule, 'showSection');
+            const customVoiceSpy = jest
+                .spyOn(helperModule, 'shouldHighlightCustomVoice')
+                .mockReturnValue(false);
+
+            const articleWithSection = {
+                _id: 'article-economia',
+                taxonomy: {
+                    primary_section: {
+                        _id: '/economia',
+                        name: 'Economía',
+                        path: '/economia'
+                    }
+                }
+            };
+
+            const config = {
+                articleData: {
+                    content: articleWithSection,
+                    transformed: articleWithSection
+                },
+                configData: {
+                    chainData: {
+                        config: {
+                            withSection: true,
+                            cardSize: 'm'
+                        }
+                    },
+                    appData: {
+                        isHome: false,
+                        renderables: []
+                    },
+                    editorData: {
+                        variant: 'regular',
+                        authors: '',
+                        description: ''
+                    },
+                    customFields: {}
+                },
+                authorData: {
+                    quantity: 1,
+                    marqueeImg: 'https://static.test/avatar.png'
+                },
+                mediaData: {
+                    type: 'image',
+                    withMedia: true
+                },
+                displayData: {
+                    searchableField: () => null
+                }
+            };
+
+            const { sectionContent } = buildCardConfig(config);
+
+            expect(showSectionSpy).toHaveBeenCalledWith(
+                expect.objectContaining({ authors: [] })
+            );
+            expect(sectionContent).toBe('Economía');
+
+            showSectionSpy.mockRestore();
+            customVoiceSpy.mockRestore();
         });
     });
 });
