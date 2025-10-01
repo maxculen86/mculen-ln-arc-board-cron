@@ -72,7 +72,7 @@ jest.mock(
             cardId: cardGroup.id,
             embed: {
                 config: {
-                    titulo: 'Título de prueba'
+                    title: 'Título de prueba'
                 }
             }
         }))
@@ -107,7 +107,7 @@ jest.mock(
                 <div data-testid="cards-grid" data-grid-columns={gridColumns}>
                     {cards.map(card => (
                         <div key={card.cardId} data-testid="card-small">
-                            {card.embed.config.titulo}
+                            {card.embed.config.title}
                         </div>
                     ))}
                 </div>

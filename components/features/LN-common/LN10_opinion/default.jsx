@@ -44,14 +44,6 @@ function Opinion(props) {
         ...propsForRoof
     } = customFields;
 
-    const roofData = useRoofData({
-        ...propsForRoof,
-        title: propsForRoof.title || 'Opinión',
-        link: url,
-        isAdmin,
-        isStatic: true
-    });
-
     const viewabilityRoof = getViewabilityRoof(
         featureId,
         renderables,
@@ -103,6 +95,17 @@ function Opinion(props) {
         articlesEditorial,
         articlesOpinion,
         layout
+    });
+
+    const shouldLoadRoof = !hideCaja && !error;
+
+    const roofData = useRoofData({
+        ...propsForRoof,
+        title: propsForRoof.title || 'Opinión',
+        link: url,
+        isAdmin,
+        isStatic: true,
+        shouldLoadRoof
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(

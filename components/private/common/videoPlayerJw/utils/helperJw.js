@@ -31,15 +31,6 @@ export const configClassName = {
             facadeContainer: 'w-320 ratio-9-16',
             captionClasses: 'w-100'
         }
-    },
-    ott: {
-        horizontal: {
-            container: 'container cursor-pointer pt-32',
-            mediaContainer: 'ratio-16-9',
-            videoPlayer: 'video-player bg-black ratio-16-9',
-            facade: 'flex w-100 h-100',
-            captionClasses: 'px-0_l mb-8'
-        }
     }
 };
 
@@ -82,7 +73,8 @@ export const getAlternativeDescription = (uploadDate, noteTitle) => {
 export const handleVideoEventsScript = (
     title,
     idVideo,
-    initialVideoMode = ''
+    initialVideoMode = '',
+    videoOrientation = 'horizontal'
 ) => {
     const player = window.jwplayer(`${idVideo}`);
     player.on('ready', () => {
@@ -107,7 +99,7 @@ export const handleVideoEventsScript = (
             event: 'videoPlay',
             videoName: `${title}`,
             videoID: `${idVideo}`,
-            rest: { mode }
+            rest: { mode, videoOrientation }
         });
     });
 
@@ -211,8 +203,16 @@ export const getJWScript = (
                     fullscreenOrientationLock: 'portrait'
                 })
             });
+            const videoOrientation = getVerticalPlayer(player)
+                ? 'vertical'
+                : 'horizontal';
 
-            handleVideoEventsScript(title, idVideo, initialVideoMode);
+            handleVideoEventsScript(
+                title,
+                idVideo,
+                initialVideoMode,
+                videoOrientation
+            );
         });
 
         if (facadeDiv) {

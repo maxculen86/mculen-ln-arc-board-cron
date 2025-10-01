@@ -16,23 +16,6 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', // NOSONAR
     JSK_ID: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEVr42BnMp3X/xiq4mYxhNRAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMJkLlbI3ku0UaYK6AgEQgCsYTpwEAAWr+ASzy+7LguXottQzsdBvZxQgd0VZopz3OYzVquvzD0iZ2urE}', // NOSONAR
     DATADOG_CONFIG: {
-        ott: {
-            clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
-            clientTokenRum: 'pub0d012ddef45dd12da168f6a3dfa65e8d',
-            applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
-            site: DATADOG_DOMAIN,
-            forwardErrorsToLogs: true,
-            sampleRateLog: 20,
-            sampleRateRum: 20,
-            service: 'lnmas',
-            env: 'sandbox',
-            sessionReplaySampleRate: 30,
-            trackResources: true,
-            trackLongTasks: true,
-            trackUserInteractions: true,
-            trackSessionAcrossSubdomains: false,
-            defaultPrivacyLevel: MASK_USER_INPUT
-        },
         'la-nacion-ar': {
             clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
             clientTokenRum: 'pubaa01cb67f0a687a6eba4718413593f4f',
@@ -101,8 +84,6 @@ export default {
     BEYONDWORDS_PROJECT_ID: 38983,
     BEYONDWORDS_PROJECT_ID_FOODIT: 46577,
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
-    // TODO: limpieza OTT - Borrar en iteración 5 de 5
-    SITE_OTT: 'https://lnmas.lanacion.com.ar',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     API_QUERYLY: 'https://api.queryly.com',
     // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta

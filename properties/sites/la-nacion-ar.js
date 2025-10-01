@@ -48,7 +48,6 @@ export default {
         Home: 'LN-Home_Main',
         HomeLN10: 'LN10-Home_Main',
         Noticia: 'LN-nota-noticia',
-        OttFicha: 'OTT-ficha',
         StoryTelling: 'LN-nota-storytelling',
         Video: 'LN-nota-video',
         HtmlLibre: 'LN-nota-html-libre',

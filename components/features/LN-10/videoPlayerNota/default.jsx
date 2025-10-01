@@ -98,7 +98,8 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
         playerId: 'XD8x4oQD',
         instanceConfig: {
             playlist,
-            autostart: true
+            autostart: true,
+            aspectratio: '16:9'
         }
     };
 

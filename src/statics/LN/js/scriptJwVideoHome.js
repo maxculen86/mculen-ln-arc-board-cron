@@ -12,6 +12,7 @@ import loadJWPlayerScript from '../../../../components/chains/utils/loadJWPlayer
 import { addEventToDataLayerV2 } from '../../../../components/private/LN/common/utils/addEventToDataLayer';
 import { videoContainer } from '../../../../components/features/LN-10/videoPlayer/share/utils';
 import { handleShare } from '../../../../components/features/LN-10/videoPlayer/share/shareHandler';
+import { getVerticalPlayer } from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 window.addEventListener('load', function () {
     const hasJwVideos = document.querySelectorAll('[data-has-jwplayer="true"]');
@@ -22,6 +23,10 @@ window.addEventListener('load', function () {
         );
         const { title, mediaId, instanceConfig, playerId, withAutoplay } =
             config || {};
+
+        const videoOrientation = getVerticalPlayer(playerId)
+            ? 'vertical'
+            : 'horizontal';
 
         const facade = document.getElementById(`facade-${mediaId}`);
         let initialMode = null;
@@ -53,7 +58,8 @@ window.addEventListener('load', function () {
                             rest: {
                                 videoName: title || '',
                                 videoID: mediaId || '',
-                                mode
+                                mode,
+                                videoOrientation
                             }
                         });
 

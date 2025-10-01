@@ -25,7 +25,6 @@ const videoPlayerJW = ({
     parrafo,
     tituloNota,
     hasAutoplay,
-    isOtt = false,
     mediaContainerClassesProps,
     videoContainerClassesProps
 }) => {
@@ -43,7 +42,7 @@ const videoPlayerJW = ({
         } = {}
     } = data;
 
-    const player = isOtt ? '81YXy6Mt' : idPlayer || 'ih0086X3';
+    const player = idPlayer || 'ih0086X3';
     const [video] = playlist || [];
     const { mediaid = '', sources = [] } = video || {};
     const { arcSite, deployment, contextPath, globalContent } = useAppContext();
@@ -134,14 +133,12 @@ const videoPlayerJW = ({
                             />
                         )}
                     </figure>
-                    {!isOtt && (
-                        <VideoPlayerSnippet
-                            paragraph={parrafo || description}
-                            noteTitle={tituloNota}
-                            mediaData={video}
-                            minStream={{ url: get(minStream, 'file', '') }}
-                        />
-                    )}
+                    <VideoPlayerSnippet
+                        paragraph={parrafo || description}
+                        noteTitle={tituloNota}
+                        mediaData={video}
+                        minStream={{ url: get(minStream, 'file', '') }}
+                    />
                 </section>
             </div>
         </Static>

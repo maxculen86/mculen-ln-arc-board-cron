@@ -39,6 +39,10 @@ jest.mock('fusion:context', () => ({
     }))
 }));
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
 describe('components - private - LN - nota - breadcrumbArticle', () => {
     it('should render snapshots', () => {
         const { container } = render(

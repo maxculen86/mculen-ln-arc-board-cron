@@ -26,49 +26,11 @@ describe('Components - Private - LN - Common - utils - checkIsApertura', () => {
                 })
             ).toBeTruthy();
         });
-        it('should return true because is section with dolar-hoy URI at index 1', () => {
-            expect(
-                checkIsApertura({
-                    ...data,
-                    nodeType: 'section',
-                    articleIndex: 1,
-                    requestUri: '/dolar-hoy/'
-                })
-            ).toBeTruthy();
-        });
-        it('should return true because is section with dolar-hoy URI at index 2', () => {
-            expect(
-                checkIsApertura({
-                    ...data,
-                    nodeType: 'section',
-                    articleIndex: 2,
-                    requestUri: '/dolar-hoy/'
-                })
-            ).toBeTruthy();
-        });
         it('should return true because is tags without wiki with tema URI at index 0', () => {
             expect(
                 checkIsApertura({
                     ...data,
                     articleIndex: 0,
-                    requestUri: '/tema/dolar-blue-tid67294/'
-                })
-            ).toBeTruthy();
-        });
-        it('should return true because is tags without wiki with tema URI at index 1', () => {
-            expect(
-                checkIsApertura({
-                    ...data,
-                    articleIndex: 1,
-                    requestUri: '/tema/dolar-blue-tid67294/'
-                })
-            ).toBeTruthy();
-        });
-        it('should return true because is tags without wiki with tema URI at index 2', () => {
-            expect(
-                checkIsApertura({
-                    ...data,
-                    articleIndex: 2,
                     requestUri: '/tema/dolar-blue-tid67294/'
                 })
             ).toBeTruthy();

@@ -8,6 +8,7 @@ import {
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
+import buildFooter from './footer';
 
 const indexNota = dataNotaParam => {
     if (!dataNotaParam) throw new Error(`La información de la nota esta vacia`);
@@ -21,7 +22,7 @@ const indexNota = dataNotaParam => {
         ...storyCommon(dataNota, elements.elements),
         ...storyHeadline(dataNota, 'mobile'),
         apertura: apertura(dataNota, elements.idsElements),
-        footer: dataNota.footer,
+        footer: buildFooter(dataNota),
         isListenable: isNoteListenable(dataNota),
         audio_custom_voice: dataNota.audio_custom_voice
     };

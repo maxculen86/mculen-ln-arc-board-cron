@@ -18,7 +18,7 @@ import {
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
-import { MediaScroller } from '../../features/ui-ln/mediaScroller/default';
+import MediaScroller from '../../features/ui-ln/mediaScroller/default';
 
 function CajaCarrusel(props) {
     const {
@@ -38,12 +38,6 @@ function CajaCarrusel(props) {
     const { isAdmin } = useAppContext();
 
     const { position, positionInsideSection } = getCommonProps(props);
-
-    const roofData = useRoofData({
-        ...propsForRoof,
-        isAdmin,
-        isStatic: false
-    });
 
     const viewabilityRoof = getViewabilityRoof(
         chainId,
@@ -70,6 +64,13 @@ function CajaCarrusel(props) {
         isHome,
         hideCarousel,
         enabledDays
+    });
+
+    const roofData = useRoofData({
+        ...propsForRoof,
+        isAdmin,
+        isStatic: false,
+        shouldLoadRoof: !hide && !hasError
     });
 
     if (hasError) {

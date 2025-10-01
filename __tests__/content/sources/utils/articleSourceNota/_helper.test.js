@@ -1199,8 +1199,18 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(isValidSectionIA([])).toBe(false);
         });
 
-        it('should return false if section path is not in validSections', () => {
+        it('should return false when the section is politica', () => {
             const sections = [{ path: '/politica' }];
+            expect(isValidSectionIA(sections)).toBe(false);
+        });
+
+        it('should return false when the section is opinion', () => {
+            const sections = [{ path: '/opinion' }];
+            expect(isValidSectionIA(sections)).toBe(false);
+        });
+
+        it('should return false when the section is recetas', () => {
+            const sections = [{ path: '/recetas' }];
             expect(isValidSectionIA(sections)).toBe(false);
         });
 

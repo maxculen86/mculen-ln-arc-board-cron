@@ -1,5 +1,6 @@
 import React from 'react';
 import { MediaScroller as CommonMediaScroller } from '@ln/ds-common-mediascroller';
+import Icon from '../icon/default';
 
 /**
  * @typedef {import('@ln/ds-common-mediascroller').MediaScrollerRootProps} MediaScrollerProps
@@ -10,7 +11,7 @@ import { MediaScroller as CommonMediaScroller } from '@ln/ds-common-mediascrolle
  * @returns {React.ReactElement}
  */
 
-export function MediaScroller({ children, className, ...props }) {
+function MediaScroller({ children, className, ...props }) {
     return (
         <CommonMediaScroller className="gap-32" {...props}>
             <CommonMediaScroller.Track>{children}</CommonMediaScroller.Track>
@@ -23,7 +24,7 @@ export function MediaScroller({ children, className, ...props }) {
                 variant="outline"
                 className="w-40 h-40 bg-[var(--color-primary-light)] text-black rounded-4 translate-none p-12 hover:bg-[var(--color-primary-light)]"
             >
-                <span className="inline-block h-6 w-6 border-t border-l border-current rotate-[-45deg] ml-2" />
+                <Icon name="arrowLeft" size={16} />
             </CommonMediaScroller.Prev>
             <CommonMediaScroller.Next
                 isIconOnly
@@ -34,12 +35,14 @@ export function MediaScroller({ children, className, ...props }) {
                 variant="outline"
                 className="w-40 h-40 bg-[var(--color-primary-light)] text-black rounded-4 translate-none p-12 hover:bg-[var(--color-primary-light)]"
             >
-                <span className="inline-block h-6 w-6 border-t border-r border-current rotate-[45deg] mr-2" />
+                <Icon name="arrowRight" size={16} />
             </CommonMediaScroller.Next>
             <CommonMediaScroller.Progress className="rounded-[var(--radius-range)]" />
         </CommonMediaScroller>
     );
 }
+
+export default MediaScroller;
 
 MediaScroller.Item = CommonMediaScroller.Item;
 MediaScroller.Track = CommonMediaScroller.Track;
