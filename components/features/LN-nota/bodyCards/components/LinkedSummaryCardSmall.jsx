@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../../private/common/utils/get';
 import Text from '../../../../private/common/text';
+import { normalizeCardColor } from '../_utils/linkedSummaryCardsHelper';
 
 // TODO: Esto es un componente temporal. Estos componentes debe removerce para ser parte de la lib.
 // TODO: Estos estilos son provisorios deben ser removidos, reemplazados por los definitivos y
@@ -18,21 +19,25 @@ const CARD_CSS = `
     flex-direction: column;
     height: 100%;
     gap: 0.75rem;
+    border: 1px solid transparent;
 }
 
 .linked-summary-card-small:hover {
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.06);
     transform: translateY(-0.125rem);
-    border-color: #0250c9;
+    border-color: var(--card-accent, #0250C9); /* MANTENER: Variable CSS funcional */
 }
 
 .linked-summary-card-small:focus-within {
-    box-shadow: 0 0 0 2px #0250c9;
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
+    box-shadow: 0 0 0 2px var(--card-accent, #0250C9); /* MANTENER: Variable CSS funcional */
 }
 
 .card-numero {
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
     display: inline-block;
-    background: #0250c9;
+    background: var(--card-accent, #0250C9); /* MANTENER: Variable CSS funcional */
     color: #fff;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
@@ -57,8 +62,9 @@ const CARD_CSS = `
 }
 
 .card-boton {
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
     background: transparent;
-    color: #0250c9;
+    color: var(--card-accent, #0250C9); /* MANTENER: Variable CSS funcional */
     border: none;
     padding: 0;
     font-size: 0.75rem;
@@ -66,37 +72,58 @@ const CARD_CSS = `
     cursor: pointer;
     margin-top: auto;
     align-self: flex-start;
+    transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-.card-boton:hover { background: #006998; }
-.card-boton:active { background: #00547a; }
-.card-boton:focus { outline: 2px solid #0250c9; outline-offset: 2px; }
+.card-boton:hover,
+.card-boton:focus {
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
+    color: var(--card-accent, #0250C9); /* MANTENER: Variable CSS funcional */
+}
+
+.card-boton:hover {
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
+    opacity: 0.85;
+}
+.card-boton:active {
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
+    opacity: 0.7;
+}
+.card-boton:focus {
+    /* TODO: Estilos provisorios - reemplazar por diseño definitivo del equipo frontend */
+    outline: 2px solid var(--card-accent, #0250C9); /* MANTENER: Variable CSS funcional para outline */
+    outline-offset: 2px;
+}
 `;
 
-function LinkedSummaryCardSmall({ data, onCardClick }) {
-    const numero = get(data, 'embed.config.numero', '');
-    const titulo = get(data, 'embed.config.titulo', '');
-    const texto = get(data, 'embed.config.texto', '');
-    const botonTexto = get(data, 'embed.config.botonTexto', 'Ver más');
+const LinkedSummaryCardSmall = memo(({ data, onCardClick }) => {
+    const cardNumber = get(data, 'embed.config.cardNumber', '');
+    const title = get(data, 'embed.config.title', '');
+    const description = get(data, 'embed.config.description', '');
+    const buttonText = get(data, 'embed.config.buttonText', 'Ver más');
     const cardId = get(data, 'embed.config.cardId', '');
+    const cardColor = normalizeCardColor(get(data, 'embed.config.cardColor'));
 
     return (
         <>
             <style>{CARD_CSS}</style>
-            <div className="linked-summary-card-small">
-                {numero && (
+            <div
+                className="linked-summary-card-small"
+                style={{ '--card-accent': cardColor }}
+            >
+                {cardNumber && (
                     <Text tag="span" className="card-numero">
-                        {numero}
+                        {cardNumber}
                     </Text>
                 )}
-                {titulo && (
+                {title && (
                     <Text tag="h3" className="card-titulo">
-                        {titulo}
+                        {title}
                     </Text>
                 )}
-                {texto && (
+                {description && (
                     <Text tag="p" className="card-texto">
-                        {texto}
+                        {description}
                     </Text>
                 )}
 
@@ -104,26 +131,28 @@ function LinkedSummaryCardSmall({ data, onCardClick }) {
                     className="card-boton"
                     onClick={() => cardId && onCardClick?.(cardId)}
                     type="button"
+                    aria-label={`Ir a ${title || 'contenido'} de la tarjeta ${cardNumber || ''}`}
                 >
-                    <Text tag="span">{botonTexto}</Text>
+                    <Text tag="span">{buttonText}</Text>
                 </button>
             </div>
         </>
     );
-}
+});
 
 LinkedSummaryCardSmall.propTypes = {
     data: PropTypes.shape({
         embed: PropTypes.shape({
             config: PropTypes.shape({
-                numero: PropTypes.oneOfType([
+                cardNumber: PropTypes.oneOfType([
                     PropTypes.string,
                     PropTypes.number
                 ]),
-                titulo: PropTypes.string,
-                texto: PropTypes.string,
-                botonTexto: PropTypes.string,
-                cardId: PropTypes.string
+                title: PropTypes.string,
+                description: PropTypes.string,
+                buttonText: PropTypes.string,
+                cardId: PropTypes.string,
+                cardColor: PropTypes.string
             })
         })
     }).isRequired,

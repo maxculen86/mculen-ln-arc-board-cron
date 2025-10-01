@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../../private/common/utils/get';
+import {
+    generateCardId,
+    getNormalizedCardFields
+} from '../_utils/linkedSummaryCardsHelper';
 import LinkedSummaryCardSmall from './LinkedSummaryCardSmall';
 
 const scrollToCard = cardId => {
+    if (!cardId) return;
     document.getElementById(`card-ampliada-${cardId}`)?.scrollIntoView({
         behavior: 'smooth',
         block: 'center'
@@ -11,14 +16,16 @@ const scrollToCard = cardId => {
 };
 
 const createCardWithDefaults = (card, index) => {
-    const cardId = get(card, 'embed.config.cardId', `card-${index + 1}`);
+    const cardConfig = get(card, 'embed.config', {});
+    const cardId = generateCardId(card, index);
+    const normalizedFields = getNormalizedCardFields(cardConfig, index);
     return {
         ...card,
         embed: {
-            ...card.embed,
+            ...(card.embed || {}),
             config: {
-                ...get(card, 'embed.config', {}),
-                numero: get(card, 'embed.config.numero', index + 1),
+                ...cardConfig,
+                ...normalizedFields,
                 cardId
             }
         }
@@ -42,17 +49,22 @@ function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
                     gridTemplateColumns: `repeat(${gridColumns}, 1fr)`
                 }}
             >
-                {cards.map((card, index) => (
-                    <LinkedSummaryCardSmall
-                        key={get(
-                            card,
-                            'embed.config.cardId',
-                            `card-${index + 1}`
-                        )}
-                        data={createCardWithDefaults(card, index)}
-                        onCardClick={scrollToCard}
-                    />
-                ))}
+                {cards.map((card, index) => {
+                    const normalizedCard = createCardWithDefaults(card, index);
+                    const cardId = get(
+                        normalizedCard,
+                        'embed.config.cardId',
+                        `card-${index + 1}`
+                    );
+
+                    return (
+                        <LinkedSummaryCardSmall
+                            key={cardId}
+                            data={normalizedCard}
+                            onCardClick={scrollToCard}
+                        />
+                    );
+                })}
             </div>
         </div>
     );
@@ -64,14 +76,15 @@ LinkedSummaryCardsGrid.propTypes = {
         PropTypes.shape({
             embed: PropTypes.shape({
                 config: PropTypes.shape({
-                    numero: PropTypes.oneOfType([
+                    cardNumber: PropTypes.oneOfType([
                         PropTypes.string,
                         PropTypes.number
                     ]),
-                    titulo: PropTypes.string,
-                    texto: PropTypes.string,
-                    botonTexto: PropTypes.string,
-                    cardId: PropTypes.string
+                    title: PropTypes.string,
+                    description: PropTypes.string,
+                    buttonText: PropTypes.string,
+                    cardId: PropTypes.string,
+                    cardColor: PropTypes.string
                 })
             })
         })
