@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render BN_12_GRID layout with articles 1`] = `
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP Optimization should render BN_12_GRID layout with articles 1`] = `
 <div>
   <div
     class="flex ai-end jc-between gap-24 mb-24_md py-12 py-0_md roof-sticky"
@@ -1256,7 +1256,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
 </div>
 `;
 
-exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render Carousel layout with title and link 1`] = `
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP Optimization should render Carousel layout with title and link 1`] = `
 <div>
   <div
     class="carousel-container"
@@ -2605,7 +2605,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
 </div>
 `;
 
-exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render nothing when articles array is empty 1`] = `
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP Optimization should render nothing when articles array is empty 1`] = `
 <div>
   <div
     class="carousel-container"
@@ -2655,4 +2655,4 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection should 
 </div>
 `;
 
-exports[`Components - Chains - Foodit-Global - Common - RenderCollection should render nothing when hideCaja is true 1`] = `<div />`;
+exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP Optimization should render nothing when hideCaja is true 1`] = `<div />`;
