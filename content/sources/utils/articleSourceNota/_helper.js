@@ -144,21 +144,15 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
 export const isValidSectionIA = sections => {
     const section = get(sections, '[0].path', '');
 
-    const validSections = [
-        '/economia/campo',
-        '/autos',
-        '/salud',
-        '/propiedades',
-        '/espectaculos',
-        '/sociedad',
-        '/tecnologia',
-        '/el-mundo',
-        '/lifestyle',
-        '/seguridad',
-        '/deportes'
-    ];
+    const invalidSections = ['/opinion', '/politica', '/recetas'];
 
-    return validSections.some(validSection => section.startsWith(validSection));
+    if (section) {
+        return !invalidSections.some(invalidSection =>
+            section.startsWith(invalidSection)
+        );
+    }
+
+    return false;
 };
 
 export const transformPromoItems = async ({
