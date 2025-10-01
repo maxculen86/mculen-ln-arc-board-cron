@@ -1,11 +1,27 @@
-export const getNotaCardsData = globalContent => {
-    const { headlines, subheadlines, description, contentElements } =
-        globalContent || {};
+export const getNotaCardsAperturaData = globalContent => {
+    const {
+        headlines: { basic: title = '' } = {},
+        subheadlines: { basic: subtitle = '' } = {},
+        description: { basic: description = '' } = {},
+        credits: { by: authors = [] } = {},
+        first_publish_date: publishDate,
+        label
+    } = globalContent || {};
+
+    const dataMeta = {
+        publishDate,
+        authors,
+        label
+    };
+
+    const dataContent = {
+        title,
+        subtitle,
+        description
+    };
 
     return {
-        title: headlines?.basic || '',
-        subtitle: subheadlines?.basic || '',
-        description: description?.basic || '',
-        contentElements: contentElements || []
+        dataMeta,
+        dataContent
     };
 };

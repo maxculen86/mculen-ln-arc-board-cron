@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OpeningContent from './OpeningContent';
-import OpeningMedia from './OpeningMedia';
 import OpeningMeta from './OpeningMeta';
 
 function NotaOpening({ children }) {
@@ -21,16 +20,7 @@ function NotaOpening({ children }) {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            {/* Foto/Video (obligatorio) */}
-                            <NotaOpening.Media />
-
-                            {/* Meta información: Fecha, Autor, Sharestar */}
-                            <NotaOpening.Meta />
-
-                            {/* Contenido: Título, Bajada, etc. */}
-                            <NotaOpening.Content />
-
-                            {/* Contenido adicional de PageBuilder */}
+                            {/* Componentes controlados desde el layout - datos del globalContent */}
                             {children}
                         </div>
                     </div>
@@ -41,15 +31,12 @@ function NotaOpening({ children }) {
 }
 
 NotaOpening.Content = OpeningContent;
-NotaOpening.Media = OpeningMedia;
 NotaOpening.Meta = OpeningMeta;
 
 NotaOpening.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node.isRequired
 };
 
-NotaOpening.defaultProps = {
-    children: null
-};
+NotaOpening.defaultProps = {};
 
 export default NotaOpening;
