@@ -16,7 +16,8 @@ const useGridArticlesFoodit = ({
 
     const queryLayout = {
         [layoutsName.FooditAcumulado]: 'sectionId',
-        [layoutsName.FooditChef]: 'authorId'
+        [layoutsName.FooditChef]: 'authorId',
+        [layoutsName.FooditSubcategorias]: 'sectionId'
     };
     const queryId = queryLayout[layout];
 
