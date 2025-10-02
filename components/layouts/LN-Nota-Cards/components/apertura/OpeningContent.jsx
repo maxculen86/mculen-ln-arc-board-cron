@@ -1,28 +1,35 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
+import PropTypes from 'prop-types';
 
-function OpeningContent() {
-    const { globalContent } = useAppContext();
-    const { headlines, subheadlines, description } = globalContent || {};
+function OpeningContent({ data }) {
+    const { title, subtitle, description } = data || {};
 
     return (
         <div className="nota-cards__opening-content">
             {/* Volanta (opcional) */}
-            {subheadlines?.basic && (
-                <div className="nota-cards__volanta">{subheadlines.basic}</div>
-            )}
+            {subtitle && <div className="nota-cards__volanta">{subtitle}</div>}
 
             {/* Título (obligatorio) */}
-            {headlines?.basic && (
-                <h1 className="nota-cards__title">{headlines.basic}</h1>
-            )}
+            {title && <h1 className="nota-cards__title">{title}</h1>}
 
             {/* Bajada (opcional) */}
-            {description?.basic && (
-                <div className="nota-cards__bajada">{description.basic}</div>
+            {description && (
+                <div className="nota-cards__bajada">{description}</div>
             )}
         </div>
     );
 }
+
+OpeningContent.propTypes = {
+    data: PropTypes.shape({
+        title: PropTypes.string,
+        subtitle: PropTypes.string,
+        description: PropTypes.string
+    })
+};
+
+OpeningContent.defaultProps = {
+    data: {}
+};
 
 export default OpeningContent;

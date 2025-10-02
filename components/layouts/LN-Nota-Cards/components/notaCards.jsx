@@ -1,10 +1,15 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 import { BaseLayout } from '../../../features/LN-10-global/common/baseLayout/default';
+import { getNotaCardsAperturaData } from '../_helpers/notaCardsHelper';
 import NotaOpening from './apertura/NotaOpening';
 import NotaBody from './body/NotaBody';
 
 function NotaCards({ children }) {
+    const { globalContent } = useAppContext();
+    const { dataMeta, dataContent } = getNotaCardsAperturaData(globalContent);
+
     return (
         <BaseLayout className="nota-cards">
             <main id="content" className="relative" style={{ paddingTop: '0' }}>
@@ -12,7 +17,10 @@ function NotaCards({ children }) {
                 {children[0]}
 
                 {/* ---- APERTURA ---- */}
-                <NotaCards.Opening>{children[1]}</NotaCards.Opening>
+                <NotaCards.Opening>
+                    <NotaOpening.Meta data={dataMeta} />
+                    <NotaOpening.Content data={dataContent} />
+                </NotaCards.Opening>
 
                 <div className="lay-sidebar pt-16 pt-32_m">
                     <div className="row">

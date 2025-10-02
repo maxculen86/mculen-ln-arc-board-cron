@@ -1,9 +1,8 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
+import PropTypes from 'prop-types';
 
-function OpeningMeta() {
-    const { globalContent } = useAppContext();
-    const { publishDate, credits, label } = globalContent || {};
+function OpeningMeta({ data }) {
+    const { publishDate, authors, label } = data || {};
 
     return (
         <div className="nota-cards__opening-meta">
@@ -19,13 +18,13 @@ function OpeningMeta() {
             )}
 
             {/* Autor (opcional) */}
-            {credits?.by && credits.by.length > 0 && (
+            {authors && authors.length > 0 && (
                 <div className="nota-cards__author">
-                    Por {credits.by.map(author => author.name).join(', ')}
+                    Por {authors.map(author => author.name).join(', ')}
                 </div>
             )}
 
-            {/* Chapita/Label (opcionall) */}
+            {/* Chapita/Label (opcional) */}
             {label?.basic?.text && (
                 <div className="nota-cards__label">{label.basic.text}</div>
             )}
@@ -37,5 +36,25 @@ function OpeningMeta() {
         </div>
     );
 }
+
+OpeningMeta.propTypes = {
+    data: PropTypes.shape({
+        publishDate: PropTypes.string,
+        authors: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string
+            })
+        ),
+        label: PropTypes.shape({
+            basic: PropTypes.shape({
+                text: PropTypes.string
+            })
+        })
+    })
+};
+
+OpeningMeta.defaultProps = {
+    data: {}
+};
 
 export default OpeningMeta;
