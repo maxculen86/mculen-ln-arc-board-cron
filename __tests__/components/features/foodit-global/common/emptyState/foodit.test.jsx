@@ -93,4 +93,12 @@ describe('EmptyState component', () => {
         const { container } = render(<EmptyState variant="empty-state" />);
         expect(container).toMatchSnapshot();
     });
+    it('should match snapshot with variant "search-engine"', () => {
+        const { container } = render(<EmptyState variant="search-engine" />);
+        expect(container).toMatchSnapshot();
+    });
+    it('should match snapshot with variant "404"', () => {
+        const { container } = render(<EmptyState variant="404" />);
+        expect(container).toMatchSnapshot();
+    });
 });
