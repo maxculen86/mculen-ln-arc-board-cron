@@ -5,6 +5,7 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import siteProperties from '../../../../../properties/sites/foodit';
 
 const EMPTY_STATE = '¡Aún no hay nada por acá!';
+const classNameImg = '-mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg';
 const NEED_SUBSCRIPTION =
     'Para realizar esta acción es necesario que tengas una suscripción.';
 
@@ -87,17 +88,17 @@ export const imagePropsByVariant = {
     'empty-state': {
         asset: 'empty-state-recetario.webp',
         alt: EMPTY_STATE,
-        className: 'mb-16 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg'
+        className: classNameImg
     },
     'search-engine': {
         asset: 'empty-state-recetario.webp',
         alt: EMPTY_STATE,
-        className: 'mb-16 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg'
+        className: classNameImg
     },
     404: {
         asset: 'logo-404.png',
         alt: 'Logo Foodit',
-        className: 'mb-16 w-87 h-91'
+        className: '-mb-8 w-87 h-91'
     }
 };
 
