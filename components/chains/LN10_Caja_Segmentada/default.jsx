@@ -12,7 +12,7 @@ import {
 } from './_helpers';
 import { validateChain } from './common/_helper-WebApi';
 import setRender from '../utils/setRender';
-import { LazyLoad } from '../../features/foodit-global/common/LazyLoad/foodit';
+import LazyLoad from '../../common/LazyLoad/LazyLoad';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import diagramationRules from '../../private/common/utils/diagramationRules';
 import { useRoofData } from '../utils/_helpers';
@@ -202,6 +202,7 @@ function CajaSegmentada(props) {
 }
 
 CajaSegmentada.label = 'LN10-Caja_segmentada';
+CajaSegmentada.lazy = true;
 
 CajaSegmentada.propTypes = {
     id: PropTypes.string.isRequired,
