@@ -18,7 +18,7 @@ describe('boxInfoComplete', () => {
                 baseUrl:
                     'https://resizer.glanacion.com/resizer/St345WHZ7M-ivyh4DePogW29w-k=/560x373/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG',
                 absoluteUrl:
-                    'https://resizer.glanacion.com/resizer/St345WHZ7M-ivyh4DePogW29w-k=/560x373/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG?auth=5a213a7fba7130e3075ea9de05aaae64f4c4eaa09e2fea198450ecfa10236015&width=512&height=341&quality=90&smart=true'
+                    'https://resizer.glanacion.com/resizer/St345WHZ7M-ivyh4DePogW29w-k=/560x373/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG'
             },
             imagenUrl:
                 'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HFIF34USKFA4NFO3QFLQHPBEZI.png',
