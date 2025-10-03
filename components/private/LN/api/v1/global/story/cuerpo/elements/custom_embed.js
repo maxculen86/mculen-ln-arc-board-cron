@@ -28,14 +28,16 @@ const customEmbed = (nodo, dataNota) => {
 
     const res = [];
 
+    const titleElement = get(nodo, 'embed.config.title', null);
+    const time = getTime(get(nodo, 'embed.config.time', null));
+    const videoJWElement = get(nodo, 'embed.config.videoJw', null);
+
     if (nodo.subtype === 'custom-video-jw' || nodo.subtype === 'video_jw') {
-        const videoJWElement = get(nodo, 'embed.config.videoJw', null);
         res.push(videoJW(videoJWElement));
         return res;
     }
 
-    const titleElement = get(nodo, 'embed.config.title', null);
-    const time = getTime(get(nodo, 'embed.config.time', null));
+
     if (titleElement) {
         const objTitle = {
             type: 'header',

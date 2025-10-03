@@ -42,12 +42,10 @@ export const storyHeadline = (dataNota, type) => {
         dateAndTimeUtil(displayDate);
 
     return {
-        fechaActualizacion: `${formatDislplayDate}${
-            !isPrintEdition ? ` • ${formatDislplayTime}` : ''
-        }`,
-        fecha: `${formatPublishDate}${
-            !isPrintEdition ? ` • ${formatUpdateTime}` : ''
-        }`
+        fechaActualizacion: `${formatDislplayDate}${!isPrintEdition ? ` • ${formatDislplayTime}` : ''
+            }`,
+        fecha: `${formatPublishDate}${!isPrintEdition ? ` • ${formatUpdateTime}` : ''
+            }`
     };
 };
 
@@ -90,7 +88,7 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const resp = {
         id,
-        template: template === '6' || template === '5' ? '1' : template,
+        template: template === '6' || template === '5' || template === '13' ? '1' : template,
         url,
         readingTime:
             readingMinutes !== 0 && !isExcludedSubtype(subtype)

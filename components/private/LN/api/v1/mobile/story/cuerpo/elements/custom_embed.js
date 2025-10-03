@@ -21,7 +21,8 @@ const customEmbed = (nodo, dataNota) => {
             'custom-parallax',
             'custom-liveblog',
             'custom-video-jw',
-            'video_jw'
+            'video_jw',
+            'custom-how-to'
         ].includes(nodo.subtype)
     )
         return null;
@@ -36,6 +37,18 @@ const customEmbed = (nodo, dataNota) => {
 
     const titleElement = get(nodo, 'embed.config.title', null);
     const time = getTime(get(nodo, 'embed.config.time', null));
+    const step = get(nodo, 'embed.config.step', '');
+    console.log(nodo.embed.config.step)
+
+    if (nodo.subtype === 'custom-how-to') {
+        const objTitle = {
+            _t: 'header',
+            level: 1,
+            value: `${step} - ${titleElement}`
+        };
+        res.push(objTitle);
+        return res;
+    }
 
     if (titleElement) {
         const objTitle = {
