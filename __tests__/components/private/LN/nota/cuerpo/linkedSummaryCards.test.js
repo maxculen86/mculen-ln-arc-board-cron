@@ -5,6 +5,10 @@ jest.mock('fusion:consumer', () => {
     return jest.fn(Component => Component);
 });
 
+jest.mock('private/common/hooks/useViewportSize', () => {
+    return jest.fn(() => 'desktop');
+});
+
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn(() => ({
         outputType: 'default',
@@ -128,7 +132,7 @@ jest.mock(
 
 describe('BodyCards', () => {
     it('renders cards correctly', () => {
-        render(<LinkedSummaryCards customFields={{}} />);
+        render(<LinkedSummaryCards />);
 
         expect(screen.getByTestId('cards-grid')).toBeInTheDocument();
 
@@ -141,7 +145,7 @@ describe('BodyCards', () => {
             require('../../../../../../components/layouts/helpers/groupingUtils').groupByMarkers;
         mockGroupByMarkers.mockReturnValueOnce([]);
 
-        const { container } = render(<LinkedSummaryCards customFields={{}} />);
+        const { container } = render(<LinkedSummaryCards />);
         expect(container.firstChild).toBeNull();
     });
 });
