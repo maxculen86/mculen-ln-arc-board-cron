@@ -38,7 +38,6 @@ const customEmbed = (nodo, dataNota) => {
     const titleElement = get(nodo, 'embed.config.title', null);
     const time = getTime(get(nodo, 'embed.config.time', null));
     const step = get(nodo, 'embed.config.step', '');
-    console.log(nodo.embed.config.step)
 
     if (nodo.subtype === 'custom-how-to') {
         const objTitle = {
