@@ -35,29 +35,29 @@ const customEmbed = (nodo, dataNota) => {
         return res;
     }
 
-    const titleElement = get(nodo, 'embed.config.title', null);
     const time = getTime(get(nodo, 'embed.config.time', null));
-    const step = get(nodo, 'embed.config.step', '');
+    const title = (get(nodo, 'embed.config.title', '') ?? '');
+    const step = (get(nodo, 'embed.config.step', '') ?? '');
 
     if (nodo.subtype === 'custom-how-to') {
         const objTitle = {
             _t: 'header',
             level: 1,
-            value: `${step} - ${titleElement}`
+            value: `${step} - ${title}`
         };
         res.push(objTitle);
         return res;
     }
 
-    if (titleElement) {
+    if (title) {
         const objTitle = {
             type: 'header',
-            content: titleElement
+            content: title
         };
         if (nodo.subtype === 'custom-liveblog') {
             objTitle.level = 1;
             if (time) {
-                objTitle.content = time.concat(' '.concat(titleElement));
+                objTitle.content = time.concat(' '.concat(title));
             }
         } else {
             objTitle.level = 2;
