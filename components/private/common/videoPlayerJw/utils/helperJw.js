@@ -1,6 +1,13 @@
 import {
     isInDatalayerEvent,
-    addVideoDisplayEvent
+    addVideoDisplayEvent,
+    updatedMediaData,
+    pushVideoControlEvent,
+    isBackwardTenSeconds,
+    shouldTrackRelatedOpen,
+    getFullscreenAction,
+    getMuteAction,
+    registerVolumeRelease
 } from '../../utils/videoPlayerHelper';
 
 import {
@@ -77,14 +84,50 @@ export const handleVideoEventsScript = (
     videoOrientation = 'horizontal'
 ) => {
     const player = window.jwplayer(`${idVideo}`);
+    let currentTitle = title;
+    let currentId = idVideo;
+    let firstPlay = true;
+    let skipPlayForSeek = false;
+    let volumeDragActive = false;
+
+    ({ title: currentTitle, id: currentId } = updatedMediaData(
+        player.getPlaylistItem?.(),
+        { title: currentTitle, id: currentId }
+    ));
+
     player.on('ready', () => {
         const element = document.querySelector('.video-player');
         if (element) element.classList.remove('bg-black');
     });
 
-    let firstPlay = true;
+    player.on('seek', event => {
+        skipPlayForSeek = true;
+
+        if (isBackwardTenSeconds(event)) {
+            pushVideoControlEvent({
+                id: currentId,
+                title: currentTitle,
+                action: 'delay'
+            });
+        }
+    });
+
+    player.on('playlistItem', item => {
+        ({ title: currentTitle, id: currentId } = updatedMediaData(item, {
+            title: currentTitle,
+            id: currentId
+        }));
+        firstPlay = true;
+        skipPlayForSeek = false;
+        volumeDragActive = false;
+    });
 
     player.on('play', (e = {}) => {
+        if (skipPlayForSeek) {
+            skipPlayForSeek = false;
+            return;
+        }
+
         let mode;
         if (firstPlay && initialVideoMode) {
             mode = initialVideoMode;
@@ -97,8 +140,8 @@ export const handleVideoEventsScript = (
 
         addEventToDataLayerV2({
             event: 'videoPlay',
-            videoName: `${title}`,
-            videoID: `${idVideo}`,
+            videoName: `${currentTitle}`,
+            videoID: `${currentId}`,
             rest: { mode, videoOrientation }
         });
     });
@@ -106,8 +149,64 @@ export const handleVideoEventsScript = (
     player.on('pause', () => {
         addEventToDataLayerV2({
             event: 'videoPause',
-            videoName: `${title}`,
-            videoID: `${idVideo}`
+            videoName: `${currentTitle}`,
+            videoID: `${currentId}`
+        });
+    });
+
+    player.on('mute', event => {
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: getMuteAction(event)
+        });
+    });
+
+    player.on('levelsChanged', () => {
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: 'config'
+        });
+    });
+
+    player.on('relatedReady', () => {
+        const related = player.getPlugin?.('related');
+
+        related.on('open', event => {
+            if (!shouldTrackRelatedOpen(event)) return;
+
+            pushVideoControlEvent({
+                id: currentId,
+                title: currentTitle,
+                action: 'mas_videos'
+            });
+        });
+    });
+
+    player.on('volume', () => {
+        if (volumeDragActive) {
+            return;
+        }
+
+        volumeDragActive = true;
+
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: 'volumen'
+        });
+
+        registerVolumeRelease(() => {
+            volumeDragActive = false;
+        });
+    });
+
+    player.on('fullscreen', event => {
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: getFullscreenAction(event)
         });
     });
 
@@ -117,24 +216,24 @@ export const handleVideoEventsScript = (
 
         percentagesToCheck.forEach(percentage => {
             if (
-                !isInDatalayerEvent(percentage.toString(), `${idVideo}`) &&
+                !isInDatalayerEvent(percentage.toString(), `${currentId}`) &&
                 percent === percentage
             ) {
                 addEventToDataLayerV2({
                     event: percentage.toString(),
-                    videoName: `${title}`,
-                    videoID: `${idVideo}`
+                    videoName: `${currentTitle}`,
+                    videoID: `${currentId}`
                 });
             }
         });
     });
 
     player.on('complete', () => {
-        if (!isInDatalayerEvent('videoComplete', `${idVideo}`)) {
+        if (!isInDatalayerEvent('videoComplete', `${currentId}`)) {
             addEventToDataLayerV2({
                 event: 'videoComplete',
-                videoName: `${title}`,
-                videoID: `${idVideo}`
+                videoName: `${currentTitle}`,
+                videoID: `${currentId}`
             });
         }
     });
