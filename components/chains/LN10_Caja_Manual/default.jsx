@@ -103,8 +103,7 @@ function CajaManual(props) {
         isAdmin,
         chainStyle,
         isManual: true,
-        isStatic: !hasVariants,
-        shouldLoadRoof: !hideCaja && !error
+        isStatic: !hasVariants
     });
 
     const { bannerMob = undefined, bannerDsk = undefined } =
