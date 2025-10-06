@@ -6,7 +6,6 @@ import {
     hasValidationFailed,
     shouldFetchContent,
     shouldHideComponent,
-    isBoxEnabled,
     shouldShowComponent,
     shouldShowPlaceholder
 } from './_helpers';
@@ -52,6 +51,13 @@ function CajaSegmentada(props) {
     } = customFields;
 
     const layout = LAYOUTS.LOGO_3_GRID;
+
+    const roofData = useRoofData({
+        ...propsForRoof,
+        chainStyle: undefined,
+        isAdmin,
+        isStatic: false
+    });
 
     const viewabilityRoof = getViewabilityRoof(
         chainId,
@@ -120,20 +126,7 @@ function CajaSegmentada(props) {
         isLoadingArticles
     });
 
-    const shouldLoadRoof = isBoxEnabled({
-        termica,
-        configError,
-        hideCaja,
-        enabledDays
-    });
-
-    const roofData = useRoofData({
-        ...propsForRoof,
-        chainStyle: undefined,
-        isAdmin,
-        isStatic: false,
-        shouldLoadRoof
-    });
+    useProductClickTracker(articles, chainId);
 
     const ContainerCards = getComponent('', layout);
 
