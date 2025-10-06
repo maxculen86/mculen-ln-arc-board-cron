@@ -325,6 +325,7 @@ const customPowerUps = `
                     }
                 }
             }
+            title
             step
             paragraph
             typeList
