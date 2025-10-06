@@ -82,4 +82,64 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
         expect(resp[0]['level']).toBe(1);
         expect(resp[0]['value']).toBe('08:46 Gym 1 Ciudad Plateada');
     });
+
+
+    describe('Test de los elementos custom-how-to en el cuerpo de una nota', () => {
+        it('Test custom-how-to con step y título', () => {
+            const nodo = {
+                subtype: 'custom-how-to',
+                embed: {
+                    config: {
+                        step: '1',
+                        title: '¿Cómo usar el estilo <i>Studio Ghibli </i>en ChatGPT?'
+                    }
+                }
+            };
+            const resp = CustomEmbed(nodo);
+            expect(resp[0]['_t']).toBe('header');
+            expect(resp[0]['level']).toBe(1);
+            expect(resp[0]['value']).toBe('1 - ¿Cómo usar el estilo <i>Studio Ghibli </i>en ChatGPT?');
+        });
+
+        it('Test custom-how-to sin step', () => {
+            const nodo = {
+                subtype: 'custom-how-to',
+                embed: {
+                    config: {
+                        title: 'Solo título'
+                    }
+                }
+            };
+            const resp = CustomEmbed(nodo);
+            expect(resp[0]['_t']).toBe('header');
+            expect(resp[0]['level']).toBe(1);
+            expect(resp[0]['value']).toBe(' - Solo título');
+        });
+
+        it('Test custom-how-to sin título', () => {
+            const nodo = {
+                subtype: 'custom-how-to',
+                embed: {
+                    config: {
+                        step: '2'
+                    }
+                }
+            };
+            const resp = CustomEmbed(nodo);
+            expect(resp[0]['_t']).toBe('header');
+            expect(resp[0]['level']).toBe(1);
+            expect(resp[0]['value']).toBe('2 - ');
+        });
+
+        it('Test custom-how-to sin config', () => {
+            const nodo = {
+                subtype: 'custom-how-to',
+                embed: {}
+            };
+            const resp = CustomEmbed(nodo);
+            expect(resp[0]['_t']).toBe('header');
+            expect(resp[0]['level']).toBe(1);
+            expect(resp[0]['value']).toBe(' - ');
+        });
+    });
 });
