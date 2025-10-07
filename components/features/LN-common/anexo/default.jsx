@@ -164,7 +164,8 @@ function AnexoFeature(props) {
         buttonStyle,
         mobileFullWidth,
         hideTitle,
-        enabledDays = []
+        enabledDays = [],
+        shouldSchedule = false
     } = customFields;
 
     const isPreApertura = isInSection({
@@ -180,7 +181,11 @@ function AnexoFeature(props) {
 
     const isHome = layout === get(siteProperties, 'layoutsName.HomeLN10');
 
-    if (isHome && !isTodayEnabled(enabledDays)) {
+    const schedulingEnabled = shouldSchedule && !isAdmin;
+    const isTodayAllowed =
+        enabledDays.length > 0 && isTodayEnabled(enabledDays);
+
+    if (schedulingEnabled && !isTodayAllowed) {
         return null;
     }
 
@@ -400,6 +405,12 @@ AnexoFeature.propTypes = {
             description:
                 'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
             defaultValue: []
+        }),
+        shouldSchedule: PropTypes.boolean.tag({
+            name: 'Activar Calendarización',
+            description:
+                'Marque para mostrar en los días configurados. Desmarque para mostrar todos los días.',
+            defaultValue: false
         })
     }).isRequired
 };
