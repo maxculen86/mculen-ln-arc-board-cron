@@ -346,4 +346,20 @@ describe('CajaSegmentada', () => {
             })
         );
     });
+
+    it('passes scheduling flag to validation helpers', () => {
+        const props = {
+            ...defaultProps,
+            customFields: {
+                ...defaultProps.customFields,
+                shouldSchedule: true
+            }
+        };
+
+        render(<CajaSegmentada {...props} />);
+
+        expect(hasValidationFailed).toHaveBeenCalledWith(
+            expect.objectContaining({ shouldSchedule: true })
+        );
+    });
 });

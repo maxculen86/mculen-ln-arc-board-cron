@@ -47,6 +47,7 @@ function CajaSegmentada(props) {
         enabledDays = [],
         hideCaja = false,
         initialPosition,
+        shouldSchedule = false,
         ...propsForRoof
     } = customFields;
 
@@ -77,7 +78,8 @@ function CajaSegmentada(props) {
         configError,
         hideCaja,
         enabledDays,
-        token
+        token,
+        shouldSchedule
     });
 
     const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
@@ -140,8 +142,6 @@ function CajaSegmentada(props) {
         false,
         viewabilityRoof
     );
-
-    useProductClickTracker(articles, chainId);
 
     return (
         <div
@@ -294,6 +294,12 @@ CajaSegmentada.propTypes = {
             description:
                 'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
             defaultValue: []
+        }),
+        shouldSchedule: PropTypes.boolean.tag({
+            name: 'Activar Calendarización',
+            description:
+                'Marque para mostrar en los días configurados. Desmarque para mostrar todos los días.',
+            defaultValue: false
         })
     }).isRequired
 };

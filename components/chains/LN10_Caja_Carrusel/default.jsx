@@ -25,7 +25,12 @@ function CajaCarrusel(props) {
         siteProperties: { layoutsName = {} },
         layout,
         children,
-        customFields: { hideCarousel, enabledDays = [], ...propsForRoof },
+        customFields: {
+            hideCarousel,
+            enabledDays = [],
+            shouldSchedule = false,
+            ...propsForRoof
+        },
         childProps = [],
         chainId,
         renderables
@@ -69,7 +74,8 @@ function CajaCarrusel(props) {
         error,
         isHome,
         hideCarousel,
-        enabledDays
+        enabledDays,
+        shouldSchedule
     });
 
     if (hasError) {
@@ -210,6 +216,12 @@ CajaCarrusel.propTypes = {
             description:
                 'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
             defaultValue: []
+        }),
+        shouldSchedule: PropTypes.boolean.tag({
+            name: 'Activar Calendarizacion',
+            description:
+                'Marque para mostrar en los días configurados, Desmarque para mostrar todos los dias',
+            defaultValue: false
         })
     }).isRequired,
     chainId: PropTypes.string.isRequired,
