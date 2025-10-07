@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
 import get from '../../../../../../../components/private/common/utils/get';
 import { getUniqueAuthorsFromPosts } from '../../../../../../../components/layouts/LN-Nota-Liveblog_Editorial/_helpers/getUniqueAuthorsFromPosts';
-import { useLiveblogAuthors } from '../../../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/authorsBox/hook/useLiveblogAuthors';
+import { useLiveblogAuthors } from '../../../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/body/authorBox/hook/useLiveblogAuthors';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()

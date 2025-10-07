@@ -49,8 +49,20 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
             ];
 
             expect(getUniqueAuthorsFromPosts(posts)).toEqual([
-                { id: '1', name: 'Juan', photo: 'GENERIC_PHOTO' },
-                { id: '2', name: 'Ana', photo: 'GENERIC_PHOTO' }
+                {
+                    id: '1',
+                    name: 'Juan',
+                    firstName: 'Juan',
+                    lastName: 'Pérez',
+                    image: { alt: 'Juan' }
+                },
+                {
+                    id: '2',
+                    name: 'Ana',
+                    firstName: 'Juan',
+                    lastName: 'Pérez',
+                    image: { alt: 'Ana' }
+                }
             ]);
         });
 
@@ -63,11 +75,17 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
             ];
 
             expect(getUniqueAuthorsFromPosts(posts)).toEqual([
-                { id: 'Carlos', name: 'Carlos', photo: 'GENERIC_PHOTO' }
+                {
+                    id: 'Carlos',
+                    name: 'Carlos',
+                    firstName: 'Juan',
+                    lastName: 'Pérez',
+                    image: { alt: 'Carlos' }
+                }
             ]);
         });
 
-        it('should respect photo if it exists, or use GENERIC_PHOTO', () => {
+        it('should respect photo if it exists', () => {
             isCustomLiveblog.mockReturnValue(true);
             get.mockReturnValue([
                 { id: '99', name: 'Lucía', photo: 'custom-photo.png' }
@@ -90,7 +108,13 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
             ];
 
             expect(getUniqueAuthorsFromPosts(posts)).toEqual([
-                { id: '99', name: 'Lucía', photo: 'custom-photo.png' }
+                {
+                    id: '99',
+                    name: 'Lucía',
+                    firstName: 'Juan',
+                    lastName: 'Pérez',
+                    image: { alt: 'Lucía', src: 'custom-photo.png' }
+                }
             ]);
         });
     });

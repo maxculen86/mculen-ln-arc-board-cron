@@ -20,8 +20,13 @@ export const getUniqueAuthorsFromPosts = (posts = []) => {
             authorsMap.set(id, {
                 id,
                 name: author.name,
-                // TODO: AGREGAR IMAGEN POR DEFAULT
-                photo: author.photo || 'GENERIC_PHOTO'
+                // TODO: Agregar datos para nombre y apellido para el autor
+                firstName: 'Juan',
+                lastName: 'Pérez',
+                image: {
+                    src: author.photo,
+                    alt: author.name
+                }
             });
         });
     });

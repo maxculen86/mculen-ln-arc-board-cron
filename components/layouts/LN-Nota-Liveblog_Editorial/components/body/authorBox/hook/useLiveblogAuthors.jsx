@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useAppContext } from 'fusion:context';
-import { getUniqueAuthorsFromPosts } from '../../../_helpers/getUniqueAuthorsFromPosts';
-import get from '../../../../../private/common/utils/get';
+import { getUniqueAuthorsFromPosts } from '../../../../_helpers/getUniqueAuthorsFromPosts';
+import get from '../../../../../../private/common/utils/get';
 
 export const useLiveblogAuthors = () => {
     const { globalContent } = useAppContext();
