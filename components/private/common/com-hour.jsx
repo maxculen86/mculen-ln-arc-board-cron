@@ -1,41 +1,29 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import dateAndTimeUtil, { addHoursAndFormat } from './utils/dateAndTimeUtil';
+import dateAndTimeUtil from './utils/dateAndTimeUtil';
+import { formatTimelineTime } from '../../features/common/timezone/utils/timezoneConversion';
 import '../../../resources/dist/css/ln/components/com-hour.css';
 
-const ComHour = props => {
-    const {
-        display_date: displayDate,
-        labelEdicionImpresa,
-        size,
-        isUltimasNoticias
-    } = props;
+function ComHour(props) {
+    const { display_date: displayDate, labelEdicionImpresa, size } = props;
     const { text: textEdicionImpresa } = labelEdicionImpresa || {};
-    const { time } = !isUltimasNoticias
-        ? dateAndTimeUtil(displayDate)
-        : dateAndTimeUtil(addHoursAndFormat(3, displayDate));
-    return (
-        <>
-            {textEdicionImpresa !== 'Impresa' ? (
-                <time className={`com-hour ${size || '--twoxs'}`}>{time}</time>
-            ) : (
-                <></>
-            )}
-        </>
-    );
-};
+    const adjustedTime = formatTimelineTime(displayDate);
+    const { time: fallbackTime } = dateAndTimeUtil(displayDate);
+    const time = adjustedTime || fallbackTime;
+    return textEdicionImpresa !== 'Impresa' ? (
+        <time className={`com-hour ${size || '--twoxs'}`}>{time}</time>
+    ) : null;
+}
 
 ComHour.propTypes = {
     display_date: PropTypes.string.isRequired,
     labelEdicionImpresa: PropTypes.string,
-    size: PropTypes.string,
-    isUltimasNoticias: PropTypes.boolean
+    size: PropTypes.string
 };
 
 ComHour.defaultProps = {
     labelEdicionImpresa: null,
-    size: '',
-    isUltimasNoticias: false
+    size: ''
 };
 
 export default ComHour;
