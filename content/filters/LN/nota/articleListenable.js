@@ -217,6 +217,9 @@ const labels = `
             display
             text
         }
+        mostrar_caja_autores{
+            ${label}
+        }
     }
 `;
 const table = `

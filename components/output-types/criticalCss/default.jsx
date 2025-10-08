@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 import get from '../../private/common/utils/get';
 import { criticalCssPathsBySite } from './helpers';
 import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
+import config from '../../../properties/sites/la-nacion-ar';
 
+const {
+    layoutsName: { Acumulado, Deportes, HomeLN10, LiveBlog }
+} = config;
 export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
     if (!Resource || typeof Resource !== 'function') {
         return null;
@@ -14,9 +18,10 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
     const stylePath = get(siteConfig, `.${layout}`, siteConfig.default || '');
 
     const listOfAllowedSection = [
-        { pageLayout: 'LN-acumulado' },
-        { pageLayout: 'LN-Home_Sports' },
-        { pageLayout: 'LN10-Home_Main' }
+        { pageLayout: Acumulado },
+        { pageLayout: Deportes },
+        { pageLayout: HomeLN10 },
+        { pageLayout: LiveBlog }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,
