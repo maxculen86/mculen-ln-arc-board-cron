@@ -11,6 +11,16 @@ import {
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 import { SITE_LANACION as SITE_LANACION_MOCK } from 'fusion:environment';
 
+jest.mock(
+    '../../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/body/authorBox/hook/useLiveblogAuthors',
+    () => ({
+        useLiveblogAuthors: () => ({
+            authors: [{ name: 'Redacción LA NACION' }],
+            shouldShow: true
+        })
+    })
+);
+
 jest.mock('fusion:environment', () => ({
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
