@@ -28,16 +28,14 @@ jest.mock(
 
 jest.mock('../../../../components/chains/utils/setRender', () => jest.fn());
 
-jest.mock(
-    '../../../../components/features/foodit-global/common/LazyLoad/foodit',
-    () => ({
-        LazyLoad: ({ children, onViewport, showComponent }) => (
-            <div data-testid="lazy-load" onClick={onViewport}>
-                {showComponent && children}
-            </div>
-        )
-    })
-);
+jest.mock('../../../../components/common/LazyLoad/LazyLoad', () => ({
+    __esModule: true,
+    default: ({ children, onViewport, showComponent }) => (
+        <div data-testid="lazy-load" onClick={onViewport}>
+            {showComponent && children}
+        </div>
+    )
+}));
 
 jest.mock(
     '../../../../components/private/LN10/home/components/CommonCollection/default',
