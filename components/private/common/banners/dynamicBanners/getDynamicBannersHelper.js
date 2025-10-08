@@ -1,3 +1,4 @@
+import { isTodayEnabled } from '../../../../chains/LN10_Caja_Segmentada/_helpers';
 import { getViewport } from '../../../LN/common/utils/homeHelper';
 import get from '../../utils/get';
 import bannersHome from '../bannersDivHome';
@@ -50,3 +51,17 @@ export const validateBanner = (
           !(sectionName === 'Apertura' && hasBomba(renderables)) &&
           bannersHome[sectionValues.bannersMob[currentBanner]]
         : sectionValues.intervalDsk === index + 1 && bannersHome.billboard;
+
+export const matchesEnabledDay = child => {
+    const shouldSchedule = get(
+        child,
+        'props.customFields.shouldSchedule',
+        false
+    );
+    if (!shouldSchedule) return true;
+
+    const enabledDays = get(child, 'props.customFields.enabledDays', []);
+    if (!Array.isArray(enabledDays) || enabledDays.length === 0) return false;
+
+    return isTodayEnabled(enabledDays);
+};

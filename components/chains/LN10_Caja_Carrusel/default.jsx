@@ -211,17 +211,17 @@ CajaCarrusel.propTypes = {
             description: 'Marque para ocultar el carousel',
             defaultValue: false
         }).isRequired,
-        enabledDays: PropTypes.list.tag({
-            name: 'Días habilitados',
-            description:
-                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
-            defaultValue: []
-        }),
         shouldSchedule: PropTypes.boolean.tag({
             name: 'Activar Calendarizacion',
             description:
                 'Marque para mostrar en los días configurados, Desmarque para mostrar todos los dias',
             defaultValue: false
+        }),
+        enabledDays: PropTypes.list.tag({
+            name: 'Días habilitados',
+            description:
+                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
+            defaultValue: []
         })
     }).isRequired,
     chainId: PropTypes.string.isRequired,

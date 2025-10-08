@@ -289,17 +289,17 @@ CajaSegmentada.propTypes = {
             description: 'Ingrese el ID del segmento para el mostrar la caja',
             defaultValue: ''
         }),
-        enabledDays: PropTypes.list.tag({
-            name: 'Días habilitados',
-            description:
-                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
-            defaultValue: []
-        }),
         shouldSchedule: PropTypes.boolean.tag({
             name: 'Activar Calendarización',
             description:
                 'Marque para mostrar en los días configurados. Desmarque para mostrar todos los días.',
             defaultValue: false
+        }),
+        enabledDays: PropTypes.list.tag({
+            name: 'Días habilitados',
+            description:
+                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
+            defaultValue: []
         })
     }).isRequired
 };

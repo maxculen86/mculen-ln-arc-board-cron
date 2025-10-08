@@ -31,7 +31,8 @@ export const getComponentFromConfig = (
     bannerMob,
     bannerDsk,
     roofData,
-    classNameRoof
+    classNameRoof,
+    isBillboardDsk
 ) => {
     const components = {
         Error: ({ id, errorMessage }) => (
@@ -43,6 +44,7 @@ export const getComponentFromConfig = (
         ),
         Html: ({ customFields: { html = '' }, anexoBaseClassNames }) => (
             <>
+                {isBillboardDsk && bannerDsk}
                 <div className={classNameRoof}>
                     <BuildRoof {...roofData} />
                 </div>
@@ -53,7 +55,7 @@ export const getComponentFromConfig = (
                     }}
                 />
                 {bannerMob}
-                {bannerDsk}
+                {!isBillboardDsk && bannerDsk}
             </>
         ),
         VivoYoutube: ({
@@ -72,6 +74,7 @@ export const getComponentFromConfig = (
 
             return (
                 <>
+                    {isBillboardDsk && bannerDsk}
                     <div className={classNameRoof}>
                         <BuildRoof {...roofData} />
                     </div>
@@ -86,7 +89,7 @@ export const getComponentFromConfig = (
                         className={anexoBaseClassNames}
                     />
                     {bannerMob}
-                    {bannerDsk}
+                    {!isBillboardDsk && bannerDsk}
                 </>
             );
         },
@@ -217,6 +220,9 @@ function AnexoFeature(props) {
     const { bannerMob = undefined, bannerDsk = undefined } =
         isHome && getDynamicBanners({ renderables, featureId: id });
 
+    const slotId = get(bannerDsk, 'props.bannerConfiguration.slotId', null);
+    const isBillboardDsk = slotId === 'billboard_dsk';
+
     const comp = () =>
         getComponentFromConfig(
             _type,
@@ -229,7 +235,8 @@ function AnexoFeature(props) {
             bannerMob,
             bannerDsk,
             roofData,
-            classNameRoof
+            classNameRoof,
+            isBillboardDsk
         );
 
     const anexoId = `anexo-responsive-${id}`;
@@ -400,17 +407,17 @@ AnexoFeature.propTypes = {
                 'Marque para que el anexo ocupe el ancho completo en mobile',
             defaultValue: false
         }),
-        enabledDays: PropTypes.list.tag({
-            name: 'Días habilitados',
-            description:
-                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
-            defaultValue: []
-        }),
         shouldSchedule: PropTypes.boolean.tag({
             name: 'Activar Calendarización',
             description:
                 'Marque para mostrar en los días configurados. Desmarque para mostrar todos los días.',
             defaultValue: false
+        }),
+        enabledDays: PropTypes.list.tag({
+            name: 'Días habilitados',
+            description:
+                'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
+            defaultValue: []
         })
     }).isRequired
 };
