@@ -70,7 +70,7 @@ function CajaCarrusel(props) {
         ...propsForRoof,
         isAdmin,
         isStatic: false,
-        shouldLoadRoof: !hide && !hasError
+        shouldLoadRoof: !hide
     });
 
     if (hasError) {

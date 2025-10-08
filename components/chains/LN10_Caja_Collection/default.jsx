@@ -135,7 +135,7 @@ function CajaCollection(props) {
         isAdmin,
         chainStyle,
         isStatic: true,
-        shouldLoadRoof: !hideCaja && !error
+        shouldLoadRoof: !hideCaja
     });
 
     const isExclusiveSub = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
