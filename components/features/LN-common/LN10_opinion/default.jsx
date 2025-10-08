@@ -97,15 +97,13 @@ function Opinion(props) {
         layout
     });
 
-    const shouldLoadRoof = !hideCaja && !error;
-
     const roofData = useRoofData({
         ...propsForRoof,
         title: propsForRoof.title || 'Opinión',
         link: url,
         isAdmin,
         isStatic: true,
-        shouldLoadRoof
+        shouldLoadRoof: !hideCaja
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(

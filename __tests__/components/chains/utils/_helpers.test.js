@@ -9,9 +9,16 @@ import {
     useRoofData,
     setStaticDynamically
 } from '../../../../components/chains/utils/_helpers';
+import useGetLogoImage from '../../../../components/private/common/hooks/useGetLogoImage';
+import { useContent } from 'fusion:content';
 import renderablesWithVariants from '../../../../__mocks__/data/renderables/dataWithVariants.json';
 import renderablesWithoutVariants from '../../../../__mocks__/data/renderables/data1.json';
 import StaticContentV2 from '../../../../components/chains/LN10-global/staticContentV2';
+
+jest.mock('fusion:content', () => ({
+    __esModule: true,
+    useContent: jest.fn()
+}));
 
 jest.mock(
     '../../../../components/private/common/hooks/useGetLogoImage',
@@ -45,6 +52,11 @@ const childrenWithVariants = [
 ];
 
 describe('Components - Chains - Utils - _helpers', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        useContent.mockReset();
+    });
+
     describe('checkVariants helper', () => {
         it('should return true when there are variants using children', () => {
             const hasVariants = checkVariants({
@@ -361,11 +373,7 @@ describe('Components - Chains - Utils - _helpers', () => {
 
     describe('useGetLinks helper', () => {
         it('should return an empty array when given an empty navigationSection', () => {
-            jest.mock('fusion:content', () => ({
-                useContent: jest.fn(() => ({
-                    children: []
-                }))
-            }));
+            useContent.mockReturnValue({ children: [] });
 
             const result = useGetLinks({ navigationSection: '' });
 
@@ -373,9 +381,7 @@ describe('Components - Chains - Utils - _helpers', () => {
         });
 
         it('should return an empty array when useContent returns undefined', () => {
-            jest.mock('fusion:content', () => ({
-                useContent: jest.fn(() => undefined)
-            }));
+            useContent.mockReturnValue(undefined);
 
             const result = useGetLinks({ navigationSection: 'section1' });
 
@@ -383,9 +389,7 @@ describe('Components - Chains - Utils - _helpers', () => {
         });
 
         it('should return an empty array when useContent returns an object without children', () => {
-            jest.mock('fusion:content', () => ({
-                useContent: jest.fn(() => ({}))
-            }));
+            useContent.mockReturnValue({});
 
             const result = useGetLinks({ navigationSection: 'section1' });
 
@@ -519,6 +523,58 @@ describe('Components - Chains - Utils - _helpers', () => {
 
             const result = useRoofData(props);
             expect(result).toEqual(expected);
+        });
+
+        it('should avoid loading assets when shouldLoadRoof is false', () => {
+            useContent.mockReturnValue({ children: [] });
+
+            const props = {
+                title: 'Test Title',
+                hideTitle: false,
+                chainStyle: 'testStyle',
+                logoId: 'testLogoId',
+                navigator: 'testNavigator',
+                buttonLogo: 'Test Button Logo',
+                shouldLoadRoof: false,
+                isStatic: false
+            };
+
+            useRoofData(props);
+
+            expect(useGetLogoImage).toHaveBeenNthCalledWith(1, false, false);
+            expect(useGetLogoImage).toHaveBeenNthCalledWith(2, false, false);
+            expect(useContent).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    source: null,
+                    staticMode: false
+                })
+            );
+        });
+
+        it('should avoid loading assets when hideTitle is true', () => {
+            useContent.mockReturnValue({ children: [] });
+
+            const props = {
+                title: 'Test Title',
+                hideTitle: true,
+                chainStyle: 'testStyle',
+                logoId: 'testLogoId',
+                navigator: 'testNavigator',
+                buttonLogo: 'Test Button Logo',
+                isStatic: true
+            };
+
+            const result = useRoofData(props);
+
+            expect(useGetLogoImage).toHaveBeenNthCalledWith(1, false, true);
+            expect(useGetLogoImage).toHaveBeenNthCalledWith(2, false, true);
+            expect(useContent).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    source: null,
+                    staticMode: true
+                })
+            );
+            expect(result.hideRoof).toBe(true);
         });
     });
 

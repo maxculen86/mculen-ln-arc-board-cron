@@ -33,8 +33,6 @@ function CajaPodcasts({ customFields, children, ...props }) {
 
     const error = validateGamesChain(layout, customFields, children, 'podcast');
 
-    const shouldLoadRoof = !hideCaja && !error;
-
     const roofData = useRoofData({
         logoId,
         link,
@@ -47,7 +45,7 @@ function CajaPodcasts({ customFields, children, ...props }) {
         linkButton,
         buttonStyle,
         isStatic: true,
-        shouldLoadRoof
+        shouldLoadRoof: !hideCaja
     });
 
     if (isAdmin && error) {

@@ -110,7 +110,7 @@ function CajaCanal(props) {
         isAdmin,
         chainStyle,
         isStatic: true,
-        shouldLoadRoof: !hideCaja && !error
+        shouldLoadRoof: !hideCaja
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
