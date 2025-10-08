@@ -22,7 +22,20 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
             isCustomLiveblog.mockReturnValue(false);
 
             const posts = [
-                { embed: { config: { authors: [{ id: '1', name: 'Juan' }] } } }
+                {
+                    embed: {
+                        config: {
+                            authors: [
+                                {
+                                    id: '1',
+                                    name: 'Juan',
+                                    firstName: 'Juan',
+                                    lastName: 'Perez'
+                                }
+                            ]
+                        }
+                    }
+                }
             ];
             expect(getUniqueAuthorsFromPosts(posts)).toEqual([]);
         });
@@ -39,8 +52,18 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
                     embed: {
                         config: {
                             authors: [
-                                { id: '1', name: 'Juan' },
-                                { id: '2', name: 'Ana' }
+                                {
+                                    id: '1',
+                                    name: 'Juan Pérez',
+                                    firstName: 'Juan',
+                                    lastName: 'Pérez'
+                                },
+                                {
+                                    id: '2',
+                                    name: 'Ana Pérez',
+                                    firstName: 'Ana',
+                                    lastName: 'Pérez'
+                                }
                             ]
                         }
                     }
@@ -51,36 +74,54 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
             expect(getUniqueAuthorsFromPosts(posts)).toEqual([
                 {
                     id: '1',
-                    name: 'Juan',
+                    name: 'Juan Pérez',
                     firstName: 'Juan',
                     lastName: 'Pérez',
-                    image: { alt: 'Juan' }
+                    image: { alt: 'Juan Pérez' }
                 },
                 {
                     id: '2',
-                    name: 'Ana',
-                    firstName: 'Juan',
+                    name: 'Ana Pérez',
+                    firstName: 'Ana',
                     lastName: 'Pérez',
-                    image: { alt: 'Ana' }
+                    image: { alt: 'Ana Pérez' }
                 }
             ]);
         });
 
         it("should use name as id if it doesn't exist", () => {
             isCustomLiveblog.mockReturnValue(true);
-            get.mockReturnValue([{ name: 'Carlos' }]);
+            get.mockReturnValue([
+                {
+                    name: 'Carlos Pérez',
+                    firstName: 'Carlos',
+                    lastName: 'Pérez'
+                }
+            ]);
 
             const posts = [
-                { embed: { config: { authors: [{ name: 'Carlos' }] } } }
+                {
+                    embed: {
+                        config: {
+                            authors: [
+                                {
+                                    name: 'Carlos Pérez',
+                                    firstName: 'Carlos',
+                                    lastName: 'Pérez'
+                                }
+                            ]
+                        }
+                    }
+                }
             ];
 
             expect(getUniqueAuthorsFromPosts(posts)).toEqual([
                 {
-                    id: 'Carlos',
-                    name: 'Carlos',
-                    firstName: 'Juan',
+                    id: 'Carlos Pérez',
+                    name: 'Carlos Pérez',
+                    firstName: 'Carlos',
                     lastName: 'Pérez',
-                    image: { alt: 'Carlos' }
+                    image: { alt: 'Carlos Pérez' }
                 }
             ]);
         });
@@ -88,7 +129,13 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
         it('should respect photo if it exists', () => {
             isCustomLiveblog.mockReturnValue(true);
             get.mockReturnValue([
-                { id: '99', name: 'Lucía', photo: 'custom-photo.png' }
+                {
+                    id: '99',
+                    name: 'Lucía Pérez',
+                    firstName: 'Lucía',
+                    lastName: 'Pérez',
+                    photo: 'custom-photo.png'
+                }
             ]);
 
             const posts = [
@@ -98,7 +145,9 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
                             authors: [
                                 {
                                     id: '99',
-                                    name: 'Lucía',
+                                    name: 'Lucía Pérez',
+                                    firstName: 'Lucía',
+                                    lastName: 'Pérez',
                                     photo: 'custom-photo.png'
                                 }
                             ]
@@ -110,10 +159,10 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
             expect(getUniqueAuthorsFromPosts(posts)).toEqual([
                 {
                     id: '99',
-                    name: 'Lucía',
-                    firstName: 'Juan',
+                    name: 'Lucía Pérez',
+                    firstName: 'Lucía',
                     lastName: 'Pérez',
-                    image: { alt: 'Lucía', src: 'custom-photo.png' }
+                    image: { alt: 'Lucía Pérez', src: 'custom-photo.png' }
                 }
             ]);
         });

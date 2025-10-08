@@ -20,9 +20,8 @@ export const getUniqueAuthorsFromPosts = (posts = []) => {
             authorsMap.set(id, {
                 id,
                 name: author.name,
-                // TODO: Agregar datos para nombre y apellido para el autor
-                firstName: 'Juan',
-                lastName: 'Pérez',
+                firstName: author.firstName,
+                lastName: author.lastName,
                 image: {
                     src: author.photo,
                     alt: author.name

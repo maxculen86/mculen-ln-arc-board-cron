@@ -57,6 +57,8 @@ const transform = (authorsData, query, creditHash) => {
         }),
         node_type: 'author',
         name: authorsData.byline,
+        firstName: authorsData.firstName,
+        lastName: authorsData.lastName,
         canonical_url: encodeURI(`/autor/${authorId}/`),
         subscription: meteringVariant
     };

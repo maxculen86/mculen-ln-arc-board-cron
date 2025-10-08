@@ -297,6 +297,8 @@ const customLiveblog = `
         photo
         link
         id
+        firstName
+        lastName
     }
     isPinned
     pinnedAt
