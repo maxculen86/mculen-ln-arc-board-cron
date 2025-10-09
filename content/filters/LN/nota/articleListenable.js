@@ -299,6 +299,7 @@ const customLiveblog = `
         id
         firstName
         lastName
+        role
     }
     isPinned
     pinnedAt

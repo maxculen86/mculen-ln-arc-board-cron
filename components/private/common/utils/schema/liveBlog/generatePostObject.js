@@ -181,12 +181,29 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
         } = elem;
         const { date = '', time = '' } = config;
         const dateObject = convertArgentinaTimeToGMT(date, time);
+        const embedAuthors = Array.isArray(config.authors)
+            ? config.authors
+            : [];
+        const singleAuthor = embedAuthors.length === 1 ? embedAuthors[0] : null;
+        const rawSingleAuthorName = get(singleAuthor, 'name', '');
+        const singleAuthorName =
+            typeof rawSingleAuthorName === 'string'
+                ? rawSingleAuthorName.trim()
+                : '';
+        const defaultHeadline = get(
+            globalContent,
+            'headlines.basic',
+            'LA NACION - Noticia'
+        );
+        const postHeadline =
+            title ||
+            (singleAuthorName
+                ? `Opinión en vivo de ${singleAuthorName}`
+                : defaultHeadline);
 
         return {
             '@type': 'BlogPosting',
-            headline:
-                title ||
-                get(globalContent, 'headlines.basic', 'LA NACION - Noticia'),
+            headline: postHeadline,
             url: `${urlNota.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },
