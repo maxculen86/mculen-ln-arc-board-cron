@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -34,8 +32,8 @@ function masNotas(props) {
     } = props;
 
     const { subtype, taxonomy, _id: idArticle } = globalContent || {};
-    const { primary_section, tags = [] } = taxonomy || {};
-    const { _id, _website, name: sectionName, path } = primary_section || {};
+    const { primary_section: primarySection, tags = [] } = taxonomy || {};
+    const { _id, _website, name: sectionName, path } = primarySection || {};
 
     if (!_id) return null;
 
@@ -114,6 +112,7 @@ function masNotas(props) {
 }
 
 masNotas.label = 'LN-Nota-masNotas';
+masNotas.lazy = true;
 
 masNotas.propTypes = {
     outputType: PropTypes.string,
