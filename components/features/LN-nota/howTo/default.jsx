@@ -9,7 +9,7 @@ function HowTo({ title, number, id, ...r }) {
     return (
         <div
             id={id}
-            className="step-header flex flex-column gap-32 pt-16"
+            className="step-header flex flex-column gap-32 py-16"
             {...r}
         >
             <hr className="w-100" />
