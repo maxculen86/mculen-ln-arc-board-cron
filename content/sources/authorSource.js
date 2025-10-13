@@ -59,6 +59,7 @@ const transform = (authorsData, query, creditHash) => {
         name: authorsData.byline,
         firstName: authorsData.firstName,
         lastName: authorsData.lastName,
+        role: authorsData.role,
         canonical_url: encodeURI(`/autor/${authorId}/`),
         subscription: meteringVariant
     };

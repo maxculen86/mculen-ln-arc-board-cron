@@ -160,6 +160,46 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
         );
     });
 
+    test('Should use the single author fallback headline when the post title is empty', () => {
+        const propsWithSingleAuthorHeadline = {
+            ...baseProps,
+            globalContent: {
+                ...baseProps.globalContent,
+                headlines: {
+                    basic: 'Titulo base',
+                    meta_title: 'Meta title base'
+                },
+                content_elements: [
+                    {
+                        type: 'custom_embed',
+                        subtype: 'custom-liveblog',
+                        embed: {
+                            config: {
+                                date: '2024-01-01',
+                                time: '10:00:00',
+                                title: '',
+                                authors: [{ name: '  Ana Gomez ' }]
+                            }
+                        }
+                    },
+                    {
+                        type: 'text',
+                        content: '<p>Contenido de la actualización</p>'
+                    }
+                ]
+            }
+        };
+
+        render(<SnippetLiveblog {...propsWithSingleAuthorHeadline} />);
+        const schemaScript = document.getElementById('Schema_LiveBlog');
+        const jsonData = JSON.parse(schemaScript.textContent);
+
+        expect(jsonData.liveBlogUpdate).toHaveLength(1);
+        expect(jsonData.liveBlogUpdate[0].headline).toBe(
+            'Opinión en vivo de Ana Gomez'
+        );
+    });
+
     test('Should use the first paragraph if no subheadline is present for the description', () => {
         const propsWithoutSubheadline = {
             ...baseProps,
