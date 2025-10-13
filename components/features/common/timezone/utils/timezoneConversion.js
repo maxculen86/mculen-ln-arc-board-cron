@@ -6,6 +6,8 @@ const TIMELINE_TIME_FORMAT_OPTIONS = {
     minute: '2-digit',
     hour12: false
 };
+const INLINE_TIME_PATTERN = /^\d{2}:\d{2}$/;
+const ISO_TIME_SUFFIX_PATTERN = /(Z|[+-]\d{2}:?\d{2})$/i;
 
 let timelineTimeFormatter = null;
 
@@ -21,10 +23,31 @@ const getTimelineFormatter = () => {
 
 const isInvalidDate = date => Number.isNaN(date.getTime());
 
-export const formatTimelineTime = isoString => {
-    if (!isoString) return '';
+const isInlineTime = value => INLINE_TIME_PATTERN.test(value);
+const hasTimezoneSuffix = value => ISO_TIME_SUFFIX_PATTERN.test(value);
+const isIsoWithoutTimezone = value =>
+    value.includes('T') && !hasTimezoneSuffix(value);
+const extractTimeFromIso = value => {
+    const [, timePart = ''] = value.split('T');
+    return timePart.slice(0, 5);
+};
 
-    const parsedDate = new Date(isoString);
+const formatStringTime = value => {
+    const trimmed = value.trim();
+    if (isInlineTime(trimmed)) return trimmed;
+    if (isIsoWithoutTimezone(trimmed)) return extractTimeFromIso(trimmed);
+    return null;
+};
+
+export const formatTimelineTime = value => {
+    if (!value) return '';
+
+    if (typeof value === 'string') {
+        const formatted = formatStringTime(value);
+        if (formatted) return formatted;
+    }
+
+    const parsedDate = new Date(value);
     if (isInvalidDate(parsedDate)) return '';
 
     const formatter = getTimelineFormatter();
