@@ -31,7 +31,9 @@ export const filterChildrenWithNoRoof = sectionChildren => {
     return device === 'mobile'
         ? sectionChildren
         : sectionChildren.filter(
-              children => children.props.customFields.hideTitle !== true
+              children =>
+                  children.props.customFields.hideTitle !== true &&
+                  children.type !== 'LN10_Caja_Segmentada'
           );
 };
 
