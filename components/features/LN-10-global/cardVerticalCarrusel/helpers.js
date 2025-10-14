@@ -18,7 +18,7 @@ export const getClassNamesMedia = isPlaying => {
         !isPlaying ? 'z-2' : 'z-1'
     );
     const classNameVideo = cx(
-        'w-full h-full absolute object-cover transition transition-opacity transition-ease-in transition-duration-500',
+        'w-full h-full absolute object-cover duration-500 ease-in transition-opacity',
         isPlaying ? 'opacity-100 z-2' : 'opacity-0 z-1'
     );
 

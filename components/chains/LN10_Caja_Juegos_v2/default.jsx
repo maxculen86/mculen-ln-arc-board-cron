@@ -52,7 +52,6 @@ function CajaJuegosV2({ customFields, children, ...props }) {
             ? get(globalContent, 'label.mostrar_caja_juegos.text', '') ===
               'Mostrar'
             : true;
-
     const error = validateGamesChain(layout, customFields, children);
 
     if (isAdmin && error) {

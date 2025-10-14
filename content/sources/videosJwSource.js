@@ -1,4 +1,3 @@
-import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import { getVideoJwDataHome } from './utils/getVideoJwDataHome';
 import get from '../../components/private/common/utils/get';
@@ -7,7 +6,7 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 
 export const transform = async ({ data = {}, query = {}, cachedCall }) => {
-    const videoData = getVideoJwDataHome(JSON.parse(data));
+    const videoData = getVideoJwDataHome(data);
     const imageJW = get(videoData, 'image', '');
     const { presets = {}, presetsDefault } = getPresets(query) || {};
     const { hash: videoJwHash = '' } = await signingServiceCachedCall(
@@ -46,20 +45,28 @@ export const transform = async ({ data = {}, query = {}, cachedCall }) => {
 };
 
 const fetch = (query, { cachedCall } = {}) => {
-    const { id = '' } = query || {};
+    const { id } = query || {};
 
-    return request(`https://cdn.jwplayer.com/v2/media/${id}`)
-        .then(resp => transform({ data: resp, query, cachedCall }))
-        .catch(err => {
+    const resolveData = async () => {
+        try {
+            const response = await global.fetch(
+                `https://cdn.jwplayer.com/v2/media/${id}`
+            );
+            const data = await response.json();
+            return transform({ data, query, cachedCall });
+        } catch (error) {
             logger.push(
-                err,
+                error,
                 {
                     source: 'content/sources/videosJwSource',
                     id
                 },
                 query['arc-site']
             );
-        });
+            return {};
+        }
+    };
+    return resolveData();
 };
 
 export default {

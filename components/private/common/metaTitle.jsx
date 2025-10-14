@@ -9,16 +9,11 @@ function MetaTitle({
     nodeType,
     section,
     defaultTitle,
-    ottMetaTitle,
     requestUri
 }) {
-    // TODO: limpieza OTT - Borrar en iteración 5 de 5
-    if (!['la-nacion-ar', 'ott'].includes(arcSite)) return null;
+    if (!['la-nacion-ar'].includes(arcSite)) return null;
 
     const setContent = () => {
-        // TODO: limpieza OTT - Borrar en iteración 5 de 5
-        if (arcSite === 'ott') return ottMetaTitle;
-
         if (getSectionOfRequestUri(requestUri) === 'mis-notas') return title;
 
         const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
@@ -47,7 +42,6 @@ MetaTitle.propTypes = {
     title: PropTypes.string,
     section: PropTypes.string,
     defaultTitle: PropTypes.string,
-    ottMetaTitle: PropTypes.string,
     requestUri: PropTypes.string
 };
 
@@ -55,7 +49,6 @@ MetaTitle.defaultProps = {
     title: '',
     section: '',
     defaultTitle: '',
-    ottMetaTitle: '',
     requestUri: ''
 };
 

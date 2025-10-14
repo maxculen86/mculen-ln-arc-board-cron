@@ -14,8 +14,7 @@ import Syndication from '../private/common/syndication';
 import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
-import setMetasOtt from '../private/common/metaTags/setMetasHelper';
-import { GetCriticalCss } from './criticalCss/getCriticalCss';
+import { GetCriticalCss } from './criticalCss/default';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import {
@@ -78,7 +77,6 @@ function Default(props) {
         Payload,
         _id,
         taxonomy,
-        first_publish_date: firstPublishDate,
         display_date: displayDate,
         acumuladoGeneral: { metas } = {},
         content_elements: contentElements,
@@ -97,7 +95,7 @@ function Default(props) {
 
     const metaTitleBasic = metaTitle || basicTitle;
 
-    const _nodeType = getSectionName({ nodeType, type, arcSite, canonicalUrl });
+    const _nodeType = getSectionName({ nodeType, type, canonicalUrl });
     const title = getTitle({
         title: metaValue('title'),
         basicTitle,
@@ -108,21 +106,10 @@ function Default(props) {
         subtype
     });
 
-    const { title: ottMetaTitle, description: ottMetaDescription } =
-        setMetasOtt({
-            date: firstPublishDate,
-            acumulado: name,
-            title: metaTitleBasic,
-            section: _nodeType,
-            siteProperties
-        });
-
     const tagTitle = getTagTitle({
         PBTitle: metaValue('title'),
         basicTitle,
         shortTitle: mobileTitle,
-        ottTitle: ottMetaTitle,
-        arcSite,
         nodeType: _nodeType,
         siteProps: siteProperties,
         subtype,
@@ -223,8 +210,6 @@ function Default(props) {
                         section={_nodeType}
                         title={title}
                         metaDescription={metaDescription}
-                        ottMetaTitle={ottMetaTitle}
-                        ottMetaDescription={ottMetaDescription}
                         subtype={subtype}
                     />
                 )}
@@ -245,7 +230,6 @@ function Default(props) {
                         defaultTitle={siteProperties.longTitle}
                         nodeType={nodeType}
                         section={_nodeType}
-                        ottMetaTitle={ottMetaTitle}
                         requestUri={requestUri}
                     />
                 )}
@@ -261,7 +245,6 @@ function Default(props) {
                         arcSite={arcSite}
                         section={_nodeType}
                         metaDescription={metaDescription}
-                        ottMetaDescription={ottMetaDescription}
                         displayDate={displayDate}
                     />
                 )}
@@ -275,14 +258,12 @@ function Default(props) {
                 />
                 <Schemas section={_nodeType} />
                 <Favicon />
-                {arcSite !== 'ott' && (
-                    <link
-                        rel="manifest"
-                        href={deployment(
-                            `${contextPath}/resources/json/LN/manifest.json`
-                        )}
-                    />
-                )}
+                <link
+                    rel="manifest"
+                    href={deployment(
+                        `${contextPath}/resources/json/LN/manifest.json`
+                    )}
+                />
                 <MetasFBNews
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}

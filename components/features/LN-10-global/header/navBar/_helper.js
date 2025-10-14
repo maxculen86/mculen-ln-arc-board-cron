@@ -53,7 +53,7 @@ export const getNavbarItems = (toggleDesplegable, userType) => [
         text: userType !== 'unlogged' ? 'Mi cuenta' : 'Ingresar',
         icon: <IconSprite name="profile" critical />,
         className: 'profile',
-        link: `${MY_ACCOUNT_URL}/mi-usuario/`,
+        link: `${MY_ACCOUNT_URL}/`,
         callback: () => {
             addEventToDataLayer(getEventData('perfil'));
         }

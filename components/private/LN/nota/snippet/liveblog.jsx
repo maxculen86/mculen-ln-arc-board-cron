@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
@@ -16,6 +15,7 @@ import {
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
+import { useLiveblogAuthors } from '../../../../layouts/LN-Nota-Liveblog_Editorial/components/body/authorBox/hook/useLiveblogAuthors';
 
 function SnippetLiveblog(props) {
     const { siteProperties, globalContent, contextPath, deployment } = props;
@@ -58,6 +58,10 @@ function SnippetLiveblog(props) {
         (subheadlines && subheadlines.basic) ||
         getFirstParagraph(contentElements);
 
+    const { authors, shouldShow } = useLiveblogAuthors();
+
+    const authorsArray = shouldShow ? authors : [];
+
     const data = {
         '@context': urlShema,
         '@type': 'LiveBlogPosting',
@@ -73,6 +77,12 @@ function SnippetLiveblog(props) {
                 width: 600
             }
         },
+        ...(authorsArray.length > 0 && {
+            author: authorsArray.map(author => ({
+                '@type': 'Person',
+                name: author.name
+            }))
+        }),
         about: {
             '@type': 'Event',
             name: noteTitle,

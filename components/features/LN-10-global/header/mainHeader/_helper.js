@@ -35,7 +35,7 @@ export const getMenuUser = () => {
             className: commonClassName
         },
         {
-            url: `${MY_ACCOUNT_URL}/mis-suscripciones/`,
+            url: `${MY_ACCOUNT_URL}/`,
             text: 'Mis suscripciones',
             title: 'Ir a mis suscripciones',
             target: '_self',
@@ -43,6 +43,7 @@ export const getMenuUser = () => {
                 'text-blue-500 p-12 border border-bottom border-thin border-light-300 bg-blue-100__hover rounded-4'
         },
         {
+            // eslint-disable-next-line no-script-url
             url: 'javascript:void(0);',
             text: LogoutText,
             title: LogoutText,
@@ -60,9 +61,11 @@ export const getMenuUser = () => {
                 category: 'home_ln10',
                 label: option.text
             });
+            // eslint-disable-next-line no-unused-expressions
             option.text === LogoutText &&
                 logout(() => {
                     eraseCookie('contentVariant');
+                    // eslint-disable-next-line no-undef
                     if (['undefined'].indexOf(typeof fyre)) fyre.conv.logout();
                 });
         }

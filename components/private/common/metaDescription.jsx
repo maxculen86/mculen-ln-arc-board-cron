@@ -13,33 +13,21 @@ function MetaDescription({
     _id,
     section,
     metaDescription,
-    ottMetaDescription,
     displayDate
 }) {
-    if (
-        !subtype &&
-        section !== 'home' &&
-        // TODO: limpieza OTT - Borrar en iteración 5 de 5
-        !['la-nacion-ar', 'ott'].includes(arcSite)
-    )
+    if (!subtype && section !== 'home' && !['la-nacion-ar'].includes(arcSite))
         return <></>;
 
-    const setContent = () => {
-        // TODO: limpieza OTT - Borrar en iteración 5 de 5
-        if (arcSite === 'ott') return ottMetaDescription;
-
-        return (
-            (subtype &&
-                `${getMetaDescription(
-                    description,
-                    metaTitleBasic,
-                    subheadlines,
-                    subtype,
-                    displayDate
-                )}`) ||
-            metaDescription
-        );
-    };
+    const setContent = () =>
+        (subtype &&
+            `${getMetaDescription(
+                description,
+                metaTitleBasic,
+                subheadlines,
+                subtype,
+                displayDate
+            )}`) ||
+        metaDescription;
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
     const acuRecetaRegExp = new RegExp(/^\/recetas\/(.+)$/);
@@ -73,8 +61,7 @@ MetaDescription.propTypes = {
     description: PropTypes.string.isRequired,
     metaTitleBasic: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
-    subheadlines: PropTypes.object,
-    ottMetaDescription: PropTypes.string
+    subheadlines: PropTypes.object
 };
 
 export default MetaDescription;

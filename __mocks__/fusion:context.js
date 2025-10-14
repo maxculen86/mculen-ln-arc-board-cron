@@ -2,7 +2,7 @@ jest.mock('fusion:context', () => ({
     useAppContext: jest.fn(() => ({
         deployment: jest.fn(path => `pathDeployment/${path}`),
         contextPath: 'pf/',
-        arcSite: 'ott',
+        arcSite: 'la-nacion-ar',
         siteProperties: {}
     })),
     useComponentContext: jest.fn(() => ({
@@ -19,7 +19,7 @@ jest.mock('fusion:context', () => ({
 export const useAppContext = jest.fn(() => ({
     deployment: path => `pathDeployment/${path}`,
     contextPath: 'contextPath',
-    arcSite: 'ott',
+    arcSite: 'la-nacion-ar',
     siteProperties: {} // Asegúrate de incluir cualquier otra propiedad que necesite ser mockeada
 }));
 export const useComponentContext = jest.fn();

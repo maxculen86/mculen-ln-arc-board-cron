@@ -47,28 +47,6 @@ const getSignatureRenderOptions = ({
     }
 ];
 
-export const getSectionsAsTags = (sections = []) => {
-    if (!sections || sections.length === 0) return [];
-
-    const mainSection = sections[0];
-    const mainSectionParentIds =
-        mainSection?.parent_id?.split('/').filter(id => id !== '') || [];
-
-    return sections
-        .filter(
-            ({ name, path }) =>
-                name &&
-                name !== mainSection?.name &&
-                path !== mainSection?.parent_id &&
-                !mainSectionParentIds.includes(path?.replace('/', ''))
-        )
-        .map(({ type, path, name }) => ({
-            type,
-            slug: path,
-            text: name
-        }));
-};
-
 export function isInvalidLogo(logoData) {
     return (
         !logoData || !logoData.logoName || logoData.logoName === 'canchallena'

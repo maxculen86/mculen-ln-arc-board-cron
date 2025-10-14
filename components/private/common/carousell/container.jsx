@@ -5,26 +5,11 @@ import { Icon } from '@ln/common-ui-icon';
 import classNames from 'classnames';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import ModMedia from '../mod-media';
-import CarousellNextButton from './carousellNextButton';
-import CarousellPrevButton from './carousellPrevButton';
 import withSlider from '../hocs/withSlider';
 
 const DEFAULT_PAGESIZE = 4;
 
-function Carousell({ slider, children, itsGallery, active, arcSite }) {
-    // TODO: limpieza OTT - Borrar en iteración 5 de 5
-    if (arcSite === 'ott')
-        return (
-            <section className="slider com-slider">
-                {slider.hasPrevPage() && (
-                    <CarousellPrevButton onClick={slider.prevButtonHandler} />
-                )}
-                {children}
-                {slider.hasNextPage() && (
-                    <CarousellNextButton onClick={slider.nextButtonHandler} />
-                )}
-            </section>
-        );
+function Carousell({ slider, children, itsGallery, active }) {
     return (
         <ModMedia
             classCondition="--slider"
@@ -81,8 +66,7 @@ Carousell.propTypes = {
     }).isRequired,
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     itsGallery: PropTypes.bool,
-    active: PropTypes.bool,
-    arcSite: PropTypes.string.isRequired
+    active: PropTypes.bool
 };
 Carousell.defaultProps = {
     itsGallery: undefined,

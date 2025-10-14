@@ -2,22 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Html from './html';
 
+const VALID_EMBEDS_TYPES = [
+    'isGroupTable',
+    'isStandingsTable',
+    'isMatchDetail',
+    'isAnnualTable',
+    'isAverageTable'
+];
+
 function EmbedCll({ data = {} }) {
     const {
         embed: { config: { widgetUrl = '', embedType = '' } = {} } = {},
         _id = ''
     } = data;
 
-    const isTableType = ['isGroupTable', 'isStandingsTable'].includes(
-        embedType
-    );
-    const isMatchDetail = embedType === 'isMatchDetail';
-
-    if (!isTableType && !isMatchDetail) {
+    if (!widgetUrl || !VALID_EMBEDS_TYPES.includes(embedType)) {
         // eslint-disable-next-line react/jsx-no-useless-fragment
         return <></>;
     }
 
+    const isMatchDetail = embedType === 'isMatchDetail';
     const wrapperClass = `p-overflow_max767 ${isMatchDetail ? 'h-303' : ''}`;
     const innerClass = isMatchDetail ? 'h-100' : '';
     const iframeClass = isMatchDetail ? 'h-100' : 'pym';

@@ -3,12 +3,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Video from '../../../../../components/features/LN-10-global/cardVerticalCarrusel/video';
 
-jest.mock('@ln/common-ui-adaptableimage', () => ({
-    Adaptableimage: jest.fn(({ src, alt, ...props }) => (
-        <img src={src} alt={alt} {...props} data-testid="Adaptableimage" />
-    ))
-}));
-
 const observe = jest.fn();
 const unobserve = jest.fn();
 const disconnect = jest.fn();
@@ -49,11 +43,11 @@ describe('components - features - LN-10-global - cardVerticalCarrusel - video', 
         expect(video).toHaveAttribute('playsInline');
         expect(video).toHaveAttribute('loop');
         expect(video).toHaveClass(
-            ' w-full h-full absolute object-cover transition transition-opacity transition-ease-in transition-duration-500 opacity-0 z-1'
+            'w-full h-full absolute object-cover duration-500 ease-in transition-opacity opacity-0 z-1'
         );
     });
     it('tag video should have correct classnames when isPlaying is false', () => {
-        render(<Video {...defaultProps} />);
+        render(<Video isPlaying={true} {...defaultProps} />);
 
         const video = screen.getByTestId('video-element');
         expect(video).toHaveClass('opacity-0 z-1');

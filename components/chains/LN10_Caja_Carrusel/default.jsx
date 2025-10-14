@@ -18,14 +18,19 @@ import {
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
-import { MediaScroller } from '../../features/ui-ln/mediaScroller/default';
+import MediaScroller from '../../features/ui-ln/mediaScroller/default';
 
 function CajaCarrusel(props) {
     const {
         siteProperties: { layoutsName = {} },
         layout,
         children,
-        customFields: { hideCarousel, enabledDays = [], ...propsForRoof },
+        customFields: {
+            hideCarousel,
+            enabledDays = [],
+            shouldSchedule = false,
+            ...propsForRoof
+        },
         childProps = [],
         chainId,
         renderables
@@ -69,7 +74,8 @@ function CajaCarrusel(props) {
         error,
         isHome,
         hideCarousel,
-        enabledDays
+        enabledDays,
+        shouldSchedule
     });
 
     if (hasError) {
@@ -205,6 +211,12 @@ CajaCarrusel.propTypes = {
             description: 'Marque para ocultar el carousel',
             defaultValue: false
         }).isRequired,
+        shouldSchedule: PropTypes.boolean.tag({
+            name: 'Activar Calendarizacion',
+            description:
+                'Marque para mostrar en los días configurados, Desmarque para mostrar todos los dias',
+            defaultValue: false
+        }),
         enabledDays: PropTypes.list.tag({
             name: 'Días habilitados',
             description:

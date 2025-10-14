@@ -217,6 +217,9 @@ const labels = `
             display
             text
         }
+        mostrar_caja_autores{
+            ${label}
+        }
     }
 `;
 const table = `
@@ -294,6 +297,9 @@ const customLiveblog = `
         photo
         link
         id
+        firstName
+        lastName
+        role
     }
     isPinned
     pinnedAt
@@ -335,6 +341,13 @@ const customPowerUps = `
             ${configPowerUpVideoJw}
             widgetUrl
             embedType
+            cardColor
+            cardNumber
+            title
+            description
+            buttonText
+            cardId
+            useNumbering
             ${customLiveblog}
         }
     }

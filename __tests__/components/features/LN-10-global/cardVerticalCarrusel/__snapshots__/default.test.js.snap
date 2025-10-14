@@ -41,13 +41,15 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
           Test Title
         </h2>
         <div
-          class="flex ai-center gap-8 text-14 text-neutral-light-100"
+          class="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100"
         >
           <div
             class="h-20 w-20 flex ai-center jc-center"
           >
-            <span
-              class="inline-block w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[9px] border-l-white"
+            <mock-ds-common-icon
+              classname="custom-class"
+              name="mediaPlay"
+              size="20"
             />
           </div>
           <time
@@ -97,13 +99,15 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
           Test Badge
         </span>
         <div
-          class="flex ai-center gap-8 text-14 text-neutral-light-100"
+          class="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100"
         >
           <div
             class="h-20 w-20 flex ai-center jc-center"
           >
-            <span
-              class="inline-block w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[9px] border-l-white"
+            <mock-ds-common-icon
+              classname="custom-class"
+              name="mediaPlay"
+              size="20"
             />
           </div>
           <time

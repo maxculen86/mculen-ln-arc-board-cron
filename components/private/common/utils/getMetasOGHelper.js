@@ -1,6 +1,5 @@
-import { ARC_STATIC } from 'fusion:environment';
+import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
-import getDomain from './getDomain';
 import { getSectionOfRequestUri } from './outputTypeHelper';
 import get from './get';
 import transformISODate from './transformISODate';
@@ -157,8 +156,6 @@ export const getTwitterLink = author => {
     )?.url;
 };
 
-export const ottProgramsLayouts = ['OTT-programa', 'OTT-default'];
-
 export const getData = ({
     siteProperties,
     metaValue,
@@ -167,11 +164,8 @@ export const getData = ({
     contextPath,
     deployment,
     section,
-    metaDescription,
-    arcSite,
-    layout
+    metaDescription
 }) => {
-    const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const imagePath = `${contextPath}/resources/images/placeholderLN-1200x630.png`;
     const PLACEHOLDER = `${ARC_STATIC}${deployment(imagePath)}`;
@@ -199,13 +193,7 @@ export const getData = ({
     const { basic: subheadlinesBasic } = subheadlines;
     const { basic: promoItemsBasic = {} } = promoItems;
 
-    let url = '';
-    // TODO: limpieza OTT - Borrar en iteración 5 de 5
-    if (arcSite === 'ott' && ottProgramsLayouts.includes(layout)) {
-        url = _id ? `/programas${_id}` : '/programas/';
-    } else {
-        url = canonicalUrl || _id;
-    }
+    const url = canonicalUrl || _id;
 
     const description = getDescription({
         isArticle,
@@ -234,7 +222,7 @@ export const getData = ({
             PLACEHOLDER,
             globalContentConfig?.query?.id
         ),
-        url: getUrl(url, domain),
+        url: getUrl(url, SITE_LANACION),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
         ...(isArticle && {
@@ -260,7 +248,6 @@ export const setMetaDescription = ({
     data,
     section,
     arcSite = 'la-nacion-ar',
-    ottMetaDescription,
     requestUri,
     metaValue
 }) => {
@@ -298,8 +285,7 @@ export const setMetaDescription = ({
             }
 
             return data.description;
-        },
-        ott: () => ottMetaDescription
+        }
     };
 
     return options[arcSite]();
@@ -307,12 +293,10 @@ export const setMetaDescription = ({
 
 export const setMetaTitle = ({
     arcSite = 'la-nacion-ar',
-    pageBuilderTitle,
-    ottMetaTitle
+    pageBuilderTitle
 }) => {
     const options = {
-        'la-nacion-ar': () => removeExtraSpaces(pageBuilderTitle),
-        ott: () => ottMetaTitle
+        'la-nacion-ar': () => removeExtraSpaces(pageBuilderTitle)
     };
 
     return options[arcSite]();
@@ -365,43 +349,33 @@ export const buildOgMetas = params => {
         pageBuilderTitle,
         section,
         siteProperties,
-        ottMetaTitle,
         data,
-        ottMetaDescription,
         requestUri,
         metaValue,
         image,
         url,
-        layout,
-        layoutsName,
         globalContent = {},
         globalContentConfig = {}
     } = params;
-
     const WIKI_PERSON = 1;
-
     const ogProfileType =
         (globalContent?.isWiki &&
             globalContent?.wikiSourceData?.type === WIKI_PERSON) ||
         globalContent?.node_type === 'author';
-
     let profileTagsInfo = {};
-
     if (ogProfileType) {
         profileTagsInfo = getDataForProfileType(
             globalContent,
             globalContentConfig
         );
     }
-
     return [
         { property: 'og:type', content: ogProfileType ? 'profile' : type },
         {
             property: 'og:title',
             content: setMetaTitle({
                 arcSite,
-                pageBuilderTitle,
-                ottMetaTitle
+                pageBuilderTitle
             })
         },
         {
@@ -409,9 +383,7 @@ export const buildOgMetas = params => {
             content: setMetaDescription({
                 data,
                 section,
-                siteProperties,
                 arcSite,
-                ottMetaDescription,
                 requestUri,
                 metaValue
             })
@@ -427,8 +399,7 @@ export const buildOgMetas = params => {
             ? [{ property: 'og:image:height', content: image.height }]
             : []),
         { property: 'og:url', content: addForwardSlash(url) },
-        ...(['home', 'nota', 'acumulado', 'videoJw'].includes(section) ||
-        (arcSite === 'ott' && layout === layoutsName.OttFicha)
+        ...(['home', 'nota', 'acumulado', 'videoJw'].includes(section)
             ? [{ property: 'og:site_name', content: siteProperties.title }]
             : []),
         ...(ogProfileType
@@ -493,10 +464,7 @@ export const buildTwitterMetas = ({
     arcSite,
     pageBuilderTitle,
     section,
-    siteProperties,
-    ottMetaTitle,
     data,
-    ottMetaDescription,
     requestUri,
     metaValue,
     url,
@@ -508,8 +476,7 @@ export const buildTwitterMetas = ({
         name: 'twitter:title',
         content: setMetaTitle({
             arcSite,
-            pageBuilderTitle,
-            ottMetaTitle
+            pageBuilderTitle
         })
     },
     {
@@ -517,9 +484,7 @@ export const buildTwitterMetas = ({
         content: setMetaDescription({
             data,
             section,
-            siteProperties,
             arcSite,
-            ottMetaDescription,
             requestUri,
             metaValue
         })

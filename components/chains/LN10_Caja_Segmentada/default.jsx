@@ -47,6 +47,7 @@ function CajaSegmentada(props) {
         enabledDays = [],
         hideCaja = false,
         initialPosition,
+        shouldSchedule = false,
         ...propsForRoof
     } = customFields;
 
@@ -77,7 +78,8 @@ function CajaSegmentada(props) {
         configError,
         hideCaja,
         enabledDays,
-        token
+        token,
+        shouldSchedule
     });
 
     const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
@@ -286,6 +288,12 @@ CajaSegmentada.propTypes = {
             name: 'ID de Segmento',
             description: 'Ingrese el ID del segmento para el mostrar la caja',
             defaultValue: ''
+        }),
+        shouldSchedule: PropTypes.boolean.tag({
+            name: 'Activar Calendarización',
+            description:
+                'Marque para mostrar en los días configurados. Desmarque para mostrar todos los días.',
+            defaultValue: false
         }),
         enabledDays: PropTypes.list.tag({
             name: 'Días habilitados',

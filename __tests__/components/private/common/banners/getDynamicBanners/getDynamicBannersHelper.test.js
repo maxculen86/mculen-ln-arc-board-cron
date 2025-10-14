@@ -5,11 +5,13 @@ import {
     hasBomba,
     validateBanner,
     getSectionId,
-    filterChildrenWithNoRoof
+    filterChildrenWithNoRoof,
+    matchesEnabledDay
 } from '../../../../../../components/private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import getRenderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
 import { getViewport } from '../../../../../../components/private/LN/common/utils/homeHelper';
 import getChildrenFromSectionHome from '../../../../../../components/private/LN/common/utils/cajaTemasHelperLN10-WebApi';
+import { isTodayEnabled } from '../../../../../../components/chains/LN10_Caja_Segmentada/_helpers';
 
 jest.mock(
     '../../../../../../components/private/LN/common/utils/homeHelper',
@@ -18,6 +20,13 @@ jest.mock(
             '../../../../../../components/private/LN/common/utils/homeHelper'
         ),
         getViewport: jest.fn()
+    })
+);
+
+jest.mock(
+    '../../../../../../components/chains/LN10_Caja_Segmentada/_helpers',
+    () => ({
+        isTodayEnabled: jest.fn()
     })
 );
 
@@ -345,6 +354,81 @@ describe('Components - private - common - banners - dynamicBanners - getDynamicB
                     )
                 )
             ).toStrictEqual(elementWithoutHideTitle);
+        });
+    });
+
+    describe('Function matchesEnabledDay', () => {
+        beforeEach(() => jest.clearAllMocks());
+
+        it('should return true when scheduling disabled (ignores days)', () => {
+            const child = {
+                props: {
+                    customFields: {
+                        shouldSchedule: false,
+                        enabledDays: ['lunes']
+                    }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
+        });
+
+        it('should return true when scheduling enabled and today is allowed', () => {
+            isTodayEnabled.mockReturnValue(true);
+            const child = {
+                props: {
+                    customFields: {
+                        shouldSchedule: true,
+                        enabledDays: ['sabado', 'domingo']
+                    }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).toHaveBeenCalledWith(['sabado', 'domingo']);
+        });
+
+        it('should return false when scheduling enabled and today is NOT allowed', () => {
+            isTodayEnabled.mockReturnValue(false);
+            const child = {
+                props: {
+                    customFields: {
+                        shouldSchedule: true,
+                        enabledDays: ['lunes']
+                    }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(false);
+            expect(isTodayEnabled).toHaveBeenCalledWith(['lunes']);
+        });
+
+        it('should return false when scheduling enabled but enabledDays is empty', () => {
+            const child = {
+                props: {
+                    customFields: { shouldSchedule: true, enabledDays: [] }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(false);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
+        });
+
+        it('should return true when scheduling disabled and enabledDays is empty', () => {
+            const child = {
+                props: {
+                    customFields: { shouldSchedule: false, enabledDays: [] }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
+        });
+
+        it('should return true when scheduling disabled and enabledDays is undefined', () => {
+            const child = {
+                props: {
+                    customFields: {}
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
         });
     });
 });
