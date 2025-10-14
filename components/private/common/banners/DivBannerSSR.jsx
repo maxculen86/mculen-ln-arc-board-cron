@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Closebutton } from '@ln/common-ui-closebutton';
 import { Button } from '@ln/contenidos-ui-button';
+import classNames from 'classnames';
 import flatArray from '../utils/flatArray';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
 import get from '../utils/get';
-import classNames from 'classnames';
 
 import '../../../../resources/dist/css/ln/modules/mod-banner.css';
 
-const DivBannerSSR = ({ bannerConfiguration }) => {
+function DivBannerSSR({ bannerConfiguration }) {
     const {
         slotId,
         slotGroup,
@@ -72,25 +72,22 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 data-sizemap={JSON.stringify([])}
                 data-prebid-enabled={get(bidding, 'prebid.enabled', false)}
             />
-            {closeButton && (
-                <>
-                    {slotId.includes('comercial') ? (
-                        comercialButton
-                    ) : (
-                        <Closebutton
-                            onClick={handleHideBanner}
-                            id={`${slotId}_btnCloseAd`}
-                            type="button"
-                            aria-label="Close"
-                            className="button ln-button"
-                            iconProps={{
-                                className: 'icon-close',
-                                color: 'light'
-                            }}
-                        />
-                    )}
-                </>
-            )}
+            {closeButton &&
+                (slotId.includes('comercial') ? (
+                    comercialButton
+                ) : (
+                    <Closebutton
+                        onClick={handleHideBanner}
+                        id={`${slotId}_btnCloseAd`}
+                        type="button"
+                        aria-label="Close"
+                        className="button ln-button"
+                        iconProps={{
+                            className: 'icon-close',
+                            color: 'light'
+                        }}
+                    />
+                ))}
         </>
     );
 
@@ -101,7 +98,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
     ) : (
         <div className={bannerClassContainer}>{Comp}</div>
     );
-};
+}
 
 DivBannerSSR.propTypes = {
     bannerConfiguration: PropTypes.shape({
@@ -120,7 +117,7 @@ DivBannerSSR.propTypes = {
         ]),
         sizemap: PropTypes.arrayOf(
             PropTypes.shape({
-                breakpoints: PropTypes.array,
+                breakpoints: PropTypes.arrayOf(PropTypes.number),
                 refresh: PropTypes.bool
             })
         ),
