@@ -355,6 +355,34 @@ describe('Components - private - common - banners - dynamicBanners - getDynamicB
                 )
             ).toStrictEqual(elementWithoutHideTitle);
         });
+
+        it('should ignore LN10_Caja_Segmentada on desktop even if hideTitle is false', () => {
+            getViewport.mockReturnValueOnce({ device: 'desktop' });
+
+            const sectionChildren = [
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Segmentada',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: true } }
+                }
+            ];
+
+            const result = filterChildrenWithNoRoof(sectionChildren);
+
+            expect(result).toHaveLength(1);
+            expect(result[0].type).toBe('LN10_Caja_Manual');
+            expect(result[0].props.customFields.hideTitle).toBe(false);
+        });
     });
 
     describe('Function matchesEnabledDay', () => {
