@@ -11,6 +11,16 @@ import {
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 import { SITE_LANACION as SITE_LANACION_MOCK } from 'fusion:environment';
 
+jest.mock(
+    '../../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/body/authorBox/hook/useLiveblogAuthors',
+    () => ({
+        useLiveblogAuthors: () => ({
+            authors: [{ name: 'Redacción LA NACION' }],
+            shouldShow: true
+        })
+    })
+);
+
 jest.mock('fusion:environment', () => ({
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
@@ -147,6 +157,46 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
 
         expect(jsonData.description).toBe(
             'Las imágenes, compartidas por un exejecutivo de la cadena NBC, muestran al líder del Kremlin en una actitud extraña mientras recita un discurso en el marco de una ceremonia de premios'
+        );
+    });
+
+    test('Should use the single author fallback headline when the post title is empty', () => {
+        const propsWithSingleAuthorHeadline = {
+            ...baseProps,
+            globalContent: {
+                ...baseProps.globalContent,
+                headlines: {
+                    basic: 'Titulo base',
+                    meta_title: 'Meta title base'
+                },
+                content_elements: [
+                    {
+                        type: 'custom_embed',
+                        subtype: 'custom-liveblog',
+                        embed: {
+                            config: {
+                                date: '2024-01-01',
+                                time: '10:00:00',
+                                title: '',
+                                authors: [{ name: '  Ana Gomez ' }]
+                            }
+                        }
+                    },
+                    {
+                        type: 'text',
+                        content: '<p>Contenido de la actualización</p>'
+                    }
+                ]
+            }
+        };
+
+        render(<SnippetLiveblog {...propsWithSingleAuthorHeadline} />);
+        const schemaScript = document.getElementById('Schema_LiveBlog');
+        const jsonData = JSON.parse(schemaScript.textContent);
+
+        expect(jsonData.liveBlogUpdate).toHaveLength(1);
+        expect(jsonData.liveBlogUpdate[0].headline).toBe(
+            'Opinión en vivo de Ana Gomez'
         );
     });
 

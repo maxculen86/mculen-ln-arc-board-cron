@@ -1,6 +1,5 @@
 import { useContent } from 'fusion:content';
 import get from '../../../common/utils/get';
-import { setSource } from '../utils/setSource';
 
 export default function useGetArticlesFromAcumSource({
     typesOfQuery,
@@ -25,17 +24,18 @@ export default function useGetArticlesFromAcumSource({
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
-    const source = setSource({
-        sectionId,
-        tagId,
-        authorId,
-        distributorId,
-        sectionsIds,
-        collectionId
-    });
+    // TODO setSource SE CONVIRTIO EN UN UTILITARIO usar setSource.js EN LAS PROXIMAS MIGRACIONES
+    const setSource = () => {
+        if (sectionId || tagId || authorId || distributorId || sectionsIds)
+            return 'acuArticlesSource';
+
+        if (collectionId) return 'collectionsSource';
+
+        return null;
+    };
 
     const articleList = useContent({
-        source,
+        source: setSource(),
         query: {
             ...(collectionId && { id: collectionId }),
             website,

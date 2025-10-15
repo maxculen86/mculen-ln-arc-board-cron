@@ -7,13 +7,20 @@ import { validateChain } from './common/_helper-WebApi';
 
 const LAYOUT_DIAGRAMATION = 'bn_3_grid';
 const shouldSkipRender = (
-    { hideCaja = false, enabledDays = [] },
+    { hideCaja = false, enabledDays = [], shouldSchedule = false },
     isRenderableByTermica = false
-) =>
-    hideCaja ||
-    enabledDays.length === 0 ||
-    !isTodayEnabled(enabledDays) ||
-    !isRenderableByTermica;
+) => {
+    if (!shouldSchedule) {
+        return hideCaja || !isRenderableByTermica;
+    }
+
+    return (
+        hideCaja ||
+        !isRenderableByTermica ||
+        enabledDays.length === 0 ||
+        !isTodayEnabled(enabledDays)
+    );
+};
 
 const logConfigError = (configError, customFields) => {
     console.warn(
