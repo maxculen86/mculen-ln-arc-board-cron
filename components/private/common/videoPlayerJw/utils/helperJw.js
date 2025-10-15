@@ -4,6 +4,7 @@ import {
 } from '../../utils/videoPlayerHelper';
 
 import {
+    CARDS,
     FOTOAL100,
     LIVEBLOG_EDITORIAL
 } from '../../utils/subtypes/subtypeHelper';
@@ -235,5 +236,9 @@ export const getJWScript = (
     addVideoDisplayEvent({ title, idVideo });
 };
 
+const subtypesWithTransparentCaption = [LIVEBLOG_EDITORIAL, CARDS];
+
 export const getCaptionBgClass = subtype =>
-    subtype === LIVEBLOG_EDITORIAL ? 'bg-transparent' : 'bg-white';
+    subtypesWithTransparentCaption.includes(subtype)
+        ? 'bg-transparent'
+        : 'bg-white';

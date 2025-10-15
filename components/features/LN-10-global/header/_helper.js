@@ -42,6 +42,7 @@ export const isHeaderNegative = ({
         layoutsName.Video,
         layoutsName.LiveBlog,
         layoutsName.VideoAl100,
+        layoutsName.Cards,
         '/revista-hola',
         '/revista-lugares'
     ];

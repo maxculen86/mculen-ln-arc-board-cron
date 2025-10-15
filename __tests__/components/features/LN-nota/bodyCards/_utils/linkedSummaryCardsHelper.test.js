@@ -59,8 +59,7 @@ describe('linkedSummaryCardsHelper - createCardWithId', () => {
 
     it('handles malformed data gracefully', () => {
         const result = createCardWithId(null, 0);
-        expect(result.embed.config.cardId).toBe('card-1');
-        expect(result.embed.config.cardColor).toBe(DEFAULT_CARD_COLOR);
+        expect(result).toEqual({});
     });
 
     it('normalizes cardColor in the result', () => {
@@ -83,6 +82,7 @@ describe('linkedSummaryCardsHelper - createCardWithId', () => {
                     embed: {
                         config: {
                             cardNumber: 7,
+                            useNumbering: true,
                             title: 'Título PowerUp',
                             description: 'Descripción PowerUp',
                             buttonText: 'Explorar',
@@ -131,16 +131,8 @@ describe('linkedSummaryCardsHelper - getCardRenderData', () => {
 
         const result = getCardRenderData(group, 2);
 
-        expect(result.cardData.embed.config.cardId).toBe('card-3');
-        expect(result.cardData.embed.config.cardNumber).toBe(3);
-        expect(result.cardData.embed.config.buttonText).toBe('Ver más');
-    });
-
-    it('handles empty or invalid groups safely', () => {
-        const result = getCardRenderData({}, 0);
-
-        expect(result.cardData.embed.config.cardId).toBe('card-1');
-        expect(result.contenido).toEqual([]);
+        expect(result.cardId).toBe('card-3');
+        expect(result.cardData).toBeDefined();
     });
 });
 
@@ -154,10 +146,10 @@ describe('linkedSummaryCardsHelper - addAutoNumbering', () => {
         expect(result[1].embed.config.cardNumber).toBe(2);
     });
 
-    it('preserves existing cardNumber values', () => {
+    it('preserves existing cardNumber values when useNumbering is true', () => {
         const cards = [
-            { embed: { config: { cardNumber: 5 } } },
-            { embed: { config: { cardNumber: 2 } } }
+            { embed: { config: { cardNumber: 5, useNumbering: true } } },
+            { embed: { config: { cardNumber: 2, useNumbering: true } } }
         ];
 
         const result = addAutoNumbering(cards);

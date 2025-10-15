@@ -84,7 +84,7 @@ function Share() {
     const shareClasses = cx('share', 'flex relative z-100', shareSubClasses);
 
     const hrVideoClasses = cx(
-        isHorizontal && 'vertical border border-neutral-dark-300'
+        isHorizontal && 'vertical border border-neutral-light-100'
     );
 
     return (
@@ -117,6 +117,7 @@ function Share() {
                         subtypeVideo={subtypeVideo}
                         subtype={subtype}
                         openBarrier={openBarrier}
+                        isHorizontal={isHorizontal}
                     />
 
                     <hr className={hrVideoClasses} />
@@ -129,6 +130,7 @@ function Share() {
                         subtypeVideo={subtypeVideo}
                         articleId={id}
                         subtype={subtype}
+                        isHorizontal={isHorizontal}
                     />
                 </div>
             </div>

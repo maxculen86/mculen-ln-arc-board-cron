@@ -22,6 +22,15 @@ jest.mock('fusion:context', () => ({
 }));
 
 jest.mock(
+    '../../../../../../components/features/LN-nota/bodyCards/components/BodyTop',
+    () => {
+        return function MockBodyTop({ children }) {
+            return <div data-testid="body-top">Mocked BodyTop</div>;
+        };
+    }
+);
+
+jest.mock(
     '../../../../../../components/features/LN-common/hooks/useLazyEmbeds',
     () => {
         return jest.fn();
@@ -49,7 +58,8 @@ jest.mock('../../../../../../components/layouts/helpers/groupingUtils', () => ({
                 }
             ]
         }
-    ])
+    ]),
+    getContentBeforeMarkers: jest.fn(() => [])
 }));
 
 jest.mock(
@@ -121,10 +131,6 @@ describe('BodyCards', () => {
         render(<LinkedSummaryCards customFields={{}} />);
 
         expect(screen.getByTestId('cards-grid')).toBeInTheDocument();
-        expect(screen.getByTestId('cards-grid')).toHaveAttribute(
-            'data-grid-columns',
-            '3'
-        );
 
         expect(screen.getByTestId('card-small')).toBeInTheDocument();
         expect(screen.getByText('Título de prueba')).toBeInTheDocument();

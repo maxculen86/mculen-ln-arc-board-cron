@@ -18,26 +18,23 @@ function NotaCards({ children }) {
 
                 {/* ---- APERTURA ---- */}
                 <NotaCards.Opening>
-                    <NotaOpening.Meta data={dataMeta} />
                     <NotaOpening.Content data={dataContent} />
+                    <NotaOpening.Meta data={dataMeta}>
+                        {children[1]}
+                    </NotaOpening.Meta>
                 </NotaCards.Opening>
 
-                <div className="lay-sidebar pt-16 pt-32_m">
-                    <div className="row">
-                        {/* ---- CUERPO ---- */}
-                        <NotaCards.Body>{children[2]}</NotaCards.Body>
-                    </div>
-                    {/* ---- TERCERA ---- */}
-                    <div className="sidebar__aside hlp-tabletlm-none">
-                        {children[3]}
-                    </div>
+                {/* ---- CUERPO ---- */}
+                <NotaCards.Body>{children[2]}</NotaCards.Body>
+                {/* ---- TERCERA ---- */}
+                <div className="sidebar__aside hlp-tabletlm-none">
+                    {children[3]}
                 </div>
 
                 {/* ---- BOTTOM ---- */}
                 <div className="lay-sidebar">
-                    <div className="sidebar__main">{children[4]}</div>
-                    <div className="sidebar__aside hlp-tabletlm-none">
-                        {children[5]}
+                    <div className="sidebar__main mr-auto_m ml-auto_m">
+                        {children[4]}
                     </div>
                 </div>
             </main>

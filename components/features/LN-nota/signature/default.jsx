@@ -14,6 +14,7 @@ import SignatureWithDistributor from './signatureWithDistributor';
 import WithoutSignature from './withoutSignature';
 import { useSignature } from './hook/useSignature';
 import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
+import { CARDS } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureFeature(props) {
     const {
@@ -36,6 +37,8 @@ function SignatureFeature(props) {
         position,
         contentElements
     });
+
+    const isSubtypeCards = subtype === CARDS;
 
     const showSignatureWithDistributor =
         (withFirmaDistributor && name !== 'lanacionar') ||
@@ -80,7 +83,8 @@ function SignatureFeature(props) {
 
     const classNameContainer = cx(
         'flex flex-column container-center-100 brand-color',
-        position === place.Top && 'mb-16 mb-24_m'
+        'signature',
+        position === place.Top && !isSubtypeCards && 'mb-16 mb-24_m'
     );
 
     return (

@@ -1,6 +1,6 @@
 import get from '../../../../private/common/utils/get';
 
-export const DEFAULT_CARD_COLOR = '#0250C9';
+export const DEFAULT_CARD_COLOR = '#333333';
 
 const getEmbedConfig = cardData => get(cardData, 'embed.config', {});
 
@@ -14,6 +14,15 @@ const mergeEmbedConfig = (cardData, overrides) => ({
         }
     }
 });
+
+const ensureEmbedConfig = cardData => {
+    if (!cardData || typeof cardData !== 'object') return {};
+
+    const embed = get(cardData, 'embed', {});
+    const config = get(embed, 'config', {});
+
+    return config;
+};
 
 export const normalizeCardColor = color => {
     if (!color && color !== 0) return DEFAULT_CARD_COLOR;
@@ -34,17 +43,27 @@ export const getNormalizedCardFields = (
     fallbackIndex = 0
 ) => {
     const defaultNumber = fallbackIndex + 1;
+    const useNumbering = get(embedConfig, 'useNumbering');
+    const cardNumber = get(embedConfig, 'cardNumber');
+    const cardId = get(embedConfig, 'id');
+
+    const isNumberingEnabled = useNumbering === true || useNumbering === 'true';
+    const hasValidCardNumber = cardNumber && String(cardNumber).trim() !== '';
+    const hasValidCardId = cardId && String(cardId).trim() !== '';
+
+    let resolvedCardNumber = defaultNumber;
+    if (isNumberingEnabled && hasValidCardNumber) {
+        resolvedCardNumber = cardNumber;
+    } else if (isNumberingEnabled && hasValidCardId) {
+        resolvedCardNumber = cardId;
+    }
 
     return {
-        cardNumber: get(
-            embedConfig,
-            'cardNumber',
-            get(embedConfig, 'id', defaultNumber)
-        ),
+        cardNumber: resolvedCardNumber,
         title: get(embedConfig, 'title', ''),
         description: get(embedConfig, 'description', ''),
         buttonText: get(embedConfig, 'buttonText', 'Ver más'),
-        useNumbering: get(embedConfig, 'useNumbering'),
+        useNumbering,
         cardColor: normalizeCardColor(get(embedConfig, 'cardColor'))
     };
 };
@@ -52,59 +71,63 @@ export const getNormalizedCardFields = (
 export const createCardWithId = (cardGroup, index) => {
     const cardData = get(cardGroup, 'items[0]', {});
     const cardId = generateCardId(cardData, index);
-    const embedConfig = getEmbedConfig(cardData);
-    const normalizedFields = getNormalizedCardFields(embedConfig, index);
+    const originalConfig = getEmbedConfig(cardData);
+    const normalizedFields = getNormalizedCardFields(originalConfig, index);
+    const configToUpdate = ensureEmbedConfig(cardData);
 
-    return mergeEmbedConfig(cardData, {
-        ...normalizedFields,
-        cardId
-    });
+    if (configToUpdate) {
+        Object.assign(configToUpdate, originalConfig, normalizedFields, {
+            cardId
+        });
+    }
+
+    return cardData;
 };
 
 export const getCardRenderData = (group, cardIndex) => {
-    const cardElement = get(group, 'items[0]', {});
     const cardContent = get(group, 'items', []).slice(1);
-    const embedConfig = getEmbedConfig(cardElement);
-    const cardId = generateCardId(cardElement, cardIndex);
-    const normalizedFields = getNormalizedCardFields(embedConfig, cardIndex);
+    const normalizedCard = createCardWithId(group, cardIndex);
+    const cardId = get(
+        normalizedCard,
+        'embed.config.cardId',
+        `card-${cardIndex + 1}`
+    );
 
-    const cardData = {
-        ...mergeEmbedConfig(cardElement, {
-            ...normalizedFields,
-            cardId
-        }),
-        cardIndex,
-        cardId
-    };
+    normalizedCard.cardIndex = cardIndex;
+    normalizedCard.cardId = cardId;
 
     return {
-        cardData,
+        cardData: normalizedCard,
         contenido: cardContent,
         cardId
     };
 };
 
 export const getGridColumns = totalCards => {
-    if (totalCards <= 6) return 3;
-    if (totalCards <= 8) return 4;
-    if (totalCards <= 10) return 5;
-    return 4; // Por defecto para más de 10 cards
+    if (totalCards <= 0) return 3;
+    if (totalCards % 4 === 0) return 4;
+    if (totalCards % 3 === 1) return 4;
+    if (totalCards % 4 === 1) return 3;
+    if (totalCards % 3 === 0) return 3;
+    return 4;
 };
 
 export const addAutoNumbering = (cards = []) =>
     cards.map((card, index) => {
         const embedConfig = getEmbedConfig(card);
-        const cardNumber = get(embedConfig, 'cardNumber');
+        const useNumbering = get(embedConfig, 'useNumbering', undefined);
+        const cardNumber = get(embedConfig, 'cardNumber', null);
 
-        if (cardNumber) {
-            return mergeEmbedConfig(card, {
-                cardNumber
-            });
+        const isNumberingEnabled =
+            useNumbering === true || useNumbering === 'true';
+        const hasValidCardNumber =
+            cardNumber && String(cardNumber).trim() !== '';
+
+        if (isNumberingEnabled && hasValidCardNumber) {
+            return mergeEmbedConfig(card, { cardNumber });
         }
 
-        return mergeEmbedConfig(card, {
-            cardNumber: index + 1
-        });
+        return mergeEmbedConfig(card, { cardNumber: index + 1 });
     });
 
 export const supportedTypesCards = [
