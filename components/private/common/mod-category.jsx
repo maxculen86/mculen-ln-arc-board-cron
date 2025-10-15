@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { cx } from '@ln/cva';
 import ModNavigation from './mod-navigation';
 import ComImage from './com-image';
 import ComTitle from './com-title';
@@ -15,7 +16,8 @@ function ModCategory(props) {
         category,
         style = undefined,
         navigation,
-        url
+        url,
+        sectionId
     } = props;
 
     const image = useGetLogoImage(imageId) || {};
@@ -35,7 +37,11 @@ function ModCategory(props) {
     );
 
     return (
-        <div className="mod-categories">
+        <div
+            className={cx('mod-categories', {
+                '--no-app': sectionId === '/juegos'
+            })}
+        >
             {revista ? (
                 <div className="mod-logo">
                     <h1>
@@ -78,7 +84,8 @@ ModCategory.propTypes = {
         color: PropTypes.string
     }),
     navigation: PropTypes.string,
-    imageId: PropTypes.string
+    imageId: PropTypes.string,
+    sectionId: PropTypes.string
 };
 
 ModCategory.defaultProps = {
@@ -86,7 +93,8 @@ ModCategory.defaultProps = {
     category: '',
     style: undefined,
     imageId: '',
-    navigation: undefined
+    navigation: undefined,
+    sectionId: ''
 };
 
 export default ModCategory;
