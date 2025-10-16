@@ -232,15 +232,15 @@ input[type=checkbox]:hover {
   }
 }
 @media (min-width: 80rem) {
-    .ai-start_lg {
-        align-items: flex-start;
-    }
-    .jc-start_lg {
-        justify-content: flex-start;
-    }
-    .jc-center_lg {
-        justify-content: center;
-    }
+  .ai-start_lg {
+    align-items: flex-start;
+  }
+  .jc-start_lg {
+    justify-content: flex-start;
+  }
+  .jc-center_lg {
+    justify-content: center;
+  }
 }
 .vertical-align-middle {
   vertical-align: middle;
@@ -2050,15 +2050,15 @@ strong {
 }
 
 .min-h-113 {
-    min-height: 7.0625rem;
+  min-height: 7.0625rem;
 }
 
 .min-h-120 {
-    min-height: 7.5rem;
+  min-height: 7.5rem;
 }
 
 .min-h-134 {
-    min-height: 8.375rem;
+  min-height: 8.375rem;
 }
 
 .min-h-344 {
@@ -2078,19 +2078,19 @@ strong {
 }
 
 @media (min-width: 48rem) {
-    .min-h-113_md {
-        min-height: 7.0625rem;
-    }
-    .min-h-120_md {
-        min-height: 7.5rem;
-    }
-    .min-h-140_md {
-        min-height: 8.75rem;
-    }
-    .min-h-max_md {
-        min-height: -moz-max-content;
-        min-height: max-content;
-    }
+  .min-h-113_md {
+    min-height: 7.0625rem;
+  }
+  .min-h-120_md {
+    min-height: 7.5rem;
+  }
+  .min-h-140_md {
+    min-height: 8.75rem;
+  }
+  .min-h-max_md {
+    min-height: -moz-max-content;
+    min-height: max-content;
+  }
 }
 @media (min-width: 80rem) {
   .min-h-40_lg {

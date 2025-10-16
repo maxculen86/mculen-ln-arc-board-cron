@@ -19,6 +19,36 @@
     line-height: 120%;
   }
 }
+.--font-6xl {
+  font-size: 1.75rem;
+  line-height: 120%;
+}
+
+@media (min-width: 48rem) {
+  .--font-6xl {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 80rem) {
+  .--font-6xl {
+    font-size: 3rem;
+  }
+}
+.--font-5xl {
+  font-size: 1.75rem;
+  line-height: 120%;
+}
+
+@media (min-width: 48rem) {
+  .--font-5xl {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  .--font-5xl {
+    font-size: 2.5rem;
+  }
+}
 .--font-4xl {
   font-size: 1.5rem;
   line-height: 120%;
