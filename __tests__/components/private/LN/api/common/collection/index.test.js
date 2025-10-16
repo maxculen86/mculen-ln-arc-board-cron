@@ -38,6 +38,7 @@ describe('components - private - LN - api - common - collection - index', () => 
                     'openingMode',
                     'distributor',
                     'videoData',
+                    'videoLoop',
                     'bajada',
                     'imagen',
                     'videoYouTube',

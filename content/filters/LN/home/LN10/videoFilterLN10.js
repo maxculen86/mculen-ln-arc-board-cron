@@ -4,6 +4,8 @@ export default `{
         file
         height
         filesize
+        type
+        width
     }
     title
     mediaid
