@@ -80,7 +80,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
-            data-test-id="button-suscribe"
+            data-testid="button-suscribe"
             data-variant="accent"
             title="Suscribite"
           >
@@ -128,7 +128,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
-            data-test-id="button-suscribe"
+            data-testid="button-suscribe"
             data-variant="accent"
             title="Suscribite"
           >
@@ -195,7 +195,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
-            data-test-id="button-suscribe"
+            data-testid="button-suscribe"
             data-variant="accent"
             title="Suscribite"
           >
