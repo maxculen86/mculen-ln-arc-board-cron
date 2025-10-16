@@ -52,6 +52,8 @@ export default function BuildRoof(props) {
     const roofType =
         isAFondo || !chainStyle ? 'generic' : chainStyle.toLowerCase();
 
+    const hideArrow = !!logo?.src;
+
     const propsLeft = hasDataRoof({ chainStyle }) && {
         logo,
         href: titleLink,
@@ -59,9 +61,7 @@ export default function BuildRoof(props) {
         text: !logo && title,
         title,
         'roof-group': 'left',
-        assets: getAssetsLeft,
-        // VALIDACION PARA QUE NO MUESTRE LA FLECHA
-        hideArrow: !!logo?.src
+        assets: !hideArrow ? getAssetsLeft : null
     };
 
     const propsRight = hasDataRoof({ chainStyle }) && {
