@@ -27,6 +27,7 @@ export default function BuildRoof(props) {
         isAdmin,
         isAFondo
     } = props;
+
     const { contextPath, deployment } = useAppContext();
 
     const chainStyle =
@@ -50,6 +51,9 @@ export default function BuildRoof(props) {
 
     const roofType =
         isAFondo || !chainStyle ? 'generic' : chainStyle.toLowerCase();
+
+    const hideArrow = !!logo?.src;
+
     const propsLeft = hasDataRoof({ chainStyle }) && {
         logo,
         href: titleLink,
@@ -57,7 +61,7 @@ export default function BuildRoof(props) {
         text: !logo && title,
         title,
         'roof-group': 'left',
-        assets: getAssetsLeft
+        assets: !hideArrow ? getAssetsLeft : null
     };
 
     const propsRight = hasDataRoof({ chainStyle }) && {
