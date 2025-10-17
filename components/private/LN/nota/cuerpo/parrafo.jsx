@@ -31,7 +31,7 @@ const setExternalLinks = ({ content = '', withSponsoredLink } = {}) =>
     content.replace(
         /<a[\s]+([^>]+)>((?:.(?!<\/a>))*.)<\/a>/g,
         (_, href, string) => {
-            const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
+            const [, , link] = href.match(/href=(["'\\])([^"'\\]*)\1/) || [
                 null,
                 null,
                 '#'
