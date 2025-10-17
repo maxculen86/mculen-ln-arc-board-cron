@@ -33,8 +33,11 @@ function LinkedCardHeading({ number, title }) {
 }
 
 LinkedCardHeading.propTypes = {
-    number: PropTypes.string.isRequired,
+    number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string.isRequired
 };
 
+LinkedCardHeading.defaultProps = {
+    number: null
+};
 export default LinkedCardHeading;

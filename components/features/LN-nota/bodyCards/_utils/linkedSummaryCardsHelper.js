@@ -4,17 +4,6 @@ export const DEFAULT_CARD_COLOR = '#333333';
 
 const getEmbedConfig = cardData => get(cardData, 'embed.config', {});
 
-const mergeEmbedConfig = (cardData, overrides) => ({
-    ...cardData,
-    embed: {
-        ...(cardData?.embed || {}),
-        config: {
-            ...getEmbedConfig(cardData),
-            ...overrides
-        }
-    }
-});
-
 const ensureEmbedConfig = cardData => {
     if (!cardData || typeof cardData !== 'object') return {};
 
@@ -42,21 +31,20 @@ export const getNormalizedCardFields = (
     embedConfig = {},
     fallbackIndex = 0
 ) => {
-    const defaultNumber = fallbackIndex + 1;
     const useNumbering = get(embedConfig, 'useNumbering');
     const cardNumber = get(embedConfig, 'cardNumber');
     const cardId = get(embedConfig, 'id');
 
     const isNumberingEnabled = useNumbering === true || useNumbering === 'true';
-    const hasValidCardNumber = cardNumber && String(cardNumber).trim() !== '';
-    const hasValidCardId = cardId && String(cardId).trim() !== '';
 
-    let resolvedCardNumber = defaultNumber;
-    if (isNumberingEnabled && hasValidCardNumber) {
-        resolvedCardNumber = cardNumber;
-    } else if (isNumberingEnabled && hasValidCardId) {
-        resolvedCardNumber = cardId;
-    }
+    const resolveNumber = () => {
+        if (!isNumberingEnabled) return null;
+        if (cardNumber && String(cardNumber).trim() !== '') return cardNumber;
+        if (cardId && String(cardId).trim() !== '') return cardId;
+        return fallbackIndex + 1;
+    };
+
+    const resolvedCardNumber = resolveNumber();
 
     return {
         cardNumber: resolvedCardNumber,
@@ -111,24 +99,6 @@ export const getGridColumns = totalCards => {
     if (totalCards % 3 === 0) return 3;
     return 4;
 };
-
-export const addAutoNumbering = (cards = []) =>
-    cards.map((card, index) => {
-        const embedConfig = getEmbedConfig(card);
-        const useNumbering = get(embedConfig, 'useNumbering', undefined);
-        const cardNumber = get(embedConfig, 'cardNumber', null);
-
-        const isNumberingEnabled =
-            useNumbering === true || useNumbering === 'true';
-        const hasValidCardNumber =
-            cardNumber && String(cardNumber).trim() !== '';
-
-        if (isNumberingEnabled && hasValidCardNumber) {
-            return mergeEmbedConfig(card, { cardNumber });
-        }
-
-        return mergeEmbedConfig(card, { cardNumber: index + 1 });
-    });
 
 export const supportedTypesCards = [
     'text',

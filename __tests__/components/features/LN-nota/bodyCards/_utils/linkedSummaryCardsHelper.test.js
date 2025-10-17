@@ -3,7 +3,7 @@ import {
     normalizeCardColor,
     createCardWithId,
     getCardRenderData,
-    addAutoNumbering
+    getNormalizedCardFields
 } from 'features/LN-nota/bodyCards/_utils/linkedSummaryCardsHelper';
 
 describe('linkedSummaryCardsHelper - normalizeCardColor', () => {
@@ -136,38 +136,57 @@ describe('linkedSummaryCardsHelper - getCardRenderData', () => {
     });
 });
 
-describe('linkedSummaryCardsHelper - addAutoNumbering', () => {
-    it('adds numbering to cards without cardNumber', () => {
-        const cards = [{ embed: { config: {} } }, { embed: { config: {} } }];
+describe('linkedSummaryCardsHelper - getNormalizedCardFields', () => {
+    it('returns null cardNumber when useNumbering is not enabled', () => {
+        const embedConfig = { title: 'Test Card' };
 
-        const result = addAutoNumbering(cards);
+        const result = getNormalizedCardFields(embedConfig, 2);
 
-        expect(result[0].embed.config.cardNumber).toBe(1);
-        expect(result[1].embed.config.cardNumber).toBe(2);
+        expect(result.cardNumber).toBe(null);
+        expect(result.title).toBe('Test Card');
     });
 
-    it('preserves existing cardNumber values when useNumbering is true', () => {
-        const cards = [
-            { embed: { config: { cardNumber: 5, useNumbering: true } } },
-            { embed: { config: { cardNumber: 2, useNumbering: true } } }
-        ];
+    it('returns automatic cardNumber when useNumbering is true but no cardNumber provided', () => {
+        const embedConfig = { useNumbering: true, title: 'Test Card' };
 
-        const result = addAutoNumbering(cards);
+        const result = getNormalizedCardFields(embedConfig, 2);
 
-        expect(result[0].embed.config.cardNumber).toBe(5);
-        expect(result[1].embed.config.cardNumber).toBe(2);
+        expect(result.cardNumber).toBe(3); // fallbackIndex + 1
+        expect(result.title).toBe('Test Card');
     });
 
-    it('handles empty array safely', () => {
-        const result = addAutoNumbering([]);
-        expect(result).toEqual([]);
+    it('returns custom cardNumber when useNumbering is true and cardNumber provided', () => {
+        const embedConfig = {
+            useNumbering: true,
+            cardNumber: 5,
+            title: 'Test Card'
+        };
+
+        const result = getNormalizedCardFields(embedConfig, 2);
+
+        expect(result.cardNumber).toBe(5);
+        expect(result.title).toBe('Test Card');
     });
 
-    it('handles cards with malformed embed structure', () => {
-        const cards = [{ title: 'Card without embed' }];
+    it('returns cardId as cardNumber when useNumbering is true and only cardId provided', () => {
+        const embedConfig = {
+            useNumbering: true,
+            id: 'custom-id',
+            title: 'Test Card'
+        };
 
-        const result = addAutoNumbering(cards);
+        const result = getNormalizedCardFields(embedConfig, 2);
 
-        expect(result[0].embed.config.cardNumber).toBe(1);
+        expect(result.cardNumber).toBe('custom-id');
+        expect(result.title).toBe('Test Card');
+    });
+
+    it('handles string "true" value for useNumbering', () => {
+        const embedConfig = { useNumbering: 'true', title: 'Test Card' };
+
+        const result = getNormalizedCardFields(embedConfig, 2);
+
+        expect(result.cardNumber).toBe(3); // fallbackIndex + 1
+        expect(result.title).toBe('Test Card');
     });
 });

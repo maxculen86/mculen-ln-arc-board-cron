@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import classNames from 'classnames';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
@@ -12,6 +11,7 @@ import {
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import useShare from '../hooks/useShare';
+import { buildSecondButtonsGroupVariants } from './styles';
 
 function BuildSecondButtonsGroup({
     requestUri,
@@ -29,17 +29,9 @@ function BuildSecondButtonsGroup({
         requestUri
     });
 
-    const paddingPosition = isHorizontal
-        ? 'pl-8 ai-center gap-8 gap-24_m'
-        : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m';
-
-    const flexVideo = isHorizontal ? '' : 'flex-column_l';
-    const _classes = classNames(
-        'second-buttons-group',
-        'flex ai-center',
-        flexVideo,
-        paddingPosition
-    );
+    const _classes = buildSecondButtonsGroupVariants({
+        orientation: isHorizontal ? 'horizontal' : 'vertical'
+    });
 
     return (
         <div className={_classes}>
