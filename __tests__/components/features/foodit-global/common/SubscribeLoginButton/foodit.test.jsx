@@ -150,7 +150,7 @@ describe('LoginSubscribeButtons', () => {
 
             expect(
                 screen.getByRole('button', {
-                    name: /suscribite/i
+                    name: /Empezá hoy/i
                 })
             ).toBeInTheDocument();
         });
@@ -179,9 +179,7 @@ describe('LoginSubscribeButtons', () => {
             async (comesFrom, expectedEvent, expectedUrlStart) => {
                 render(<LoginSubscribeButtons comesFrom={comesFrom} />);
 
-                const subscribeButton = screen.getByRole('button', {
-                    name: /suscribite/i
-                });
+                const subscribeButton = screen.getByTestId('button-suscribe');
                 fireEvent.click(subscribeButton);
 
                 expect(addEventToDataLayerV2).toHaveBeenCalledWith({

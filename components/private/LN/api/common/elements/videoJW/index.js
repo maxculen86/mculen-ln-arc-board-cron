@@ -10,10 +10,10 @@ const generateVideoJW = stream => {
 export const videoJWCommon = streams => {
     const orderedStreams = streams
         ? streams
-              .filter(v => v.type === 'video/mp4')
-              .sort((a, b) => {
-                  return a.width < b.width ? 1 : -1;
-              })
+            .filter(v => v.type === 'video/mp4')
+            .sort((a, b) => {
+                return a.width < b.width ? 1 : -1;
+            })
         : [];
     if (orderedStreams.length === 0) return null;
 
@@ -25,6 +25,13 @@ export const videosJW = streams => {
     return streams
         .filter(v => v.type === 'video/mp4')
         .map(s => generateVideoJW(s));
+};
+
+export const videoJWHomeMobile = streams => {
+    if (!streams) return null;
+    return generateVideoJW(streams
+        .find(v => v.type === 'video/mp4' && v.width === 480)
+    )
 };
 
 export const videoJWM3u8 = streams => {

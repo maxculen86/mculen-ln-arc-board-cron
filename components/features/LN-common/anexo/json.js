@@ -4,8 +4,16 @@ import { isInSection, getErrorMessage } from './common/_helper-WebApi';
 
 const LAYOUT = 'LN10-Home_Main';
 
-const shouldSkipRender = ({ enabledDays = [], isHome = false }) =>
-    isHome && (enabledDays.length === 0 || !isTodayEnabled(enabledDays));
+const shouldSkipRender = ({
+    enabledDays = [],
+    isHome = false,
+    shouldSchedule
+}) => {
+    if (!shouldSchedule) {
+        return false;
+    }
+    return isHome && (enabledDays.length === 0 || !isTodayEnabled(enabledDays));
+};
 
 class AnexoFeature {
     constructor(props) {
@@ -26,7 +34,8 @@ class AnexoFeature {
             title,
             link,
             hideTitle,
-            enabledDays = []
+            enabledDays = [],
+            shouldSchedule = false
         } = customFields;
 
         const isHome = layout === LAYOUT;
@@ -45,7 +54,7 @@ class AnexoFeature {
         });
 
         if (
-            shouldSkipRender({ enabledDays, isHome }) ||
+            shouldSkipRender({ enabledDays, isHome, shouldSchedule }) ||
             errorMessage ||
             hideByFlags
         ) {

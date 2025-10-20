@@ -78,7 +78,9 @@ describe('cardRegular', () => {
             badgeStyle: 'positive',
             widgetEmbed: null,
             opinion: false,
-            isListenable: undefined
+            isListenable: undefined,
+            videoLoop: null,
+
         };
 
         // Act
@@ -141,7 +143,8 @@ describe('cardRegular', () => {
             widgetEmbed:
                 'https://canchallena.clanacion.com.ar/futbol/copa-argentina-2025/boca-juniors-argentino-monte-maiz-aeptpxkh2li6vimrypjso0ff8/widget/?isHome=true',
             opinion: false,
-            isListenable: undefined
+            isListenable: undefined,
+            videoLoop: null,
         };
 
         // Act
@@ -184,7 +187,8 @@ describe('cardRegular', () => {
             volanta: null,
             bajada: 'Sample Subheadline',
             opinion: false,
-            isListenable: undefined
+            isListenable: undefined,
+            videoLoop: null,
         };
 
         // ACT
@@ -197,12 +201,15 @@ describe('cardRegular', () => {
     });
 
     test('Common - CardRegular > Should return null for bajada property when hideDescription is true', () => {
-        // ARRANGE
         get.mockImplementation((obj, path, defaultValue) => {
-            if (path === 'additionalProperties.hideDescription') {
-                return true;
-            }
+            if (path === 'additionalProperties.hideDescription') return true;
             return defaultValue;
+        });
+
+        CardBasic.mockReturnValueOnce({
+            title: 'Artículo de prueba',
+            video: undefined,
+            videos: undefined
         });
 
         const article = {
@@ -213,56 +220,76 @@ describe('cardRegular', () => {
         };
 
         const expectedCard = {
-            ...CardBasic(article),
+            title: 'Artículo de prueba',
+            categoria: undefined,
+            autores: undefined,
+            authors: undefined,
+            marquesina: undefined,
+            volanta: null,
             bajada: null,
-            chapita: null,
             imagen: undefined,
-            isListenable: false,
-            video: 'videos',
             videoYouTube: undefined,
-            videos: 'videos'
+            widgetEmbed: undefined,
+            embed: undefined,
+            opinion: false,
+            isListenable: undefined,
+            videoLoop: null,
+            video: undefined,
+            videos: undefined
+        };
+
+        const result = CardRegular(article);
+
+        expect(result).toEqual(expectedCard);
+    });
+
+
+    test('Common - CardRegular > Should return bajada when hideDescription is false', () => {
+        // ARRANGE
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path === 'additionalProperties.hideDescription') return false;
+            if (path === 'subheadlines.basic') return 'Sample Subheadline';
+            return defaultValue;
+        });
+
+        const article = {
+            additionalProperties: {
+                hideDescription: false,
+                showVideoLoop: false
+            },
+            subheadlines: { basic: 'Sample Subheadline' }
+        };
+
+        CardBasic.mockReturnValueOnce({
+            title: 'Artículo de prueba'
+        });
+
+        const expectedCard = {
+            title: 'Artículo de prueba',
+            categoria: undefined,
+            autores: undefined,
+            authors: undefined,
+            marquesina: undefined,
+            volanta: null,
+            bajada: 'Sample Subheadline',
+            imagen: undefined,
+            videoYouTube: undefined,
+            widgetEmbed: undefined,
+            embed: undefined,
+            opinion: false,
+            isListenable: undefined,
+            videoLoop: null,
+            video: undefined,
+            videos: undefined
         };
 
         // ACT
-        const result = cardRegular(article);
+        const result = CardRegular(article);
 
         // ASSERT
         expect(result).toEqual(expectedCard);
     });
 
-    test('Common - CardRegular > Should return bajada when hideDescription is false', () => {
-        // ARRANGE
-        get.mockImplementation((obj, path, defaultValue) => {
-            if (path == 'subheadlines.basic') {
-                return 'Sample Subheadline';
-            }
-            return defaultValue;
-        });
-
-        const articleWithFalseHideDescription = {
-            additionalProperties: {
-                hideDescription: false
-            },
-            subheadlines: { basic: 'Sample Subheadline' }
-        };
-
-        const expectedCardWithFalse = {
-            ...CardBasic(articleWithFalseHideDescription),
-            bajada: 'Sample Subheadline',
-            chapita: null,
-            imagen: undefined,
-            isListenable: false,
-            video: undefined,
-            videoYouTube: undefined,
-            videos: undefined
-        };
-
-        // ACT
-        const resultWithFalse = cardRegular(articleWithFalseHideDescription);
-
-        // ASSERT
-        expect(resultWithFalse).toEqual(expectedCardWithFalse);
-    });
 
     test('removes `marquesina` and `authors` when sectionAliasMobile is `hashtag`', () => {
         CardBasic.mockReturnValueOnce({
@@ -288,11 +315,110 @@ describe('cardRegular', () => {
             volanta: null,
             bajada: null,
             opinion: false,
-            isListenable: undefined
+            isListenable: undefined,
+            videoLoop: null,
+
         };
 
         const result = CardRegular(article);
 
         expect(result).toStrictEqual(expectedCardRegular);
+    });
+
+    test('muestra videoLoop cuando showVideoLoop es true y hay video válido', () => {
+        const mockVideo = {
+            sources: [
+                {
+                    file: 'https://video.mp4',
+                    type: 'video/mp4',
+                    width: 480,
+                    height: 270
+                }
+            ]
+        };
+
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path === 'additionalProperties.showVideoLoop') return true;
+            if (path === 'additionalProperties.video') return mockVideo;
+            return defaultValue;
+        });
+
+        getArticleImage.mockReturnValueOnce('imagen.jpg');
+        CardBasic.mockReturnValueOnce({ title: 'Artículo de prueba' });
+
+        const article = {
+            additionalProperties: {
+                showVideoLoop: true,
+                video: mockVideo
+            }
+        };
+
+        const result = CardRegular(article);
+
+        expect(result.videoLoop).toEqual({
+            _t: 'mmf',
+            width: 480,
+            height: 270,
+            url: 'https://video.mp4'
+        });
+        expect(result.imagen).toBe('imagen.jpg');
+    });
+
+
+    test('muestra imagen y oculta videoLoop cuando showVideoLoop es true pero no hay video', () => {
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path === 'additionalProperties.showVideoLoop') return true;
+            if (path === 'additionalProperties.video') return null;
+            return defaultValue;
+        });
+
+        getArticleImage.mockReturnValueOnce('imagen.jpg');
+        CardBasic.mockReturnValueOnce({ title: 'Artículo de prueba' });
+
+        const article = {
+            additionalProperties: {
+                showVideoLoop: true
+            }
+        };
+
+        const result = CardRegular(article);
+
+        expect(result.videoLoop).toBeNull();
+        expect(result.imagen).toBe('imagen.jpg');
+    });
+
+
+    test('muestra imagen y oculta videoLoop cuando showVideoLoop es false', () => {
+        const mockVideoLoop = {
+            sources: [
+                {
+                    file: 'https://video.mp4',
+                    type: 'video/mp4',
+                    width: 480,
+                    height: 270
+                }
+            ]
+        };
+
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path === 'additionalProperties.showVideoLoop') return false;
+            if (path === 'additionalProperties.video') return mockVideoLoop;
+            return defaultValue;
+        });
+
+        getArticleImage.mockReturnValueOnce('imagen.jpg');
+        CardBasic.mockReturnValueOnce({ title: 'Artículo de prueba' });
+
+        const article = {
+            additionalProperties: {
+                showVideoLoop: false,
+                video: mockVideoLoop
+            }
+        };
+
+        const result = CardRegular(article);
+
+        expect(result.videoLoop).toBeNull();
+        expect(result.imagen).toBe('imagen.jpg');
     });
 });

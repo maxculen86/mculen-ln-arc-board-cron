@@ -8,9 +8,17 @@ import AnexoFeature, {
 import { isInSection } from '../../../../../components/features/LN-common/anexo/common/_helper-WebApi';
 import BuildRoof from '../../../../../components/chains/utils/_BuildRoof/default';
 import { setupIntersectionObserver } from '../../../../../components/features/LN-10-global/common/utils/intersectionObserver';
+import { isTodayEnabled } from '../../../../../components/chains/LN10_Caja_Segmentada/_helpers';
 
 jest.mock(
     '../../../../../components/features/LN-10-global/common/utils/intersectionObserver'
+);
+
+jest.mock(
+    '../../../../../components/chains/LN10_Caja_Segmentada/_helpers',
+    () => ({
+        isTodayEnabled: jest.fn(() => true)
+    })
 );
 
 jest.mock('fusion:context', Component => {
@@ -19,12 +27,16 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-Context.useAppContext = jest.fn(() => ({
+const defaultContextValue = {
     deployment: arg => arg,
     contextPath: '/pf',
     isAdmin: false,
     layout: ''
-}));
+};
+
+beforeEach(() => {
+    Context.useAppContext = jest.fn(() => ({ ...defaultContextValue }));
+});
 
 jest.mock('fusion:consumer', Component => {
     return function (Component) {
@@ -245,6 +257,10 @@ describe('features - LN-common - anexo - default', () => {
         it('Without any of 3 heights on URL anexo - Should return ErrorMessage', () => {
             propsUrl.customFields.hideByUrl = false;
             propsUrl.customFields.heightDesktop = undefined;
+            Context.useAppContext = jest.fn(() => ({
+                ...defaultContextValue,
+                isAdmin: true
+            }));
             const { container } = render(<AnexoFeature {...propsUrl} />);
 
             expect(container).toHaveTextContent(
@@ -255,6 +271,10 @@ describe('features - LN-common - anexo - default', () => {
         it('When any of the 3 heights exceed limit inside Apertura - Should return ErrorMessage', () => {
             propsUrl.customFields.heightDesktop = 700;
             isInSection.mockImplementation(() => true);
+            Context.useAppContext = jest.fn(() => ({
+                ...defaultContextValue,
+                isAdmin: true
+            }));
             const { container } = render(<AnexoFeature {...propsUrl} />);
 
             expect(container).toHaveTextContent('Advertencia');
@@ -283,6 +303,10 @@ describe('features - LN-common - anexo - default', () => {
 
     describe('Without right props', () => {
         it('Should return ErrorMessage', () => {
+            Context.useAppContext = jest.fn(() => ({
+                ...defaultContextValue,
+                isAdmin: true
+            }));
             const { container } = render(<AnexoFeature />);
 
             expect(container).toHaveTextContent(
@@ -502,6 +526,90 @@ describe('features - LN-common - anexo - default', () => {
                     'container-100vw_max767 w-100_md'
                 );
             });
+        });
+    });
+
+    describe('Scheduling rules', () => {
+        const baseProps = {
+            id: 'schedule-anexo',
+            customFields: {
+                html: '<div class="com-anexo">Anexo Content</div>',
+                hideByHtml: false,
+                enabledDays: []
+            }
+        };
+
+        beforeEach(() => {
+            isTodayEnabled.mockReturnValue(true);
+            Context.useAppContext = jest.fn(() => ({ ...defaultContextValue }));
+        });
+
+        it('renders when scheduling is disabled regardless of enabledDays', () => {
+            const props = {
+                ...baseProps,
+                customFields: {
+                    ...baseProps.customFields,
+                    shouldSchedule: false
+                }
+            };
+
+            const { container } = render(<AnexoFeature {...props} />);
+
+            expect(container.querySelector('.com-anexo')).toBeInTheDocument();
+        });
+
+        it('hides when scheduling is enabled but enabledDays is empty', () => {
+            isTodayEnabled.mockReturnValue(false);
+
+            const props = {
+                ...baseProps,
+                customFields: {
+                    ...baseProps.customFields,
+                    shouldSchedule: true
+                }
+            };
+
+            const { container } = render(<AnexoFeature {...props} />);
+
+            expect(container.firstChild).toBeNull();
+        });
+
+        it('renders when scheduling is enabled and today is allowed', () => {
+            isTodayEnabled.mockReturnValue(true);
+
+            const props = {
+                ...baseProps,
+                customFields: {
+                    ...baseProps.customFields,
+                    enabledDays: ['lunes'],
+                    shouldSchedule: true
+                }
+            };
+
+            const { container } = render(<AnexoFeature {...props} />);
+
+            expect(container.querySelector('.com-anexo')).toBeInTheDocument();
+        });
+
+        it('allows admin users to view even when scheduling conditions fail', () => {
+            Context.useAppContext = jest.fn(() => ({
+                ...defaultContextValue,
+                isAdmin: true
+            }));
+
+            isTodayEnabled.mockReturnValue(false);
+
+            const props = {
+                ...baseProps,
+                customFields: {
+                    ...baseProps.customFields,
+                    shouldSchedule: true
+                }
+            };
+
+            const { container } = render(<AnexoFeature {...props} />);
+
+            expect(container.querySelector('.com-anexo')).toBeInTheDocument();
         });
     });
 });
