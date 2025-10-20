@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import classNames from 'classnames';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
@@ -12,10 +11,7 @@ import {
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import useShare from '../hooks/useShare';
-import {
-    LIVEBLOG_EDITORIAL,
-    VIDEO
-} from '../../../../private/common/utils/subtypes/subtypeHelper';
+import { buildSecondButtonsGroupVariants } from './styles';
 
 function BuildSecondButtonsGroup({
     requestUri,
@@ -24,7 +20,7 @@ function BuildSecondButtonsGroup({
     mobileTitle,
     subtypeVideo,
     articleId,
-    subtype
+    isHorizontal
 } = {}) {
     const { copy, setCopy, shareButton } = useShare({
         mobileTitle,
@@ -33,20 +29,9 @@ function BuildSecondButtonsGroup({
         requestUri
     });
 
-    const subtypesWithCustomLayout = [VIDEO, LIVEBLOG_EDITORIAL];
-    const isCustomLayout = subtypesWithCustomLayout.includes(subtype);
-
-    const paddingPosition = isCustomLayout
-        ? 'pl-8 ai-center gap-8 gap-24_m'
-        : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m';
-
-    const flexVideo = isCustomLayout ? '' : 'flex-column_l';
-    const _classes = classNames(
-        'second-buttons-group',
-        'flex ai-center',
-        flexVideo,
-        paddingPosition
-    );
+    const _classes = buildSecondButtonsGroupVariants({
+        orientation: isHorizontal ? 'horizontal' : 'vertical'
+    });
 
     return (
         <div className={_classes}>
@@ -157,7 +142,7 @@ BuildSecondButtonsGroup.propTypes = {
     mobileTitle: PropTypes.string.isRequired,
     subtypeVideo: PropTypes.string.isRequired,
     articleId: PropTypes.string.isRequired,
-    subtype: PropTypes.string.isRequired
+    isHorizontal: PropTypes.bool.isRequired
 };
 
 export default BuildSecondButtonsGroup;
