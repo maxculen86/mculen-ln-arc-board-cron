@@ -19,6 +19,36 @@
     line-height: 120%;
   }
 }
+.--font-6xl {
+  font-size: 1.75rem;
+  line-height: 120%;
+}
+
+@media (min-width: 48rem) {
+  .--font-6xl {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 80rem) {
+  .--font-6xl {
+    font-size: 3rem;
+  }
+}
+.--font-5xl {
+  font-size: 1.75rem;
+  line-height: 120%;
+}
+
+@media (min-width: 48rem) {
+  .--font-5xl {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  .--font-5xl {
+    font-size: 2.5rem;
+  }
+}
 .--font-4xl {
   font-size: 1.5rem;
   line-height: 120%;
@@ -4800,14 +4830,11 @@ body:has(.disable-body-scroll) {
   display: none;
 }
 
-.ln-placeholder:after {
+.ln-placeholder {
   background-image: url("/pf/resources/images/ln-placeholder.svg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: min(4.1875rem, 100%);
   background-position: center;
-  width: 4.1875rem;
-  height: 4.1875rem;
-  content: "";
 }
 
 .contenidos-scrollbar {
