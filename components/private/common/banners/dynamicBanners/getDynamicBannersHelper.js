@@ -26,15 +26,19 @@ export const getSectionId = (renderables, featureId) => {
     return get(layoutSection, 'props.id');
 };
 
+const EXCLUDED_TYPES_DESKTOP = ['LN10_Caja_Segmentada', 'LN10_Caja_Carrusel'];
+
 export const filterChildrenWithNoRoof = sectionChildren => {
     const { device } = getViewport();
-    return device === 'mobile'
-        ? sectionChildren
-        : sectionChildren.filter(
-              children =>
-                  children.props.customFields.hideTitle !== true &&
-                  children.type !== 'LN10_Caja_Segmentada'
-          );
+    if (device === 'mobile') return sectionChildren;
+
+    return sectionChildren.filter(children => {
+        const visibleRoof = children?.props?.customFields?.hideTitle !== true;
+        const excludedChainOrFeature = EXCLUDED_TYPES_DESKTOP.includes(
+            children?.type
+        );
+        return visibleRoof && !excludedChainOrFeature;
+    });
 };
 
 export const validateInterval = (interval, index) =>
