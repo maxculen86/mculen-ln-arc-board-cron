@@ -112,16 +112,20 @@ describe('EmbedCll Component', () => {
 
         const wrapperDiv = htmlContent.querySelector('div.p-overflow_max767');
         expect(wrapperDiv).toBeInTheDocument();
-        expect(wrapperDiv).toHaveClass('h-303');
 
         const innerDiv = wrapperDiv.querySelector('div.h-100');
-        expect(innerDiv).toBeInTheDocument();
+        expect(innerDiv).not.toBeInTheDocument();
 
         const iframe = container.querySelector('iframe');
         expect(iframe).toBeInTheDocument();
         expect(iframe).toHaveAttribute('title', iframeTitle);
-        expect(iframe).toHaveAttribute('src', matchDetail);
-        expect(iframe).toHaveClass('h-100');
+        expect(iframe).toHaveAttribute(
+            'src',
+            'https://widget-canchallena.clanacion.com.ar/futbol/torneo-apertura-2025/boca-juniors-rosario-central-wawi6ee63jly8pt5ppxmz3f8/widget/?initialWidth=0&childId=anexo-11223-0-1&parentTitle=&parentUrl=http%3A%2F%2Flocalhost%2F'
+        );
+        const parentDiv = iframe.closest('div.com-anexo');
+        expect(parentDiv).toBeInTheDocument();
+        expect(parentDiv).toHaveClass('pym');
     });
 
     it('should generate correct content when embedType is "isAnnualTable"', () => {
