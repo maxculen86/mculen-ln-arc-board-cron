@@ -8,7 +8,6 @@ import { normalizeCardColor } from './linkedSummaryCardsHelper';
 export const renderExpandedCard = (
     cardGroup,
     index,
-    banners,
     outputType,
     globalContent,
     variant
@@ -37,7 +36,6 @@ export const renderExpandedCard = (
                     </LinkedCard.Header>
                     <LinkedCard.Content>
                         {BuildBody({
-                            banners,
                             outputType,
                             globalContent,
                             groupedElements: cardGroup.items,
