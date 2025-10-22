@@ -7,8 +7,30 @@ import { getHomeOpeningImages, getPromoItemsImages } from './_helper';
 import { PreloadAcuFirstImage } from './components/preloadAcuFirstImage';
 import get from '../../../../../private/common/utils/get';
 import filter from '../../../../../../content/filters/foodit/chefs';
+import { ejesHomeMock } from '../../subcategorias/helpers';
 
 const componentRequiredLayouts = {
+    'Foodit-home': ({ renderables, isAdmin, contextPath, deployment }) => {
+        const openingImages = getHomeOpeningImages(renderables, isAdmin);
+
+        const assetsPath = file =>
+            deployment(
+                `${contextPath}/resources/foodit/assets/images/ejes/${file}`
+            );
+
+        const firstEjeImage =
+            ejesHomeMock.length > 0
+                ? [
+                      {
+                          resizedUrl: assetsPath(ejesHomeMock[0].imageProps.src)
+                      }
+                  ]
+                : [];
+
+        const criticalImages = [...openingImages, ...firstEjeImage];
+
+        return <PreloadImages resizedUrls={criticalImages} />;
+    },
     'Foodit-acumulado': ({ globalContent }) => {
         const { _id: id = '', articles = [] } = globalContent;
         if (id === '/tema') {
@@ -70,10 +92,18 @@ function PreloadFooditImages({
     layout = '',
     renderables = [],
     globalContent = {},
-    isAdmin = false
+    isAdmin = false,
+    contextPath = '',
+    deployment = () => {}
 }) {
     if (componentRequiredLayouts[layout])
-        return componentRequiredLayouts[layout]({ globalContent, renderables });
+        return componentRequiredLayouts[layout]({
+            globalContent,
+            renderables,
+            isAdmin,
+            contextPath,
+            deployment
+        });
 
     const imagesToPreload = {
         'Foodit-home': () => getHomeOpeningImages(renderables, isAdmin),
@@ -93,14 +123,18 @@ PreloadFooditImages.propTypes = {
     layout: PropTypes.string,
     renderables: PropTypes.array,
     globalContent: PropTypes.object,
-    isAdmin: PropTypes.bool
+    isAdmin: PropTypes.bool,
+    contextPath: PropTypes.string,
+    deployment: PropTypes.func
 };
 
 PreloadFooditImages.defaultProps = {
     layout: '',
     renderables: [],
     globalContent: {},
-    isAdmin: false
+    isAdmin: false,
+    contextPath: '',
+    deployment: () => {}
 };
 
 export default PreloadFooditImages;

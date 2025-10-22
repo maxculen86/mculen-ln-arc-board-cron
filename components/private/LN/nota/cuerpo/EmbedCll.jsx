@@ -22,13 +22,20 @@ function EmbedCll({ data = {} }) {
     }
 
     const isMatchDetail = embedType === 'isMatchDetail';
-    const wrapperClass = `p-overflow_max767 ${isMatchDetail ? 'h-303' : ''}`;
-    const innerClass = isMatchDetail ? 'h-100' : '';
-    const iframeClass = isMatchDetail ? 'h-100' : 'pym';
+    const wrapperClass = `p-overflow_max767`;
+    const iframeClass = 'pym';
 
-    const content = `
-        <div class="${wrapperClass}">
-            <div class="${innerClass}">
+    const content = isMatchDetail
+        ? `<div class="${wrapperClass}">
+                <iframe
+                    class="${iframeClass}"
+                    src="${widgetUrl}"
+                    title="Embebido canchallena"
+                    loading="lazy">
+                </iframe>
+        </div>`
+        : `<div class="${wrapperClass}">
+            <div>
                 <iframe
                     class="${iframeClass}"
                     src="${widgetUrl}"
@@ -36,8 +43,7 @@ function EmbedCll({ data = {} }) {
                     loading="lazy">
                 </iframe>
             </div>
-        </div>
-        `;
+        </div>`;
 
     return <Html data={{ content, _id }} />;
 }
