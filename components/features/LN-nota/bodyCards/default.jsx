@@ -25,8 +25,6 @@ import BodyTop from './components/BodyTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import { scrollToGrid } from './_utils/bodyCardsHelper';
 import { queueGoogletagCommand } from '../../../private/LN/common/utils/bannerHelper';
-// TODO: Estilos provisorios; reemplazar por la versión final provista por frontend.
-import '../../../layouts/LN-Nota-Cards/styles/dynamicBanners.css';
 
 function BodyCards() {
     const { outputType, globalContent = {} } = useAppContext();
@@ -110,8 +108,10 @@ function BodyCards() {
                 )}
             </div>
             <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
-            <div className="grid row-gap-80 grid-row-4 grid-col-1 row-gap-120_m grid-col-2-12_m grid-col-3-11_min1023 grid-col-4-10_md grid-col-5-13_lg">
-                {cardsWithBanners}
+            <div className="grid-row-4 grid-col-1">
+                <div className="grid grid-cols-8 row-gap-80 grid-cols-12_m row-gap-120_m grid-cols-16_lg">
+                    {cardsWithBanners}
+                </div>
             </div>
         </div>
     );
