@@ -1,0 +1,43 @@
+.mw-miniwall {
+    /* Customizaciones de texts */
+    --mw-title-font: 'Prumo';
+    --mw-title-color: #333;
+    --mw-subtitle-font: 'Arial', sans-serif;
+    --mw-subtitle-color: #333;
+    --mw-card-title-font: 'Arial', sans-serif;
+    --mw-card-title-color: #333;
+    --mw-plan-title-font: 'Arial', sans-serif;
+    --mw-plan-title-color: #333;
+    --mw-price-duration-font: 'Arial', sans-serif;
+    --mw-price-duration-color: #333;
+    --mw-price-font: 'Arial', sans-serif;
+    --mw-price-color: #333;
+    --mw-duration-font: 'Arial', sans-serif;
+    --mw-duration-color: #333;
+
+    /* Customizaciones de botón */
+    --mw-button-primary-bg: #333;
+    --mw-button-primary-text: #fefefe;
+    --mw-button-primary-font: Roboto;
+    --mw-button-secondary-bg: transparent;
+    --mw-button-secondary-text: #846b05;
+    --mw-button-secondary-border: 1px solid #846b05;
+    --mw-button-secondary-font: Roboto;
+    --_mw-button-bg-primary-hover-color: #787932;
+    --_mw-button-bg-secondary-hover-color: transparent;
+
+    /* Customizaciones de card */
+    --mw-card-recommended-bg: #fefefe;
+    --mw-card-recommended-color: #333;
+    --mw-card-recommended-border: 0.125rem solid #fdb727;
+    --mw-card-free-bg: #fefefe;
+    --mw-card-free-border: 0.125rem solid #e6e6e6;
+
+    /* Customizaciones de chip */
+
+    /* TODO revisar especifidad del texto del chip */
+    --mw-chip-recommended-bg: #fdb727;
+    --mw-chip-recommended-color: #333;
+    --mw-chip-free-bg: #e6e6e6;
+    --mw-chip-free-color: #333;
+}
