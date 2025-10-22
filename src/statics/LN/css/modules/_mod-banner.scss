@@ -323,3 +323,13 @@
     margin: 0;
     position: absolute;
 }
+
+.nota-cards__body{
+    .ln-banner-container{
+        grid-column: 1 / -1;
+        margin-block: -20px;
+        @media ($media-m) {
+            margin-block: -60px;
+        }
+    }
+}

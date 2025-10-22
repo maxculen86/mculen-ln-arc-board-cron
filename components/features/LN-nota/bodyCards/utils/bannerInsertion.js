@@ -70,9 +70,7 @@ export const createBannerElement = (
     if (!googleTagConfig) return null;
 
     const bannerElement = (
-        <div key={bannerKey} className="nota-cards__dynamic-banner">
-            {banner}
-        </div>
+        <React.Fragment key={bannerKey}>{banner}</React.Fragment>
     );
 
     return {
@@ -88,7 +86,10 @@ export const createCardElement = (
     outputType,
     globalContent
 ) => (
-    <React.Fragment key={cardGroup.id}>
+    <div
+        className="grid-col-1 grid-col-2-12_m grid-col-3-11_min1023 grid-col-4-10_md grid-col-5-13_lg"
+        key={cardGroup.id}
+    >
         {renderExpandedCard(
             cardGroup,
             index,
@@ -96,7 +97,7 @@ export const createCardElement = (
             globalContent,
             'expanded'
         )}
-    </React.Fragment>
+    </div>
 );
 
 export const insertBannersIntoCards = (
