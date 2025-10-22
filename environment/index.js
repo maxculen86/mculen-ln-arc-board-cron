@@ -10,6 +10,8 @@ export default {
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
     RELOGIN_VALIDATION: '8121600000',
     SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
+    API_KEY_MINIWALL: 'iczvuudwkdtqutw19f9knv7nasquvpzup8ep',
+    CHECKOUT_URL: 'https://checkout.lanacion.com.ar',
     LOGIN_URL: 'https://ingresar.lanacion.com.ar/login/ingresar/D/1/?callback=',
     FOODIT_LOGIN_URL:
         'https://ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
