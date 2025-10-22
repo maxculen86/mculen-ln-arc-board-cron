@@ -1,10 +1,10 @@
 const isExternalDistributor = (
     distributorName,
     distributorCategory,
-    authorType
+    authorId
 ) =>
     distributorName !== 'lanacionar' &&
     distributorCategory === 'other' &&
-    authorType !== 'Estándar';
+    !authorId;
 
 export default isExternalDistributor;

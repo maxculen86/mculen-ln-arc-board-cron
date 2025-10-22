@@ -23,9 +23,9 @@ function HomeFoodit({ children, isAdmin }) {
     return (
         <BaseLayout>
             <UserBookmarks />
-            <EjesHome />
             {BannersFoodit.modal_1x1()}
             <Static id="opening-home">
+                <EjesHome />
                 <section>{opening}</section>
             </Static>
             <section className={sectionClasses}>{bloque1}</section>

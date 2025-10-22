@@ -84,6 +84,8 @@ function Foodit({
                     renderables={renderables}
                     globalContent={globalContent}
                     isAdmin={isAdmin}
+                    contextPath={contextPath}
+                    deployment={deployment}
                 />
                 <FontPreload
                     deployment={deployment}
