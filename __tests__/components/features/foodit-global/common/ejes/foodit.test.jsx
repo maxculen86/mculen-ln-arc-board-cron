@@ -1,21 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { EjesHome } from '../../../../../../components/features/foodit-global/common/ejesHome/foodit';
-import { trackHomeCard } from '../../../../../../components/layouts/Foodit-subcategorias/_helpers';
-
-jest.mock(
-    '../../../../../../components/layouts/Foodit-subcategorias/_helpers',
-    () => ({
-        trackHomeCard: jest.fn()
-    })
-);
-
-jest.mock(
-    '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
-    () => ({
-        addEventToDataLayerV2: jest.fn()
-    })
-);
 
 jest.mock('fusion:context', () => ({
     useAppContext: () => ({
@@ -48,7 +33,7 @@ describe('EjesHome integrated', () => {
         expect(asFragment()).toMatchSnapshot();
     });
 
-    describe('Tracking Events', () => {
+    describe('Data Layer Tracking Attributes', () => {
         const cardTestCases = [
             {
                 cardTitle: 'Aprendé en la cocina',
@@ -76,62 +61,7 @@ describe('EjesHome integrated', () => {
             jest.clearAllMocks();
         });
 
-        it('calls trackHomeCard with correct trackingLabel when clicking each card', () => {
-            render(<EjesHome />);
-
-            const links = screen.getAllByRole('link');
-
-            const expectedTrackingLabels = [
-                'aprende_a_cocinar',
-                'cocina_facil',
-                'cocina_a_tu_manera',
-                'recetas'
-            ];
-
-            for (let i = 0; i < links.length; i++) {
-                fireEvent.click(links[i]);
-
-                expect(trackHomeCard).toHaveBeenCalledWith({
-                    trackingLabel: expectedTrackingLabels[i]
-                });
-            }
-
-            expect(trackHomeCard).toHaveBeenCalledTimes(4);
-        });
-
-        it('calls trackHomeCard exactly once per card click', () => {
-            render(<EjesHome />);
-
-            const firstLink = screen.getAllByRole('link')[0];
-
-            fireEvent.click(firstLink);
-            fireEvent.click(firstLink);
-
-            expect(trackHomeCard).toHaveBeenCalledTimes(2);
-            expect(trackHomeCard).toHaveBeenCalledWith({
-                trackingLabel: 'aprende_a_cocinar'
-            });
-        });
-
-        it('sends correct tracking data to datalayer when clicking cards', () => {
-            render(<EjesHome />);
-
-            const links = screen.getAllByRole('link');
-
-            fireEvent.click(links[0]);
-
-            expect(trackHomeCard).toHaveBeenCalledWith({
-                trackingLabel: 'aprende_a_cocinar'
-            });
-
-            fireEvent.click(links[1]);
-
-            expect(trackHomeCard).toHaveBeenCalledWith({
-                trackingLabel: 'cocina_facil'
-            });
-        });
-
-        it('tracks all cards with correct structure', () => {
+        it('renders all links with correct data layer attributes', () => {
             render(<EjesHome />);
 
             const links = screen.getAllByRole('link');
@@ -142,38 +72,86 @@ describe('EjesHome integrated', () => {
                 'recetas'
             ];
 
-            for (let i = 0; i < links.length; i++) {
-                fireEvent.click(links[i]);
-                expect(trackHomeCard).toHaveBeenCalledWith({
-                    trackingLabel: expectedTrackingLabels[i]
-                });
-            }
-
-            expect(trackHomeCard).toHaveBeenCalledTimes(4);
+            links.forEach((link, index) => {
+                expect(link).toHaveAttribute(
+                    'data-interaction',
+                    'dataLayerInteraction'
+                );
+                expect(link).toHaveAttribute('data-event', 'e_linkclick');
+                expect(link).toHaveAttribute('data-category', 'cards_home');
+                expect(link).toHaveAttribute(
+                    'data-label',
+                    expectedTrackingLabels[index]
+                );
+                expect(link).toHaveAttribute('data-action', 'N/A');
+            });
         });
 
-        it('does not call tracking on component mount', () => {
+        it('renders correct data-label for each card', () => {
             render(<EjesHome />);
 
-            expect(trackHomeCard).not.toHaveBeenCalled();
+            const links = screen.getAllByRole('link');
+            const expectedTrackingLabels = [
+                'aprende_a_cocinar',
+                'cocina_facil',
+                'cocina_a_tu_manera',
+                'recetas'
+            ];
+
+            expectedTrackingLabels.forEach((expectedLabel, index) => {
+                expect(links[index]).toHaveAttribute(
+                    'data-label',
+                    expectedLabel
+                );
+            });
+        });
+
+        it('has consistent data layer structure across all cards', () => {
+            render(<EjesHome />);
+
+            const links = screen.getAllByRole('link');
+
+            links.forEach(link => {
+                expect(link).toHaveAttribute(
+                    'data-interaction',
+                    'dataLayerInteraction'
+                );
+                expect(link).toHaveAttribute('data-event', 'e_linkclick');
+                expect(link).toHaveAttribute('data-category', 'cards_home');
+                expect(link).toHaveAttribute('data-action', 'N/A');
+
+                expect(link).toHaveAttribute('data-label');
+                expect(link.getAttribute('data-label')).toBeTruthy();
+            });
         });
 
         cardTestCases.forEach(({ cardTitle, expectedLabel, expectedHref }) => {
-            it(`tracks correctly when clicking "${cardTitle}" card`, () => {
+            it(`renders correct tracking data for "${cardTitle}" card`, () => {
                 render(<EjesHome />);
 
                 const link = screen.getByRole('link', {
                     name: new RegExp(cardTitle, 'i')
                 });
-
-                fireEvent.click(link);
-
-                expect(trackHomeCard).toHaveBeenCalledWith({
-                    trackingLabel: expectedLabel
-                });
-
                 expect(link).toHaveAttribute('href', expectedHref);
+
+                expect(link).toHaveAttribute(
+                    'data-interaction',
+                    'dataLayerInteraction'
+                );
+                expect(link).toHaveAttribute('data-event', 'e_linkclick');
+                expect(link).toHaveAttribute('data-category', 'cards_home');
+                expect(link).toHaveAttribute('data-label', expectedLabel);
+                expect(link).toHaveAttribute('data-action', 'N/A');
             });
+        });
+    });
+
+    describe('Component Structure', () => {
+        it('renders the correct number of category cards', () => {
+            render(<EjesHome />);
+
+            const links = screen.getAllByRole('link');
+            expect(links).toHaveLength(4);
         });
     });
 });
