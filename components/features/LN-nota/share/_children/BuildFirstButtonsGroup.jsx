@@ -23,6 +23,7 @@ import { getClassAndIconByClick, handleOpenIAFeature } from './helper';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 import {
+    CARDS,
     LIVEBLOG_EDITORIAL,
     VIDEO
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
@@ -77,8 +78,8 @@ function BuildFirtsButtonsGroup({
     const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
     const { iaLogo, iaButtonClass } = getClassAndIconByClick(iaButtonIsClicked);
 
-    const subtypesWithCustomLayout = [VIDEO, LIVEBLOG_EDITORIAL];
-    const isCustomLayout = subtypesWithCustomLayout.includes(subtype);
+    const subtypesWithHorizontalShare = [VIDEO, LIVEBLOG_EDITORIAL, CARDS];
+    const isCustomLayout = subtypesWithHorizontalShare.includes(subtype);
 
     const classes = getFirstGroupClassNames({ isCustomLayout });
 

@@ -1,5 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EmptyState component should match snapshot with variant "404" 1`] = `
+<div>
+  <div>
+    <section
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
+    >
+      <img
+        alt="Logo Foodit"
+        class="image flex -mb-8 w-87 h-91 --fill"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="undefined/pf/resources/images/logo-404.png"
+      />
+      <div
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+      >
+        <p
+          class="text prumo prumo-medium text-24 text-light-800"
+        >
+          ¡Uppps! Contenido en preparación
+        </p>
+        <p
+          class="text text-16 text-light-600"
+        >
+          <span>
+            <span
+              class="roboto text-16 text-light-600"
+            >
+              Mientras te invitamos a seguir navegando en
+               
+            </span>
+            <a
+              class="link foodit-link flex gap-8 ai-center roboto-regular inline-flex"
+              data-variant="secondary"
+              href="/"
+              target="_self"
+              title="Ir a Foodit"
+            >
+              Foodit
+            </a>
+          </span>
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+`;
+
 exports[`EmptyState component should match snapshot with variant "barrier-logged" 1`] = `
 <div>
   <div>
@@ -31,7 +80,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
-            data-test-id="button-suscribe"
+            data-testid="button-suscribe"
             data-variant="accent"
             title="Suscribite"
           >
@@ -79,7 +128,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
-            data-test-id="button-suscribe"
+            data-testid="button-suscribe"
             data-variant="accent"
             title="Suscribite"
           >
@@ -104,7 +153,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
     >
       <img
         alt="¡Aún no hay nada por acá!"
-        class="image flex mb-16 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg --fill"
+        class="image flex -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg --fill"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
@@ -146,7 +195,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
-            data-test-id="button-suscribe"
+            data-testid="button-suscribe"
             data-variant="accent"
             title="Suscribite"
           >
@@ -157,6 +206,43 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
             </span>
           </button>
         </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`EmptyState component should match snapshot with variant "search-engine" 1`] = `
+<div>
+  <div>
+    <section
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
+    >
+      <img
+        alt="¡Aún no hay nada por acá!"
+        class="image flex -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg --fill"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="undefined/pf/resources/images/empty-state-recetario.webp"
+      />
+      <div
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+      >
+        <p
+          class="text prumo prumo-medium text-24 text-light-800"
+        >
+          ¡Nada por acá!
+        </p>
+        <p
+          class="text text-16 text-light-600"
+        >
+          <span
+            class="roboto text-16 text-light-600 text-center"
+          >
+            No se encontraron resultados
+          </span>
+        </p>
       </div>
     </section>
   </div>

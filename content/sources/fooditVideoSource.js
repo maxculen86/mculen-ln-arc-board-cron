@@ -1,5 +1,4 @@
 import getProperties from 'fusion:properties';
-import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import { getVideoJwDataHome } from './utils/getVideoJwDataHome';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
@@ -13,11 +12,23 @@ const fetch = (query, { cachedCall } = {}) => {
         isInApertura = false
     } = query || {};
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+
     const resolveData = async () => {
         try {
-            const data = await request(
-                `https://cdn.jwplayer.com/v2/media/${id}`
+            const res = await global.fetch(
+                `https://cdn.jwplayer.com/v2/media/${id}`,
+                { signal: controller.signal }
             );
+
+            if (!res.ok) {
+                throw new Error(
+                    `JWPlayer fetch failed: ${res.status} ${res.statusText}`
+                );
+            }
+
+            const jsonData = await res.json();
             const properties = getProperties('foodit');
 
             const imagePreset = get(
@@ -32,7 +43,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 }
             );
 
-            const { sources, poster } = getVideoJwDataHome(JSON.parse(data));
+            const { sources, poster } = getVideoJwDataHome(jsonData);
             const signingResponse = await signingServiceCachedCall(
                 poster,
                 cachedCall
@@ -64,6 +75,8 @@ const fetch = (query, { cachedCall } = {}) => {
                 query['arc-site']
             );
             return null;
+        } finally {
+            clearTimeout(timeout);
         }
     };
 

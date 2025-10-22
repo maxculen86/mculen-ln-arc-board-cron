@@ -126,8 +126,11 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         expect(screen.getByText(/child 1/i)).toBeInTheDocument();
         expect(useRoofData).toHaveBeenCalledWith({
             roofProp: 'mockRoofProp',
+            enabledDays: [],
             isAdmin: false,
-            isStatic: false
+            isStatic: false,
+            shouldLoadRoof: true,
+            shouldSchedule: false
         });
     });
 

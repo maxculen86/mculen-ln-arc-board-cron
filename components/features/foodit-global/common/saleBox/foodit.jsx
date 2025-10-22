@@ -27,7 +27,8 @@ export function SaleBox({ ...props }) {
                         as="h2"
                         className="prumo prumo-semibold text-light-800 text-24 text-28_md text-center text-start_md"
                     >
-                        Tres motivos para suscribirte hoy a Foodit
+                        Suscribite y empezá a cocinar con Foodit: fácil, rápido
+                        y a tu manera.
                     </Text>
                     <div>
                         {mockBenefits.map(beneficts => (
