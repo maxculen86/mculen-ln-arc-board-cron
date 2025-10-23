@@ -1,5 +1,6 @@
-import isNoteListenable, {
-    isCustomVoice
+import {
+    isCustomVoice,
+    isNoteListenableForApps
 } from '../../../../../../../content/sources/utils/audioNews/helper';
 import get from '../../../../../common/utils/get';
 import { validateIdsPromoItems } from '../../../common/elements/story/apertura/utils/helpers';
@@ -25,7 +26,7 @@ const indexNota = dataNotaParam => {
         ...storyHeadline(dataNota, 'mobile'),
         apertura: apertura(dataNota, elements.idsElements),
         footer: buildFooter(dataNota),
-        isListenable: isNoteListenable(dataNota),
+        isListenable: isNoteListenableForApps(dataNota),
         audio_custom_voice: isCustomVoice(get(dataNota, 'dataAudio', null))
     };
 
