@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useAppContext } from 'fusion:context';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import { Spinner } from '@ln/common-ui-spinner';
 import ToggleButton from './ToggleButton';
 import handleCookie from '../../LN/common/utils/handleCookie';
-import { getTextDisclaimer } from './helpers';
+import { getTextDisclaimer, setupBwReproductionTracking } from './helpers';
 import { useSignatureContext } from './hooks/SignatureContext';
 import renderToast from '../../../features/private-global/common/utils/renderToast';
 import DisclaimerIA from '../../../features/LN-10-global/common/disclaimerIa/default';
@@ -23,6 +24,7 @@ function BuildAudioPlayer({
     const { setCookie } = handleCookie();
     const { isSummary, setIsSummary, setIsAudioPlaying } =
         useSignatureContext();
+    const { globalContent = {}, globalContentConfig = {} } = useAppContext();
 
     const playerRef = useRef(null);
 
@@ -36,7 +38,7 @@ function BuildAudioPlayer({
                 title: 'Error de audio'
             });
         }
-    }, [errorAudio, setEnableButton, openToast]);
+    }, [errorAudio, setEnableButton, openToast, onCloseAudioPlayer]);
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -55,7 +57,31 @@ function BuildAudioPlayer({
     }, []);
 
     useEffect(() => {
+        const cleanupAudioPlayerListeners = () => {
+            if (!playerRef.current) return;
+
+            playerRef.current.removeEventListener('NoContentAvailable', () =>
+                setErrorAudio(true)
+            );
+
+            playerRef.current.removeEventListener('ContentAvailable', () => {
+                setContentAvailable(true);
+            });
+
+            playerRef.current.removeEventListener('PlaybackPaused', () =>
+                setIsAudioPlaying(false)
+            );
+
+            playerRef.current.removeEventListener('PlaybackPlaying', () =>
+                setIsAudioPlaying(true)
+            );
+
+            playerRef.current.playbackState = 'stopped';
+        };
+
         if (isScriptLoaded && document.querySelector('.audio-player')) {
+            let removeProgressTrackingListeners;
+
             try {
                 if (!playerRef.current) {
                     // eslint-disable-next-line no-undef
@@ -91,6 +117,13 @@ function BuildAudioPlayer({
                     playerRef.current.summary = isSummary;
                     playerRef.current.playbackState = playbackState;
                 }
+
+                removeProgressTrackingListeners = setupBwReproductionTracking({
+                    playerRef,
+                    globalContent,
+                    globalContentConfig,
+                    setContentAvailable
+                });
             } catch (error) {
                 console.error(
                     'Failed to initialize the BeyondWords player:',
@@ -98,30 +131,26 @@ function BuildAudioPlayer({
                 );
                 setErrorAudio(true);
             }
+
+            return () => {
+                cleanupAudioPlayerListeners();
+                removeProgressTrackingListeners?.();
+            };
         }
 
         return () => {
-            playerRef.current?.removeEventListener('NoContentAvailable', () =>
-                setErrorAudio(true)
-            );
-
-            playerRef.current?.removeEventListener('ContentAvailable', () => {
-                setContentAvailable(true);
-            });
-
-            playerRef.current?.removeEventListener('PlaybackPaused', () =>
-                setIsAudioPlaying(false)
-            );
-
-            playerRef.current?.removeEventListener('PlaybackPlaying', () =>
-                setIsAudioPlaying(true)
-            );
-
-            if (playerRef.current) {
-                playerRef.current.playbackState = 'stopped';
-            }
+            cleanupAudioPlayerListeners();
         };
-    }, [isScriptLoaded, noteId, isSummary, playbackState]);
+    }, [
+        isScriptLoaded,
+        noteId,
+        isSummary,
+        playbackState,
+        globalContent,
+        globalContentConfig,
+        setContentAvailable,
+        setIsAudioPlaying
+    ]);
 
     const handleToggleChange = summary => {
         setIsSummary(summary);
