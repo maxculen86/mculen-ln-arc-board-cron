@@ -21,29 +21,15 @@ function EmbedCll({ data = {} }) {
         return <></>;
     }
 
-    const isMatchDetail = embedType === 'isMatchDetail';
-    const wrapperClass = `p-overflow_max767`;
-    const iframeClass = 'pym';
-
-    const content = isMatchDetail
-        ? `<div class="${wrapperClass}">
-                <iframe
-                    class="${iframeClass}"
-                    src="${widgetUrl}"
-                    title="Embebido canchallena"
-                    loading="lazy">
-                </iframe>
-        </div>`
-        : `<div class="${wrapperClass}">
-            <div>
-                <iframe
-                    class="${iframeClass}"
-                    src="${widgetUrl}"
-                    title="Embebido canchallena"
-                    loading="lazy">
-                </iframe>
-            </div>
-        </div>`;
+    const content = `
+    <div class="p-overflow_max767">
+        <iframe
+            class="pym"
+            src="${widgetUrl}"
+            title="Embebido canchallena"
+            loading="lazy">
+        </iframe>
+    </div>`;
 
     return <Html data={{ content, _id }} />;
 }
