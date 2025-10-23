@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Image as FooditImage } from '@ln/foodit-ui-image';
 import PropTypes from 'fusion:prop-types';
 import { cx } from '@ln/cva';
+import { Text } from '@ln/common-ui-text';
 import EpigraphComponent from '../../../foodit-global/common/epigraph/foodit';
 import {
     getImagesToLoadWithPicture,
@@ -9,7 +10,11 @@ import {
 } from '../../../../private/LN/common/utils/mediaHelper';
 import { getFooditAuthor } from '../../../foodit-global/common/utils/notaFooditHelper';
 import getImageAltText from '../../../foodit-global/common/utils/getImageAltText';
-import { headerLevels, processHeaderElement } from './helpers';
+import {
+    headerLevels,
+    processHeaderElement,
+    useLastPreparationImageId
+} from './helpers';
 
 export function Image({ data = {}, contentElements = [] }) {
     const {
@@ -20,6 +25,7 @@ export function Image({ data = {}, contentElements = [] }) {
     } = data || {};
 
     const { resizedUrl = '' } = getShortestImage(resizedUrls);
+    const lastPreparationImageId = useLastPreparationImageId(contentElements);
 
     const belongsToPreparation = useMemo(() => {
         if (!imageId || !contentElements.length) return false;
@@ -74,26 +80,38 @@ export function Image({ data = {}, contentElements = [] }) {
         '-mt-16 pl-20 pr-20 pr-0_md': imageConfig.section === 'preparacion'
     });
 
+    const isLastPreparationImage =
+        belongsToPreparation && imageId === lastPreparationImageId;
+
     return (
-        <figure
-            className={imageClassName}
-            data-image-section={imageConfig.section}
-        >
-            <FooditImage
-                className={imageConfig.className}
-                src={imageSrc}
-                alt={imageAlt}
-                fetchPriority="low"
-                loading="lazy"
-                sources={imageSources}
-            />
-            {data && !belongsToPreparation && (
-                <EpigraphComponent
-                    credits={getFooditAuthor(data, true)}
-                    caption={caption}
+        <>
+            <figure
+                className={imageClassName}
+                data-image-section={imageConfig.section}
+            >
+                <FooditImage
+                    className={imageConfig.className}
+                    src={imageSrc}
+                    alt={imageAlt}
+                    fetchPriority="low"
+                    loading="lazy"
+                    sources={imageSources}
                 />
+                {data && !belongsToPreparation && (
+                    <EpigraphComponent
+                        credits={getFooditAuthor(data, true)}
+                        caption={caption}
+                    />
+                )}
+            </figure>
+
+            {isLastPreparationImage && (
+                <Text className="roboto roboto-bold text-16 italic">
+                    Las imágenes utilizadas en la preparación de esta receta
+                    fueron generadas con IA para Foodit con fines ilustrativos.
+                </Text>
             )}
-        </figure>
+        </>
     );
 }
 

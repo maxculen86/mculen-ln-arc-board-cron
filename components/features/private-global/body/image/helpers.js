@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 export const PREPARATION_KEYWORDS = ['preparación', 'preparacion'];
 
 export const TIPS_KEYWORDS = ['tips', 'curiosidades'];
@@ -36,3 +38,32 @@ export const processHeaderElement = (element, currentState) => {
 
     return currentState;
 };
+
+export const useLastPreparationImageId = (contentElements = []) =>
+    useMemo(() => {
+        if (!contentElements.length) return null;
+
+        const acc = contentElements.reduce(
+            (state, element) => {
+                const { type, level, _id: id } = element;
+
+                if (type === 'header' && headerLevels.includes(level)) {
+                    const next = processHeaderElement(element, state);
+                    return { ...state, ...next };
+                }
+
+                if (type === 'image' && state.inPreparationSection) {
+                    return { ...state, lastId: id };
+                }
+
+                return state;
+            },
+            {
+                inPreparationSection: false,
+                mainPreparationLevel: null,
+                lastId: null
+            }
+        );
+
+        return acc.lastId;
+    }, [contentElements]);
