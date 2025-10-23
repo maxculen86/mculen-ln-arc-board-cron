@@ -9,6 +9,7 @@ import {
     trackHomeCard,
     trackSubcategoryCard
 } from '../../../../../../components/layouts/Foodit-subcategorias/_helpers';
+import { createMockItem } from '../../../../../../components/features/foodit-global/common/subcategorias/helpers';
 import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
@@ -246,6 +247,39 @@ describe('Mocks & factory', () => {
                 label: 'recetas_saladas',
                 action: 'N/A'
             });
+        });
+    });
+    describe('createMockItem (src - classNames)', () => {
+        it('use value src when provided', () => {
+            const item = createMockItem({
+                title: 'Pizza Margarita',
+                href: '/recetas/pizza-margarita/',
+                trackingLabel: 'pizza_margarita',
+                src: '/images/pizza.jpg'
+            });
+
+            expect(item.imageProps.src).toBe('/images/pizza.jpg');
+            expect(item.imageProps.alt).toBe('Imagen de Pizza Margarita');
+        });
+
+        it('includes classNames only when truthy', () => {
+            const withClass = createMockItem({
+                title: 'Empanadas',
+                href: '/recetas/empanadas/',
+                trackingLabel: 'empanadas',
+                src: '/images/empanadas.jpg',
+                classNames: 'card--featured'
+            });
+            expect(withClass.classNames).toBe('card--featured');
+
+            const withoutClass = createMockItem({
+                title: 'Empanadas',
+                href: '/recetas/empanadas/',
+                trackingLabel: 'empanadas',
+                src: '/images/empanadas.jpg',
+                classNames: ''
+            });
+            expect(withoutClass.classNames).toBeUndefined();
         });
     });
 });
