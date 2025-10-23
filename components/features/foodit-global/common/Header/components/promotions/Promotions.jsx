@@ -3,9 +3,11 @@ import classNames from 'classnames';
 import { RenderPlans } from './RenderPlans';
 import useGetUserConfig from '../../../../hooks/useGetUserConfig';
 import LoginSubscribeButtons from '../../../SubscribeLoginButton/foodit';
+import { useNavigationData } from '../../hooks/useNavigationData';
 
 export function Promotions() {
     const { promotions } = useGetUserConfig();
+    const { termicasData } = useNavigationData();
 
     const {
         buttonLogginText,
@@ -34,6 +36,7 @@ export function Promotions() {
                 loginClassName="roboto-regular"
                 buttonSubscribeText={buttonSubscribeText}
                 buttonLogginText={buttonLogginText}
+                termicasData={termicasData}
             />
         </div>
     );

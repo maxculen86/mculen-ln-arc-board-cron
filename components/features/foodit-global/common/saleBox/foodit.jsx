@@ -10,9 +10,11 @@ import {
     imgsPhoneFoodit
 } from './helper';
 import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
+import { useNavigationData } from '../Header/hooks/useNavigationData';
 
 export function SaleBox({ ...props }) {
     const { deployment, contextPath } = useAppContext();
+    const { termicasData } = useNavigationData();
 
     const assetsPath = file =>
         deployment(
@@ -50,7 +52,10 @@ export function SaleBox({ ...props }) {
                             </div>
                         ))}
                     </div>
-                    <LoginSubscribeButtons comesFrom="SaleBox" />
+                    <LoginSubscribeButtons
+                        comesFrom="SaleBox"
+                        termicasData={termicasData}
+                    />
                 </div>
                 <div className="col-span-8 col-span-5_md col-span-7_lg js-center as-end">
                     <Adaptableimage
