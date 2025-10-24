@@ -38,13 +38,14 @@ describe('LinkedSummaryCardSmall', () => {
             />
         );
         const card = screen.getByTestId('linked-card');
-        expect(card).toHaveStyle('border-top-color: #333333');
+        expect(card).toHaveStyle('border-top-color: #000000');
     });
 
     it('renders the provided content', () => {
         render(
             <LinkedSummaryCardSmall
                 data={createCardData({ cardColor: '#008561' })}
+                variant="collapsed"
             />
         );
 
