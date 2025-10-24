@@ -1,4 +1,6 @@
+import buildEmbedCll from '../../../../../../../common/utils/embedCllHelper';
 import get from '../../../../../../../common/utils/get';
+import html from '../../../../../common/elements/story/cuerpo/elements/htmlContent';
 import header from './header';
 import image from './image';
 import videoJW from './videoJW';
@@ -14,6 +16,7 @@ const getTime = time => {
     return null;
 };
 
+// eslint-disable-next-line no-unused-vars
 const customEmbed = (nodo, dataNota) => {
     if (
         !nodo ||
@@ -22,7 +25,8 @@ const customEmbed = (nodo, dataNota) => {
             'custom-liveblog',
             'custom-video-jw',
             'video_jw',
-            'custom-how-to'
+            'custom-how-to',
+            'canchallena'
         ].includes(nodo.subtype)
     )
         return null;
@@ -35,9 +39,17 @@ const customEmbed = (nodo, dataNota) => {
         return res;
     }
 
+    if (nodo.subtype === 'canchallena') {
+        const id = get(nodo, '_id');
+        const content = buildEmbedCll(nodo);
+        if (content) return html({ _id: id, content, type: 'raw_html' });
+
+        return null;
+    }
+
     const time = getTime(get(nodo, 'embed.config.time', null));
-    const title = (get(nodo, 'embed.config.title', '') ?? '');
-    const step = (get(nodo, 'embed.config.step', '') ?? '');
+    const title = get(nodo, 'embed.config.title', '') ?? '';
+    const step = get(nodo, 'embed.config.step', '') ?? '';
 
     if (nodo.subtype === 'custom-how-to') {
         const objTitle = {
