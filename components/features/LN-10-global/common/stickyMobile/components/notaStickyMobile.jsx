@@ -57,8 +57,9 @@ export function NotaStickyMobile({ alt, article, index, articles = [] }) {
             </div>
             {headlineToUse && (
                 <Text
-                    className="arial text-16_110 text-neutral-light-800 text-ellipsis-3 h-52 font-bold"
+                    className="arial text-16_110 text-neutral-light-800 text-ellipsis-3 font-bold"
                     as="h3"
+                    style={{ height: 'max-content' }}
                 >
                     {headlineToUse}
                 </Text>
