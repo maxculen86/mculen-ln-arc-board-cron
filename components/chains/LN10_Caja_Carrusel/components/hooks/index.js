@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { handleEventSwipeVideo } from '../helpers';
+import { markProgrammaticMute } from '../../../../private/common/utils/videoPlayerHelper';
 
 export function useObserverItems({ containerRef, setCurrentIndex }) {
     useEffect(() => {
@@ -112,7 +113,10 @@ export function useVideoJwCustomSettings({ isInView, loading, playerRef }) {
             }
             const isMuted =
                 window?.localStorage.getItem('jwplayer.mute') === 'true';
-            playerRef?.current?.setMute(isMuted);
+            if (playerRef?.current) {
+                markProgrammaticMute(playerRef.current);
+                playerRef.current.setMute(isMuted);
+            }
         } else {
             playerRef?.current?.stop();
         }

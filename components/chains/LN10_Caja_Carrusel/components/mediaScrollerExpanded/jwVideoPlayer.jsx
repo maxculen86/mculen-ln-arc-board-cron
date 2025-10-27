@@ -5,9 +5,14 @@ import { useVideoJwCustomSettings } from '../hooks';
 import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
 import { buildTagsUrl } from '../../../../private/common/videoPlayerJw/utils/helperJw';
 import { getAdsConfigVideoJw } from '../helpers';
+import {
+    registerJwVideoControlsTracking,
+    markProgrammaticMute
+} from '../../../../private/common/utils/videoPlayerHelper';
 
 function JwVideoPlayer({
     videoId,
+    title,
     index,
     counterVideo,
     handleNextCallback,
@@ -17,6 +22,7 @@ function JwVideoPlayer({
 
     const [loading, setLoading] = useState(true);
     const playerRef = useRef(null);
+    const controlsCleanupRef = useRef(null);
 
     const isInView = currentIndex === index;
     const shouldInstanceVideo = !loading && isInView;
@@ -40,11 +46,21 @@ function JwVideoPlayer({
                     customValidation: counterVideo === 3
                 })
             });
-            playerRef?.current?.setMute(
-                window?.localStorage?.getItem('jwplayer.mute') === 'true'
-            );
-            playerRef?.current?.on('complete', () => {
-                handleNextCallback();
+            if (playerRef.current) {
+                markProgrammaticMute(playerRef.current);
+                playerRef.current.setMute(
+                    window?.localStorage?.getItem('jwplayer.mute') === 'true'
+                );
+                playerRef.current.on('complete', () => {
+                    handleNextCallback();
+                });
+            }
+
+            controlsCleanupRef.current?.();
+            controlsCleanupRef.current = registerJwVideoControlsTracking({
+                player: playerRef.current,
+                defaultTitle: title,
+                defaultId: videoId
             });
         }
     }, [shouldInstanceVideo, isLoadedScriptJw]);
@@ -55,6 +71,14 @@ function JwVideoPlayer({
         playerRef
     });
 
+    useEffect(
+        () => () => {
+            controlsCleanupRef.current?.();
+            controlsCleanupRef.current = null;
+        },
+        []
+    );
+
     if (shouldInstanceVideo) return <div id={videoId} />;
 
     return (
@@ -64,6 +88,7 @@ function JwVideoPlayer({
 
 JwVideoPlayer.propTypes = {
     videoId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
     handleNextCallback: PropTypes.func.isRequired,
     isLoadedScriptJw: PropTypes.bool.isRequired,

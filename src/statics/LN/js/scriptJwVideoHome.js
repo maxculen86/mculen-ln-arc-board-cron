@@ -10,18 +10,12 @@ import {
 } from '../../../../components/features/LN-10/videoPlayer/_helper';
 import loadJWPlayerScript from '../../../../components/chains/utils/loadJWPlayerScript';
 import { addEventToDataLayerV2 } from '../../../../components/private/LN/common/utils/addEventToDataLayer';
-import {
-    updatedMediaData,
-    pushVideoControlEvent,
-    isBackwardTenSeconds,
-    shouldTrackRelatedOpen,
-    getFullscreenAction,
-    getMuteAction,
-    registerVolumeRelease
-} from '../../../../components/private/common/utils/videoPlayerHelper';
+import { registerJwVideoControlsTracking } from '../../../../components/private/common/utils/videoPlayerHelper';
 import { videoContainer } from '../../../../components/features/LN-10/videoPlayer/share/utils';
 import { handleShare } from '../../../../components/features/LN-10/videoPlayer/share/shareHandler';
 import { getVerticalPlayer } from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
+
+const trackingCleanupByMediaId = new Map();
 
 //TODO Unificar logica de eventos con script de home y nota.
 window.addEventListener('load', function () {
@@ -50,6 +44,9 @@ window.addEventListener('load', function () {
                 if (instance) {
                     facade?.remove();
 
+                    trackingCleanupByMediaId.get(mediaId)?.();
+                    trackingCleanupByMediaId.delete(mediaId);
+
                     instance.setup({
                         ...instanceConfig,
                         width: '100%'
@@ -58,30 +55,21 @@ window.addEventListener('load', function () {
                     skipPlayForSeek = false;
                     setVideoStatus(mediaId);
                     const videoState = getVideoStatus(mediaId);
-                    let volumeDragActive = false;
-
-                    instance.on('seek', event => {
-                        skipPlayForSeek = true;
-
-                        if (isBackwardTenSeconds(event)) {
-                            pushVideoControlEvent({
-                                id: currentId,
-                                title: currentTitle,
-                                action: 'delay'
-                            });
+                    const cleanupTracking = registerJwVideoControlsTracking({
+                        player: instance,
+                        defaultTitle: currentTitle,
+                        defaultId: currentId,
+                        onSeek: () => {
+                            skipPlayForSeek = true;
+                        },
+                        onPlaylistItem: ({ title: newTitle, id: newId }) => {
+                            currentTitle = newTitle;
+                            currentId = newId;
+                            skipPlayForSeek = false;
+                            initialMode = null;
                         }
                     });
-
-                    instance.on('playlistItem', item => {
-                        ({ title: currentTitle, id: currentId } =
-                            updatedMediaData(item, {
-                                title: currentTitle,
-                                id: currentId
-                            }));
-                        skipPlayForSeek = false;
-                        initialMode = null;
-                        volumeDragActive = false;
-                    });
+                    trackingCleanupByMediaId.set(mediaId, cleanupTracking);
 
                     instance.on('play', (e = {}) => {
                         if (skipPlayForSeek) {
@@ -134,64 +122,6 @@ window.addEventListener('load', function () {
                     instance.on('complete', () =>
                         handleVideoStop(articleElement, videoState)
                     );
-
-                    instance.on('mute', event => {
-                        pushVideoControlEvent({
-                            id: currentId,
-                            title: currentTitle,
-                            action: getMuteAction(event)
-                        });
-                    });
-
-                    instance.on('volume', () => {
-                        if (volumeDragActive) {
-                            return;
-                        }
-
-                        volumeDragActive = true;
-
-                        pushVideoControlEvent({
-                            id: currentId,
-                            title: currentTitle,
-                            action: 'volumen'
-                        });
-
-                        volumeDragActive = true;
-
-                        registerVolumeRelease(() => {
-                            volumeDragActive = false;
-                        });
-                    });
-
-                    instance.on('levelsChanged', () => {
-                        pushVideoControlEvent({
-                            id: currentId,
-                            title: currentTitle,
-                            action: 'config'
-                        });
-                    });
-
-                    instance.on('relatedReady', () => {
-                        const related = instance.getPlugin?.('related');
-
-                        related.on('open', event => {
-                            if (!shouldTrackRelatedOpen(event)) return;
-
-                            pushVideoControlEvent({
-                                id: currentId,
-                                title: currentTitle,
-                                action: 'mas_videos'
-                            });
-                        });
-                    });
-
-                    instance.on('fullscreen', event => {
-                        pushVideoControlEvent({
-                            id: currentId,
-                            title: currentTitle,
-                            action: getFullscreenAction(event)
-                        });
-                    });
 
                     const jwVisibilityAndMetarefreshHandler =
                         createJWVisibilityAndMetarefreshCallback(
