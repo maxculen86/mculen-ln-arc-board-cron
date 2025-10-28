@@ -1,0 +1,43 @@
+{
+    "_id": "test-article-123",
+    "type": "story",
+    "version": "0.10.0",
+    "subtype": "nota",
+    "headlines": {
+        "basic": "Test Article Title"
+    },
+    "description": {
+        "basic": "Test article description"
+    },
+    "promo_items": {
+        "basic": {
+            "type": "image",
+            "_id": "image-123",
+            "url": "https://example.com/image.jpg"
+        }
+    },
+    "content_elements": [
+        {
+            "type": "text",
+            "content": "Article content here"
+        }
+    ],
+    "credits": {
+        "by": [
+            {
+                "name": "Test Author",
+                "type": "author",
+                "image": {
+                    "url": "https://example.com/author.jpg"
+                }
+            }
+        ]
+    },
+    "taxonomy": {
+        "primary_section": {
+            "name": "Food"
+        }
+    },
+    "publish_date": "2025-01-01T00:00:00Z",
+    "canonical_url": "/article/test"
+}
