@@ -29,10 +29,13 @@ function LoginSubscribeButtons({
 
     const { categoryEvent, url } = getButtonCategory(comesFrom);
 
+    const textByCategory = {
+        header: buttonSubscribeHeader,
+        home: 'Empezá hoy'
+    };
+
     const subscribeButtonText =
-        categoryEvent === 'header'
-            ? buttonSubscribeHeader
-            : buttonSubscribeText;
+        textByCategory[categoryEvent] ?? buttonSubscribeText;
 
     useEffect(() => {
         if (termicasData) {

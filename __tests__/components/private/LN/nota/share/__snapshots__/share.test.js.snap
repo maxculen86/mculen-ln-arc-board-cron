@@ -77,7 +77,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           class=""
         />
         <div
-          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m"
+          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -304,7 +304,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
           class=""
         />
         <div
-          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m"
+          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -513,7 +513,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
           class=""
         />
         <div
-          class="second-buttons-group flex ai-center flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-8 gap-24_m"
+          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"

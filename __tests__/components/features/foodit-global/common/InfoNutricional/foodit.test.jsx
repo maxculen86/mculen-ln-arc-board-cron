@@ -143,7 +143,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(
-                screen.getByText('Información nutricional')
+                screen.getByText('Información nutricional por porción')
             ).toBeInTheDocument();
             expect(screen.getByTestId('carousel')).toBeInTheDocument();
             expect(screen.getByTestId('card-calorías')).toBeInTheDocument();
@@ -160,7 +160,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(
-                screen.queryByText('Información nutricional')
+                screen.queryByText('Información nutricional por porción')
             ).not.toBeInTheDocument();
         });
 
@@ -172,7 +172,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={zeroNutritionalData} />);
 
             expect(
-                screen.getByText('Información nutricional')
+                screen.getByText('Información nutricional por porción')
             ).toBeInTheDocument();
         });
 
@@ -184,7 +184,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={nullNutritionalData} />);
 
             expect(
-                screen.queryByText('Información nutricional')
+                screen.queryByText('Información nutricional por porción')
             ).not.toBeInTheDocument();
         });
 
@@ -205,7 +205,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={dataWithHideText} />);
 
             expect(
-                screen.queryByText('Información nutricional')
+                screen.queryByText('Información nutricional por porción')
             ).not.toBeInTheDocument();
         });
     });
@@ -228,7 +228,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={dataWithHideText} />);
 
             expect(
-                screen.getByText('Información nutricional')
+                screen.getByText('Información nutricional por porción')
             ).toBeInTheDocument();
         });
 
@@ -249,7 +249,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={dataWithShowText} />);
 
             expect(
-                screen.queryByText('Información nutricional')
+                screen.queryByText('Información nutricional por porción')
             ).not.toBeInTheDocument();
         });
 
@@ -270,8 +270,19 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={dataWithShowText} />);
 
             expect(
-                screen.getByText('Información nutricional')
+                screen.getByText('Información nutricional por porción')
             ).toBeInTheDocument();
+        });
+
+        it('globalContent without promo_items', () => {
+            mockUseNavigationData.mockReturnValue({
+                termicasData: { show_nutritional_info: 'true' }
+            });
+            const gc = { label: { info_nutricional: { text: '' } } };
+            render(<NutritionalInfo globalContent={gc} />);
+            expect(
+                screen.queryByText('Información nutricional por porción')
+            ).not.toBeInTheDocument();
         });
     });
 
@@ -283,7 +294,7 @@ describe('InfoNutricional', () => {
 
             render(<NutritionalInfo globalContent={partialNutritionalData} />);
             expect(
-                screen.getByText('Información nutricional')
+                screen.getByText('Información nutricional por porción')
             ).toBeInTheDocument();
             expect(screen.getByTestId('carousel')).toBeInTheDocument();
         });
@@ -320,7 +331,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={dataWithNulls} />);
 
             expect(
-                screen.queryByText('Información nutricional')
+                screen.queryByText('Información nutricional por porción')
             ).not.toBeInTheDocument();
         });
 
@@ -339,6 +350,31 @@ describe('InfoNutricional', () => {
             expect(screen.getByTestId('card-proteína')).toBeInTheDocument();
             expect(screen.getByTestId('card-sodio')).toBeInTheDocument();
             expect(screen.getByTestId('card-fibra')).toBeInTheDocument();
+        });
+        it('should not render if any value is undefined', () => {
+            mockUseNavigationData.mockReturnValue({
+                termicasData: { show_nutritional_info: 'true' }
+            });
+            const gc = JSON.parse(JSON.stringify(validNutritionalData));
+            gc.promo_items.nutritional_information.embed.config.items.protein =
+                undefined;
+            render(<NutritionalInfo globalContent={gc} />);
+            expect(
+                screen.queryByText('Información nutricional por porción')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should not render if any value is empty string', () => {
+            mockUseNavigationData.mockReturnValue({
+                termicasData: { show_nutritional_info: 'true' }
+            });
+            const gc = JSON.parse(JSON.stringify(validNutritionalData));
+            gc.promo_items.nutritional_information.embed.config.items.fiber =
+                '';
+            render(<NutritionalInfo globalContent={gc} />);
+            expect(
+                screen.queryByText('Información nutricional por porción')
+            ).not.toBeInTheDocument();
         });
     });
 
@@ -410,7 +446,7 @@ describe('InfoNutricional', () => {
             render(<NutritionalInfo globalContent={validNutritionalData} />);
 
             expect(
-                screen.getByText('Información nutricional')
+                screen.getByText('Información nutricional por porción')
             ).toBeInTheDocument();
             expect(screen.getByTitle('Mostrar tooltip')).toBeInTheDocument();
             expect(screen.getByTestId('carousel')).toBeInTheDocument();

@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
@@ -8,19 +7,22 @@ const fetch = async (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
     const { id = '', limit } = query;
 
-    const opt = {
-        method: 'GET'
-    };
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-    if (ARC_ACCESS_TOKEN) {
-        opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
-    }
+    const requestInit = {
+        method: 'GET',
+        ...(ARC_ACCESS_TOKEN && {
+            headers: { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` }
+        }),
+        signal: controller.signal
+    };
 
     const resolveData = async () => {
         try {
-            const response = await nodeFetch(
+            const response = await global.fetch(
                 `${CONTENT_BASE}/content/v4/related-content/stories/?website=${arcSite}&_id=${id}`,
-                opt
+                requestInit
             );
             handleHttpError(response);
 
@@ -28,17 +30,21 @@ const fetch = async (query, { cachedCall } = {}) => {
 
             return await transformData(data, query, limit, cachedCall);
         } catch (error) {
+            const isAbortError = error?.name === 'AbortError';
+
             console.warn(
                 `content/relatedContentSource Error: ${JSON.stringify(
                     query
-                )} - errorMsj:${error.message}`
+                )} - errorMsj:${error.message} - timeout:${isAbortError}`
             );
-            logger.push(error, {
+            logger.push(isAbortError ? { ...error, statusCode: 504 } : error, {
                 source: 'content/sources/relatedContentSource',
                 query
             });
 
             return {};
+        } finally {
+            clearTimeout(timeoutId);
         }
     };
 

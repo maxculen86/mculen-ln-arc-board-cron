@@ -65,7 +65,7 @@ export const shareContainerVariant = cva('', {
             fotoAl100:
                 'float-l_l transition transition-all transition-duration-250',
             liveblogEditorial: 'border-transparent py-24_m',
-            cards: 'border-transparent'
+            cards: 'border-transparent mt-8'
         }
     },
     defaultVariants: {
@@ -81,8 +81,13 @@ export const layoutBySubtype = {
     [CARDS]: 'cards'
 };
 
-export const subtypesWithHorizontalShare = [VIDEO, LIVEBLOG_EDITORIAL];
+export const subtypesWithHorizontalShare = [VIDEO, LIVEBLOG_EDITORIAL, CARDS];
 
-export const subtypesWithoutSticky = [VIDEO, LIVEBLOG_EDITORIAL, FOTOAL100];
+export const subtypesWithoutSticky = [
+    VIDEO,
+    LIVEBLOG_EDITORIAL,
+    FOTOAL100,
+    CARDS
+];
 
 export const hasSticky = subtype => !subtypesWithoutSticky.includes(subtype);

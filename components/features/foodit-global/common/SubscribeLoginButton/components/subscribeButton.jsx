@@ -13,7 +13,7 @@ export function SubscribeButton({
             title={buttonSubscribeText}
             variant="accent"
             size={{ sm: 32, md: 32, lg: 40 }}
-            data-test-id="button-suscribe"
+            data-testid="button-suscribe"
             data-interaction="dataLayerInteraction"
             data-event="subscription_start"
             data-button="buttonSubscribeText"

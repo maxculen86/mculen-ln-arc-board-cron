@@ -1,15 +1,19 @@
 import getFirstParagraph from './getFirstParagraph';
 
-const truncate = (maxChar, text = '') => {
-    return text.length > maxChar ? `${text.substr(0, maxChar - 1)}...` : text;
-};
+const truncate = (maxChar, text = '') =>
+    text.length > maxChar ? `${text.substr(0, maxChar - 1)}...` : text;
 
-const getBajadaOrFirstTextParagraph = data => {
+const getBajadaOrFirstTextParagraph = (
+    data,
+    { truncateResult = true } = {}
+) => {
     const { content_elements: contentElements = [], subheadlines = {} } =
         data || {};
-    const firstParagraph = getFirstParagraph(contentElements) || '';
 
-    return subheadlines.basic || truncate(160, firstParagraph);
+    if (subheadlines.basic) return subheadlines.basic;
+
+    const firstParagraph = getFirstParagraph(contentElements) || '';
+    return truncateResult ? truncate(160, firstParagraph) : firstParagraph;
 };
 
 export default getBajadaOrFirstTextParagraph;

@@ -35,11 +35,14 @@ function ToggleButton({ isSummary, handleToggle }) {
                     if (isSummary) {
                         addEventToDataLayerV2({
                             event: 'page_listened',
-                            rest: getAudioEvents(
-                                globalContent,
-                                globalContentConfig,
-                                false
-                            )
+                            rest: {
+                                ...getAudioEvents(
+                                    globalContent,
+                                    globalContentConfig,
+                                    false
+                                ),
+                                reproduccion: '0'
+                            }
                         });
                     }
                 }}
@@ -65,11 +68,14 @@ function ToggleButton({ isSummary, handleToggle }) {
                     if (!isSummary) {
                         addEventToDataLayerV2({
                             event: 'page_listened',
-                            rest: getAudioEvents(
-                                globalContent,
-                                globalContentConfig,
-                                true
-                            )
+                            rest: {
+                                ...getAudioEvents(
+                                    globalContent,
+                                    globalContentConfig,
+                                    true
+                                ),
+                                reproduccion: '0'
+                            }
                         });
                     }
                 }}

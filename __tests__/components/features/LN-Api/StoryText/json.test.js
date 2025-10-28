@@ -32,7 +32,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             const objArticle = new storyText.default(props);
             expect(objArticle.props).toMatchObject(props);
             expect(Object.keys(objArticle).sort()).toEqual(
-                ['apiData', 'props', 'state'].sort()
+                ['apiData', 'props', 'state', 'audio'].sort()
             );
         });
         it('When article load props null', () => {
@@ -53,10 +53,6 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             const result = objArticle.render();
             expect(Object.keys(result).sort()).toEqual(
                 [
-                    'audio_url',
-                    'audio_summary_url',
-                    'audio_id',
-                    'audio_custom_voice',
                     'authors',
                     'autores',
                     'bajada',
@@ -80,7 +76,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
     });
 
     describe('Check audionews field and audio_custom_voice', () => {
-        it('when is listenable', () => {
+        it('when is listenable and audioData in note is empty but audionewsSource is present', () => {
             const props = {
                 arcSite: 'la-nacion-ar',
                 children: [],
@@ -100,6 +96,57 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 voice: 1,
                 audio_custom_voice: true
             };
+
+            const result = objArticle.render();
+
+            expect(Object.keys(result).sort()).toEqual(
+                [
+                    'audio_id',
+                    'audio_custom_voice',
+                    'audio_url',
+                    'authors',
+                    'autores',
+                    'bajada',
+                    'categoria',
+                    'contenido',
+                    'titulo',
+                    'tituloMobile'
+                ].sort()
+            );
+
+            expect(result.audio_url).toEqual('url');
+            expect(result.audio_id).toEqual('id');
+            expect(result.audio_custom_voice).toBeTruthy();
+        });
+
+        it('when is listenable and audioData is in promo_items', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                children: [],
+                collection: 'features',
+                id: 'f0fbqPGS59PM2x',
+                outputType: 'json',
+                globalContent: {
+                    ...storyWithAudio,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_id: 'id',
+                                    audio_status: 7,
+                                    audio_url: 'url',
+                                    audio_summary_url: 'audio_summary_url',
+                                    voice: 1
+                                }
+                            }
+                        }
+                    }
+                },
+                requestUri:
+                    '/api/mobile/v1/notas/text/byId/UK57ZJT3DJGPRFTACPR7KTFUWA/?_website=la-nacion-ar&outputType=json'
+            };
+
+            const objArticle = new storyText.default(props);
 
             const result = objArticle.render();
 
@@ -131,18 +178,26 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 collection: 'features',
                 id: 'f0fbqPGS59PM2x',
                 outputType: 'json',
-                globalContent: storyWithAudio,
+                globalContent: {
+                    ...storyWithAudio,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_id: 'id',
+                                    audio_status: 7,
+                                    audio_url: 'url',
+                                    audio_summary_url: 'audio_summary_url'
+                                }
+                            }
+                        }
+                    }
+                },
                 requestUri:
                     '/api/mobile/v1/notas/text/byId/UK57ZJT3DJGPRFTACPR7KTFUWA/?_website=la-nacion-ar&outputType=json'
             };
 
             const objArticle = new storyText.default(props);
-            objArticle.state.audionewsSource = {
-                audio_status: 7,
-                audio_url: 'url',
-                audio_id: 'id',
-                voice: undefined
-            };
 
             const result = objArticle.render();
 
@@ -190,10 +245,6 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
 
             expect(Object.keys(result).sort()).toEqual(
                 [
-                    'audio_url',
-                    'audio_summary_url',
-                    'audio_custom_voice',
-                    'audio_id',
                     'authors',
                     'autores',
                     'bajada',
@@ -224,7 +275,9 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             const objArticle = new storyText.default(props);
             objArticle.state.audionewsSource = {
                 audio_status: 6,
-                audio_url: 'url'
+                audio_url: 'url',
+                audio_id: 'id',
+                audio_summary_url: 'audio_summary_url'
             };
 
             objArticle.state.navigationTreeSource = {
@@ -261,15 +314,25 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 collection: 'features',
                 id: 'f0fbqPGS59PM2x',
                 outputType: 'json',
-                globalContent: storyWithAudio,
+                globalContent: {
+                    ...storyWithAudio,
+                    promo_items: {
+                        audio_nota: {
+                            embed: {
+                                config: {
+                                    audio_id: 'id',
+                                    audio_status: 7,
+                                    audio_url: 'url'
+                                }
+                            }
+                        }
+                    }
+                },
                 requestUri:
                     '/api/mobile/v1/notas/text/byId/UK57ZJT3DJGPRFTACPR7KTFUWA/?_website=la-nacion-ar&outputType=json'
             };
 
             const objArticle = new storyText.default(props);
-            objArticle.state.audionewsSource = {
-                audio_url: 'url'
-            };
 
             objArticle.state.navigationTreeSource = {
                 Termicas: {
@@ -281,10 +344,6 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
 
             expect(Object.keys(result).sort()).toEqual(
                 [
-                    'audio_url',
-                    'audio_summary_url',
-                    'audio_id',
-                    'audio_custom_voice',
                     'authors',
                     'autores',
                     'bajada',
@@ -317,7 +376,8 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             objArticle.state.audionewsSource = {
                 audio_status: 6,
                 audio_url: 'url',
-                audio_summary_url: 'audio_summary_url'
+                audio_summary_url: 'audio_summary_url',
+                audio_id: 'id'
             };
 
             objArticle.state.navigationTreeSource = {
@@ -376,10 +436,6 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
 
             expect(Object.keys(result).sort()).toEqual(
                 [
-                    'audio_url',
-                    'audio_summary_url',
-                    'audio_id',
-                    'audio_custom_voice',
                     'authors',
                     'autores',
                     'bajada',

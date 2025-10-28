@@ -65,13 +65,6 @@ function CajaCollection(props) {
         positionInsideSection
     } = getCommonProps(props);
 
-    const roofData = useRoofData({
-        ...propsForRoof,
-        isAdmin,
-        chainStyle,
-        isStatic: true
-    });
-
     const viewabilityRoof = getViewabilityRoof(
         chainId,
         renderables,
@@ -135,6 +128,14 @@ function CajaCollection(props) {
         chainStyle,
         isInBreakings,
         isGrid6MasTimeline
+    });
+
+    const roofData = useRoofData({
+        ...propsForRoof,
+        isAdmin,
+        chainStyle,
+        isStatic: true,
+        shouldLoadRoof: !hideCaja
     });
 
     const isExclusiveSub = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
