@@ -12,6 +12,12 @@ const getCommonProperties = data => {
     const displayDate = get(data, 'display_date', '');
     const contentElements = get(data, 'content_elements', []);
     const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
+    const wordCount = get(
+        data,
+        'planning.story_length.word_count_actual',
+        null
+    );
+
     const audioStatus = get(
         data,
         'promo_items.audio_nota.embed.config.audio_status',
@@ -27,7 +33,8 @@ const getCommonProperties = data => {
         contentElements,
         primarySectionId,
         displayDate,
-        audioStatus
+        audioStatus,
+        wordCount
     };
 };
 
@@ -66,7 +73,7 @@ export const isAudioGenerated = (audioStatus = null) =>
     audioStatus === AUDIO_STATUS.CREATED_AUDIO ||
     audioStatus === AUDIO_STATUS.UPDATED_AUDIO;
 
-const isListenable = (data, validHasParagraphs = true) => {
+const isListenable = (data, isForWeb = true) => {
     const {
         sourceOrigin,
         subtype,
@@ -83,20 +90,29 @@ const isListenable = (data, validHasParagraphs = true) => {
         const shouldShowAudio = isAudioGenerated(audioStatus);
         const isAudioAllowedByLabel = textAudioNews !== 'No mostrar audio';
 
+        if (!isForWeb) {
+            return shouldShowAudio;
+        }
         return shouldShowAudio && isAudioAllowedByLabel;
     }
 
     const publishedDate = date || displayDate;
     if (
+        isForWeb &&
         audioStatus === null &&
         isValidDate(publishedDate, RELEASE_DATE_FOR_AUDIO_STATUS)
     ) {
         return false;
     }
+    const validShouldShowAudio = (forWeb, label, text) => {
+        if (!forWeb) return true;
+
+        return label ? text !== 'No mostrar audio' : true;
+    };
 
     return (
         (sourceOrigin === 'composer' || sourceOrigin === '') &&
-        (labelAudioNews ? textAudioNews !== 'No mostrar audio' : true) &&
+        validShouldShowAudio(isForWeb, labelAudioNews, textAudioNews) &&
         !isSectionNoListenable(primarySectionId) &&
         isSectionEstadosUnidosListenable(
             primarySectionId,
@@ -104,13 +120,25 @@ const isListenable = (data, validHasParagraphs = true) => {
         ) &&
         !disableSubtypes.includes(subtype) &&
         (isValidDate(date) || isValidDate(displayDate)) &&
-        (validHasParagraphs ? hasParagraphs(contentElements) : true)
+        (isForWeb ? hasParagraphs(contentElements) : true)
     );
 };
 
 const isNoteListenable = data => isListenable(data);
+export const isNoteListenableForApps = data => {
+    const { subtype, audioStatus, wordCount } = getCommonProperties(data);
 
-export const isNoteListenableHome = data => isListenable(data, false);
+    let shouldShowAudio = false;
+
+    if (audioStatus !== null) {
+        shouldShowAudio = isAudioGenerated(audioStatus);
+    }
+
+    if (!shouldShowAudio && wordCount)
+        return Number(wordCount) >= 100 && !['7', '8', '9'].includes(subtype);
+
+    return isListenable(data, false);
+};
 
 export const isCustomVoice = data =>
     data?.voice !== undefined && data?.voice != null;
