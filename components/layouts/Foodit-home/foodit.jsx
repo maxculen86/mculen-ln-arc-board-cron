@@ -29,7 +29,6 @@ function HomeFoodit({ children, isAdmin }) {
                 <section>{opening}</section>
             </Static>
             <section className={sectionClasses}>{bloque1}</section>
-            {BannersFoodit.sale_box()}
             <section className={sectionClasses}>{bloque2}</section>
             <section className={sectionClasses}>{bloque3}</section>
         </BaseLayout>
