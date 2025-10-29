@@ -29,5 +29,6 @@ export default {
     ARC_STATIC: 'http://arc.lanacion.com.ar',
     WIDGETS: 'li-nacion-recommended-item-template-1',
     IS_DEV: 'true',
-    CONTENT_TIMEOUT: '8000000'
+    CONTENT_TIMEOUT: '8000000',
+    CLL_HTMLTFREE_DOMAIN: 'https://qa-canchallena.lanacion.com.ar/especiales'
 };
