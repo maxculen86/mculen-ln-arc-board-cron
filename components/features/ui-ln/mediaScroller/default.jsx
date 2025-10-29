@@ -1,5 +1,6 @@
 import React from 'react';
 import { MediaScroller as CommonMediaScroller } from '@ln/ds-common-mediascroller';
+import { cx } from '@ln/ds-cva';
 import Icon from '../icon/default';
 
 /**
@@ -13,16 +14,16 @@ import Icon from '../icon/default';
 
 function MediaScroller({ children, className, ...props }) {
     return (
-        <CommonMediaScroller className="gap-32" {...props}>
+        <CommonMediaScroller className={cx('gap-32', className)} {...props}>
             <CommonMediaScroller.Track>{children}</CommonMediaScroller.Track>
             <CommonMediaScroller.Prev
                 isIconOnly
                 title="Ver anterior"
                 aria-label="Ver anterior"
-                rounded="custom"
-                color="custom"
+                color="secondary"
+                size={40}
                 variant="outline"
-                className="w-40 h-40 bg-[var(--color-primary-light)] text-black rounded-4 translate-none p-12 hover:bg-[var(--color-primary-light)]"
+                className="bg-white-default"
             >
                 <Icon name="arrowLeft" size={16} />
             </CommonMediaScroller.Prev>
@@ -30,10 +31,10 @@ function MediaScroller({ children, className, ...props }) {
                 isIconOnly
                 title="Ver siguiente"
                 aria-label="Ver siguiente"
-                rounded="custom"
-                color="custom"
+                color="secondary"
+                size={40}
                 variant="outline"
-                className="w-40 h-40 bg-[var(--color-primary-light)] text-black rounded-4 translate-none p-12 hover:bg-[var(--color-primary-light)]"
+                className="bg-white-default"
             >
                 <Icon name="arrowRight" size={16} />
             </CommonMediaScroller.Next>
