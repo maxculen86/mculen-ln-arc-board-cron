@@ -68,7 +68,8 @@ function CajaCarrusel(props) {
         error,
         isHome,
         hideCarousel,
-        enabledDays
+        enabledDays,
+        shouldSchedule
     });
 
     const roofData = useRoofData({
