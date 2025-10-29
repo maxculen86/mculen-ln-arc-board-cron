@@ -1,3 +1,5 @@
+import { enumTypeError } from '../../enums/enumTypeError';
+
 const generateVideoJW = stream => ({
     _t: 'mmf',
     width: stream.width,
@@ -24,10 +26,33 @@ export const videosJW = streams => {
 };
 
 export const videoJWHomeMobile = streams => {
-    if (!streams) return null;
-    return generateVideoJW(
-        streams.find(v => v.type === 'video/mp4' && v.width === 480)
-    );
+    try {
+        if (!streams) return null;
+        const mp4Streams = streams
+            .filter(v => v?.type === 'video/mp4' && v?.width && v.width <= 480)
+            .sort((a, b) => (a.width < b.width ? 1 : -1));
+
+        if (mp4Streams.length === 0) return null;
+
+        return generateVideoJW(mp4Streams[0]);
+    } catch (error) {
+        console.warn(
+            JSON.stringify(
+                {
+                    name: 'BackendLnWarn',
+                    customErrorType: 'BackendLnWarn',
+                    customType: enumTypeError.storyContentError,
+                    log_details: {
+                        message: `videoJWHomeMobile - ${error?.message ?? error}`,
+                        content: streams
+                    }
+                },
+                null,
+                2
+            )
+        );
+        return null;
+    }
 };
 
 export const videoJWM3u8 = streams => {

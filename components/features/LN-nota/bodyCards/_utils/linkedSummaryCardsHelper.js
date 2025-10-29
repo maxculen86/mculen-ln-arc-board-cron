@@ -1,6 +1,6 @@
 import get from '../../../../private/common/utils/get';
 
-export const DEFAULT_CARD_COLOR = '#333333';
+export const DEFAULT_CARD_COLOR = '#000000';
 
 const getEmbedConfig = cardData => get(cardData, 'embed.config', {});
 

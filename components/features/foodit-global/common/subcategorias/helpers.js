@@ -1,6 +1,6 @@
 import subcategoryKeywords from '../../../../../__mocks__/data/fooditCategories/subcategoryKeywords.json';
 
-const createMockItem = ({
+export const createMockItem = ({
     title,
     href,
     trackingLabel,

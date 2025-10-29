@@ -64,7 +64,7 @@ exports[`StickyMobile matches snapshot 1`] = `
           />
         </div>
         <h3
-          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 h-52 font-bold"
+          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 font-bold"
         >
           Minuto a minuto: la secuencia de errores y negligencias que derivó en la noche de horror en Independiente
         </h3>
@@ -92,7 +92,7 @@ exports[`StickyMobile matches snapshot 1`] = `
           />
         </div>
         <h3
-          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 h-52 font-bold"
+          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 font-bold"
         >
           Cómo fueron los gravísimos incidentes que forzaron la cancelación de Independiente vs. U. de Chile
         </h3>
@@ -120,7 +120,7 @@ exports[`StickyMobile matches snapshot 1`] = `
           />
         </div>
         <h3
-          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 h-52 font-bold"
+          class="arial text-16_110 text-neutral-light-800 text-ellipsis-3 font-bold"
         >
           Qué dijo la Conmebol tras los gravísimos incidentes en Independiente vs. Universidad de Chile
         </h3>

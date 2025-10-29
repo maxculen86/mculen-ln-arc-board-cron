@@ -1,5 +1,13 @@
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 
+const programmaticMutePlayers = new WeakSet();
+
+export const markProgrammaticMute = player => {
+    if (player) {
+        programmaticMutePlayers.add(player);
+    }
+};
+
 export const isInDatalayerEvent = (event, videoId) =>
     window &&
     window.dataLayer &&
@@ -30,8 +38,8 @@ export const updatedMediaData = (source, { title, id }) => {
     };
 };
 
-export const pushVideoControlEvent = ({ id, title, action }) => {
-    if (!action || !id || !title) return;
+export const pushVideoControlEvent = ({ id, title = '', action }) => {
+    if (!action || !id) return;
 
     const payload = {
         event: 'e_videoclick',
@@ -67,4 +75,124 @@ export const registerVolumeRelease = onRelease => {
 
     document.addEventListener('mouseup', handleRelease, { once: true });
     document.addEventListener('touchend', handleRelease, { once: true });
+};
+
+export const registerJwVideoControlsTracking = ({
+    player,
+    defaultTitle,
+    defaultId,
+    onSeek,
+    onPlaylistItem
+}) => {
+    if (!player) return () => {};
+
+    let currentTitle = defaultTitle;
+    let currentId = defaultId;
+    let volumeDragActive = false;
+    let relatedPlugin;
+
+    const updateCurrentMedia = source => {
+        ({ title: currentTitle, id: currentId } = updatedMediaData(source, {
+            title: currentTitle,
+            id: currentId
+        }));
+
+        volumeDragActive = false;
+
+        onPlaylistItem?.({ title: currentTitle, id: currentId });
+    };
+
+    const handleSeek = event => {
+        onSeek?.(event);
+
+        if (isBackwardTenSeconds(event)) {
+            pushVideoControlEvent({
+                id: currentId,
+                title: currentTitle,
+                action: 'delay'
+            });
+        }
+    };
+
+    const handleMute = event => {
+        if (programmaticMutePlayers.has(player)) {
+            programmaticMutePlayers.delete(player);
+            return;
+        }
+
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: getMuteAction(event)
+        });
+    };
+
+    const handleVolume = () => {
+        if (volumeDragActive) return;
+
+        volumeDragActive = true;
+
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: 'volumen'
+        });
+
+        registerVolumeRelease(() => {
+            volumeDragActive = false;
+        });
+    };
+
+    const handleLevelsChanged = () => {
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: 'config'
+        });
+    };
+
+    const handleFullscreen = event => {
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: getFullscreenAction(event)
+        });
+    };
+
+    const handleRelatedOpen = event => {
+        if (!shouldTrackRelatedOpen(event)) return;
+
+        pushVideoControlEvent({
+            id: currentId,
+            title: currentTitle,
+            action: 'mas_videos'
+        });
+    };
+
+    const handleRelatedReady = () => {
+        relatedPlugin = player.getPlugin?.('related');
+        relatedPlugin?.on?.('open', handleRelatedOpen);
+    };
+
+    player.on('seek', handleSeek);
+    player.on('mute', handleMute);
+    player.on('volume', handleVolume);
+    player.on('levelsChanged', handleLevelsChanged);
+    player.on('fullscreen', handleFullscreen);
+    player.on('playlistItem', updateCurrentMedia);
+    player.on('relatedReady', handleRelatedReady);
+
+    updateCurrentMedia(player.getPlaylistItem?.());
+
+    return () => {
+        player.off?.('seek', handleSeek);
+        player.off?.('mute', handleMute);
+        player.off?.('volume', handleVolume);
+        player.off?.('levelsChanged', handleLevelsChanged);
+        player.off?.('fullscreen', handleFullscreen);
+        player.off?.('playlistItem', updateCurrentMedia);
+        player.off?.('relatedReady', handleRelatedReady);
+        relatedPlugin?.off?.('open', handleRelatedOpen);
+        programmaticMutePlayers.delete(player);
+    };
 };

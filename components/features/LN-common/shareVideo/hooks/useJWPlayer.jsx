@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import loadJWPlayerScript from '../../../../chains/utils/loadJWPlayerScript';
+import { markProgrammaticMute } from '../../../../private/common/utils/videoPlayerHelper';
 
 export function useJWPlayer(videoId) {
     const [isScriptLoaded, setIsScriptLoaded] = useState(false);
@@ -23,9 +24,12 @@ export function useJWPlayer(videoId) {
                 width: '100%',
                 allowFullscreen: false
             });
-            playerRef?.current?.setMute(
-                window?.localStorage?.getItem('jwplayer.mute') === 'true'
-            );
+            if (playerRef.current) {
+                markProgrammaticMute(playerRef.current);
+                playerRef.current.setMute(
+                    window?.localStorage?.getItem('jwplayer.mute') === 'true'
+                );
+            }
         }
     }, [videoId, isScriptLoaded]);
 

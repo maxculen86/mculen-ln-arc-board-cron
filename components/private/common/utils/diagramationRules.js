@@ -29,303 +29,580 @@ const diagramationRules = diagramation => {
         h3: 'h3'
     };
 
-    const createImagePosition = (mobile, tablet, desktop) => ({
-        mobile,
-        tablet,
-        desktop
-    });
-
-    const imagePositions = {
-        top: createImagePosition(img.top, img.top, img.top),
-        topBottom: createImagePosition(img.top, img.bottom, img.bottom),
-        topRight: createImagePosition(img.top, img.right, img.right),
-        topLeft: createImagePosition(img.top, img.left, img.left),
-        topNone: createImagePosition(img.top, img.none, img.none),
-        topDesktopRight: createImagePosition(img.top, img.top, img.right),
-        topDesktopNone: createImagePosition(img.top, img.top, img.none),
-        topRightLeft: createImagePosition(img.top, img.right, img.left),
-        rightNone: createImagePosition(img.right, img.none, img.right)
-    };
-
-    const variantsDisabledByType = {
-        author: ['author'],
-        liveblog: ['liveblog'],
-        authorLiveblog: ['author', 'liveblog'],
-        authorLiveblogHtml: ['author', 'liveblog', 'html'],
-        liveblogAuthor: ['liveblog', 'author']
-    };
-
-    const leadCardDefaults = {
-        withSection: true,
-        withMarquee: true,
-        withMarqueeImg: true,
-        withSubhead: true,
-        cardSize: size.fourXL,
-        withPreload: false,
-        isLoadWithPicture: true,
-        isCustomVoiceCandidate: true
-    };
-
-    const standardCardDefaults = {
-        withSection: false,
-        withMarquee: true,
-        withMarqueeImg: false,
-        withSubhead: false,
-        cardSize: size.ML,
-        imageConfig: size.S,
-        isLoadWithPicture: true
-    };
-
-    const gridCardDefaults = {
-        withMarquee: true,
-        withMarqueeImg: false,
-        withSubhead: false,
-        cardSize: size.ML,
-        imageConfig: size.XS,
-        imagePosition: imagePositions.top,
-        isLoadWithPicture: true
-    };
-
-    const opinionCardDefaults = {
-        withMarquee: true,
-        withMarqueeImg: true,
-        titleTag: tag.h2,
-        subheadTag: tag.h3,
-        withMedia: false,
-        cardSize: size.M,
-        isLoadWithPicture: true
-    };
-
-    const hashCardDefaults = {
-        withMarquee: false,
-        withMarqueeImg: false,
-        withSubhead: false,
-        className: '--txt-center',
-        cardSize: size.ML,
-        imageConfig: size.XS,
-        imagePosition: imagePositions.top,
-        isLoadWithPicture: true
-    };
-
-    const setArticleSettings = (defaults, overrides = {}) => ({
-        ...defaults,
-        ...overrides
-    });
-
-    const repeat = (count, factory) =>
-        Array.from({ length: count }, () => factory());
-
-    const createTimelineCard = type =>
-        setArticleSettings(standardCardDefaults, {
-            type,
-            titleTag: tag.h2,
-            subheadTag: tag.h3,
-            imagePosition: imagePositions.top,
-            withPreload: false
-        });
-
-    const createBnPlayerCard = (type, overrides = {}) =>
-        setArticleSettings(standardCardDefaults, {
-            type,
-            ...overrides
-        });
+    const author = 'author';
+    const liveblog = 'liveblog';
+    const html = 'html';
+    const ranking = 'ranking';
+    const txtCenter = '--txt-center';
+    // const tabTextCenter = '--tab-txt-center'; TO-DO: use for Hashtag L img-right //
 
     const diagramations = {
         'left-focal': [
-            setArticleSettings(leadCardDefaults, {
+            {
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                cardSize: size.fourXL,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.bottom,
+                    desktop: img.bottom
+                },
                 imageConfig: size.T1,
-                imagePosition: imagePositions.topBottom,
-                withPreload: true
-            }),
-            setArticleSettings(standardCardDefaults, {
+                withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
+                cardSize: size.ML,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                imageConfig: size.S,
+                isLoadWithPicture: true,
                 withPreload: true,
                 isFetchPriorityHigh: true
-            }),
-            setArticleSettings(standardCardDefaults, {
-                titleTag: tag.h2,
-                subheadTag: tag.h3
-            }),
-            setArticleSettings(standardCardDefaults, {
+            },
+            {
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
-                imagePosition: img.bottom
-            }),
-            setArticleSettings(standardCardDefaults, {
+                cardSize: size.ML,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                imageConfig: size.S,
+                isLoadWithPicture: true
+            },
+            {
                 titleTag: tag.h2,
-                subheadTag: tag.h3
-            })
+                subheadTag: tag.h3,
+                cardSize: size.ML,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                imagePosition: img.bottom,
+                withSubhead: false,
+                imageConfig: size.S,
+                isLoadWithPicture: true
+            },
+            {
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                cardSize: size.ML,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                imageConfig: size.S,
+                isLoadWithPicture: true
+            }
         ],
         'center-focal': [
-            setArticleSettings(leadCardDefaults, {
-                variantsDisabled: variantsDisabledByType.author,
+            {
+                variantsDisabled: [author, liveblog],
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                withPreload: true,
+                cardSize: size.fourXL,
                 imageConfig: size.S,
-                imagePosition: imagePositions.topNone,
-                withPreload: true
-            }),
-            setArticleSettings(standardCardDefaults, {
-                variantsDisabled: variantsDisabledByType.liveblog,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.none,
+                    desktop: img.none
+                },
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
+                variantsDisabled: ['liveblog'],
                 titleTag: tag.h2,
                 cardSize: size.XLL,
                 imageConfig: size.T1,
+                withSection: false,
                 withPreload: true,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                isLoadWithPicture: true,
                 isFetchPriorityHigh: true
-            }),
-            setArticleSettings(standardCardDefaults, {
-                titleTag: tag.h2,
-                subheadTag: tag.h3
-            }),
-            setArticleSettings(standardCardDefaults, {
-                variantsDisabled: variantsDisabledByType.author,
+            },
+            {
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [author, liveblog],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
                 withSubheadAndMedia: false,
                 withMedia: true,
-                imagePosition: imagePositions.topNone
-            })
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.none,
+                    desktop: img.none
+                },
+                isLoadWithPicture: true
+            }
         ],
         'focal-70': [
-            setArticleSettings(leadCardDefaults, {
-                extraClass: { video: 'ln-70-video' },
+            {
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                extraClass: { video: 'ln-70-video' },
+                cardSize: size.fourXL,
                 imageConfig: size.T1,
-                imagePosition: imagePositions.topDesktopRight,
-                withPreload: true
-            }),
-            setArticleSettings(standardCardDefaults, {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.right
+                },
+                withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
                 titleTag: tag.h2,
-                subheadTag: tag.h3
-            }),
-            setArticleSettings(standardCardDefaults, {
-                variantsDisabled: variantsDisabledByType.author,
+                subheadTag: tag.h3,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: ['author', liveblog],
                 titleTag: tag.h2,
+                cardSize: size.ML,
+                withSection: false,
+                imageConfig: size.S,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
                 withSubheadAndMedia: false,
                 withMedia: true,
-                imagePosition: imagePositions.topDesktopNone
-            })
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.none
+                },
+                isLoadWithPicture: true
+            }
         ],
         'focal-100': [
-            setArticleSettings(leadCardDefaults, {
-                cardSize: size.sixXL,
+            {
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                cardSize: size.sixXL,
                 imageConfig: size.T1Focal100,
-                imagePosition: imagePositions.topRight,
-                withPreload: true
-            })
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            }
         ],
         'left-focal-without-timeline': [
-            setArticleSettings(leadCardDefaults, {
+            {
                 type: 'T1',
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
+                withSection: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSubhead: true,
+                cardSize: size.fourXL,
                 imageConfig: size.T1,
-                imagePosition: imagePositions.topBottom,
-                withPreload: true
-            }),
-            setArticleSettings(standardCardDefaults, {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.bottom,
+                    desktop: img.bottom
+                },
+                withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
                 type: 'T2',
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: true,
-                imagePosition: imagePositions.top,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
                 withPreload: true,
+                isLoadWithPicture: true,
                 isFetchPriorityHigh: true
-            }),
-            ...['T3', 'T4', 'T5', 'T6'].map(createTimelineCard)
+            },
+            {
+                type: 'T3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T4',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T5',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T6',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            }
         ],
         bn_player_3_grid: [
-            { type: 'T1' },
-            createBnPlayerCard('T2', {
+            {
+                type: 'T1',
+                variantsDisabled: [liveblog]
+            },
+            {
+                type: 'T2',
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: true,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
                 cardSize: size.L,
-                imagePosition: imagePositions.topRight,
-                withPreload: true
-            }),
-            createBnPlayerCard('T3', {
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: true,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T3',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
-                imagePosition: imagePositions.top,
-                withPreload: false
-            }),
-            createBnPlayerCard('T4', {
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T4',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
-                imagePosition: imagePositions.top,
-                withPreload: false
-            })
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            }
         ],
         bn_player_4_grid: [
-            { type: 'T1' },
-            createBnPlayerCard('T2', {
+            {
+                type: 'T1',
+                variantsDisabled: [liveblog]
+            },
+            {
+                type: 'T2',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: true,
-                imagePosition: imagePositions.topRight,
-                withPreload: true
-            }),
-            ...['T3', 'T4', 'T5'].map(type =>
-                createBnPlayerCard(type, {
-                    titleTag: tag.h2,
-                    subheadTag: tag.h3,
-                    imagePosition: imagePositions.topRight,
-                    withPreload: false
-                })
-            )
-        ],
-        'bn-opening-4': [
-            setArticleSettings(standardCardDefaults, {
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: true,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T3',
+                variantsDisabled: [liveblog],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T4',
+                variantsDisabled: [liveblog],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            },
+            {
+                type: 'T5',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withPreload: false,
+                isLoadWithPicture: true
+            }
+        ],
+
+        'bn-opening-4': [
+            {
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: size.ML,
+                withSubhead: false,
+                imageConfig: size.S,
                 withPreload: true,
-                imagePosition: imagePositions.top
-            }),
-            ...repeat(3, () =>
-                setArticleSettings(standardCardDefaults, {
-                    titleTag: tag.h2,
-                    subheadTag: tag.h3,
-                    imagePosition: imagePositions.top
-                })
-            )
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            },
+            {
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            },
+            {
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            },
+            {
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            }
         ],
         horizontal: [
-            setArticleSettings(leadCardDefaults, {
-                variantsDisabled: variantsDisabledByType.authorLiveblogHtml,
-                cardSize: size.sixXL,
+            {
+                variantsDisabled: [author, liveblog, html],
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
+                withMedia: true,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSection: true,
+                cardSize: size.sixXL,
                 imageConfig: 'bombaHorizontal',
                 aspectRatio: 'ratio-3-2',
-                className: '--txt-center',
+                className: txtCenter,
+                withPreload: true,
                 extraClass: { withoutMedia: '--no-mc' },
-                withMedia: true,
-                withPreload: true
-            })
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            }
         ],
         vertical: [
-            setArticleSettings(leadCardDefaults, {
-                variantsDisabled: variantsDisabledByType.authorLiveblogHtml,
-                cardSize: size.sixXL,
+            {
+                variantsDisabled: [author, liveblog, html],
                 titleTag: tag.h1,
                 subheadTag: tag.h2,
+                withMedia: true,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withSection: true,
+                cardSize: size.sixXL,
                 imageConfig: 'bombaVertical',
                 aspectRatio: 'ratio-3-4',
-                className: '--txt-center',
-                withMedia: true,
-                withPreload: true
-            })
+                className: txtCenter,
+                withPreload: true,
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            }
         ],
         bombita: [
             {
-                variantsDisabled: variantsDisabledByType.authorLiveblogHtml,
+                variantsDisabled: [author, liveblog, html],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSubhead: true,
@@ -333,12 +610,12 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: false,
                 cardSize: size.fiveXL,
-                className: '--txt-center'
+                className: txtCenter
             }
         ],
         bombitaMas4: [
             {
-                variantsDisabled: variantsDisabledByType.authorLiveblogHtml,
+                variantsDisabled: [author, liveblog, html],
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withMedia: false,
@@ -346,51 +623,362 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 cardSize: size.fiveXL,
-                className: '--txt-center',
+                className: txtCenter,
                 hideBadget: false
             },
-            ...repeat(4, () =>
-                setArticleSettings(standardCardDefaults, {
-                    titleTag: tag.h2,
-                    subheadTag: tag.h3,
-                    variantsDisabled: variantsDisabledByType.authorLiveblogHtml,
-                    withMedia: true,
-                    imageConfig: size.XS,
-                    hideBadget: false
-                })
-            )
+            {
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withMedia: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                hideBadget: false,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withMedia: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                hideBadget: false,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withMedia: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                hideBadget: false,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withMedia: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                hideBadget: false,
+                isLoadWithPicture: true
+            }
         ],
-        bnGrilla4: repeat(4, () => setArticleSettings(gridCardDefaults)),
-        bn_6_timeline: repeat(6, () => setArticleSettings(gridCardDefaults)),
+        bnGrilla4: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            }
+        ],
+        bn_6_timeline: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            }
+        ],
         bnGrilla8: [
-            setArticleSettings(gridCardDefaults, {
-                imageConfig: size.S
-            }),
-            ...repeat(3, () => setArticleSettings(gridCardDefaults)),
-            setArticleSettings(gridCardDefaults, {
-                imageConfig: size.S
-            }),
-            ...repeat(3, () => setArticleSettings(gridCardDefaults))
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.S,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            }
         ],
         'ranking-1-2-2_grid': [
             {
-                imagePosition: imagePositions.top,
+                variantsDisabled: [liveblog],
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
                 cardSize: size.L,
                 imageConfig: size.S,
                 withSubhead: false,
                 withMarqueeImg: false,
                 isLoadWithPicture: true
             },
-            ...repeat(3, () => ({
-                imagePosition: imagePositions.rightNone,
+            {
+                variantsDisabled: [liveblog],
+                imagePosition: {
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
+                },
                 cardSize: size.M,
-                imageConfig: 'ranking',
+                imageConfig: ranking,
                 withSubhead: false,
                 withMarqueeImg: false,
                 isLoadWithPicture: true
-            })),
+            },
             {
-                imagePosition: imagePositions.rightNone,
+                variantsDisabled: [liveblog],
+                imagePosition: {
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
+                },
+                cardSize: size.M,
+                imageConfig: ranking,
+                withSubhead: false,
+                withMarqueeImg: false,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                imagePosition: {
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
+                },
+                imageConfig: ranking,
+                cardSize: size.M,
+                withSubhead: false,
+                withMarqueeImg: false,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                imagePosition: {
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
+                },
                 cardSize: size.M,
                 imageConfig: size.M,
                 withSubhead: false,
@@ -399,187 +987,676 @@ const diagramationRules = diagramation => {
             }
         ],
         'hash-1-2-2-2_grid': [
-            setArticleSettings(hashCardDefaults, {
+            // TO-DO size.L imagePosition{mobile:img.right} => className: tabTextCenter //
+            {
+                variantsDisabled: [liveblog],
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
                 cardSize: size.M,
-                imageConfig: size.S
-            }),
-            ...repeat(6, () => setArticleSettings(hashCardDefaults))
+                imageConfig: size.S,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                className: txtCenter,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                className: txtCenter,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                className: txtCenter,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                className: txtCenter,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                className: txtCenter,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                className: txtCenter,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                className: txtCenter,
+                isLoadWithPicture: true
+            }
         ],
         bn_1_4_grid: [
-            setArticleSettings(leadCardDefaults, {
+            {
+                variantsDisabled: [author],
                 cardSize: size.threeXL,
-                variantsDisabled: variantsDisabledByType.author,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                imagePosition: imagePositions.topRight
-            }),
-            ...repeat(4, () =>
-                setArticleSettings(gridCardDefaults, {
-                    withMedia: true
-                })
-            )
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            }
         ],
         bn_player_horizontal: [
-            setArticleSettings(leadCardDefaults, {
+            {
                 type: 'T1',
-                variantsDisabled: variantsDisabledByType.author,
+                variantsDisabled: [author],
                 cardSize: size.XLL,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                isLoadWithPicture: false
-            })
+                withSubhead: true,
+                withSection: true,
+                isCustomVoiceCandidate: true
+            }
         ],
         bn_1_grid: [
-            setArticleSettings(leadCardDefaults, {
+            {
+                variantsDisabled: [author],
                 cardSize: size.threeXL,
-                variantsDisabled: variantsDisabledByType.author,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                imagePosition: imagePositions.topRight
-            })
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            }
         ],
         bn_2_grid: [
-            setArticleSettings(standardCardDefaults, {
+            {
+                variantsDisabled: [liveblog],
+                cardSize: size.ML,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: false,
                 withMedia: true,
-                imagePosition: imagePositions.topRight
-            }),
-            setArticleSettings(standardCardDefaults, {
-                withMedia: true,
+                withSubhead: false,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog],
+                cardSize: size.ML,
                 imageConfig: size.S,
-                imagePosition: imagePositions.topRight
-            })
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                isLoadWithPicture: true
+            }
         ],
-        bn_3_grid: repeat(3, () =>
-            setArticleSettings(standardCardDefaults, {
+        bn_3_grid: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
                 withMedia: true,
-                imageConfig: size.XS,
-                imagePosition: imagePositions.top,
-                isLoadWithPicture: false
-            })
-        ),
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS
+            }
+        ],
         canal_1_2_grid: [
-            setArticleSettings(leadCardDefaults, {
+            {
+                variantsDisabled: [author],
                 cardSize: size.threeXL,
-                variantsDisabled: variantsDisabledByType.author,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                imagePosition: imagePositions.topRightLeft,
-                isCustomVoiceCandidate: false
-            }),
-            ...repeat(2, () =>
-                setArticleSettings(standardCardDefaults, {
-                    imageConfig: size.M,
-                    imagePosition: imagePositions.topRight
-                })
-            )
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.left
+                },
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            }
         ],
         canal_1_3_grid: [
-            setArticleSettings(leadCardDefaults, {
+            {
                 cardSize: size.threeXL,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                imagePosition: imagePositions.top,
-                isCustomVoiceCandidate: false
-            }),
-            ...repeat(3, () =>
-                setArticleSettings(standardCardDefaults, {
-                    imageConfig: size.M,
-                    imagePosition: imagePositions.topRight
-                })
-            )
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            }
         ],
         canal_1_4_grid: [
-            setArticleSettings(leadCardDefaults, {
+            {
                 cardSize: size.threeXL,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                imagePosition: imagePositions.topLeft,
-                isCustomVoiceCandidate: false
-            }),
-            ...repeat(4, () => setArticleSettings(gridCardDefaults))
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.left,
+                    desktop: img.left
+                },
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            }
         ],
         bn_1_3_grid: [
-            setArticleSettings(leadCardDefaults, {
+            {
+                variantsDisabled: [author],
                 cardSize: size.threeXL,
-                variantsDisabled: variantsDisabledByType.author,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                imagePosition: imagePositions.top
-            }),
-            ...repeat(3, () =>
-                setArticleSettings(standardCardDefaults, {
-                    imageConfig: size.M,
-                    imagePosition: imagePositions.topRight
-                })
-            )
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            }
         ],
         bn_1_2_grid: [
-            setArticleSettings(leadCardDefaults, {
+            {
+                variantsDisabled: [author],
                 cardSize: size.threeXL,
-                variantsDisabled: variantsDisabledByType.author,
                 imageConfig: size.T1,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
-                imagePosition: imagePositions.topRight
-            }),
-            ...repeat(2, () =>
-                setArticleSettings(standardCardDefaults, {
-                    variantsDisabled: [],
-                    imageConfig: size.M,
-                    imagePosition: imagePositions.topRight
-                })
-            )
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                isLoadWithPicture: true,
+                isCustomVoiceCandidate: true
+            },
+            {
+                variantsDisabled: [],
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [],
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.M,
+                isLoadWithPicture: true
+            }
         ],
         bn_1_1_grid: [
-            setArticleSettings(leadCardDefaults, {
-                variantsDisabled: variantsDisabledByType.author,
+            {
+                variantsDisabled: [author, liveblog],
                 cardSize: '2xl',
                 imageConfig: size.T1,
+                withMarquee: true,
                 withMarqueeImg: false,
-                withSection: false,
                 withMedia: true,
-                imagePosition: imagePositions.topRight,
-                isCustomVoiceCandidate: false
-            }),
-            setArticleSettings(gridCardDefaults, {
-                variantsDisabled: []
-            })
+                withSubhead: true,
+                withSection: false,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                },
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [],
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true
+            }
         ],
         bn_2_1_2_grid: [
-            setArticleSettings(standardCardDefaults, {
-                variantsDisabled: variantsDisabledByType.liveblogAuthor,
+            {
+                variantsDisabled: [author],
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: true,
                 cardSize: size.XL,
                 imageConfig: size.T1,
-                imagePosition: imagePositions.top
-            }),
-            setArticleSettings(standardCardDefaults, {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog, author],
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                imagePosition: imagePositions.top
-            }),
-            setArticleSettings(standardCardDefaults, {
-                variantsDisabled: variantsDisabledByType.liveblogAuthor,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog, author],
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                imagePosition: imagePositions.topNone
-            }),
-            setArticleSettings(standardCardDefaults, {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.none,
+                    desktop: img.none
+                },
+                isLoadWithPicture: true
+            },
+            {
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                imagePosition: imagePositions.top
-            }),
-            setArticleSettings(standardCardDefaults, {
-                variantsDisabled: variantsDisabledByType.liveblogAuthor,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                isLoadWithPicture: true
+            },
+            {
+                variantsDisabled: [liveblog, author],
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                imagePosition: imagePositions.topNone
-            })
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.none,
+                    desktop: img.none
+                },
+                isLoadWithPicture: true
+            }
         ],
         bnFondo: [
             {
@@ -590,39 +1667,147 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 cardSize: size.threeXL,
                 imageConfig: size.T1,
-                variantsDisabled: variantsDisabledByType.authorLiveblog,
-                imagePosition: imagePositions.topLeft,
+                variantsDisabled: [author, liveblog],
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.left,
+                    desktop: img.left
+                },
                 isLoadWithPicture: true
             }
         ],
         opinion4: [
-            setArticleSettings(opinionCardDefaults, {
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
                 cardSize: size.threeXL,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true,
                 imageConfig: size.T1
-            }),
-            ...repeat(3, () => setArticleSettings(opinionCardDefaults))
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            }
         ],
         opinion8: [
-            setArticleSettings(opinionCardDefaults, {
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
                 cardSize: size.threeXL,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true,
                 imageConfig: size.T1
-            }),
-            ...repeat(7, () => setArticleSettings(opinionCardDefaults))
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: size.M,
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                isLoadWithPicture: true
+            }
         ],
         cajaContent1: [
-            setArticleSettings(opinionCardDefaults, {
+            {
+                variantsDisabled: [liveblog],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: true,
                 withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withMedia: true,
                 cardSize: size.threeXL,
-                imageConfig: size.T1
-            })
+                imageConfig: size.T1,
+                isLoadWithPicture: true
+            }
         ],
         foodit_1_grid: [
             {
-                variantsDisabled: variantsDisabledByType.author,
+                variantsDisabled: [author],
                 withSection: false,
                 withSubhead: true,
                 withMarquee: true,
@@ -632,19 +1817,101 @@ const diagramationRules = diagramation => {
                 imageConfig: size.T1,
                 isLoadWithPicture: true,
                 hideBadget: true,
-                imagePosition: imagePositions.topRight
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                }
             }
         ],
-        foodit_3_grid: repeat(3, () =>
-            setArticleSettings(gridCardDefaults, {
+        foodit_3_grid: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
                 hideBadget: true
-            })
-        ),
-        logo_3_grid: repeat(3, () =>
-            setArticleSettings(gridCardDefaults, {
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
                 hideBadget: true
-            })
-        )
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            }
+        ],
+        logo_3_grid: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                hideBadget: true
+            }
+        ]
     };
 
     diagramations['bn-4-8'] = diagramations.bnGrilla4;
