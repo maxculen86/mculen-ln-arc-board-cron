@@ -89,5 +89,30 @@ describe('API elements distributor tests', () => {
 
             expect(distributor).toBeUndefined();
         });
+
+        it('returns undefined if category is other and author is not guest and not is for home', () => {
+            const article = {
+                distributor: {
+                    name: 'Test Distributor',
+                    category: 'other'
+                },
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    author_type: 'Estándar'
+                                }
+                            }
+                        }
+                    ]
+                }
+            };
+
+            const distributor = getDistributor(article, false);
+
+            expect(distributor.name).toBe('Test Distributor');
+            expect(distributor.url).toBe('/distributor/test-distributor/');
+        });
     });
 });

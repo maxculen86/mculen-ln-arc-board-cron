@@ -2,7 +2,7 @@ import isGuestAuthor from '../../../../../common/utils/isGuestAuthor';
 import formatDistributorName from '../../../../common/utils/formatDistributorName';
 
 const DISTRIBUTOR_LN = 'LA NACION';
-const getDistributor = article => {
+const getDistributor = (article, isHome = true) => {
     if (!article) {
         return undefined;
     }
@@ -22,7 +22,7 @@ const getDistributor = article => {
 
     const isGuest = isGuestAuthor(article);
 
-    if (isGuest && category === 'other') {
+    if ((isGuest || !isHome) && category === 'other') {
         return {
             name,
             url: `/distributor/${formatDistributorName(name)}/`,
