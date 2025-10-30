@@ -13,21 +13,11 @@ import LinkedCardDescription from './LinkedCardDescription';
 function LinkedCard({ children, variant, cardColor, className }) {
     const variantClass = cardVariant({ variant });
 
-    const _className = cx(
-        'linked-card border border-6 border-top',
-        variantClass,
-        className
-    );
+    const _className = cx('linked-card', variantClass, className);
 
     return (
         <LinkedCardProvider variant={variant} cardColor={cardColor}>
-            <div
-                data-testid="linked-card"
-                className={_className}
-                style={{
-                    borderTopColor: cardColor
-                }}
-            >
+            <div data-testid="linked-card" className={_className}>
                 {children}
             </div>
         </LinkedCardProvider>

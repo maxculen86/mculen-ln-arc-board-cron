@@ -37,7 +37,7 @@ function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
     return (
         <div
             data-testid="cards-grid"
-            className="grid grid-cols-8 grid-cols-12_m mt-80 mb-40 row-gap-16 row-gap-24_m mb-120_m gap-32_lg w-968_lg mr-auto_lg ml-auto_lg"
+            className="grid grid-cols-8 grid-cols-12_m mt-80 mb-40 row-gap-16 mb-20_m row-gap-24_m gap-32_lg mr-auto_lg ml-auto_lg"
         >
             {cards.map((card, index) => {
                 const normalizedCard = createCardWithDefaults(card, index);

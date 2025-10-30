@@ -12,7 +12,7 @@ function OpeningMeta({ children, data }) {
 
     return (
         <div className="flex flex-column ai-center" id="openingMeta">
-            <ul className="com-date flex jc-start ai-center --bullet-list_12 pb-12 pb-0_m">
+            <ul className="com-date flex jc-start ai-center --bullet-list_12 pb-12 text-14 pb-0_m">
                 {[date, time].map(item => (
                     <li
                         key={item}

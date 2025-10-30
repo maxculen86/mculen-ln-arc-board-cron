@@ -24,7 +24,7 @@ function ScrollToTopButton({ onClick }) {
                     <Icon size={20} style={{ transform: 'rotate(270deg)' }}>
                         <IconSprite name="arrowRightLine" />
                     </Icon>
-                    <Text className="--mobile-none text-12 uppercase">
+                    <Text className="--mobile-none text-16 uppercase">
                         subir
                     </Text>
                 </Button>
