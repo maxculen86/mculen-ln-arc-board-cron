@@ -14,7 +14,7 @@ const buildFooter = article => {
         footer.push({ _t: 'authors', authors });
     }
 
-    const distributor = getDistributor(article);
+    const distributor = getDistributor(article, false);
     if (distributor && !EXCLUDED_DISTRIBUTORS.includes(distributor.name)) {
         footer.push({ _t: 'distributor', distributor });
     }
