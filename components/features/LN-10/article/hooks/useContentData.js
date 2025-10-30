@@ -12,7 +12,7 @@ const useContentData = (
     onlyOneApeturaValidateForWWW
 ) =>
     useContent({
-        source: articleId ? 'articleSourceNota' : null,
+        source: articleId ? 'lnHomeBaseArticleSource' : null,
         query: {
             id: articleId,
             published: true,
