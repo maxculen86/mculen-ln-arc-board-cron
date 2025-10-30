@@ -1,12 +1,12 @@
 import { SITE_LANACION } from 'fusion:environment';
-import nodeFetch from 'node-fetch';
-import get from '../../../private/common/utils/get';
-import { isFotoAl100orStorytelling } from '../../../private/common/utils/subtypes/subtypeHelper';
-import { addResizedUrls } from '../../../private/common/utils/image/resizer/addResizerUrls';
 import getPresets from '../../../../content/sources/utils/presets';
-import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
-import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
 import { getAllImagesAuth } from '../../../../content/sources/utils/signingServiceSource/getImagesAuth';
+import get from '../../../private/common/utils/get';
+import { addResizedUrls } from '../../../private/common/utils/image/resizer/addResizerUrls';
+import { isFotoAl100orStorytelling } from '../../../private/common/utils/subtypes/subtypeHelper';
+import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
+import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
+import { handleHttpError } from '../../../private/common/utils/handleHttpError';
 
 const resolve = query => {
     const { imageId, arcSite } = query;
@@ -16,28 +16,14 @@ const resolve = query => {
 };
 
 const getAuthImage = async query => {
-    const opt = {
-        method: 'GET'
-    };
-
-    let endpoint = '';
     try {
-        endpoint = resolve(query);
-        const resp = await nodeFetch(endpoint, opt);
-        if (resp && !resp.ok) {
-            console.warn(
-                new BackendLnError(
-                    `getAuthImage - msj: ${resp.status} ${resp.statusText} - query: ${JSON.stringify(query || {})} - endpoint: ${endpoint}`,
-                    enumTypeError.featureError
-                )
-            );
-            return null;
-        }
+        const resp = await global.fetch(resolve(query));
+        handleHttpError(resp);
         return resp.json();
     } catch (err) {
         console.error(
             new BackendLnError(
-                `getAuthImage - msj: Error: ${err.message} - query: ${JSON.stringify(query || {})} - endpoint: ${endpoint}`,
+                `getAuthImage - msj: Error: ${err.message} - query: ${JSON.stringify(query || {})} - endpoint: ${resolve(query)}`,
                 enumTypeError.featureError
             )
         );

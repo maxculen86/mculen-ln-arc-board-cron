@@ -1,12 +1,12 @@
-import request from 'request-promise-native';
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import { ARC_ACCESS_TOKEN, CONTENT_BASE } from 'fusion:environment';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import logger from '../../components/private/common/utils/logger';
 import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
 import { BackendLnError } from '../../components/private/LN/api/common/models/backendLnError';
 
 const params = { imageId: 'text', api: 'bool' };
 
-const fetch = ({ imageId, api }) => {
+const fetch = async ({ imageId, api }) => {
     let newImageId = imageId;
     const arcSite = 'la-nacion-ar';
     if (api) {
@@ -23,42 +23,42 @@ const fetch = ({ imageId, api }) => {
     }
 
     const opt = {
-        uri: `${CONTENT_BASE}/signing-service/v2/sign/resizer/1?value=${encodeURIComponent(
-            newImageId
-        )}`,
-        json: true,
         method: 'GET'
     };
 
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
+    if (ARC_ACCESS_TOKEN)
+        opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
 
-    return request(opt)
-        .then(data => data)
-        .catch(error => {
-            if (api) {
-                console.warn(
-                    new BackendLnError(
-                        `apiSigningServiceSource - msj: ${
-                            error.message
-                        } - Query: ${JSON.stringify(newImageId || {})}`,
-                        enumTypeError.apiSigningServiceError
-                    )
-                );
-            }
+    const uri = `${CONTENT_BASE}/signing-service/v2/sign/resizer/1?value=${encodeURIComponent(
+        newImageId
+    )}`;
 
-            logger.push(
-                error,
-                {
-                    source: 'content/source/apiSigningServiceSource',
-                    newImageId
-                },
-                arcSite
+    try {
+        const response = await global.fetch(uri, opt);
+        handleHttpError(response);
+        return response.json();
+    } catch (error) {
+        if (api) {
+            console.warn(
+                new BackendLnError(
+                    `apiSigningServiceSource - msj: ${
+                        error.message
+                    } - Query: ${JSON.stringify(newImageId || {})}`,
+                    enumTypeError.apiSigningServiceError
+                )
             );
-        });
+        }
+
+        logger.push(
+            error,
+            {
+                source: 'content/source/apiSigningServiceSource',
+                newImageId
+            },
+            arcSite
+        );
+        return null;
+    }
 };
 
 export default {
