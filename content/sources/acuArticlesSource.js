@@ -30,9 +30,10 @@ const resolve = key => {
     const from = ((page || 1) - 1) * cant;
     const basePath = `/content/v4/search/published/?website=${website || arcSite}`;
 
-    if (distributorId)
-        return `${basePath}&q=type:story&include_distributor_name=${distributorId}&size=${cant}&from=${from}
-            &sort=display_date:desc`;
+    if (distributorId) {
+        const encodedDistributorId = encodeURIComponent(distributorId);
+        return `${basePath}&q=type:story&include_distributor_name=${encodedDistributorId}&size=${cant}&from=${from}&sort=display_date:desc`;
+    }
 
     if (sectionsIds) {
         const includeField =

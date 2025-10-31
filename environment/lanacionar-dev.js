@@ -88,7 +88,10 @@ export default {
     API_KEY_QUERYLY: '2bf85a66b5f04de9',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
+    API_KEY_MINIWALL: 'kvkmcsegzcfo9gml40dcwc9xps287kk5aho6',
+    CHECKOUT_URL: 'https://qa-checkout.lanacion.com.ar',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     ARC_ACCESS_TOKEN_PROD:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}'
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}',
+    CLL_HTMLTFREE_DOMAIN: 'https://qa-canchallena.lanacion.com.ar/especiales'
 };

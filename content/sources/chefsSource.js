@@ -1,4 +1,3 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import logger from '../../components/private/common/utils/logger';
@@ -16,16 +15,16 @@ const resolve = key => {
     return `/author/v1/author-service?website=${website || arcSite}&_id=${_id}`;
 };
 
-const fetch = (query, { cachedCall } = {}) => {
+const fetch = async (query, { cachedCall } = {}) => {
     const queryResolved = resolve(query);
-    const opt = {
-        uri: `${CONTENT_BASE}${queryResolved}`,
-        json: true
+    const url = `${CONTENT_BASE}${queryResolved}`;
+
+    const headers = {
+        'Content-Type': 'application/json'
     };
+
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
+        headers.Authorization = `Bearer ${ARC_ACCESS_TOKEN}`;
     }
 
     const properties = getProperties('foodit');
@@ -41,37 +40,63 @@ const fetch = (query, { cachedCall } = {}) => {
         }
     );
 
-    const resolveData = async () => {
-        try {
-            const response = await request(opt);
-            const image = get(response, 'image', '');
-            let signingResponse = null;
-            if (!isEmptyString(image)) {
-                signingResponse = await signingServiceCachedCall(
-                    image,
-                    cachedCall
-                );
-            }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-            const imageUrl =
-                get(response, 'image.url', '') || get(response, 'image', '');
+    try {
+        const response = await global.fetch(url, {
+            method: 'GET',
+            headers,
+            signal: controller.signal
+        });
 
-            return {
-                ...response,
-                ...(imageUrl && {
-                    image: {
-                        url: resizeImgUrl({
-                            arcImage: {
-                                url: imageUrl,
-                                auth: { 1: get(signingResponse, 'hash') },
-                                type: 'image'
-                            },
-                            defaultResizeWithSmart: imagePreset
-                        })
-                    }
-                })
-            };
-        } catch (error) {
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+            throw new Error(
+                `HTTP error! status: ${response.status} - ${response.statusText}`
+            );
+        }
+
+        const data = await response.json();
+
+        const image = get(data, 'image', '');
+        let signingResponse = null;
+
+        if (!isEmptyString(image)) {
+            signingResponse = await signingServiceCachedCall(image, cachedCall);
+        }
+
+        const imageUrl = get(data, 'image.url', '') || get(data, 'image', '');
+        return {
+            ...data,
+            ...(imageUrl && {
+                image: {
+                    url: resizeImgUrl({
+                        arcImage: {
+                            url: imageUrl,
+                            auth: { 1: get(signingResponse, 'hash') },
+                            type: 'image'
+                        },
+                        defaultResizeWithSmart: imagePreset
+                    })
+                }
+            })
+        };
+    } catch (error) {
+        clearTimeout(timeoutId);
+
+        if (error.name === 'AbortError') {
+            const timeoutError = new Error('Request timeout after 5 seconds');
+            logger.push(
+                timeoutError,
+                {
+                    source: 'content/sources/chefsSource',
+                    url: queryResolved
+                },
+                'foodit'
+            );
+        } else {
             logger.push(
                 error,
                 {
@@ -80,10 +105,9 @@ const fetch = (query, { cachedCall } = {}) => {
                 },
                 'foodit'
             );
-            return {};
         }
-    };
-    return Promise.resolve(resolveData());
+        return {};
+    }
 };
 
 export default {

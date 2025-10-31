@@ -1,9 +1,11 @@
 import {
     isInDatalayerEvent,
-    addVideoDisplayEvent
+    addVideoDisplayEvent,
+    registerJwVideoControlsTracking
 } from '../../utils/videoPlayerHelper';
 
 import {
+    CARDS,
     FOTOAL100,
     LIVEBLOG_EDITORIAL
 } from '../../utils/subtypes/subtypeHelper';
@@ -77,14 +79,37 @@ export const handleVideoEventsScript = (
     videoOrientation = 'horizontal'
 ) => {
     const player = window.jwplayer(`${idVideo}`);
+    let currentTitle = title;
+    let currentId = idVideo;
+    let firstPlay = true;
+    let skipPlayForSeek = false;
+
+    registerJwVideoControlsTracking({
+        player,
+        defaultTitle: currentTitle,
+        defaultId: currentId,
+        onSeek: () => {
+            skipPlayForSeek = true;
+        },
+        onPlaylistItem: ({ title: newTitle, id: newId }) => {
+            currentTitle = newTitle;
+            currentId = newId;
+            firstPlay = true;
+            skipPlayForSeek = false;
+        }
+    });
+
     player.on('ready', () => {
         const element = document.querySelector('.video-player');
         if (element) element.classList.remove('bg-black');
     });
 
-    let firstPlay = true;
-
     player.on('play', (e = {}) => {
+        if (skipPlayForSeek) {
+            skipPlayForSeek = false;
+            return;
+        }
+
         let mode;
         if (firstPlay && initialVideoMode) {
             mode = initialVideoMode;
@@ -97,8 +122,8 @@ export const handleVideoEventsScript = (
 
         addEventToDataLayerV2({
             event: 'videoPlay',
-            videoName: `${title}`,
-            videoID: `${idVideo}`,
+            videoName: `${currentTitle}`,
+            videoID: `${currentId}`,
             rest: { mode, videoOrientation }
         });
     });
@@ -106,8 +131,8 @@ export const handleVideoEventsScript = (
     player.on('pause', () => {
         addEventToDataLayerV2({
             event: 'videoPause',
-            videoName: `${title}`,
-            videoID: `${idVideo}`
+            videoName: `${currentTitle}`,
+            videoID: `${currentId}`
         });
     });
 
@@ -117,24 +142,24 @@ export const handleVideoEventsScript = (
 
         percentagesToCheck.forEach(percentage => {
             if (
-                !isInDatalayerEvent(percentage.toString(), `${idVideo}`) &&
+                !isInDatalayerEvent(percentage.toString(), `${currentId}`) &&
                 percent === percentage
             ) {
                 addEventToDataLayerV2({
                     event: percentage.toString(),
-                    videoName: `${title}`,
-                    videoID: `${idVideo}`
+                    videoName: `${currentTitle}`,
+                    videoID: `${currentId}`
                 });
             }
         });
     });
 
     player.on('complete', () => {
-        if (!isInDatalayerEvent('videoComplete', `${idVideo}`)) {
+        if (!isInDatalayerEvent('videoComplete', `${currentId}`)) {
             addEventToDataLayerV2({
                 event: 'videoComplete',
-                videoName: `${title}`,
-                videoID: `${idVideo}`
+                videoName: `${currentTitle}`,
+                videoID: `${currentId}`
             });
         }
     });
@@ -235,5 +260,9 @@ export const getJWScript = (
     addVideoDisplayEvent({ title, idVideo });
 };
 
+const subtypesWithTransparentCaption = [LIVEBLOG_EDITORIAL, CARDS];
+
 export const getCaptionBgClass = subtype =>
-    subtype === LIVEBLOG_EDITORIAL ? 'bg-transparent' : 'bg-white';
+    subtypesWithTransparentCaption.includes(subtype)
+        ? 'bg-transparent'
+        : 'bg-white';

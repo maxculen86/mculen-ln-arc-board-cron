@@ -9,11 +9,11 @@ class EnVivo {
         this.state = {};
         this.notes = [];
         const sourceInclude =
-            '_id,last_updated_date,headlines,canonical_website,subtype,publish_date,website_url,label.republicar_audio,source.system';
+            '_id,last_updated_date,headlines,canonical_website,subtype,publish_date,website_url,label.republicar_audio,source.system,planning.story_length.word_count_actual';
         this.customFields = customFields || {};
         if (customFields) {
             const paramsNotes = [1, 2, 3, 4];
-            this.notes = paramsNotes.map((e, i) => {
+            this.notes = paramsNotes.map(e => {
                 if (get(customFields, 'noteId'.concat(e), null)) {
                     return {
                         orden: e,
@@ -30,7 +30,7 @@ class EnVivo {
                 .map(x => x.noteId)
                 .join(',');
 
-            const regex = new RegExp(`/,,/`);
+            const regex = /,,/;
             notesIds = notesIds.replace(regex, ',');
 
             this.fetchContent({

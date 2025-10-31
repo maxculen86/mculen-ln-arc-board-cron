@@ -75,6 +75,7 @@ describe('storyBox LN10', () => {
                         size: 'XL',
                         typeCard: 'regular'
                     },
+                    distributor: undefined,
                     imagen: {
                         id: 'TR5C3TK6F5BWRCYRR3AUO4RMQ4',
                         _t: 'img',
@@ -83,6 +84,8 @@ describe('storyBox LN10', () => {
                         absoluteUrl:
                             'https://resizer.glanacion.com/resizer/YUOnmEFPRR24kgOY_cF3pZN5fPA=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg'
                     },
+                    videoData: undefined,
+                    videoLoop: null,
                     videoYouTube: null,
                     embed: ''
                 }

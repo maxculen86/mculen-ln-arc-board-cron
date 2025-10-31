@@ -94,9 +94,15 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
 
         it('should return null when isTodayEnabled returns false', () => {
             mockProps.customFields.enabledDays = ['lunes', 'martes'];
+            mockProps.customFields.shouldSchedule = true;
+            mockProps.customFields.hideCaja = false;
             isTodayEnabled.mockReturnValue(false);
             component = new CajaSegmentada(mockProps);
-
+            component.state.navigationTreeSource = {
+                Termicas: {
+                    caja_segmentada: 'true'
+                }
+            };
             const result = component.render();
 
             expect(result).toBeNull();
@@ -150,6 +156,7 @@ describe('components - chains - LN10_Caja_Segmentada - json', () => {
     describe('successful rendering', () => {
         it('should continue rendering when all conditions are met', () => {
             mockProps.customFields.enabledDays = ['lunes', 'martes'];
+            mockProps.customFields.shouldSchedule = true;
             isTodayEnabled.mockReturnValue(true);
             validateChain.mockReturnValue(null);
             component = new CajaSegmentada(mockProps);

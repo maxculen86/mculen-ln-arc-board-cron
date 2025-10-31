@@ -3,10 +3,10 @@
 exports[`components - feature - LN-nota - signature - default renders with author signature 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color mb-16 mb-24_m"
+    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
   >
     <div
-      class="row"
+      class="flex flex-wrap w-100"
     >
       <div
         class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"
@@ -20,13 +20,15 @@ exports[`components - feature - LN-nota - signature - default renders with autho
             target="_self"
             title="Ir a notas de Mariano Grondona"
           >
-            <img
-              class="image flex rounded-circle w-70 h-70 bg-neutral-light-50 --cover"
-              decoding="async"
-              fetchpriority="low"
-              loading="lazy"
-              src="https://bucket.glanacion.com/anexos/fotos/85/2089285.png"
-            />
+            <div>
+              <img
+                class="image flex rounded-circle w-70 h-70 bg-neutral-light-50 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="https://bucket.glanacion.com/anexos/fotos/85/2089285.png"
+              />
+            </div>
           </a>
           <div
             class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
@@ -64,7 +66,7 @@ exports[`components - feature - LN-nota - signature - default renders with autho
 exports[`components - feature - LN-nota - signature - default renders with distributor signature 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color mb-16 mb-24_m"
+    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
   >
     <div
       class="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start"
@@ -85,7 +87,7 @@ exports[`components - feature - LN-nota - signature - default renders with distr
 exports[`components - feature - LN-nota - signature - default renders without signature when no authors or distributor 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color mb-16 mb-24_m"
+    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
   >
     <div
       class="flex flex-column brand-color"
@@ -101,10 +103,10 @@ exports[`components - feature - LN-nota - signature - default renders without si
 exports[`components - feature - LN-nota - signature - default should not render custom voice when there are multiple authors 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color mb-16 mb-24_m"
+    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
   >
     <div
-      class="row"
+      class="flex flex-wrap w-100"
     >
       <div
         class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"

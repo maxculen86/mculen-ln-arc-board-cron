@@ -30,7 +30,7 @@ const setUrl = ({
     return SITE_LANACION;
 };
 
-const AcumuladoTitle = props => {
+function AcumuladoTitle(props) {
     const { outputType, idLogoImage, colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
     const navigationList = get(props, 'navigation', null);
@@ -38,6 +38,8 @@ const AcumuladoTitle = props => {
     const globalContent = get(props, 'globalContent', {});
     const replaceTitle = get(props, 'customFields.replaceTitle', null);
     const prefixTitle = get(props, 'customFields.prefixTitle', null);
+
+    const sectionId = get(props, 'globalContent._id', '');
 
     const title = setTitle(replaceTitle, globalContent);
     const url = setUrl(globalContent);
@@ -85,9 +87,10 @@ const AcumuladoTitle = props => {
             style={{ color: colorCategory }}
             outputType={outputType}
             url={url}
+            sectionId={sectionId}
         />
     );
-};
+}
 
 AcumuladoTitle.propTypes = {
     globalContent: PropTypes.shape({

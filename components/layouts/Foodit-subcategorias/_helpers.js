@@ -142,6 +142,7 @@ export const trackSubcategoryCard = (cardData, subcategoryUrl) => {
 
     if (trackingConfig && cardData.trackingLabel) {
         addEventToDataLayerV2({
+            event: 'e_linkclick',
             category: trackingConfig.sectionCategory,
             label: cardData.trackingLabel,
             action: 'N/A'
@@ -152,6 +153,7 @@ export const trackSubcategoryCard = (cardData, subcategoryUrl) => {
 export const trackHomeCard = cardData => {
     if (cardData && cardData.trackingLabel) {
         addEventToDataLayerV2({
+            event: 'e_linkclick',
             category: 'cards_home',
             label: cardData.trackingLabel,
             action: 'N/A'

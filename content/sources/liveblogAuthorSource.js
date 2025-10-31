@@ -1,10 +1,9 @@
-import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import logger from '../../components/private/common/utils/logger';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import { isEmptyString } from '../../components/private/common/utils/dataValidation';
 import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
-import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 
 const isEncoded = str => {
@@ -15,36 +14,45 @@ const isEncoded = str => {
     }
 };
 
-const transform = (cachedCall, authorsData = []) => {
-    const transformedAuthors = authorsData.map(async author => {
-        const image = get(author, 'image', '');
-        let signingResponse = null;
-        if (!isEmptyString(image))
-            signingResponse = await signingServiceCachedCall(image, cachedCall);
-        const imagePreset = {
-            width: 280,
-            height: 280,
-            media: '(min-width: 320px)',
-            class: '',
-            type: 'image'
-        };
+export const transform = async ({ data = {}, cachedCall }) => {
+    const authors = get(data, 'authors', []);
+    const transformedAuthors = await Promise.all(
+        authors.map(async author => {
+            const image = get(author, 'image', '');
+            let signingResponse = null;
 
-        return {
-            ...author,
-            ...(image && {
-                image: resizeImgUrl({
-                    arcImage: {
-                        url: image,
-                        auth: { 1: get(signingResponse, 'hash') },
-                        type: 'image'
-                    },
-                    defaultResizeWithSmart: imagePreset
+            if (!isEmptyString(image)) {
+                signingResponse = await signingServiceCachedCall(
+                    image,
+                    cachedCall
+                );
+            }
+
+            const imagePreset = {
+                width: 280,
+                height: 280,
+                media: '(min-width: 320px)',
+                class: '',
+                type: 'image'
+            };
+
+            return {
+                ...author,
+                ...(image && {
+                    image: resizeImgUrl({
+                        arcImage: {
+                            url: image,
+                            auth: { 1: get(signingResponse, 'hash') },
+                            type: 'image'
+                        },
+                        defaultResizeWithSmart: imagePreset
+                    })
                 })
-            })
-        };
-    });
+            };
+        })
+    );
 
-    return Promise.all(transformedAuthors);
+    return transformedAuthors;
 };
 
 const fetch = (query, { cachedCall } = {}) => {
@@ -52,7 +60,9 @@ const fetch = (query, { cachedCall } = {}) => {
     const safeAuthorName = isEncoded(authorName)
         ? authorName
         : encodeURIComponent(authorName);
+
     const url = `${CONTENT_BASE}/author/v2/author-service?byline=${safeAuthorName}&limit=10`;
+
     const opt = {
         method: 'GET'
     };
@@ -63,15 +73,17 @@ const fetch = (query, { cachedCall } = {}) => {
 
     const resolveData = async () => {
         try {
-            const response = await nodeFetch(url, opt);
+            const response = await global.fetch(url, opt);
             handleHttpError(response);
-            const authorsData = await response.json();
-            return await transform(cachedCall, get(authorsData, 'authors', []));
+            const data = await response.json();
+            return await transform({ data, cachedCall });
         } catch (error) {
-            return logger.push(error, {
-                source: 'content/sources/liveblogAuthorSource',
-                url
-            });
+            logger.push(
+                error,
+                { source: 'content/sources/liveblogAuthorSource', url },
+                query['arc-site']
+            );
+            return [];
         }
     };
 

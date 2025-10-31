@@ -88,7 +88,7 @@ export function NutritionalInfo({ globalContent = {} }) {
                 style={{ position: 'static' }}
             >
                 <Text className="roof-text-sticky pl-16 pl-0_md">
-                    Información nutricional
+                    Información nutricional por porción
                 </Text>
                 <Tooltip
                     position="top-center"

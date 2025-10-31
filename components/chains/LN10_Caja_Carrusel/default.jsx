@@ -25,7 +25,12 @@ function CajaCarrusel(props) {
         siteProperties: { layoutsName = {} },
         layout,
         children,
-        customFields: { hideCarousel, enabledDays = [], ...propsForRoof },
+        customFields: {
+            hideCarousel,
+            enabledDays = [],
+            shouldSchedule = false,
+            ...propsForRoof
+        },
         childProps = [],
         chainId,
         renderables
@@ -63,14 +68,17 @@ function CajaCarrusel(props) {
         error,
         isHome,
         hideCarousel,
-        enabledDays
+        enabledDays,
+        shouldSchedule
     });
 
     const roofData = useRoofData({
         ...propsForRoof,
         isAdmin,
         isStatic: false,
-        shouldLoadRoof: !hide
+        shouldLoadRoof: !hide,
+        enabledDays,
+        shouldSchedule
     });
 
     if (hasError) {
@@ -206,6 +214,12 @@ CajaCarrusel.propTypes = {
             description: 'Marque para ocultar el carousel',
             defaultValue: false
         }).isRequired,
+        shouldSchedule: PropTypes.boolean.tag({
+            name: 'Activar Calendarizacion',
+            description:
+                'Marque para mostrar en los días configurados, Desmarque para mostrar todos los dias',
+            defaultValue: false
+        }),
         enabledDays: PropTypes.list.tag({
             name: 'Días habilitados',
             description:

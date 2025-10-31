@@ -53,7 +53,8 @@ describe('features - LN-common - anexo - json', () => {
             const newProps = { ...props };
             newProps.customFields = {
                 html: `<p>Mock HTML anexo</p>`,
-                hideByHtml: false
+                hideByHtml: false,
+                shouldSchedule: false
             };
 
             const anexo = new Anexo.default(newProps);
@@ -153,6 +154,7 @@ describe('features - LN-common - anexo - json', () => {
                 customFields: {
                     html: '<p>Home Anexo Content</p>',
                     hideByHtml: false,
+                    shouldSchedule: true,
                     enabledDays: []
                 }
             };
@@ -169,6 +171,7 @@ describe('features - LN-common - anexo - json', () => {
                 customFields: {
                     html: '<p>Home Anexo Enable</p>',
                     hideByHtml: false,
+                    shouldSchedule: true,
                     enabledDays: [
                         'lunes',
                         'martes',

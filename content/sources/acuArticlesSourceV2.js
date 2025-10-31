@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import getQueryParams from './utils/acuArticleSourceV2/getQueryParams';
@@ -15,7 +14,7 @@ const fetch = async query => {
 
     const resolveData = async () => {
         try {
-            const response = await nodeFetch(
+            const response = await global.fetch(
                 `${CONTENT_BASE}${getQueryParams(query)}`,
                 opt
             );

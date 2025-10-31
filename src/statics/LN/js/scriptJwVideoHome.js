@@ -10,10 +10,14 @@ import {
 } from '../../../../components/features/LN-10/videoPlayer/_helper';
 import loadJWPlayerScript from '../../../../components/chains/utils/loadJWPlayerScript';
 import { addEventToDataLayerV2 } from '../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { registerJwVideoControlsTracking } from '../../../../components/private/common/utils/videoPlayerHelper';
 import { videoContainer } from '../../../../components/features/LN-10/videoPlayer/share/utils';
 import { handleShare } from '../../../../components/features/LN-10/videoPlayer/share/shareHandler';
 import { getVerticalPlayer } from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
+const trackingCleanupByMediaId = new Map();
+
+//TODO Unificar logica de eventos con script de home y nota.
 window.addEventListener('load', function () {
     const hasJwVideos = document.querySelectorAll('[data-has-jwplayer="true"]');
 
@@ -30,21 +34,49 @@ window.addEventListener('load', function () {
 
         const facade = document.getElementById(`facade-${mediaId}`);
         let initialMode = null;
+        let currentTitle = title || '';
+        let currentId = mediaId || '';
+        let skipPlayForSeek = false;
+
         const setInstancePlayer = () =>
             loadJWPlayerScript(playerId, () => {
                 const instance = window.jwplayer && window.jwplayer(mediaId);
                 if (instance) {
                     facade?.remove();
 
+                    trackingCleanupByMediaId.get(mediaId)?.();
+                    trackingCleanupByMediaId.delete(mediaId);
+
                     instance.setup({
                         ...instanceConfig,
                         width: '100%'
                     });
 
+                    skipPlayForSeek = false;
                     setVideoStatus(mediaId);
                     const videoState = getVideoStatus(mediaId);
+                    const cleanupTracking = registerJwVideoControlsTracking({
+                        player: instance,
+                        defaultTitle: currentTitle,
+                        defaultId: currentId,
+                        onSeek: () => {
+                            skipPlayForSeek = true;
+                        },
+                        onPlaylistItem: ({ title: newTitle, id: newId }) => {
+                            currentTitle = newTitle;
+                            currentId = newId;
+                            skipPlayForSeek = false;
+                            initialMode = null;
+                        }
+                    });
+                    trackingCleanupByMediaId.set(mediaId, cleanupTracking);
 
                     instance.on('play', (e = {}) => {
+                        if (skipPlayForSeek) {
+                            skipPlayForSeek = false;
+                            return;
+                        }
+
                         const reason = e?.playReason;
                         const isAutoplay =
                             reason === 'autostart' || reason === 'viewable';
@@ -56,8 +88,8 @@ window.addEventListener('load', function () {
                         addEventToDataLayerV2({
                             event: 'videoPlay',
                             rest: {
-                                videoName: title || '',
-                                videoID: mediaId || '',
+                                videoName: currentTitle,
+                                videoID: currentId,
                                 mode,
                                 videoOrientation
                             }

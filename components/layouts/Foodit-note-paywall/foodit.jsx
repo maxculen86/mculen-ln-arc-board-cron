@@ -12,7 +12,7 @@ import { OpeningStorytelling } from '../../features/foodit-global/common/Opening
 import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import { getFooditAuthor } from '../../features/foodit-global/common/utils/notaFooditHelper';
-import SingWall from '../../features/foodit-global/common/singWall/foodit';
+import FooditMiniWall from '../../features/foodit-global/common/MiniWall/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -94,8 +94,8 @@ function FooditNotePaywallLayout({ children = [], globalContent = {} }) {
                     {body}
                 </div>
             </div>
-            <div className="flex flex-column">
-                <SingWall />
+            <div className="flex flex-column w-100vw as-center">
+                <FooditMiniWall />
             </div>
         </BaseLayout>
     );

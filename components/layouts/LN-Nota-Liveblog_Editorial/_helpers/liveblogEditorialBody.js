@@ -113,8 +113,9 @@ const normalizeAuthorsData = (authors = []) =>
         const name = get(author, 'name', '');
         const link = get(author, 'link') || (id ? `/autor/${id}/` : '');
         const photo = get(author, 'photo', '');
+        const role = get(author, 'role', '');
 
-        acc.push({ name, link, photo });
+        acc.push({ name, link, photo, role });
         return acc;
     }, []);
 
@@ -135,7 +136,12 @@ const buildSignature = (authors = []) => {
         link
     }));
 
-    return { author, authors: authorsList, photo };
+    const role =
+        normalizedAuthorsDatas.length === 1
+            ? normalizedAuthorsDatas[0]?.role
+            : null;
+
+    return { author, authors: authorsList, photo, role };
 };
 
 export const getLiveblogHeaderData = post => {
@@ -151,7 +157,7 @@ export const getLiveblogHeaderData = post => {
         ? get(data, 'customTime', '')
         : null;
     const rawAuthors = get(data, 'authors', []);
-    const { author, authors, photo } = buildSignature(rawAuthors);
+    const { author, authors, photo, role } = buildSignature(rawAuthors);
     const hasAuthors = Boolean(author || authors.length > 0);
     const { time, date, relative } = calculateTimePublish(data);
     const title = get(data, 'title', '');
@@ -167,7 +173,8 @@ export const getLiveblogHeaderData = post => {
         title,
         position,
         relative,
-        customTimeOrText
+        customTimeOrText,
+        role
     };
 };
 
@@ -228,7 +235,9 @@ export const getPostRenderData = grupo => {
         showSignatureWithAuthors: liveblogHeader.hasAuthors,
         position: liveblogHeader.position,
         size: 12,
-        photo: liveblogHeader.photo
+        photo: liveblogHeader.photo,
+        role: liveblogHeader.role,
+        shouldShowRole: !!liveblogHeader.author && !liveblogHeader.title
     };
 
     return {

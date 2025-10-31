@@ -48,26 +48,32 @@ function CajaCollection(props) {
     } = customFields;
     const rules = fooditRules(layout) || {};
     const { minArticles, maxArticles, size, isStatic } = rules;
-    const isWithOutLazyLoad =
-        [CAROUSEL, CAROUSEL_4].includes(layout) &&
-        isElementInPosition({
-            positionElement: 0,
-            positionBlock: 1,
-            id: chainId,
-            tree
-        });
+
+    const isFirstCarousel = useMemo(
+        () =>
+            [CAROUSEL, CAROUSEL_4].includes(layout) &&
+            isElementInPosition({
+                positionElement: 0,
+                positionBlock: 1,
+                id: chainId,
+                tree
+            }),
+        [CAROUSEL, CAROUSEL_4, layout, chainId, tree]
+    );
+
     const articles = useGetArticleInCollectionFoodit({
         idCollection: getIdCollection({
             isStatic,
             inViewport,
             idCollection,
             isAdmin,
-            isWithOutLazyLoad
+            isWithOutLazyLoad: isFirstCarousel
         }),
         size: maxArticles,
         initialPosition: Number(initialPosition) - 1,
         staticMode: isStatic
     });
+
     const addPreloadToHead = useCallback(
         imageUrl => {
             if (isSSR() || !imageUrl) return false;
@@ -84,13 +90,14 @@ function CajaCollection(props) {
                 linkTag.dataset.carouselPreload = chainId;
                 document.head.appendChild(linkTag);
                 return true;
-            } catch (error) {
-                console.warn('Failed to add preload:', error);
+            } catch (addPreloadToHeadError) {
+                console.warn('Failed to add preload:', addPreloadToHeadError);
                 return false;
             }
         },
         [chainId]
     );
+
     const device = !isSSR()
         ? getTypeOfDevicev2({
               breakpoints: {
@@ -99,15 +106,9 @@ function CajaCollection(props) {
           })
         : 'desktop';
     const isMobile = device === 'mobile';
-    const preloadConditions = useMemo(() => {
-        const isFirstCarousel =
-            isElementInPosition({
-                positionElement: 0,
-                positionBlock: 1,
-                id: chainId,
-                tree
-            }) && [CAROUSEL, CAROUSEL_4].includes(layout);
-        return {
+
+    const preloadConditions = useMemo(
+        () => ({
             isFirstCarousel,
             shouldPreload:
                 isFirstCarousel &&
@@ -115,16 +116,10 @@ function CajaCollection(props) {
                 !isAdmin &&
                 isMobile &&
                 articles.length > 0
-        };
-    }, [
-        chainId,
-        tree,
-        layout,
-        carouselMobile,
-        isAdmin,
-        isMobile,
-        articles.length
-    ]);
+        }),
+        [isFirstCarousel, carouselMobile, isAdmin, isMobile, articles.length]
+    );
+
     const preloadImageData = useMemo(() => {
         if (!preloadConditions.shouldPreload) return null;
         const firstArticle = articles[0];
@@ -137,11 +132,15 @@ function CajaCollection(props) {
             return imageUrl
                 ? { url: imageUrl, articleId: firstArticle._id }
                 : null;
-        } catch (error) {
-            console.error('Error extracting preload image data:', error);
+        } catch (preloadImageDataError) {
+            console.error(
+                'Error extracting preload image data:',
+                preloadImageDataError
+            );
             return null;
         }
     }, [preloadConditions.shouldPreload, articles]);
+
     useEffect(() => {
         if (
             preloadImageData &&
@@ -167,34 +166,34 @@ function CajaCollection(props) {
             currentPreloadUrl.current = null;
         };
     }, [preloadImageData, addPreloadToHead, chainId]);
+
     const error = validateChainFoodit({
         minArticles,
         idCollection,
         layout,
         articles
     });
+
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
+
     const articlesWithSize = articles.map(article => ({
         ...transformArticleFoodit(article),
         size
     }));
+
     const articlesTransformed = articlesWithSize.filter(
         article => article.href
     );
+
     const staticContentClassName = classNames(
         'hidden',
         get(rules, 'classStatic', '')
     );
-    const isFirstCarousel =
-        isElementInPosition({
-            positionElement: 0,
-            positionBlock: 1,
-            id: chainId,
-            tree
-        }) && [CAROUSEL, CAROUSEL_4].includes(layout);
+
     const carouselIndex = isFirstCarousel ? 0 : 1;
+
     const Component = (
         <RenderCollection
             rules={rules}
@@ -210,9 +209,11 @@ function CajaCollection(props) {
             carouselIndex={carouselIndex}
         />
     );
-    if (!isStatic && isWithOutLazyLoad) {
+
+    if (!isStatic && isFirstCarousel) {
         return Component;
     }
+
     return !isStatic && !isAdmin ? (
         <LazyLoad
             id={carouselId}
@@ -232,6 +233,7 @@ function CajaCollection(props) {
         </Static>
     );
 }
+
 CajaCollection.label = 'foodit Caja Collection';
 CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
@@ -244,4 +246,5 @@ CajaCollection.propTypes = {
     }).isRequired,
     tree: PropTypes.shape({}).isRequired
 };
+
 export default Consumer(CajaCollection);

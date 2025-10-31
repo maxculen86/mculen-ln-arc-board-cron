@@ -10,6 +10,11 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-action="N/A"
+        data-category="cards_home"
+        data-event="e_linkclick"
+        data-interaction="dataLayerInteraction"
+        data-label="aprende_a_cocinar"
         data-variant="primary"
         href="/aprende-en-la-cocina/"
         target="_self"
@@ -25,8 +30,8 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
               alt="Imagen de Aprendé en la cocina"
               class="image flex w-100 ratio-3-2 --cover"
               decoding="async"
-              fetchpriority="low"
-              loading="lazy"
+              fetchpriority="high"
+              loading="eager"
               src="https://example.com/pf/resources/foodit/assets/images/ejes/aprende.webp"
             />
           </div>
@@ -47,6 +52,11 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-action="N/A"
+        data-category="cards_home"
+        data-event="e_linkclick"
+        data-interaction="dataLayerInteraction"
+        data-label="cocina_facil"
         data-variant="primary"
         href="/cocina-facil-y-rapido/"
         target="_self"
@@ -84,6 +94,11 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-action="N/A"
+        data-category="cards_home"
+        data-event="e_linkclick"
+        data-interaction="dataLayerInteraction"
+        data-label="cocina_a_tu_manera"
         data-variant="primary"
         href="/cocina-a-tu-medida/"
         target="_self"
@@ -121,6 +136,11 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-action="N/A"
+        data-category="cards_home"
+        data-event="e_linkclick"
+        data-interaction="dataLayerInteraction"
+        data-label="recetas"
         data-variant="primary"
         href="/subcategoria-receta/"
         target="_self"

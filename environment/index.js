@@ -10,6 +10,8 @@ export default {
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
     RELOGIN_VALIDATION: '8121600000',
     SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
+    API_KEY_MINIWALL: 'iczvuudwkdtqutw19f9knv7nasquvpzup8ep',
+    CHECKOUT_URL: 'https://checkout.lanacion.com.ar',
     LOGIN_URL: 'https://ingresar.lanacion.com.ar/login/ingresar/D/1/?callback=',
     FOODIT_LOGIN_URL:
         'https://ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
@@ -120,5 +122,6 @@ export default {
     },
     API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/',
     ARC_ACCESS_TOKEN_PROD:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}'
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}',
+    CLL_HTMLTFREE_DOMAIN: 'https://canchallena.lanacion.com.ar/especiales'
 };

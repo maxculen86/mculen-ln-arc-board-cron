@@ -29,10 +29,13 @@ function LoginSubscribeButtons({
 
     const { categoryEvent, url } = getButtonCategory(comesFrom);
 
+    const textByCategory = {
+        header: buttonSubscribeHeader,
+        home: 'Empezá hoy'
+    };
+
     const subscribeButtonText =
-        categoryEvent === 'header'
-            ? buttonSubscribeHeader
-            : buttonSubscribeText;
+        textByCategory[categoryEvent] ?? buttonSubscribeText;
 
     useEffect(() => {
         if (termicasData) {
@@ -43,6 +46,9 @@ function LoginSubscribeButtons({
             });
         }
     }, [termicasData]);
+
+    const hideSubscribeButtons =
+        termicasData.hide_subscribe_button_foodit === 'true';
 
     const handleSubscribeClick = () => {
         const href = `${SITIO_SEGURO_REGISTRACION}${url}${window?.btoa(window.location.href)}`;
@@ -74,7 +80,7 @@ function LoginSubscribeButtons({
 
     return (
         <>
-            {buttonSubscribeText && (
+            {!hideSubscribeButtons && buttonSubscribeText && (
                 <Tooltip
                     position="bottom-center"
                     content={
@@ -112,7 +118,8 @@ LoginSubscribeButtons.defaultProps = {
     classNameButtons: '',
     termicasData: {
         tooltip_subscribe_foodit_text: '',
-        tooltip_subscribe_foodit_show: false
+        tooltip_subscribe_foodit_show: false,
+        hide_subscribe_button_foodit: false
     },
     comesFrom: '',
     loginClassName: 'roboto-regular'
@@ -125,7 +132,8 @@ LoginSubscribeButtons.propTypes = {
         tooltip_subscribe_foodit_show: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.bool
-        ])
+        ]),
+        hide_subscribe_button_foodit: PropTypes.bool
     }),
     comesFrom: PropTypes.string,
     loginClassName: PropTypes.string

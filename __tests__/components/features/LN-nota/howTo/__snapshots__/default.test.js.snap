@@ -2,7 +2,7 @@
 
 exports[`HowTo component Should render correctly 1`] = `
 <div
-  class="step-header flex flex-column gap-32 pt-16"
+  class="step-header flex flex-column gap-32 py-16"
   data-testid="how-to-list"
 >
   <hr

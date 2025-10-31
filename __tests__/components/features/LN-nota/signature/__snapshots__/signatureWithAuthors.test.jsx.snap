@@ -3,7 +3,7 @@
 exports[`components - feature - LN-nota - signature - signatureWithAuthors should render custom IA variant when showVariantIa is true 1`] = `
 <div>
   <div
-    class="row"
+    class="flex flex-wrap w-100"
   >
     <div
       class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"
@@ -105,7 +105,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
 exports[`components - feature - LN-nota - signature - signatureWithAuthors should render variant negative true when subtype is video ("5") 1`] = `
 <div>
   <div
-    class="row"
+    class="flex flex-wrap w-100"
   >
     <div
       class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start mb-16"
@@ -119,13 +119,15 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
           target="_self"
           title="Ir a notas de Pablo Lisotto"
         >
-          <img
-            class="image flex rounded-circle w-70 h-70 bg-neutral-dark-50 --cover"
-            decoding="async"
-            fetchpriority="low"
-            loading="lazy"
-            src="https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F2771712.png?auth=6697c52758385d28af928d3b17e6a99b7690460e4c150b49c0e80735726ff800&width=80&quality=70&smart=false"
-          />
+          <div>
+            <img
+              class="image flex rounded-circle w-70 h-70 bg-neutral-dark-50 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F2771712.png?auth=6697c52758385d28af928d3b17e6a99b7690460e4c150b49c0e80735726ff800&width=80&quality=70&smart=false"
+            />
+          </div>
         </a>
         <div
           class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-100"

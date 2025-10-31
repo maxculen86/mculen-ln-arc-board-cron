@@ -1,21 +1,19 @@
-/* eslint-disable react/no-danger */
 import React, { useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 import AnexoIframe from '../../acumulado/anexoIframe';
 
-export const parseStyles = styles => {
-    return styles
+export const parseStyles = styles =>
+    styles
         .split(';')
         .filter(item => item !== '')
         .reduce((obj, key) => {
             const style = key.split(':');
             return { ...obj, [style[0].trim()]: style[1] };
         }, {});
-};
 
-export const getPropsFromNode = node => {
-    return node && node.nodeType === 1 && node.attributes
+export const getPropsFromNode = node =>
+    node && node.nodeType === 1 && node.attributes
         ? [...node.attributes].reduce((obj, attr) => {
               let { name, value } = attr;
               name = name === 'class' ? 'className' : name;
@@ -26,7 +24,6 @@ export const getPropsFromNode = node => {
               };
           }, {})
         : null;
-};
 
 export const convertNodeToComponent = (node, id) => {
     if (!node) return null;
@@ -48,7 +45,7 @@ export const convertNodeToComponent = (node, id) => {
 
     if (tag === 'iframe' && classList && classList.contains('pym'))
         return (
-            <div className="contenido-externo">
+            <div key={id} className="contenido-externo">
                 <AnexoIframe
                     url={_props.src}
                     id={id}
@@ -59,7 +56,7 @@ export const convertNodeToComponent = (node, id) => {
         );
 
     if (!Object.keys(node.childNodes).length)
-        return React.createElement(tag, _props);
+        return React.createElement(tag, { ..._props, key: id });
 
     if (
         node.querySelectorAll('iframe.pym').length &&
@@ -68,13 +65,16 @@ export const convertNodeToComponent = (node, id) => {
     ) {
         return React.createElement(
             tag,
-            _props,
+            { ..._props, key: id },
+            // TODO: Refactorizar para evitar el eslint disable
+            // eslint-disable-next-line no-use-before-define
             getComponentsFromNodeList(childNodes, id)
         );
     }
 
     return React.createElement(tag, {
         ..._props,
+        key: id,
         dangerouslySetInnerHTML: {
             __html: tag === 'style' ? outerText : innerHTML || nodeValue || ''
         }
@@ -103,7 +103,7 @@ export const getChildren = (nodes, id) => {
         .filter(item => item != null);
 };
 
-const HtmlPym = props => {
+function HtmlPym(props) {
     const { data } = props;
     const { content } = data || { content: null };
     const { _id: id } = data || '';
@@ -128,7 +128,7 @@ const HtmlPym = props => {
 
     if (!_children.length) return null;
     return <div className="com-embed --html">{_children}</div>;
-};
+}
 
 HtmlPym.arcType = 'raw_html';
 HtmlPym.outputType = 'default';

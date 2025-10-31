@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
-import SignatureWithAuthors from '../../../../features/LN-nota/signature/signatureWithAuthors';
+import PostAuthor from './PostAuthor';
 
 function PostHeader({ displayTime, date, title, dataAuthor, children }) {
     return (
@@ -24,13 +24,15 @@ function PostHeader({ displayTime, date, title, dataAuthor, children }) {
                 </div>
                 {children}
             </div>
-            <Text
-                className="prumo prumo-semibold text-24 text-neutral-light-800 mb-16"
-                as="h2"
-            >
-                {title}
-            </Text>
-            <SignatureWithAuthors {...dataAuthor} />
+            {title && (
+                <Text
+                    className="prumo prumo-semibold text-24 text-neutral-light-800 mb-16"
+                    as="h2"
+                >
+                    {title}
+                </Text>
+            )}
+            <PostAuthor dataAuthor={dataAuthor} />
         </div>
     );
 }

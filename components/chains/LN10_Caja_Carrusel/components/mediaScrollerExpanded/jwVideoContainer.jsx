@@ -97,6 +97,7 @@ const JwVideoContainer = forwardRef(
                                 ) : (
                                     <JwVideoPlayer
                                         videoId={id}
+                                        title={title}
                                         index={index}
                                         counterVideo={counterVideo}
                                         handleNextCallback={handleNextCallback}

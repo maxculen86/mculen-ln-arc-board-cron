@@ -17,20 +17,33 @@ import responseSoloAperturaMultimedia from '../../../__mocks__/data/articles/JLM
 import responseAperturaBasic from '../../../__mocks__/data/articles/X7HUAP25GFAGDOZ3AHOXLQVL4Q.json';
 import responseBasic from '../../../__mocks__/data/articles/YJJ7JHAWNJFTDH2RLJ4QHUTA5A.json';
 
-const mockResponseNotaNoticia = Promise.resolve(responseNotaNoticia);
-const mockResponseSinCategoria = Promise.resolve(responseSinCategoria);
-const mockResponseAperturaMultimedia = Promise.resolve(
+const buildFetchResponse = data =>
+    Promise.resolve({
+        json: () => Promise.resolve(data)
+    });
+
+const mockResponseNotaNoticia = buildFetchResponse(responseNotaNoticia);
+const mockResponseSinCategoria = buildFetchResponse(responseSinCategoria);
+const mockResponseAperturaMultimedia = buildFetchResponse(
     responseSoloAperturaMultimedia
 );
-const mockResponseAperturaBasic = Promise.resolve(responseAperturaBasic);
-const mockResponseBasic = Promise.resolve(responseBasic);
+const mockResponseAperturaBasic = buildFetchResponse(responseAperturaBasic);
+const mockResponseBasic = buildFetchResponse(responseBasic);
 const mockRequestResponse = jest.fn();
+const originalFetch = global.fetch;
+const mockFetch = jest.fn(() => mockRequestResponse());
 
-jest.mock('request-promise-native', () => {
-    return {
-        __esModule: true,
-        default: () => mockRequestResponse()
-    };
+beforeAll(() => {
+    global.fetch = mockFetch;
+});
+
+afterEach(() => {
+    mockFetch.mockClear();
+    mockRequestResponse.mockReset();
+});
+
+afterAll(() => {
+    global.fetch = originalFetch;
 });
 
 jest.mock('../../../content/sources/utils/validateExclusiveAccess', () =>
@@ -99,7 +112,7 @@ describe('Article source nota - validateExclusiveAccess', () => {
 });
 
 describe('Article source nota - htmlLibre AMP 404', () => {
-    const mockResponseHtmlLibre = Promise.resolve(responseHtmlLibreArticle);
+    const mockResponseHtmlLibre = buildFetchResponse(responseHtmlLibreArticle);
     beforeEach(() => {
         Redirect.mockClear();
         NotFoundError.mockClear();
@@ -125,7 +138,7 @@ describe('Article source nota - htmlLibre AMP 404', () => {
 describe('Article source nota - redirect', () => {
     beforeEach(() => {
         mockRequestResponse.mockReturnValue(
-            Promise.resolve({
+            buildFetchResponse({
                 ...responseNotaNoticia,
                 type: 'redirect',
                 redirect_url: 'https://www.lanacion.com.ar/'
@@ -338,7 +351,7 @@ describe('Author Voice Data', () => {
     });
 
     it('should get empty author data, when not exists', () => {
-        mockRequestResponse.mockReturnValue(responseAperturaBasic);
+        mockRequestResponse.mockReturnValue(mockResponseAperturaBasic);
 
         articleSourceFetch(query, {
             cachedCall: jest.fn()

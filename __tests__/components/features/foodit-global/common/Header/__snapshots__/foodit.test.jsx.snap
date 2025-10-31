@@ -164,7 +164,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   data-button="buttonSubscribeText"
                   data-event="subscription_start"
                   data-interaction="dataLayerInteraction"
-                  data-test-id="button-suscribe"
+                  data-testid="button-suscribe"
                   data-variant="accent"
                   title="SUSCRIBITE GRATIS"
                 >
@@ -1456,7 +1456,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               data-button="buttonSubscribeText"
               data-event="subscription_start"
               data-interaction="dataLayerInteraction"
-              data-test-id="button-suscribe"
+              data-testid="button-suscribe"
               data-variant="accent"
               title="SUSCRIBITE GRATIS"
             >

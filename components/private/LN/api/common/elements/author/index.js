@@ -1,8 +1,8 @@
 import get from '../../../../../common/utils/get';
 import { getAutorId } from '../../../../../common/utils/getElementId';
-import { DISTRIBUTOR_LN } from '../distributor';
 import { getImageUrlBasedOnResizerVersion } from '../image';
 
+const DISTRIBUTOR_LN = 'LA NACION';
 const getAuthorData = author => {
     const { _id: id, name, expertise, role } = author;
     if (!name) {
@@ -126,8 +126,15 @@ export const articleSignature = (authors, signature = null) => {
     return authorsValue;
 };
 
-export const distributorOrAuthorSignature = (distributor, authors, signature = null) => {
-    if (!distributor || distributor.name === DISTRIBUTOR_LN) {
+export const distributorOrAuthorSignature = (
+    distributor,
+    authors,
+    signature = null
+) => {
+    const isGuestAuthor =
+        authors && authors.length > 0 && authors[0].tipo === 2;
+
+    if (!distributor || distributor.name === DISTRIBUTOR_LN || !isGuestAuthor) {
         return articleSignature(authors, signature);
     }
     return `Por ${distributor.name}`;

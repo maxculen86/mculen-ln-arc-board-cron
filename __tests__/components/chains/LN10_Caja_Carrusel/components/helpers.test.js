@@ -285,7 +285,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 error: { type: 'warning', message: 'some error' },
                 isHome: false,
                 hideCarousel: false,
-                enabledDays: ['lunes', 'martes']
+                enabledDays: ['lunes', 'martes'],
+                shouldSchedule: true
             });
             expect(result).toEqual({ error: true, hide: false });
         });
@@ -298,7 +299,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 error: null,
                 isHome: true,
                 hideCarousel: false,
-                enabledDays: ['lunes', 'martes']
+                enabledDays: ['lunes', 'martes'],
+                shouldSchedule: true
             });
 
             expect(hasValidationFailed).toHaveBeenCalledWith({
@@ -307,7 +309,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 enabledDays: ['lunes', 'martes'],
                 termica: true,
                 configError: null,
-                token: true
+                token: true,
+                shouldSchedule: true
             });
             expect(result).toEqual({ error: false, hide: true });
         });
@@ -320,7 +323,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 error: null,
                 isHome: true,
                 hideCarousel: false,
-                enabledDays: ['lunes', 'martes']
+                enabledDays: ['lunes', 'martes'],
+                shouldSchedule: true
             });
 
             expect(result).toEqual({ error: false, hide: false });
@@ -332,7 +336,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 error: null,
                 isHome: false,
                 hideCarousel: true,
-                enabledDays: ['lunes', 'martes']
+                enabledDays: ['lunes', 'martes'],
+                shouldSchedule: true
             });
 
             expect(result).toEqual({ error: false, hide: true });
@@ -346,9 +351,41 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 error: null,
                 isHome: false,
                 hideCarousel: false,
-                enabledDays: ['lunes', 'martes']
+                enabledDays: ['lunes', 'martes'],
+                shouldSchedule: true
             });
 
+            expect(result).toEqual({ error: false, hide: false });
+        });
+
+        it('should hide the carrusel when scheduling is enabled but enabledDays validation fails', () => {
+            hasValidationFailed.mockReturnValue(true);
+
+            const result = shouldHideCarrusel({
+                isAdmin: false,
+                error: null,
+                isHome: false,
+                hideCarousel: false,
+                enabledDays: [],
+                shouldSchedule: true
+            });
+
+            expect(result).toEqual({ error: false, hide: true });
+        });
+
+        it('should ignore enabledDays when scheduling is disabled', () => {
+            hasValidationFailed.mockClear();
+
+            const result = shouldHideCarrusel({
+                isAdmin: false,
+                error: null,
+                isHome: true,
+                hideCarousel: false,
+                enabledDays: [],
+                shouldSchedule: false
+            });
+
+            expect(hasValidationFailed).not.toHaveBeenCalled();
             expect(result).toEqual({ error: false, hide: false });
         });
     });

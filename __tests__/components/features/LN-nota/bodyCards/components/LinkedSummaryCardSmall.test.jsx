@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import LinkedSummaryCardSmall from 'features/LN-nota/bodyCards/components/LinkedSummaryCardSmall';
-import { DEFAULT_CARD_COLOR } from 'features/LN-nota/bodyCards/_utils/linkedSummaryCardsHelper';
 
 const createCardData = configOverrides => ({
     embed: {
@@ -22,26 +21,31 @@ describe('LinkedSummaryCardSmall', () => {
         render(
             <LinkedSummaryCardSmall
                 data={createCardData({ cardColor: color })}
+                variant="collapsed"
             />
         );
 
-        const card = document.querySelector('.linked-summary-card-small');
-        expect(card.style.getPropertyValue('--card-accent')).toBe(color);
+        expect(screen.getByTestId('linked-card')).toHaveStyle(
+            `border-top-color: ${color}`
+        );
     });
 
-    it('falls back to the default color when cardColor is missing', () => {
-        render(<LinkedSummaryCardSmall data={createCardData()} />);
-
-        const card = document.querySelector('.linked-summary-card-small');
-        expect(card.style.getPropertyValue('--card-accent')).toBe(
-            DEFAULT_CARD_COLOR
+    it('uses default color when no cardColor is provided', () => {
+        render(
+            <LinkedSummaryCardSmall
+                data={createCardData({})}
+                variant="collapsed"
+            />
         );
+        const card = screen.getByTestId('linked-card');
+        expect(card).toHaveStyle('border-top-color: #000000');
     });
 
     it('renders the provided content', () => {
         render(
             <LinkedSummaryCardSmall
                 data={createCardData({ cardColor: '#008561' })}
+                variant="collapsed"
             />
         );
 

@@ -8,7 +8,7 @@ import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import { OpeningRecipe } from '../../features/foodit-global/common/OpeningRecipe/foodit';
 import { PowerupsRecipePaywall } from '../../features/foodit-global/Body/PowerupsRecipePaywall/foodit';
-import SingWall from '../../features/foodit-global/common/singWall/foodit';
+import FooditMiniWall from '../../features/foodit-global/common/MiniWall/foodit';
 
 function FooditRecipePaywallLayout({ children = [], globalContent = {} }) {
     const [body] = children;
@@ -23,10 +23,7 @@ function FooditRecipePaywallLayout({ children = [], globalContent = {} }) {
                 />
                 <OpeningRecipe article={globalContent} isPrivate />
             </section>
-            <section
-                id="recipe-paywall-body"
-                className="flex flex-column gap-40"
-            >
+            <section id="recipe-paywall-body" className="flex flex-column">
                 <Static htmlOnly persistent id="recipe-paywall-subtitle">
                     <Subtitle
                         globalContent={globalContent}
@@ -55,9 +52,9 @@ function FooditRecipePaywallLayout({ children = [], globalContent = {} }) {
                             </div>
                         </section>
                     </Static>
-                    <div className="flex flex-column">
-                        <SingWall />
-                    </div>
+                </div>
+                <div className="flex flex-column w-100vw as-center">
+                    <FooditMiniWall />
                 </div>
             </section>
         </BaseLayout>

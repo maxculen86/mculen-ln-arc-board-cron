@@ -48,4 +48,7 @@
     --radius-drawer: var(--radius-24);
     --radius-progress: var(--radius-sm);
     --radius-dots: var(--radius-1);
+
+    --shadow-down-lg: 0px 16px 32px 0px #10101014;
+
 }

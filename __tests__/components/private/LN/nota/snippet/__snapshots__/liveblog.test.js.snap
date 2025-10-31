@@ -21,6 +21,12 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
       "width": 600
     }
   },
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Redacción LA NACION"
+    }
+  ],
   "about": {
     "@type": "Event",
     "name": "Paaawer ap dos",
@@ -78,10 +84,12 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
         "@type": "ImageObject",
         "url": "https://resizer.glanacion.com/resizer/7K_yKMxoPihLDNi5fuAcK7CyaZk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PKRXY5HMUZCPVHZESCXJJSN66U.jpg"
       },
-      "author": {
-        "@type": "PERSON",
-        "name": "Redacción LA NACION"
-      },
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Redacción LA NACION"
+        }
+      ],
       "publisher": {
         "name": "LA NACION",
         "@type": "Organization"
@@ -102,10 +110,12 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
         "@type": "ImageObject",
         "url": "https://resizer.glanacion.com/resizer/InkxW3rrh4Wud4c-HzaGUcdDlhw=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BIV4XOQKQVGNRF7QGI5EYLJBMA.jpg"
       },
-      "author": {
-        "@type": "PERSON",
-        "name": "Redacción LA NACION"
-      },
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Redacción LA NACION"
+        }
+      ],
       "publisher": {
         "name": "LA NACION",
         "@type": "Organization"
@@ -126,10 +136,12 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
         "@type": "ImageObject",
         "url": "https://resizer.glanacion.com/resizer/av26y64NWYetao2gcdBB_PMqJtg=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QPBCCE3TCFAQXA2ZKVH5NZXCFQ.jpg"
       },
-      "author": {
-        "@type": "PERSON",
-        "name": "Redacción LA NACION"
-      },
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Redacción LA NACION"
+        }
+      ],
       "publisher": {
         "name": "LA NACION",
         "@type": "Organization"
@@ -181,6 +193,12 @@ exports[`Schema LiveBlogPosting - SnippetLiveblog Should validate main schema pr
     },
     "startDate": "2020-06-25T19:39:44.527Z",
   },
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Redacción LA NACION",
+    },
+  ],
   "coverageEndTime": "2020-06-26T07:39:44.527Z",
   "coverageStartTime": "2020-06-25T19:39:44.527Z",
   "description": "Esta es la prueba de la bajada en Foto al 100",

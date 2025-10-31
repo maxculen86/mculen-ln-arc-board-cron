@@ -4,6 +4,7 @@ import { Avatar } from '@ln/foodit-ui-avatar';
 import { AccountItem } from './accountItem';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
 import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
+import { useNavigationData } from '../Header/hooks/useNavigationData';
 
 export function MyAccount({
     avatarProps = {},
@@ -14,6 +15,7 @@ export function MyAccount({
     deployment
 }) {
     const { email, initials, hasSubscription } = avatarProps;
+    const { termicasData } = useNavigationData();
 
     if (!itemsList.length) return null;
 
@@ -35,7 +37,10 @@ export function MyAccount({
                         </Avatar>
                     </div>
                     {!hasSubscription && (
-                        <LoginSubscribeButtons comesFrom="MyAccount" />
+                        <LoginSubscribeButtons
+                            comesFrom="MyAccount"
+                            termicasData={termicasData}
+                        />
                     )}
                 </div>
             )}

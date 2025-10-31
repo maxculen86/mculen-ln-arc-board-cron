@@ -9,7 +9,7 @@ exports[`BlockQuote renders correctly and matches snapshot 1`] = `
     class="border border-bottom border-thin border-neutral-light-800 h-1-5 w-154"
   />
   <blockquote
-    class="flex jc-center ai-center py-16"
+    class="flex jc-start ai-center py-16"
   >
     <p
       class="text ln-text prumo text-24 --prumo --font-bold"

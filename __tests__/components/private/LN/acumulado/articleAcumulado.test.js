@@ -63,7 +63,7 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
         const { container } = render(
             <ComHour display_date="2020-06-02T15:28:04.694Z" />
         );
-        expect(container.firstChild.textContent).toBe('09:28');
+        expect(container.firstChild.textContent).toBe('12:28');
     });
 
     it('Test de snapshot ArticleAcum', () => {

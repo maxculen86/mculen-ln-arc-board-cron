@@ -5,7 +5,8 @@ import {
     filterChildrenWithNoRoof,
     getSectionId,
     validateBanner,
-    validateInterval
+    validateInterval,
+    matchesEnabledDay
 } from './getDynamicBannersHelper';
 import get from '../../utils/get';
 
@@ -15,13 +16,15 @@ const getDynamicBanners = ({ renderables = [], featureId = '' }) => {
 
     const [sectionName, sectionValues = {}] = sectionConfig || [];
 
-    const sectionChildren = filterChildrenWithNoRoof(
+    const sectionChildrenBase = filterChildrenWithNoRoof(
         getChildrenFromSectionHome(
             renderables,
             sectionName,
             sectionValues.position
         )
     );
+
+    const sectionChildren = sectionChildrenBase.filter(matchesEnabledDay);
 
     let currentBanner = 0;
 

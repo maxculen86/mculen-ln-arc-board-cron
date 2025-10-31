@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 import bodyComponents from '../utils/bodyComponents';
 import ConsecutiveImages from '../../../private-global/body/doubleImage/foodit';
 import { transformEmbedScript } from '../../../LN-nota/body/_utils/_embedHelper';
@@ -28,6 +29,16 @@ const setDataComponent = ({
             />
         );
     }
+    const { layout, siteProperties } = useAppContext();
+    const { layoutsName } = siteProperties || {};
+
+    const isPaywallLayout = [
+        layoutsName?.FooditRecipePaywall,
+        layoutsName?.FooditNotePaywall
+    ].includes(layout);
+
+    const classNameNotePaywall = isPaywallLayout ? 'difumination' : '';
+
     const isNote =
         articleSubtype === STORYTELLING || articleSubtype === NOTA_CERRADA;
 
@@ -38,7 +49,10 @@ const setDataComponent = ({
         contentElements[currentIndex - 1]?.subtype !== 'custom-card-embebida';
 
     return isNote ? (
-        <section key={`body-${currentIndex}`} className="content">
+        <section
+            key={`body-${currentIndex}`}
+            className={`content ${classNameNotePaywall}`}
+        >
             {shouldRenderTopDivider && <hr />}
             <Component
                 data={element}

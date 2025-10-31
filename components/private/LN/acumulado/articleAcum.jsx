@@ -68,9 +68,15 @@ const ArticleAcum = forwardRef(
             display_date: displayDate,
             headlines,
             website_url: websiteUrl,
+            canonical_url: canonicalUrl,
             label,
             taxonomy: { primary_section: primarySection, tags } = {}
         } = _article;
+
+        const finalLink =
+            websiteUrl ||
+            canonicalUrl ||
+            get(_article, 'websites.lanacionar.website_url', '');
 
         const authors =
             setAuthorsRender({ typeAcumRules, typeArticle, sectionName }) &&
@@ -94,7 +100,6 @@ const ArticleAcum = forwardRef(
             <ComHour
                 display_date={displayDate}
                 size={typeAcumRules[typeArticle].dateClassNames || '--twoxs'}
-                isUltimasNoticias={sectionName === 'ultimas-noticias'}
             />
         );
 
@@ -105,7 +110,7 @@ const ArticleAcum = forwardRef(
                     articleData={_article}
                     dataSection={dataSection}
                     withMedia={typeAcumRules[typeArticle].withMedia}
-                    link={websiteUrl}
+                    link={finalLink}
                     titleTag={titleTag}
                     titleSize={titleSize}
                     titleText={
