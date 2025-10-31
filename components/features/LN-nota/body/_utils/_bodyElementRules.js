@@ -19,6 +19,7 @@ import Interstitial from '../../../LN-10-global/common/body/interstitial/default
 import PullQuote from '../../../LN-10-global/common/body/pullQuote/default';
 import BlockQuote from '../../../LN-10-global/common/body/blockQuote/default';
 import HowToBody from '../../howTo/body';
+import imageGalleryEmbed from '../../private/body/imageGalleryEmbed/default';
 // utils
 import { selectRule } from './_bodyRules';
 
@@ -42,7 +43,8 @@ const bodyComponents = [
     Divider,
     PowerUpLiveBlog,
     EmbedCll,
-    HowToBody
+    HowToBody,
+    imageGalleryEmbed
 ];
 
 export const bodyElementRules = (props = {}) => {

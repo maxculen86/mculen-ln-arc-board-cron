@@ -310,6 +310,15 @@ const customLiveblog = `
 const galleryEmbed = `
     galleryId
     diagram
+    isFotoAl100
+    caption
+    count
+    galleryImages{
+        url
+        resized_url
+        height
+        width
+    }
 `;
 
 const customPowerUps = `

@@ -1531,6 +1531,240 @@ export default {
                 ]
             }
         },
+        'wide-single': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 600,
+                        height: 400,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 320, height: 220, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 1200,
+                            height: 700,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 600, height: 400, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'two-side-by-side': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 300,
+                        height: 200,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 160, height: 120, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 600,
+                            height: 400,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 600, height: 400, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'three-one-top-two-bottom': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 600,
+                        height: 300,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 300, height: 200, useFullSize: true },
+                    { width: 300, height: 200, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 1200,
+                            height: 500,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 600, height: 400, useFullSize: true },
+                        { width: 600, height: 400, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'three-two-top-one-bottom': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 300,
+                        height: 200,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 300, height: 200, useFullSize: true },
+                    { width: 600, height: 300, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 600,
+                            height: 400,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 600, height: 400, useFullSize: true },
+                        { width: 1200, height: 500, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'four-grid': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 300,
+                        height: 300,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 300, height: 300, useFullSize: true },
+                    { width: 300, height: 300, useFullSize: true },
+                    { width: 300, height: 300, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 600,
+                            height: 400,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 600, height: 400, useFullSize: true },
+                        { width: 600, height: 400, useFullSize: true },
+                        { width: 600, height: 400, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'panoramic-top': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 900,
+                        height: 400,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 200, height: 150, useFullSize: true },
+                    { width: 200, height: 150, useFullSize: true },
+                    { width: 200, height: 150, useFullSize: true },
+                    { width: 200, height: 150, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 1600,
+                            height: 600,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 400, height: 300, useFullSize: true },
+                        { width: 400, height: 300, useFullSize: true },
+                        { width: 400, height: 300, useFullSize: true },
+                        { width: 400, height: 300, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'large-left': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 600,
+                        height: 600,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 300, height: 300, useFullSize: true },
+                    { width: 300, height: 300, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 900,
+                            height: 900,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 450, height: 450, useFullSize: true },
+                        { width: 450, height: 450, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'vertical-three': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 400,
+                        height: 600,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 400, height: 600, useFullSize: true },
+                    { width: 400, height: 600, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 600,
+                            height: 900,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 600, height: 900, useFullSize: true },
+                        { width: 600, height: 900, useFullSize: true }
+                    ]
+                }
+            }
+        },
+        'vertical-two': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 400,
+                        height: 600,
+                        minScreenWidth: 768,
+                        useFullSize: true
+                    },
+                    { width: 400, height: 600, useFullSize: true }
+                ],
+                fotoAl100: {
+                    sizes: [
+                        {
+                            width: 600,
+                            height: 900,
+                            minScreenWidth: 768,
+                            useFullSize: true
+                        },
+                        { width: 600, height: 900, useFullSize: true }
+                    ]
+                }
+            }
+        },
         default: [
             {
                 width: 1033,
