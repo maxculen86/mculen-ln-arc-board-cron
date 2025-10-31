@@ -73,11 +73,15 @@ export const checkChangeChildrenForPB = ({
     }
 };
 
-export const useGetLinks = ({ navigationSection = '', staticMode = true }) => {
+export const useGetLinks = ({
+    navigationSection = '',
+    staticMode = true,
+    shouldLoad = true
+}) => {
     const { children = [] } =
         useContent({
             source:
-                navigationSection && navigationSection.trim()
+                shouldLoad && navigationSection && navigationSection.trim()
                     ? 'navigationSource'
                     : null,
             query: {
@@ -123,8 +127,8 @@ export const useGetLinks = ({ navigationSection = '', staticMode = true }) => {
     );
 };
 
-export const useGetLogo = (logoId, title, isStatic) => {
-    const id = logoId && logoId.trim() && logoId;
+export const useGetLogo = (logoId, title, isStatic, shouldLoad = true) => {
+    const id = shouldLoad && logoId && logoId.trim() && logoId;
     const logo = useGetLogoImage(id, isStatic);
 
     const [firstResizedUrl] = get(logo, 'resized_urls', []);
@@ -160,14 +164,22 @@ export const useRoofData = props => {
         buttonStyle,
         isAdmin,
         isManual,
-        isStatic
+        isStatic,
+        shouldLoadRoof = true
     } = props;
+    const shouldLoadAssets = shouldLoadRoof && !hideTitle;
 
-    const logo = useGetLogo(logoId, title, isStatic);
-    const buttonLogoData = useGetLogo(buttonLogo, title, isStatic);
+    const logo = useGetLogo(logoId, title, isStatic, shouldLoadAssets);
+    const buttonLogoData = useGetLogo(
+        buttonLogo,
+        title,
+        isStatic,
+        shouldLoadAssets
+    );
     const links = useGetLinks({
         navigationSection: navigator,
-        staticMode: isStatic
+        staticMode: isStatic,
+        shouldLoad: shouldLoadAssets
     });
     return {
         title,

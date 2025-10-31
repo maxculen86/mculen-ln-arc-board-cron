@@ -1,17 +1,9 @@
 {
-  "displayName": "Local Fusion Developer",
+  "displayName": "Developer",
+  "tracking": false,
   "permissions": {
     "PageBuilder": {
-      "global": [
-        "W",
-        "D",
-        "P",
-        "VRP",
-        "ERP",
-        "DT",
-        "RE",
-        "RD"
-      ]
+      "global": ["AAPP", "W", "D", "P", "UP", "VRP", "ERP", "DT", "RE", "RD", "A", "MSP", "DSP", "ASP", "DASP", "MT", "EA", "MAT"]
     }
   }
 }

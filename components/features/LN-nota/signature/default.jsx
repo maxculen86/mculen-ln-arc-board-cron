@@ -11,9 +11,11 @@ import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers
 import { SignatureContextProvider } from '../../../private/common/audioNews/hooks/SignatureContext';
 import SignatureWithAuthors from './signatureWithAuthors';
 import SignatureWithDistributor from './signatureWithDistributor';
+import get from '../../../private/common/utils/get';
 import WithoutSignature from './withoutSignature';
 import { useSignature } from './hook/useSignature';
 import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
+import { CARDS } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureFeature(props) {
     const {
@@ -37,10 +39,13 @@ function SignatureFeature(props) {
         contentElements
     });
 
+    const authorId = get(creditsBy, '[0]._id', '');
+
+    const isSubtypeCards = subtype === CARDS;
+
     const showSignatureWithDistributor =
         (withFirmaDistributor && name !== 'lanacionar') ||
-        (isExternalDistributor(name, category, dataAuthor.author_type) &&
-            position === 'Top');
+        (isExternalDistributor(name, category, authorId) && position === 'Top');
 
     const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
     const { thermicalAudio } = audioPlayerProps;
@@ -80,7 +85,8 @@ function SignatureFeature(props) {
 
     const classNameContainer = cx(
         'flex flex-column container-center-100 brand-color',
-        position === place.Top && 'mb-16 mb-24_m'
+        'signature',
+        position === place.Top && !isSubtypeCards && 'mb-16 mb-24_m'
     );
 
     return (

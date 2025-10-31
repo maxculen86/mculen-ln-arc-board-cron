@@ -247,7 +247,9 @@ describe('Test json integracion Article', () => {
                 'fechaActualizacion',
                 'fecha',
                 'apertura',
-                'isListenable'
+                'isListenable',
+                'footer',
+                'audio_custom_voice'
             ].sort()
         );
     });
@@ -256,7 +258,7 @@ describe('Test json integracion Article', () => {
         const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
         expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
         expect(resp.isListenable).toBe(false);
-        expect(resp.audio_custom_voice).toBeUndefined();
+        expect(resp.audio_custom_voice).toBe(false);
     });
 
     it('test isListenable', () => {
@@ -266,14 +268,20 @@ describe('Test json integracion Article', () => {
     });
 
     it('test is custom voice', () => {
-        const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
+        const resp = NotaIndex({
+            ...PWMLKBWMCVCIFLKOPVUVHURDAM,
+            dataAudio: { voice: 1 }
+        });
         expect(resp.id).toBe('PWMLKBWMCVCIFLKOPVUVHURDAM');
         expect(resp.audio_custom_voice).toBe(true);
     });
 
     it('test is not custom voice', () => {
-        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        const resp = NotaIndex({
+            ...QAZ7BVHG5BCNFN7S67XCBP6PA2,
+            dataAudio: { audio_id: 'audio_id' }
+        });
         expect(resp.id).toBe('ERIKFLDEHRGKLD6HQFDMPUOUMQ');
-        expect(resp.audio_custom_voice).toBeUndefined();
+        expect(resp.audio_custom_voice).toBe(false);
     });
 });

@@ -4,19 +4,19 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="container cursor-pointer pt-32"
+      class="content-media cursor-pointer container-center-100"
     >
       <section
-        class="ratio-16-9"
+        class="mod-media ratio-16-9"
       >
         <figure
-          class=""
+          class="mod-video"
         >
           <div
             class="video-player bg-black ratio-16-9"
           >
             <div
-              class="content-facade-jw relative bg-black"
+              class="content-facade-jw relative bg-black ratio-16-9"
               id="facade-yPJ53Pzg"
             >
               <div
@@ -54,7 +54,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
                 />
                 <img
                   alt="MockTitle"
-                  class="image flex flex w-100 h-100 --cover"
+                  class="image flex com-image --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"

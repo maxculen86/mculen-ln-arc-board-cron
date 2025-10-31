@@ -86,7 +86,7 @@ function LN10Home(props) {
                 layout={layout}
                 arcSite={arcSite}
             />
-            <div className="wrapper homepage">
+            <div className="wrapper homepage overflow-x-clip">
                 {bannersHome.megatopDsk}
                 {bannersHome.megatopTab}
                 {getStickyBanner(

@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - ui-ln - scrollArea - default should match snapshot with custom props 1`] = `
+<DocumentFragment>
+  <div
+    class="custom-scroll"
+    data-direction="horizontal"
+    data-hide-scrollbar="true"
+    data-testid="custom-scrollarea"
+  >
+    <div
+      class="gap-24"
+      data-testid="scrollarea-content"
+    >
+      <div>
+        Custom content
+      </div>
+      <div>
+        More content
+      </div>
+    </div>
+    <div
+      class="hidden xl:block"
+    >
+      <button
+        class="p-8 text-black-default"
+        data-testid="scrollarea-arrow-start"
+      >
+        <svg
+          data-testid="icon-arrowLeft"
+          height="16"
+          width="16"
+        />
+      </button>
+      <button
+        class="p-8 text-black-default"
+        data-testid="scrollarea-arrow-end"
+      >
+        <svg
+          data-testid="icon-arrowRight"
+          height="16"
+          width="16"
+        />
+      </button>
+    </div>
+    <div
+      data-gradient-color="var(--color-white-default)"
+      data-testid="scrollarea-gradient"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - features - ui-ln - scrollArea - default should match snapshot with default props 1`] = `
+<DocumentFragment>
+  <div
+    data-direction="horizontal"
+    data-hide-scrollbar="true"
+    data-testid="scrollarea-root"
+  >
+    <div
+      class="gap-24"
+      data-testid="scrollarea-content"
+    >
+      <div>
+        Test Content
+      </div>
+    </div>
+    <div
+      class="hidden xl:block"
+    >
+      <button
+        class="p-8 text-black-default"
+        data-testid="scrollarea-arrow-start"
+      >
+        <svg
+          data-testid="icon-arrowLeft"
+          height="16"
+          width="16"
+        />
+      </button>
+      <button
+        class="p-8 text-black-default"
+        data-testid="scrollarea-arrow-end"
+      >
+        <svg
+          data-testid="icon-arrowRight"
+          height="16"
+          width="16"
+        />
+      </button>
+    </div>
+    <div
+      data-gradient-color="var(--color-white-default)"
+      data-testid="scrollarea-gradient"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - features - ui-ln - scrollArea - default should match snapshot with vertical position 1`] = `
+<DocumentFragment>
+  <div
+    data-direction="vertical"
+    data-hide-scrollbar="true"
+    data-testid="scrollarea-root"
+  >
+    <div
+      class="gap-24"
+      data-testid="scrollarea-content"
+    >
+      <div>
+        Vertical content
+      </div>
+    </div>
+    <div
+      class="hidden xl:block"
+    >
+      <button
+        class="p-8 text-black-default"
+        data-testid="scrollarea-arrow-start"
+      >
+        <svg
+          data-testid="icon-arrowLeft"
+          height="16"
+          width="16"
+        />
+      </button>
+      <button
+        class="p-8 text-black-default"
+        data-testid="scrollarea-arrow-end"
+      >
+        <svg
+          data-testid="icon-arrowRight"
+          height="16"
+          width="16"
+        />
+      </button>
+    </div>
+    <div
+      data-gradient-color="var(--color-white-default)"
+      data-testid="scrollarea-gradient"
+    />
+  </div>
+</DocumentFragment>
+`;

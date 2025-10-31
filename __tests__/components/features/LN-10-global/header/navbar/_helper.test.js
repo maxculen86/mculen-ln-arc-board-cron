@@ -9,7 +9,7 @@ jest.mock('fusion:environment', () => {
         API_ENV: 'prod',
         SITE_LANACION: 'https://www.lanacion.com.ar',
         SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
-        MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar'
+        MY_ACCOUNT_URL: 'https://micuenta.lanacion.com.ar'
     };
 });
 jest.mock(
@@ -46,7 +46,7 @@ describe('components - features - LN-10-global - header - navbar', () => {
     });
     it('should redirect to myaccount', () => {
         expect(getNavbarItems()[4].link).toStrictEqual(
-            'https://myaccount.lanacion.com.ar/mi-usuario/'
+            'https://micuenta.lanacion.com.ar/'
         );
     });
     it('should test getEventData', () => {

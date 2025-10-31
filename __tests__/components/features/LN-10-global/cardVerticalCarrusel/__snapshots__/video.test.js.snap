@@ -2,14 +2,28 @@
 
 exports[`components - features - LN-10-global - cardVerticalCarrusel - video should match snapshot 1`] = `
 <div>
-  <img
-    alt="Imagen poster de video"
-    class="w-100 h-100 absolute z-2"
-    data-testid="Adaptableimage"
-    src="poster.jpg"
-  />
+  <div
+    class="relative overflow-hidden h-full w-full"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 z-0 bg-muted bg-[url("/pf/resources/images/ln-placeholder.svg")] bg-no-repeat bg-center bg-[length:67px]"
+      data-testid="image-placeholder"
+    />
+    <picture>
+      <img
+        alt="Imagen poster de video"
+        class="ds-image relative z-1 object-contain h-full w-full w-full h-full absolute object-cover z-2"
+        data-testid="poster-image"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="poster.jpg"
+      />
+    </picture>
+  </div>
   <video
-    class="w-100 h-100 absolute object-cover transition transition-opacity transition-ease-in transition-duration-500 opacity-0 z-1"
+    class="w-full h-full absolute object-cover duration-500 ease-in transition-opacity opacity-0 z-1"
     data-testid="video-element"
     loop=""
     playsinline=""

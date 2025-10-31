@@ -66,7 +66,7 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
     const [config, setConfig] = useState(initialConfig);
 
     const articleContent = useContent({
-        source: articleId ? 'articleSourceNota' : null,
+        source: articleId ? 'lnHomeBaseArticleSource' : null,
         query: {
             id: articleId,
             published: true,
@@ -98,7 +98,8 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
         playerId: 'XD8x4oQD',
         instanceConfig: {
             playlist,
-            autostart: true
+            autostart: true,
+            aspectratio: '16:9'
         }
     };
 

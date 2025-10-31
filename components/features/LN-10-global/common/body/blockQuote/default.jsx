@@ -27,7 +27,7 @@ function BlockQuote({
             {...r}
         >
             <hr className={cx(baseDividerClasses, 'w-154')} />
-            <blockquote className="flex jc-center ai-center py-16">
+            <blockquote className="flex jc-start ai-center py-16">
                 {content && (
                     <Text
                         as="p"

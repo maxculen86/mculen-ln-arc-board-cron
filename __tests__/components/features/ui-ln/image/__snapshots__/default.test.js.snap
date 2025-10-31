@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - ui-ln - image DOM Structure Tracking should maintain expected DOM structure with custom classnames 1`] = `
+<DocumentFragment>
+  <div
+    class="relative overflow-hidden h-full w-full custom-wrapper"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 z-0 bg-muted bg-[url("/pf/resources/images/ln-placeholder.svg")] bg-no-repeat bg-center bg-[length:67px] custom-placeholder"
+      data-testid="image-placeholder"
+    />
+    <picture>
+      <img
+        alt="Custom image"
+        class="ds-image relative z-1 object-contain h-full w-full custom-image"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="test.jpg"
+      />
+    </picture>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - features - ui-ln - image DOM Structure Tracking should maintain expected DOM structure with default props 1`] = `
+<DocumentFragment>
+  <div
+    class="relative overflow-hidden h-full w-full"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 z-0 bg-muted bg-[url("/pf/resources/images/ln-placeholder.svg")] bg-no-repeat bg-center bg-[length:67px]"
+      data-testid="image-placeholder"
+    />
+    <picture>
+      <img
+        alt=""
+        class="ds-image relative z-1 object-contain h-full w-full"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="test.jpg"
+      />
+    </picture>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - features - ui-ln - image DOM Structure Tracking should maintain expected DOM structure with error state 1`] = `
+<DocumentFragment>
+  <div
+    class="relative overflow-hidden h-full w-full"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 z-0 bg-muted bg-[url("/pf/resources/images/ln-placeholder.svg")] bg-no-repeat bg-center bg-[length:67px]"
+      data-testid="image-placeholder"
+    />
+    <picture>
+      <img
+        alt=""
+        class="ds-image relative z-1 object-contain h-full w-full"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="broken.jpg"
+      />
+    </picture>
+  </div>
+</DocumentFragment>
+`;

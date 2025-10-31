@@ -90,10 +90,10 @@ import { Button as CommonButton } from '@ln/ds-common-button';
 
 ...
 
-export function Button(props) {
+function Button(props) {
     ...
 }
-
+export default Button;
 Button.propTypes = CommonButton.propTypes;
 ```
 
@@ -154,11 +154,12 @@ ui-ln/
      * @param {ComponentProps} props - Props default del componente @ln/ds-common-component
      * @returns {React.ReactElement}
     */
-    export function Component = ({ prop1, prop2, ...props }) => {
+    function Component = ({ prop1, prop2, ...props }) => {
         // Lógica de adaptación aquí
         return <CommomComponent {...props} />;
     };
 
+    export default Component;
     Component.propTypes = CommomComponent.propTypes;
    ```
 

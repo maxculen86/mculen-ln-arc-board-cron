@@ -2,10 +2,16 @@ import nodeFetch from 'node-fetch';
 import embedCardSource from '../../../content/sources/embedCardSource';
 import { handleHttpError } from '../../../components/private/common/utils/handleHttpError';
 import logger from '../../../components/private/common/utils/logger';
+import { signingServiceCachedCall } from '../../../content/sources/utils/signingServiceSource/getImagesAuth';
+import { resizeImgUrl } from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
 jest.mock('node-fetch');
 jest.mock('../../../components/private/common/utils/handleHttpError');
 jest.mock('../../../components/private/common/utils/logger');
+jest.mock('../../../content/sources/utils/signingServiceSource/getImagesAuth');
+jest.mock(
+    '../../../components/private/common/utils/image/resizer/v2/resizerHelper'
+);
 jest.mock('fusion:environment', () => ({
     CONTENT_BASE: 'https://api.sandbox.lanacionar.arcpublishing.com',
     ARC_ACCESS_TOKEN: 'test-token-123'
@@ -57,7 +63,27 @@ const mockEmptyResponse = {
     _id: 'ABC123'
 };
 
+const mockResponseWithoutImage = {
+    _id: 'NO_IMAGE_123',
+    headlines: {
+        basic: 'Article without image'
+    },
+    promo_items: {}
+};
+
+const mockCachedCall = jest.fn();
+const mockSigningResponse = { hash: 'mock-auth-hash-123' };
+const mockResizedUrl =
+    'https://resizer.glanacion.com/resizer/v2/resized-image.jpg';
+
 describe('embedCardSource.fetch', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        handleHttpError.mockImplementation(() => {});
+        signingServiceCachedCall.mockResolvedValue(mockSigningResponse);
+        resizeImgUrl.mockReturnValue(mockResizedUrl);
+    });
+
     it('should return recipe data when noteId is valid', async () => {
         nodeFetch.mockResolvedValue({
             ok: true,
@@ -176,7 +202,7 @@ describe('embedCardSource.fetch', () => {
             ok: false,
             status: 404
         });
-        handleHttpError.mockImplementation(() => {
+        handleHttpError.mockImplementationOnce(() => {
             throw httpError;
         });
 
@@ -195,6 +221,154 @@ describe('embedCardSource.fetch', () => {
             error: true,
             message: 'HTTP 404: Not Found',
             noteId: 'NOTFOUND123'
+        });
+    });
+
+    describe('Image resizing functionality', () => {
+        it('should resize promo_items.basic image when cachedCall is provided', async () => {
+            nodeFetch.mockResolvedValue({
+                ok: true,
+                json: async () => mockSuccessResponse
+            });
+
+            const result = await embedCardSource.fetch(
+                { noteId: 'FJ5UOR2HONA5RGOM226UQF24MI' },
+                { cachedCall: mockCachedCall }
+            );
+
+            expect(signingServiceCachedCall).toHaveBeenCalledWith(
+                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6E3ED45ARFBZ3ADKYOXZVZDP2A.jpg',
+                mockCachedCall
+            );
+
+            expect(resizeImgUrl).toHaveBeenCalledWith({
+                arcImage: {
+                    url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6E3ED45ARFBZ3ADKYOXZVZDP2A.jpg',
+                    auth: { 1: 'mock-auth-hash-123' },
+                    type: 'image'
+                },
+                defaultResizeWithSmart: {
+                    width: 400,
+                    height: 300,
+                    media: '(min-width: 320px)',
+                    class: '',
+                    type: 'image'
+                }
+            });
+
+            expect(result.promo_items.basic.url).toBe(mockResizedUrl);
+        });
+
+        it('should return original data when cachedCall is not provided', async () => {
+            nodeFetch.mockResolvedValue({
+                ok: true,
+                json: async () => mockSuccessResponse
+            });
+
+            const result = await embedCardSource.fetch({
+                noteId: 'FJ5UOR2HONA5RGOM226UQF24MI'
+            });
+
+            expect(signingServiceCachedCall).not.toHaveBeenCalled();
+            expect(resizeImgUrl).not.toHaveBeenCalled();
+            expect(result).toEqual(mockSuccessResponse);
+        });
+
+        it('should handle articles without promo_items.basic gracefully', async () => {
+            nodeFetch.mockResolvedValue({
+                ok: true,
+                json: async () => mockResponseWithoutImage
+            });
+
+            const result = await embedCardSource.fetch(
+                { noteId: 'NO_IMAGE_123' },
+                { cachedCall: mockCachedCall }
+            );
+
+            expect(signingServiceCachedCall).not.toHaveBeenCalled();
+            expect(resizeImgUrl).not.toHaveBeenCalled();
+            expect(result).toEqual(mockResponseWithoutImage);
+        });
+
+        it('should handle empty or missing image URL in promo_items.basic', async () => {
+            const responseWithEmptyImage = {
+                ...mockSuccessResponse,
+                promo_items: {
+                    basic: {
+                        url: ''
+                    }
+                }
+            };
+
+            nodeFetch.mockResolvedValue({
+                ok: true,
+                json: async () => responseWithEmptyImage
+            });
+
+            const result = await embedCardSource.fetch(
+                { noteId: 'EMPTY_IMAGE_123' },
+                { cachedCall: mockCachedCall }
+            );
+
+            expect(signingServiceCachedCall).not.toHaveBeenCalled();
+            expect(resizeImgUrl).not.toHaveBeenCalled();
+            expect(result.promo_items.basic.url).toBe('');
+        });
+
+        it('should preserve all other promo_items.basic properties when resizing', async () => {
+            const responseWithImageMetadata = {
+                ...mockSuccessResponse,
+                promo_items: {
+                    basic: {
+                        url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6E3ED45ARFBZ3ADKYOXZVZDP2A.jpg',
+                        alt_text: 'Pizza photo',
+                        caption: 'Delicious pizza',
+                        width: 800,
+                        height: 600
+                    }
+                }
+            };
+
+            nodeFetch.mockResolvedValue({
+                ok: true,
+                json: async () => responseWithImageMetadata
+            });
+
+            const result = await embedCardSource.fetch(
+                { noteId: 'WITH_METADATA_123' },
+                { cachedCall: mockCachedCall }
+            );
+
+            expect(result.promo_items.basic).toEqual({
+                url: mockResizedUrl,
+                alt_text: 'Pizza photo',
+                caption: 'Delicious pizza',
+                width: 800,
+                height: 600
+            });
+        });
+
+        it('should handle null promo_items.basic gracefully', async () => {
+            const responseWithNullPromoItems = {
+                ...mockSuccessResponse,
+                promo_items: {
+                    basic: null
+                }
+            };
+
+            nodeFetch.mockResolvedValue({
+                ok: true,
+                json: async () => responseWithNullPromoItems
+            });
+
+            const result = await embedCardSource.fetch(
+                { noteId: 'NULL_PROMO_123' },
+                { cachedCall: mockCachedCall }
+            );
+
+            expect(signingServiceCachedCall).not.toHaveBeenCalled();
+            expect(resizeImgUrl).not.toHaveBeenCalled();
+            expect(result.promo_items.basic).toBeNull();
         });
     });
 });

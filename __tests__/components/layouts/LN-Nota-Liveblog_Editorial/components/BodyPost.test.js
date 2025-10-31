@@ -1,13 +1,16 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Consumer from 'fusion:consumer';
-import Context from 'fusion:context';
 import BodyPost from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/body/BodyPost';
 import PostExpandable from '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/body/PostExpandable';
 
 jest.mock('fusion:context', () => ({
     default: Component => props => <Component {...props} />
+}));
+
+jest.mock('fusion:consumer', () => ({
+    __esModule: true,
+    default: fn => fn
 }));
 
 jest.mock(
@@ -20,6 +23,26 @@ jest.mock(
             },
             handleTooltipVisibility: jest.fn()
         })
+    })
+);
+
+jest.mock(
+    '../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/body/PostAuthor',
+    () => ({
+        __esModule: true,
+        default: ({ dataAuthor }) => {
+            if (!dataAuthor) return null;
+            // Busca el nombre en dataAuthor.author.name
+            const name = dataAuthor.author?.name || dataAuthor.name || '';
+            return (
+                <div data-testid="post-author">
+                    {name && <span>{name}</span>}
+                    {dataAuthor.shouldShowRole && dataAuthor.role && (
+                        <span>{dataAuthor.role}</span>
+                    )}
+                </div>
+            );
+        }
     })
 );
 
@@ -136,5 +159,39 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - components - body 
             <PostExpandable {...commonPostExpandableProps} isOpen={false} />
         );
         expect(container).toMatchSnapshot();
+    });
+
+    it('should render author name and role if provided', () => {
+        const author = {
+            name: 'Fabián Beremblum',
+            link: '/autor/fabian-beremblum-6409/'
+        };
+        const dataAuthor = {
+            author,
+            authors: [author],
+            showSignatureWithAuthors: true,
+            position: 'Top',
+            size: 12,
+            photo: '/profile.png',
+            role: 'Jefe de comentarios',
+            shouldShowRole: true
+        };
+        render(
+            <BodyPost
+                {...commonBodyPostProps}
+                headerProps={{
+                    ...commonBodyPostProps.headerProps,
+                    dataAuthor
+                }}
+            >
+                <div>Post Content</div>
+            </BodyPost>
+        );
+        expect(screen.getByTestId('post-author')).toHaveTextContent(
+            'Fabián Beremblum'
+        );
+        expect(screen.getByTestId('post-author')).toHaveTextContent(
+            'Jefe de comentarios'
+        );
     });
 });

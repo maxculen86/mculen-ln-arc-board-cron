@@ -10,9 +10,11 @@ import {
     imgsPhoneFoodit
 } from './helper';
 import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
+import { useNavigationData } from '../Header/hooks/useNavigationData';
 
 export function SaleBox({ ...props }) {
     const { deployment, contextPath } = useAppContext();
+    const { termicasData } = useNavigationData();
 
     const assetsPath = file =>
         deployment(
@@ -27,7 +29,8 @@ export function SaleBox({ ...props }) {
                         as="h2"
                         className="prumo prumo-semibold text-light-800 text-24 text-28_md text-center text-start_md"
                     >
-                        Tres motivos para suscribirte hoy a Foodit
+                        Suscribite y empezá a cocinar con Foodit: fácil, rápido
+                        y a tu manera.
                     </Text>
                     <div>
                         {mockBenefits.map(beneficts => (
@@ -49,7 +52,10 @@ export function SaleBox({ ...props }) {
                             </div>
                         ))}
                     </div>
-                    <LoginSubscribeButtons comesFrom="SaleBox" />
+                    <LoginSubscribeButtons
+                        comesFrom="SaleBox"
+                        termicasData={termicasData}
+                    />
                 </div>
                 <div className="col-span-8 col-span-5_md col-span-7_lg js-center as-end">
                     <Adaptableimage

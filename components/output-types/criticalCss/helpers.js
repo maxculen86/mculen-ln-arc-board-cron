@@ -5,30 +5,25 @@ import get from '../../private/common/utils/get';
 
 const { layoutsName: layoutsNameLN = {} } = sitePropertiesLN || {};
 
-// TODO: realizar cambio de lugar de los estilos critical-internas, quedo en amp para facilitar el minificado del mismo sin tocar webpack.
 export const criticalCssPathsBySite = {
     'la-nacion-ar': {
-        [layoutsNameLN.HomeLN10]: `resources/packages/css/${layoutsNameLN.HomeLN10}-critical.min.css`,
-        default: 'resources/dist/css/ln/amp/critical-internas.css'
-    },
-    ott: {
-        default: ''
+        [layoutsNameLN.HomeLN10]:
+            'resources/dist/css/ln/pages/ln10-home-critical.css',
+        default: 'resources/dist/css/ln/pages/critical-internas.css'
     },
     foodit: {
-        default: ''
+        default: 'resources/dist/css/foodit/base/index.css'
     }
 };
 
 export const cssPathsBySiteAndLayout = {
     'la-nacion-ar': {
-        [layoutsNameLN.HomeLN10]: `resources/packages/css/${layoutsNameLN.HomeLN10}.min.css`,
+        [layoutsNameLN.HomeLN10]:
+            'resources/dist/css/ln/pages/ln10-home-main.css',
         default: ''
     },
     foodit: {
         default: 'resources/packages/css/@ln/foodit-ui-logo/index.css'
-    },
-    ott: {
-        default: ''
     }
 };
 
@@ -39,7 +34,6 @@ export const fontsBySite = (contextPath, deployment) => ({
         contextPath,
         deployment
     }),
-    ott: '',
     foodit: fontFaceFoodit({
         contextPath,
         deployment

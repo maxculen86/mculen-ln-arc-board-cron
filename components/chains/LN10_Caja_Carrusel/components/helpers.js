@@ -116,24 +116,29 @@ export const getAdsConfigVideoJw = ({
 export const shouldHideCarrusel = ({
     isAdmin,
     error,
-    isHome,
     hideCarousel,
-    enabledDays
+    enabledDays,
+    shouldSchedule
 }) => {
     if (isAdmin && error) return { hide: false, error: true };
 
-    const failedValidation =
-        isHome &&
-        hasValidationFailed({
+    if (hideCarousel) return { hide: true, error: false };
+
+    const schedulingEnabled = shouldSchedule && !isAdmin;
+
+    if (schedulingEnabled) {
+        const failedValidation = hasValidationFailed({
             isAdmin,
             hideCaja: hideCarousel,
             enabledDays,
             termica: true,
             configError: error,
-            token: true
+            token: true,
+            shouldSchedule
         });
 
-    if (failedValidation || hideCarousel) return { hide: true, error: false };
+        if (failedValidation) return { hide: true, error: false };
+    }
 
     return { hide: false, error: false };
 };

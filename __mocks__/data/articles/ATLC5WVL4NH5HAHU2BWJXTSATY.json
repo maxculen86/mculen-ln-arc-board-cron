@@ -150,6 +150,9 @@
             "display": true,
             "text": "No",
             "url": ""
+        },
+        "trust": {
+            "text": "No Mostrar Trust"
         }
     },
     "promo_items": {

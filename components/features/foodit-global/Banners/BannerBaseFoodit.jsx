@@ -14,7 +14,13 @@ export function BannerBaseFoodit({ bannerType }) {
         }
     });
     const { devices, getTargetings } = bannerType;
-    const { slotId, size, divId, classParent } = devices[device];
+    const {
+        slotId,
+        size,
+        divId,
+        classParent = '',
+        styleBanner = ''
+    } = devices[device];
 
     if (isSSR()) {
         return (
@@ -33,7 +39,7 @@ export function BannerBaseFoodit({ bannerType }) {
 
     return (
         <div className={classParent}>
-            <div id={divId} />
+            <div id={divId} style={{ ...styleBanner }} />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import Consumer from 'fusion:consumer';
+import get from '../../../private/common/utils/get';
 import { renderProps } from '../../../private/LN/api/global/components/features/article/LN10/renderProps';
 import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
@@ -84,9 +85,27 @@ class ArticleFeature {
                     }
                 }
             });
+
+        this.fetchContent({
+            navigationTreeSourceLN10: {
+                source: 'navigationTreeSource',
+                query: {
+                    website: 'la-nacion-ar'
+                },
+                filter: `{
+                            Termicas {
+                                mostrar_videoloop
+                            }
+                         }`
+            }
+        });
     }
 
     render() {
+        const { navigationTreeSourceLN10 } = this.state || {};
+        const isVideoLoopEnabled =
+            get(navigationTreeSourceLN10, 'Termicas.mostrar_videoloop', 'false') === 'true';
+
         try {
             const {
                 articleSourceNotaLN10,
@@ -113,6 +132,9 @@ class ArticleFeature {
                 this.props,
                 this.configs
             );
+
+            articleSourceNotaRender.isVideoLoopEnabled = isVideoLoopEnabled;
+
 
             const { customFields = {} } = propsRender;
             const {

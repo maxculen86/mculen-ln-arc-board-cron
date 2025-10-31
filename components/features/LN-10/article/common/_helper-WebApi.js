@@ -221,7 +221,8 @@ export const validateArticleFeature = ({
     variant,
     variantsDisabled,
     cllBoard,
-    chapita
+    chapita,
+    isHtml
 }) => {
     const { streams, sources } = video || {};
     const { filesize } =
@@ -247,11 +248,11 @@ export const validateArticleFeature = ({
             message: 'El ID de la nota es incorrecto.'
         },
         {
-            validation: imageId && image === null,
+            validation: !isHtml && !videoId && imageId && image === null,
             message: 'El ID de la imagen es incorrecto.'
         },
         {
-            validation: videoId && video === null,
+            validation: !isHtml && videoId && video === null,
             message: 'El ID del video es incorrecto.'
         },
         {

@@ -1,0 +1,10 @@
+/* Estilo momentaneo hasta remover contenidos-ui-sass que utiliza misma nomenclatura de variable --spacing */
+
+[data-tw] {
+    --spacing: 1px !important;
+}
+
+[data-tw] .grid {
+    min-width: unset;
+    width: revert-layer;
+}

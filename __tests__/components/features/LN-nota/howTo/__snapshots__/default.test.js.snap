@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HowTo component Should render correctly 1`] = `
+<div
+  class="step-header flex flex-column gap-32 py-16"
+  data-testid="how-to-list"
+>
+  <hr
+    class="w-100"
+  />
+  <div
+    class="flex ai-center gap-8"
+  >
+    <div
+      class="w-40 flex jc-center"
+    >
+      <span
+        class="text ln-text step-number prumo prumo-semibold text-32 text-40_xl line-height-100 --prumo"
+      >
+        1
+      </span>
+    </div>
+    <i
+      aria-hidden="true"
+      class="icon step-icon"
+    >
+      <mock-icon
+        fill="none"
+        height="34"
+        name="stepArrow"
+        width="9"
+      />
+    </i>
+    <h3
+      class="text ln-text step-title georgia text-22 pl-4 --georgia --font-bold"
+    >
+      Paso 1
+    </h3>
+  </div>
+</div>
+`;

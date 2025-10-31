@@ -1,8 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import getSignatureRenderOptions, {
-    getSectionsAsTags
-} from '../../../../../../components/features/LN-nota/footer/_utils/helper';
+import getSignatureRenderOptions from '../../../../../../components/features/LN-nota/footer/_utils/helper';
 
 jest.mock(
     '../../../../../../components/private/common/com-partner',
@@ -97,66 +95,6 @@ describe('components - feature - LN-nota - footer - _utils - helper ', () => {
             const link = screen.getByRole('link', { name: /EL PAIS/i });
             expect(link).toBeInTheDocument();
             expect(screen.getByText('Internacional')).toBeInTheDocument();
-        });
-    });
-
-    describe('getSectionsAsTags', () => {
-        it('should return an empty array when there is only one section (main section)', () => {
-            const sections = [
-                {
-                    _id: '/politica',
-                    _website: 'la-nacion-ar',
-                    additional_properties: {
-                        original: {
-                            ancestors: { default: ['/'] },
-                            migration: {
-                                id_section_ln9: '30',
-                                migrated_mob: 'true'
-                            },
-                            site: {}
-                        }
-                    },
-                    name: 'Política',
-                    parent_id: '/',
-                    path: '/politica',
-                    type: 'section'
-                }
-            ];
-
-            const result = getSectionsAsTags(sections);
-
-            expect(result).toEqual([]);
-        });
-
-        it('should return a empty array when sections is an empty array', () => {
-            expect(getSectionsAsTags([])).toEqual([]);
-        });
-
-        it('should return only sections that are not the main section or its direct parent', () => {
-            const sections = [
-                {
-                    _id: '/politica',
-                    name: 'Política',
-                    parent_id: '/',
-                    path: '/politica',
-                    type: 'section'
-                },
-                {
-                    _id: '/autos',
-                    name: 'Autos',
-                    parent_id: '/',
-                    path: '/autos',
-                    type: 'section'
-                }
-            ];
-
-            expect(getSectionsAsTags(sections)).toEqual([
-                {
-                    type: 'section',
-                    slug: '/autos',
-                    text: 'Autos'
-                }
-            ]);
         });
     });
 });

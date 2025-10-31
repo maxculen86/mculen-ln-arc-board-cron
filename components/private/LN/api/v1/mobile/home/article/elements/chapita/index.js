@@ -8,12 +8,13 @@ const isDefaultStyle = chapitaStyle => {
     );
 };
 const getChapitaText = (labelChapitaText, propertiesChapita) => {
-    if (labelChapitaText) {
-        return labelChapitaText;
-    }
     if (propertiesChapita) {
         return propertiesChapita;
     }
+    if (labelChapitaText) {
+        return labelChapitaText;
+    }
+
     return null;
 };
 

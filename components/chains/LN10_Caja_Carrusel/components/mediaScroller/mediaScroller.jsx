@@ -1,43 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Mediascroller } from '@ln/common-ui-mediascroller';
 import BuildRoof from '../../../utils/_BuildRoof/default';
-import { useGetElementsToScroll } from '../hooks';
-import ArrowButton from './arrowButton';
+import MediaScroller from '../../../../features/ui-ln/mediaScroller/default';
 
-function MediaScroller({ children, roofData }) {
-    const { containerRef, elementsToScroll, itemCarouselWidth } =
-        useGetElementsToScroll();
+function MediaScrollerContainer({ children, roofData }) {
+    const containerRef = useRef(null);
+
     return (
         <div ref={containerRef} className="mb-32">
             <BuildRoof {...roofData} />
-            <Mediascroller
-                className="grid w-100"
-                elementsToScroll={elementsToScroll}
-            >
-                <Mediascroller.Track
-                    className="pb-32"
-                    fixedElementsSize={itemCarouselWidth}
-                    xScrollBoundarySwipe
+            <div data-tw>
+                <MediaScroller
+                    elementsToScroll="visible"
+                    responsive={{ base: { gap: '16px', width: '280px' } }}
                 >
                     {children}
-                </Mediascroller.Track>
-                <Mediascroller.Arrows
-                    arrowSize={16}
-                    className="mx-6 rounded-24 bg-white"
-                    buttonTag={ArrowButton}
-                />
-                <Mediascroller.Progress
-                    containerClassName="w-171 h-5 mx-auto bg-light-100 rounded-24"
-                    className="bg-blue-500 rounded-24 transition-linear"
-                />
-            </Mediascroller>
+                </MediaScroller>
+            </div>
         </div>
     );
 }
 
-MediaScroller.propTypes = {
+MediaScrollerContainer.propTypes = {
     children: PropTypes.node.isRequired,
     roofData: PropTypes.shape({}).isRequired
 };
-export default MediaScroller;
+export default MediaScrollerContainer;

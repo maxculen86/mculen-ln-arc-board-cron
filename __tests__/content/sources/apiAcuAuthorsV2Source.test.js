@@ -4,7 +4,7 @@ import acuArticleSourceResponseMock from '../../../__mocks__/data/acuArticleByAu
 import acuArticlesSource from '../../../content/sources/acuArticlesSource';
 import authorSource from '../../../content/sources/authorSource';
 import NotFoundError from '../../../content/sources/utils/notFoundError';
-
+import fetch from 'node-fetch';
 const mockNotFoundError = NotFoundError;
 
 acuArticlesSource.fetch = jest.fn();
@@ -52,6 +52,11 @@ jest.mock('node-fetch', () =>
         });
     })
 );
+
+beforeEach(() => {
+    global.fetch = fetch;
+    jest.clearAllMocks();
+});
 
 describe('content source apiAcuAuthorsV2Source integration test', () => {
     test('should return right output if notes exists', async () => {

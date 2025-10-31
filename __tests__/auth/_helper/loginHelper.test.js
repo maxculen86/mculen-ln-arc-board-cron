@@ -191,14 +191,14 @@ describe('Tests functions loginHelper', () => {
 
             await initializeAuth({
                 setTokens: mockSetTokens,
-                website: 'test-website'
+                website: 'la-nacion-ar'
             });
 
             expect(getCookie).toHaveBeenCalledWith('token');
             expect(init).toHaveBeenCalledWith({
                 keyDatadog: expect.any(String),
                 serviceDatadog: expect.any(String),
-                siteId: 'test-website',
+                siteId: 1,
                 environment: expect.any(String)
             });
             expect(GetIdTokenValidatedAsync).toHaveBeenCalled();

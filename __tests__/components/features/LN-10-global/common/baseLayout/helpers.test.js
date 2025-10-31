@@ -9,7 +9,6 @@ jest.mock('../../../../../../properties/sites/la-nacion-ar', () => {
             FotoAl100: 'LN-nota-foto-al-100',
             HomeLN10: 'LN10-Home_Main',
             Noticia: 'LN-nota-noticia',
-            OttFicha: 'OTT-ficha',
             StoryTelling: 'LN-nota-storytelling',
             Video: 'LN-nota-video',
             HtmlLibre: 'LN-nota-html-libre',
@@ -27,7 +26,6 @@ describe('showGlossaryByLayout', () => {
     });
 
     it('should return false for non-allowed layouts', () => {
-        expect(showGlossaryByLayout('OTT-ficha')).toBe(false);
         expect(showGlossaryByLayout('LN-Home_Sports')).toBe(false);
         expect(showGlossaryByLayout('layout-unknown')).toBe(false);
     });

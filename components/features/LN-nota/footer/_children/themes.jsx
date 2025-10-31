@@ -5,7 +5,6 @@ import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { cx } from '@ln/cva';
-import { getSectionsAsTags } from '../_utils/helper';
 import { RECETA } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
@@ -17,15 +16,13 @@ function Themes({ globalContent }) {
 
     if (isReceta) return null;
 
-    const { tags = [], sections } = taxonomy || {};
+    const { tags = [] } = taxonomy || {};
 
-    const listTags = [...getSectionsAsTags(sections), ...tags].map(
-        ({ type = 'tag', slug, text }) => ({
-            type,
-            path: slug,
-            text
-        })
-    );
+    const listTags = tags.map(({ type = 'tag', slug, text }) => ({
+        type,
+        path: slug,
+        text
+    }));
 
     const RenderTags = ({ arrayTags = [] }) => {
         const showBullet = index => index !== 0 || (isCollapsed && index === 3);

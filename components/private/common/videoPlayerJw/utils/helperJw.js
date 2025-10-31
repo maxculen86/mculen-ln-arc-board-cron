@@ -1,9 +1,11 @@
 import {
     isInDatalayerEvent,
-    addVideoDisplayEvent
+    addVideoDisplayEvent,
+    registerJwVideoControlsTracking
 } from '../../utils/videoPlayerHelper';
 
 import {
+    CARDS,
     FOTOAL100,
     LIVEBLOG_EDITORIAL
 } from '../../utils/subtypes/subtypeHelper';
@@ -30,15 +32,6 @@ export const configClassName = {
             facade: 'com-image',
             facadeContainer: 'w-320 ratio-9-16',
             captionClasses: 'w-100'
-        }
-    },
-    ott: {
-        horizontal: {
-            container: 'container cursor-pointer pt-32',
-            mediaContainer: 'ratio-16-9',
-            videoPlayer: 'video-player bg-black ratio-16-9',
-            facade: 'flex w-100 h-100',
-            captionClasses: 'px-0_l mb-8'
         }
     }
 };
@@ -82,17 +75,41 @@ export const getAlternativeDescription = (uploadDate, noteTitle) => {
 export const handleVideoEventsScript = (
     title,
     idVideo,
-    initialVideoMode = ''
+    initialVideoMode = '',
+    videoOrientation = 'horizontal'
 ) => {
     const player = window.jwplayer(`${idVideo}`);
+    let currentTitle = title;
+    let currentId = idVideo;
+    let firstPlay = true;
+    let skipPlayForSeek = false;
+
+    registerJwVideoControlsTracking({
+        player,
+        defaultTitle: currentTitle,
+        defaultId: currentId,
+        onSeek: () => {
+            skipPlayForSeek = true;
+        },
+        onPlaylistItem: ({ title: newTitle, id: newId }) => {
+            currentTitle = newTitle;
+            currentId = newId;
+            firstPlay = true;
+            skipPlayForSeek = false;
+        }
+    });
+
     player.on('ready', () => {
         const element = document.querySelector('.video-player');
         if (element) element.classList.remove('bg-black');
     });
 
-    let firstPlay = true;
-
     player.on('play', (e = {}) => {
+        if (skipPlayForSeek) {
+            skipPlayForSeek = false;
+            return;
+        }
+
         let mode;
         if (firstPlay && initialVideoMode) {
             mode = initialVideoMode;
@@ -105,17 +122,17 @@ export const handleVideoEventsScript = (
 
         addEventToDataLayerV2({
             event: 'videoPlay',
-            videoName: `${title}`,
-            videoID: `${idVideo}`,
-            rest: { mode }
+            videoName: `${currentTitle}`,
+            videoID: `${currentId}`,
+            rest: { mode, videoOrientation }
         });
     });
 
     player.on('pause', () => {
         addEventToDataLayerV2({
             event: 'videoPause',
-            videoName: `${title}`,
-            videoID: `${idVideo}`
+            videoName: `${currentTitle}`,
+            videoID: `${currentId}`
         });
     });
 
@@ -125,24 +142,24 @@ export const handleVideoEventsScript = (
 
         percentagesToCheck.forEach(percentage => {
             if (
-                !isInDatalayerEvent(percentage.toString(), `${idVideo}`) &&
+                !isInDatalayerEvent(percentage.toString(), `${currentId}`) &&
                 percent === percentage
             ) {
                 addEventToDataLayerV2({
                     event: percentage.toString(),
-                    videoName: `${title}`,
-                    videoID: `${idVideo}`
+                    videoName: `${currentTitle}`,
+                    videoID: `${currentId}`
                 });
             }
         });
     });
 
     player.on('complete', () => {
-        if (!isInDatalayerEvent('videoComplete', `${idVideo}`)) {
+        if (!isInDatalayerEvent('videoComplete', `${currentId}`)) {
             addEventToDataLayerV2({
                 event: 'videoComplete',
-                videoName: `${title}`,
-                videoID: `${idVideo}`
+                videoName: `${currentTitle}`,
+                videoID: `${currentId}`
             });
         }
     });
@@ -211,8 +228,16 @@ export const getJWScript = (
                     fullscreenOrientationLock: 'portrait'
                 })
             });
+            const videoOrientation = getVerticalPlayer(player)
+                ? 'vertical'
+                : 'horizontal';
 
-            handleVideoEventsScript(title, idVideo, initialVideoMode);
+            handleVideoEventsScript(
+                title,
+                idVideo,
+                initialVideoMode,
+                videoOrientation
+            );
         });
 
         if (facadeDiv) {
@@ -235,5 +260,9 @@ export const getJWScript = (
     addVideoDisplayEvent({ title, idVideo });
 };
 
+const subtypesWithTransparentCaption = [LIVEBLOG_EDITORIAL, CARDS];
+
 export const getCaptionBgClass = subtype =>
-    subtype === LIVEBLOG_EDITORIAL ? 'bg-transparent' : 'bg-white';
+    subtypesWithTransparentCaption.includes(subtype)
+        ? 'bg-transparent'
+        : 'bg-white';

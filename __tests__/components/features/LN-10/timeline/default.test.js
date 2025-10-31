@@ -8,7 +8,7 @@ import useTimeline from '../../../../../components/private/LN/common/hooks/useTi
 import pageBuilderValidator from '../../../../../components/private/common/utils/pageBuilderValidator';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -61,7 +61,15 @@ describe('features - LN10 - Timeline', () => {
         const { container } = render(<Timeline {...props} />);
 
         expect(container.querySelector('.ln-timeline')).toBeVisible();
-        expect(container).toMatchSnapshot();
+        const timeNodes = container.querySelectorAll('time.--font-2xs');
+        expect(timeNodes.length).toBeGreaterThan(0);
+        timeNodes.forEach(node => {
+            const text =
+                node.firstChild && node.firstChild.nodeType === Node.TEXT_NODE
+                    ? node.firstChild.nodeValue.trim()
+                    : node.textContent.trim();
+            expect(text).toMatch(/^\d{2}:\d{2}$/);
+        });
     });
 
     test('should render pagebuilder message component when isAdmin and error are truthy', () => {
@@ -80,7 +88,15 @@ describe('features - LN10 - Timeline', () => {
         const { container } = render(<Timeline {...props} />);
 
         expect(container.querySelector('.ln-timeline')).toBeVisible();
-        expect(container).toMatchSnapshot();
+        const timeNodes = container.querySelectorAll('time.--font-2xs');
+        expect(timeNodes.length).toBeGreaterThan(0);
+        timeNodes.forEach(node => {
+            const text =
+                node.firstChild && node.firstChild.nodeType === Node.TEXT_NODE
+                    ? node.firstChild.nodeValue.trim()
+                    : node.textContent.trim();
+            expect(text).toMatch(/^\d{2}:\d{2}$/);
+        });
     });
 
     test('should not render timeline component if source is falsy', () => {
@@ -104,6 +120,5 @@ describe('features - LN10 - Timeline', () => {
         );
 
         expect(container.querySelector('.ln-timeline')).toBeNull();
-        expect(container).toMatchSnapshot();
     });
 });

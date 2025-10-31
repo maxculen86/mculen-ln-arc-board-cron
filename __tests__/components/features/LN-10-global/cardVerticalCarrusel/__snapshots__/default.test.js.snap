@@ -2,12 +2,14 @@
 
 exports[`components - features - LN-10-global - cardVerticalCarrusel - default should match snapshot 1`] = `
 <div>
-  <div>
+  <div
+    data-tw="true"
+  >
     <article
       class="flex relative overflow-hidden relative ratio-9-16 border border-thin border-neutral-light-200 border-all card-vertical-carousel cursor-pointer bg-gradient-accent"
     >
       <div
-        class="flex jc-center ai-center relative overflow-hidden h-100 w-100 ratio-9-16 -z-1"
+        class="flex jc-center ai-center relative overflow-hidden h-100 w-100 ratio-9-16 -z-1 w-full h-full"
       >
         <div
           data-testid="video-mock"
@@ -24,11 +26,11 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
         </div>
       </div>
       <div
-        class="flex flex-column w-100 absolute ai-center bottom-0 gap-16 px-16 pb-32 breark-word"
+        class="flex flex-column w-100 absolute ai-center bottom-0 gap-16 px-16 pb-32 breark-word w-full"
         style="gap: 12px;"
       >
         <span
-          class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-black text-light-0 uppercase py-6 px-8 --negative mb-4"
+          class="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white"
         >
           Test Badge
         </span>
@@ -39,15 +41,17 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
           Test Title
         </h2>
         <div
-          class="flex ai-center gap-8 text-14 text-neutral-light-100"
+          class="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100"
         >
-          <i
-            class="icon --icon-20"
+          <div
+            class="h-20 w-20 flex ai-center jc-center"
           >
-            <mock-icon
+            <mock-ds-common-icon
+              classname="custom-class"
               name="mediaPlay"
+              size="20"
             />
-          </i>
+          </div>
           <time
             class="pr-8"
           >
@@ -62,12 +66,14 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
 
 exports[`components - features - LN-10-global - cardVerticalCarrusel - default should match snapshot without title 1`] = `
 <div>
-  <div>
+  <div
+    data-tw="true"
+  >
     <article
       class="flex relative overflow-hidden relative ratio-9-16 border border-thin border-neutral-light-200 border-all card-vertical-carousel cursor-pointer bg-gradient-accent-sm"
     >
       <div
-        class="flex jc-center ai-center relative overflow-hidden h-100 w-100 ratio-9-16 -z-1"
+        class="flex jc-center ai-center relative overflow-hidden h-100 w-100 ratio-9-16 -z-1 w-full h-full"
       >
         <div
           data-testid="video-mock"
@@ -84,24 +90,26 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
         </div>
       </div>
       <div
-        class="flex flex-column w-100 absolute ai-center bottom-0 gap-16 px-16 pb-32 breark-word"
+        class="flex flex-column w-100 absolute ai-center bottom-0 gap-16 px-16 pb-32 breark-word w-full"
         style="gap: 12px;"
       >
         <span
-          class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-black text-light-0 uppercase py-6 px-8 --negative mb-4"
+          class="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white"
         >
           Test Badge
         </span>
         <div
-          class="flex ai-center gap-8 text-14 text-neutral-light-100"
+          class="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100"
         >
-          <i
-            class="icon --icon-20"
+          <div
+            class="h-20 w-20 flex ai-center jc-center"
           >
-            <mock-icon
+            <mock-ds-common-icon
+              classname="custom-class"
               name="mediaPlay"
+              size="20"
             />
-          </i>
+          </div>
           <time
             class="pr-8"
           >

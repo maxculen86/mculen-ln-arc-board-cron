@@ -7,7 +7,6 @@ import {
 } from './utils/videoSource/_helper';
 import getPresets from './utils/presets';
 
-// Tener en cuenta que OTT tambien usa este source
 // TODO: Unificar transform y resizer de imagenes de videos para home y nota
 
 const resolve = key => {

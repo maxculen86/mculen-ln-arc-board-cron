@@ -560,3 +560,16 @@ export default `
     withSponsoredLink
     category
 }`;
+
+export {
+    section,
+    image,
+    video,
+    oembed,
+    labels,
+    table,
+    customPowerUps,
+    customReceta,
+    listCommonProps,
+    nutritionalInfo
+};

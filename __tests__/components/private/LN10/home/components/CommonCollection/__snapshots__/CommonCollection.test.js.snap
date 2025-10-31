@@ -155,7 +155,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
               <span
-                class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live z-2"
               >
                 <div
                   class="pulse-animation"
@@ -771,7 +771,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
               <span
-                class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live z-2"
               >
                 <div
                   class="pulse-animation"

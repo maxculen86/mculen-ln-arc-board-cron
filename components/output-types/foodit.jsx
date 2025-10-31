@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
@@ -14,6 +13,7 @@ import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import get from '../private/common/utils/get';
 import FooditSchemas from '../features/foodit-global/schemas/foodit';
 import { FontPreload } from './fontPreload/foodit';
+import { GetCriticalCss } from './criticalCss/foodit';
 
 function Foodit({
     children,
@@ -29,7 +29,8 @@ function Foodit({
     metaValue,
     isAdmin,
     template,
-    requestUri = ''
+    requestUri = '',
+    Resource
 } = {}) {
     const {
         node_type: nodeType,
@@ -48,7 +49,7 @@ function Foodit({
         true
     );
 
-    const _nodeType = getSectionName({ nodeType, type, arcSite });
+    const _nodeType = getSectionName({ nodeType, type });
 
     const isArcPreview = isAdmin || requestUri.includes('preview-arc');
 
@@ -83,6 +84,8 @@ function Foodit({
                     renderables={renderables}
                     globalContent={globalContent}
                     isAdmin={isAdmin}
+                    contextPath={contextPath}
+                    deployment={deployment}
                 />
                 <FontPreload
                     deployment={deployment}
@@ -116,7 +119,7 @@ function Foodit({
                     deployment={deployment}
                     arcSite={arcSite}
                 />
-                <CssLinksByArcSite />
+                <GetCriticalCss Resource={Resource} />
                 <Scripts location="head" />
                 <BuildComments
                     _id={_id}
@@ -173,6 +176,7 @@ Foodit.propTypes = {
     metaValue: PropTypes.func.isRequired,
     isAdmin: PropTypes.boolean.isRequired,
     template: PropTypes.string.isRequired,
-    requestUri: PropTypes.string.isRequired
+    requestUri: PropTypes.string.isRequired,
+    Resource: PropTypes.func.isRequired
 };
 export default Foodit;

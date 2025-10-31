@@ -135,4 +135,51 @@ describe('components - private - common - mod-category', () => {
             expect(img.getAttribute('fetchPriority')).toBe('high');
         });
     });
+
+    describe('should apply css --no-app correctly', () => {
+        it('apply --no-app class when sectionId is /juegos', () => {
+            const propsWithJuegos = {
+                ...props,
+                sectionId: '/juegos'
+            };
+
+            const { container } = render(<ModCategory {...propsWithJuegos} />);
+
+            const modCategoriesDiv = container.querySelector('.mod-categories');
+            expect(modCategoriesDiv).toBeInTheDocument();
+            expect(modCategoriesDiv).toHaveClass('mod-categories', '--no-app');
+        });
+
+        it('NOT apply --no-app class when sectionId is not /juegos', () => {
+            const propsWithOtherSection = {
+                ...props,
+                sectionId: '/deportes'
+            };
+
+            const { container } = render(
+                <ModCategory {...propsWithOtherSection} />
+            );
+
+            const modCategoriesDiv = container.querySelector('.mod-categories');
+            expect(modCategoriesDiv).toBeInTheDocument();
+            expect(modCategoriesDiv).toHaveClass('mod-categories');
+            expect(modCategoriesDiv).not.toHaveClass('--no-app');
+        });
+
+        it('NOT apply --no-app class when sectionId is undefined', () => {
+            const propsWithoutSectionId = {
+                ...props,
+                sectionId: undefined
+            };
+
+            const { container } = render(
+                <ModCategory {...propsWithoutSectionId} />
+            );
+
+            const modCategoriesDiv = container.querySelector('.mod-categories');
+            expect(modCategoriesDiv).toBeInTheDocument();
+            expect(modCategoriesDiv).toHaveClass('mod-categories');
+            expect(modCategoriesDiv).not.toHaveClass('--no-app');
+        });
+    });
 });

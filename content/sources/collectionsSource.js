@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import {
     FOTOAL100,
@@ -29,6 +28,7 @@ const getParamFromQuery = (query, paramName) => {
 const resolve = key => {
     const { id, size, website, from = 0, params = null } = key;
     let fromParam = from;
+
     if (!id)
         throw new Error(
             'Debe definir un id para realizar la consulta - Collections Source'
@@ -37,24 +37,19 @@ const resolve = key => {
         throw new Error('Debe indicar el website - Collections Source');
 
     const uriParams = [
-        `${
-            key && key.sourceInclude && key.sourceInclude !== ''
-                ? `&included_fields=${key.sourceInclude}`
-                : ''
-        }`
+        `${key && key.sourceInclude && key.sourceInclude !== '' ? `&included_fields=${key.sourceInclude}` : ''}`
     ].join('');
 
     if (params) {
         fromParam = getParamFromQuery(key, 'from') || fromParam;
     }
 
-    let basePath = `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${
-        size || 2
-    }&from=${fromParam}`;
+    let basePath = `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size || 2}&from=${fromParam}`;
 
     if (uriParams && uriParams !== '') {
         basePath = `${basePath}${uriParams}`;
     }
+
     return basePath;
 };
 
@@ -68,14 +63,12 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
     } = siteProps || {};
 
     let notesQuantity = get(siteProps, 'notesQuantity', 3);
-
     if (params) {
         const paramNoteCount = getParamFromQuery(siteProps, 'noteCount');
         if (paramNoteCount) notesQuantity = parseInt(paramNoteCount, 10);
     }
 
     const articlesStoryOnly = filterArticlesTypeStory(originalArticles);
-
     const articlesRecomended = filterRecomendar
         ? articlesStoryOnly.filter(art => !isNotRecommend(art))
         : articlesStoryOnly;
@@ -97,7 +90,7 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
 
 const transform = async (data, siteProps, cachedCall) => {
     const respData = data;
-    const contentElements = get(data, `content_elements`, []);
+    const contentElements = get(data, 'content_elements', []);
     const isFocal = get(siteProps, 'isFocal', null);
     const diagramation = get(siteProps, 'diagramation');
 
@@ -121,7 +114,6 @@ const transform = async (data, siteProps, cachedCall) => {
                     isFocal,
                     index
                 );
-
                 const {
                     presets: {
                         promo_items: presetsPromoItemsCustom,
@@ -132,9 +124,10 @@ const transform = async (data, siteProps, cachedCall) => {
                         getPresets({ ...siteProps, imageConfig })) ||
                     {};
 
-                const subtype = get(elem, `subtype`, null);
+                const subtype = get(elem, 'subtype', null);
                 const isFotoAl100orStorytelling =
                     subtype === FOTOAL100 || subtype === STORYTELLING;
+
                 return {
                     ...elem,
                     ...addResizedUrls(elem, {
@@ -165,14 +158,13 @@ const fetch = async (query, { cachedCall } = {}) => {
     const { url = '' } = query;
     const arcSite = query['arc-site'];
     const opt = { method: 'GET' };
-
     if (ARC_ACCESS_TOKEN) {
         opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
     }
 
     const resolveData = async () => {
         try {
-            const response = await nodeFetch(
+            const response = await global.fetch(
                 `${CONTENT_BASE}${resolve(query)}`,
                 opt
             );

@@ -1,41 +1,51 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
+import PropTypes from 'prop-types';
+import dateAndTimeUtil, {
+    addHoursAndFormat
+} from '../../../../private/common/utils/dateAndTimeUtil';
 
-function OpeningMeta() {
-    const { globalContent } = useAppContext();
-    const { publishDate, credits, label } = globalContent || {};
+function OpeningMeta({ children, data }) {
+    const { publishDate } = data || {};
+
+    const { date } = dateAndTimeUtil(publishDate);
+    const { time } = dateAndTimeUtil(addHoursAndFormat(3, publishDate));
 
     return (
-        <div className="nota-cards__opening-meta">
-            {/* Fecha (obligatorio) */}
-            {publishDate && (
-                <div className="nota-cards__date">
-                    {new Date(publishDate).toLocaleDateString('es-ES', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric'
-                    })}
-                </div>
-            )}
-
-            {/* Autor (opcional) */}
-            {credits?.by && credits.by.length > 0 && (
-                <div className="nota-cards__author">
-                    Por {credits.by.map(author => author.name).join(', ')}
-                </div>
-            )}
-
-            {/* Chapita/Label (opcionall) */}
-            {label?.basic?.text && (
-                <div className="nota-cards__label">{label.basic.text}</div>
-            )}
-
-            {/* Sharestar (obligatorio) - Placeholder */}
-            <div className="nota-cards__sharestar">
-                {/* TODO: Integrar componente de sharestar */}
-            </div>
+        <div className="flex flex-column ai-center" id="openingMeta">
+            <ul className="com-date flex jc-start ai-center --bullet-list_12 pb-12 pb-0_m">
+                {[date, time].map(item => (
+                    <li
+                        key={item}
+                        className="flex ai-center text-neutral-light-600"
+                    >
+                        <time>{item}</time>
+                    </li>
+                ))}
+            </ul>
+            {children}
         </div>
     );
 }
+
+OpeningMeta.propTypes = {
+    data: PropTypes.shape({
+        publishDate: PropTypes.string,
+        authors: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string
+            })
+        ),
+        label: PropTypes.shape({
+            basic: PropTypes.shape({
+                text: PropTypes.string
+            })
+        })
+    }),
+    children: PropTypes.node.isRequired
+};
+
+OpeningMeta.defaultProps = {
+    data: {}
+};
 
 export default OpeningMeta;

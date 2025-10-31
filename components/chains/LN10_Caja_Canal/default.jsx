@@ -48,13 +48,6 @@ function CajaCanal(props) {
         positionInsideSection
     } = getCommonProps(props);
 
-    const roofData = useRoofData({
-        ...propsForRoof,
-        isAdmin,
-        chainStyle,
-        isStatic: true
-    });
-
     const viewabilityRoof = getViewabilityRoof(
         chainId,
         renderables,
@@ -110,6 +103,14 @@ function CajaCanal(props) {
         articles: _articles,
         chainId,
         chainStyle
+    });
+
+    const roofData = useRoofData({
+        ...propsForRoof,
+        isAdmin,
+        chainStyle,
+        isStatic: true,
+        shouldLoadRoof: !hideCaja
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(

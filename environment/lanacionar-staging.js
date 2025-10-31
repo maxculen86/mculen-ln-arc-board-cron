@@ -25,23 +25,6 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', // NOSONAR
     JSK_ID: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH+QyVcvBB00Xwj8urCVYyvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMUYQQ3RWuAEyjE8zpAgEQgCuj3dibucAuSygtWLyaaA65Q5kOwJBTbHqTgWH5Po4ut7uHf7lVCFSm7gwO}', // NOSONAR
     DATADOG_CONFIG: {
-        ott: {
-            clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
-            clientTokenRum: 'pub0d012ddef45dd12da168f6a3dfa65e8d',
-            applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
-            site: DATADOG_DOMAIN,
-            forwardErrorsToLogs: true,
-            sampleRateLog: 20,
-            sampleRateRum: 7,
-            service: 'lnmas',
-            env: 'prod',
-            sessionReplaySampleRate: 30,
-            trackResources: true,
-            trackLongTasks: true,
-            trackUserInteractions: true,
-            trackSessionAcrossSubdomains: false,
-            defaultPrivacyLevel: MASK_USER_INPUT
-        },
         'la-nacion-ar': {
             clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
             clientTokenRum: 'pubaa01cb67f0a687a6eba4718413593f4f',
@@ -109,9 +92,7 @@ export default {
     BEYONDWORDS_PROJECT_ID: 37324,
     BEYONDWORDS_PROJECT_ID_FOODIT: 46980,
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
-    // TODO: limpieza OTT - Borrar en iteración 5 de 5
-    SITE_OTT: 'https://lnmas.lanacion.com.ar',
-    MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
+    MY_ACCOUNT_URL: 'https://micuenta.lanacion.com.ar',
     SITE_FOODIT: 'https://foodit.lanacion.com.ar',
     API_QUERYLY: 'https://api.queryly.com',
     // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta
@@ -136,5 +117,6 @@ export default {
     },
     API_NOTIFICATION: 'https://notificaciones.lanacion.com.ar/api/',
     ARC_ACCESS_TOKEN_PROD:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}'
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}',
+    CLL_HTMLTFREE_DOMAIN: 'https://canchallena.lanacion.com.ar/especiales'
 };

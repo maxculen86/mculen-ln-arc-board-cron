@@ -274,7 +274,7 @@
             "version": "0.8.0",
             "language": "es",
             "canonical_url": "/video/mesa-chica-20-julio-2021-vid24d86814",
-            "canonical_website": "ott",
+            "canonical_website": "la-nacion-ar",
             "short_url": "/video/mesa-chica-20-julio-2021-vid24d86814",
             "created_date": "2021-07-21T11:36:20Z",
             "last_updated_date": "2021-07-21T12:05:49Z",
@@ -308,7 +308,7 @@
                 "primary_section": {
                     "type": "section",
                     "_id": "/mesa-chica",
-                    "_website": "ott",
+                    "_website": "la-nacion-ar",
                     "version": "0.6.0",
                     "name": "Mesa chica",
                     "path": "/mesa-chica",
@@ -318,7 +318,7 @@
                     {
                         "type": "section",
                         "_id": "/mesa-chica",
-                        "_website": "ott",
+                        "_website": "la-nacion-ar",
                         "version": "0.6.0",
                         "name": "Mesa chica",
                         "path": "/mesa-chica",
@@ -366,7 +366,7 @@
             },
             "additional_properties": {
                 "subsection": "Mesa chica",
-                "videoCategory": "ott---programa-completo",
+                "videoCategory": "programa-completo",
                 "anglerfishArcId": "2VFSPC4HJBFIDJY4RIGHNQESYI",
                 "isWire": false,
                 "gifAsThumbnail": false,
@@ -442,10 +442,10 @@
             },
             "embed_html": "<div class=\"powa\" id=\"powa-24d86814-683c-46cc-9899-a96052de46b5\" data-org=\"lanacionar\" data-uuid=\"24d86814-683c-46cc-9899-a96052de46b5\" data-ad-companion=\"coAd\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js\"></script></div>",
             "websites": {
-                "ott": {
+                "la-nacion-ar": {
                     "website_section": {
                         "path": "/mesa-chica",
-                        "_website": "ott",
+                        "_website": "la-nacion-ar",
                         "name": "Mesa chica",
                         "_id": "/mesa-chica",
                         "type": "section",

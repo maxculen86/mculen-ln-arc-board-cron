@@ -7,7 +7,8 @@ import { place } from '../../../private/common/utils/firmaHelper';
 import { getAuthorData } from './signatureHelper';
 import {
     VIDEO,
-    LIVEBLOG_EDITORIAL
+    LIVEBLOG_EDITORIAL,
+    CARDS
 } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureWithAuthors({
@@ -21,7 +22,8 @@ function SignatureWithAuthors({
     showSignatureWithAuthors,
     subtype,
     isNotaFooter,
-    size = 16
+    size = 16,
+    withAuthorRole
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -36,17 +38,21 @@ function SignatureWithAuthors({
     const prefix = position === place.Bottom || hasMultipleAuthors;
 
     const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO];
+    const isSubtypeCards = subtype === CARDS;
 
     const isNegativeSubtype =
         negativeSubtypes.includes(subtype) && position === place.Top;
 
     return (
-        <div className="row">
+        <div className={cx('flex flex-wrap', !withAuthorRole && 'w-100')}>
             <div
                 className={cx(
                     'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start',
-                    position === place.Top && 'mb-16',
-                    !isNotaFooter && position === place.Bottom && 'mb-32'
+                    position === place.Top && !withAuthorRole && 'mb-16',
+                    !isNotaFooter &&
+                        position === place.Bottom &&
+                        !isSubtypeCards &&
+                        'mb-32'
                 )}
             >
                 <Author
@@ -62,7 +68,8 @@ function SignatureWithAuthors({
                     negative={isNegativeSubtype}
                     classnames={{
                         authorSection: 'uppercase',
-                        authorName: isNegativeSubtype && 'text-blue-300'
+                        authorName: isNegativeSubtype && 'text-blue-300',
+                        classNamePicture: `ln-placeholder rounded-circle w-40 h-40`
                     }}
                 />
                 {audioButton}
@@ -82,12 +89,14 @@ SignatureWithAuthors.propTypes = {
     showSignatureWithAuthors: PropTypes.bool.isRequired,
     subtype: PropTypes.string.isRequired,
     isNotaFooter: PropTypes.bool,
-    size: PropTypes.number
+    size: PropTypes.number,
+    withAuthorRole: PropTypes.bool
 };
 
 SignatureWithAuthors.defaultProps = {
     isNotaFooter: false,
-    size: 16
+    size: 16,
+    withAuthorRole: false
 };
 
 export default SignatureWithAuthors;

@@ -316,10 +316,8 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     basicTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: 'Titulo corto',
-                    ottTitle: 'titulo ott',
                     nodeType: 'nota',
                     siteProps: {},
-                    arcSite: 'la-nacion-ar',
                     metaTitle: ''
                 })
             ).toBe('Titulo corto - LA NACION');
@@ -329,10 +327,8 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: '',
-                    ottTitle: 'titulo ott',
                     nodeType: 'nota',
                     siteProps: {},
-                    arcSite: 'la-nacion-ar',
                     metaTitle: ''
                 })
             ).toBe('Titulo de pagebuilder - LA NACION');
@@ -342,10 +338,8 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: '',
-                    ottTitle: 'titulo ott',
                     nodeType: 'nota',
                     siteProps: {},
-                    arcSite: 'la-nacion-ar',
                     metaTitle: 'I am the metaTile'
                 })
             ).toBe('I am the metaTile - LA NACION');
@@ -358,13 +352,11 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: 'Titulo corto',
-                    ottTitle: 'titulo ott',
                     nodeType: 'home',
                     siteProps: {
                         longTitle:
                             'Todas las noticias de Argentina y el mundo en LA NACION'
-                    },
-                    arcSite: 'la-nacion-ar'
+                    }
                 })
             ).toBe('Todas las noticias de Argentina y el mundo en LA NACION');
         });
@@ -373,10 +365,8 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: '',
-                    ottTitle: 'titulo ott',
                     nodeType: 'home',
-                    siteProps: {},
-                    arcSite: 'la-nacion-ar'
+                    siteProps: {}
                 })
             ).toBe('Titulo de pagebuilder - LA NACION');
         });
@@ -391,28 +381,10 @@ describe('getTagTitle function test', () => {
                     shortTitle: 'Titulo corto',
                     nodeType: 'nota',
                     siteProps: {},
-                    arcSite: 'la-nacion-ar',
                     metaTitle: '',
                     subtype: '11'
                 })
             ).toBe(PBTitle);
-        });
-    });
-    describe('getTagTitle for ott', () => {
-        test('Return ottTitle when arcSite is ott', () => {
-            expect(
-                getTagTitle({
-                    PBTitle: 'Titulo de pagebuilder - LA NACION',
-                    shortTitle: 'Titulo corto',
-                    ottTitle: 'titulo ott',
-                    nodeType: 'home',
-                    siteProps: {
-                        longTitle:
-                            'Todas las noticias de Argentina y el mundo en LA NACION'
-                    },
-                    arcSite: 'ott'
-                })
-            ).toBe('titulo ott');
         });
     });
     describe('addNoIndexNoFollow for LN10', () => {
@@ -617,13 +589,11 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: 'Titulo corto',
-                    ottTitle: 'titulo ott',
                     nodeType: 'acumulado',
                     siteProps: {
                         longTitle:
                             'Todas las noticias de Argentina y el mundo en LA NACION'
-                    },
-                    arcSite: 'la-nacion-ar'
+                    }
                 })
             ).toBe('Titulo de pagebuilder - LA NACION');
         });
@@ -635,13 +605,11 @@ describe('getTagTitle function test', () => {
                     PBTitle: 'Titulo de receta pagebuilder - LA NACION',
                     basicTitle: 'Titulo largo',
                     shortTitle: 'Titulo corto',
-                    ottTitle: 'titulo ott',
                     nodeType: 'acumulado',
                     siteProps: {
                         longTitle:
                             'Todas las noticias de Argentina y el mundo en LA NACION'
                     },
-                    arcSite: 'la-nacion-ar',
                     subtype: RECETA
                 })
             ).toBe('Receta de titulo corto - LA NACION');
@@ -651,13 +619,11 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     PBTitle: 'Titulo de receta pagebuilder - LA NACION',
                     basicTitle: 'Titulo largo',
-                    ottTitle: 'titulo ott',
                     nodeType: 'acumulado',
                     siteProps: {
                         longTitle:
                             'Todas las noticias de Argentina y el mundo en LA NACION'
                     },
-                    arcSite: 'la-nacion-ar',
                     subtype: RECETA
                 })
             ).toBe('Receta de titulo largo - LA NACION');
@@ -667,13 +633,11 @@ describe('getTagTitle function test', () => {
                 getTagTitle({
                     PBTitle: 'Titulo de receta pagebuilder - LA NACION',
                     basicTitle: 'Titulo largo',
-                    ottTitle: 'titulo ott',
                     nodeType: 'acumulado',
                     siteProps: {
                         longTitle:
                             'Todas las noticias de Argentina y el mundo en LA NACION'
                     },
-                    arcSite: 'la-nacion-ar',
                     subtype: RECETA,
                     metaTitle: 'I am a recipe metaTitle'
                 })

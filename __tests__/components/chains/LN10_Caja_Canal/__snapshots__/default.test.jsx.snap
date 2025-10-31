@@ -200,7 +200,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live z-2"
                     >
                       <div
                         class="pulse-animation"
@@ -526,7 +526,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live z-2"
                     >
                       <div
                         class="pulse-animation"
@@ -823,7 +823,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live z-2"
                     >
                       <div
                         class="pulse-animation"
@@ -1120,7 +1120,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live z-2"
                     >
                       <div
                         class="pulse-animation"
@@ -1546,7 +1546,7 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <span
-                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                      class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live z-2"
                     >
                       <div
                         class="pulse-animation"

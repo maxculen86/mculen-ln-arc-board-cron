@@ -52,7 +52,11 @@ describe('Tests hook useGetVideoPosterResized', () => {
                         {
                             resizedUrl:
                                 'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F02-22-2023%2Ft_265c0bc25659424ebb3bd1471f7a6eb1_name_file_1280x720_2000_v3_1_.jpg?auth=7303a63428f24dc05cb8edeab4212330c63fe92f430e6058b346fa1bd0b80056&width=768&quality=80&smart=false',
-                            width: 768
+                            option: {
+                                width: 768,
+                                height: 513,
+                                media: '(min-width: 768px)'
+                            }
                         }
                     ]
                 }
@@ -65,7 +69,7 @@ describe('Tests hook useGetVideoPosterResized', () => {
         expect(useGetVideoPosterResized({ ...props })).toBeNull();
     });
 
-    it('should pick MOBILE poster when diagramacion is center-focal', () => {
+    it('should pick MOBILE AND TABLET poster when diagramacion is center-focal', () => {
         const MOBILE = '(max-width: 767px)';
         const TABLET = '(min-width: 768px)';
 
@@ -87,13 +91,13 @@ describe('Tests hook useGetVideoPosterResized', () => {
                             },
                             {
                                 option: {
-                                    height: 201,
+                                    height: 325,
                                     media_preload: TABLET,
                                     proportion: '3:2',
-                                    width: 302
+                                    width: 488
                                 },
                                 resizedUrl:
-                                    'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FzFvrSWaI%2Fposter.jpg%3Fwidth%3D720?auth=xxx&width=302&height=201&quality=70&smart=false'
+                                    'https://www.lanacion.com.ar/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FzFvrSWaI%2Fposter.jpg%3Fwidth%3D720?auth=xxx&width=488&height=325&quality=70&smart=false'
                             }
                         ]
                     }
@@ -107,14 +111,25 @@ describe('Tests hook useGetVideoPosterResized', () => {
         });
 
         const urls = result.promo_items.basic.resized_urls;
-        expect(urls).toHaveLength(1);
+        expect(urls).toHaveLength(2);
 
-        const poster = urls[0];
-        expect(poster.option.media_preload).toBe(MOBILE);
-        expect(poster.option.width).toBe(420);
-        expect(poster.option.height).toBe(280);
-        expect(poster.resizedUrl).toContain('www.lanacion.com.ar/resizer/v2/');
-        expect(poster.resizedUrl).toContain('width=420');
-        expect(poster.resizedUrl).toContain('height=280');
+        const mobilePoster = urls.find(u => u.option.media_preload === MOBILE);
+        const tabletPoster = urls.find(u => u.option.media_preload === TABLET);
+
+        expect(mobilePoster).toBeTruthy();
+        expect(tabletPoster).toBeTruthy();
+
+        expect(mobilePoster.option.width).toBe(420);
+        expect(mobilePoster.option.height).toBe(280);
+        expect(mobilePoster.resizedUrl).toContain(
+            'www.lanacion.com.ar/resizer/v2/'
+        );
+        expect(mobilePoster.resizedUrl).toContain('width=420');
+        expect(mobilePoster.resizedUrl).toContain('height=280');
+
+        expect(tabletPoster.option.width).toBe(488);
+        expect(tabletPoster.option.height).toBe(325);
+        expect(tabletPoster.resizedUrl).toContain('width=488');
+        expect(tabletPoster.resizedUrl).toContain('height=325');
     });
 });

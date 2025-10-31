@@ -1,8 +1,8 @@
 import React, { useRef, memo } from 'react';
 import PropTypes from 'prop-types';
-import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { useHandlePlayVideoCarrusel, useObserverMobAndTab } from './hooks';
 import { getClassNamesMedia } from './helpers';
+import Image from '../../ui-ln/image/default';
 
 function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
     const videoRef = useRef(null);
@@ -21,10 +21,11 @@ function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
 
     return (
         <>
-            <Adaptableimage
+            <Image
                 src={poster}
                 alt="Imagen poster de video"
                 className={classNamePoster}
+                data-testid="poster-image"
             />
             <video
                 className={classNameVideo}

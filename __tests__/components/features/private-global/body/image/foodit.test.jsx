@@ -210,7 +210,8 @@ describe('BodyComponents - Foodit - Image', () => {
             expect(imageElement).toHaveClass(
                 'preparation-image',
                 'w-100',
-                'w-364_md'
+                'max-w-260_md',
+                'max-w-286_lg'
             );
 
             const figure = imageElement.closest('figure');
@@ -269,7 +270,8 @@ describe('BodyComponents - Foodit - Image', () => {
             expect(screen.getByRole('img')).toHaveClass(
                 'preparation-image',
                 'w-100',
-                'w-364_md'
+                'max-w-260_md',
+                'max-w-286_lg'
             );
         });
 
@@ -339,7 +341,8 @@ describe('BodyComponents - Foodit - Image', () => {
             expect(screen.getByRole('img')).toHaveClass(
                 'preparation-image',
                 'w-100',
-                'w-364_md'
+                'max-w-260_md',
+                'max-w-286_lg'
             );
         });
 
@@ -449,5 +452,105 @@ describe('BodyComponents - Foodit - Image', () => {
             const figure = screen.getByRole('img').closest('figure');
             expect(figure).toHaveAttribute('data-image-section', 'preparacion');
         });
+        it('does NOT render epigraph when image IS in preparation section', () => {
+            render(
+                <Image data={mockData} contentElements={mockContentElements} />
+            );
+            expect(screen.queryByTestId('epigraph')).not.toBeInTheDocument();
+        });
+    });
+});
+
+describe('IA notice rendering', () => {
+    const IA_NOTICE =
+        /Las imágenes utilizadas en la preparación de esta receta/i;
+
+    it('It does NOT show the notice on the first image when there are multiple preparation images', () => {
+        const contentWithTwoPrepImages = [
+            { type: 'header', content: 'Preparación', level: 2 },
+            { type: 'image', _id: 'prep1' },
+            { type: 'text', content: 'Paso intermedio' },
+            { type: 'image', _id: 'prep2' },
+            { type: 'header', content: 'Tips', level: 2 }
+        ];
+
+        render(
+            <Image
+                data={{ ...mockData, _id: 'prep1' }}
+                contentElements={contentWithTwoPrepImages}
+            />
+        );
+
+        expect(screen.queryByText(IA_NOTICE)).not.toBeInTheDocument();
+    });
+
+    it('It shows the notice ONLY on the last preparation image', () => {
+        const contentWithTwoPrepImages = [
+            { type: 'header', content: 'Preparación', level: 2 },
+            { type: 'image', _id: 'prep1' },
+            { type: 'text', content: 'Paso intermedio' },
+            { type: 'image', _id: 'prep2' },
+            { type: 'header', content: 'Tips', level: 2 }
+        ];
+
+        const { container } = render(
+            <>
+                <Image
+                    data={{ ...mockData, _id: 'prep1' }}
+                    contentElements={contentWithTwoPrepImages}
+                />
+                <Image
+                    data={{ ...mockData, _id: 'prep2' }}
+                    contentElements={contentWithTwoPrepImages}
+                />
+            </>
+        );
+
+        const notices = screen.getAllByText(IA_NOTICE);
+        expect(notices).toHaveLength(1);
+
+        const figures = container.querySelectorAll('figure');
+        const lastFigure = figures[figures.length - 1];
+
+        expect(notices[0].previousElementSibling).toBe(lastFigure);
+    });
+
+    it('It shows the notice when there is ONLY one preparation image', () => {
+        const contentWithOnePrepImage = [
+            { type: 'header', content: 'Preparación', level: 2 },
+            { type: 'image', _id: 'only-prep' },
+            { type: 'header', content: 'Ingredientes', level: 2 }
+        ];
+
+        const { container } = render(
+            <Image
+                data={{ ...mockData, _id: 'only-prep' }}
+                contentElements={contentWithOnePrepImage}
+            />
+        );
+
+        const notice = screen.getByText(IA_NOTICE);
+        expect(notice).toBeInTheDocument();
+
+        const figure = container.querySelector('figure');
+        expect(notice.previousElementSibling).toBe(figure);
+    });
+
+    it('It does NOT show the notice when the image does NOT belong to preparation', () => {
+        const contentOutsidePrep = [
+            { type: 'header', content: 'Introducción', level: 2 },
+            { type: 'image', _id: 'outside' },
+            { type: 'header', content: 'Preparación', level: 2 },
+            { type: 'image', _id: 'prep' }
+        ];
+
+        render(
+            <Image
+                data={{ ...mockData, _id: 'outside' }}
+                contentElements={contentOutsidePrep}
+            />
+        );
+
+        expect(screen.queryByText(IA_NOTICE)).not.toBeInTheDocument();
     });
 });

@@ -16,7 +16,7 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
         class="flex flex jc-between border border-bottom border-thin border-light-100 pb-16"
       >
         <span
-          class="text roboto-bold text-24"
+          class="text prumo prumo-semibold text-24 text-28_md"
         >
           Elegir colección
         </span>

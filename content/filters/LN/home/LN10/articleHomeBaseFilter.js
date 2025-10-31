@@ -70,6 +70,7 @@ export default `
     distributor {
         name
         category
+        subcategory
         reference_id
         mode
       }

@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
-import getDomain from '../../../common/utils/getDomain';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import {
@@ -28,8 +28,7 @@ function snippet(props) {
             },
             credits = {},
             display_date: displayDate,
-            content_elements: contentElements,
-            website_url: websiteUrl
+            content_elements: contentElements
         },
         contextPath,
         deployment
@@ -87,9 +86,9 @@ function snippet(props) {
         description: description || undefined,
         nutrition: Object.entries(nutrition).length
             ? {
-                '@type': 'NutritionInformation',
-                ...nutrition
-            }
+                  '@type': 'NutritionInformation',
+                  ...nutrition
+              }
             : undefined,
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
@@ -103,7 +102,7 @@ function snippet(props) {
         publisher: {
             '@type': 'Organization',
             name: 'Recetas La Nación',
-            url: addForwardSlash(`${getDomain({ websiteUrl })}${section}`),
+            url: addForwardSlash(`${SITE_LANACION}${section}`),
             logo: {
                 '@context': 'http://schema.org',
                 '@type': 'ImageObject',

@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorBox should match snapshot when shouldShow=true and authors exist 1`] = `
+<div
+  class="author-box border-y border-solid border-neutral-100 md:border-x md:rounded-8 overflow-hidden py-24 md:shadow-down-lg mb-32 w-[calc(100dvw-32px)] md:w-full"
+  data-testid="author-box"
+>
+  <h3
+    class="text-18 pb-16 md:px-40 prumo prumo-semibold"
+  >
+    Autores en vivo (
+    3
+    )
+  </h3>
+  <div
+    class="ds-scrollarea relative flex overflow-hidden max-md:w-[calc(100%+32px)] max-md:-ml-16 max-md:px-16"
+  >
+    <div
+      class="ds-scrollarea-content flex overflow-x-auto overflow-y-hidden flex-row scrollbar-hidden gap-24 md:px-40"
+    >
+      <button
+        aria-label="Ir a la última actualización del autor"
+        class="author-button cursor-pointer inline-flex font-bold gap-8 w-full items-center hover:opacity-80"
+        role="link"
+        title="Ir a la última actualización"
+        type="button"
+      >
+        <div
+          class="relative inline-flex align-middle"
+        >
+          <div
+            class="ds-avatar relative inline-flex items-center justify-center overflow-hidden font-bold select-none shrink-0 size-56 text-18 rounded-avatar ring-muted ring rounded-full"
+          >
+            <div
+              class="relative overflow-hidden w-full h-full"
+            >
+              <div
+                aria-hidden="true"
+                class="absolute inset-0 z-0 bg-muted"
+                data-testid="image-placeholder"
+              />
+              <picture>
+                <img
+                  alt="A1"
+                  class="ds-image relative z-1 w-full h-full object-cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="/img1.jpg"
+                />
+              </picture>
+            </div>
+            <span
+              class="absolute inset-0 flex h-full w-full items-center justify-center whitespace-nowrap avatar-placeholder bg-[url("/pf/resources/images/ln-placeholder.svg")] w-full h-full bg-cover"
+              style="--ds-icon-size: 20px;"
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-col"
+        >
+          <p
+            class="arial text-14 text-neutral-600 text-start whitespace-nowrap"
+          >
+            Author
+          </p>
+          <p
+            class="arial text-14 text-neutral-600 text-start whitespace-nowrap"
+          >
+            One
+          </p>
+        </div>
+      </button>
+      <button
+        aria-label="Ir a la última actualización del autor"
+        class="author-button cursor-pointer inline-flex font-bold gap-8 w-full items-center hover:opacity-80"
+        role="link"
+        title="Ir a la última actualización"
+        type="button"
+      >
+        <div
+          class="relative inline-flex align-middle"
+        >
+          <div
+            class="ds-avatar relative inline-flex items-center justify-center overflow-hidden font-bold select-none shrink-0 size-56 text-18 rounded-avatar ring-muted ring rounded-full"
+          >
+            <div
+              class="relative overflow-hidden w-full h-full"
+            >
+              <div
+                aria-hidden="true"
+                class="absolute inset-0 z-0 bg-muted"
+                data-testid="image-placeholder"
+              />
+              <picture>
+                <img
+                  alt="A2"
+                  class="ds-image relative z-1 w-full h-full object-cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="/img2.jpg"
+                />
+              </picture>
+            </div>
+            <span
+              class="absolute inset-0 flex h-full w-full items-center justify-center whitespace-nowrap avatar-placeholder bg-[url("/pf/resources/images/ln-placeholder.svg")] w-full h-full bg-cover"
+              style="--ds-icon-size: 20px;"
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-col"
+        >
+          <p
+            class="arial text-14 text-neutral-600 text-start whitespace-nowrap"
+          >
+            Author
+          </p>
+          <p
+            class="arial text-14 text-neutral-600 text-start whitespace-nowrap"
+          >
+            Two
+          </p>
+        </div>
+      </button>
+      <button
+        aria-label="Ir a la última actualización del autor"
+        class="author-button cursor-pointer inline-flex font-bold gap-8 w-full items-center hover:opacity-80"
+        role="link"
+        title="Ir a la última actualización"
+        type="button"
+      >
+        <div
+          class="relative inline-flex align-middle"
+        >
+          <div
+            class="ds-avatar relative inline-flex items-center justify-center overflow-hidden font-bold select-none shrink-0 size-56 text-18 rounded-avatar ring-muted ring rounded-full"
+          >
+            <div
+              class="relative overflow-hidden w-full h-full"
+            >
+              <div
+                aria-hidden="true"
+                class="absolute inset-0 z-0 bg-muted"
+                data-testid="image-placeholder"
+              />
+              <picture>
+                <img
+                  alt="A3"
+                  class="ds-image relative z-1 w-full h-full object-cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="/img3.jpg"
+                />
+              </picture>
+            </div>
+            <span
+              class="absolute inset-0 flex h-full w-full items-center justify-center whitespace-nowrap avatar-placeholder bg-[url("/pf/resources/images/ln-placeholder.svg")] w-full h-full bg-cover"
+              style="--ds-icon-size: 20px;"
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-col"
+        >
+          <p
+            class="arial text-14 text-neutral-600 text-start whitespace-nowrap"
+          >
+            Author
+          </p>
+          <p
+            class="arial text-14 text-neutral-600 text-start whitespace-nowrap"
+          >
+            Three
+          </p>
+        </div>
+      </button>
+    </div>
+    <div
+      class="hidden xl:block"
+    />
+  </div>
+</div>
+`;

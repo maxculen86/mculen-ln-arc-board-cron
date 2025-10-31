@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - ui-ln - link - default should match snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-primary-default hover:text-primary-light data-[active="true"]:text-primary-dark data-[disabled="true"]:text-primary-lighten text-label-md font-bold"
+    data-active="false"
+    data-disabled="false"
+    data-testid="common-link"
+    href="/test-url"
+    style="--ds-icon-size: 16px;"
+    target="_self"
+  >
+    Test Link
+  </a>
+</DocumentFragment>
+`;
+
+exports[`components - features - ui-ln - link - default should match snapshot with external link props 1`] = `
+<DocumentFragment>
+  <a
+    class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-primary-default hover:text-primary-light data-[active="true"]:text-primary-dark data-[disabled="true"]:text-primary-lighten text-label-md font-bold external-link"
+    data-active="false"
+    data-disabled="false"
+    href="https://example.com"
+    rel="noopener noreferrer"
+    style="--ds-icon-size: 16px;"
+    target="_blank"
+  >
+    External Link
+  </a>
+</DocumentFragment>
+`;

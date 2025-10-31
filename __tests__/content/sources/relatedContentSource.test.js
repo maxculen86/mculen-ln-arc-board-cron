@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import { handleHttpError } from '../../../components/private/common/utils/handleHttpError';
 import logger from '../../../components/private/common/utils/logger';
 import transformData from '../../../content/sources/utils/relatedContentSource/_helper';
@@ -8,7 +7,6 @@ import { addResizedUrls } from '../../../components/private/common/utils/image/r
 import getPresets from '../../../content/sources/utils/presets';
 import get from '../../../components/private/common/utils/get';
 
-jest.mock('node-fetch');
 jest.mock('../../../components/private/common/utils/handleHttpError');
 jest.mock('../../../content/sources/utils/relatedContentSource/_helper');
 jest.mock('../../../components/private/common/utils/logger');
@@ -25,10 +23,12 @@ jest.mock('fusion:environment', () => ({
 }));
 
 describe('relatedContentSource', () => {
+    const originalFetch = global.fetch;
     const { fetch } = fetchModule;
 
     beforeEach(() => {
         jest.clearAllMocks();
+        global.fetch = jest.fn();
 
         get.mockImplementation((obj, path, defaultValue) => {
             if (path === 'basic' && obj?.basic) return obj.basic;
@@ -42,6 +42,10 @@ describe('relatedContentSource', () => {
         getAllImagesAuth.mockImplementation(async elem => elem);
         addResizedUrls.mockImplementation(elem => elem);
         getPresets.mockReturnValue({ presets: {}, presetsDefault: {} });
+    });
+
+    afterAll(() => {
+        global.fetch = originalFetch;
     });
 
     it('should fetch related content successfully', async () => {
@@ -58,7 +62,7 @@ describe('relatedContentSource', () => {
 
         const mockCachedCall = jest.fn();
 
-        nodeFetch.mockResolvedValue({
+        global.fetch.mockResolvedValue({
             json: jest.fn().mockResolvedValue(mockResponse),
             ok: true
         });
@@ -66,12 +70,13 @@ describe('relatedContentSource', () => {
 
         const result = await fetch(mockQuery, { cachedCall: mockCachedCall });
 
-        expect(nodeFetch).toHaveBeenCalledWith(
+        expect(global.fetch).toHaveBeenCalledWith(
             'https://api.example.com/content/v4/related-content/stories/?website=foodit&_id=article-123',
-            {
+            expect.objectContaining({
                 method: 'GET',
-                headers: { Authorization: 'Bearer test-token' }
-            }
+                headers: { Authorization: 'Bearer test-token' },
+                signal: expect.any(Object)
+            })
         );
         expect(handleHttpError).toHaveBeenCalled();
         expect(transformData).toHaveBeenCalledWith(
@@ -87,7 +92,7 @@ describe('relatedContentSource', () => {
         const mockQuery = { 'arc-site': 'foodit', id: 'article-123' };
         const mockError = new Error('Network error');
 
-        nodeFetch.mockRejectedValue(mockError);
+        global.fetch.mockRejectedValue(mockError);
         console.warn = jest.fn();
 
         const result = await fetch(mockQuery);

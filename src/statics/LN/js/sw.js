@@ -56,8 +56,8 @@ self.addEventListener('push', function (event) {
         // Abre notificacion
         event.waitUntil(
             self.registration.showNotification(data.title, {
-                icon: '/nt_icon.png',
-                badge: '/pwa_128.png',
+                icon: 'https://ln-static.glanacion.com/www/nt_icon.png',
+                badge: 'https://ln-static.glanacion.com/www/pwa_128.png',
                 body: data.message,
                 image: data.image,
                 vibrate: [100, 50, 100],

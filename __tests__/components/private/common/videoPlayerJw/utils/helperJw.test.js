@@ -266,17 +266,5 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 captionClasses: 'w-100'
             });
         });
-
-        it('returns the correct class names for ott site with horizontal orientation', () => {
-            const result = configClassName.ott.horizontal;
-
-            expect(result).toEqual({
-                container: 'container cursor-pointer pt-32',
-                mediaContainer: 'ratio-16-9',
-                videoPlayer: 'video-player bg-black ratio-16-9',
-                facade: 'flex w-100 h-100',
-                captionClasses: 'px-0_l mb-8'
-            });
-        });
     });
 });

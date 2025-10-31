@@ -1,5 +1,19 @@
 import Consumer from 'fusion:consumer';
+import isTodayEnabled from '../../../chains/utils/isTodayEnabled';
 import { isInSection, getErrorMessage } from './common/_helper-WebApi';
+
+const LAYOUT = 'LN10-Home_Main';
+
+const shouldSkipRender = ({
+    enabledDays = [],
+    isHome = false,
+    shouldSchedule
+}) => {
+    if (!shouldSchedule) {
+        return false;
+    }
+    return isHome && (enabledDays.length === 0 || !isTodayEnabled(enabledDays));
+};
 
 class AnexoFeature {
     constructor(props) {
@@ -7,7 +21,8 @@ class AnexoFeature {
     }
 
     render() {
-        const { id, customFields = {} } = this.props;
+        const { id, layout, customFields = {} } = this.props;
+
         const {
             hideByHtml = false,
             hideByUrl = false,
@@ -16,11 +31,16 @@ class AnexoFeature {
             heightMobile,
             html,
             vivoYoutube,
-            // Roof properties
             title,
             link,
-            hideTitle
+            hideTitle,
+            enabledDays = [],
+            shouldSchedule = false
         } = customFields;
+
+        const isHome = layout === LAYOUT;
+
+        const hideByFlags = hideByHtml && hideByUrl && hideByVivoYoutube;
 
         const isApertura = isInSection({
             sectionName: 'Pre_Apertura',
@@ -33,16 +53,17 @@ class AnexoFeature {
             customFields
         });
 
-        if (errorMessage || (hideByHtml && hideByUrl && hideByVivoYoutube)) {
+        if (
+            shouldSkipRender({ enabledDays, isHome, shouldSchedule }) ||
+            errorMessage ||
+            hideByFlags
+        ) {
             return null;
         }
 
         let articles = [];
-
-        const hideCaja = true;
-
         const information = {
-            hideCaja,
+            hideCaja: true,
             layout: 'grilla1'
         };
 
@@ -56,34 +77,22 @@ class AnexoFeature {
         if (!hideByHtml && html) {
             information.hideCaja = false;
             articles = [{ html }];
-            return {
-                information,
-                articles
-            };
+            return { information, articles };
         }
 
         if (!hideByVivoYoutube && vivoYoutube) {
             information.hideCaja = false;
             articles = [{ html: vivoYoutube }];
-            return {
-                information,
-                articles
-            };
+            return { information, articles };
         }
 
         if (!hideByUrl && urlAnexo && heightMobile) {
             information.hideCaja = false;
             articles = urlAnexo !== '' ? [{ url, alto: heightMobile }] : [];
-            return {
-                information,
-                articles
-            };
+            return { information, articles };
         }
 
-        return {
-            information,
-            articles
-        };
+        return { information, articles };
     }
 }
 

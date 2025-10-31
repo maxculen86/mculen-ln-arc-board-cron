@@ -81,6 +81,32 @@ describe('LoginSubscribeButtons', () => {
             });
         });
 
+        it('should not show button subscribe if hide_subscribe_button_foodit is "true"', () => {
+            mockUserConfig('unlogged');
+
+            const termicasData = {
+                hide_subscribe_button_foodit: 'true'
+            };
+
+            render(<LoginSubscribeButtons termicasData={termicasData} />);
+
+            expect(
+                screen.queryByTestId('button-suscribe')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should show button subscribe if hide_subscribe_button_foodit is "false"', () => {
+            mockUserConfig('unlogged');
+
+            const termicasData = {
+                hide_subscribe_button_foodit: 'false'
+            };
+
+            render(<LoginSubscribeButtons termicasData={termicasData} />);
+
+            expect(screen.queryByTestId('button-suscribe')).toBeInTheDocument();
+        });
+
         it('should not show tooltip if tooltip_subscribe_foodit_show is "false" and userType is "unlogged"', () => {
             mockUserConfig('unlogged');
 
@@ -150,7 +176,7 @@ describe('LoginSubscribeButtons', () => {
 
             expect(
                 screen.getByRole('button', {
-                    name: /suscribite/i
+                    name: /Empezá hoy/i
                 })
             ).toBeInTheDocument();
         });
@@ -179,9 +205,7 @@ describe('LoginSubscribeButtons', () => {
             async (comesFrom, expectedEvent, expectedUrlStart) => {
                 render(<LoginSubscribeButtons comesFrom={comesFrom} />);
 
-                const subscribeButton = screen.getByRole('button', {
-                    name: /suscribite/i
-                });
+                const subscribeButton = screen.getByTestId('button-suscribe');
                 fireEvent.click(subscribeButton);
 
                 expect(addEventToDataLayerV2).toHaveBeenCalledWith({

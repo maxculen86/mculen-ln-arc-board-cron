@@ -3,5 +3,10 @@ jest.mock(
     () => 'mock-icon'
 );
 
+jest.mock(
+    './components/features/ui-ln/icon/default.jsx',
+    () => 'mock-ds-common-icon'
+);
+
 global.TextEncoder = require('util').TextEncoder;
 global.TextDecoder = require('util').TextDecoder;

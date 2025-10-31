@@ -3504,7 +3504,7 @@
                     "_id": "76c88e0b-33e7-405f-b6ad-b6a98fef7c77",
                     "version": "0.8.0",
                     "canonical_url": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b",
-                    "canonical_website": "ott",
+                    "canonical_website": "la-nacion-ar",
                     "short_url": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b",
                     "created_date": "2019-06-10T17:20:12Z",
                     "last_updated_date": "2020-03-18T12:35:29Z",
@@ -3554,7 +3554,7 @@
                         "primary_section": {
                             "type": "section",
                             "_id": "/terapia-de-noticias",
-                            "_website": "ott",
+                            "_website": "la-nacion-ar",
                             "version": "0.6.0",
                             "name": "Terapia de noticias",
                             "path": "/terapia-de-noticias",
@@ -3564,7 +3564,7 @@
                             {
                                 "type": "section",
                                 "_id": "/terapia-de-noticias",
-                                "_website": "ott",
+                                "_website": "la-nacion-ar",
                                 "version": "0.6.0",
                                 "name": "Terapia de noticias",
                                 "path": "/terapia-de-noticias",
@@ -3684,10 +3684,10 @@
                     },
                     "embed_html": "<div class=\"powa\" id=\"powa-76c88e0b-33e7-405f-b6ad-b6a98fef7c77\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"76c88e0b-33e7-405f-b6ad-b6a98fef7c77\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
                     "websites": {
-                        "ott": {
+                        "la-nacion-ar": {
                             "website_section": {
                                 "path": "/terapia-de-noticias",
-                                "_website": "ott",
+                                "_website": "la-nacion-ar",
                                 "name": "Terapia de noticias",
                                 "_id": "/terapia-de-noticias",
                                 "type": "section",
@@ -5498,7 +5498,7 @@
                     "_id": "76c88e0b-33e7-405f-b6ad-b6a98fef7c77",
                     "version": "0.8.0",
                     "canonical_url": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b",
-                    "canonical_website": "ott",
+                    "canonical_website": "la-nacion-ar",
                     "short_url": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b",
                     "created_date": "2019-06-10T17:20:12Z",
                     "last_updated_date": "2020-03-18T12:35:29Z",
@@ -5548,7 +5548,7 @@
                         "primary_section": {
                             "type": "section",
                             "_id": "/terapia-de-noticias",
-                            "_website": "ott",
+                            "_website": "la-nacion-ar",
                             "version": "0.6.0",
                             "name": "Terapia de noticias",
                             "path": "/terapia-de-noticias",
@@ -5558,7 +5558,7 @@
                             {
                                 "type": "section",
                                 "_id": "/terapia-de-noticias",
-                                "_website": "ott",
+                                "_website": "la-nacion-ar",
                                 "version": "0.6.0",
                                 "name": "Terapia de noticias",
                                 "path": "/terapia-de-noticias",
@@ -5678,10 +5678,10 @@
                     },
                     "embed_html": "<div class=\"powa\" id=\"powa-76c88e0b-33e7-405f-b6ad-b6a98fef7c77\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"76c88e0b-33e7-405f-b6ad-b6a98fef7c77\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
                     "websites": {
-                        "ott": {
+                        "la-nacion-ar": {
                             "website_section": {
                                 "path": "/terapia-de-noticias",
-                                "_website": "ott",
+                                "_website": "la-nacion-ar",
                                 "name": "Terapia de noticias",
                                 "_id": "/terapia-de-noticias",
                                 "type": "section",

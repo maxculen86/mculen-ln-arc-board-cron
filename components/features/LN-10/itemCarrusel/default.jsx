@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
 import { validateItemCarrusel } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import CardVertical from '../../LN-10-global/cardVerticalCarrusel/default';
+import CardVerticalContainer from '../../LN-10-global/cardVerticalCarrusel/default';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import {
     checkForId,
@@ -81,7 +81,7 @@ function itemCarrusel({
     return (
         !error &&
         videoData && (
-            <CardVertical
+            <CardVerticalContainer
                 data-feature-id={featureId}
                 title={title}
                 titleJwPlayer={videoData?.title}

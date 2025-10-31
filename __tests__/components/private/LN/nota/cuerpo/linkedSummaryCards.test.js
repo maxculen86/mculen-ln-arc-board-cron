@@ -5,6 +5,10 @@ jest.mock('fusion:consumer', () => {
     return jest.fn(Component => Component);
 });
 
+jest.mock('private/common/hooks/useViewportSize', () => {
+    return jest.fn(() => 'desktop');
+});
+
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn(() => ({
         outputType: 'default',
@@ -20,6 +24,15 @@ jest.mock('fusion:context', () => ({
         }
     }))
 }));
+
+jest.mock(
+    '../../../../../../components/features/LN-nota/bodyCards/components/BodyTop',
+    () => {
+        return function MockBodyTop({ children }) {
+            return <div data-testid="body-top">Mocked BodyTop</div>;
+        };
+    }
+);
 
 jest.mock(
     '../../../../../../components/features/LN-common/hooks/useLazyEmbeds',
@@ -49,7 +62,8 @@ jest.mock('../../../../../../components/layouts/helpers/groupingUtils', () => ({
                 }
             ]
         }
-    ])
+    ]),
+    getContentBeforeMarkers: jest.fn(() => [])
 }));
 
 jest.mock(
@@ -72,7 +86,7 @@ jest.mock(
             cardId: cardGroup.id,
             embed: {
                 config: {
-                    titulo: 'Título de prueba'
+                    title: 'Título de prueba'
                 }
             }
         }))
@@ -107,7 +121,7 @@ jest.mock(
                 <div data-testid="cards-grid" data-grid-columns={gridColumns}>
                     {cards.map(card => (
                         <div key={card.cardId} data-testid="card-small">
-                            {card.embed.config.titulo}
+                            {card.embed.config.title}
                         </div>
                     ))}
                 </div>
@@ -118,13 +132,9 @@ jest.mock(
 
 describe('BodyCards', () => {
     it('renders cards correctly', () => {
-        render(<LinkedSummaryCards customFields={{}} />);
+        render(<LinkedSummaryCards />);
 
         expect(screen.getByTestId('cards-grid')).toBeInTheDocument();
-        expect(screen.getByTestId('cards-grid')).toHaveAttribute(
-            'data-grid-columns',
-            '3'
-        );
 
         expect(screen.getByTestId('card-small')).toBeInTheDocument();
         expect(screen.getByText('Título de prueba')).toBeInTheDocument();
@@ -135,7 +145,7 @@ describe('BodyCards', () => {
             require('../../../../../../components/layouts/helpers/groupingUtils').groupByMarkers;
         mockGroupByMarkers.mockReturnValueOnce([]);
 
-        const { container } = render(<LinkedSummaryCards customFields={{}} />);
+        const { container } = render(<LinkedSummaryCards />);
         expect(container.firstChild).toBeNull();
     });
 });

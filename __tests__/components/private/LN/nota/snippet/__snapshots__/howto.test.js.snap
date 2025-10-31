@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schema HowTo - SnippetHowTo Should render the schema correctly with How to Power Up 1`] = `
+<div>
+  <script
+    id="Schema_HowTo"
+    type="application/ld+json"
+  >
+    {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Nota de prueba para How to",
+  "description": "Bajada de la nota",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://cdn.example.com/imagen.jpg",
+    "width": 1280,
+    "height": 854
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Acceder a ChatGPT",
+      "text": "Se necesita una cuenta en la plataforma de OpenAI con acceso a la función de generación de imágenes.",
+      "url": "https://www.lanacion.com.ar/autos/nota-de-prueba-para-how-to-nid10092025/#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Describir la escena",
+      "text": "Ingresar un prompt detallado marcando el tipo de imagen y la atmósfera.",
+      "url": "https://www.lanacion.com.ar/autos/nota-de-prueba-para-how-to-nid10092025/#step2"
+    }
+  ]
+}
+  </script>
+</div>
+`;

@@ -20,7 +20,7 @@ jest.mock('fusion:environment', () => {
     return {
         SITE_LANACION: 'https://www.lanacion.com.ar',
         SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
-        MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar'
+        MY_ACCOUNT_URL: 'https://micuenta.lanacion.com.ar'
     };
 });
 

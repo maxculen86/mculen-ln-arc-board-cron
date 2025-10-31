@@ -9,8 +9,10 @@ import { Button as CommonButton } from '@ln/ds-common-button';
  * @param {ButtonProps} props
  * @returns {React.ReactElement}
  */
-export function Button(props) {
+function Button(props) {
     return <CommonButton {...props} />;
 }
+
+export default Button;
 
 Button.propTypes = CommonButton.propTypes;

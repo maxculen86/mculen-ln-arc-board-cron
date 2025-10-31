@@ -28,6 +28,7 @@ export default {
         FooditRecipePaywall: 'Foodit-recipe-paywall',
         FooditNotePaywall: 'Foodit-note-paywall',
         FooditBuscador: 'Foodit-buscador',
-        FooditMenuSemanal: 'Foodit-menu-semanal'
+        FooditMenuSemanal: 'Foodit-menu-semanal',
+        FooditSubcategorias: 'Foodit-subcategorias'
     }
 };

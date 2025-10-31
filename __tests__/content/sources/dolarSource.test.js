@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import 'regenerator-runtime/runtime';
 import dolarSource from '../../../content/sources/dolarSource';
 import logger from '../../../components/private/common/utils/logger';
@@ -16,18 +15,16 @@ jest.mock('../../../components/private/common/utils/logger', () => {
 });
 const loggerPush = jest.spyOn(logger, 'push');
 
-jest.mock('node-fetch', () =>
-    jest.fn(() => {
+beforeEach(() => {
+    jest.clearAllMocks();
+
+    global.fetch = jest.fn(() => {
         return Promise.resolve({
             ok: true,
             status: 200,
             json: () => Promise.resolve(MOCK_API_RESPONSE)
         });
-    })
-);
-
-beforeEach(() => {
-    jest.clearAllMocks();
+    });
 });
 
 describe('Content Sources - Dolar Source', () => {
@@ -94,7 +91,7 @@ describe('Content Sources - Dolar Source', () => {
     });
 
     it('Should catch error when request for dolar data is rejected', async () => {
-        nodeFetch.mockImplementationOnce(() =>
+        global.fetch.mockImplementationOnce(() =>
             Promise.reject(new Error('Mocked Error'))
         );
 
@@ -107,6 +104,31 @@ describe('Content Sources - Dolar Source', () => {
         expect(loggerPush).toBeCalledTimes(1);
         expect(loggerPush).toBeCalledWith(
             new Error('Mocked Error'),
+            {
+                source: 'content/sources/dolarSource',
+                url: 'https://arcservices.lanacion.com.ar/api/v1/quotations'
+            },
+            'la-nacion-ar'
+        );
+    });
+
+    it('Should log 504 on AbortError (timeout)', async () => {
+        const abortError = new Error('Timeout');
+        abortError.name = 'AbortError';
+
+        global.fetch.mockImplementationOnce(() => Promise.reject(abortError));
+
+        await fetch(query, {
+            cachedCall: jest.fn(() =>
+                Promise.resolve({
+                    Termicas: { dolares: ['dbna', 'dblue'] }
+                })
+            )
+        });
+
+        expect(loggerPush).toBeCalledTimes(1);
+        expect(loggerPush).toBeCalledWith(
+            { ...abortError, statusCode: 504 },
             {
                 source: 'content/sources/dolarSource',
                 url: 'https://arcservices.lanacion.com.ar/api/v1/quotations'

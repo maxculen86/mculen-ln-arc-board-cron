@@ -1,9 +1,9 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
-import { formatDateHoursAndMint } from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { isExternalUrl } from '../../../private/common/utils/isExternalUrl';
+import { formatTimelineTime } from '../../common/timezone/utils/timezoneConversion';
 
 const setTimelineProps = ({ articles, roof, url, hideTitle }) => {
     const data = articles.map(article => {
@@ -15,7 +15,9 @@ const setTimelineProps = ({ articles, roof, url, hideTitle }) => {
             link
         } = article;
 
-        const displayDate = get(article, 'hour.props.display_date', '');
+        const displayDate =
+            get(article, 'originalDisplayDate', '') ||
+            get(article, 'hour.props.display_date', '');
         const articleId = get(article, 'articleData._id', '');
 
         return {
@@ -23,7 +25,7 @@ const setTimelineProps = ({ articles, roof, url, hideTitle }) => {
             dataNotaId: articleId,
             dataSource: 'editor',
             dataPos: `tl${artPosition}`,
-            time: formatDateHoursAndMint(displayDate),
+            time: formatTimelineTime(displayDate),
             title: titleText,
             href: link,
             lead,

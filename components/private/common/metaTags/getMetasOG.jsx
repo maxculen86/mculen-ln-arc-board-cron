@@ -7,7 +7,6 @@ import {
 } from '../utils/getMetasOGHelper';
 import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
 import { RECETA } from '../utils/subtypes/subtypeHelper';
-import config from '../../../../properties/sites/la-nacion-ar';
 
 const getMetasOG = props => {
     const {
@@ -15,17 +14,13 @@ const getMetasOG = props => {
         section,
         siteProperties,
         arcSite,
-        ottMetaTitle,
-        ottMetaDescription,
         requestUri,
         metaValue,
         subtype,
-        layout,
         globalContent = {},
         globalContentConfig
     } = props;
 
-    const { layoutsName = {} } = config || {};
     const data = getData(props);
     const {
         displayDate,
@@ -58,15 +53,11 @@ const getMetasOG = props => {
         pageBuilderTitle,
         section,
         siteProperties,
-        ottMetaTitle,
         data,
-        ottMetaDescription,
         requestUri,
         metaValue,
         image,
         url,
-        layout,
-        layoutsName,
         globalContent,
         globalContentConfig
     });
@@ -76,10 +67,7 @@ const getMetasOG = props => {
         arcSite,
         pageBuilderTitle,
         section,
-        siteProperties,
-        ottMetaTitle,
         data,
-        ottMetaDescription,
         requestUri,
         metaValue,
         url,

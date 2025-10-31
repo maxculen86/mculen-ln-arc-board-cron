@@ -16,23 +16,6 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', // NOSONAR
     JSK_ID: '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHPMCo5X02LqkaZLrXomkFvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM+Gs5pmF0+Umjtjx8AgEQgCs+4a1XWei5yHUiPhGKw2kBOg/pThoXc4ApUTb5YohOvC3E0oV5wFMUlJoo}', // NOSONAR
     DATADOG_CONFIG: {
-        ott: {
-            clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
-            clientTokenRum: 'pub0d012ddef45dd12da168f6a3dfa65e8d',
-            applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
-            site: DATADOG_DOMAIN,
-            forwardErrorsToLogs: true,
-            sampleRateLog: 100,
-            sampleRateRum: 100,
-            service: 'lnmas',
-            env: 'dev',
-            sessionReplaySampleRate: 30,
-            trackResources: true,
-            trackLongTasks: true,
-            trackUserInteractions: true,
-            trackSessionAcrossSubdomains: false,
-            defaultPrivacyLevel: MASK_USER_INPUT
-        },
         'la-nacion-ar': {
             clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
             clientTokenRum: 'pubaa01cb67f0a687a6eba4718413593f4f',
@@ -98,8 +81,6 @@ export default {
         'https://qa-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
-    // TODO: limpieza OTT - Borrar en iteración 5 de 5
-    SITE_OTT: 'https://lnmas.lanacion.com.ar',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     API_QUERYLY: 'https://api.queryly.com',
     // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta
@@ -107,7 +88,10 @@ export default {
     API_KEY_QUERYLY: '2bf85a66b5f04de9',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
+    API_KEY_MINIWALL: 'kvkmcsegzcfo9gml40dcwc9xps287kk5aho6',
+    CHECKOUT_URL: 'https://qa-checkout.lanacion.com.ar',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     ARC_ACCESS_TOKEN_PROD:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}'
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygF+BIuMI/4bA+BMAYGzsVP+AAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHcvXV2lXbcEj+xiTQIBEIBjNARCe7sf5OlG/fjFVHDKECpsoND6wDQR8lUO6DTes61jWXhI24VfETw/a1LO6J0wtLhz7YeI/ufGnY5cw1Sk8LkW+HZzIbEpSWDym0vcLsTl/r4ZQeWXAvqePW4sm9ZvEBNw}',
+    CLL_HTMLTFREE_DOMAIN: 'https://qa-canchallena.lanacion.com.ar/especiales'
 };

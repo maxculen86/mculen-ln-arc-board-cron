@@ -75,12 +75,18 @@
             }
         }
     }
+}
 
-    // @media (min-width: 769px) {
-    //     //1024
-    //     font-size: px(16);
-    //     .--credit {
-    //         font-size: px(15);
-    //     }
-    // }
+@media (max-width: 767px) {
+    .liveblog-editorial-body-posts .liveBlog_post--unpinned:not(:last-child) {
+        .body-post {
+            .content-media:nth-last-child(2),
+            .content-media:last-child {
+                .mod-figcaption,
+                .mod-video figcaption {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
 }

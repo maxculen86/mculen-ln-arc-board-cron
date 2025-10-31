@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
+import { cx } from '@ln/cva';
 import ComPicture from '../../../../common/com-picture';
 import {
     getShortestImage,
@@ -35,13 +36,19 @@ function ImageArticle(props) {
 
     return (
         <ComPicture href={href}>
-            <div className="com-image">
+            <div
+                className={cx('com-image', {
+                    'content-visibility-auto will-change-auto': isApertura
+                })}
+            >
                 <Adaptableimage
                     width={width}
                     alt={altBasic}
                     height={height}
                     src={resizedUrl || url}
-                    className="com-image"
+                    className={cx('com-image', {
+                        'will-change-auto': isApertura
+                    })}
                     searchableField={searchableField}
                     fetchPriority={isApertura ? 'high' : 'low'}
                     loading={isApertura ? 'eager' : 'lazy'}

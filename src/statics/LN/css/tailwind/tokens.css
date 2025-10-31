@@ -1,11 +1,11 @@
 /* tokens.css
-   Definir tokens contenidos. 
+   Definir tokens contenidos
 */
 
 @theme {
-    --color-primary-default: #000254;
+    --color-primary-default: #0250c9;
     --color-primary-dark: #0a0c49;
-    --color-primary-light: #333576;
+    --color-primary-light: #ffffff;
     --color-primary-lighten: #bdbffd;
 
     --color-accent-default: #c61b25;
@@ -41,11 +41,14 @@
     --radius-md: var(--radius-4);
     --radius-lg: var(--radius-32);
 
-    --radius-range: var(--radius-1);
+    --radius-range: var(--radius-24);
     --radius-button: var(--radius-full);
     --radius-avatar: var(--radius-full);
     --radius-listitem: var(--radius-4);
     --radius-drawer: var(--radius-24);
     --radius-progress: var(--radius-sm);
     --radius-dots: var(--radius-1);
+
+    --shadow-down-lg: 0px 16px 32px 0px #10101014;
+
 }

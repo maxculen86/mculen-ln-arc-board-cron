@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import getProperties from 'fusion:properties';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
@@ -57,6 +56,9 @@ const transform = (authorsData, query, creditHash) => {
         }),
         node_type: 'author',
         name: authorsData.byline,
+        firstName: authorsData.firstName,
+        lastName: authorsData.lastName,
+        role: authorsData.role,
         canonical_url: encodeURI(`/autor/${authorId}/`),
         subscription: meteringVariant
     };
@@ -72,7 +74,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         if (ARC_ACCESS_TOKEN)
             opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
 
-        const response = await nodeFetch(
+        const response = await global.fetch(
             `${CONTENT_BASE}${resolve(query)}`,
             opt
         );

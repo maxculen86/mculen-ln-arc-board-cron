@@ -23,8 +23,19 @@ jest.mock(
     })
 );
 
-describe('Components - Chains - Foodit-Global - Common - RenderCollection', () => {
+describe('Components - Chains - Foodit-Global - Common - RenderCollection - LCP Optimization', () => {
     const articles = articlesTransformed;
+    const defaultProps = {
+        rules: { roofAs: 'h2' },
+        title: 'Test Carousel',
+        hideCaja: false,
+        hideTitle: false,
+        layout: 'carousel',
+        error: null,
+        articles: articles.slice(0, 4),
+        carouselMobile: true,
+        carouselIndex: 0
+    };
 
     beforeEach(() => {
         filterBookmarksByArticledIs.mockImplementation(articles =>
@@ -36,13 +47,15 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
                 publish: jest.fn()
             }
         };
+
+        delete window.innerWidth;
     });
 
     afterEach(() => {
         jest.clearAllMocks();
     });
 
-    test('should render Carousel layout with title and link', () => {
+    it('should render Carousel layout with title and link', () => {
         const { container } = render(
             <RenderCollection
                 rules={{
@@ -69,7 +82,7 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
         expect(container).toMatchSnapshot();
     });
 
-    test('should render BN_12_GRID layout with articles', () => {
+    it('should render BN_12_GRID layout with articles', () => {
         const { container } = render(
             <RenderCollection
                 rules={{
@@ -95,7 +108,7 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
         expect(container).toMatchSnapshot();
     });
 
-    test('should render nothing when hideCaja is true', () => {
+    it('should render nothing when hideCaja is true', () => {
         const { container } = render(
             <RenderCollection
                 rules={{
@@ -121,7 +134,7 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
         expect(container).toMatchSnapshot();
     });
 
-    test('should render nothing when there is an error', () => {
+    it('should render nothing when there is an error', () => {
         const { container } = render(
             <RenderCollection
                 rules={{ roofAs: 'h2' }}
@@ -137,7 +150,7 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
         expect(container).toBeEmptyDOMElement();
     });
 
-    test('should render nothing when articles array is empty', () => {
+    it('should render nothing when articles array is empty', () => {
         const { container } = render(
             <RenderCollection
                 rules={{ roofAs: 'h2' }}
@@ -155,7 +168,7 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
         expect(container).toMatchSnapshot();
     });
 
-    test('should render with all articles bookmarked', () => {
+    it('should render with all articles bookmarked', () => {
         const bookmarkedArticles = articlesTransformed.map(article => ({
             ...article,
             bookmarkId: `bookmark-${article.articleId}`
@@ -214,6 +227,168 @@ describe('Components - Chains - Foodit-Global - Common - RenderCollection', () =
             carouselTitle: mockTitle,
             ids: expectedIds,
             collectionArticles: []
+        });
+    });
+
+    describe('LCP Optimization Logic', () => {
+        it('should apply eager loading when carouselIndex=0, mobile viewport, and carouselMobile=true', () => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: 600
+            });
+
+            const { container } = render(
+                <RenderCollection
+                    {...defaultProps}
+                    carouselIndex={0}
+                    carouselMobile={true}
+                />
+            );
+
+            const images = container.querySelectorAll('img');
+            expect(images[0]).toHaveAttribute('loading', 'eager');
+            expect(images[0]).toHaveAttribute('fetchpriority', 'high');
+            expect(images[1]).toHaveAttribute('loading', 'lazy');
+            expect(images[1]).toHaveAttribute('fetchpriority', 'low');
+
+            if (images[2]) {
+                expect(images[2]).toHaveAttribute('loading', 'lazy');
+                expect(images[2]).toHaveAttribute('fetchpriority', 'low');
+            }
+        });
+
+        it('should not apply eager loading when carouselIndex > 0', () => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: 600
+            });
+
+            const { container } = render(
+                <RenderCollection
+                    {...defaultProps}
+                    carouselIndex={1}
+                    carouselMobile={true}
+                />
+            );
+
+            const images = container.querySelectorAll('img');
+            images.forEach(img => {
+                expect(img).toHaveAttribute('loading', 'lazy');
+                expect(img).toHaveAttribute('fetchpriority', 'low');
+            });
+        });
+
+        it('should not apply eager loading when viewport is desktop', () => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: 1200
+            });
+
+            const { container } = render(
+                <RenderCollection
+                    {...defaultProps}
+                    carouselIndex={0}
+                    carouselMobile={true}
+                />
+            );
+
+            const images = container.querySelectorAll('img');
+            images.forEach(img => {
+                expect(img).toHaveAttribute('loading', 'lazy');
+                expect(img).toHaveAttribute('fetchpriority', 'low');
+            });
+        });
+
+        it('should not apply eager loading when carouselMobile=false', () => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: 600
+            });
+
+            const { container } = render(
+                <RenderCollection
+                    {...defaultProps}
+                    carouselIndex={0}
+                    carouselMobile={false}
+                />
+            );
+
+            const images = container.querySelectorAll('img');
+            images.forEach(img => {
+                expect(img).toHaveAttribute('loading', 'lazy');
+                expect(img).toHaveAttribute('fetchpriority', 'low');
+            });
+        });
+
+        it('should optimize different number of images for CAROUSEL vs CAROUSEL_4 layouts', () => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: 600
+            });
+
+            const { container: carouselContainer } = render(
+                <RenderCollection
+                    {...defaultProps}
+                    layout="carousel"
+                    carouselIndex={0}
+                    carouselMobile={true}
+                />
+            );
+
+            const carouselImages = carouselContainer.querySelectorAll('img');
+            expect(carouselImages[0]).toHaveAttribute('loading', 'eager');
+            expect(carouselImages[1]).toHaveAttribute('loading', 'lazy');
+            if (carouselImages[2]) {
+                expect(carouselImages[2]).toHaveAttribute('loading', 'lazy');
+            }
+
+            const { container: carousel4Container } = render(
+                <RenderCollection
+                    {...defaultProps}
+                    layout="carousel_4"
+                    carouselIndex={0}
+                    carouselMobile={true}
+                />
+            );
+
+            const carousel4Images = carousel4Container.querySelectorAll('img');
+            expect(carousel4Images[0]).toHaveAttribute('loading', 'eager');
+            expect(carousel4Images[1]).toHaveAttribute('loading', 'lazy');
+            if (carousel4Images[2]) {
+                expect(carousel4Images[2]).toHaveAttribute('loading', 'lazy');
+            }
+        });
+
+        it('should not optimize BN_12_GRID layout', () => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: 600
+            });
+
+            const { container } = render(
+                <RenderCollection
+                    {...defaultProps}
+                    layout="bn_12_grid"
+                    carouselIndex={0}
+                    carouselMobile={true}
+                    rules={{
+                        classNameParent: 'grid grid-cols-8',
+                        classNameChildren: 'col-span-4'
+                    }}
+                />
+            );
+
+            const images = container.querySelectorAll('img');
+            images.forEach(img => {
+                expect(img).toHaveAttribute('loading', 'lazy');
+                expect(img).toHaveAttribute('fetchpriority', 'low');
+            });
         });
     });
 });

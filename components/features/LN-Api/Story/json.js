@@ -16,6 +16,12 @@ class Story {
             globalContentConfig: { query }
         } = props;
 
+        const audio = get(
+            props.globalContent,
+            'promo_items.audio_nota.embed.config',
+            null
+        );
+
         const isAudioNewsFetch = get(query, 'ticks', false);
 
         this.fetchContent({
@@ -39,7 +45,9 @@ class Story {
             }
         });
 
-        if (isListenableValue && !isAudioNewsFetch) {
+        // Si la nota es escuchable, no se obtuvo audio desde globalContent
+        // y no se hizo ya la consulta a audionews, se realiza la consulta
+        if (isListenableValue && !isAudioNewsFetch && !audio) {
             this.fetchContent({
                 audionewsSource: {
                     source: 'audionewsSource',
@@ -66,9 +74,15 @@ class Story {
                 browser.getApiVersion(this.props.requestUri)
             ];
         const { navigationTreeSource, audionewsSource } = this.state || {};
+
         const { globalContent } = this.props;
 
         const path = get(globalContent, 'taxonomy.primary_section.path', null);
+        const audio = get(
+            globalContent,
+            'promo_items.audio_nota.embed.config',
+            null
+        );
         const zocalo = getZocaloAppsProps(path);
         let footer = null;
         if (zocalo) {
@@ -93,7 +107,7 @@ class Story {
             return indexNota({
                 ...globalContent,
                 navigationTreeSource,
-                ...restAudioNewsSource,
+                dataAudio: audio || restAudioNewsSource,
                 footer
             });
         } catch (err) {

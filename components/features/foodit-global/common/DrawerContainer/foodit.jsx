@@ -26,7 +26,11 @@ function DrawerContainer({
                         : ''
                 }
             >
-                {title && <Text className="roboto-bold text-24">{title}</Text>}
+                {title && (
+                    <Text className="prumo prumo-semibold text-24 text-28_md">
+                        {title}
+                    </Text>
+                )}
             </Drawer.Header>
             <Drawer.Body
                 className={classNames(

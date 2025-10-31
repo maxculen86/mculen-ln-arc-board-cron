@@ -36,7 +36,11 @@ const getModule = settings => {
             {
                 test: /\.css$/,
                 include: /\/tailwind\//,
-                use: [miniCssExtractPluginLoader, cssLoader, postCssLoader]
+                use: [
+                    miniCssExtractPluginLoader,
+                    cssLoader,
+                    postCssLoader(isProd)
+                ]
             },
             {
                 test: /\.(ttf|eot|svg|woff(2?))(\?v=[0-9]\.[0-9]\.[0-9])?$/,

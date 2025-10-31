@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GetCriticalCss Foodit should maintain expected structure 1`] = `
+<DocumentFragment>
+  <style
+    id="critical-css"
+  >
+    .foodit-test { color: #ff6b35; }
+  </style>
+</DocumentFragment>
+`;

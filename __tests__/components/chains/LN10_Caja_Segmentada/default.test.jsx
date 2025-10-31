@@ -27,16 +27,14 @@ jest.mock(
 
 jest.mock('../../../../components/chains/utils/setRender', () => jest.fn());
 
-jest.mock(
-    '../../../../components/features/foodit-global/common/LazyLoad/foodit',
-    () => ({
-        LazyLoad: ({ children, onViewport, showComponent }) => (
-            <div data-testid="lazy-load" onClick={onViewport}>
-                {showComponent && children}
-            </div>
-        )
-    })
-);
+jest.mock('../../../../components/common/LazyLoad/LazyLoad', () => ({
+    __esModule: true,
+    default: ({ children, onViewport, showComponent }) => (
+        <div data-testid="lazy-load" onClick={onViewport}>
+            {showComponent && children}
+        </div>
+    )
+}));
 
 jest.mock(
     '../../../../components/private/LN10/home/components/CommonCollection/default',
@@ -344,6 +342,22 @@ describe('CajaSegmentada', () => {
                     Segmento_ID: 1
                 })
             })
+        );
+    });
+
+    it('passes scheduling flag to validation helpers', () => {
+        const props = {
+            ...defaultProps,
+            customFields: {
+                ...defaultProps.customFields,
+                shouldSchedule: true
+            }
+        };
+
+        render(<CajaSegmentada {...props} />);
+
+        expect(hasValidationFailed).toHaveBeenCalledWith(
+            expect.objectContaining({ shouldSchedule: true })
         );
     });
 });

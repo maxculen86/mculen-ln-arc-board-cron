@@ -19,23 +19,48 @@ export const isTodayEnabled = (enabledDays = []) => {
 export const isSegmentInUserSegments = (userSegments, segment) =>
     Array.isArray(userSegments) && userSegments.includes(segment);
 
+export const isBoxEnabled = ({
+    termica,
+    configError,
+    hideCaja,
+    enabledDays,
+    shouldSchedule = false
+}) => {
+    if (!(termica && !configError && !hideCaja)) {
+        return false;
+    }
+
+    if (!shouldSchedule) {
+        return true;
+    }
+
+    if (!Array.isArray(enabledDays) || enabledDays.length === 0) {
+        return false;
+    }
+
+    return isTodayEnabled(enabledDays);
+};
+
 export const hasValidationFailed = ({
     isAdmin,
     termica,
     configError,
     hideCaja,
     enabledDays,
-    token
+    token,
+    shouldSchedule = false
 }) => {
     if (isAdmin) return false;
 
     return (
-        !termica ||
-        !!configError ||
-        hideCaja ||
-        enabledDays.length === 0 ||
         !token ||
-        !isTodayEnabled(enabledDays)
+        !isBoxEnabled({
+            termica,
+            configError,
+            hideCaja,
+            enabledDays,
+            shouldSchedule
+        })
     );
 };
 

@@ -217,6 +217,9 @@ const labels = `
             display
             text
         }
+        mostrar_caja_autores{
+            ${label}
+        }
     }
 `;
 const table = `
@@ -294,6 +297,9 @@ const customLiveblog = `
         photo
         link
         id
+        firstName
+        lastName
+        role
     }
     isPinned
     pinnedAt
@@ -331,6 +337,7 @@ const customPowerUps = `
                 }
             }
             title
+            step
             paragraph
             typeList
             date
@@ -339,6 +346,13 @@ const customPowerUps = `
             ${configPowerUpVideoJw}
             widgetUrl
             embedType
+            cardColor
+            cardNumber
+            title
+            description
+            buttonText
+            cardId
+            useNumbering
             ${customLiveblog}
             ${galleryEmbed}
         }
@@ -518,6 +532,9 @@ export default `
                 config {
                     audio_id
                     audio_status
+                    audio_url
+                    audio_summary_url
+                    voice
                 }
             }
         }

@@ -14,6 +14,8 @@ export const renderProps = (
         return null;
     }
 
+    const showVideoLoop = articleSourceNota.isVideoLoopEnabled
+
     const {
         noteId,
         title,
@@ -43,8 +45,10 @@ export const renderProps = (
         description,
         hideDescription,
         cllBoard: transformUrl(cllBoard) || null,
-        idRender: props.id //  Se usa en un metodo compartido con front para validar articulos de apertura
+        idRender: props.id,//  Se usa en un metodo compartido con front para validar articulos de apertura
+        showVideoLoop
     };
+
 
     return { ...articleSourceNota, additionalProperties };
 };

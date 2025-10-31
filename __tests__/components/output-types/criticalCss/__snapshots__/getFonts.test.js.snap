@@ -25,5 +25,3 @@ exports[`Components - outputType - criticalCss - GetFonts should match snapshot 
   </style>
 </div>
 `;
-
-exports[`Components - outputType - criticalCss - GetFonts should match snapshot for arcSite = "ott" 1`] = `<div />`;

@@ -1,6 +1,6 @@
-import request from 'request-promise-native';
 import logger from '../../../../components/private/common/utils/logger';
 import NotFoundError from '../notFoundError';
+import { handleHttpError } from '../../../../components/private/common/utils/handleHttpError';
 
 const resolve = query => {
     const { rootPath, website, ticksCache, versionDeploy } = query;
@@ -14,34 +14,30 @@ const resolve = query => {
 
 const fetch = async query => {
     const { cookie } = query;
-    const endpoint = {
-        uri: `${resolve(query)}`,
-        json: true
-    };
-
+    const requestOptions = {};
     if (cookie && cookie.trim() !== '') {
-        endpoint.headers = {
+        requestOptions.headers = {
             Cookie: cookie
         };
     }
-
-    return request(endpoint)
-        .then(response => ({
+    try {
+        const resp = await global.fetch(resolve(query), requestOptions);
+        handleHttpError(resp);
+        const response = await resp.json();
+        return {
             ...response,
             homeFetchDate: new Date()
-        }))
-        .catch(error => {
-            // eslint-disable-next-line no-console
-            console.warn(
-                `Error Page Index - sources/utils/pageSource/index: ${JSON.stringify(
-                    query
-                )} - uri: ${JSON.stringify(endpoint.uri)} - errorMsj:${
-                    error.message
-                }`
-            );
-            logger.push(error, { source: 'servicesSource/page/index', query });
-            throw new NotFoundError(error.message);
-        });
+        };
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.warn(
+            `Error Page Index - sources/utils/pageSource/index: ${JSON.stringify(
+                query
+            )} - uri: ${JSON.stringify(requestOptions.uri)} - errorMsj:${error.message}`
+        );
+        logger.push(error, { source: 'servicesSource/page/index', query });
+        throw new NotFoundError(error.message);
+    }
 };
 
 export default {

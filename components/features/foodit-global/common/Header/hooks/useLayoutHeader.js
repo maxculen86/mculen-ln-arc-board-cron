@@ -30,7 +30,8 @@ export const useLayoutHeader = () => {
         layoutsName.FooditRecipePaywall,
         layoutsName.FooditChef,
         layoutsName.FooditMenuSemanal,
-        layoutsName.FooditNotePaywall
+        layoutsName.FooditNotePaywall,
+        layoutsName.FooditSubcategorias
     ];
 
     const marginByLayouts = {

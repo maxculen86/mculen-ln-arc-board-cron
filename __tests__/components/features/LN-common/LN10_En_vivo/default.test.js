@@ -10,13 +10,13 @@ import { EventsHelper } from '../../../../../src/statics/common/js/eventsHelper'
 import enVivoEventLogResult from '../../../../../__mocks__/data/LN10_En_vivo/enVivoEventLogResult.json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -171,7 +171,6 @@ describe('Tests - feature - EnVivo', () => {
             render(<Live {...props} />);
             eventsHelper.setEventsTopics();
             const links = screen.getAllByRole('link');
-            screen.debug();
             links.forEach(link => link.click());
             expect(window.dataLayer).toEqual(enVivoEventLogResult);
         });

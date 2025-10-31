@@ -9,7 +9,7 @@ import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import CajaCarruselProvider from './components/cajaCarruselContext';
 import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
 import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
-import MediaScroller from './components/mediaScroller/mediaScroller';
+import MediaScrollerContainer from './components/mediaScroller/mediaScroller';
 import { shouldHideCarrusel, transformNodes } from './components/helpers';
 import {
     getCommonProps,
@@ -18,13 +18,19 @@ import {
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
+import MediaScroller from '../../features/ui-ln/mediaScroller/default';
 
 function CajaCarrusel(props) {
     const {
         siteProperties: { layoutsName = {} },
         layout,
         children,
-        customFields: { hideCarousel, enabledDays = [], ...propsForRoof },
+        customFields: {
+            hideCarousel,
+            enabledDays = [],
+            shouldSchedule = false,
+            ...propsForRoof
+        },
         childProps = [],
         chainId,
         renderables
@@ -37,12 +43,6 @@ function CajaCarrusel(props) {
     const { isAdmin } = useAppContext();
 
     const { position, positionInsideSection } = getCommonProps(props);
-
-    const roofData = useRoofData({
-        ...propsForRoof,
-        isAdmin,
-        isStatic: false
-    });
 
     const viewabilityRoof = getViewabilityRoof(
         chainId,
@@ -68,7 +68,17 @@ function CajaCarrusel(props) {
         error,
         isHome,
         hideCarousel,
-        enabledDays
+        enabledDays,
+        shouldSchedule
+    });
+
+    const roofData = useRoofData({
+        ...propsForRoof,
+        isAdmin,
+        isStatic: false,
+        shouldLoadRoof: !hide,
+        enabledDays,
+        shouldSchedule
     });
 
     if (hasError) {
@@ -81,7 +91,7 @@ function CajaCarrusel(props) {
 
     useEffect(() => {
         if (!isAdmin) {
-            hideParentNode(divRefInCarrusel);
+            hideParentNode(divRefInCarrusel, 'DIV');
         }
     }, [divRefInCarrusel?.current]);
 
@@ -107,9 +117,17 @@ function CajaCarrusel(props) {
         <CajaCarruselProvider>
             <div {...extraOptsDiv}>
                 <section {...viewabilityData} data-chain-id={chainId}>
-                    <MediaScroller roofData={roofData}>
-                        {nodes.map(child => child.node)}
-                    </MediaScroller>
+                    <MediaScrollerContainer roofData={roofData}>
+                        {nodes.map(child => (
+                            <MediaScroller.Item key={child.key}>
+                                {child.isBanner ? (
+                                    <div ref={divRefInCarrusel} />
+                                ) : (
+                                    child.node
+                                )}
+                            </MediaScroller.Item>
+                        ))}
+                    </MediaScrollerContainer>
                     <MediaScrollerExpandedWrapper>
                         <MediaScrollerExpanded
                             listVideoData={nodesByExpanded}
@@ -196,6 +214,12 @@ CajaCarrusel.propTypes = {
             description: 'Marque para ocultar el carousel',
             defaultValue: false
         }).isRequired,
+        shouldSchedule: PropTypes.boolean.tag({
+            name: 'Activar Calendarizacion',
+            description:
+                'Marque para mostrar en los días configurados, Desmarque para mostrar todos los dias',
+            defaultValue: false
+        }),
         enabledDays: PropTypes.list.tag({
             name: 'Días habilitados',
             description:

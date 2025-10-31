@@ -1,24 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cx } from '@ln/cva';
 import get from '../../../../private/common/utils/get';
+import {
+    generateCardId,
+    getNormalizedCardFields
+} from '../_utils/linkedSummaryCardsHelper';
 import LinkedSummaryCardSmall from './LinkedSummaryCardSmall';
-
-const scrollToCard = cardId => {
-    document.getElementById(`card-ampliada-${cardId}`)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-    });
-};
+import { scrollToCard } from '../_utils/bodyCardsHelper';
 
 const createCardWithDefaults = (card, index) => {
-    const cardId = get(card, 'embed.config.cardId', `card-${index + 1}`);
+    const cardConfig = get(card, 'embed.config', {});
+    const cardId = generateCardId(card, index);
+    const normalizedFields = getNormalizedCardFields(cardConfig, index);
     return {
         ...card,
         embed: {
-            ...card.embed,
+            ...(card.embed || {}),
             config: {
-                ...get(card, 'embed.config', {}),
-                numero: get(card, 'embed.config.numero', index + 1),
+                ...cardConfig,
+                ...normalizedFields,
                 cardId
             }
         }
@@ -28,32 +29,35 @@ const createCardWithDefaults = (card, index) => {
 function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
     if (!cards.length) return null;
 
+    const gridCardSmall = cx(
+        gridColumns === 4 && 'grid-col-3_min1023',
+        gridColumns === 3 && 'grid-col-4_min1023'
+    );
+
     return (
         <div
-            className="linked-summary-cards-grid-container"
-            style={{ margin: '2rem 0' }}
+            data-testid="cards-grid"
+            className="grid grid-cols-8 grid-cols-12_m mt-80 mb-40 row-gap-16 row-gap-24_m mb-120_m gap-32_lg w-968_lg mr-auto_lg ml-auto_lg"
         >
-            <div
-                className="cards-grid"
-                style={{
-                    display: 'grid',
-                    gap: '1.25rem',
-                    marginBottom: '2.5rem',
-                    gridTemplateColumns: `repeat(${gridColumns}, 1fr)`
-                }}
-            >
-                {cards.map((card, index) => (
+            {cards.map((card, index) => {
+                const normalizedCard = createCardWithDefaults(card, index);
+                const cardId = get(
+                    normalizedCard,
+                    'embed.config.cardId',
+                    `card-${index + 1}`
+                );
+
+                return (
                     <LinkedSummaryCardSmall
-                        key={get(
-                            card,
-                            'embed.config.cardId',
-                            `card-${index + 1}`
-                        )}
-                        data={createCardWithDefaults(card, index)}
-                        onCardClick={scrollToCard}
+                        key={cardId}
+                        data={normalizedCard}
+                        data-testid="card-small"
+                        onCardClick={() => scrollToCard(cardId)}
+                        variant="collapsed"
+                        className={gridCardSmall}
                     />
-                ))}
-            </div>
+                );
+            })}
         </div>
     );
 }
@@ -64,14 +68,15 @@ LinkedSummaryCardsGrid.propTypes = {
         PropTypes.shape({
             embed: PropTypes.shape({
                 config: PropTypes.shape({
-                    numero: PropTypes.oneOfType([
+                    cardNumber: PropTypes.oneOfType([
                         PropTypes.string,
                         PropTypes.number
                     ]),
-                    titulo: PropTypes.string,
-                    texto: PropTypes.string,
-                    botonTexto: PropTypes.string,
-                    cardId: PropTypes.string
+                    title: PropTypes.string,
+                    description: PropTypes.string,
+                    buttonText: PropTypes.string,
+                    cardId: PropTypes.string,
+                    cardColor: PropTypes.string
                 })
             })
         })

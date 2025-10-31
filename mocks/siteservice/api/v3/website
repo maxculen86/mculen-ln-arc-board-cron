@@ -5,11 +5,6 @@
         "is_default_website": true
     },
     {
-        "_id": "ott",
-        "display_name": "OTT",
-        "is_default_website": false
-    },
-    {
         "_id": "club-la-nacion",
         "display_name": "Club LA NACION",
         "is_default_website": false

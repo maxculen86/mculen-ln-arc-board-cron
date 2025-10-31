@@ -485,7 +485,8 @@ describe('Carousel Chain test', () => {
                 customFields: {
                     title: 'Carrusel',
                     link: 'https://www.lanacion.com.ar/lifestyle/',
-                    enabledDays: ['lunes', 'martes']
+                    enabledDays: ['lunes', 'martes'],
+                    shouldSchedule: true
                 }
             };
             const carousel = new CarouselChain(carouselProps);
@@ -495,7 +496,6 @@ describe('Carousel Chain test', () => {
         });
 
         it('Should render null when enableDays lenght is 0', () => {
-            // isTodayEnabled.(false);
             const carouselProps = {
                 id,
                 renderables: [
@@ -534,6 +534,7 @@ describe('Carousel Chain test', () => {
                 customFields: {
                     title: 'Carrusel',
                     link: 'https://www.lanacion.com.ar/lifestyle/',
+                    shouldSchedule: true,
                     enabledDays: []
                 }
             };

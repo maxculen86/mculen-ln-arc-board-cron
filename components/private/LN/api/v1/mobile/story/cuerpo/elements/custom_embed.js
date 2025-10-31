@@ -1,4 +1,6 @@
+import buildEmbedCll from '../../../../../../../common/utils/embedCllHelper';
 import get from '../../../../../../../common/utils/get';
+import html from '../../../../../common/elements/story/cuerpo/elements/htmlContent';
 import header from './header';
 import image from './image';
 import videoJW from './videoJW';
@@ -14,6 +16,7 @@ const getTime = time => {
     return null;
 };
 
+// eslint-disable-next-line no-unused-vars
 const customEmbed = (nodo, dataNota) => {
     if (
         !nodo ||
@@ -21,7 +24,9 @@ const customEmbed = (nodo, dataNota) => {
             'custom-parallax',
             'custom-liveblog',
             'custom-video-jw',
-            'video_jw'
+            'video_jw',
+            'custom-how-to',
+            'canchallena'
         ].includes(nodo.subtype)
     )
         return null;
@@ -34,18 +39,37 @@ const customEmbed = (nodo, dataNota) => {
         return res;
     }
 
-    const titleElement = get(nodo, 'embed.config.title', null);
-    const time = getTime(get(nodo, 'embed.config.time', null));
+    if (nodo.subtype === 'canchallena') {
+        const id = get(nodo, '_id');
+        const content = buildEmbedCll(nodo);
+        if (content) return html({ _id: id, content, type: 'raw_html' });
 
-    if (titleElement) {
+        return null;
+    }
+
+    const time = getTime(get(nodo, 'embed.config.time', null));
+    const title = get(nodo, 'embed.config.title', '') ?? '';
+    const step = get(nodo, 'embed.config.step', '') ?? '';
+
+    if (nodo.subtype === 'custom-how-to') {
+        const objTitle = {
+            _t: 'header',
+            level: 1,
+            value: `${step} - ${title}`
+        };
+        res.push(objTitle);
+        return res;
+    }
+
+    if (title) {
         const objTitle = {
             type: 'header',
-            content: titleElement
+            content: title
         };
         if (nodo.subtype === 'custom-liveblog') {
             objTitle.level = 1;
             if (time) {
-                objTitle.content = time.concat(' '.concat(titleElement));
+                objTitle.content = time.concat(' '.concat(title));
             }
         } else {
             objTitle.level = 2;

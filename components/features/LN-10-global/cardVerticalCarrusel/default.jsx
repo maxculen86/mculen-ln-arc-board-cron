@@ -1,20 +1,18 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
-import { Cardv2 } from '@ln/contenidos-ui-cardv2';
-import { Icon } from '@ln/common-ui-icon';
-import { Badge } from '@ln/contenidos-ui-badge';
 import { cx } from '@ln/cva';
 import Video from './video';
-import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { secondsToMinutes } from './helpers';
 import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import { registeredIdsSetAndInteractions } from '../../../chains/LN10_Caja_Carrusel/components/helpers';
 import isSSR from '../../../private/LN/common/utils/isSSR';
+import CardVertical from '../../ui-ln/card/default';
+import Icon from '../../ui-ln/icon/default';
 
-function CardVertical({
+function CardVerticalContainer({
     title = '',
     src = '',
     badgeText = '',
@@ -80,48 +78,53 @@ function CardVertical({
     );
 
     return (
-        <div ref={containerCardRef}>
-            <Cardv2
+        <div ref={containerCardRef} data-tw>
+            <CardVertical
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleClickCard}
-                variant="vertical"
                 className={_className}
                 {...viewabilityData}
             >
-                <Cardv2.Media>
+                <CardVertical.Media className="w-full h-full">
                     <Video
                         src={src}
                         poster={poster}
                         isPlaying={isPlaying}
                         setIsPlaying={setIsPlaying}
                     />
-                </Cardv2.Media>
-                <Cardv2.Description style={{ gap: '12px' }}>
+                </CardVertical.Media>
+                <CardVertical.Description
+                    className="w-full"
+                    style={{ gap: '12px' }}
+                >
                     {badgeText && (
-                        <Badge type="negative" className="mb-4">
+                        <span className="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white">
                             {badgeText}
-                        </Badge>
+                        </span>
                     )}
-                    <Cardv2.Title title={title} />
-
+                    <CardVertical.Title title={title} />
                     {Boolean(duration) && (
-                        <div className="flex ai-center gap-8 text-14 text-neutral-light-100">
-                            <Icon size={20}>
-                                <IconSprite name="mediaPlay" />
-                            </Icon>
+                        <div className="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100">
+                            <div className="h-20 w-20 flex ai-center jc-center">
+                                <Icon
+                                    name="mediaPlay"
+                                    size={20}
+                                    className="custom-class"
+                                />
+                            </div>
                             <time className="pr-8">
                                 {secondsToMinutes(duration)}
                             </time>
                         </div>
                     )}
-                </Cardv2.Description>
-            </Cardv2>
+                </CardVertical.Description>
+            </CardVertical>
         </div>
     );
 }
 
-CardVertical.propTypes = {
+CardVerticalContainer.propTypes = {
     title: PropTypes.string,
     src: PropTypes.string,
     badgeText: PropTypes.string,
@@ -133,7 +136,7 @@ CardVertical.propTypes = {
     titleJwPlayer: PropTypes.string.isRequired
 };
 
-CardVertical.defaultProps = {
+CardVerticalContainer.defaultProps = {
     title: '',
     src: '',
     badgeText: '',
@@ -142,4 +145,4 @@ CardVertical.defaultProps = {
     layoutType: ''
 };
 
-export default CardVertical;
+export default CardVerticalContainer;

@@ -84,7 +84,7 @@ function BodyPost({
                         </Button>
                     </Tooltip>
                 </PostHeader>
-                <div className="px-16 pb-32 px-40_m pb-40_m">
+                <div className="body-post px-16 pb-32 px-40_m pb-40_m">
                     {children}
                     {isExpandable && (
                         <PostExpandable {...postExpandableProps} />

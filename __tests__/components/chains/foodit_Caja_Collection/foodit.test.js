@@ -13,6 +13,11 @@ window.IntersectionObserver = jest.fn(() => ({
     unobserve
 }));
 
+jest.mock('@ln/utils', () => ({
+    ...jest.requireActual('@ln/utils'),
+    getTypeOfDevicev2: jest.fn()
+}));
+
 jest.mock('fusion:consumer', Component => {
     return function (Component) {
         return props => <Component {...props} />;

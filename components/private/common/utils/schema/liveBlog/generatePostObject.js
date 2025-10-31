@@ -70,6 +70,26 @@ const calculateDateModified = (
 const getSocialMediaDescription = socialMediaName =>
     `Publicación de ${socialMediaName} incluida como parte de la cobertura en vivo.`;
 
+export const buildPostAuthor = post => {
+    const rawAuthors = get(post, 'embed.config.authors', []);
+
+    if (!Array.isArray(rawAuthors) || rawAuthors.length === 0) {
+        return [
+            {
+                '@type': 'Person',
+                name: 'Redacción LA NACION'
+            }
+        ];
+    }
+
+    return rawAuthors
+        .filter(author => author && author.name)
+        .map(author => ({
+            '@type': 'Person',
+            name: author.name
+        }));
+};
+
 export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     const {
         content_elements: contentElements,
@@ -78,10 +98,16 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
 
     const { authors } = extracDataFromCredits(by);
 
+    const authorsDefault = {
+        '@type': 'PERSON',
+        name: authors.join(',')
+    };
+
     const postingStart = contentElements.findIndex(elem =>
         isCustomLiveblog(elem)
     );
 
+    let authorsName = authorsDefault;
     let post = {};
     let description = [];
     let postTitle = '';
@@ -98,6 +124,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                 postTitle = get(elem, 'embed.config.title', '').trim();
                 currentPostHasBodyText = false;
                 currentPostSocialName = null;
+                authorsName = buildPostAuthor(elem);
             }
 
             if (type === 'oembed_response') {
@@ -135,7 +162,8 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                 post = {
                     ...post,
                     content: finalContent,
-                    title: postTitle
+                    title: postTitle,
+                    author: authorsName
                 };
                 acc.push(post);
             }
@@ -144,15 +172,38 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
         }, []);
 
     return postElements.map((elem, i) => {
-        const { config = {}, content = '', url = '', title = '' } = elem;
+        const {
+            config = {},
+            content = '',
+            url = '',
+            title = '',
+            author
+        } = elem;
         const { date = '', time = '' } = config;
         const dateObject = convertArgentinaTimeToGMT(date, time);
+        const embedAuthors = Array.isArray(config.authors)
+            ? config.authors
+            : [];
+        const singleAuthor = embedAuthors.length === 1 ? embedAuthors[0] : null;
+        const rawSingleAuthorName = get(singleAuthor, 'name', '');
+        const singleAuthorName =
+            typeof rawSingleAuthorName === 'string'
+                ? rawSingleAuthorName.trim()
+                : '';
+        const defaultHeadline = get(
+            globalContent,
+            'headlines.basic',
+            'LA NACION - Noticia'
+        );
+        const postHeadline =
+            title ||
+            (singleAuthorName
+                ? `Opinión en vivo de ${singleAuthorName}`
+                : defaultHeadline);
 
         return {
             '@type': 'BlogPosting',
-            headline:
-                title ||
-                get(globalContent, 'headlines.basic', 'LA NACION - Noticia'),
+            headline: postHeadline,
             url: `${urlNota.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },
@@ -163,10 +214,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                 '@type': 'ImageObject',
                 url: url || PLACEHOLDER
             },
-            author: {
-                '@type': 'PERSON',
-                name: authors.join(',')
-            },
+            author,
             publisher: {
                 name: 'LA NACION',
                 '@type': 'Organization'

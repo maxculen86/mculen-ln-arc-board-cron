@@ -10,7 +10,6 @@ import ChefsPageView from '../../features/foodit-global/common/dataLayer/chefsPa
 import DataLayerOrigin from '../../features/foodit-global/common/dataLayer/origin';
 
 const config = {
-    OTT: {},
     'la-nacion-ar': {
         'LN-nota-receta': NotaDataLayer,
         'LN-nota-noticia': NotaDataLayer,

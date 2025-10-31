@@ -24,8 +24,6 @@ jest.mock('fusion:environment', () => {
             'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
         PERSONALIZACION_APIV2:
             'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
-        MARFEEL_ACCOUNT_ID: 'test-id',
-        // TODO: limpieza OTT - Borrar en iteración 5 de 5
-        SITE_OTT: 'https://lnmas.lanacion.com.ar'
+        MARFEEL_ACCOUNT_ID: 'test-id'
     };
 });

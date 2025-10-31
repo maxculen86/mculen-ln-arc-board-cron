@@ -63,6 +63,11 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
             disconnect: jest.fn(),
             unobserve: jest.fn()
         }));
+        global.ResizeObserver = jest.fn().mockImplementation(() => ({
+            observe: jest.fn(),
+            unobserve: jest.fn(),
+            disconnect: jest.fn()
+        }));
         global.window.LN = {
             observable: {
                 publish: jest.fn()
@@ -121,8 +126,11 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         expect(screen.getByText(/child 1/i)).toBeInTheDocument();
         expect(useRoofData).toHaveBeenCalledWith({
             roofProp: 'mockRoofProp',
+            enabledDays: [],
             isAdmin: false,
-            isStatic: false
+            isStatic: false,
+            shouldLoadRoof: true,
+            shouldSchedule: false
         });
     });
 

@@ -662,7 +662,11 @@
         "audio_nota": {
             "embed": {
                 "config": {
-                    "audio_status": 6
+                    "audio_status": 6,
+                    "audio_url": "https://d22tbkdovk5ea2.cloudfront.net/audio/projects/38983/podcasts/a98a8780-2cd1-485f-8307-115e2d28acea/versions/1727960832/media/c9bc8f691ed96a56b2a963c48c74157e.mp3",
+                    "audio_summary_url": "https://d22tbkdovk5ea2.cloudfront.net/audio/projects/38983/podcasts/a98a8780-2cd1-485f-8307-115e2d28acea/versions/1727960832/media",
+                    "audio_id": "a98a8780-2cd1-485f-8307-115e2d28acea",
+                    "voice": 1
                 }
             }
         }

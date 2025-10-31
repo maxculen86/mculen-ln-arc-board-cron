@@ -1,0 +1,984 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardCategory snapshots renders snapshot for aprende-en-la-cocina 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-16 gap-24_md gap-32_lg"
+  >
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/tema/tutorial-cocina-salada-yixuf3anyvavjkt5tghbolewzq/?query=recetas&title=Tutorial%20Cocina%20Salada&groups=occasions&itemGroups=Tutorial%20Cocina%20Salada"
+        target="_self"
+        title="Ir a Tutoriales de cocina salada"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Tutoriales de cocina salada"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/tutoriales-salada.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Tutoriales de cocina salada
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/tema/tutorial-pasteler%C3%ADa-qat7qtvzy5dmzd6opl4ap2d2se/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa"
+        target="_self"
+        title="Ir a Tutoriales de pastelería"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Tutoriales de pastelería"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/tutoriales-pasteleria.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Tutoriales de pastelería
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/masterclass/"
+        target="_self"
+        title="Ir a Masterclass de chef"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Masterclass de chef"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/masterclass.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Masterclass de chef
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/guia-de-cocina/"
+        target="_self"
+        title="Ir a Guías de cocina"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Guías de cocina"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/guias.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Guías de cocina
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-8 col-span-6_md border-light-200 p-12 col-span-4_lg min-h-120"
+      data-container="double"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex h-100 w-100 jc-center jc-start_lg"
+        data-variant="primary"
+        href="/chefs/"
+        target="_self"
+        title="Ir a Recomendaciones del chef"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Recomendaciones del chef"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/recomendaciones-chef.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="pl-4 text-start"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Recomendaciones del chef
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/trucos/"
+        target="_self"
+        title="Ir a Trucos y secretos"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Trucos y secretos"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/trucos-y-secretos.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Trucos y secretos
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/protocolo/"
+        target="_self"
+        title="Ir a Protocolo en la mesa"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Protocolo en la mesa"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/protocolo.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Protocolo en la mesa
+          </span>
+        </div>
+      </a>
+    </article>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CardCategory snapshots renders snapshot for cocina-a-tu-medida 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32"
+  >
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/menu-semanal/"
+        target="_self"
+        title="Ir a Menú semanal"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Menú semanal"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/menu-semanal.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Menú semanal
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/ingredientes/"
+        target="_self"
+        title="Ir a Ingredientes de cocina"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Ingredientes de cocina"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/ingredientes-cocina.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Ingredientes de cocina
+          </span>
+        </div>
+      </a>
+    </article>
+  </div>
+  <div>
+    <p
+      class="prumo prumo-semibold text-20 pb-24"
+    >
+      Tipos de alimentación
+    </p>
+    <div
+      class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-16 gap-24_md gap-32_lg"
+    >
+      <article
+        class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+        data-container="media"
+        data-testid="category"
+      >
+        <a
+          class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+          data-variant="primary"
+          href="/recetas/dietas/vegetariana/"
+          target="_self"
+          title="Ir a Vegetariana"
+        >
+          <div
+            class="w-100 max-w-96"
+          >
+            <div
+              class="foodit-placeholder w-100 ratio-3-2"
+            >
+              <img
+                alt="Imagen de Vegetariana"
+                class="image flex w-100 ratio-3-2 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="/deployed/pf/resources/foodit/assets/images/subcategories/vegetariana.webp"
+              />
+            </div>
+          </div>
+          <div
+            class="-mt-4 pl-4_lg text-start_lg text-center"
+          >
+            <span
+              class="text roboto roboto-bold text-16"
+            >
+              Vegetariana
+            </span>
+          </div>
+        </a>
+      </article>
+      <article
+        class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+        data-container="media"
+        data-testid="category"
+      >
+        <a
+          class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+          data-variant="primary"
+          href="/recetas/dietas/sin-gluten/"
+          target="_self"
+          title="Ir a Sin gluten"
+        >
+          <div
+            class="w-100 max-w-96"
+          >
+            <div
+              class="foodit-placeholder w-100 ratio-3-2"
+            >
+              <img
+                alt="Imagen de Sin gluten"
+                class="image flex w-100 ratio-3-2 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="/deployed/pf/resources/foodit/assets/images/subcategories/sin-gluten.webp"
+              />
+            </div>
+          </div>
+          <div
+            class="-mt-4 pl-4_lg text-start_lg text-center"
+          >
+            <span
+              class="text roboto roboto-bold text-16"
+            >
+              Sin gluten
+            </span>
+          </div>
+        </a>
+      </article>
+      <article
+        class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+        data-container="media"
+        data-testid="category"
+      >
+        <a
+          class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+          data-variant="primary"
+          href="/recetas/dietas/keto/"
+          target="_self"
+          title="Ir a Keto"
+        >
+          <div
+            class="w-100 max-w-96"
+          >
+            <div
+              class="foodit-placeholder w-100 ratio-3-2"
+            >
+              <img
+                alt="Imagen de Keto"
+                class="image flex w-100 ratio-3-2 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="/deployed/pf/resources/foodit/assets/images/subcategories/keto.webp"
+              />
+            </div>
+          </div>
+          <div
+            class="-mt-4 pl-4_lg text-start_lg text-center"
+          >
+            <span
+              class="text roboto roboto-bold text-16"
+            >
+              Keto
+            </span>
+          </div>
+        </a>
+      </article>
+      <article
+        class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+        data-container="media"
+        data-testid="category"
+      >
+        <a
+          class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+          data-variant="primary"
+          href="/recetas/dietas/sin-lactosa/"
+          target="_self"
+          title="Ir a Sin lactosa"
+        >
+          <div
+            class="w-100 max-w-96"
+          >
+            <div
+              class="foodit-placeholder w-100 ratio-3-2"
+            >
+              <img
+                alt="Imagen de Sin lactosa"
+                class="image flex w-100 ratio-3-2 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="/deployed/pf/resources/foodit/assets/images/subcategories/sin-lactosa.webp"
+              />
+            </div>
+          </div>
+          <div
+            class="-mt-4 pl-4_lg text-start_lg text-center"
+          >
+            <span
+              class="text roboto roboto-bold text-16"
+            >
+              Sin lactosa
+            </span>
+          </div>
+        </a>
+      </article>
+      <article
+        class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+        data-container="media"
+        data-testid="category"
+      >
+        <a
+          class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+          data-variant="primary"
+          href="/recetas/dietas/vegana/"
+          target="_self"
+          title="Ir a Vegana"
+        >
+          <div
+            class="w-100 max-w-96"
+          >
+            <div
+              class="foodit-placeholder w-100 ratio-3-2"
+            >
+              <img
+                alt="Imagen de Vegana"
+                class="image flex w-100 ratio-3-2 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="/deployed/pf/resources/foodit/assets/images/subcategories/vegana.webp"
+              />
+            </div>
+          </div>
+          <div
+            class="-mt-4 pl-4_lg text-start_lg text-center"
+          >
+            <span
+              class="text roboto roboto-bold text-16"
+            >
+              Vegana
+            </span>
+          </div>
+        </a>
+      </article>
+      <article
+        class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+        data-container="media"
+        data-testid="category"
+      >
+        <a
+          class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+          data-variant="primary"
+          href="/recetas/que-cocinar-hoy/saludable/"
+          target="_self"
+          title="Ir a Saludable"
+        >
+          <div
+            class="w-100 max-w-96"
+          >
+            <div
+              class="foodit-placeholder w-100 ratio-3-2"
+            >
+              <img
+                alt="Imagen de Saludable"
+                class="image flex w-100 ratio-3-2 --cover"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="/deployed/pf/resources/foodit/assets/images/subcategories/saludable.webp"
+              />
+            </div>
+          </div>
+          <div
+            class="-mt-4 pl-4_lg text-start_lg text-center"
+          >
+            <span
+              class="text roboto roboto-bold text-16"
+            >
+              Saludable
+            </span>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CardCategory snapshots renders snapshot for cocina-facil 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-16 gap-24_md gap-32_lg"
+  >
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-8 col-span-6_md border-light-200 p-12 col-span-4_lg min-h-120"
+      data-container="double"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex h-100 w-100 jc-center jc-start_lg"
+        data-variant="primary"
+        href="/recetas/que-cocinar-hoy/meal-prep/"
+        target="_self"
+        title="Ir a Meal prep"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Meal prep"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/mealprep.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="pl-4 text-start"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Mealprep
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-113 min-h-120_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/recetas/que-cocinar-hoy/facil/"
+        target="_self"
+        title="Ir a Recetas fáciles"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Recetas fáciles"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/recetas-faciles.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Recetas fáciles
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-113 min-h-120_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/recetas/que-cocinar-hoy/rapida/"
+        target="_self"
+        title="Ir a Recetas rápidas"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Recetas rápidas"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/recetas-rapidas.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Recetas rápidas
+          </span>
+        </div>
+      </a>
+    </article>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CardCategory snapshots renders snapshot for receta 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-16 gap-24_md gap-32_lg"
+  >
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/recetas/saladas/"
+        target="_self"
+        title="Ir a Saladas"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Saladas"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/saladas.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Saladas
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/recetas/dulces/"
+        target="_self"
+        title="Ir a Dulces"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Dulces"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/dulces.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Dulces
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/recetas/que-cocinar-hoy/de-autor/"
+        target="_self"
+        title="Ir a De autor"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de De autor"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/autor.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            De autor
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/recetas/bebidas/"
+        target="_self"
+        title="Ir a Bebidas"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Bebidas"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/bebidas.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Bebidas
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/tendencias/"
+        target="_self"
+        title="Ir a Tendencias en la cocina"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Tendencias en la cocina"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/tendencias-cocina.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Tendencias en la cocina
+          </span>
+        </div>
+      </a>
+    </article>
+    <article
+      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200 p-12 col-span-4_lg min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
+      data-container="media"
+      data-testid="category"
+    >
+      <a
+        class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
+        data-variant="primary"
+        href="/chefs-protagonistas/"
+        target="_self"
+        title="Ir a Chefs protagonistas"
+      >
+        <div
+          class="w-100 max-w-96"
+        >
+          <div
+            class="foodit-placeholder w-100 ratio-3-2"
+          >
+            <img
+              alt="Imagen de Chefs protagonistas"
+              class="image flex w-100 ratio-3-2 --cover"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="/deployed/pf/resources/foodit/assets/images/subcategories/chefs-protagonistas.webp"
+            />
+          </div>
+        </div>
+        <div
+          class="-mt-4 pl-4_lg text-start_lg text-center"
+        >
+          <span
+            class="text roboto roboto-bold text-16"
+          >
+            Chefs protagonistas
+          </span>
+        </div>
+      </a>
+    </article>
+  </div>
+</DocumentFragment>
+`;

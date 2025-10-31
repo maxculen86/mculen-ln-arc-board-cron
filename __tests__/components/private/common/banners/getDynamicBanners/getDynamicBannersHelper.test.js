@@ -5,11 +5,13 @@ import {
     hasBomba,
     validateBanner,
     getSectionId,
-    filterChildrenWithNoRoof
+    filterChildrenWithNoRoof,
+    matchesEnabledDay
 } from '../../../../../../components/private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import getRenderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
 import { getViewport } from '../../../../../../components/private/LN/common/utils/homeHelper';
 import getChildrenFromSectionHome from '../../../../../../components/private/LN/common/utils/cajaTemasHelperLN10-WebApi';
+import { isTodayEnabled } from '../../../../../../components/chains/LN10_Caja_Segmentada/_helpers';
 
 jest.mock(
     '../../../../../../components/private/LN/common/utils/homeHelper',
@@ -18,6 +20,13 @@ jest.mock(
             '../../../../../../components/private/LN/common/utils/homeHelper'
         ),
         getViewport: jest.fn()
+    })
+);
+
+jest.mock(
+    '../../../../../../components/chains/LN10_Caja_Segmentada/_helpers',
+    () => ({
+        isTodayEnabled: jest.fn()
     })
 );
 
@@ -345,6 +354,144 @@ describe('Components - private - common - banners - dynamicBanners - getDynamicB
                     )
                 )
             ).toStrictEqual(elementWithoutHideTitle);
+        });
+
+        it('should ignore LN10_Caja_Segmentada on desktop even if hideTitle is false', () => {
+            getViewport.mockReturnValueOnce({ device: 'desktop' });
+
+            const sectionChildren = [
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Segmentada',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: true } }
+                }
+            ];
+
+            const result = filterChildrenWithNoRoof(sectionChildren);
+
+            expect(result).toHaveLength(1);
+            expect(result[0].type).toBe('LN10_Caja_Manual');
+            expect(result[0].props.customFields.hideTitle).toBe(false);
+        });
+
+        it('should ignore LN10_Caja_Segmentada and LN10_Caja_Carrusel on desktop and mantain only visible and not excluded roofs', () => {
+            getViewport.mockReturnValueOnce({ device: 'desktop' });
+
+            const sectionChildren = [
+                {
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    type: 'LN10_Caja_Segmentada',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    type: 'LN10_Caja_Carrusel',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: true } }
+                }
+            ];
+
+            const result = filterChildrenWithNoRoof(sectionChildren);
+
+            expect(result).toHaveLength(2);
+            expect(result.map(children => children.type)).toEqual([
+                'LN10_Caja_Manual',
+                'LN10_Caja_Manual'
+            ]);
+        });
+    });
+
+    describe('Function matchesEnabledDay', () => {
+        beforeEach(() => jest.clearAllMocks());
+
+        it('should return true when scheduling disabled (ignores days)', () => {
+            const child = {
+                props: {
+                    customFields: {
+                        shouldSchedule: false,
+                        enabledDays: ['lunes']
+                    }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
+        });
+
+        it('should return true when scheduling enabled and today is allowed', () => {
+            isTodayEnabled.mockReturnValue(true);
+            const child = {
+                props: {
+                    customFields: {
+                        shouldSchedule: true,
+                        enabledDays: ['sabado', 'domingo']
+                    }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).toHaveBeenCalledWith(['sabado', 'domingo']);
+        });
+
+        it('should return false when scheduling enabled and today is NOT allowed', () => {
+            isTodayEnabled.mockReturnValue(false);
+            const child = {
+                props: {
+                    customFields: {
+                        shouldSchedule: true,
+                        enabledDays: ['lunes']
+                    }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(false);
+            expect(isTodayEnabled).toHaveBeenCalledWith(['lunes']);
+        });
+
+        it('should return false when scheduling enabled but enabledDays is empty', () => {
+            const child = {
+                props: {
+                    customFields: { shouldSchedule: true, enabledDays: [] }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(false);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
+        });
+
+        it('should return true when scheduling disabled and enabledDays is empty', () => {
+            const child = {
+                props: {
+                    customFields: { shouldSchedule: false, enabledDays: [] }
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
+        });
+
+        it('should return true when scheduling disabled and enabledDays is undefined', () => {
+            const child = {
+                props: {
+                    customFields: {}
+                }
+            };
+            expect(matchesEnabledDay(child)).toBe(true);
+            expect(isTodayEnabled).not.toHaveBeenCalled();
         });
     });
 });
