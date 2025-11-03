@@ -83,7 +83,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
         <div>
           <div>
             <span
-              class="text roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+              class="text roboto-bold text-14 uppercase bg-positive p-8 -mt-8 block rounded-top-right-4 rounded-bottom-right-4"
             >
               Recetas
             </span>
@@ -913,7 +913,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
         <div>
           <div>
             <span
-              class="text roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+              class="text roboto-bold text-14 uppercase bg-positive p-8 -mt-8 block rounded-top-right-4 rounded-bottom-right-4"
             >
               Descubrir
             </span>

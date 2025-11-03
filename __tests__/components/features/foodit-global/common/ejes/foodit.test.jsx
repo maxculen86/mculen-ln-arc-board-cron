@@ -24,7 +24,7 @@ describe('EjesHome integrated', () => {
             '/aprende-en-la-cocina/',
             '/cocina-facil-y-rapido/',
             '/cocina-a-tu-medida/',
-            '/subcategoria-receta/'
+            '/recetas/'
         ]);
     });
 
@@ -53,7 +53,7 @@ describe('EjesHome integrated', () => {
             {
                 cardTitle: 'Todas las recetas',
                 expectedLabel: 'recetas',
-                expectedHref: '/subcategoria-receta/'
+                expectedHref: '/recetas/'
             }
         ];
 

@@ -40,11 +40,22 @@ beforeEach(() => {
         subscribe: jest.fn(),
         unsubscribe: jest.fn()
     };
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation(query => ({
+            matches: false,
+            media: query,
+            onchange: null,
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn()
+        }))
+    });
 });
 
 describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit', () => {
     // meter en carpeta de mocks lo de aca arriba y las variantes de los emptyState
-    test('Should render empty state without shoppingList', () => {
+    it('Should render empty state without shoppingList', () => {
         useShoppingList.mockImplementation(() => ({
             loading: false,
             setShoppingList: () => null,
@@ -56,7 +67,7 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
         expect(getByText('Exclusivo para suscriptores')).toBeInTheDocument();
     });
 
-    test('Should render shoppingList', () => {
+    it('Should render shoppingList', () => {
         useShoppingList.mockImplementation(() => ({
             loading: false,
             setShoppingList: () => null,
@@ -69,7 +80,7 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
         ).toBe(1);
     });
 
-    test('Should render selected list title', () => {
+    it('Should render selected list title', () => {
         useShoppingList.mockImplementation(() => ({
             loading: false,
             setShoppingList: () => null,

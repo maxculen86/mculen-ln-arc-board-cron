@@ -5,7 +5,9 @@ import { useDrawer } from '@ln/common-ui-drawer';
 import RenderUserOptions from '../../../../../../../components/features/foodit-global/common/Header/components/rightOptions/RenderUserOptions';
 import useGetUserData from '../../../../../../../components/private/common/auth/hooks/useGetUserData';
 
-jest.mock('../../../../../../../components/private/common/auth/hooks/useGetUserData');
+jest.mock(
+    '../../../../../../../components/private/common/auth/hooks/useGetUserData'
+);
 
 jest.mock('@ln/common-ui-drawer', () => ({
     useDrawer: jest.fn()
@@ -26,6 +28,20 @@ describe('Components - features - foodit-global - common - header - components -
     };
 
     useDrawer.mockReturnValue({ toggleDrawer: jest.fn() });
+
+    beforeEach(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn()
+            }))
+        });
+    });
 
     it('when the user is "unlogged" it should not render any menu options', () => {
         useGetUserData.mockReturnValue({

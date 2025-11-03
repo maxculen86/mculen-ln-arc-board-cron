@@ -8,128 +8,30 @@ jest.mock('fusion:environment', () => {
 });
 
 describe('transformMenuData function', () => {
-    test('returns default data when children is an empty array', () => {
+    it('returns default data when children is an empty array', () => {
         const result = transformMenuData({});
         expect(result).toEqual([
-            { title: 'Recetas', data: [] },
-            {
-                title: 'Descubrir',
-                data: [
-                    {
-                        items: [
-                            {
-                                text: 'Chefs protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
-                            }
-                        ]
-                    }
-                ]
-            },
             {
                 href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
                 title: 'Conocenos'
             }
         ]);
     });
 
-    test('transforms categories with children', () => {
+    it('transforms categories with children', () => {
         const input = {
             children: [
                 {
                     _id: '/recetas',
                     name: 'Recetas',
-                    children: [
-                        { _id: '/recetas/dulces', name: 'Dulces', children: [] }
-                    ]
-                }
-            ]
-        };
-
-        const result = transformMenuData(input);
-        expect(result).toEqual([
-            {
-                title: 'Recetas',
-                data: [
-                    {
-                        title: {
-                            text: 'Dulces',
-                            href: 'https://foodit.lanacion.com.ar/recetas/dulces/',
-                            icon: <mock-icon name="ice-cream" />
-                        },
-                        items: []
-                    }
-                ]
-            },
-            {
-                title: 'Descubrir',
-                data: [
-                    {
-                        items: [
-                            {
-                                text: 'Chefs protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                href: 'https://conocenos.foodit.com.ar/',
-                title: 'Conocenos'
-            }
-        ]);
-    });
-
-    test('adds item to Descubrir when listDescubrir includes _id', () => {
-        const input = {
-            children: [
-                { _id: '/restaurantes', name: 'Restaurantes', children: [] }
-            ]
-        };
-
-        const result = transformMenuData(input);
-        expect(result).toEqual([
-            { title: 'Recetas', data: [] },
-            {
-                title: 'Descubrir',
-                data: [
-                    {
-                        items: [
-                            {
-                                text: 'Chefs protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
-                            },
-                            {
-                                text: 'Restaurantes',
-                                href: 'https://foodit.lanacion.com.ar/restaurantes/'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                href: 'https://conocenos.foodit.com.ar/',
-                title: 'Conocenos'
-            }
-        ]);
-    });
-
-    test('should construct the three level URLs correctly.', () => {
-        const input = {
-            children: [
-                {
-                    _id: '/recetas',
-                    name: 'Recetas',
+                    navigation: {},
                     children: [
                         {
-                            _id: '/recetas/saladas',
-                            name: 'Saladas',
-                            children: [
-                                {
-                                    _id: '/recetas/saladas/arroz',
-                                    name: 'Arroz'
-                                }
-                            ]
+                            _id: '/recetas/dulces',
+                            name: 'Dulces',
+                            navigation: {},
+                            children: []
                         }
                     ]
                 }
@@ -142,28 +44,11 @@ describe('transformMenuData function', () => {
                 title: 'Recetas',
                 data: [
                     {
-                        title: {
-                            text: 'Saladas',
-                            icon: <mock-icon name="salty" />,
-                            href: 'https://foodit.lanacion.com.ar/recetas/saladas/'
-                        },
                         items: [
                             {
-                                href: 'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
-                                text: 'Arroz'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                title: 'Descubrir',
-                data: [
-                    {
-                        items: [
-                            {
-                                text: 'Chefs protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                text: 'Dulces',
+                                href: 'https://foodit.lanacion.com.ar/recetas/dulces/',
+                                menuType: 'primary'
                             }
                         ]
                     }
@@ -171,37 +56,25 @@ describe('transformMenuData function', () => {
             },
             {
                 href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
                 title: 'Conocenos'
             }
         ]);
     });
 
-    test('should construct the three level URLs correctly. And exclude subcategories (dietas, que cocinar hoy)', () => {
+    it('uses nav_title when available', () => {
         const input = {
             children: [
                 {
-                    _id: '/recetas',
-                    name: 'Recetas',
+                    _id: '/aprende-en-la-cocina',
+                    name: 'Aprende en la cocina',
+                    navigation: { nav_title: 'Aprendé' },
                     children: [
                         {
-                            _id: '/recetas/dietas',
-                            name: 'Excluir esto',
-                            children: [
-                                {
-                                    _id: '/recetas/saladas/arroz',
-                                    name: 'Arroz'
-                                }
-                            ]
-                        },
-                        {
-                            _id: '/recetas/que-cocinar-hoy',
-                            name: 'Excluir esto tambien',
-                            children: [
-                                {
-                                    _id: '/recetas/saladas/pastas',
-                                    name: 'Pastas'
-                                }
-                            ]
+                            _id: '/masterclass',
+                            name: 'Masterclass de chef',
+                            navigation: { nav_title: 'Masterclass' },
+                            children: []
                         }
                     ]
                 }
@@ -211,44 +84,14 @@ describe('transformMenuData function', () => {
         const result = transformMenuData(input);
         expect(result).toEqual([
             {
-                title: 'Recetas',
-                data: [
-                    {
-                        title: {
-                            text: 'Excluir esto',
-                            icon: <mock-icon name="diet" />,
-                            href: null
-                        },
-                        items: [
-                            {
-                                href: 'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
-                                text: 'Arroz'
-                            }
-                        ]
-                    },
-                    {
-                        title: {
-                            text: 'Excluir esto tambien',
-                            icon: <mock-icon name="resto" />,
-                            href: null
-                        },
-                        items: [
-                            {
-                                href: 'https://foodit.lanacion.com.ar/recetas/saladas/pastas/',
-                                text: 'Pastas'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                title: 'Descubrir',
+                title: 'Aprendé',
                 data: [
                     {
                         items: [
                             {
-                                text: 'Chefs protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                text: 'Masterclass',
+                                href: 'https://foodit.lanacion.com.ar/masterclass/',
+                                menuType: 'primary'
                             }
                         ]
                     }
@@ -256,17 +99,111 @@ describe('transformMenuData function', () => {
             },
             {
                 href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
                 title: 'Conocenos'
             }
         ]);
     });
 
-    test('should create the url independently of sections that do not have subsections (children)', () => {
+    it('uses full name on mobile', () => {
+        const input = {
+            children: [
+                {
+                    _id: '/aprende-en-la-cocina',
+                    name: 'Aprende en la cocina',
+                    navigation: { nav_title: 'Aprendé' },
+                    children: [
+                        {
+                            _id: '/masterclass',
+                            name: 'Masterclass de chef',
+                            navigation: { nav_title: 'Masterclass' },
+                            children: []
+                        }
+                    ]
+                }
+            ],
+            isMobile: true
+        };
+
+        const result = transformMenuData(input);
+        expect(result).toEqual([
+            {
+                title: 'Aprende en la cocina',
+                data: [
+                    {
+                        items: [
+                            {
+                                text: 'Masterclass',
+                                href: 'https://foodit.lanacion.com.ar/masterclass/',
+                                menuType: 'primary'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
+                title: 'Conocenos'
+            },
+            {
+                href: 'https://foodit.lanacion.com.ar/club-la-nacion/',
+                menuType: 'secondary',
+                title: 'CLUB LA NACION'
+            }
+        ]);
+    });
+
+    it('should construct URLs with query params for tutorial pages', () => {
+        const input = {
+            children: [
+                {
+                    _id: '/aprende-en-la-cocina',
+                    name: 'Aprende en la cocina',
+                    navigation: { nav_title: 'Aprendé' },
+                    children: [
+                        {
+                            _id: '/tema/tutorial-cocina-salada-yixuf3anyvavjkt5tghbolewzq',
+                            name: 'Tutoriales de cocina salada',
+                            navigation: {},
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const result = transformMenuData(input);
+        expect(result).toEqual([
+            {
+                title: 'Aprendé',
+                data: [
+                    {
+                        items: [
+                            {
+                                text: 'Tutoriales de cocina salada',
+                                href: 'https://foodit.lanacion.com.ar/tema/tutorial-cocina-salada-yixuf3anyvavjkt5tghbolewzq/?query=recetas&title=Tutoriales+de+cocina+salada&groups=occasions&itemGroups=Tutoriales+de+cocina+salada',
+                                menuType: 'primary'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
+                title: 'Conocenos'
+            }
+        ]);
+    });
+
+    it('should handle categories without children', () => {
         const input = {
             children: [
                 {
                     _id: '/masterclass',
                     name: 'Masterclass',
+                    navigation: {},
                     children: []
                 }
             ]
@@ -275,17 +212,74 @@ describe('transformMenuData function', () => {
         const result = transformMenuData(input);
         expect(result).toEqual([
             {
-                title: 'Recetas',
-                data: []
+                href: 'https://foodit.lanacion.com.ar/masterclass/',
+                title: 'Masterclass'
             },
             {
-                title: 'Descubrir',
+                href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
+                title: 'Conocenos'
+            }
+        ]);
+    });
+
+    it('should handle multiple categories', () => {
+        const input = {
+            children: [
+                {
+                    _id: '/aprende-en-la-cocina',
+                    name: 'Aprende en la cocina',
+                    navigation: { nav_title: 'Aprendé' },
+                    children: [
+                        {
+                            _id: '/trucos',
+                            name: 'Tips y secretos de cocina',
+                            navigation: {},
+                            children: []
+                        }
+                    ]
+                },
+                {
+                    _id: '/cocina-facil-y-rapido',
+                    name: 'Cocina fácil y rápido',
+                    navigation: { nav_title: 'Cociná fácil' },
+                    children: [
+                        {
+                            _id: '/recetas/que-cocinar-hoy/facil',
+                            name: 'Recetas fáciles',
+                            navigation: {},
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const result = transformMenuData(input);
+        expect(result).toEqual([
+            {
+                title: 'Aprendé',
                 data: [
                     {
                         items: [
                             {
-                                text: 'Chefs protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                                text: 'Tips y secretos de cocina',
+                                href: 'https://foodit.lanacion.com.ar/trucos/',
+                                menuType: 'primary'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: 'Cociná fácil',
+                data: [
+                    {
+                        items: [
+                            {
+                                text: 'Recetas fáciles',
+                                href: 'https://foodit.lanacion.com.ar/recetas/que-cocinar-hoy/facil/',
+                                menuType: 'primary'
                             }
                         ]
                     }
@@ -293,11 +287,25 @@ describe('transformMenuData function', () => {
             },
             {
                 href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
+                title: 'Conocenos'
+            }
+        ]);
+    });
+
+    it('should add CLUB LA NACION only on mobile', () => {
+        const result = transformMenuData({ children: [], isMobile: true });
+
+        expect(result).toEqual([
+            {
+                href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary',
                 title: 'Conocenos'
             },
             {
-                href: 'https://foodit.lanacion.com.ar/masterclass/',
-                title: 'Masterclass'
+                href: 'https://foodit.lanacion.com.ar/club-la-nacion/',
+                menuType: 'secondary',
+                title: 'CLUB LA NACION'
             }
         ]);
     });
