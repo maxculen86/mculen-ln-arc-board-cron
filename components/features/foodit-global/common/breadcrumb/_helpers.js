@@ -3,8 +3,8 @@ import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFi
 import get from '../../../../private/common/utils/get';
 import {
     PARENT_CATEGORY_MAPPING,
-    findParentByPattern
-} from './constants/parentCategoryMapping';
+    PARENT_CATEGORY_PATTERNS
+} from '../../../../../__mocks__/data/fooditCategories/parentCategoryMapping.json';
 
 export const formatSectionName = (sectionString = '') => {
     if (sectionString === 'club-la-nacion') return 'Club LA NACION';
@@ -82,6 +82,16 @@ export const setArraySection = (
             disabled: isAcu && index === arraySections.length - 1
         };
     });
+};
+
+export const findParentByPattern = (name = '', title = '') => {
+    const searchText = `${name} ${title}`.toLowerCase();
+
+    const found = Object.entries(PARENT_CATEGORY_PATTERNS).find(([pattern]) =>
+        searchText.includes(pattern)
+    );
+
+    return found ? found[1] : null;
 };
 
 export const getBreadcrumbSections = globalContent => {
