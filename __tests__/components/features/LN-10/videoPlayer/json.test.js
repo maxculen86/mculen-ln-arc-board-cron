@@ -76,7 +76,7 @@ describe('Video Player Feature test', () => {
                             filesize: 61001753,
                             framerate: 25
                         }
-                    ],
+                    ]
                 }
             };
 
@@ -91,6 +91,7 @@ describe('Video Player Feature test', () => {
                 badge: 'Chapita',
                 badgeStyle: 'default',
                 id: '000000',
+                type: 'LN-10/videoPlayer'
             });
         });
     });

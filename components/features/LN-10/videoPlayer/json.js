@@ -50,7 +50,8 @@ class VideoPlayerFeature {
             fullVideoUrl,
             fullVideoDuration,
             badge,
-            badgeStyle
+            badgeStyle,
+            type: 'LN-10/videoPlayer'
         };
     }
 }
