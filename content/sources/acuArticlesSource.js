@@ -1,10 +1,10 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import transform from './utils/acuArticlesSource/transform';
 import logger from '../../components/private/common/utils/logger';
 import filter from '../filters/LN/acumulado/articleAcu';
 import stringFallback from '../../components/private/common/utils/stringFallback';
 import { SUSCRIPTOR_SECTION } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const resolve = key => {
     const {
@@ -190,30 +190,36 @@ const resolve = key => {
     &sort=display_date:desc`;
 };
 
-const fetch = (query, { cachedCall } = {}) => {
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
+const fetch = async (query, { cachedCall } = {}) => {
+    const opt = { method: 'GET' };
+
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
+        opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
     }
-    return request(opt)
-        .then(response => transform(response, query, cachedCall))
-        .catch(error => {
+
+    const resolveData = async () => {
+        try {
+            const response = await global.fetch(
+                `${CONTENT_BASE}${resolve(query)}`,
+                opt
+            );
+            handleHttpError(response);
+            const data = await response.json();
+            return transform(data, query, cachedCall);
+        } catch (error) {
             // eslint-disable-next-line no-console
             console.warn(
-                `content/acuArticlesSource Error: ${JSON.stringify(
-                    query
-                )} - errorMsj:${error.message}`
+                `content/acuArticlesSource Error: ${JSON.stringify(query)} - errorMsj:${error.message}`
             );
             logger.push(error, {
                 source: 'content/sources/acuArticlesSource',
                 query
             });
-        });
+            return {};
+        }
+    };
+
+    return resolveData();
 };
 
 export default {

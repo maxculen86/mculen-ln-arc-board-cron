@@ -1,9 +1,7 @@
-import request from 'request-promise-native';
 import acuArticlesSource from '../../../content/sources/acuArticlesSource';
 import logger from '../../../components/private/common/utils/logger';
 import transform from '../../../content/sources/utils/acuArticlesSource/transform';
 
-jest.mock('request-promise-native');
 jest.mock('../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
     return { push };
@@ -14,6 +12,14 @@ const loggerPush = jest.spyOn(logger, 'push');
 
 beforeEach(() => {
     jest.clearAllMocks();
+
+    global.fetch = jest.fn(() => {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: () => Promise.resolve({ data: [] })
+        });
+    });
 });
 
 describe('Content Sources - Acu Articles Source', () => {
@@ -31,12 +37,17 @@ describe('Content Sources - Acu Articles Source', () => {
         const mockApiResponse = { data: [] };
         const mockTransformedResponse = { data: [] };
 
-        request.mockResolvedValueOnce(mockApiResponse);
+        global.fetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+            json: () => Promise.resolve(mockApiResponse)
+        });
+
         transform.mockReturnValueOnce(mockTransformedResponse);
 
         const response = await fetch(query, { cachedCall: mockCachedCall });
 
-        expect(request).toBeCalledTimes(1);
+        expect(global.fetch).toBeCalledTimes(1);
         expect(transform).toBeCalledWith(
             mockApiResponse,
             query,
@@ -49,7 +60,7 @@ describe('Content Sources - Acu Articles Source', () => {
         const mockCachedCall = jest.fn();
         const mockError = new Error('Mocked Error');
 
-        request.mockRejectedValueOnce(mockError);
+        global.fetch.mockRejectedValueOnce(mockError);
 
         await fetch(query, { cachedCall: mockCachedCall });
 
@@ -72,14 +83,19 @@ describe('Content Sources - Acu Articles Source', () => {
         const mockApiResponse = { data: [] };
         const mockTransformedResponse = { data: [] };
 
-        request.mockResolvedValueOnce(mockApiResponse);
+        global.fetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+            json: () => Promise.resolve(mockApiResponse)
+        });
+
         transform.mockReturnValueOnce(mockTransformedResponse);
 
         const response = await fetch(partialQuery, {
             cachedCall: mockCachedCall
         });
 
-        expect(request).toBeCalledTimes(1);
+        expect(global.fetch).toBeCalledTimes(1);
         expect(transform).toBeCalledWith(
             mockApiResponse,
             partialQuery,
