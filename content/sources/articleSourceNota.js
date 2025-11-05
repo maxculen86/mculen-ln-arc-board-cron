@@ -15,6 +15,7 @@ import {
     getIncludedFields,
     transformSubtype
 } from './utils/articleSourceNota/_helper';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const fetch = (query, { cachedCall } = {}) => {
     const queryAux = query;
@@ -42,7 +43,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 `${CONTENT_BASE}${getUrlQuery(queryAux)}`,
                 opt
             );
-
+            handleHttpError(response);
             const data = await response.json();
 
             const externalApiRedirectUrl = setRedirect({
