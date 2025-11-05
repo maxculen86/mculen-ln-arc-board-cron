@@ -35,38 +35,39 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
         expect(searchComponent).toBeInTheDocument();
     });
 
-    it('should render only excluded categories in the secondary menu section', () => {
-        const secondaryMenuContainer = document.querySelector(
-            '.mt-auto.sticky.bottom-0'
-        );
-
-        expect(secondaryMenuContainer).toBeInTheDocument();
-
-        const titlesToExclude = [
-            'Conocenos',
-            'Guías de cocina',
-            'Masterclass de chefs'
+    it('renders "Conocenos" first and then "CLUB LA NACION" in the secondary menu', () => {
+        const categories = [
+            { title: 'Recetas', data: [], menuType: 'primary' },
+            {
+                title: 'Conocenos',
+                href: 'https://conocenos.foodit.com.ar/',
+                menuType: 'secondary'
+            },
+            {
+                title: 'CLUB LA NACION',
+                href: 'https://sandbox-foodit.lanacion.com.ar/club-la-nacion/',
+                menuType: 'secondary'
+            }
         ];
 
-        const renderedTitles = Array.from(
-            secondaryMenuContainer.querySelectorAll(
-                '[data-test-id^="header-menu-"]'
-            )
-        ).map(node =>
-            node.getAttribute('data-test-id').replace('header-menu-', '')
+        const { container } = render(<DrawerMenu categories={categories} />);
+
+        const secondary = container.querySelector('.mt-auto.sticky.bottom-0');
+        expect(secondary).toBeInTheDocument();
+
+        const wrappers = Array.from(secondary.children).filter(el =>
+            (el.getAttribute('data-test-id') || '').startsWith('header-menu-')
         );
 
-        renderedTitles.forEach(title => {
-            expect(titlesToExclude).toContain(title);
-        });
+        const rendered = wrappers.map(el =>
+            el
+                .getAttribute('data-test-id')
+                .replace('header-menu-', '')
+                .toLowerCase()
+        );
 
-        titlesToExclude.forEach(title => {
-            if (menuCategories.some(c => c.title === title)) {
-                expect(renderedTitles).toContain(title);
-            }
-        });
+        expect(rendered).toEqual(['conocenos', 'club_la_nacion']);
     });
-
     it('should match snapshot', () => {
         const { container } = render(
             <DrawerMenu categories={menuCategories} />

@@ -20,6 +20,21 @@ describe('Components - Features - foodit-global - common - Header - components -
         userName: 'Hola',
         userLastName: 'Mundo'
     };
+
+    beforeEach(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn()
+            }))
+        });
+    });
+
     it('renders correctly for user type "unlogged"', () => {
         useGetUserData.mockReturnValue({
             userType: 'unlogged',

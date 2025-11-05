@@ -23,6 +23,20 @@ jest.mock('fusion:context', () => ({
 import ActionsButtons from '../../../../../../components/features/foodit-global/common/ActionsButtons/foodit';
 
 describe('ActionsButtons component', () => {
+    beforeEach(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn()
+            }))
+        });
+    });
+
     it('should renders share button when enabled', () => {
         render(
             <ActionsButtons
