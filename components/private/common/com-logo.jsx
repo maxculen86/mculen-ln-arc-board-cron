@@ -18,6 +18,7 @@ function ComLogo(props) {
         width,
         height,
         classCondition,
+        classnames,
         href,
         title,
         alt,
@@ -27,7 +28,13 @@ function ComLogo(props) {
     } = props;
 
     const { contextPath, deployment } = useAppContext();
-    const classes = cx(classCondition, 'com-logo', logoName, size);
+    const classes = cx(
+        classCondition,
+        'com-logo',
+        logoName,
+        size,
+        classnames?.logo
+    );
 
     if (!logoName) return null;
 
@@ -52,7 +59,10 @@ function ComLogo(props) {
             title={title}
             rel={rel}
             target={target}
-            classCondition="--logo container-center-100"
+            classCondition={cx(
+                '--logo container-center-100 block',
+                classnames?.link
+            )}
         >
             {Logo}
         </ComLink>
@@ -67,6 +77,10 @@ ComLogo.propTypes = {
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     classCondition: PropTypes.string,
+    classnames: PropTypes.shape({
+        link: PropTypes.string,
+        logo: PropTypes.string
+    }),
     href: PropTypes.string,
     title: PropTypes.string,
     alt: PropTypes.string,
@@ -81,6 +95,7 @@ ComLogo.defaultProps = {
     width: 'inherit',
     height: 'inherit',
     classCondition: '',
+    classnames: '',
     href: '',
     title: '',
     alt: '',

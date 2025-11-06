@@ -7,13 +7,13 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
       class="content-media cursor-pointer container-center-100"
     >
       <section
-        class="mod-media ratio-16-9"
+        class="relative pb-32 ratio-16-9"
       >
         <figure
           class="mod-video"
         >
           <div
-            class="video-player bg-black ratio-16-9"
+            class="video-player bg-black ratio-16-9 w-320"
           >
             <div
               class="content-facade-jw relative bg-black ratio-16-9"

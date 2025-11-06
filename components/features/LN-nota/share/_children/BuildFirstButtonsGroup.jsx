@@ -22,11 +22,6 @@ import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEv
 import { getClassAndIconByClick, handleOpenIAFeature } from './helper';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
-import {
-    CARDS,
-    LIVEBLOG_EDITORIAL,
-    VIDEO
-} from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 function BuildFirtsButtonsGroup({
     termicaBookmark,
@@ -34,9 +29,9 @@ function BuildFirtsButtonsGroup({
     setBookmark,
     suscription,
     bookmark = '',
-    subtypeVideo,
+    isNegative,
     openBarrier,
-    subtype = ''
+    isHorizontal
 } = {}) {
     const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
 
@@ -78,10 +73,7 @@ function BuildFirtsButtonsGroup({
     const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
     const { iaLogo, iaButtonClass } = getClassAndIconByClick(iaButtonIsClicked);
 
-    const subtypesWithHorizontalShare = [VIDEO, LIVEBLOG_EDITORIAL, CARDS];
-    const isCustomLayout = subtypesWithHorizontalShare.includes(subtype);
-
-    const classes = getFirstGroupClassNames({ isCustomLayout });
+    const classes = getFirstGroupClassNames({ isCustomLayout: isHorizontal });
 
     const defaultTab =
         summary && isThermalSummaryEnabled ? 'resumen_nota' : 'glosario';
@@ -153,7 +145,7 @@ function BuildFirtsButtonsGroup({
                     iconOnly
                     title="Guardar nota"
                     className={bookmarkClassCondition}
-                    isNegative={subtypeVideo}
+                    isNegative={isNegative}
                 >
                     <Icon size={24} color="inherit">
                         {bookmarkIcon}
@@ -177,7 +169,7 @@ function BuildFirtsButtonsGroup({
                     variant="secondary"
                     title="Ir a los comentarios de la nota"
                     className={classes.commentsClasses}
-                    isNegative={subtypeVideo}
+                    isNegative={isNegative}
                     size="inherit"
                 >
                     <Icon size={24} color="inherit">
@@ -193,7 +185,6 @@ function BuildFirtsButtonsGroup({
 BuildFirtsButtonsGroup.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
-        subtype: PropTypes.string,
         first_publish_date: PropTypes.string,
         headlines: PropTypes.shape({
             basic: PropTypes.string,
@@ -213,9 +204,9 @@ BuildFirtsButtonsGroup.propTypes = {
     }).isRequired,
     suscription: PropTypes.bool.isRequired,
     termicaBookmark: PropTypes.bool.isRequired,
-    subtypeVideo: PropTypes.string.isRequired,
+    isNegative: PropTypes.bool.isRequired,
     openBarrier: PropTypes.func.isRequired,
-    subtype: PropTypes.string.isRequired
+    isHorizontal: PropTypes.bool.isRequired
 };
 
 export default BuildFirtsButtonsGroup;

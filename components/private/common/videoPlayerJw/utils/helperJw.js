@@ -1,3 +1,4 @@
+import { cx } from '@ln/cva';
 import {
     isInDatalayerEvent,
     addVideoDisplayEvent,
@@ -12,29 +13,36 @@ import {
 import transformISODate from '../../utils/transformISODate';
 import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
 
-export const configClassName = {
-    'la-nacion-ar': {
-        horizontal: {
-            container: 'content-media cursor-pointer container-center-100',
-            mediaContainer: 'mod-media ratio-16-9',
-            videoContainer: 'mod-video',
-            videoPlayer: 'video-player bg-black ratio-16-9',
-            facade: 'com-image',
-            facadeContainer: 'ratio-16-9',
-            captionClasses: 'px-0_l mb-8'
-        },
-        vertical: {
-            container: 'content-media cursor-pointer',
-            mediaContainer: 'mod-media w-100',
-            videoContainer: 'mod-video flex flex-column ai-center bg-black',
-            videoPlayer:
-                'video-player w-320 h-640 w-100 ratio-9-16 flex jc-center ai-center',
-            facade: 'com-image',
-            facadeContainer: 'w-320 ratio-9-16',
-            captionClasses: 'w-100'
-        }
-    }
-};
+export const getConfigClassName = (variant, isNotaVideo, isOpening) => ({
+    container: cx([
+        'content-media',
+        'cursor-pointer',
+        variant === 'horizontal' && 'container-center-100'
+    ]),
+    mediaContainer: cx([
+        'relative',
+        !isNotaVideo && 'pb-32',
+        variant === 'horizontal' ? 'ratio-16-9' : 'w-100'
+    ]),
+    videoContainer: cx([
+        'mod-video',
+        variant === 'vertical' && 'flex flex-column ai-center bg-black'
+    ]),
+    videoPlayer: cx([
+        'video-player',
+        variant === 'horizontal' && 'bg-black ratio-16-9',
+        variant === 'vertical' &&
+            'w-100 ratio-9-16 flex jc-center ai-center h-640',
+        isOpening
+            ? isNotaVideo && variant === 'vertical' && 'h-478_md h-652_lg'
+            : 'w-320'
+    ]),
+    facade: 'com-image',
+    facadeContainer: cx([
+        variant === 'horizontal' ? 'ratio-16-9' : 'w-320 ratio-9-16'
+    ]),
+    captionClasses: cx([variant === 'horizontal' ? 'px-0_l mb-8' : 'w-100'])
+});
 
 export function transformImages(data, subtype = '') {
     return data
@@ -166,7 +174,13 @@ export const handleVideoEventsScript = (
 };
 
 export const getVerticalPlayer = playerId => {
-    const idsPlayersVertical = ['hOz6uuUy', 'HbGKzdo0', '9gbjbJp8', 'tMVdYMxO'];
+    const idsPlayersVertical = [
+        'hOz6uuUy',
+        'HbGKzdo0',
+        '9gbjbJp8',
+        'tMVdYMxO',
+        'ih0086X3'
+    ];
     return idsPlayersVertical.includes(playerId);
 };
 

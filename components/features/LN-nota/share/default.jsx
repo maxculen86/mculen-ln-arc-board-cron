@@ -7,7 +7,6 @@ import { cx } from '@ln/cva';
 import config from '../../../../properties/sites/la-nacion-ar';
 import useTermica from '../../../private/common/hooks/useTermica';
 import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBookmark';
-import { getClassCondition } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
 import {
@@ -25,6 +24,10 @@ import {
     shareContainerVariant,
     hasSticky
 } from './_children/helper';
+import {
+    VIDEO,
+    VIDEO_VERTICAL
+} from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function Share() {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -42,7 +45,7 @@ function Share() {
     const isHorizontal = subtypesWithHorizontalShare.includes(subtype);
     const layout = layoutBySubtype[subtype];
 
-    const subtypeVideo = getClassCondition(subtype);
+    const isNegative = subtype === VIDEO || subtype === VIDEO_VERTICAL;
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
 
     const checkBookmarkId = useCheckBookmark(
@@ -72,9 +75,9 @@ function Share() {
     });
 
     const modShareContainerClass = cx(
-        'mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l',
+        'mod-share-container',
         '--no-app',
-        subtypeVideo,
+        layout === 'videoVertical' ? 'pb-16 pb-0_m' : 'py-12 mb-16 mb-0_l',
         modShareContainerSubClasses
     );
 
@@ -87,6 +90,27 @@ function Share() {
         isHorizontal && 'vertical border border-neutral-light-100'
     );
 
+    const firstGroupProps = {
+        bookmark,
+        setBookmark,
+        termicaBookmark,
+        globalContent,
+        suscription,
+        isNegative,
+        subtype,
+        openBarrier,
+        isHorizontal
+    };
+
+    const secondGroupProps = {
+        requestUri,
+        host: config.host,
+        title,
+        mobileTitle,
+        isNegative,
+        articleId: id,
+        isHorizontal
+    };
     return (
         <div className={modShareContainerClass}>
             <Dialog
@@ -108,30 +132,11 @@ function Share() {
             </Dialog>
             <div className="mod-share flex mb-0 p-0_l" ref={shareContainer}>
                 <div id="v-share" className={shareClasses} ref={share}>
-                    <BuildFirstButtonsGroup
-                        bookmark={bookmark}
-                        setBookmark={setBookmark}
-                        termicaBookmark={termicaBookmark}
-                        globalContent={globalContent}
-                        suscription={suscription}
-                        subtypeVideo={subtypeVideo}
-                        subtype={subtype}
-                        openBarrier={openBarrier}
-                        isHorizontal={isHorizontal}
-                    />
+                    <BuildFirstButtonsGroup {...firstGroupProps} />
 
                     <hr className={hrVideoClasses} />
 
-                    <BuildSecondButtonsGroup
-                        requestUri={requestUri}
-                        host={config.host}
-                        title={title}
-                        mobileTitle={mobileTitle}
-                        subtypeVideo={subtypeVideo}
-                        articleId={id}
-                        subtype={subtype}
-                        isHorizontal={isHorizontal}
-                    />
+                    <BuildSecondButtonsGroup {...secondGroupProps} />
                 </div>
             </div>
         </div>

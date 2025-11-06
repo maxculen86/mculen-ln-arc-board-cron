@@ -7,7 +7,8 @@ import {
     FOTOAL100,
     LIVEBLOG_EDITORIAL,
     VIDEO,
-    CARDS
+    CARDS,
+    VIDEO_VERTICAL
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
@@ -61,13 +62,23 @@ export const shareContainerVariant = cva('', {
             true: 'sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024'
         },
         subtype: {
-            video: '-order-1 ratio-auto order-initial_min1024',
             fotoAl100:
                 'float-l_l transition transition-all transition-duration-250',
             liveblogEditorial: 'border-transparent py-24_m',
             cards: 'border-transparent mt-8'
         }
     },
+    compoundVariants: [
+        {
+            subtype: ['video', 'videoVertical'],
+            className: 'ratio-auto order-initial_min1024'
+        },
+        {
+            subtype: ['fotoAl100', 'liveblogEditorial', 'cards'],
+            className:
+                'border border-bottom border-thin border-neutral-light-100 border-0_l'
+        }
+    ],
     defaultVariants: {
         sticky: true,
         subtype: ''
@@ -78,10 +89,16 @@ export const layoutBySubtype = {
     [FOTOAL100]: 'fotoAl100',
     [VIDEO]: 'video',
     [LIVEBLOG_EDITORIAL]: 'liveblogEditorial',
-    [CARDS]: 'cards'
+    [CARDS]: 'cards',
+    [VIDEO_VERTICAL]: 'videoVertical'
 };
 
-export const subtypesWithHorizontalShare = [VIDEO, LIVEBLOG_EDITORIAL, CARDS];
+export const subtypesWithHorizontalShare = [
+    VIDEO,
+    LIVEBLOG_EDITORIAL,
+    CARDS,
+    VIDEO_VERTICAL
+];
 
 export const subtypesWithoutSticky = [
     VIDEO,

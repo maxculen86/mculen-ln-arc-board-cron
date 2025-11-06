@@ -7,7 +7,8 @@ import { place } from '../../../private/common/utils/firmaHelper';
 import { getAuthorData } from './signatureHelper';
 import {
     VIDEO,
-    LIVEBLOG_EDITORIAL
+    LIVEBLOG_EDITORIAL,
+    VIDEO_VERTICAL
 } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureWithAuthors({
@@ -36,7 +37,13 @@ function SignatureWithAuthors({
     ) : null;
     const prefix = position === place.Bottom || hasMultipleAuthors;
 
-    const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO];
+    const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO, VIDEO_VERTICAL];
+    const subtypesWithoutMB = [VIDEO_VERTICAL];
+
+    const shouldHaveMB =
+        position === place.Top &&
+        !withAuthorRole &&
+        !subtypesWithoutMB.includes(subtype);
 
     const isNegativeSubtype =
         negativeSubtypes.includes(subtype) && position === place.Top;
@@ -44,7 +51,7 @@ function SignatureWithAuthors({
     const wrapperClasses = cx(
         'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start',
         {
-            'mb-16': position === place.Top && !withAuthorRole,
+            'mb-16': shouldHaveMB,
             'mb-32': !isNotaFooter && position === place.Bottom
         }
     );
