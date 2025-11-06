@@ -1,6 +1,7 @@
+import 'node-fetch';
 import 'regenerator-runtime/runtime';
-import page from '../../../../../content/sources/utils/pageSource/index';
 import pageHomeMain from '../../../../../__mocks__/data/pages/preLayout/LN-Home_Main.json';
+import page from '../../../../../content/sources/utils/pageSource/index';
 
 const mockResponse = Promise.resolve(pageHomeMain);
 jest.mock('fusion:environment', () => {
@@ -11,19 +12,12 @@ jest.mock('fusion:environment', () => {
     };
 });
 
-jest.mock('request-promise-native', () => {
-    return {
-        __esModule: true,
-        default: async x => {
-            if (x.uri.includes('Error')) {
-                throw new Error('Error');
-            }
-            if (x.uri.includes('Cookie')) {
-                return mockResponse;
-            }
-            return mockResponse;
-        }
-    };
+global.fetch = jest.fn(() => {
+    return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve(mockResponse)
+    });
 });
 
 jest.mock('../../../../../components/private/common/utils/logger', () => {

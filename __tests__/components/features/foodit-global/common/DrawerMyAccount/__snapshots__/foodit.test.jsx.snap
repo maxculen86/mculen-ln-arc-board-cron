@@ -191,6 +191,34 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
           <li>
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              data-test-id="button-menu-user-club la nacion"
+              role="button"
+              title="Ir a club la nacion"
+            >
+              <i
+                class="icon --icon-20 --inherit"
+              >
+                <mock-icon
+                  name="club-ln"
+                />
+              </i>
+              <span
+                class="text-left flex-grow-1"
+              >
+                club la nacion
+              </span>
+              <i
+                class="icon --icon-16 --inherit"
+              >
+                <mock-icon
+                  name="arrow-right"
+                />
+              </i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
               data-test-id="button-menu-user-¿Cómo podemos ayudarte?"
               role="button"
               title="Ir a ¿Cómo podemos ayudarte?"

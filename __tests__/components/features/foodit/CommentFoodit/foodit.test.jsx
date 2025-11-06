@@ -6,7 +6,7 @@ import useTermica from '../../../../../components/private/common/hooks/useTermic
 import Context from 'fusion:context';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -21,7 +21,7 @@ jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
 );
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -36,6 +36,20 @@ global.IntersectionObserver = jest.fn((callback, options) => {
 });
 
 describe('Components - features - CommentFoodit', () => {
+    beforeEach(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn()
+            }))
+        });
+    });
+
     it('should render CommentFoodit component', () => {
         useTermica.mockImplementation(() => true);
 

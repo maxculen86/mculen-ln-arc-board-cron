@@ -736,4 +736,27 @@ describe('components - private - LN - api - v1 - mobile - home - article - eleme
             });
         });
     });
+
+    it('should prioritise badge from PageBuilder (additionalProperties) over Composer (label.chapita)', () => {
+        const article = {
+            additionalProperties: {
+                diseno: { size: 'XL' },
+                chapitaStyle: 'positive',
+                chapita: 'PageBuilder Text'
+            },
+            label: {
+                chapita: {
+                    text: 'Composer Text'
+                }
+            },
+            informationBox: { sectionAliasMobile: 'some alias mobile' }
+        };
+
+        const fieldsBadge = getBadgebyConfig(article);
+
+        expect(fieldsBadge.chapita).toEqual('PAGEBUILDER TEXT');
+        expect(fieldsBadge.badge).toEqual('PAGEBUILDER TEXT');
+        expect(fieldsBadge.badgeStyle).toEqual('default');
+    });
+
 });

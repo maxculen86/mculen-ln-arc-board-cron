@@ -36,10 +36,29 @@ function BodyCards() {
     if (!cardGroups?.length) return null;
 
     const cardsGrid = cardGroups?.map(createCardWithId);
-    const leadingElements = getContentBeforeMarkers(
+    const rawLeadingElements = getContentBeforeMarkers(
         contentElements,
         'custom-card'
     );
+
+    const processElementsWithImageProps = elements => {
+        if (!elements?.length) return elements;
+
+        const firstElementIndex = 0;
+        const lastElementIndex = elements.length - 1;
+
+        return elements.map((element, index) => {
+            if (element.type !== 'image') return element;
+
+            return {
+                ...element,
+                ...(index === firstElementIndex && { isFirstImage: true }),
+                ...(index === lastElementIndex && { isLastImage: true })
+            };
+        });
+    };
+
+    const leadingElements = processElementsWithImageProps(rawLeadingElements);
 
     useLazyEmbeds({
         contentElements,
@@ -108,7 +127,8 @@ function BodyCards() {
                 )}
             </div>
             <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
-            <div className="grid-row-4 grid-col-1">
+            <span className="block grid-row-4 grid-col-1 h-1 bg-muted w-100 mb-80 grid-col-3-11_m grid-col-5-13_lg" />
+            <div className="grid-row-5 grid-col-1">
                 <div className="grid grid-cols-8 row-gap-80 grid-cols-12_m row-gap-120_m grid-cols-16_lg">
                     {cardsWithBanners}
                 </div>

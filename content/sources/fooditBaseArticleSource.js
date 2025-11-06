@@ -1,4 +1,3 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
@@ -15,36 +14,52 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${getUrlQuery(query)}`,
-        json: true
-    };
-
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
 
     const resolveData = async () => {
-        try {
-            const response = await request(opt);
+        const url = `${CONTENT_BASE}${getUrlQuery(query)}`;
 
-            const newData = await getAllImagesAuth(response, cachedCall);
-            Object.assign(response, newData);
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+
+        if (ARC_ACCESS_TOKEN) {
+            headers.Authorization = `Bearer ${ARC_ACCESS_TOKEN}`;
+        }
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+        try {
+            const response = await global.fetch(url, {
+                method: 'GET',
+                headers,
+                signal: controller.signal
+            });
+
+            if (!response.ok) {
+                throw new Error(
+                    `HTTP error! status: ${response.status} - ${response.statusText}`
+                );
+            }
+
+            const data = await response.json();
+
+            const newData = await getAllImagesAuth(data, cachedCall);
+            Object.assign(data, newData);
 
             // Se aplica este transform para sobrescribir el subtype por un error en composer que devuelve el name del subtype en lugar del value
-            const traslateSubypeResponse = transformSubtype(response);
+
+            const translateSubtypeResponse = transformSubtype(data);
 
             const subtype = getArticleSubtype(
-                get(traslateSubypeResponse, 'subtype', null)
+                get(translateSubtypeResponse, 'subtype', null)
             );
 
             return {
-                ...traslateSubypeResponse,
-                ...addResizedUrls(traslateSubypeResponse, {
+                ...translateSubtypeResponse,
+                ...addResizedUrls(translateSubtypeResponse, {
                     presets: {
-                        ...getImageConfig(traslateSubypeResponse, query)
+                        ...getImageConfig(translateSubtypeResponse, query)
                     },
                     subtype,
                     isInApertura: get(query, 'isInApertura', false),
@@ -53,15 +68,29 @@ const fetch = (query, { cachedCall } = {}) => {
                 })
             };
         } catch (error) {
-            logger.push(
-                error,
-                {
-                    source: 'content/source/articleSource',
-                    url: get(query, 'url', '')
-                },
-                arcSite
-            );
+            if (error.name === 'AbortError') {
+                logger.push(
+                    'Request timed out',
+                    {
+                        source: 'content/source/articleSource',
+                        url: get(query, 'url', '')
+                    },
+                    arcSite
+                );
+            } else {
+                logger.push(
+                    error.message,
+                    {
+                        source: 'content/source/articleSource',
+                        url: get(query, 'url', '')
+                    },
+                    arcSite
+                );
+            }
+
             return {};
+        } finally {
+            clearTimeout(timeoutId);
         }
     };
 

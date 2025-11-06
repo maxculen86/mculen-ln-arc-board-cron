@@ -3,7 +3,7 @@ import { getArticleImage } from '../elements/image/index';
 import { getArticleVideos, getYouTubeVideoLink } from '../elements/video/index';
 import { getArticleTag } from '../elements/tag/index';
 import { CardBasic } from '../cardBasic';
-import { isNoteListenableHome } from '../../../../../../../content/sources/utils/audioNews/helper';
+import { isNoteListenableForApps } from '../../../../../../../content/sources/utils/audioNews/helper';
 
 export const cardRegular = article => {
     const hideDescriptionValue = get(
@@ -21,7 +21,7 @@ export const cardRegular = article => {
         video: getArticleVideos(article),
         videos: getArticleVideos(article, true),
         videoYouTube: getYouTubeVideoLink(article),
-        isListenable: isNoteListenableHome(article)
+        isListenable: isNoteListenableForApps(article)
     };
 };
 

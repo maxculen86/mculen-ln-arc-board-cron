@@ -1,4 +1,5 @@
 import getProperties from 'fusion:properties';
+import { CLL_HTMLTFREE_DOMAIN } from 'fusion:environment';
 import get from '../../../../components/private/common/utils/get';
 import Redirect from '../redirect';
 import validateExclusiveAccess from '../validateExclusiveAccess';
@@ -14,7 +15,9 @@ import { addResizedUrls } from '../../../../components/private/common/utils/imag
 import validateSponsoredLink from '../validateSponsoredLink';
 import isNoteListenable from '../audioNews/helper';
 import {
+    CARDS,
     FOTOAL100,
+    HTMLLIBRECLL,
     isFotoAl100orStorytelling,
     LIVEBLOG_EDITORIAL,
     RECETA,
@@ -90,7 +93,9 @@ export const handleRedirectMobile = (typeResponse, redirectUrl, query) => {
 };
 export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
     const typeResponse = get(response, 'type', '');
+    const subtype = get(response, 'subtype', '');
     const redirectUrl = get(response, 'redirect_url', '');
+    const websiteUrl = get(response, 'website_url');
     const paywallEnabled = get(query, 'paywallEnabled', '');
 
     const isExternalApiRedirect = checkIfExternalRedirect(
@@ -98,6 +103,10 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
         redirectUrl,
         query
     );
+
+    if (subtype === HTMLLIBRECLL && websiteUrl) {
+        throw new Redirect(`${CLL_HTMLTFREE_DOMAIN}${websiteUrl}`, 301);
+    }
     if (isExternalApiRedirect) return redirectUrl;
 
     handleRedirectMobile(typeResponse, redirectUrl, query);
@@ -282,6 +291,13 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
             'imageConfig.resize.fotoAl100.content_elements',
             null
         );
+    const presetsContentElementsCards =
+        (response.subtype === CARDS || response.subtype === 'custom-card') &&
+        get(
+            siteProperties,
+            'imageConfig.resize.cardsRatio3x2.content_elements',
+            null
+        );
     const presetsPromoItemLiveblogEditorial =
         response.subtype === LIVEBLOG_EDITORIAL &&
         get(
@@ -321,6 +337,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
                 presetsDefault,
             contentElements:
                 presetsContentElementsCustom ||
+                presetsContentElementsCards ||
                 presetsContentElementsFotoAl100 ||
                 presetsContentElements ||
                 presetsDefault,

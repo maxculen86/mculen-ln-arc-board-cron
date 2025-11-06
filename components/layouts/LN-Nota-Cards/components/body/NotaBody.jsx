@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function NotaBody({ children }) {
     return (
         <section className="nota-cards__body">
-            <div className="lay">
+            <div className="lay-container">
                 <div className="cuerpo__nota">{children}</div>
             </div>
         </section>

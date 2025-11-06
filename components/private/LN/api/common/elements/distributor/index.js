@@ -2,7 +2,7 @@ import isGuestAuthor from '../../../../../common/utils/isGuestAuthor';
 import formatDistributorName from '../../../../common/utils/formatDistributorName';
 
 const DISTRIBUTOR_LN = 'LA NACION';
-const getDistributor = article => {
+const getDistributor = (article, isHome = true) => {
     if (!article) {
         return undefined;
     }
@@ -12,8 +12,13 @@ const getDistributor = article => {
         return undefined;
     }
 
-    const { name, category, subcategory = undefined } = distributor;
-    if (name === DISTRIBUTOR_LN) {
+    const { name, category, subcategory = undefined, mode } = distributor;
+
+    if (mode && mode === 'custom') {
+        return undefined;
+    }
+
+    if (name === DISTRIBUTOR_LN && mode !== 'custom') {
         return {
             name,
             url: 'https://www.lanacion.com.ar/'
@@ -22,7 +27,7 @@ const getDistributor = article => {
 
     const isGuest = isGuestAuthor(article);
 
-    if (isGuest && category === 'other') {
+    if ((isGuest || !isHome) && category === 'other') {
         return {
             name,
             url: `/distributor/${formatDistributorName(name)}/`,

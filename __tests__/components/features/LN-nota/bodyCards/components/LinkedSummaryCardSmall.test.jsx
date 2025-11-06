@@ -25,9 +25,8 @@ describe('LinkedSummaryCardSmall', () => {
             />
         );
 
-        expect(screen.getByTestId('linked-card')).toHaveStyle(
-            `border-top-color: ${color}`
-        );
+        const cardNumber = screen.getByText('1');
+        expect(cardNumber).toHaveStyle(`color: ${color}`);
     });
 
     it('uses default color when no cardColor is provided', () => {
@@ -38,7 +37,8 @@ describe('LinkedSummaryCardSmall', () => {
             />
         );
         const card = screen.getByTestId('linked-card');
-        expect(card).toHaveStyle('border-top-color: #000000');
+        const coloredElement = card.querySelector('span');
+        expect(coloredElement).toHaveStyle('color: rgb(0, 0, 0)');
     });
 
     it('renders the provided content', () => {

@@ -2,7 +2,7 @@ import get from '../../../../../../common/utils/get';
 import AperturaReceta from './aperturaReceta';
 import {
     authorCommon as Author,
-    distributorOrAuthorSignature,
+    distributorOrAuthorSignature
 } from '../../author';
 import { getFeaturedTag } from '../../tag';
 import { volanta } from '../../label/volanta';
@@ -66,7 +66,7 @@ export const apertura = article => {
 
     const resp = {
         ...storyTitleAndResume(article),
-        distributor: getDistributor(article)
+        distributor: getDistributor(article, false)
     };
 
     if (
@@ -81,7 +81,10 @@ export const apertura = article => {
         const articleAuthors = authorsFixed.map(a => Author(a));
         resp.autores = articleAuthors;
         resp.authors = articleAuthors;
-        resp.marquesina = distributorOrAuthorSignature(resp.distributor, articleAuthors);
+        resp.marquesina = distributorOrAuthorSignature(
+            resp.distributor,
+            articleAuthors
+        );
     }
 
     const tagDestacado = getFeaturedTag(article);

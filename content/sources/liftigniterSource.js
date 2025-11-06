@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import {
     WIDGETS,
     LIFTIGNITER_X_API_KEY,
@@ -384,7 +383,7 @@ const resolveData = async query => {
     };
 
     try {
-        const response = await nodeFetch(queryRequest.uri, {
+        const response = await global.fetch(queryRequest.uri, {
             method: queryRequest.method,
             headers: queryRequest.headers,
             body: queryRequest.body

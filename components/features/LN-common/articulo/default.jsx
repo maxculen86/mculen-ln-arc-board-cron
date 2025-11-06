@@ -44,7 +44,7 @@ function ArticleFeature({
     const checkForId = idValue => idValue && idValue.trim();
 
     const article = useContent({
-        source: checkForId(id) ? 'articleSourceNota' : null,
+        source: checkForId(id) ? 'lnHomeBaseArticleSource' : null,
         query: {
             id: checkForId(id),
             published: true,

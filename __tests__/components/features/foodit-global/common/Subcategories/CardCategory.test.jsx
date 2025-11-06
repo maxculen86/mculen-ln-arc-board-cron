@@ -130,7 +130,7 @@ jest.mock(
                     alt: 'Imagen de Vegetariana'
                 },
                 linkProps: {
-                    href: '/recetas/dietas/vegetariana/',
+                    href: '/recetas/dieta/vegetariana/',
                     title: 'Ir a Vegetariana'
                 },
                 trackingLabel: 'recetas_vegetariana',
@@ -144,7 +144,7 @@ jest.mock(
                     alt: 'Imagen de Sin gluten'
                 },
                 linkProps: {
-                    href: '/recetas/dietas/sin-gluten/',
+                    href: '/recetas/dieta/sin-gluten/',
                     title: 'Ir a Sin gluten'
                 },
                 trackingLabel: 'recetas_sin_gluten',
@@ -155,7 +155,7 @@ jest.mock(
                 title: 'Keto',
                 imageProps: { src: 'keto.webp', alt: 'Imagen de Keto' },
                 linkProps: {
-                    href: '/recetas/dietas/keto/',
+                    href: '/recetas/dieta/keto/',
                     title: 'Ir a Keto'
                 },
                 trackingLabel: 'recetas_keto',
@@ -169,7 +169,7 @@ jest.mock(
                     alt: 'Imagen de Sin lactosa'
                 },
                 linkProps: {
-                    href: '/recetas/dietas/sin-lactosa/',
+                    href: '/recetas/dieta/sin-lactosa/',
                     title: 'Ir a Sin lactosa'
                 },
                 trackingLabel: 'recetas_sin_lactosa',
@@ -183,7 +183,7 @@ jest.mock(
                     alt: 'Imagen de Vegana'
                 },
                 linkProps: {
-                    href: '/recetas/dietas/vegana/',
+                    href: '/recetas/dieta/vegana/',
                     title: 'Ir a Vegana'
                 },
                 trackingLabel: 'recetas_vegana',
@@ -337,7 +337,7 @@ describe('CardCategory snapshots', () => {
                         alt: 'Imagen de Guías de cocina'
                     },
                     linkProps: {
-                        href: '/guia-de-cocina/',
+                        href: '/guias-de-cocina/',
                         title: 'Ir a Guías de cocina'
                     },
                     trackingLabel: 'guias_de_cocina',
@@ -390,7 +390,7 @@ describe('CardCategory snapshots', () => {
         },
         {
             name: 'receta',
-            uri: '/subcategoria-receta/',
+            uri: '/recetas/',
             mockData: [
                 {
                     title: 'Saladas',

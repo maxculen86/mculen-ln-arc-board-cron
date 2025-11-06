@@ -5,12 +5,14 @@ import { Text } from '@ln/contenidos-ui-text';
 
 function LinkedCardButton({ buttonText = 'Ver más', ...rest }) {
     return (
-        <div className="flex h-100 ai-end">
+        <div className="flex h-100 ai-end pt-16">
             <Button
                 size={32}
                 variant="secondary"
                 title={buttonText}
-                className="border-neutral-light-600"
+                style={{
+                    borderColor: 'var(--neutral-light-600)'
+                }}
                 {...rest}
             >
                 <Text className="text-neutral-light-600 uppercase">

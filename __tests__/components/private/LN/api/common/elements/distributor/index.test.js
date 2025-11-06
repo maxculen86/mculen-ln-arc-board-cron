@@ -89,5 +89,69 @@ describe('API elements distributor tests', () => {
 
             expect(distributor).toBeUndefined();
         });
+
+        it('returns undefined if distributor mode is `custom`', () => {
+            const article = {
+                distributor: {
+                    name: 'Distribuidor Custom',
+                    mode: 'custom'
+                },
+                credits: {
+                    by: [
+                        {
+                            type: 'author',
+                            name: 'Guest Author',
+                            additional_properties: {
+                                original: {
+                                    author_type: ''
+                                }
+                            }
+                        }
+                    ]
+                }
+            };
+
+            const distributor = getDistributor(article);
+
+            expect(distributor).toBeUndefined();
+        });
+        it('returns undefined if distributor is LA NACION but mode is `custom`', () => {
+            const article = {
+                distributor: {
+                    name: 'LA NACION',
+                    mode: 'custom'
+                }
+            };
+
+            const distributor = getDistributor(article);
+
+            expect(distributor).toBeUndefined();
+        });
+
+
+        it('returns undefined if category is other and author is not guest and not is for home', () => {
+            const article = {
+                distributor: {
+                    name: 'Test Distributor',
+                    category: 'other'
+                },
+                credits: {
+                    by: [
+                        {
+                            additional_properties: {
+                                original: {
+                                    author_type: 'Estándar'
+                                }
+                            }
+                        }
+                    ]
+                }
+            };
+
+            const distributor = getDistributor(article, false);
+
+            expect(distributor.name).toBe('Test Distributor');
+            expect(distributor.url).toBe('/distributor/test-distributor/');
+        });
     });
 });

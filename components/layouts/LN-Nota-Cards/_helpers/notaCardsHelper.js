@@ -2,9 +2,19 @@ import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import getBajadaOrFirstTextParagraph from '../../../private/common/utils/getBajadaOrFirstTextParagraph';
 import { getSectionLogo } from '../../../private/common/utils/sectionUtils';
 
+export const resolveDualTitles = (workTitle, nativeTitle) => {
+    const cleanNative = nativeTitle?.trim();
+    const cleanWork = workTitle?.trim();
+
+    return {
+        primaryTitle: cleanNative || cleanWork || '',
+        secondaryTitle: cleanNative && cleanWork ? cleanWork : null
+    };
+};
+
 export const getNotaCardsAperturaData = globalContent => {
     const {
-        headlines: { basic: title = '' } = {},
+        headlines: { basic: workTitle = '', native: nativeTitle = '' } = {},
         subheadlines: { basic: subtitle = '' } = {},
         description: { basic: description = '' } = {},
         content_restrictions: { content_code: contentCode = '' } = {},
@@ -36,8 +46,14 @@ export const getNotaCardsAperturaData = globalContent => {
         ) ||
         '';
 
+    const { primaryTitle, secondaryTitle } = resolveDualTitles(
+        workTitle,
+        nativeTitle
+    );
+
     const dataContent = {
-        title,
+        title: primaryTitle,
+        secondaryTitle,
         subtitle,
         description: resolvedDescription,
         label,
