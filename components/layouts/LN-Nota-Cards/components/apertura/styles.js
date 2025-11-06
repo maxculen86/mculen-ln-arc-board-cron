@@ -1,6 +1,6 @@
 import { cva } from '@ln/cva';
 
-export const wrapperVariants = cva('ai-center', {
+export const wrapperVariants = cva('ai-center mb-20', {
     variants: {
         layout: {
             twoLong: 'flex flex-column gap-8 twoLong',

@@ -87,7 +87,7 @@ export const createCardElement = (
     globalContent
 ) => (
     <div
-        className="grid-col-1 grid-col-2-12_m grid-col-3-11_min1023 grid-col-4-10_md grid-col-5-13_lg"
+        className="grid-col-1 grid-col-3-11_m grid-col-4-10_md grid-col-5-13_lg"
         key={cardGroup.id}
     >
         {renderExpandedCard(
