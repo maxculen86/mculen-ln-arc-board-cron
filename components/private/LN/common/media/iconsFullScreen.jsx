@@ -16,7 +16,7 @@ function IconsFullScreen({ zoom, active, itsGallery, isApertura }) {
                     <IconSprite name="close" fill="#fff" />
                 </Icon>
             )}
-            {!isApertura && (
+            {!isApertura && !active && (
                 <Icon
                     size={32}
                     className="icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none"
@@ -33,6 +33,13 @@ IconsFullScreen.propTypes = {
     active: PropTypes.bool,
     itsGallery: PropTypes.bool,
     isApertura: PropTypes.bool
-}.isRequired;
+};
+
+IconsFullScreen.defaultProps = {
+    zoom: false,
+    active: false,
+    itsGallery: false,
+    isApertura: false
+};
 
 export default IconsFullScreen;
