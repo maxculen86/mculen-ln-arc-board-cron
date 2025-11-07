@@ -1,7 +1,10 @@
 import {
     isFotoAl100orStorytelling,
     Subtypes,
-    translateStringFromSubitypeToID
+    translateStringFromSubitypeToID,
+    shouldPreloadForSubtype,
+    CARDS,
+    NOTICIA
 } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
@@ -138,6 +141,28 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
             expect(
                 translateStringFromSubitypeToID(subtypeAgencia)
             ).toStrictEqual(subtypeAgencia);
+        });
+    });
+
+    describe('shouldPreloadForSubtype', () => {
+        it('Should return false when subtype is excluded', () => {
+            expect(shouldPreloadForSubtype(CARDS)).toBe(false);
+        });
+
+        it('Should return true when subtype is not excluded', () => {
+            expect(shouldPreloadForSubtype(NOTICIA)).toBe(true);
+        });
+
+        it('Should return true when subtype is empty', () => {
+            expect(shouldPreloadForSubtype()).toBe(true);
+        });
+
+        it('Should return true when subtype is an empty string', () => {
+            expect(shouldPreloadForSubtype('')).toBe(true);
+        });
+
+        it('Should return true when subtype is null', () => {
+            expect(shouldPreloadForSubtype(null)).toBe(true);
         });
     });
 });
