@@ -1,6 +1,5 @@
 import buildEmbedCll from '../../../../../../../common/utils/embedCllHelper';
 import get from '../../../../../../../common/utils/get';
-import { galleryLayout } from '../../../../../common/constants/galleryLayout';
 import html from '../../../../../common/elements/story/cuerpo/elements/htmlContent';
 import header from './header';
 import image from './image';
@@ -64,14 +63,11 @@ const customEmbed = (nodo, dataNota) => {
     }
 
     if (nodo.subtype === 'gallery-embed') {
-        console.log('Processing gallery-embed node:', nodo);
         const allImages = get(nodo, 'embed.config.galleryImages', []);
         const caption = get(nodo, 'embed.config.caption', '');
-        const diagram = get(nodo, 'embed.config.diagram', '');
+        const count = get(nodo, 'embed.config.count', 0);
 
-        // Cantidad de imágenes según diagramación
-        const limit = galleryLayout[diagram]?.count ?? allImages.length;
-        const selected = allImages.slice(0, limit);
+        const selected = allImages.slice(0, count);
 
         const total = selected.length;
 

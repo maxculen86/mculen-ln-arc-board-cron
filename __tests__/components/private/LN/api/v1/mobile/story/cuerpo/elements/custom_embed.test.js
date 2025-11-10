@@ -1,7 +1,6 @@
 import env from '../../../../../../../../../../__mocks__/fusion:environment';
 import ElementCustomEmbed from '../../../../../../../../../../__mocks__/data/nota/cuerpo/custom_embed/custom_embed.json';
 import CustomEmbed from '../../../../../../../../../../components/private/LN/api/v1/mobile/story/cuerpo/elements/custom_embed';
-import { galleryLayout } from '../../../../../common/constants/galleryLayout';
 
 describe('Test de los elementos parallax en el cuerpo de una nota', () => {
     it('Test de parallax si es null', () => {
@@ -152,7 +151,7 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
             embed: {
                 config: {
                     caption: 'Epígrafe de prueba',
-                    diagram: 'two-side-by-side',
+                    count: 2,
                     galleryImages: [
                         { url: 'https://img.com/1.jpg' },
                         { url: 'https://img.com/2.jpg' },
@@ -161,8 +160,7 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
             }
         };
 
-        test('Debe mapear la cantidad de imágenes según la diagramación', () => {
-            baseNode.embed.config.diagram = 'two-side-by-side';
+        test('Debe mapear la cantidad de imágenes según el count de la diagramacion', () => {
             const result = CustomEmbed(baseNode);
             expect(result.length).toBe(2);
             expect(result[0]).toEqual({ _t: 'image', url: 'https://img.com/1.jpg' },
@@ -170,24 +168,7 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
 
         });
 
-        test('Debe usar todas las imágenes si la diagramación no existe', () => {
-            const nodo = {
-                ...baseNode,
-                embed: {
-                    config: {
-                        ...baseNode.embed.config,
-                        diagram: 'no-existe'
-                    }
-                }
-            };
-
-            const result = CustomEmbed(nodo);
-            expect(result.length).toBe(2);
-        });
-
         test('Debe agregar epígrafe solo a la última imagen', () => {
-            baseNode.embed.config.diagram = 'two-side-by-side';
-
             const result = CustomEmbed(baseNode);
 
             expect(result[0]._t).toBe('image');
@@ -201,7 +182,7 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
                 embed: {
                     config: {
                         caption: 'Epígrafe único',
-                        diagram: 'wide-single',
+                        count: 1,
                         galleryImages: [
                             { url: 'https://img.com/one.jpg' }
                         ]
