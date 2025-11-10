@@ -18,7 +18,7 @@ function BuildSecondButtonsGroup({
     host,
     title: basic,
     mobileTitle,
-    subtypeVideo,
+    isNegative,
     articleId,
     isHorizontal
 } = {}) {
@@ -41,7 +41,7 @@ function BuildSecondButtonsGroup({
                 variant="secondary"
                 className="sm-only"
                 iconOnly
-                isNegative={subtypeVideo}
+                isNegative={isNegative}
                 onClick={() => {
                     shareButton();
                     addEventToDataLayerV2({
@@ -63,7 +63,7 @@ function BuildSecondButtonsGroup({
                 iconOnly
                 size={40}
                 className="sm-only"
-                isNegative={subtypeVideo}
+                isNegative={isNegative}
                 target="_blank"
                 onClick={() => {
                     shareWhatsAppDesktop(requestUri, host);
@@ -114,7 +114,7 @@ function BuildSecondButtonsGroup({
                             }}
                             className={className}
                             iconOnly
-                            isNegative={subtypeVideo}
+                            isNegative={isNegative}
                             size="inherit"
                         >
                             <Icon size={24} color="inherit">
@@ -140,7 +140,7 @@ BuildSecondButtonsGroup.propTypes = {
     host: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     mobileTitle: PropTypes.string.isRequired,
-    subtypeVideo: PropTypes.string.isRequired,
+    isNegative: PropTypes.bool.isRequired,
     articleId: PropTypes.string.isRequired,
     isHorizontal: PropTypes.bool.isRequired
 };
