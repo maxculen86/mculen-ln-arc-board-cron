@@ -1,5 +1,6 @@
 import buildEmbedCll from '../../../../../../../common/utils/embedCllHelper';
 import get from '../../../../../../../common/utils/get';
+import { galleryLayout } from '../../../../../common/constants/galleryLayout';
 import html from '../../../../../common/elements/story/cuerpo/elements/htmlContent';
 import header from './header';
 import image from './image';
@@ -26,7 +27,8 @@ const customEmbed = (nodo, dataNota) => {
             'custom-video-jw',
             'video_jw',
             'custom-how-to',
-            'canchallena'
+            'canchallena',
+            'gallery-embed'
         ].includes(nodo.subtype)
     )
         return null;
@@ -60,6 +62,41 @@ const customEmbed = (nodo, dataNota) => {
         res.push(objTitle);
         return res;
     }
+
+    if (nodo.subtype === 'gallery-embed') {
+        console.log('Processing gallery-embed node:', nodo);
+        const allImages = get(nodo, 'embed.config.galleryImages', []);
+        const caption = get(nodo, 'embed.config.caption', '');
+        const diagram = get(nodo, 'embed.config.diagram', '');
+
+        // Cantidad de imágenes según diagramación
+        const limit = galleryLayout[diagram]?.count ?? allImages.length;
+        const selected = allImages.slice(0, limit);
+
+        const total = selected.length;
+
+        selected.forEach((img, index) => {
+            const mapped = {
+                _t: 'image',
+                url: img.url,
+            };
+
+            if (caption) {
+                if (total === 1) {
+                    mapped.epigraph = caption;
+                }
+                else if (index === total - 1) {
+                    mapped.epigraph = caption;
+                }
+            }
+
+            res.push(mapped);
+        });
+
+        return res;
+    }
+
+
 
     if (title) {
         const objTitle = {

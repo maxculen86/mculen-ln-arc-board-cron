@@ -1,6 +1,7 @@
 import env from '../../../../../../../../../../__mocks__/fusion:environment';
 import ElementCustomEmbed from '../../../../../../../../../../__mocks__/data/nota/cuerpo/custom_embed/custom_embed.json';
 import CustomEmbed from '../../../../../../../../../../components/private/LN/api/v1/mobile/story/cuerpo/elements/custom_embed';
+import { galleryLayout } from '../../../../../common/constants/galleryLayout';
 
 describe('Test de los elementos parallax en el cuerpo de una nota', () => {
     it('Test de parallax si es null', () => {
@@ -142,4 +143,108 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
             expect(resp[0]['value']).toBe(' - ');
         });
     });
+
+
+    describe('customEmbed - gallery-embed', () => {
+
+        const baseNode = {
+            subtype: 'gallery-embed',
+            embed: {
+                config: {
+                    caption: 'Epígrafe de prueba',
+                    diagram: 'two-side-by-side',
+                    galleryImages: [
+                        { url: 'https://img.com/1.jpg' },
+                        { url: 'https://img.com/2.jpg' },
+                    ]
+                }
+            }
+        };
+
+        test('Debe mapear la cantidad de imágenes según la diagramación', () => {
+            baseNode.embed.config.diagram = 'two-side-by-side';
+            const result = CustomEmbed(baseNode);
+            expect(result.length).toBe(2);
+            expect(result[0]).toEqual({ _t: 'image', url: 'https://img.com/1.jpg' },
+                { _t: 'image', url: 'https://img.com/2.jpg', epigraph: 'Epígrafe de prueba' });
+
+        });
+
+        test('Debe usar todas las imágenes si la diagramación no existe', () => {
+            const nodo = {
+                ...baseNode,
+                embed: {
+                    config: {
+                        ...baseNode.embed.config,
+                        diagram: 'no-existe'
+                    }
+                }
+            };
+
+            const result = CustomEmbed(nodo);
+            expect(result.length).toBe(2);
+        });
+
+        test('Debe agregar epígrafe solo a la última imagen', () => {
+            baseNode.embed.config.diagram = 'two-side-by-side';
+
+            const result = CustomEmbed(baseNode);
+
+            expect(result[0]._t).toBe('image');
+            expect(result[0]).not.toHaveProperty('epigraph');
+
+            expect(result[1].epigraph).toBe('Epígrafe de prueba');
+        });
+        test('Si solo hay una imagen, debe agregar epígrafe a esa única imagen', () => {
+            const nodo = {
+                subtype: 'gallery-embed',
+                embed: {
+                    config: {
+                        caption: 'Epígrafe único',
+                        diagram: 'wide-single',
+                        galleryImages: [
+                            { url: 'https://img.com/one.jpg' }
+                        ]
+                    }
+                }
+            };
+
+            const result = CustomEmbed(nodo);
+
+            expect(result.length).toBe(1);
+            expect(result[0]).toEqual({
+                _t: 'image',
+                url: 'https://img.com/one.jpg',
+                epigraph: 'Epígrafe único'
+            });
+        });
+
+
+        test('Si no hay caption no se agrega epigraph', () => {
+            const nodo = {
+                ...baseNode,
+                embed: {
+                    config: {
+                        ...baseNode.embed.config,
+                        caption: '' // sin epigrafe
+                    }
+                }
+            };
+
+            const result = CustomEmbed(nodo);
+
+            expect(result.some(img => img.epigraph)).toBe(false);
+        });
+
+        test('Debe funcionar con lista vacía de imágenes', () => {
+            const nodo = {
+                ...baseNode,
+                embed: { config: { galleryImages: [] } }
+            };
+
+            const result = CustomEmbed(nodo);
+            expect(result).toEqual([]);
+        });
+    });
+
 });
