@@ -17,14 +17,17 @@ function ScrollToTopButton({ onClick }) {
                 <Button
                     title="Subir"
                     variant="secondary"
-                    className="flex flex-column_m p-12 w-100 h-100 bg-light-50"
+                    className="flex p-8 w-100 h-100 bg-light-50 flex-column_m"
                     onClick={onClick}
                     size="inherit"
+                    style={{
+                        gap: '4px'
+                    }}
                 >
                     <Icon size={20} style={{ transform: 'rotate(270deg)' }}>
                         <IconSprite name="arrowRightLine" />
                     </Icon>
-                    <Text className="--mobile-none text-16 uppercase">
+                    <Text className="--mobile-none text-14 uppercase">
                         subir
                     </Text>
                 </Button>

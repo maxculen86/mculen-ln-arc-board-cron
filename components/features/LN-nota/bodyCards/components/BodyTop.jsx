@@ -38,7 +38,7 @@ function BodyTop({ children }) {
             id="body-top-notas-card"
             className="grid grid-row-1 grid-col-1 grid-col-3-11_m grid-col-4-10_md grid-col-5-13_lg"
         >
-            <BreadcrumbArticle className="mb-40 pb-16" />
+            <BreadcrumbArticle className="mb-40" />
             {processChildren}
         </div>
     );

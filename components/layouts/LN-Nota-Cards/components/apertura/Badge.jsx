@@ -28,7 +28,7 @@ function CardsBadge({ badge, badgeText, isSubscriber, logoData }) {
         badgeText && {
             key: 'badgeText',
             component: (
-                <Text font="prumo" className="block uppercase min-w-max">
+                <Text font="prumo" className="flex text-center uppercase">
                     {badgeText}
                 </Text>
             )

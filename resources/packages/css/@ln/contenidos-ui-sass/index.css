@@ -2186,6 +2186,10 @@ strong:not(.--font-primary),
   padding-bottom: 2.5rem;
 }
 
+.pb-52 {
+  padding-bottom: 3.25rem;
+}
+
 .pb-64 {
   padding-bottom: 4rem;
 }
@@ -2439,6 +2443,9 @@ strong:not(.--font-primary),
   }
   .pb-40_m {
     padding-bottom: 2.5rem;
+  }
+  .pb-68_m {
+    padding-bottom: 4.25rem;
   }
   .pl-16_m {
     padding-left: 1rem;
@@ -3051,6 +3058,10 @@ strong:not(.--font-primary),
 
 .w-120.w-120 {
   width: 7.5rem;
+}
+
+.w-122.w-122 {
+  width: 7.625rem;
 }
 
 .w-118.w-118 {
