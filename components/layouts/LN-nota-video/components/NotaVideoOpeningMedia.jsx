@@ -13,7 +13,7 @@ function NotaVideoOpeningMedia({ mediaData, variant }) {
     const mediaItem = getMediaItem({
         mediaData,
         classes: videoClasses,
-        hasAutoplay: 'false',
+        hasAutoplay: 'true',
         isOpening: true
     });
 
