@@ -1,4 +1,17 @@
 import { getPaywallStatus, storyCommon } from '../../../../../../../../components/private/LN/api/common/elements/story/storyCommon';
+
+const baseNota = {
+    _id: 'ABC123',
+    subtype: '1',
+    website_url: '/test',
+    taxonomy: {
+        primary_section: { name: 'Sociedad' }
+    },
+    comments: {},
+    planning: { story_length: { word_count_actual: 200 } }
+};
+
+const cuerpoMock = [{ type: 'text', content: 'hola' }];
 describe('storyCommon', () => {
     it('should return PaywallStatus "comun"', () => {
         const input = { content_restrictions: { content_code: 'comun' } };
@@ -52,5 +65,20 @@ describe('storyCommon', () => {
         const result = storyCommon(input, []);
         expect(result).toHaveProperty('id');
         expect(result).toHaveProperty('template');
+    });
+
+    it('If the note contains a table, send Apps should be false and openingMode NativeBrowser', () => {
+        const notaConTabla = {
+            ...baseNota,
+            content_elements: [
+                { type: 'text', content: 'x' },
+                { type: 'table', header: [], rows: [] }
+            ]
+        };
+
+        const resp = storyCommon(notaConTabla, cuerpoMock);
+
+        expect(resp.enviarApps).toBe(false);
+        expect(resp.openingMode).toBe('NativeBrowser');
     });
 });
