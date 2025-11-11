@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
@@ -12,14 +13,14 @@ import { getBreadcrumbSections } from '../common/breadcrumb/_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const StorytellingSchema = ({ globalContent = {} }) => {
+export function StorytellingSchema({ globalContent = {} }) {
     const { contextPath, deployment } = useAppContext();
     const {
         promo_items = {},
         headlines = {},
-        additional_properties = {},
         subheadlines = {},
-        canonical_url = ''
+        canonical_url = '',
+        publish_date = ''
     } = globalContent;
     const author = getFooditAuthor(globalContent);
 
@@ -42,7 +43,7 @@ export const StorytellingSchema = ({ globalContent = {} }) => {
             '@type': 'ImageObject',
             url: resizedUrl
         },
-        datePublished: get(additional_properties, 'publish_date', ''),
+        datePublished: publish_date?.split('T')[0],
         author: {
             '@type': 'Person',
             name: author || 'Redacción de Foodit'
@@ -66,4 +67,4 @@ export const StorytellingSchema = ({ globalContent = {} }) => {
             <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
         </>
     );
-};
+}
