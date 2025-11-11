@@ -17,7 +17,8 @@ const getStoryElementBySubtype = storyBodyElements => {
         Embed,
         Html,
         Button,
-        CustomEmbed
+        CustomEmbed,
+        Table
     } = storyBodyElements;
 
     return {
@@ -34,7 +35,8 @@ const getStoryElementBySubtype = storyBodyElements => {
             oembed_response: Embed,
             raw_html: Html,
             interstitial_link: Button,
-            custom_embed: CustomEmbed
+            custom_embed: CustomEmbed,
+            table: Table
         },
         7: {
             text: Text,
@@ -49,9 +51,10 @@ const getStoryElementBySubtype = storyBodyElements => {
             oembed_response: Embed,
             raw_html: Html,
             interstitial_link: Button,
-            custom_embed: CustomEmbed
+            custom_embed: CustomEmbed,
+            table: Table
         },
-        8: { text: Text, custom_embed: CustomEmbed, image: Image }
+        8: { text: Text, custom_embed: CustomEmbed, image: Image, table: Table },
     };
 };
 const getElementsUnique = contentElements =>
@@ -125,22 +128,22 @@ const storyBody = (dataNota, storyBodyElements) => {
     }[subtype];
     return templates
         ? {
-              idsElements,
-              elements: templates(
-                  contentElements,
-                  elementBySubtype[subtype],
-                  _id
-              )
-          }
+            idsElements,
+            elements: templates(
+                contentElements,
+                elementBySubtype[subtype],
+                _id
+            )
+        }
         : {
-              idsElements,
-              elements: defaultCuerpo(
-                  contentElements,
-                  elementBySubtype[1],
-                  _id,
-                  dataNota
-              )
-          };
+            idsElements,
+            elements: defaultCuerpo(
+                contentElements,
+                elementBySubtype[1],
+                _id,
+                dataNota
+            )
+        };
 };
 
 export default storyBody;
