@@ -1,6 +1,6 @@
 const table = ({ header = [], rows = [] }) => {
     return {
-        type: 'table',
+        _t: 'table',
         header,
         rows
     };
