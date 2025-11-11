@@ -1515,6 +1515,10 @@ a {
     font-size: 1rem;
     line-height: 150%;
   }
+  .text-20_md {
+    font-size: 1.25rem;
+    line-height: 150%;
+  }
 }
 @media (min-width: 80rem) {
   .text-12_lg {
@@ -1611,6 +1615,11 @@ a {
   }
 }
 @media (min-width: 80rem) {
+  .prumo.text-36_lg {
+    font-size: 2.25rem;
+    line-height: 116%;
+    --prumo-letter-spacing: -0.64px;
+  }
   .prumo.text-28_lg {
     font-size: 1.75rem;
     line-height: 116%;
@@ -2310,6 +2319,9 @@ strong:not(.--font-primary),
   }
 }
 @media (max-width: 47.994rem) {
+  .-ml-16_max767 {
+    margin-left: -1rem;
+  }
   .ml-auto_max767 {
     margin-left: auto;
   }
@@ -2537,8 +2549,14 @@ strong:not(.--font-primary),
   .mt-88_l {
     margin-top: 5.5rem;
   }
+  .ml-20_l {
+    margin-left: 1.25rem;
+  }
   .pl-16_l {
     padding-left: 1rem;
+  }
+  .pl-20_l {
+    padding-left: 1.25rem;
   }
   .pl-24_l {
     padding-left: 1.5rem;
@@ -3114,6 +3132,11 @@ strong:not(.--font-primary),
   }
   .w-160_max512.w-160_max512 {
     width: 10rem;
+  }
+}
+@media (max-width: 47.994rem) {
+  .w-100vw_max767.w-100vw_max767 {
+    width: 100vw;
   }
 }
 @media (min-width: 48rem) {

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { Text } from '@ln/contenidos-ui-text';
+import { cx } from '@ln/cva';
 import SimpleDate from '../../../features/LN-nota/simpleDate/default';
 import { descriptionVariants } from './styles';
 import Share from '../../../features/LN-nota/share/default';
@@ -98,12 +99,24 @@ function NotaVideoOpeningDescription({
                 <Text
                     as="h1"
                     font="prumo"
-                    className="prumo prumo-extra prumo-slab text-28 text-32_md text-40_xl"
+                    className={cx([
+                        'prumo prumo-extra prumo-slab',
+                        'text-32_md',
+                        variant === 'vertical'
+                            ? 'text-28 text-40_xl'
+                            : 'text-24 text-36_lg text-light-0'
+                    ])}
                 >
                     {`${titleProps.prefixText}${titleProps.content}`}
                 </Text>
             </div>
-            <Text as="h2" className="text-18">
+            <Text
+                as="h2"
+                className={cx([
+                    'text-18',
+                    variant === 'horizontal' && 'text-20_md'
+                ])}
+            >
                 {subtitleText}
             </Text>
             {badgeForSubscribers && (
