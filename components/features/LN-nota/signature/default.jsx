@@ -84,7 +84,7 @@ function SignatureFeature(props) {
     const subtypesWithoutMB = [VIDEO_VERTICAL];
 
     const shouldHaveMB =
-        position === place.Bottom && !subtypesWithoutMB.includes(subtype);
+        position === place.Top && !subtypesWithoutMB.includes(subtype);
 
     const classNameContainer = cx(
         'flex flex-column container-center-100 brand-color',
