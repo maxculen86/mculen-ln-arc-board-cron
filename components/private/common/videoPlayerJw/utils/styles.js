@@ -34,3 +34,19 @@ export const videoPlayerVariant = cva(['video-player'], {
         }
     ]
 });
+
+export const mediaContainerVariant = cva(['media-container relative'], {
+    variants: {
+        variant: {
+            vertical: 'w-100',
+            horizontal: 'ratio-16-9'
+        },
+        isOpening: {
+            true: '',
+            false: 'mod-media'
+        },
+        isNotaVideo: {
+            false: 'pb-32'
+        }
+    }
+});

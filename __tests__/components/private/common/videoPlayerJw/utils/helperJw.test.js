@@ -242,7 +242,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
             expect(result).toEqual({
                 container: 'content-media cursor-pointer container-center-100',
-                mediaContainer: 'relative pb-32 ratio-16-9',
+                mediaContainer:
+                    'media-container relative ratio-16-9 mod-media pb-32',
                 videoContainer: 'mod-video',
                 videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'com-image',
@@ -256,7 +257,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
             expect(result).toEqual({
                 container: 'content-media cursor-pointer',
-                mediaContainer: 'relative pb-32 w-100',
+                mediaContainer:
+                    'media-container relative w-100 mod-media pb-32',
                 videoContainer: 'mod-video flex flex-column ai-center bg-black',
                 videoPlayer:
                     'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 w-320',
@@ -271,7 +273,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
             expect(result).toEqual({
                 container: 'content-media cursor-pointer',
-                mediaContainer: 'relative w-100',
+                mediaContainer: 'media-container relative w-100',
                 videoContainer: 'mod-video flex flex-column ai-center bg-black',
                 videoPlayer:
                     'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 h-478_md h-652_lg',
@@ -286,7 +288,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
             expect(result).toEqual({
                 container: 'content-media cursor-pointer container-center-100',
-                mediaContainer: 'relative ratio-16-9',
+                mediaContainer: 'media-container relative ratio-16-9',
                 videoContainer: 'mod-video',
                 videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'com-image',
