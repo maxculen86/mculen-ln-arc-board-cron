@@ -8,11 +8,7 @@ function Datadome() {
             <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{
-                    __html: `window.ddjskey = "${DATADOME_CLIENT_KEY}"; window.ddoptions = {
-                        challengeLanguage: 'es',
-                        ajaxListenerPath: [{ host: 'lanacion.com.ar' }, { path: '/api' }],
-                        withCredentials: true
-                    };`
+                    __html: `window.ddjskey = "${DATADOME_CLIENT_KEY}"; window.ddoptions = {"challengeLanguage": "es"};`
                 }}
             />
             <script src="https://js.datadome.co/tags.js" async />
