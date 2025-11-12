@@ -21,21 +21,12 @@ describe('Datadome Component', () => {
         expect(scriptElement).toHaveAttribute('type', 'text/javascript');
     });
 
-    it('first element uses dangerouslySetInnerHTML to inject script content with datadome client key and options', () => {
+    it('first element uses dangerouslySetInnerHTML to inject script content and has datadome client key', () => {
         const { container } = render(<Datadome />);
         const scriptElement = container.querySelector('script');
-        const content = scriptElement.innerHTML;
-
-        expect(content).toContain(
-            'window.ddjskey = "MOCK_DATADOME_CLIENT_KEY"'
+        expect(scriptElement.innerHTML).toMatch(
+            'window.ddjskey = "MOCK_DATADOME_CLIENT_KEY"; window.ddoptions = {"challengeLanguage": "es"};'
         );
-
-        expect(content).toContain('window.ddoptions');
-
-        expect(content).toContain("challengeLanguage: 'es'");
-        expect(content).toContain("host: 'lanacion.com.ar'");
-        expect(content).toContain("path: '/api'");
-        expect(content).toContain('withCredentials: true');
     });
 
     it('second element should have correct src and async attribute', () => {
