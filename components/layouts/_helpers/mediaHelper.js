@@ -96,6 +96,11 @@ export const getMediaItem = ({
     const { type, subtype } = mediaData;
     const mediaType = getMediaType(type, subtype);
 
+    const resolvedType =
+        mediaType === 'custom_embed' && isOpening && subtype === 'video_jw'
+            ? subtype
+            : mediaType;
+
     const mediaRenderers = {
         image: () => renderImageComponent(mediaData),
         video_jw: () =>
@@ -103,6 +108,6 @@ export const getMediaItem = ({
         iframe: () => renderIframeComponent(mediaData)
     };
 
-    const renderer = mediaRenderers[mediaType];
+    const renderer = mediaRenderers[resolvedType];
     return renderer ? renderer() : null;
 };
