@@ -11,6 +11,7 @@ import VideoJW from './elements/videoJW';
 import Gallery from './elements/gallery';
 import CustomEmbed from './elements/custom_embed';
 import StoryBody from '../../../../common/elements/story/cuerpo/index';
+import Table from './elements/table';
 
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {
@@ -25,7 +26,8 @@ const cuerpoIndex = dataNota => {
         Video,
         VideoJW,
         Gallery,
-        CustomEmbed
+        CustomEmbed,
+        Table
     };
     return StoryBody(dataNota, storyBodyElements);
 };
