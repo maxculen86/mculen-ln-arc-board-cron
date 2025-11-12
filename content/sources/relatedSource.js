@@ -1,7 +1,7 @@
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import request from 'request-promise-native';
+import logger from '../../components/private/common/utils/logger';
 
-const resolve = (key, a) => {
+const resolve = key => {
     const { includedFields, id, notPublished = true } = key;
     const arcSite = key['arc-site'];
     const iFields = includedFields ? `&included_fields=${includedFields}` : '';
@@ -13,18 +13,42 @@ const resolve = (key, a) => {
     return `${basePath}&_id=${id}${iFields}`;
 };
 
-const fetch = query => {
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
+const fetch = async query => {
+    const arcSite = query['arc-site'];
+    const url = `${CONTENT_BASE}${resolve(query)}`;
+
+    const options = {
+        method: 'GET'
     };
+
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
+        options.headers = {
+            Authorization: `Bearer ${ARC_ACCESS_TOKEN}`
         };
     }
 
-    return request(opt).then(resp => resp);
+    try {
+        const response = await global.fetch(url, options);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        logger.push(
+            error,
+            {
+                source: 'content/sources/relatedSource',
+                query,
+                url
+            },
+            arcSite
+        );
+
+        return {};
+    }
 };
 
 export default {
