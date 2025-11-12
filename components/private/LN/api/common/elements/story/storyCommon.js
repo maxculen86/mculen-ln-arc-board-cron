@@ -112,8 +112,16 @@ export const storyCommon = (dataNota, cuerpo) => {
         openingMode: hasTable ? 'NativeBrowser' : openingMode
     };
 
-    if (dataNota.subtype === '9') resp.HTML = cuerpo;
-    else resp.contenido = cuerpo;
+    switch (dataNota.subtype) {
+        case '9':
+            resp.HTML = cuerpo;
+            break;
+        case '16':
+            break;
+        default:
+            resp.contenido = cuerpo;
+            break;
+    }
 
     return resp;
 };
