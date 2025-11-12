@@ -236,7 +236,6 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             expect(getVerticalPlayer('')).toBe(false);
         });
     });
-
     describe('getConfigClassName', () => {
         it('returns correct class names for horizontal variant with isNotaVideo=false', () => {
             const result = getConfigClassName('horizontal', false);
@@ -245,7 +244,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 container: 'content-media cursor-pointer container-center-100',
                 mediaContainer: 'relative pb-32 ratio-16-9',
                 videoContainer: 'mod-video',
-                videoPlayer: 'video-player bg-black ratio-16-9 w-320',
+                videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'com-image',
                 facadeContainer: 'ratio-16-9',
                 captionClasses: 'px-0_l mb-8'

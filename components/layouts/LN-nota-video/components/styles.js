@@ -1,13 +1,7 @@
 import { cva } from '@ln/cva';
 
 export const openingVideoMediaStyles = cva(
-    [
-        'opening-video-container',
-        'bg-black',
-        // 'h-100',
-        'flex flex-column jc-start',
-        'col-span-8'
-    ],
+    ['opening-video-container', 'flex flex-column jc-start', 'col-span-8'],
     {
         variants: {
             variant: {
@@ -18,12 +12,15 @@ export const openingVideoMediaStyles = cva(
                     'grid-col-7-10_l',
                     'max-h-642 max-h-478_md max-h-652_lg',
                     'ai-center',
-                    'h-100'
+                    'h-100',
+                    'bg-black'
                 ],
                 horizontal: [
                     'col-span-12_m col-span-8_l',
                     'order-1_l',
-                    'ml-20_md',
+                    'w-100vw_max767',
+                    '-ml-16_max767',
+                    'pl-20_l',
                     'mt-24',
                     'mt-0_l',
                     'h-fit'
@@ -41,7 +38,7 @@ export const videoStyles = cva(['opening-video', 'scroll-snap-stop-always'], {
                 'h-100 max-h-642 max-h-478_md max-h-652_lg',
                 'w-100 max-w-fit'
             ],
-            horizontal: ['relative']
+            horizontal: ['relative', 'bg-black']
         }
     }
 });
