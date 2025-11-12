@@ -1,6 +1,6 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import NotFoundError from './utils/notFoundError';
 
 const resolve = key => {
@@ -30,35 +30,49 @@ const transform = (data, query) => {
         slug: `/${slug}`
     };
 };
-const fetch = query => {
+const fetch = async query => {
     const { uri = '', slug = '' } = query;
     const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-    return request(opt)
-        .then(response => response?.site?.distributor_name)
-        .then(distributor => {
-            if (!distributor[slug])
-                throw new NotFoundError(
-                    `El slug ${slug} no corresponde a un distribuidor definido en Site Service.`
-                );
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-            return transform(distributor, query);
+    const requestInit = {
+        signal: controller.signal,
+        ...(ARC_ACCESS_TOKEN && {
+            headers: { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` }
         })
-        .catch(error => {
-            logger.push(
-                error,
-                { source: 'content/source/distributorSource', uri },
-                arcSite
+    };
+
+    try {
+        const response = await global.fetch(
+            `${CONTENT_BASE}${resolve(query)}`,
+            requestInit
+        );
+
+        handleHttpError(response);
+
+        const distributor =
+            (await response.json())?.site?.distributor_name || {};
+
+        if (!distributor[slug])
+            throw new NotFoundError(
+                `El slug ${slug} no corresponde a un distribuidor definido en Site Service.`
             );
-        });
+
+        return transform(distributor, query);
+    } catch (error) {
+        const isAbortError = error?.name === 'AbortError';
+
+        logger.push(
+            isAbortError ? { ...error, statusCode: 504 } : error,
+            { source: 'content/source/distributorSource', uri },
+            arcSite
+        );
+
+        return null;
+    } finally {
+        clearTimeout(timeoutId);
+    }
 };
 
 export default {

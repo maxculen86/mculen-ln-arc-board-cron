@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import {
     SITE_LANACION,
     CONTENT_BASE,
@@ -11,6 +10,7 @@ import filter from '../filters/LN/services/dolar';
 import logger from '../../components/private/common/utils/logger';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import { linkDictionary } from './utils/dolarSource/constants';
+
 const transform = data => {
     const [termicas = [], datos = {}] = data;
     const baseUrl = `${SITE_LANACION || 'https://www.lanacion.com.ar'}`;
@@ -78,12 +78,17 @@ const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
             );
         });
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
     const opt = {
         method: 'GET',
-        headers: endpoint.headers
+        headers: endpoint.headers,
+        signal: controller.signal
     };
 
-    const promiseDolarData = nodeFetch(endpoint.uri, opt)
+    const promiseDolarData = global
+        .fetch(endpoint.uri, opt)
         .then(response => {
             handleHttpError(response);
             return response.json();
@@ -94,14 +99,19 @@ const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
             endpoint: endpoint.uri
         }))
         .catch(error => {
+            const isAbortError = error?.name === 'AbortError';
+
             logger.push(
-                error,
+                isAbortError ? { ...error, statusCode: 504 } : error,
                 {
                     source: 'content/sources/dolarSource',
                     url: endpoint.uri
                 },
                 arcSite
             );
+        })
+        .finally(() => {
+            clearTimeout(timeoutId);
         });
 
     return Promise.all([promiseTermicasDolar, promiseDolarData]).then(resp =>

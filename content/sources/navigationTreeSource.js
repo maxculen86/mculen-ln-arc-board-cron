@@ -1,9 +1,10 @@
 /* eslint-disable no-underscore-dangle */
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
+import get from '../../components/private/common/utils/get';
 
-const resolve = key => {
+const buildNavigationApiPath = key => {
     const { website } = key;
     if (!website)
         throw new Error(
@@ -12,96 +13,107 @@ const resolve = key => {
     return `/site/v3/navigation/${website}/`;
 };
 
-const fetch = query => {
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
+const parseSectionIdIntoPaths = sectionId =>
+    sectionId && sectionId.split('/').map(el => (el ? `/${el}` : ''));
+
+const buildNavigationBreadcrumb = (navigationData, sectionId = '') => {
+    const breadcrumbSections = [];
+    const sectionPaths = parseSectionIdIntoPaths(sectionId);
+    const rootId = get(navigationData, '_id');
+    const rootName = get(navigationData, 'name');
+
+    const rootSection = rootId &&
+        rootName && {
+            id: rootId,
+            name: rootName,
+            path: rootId
+        };
+
+    if (rootSection) {
+        breadcrumbSections.push(rootSection);
+        if (sectionPaths) {
+            sectionPaths.shift();
+        }
+    }
+
+    let currentSection = navigationData;
+    if (sectionId && sectionPaths && sectionPaths.length) {
+        do {
+            const targetSectionId = sectionPaths[0];
+            const childSections = get(currentSection, 'children');
+            [currentSection] =
+                targetSectionId &&
+                childSections &&
+                childSections.filter(el => get(el, '_id') === targetSectionId);
+
+            if (currentSection) {
+                breadcrumbSections.push({
+                    id: get(currentSection, '_id'),
+                    name: get(currentSection, 'name'),
+                    path: get(currentSection, '_id')
+                });
+            }
+
+            if (currentSection && sectionPaths.length >= 2) {
+                sectionPaths[0] = sectionPaths[0].concat(sectionPaths[1]);
+                sectionPaths.splice(1, 1);
+            }
+        } while (currentSection);
+    }
+
+    return breadcrumbSections;
+};
+
+const transformNavigationDataForConsumer = (apiData, { sectionId }) => {
+    const { ancestors, inactive, order, parent, ...navigationContent } =
+        apiData || {};
+
+    if (sectionId) {
+        const breadcrumbSections = sectionId
+            ? buildNavigationBreadcrumb(navigationContent, sectionId)
+            : [];
+
+        return {
+            sections: breadcrumbSections,
+            Termicas: navigationContent && navigationContent.Termicas
         };
     }
-    return request(opt)
+
+    return {
+        ...navigationContent,
+        children: []
+    };
+};
+
+const fetch = async query => {
+    const navigationApiPath = buildNavigationApiPath(query);
+
+    const requestOptions = {
+        method: 'GET'
+    };
+    if (ARC_ACCESS_TOKEN) {
+        requestOptions.headers = {
+            Authorization: `Bearer ${ARC_ACCESS_TOKEN}`
+        };
+    }
+
+    return global
+        .fetch(`${CONTENT_BASE}${navigationApiPath}`, requestOptions)
         .then(response => {
-            return transform(response, query);
+            handleHttpError(response);
+            return response.json();
         })
+        .then(navigationApiData =>
+            transformNavigationDataForConsumer(navigationApiData, query)
+        )
         .catch(error => {
             logger.push(
                 error,
                 { source: 'content/source/navigationTreeSource', query },
                 query
             );
+            return undefined;
         });
-};
-
-const transform = (data, { sectionId }) => {
-    const { ancestors, inactive, order, parent, ...restProps } = data || {};
-    // Cuando el source es llamado desde WithNavigation no hace falta devolver mas cosas
-    if (sectionId) {
-        const sections = sectionId ? getSections(restProps, sectionId) : [];
-
-        return {
-            sections,
-            Termicas: restProps && restProps.Termicas
-        };
-    }
-
-    return {
-        ...restProps,
-        children: []
-    };
-};
-
-const getSectionList = sectionId => {
-    return (
-        sectionId &&
-        sectionId.split('/').map(el => {
-            return el ? `/${el}` : '';
-        })
-    );
-};
-
-const getSections = (results, sectionId = '') => {
-    const sections = [];
-    const sectionList = getSectionList(sectionId);
-    const { _id: id, name } = results;
-
-    const base = id &&
-        name && {
-            id,
-            name,
-            path: id
-        };
-
-    base && sections.push(base);
-    base && sectionList && sectionList.shift();
-
-    let section = results;
-    if (sectionId && sectionList && sectionList.length) {
-        do {
-            const primarySectionId = sectionList[0];
-            const { children } = section;
-            [section] =
-                primarySectionId &&
-                children &&
-                children.filter(el => el._id === primarySectionId);
-
-            section &&
-                sections.push({
-                    id: section._id,
-                    name: section.name,
-                    path: section._id
-                });
-
-            if (section && sectionList.length >= 2) {
-                sectionList[0] = sectionList[0].concat(sectionList[1]);
-                sectionList.splice(1, 1);
-            }
-        } while (section);
-    }
-
-    return sections;
 };
 
 export default {

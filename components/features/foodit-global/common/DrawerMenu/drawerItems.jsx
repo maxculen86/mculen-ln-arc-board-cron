@@ -29,7 +29,7 @@ export function DrawerItems({ href, title, dynamicLabel }) {
                     }
                 />
             ) : (
-                <Text className="roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4">
+                <Text className="roboto-bold text-14 uppercase bg-positive p-8 -mt-8 block rounded-top-right-4 rounded-bottom-right-4">
                     {title}
                 </Text>
             )}

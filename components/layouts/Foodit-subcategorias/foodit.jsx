@@ -14,7 +14,6 @@ function Subcategories({ children }) {
     const { requestUri } = useAppContext();
 
     const [, notas] = children;
-
     const pageTitle = getPageTitleFromUrl(requestUri);
 
     const getSubtitle = () => {
@@ -56,13 +55,13 @@ function Subcategories({ children }) {
                         {getSubtitle()}
                     </div>
                 </section>
-                <section className="flex flex-column gap-64_lg">
+                <section className="flex flex-column gap-40">
                     <div className="flex flex-column gap-32">
                         <CardCategory />
                     </div>
-                    <div className="lg-only flex flex-column gap-40">
-                        {notas}
-                    </div>
+                    {pageTitle === 'Recetas' && (
+                        <div className="flex flex-column gap-40">{notas}</div>
+                    )}
                 </section>
             </div>
         </BaseLayout>

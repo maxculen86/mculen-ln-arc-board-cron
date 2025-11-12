@@ -14,17 +14,16 @@ function LinkedCardHeading({ number, title }) {
                 <Text
                     as="span"
                     className={cardsNumberVariant({ variant })}
-                    color={cardColor}
+                    style={{
+                        lineHeight: variant === 'collapsed' && '110%',
+                        color: cardColor
+                    }}
                 >
                     {number}
                 </Text>
             )}
             {title && (
-                <Text
-                    as="h3"
-                    className={cardsTitleVariant({ variant })}
-                    color={cardColor}
-                >
+                <Text as="h3" className={cardsTitleVariant({ variant })}>
                     {title}
                 </Text>
             )}

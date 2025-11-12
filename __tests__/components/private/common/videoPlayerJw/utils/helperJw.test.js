@@ -6,7 +6,7 @@ import {
     handleVideoEventsScript,
     getAlternativeDescription,
     getVerticalPlayer,
-    configClassName
+    getConfigClassName
 } from '../../../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 jest.mock('../../../../../../components/private/common/utils/scheduleTask');
@@ -236,14 +236,13 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             expect(getVerticalPlayer('')).toBe(false);
         });
     });
-
-    describe('configClassName', () => {
-        it('returns the correct class names for la-nacion-ar site with horizontal orientation', () => {
-            const result = configClassName['la-nacion-ar'].horizontal;
+    describe('getConfigClassName', () => {
+        it('returns correct class names for horizontal variant with isNotaVideo=false', () => {
+            const result = getConfigClassName('horizontal', false);
 
             expect(result).toEqual({
                 container: 'content-media cursor-pointer container-center-100',
-                mediaContainer: 'mod-media ratio-16-9',
+                mediaContainer: 'relative pb-32 ratio-16-9',
                 videoContainer: 'mod-video',
                 videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'com-image',
@@ -252,18 +251,47 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             });
         });
 
-        it('returns the correct class names for la-nacion-ar site with vertical orientation', () => {
-            const result = configClassName['la-nacion-ar'].vertical;
+        it('returns correct class names for vertical variant with isNotaVideo=false', () => {
+            const result = getConfigClassName('vertical', false);
 
             expect(result).toEqual({
                 container: 'content-media cursor-pointer',
-                mediaContainer: 'mod-media w-100',
+                mediaContainer: 'relative pb-32 w-100',
                 videoContainer: 'mod-video flex flex-column ai-center bg-black',
                 videoPlayer:
-                    'video-player w-320 h-640 w-100 ratio-9-16 flex jc-center ai-center',
+                    'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 w-320',
                 facade: 'com-image',
                 facadeContainer: 'w-320 ratio-9-16',
                 captionClasses: 'w-100'
+            });
+        });
+
+        it('returns correct class names for vertical variant with isNotaVideo=true and isOpening=true', () => {
+            const result = getConfigClassName('vertical', true, true);
+
+            expect(result).toEqual({
+                container: 'content-media cursor-pointer',
+                mediaContainer: 'relative w-100',
+                videoContainer: 'mod-video flex flex-column ai-center bg-black',
+                videoPlayer:
+                    'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 h-478_md h-652_lg',
+                facade: 'com-image',
+                facadeContainer: 'w-320 ratio-9-16',
+                captionClasses: 'w-100'
+            });
+        });
+
+        it('returns correct class names for horizontal variant with isNotaVideo=true and isOpening=true', () => {
+            const result = getConfigClassName('horizontal', true, true);
+
+            expect(result).toEqual({
+                container: 'content-media cursor-pointer container-center-100',
+                mediaContainer: 'relative ratio-16-9',
+                videoContainer: 'mod-video',
+                videoPlayer: 'video-player bg-black ratio-16-9',
+                facade: 'com-image',
+                facadeContainer: 'ratio-16-9',
+                captionClasses: 'px-0_l mb-8'
             });
         });
     });

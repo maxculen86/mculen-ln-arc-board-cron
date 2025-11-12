@@ -15,7 +15,7 @@ import get from '../../../private/common/utils/get';
 import WithoutSignature from './withoutSignature';
 import { useSignature } from './hook/useSignature';
 import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
-import { CARDS } from '../../../private/common/utils/subtypes/subtypeHelper';
+import { VIDEO_VERTICAL } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureFeature(props) {
     const {
@@ -40,8 +40,6 @@ function SignatureFeature(props) {
     });
 
     const authorId = get(creditsBy, '[0]._id', '');
-
-    const isSubtypeCards = subtype === CARDS;
 
     const showSignatureWithDistributor =
         (withFirmaDistributor && name !== 'lanacionar') ||
@@ -83,10 +81,16 @@ function SignatureFeature(props) {
         />
     );
 
+    const subtypesWithoutMB = [VIDEO_VERTICAL];
+
+    const shouldHaveMB =
+        position === place.Top && !subtypesWithoutMB.includes(subtype);
+
     const classNameContainer = cx(
         'flex flex-column container-center-100 brand-color',
         'signature',
-        position === place.Top && !isSubtypeCards && 'mb-16 mb-24_m'
+        shouldHaveMB && 'mb-16 mb-24_m',
+        subtype === VIDEO_VERTICAL && 'mb-16_md'
     );
 
     return (

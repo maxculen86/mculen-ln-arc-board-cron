@@ -1,9 +1,9 @@
 import { ARC_ACCESS_TOKEN, CONTENT_BASE } from 'fusion:environment';
-import request from 'request-promise-native';
 import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
 import { BackendLnError } from '../../components/private/LN/api/common/models/backendLnError';
 import get from '../../components/private/common/utils/get';
 import filter from '../filters/LN/imagesByKeywords';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const MAX_LIMIT = 100;
 const resolve = query => {
@@ -28,17 +28,17 @@ const resolve = query => {
 const fetch = async query => {
     try {
         const opt = {
-            uri: resolve(query),
-            json: true
+            method: 'GET'
         };
 
-        if (ARC_ACCESS_TOKEN) {
-            opt.auth = {
-                bearer: ARC_ACCESS_TOKEN
-            };
-        }
+        if (ARC_ACCESS_TOKEN)
+            opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
 
-        return await request(opt);
+        const response = await global.fetch(resolve(query), opt);
+
+        handleHttpError(response);
+
+        return await response.json();
     } catch (error) {
         console.error(
             new BackendLnError(

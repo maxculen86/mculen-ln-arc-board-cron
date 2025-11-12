@@ -9,7 +9,10 @@ import toggleBookmark, {
     getStatusMessage
 } from '../../../common/utils/bookmarkHelper';
 import renderToast from '../../../../features/private-global/common/utils/renderToast';
-import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
+import {
+    VIDEO,
+    VIDEO_VERTICAL
+} from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 const noPaddingSmNone = 'p-0 sm-none';
@@ -126,7 +129,7 @@ export const copyToClipboard = (domain, url) => {
 };
 
 export const getClassCondition = subtype =>
-    subtype === VIDEO ? ' --video' : '';
+    subtype === VIDEO || subtype === VIDEO_VERTICAL ? ' --video' : '';
 
 export const getTwitterTitle = (mobileTitle, title) =>
     !mobileTitle ? title : mobileTitle;
@@ -145,7 +148,7 @@ export const getFirstGroupClassNames = ({ isCustomLayout }) => ({
     firstGroupClasses: classNames(
         'first-buttons-group',
         'flex gap-16',
-        isCustomLayout ? 'pr-8' : 'pr-8_max1023 pb-16_l flex-column_l'
+        isCustomLayout ? 'pr-16' : 'pr-8_max1023 pb-16_l flex-column_l'
     ),
     displayClasses: classNames(isCustomLayout ? 'none' : 'l-none'),
 

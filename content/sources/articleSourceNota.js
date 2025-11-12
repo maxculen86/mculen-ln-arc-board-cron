@@ -1,4 +1,3 @@
-import request from 'request-promise-native';
 import {
     CONTENT_BASE,
     ARC_ACCESS_TOKEN,
@@ -16,6 +15,7 @@ import {
     getIncludedFields,
     transformSubtype
 } from './utils/articleSourceNota/_helper';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const fetch = (query, { cachedCall } = {}) => {
     const queryAux = query;
@@ -30,22 +30,24 @@ const fetch = (query, { cachedCall } = {}) => {
     }
 
     const opt = {
-        uri: `${CONTENT_BASE}${getUrlQuery(queryAux)}`,
-        json: true
+        method: 'GET'
     };
 
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
+        opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
     }
 
     const resolveData = async () => {
         try {
-            const response = await request(opt);
+            const response = await global.fetch(
+                `${CONTENT_BASE}${getUrlQuery(queryAux)}`,
+                opt
+            );
+            handleHttpError(response);
+            const data = await response.json();
 
             const externalApiRedirectUrl = setRedirect({
-                response,
+                response: data,
                 query: queryAux,
                 siteUrl: SITE_LANACION,
                 paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`
@@ -56,7 +58,7 @@ const fetch = (query, { cachedCall } = {}) => {
             )
                 return { externalApiRedirectUrl };
             // Se aplica este transform para sobrescribir el subtype por un error en composer que devuelve el name del subtype en lugar del value
-            const traslateSubypeResponse = transformSubtype(response);
+            const traslateSubypeResponse = transformSubtype(data);
 
             return transform(traslateSubypeResponse, queryAux, cachedCall);
         } catch (error) {

@@ -34,21 +34,36 @@ export const getCustomFieldNameAndGroup = string => {
     return { customFieldName, group };
 };
 
-export const getListOfNoteFields = (listCustomFields = []) => {
-    return listCustomFields.reduce((acc, [key, value] = []) => {
+export const getListOfNoteFields = (listCustomFields = []) =>
+    listCustomFields.reduce((acc, [key, value] = []) => {
         const { customFieldName, group } = getCustomFieldNameAndGroup(key);
         if (group) {
-            const index = parseInt(group - 1);
+            const index = parseInt(group, 10) - 1;
             acc[index] = { ...acc[index], [customFieldName]: value, group };
         }
         return acc;
     }, []);
+
+export const validateId = id => id && id.trim();
+
+export const convertMillisecondsToMinutes = miliseconds => {
+    const minutes = miliseconds / 1000 / 60;
+
+    return miliseconds && Math.abs(Math.round(minutes));
+};
+
+export const calculateTimePublish = (noteDate, currentDate) => {
+    const publishDate = new Date(noteDate);
+    const diference = currentDate.getTime() - publishDate.getTime();
+    const minutes = convertMillisecondsToMinutes(diference);
+
+    return minutes < 45 && `Hace ${minutes} min`;
 };
 
 export const getArticle = ({ group = 1, noteId = '', customTitle = '' }) => {
     const id = validateId(noteId);
     const article = useContent({
-        source: id ? 'articleSourceNota' : null,
+        source: id ? 'lnHomeBaseArticleSource' : null,
         query: {
             id,
             published: true
@@ -81,22 +96,6 @@ export const getNotesLists = (listCustomFields = []) => {
 
         return getArticle({ group, noteId, customTitle });
     });
-};
-
-export const validateId = id => id && id.trim();
-
-export const convertMillisecondsToMinutes = miliseconds => {
-    const minutes = miliseconds / 1000 / 60;
-
-    return miliseconds && Math.abs(Math.round(minutes));
-};
-
-export const calculateTimePublish = (noteDate, currentDate) => {
-    const publishDate = new Date(noteDate);
-    const diference = currentDate.getTime() - publishDate.getTime();
-    const minutes = convertMillisecondsToMinutes(diference);
-
-    return minutes < 45 && `Hace ${minutes} min`;
 };
 
 export const getTopicsFromCustomFields = (customFields = {}) => {

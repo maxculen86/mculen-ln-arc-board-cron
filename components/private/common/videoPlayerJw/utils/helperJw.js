@@ -1,3 +1,4 @@
+import { cx } from '@ln/cva';
 import {
     isInDatalayerEvent,
     addVideoDisplayEvent,
@@ -11,30 +12,34 @@ import {
 } from '../../utils/subtypes/subtypeHelper';
 import transformISODate from '../../utils/transformISODate';
 import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
+import { videoPlayerVariant } from './styles';
 
-export const configClassName = {
-    'la-nacion-ar': {
-        horizontal: {
-            container: 'content-media cursor-pointer container-center-100',
-            mediaContainer: 'mod-media ratio-16-9',
-            videoContainer: 'mod-video',
-            videoPlayer: 'video-player bg-black ratio-16-9',
-            facade: 'com-image',
-            facadeContainer: 'ratio-16-9',
-            captionClasses: 'px-0_l mb-8'
-        },
-        vertical: {
-            container: 'content-media cursor-pointer',
-            mediaContainer: 'mod-media w-100',
-            videoContainer: 'mod-video flex flex-column ai-center bg-black',
-            videoPlayer:
-                'video-player w-320 h-640 w-100 ratio-9-16 flex jc-center ai-center',
-            facade: 'com-image',
-            facadeContainer: 'w-320 ratio-9-16',
-            captionClasses: 'w-100'
-        }
-    }
-};
+export const getConfigClassName = (variant, isNotaVideo, isOpening) => ({
+    container: cx([
+        'content-media',
+        'cursor-pointer',
+        variant === 'horizontal' && 'container-center-100'
+    ]),
+    mediaContainer: cx([
+        'relative',
+        !isNotaVideo && 'pb-32',
+        variant === 'horizontal' ? 'ratio-16-9' : 'w-100'
+    ]),
+    videoContainer: cx([
+        'mod-video',
+        variant === 'vertical' && 'flex flex-column ai-center bg-black'
+    ]),
+    videoPlayer: videoPlayerVariant({
+        variant,
+        isOpening,
+        isNotaVideo
+    }),
+    facade: 'com-image',
+    facadeContainer: cx([
+        variant === 'horizontal' ? 'ratio-16-9' : 'w-320 ratio-9-16'
+    ]),
+    captionClasses: cx([variant === 'horizontal' ? 'px-0_l mb-8' : 'w-100'])
+});
 
 export function transformImages(data, subtype = '') {
     return data

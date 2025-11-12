@@ -1,4 +1,4 @@
-import isNoteListenable from '../../../../../content/sources/utils/audioNews/helper';
+import isNoteListenable, { isNoteListenableForApps } from '../../../../../content/sources/utils/audioNews/helper';
 import responseArticleSource from '../../../../../__mocks__/data/articles/responseArticleSource.json';
 import {
     isAudioGenerated,
@@ -413,6 +413,88 @@ describe('Test - isNoteListenable', () => {
         });
     });
 });
+
+describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () => {
+    it('Should return true when audio is generated (6) and label says "No mostrar audio" — apps must allow TTS', () => {
+        const data = {
+            promo_items: {
+                audio_nota: {
+                    embed: { config: { audio_status: 6 } }
+                }
+            },
+            label: { republicar_audio: { text: 'No mostrar audio' } },
+        };
+
+        const result = isNoteListenableForApps(data);
+        expect(result).toBe(true); //el label no debe bloquear TTS en apps
+    });
+
+    it('Should return true when audio is generated and label allows it (sanity)', () => {
+        const data = {
+            promo_items: {
+                audio_nota: {
+                    embed: { config: { audio_status: 7 } }
+                }
+            },
+            label: { republicar_audio: { text: 'Mostrar audio' } },
+        };
+
+        const result = isNoteListenableForApps(data);
+        expect(result).toBe(true);
+    });
+
+    it('When audio_status exists but is NOT generated, it should fallback to wordCount logic (true if >=100)', () => {
+        const data = {
+            promo_items: {
+                audio_nota: {
+                    embed: { config: { audio_status: 5 } } // not generated
+                }
+            },
+            subtype: '1',
+            planning: { story_length: { word_count_actual: 120 } }
+        };
+
+        const result = isNoteListenableForApps(data);
+        expect(result).toBe(true);
+    });
+
+    it('Collection-like item: no word_count, no content_elements, no promo_items — validate using date/source/subtype (should be true)', () => {
+        const data = {
+            source: { system: 'composer' },
+            subtype: 'collection',
+            first_publish_date: '20250101'
+        };
+
+        const result = isNoteListenableForApps(data);
+        expect(result).toBe(true);
+    });
+
+    it('Collection-like item with disabled subtype should return false even si faltan word_count (respeta disableSubtypes)', () => {
+        const data = {
+            source: { system: 'composer' },
+            subtype: '7',
+            first_publish_date: '20250101'
+        };
+
+        const result = isNoteListenableForApps(data);
+        expect(result).toBe(false);
+    });
+
+    it('When audio_status exists but is NOT generated and there is NO wordCount -> should return false (no fallback available)', () => {
+        const data = {
+            promo_items: {
+                audio_nota: {
+                    embed: { config: { audio_status: 5 } } // not generated
+                }
+            },
+            subtype: '1'
+        };
+
+        const result = isNoteListenableForApps(data);
+        expect(result).toBe(false);
+    });
+});
+
 
 describe('Test - isAudioGenerated', () => {
     const AUDIO_STATUS = {

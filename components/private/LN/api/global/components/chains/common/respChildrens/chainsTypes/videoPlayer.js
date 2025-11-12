@@ -1,36 +1,57 @@
-import { validateChildrensApi } from '../../../../common/utils/_helpers';
 import { setSlicedChildren } from '../../../../../../../../../chains/utils/common/_helpers-WebApi';
+import { validateChildrensApi } from '../../../../common/utils/_helpers';
+
+const LN_VIDEOPLAYER = 'LN-10/videoPlayer';
 
 export const respChildrens = props => {
-    const {
-        children,
-        customFields: { layout }
-    } = props;
+    try {
+        const {
+            children,
+            customFields: { layout }
+        } = props;
 
-    if (!validateChildrensApi(children)) {
+        if (!validateChildrensApi(children)) {
+            return null;
+        }
+
+        const videoFeature = children.find(
+            article => article?.type && article.type === LN_VIDEOPLAYER
+        );
+
+        const otherFeatures = children.filter(
+            article => article?.type !== LN_VIDEOPLAYER
+        );
+
+        const orderedArticles = [videoFeature, ...otherFeatures];
+
+        const articles = setSlicedChildren({
+            config: { layout },
+            children: orderedArticles
+        });
+
+        const notesByLayout = articles.length - 1;
+        const video = articles[0] || null;
+        const articlesResponse = articles
+            .slice(-notesByLayout)
+            .filter(art => art != null);
+
+        return {
+            articles: articlesResponse,
+            video
+        };
+    } catch (error) {
+        console.error(
+            JSON.stringify({
+                log_details: {
+                    error: JSON.stringify(error || {}),
+                    message: error.message,
+                    customType: 'respChildrens.videoPlayer'
+                },
+                name: 'BackendLnError'
+            })
+        );
         return null;
     }
-    let childrensOrdered = children.sort((a, b) => {
-        const aIsVideo = !!a.fullVideoUrl;
-        const bIsVideo = !!b.fullVideoUrl;
-        if (aIsVideo && !bIsVideo) return -1;
-        if (!aIsVideo && bIsVideo) return 1;
-        return 0;
-    });
-
-    childrensOrdered = setSlicedChildren({
-        config: { layout },
-        children: childrensOrdered
-    });
-
-    const notesByLayout = childrensOrdered.length - 1;
-    const video = childrensOrdered[0];
-    const articles = childrensOrdered.slice(-notesByLayout);
-
-    return {
-        articles,
-        video
-    };
 };
 
 export default respChildrens;

@@ -3,7 +3,7 @@
 exports[`Note display comment in false  Matches snapshot when the note is not comments 1`] = `
 <div>
   <div
-    class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+    class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
       class="mod-share flex mb-0 p-0_l"
@@ -213,7 +213,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
 exports[`components - private - LN - nota - share Clicking on bookmark should DELETE the note if it was already saved 1`] = `
 <div>
   <div
-    class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+    class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
       class="mod-share flex mb-0 p-0_l"
@@ -440,7 +440,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
 exports[`components - private - LN - nota - share Snapshot - Should show 10 buttons  1`] = `
 <div>
   <div
-    class="mod-share-container py-12 mb-16 mb-0_l border border-bottom border-thin border-neutral-light-100 border-0_l --no-app sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+    class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
       class="mod-share flex mb-0 p-0_l"

@@ -3,7 +3,6 @@ import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import PropTypes from 'prop-types';
 import BreadcrumbArticle from '../../../../features/LN-nota/breadcrumbArticle';
-import ReadingTime from '../../../../features/LN-10-global/common/readingTime/default';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import StaticContentV2 from '../../../../chains/LN10-global/staticContentV2';
 
@@ -35,7 +34,6 @@ function DescriptionVideo100({ data }) {
                             </Icon>
                             <Text as="p">{time}</Text>
                         </div>
-                        <ReadingTime isLight />
                     </div>
                 </div>
             </div>

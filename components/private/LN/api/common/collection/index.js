@@ -1,5 +1,5 @@
 import { SITE_LANACION } from 'fusion:environment';
-import { isNoteListenableHome as isListenable } from '../../../../../../content/sources/utils/audioNews/helper';
+import { isNoteListenableForApps as isListenable } from '../../../../../../content/sources/utils/audioNews/helper';
 import get from '../../../../common/utils/get';
 import { CardRegular } from '../../v1/mobile/home/article/cardRegular';
 

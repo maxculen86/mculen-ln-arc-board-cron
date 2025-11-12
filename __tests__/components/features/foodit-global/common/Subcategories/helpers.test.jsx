@@ -34,7 +34,7 @@ describe('Mocks & factory', () => {
             '/tema/tutorial-pasteler%C3%ADa-qat7qtvzy5dmzd6opl4ap2d2se/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa'
         ],
         ['Masterclass de chef', '/masterclass/'],
-        ['Guías de cocina', '/guias/'],
+        ['Guías de cocina', '/guias-de-cocina/'],
         ['Recomendaciones del chef', '/chefs/'],
         ['Trucos y secretos', '/trucos/'],
         ['Protocolo en la mesa', '/protocolo/']
@@ -63,7 +63,7 @@ describe('Mocks & factory', () => {
     });
 
     it.each([
-        ['Menú semanal', '/menus/'],
+        ['Menú semanal', '/menu-semanal/'],
         ['Ingredientes de cocina', '/ingredientes/'],
         ['Vegetariana', '/recetas/dieta/vegetariana/'],
         ['Sin gluten', '/recetas/dieta/sin-gluten/'],
@@ -104,9 +104,7 @@ describe('Mocks & factory', () => {
         expect(getMockBySubcategory('/cocina-a-tu-medida/')).toStrictEqual(
             cocinaAMedidaMock
         );
-        expect(getMockBySubcategory('/subcategoria-receta/')).toStrictEqual(
-            recetasMock
-        );
+        expect(getMockBySubcategory('/recetas/')).toStrictEqual(recetasMock);
     });
 
     it('getMockBySubcategory returns empty array for unknown paths', () => {
@@ -234,9 +232,9 @@ describe('Mocks & factory', () => {
             });
         });
 
-        it('should track subcategoria-receta cards correctly', () => {
+        it('should track recetas cards correctly', () => {
             const cardData = { trackingLabel: 'recetas_saladas' };
-            const subcategoryUrl = '/subcategoria-receta/';
+            const subcategoryUrl = '/recetas/';
 
             trackSubcategoryCard(cardData, subcategoryUrl);
 

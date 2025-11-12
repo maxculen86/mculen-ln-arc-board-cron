@@ -1,10 +1,8 @@
-import nodeFetch from 'node-fetch';
 import liveblogAuthorSource from '../../../content/sources/liveblogAuthorSource';
 import logger from '../../../components/private/common/utils/logger';
 import { resizeImgUrl } from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 import { signingServiceCachedCall } from '../../../content/sources/utils/signingServiceSource/getImagesAuth';
 
-jest.mock('node-fetch');
 jest.mock('../../../components/private/common/utils/handleHttpError');
 jest.mock('../../../components/private/common/utils/logger');
 jest.mock('fusion:environment', () => ({
@@ -23,6 +21,8 @@ jest.mock(
         resizeImgUrl: jest.fn()
     })
 );
+
+global.fetch = jest.fn();
 
 const mockAuthorsResponse = {
     authors: [
@@ -112,13 +112,13 @@ const mockAuthorsResponse = {
 describe('liveblogAuthorSource.fetch', () => {
     beforeEach(() => {
         jest.clearAllMocks();
-        nodeFetch.mockResolvedValue({
+
+        global.fetch.mockResolvedValue({
             ok: true,
             json: async () => mockAuthorsResponse
         });
 
         signingServiceCachedCall.mockResolvedValue({ hash: 'mockedHash' });
-
         resizeImgUrl.mockImplementation(({ arcImage }) => {
             return `https://sandbox-resizer.glanacion.com/resizer/v2/${encodeURIComponent(
                 arcImage.url
@@ -140,8 +140,8 @@ describe('liveblogAuthorSource.fetch', () => {
         expect(resizeImgUrl).toHaveBeenCalled();
     });
 
-    it('should log error and return undefined on failure', async () => {
-        nodeFetch.mockRejectedValue(new Error('Failed fetch'));
+    it('should log error and return empty array on failure', async () => {
+        global.fetch.mockRejectedValue(new Error('Failed fetch'));
 
         const result = await liveblogAuthorSource.fetch(
             { authorName: 'micaela' },
@@ -155,8 +155,10 @@ describe('liveblogAuthorSource.fetch', () => {
                 url: expect.stringContaining(
                     '/author/v2/author-service?byline=micaela'
                 )
-            })
+            }),
+            undefined
         );
-        expect(result).toBeUndefined();
+
+        expect(result).toEqual([]);
     });
 });

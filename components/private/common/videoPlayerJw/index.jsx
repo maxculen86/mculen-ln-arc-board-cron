@@ -6,8 +6,8 @@ import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import {
-    configClassName,
     getCaptionBgClass,
+    getConfigClassName,
     getVerticalPlayer
 } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
@@ -17,8 +17,12 @@ import {
     STORYTELLING,
     VIDEO,
     LIVEBLOG_EDITORIAL,
-    VIDEOAL100
+    VIDEOAL100,
+    VIDEO_VERTICAL
 } from '../utils/subtypes/subtypeHelper';
+import config from '../../../../properties/sites/la-nacion-ar';
+
+const { layoutsName = {} } = config || {};
 
 const videoPlayerJW = ({
     data,
@@ -26,7 +30,8 @@ const videoPlayerJW = ({
     tituloNota,
     hasAutoplay,
     mediaContainerClassesProps,
-    videoContainerClassesProps
+    videoContainerClassesProps,
+    isOpening
 }) => {
     const {
         embed: {
@@ -45,7 +50,7 @@ const videoPlayerJW = ({
     const player = idPlayer || 'ih0086X3';
     const [video] = playlist || [];
     const { mediaid = '', sources = [] } = video || {};
-    const { arcSite, deployment, contextPath, globalContent } = useAppContext();
+    const { deployment, contextPath, globalContent, layout } = useAppContext();
     const subtype = get(globalContent, 'subtype', '');
     const promoItems = get(globalContent, 'promo_items', {});
     const isPromoItemVideo =
@@ -54,7 +59,8 @@ const videoPlayerJW = ({
         STORYTELLING,
         VIDEO,
         LIVEBLOG_EDITORIAL,
-        VIDEOAL100
+        VIDEOAL100,
+        VIDEO_VERTICAL
     ].includes(subtype);
 
     const bgClass = getCaptionBgClass(subtype);
@@ -66,6 +72,15 @@ const videoPlayerJW = ({
         ? 'vertical'
         : 'horizontal';
 
+    const getVariant = () => {
+        if (isOpening) {
+            if (subtype === VIDEO_VERTICAL && videoOrientation === 'vertical')
+                return 'vertical';
+            return 'horizontal';
+        }
+        return videoOrientation;
+    };
+
     const {
         container,
         mediaContainer,
@@ -74,7 +89,11 @@ const videoPlayerJW = ({
         facade,
         facadeContainer,
         captionClasses
-    } = get(configClassName, `${arcSite}.${videoOrientation}`, {});
+    } = getConfigClassName(
+        getVariant(),
+        layout === layoutsName.Video,
+        isOpening
+    );
 
     const minStream = video && getSourcesJw(get(video, 'sources', []));
 

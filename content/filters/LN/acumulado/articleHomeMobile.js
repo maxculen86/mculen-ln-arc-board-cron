@@ -154,6 +154,11 @@ export default `
                 }
             }
         }
+        planning {
+            story_length {
+                word_count_actual
+            }
+        }    
     }
     next
 }`;

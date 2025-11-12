@@ -81,6 +81,32 @@ describe('LoginSubscribeButtons', () => {
             });
         });
 
+        it('should not show button subscribe if hide_subscribe_button_foodit is "true"', () => {
+            mockUserConfig('unlogged');
+
+            const termicasData = {
+                hide_subscribe_button_foodit: 'true'
+            };
+
+            render(<LoginSubscribeButtons termicasData={termicasData} />);
+
+            expect(
+                screen.queryByTestId('button-suscribe')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should show button subscribe if hide_subscribe_button_foodit is "false"', () => {
+            mockUserConfig('unlogged');
+
+            const termicasData = {
+                hide_subscribe_button_foodit: 'false'
+            };
+
+            render(<LoginSubscribeButtons termicasData={termicasData} />);
+
+            expect(screen.queryByTestId('button-suscribe')).toBeInTheDocument();
+        });
+
         it('should not show tooltip if tooltip_subscribe_foodit_show is "false" and userType is "unlogged"', () => {
             mockUserConfig('unlogged');
 

@@ -9,25 +9,7 @@
         @media ($media-l) {
             padding-top: px(56);
         }
-        .--apertura {
-            background: $dark-neutral-50;
-            color: $neutral-white;
-            padding: px(86) 0 $spacing-lg;
-            margin-top: px(-64);
-            margin-bottom: $spacing-lg;
-            @media ($media-m) {
-                padding-top: px(111);
-                margin-top: px(-89);
-            }
-            @media ($media-l) {
-                padding-top: px(89);
-                margin-top: px(-57);
-            }
-            .com-title,
-            .com-subhead {
-                display: block;
-                margin-bottom: $spacing-sm;
-            }
+        .opening-video {
             .ln-banner-container {
                 background: none;
                 margin-bottom: $spacing-lg;
@@ -37,12 +19,6 @@
                 z-index: 101;
                 &:before {
                     background: $light-neutral-700;
-                }
-            }
-            .mod-date {
-                .com-date,
-                .com-hour {
-                    color: $light-neutral-400;
                 }
             }
             .mod-media {
@@ -67,24 +43,10 @@
                 .com-logo.com-logo {
                     color: $neutral-white;
                 }
-            }
-            .col-desksm-4 {
-                order: 2;
-                display: flex;
-                flex-direction: column;
-                @media ($media-l) {
-                    .mod-share {
-                        order: initial;
+                > .com-text.com-text {
+                    &::before {
+                        content: none;
                     }
-                    padding-right: px(20);
-                    order: 1;
-                }
-            }
-            .col-desksm-8 {
-                order: 1;
-                @media ($media-l) {
-                    padding-left: px(20);
-                    order: 2;
                 }
             }
         }

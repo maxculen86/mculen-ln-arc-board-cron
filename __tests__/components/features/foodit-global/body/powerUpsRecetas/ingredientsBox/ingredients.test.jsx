@@ -83,6 +83,20 @@ describe('components - features - foodit-global - body - powerUpRecetas - ingred
     const [firstList] = ingredientsListMock;
     const { items, titleList } = firstList;
 
+    beforeEach(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn()
+            }))
+        });
+    });
+
     it('should render correctly, texts and links', () => {
         const { getByText, getByTestId } = render(
             <Ingredients ingredientsLists={ingredientsListMock} portions="4" />

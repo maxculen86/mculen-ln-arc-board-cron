@@ -13,6 +13,8 @@ export const LIVEBLOG_EDITORIAL = '11';
 export const VIDEOAL100 = '12';
 export const HOWTO = '13';
 export const CARDS = '14';
+export const HTMLLIBRECLL = '15';
+export const VIDEO_VERTICAL = '16';
 
 export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
 
@@ -29,7 +31,9 @@ export const Subtypes = [
     { id: '11', nombre: 'Liveblog-Editorial' },
     { id: '12', nombre: 'VideoAl100' },
     { id: '13', nombre: 'HowTo' },
-    { id: '14', nombre: 'Cards' }
+    { id: '14', nombre: 'Cards' },
+    { id: '15', nombre: 'HtmlLibre canchallena' },
+    { id: '16', nombre: 'Video Vertical' }
 ];
 
 export const translateStringFromSubitypeToID = (subtype = '') => {
@@ -46,7 +50,9 @@ export const translateStringFromSubitypeToID = (subtype = '') => {
         LiveblogEditorial: LIVEBLOG_EDITORIAL,
         VideoAl100: VIDEOAL100,
         HowTo: HOWTO,
-        Cards: CARDS
+        Cards: CARDS,
+        'HtmlLibre canchallena': HTMLLIBRECLL,
+        VideoVertical: VIDEO_VERTICAL
     };
 
     return dictionarySubtypes[subtype] || subtype;

@@ -13,6 +13,7 @@ import useGetUserConfig from '../../hooks/useGetUserConfig';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import CardInfo from './cardInfo';
 import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
+import { useNavigationData } from '../Header/hooks/useNavigationData';
 
 function EmptyState({ variant, className, direction = 'row', comesFrom }) {
     const { isSubscribed } = useGetUserConfig();
@@ -20,6 +21,7 @@ function EmptyState({ variant, className, direction = 'row', comesFrom }) {
     const directionEmptyState = direction === 'row';
     const barrierEmptyState =
         variant === 'barrier-unlogged' || variant === 'barrier-logged';
+    const { termicasData } = useNavigationData();
 
     const containerClassNames = cx(
         'flex ai-center px-24 px-32_lg',
@@ -73,6 +75,7 @@ function EmptyState({ variant, className, direction = 'row', comesFrom }) {
                         <LoginSubscribeButtons
                             loginClassName="roboto roboto-bold"
                             comesFrom={comesFrom}
+                            termicasData={termicasData}
                         />
                     </div>
                 )}

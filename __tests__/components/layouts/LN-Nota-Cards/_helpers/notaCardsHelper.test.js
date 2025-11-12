@@ -18,7 +18,10 @@ jest.mock(
 );
 
 import { getSectionLogo } from '../../../../../components/private/common/utils/sectionUtils';
-import { getNotaCardsAperturaData } from 'layouts/LN-Nota-Cards/_helpers/notaCardsHelper';
+import {
+    getNotaCardsAperturaData,
+    resolveDualTitles
+} from 'layouts/LN-Nota-Cards/_helpers/notaCardsHelper';
 import getBajadaOrFirstTextParagraph from '../../../../../components/private/common/utils/getBajadaOrFirstTextParagraph';
 
 describe('notaCardsHelper - getNotaCardsAperturaData', () => {
@@ -169,5 +172,68 @@ describe('notaCardsHelper - getNotaCardsAperturaData', () => {
         expect(result.dataContent).toHaveProperty('description');
         expect(result.dataContent).toHaveProperty('label');
         expect(result.dataContent).toHaveProperty('isSubscriber');
+    });
+
+    it('handles dual titles correctly when both work title and native title are provided', () => {
+        const globalContent = {
+            headlines: { basic: 'Título de trabajo', native: 'Título Nativo' },
+            subheadlines: { basic: 'Test Subtitle' },
+            description: { basic: 'Test Description' }
+        };
+
+        const result = getNotaCardsAperturaData(globalContent);
+
+        expect(result.dataContent.title).toBe('Título Nativo');
+        expect(result.dataContent.secondaryTitle).toBe('Título de trabajo');
+    });
+
+    it('uses work title as primary when no native title is provided', () => {
+        const globalContent = {
+            headlines: { basic: 'Título de trabajo' },
+            subheadlines: { basic: 'Test Subtitle' },
+            description: { basic: 'Test Description' }
+        };
+
+        const result = getNotaCardsAperturaData(globalContent);
+
+        expect(result.dataContent.title).toBe('Título de trabajo');
+        expect(result.dataContent.secondaryTitle).toBe(null);
+    });
+});
+
+describe('notaCardsHelper - resolveDualTitles', () => {
+    it('returns only primary title when no native title is provided', () => {
+        const result = resolveDualTitles('Título de trabajo', '');
+
+        expect(result.primaryTitle).toBe('Título de trabajo');
+        expect(result.secondaryTitle).toBe(null);
+    });
+
+    it('returns native title as primary and work title as secondary when both are provided', () => {
+        const result = resolveDualTitles('Título de trabajo', 'Título Nativo');
+
+        expect(result.primaryTitle).toBe('Título Nativo');
+        expect(result.secondaryTitle).toBe('Título de trabajo');
+    });
+
+    it('returns native title as primary and no secondary when only native title is provided', () => {
+        const result = resolveDualTitles('', 'Título Nativo');
+
+        expect(result.primaryTitle).toBe('Título Nativo');
+        expect(result.secondaryTitle).toBe(null);
+    });
+
+    it('handles empty strings and whitespace correctly', () => {
+        const result = resolveDualTitles('  ', '   Título Nativo   ');
+
+        expect(result.primaryTitle).toBe('Título Nativo');
+        expect(result.secondaryTitle).toBe(null);
+    });
+
+    it('returns empty primary and null secondary when both titles are empty', () => {
+        const result = resolveDualTitles('', '');
+
+        expect(result.primaryTitle).toBe('');
+        expect(result.secondaryTitle).toBe(null);
     });
 });

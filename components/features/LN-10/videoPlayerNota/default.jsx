@@ -66,7 +66,7 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
     const [config, setConfig] = useState(initialConfig);
 
     const articleContent = useContent({
-        source: articleId ? 'articleSourceNota' : null,
+        source: articleId ? 'lnHomeBaseArticleSource' : null,
         query: {
             id: articleId,
             published: true,

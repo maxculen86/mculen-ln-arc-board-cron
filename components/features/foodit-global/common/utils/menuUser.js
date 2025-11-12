@@ -73,6 +73,19 @@ export const menuUser = [
         }
     },
     {
+        text: 'club la nacion',
+        icon: <IconSprite name="club-ln" />,
+        onClick: () => {
+            addEventToDataLayerV2({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'perfil',
+                action: 'club_la_nacion'
+            });
+            window.location.replace('https://club.lanacion.com.ar/');
+        }
+    },
+    {
         text: '¿Cómo podemos ayudarte?',
         icon: <IconSprite name="custom-service" />,
         onClick: () => {
