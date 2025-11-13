@@ -50,3 +50,16 @@ export const mediaContainerVariant = cva(['media-container relative'], {
         }
     }
 });
+
+export const facadeContainerVariant = cva(['facade-container'], {
+    variants: {
+        variant: {
+            horizontal: 'ratio-16-9',
+            vertical: 'ratio-9-16'
+        },
+        isOpening: {
+            true: 'w-100',
+            false: 'w-320'
+        }
+    }
+});
