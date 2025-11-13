@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN-nota - private - body - default should render gallery data correctly and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="gallery-embed"
+  >
+    <div
+      class="gallery-embed__item"
+    >
+      <p>
+        <strong>
+          Gallery ID:
+        </strong>
+         26AGOYOFKVFD5EYHBN7XVL6T4M
+      </p>
+      <p>
+        <strong>
+          Caption:
+        </strong>
+         Galería de imagenes
+      </p>
+      <p>
+        <strong>
+          Diagram:
+        </strong>
+         grid-1-wide
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

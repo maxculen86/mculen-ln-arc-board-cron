@@ -29,6 +29,9 @@ export const bodyRules = {
         componentElement.arcType === subtypeElement,
     howTo: ({ componentElement, subtypeElement }) =>
         componentElement.arcType === subtypeElement,
+    galleryEmbed: ({ componentElement, subtype, subtypeElement }) =>
+        isFotoAl100(subtype, subtypeElement) &&
+        componentElement.arcType === subtypeElement,
     default: ({ componentElement, type }) =>
         componentElement.arcType && matchesArcType(componentElement, type)
 };
@@ -40,6 +43,12 @@ export const selectRule = ({
     componentElement
 }) => {
     const conditions = [
+        {
+            check: () =>
+                subtypeElement === 'gallery-embed' &&
+                isFotoAl100(subtype, subtypeElement),
+            rule: bodyRules.galleryEmbed
+        },
         {
             check: () => isFotoAl100(subtype, subtypeElement),
             rule: bodyRules.fotoAl100
