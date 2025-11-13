@@ -12,11 +12,7 @@ import {
 } from '../../utils/subtypes/subtypeHelper';
 import transformISODate from '../../utils/transformISODate';
 import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
-import {
-    facadeContainerVariant,
-    mediaContainerVariant,
-    videoPlayerVariant
-} from './styles';
+import { mediaContainerVariant, videoPlayerVariant } from './styles';
 
 export const getConfigClassName = (
     variant,
@@ -30,8 +26,8 @@ export const getConfigClassName = (
     ]),
     mediaContainer: mediaContainerVariant({
         variant,
-        isOpening,
-        isNotaVideo
+        isOpening: !!isOpening,
+        isNotaVideo: !!isNotaVideo
     }),
     videoContainer: cx([
         'mod-video',
@@ -39,14 +35,13 @@ export const getConfigClassName = (
     ]),
     videoPlayer: videoPlayerVariant({
         variant,
-        isOpening,
-        isNotaVideo
+        isOpening: !!isOpening,
+        isNotaVideo: !!isNotaVideo
     }),
     facade: 'com-image',
-    facadeContainer: facadeContainerVariant({
-        variant,
-        isOpening
-    }),
+    facadeContainer: cx([
+        variant === 'horizontal' ? 'ratio-16-9' : 'w-320 ratio-9-16'
+    ]),
     captionClasses: cx([variant === 'horizontal' ? 'px-0_l mb-8' : 'w-100'])
 });
 
