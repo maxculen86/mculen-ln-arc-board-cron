@@ -27,20 +27,21 @@ const usePrint = () => {
             /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
 
         const printContent = printRef.current.innerHTML;
-        const links = Array.from(document.head.querySelectorAll('link'))
-            .map(link => link.outerHTML)
+
+        const inlineStyles = Array.from(document.head.querySelectorAll('style'))
+            .map(s => s.outerHTML)
             .join('\n');
 
         const html = `
-            <html>
-                <head>
-                    <title>Imprimir</title>
-                    ${links}
-                    <style>* {-webkit-print-color-adjust: exact !important;}</style>
-                </head>
-                <body><main>${printContent}</main></body>
-            </html>
-        `;
+      <html>
+        <head>
+          <title>Imprimir</title>
+          ${inlineStyles}
+          <style>* { -webkit-print-color-adjust: exact !important; }</style>
+        </head>
+        <body><main>${printContent}</main></body>
+      </html>
+    `;
 
         if (isSafariMobile) {
             const newWindow = window.open('', '', 'width=800,height=600');

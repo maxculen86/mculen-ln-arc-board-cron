@@ -17,9 +17,13 @@ import responseSoloAperturaMultimedia from '../../../__mocks__/data/articles/JLM
 import responseAperturaBasic from '../../../__mocks__/data/articles/X7HUAP25GFAGDOZ3AHOXLQVL4Q.json';
 import responseBasic from '../../../__mocks__/data/articles/YJJ7JHAWNJFTDH2RLJ4QHUTA5A.json';
 
-const buildFetchResponse = data =>
+const buildFetchResponse = (data, overrides = {}) =>
     Promise.resolve({
-        json: () => Promise.resolve(data)
+        ok: true,
+        status: 200,
+        statusText: 'OK',
+        json: () => Promise.resolve(data),
+        ...overrides
     });
 
 const mockResponseNotaNoticia = buildFetchResponse(responseNotaNoticia);

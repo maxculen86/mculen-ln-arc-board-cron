@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconsFullScreen Component Snapshots should match snapshot when isApertura blocks rendering 1`] = `<DocumentFragment />`;
+
+exports[`IconsFullScreen Component Snapshots should match snapshot when no icons are rendered (default props) 1`] = `<DocumentFragment />`;
+
+exports[`IconsFullScreen Component Snapshots should match snapshot with all props enabled except isApertura 1`] = `
+<DocumentFragment>
+  <i
+    class="icon cursor-pointer bg-black-64 fixed top-8 right-8 --icon-32"
+  >
+    <mock-icon
+      fill="#fff"
+      name="close"
+    />
+  </i>
+</DocumentFragment>
+`;
+
+exports[`IconsFullScreen Component Snapshots should match snapshot with close icon (active state) 1`] = `
+<DocumentFragment>
+  <i
+    class="icon cursor-pointer bg-black-64 fixed top-8 right-8 --icon-32"
+  >
+    <mock-icon
+      fill="#fff"
+      name="close"
+    />
+  </i>
+</DocumentFragment>
+`;
+
+exports[`IconsFullScreen Component Snapshots should match snapshot with fullscreen icon (gallery enabled) 1`] = `
+<DocumentFragment>
+  <i
+    class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
+  >
+    <mock-icon
+      fill="#fff"
+      name="fullscreen"
+    />
+  </i>
+</DocumentFragment>
+`;
+
+exports[`IconsFullScreen Component Snapshots should match snapshot with fullscreen icon (zoom enabled) 1`] = `
+<DocumentFragment>
+  <i
+    class="icon icon-zoom cursor-pointer bg-black-64 absolute top-8 right-8 none --icon-32"
+  >
+    <mock-icon
+      fill="#fff"
+      name="fullscreen"
+    />
+  </i>
+</DocumentFragment>
+`;

@@ -585,6 +585,7 @@ export default `
         mobile
         meta_title
         web
+        native
     }
     description {
         basic

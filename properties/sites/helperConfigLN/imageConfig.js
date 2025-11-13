@@ -46,6 +46,35 @@ const contentElementSizes = {
     ]
 };
 
+const contentElementSizesThreeTwo = {
+    sizes: [
+        {
+            maxScreenWidth: 511,
+            width: 480,
+            height: 320,
+            proportion: '3:2'
+        },
+        {
+            minScreenWidth: 512,
+            width: 733,
+            height: 488,
+            proportion: '3:2'
+        },
+        {
+            minScreenWidth: 768,
+            width: 807,
+            height: 538,
+            proportion: '3:2'
+        },
+        {
+            minScreenWidth: 1280,
+            width: 627,
+            height: 418,
+            proportion: '3:2'
+        }
+    ]
+};
+
 const promoItemsSizes = {
     sizes: [
         {
@@ -1285,6 +1314,10 @@ export default {
             },
             content_elements: contentElementSizes,
             credits: creditsSizes
+        },
+        // TEMPLATE CARDS - Configuración específica con proportion 3:2
+        cardsRatio3x2: {
+            content_elements: contentElementSizesThreeTwo
         },
         // HOME LN10
         s: {

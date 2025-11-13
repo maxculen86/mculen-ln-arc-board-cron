@@ -142,7 +142,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
         data-interaction="dataLayerInteraction"
         data-label="recetas"
         data-variant="primary"
-        href="/subcategoria-receta/"
+        href="/recetas/"
         target="_self"
         title="Ir a Todas las recetas"
       >

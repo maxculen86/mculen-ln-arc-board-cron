@@ -23,7 +23,7 @@
     },
     {
       "title": "Guías de cocina",
-      "href": "/guias/",
+      "href": "/guias-de-cocina/",
       "trackingLabel": "guias_de_cocina",
       "src": "guias.webp",
       "classNames": "min-h-134 min-h-120_lg"
@@ -78,7 +78,7 @@
   "cocina-a-tu-medida": [
     {
       "title": "Menú semanal",
-      "href": "/menus/",
+      "href": "/menu-semanal/",
       "trackingLabel": "menu_semanal",
       "src": "menu-semanal.webp",
       "classNames": "min-h-134 min-h-max_md min-h-120_lg col-span-4_md"
@@ -201,7 +201,7 @@
     },
     {
       "title": "Todas las recetas",
-      "href": "/subcategoria-receta/",
+      "href": "/recetas/",
       "trackingLabel": "recetas",
       "src": "recetas.webp",
       "classNames": "min-h-134 min-h-120_lg"

@@ -12,8 +12,13 @@ const getDistributor = (article, isHome = true) => {
         return undefined;
     }
 
-    const { name, category, subcategory = undefined } = distributor;
-    if (name === DISTRIBUTOR_LN) {
+    const { name, category, subcategory = undefined, mode } = distributor;
+
+    if (mode && mode === 'custom') {
+        return undefined;
+    }
+
+    if (name === DISTRIBUTOR_LN && mode !== 'custom') {
         return {
             name,
             url: 'https://www.lanacion.com.ar/'

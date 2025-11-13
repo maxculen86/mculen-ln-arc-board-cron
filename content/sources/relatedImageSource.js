@@ -1,5 +1,4 @@
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import request from 'request-promise-native';
 import {
     FOTOAL100,
     STORYTELLING
@@ -9,6 +8,7 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import logger from '../../components/private/common/utils/logger';
 import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const resolve = key => {
     const { id, nid, boxType, subtype, imageConfig, isAddRelated } = key;
@@ -33,12 +33,7 @@ const transform = async (data, siteProps, cachedCall) => {
     const useDataSizes =
         height && width && get(siteProps, 'useDataSizes', false);
     const dataSizes = useDataSizes && {
-        sizes: [
-            {
-                height,
-                width
-            }
-        ]
+        sizes: [{ height, width }]
     };
 
     const presetsPromoItems = get(presets, 'promo_items', null);
@@ -67,23 +62,25 @@ const transform = async (data, siteProps, cachedCall) => {
     };
 };
 
-const fetch = (query, { cachedCall } = {}) => {
+const fetch = async (query, { cachedCall } = {}) => {
     const { id = '' } = query;
-
     const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
+
+    const opt = { method: 'GET' };
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
+        opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
     }
 
-    return request(opt)
-        .then(resp => transform(resp, query, cachedCall))
-        .catch(err => {
+    const resolveData = async () => {
+        try {
+            const response = await global.fetch(
+                `${CONTENT_BASE}${resolve(query)}`,
+                opt
+            );
+            handleHttpError(response);
+            const data = await response.json();
+            return transform(data, query, cachedCall);
+        } catch (err) {
             logger.push(
                 err,
                 {
@@ -92,7 +89,11 @@ const fetch = (query, { cachedCall } = {}) => {
                 },
                 arcSite
             );
-        });
+            return {};
+        }
+    };
+
+    return resolveData();
 };
 
 export default {

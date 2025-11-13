@@ -145,7 +145,7 @@ export const getFirstGroupClassNames = ({ isCustomLayout }) => ({
     firstGroupClasses: classNames(
         'first-buttons-group',
         'flex gap-16',
-        isCustomLayout ? 'pr-8' : 'pr-8_max1023 pb-16_l flex-column_l'
+        isCustomLayout ? 'pr-16' : 'pr-8_max1023 pb-16_l flex-column_l'
     ),
     displayClasses: classNames(isCustomLayout ? 'none' : 'l-none'),
 

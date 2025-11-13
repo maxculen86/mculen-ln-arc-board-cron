@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'fusion:prop-types';
 import DrawerContainer from '../DrawerContainer/foodit';
 import MenuCategories from '../MenuCategories/foodit';
@@ -10,19 +10,22 @@ import { DrawerItems } from './drawerItems';
 function DrawerMenu({ categories = [] }) {
     if (!categories.length) return null;
 
-    // TODO: Manejar filtro de principalMenu y secondaryMenu a traves de una propiedad especifica desde sites, para evitar validar por titles.
-    const TITLES_TO_EXCLUDE = [
-        'Conocenos',
-        'Guías de cocina',
-        'Masterclass de chefs'
-    ];
+    const { principalMenu, secondaryMenu } = useMemo(
+        () =>
+            categories.reduce(
+                (acc, item) => {
+                    if (item?.menuType === 'secondary') {
+                        acc.secondaryMenu.push(item);
+                    } else {
+                        acc.principalMenu.push(item);
+                    }
+                    return acc;
+                },
+                { principalMenu: [], secondaryMenu: [] }
+            ),
+        [categories]
+    );
 
-    const principalMenu = categories.filter(
-        item => !TITLES_TO_EXCLUDE.includes(item.title)
-    );
-    const secondaryMenu = categories.filter(item =>
-        TITLES_TO_EXCLUDE.includes(item.title)
-    );
     return (
         <DrawerContainer
             drawerId={DRAWER.MENU}
@@ -51,7 +54,10 @@ function DrawerMenu({ categories = [] }) {
                         .replace(/ /g, '_')
                         .toLowerCase();
                     return (
-                        <div key={title}>
+                        <div
+                            key={title}
+                            data-test-id={`header-menu-${dynamicLabel}`}
+                        >
                             <DrawerItems
                                 title={title}
                                 href={href}

@@ -7,8 +7,7 @@ import { place } from '../../../private/common/utils/firmaHelper';
 import { getAuthorData } from './signatureHelper';
 import {
     VIDEO,
-    LIVEBLOG_EDITORIAL,
-    CARDS
+    LIVEBLOG_EDITORIAL
 } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureWithAuthors({
@@ -38,23 +37,21 @@ function SignatureWithAuthors({
     const prefix = position === place.Bottom || hasMultipleAuthors;
 
     const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO];
-    const isSubtypeCards = subtype === CARDS;
 
     const isNegativeSubtype =
         negativeSubtypes.includes(subtype) && position === place.Top;
 
+    const wrapperClasses = cx(
+        'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start',
+        {
+            'mb-16': position === place.Top && !withAuthorRole,
+            'mb-32': !isNotaFooter && position === place.Bottom
+        }
+    );
+
     return (
         <div className={cx('flex flex-wrap', !withAuthorRole && 'w-100')}>
-            <div
-                className={cx(
-                    'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start',
-                    position === place.Top && !withAuthorRole && 'mb-16',
-                    !isNotaFooter &&
-                        position === place.Bottom &&
-                        !isSubtypeCards &&
-                        'mb-32'
-                )}
-            >
+            <div className={wrapperClasses}>
                 <Author
                     key={author?.name}
                     variant={variant}

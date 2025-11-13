@@ -30,5 +30,7 @@ export default {
     WIDGETS: 'li-nacion-recommended-item-template-1',
     IS_DEV: 'true',
     CONTENT_TIMEOUT: '8000000',
-    CLL_HTMLTFREE_DOMAIN: 'https://qa-canchallena.lanacion.com.ar/especiales'
+    CLL_HTMLTFREE_DOMAIN: 'https://qa-canchallena.lanacion.com.ar/especiales',
+    AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',
+    AUDIONEWS_APIKEY: 'iviw9999Fp1pqX7e6c18n4VwvChUctzu1DraBnAE'
 };

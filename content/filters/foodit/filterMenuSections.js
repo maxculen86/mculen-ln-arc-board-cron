@@ -1,6 +1,9 @@
 const childrenFilter = `
     _id,
     name,
+    navigation {
+        nav_title
+    }
 `;
 
 export default `

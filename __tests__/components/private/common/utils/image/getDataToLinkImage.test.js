@@ -140,6 +140,27 @@ describe('Common - GetDataToLinkImage', () => {
                 '(max-width: 767px)'
             );
         });
+
+        it('excludes preload when subtype is CARDS', () => {
+            const { container } = render(
+                <GetDataToLinkImage
+                    data={{ ...globalContent, subtype: '14' }}
+                    section="nota"
+                />
+            );
+            expect(container.innerHTML).toEqual('');
+        });
+
+        it('does not exclude preload when subtype is not CARDS', () => {
+            const { container } = render(
+                <GetDataToLinkImage
+                    data={{ ...globalContent, subtype: '1' }}
+                    section="nota"
+                />
+            );
+
+            expect(container.innerHTML).toEqual(expected);
+        });
     });
 
     describe('When section is home', () => {

@@ -130,7 +130,7 @@ exports[`CardCategory snapshots renders snapshot for aprende-en-la-cocina 1`] = 
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
         data-variant="primary"
-        href="/guia-de-cocina/"
+        href="/guias-de-cocina/"
         target="_self"
         title="Ir a Guías de cocina"
       >
@@ -383,7 +383,7 @@ exports[`CardCategory snapshots renders snapshot for cocina-a-tu-medida 1`] = `
         <a
           class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
           data-variant="primary"
-          href="/recetas/dietas/vegetariana/"
+          href="/recetas/dieta/vegetariana/"
           target="_self"
           title="Ir a Vegetariana"
         >
@@ -422,7 +422,7 @@ exports[`CardCategory snapshots renders snapshot for cocina-a-tu-medida 1`] = `
         <a
           class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
           data-variant="primary"
-          href="/recetas/dietas/sin-gluten/"
+          href="/recetas/dieta/sin-gluten/"
           target="_self"
           title="Ir a Sin gluten"
         >
@@ -461,7 +461,7 @@ exports[`CardCategory snapshots renders snapshot for cocina-a-tu-medida 1`] = `
         <a
           class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
           data-variant="primary"
-          href="/recetas/dietas/keto/"
+          href="/recetas/dieta/keto/"
           target="_self"
           title="Ir a Keto"
         >
@@ -500,7 +500,7 @@ exports[`CardCategory snapshots renders snapshot for cocina-a-tu-medida 1`] = `
         <a
           class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
           data-variant="primary"
-          href="/recetas/dietas/sin-lactosa/"
+          href="/recetas/dieta/sin-lactosa/"
           target="_self"
           title="Ir a Sin lactosa"
         >
@@ -539,7 +539,7 @@ exports[`CardCategory snapshots renders snapshot for cocina-a-tu-medida 1`] = `
         <a
           class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
           data-variant="primary"
-          href="/recetas/dietas/vegana/"
+          href="/recetas/dieta/vegana/"
           target="_self"
           title="Ir a Vegana"
         >

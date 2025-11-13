@@ -1,4 +1,3 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import {
@@ -9,25 +8,56 @@ import {
 const fetch = (query, { cachedCall } = {}) => {
     const { url = '' } = query;
     const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
+    const uri = `${CONTENT_BASE}${resolve(query)}`;
+
+    const headers = {
+        'Content-Type': 'application/json'
     };
+
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
+        headers.Authorization = `Bearer ${ARC_ACCESS_TOKEN}`;
     }
 
-    return request(opt)
-        .then(response => transform(response, query, cachedCall))
-        .catch(error => {
-            logger.push(
-                error,
-                { source: 'content/source/fooditCollectionSource', url },
-                arcSite
-            );
-        });
+    const resolveData = async () => {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+        try {
+            const response = await global.fetch(uri, {
+                method: 'GET',
+                headers,
+                signal: controller.signal
+            });
+
+            if (!response.ok) {
+                throw new Error(
+                    `HTTP error! status: ${response.status} - ${response.statusText}`
+                );
+            }
+
+            const data = await response.json();
+            return transform(data, query, cachedCall);
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                logger.push(
+                    'Request timed out',
+                    { source: 'content/source/fooditCollectionSource', url },
+                    arcSite
+                );
+            } else {
+                logger.push(
+                    error,
+                    { source: 'content/source/fooditCollectionSource', url },
+                    arcSite
+                );
+            }
+            return {};
+        } finally {
+            clearTimeout(timeoutId);
+        }
+    };
+
+    return Promise.resolve(resolveData());
 };
 
 export default {

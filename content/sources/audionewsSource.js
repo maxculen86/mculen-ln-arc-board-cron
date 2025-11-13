@@ -1,5 +1,4 @@
 import { AUDIONEWS_URL, AUDIONEWS_APIKEY } from 'fusion:environment';
-import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
 import { BackendLnError } from '../../components/private/LN/api/common/models/backendLnError';
@@ -24,51 +23,67 @@ const resolve = key => {
     return null;
 };
 
-const fetch = query => {
-    const { url = '' } = query;
-    const opt = {
-        json: true
-    };
-
-    opt.uri = resolve({
-        ...query
-    });
-
-    opt.headers = {
-        'x-api-key': AUDIONEWS_APIKEY
-    };
-
-    return request(opt)
-        .then(resp => {
-            if (resp.statusCode === 404 || resp.statusCode === 500) {
-                throw new Error(
-                    `Error al obtener el audio de la nota, detalle ${resp.body}`
-                );
-            }
-
-            if (get(resp, 'audio_url', null))
-                return { ...resp, audio_custom_voice: isCustomVoice(resp) };
-
-            return {};
-        })
-        .catch(error => {
+const handleAudioNewsResponse = async (response, query) => {
+    if (response.status === 404 || response.status === 500) {
+        if (response.status === 404) {
             console.warn(
-                new BackendLnError(
-                    `AudionewsSource - msj: ${
-                        error.message
-                    } - Query: ${JSON.stringify(query || {})}`,
-                    enumTypeError.audionewsError
+                JSON.stringify(
+                    {
+                        name: 'BackendLnWarn',
+                        log_details: {
+                            message: `No existe el audio para la nota ${query.id}`,
+                            reference_id: query.id,
+                            type_reference: 'composerId',
+                            query
+                        }
+                    },
+                    null,
+                    2
                 )
             );
-            logger.push(error, { source: 'audionewsSource', url });
-        });
+            return {};
+        }
+
+        throw new Error(
+            `Error al obtener el audio de la nota, detalle ${response.body}`
+        );
+    }
+    const jsonResponse = await response.json();
+
+    if (get(jsonResponse, 'audio_url', null))
+        return {
+            ...jsonResponse,
+            audio_custom_voice: isCustomVoice(jsonResponse)
+        };
+
+    return {};
+};
+
+const fetch = async query => {
+    const { url = '' } = query;
+    try {
+        const opt = {};
+        opt.headers = {
+            'x-api-key': AUDIONEWS_APIKEY
+        };
+        const response = await global.fetch(resolve(query), opt);
+        return handleAudioNewsResponse(response, query);
+    } catch (error) {
+        console.warn(
+            new BackendLnError(
+                `AudionewsSource - msj: ${error.message} - Query: ${JSON.stringify(query || {})}`,
+                enumTypeError.audionewsError
+            )
+        );
+        logger.push(error, { source: 'audionewsSource', url });
+        return {};
+    }
 };
 
 export default {
     fetch,
     params: {
-        id: 'text',
-        date: 'text'
+        id: 'text'
     },
     ttl: 200
 };

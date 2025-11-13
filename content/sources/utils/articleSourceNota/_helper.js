@@ -15,6 +15,7 @@ import { addResizedUrls } from '../../../../components/private/common/utils/imag
 import validateSponsoredLink from '../validateSponsoredLink';
 import isNoteListenable from '../audioNews/helper';
 import {
+    CARDS,
     FOTOAL100,
     HTMLLIBRECLL,
     isFotoAl100orStorytelling,
@@ -290,6 +291,13 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
             'imageConfig.resize.fotoAl100.content_elements',
             null
         );
+    const presetsContentElementsCards =
+        (response.subtype === CARDS || response.subtype === 'custom-card') &&
+        get(
+            siteProperties,
+            'imageConfig.resize.cardsRatio3x2.content_elements',
+            null
+        );
     const presetsPromoItemLiveblogEditorial =
         response.subtype === LIVEBLOG_EDITORIAL &&
         get(
@@ -329,6 +337,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
                 presetsDefault,
             contentElements:
                 presetsContentElementsCustom ||
+                presetsContentElementsCards ||
                 presetsContentElementsFotoAl100 ||
                 presetsContentElements ||
                 presetsDefault,

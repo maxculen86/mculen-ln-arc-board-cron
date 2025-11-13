@@ -52,4 +52,32 @@ describe('Test Json Text del cuerpo de la nota', () => {
         ).toString('base64');
         expect(resp.elements).toBe(contentHtml);
     });
+
+    it('Debe incluir la tabla en el cuerpo cuando exista un elemento _t = table', () => {
+        const articleConTabla = {
+            subtype: '1',
+            content_elements: [
+                { type: 'text', content: 'Primer texto' },
+                {
+                    type: 'table',
+                    header: ['Col 1', 'Col 2'],
+                    rows: [
+                        ['A1', 'A2'],
+                        ['B1', 'B2']
+                    ]
+                },
+                { type: 'text', content: 'Último texto' }
+            ]
+        };
+
+        const resp = Cuerpo(articleConTabla);
+        const tabla = resp.elements[1];
+
+        expect(tabla._t).toBe('table');
+        expect(tabla.header).toEqual(['Col 1', 'Col 2']);
+        expect(tabla.rows).toEqual([
+            ['A1', 'A2'],
+            ['B1', 'B2']
+        ]);
+    });
 });

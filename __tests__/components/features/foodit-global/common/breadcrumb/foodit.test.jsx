@@ -105,22 +105,22 @@ describe('BreadcrumbFoodit', () => {
         const { container: containerDieta } = render(
             <BreadcrumbFoodit
                 globalContent={{
-                    _id: '/recetas/dietas/sin-gluten'
+                    _id: '/recetas/dieta/sin-gluten'
                 }}
             />
         );
-        expect(containerDieta.getElementsByTagName('li')).toHaveLength(4);
+        expect(containerDieta.getElementsByTagName('li')).toHaveLength(3);
 
         const { container: containerQueCocinarHoy } = render(
             <BreadcrumbFoodit
                 globalContent={{
-                    _id: '/recetas/dietas/sin-gluten'
+                    _id: '/recetas/dieta/sin-gluten'
                 }}
             />
         );
 
         expect(containerQueCocinarHoy.getElementsByTagName('li')).toHaveLength(
-            4
+            3
         );
     });
 });

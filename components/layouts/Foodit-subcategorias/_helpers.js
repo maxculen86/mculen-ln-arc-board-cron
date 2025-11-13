@@ -13,7 +13,7 @@ const PAGE_PRIORITY_CONFIG = {
         highPriority: [0],
         eager: [0]
     },
-    '/subcategoria-receta/': {
+    '/recetas/': {
         highPriority: [0],
         eager: [0]
     },
@@ -36,7 +36,7 @@ const PAGE_PRELOAD_CONFIG = {
         enabled: true,
         preloadIndices: [0]
     },
-    '/subcategoria-receta/': {
+    '/recetas/': {
         enabled: true,
         preloadIndices: [0]
     },
@@ -102,7 +102,7 @@ export const getPageTitleFromUrl = url => {
         'aprende-en-la-cocina': 'Aprendé en la cocina',
         'cocina-facil-y-rapido': 'Cociná fácil y rápido',
         'cocina-a-tu-medida': 'Cociná a tu medida',
-        'subcategoria-receta': 'Recetas'
+        recetas: 'Recetas'
     };
 
     return (
@@ -128,7 +128,7 @@ const getTrackingConfig = (subcategoryUrl = '') => {
             sectionCategory: 'cards_cocina_a_tu_manera',
             homeLabel: 'cocina_a_tu_manera'
         },
-        '/subcategoria-receta/': {
+        '/recetas/': {
             sectionCategory: 'cards_recetas',
             homeLabel: 'recetas'
         }

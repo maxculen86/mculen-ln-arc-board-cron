@@ -108,7 +108,9 @@ function CommonCardFoodit({
                         dataSrc: src,
                         poster,
                         muted: true,
-                        loop: true
+                        loop: true,
+                        playsInline: true,
+                        autoPlay: true
                     })}
                 />
                 {showIconVideo && <Card.BadgeIcon />}

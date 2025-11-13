@@ -60,7 +60,7 @@ describe('Subcategories', () => {
         ['/cocina-a-tu-medida/', 'Cociná a tu medida', true],
         ['/aprende-en-la-cocina/', 'Aprendé en la cocina', false],
         ['/cocina-facil-y-rapido/', 'Cociná fácil y rápido', false],
-        ['/subcategoria-receta/', 'Recetas', false]
+        ['/recetas/', 'Recetas', false]
     ])(
         'subtitle visibility and title generation for %p',
         (uri, expectedTitle, shouldShowSubtitle) => {
