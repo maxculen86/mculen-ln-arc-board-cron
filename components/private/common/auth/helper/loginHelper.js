@@ -56,6 +56,11 @@ export const setMultiplyCookies = ({ userData, newToken, RefreshAsync }) => {
 };
 
 export const getAuthTokens = async () => {
+    const getAccessTokenValidated = get(
+        window,
+        'UCL.GetAccessTokenValidatedAsync',
+        () => {}
+    );
     const getToken = get(window, 'UCL.GetIdTokenValidatedAsync', () => {});
     const getAccessToken = get(
         window,
@@ -65,10 +70,12 @@ export const getAuthTokens = async () => {
 
     const token = await getToken();
     const accessToken = await getAccessToken();
+    const accessTokenValidated = await getAccessTokenValidated();
 
     return {
         token,
-        accessToken
+        accessToken,
+        accessTokenValidated
     };
 };
 
