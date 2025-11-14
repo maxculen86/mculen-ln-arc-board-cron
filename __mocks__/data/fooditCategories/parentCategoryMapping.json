@@ -2,33 +2,33 @@
   "PARENT_CATEGORY_PATTERNS": {
     "tutorial cocina salada": {
       "parentId": "/aprende-en-la-cocina",
-      "parentName": "Aprende en la cocina"
+      "parentName": "Aprendé en la cocina"
     },
     "tutorial pastelería": {
       "parentId": "/aprende-en-la-cocina",
-      "parentName": "Aprende en la cocina"
+      "parentName": "Aprendé en la cocina"
     }
   },
   "PARENT_CATEGORY_MAPPING": {
     "/masterclass": {
       "parentId": "/aprende-en-la-cocina",
-      "parentName": "Aprende en la cocina"
+      "parentName": "Aprendé en la cocina"
     },
     "/guias-de-cocina": {
       "parentId": "/aprende-en-la-cocina",
-      "parentName": "Aprende en la cocina"
+      "parentName": "Aprendé en la cocina"
     },
     "/chefs": {
       "parentId": "/aprende-en-la-cocina",
-      "parentName": "Aprende en la cocina"
+      "parentName": "Aprendé en la cocina"
     },
     "/trucos": {
       "parentId": "/aprende-en-la-cocina",
-      "parentName": "Aprende en la cocina"
+      "parentName": "Aprendé en la cocina"
     },
     "/protocolo": {
       "parentId": "/aprende-en-la-cocina",
-      "parentName": "Aprende en la cocina"
+      "parentName": "Aprendé en la cocina"
     },
     "/recetas/que-cocinar-hoy/meal-prep": {
       "parentId": "/cocina-facil-y-rapido",
