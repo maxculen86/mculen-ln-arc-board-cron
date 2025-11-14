@@ -124,7 +124,7 @@
         "@ln/foodit-ui-modal": "0.0.7",
         "@ln/foodit-ui-note": "0.0.1",
         "@ln/foodit-ui-recipe": "0.0.1",
-        "@ln/foodit-ui-sass": "0.0.138",
+        "@ln/foodit-ui-sass": "0.0.139",
         "@ln/foodit-ui-topnavigationbar": "0.0.2",
         "@ln/hooks": "1.1.2",
         "@ln/lib-newsletter": "1.1.0",
