@@ -16,7 +16,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
             class="video-player bg-black ratio-16-9"
           >
             <div
-              class="content-facade-jw relative bg-black facade-container ratio-16-9 w-320"
+              class="content-facade-jw relative bg-black ratio-16-9"
               id="facade-yPJ53Pzg"
             >
               <div

@@ -247,7 +247,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 videoContainer: 'mod-video',
                 videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'com-image',
-                facadeContainer: 'facade-container ratio-16-9 w-320',
+                facadeContainer: 'ratio-16-9',
                 captionClasses: 'px-0_l mb-8'
             });
         });
@@ -263,7 +263,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 videoPlayer:
                     'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 w-320',
                 facade: 'com-image',
-                facadeContainer: 'facade-container ratio-9-16 w-320',
+                facadeContainer: 'w-320 ratio-9-16',
                 captionClasses: 'w-100'
             });
         });
@@ -278,7 +278,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 videoPlayer:
                     'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 h-478_md h-652_lg',
                 facade: 'com-image',
-                facadeContainer: 'facade-container ratio-9-16 w-100',
+                facadeContainer: 'w-320 ratio-9-16',
                 captionClasses: 'w-100'
             });
         });
@@ -292,7 +292,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 videoContainer: 'mod-video',
                 videoPlayer: 'video-player bg-black ratio-16-9',
                 facade: 'com-image',
-                facadeContainer: 'facade-container ratio-16-9 w-100',
+                facadeContainer: 'ratio-16-9',
                 captionClasses: 'px-0_l mb-8'
             });
         });
