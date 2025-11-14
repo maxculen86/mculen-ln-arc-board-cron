@@ -72,22 +72,26 @@ function DivBannerSSR({ bannerConfiguration }) {
                 data-sizemap={JSON.stringify([])}
                 data-prebid-enabled={get(bidding, 'prebid.enabled', false)}
             />
-            {closeButton &&
-                (slotId.includes('comercial') ? (
-                    comercialButton
-                ) : (
-                    <Closebutton
-                        onClick={handleHideBanner}
-                        id={`${slotId}_btnCloseAd`}
-                        type="button"
-                        aria-label="Close"
-                        className="button ln-button"
-                        iconProps={{
-                            className: 'icon-close',
-                            color: 'light'
-                        }}
-                    />
-                ))}
+            {closeButton && (
+                // eslint-disable-next-line react/jsx-no-useless-fragment
+                <>
+                    {slotId.includes('comercial') ? (
+                        comercialButton
+                    ) : (
+                        <Closebutton
+                            onClick={handleHideBanner}
+                            id={`${slotId}_btnCloseAd`}
+                            type="button"
+                            aria-label="Close"
+                            className="button ln-button"
+                            iconProps={{
+                                className: 'icon-close',
+                                color: 'light'
+                            }}
+                        />
+                    )}
+                </>
+            )}
         </>
     );
 
@@ -117,7 +121,8 @@ DivBannerSSR.propTypes = {
         ]),
         sizemap: PropTypes.arrayOf(
             PropTypes.shape({
-                breakpoints: PropTypes.arrayOf(PropTypes.number),
+                // eslint-disable-next-line react/forbid-prop-types
+                breakpoints: PropTypes.array,
                 refresh: PropTypes.bool
             })
         ),

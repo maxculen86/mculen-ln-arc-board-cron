@@ -72,26 +72,42 @@ const renderImageComponent = mediaData => {
     );
 };
 
-const renderVideoComponent = (mediaData, classes, hasAutoplay) => (
-    <VideoPlayerJW data={mediaData} hasAutoplay={hasAutoplay} {...classes} />
+const renderVideoComponent = (mediaData, classes, hasAutoplay, isOpening) => (
+    <VideoPlayerJW
+        data={mediaData}
+        hasAutoplay={hasAutoplay}
+        isOpening={isOpening}
+        {...classes}
+    />
 );
 
 const renderIframeComponent = mediaData => (
     <MediaIframe html={mediaData.content} className="iframe-wrapper" />
 );
 
-export const getMediaItem = ({ mediaData, classes, hasAutoplay }) => {
+export const getMediaItem = ({
+    mediaData,
+    classes,
+    hasAutoplay,
+    isOpening
+}) => {
     if (!mediaData) return null;
 
     const { type, subtype } = mediaData;
     const mediaType = getMediaType(type, subtype);
 
+    const resolvedType =
+        mediaType === 'custom_embed' && isOpening && subtype === 'video_jw'
+            ? subtype
+            : mediaType;
+
     const mediaRenderers = {
         image: () => renderImageComponent(mediaData),
-        video_jw: () => renderVideoComponent(mediaData, classes, hasAutoplay),
+        video_jw: () =>
+            renderVideoComponent(mediaData, classes, hasAutoplay, isOpening),
         iframe: () => renderIframeComponent(mediaData)
     };
 
-    const renderer = mediaRenderers[mediaType];
+    const renderer = mediaRenderers[resolvedType];
     return renderer ? renderer() : null;
 };

@@ -81,6 +81,7 @@ export default {
         'https://qa-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
     MARFEEL_ACCOUNT_ID: '3353',
+    DATADOME_CLIENT_KEY: '1C321329042F0C72E85C47B9785E6B',
     BEYONDWORDS_PROJECT_ID: 38983,
     BEYONDWORDS_PROJECT_ID_FOODIT: 46577,
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',

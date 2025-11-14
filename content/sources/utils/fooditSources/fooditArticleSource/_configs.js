@@ -194,8 +194,19 @@ export const configCallbackContentElements = {
 
         return validUrl && { ...element, url: validUrl };
     },
-    custom_embed: ({ element }) =>
-        get(element, 'subtype', '') !== 'custom-parallax' && element,
+    custom_embed: ({ element }) => {
+        if (get(element, 'subtype', '') === 'custom-parallax') {
+            return false;
+        }
+        const powerUpId = get(element, 'embed.config.selectedPowerUpId', '');
+
+        if (powerUpId) {
+            return { ...element, subtype: powerUpId };
+        }
+
+        return element;
+    },
+
     video: ({ element, arcSite, cachedCall } = {}) =>
         convertVideoArcToJw(element, arcSite, cachedCall),
     list: ({ element, withSponsoredLink } = {}) => ({
@@ -223,16 +234,21 @@ export const filterCustomPreparacion = (element = {}) => ({
 
 export const paywallSoftConfigCallbackContentElements = {
     custom_embed: ({ element }) => {
-        const subtype = get(element, 'subtype', '');
+        const powerUpId = get(element, 'embed.config.selectedPowerUpId', '');
+        const elementResolved = powerUpId
+            ? { ...element, subtype: powerUpId }
+            : element;
+
+        const subtype = get(elementResolved, 'subtype', '');
 
         if (subtype === 'custom-preparacion')
-            return filterCustomPreparacion(element);
+            return filterCustomPreparacion(elementResolved);
 
         if (
             subtype === 'foodit-ingredientes' ||
             subtype === 'custom-ingrediente'
         )
-            return element;
+            return elementResolved;
 
         return null;
     },

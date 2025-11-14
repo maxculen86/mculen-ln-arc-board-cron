@@ -41,13 +41,16 @@ function OpeningContent({ data }) {
             </div>
             {subtitle && (
                 <Text
-                    className="prumo text-20 text-center mt-8 mb-20 prumo-book text-24_md text-28_lg max-w-890_lg"
+                    className="prumo text-20 text-center mt-8 prumo-book text-24_md text-28_lg max-w-890_lg"
                     style={{ letterSpacing: '-0.64px', lineHeight: '125%' }}
                 >
                     {subtitle}
                 </Text>
             )}
-            <div className="divider w-120 border border-neutral-light-700" />
+            <div
+                className="block w-122 h-1 mt-20 mb-20"
+                style={{ backgroundColor: 'var(--neutral-light-700)' }}
+            />
         </div>
     );
 }

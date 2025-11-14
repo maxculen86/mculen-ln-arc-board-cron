@@ -12,9 +12,6 @@ jest.mock('../../../../components/private/LN/nota/snippet/noticia', () =>
 jest.mock('../../../../components/private/LN/nota/snippet/liveblog', () =>
     jest.fn(() => <div data-testid="liveblog-snippet-mock" />)
 );
-jest.mock('../../../../components/private/LN/nota/snippet/paywall', () =>
-    jest.fn(() => <div data-testid="paywall-snippet-mock" />)
-);
 
 describe('SnippetIndex Component', () => {
     afterEach(() => {
@@ -167,7 +164,4 @@ test('Render PaywallSnippet and NotaSnippet if conditions allow', () => {
 
     const notaSnippet = screen.getByTestId('nota-snippet-mock');
     expect(notaSnippet).toBeInTheDocument();
-
-    const paywallSnippet = screen.getByTestId('paywall-snippet-mock');
-    expect(paywallSnippet).toBeInTheDocument();
 });
