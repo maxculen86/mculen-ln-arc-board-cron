@@ -69,7 +69,8 @@ function LN10VideoPlayer({
         withAutoplay: true,
         instanceConfig: {
             aspectratio: '9:16',
-            playlist
+            playlist,
+            fullscreenOrientationLock: 'portrait'
         }
     };
 

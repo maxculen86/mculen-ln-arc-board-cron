@@ -114,7 +114,7 @@ function NotaVideoOpeningDescription({
                 as="h2"
                 className={cx([
                     'text-18',
-                    variant === 'horizontal' && 'text-20_md'
+                    variant === 'horizontal' && 'text-20_md text-light-0'
                 ])}
             >
                 {subtitleText}
