@@ -28,7 +28,7 @@ const processElement = (b, sectionWeb, configurations, layoutPage) => {
     if (b.information && !b.information.hideCaja) {
         return responseElementBox(b, sectionWeb, configurations, layoutPage);
     }
-    if (b.sectionAliasMobile) return b;
+    if (b.sectionAliasMobile) return responseElementBox(b, sectionWeb, configurations, layoutPage);
     return [];
 };
 
