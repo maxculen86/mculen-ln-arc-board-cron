@@ -19,6 +19,7 @@ describe('useAdManager', () => {
                 addService: jest.fn()
             }),
             pubads: jest.fn().mockReturnValue({
+                setTargeting: jest.fn(),
                 enableSingleRequest: jest.fn()
             }),
             enableServices: jest.fn(),

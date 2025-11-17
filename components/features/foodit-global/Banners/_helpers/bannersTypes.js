@@ -23,11 +23,12 @@ export const bannersTypes = {
                 classParent: 'none'
             }
         },
-        getTargetings: () => ({
+        getTargetings: ({ contentType }) => ({
             p_gaComboType: getCookie('gaComboType') || 'N/A',
             p_logeado: localStorage.getItem('CDUsuarioLogeado') || 'no',
             p_suscriptor: localStorage.getItem('CDpayUser') || 'no',
-            p_premiumId: getCookie('ProductoPremiumId') || 'N/A'
+            p_premiumId: getCookie('ProductoPremiumId') || 'N/A',
+            content_type: contentType
         })
     },
     sale_box: {
@@ -76,11 +77,12 @@ export const bannersTypes = {
                 }
             }
         },
-        getTargetings: () => ({
+        getTargetings: ({ contentType }) => ({
             p_gaComboType: getCookie('gaComboType') || 'N/A',
             p_logeado: localStorage.getItem('CDUsuarioLogeado') || 'no',
             p_suscriptor: localStorage.getItem('CDpayUser') || 'no',
-            p_premiumId: getCookie('ProductoPremiumId') || 'N/A'
+            p_premiumId: getCookie('ProductoPremiumId') || 'N/A',
+            content_type: contentType
         })
     }
 };
