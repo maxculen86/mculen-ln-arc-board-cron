@@ -13,6 +13,7 @@ import ModSponsor from '../../../private/common/mod-sponsor';
 import ComLogo from '../../../private/common/com-logo';
 import { GlobalContext } from '../../../private/common/context/globalContext';
 import getTargetAndRelIfExternal from '../../../private/common/utils/getTargetAndRelIfExternal';
+import get from '../../../private/common/utils/get';
 
 import {
     getVideoOpeningTitleData,
@@ -66,7 +67,8 @@ function NotaVideoOpeningDescription({
 
     const dateProps = {
         dateTime: modDateProps.display_date,
-        showTime: modDateProps.labelEdicionImpresa.text !== 'Impresa',
+        showTime:
+            get(modDateProps, 'labelEdicionImpresa.text', '') !== 'Impresa',
         variant: 'light'
     };
 
