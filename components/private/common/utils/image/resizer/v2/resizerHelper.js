@@ -289,6 +289,7 @@ export const resizeUrlCollection = ({
     const resp = [];
     const finalPreset = defaultResizeWithSmart;
     finalPreset?.forEach(opt => {
+        const filterQuality = opt.quality || 70;
         const resizedUrl = resizeImgUrl({
             originalUrl,
             originalWidth,
@@ -296,6 +297,7 @@ export const resizeUrlCollection = ({
             defaultResizeWithSmart: opt,
             focalPoint,
             smartCropExcluded,
+            filterQuality,
             arcImage,
             isInApertura,
             arcSite,
@@ -356,6 +358,8 @@ export const resizeArcImage = ({
             ? zoomSizes && zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
 
+    const filterQuality = defaultResize.quality || 70;
+
     return {
         ...arcImage,
         width: fp || !smartCropExcluded ? 768 : arcImage.width,
@@ -366,6 +370,7 @@ export const resizeArcImage = ({
             originalHeight: arcImage.height,
             defaultResizeWithSmart,
             focalPoint: fp,
+            filterQuality,
             smartCropExcluded,
             arcImage,
             isInApertura,
