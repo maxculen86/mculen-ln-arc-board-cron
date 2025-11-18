@@ -17,6 +17,7 @@ import { BellButton } from './components/rightOptions/bellButton';
 import { useLayoutHeader } from './hooks/useLayoutHeader';
 import { useNavigationData } from './hooks/useNavigationData';
 import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
+import { BackButton } from './components/backButton';
 
 function HeaderFoodit({ layout, layoutsName }) {
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
@@ -38,6 +39,7 @@ function HeaderFoodit({ layout, layoutsName }) {
                 <MainHeader className="z-1">
                     <MainHeader.Content containerClassName="bg-positive py-16 border border-bottom border-thin border-light-100">
                         <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
+                            <BackButton variant="link" iconOnly={false} />
                             <Button
                                 title="Menu"
                                 className="text-light-800"
@@ -50,6 +52,7 @@ function HeaderFoodit({ layout, layoutsName }) {
                             </Button>
                         </MainHeader.Content.Left>
                         <MainHeader.Content.Center className="jc-center ai-center">
+                            <BackButton iconOnly variant="secondary" />
                             <MainHeader.Brand
                                 data-test-id="header-link-inicio"
                                 href="/"

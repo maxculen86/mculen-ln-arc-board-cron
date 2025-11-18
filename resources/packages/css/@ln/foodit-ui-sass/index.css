@@ -2522,6 +2522,9 @@ strong {
   .pr-0_md {
     padding-right: 0rem;
   }
+  .pr-24_md {
+    padding-right: 1.5rem;
+  }
 }
 @media (max-width:79.99rem) {
   .p-16_max1280 {
