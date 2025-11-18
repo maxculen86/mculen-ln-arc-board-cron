@@ -169,7 +169,8 @@ export default {
                         width: 150,
                         height: 150,
                         proportion: '1:1',
-                        quality: 80
+                        useFullSize: true,
+                        quality: 85
                     }
                 ]
             }
