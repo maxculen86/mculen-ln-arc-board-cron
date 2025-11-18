@@ -18,9 +18,9 @@ const monthNames = {
     '07': 'julio',
     '08': 'agosto',
     '09': 'septiembre',
-    '10': 'octubre',
-    '11': 'noviembre',
-    '12': 'diciembre'
+    10: 'octubre',
+    11: 'noviembre',
+    12: 'diciembre'
 };
 
 const dates = {
@@ -35,10 +35,7 @@ const dates = {
     'dd/mm/yyyy': date => date.reverse().join('/'),
     'dia de mes': date => {
         const dateWithDay = new Date(date);
-        const dateFormated = date
-            .reverse()
-            .join('/')
-            .split('/');
+        const dateFormated = date.reverse().join('/').split('/');
         return `${weekDays[dateWithDay.getDay()]} ${dateFormated[0]} de ${
             monthNames[dateFormated[1]]
         }`;
@@ -46,11 +43,9 @@ const dates = {
     'yyyy/mm/dd': date => date.join('-').split(' ')[0]
 };
 
-const transformISODate = (
-    date = '0000-00-00T00:00:00',
-    type = 'dd/mm/yyyy'
-) => {
-    const transformedDate = date.match(/([^T]+)/)[0].split('-');
+const transformISODate = (date, type = 'dd/mm/yyyy') => {
+    const safeDate = date || '0000-00-00T00:00:00';
+    const transformedDate = safeDate.match(/([^T]+)/)[0].split('-');
     return dates[type](transformedDate);
 };
 
