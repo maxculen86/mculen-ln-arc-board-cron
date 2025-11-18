@@ -2,6 +2,17 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BackButton } from '../../../../../../../components/features/foodit-global/common/Header/components/backButton';
 
+jest.mock('../../../../../../../components/private/LN/common/utils/isSSR', () =>
+    jest.fn(() => false)
+);
+
+jest.mock(
+    '../../../../../../../components/features/foodit-global/common/utils/getAccessSource',
+    () => ({
+        getAccessSource: jest.fn(() => 'pwa')
+    })
+);
+
 jest.mock('@ln/foodit-ui-button', () => ({
     Button: ({ children, ...props }) => (
         <button {...props} data-testid="mock-button">

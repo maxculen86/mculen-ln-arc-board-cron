@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
+import { getAccessSource } from '../../utils/getAccessSource';
+import isSSR from '../../../../../private/LN/common/utils/isSSR';
 
 const ROOT_KEY = 'foodit_back_root_path';
 
 export function BackButton({ variant = 'link', iconOnly }) {
-    if (typeof window === 'undefined') return null;
+    if (isSSR()) return null;
+
+    const isPWA = getAccessSource() === 'pwa';
+
+    if (!isPWA) return null;
 
     const { pathname } = window.location;
 
