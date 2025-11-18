@@ -1,37 +1,39 @@
-import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const fetch = query => {
     const { idVideoArc = '', video } = query;
 
     const urlSearchIdJw = `https://videomapper.lanacion.com.ar/video/${idVideoArc}`;
 
-    return request(urlSearchIdJw, {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV'
-        }
-    })
-        .then(response => {
-            const { video_id: idJw } = JSON.parse(response);
-            const getMediaJw = `https://cdn.jwplayer.com/v2/media/${idJw}`;
-            return request(getMediaJw);
-        })
-        .then(jwObject => {
+    const resolveData = async () => {
+        try {
+            const opt = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV'
+                }
+            };
+            const response = await global.fetch(urlSearchIdJw, opt);
+            handleHttpError(response);
+            const data = await response.json();
+            const getMediaJwUri = `https://cdn.jwplayer.com/v2/media/${data.video_id}`;
+            const jwResponse = await global.fetch(getMediaJwUri);
+            handleHttpError(jwResponse);
+            const jwObject = await jwResponse.json();
             return {
-                embed: { config: { videoJw: { ...JSON.parse(jwObject) } } },
+                embed: { config: { videoJw: jwObject } },
                 _id: idVideoArc,
                 type: 'custom_embed',
                 subtype: 'video_jw'
             };
-        })
-        .catch(error => {
+        } catch (error) {
             if (error.statusCode === 404) {
                 logger.push(
                     error,
                     {
-                        source:
-                            'content/source/articleSourceNota/convertVideoArcToJw/notConverted',
+                        source: 'content/source/articleSourceNota/convertVideoArcToJw/notConverted',
                         url: idVideoArc
                     },
                     query['arc-site'],
@@ -43,14 +45,15 @@ const fetch = query => {
             return logger.push(
                 error,
                 {
-                    source:
-                        'content/source/articleSourceNota/convertVideoArcToJw',
+                    source: 'content/source/articleSourceNota/convertVideoArcToJw',
                     url: idVideoArc
                 },
                 query['arc-site'],
                 true
             );
-        });
+        }
+    };
+    return resolveData();
 };
 
 export default {
