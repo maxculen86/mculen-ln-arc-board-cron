@@ -6,55 +6,46 @@ import addPropertiesByLayout from './utils/addPropertiesByLayout';
 import responseElementBox from './utils/responseElementBox';
 import { validateChildrensByLayout } from './utils/validateChildrensByLayout';
 
-const getNewPageElements = (
-    r,
-    child,
-    configurations,
-    layoutPage,
-    sectionWeb
-) => {
-    if (child && Array.isArray(child) && child.length > 0) {
-        return r.concat(
-            [].concat(
-                child.reduce((res, b) => {
-                    try {
-                        if (b) {
-                            if (b.information && !b.information.hideCaja) {
-                                return res.concat(
-                                    responseElementBox(
-                                        b,
-                                        sectionWeb,
-                                        configurations,
-                                        layoutPage
-                                    )
-                                );
-                            }
-                            if (b.sectionAliasMobile) {
-                                return res.concat(b);
-                            }
-                        }
-                        return res;
-                    } catch (e) {
-                        console.error(
-                            JSON.stringify({
-                                name: 'BackendLnError',
-                                customErrorType: 'getNewPageElementsError',
-                                log_details: {
-                                    error: e.message,
-                                    layout: layoutPage,
-                                    message: `Ocurrio un error al procesar el elemento`,
-                                    element: b
-                                }
-                            })
-                        );
-                        return res;
-                    }
-                }, [])
-            ) || []
-        );
-    }
+const logGetNewPageElementsError = (e, layoutPage, b) => {
+    console.error(
+        JSON.stringify({
+            name: 'BackendLnError',
+            customErrorType: 'getNewPageElementsError',
+            log_details: {
+                error: e.message,
+                layout: layoutPage,
+                message: 'Ocurrio un error al procesar el elemento',
+                element: b
+            }
+        })
+    );
+};
 
-    return r;
+const isValidChildArray = (child) => Array.isArray(child) && child.length > 0;
+
+const processElement = (b, sectionWeb, configurations, layoutPage) => {
+    if (!b) return [];
+    if (b.information && !b.information.hideCaja) {
+        return responseElementBox(b, sectionWeb, configurations, layoutPage);
+    }
+    if (b.sectionAliasMobile) return b;
+    return [];
+};
+
+const getNewPageElements = (r, child, configurations, layoutPage, sectionWeb) => {
+    if (!isValidChildArray(child)) return r;
+
+    const processedChildren = child.reduce((res, b) => {
+        try {
+            const processed = processElement(b, sectionWeb, configurations, layoutPage);
+            return res.concat(processed);
+        } catch (e) {
+            logGetNewPageElementsError(e, layoutPage, b);
+            return res;
+        }
+    }, []);
+
+    return r.concat(processedChildren);
 };
 
 const getPageElements = ({
