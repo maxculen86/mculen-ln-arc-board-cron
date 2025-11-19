@@ -49,7 +49,7 @@
 
     .--slider.--slider & {
         display: flex;
-        padding-top: $picture;
+        aspect-ratio: 3 / 2;
         justify-content: center;
         background: $light-neutral-200;
     }
@@ -101,7 +101,7 @@
 //.mod-caja-nota,
 .--horizontal {
     .placeholder.placeholder {
-        padding-top: $picture;
+        aspect-ratio: 3 / 2;
     }
 }
 

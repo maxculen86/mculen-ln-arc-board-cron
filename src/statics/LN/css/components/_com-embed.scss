@@ -10,7 +10,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-top: $picture;
+        aspect-ratio: 3 / 2;
         position: relative;
         iframe {
             position: absolute;
