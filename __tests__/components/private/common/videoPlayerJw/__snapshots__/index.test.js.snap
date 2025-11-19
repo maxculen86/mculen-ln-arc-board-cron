@@ -3,6 +3,11 @@
 exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
 <DocumentFragment>
   <div>
+    <script
+      defer=""
+    />
+  </div>
+  <div>
     <div
       class="content-media cursor-pointer container-center-100"
     >
@@ -14,6 +19,9 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
         >
           <div
             class="video-player bg-black ratio-16-9"
+            data-config="{"title":"MockTitle","mediaId":"yPJ53Pzg","playerId":"mockPlayer","playlist":[{"mediaid":"yPJ53Pzg","sources":[{"file":"https://cdn.jwplayer.com/videos/abc123.mp4","type":"video/mp4"}]}],"hasAutoplay":true,"autostart":true,"arcSite":"la-nacion-ar"}"
+            data-has-jwplayer="true"
+            data-video-id-jw="yPJ53Pzg"
           >
             <div
               class="content-facade-jw relative bg-black ratio-16-9"
@@ -64,17 +72,6 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
             </div>
             <div
               id="yPJ53Pzg"
-            />
-            <script
-              class="video-jw"
-              data-autostart="true"
-              data-has-autoplay="true"
-              data-media-id="yPJ53Pzg"
-              data-player="mockPlayer"
-              data-playlist="[{"mediaid":"yPJ53Pzg","sources":[{"file":"https://cdn.jwplayer.com/videos/abc123.mp4","type":"video/mp4"}]}]"
-              data-title="MockTitle"
-              defer=""
-              id="scriptVideosJw"
             />
           </div>
         </figure>
