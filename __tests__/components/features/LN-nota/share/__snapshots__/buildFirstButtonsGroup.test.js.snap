@@ -6,7 +6,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
+        class="first-buttons-group flex gap-16 flex-column_l"
         id="first-button-group"
       >
         <button
@@ -74,7 +74,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
+      class="first-buttons-group flex gap-16 flex-column_l"
       id="first-button-group"
     >
       <button

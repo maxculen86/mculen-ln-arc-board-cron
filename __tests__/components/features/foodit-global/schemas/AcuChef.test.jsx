@@ -36,6 +36,14 @@ describe('components - features- foodit-global - schemas - AcuChefSchema', () =>
                     '@id': 'https://foodit.lanacion.com.ar/',
                     name: 'Foodit'
                 }
+            },
+            {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                    '@id': 'https://foodit.lanacion.com.ar/recetas/',
+                    name: 'Recetas'
+                }
             }
         ]);
         const { name, url } = scriptSnippetRender;

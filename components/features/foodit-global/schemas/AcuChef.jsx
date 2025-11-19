@@ -31,6 +31,10 @@ export function AcuChefSchema() {
                     {
                         name: 'Foodit',
                         url: `${SITE_FOODIT}/`
+                    },
+                    {
+                        name: 'Recetas',
+                        url: `${SITE_FOODIT}/recetas/`
                     }
                 ]}
             />

@@ -1,34 +1,49 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import logger from '../../components/private/common/utils/logger';
 import getTextOfContent from './utils/summarySource/getTextOfContent';
 
-const fetch = query => {
+const fetch = async query => {
     const { idArticle = '' } = query;
+    const arcSite = 'la-nacion-ar';
     const filters = '&included_fields=content_elements,subtype';
-    const opt = {
-        uri: `${CONTENT_BASE}/content/v4/stories/?website=la-nacion-ar&_id=${idArticle}&published=false&${filters}`,
-        json: true
+    const url = `${CONTENT_BASE}/content/v4/stories/?website=${arcSite}&_id=${idArticle}&published=false${filters}`;
+
+    const headers = {
+        'Content-Type': 'application/json'
     };
+
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
+        headers.Authorization = `Bearer ${ARC_ACCESS_TOKEN}`;
     }
 
-    return request(opt)
-        .then(response => {
-            return {
-                data: getTextOfContent(response.content_elements) || '',
-                subtype: response.subtype || ''
-            };
-        })
-        .catch(error => {
-            return logger.push(error, {
-                source: 'summarySource',
-                url: opt.uri
-            });
+    try {
+        const response = await global.fetch(url, {
+            method: 'GET',
+            headers
         });
+
+        handleHttpError(response);
+
+        const data = await response.json();
+
+        return {
+            data: getTextOfContent(data.content_elements) || '',
+            subtype: data.subtype || ''
+        };
+    } catch (error) {
+        logger.push(
+            error,
+            {
+                source: 'content/sources/summarySource',
+                query,
+                url,
+                idArticle
+            },
+            arcSite
+        );
+        return {};
+    }
 };
 
 export default {

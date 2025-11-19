@@ -166,9 +166,11 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 174,
-                        height: 116,
-                        proportion: '3:2'
+                        width: 150,
+                        height: 150,
+                        proportion: '1:1',
+                        useFullSize: true,
+                        quality: 85
                     }
                 ]
             }

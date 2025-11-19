@@ -7,6 +7,17 @@ import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategorie
 import useGetUserData from '../../../../../../components/private/common/auth/hooks/useGetUserData';
 import { useNavigationData } from '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData';
 
+jest.mock('../../../../../../components/private/LN/common/utils/isSSR', () =>
+    jest.fn(() => false)
+);
+
+jest.mock(
+    '../../../../../../components/features/foodit-global/common/utils/getAccessSource',
+    () => ({
+        getAccessSource: jest.fn(() => 'web')
+    })
+);
+
 jest.mock(
     '../../../../../../components/private/common/auth/hooks/useGetUserData'
 );

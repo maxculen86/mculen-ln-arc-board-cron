@@ -9,6 +9,7 @@ import useTermica from '../../../private/common/hooks/useTermica';
 import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBookmark';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
+import { Divider } from './_children/Divider';
 import {
     isSubscribed,
     SUBSCRIBED_HELPER
@@ -86,10 +87,6 @@ function Share() {
         : 'flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l';
     const shareClasses = cx('share', 'flex relative z-100', shareSubClasses);
 
-    const hrVideoClasses = cx(
-        isHorizontal && 'vertical border border-neutral-light-100'
-    );
-
     const firstGroupProps = {
         bookmark,
         setBookmark,
@@ -134,7 +131,9 @@ function Share() {
                 <div id="v-share" className={shareClasses} ref={share}>
                     <BuildFirstButtonsGroup {...firstGroupProps} />
 
-                    <hr className={hrVideoClasses} />
+                    <Divider
+                        variant={isHorizontal ? 'vertical' : 'horizontal'}
+                    />
 
                     <BuildSecondButtonsGroup {...secondGroupProps} />
                 </div>

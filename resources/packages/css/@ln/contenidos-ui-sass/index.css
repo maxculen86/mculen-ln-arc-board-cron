@@ -2047,12 +2047,20 @@ strong:not(.--font-primary),
   margin-inline: 0.375rem;
 }
 
+.mx-16 {
+  margin-inline: 1rem;
+}
+
 .my-3 {
   margin-block: 0.1875rem;
 }
 
 .my-12 {
   margin-block: 0.75rem;
+}
+
+.my-16 {
+  margin-block: 1rem;
 }
 
 .p-0 {

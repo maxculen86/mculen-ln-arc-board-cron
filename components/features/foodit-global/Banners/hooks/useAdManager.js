@@ -12,15 +12,15 @@ export function useAdManager(slotId, size, divId, targetings) {
 
         try {
             window.googletag?.cmd?.push(() => {
+                Object.entries(targetings).forEach(([key, value]) => {
+                    googletag.pubads().setTargeting(key, value);
+                });
+
                 const googleTagWithSlot = googletag.defineSlot(
                     slotId,
                     size,
                     divId
                 );
-
-                Object.entries(targetings).forEach(([key, value]) => {
-                    googleTagWithSlot.setTargeting(key, value);
-                });
 
                 googleTagWithSlot.addService(googletag.pubads());
                 googletag.pubads().enableSingleRequest();

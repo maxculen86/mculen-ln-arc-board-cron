@@ -50,7 +50,8 @@ const videoPlayerJW = ({
     const player = idPlayer || 'ih0086X3';
     const [video] = playlist || [];
     const { mediaid = '', sources = [] } = video || {};
-    const { deployment, contextPath, globalContent, layout } = useAppContext();
+    const { arcSite, deployment, contextPath, globalContent, layout } =
+        useAppContext();
     const subtype = get(globalContent, 'subtype', '');
     const promoItems = get(globalContent, 'promo_items', {});
     const isPromoItemVideo =
@@ -108,59 +109,76 @@ const videoPlayerJW = ({
     );
 
     const captionFigureClasses = cx(captionClasses, bgClass);
+    const tagsUrl = urlForPrerollAds();
+
+    const playlistForConfig = (
+        playlist?.length ? playlist : [{ mediaid, sources }]
+    ).map(({ mediaid: itemMediaId, sources: itemSources = [] }) => ({
+        mediaid: itemMediaId,
+        sources: itemSources
+    }));
+
+    const videoConfig = {
+        title,
+        mediaId: mediaid,
+        playerId: player,
+        playlist: playlistForConfig,
+        hasAutoplay: Boolean(hasAutoplay),
+        autostart: true,
+        tagsUrl,
+        arcSite
+    };
 
     return (
-        <Static id={mediaid}>
-            <div className={container}>
-                <section className={mediaContainerClassName}>
-                    <figure className={videoContainerClassName}>
-                        <div className={videoPlayer}>
-                            <Facade
-                                id={mediaid}
-                                playlist={playlist}
-                                className={facade}
-                                containerClasses={facadeContainer}
-                                title={title}
-                                subtype={subtype}
-                                openingVideo={
-                                    subtype === VIDEO || isPromoItemVideo
-                                }
-                            />
-                            <div id={mediaid} />
-                            <script
-                                defer
-                                className="video-jw"
-                                id="scriptVideosJw"
-                                data-title={title}
-                                data-player={player}
-                                data-playlist={JSON.stringify([
-                                    { mediaid, sources }
-                                ])}
-                                data-has-autoplay={hasAutoplay}
-                                data-media-id={mediaid}
-                                data-tags-url={urlForPrerollAds()}
-                                data-autostart
-                                src={deployment(
-                                    `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
-                                )}
-                            />
-                        </div>
-                        {shouldShowFigureCaption && (
-                            <FigureCaption
-                                epigraphTitle={epigraphTitle}
-                                className={captionFigureClasses}
-                            />
-                        )}
-                    </figure>
-                    <VideoPlayerSnippet
-                        paragraph={parrafo || description}
-                        noteTitle={tituloNota}
-                        mediaData={video}
-                        minStream={{ url: get(minStream, 'file', '') }}
-                    />
-                </section>
-            </div>
-        </Static>
+        <>
+            <Static id="scriptJwVideoNote">
+                <script
+                    defer
+                    src={deployment(
+                        `${contextPath}/resources/js/LN/scriptJwVideoNote.min.js`
+                    )}
+                />
+            </Static>
+            <Static id={mediaid}>
+                <div className={container}>
+                    <section className={mediaContainerClassName}>
+                        <figure className={videoContainerClassName}>
+                            <div
+                                className={videoPlayer}
+                                data-has-jwplayer="true"
+                                data-video-id-jw={mediaid}
+                                data-config={JSON.stringify(videoConfig)}
+                            >
+                                <Facade
+                                    id={mediaid}
+                                    playlist={playlist}
+                                    className={facade}
+                                    containerClasses={facadeContainer}
+                                    title={title}
+                                    subtype={subtype}
+                                    openingVideo={
+                                        subtype === VIDEO || isPromoItemVideo
+                                    }
+                                />
+                                <div id={mediaid} />
+                            </div>
+                            {shouldShowFigureCaption && (
+                                <FigureCaption
+                                    epigraphTitle={epigraphTitle}
+                                    className={captionFigureClasses}
+                                />
+                            )}
+                        </figure>
+                        <VideoPlayerSnippet
+                            paragraph={parrafo || description}
+                            noteTitle={tituloNota}
+                            mediaData={video}
+                            minStream={{ url: get(minStream, 'file', '') }}
+                        />
+                    </section>
+                </div>
+            </Static>
+        </>
     );
 };
 
