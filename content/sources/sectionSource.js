@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { getTodayDateForAcuDolar } from '../../components/private/common/utils/dateAndTimeUtil';
@@ -9,6 +8,7 @@ const mapSections = {
     '/dolar-hoy': '/dolar-hoy',
     '/suscriptores': '/suscriptores'
 };
+
 export const resolve = key => {
     const { id, website } = key;
     const finalWebsite = website || key['arc-site'];
@@ -31,48 +31,59 @@ const transform = (data, { meteringVariant }) => ({
     subscription: meteringVariant
 });
 
-const fetch = query => {
+const fetch = async query => {
     const { id = '' } = query;
     const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
+    const url = `${CONTENT_BASE}${resolve(query)}`;
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     };
+
     if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
+        options.headers.Authorization = `Bearer ${ARC_ACCESS_TOKEN}`;
     }
 
-    return request(opt)
-        .then(response => {
-            /**
-             * Se valida que la sección consultada tenga
-             * consistencia con la data respondida en la data
-             * de origen
-             */
-            const { id: idQuery } = query;
-            if (query.api === 'true') {
-                response._id = mapSections[idQuery] || idQuery;
-            }
+    try {
+        const response = await global.fetch(url, options);
 
-            const { _id: idData } = response;
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
 
-            if (!idData || !idQuery || idData !== idQuery) {
-                if (!mapSections[idQuery])
-                    throw new NotFoundError(
-                        `La sección '${idQuery}' que intenta consultar no existe`
-                    );
-            }
-            return transform(response, query);
-        })
-        .catch(error => {
-            logger.push(
-                error,
-                { source: 'content/source/sectionSource', url: id },
-                arcSite
-            );
-        });
+        const data = await response.json();
+
+        const { id: idQuery } = query;
+        if (query.api === 'true') {
+            data._id = mapSections[idQuery] || idQuery;
+        }
+
+        const { _id: idData } = data;
+
+        if (!idData || !idQuery || idData !== idQuery) {
+            if (!mapSections[idQuery])
+                throw new NotFoundError(
+                    `La sección '${idQuery}' que intenta consultar no existe`
+                );
+        }
+
+        return transform(data, query);
+    } catch (error) {
+        logger.push(
+            error,
+            {
+                source: 'content/sources/sectionSource',
+                query,
+                url,
+                id
+            },
+            arcSite
+        );
+        return {};
+    }
 };
 
 export default {
