@@ -28,10 +28,14 @@ export const formatShoppingList = shoppingList =>
         ''
     );
 
-export const copyListToClipboard = async text => {
+export const copyListToClipboard = async (text, canonicalUrl = '') => {
+    const textToCopy = canonicalUrl
+        ? `${text}\nVer receta completa:\n${canonicalUrl}`
+        : text;
+
     try {
         if (navigator?.clipboard) {
-            await navigator.clipboard.writeText(text);
+            await navigator.clipboard.writeText(textToCopy);
             addToast({
                 variant: TOAST.SUCCESS.VARIANT,
                 title: TOAST.SUCCESS.TITLE,
@@ -42,7 +46,7 @@ export const copyListToClipboard = async text => {
 
         // Fallback for browsers that don't support clipboard API
         const textArea = document.createElement('textarea');
-        textArea.value = text;
+        textArea.value = textToCopy;
 
         // Make the textarea invisible
         textArea.style.position = 'fixed';
@@ -72,16 +76,27 @@ export const copyListToClipboard = async text => {
     }
 };
 
-export const shareList = async text => {
+export const shareList = async (text, canonicalUrl = '') => {
     if (navigator.share) {
         try {
-            await navigator.share({
-                text
-            });
+            const shareData = {
+                text: canonicalUrl
+                    ? `${text}\nVer receta completa:\n${canonicalUrl}`
+                    : text,
+                title: 'Receta de Foodit',
+                ...(canonicalUrl && { url: canonicalUrl })
+            };
+
+            await navigator.share(shareData);
         } catch (error) {
-            addErrorToast();
+            if (error.name !== 'AbortError') {
+                console.error('Error sharing:', error);
+                addErrorToast();
+            }
         }
     } else {
+        console.warn('Web Share API not supported in this browser.');
+
         addErrorToast();
     }
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
+import { SITE_FOODIT } from 'fusion:environment';
 import { CommonTabs as Tabs } from '@ln/common-ui-tabs';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
@@ -28,48 +29,42 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
     const formattedListForRecipeTab = () => {
         const formattedListForRecipeTabArray = [];
 
-        list.forEach(({ sections, text: title }, index) => {
-            // Add a blank line before recipes (except the first one)
+        list.forEach(({ sections, text: title, canonicalUrl }, index) => {
             if (index > 0) {
                 formattedListForRecipeTabArray.push('');
             }
 
-            // Add recipe title without indentation
             formattedListForRecipeTabArray.push(title);
 
             sections.forEach(({ items, titleList }) => {
-                // Add section title (like "Para la cobertura") with one tab indentation if it exists
                 if (titleList) {
                     formattedListForRecipeTabArray.push(`    ${titleList}`);
                 }
 
-                // Add ingredients with spaces and a dash
                 items.forEach(({ fullIngredientString }) => {
                     formattedListForRecipeTabArray.push(
                         `    - ${fullIngredientString}`
                     );
                 });
             });
+
+            if (canonicalUrl) {
+                const fullUrl = `${SITE_FOODIT}${canonicalUrl}`;
+                formattedListForRecipeTabArray.push('Ver receta completa:');
+                formattedListForRecipeTabArray.push(fullUrl);
+            }
         });
 
         return formattedListForRecipeTabArray;
     };
 
-    // Join all items with newlines
     const textToCopyInRecipeTab = formattedListForRecipeTab().join('\n');
-
-    // Create a single array of all sections for ingredients tab
     const allSections = list.flatMap(recipe => recipe.sections);
-
-    // Group all ingredients at once, instead of per recipe
     const formattedListForIngredientsTab = groupRecipeIngredients(allSections);
-
-    // Format ingredients for copying
     const textToCopyInIngredientsTab = formattedListForIngredientsTab
         .map(({ fullIngredientNameToCopy }) => fullIngredientNameToCopy.trim())
         .join('\n');
 
-    // Get all ingredients from the list for the MapperIngredientList
     const ingredientsListItems = allSections.map(
         ({ items, typeList, titleList }) => ({
             items,
@@ -129,7 +124,7 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
                 <Tabs.ItemContainer className="gap-16">
                     {tabsConfig?.map(({ id, title, callback }) => (
                         <Tabs.Item
-                            className="flex ai-center mb-8 text-wrap cursor-pointer "
+                            className="flex ai-center mb-8 text-wrap cursor-pointer"
                             id={id}
                             key={id}
                             color="text-secondary-positive"
@@ -175,6 +170,7 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
 TabIngredients.propTypes = {
     list: PropTypes.arrayOf(
         PropTypes.shape({
+            canonicalUrl: PropTypes.string,
             sections: PropTypes.arrayOf(
                 PropTypes.shape({
                     typeList: PropTypes.string.isRequired,

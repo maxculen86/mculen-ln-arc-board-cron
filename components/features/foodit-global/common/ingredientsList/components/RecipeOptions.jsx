@@ -4,6 +4,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import PropTypes from 'prop-types';
+import { SITE_FOODIT } from 'fusion:environment';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import {
     copyListToClipboard,
@@ -27,15 +28,21 @@ function DropdownToggle(props) {
         </Button>
     );
 }
+
 export function RecipeOptions({ list = [], bookmarkId, setShoppingList }) {
     const handleClick = e => {
         e.preventDefault();
         e.stopPropagation();
     };
 
-    const formattedShoppingList = formatShoppingList([
-        list.find(articleList => articleList.bookmarkId === bookmarkId)
-    ]);
+    const currentRecipe = list.find(
+        articleList => articleList.bookmarkId === bookmarkId
+    );
+
+    const formattedShoppingList = formatShoppingList([currentRecipe]);
+
+    const canonicalPath = currentRecipe?.canonicalUrl || '';
+    const fullUrl = canonicalPath ? `${SITE_FOODIT}${canonicalPath}` : '';
 
     return (
         <Dropdown hideArrow className="ml-auto ml-0_md" onClick={handleClick}>
@@ -52,7 +59,7 @@ export function RecipeOptions({ list = [], bookmarkId, setShoppingList }) {
                         key={`copy-${bookmarkId}`}
                         icon={<IconSprite name="copy" />}
                         onClick={() =>
-                            copyListToClipboard(formattedShoppingList)
+                            copyListToClipboard(formattedShoppingList, fullUrl)
                         }
                         text="copiar"
                         variant="default"
@@ -63,7 +70,9 @@ export function RecipeOptions({ list = [], bookmarkId, setShoppingList }) {
                         text="Compartir"
                         variant="default"
                         type="button"
-                        onClick={() => shareList(formattedShoppingList)}
+                        onClick={() =>
+                            shareList(formattedShoppingList, fullUrl)
+                        }
                     />
                     <Itemcard
                         key={`delete-${bookmarkId}`}
@@ -97,6 +106,7 @@ RecipeOptions.propTypes = {
             id: PropTypes.string.isRequired,
             bookmarkId: PropTypes.string.isRequired,
             text: PropTypes.string.isRequired,
+            canonicalUrl: PropTypes.string,
             sections: PropTypes.arrayOf(
                 PropTypes.shape({
                     titleList: PropTypes.string,
