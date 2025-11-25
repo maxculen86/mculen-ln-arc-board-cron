@@ -81,6 +81,24 @@ describe('features - LN-nota - TableV2', () => {
             render(<TableV2 data={dataWithoutHeaders} />);
             expect(screen.queryAllByRole('columnheader')).toHaveLength(0);
         });
+
+        it('Should render table with empty header array', () => {
+            const dataWithEmptyHeaders = {
+                ...mockTableData,
+                header: []
+            };
+            render(<TableV2 data={dataWithEmptyHeaders} />);
+            expect(screen.queryAllByRole('columnheader')).toHaveLength(0);
+        });
+
+        it('Should handle row with empty array', () => {
+            const dataWithEmptyRow = {
+                ...mockTableData,
+                rows: [[], mockTableData.rows[1]]
+            };
+            render(<TableV2 data={dataWithEmptyRow} />);
+            expect(screen.queryAllByRole('row')).toHaveLength(3); // 1 header + 2 rows
+        });
     });
 
     describe('TableV2 - should NOT render table', () => {
@@ -118,7 +136,7 @@ describe('features - LN-nota - TableV2', () => {
             expect(cells[1]).toHaveAttribute('aria-label', 'Italic');
         });
 
-        it('Should set aria-label to "Vacío" for empty content', () => {
+        it('Should set aria-label to "Fila" for empty content', () => {
             const dataWithEmptyCell = {
                 _id: 'table-3',
                 header: [{ _id: 'h1', content: 'Header', type: 'text' }],
@@ -126,7 +144,7 @@ describe('features - LN-nota - TableV2', () => {
             };
             render(<TableV2 data={dataWithEmptyCell} />);
             const cell = screen.queryByRole('cell');
-            expect(cell).toHaveAttribute('aria-label', 'Vacío');
+            expect(cell).toHaveAttribute('aria-label', 'Fila');
         });
     });
 
