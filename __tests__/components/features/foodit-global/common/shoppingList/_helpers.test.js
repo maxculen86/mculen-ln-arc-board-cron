@@ -263,7 +263,7 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - _helpe
             });
         });
 
-        it('should call navigator.share with text and URL when canonicalUrl is provided', async () => {
+        it('should call navigator.share with text when canonicalUrl is provided', async () => {
             const shoppingList = 'Lista de Compras\n\n';
             const canonicalUrl = 'https://foodit.lanacion.com.ar/recetas/test';
             await shareList(shoppingList, canonicalUrl);
@@ -271,8 +271,7 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - _helpe
             const expectedText = `${shoppingList}\nVer receta completa:\n${canonicalUrl}`;
             expect(navigator.share).toHaveBeenCalledWith({
                 text: expectedText,
-                title: 'Receta de Foodit',
-                url: canonicalUrl
+                title: 'Receta de Foodit'
             });
         });
 

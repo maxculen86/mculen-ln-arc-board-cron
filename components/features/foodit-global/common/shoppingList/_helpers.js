@@ -83,8 +83,7 @@ export const shareList = async (text, canonicalUrl = '') => {
                 text: canonicalUrl
                     ? `${text}\nVer receta completa:\n${canonicalUrl}`
                     : text,
-                title: 'Receta de Foodit',
-                ...(canonicalUrl && { url: canonicalUrl })
+                title: 'Receta de Foodit'
             };
 
             await navigator.share(shareData);
