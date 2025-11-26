@@ -409,7 +409,7 @@
             margin-bottom: 0;
             .placeholder {
                 border: none;
-                padding-top: calc((5 / 4) * 100%);
+                aspect-ratio: 4 / 5;
             }
         }
         .mod-description {
@@ -586,7 +586,7 @@
             //margin-top: px(32);
             .mod-media {
                 .placeholder {
-                    padding-top: calc((2 / 5) * 100%);
+                    aspect-ratio: 5 / 2;
                 }
             }
             .mod-description {
