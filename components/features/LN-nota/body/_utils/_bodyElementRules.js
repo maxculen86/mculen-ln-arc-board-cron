@@ -9,7 +9,6 @@ import Video from '../../../../private/LN/nota/cuerpo/video';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
 import RawHTML from '../../../../private/LN/common/rawHTML';
 import Html from '../../../../private/LN/nota/cuerpo/html';
-import Table from '../../../../private/LN/nota/cuerpo/table';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
 import Parallax from '../../../../private/LN/nota/cuerpo/powerUpParallax';
@@ -22,6 +21,7 @@ import HowToBody from '../../howTo/body';
 import imageGalleryEmbed from '../../private/body/imageGalleryEmbed/default';
 // utils
 import { selectRule } from './_bodyRules';
+import TableV2 from '../../tableV2/default';
 
 const bodyComponents = [
     Paragraph,
@@ -37,7 +37,7 @@ const bodyComponents = [
     RawHTML,
     Interstitial,
     Html,
-    Table,
+    TableV2,
     powerUpsReceta,
     Parallax,
     Divider,

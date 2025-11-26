@@ -699,6 +699,9 @@ a {
 .border.border-light-200 {
   border-color: var(--light-neutral-200);
 }
+.border.border-neutral-light-1 {
+  border-color: var(--neutral-light-1);
+}
 .border.border-neutral-light-100 {
   border-color: var(--neutral-light-100);
 }
@@ -2900,6 +2903,10 @@ strong:not(.--font-primary),
     justify-content: center;
   }
 }
+.vertical-align-top {
+  vertical-align: top;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -3205,6 +3212,9 @@ strong:not(.--font-primary),
   .w-306_l.w-306_l {
     width: 19.125rem;
   }
+  .w-800_l.w-800_l {
+    width: 50rem;
+  }
 }
 @media (min-width: 32rem) {
   .w-width_min512.w-width_min512 {
@@ -3323,6 +3333,10 @@ strong:not(.--font-primary),
   min-width: 7.5rem;
 }
 
+.min-w-148.min-w-148 {
+  min-width: 9.25rem;
+}
+
 .min-w-162.min-w-162 {
   min-width: 10.125rem;
 }
@@ -3350,6 +3364,9 @@ strong:not(.--font-primary),
 }
 
 @media (min-width: 48rem) {
+  .min-w-200_md.min-w-200_md {
+    min-width: 12.5rem;
+  }
   .min-w-344_md.min-w-344_md {
     min-width: 21.5rem;
   }
@@ -5050,6 +5067,13 @@ body:has(.disable-body-scroll) {
 }
 .contenidos-scrollbar::-webkit-scrollbar-track:hover, .contenidos-scrollbar::-webkit-scrollbar-track:active {
   background: #e4e4e4;
+}
+.contenidos-scrollbar.scrollbar-4::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+.contenidos-scrollbar.scrollbar-4::-webkit-scrollbar-thumb, .contenidos-scrollbar.scrollbar-4::-webkit-scrollbar-track {
+  border-radius: 0;
 }
 
 .contenidos-scrollbar-gray {

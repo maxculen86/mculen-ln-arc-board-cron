@@ -26,7 +26,8 @@ const customEmbed = (nodo, dataNota) => {
             'custom-video-jw',
             'video_jw',
             'custom-how-to',
-            'canchallena'
+            'canchallena',
+            'gallery-embed'
         ].includes(nodo.subtype)
     )
         return null;
@@ -60,6 +61,38 @@ const customEmbed = (nodo, dataNota) => {
         res.push(objTitle);
         return res;
     }
+
+    if (nodo.subtype === 'gallery-embed') {
+        const allImages = get(nodo, 'embed.config.galleryImages', []);
+        const caption = get(nodo, 'embed.config.caption', '');
+        const count = get(nodo, 'embed.config.count', 0);
+
+        const selected = allImages.slice(0, count);
+
+        const total = selected.length;
+
+        selected.forEach((img, index) => {
+            const mapped = {
+                _t: 'image',
+                url: img.url,
+            };
+
+            if (caption) {
+                if (total === 1) {
+                    mapped.epigraph = caption;
+                }
+                else if (index === total - 1) {
+                    mapped.epigraph = caption;
+                }
+            }
+
+            res.push(mapped);
+        });
+
+        return res;
+    }
+
+
 
     if (title) {
         const objTitle = {
