@@ -10,7 +10,8 @@ export const cellVariants = cva(
                     'bg-muted',
                     'text-16',
                     'font-bold',
-                    'text-neutral-light-800'
+                    'text-neutral-light-800',
+                    'min-w-148 min-w-200_md'
                 ],
                 body: ['body-cell', 'text-14']
             },

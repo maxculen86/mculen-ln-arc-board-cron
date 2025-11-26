@@ -3333,6 +3333,10 @@ strong:not(.--font-primary),
   min-width: 7.5rem;
 }
 
+.min-w-148.min-w-148 {
+  min-width: 9.25rem;
+}
+
 .min-w-162.min-w-162 {
   min-width: 10.125rem;
 }
@@ -3360,6 +3364,9 @@ strong:not(.--font-primary),
 }
 
 @media (min-width: 48rem) {
+  .min-w-200_md.min-w-200_md {
+    min-width: 12.5rem;
+  }
   .min-w-344_md.min-w-344_md {
     min-width: 21.5rem;
   }
