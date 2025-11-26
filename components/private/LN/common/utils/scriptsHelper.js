@@ -25,7 +25,6 @@ import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import HandleGlossary from '../../../common/scriptManager/handleGlossary';
 import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
-import Datadome from '../../../common/scriptManager/datadome';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -152,10 +151,6 @@ const scriptList = [
     },
     {
         component: { name: 'TikTokPixel', function: TikTokPixel },
-        feature: 'none'
-    },
-    {
-        component: { name: 'Datadome', function: Datadome },
         feature: 'none'
     }
 ];
