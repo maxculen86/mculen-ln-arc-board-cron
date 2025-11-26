@@ -28,6 +28,9 @@ import useProductClickTracker from './common/hooks/useProductClickTracker';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 import { SkeletonSegmentedBox } from './components/Skeleton';
 
+const SEGMENTED_ADJUSTMENT_GROUP = 'Ajuste Segmentada';
+const ROOF_GROUP = 'Techo';
+
 function Noop() {
     return null;
 }
@@ -206,67 +209,67 @@ CajaSegmentada.propTypes = {
             label: 'ID',
             description: 'Ingrese aquí el ID de la collection',
             defaultValue: '',
-            group: 'Ajuste Segmentada',
+            group: SEGMENTED_ADJUSTMENT_GROUP,
             hidden: false
         }).isRequired,
         initialPosition: PropTypes.number.tag({
             label: 'N° de nota inicial',
             description: 'Indicar a partir de que nota desea mostrar',
             defaultValue: 1,
-            group: 'Ajuste Segmentada',
+            group: SEGMENTED_ADJUSTMENT_GROUP,
             hidden: false
         }).isRequired,
         hideCaja: PropTypes.boolean.tag({
             name: 'Ocultar Caja',
             description: 'Marque para ocultar la caja',
             defaultValue: false,
-            group: 'Ajuste Segmentada',
+            group: SEGMENTED_ADJUSTMENT_GROUP,
             hidden: false
         }),
         title: PropTypes.string.tag({
             name: 'Texto',
             description: 'Ingrese aquí el título de la caja.',
             defaultValue: '',
-            group: 'Techo'
+            group: ROOF_GROUP
         }),
         link: PropTypes.url.tag({
             label: 'Url',
             description:
                 'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
             defaultValue: '',
-            group: 'Techo'
+            group: ROOF_GROUP
         }),
         logoId: PropTypes.string.tag({
             name: 'Logo',
             description: 'Ingrese aquí el id de Photo Center de la imagen',
             defaultValue: '',
-            group: 'Techo'
+            group: ROOF_GROUP
         }),
         hideTitle: PropTypes.boolean.tag({
             name: 'Ocultar techo',
             description: 'Marque para ocultar el techo',
             defaultValue: true,
-            group: 'Techo'
+            group: ROOF_GROUP
         }),
         navigator: PropTypes.string.tag({
             name: 'Navegador',
             description:
                 'Ingrese aquí el nombre de una navegación creada en site services',
             defaultValue: '',
-            group: 'Techo'
+            group: ROOF_GROUP
         }),
         buttonLogo: PropTypes.string.tag({
             name: 'Logo Boton',
             description: 'Ingrese aquí el id del botón',
             defaultValue: '',
-            group: 'Techo',
+            group: ROOF_GROUP,
             hidden: false
         }),
         buttonText: PropTypes.string.tag({
             name: 'Texto del botón',
             description: 'Ingrese aquí el texto del botón',
             defaultValue: '',
-            group: 'Techo',
+            group: ROOF_GROUP,
             hidden: false
         }),
         linkButton: PropTypes.string.tag({
@@ -274,14 +277,14 @@ CajaSegmentada.propTypes = {
             description:
                 'Ingrese la url que redirige al hacer click al botón. El formato debe empezar con https://',
             defaultValue: '',
-            group: 'Techo',
+            group: ROOF_GROUP,
             hidden: false
         }),
         buttonStyle: PropTypes.oneOf(Object.keys(typesButtonStyle)).tag({
             label: 'Estilo del boton',
             defaultValue: 'generic',
             description: 'Cambiar el diseño de la caja',
-            group: 'Techo',
+            group: ROOF_GROUP,
             labels: typesButtonStyle,
             hidden: false
         }),

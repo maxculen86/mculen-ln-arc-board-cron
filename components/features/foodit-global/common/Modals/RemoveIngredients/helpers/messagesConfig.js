@@ -1,13 +1,16 @@
 import get from '../../../../../../private/common/utils/get';
 
+const REMOVE_RECIPE_TITLE = 'Eliminar receta';
+const READY_TITLE = '¡Listo!';
+
 const removeIngredientsConfig = {
     recipe: {
         modal: {
-            title: 'Eliminar receta',
+            title: REMOVE_RECIPE_TITLE,
             description: 'Se sacará del listado de compras.<br />¿Está seguro?'
         },
         toast: {
-            title: '¡Listo!',
+            title: READY_TITLE,
             description: 'ya no forma parte de tu listado de compras.'
         }
     },
@@ -17,17 +20,17 @@ const removeIngredientsConfig = {
             description: 'Se sacará de esta receta.<br />¿Está seguro?'
         },
         toast: {
-            title: '¡Listo!',
+            title: READY_TITLE,
             description: 'ya no forma parte de esta receta.'
         }
     },
     menu: {
         modal: {
-            title: 'Eliminar receta',
+            title: REMOVE_RECIPE_TITLE,
             description: 'Se eliminará del menú semanal.<br />¿Está seguro?'
         },
         toast: {
-            title: '¡Listo!',
+            title: READY_TITLE,
             description: 'Se quitó del menú semanal.'
         }
     },
@@ -37,7 +40,7 @@ const removeIngredientsConfig = {
             description: 'Se sacará de la colección.<br />¿Está seguro?'
         },
         toast: {
-            title: '¡Listo!',
+            title: READY_TITLE,
             description: 'Se quitó de tu colección.'
         }
     }
@@ -52,7 +55,7 @@ export const getModalMessages = (type, bookmarkInfo = null) => {
             title:
                 bookmarkInfo.variant === 'note'
                     ? 'Eliminar nota'
-                    : 'Eliminar receta'
+                    : REMOVE_RECIPE_TITLE
         };
     }
 
