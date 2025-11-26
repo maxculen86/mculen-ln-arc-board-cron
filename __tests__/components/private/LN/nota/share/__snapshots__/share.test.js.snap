@@ -13,7 +13,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
         id="v-share"
       >
         <div
-          class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
+          class="first-buttons-group flex gap-16 flex-column_l"
           id="first-button-group"
         >
           <button
@@ -74,10 +74,13 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           </button>
         </div>
         <hr
-          class=""
+          class="l-none vertical mx-16 border border-2"
+        />
+        <hr
+          class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l"
+          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -223,7 +226,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
         id="v-share"
       >
         <div
-          class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
+          class="first-buttons-group flex gap-16 flex-column_l"
           id="first-button-group"
         >
           <button
@@ -301,10 +304,13 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
           </button>
         </div>
         <hr
-          class=""
+          class="l-none vertical mx-16 border border-2"
+        />
+        <hr
+          class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l"
+          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -450,7 +456,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
         id="v-share"
       >
         <div
-          class="first-buttons-group flex gap-16 pr-8_max1023 pb-16_l flex-column_l"
+          class="first-buttons-group flex gap-16 flex-column_l"
           id="first-button-group"
         >
           <button
@@ -510,10 +516,13 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
           </button>
         </div>
         <hr
-          class=""
+          class="l-none vertical mx-16 border border-2"
+        />
+        <hr
+          class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l"
+          class="second-buttons-group flex ai-center gap-8 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"

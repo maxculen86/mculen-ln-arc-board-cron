@@ -25,6 +25,7 @@ import { getUltimasNoticiasSectionsIds } from '../../../../../features/LN-acumul
 import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
 import { getResizedUrls, getResizerUrlJw } from './_helper';
 import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
+import { shouldPreloadForSubtype } from '../../subtypes/subtypeHelper';
 
 function GetDataToLinkImage({
     data = {},
@@ -53,6 +54,8 @@ function GetDataToLinkImage({
 
     const sectionData = {
         Nota: () => {
+            if (!shouldPreloadForSubtype(subtype)) return <></>;
+
             const resizedUrls = getResizedUrls(subtype, promoItems, basic);
 
             return <LinkImagePreload resizedUrls={resizedUrls} />;

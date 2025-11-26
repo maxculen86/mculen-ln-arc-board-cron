@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackButton snapshot matches the snapshot when iconOnly=false 1`] = `
+<div>
+  <div
+    class="pr-16 pr-24_md h-100 flex ai-center"
+  >
+    <button
+      data-testid="mock-button"
+      size="32"
+      title="Ir atrás"
+      variant="link"
+    >
+      <div
+        data-icon-size="24"
+        data-testid="mock-icon"
+      >
+        <i
+          class="text-primary-positive"
+          data-testid="mock-iconsprite"
+          name="arrow-left"
+        />
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`BackButton snapshot matches the snapshot when iconOnly=true 1`] = `
+<div>
+  <div
+    class="pr-24_md lg-only"
+  >
+    <button
+      data-testid="mock-button"
+      size="32"
+      title="Ir atrás"
+      variant="secondary"
+    >
+      <div
+        data-icon-size="16"
+        data-testid="mock-icon"
+      >
+        <i
+          class="text-primary-positive"
+          data-testid="mock-iconsprite"
+          name="arrow-left"
+        />
+      </div>
+    </button>
+  </div>
+</div>
+`;

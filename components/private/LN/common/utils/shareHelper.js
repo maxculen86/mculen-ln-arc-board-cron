@@ -1,7 +1,7 @@
 /* global FB */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import classNames from 'classnames';
+import { cx } from '@ln/ds-cva';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
@@ -145,14 +145,12 @@ export const getClassAndIconByBookmark = bookmark =>
           };
 
 export const getFirstGroupClassNames = ({ isCustomLayout }) => ({
-    firstGroupClasses: classNames(
+    firstGroupClasses: cx(
         'first-buttons-group',
         'flex gap-16',
-        isCustomLayout ? 'pr-16' : 'pr-8_max1023 pb-16_l flex-column_l'
+        !isCustomLayout && 'flex-column_l'
     ),
-    displayClasses: classNames(isCustomLayout ? 'none' : 'l-none'),
-
-    commentsClasses: classNames(
+    commentsClasses: cx(
         'comment-btn',
         'flex w-fit-content p-8 gap-4',
         isCustomLayout

@@ -51,6 +51,8 @@ export const storyHeadline = (dataNota, type) => {
 
 export const storyCommon = (dataNota, cuerpo) => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
+    const hasTable = Array.isArray(dataNota.content_elements) &&
+        dataNota.content_elements.some(el => el.type === 'table');
     const {
         _id: id,
         subtype: template,
@@ -102,16 +104,24 @@ export const storyCommon = (dataNota, cuerpo) => {
         },
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
-        enviarApps,
+        enviarApps: hasTable ? false : enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor),
         trust: !isTrust,
         metadata: Metadata(dataNota),
         ia: getIa(dataNota, subtype),
-        openingMode
+        openingMode: hasTable ? 'NativeBrowser' : openingMode
     };
 
-    if (dataNota.subtype === '9') resp.HTML = cuerpo;
-    else resp.contenido = cuerpo;
+    switch (dataNota.subtype) {
+        case '9':
+            resp.HTML = cuerpo;
+            break;
+        case '16':
+            break;
+        default:
+            resp.contenido = cuerpo;
+            break;
+    }
 
     return resp;
 };

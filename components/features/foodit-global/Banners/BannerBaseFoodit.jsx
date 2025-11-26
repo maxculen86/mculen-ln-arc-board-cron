@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 
 import { getTypeOfDevice } from '@ln/hooks';
 import PropTypes from 'prop-types';
@@ -7,6 +8,8 @@ import isSSR from '../../../private/LN/common/utils/isSSR';
 import { useAdManager } from './hooks/useAdManager';
 
 export function BannerBaseFoodit({ bannerType }) {
+    const { layout } = useAppContext();
+
     const device = getTypeOfDevice({
         breakpoints: {
             mobile: 768,
@@ -30,7 +33,12 @@ export function BannerBaseFoodit({ bannerType }) {
         );
     }
 
-    const adManagerError = useAdManager(slotId, size, divId, getTargetings());
+    const adManagerError = useAdManager(
+        slotId,
+        size,
+        divId,
+        getTargetings({ contentType: layout })
+    );
 
     if (adManagerError) {
         console.error('Error al cargar el banner:', adManagerError);

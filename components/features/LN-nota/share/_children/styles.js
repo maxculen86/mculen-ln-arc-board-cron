@@ -5,9 +5,8 @@ export const buildSecondButtonsGroupVariants = cva(
     {
         variants: {
             orientation: {
-                horizontal: 'pl-16',
-                vertical:
-                    'flex-column_l pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l'
+                horizontal: '',
+                vertical: 'flex-column_l ai-center_max1023 jc-center_l'
             }
         }
     }

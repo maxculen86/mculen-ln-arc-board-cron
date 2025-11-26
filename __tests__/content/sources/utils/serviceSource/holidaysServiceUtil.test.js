@@ -27,7 +27,7 @@ import {
     datesDiffInDays
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
-const mockResponse = Promise.resolve(mockCatholicAndJewishHoliday);
+const mockResponse = mockCatholicAndJewishHoliday;
 
 const {
     getUri,
@@ -36,13 +36,6 @@ const {
     getTemplates,
     transform
 } = holidays;
-
-jest.mock('request-promise-native', () => {
-    return {
-        __esModule: true,
-        default: () => mockResponse
-    };
-});
 
 jest.mock(
     '../../../../../components/private/common/utils/dateAndTimeUtil',
@@ -68,6 +61,15 @@ jest.mock(
 );
 const currentYear = 2025;
 const previousYear = 2024;
+
+beforeEach(() => {
+    global.fetch = jest.fn(() =>
+        Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockResponse)
+        })
+    );
+});
 
 describe('Test getUri function', () => {
     test('Should return endpoint with the year', () => {
@@ -104,10 +106,12 @@ describe('Test getUri function', () => {
 });
 
 describe('Tests holidays request', () => {
-    test('Should return data from the request', () => {
+    test('Should return data from the request', async () => {
         const req = { queryData: { service: 'feriados' }, auth: {} };
+        const data = await holidayRequest(req);
 
-        expect(holidayRequest(req)).toStrictEqual(mockResponse);
+        expect(global.fetch).toHaveBeenCalledTimes(1);
+        expect(data).toStrictEqual(mockResponse);
     });
 });
 
@@ -206,6 +210,7 @@ describe('Test filterHolidaysByType helperFuction', () => {
         expect(filter).toHaveLength(8);
     });
 });
+
 describe('Test previousAndNextDate helperFuction', () => {
     test('Should return only next for border case', () => {
         const result = previousAndNextDate(2021, 'enero');
@@ -468,6 +473,7 @@ describe('Test getHolidaysMetaData', () => {
         });
     });
 });
+
 describe('Test getUri function v2', () => {
     test('Should return endpoint with the year', () => {
         expect(

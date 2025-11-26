@@ -9,7 +9,6 @@ import Video from '../../../../private/LN/nota/cuerpo/video';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
 import RawHTML from '../../../../private/LN/common/rawHTML';
 import Html from '../../../../private/LN/nota/cuerpo/html';
-import Table from '../../../../private/LN/nota/cuerpo/table';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
 import Parallax from '../../../../private/LN/nota/cuerpo/powerUpParallax';
@@ -19,8 +18,10 @@ import Interstitial from '../../../LN-10-global/common/body/interstitial/default
 import PullQuote from '../../../LN-10-global/common/body/pullQuote/default';
 import BlockQuote from '../../../LN-10-global/common/body/blockQuote/default';
 import HowToBody from '../../howTo/body';
+import imageGalleryEmbed from '../../private/body/imageGalleryEmbed/default';
 // utils
 import { selectRule } from './_bodyRules';
+import TableV2 from '../../tableV2/default';
 
 const bodyComponents = [
     Paragraph,
@@ -36,13 +37,14 @@ const bodyComponents = [
     RawHTML,
     Interstitial,
     Html,
-    Table,
+    TableV2,
     powerUpsReceta,
     Parallax,
     Divider,
     PowerUpLiveBlog,
     EmbedCll,
-    HowToBody
+    HowToBody,
+    imageGalleryEmbed
 ];
 
 export const bodyElementRules = (props = {}) => {

@@ -49,7 +49,7 @@ describe('Mocks & factory', () => {
     });
 
     it.each([
-        ['Mealprep', '/recetas/que-cocinar-hoy/meal-prep/'],
+        ['Meal prep', '/recetas/que-cocinar-hoy/meal-prep/'],
         ['Recetas fáciles', '/recetas/que-cocinar-hoy/facil/'],
         ['Recetas rápidas', '/recetas/que-cocinar-hoy/rapida/']
     ])('la ruta de "%s" es "%s"', (title, expectedHref) => {

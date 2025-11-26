@@ -2,15 +2,20 @@ import React from 'react';
 import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 
+import { Text } from '@ln/common-ui-text';
+import PropTypes from 'fusion:prop-types';
 import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
-import { Text } from '@ln/common-ui-text';
 
 const pageBuilderSections = ['Apertura', 'Chefs'];
 
-const AcumuladoChefFoodit = ({ children }) => {
+function AcumuladoChefFoodit({ children }) {
     const [, chefs] = children;
     const sectionsCustom = [
+        {
+            name: 'Recetas',
+            url: `/recetas/`
+        },
         {
             name: 'Chefs protagonistas',
             url: `/chefs-protagonistas/`
@@ -39,6 +44,10 @@ const AcumuladoChefFoodit = ({ children }) => {
             </Static>
         </BaseLayout>
     );
+}
+
+AcumuladoChefFoodit.propTypes = {
+    children: PropTypes.node.isRequired
 };
 
 AcumuladoChefFoodit.sections = pageBuilderSections;

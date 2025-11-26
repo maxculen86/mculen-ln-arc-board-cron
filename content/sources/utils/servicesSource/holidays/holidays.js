@@ -1,4 +1,3 @@
-import request from 'request-promise-native';
 import {
     LANACION_SERVICES_URL,
     API_ENV,
@@ -11,6 +10,7 @@ import {
     getHolidaysMetaData
 } from './holidaysHelper';
 import { getArgentinaYear } from '../../../../../components/private/common/utils/dateAndTimeUtil';
+import { handleHttpError } from '../../../../../components/private/common/utils/handleHttpError';
 
 const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
     if (serviceSubItem && serviceItem)
@@ -27,16 +27,31 @@ const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
     );
 };
 
-const holidayRequest = ({ queryData } = {}) => {
-    const opt = {
-        uri: getUri(queryData),
-        json: true,
-        headers: {
-            Referer: API_ENV,
-            'api-key': API_KEY_ARC_SERVICES
-        }
-    };
-    return request(opt).then(data => data);
+const holidayRequest = async ({ queryData } = {}) => {
+    const uri = getUri(queryData);
+
+    try {
+        const response = await fetch(uri, {
+            method: 'GET',
+            headers: {
+                Referer: API_ENV,
+                'api-key': API_KEY_ARC_SERVICES
+            }
+        });
+        handleHttpError(response);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        logger.push(
+            error,
+            {
+                source: 'content/sources/servicesSource',
+                url: uri
+            },
+            queryData.arcSite
+        );
+        return {};
+    }
 };
 
 const transform = data => {

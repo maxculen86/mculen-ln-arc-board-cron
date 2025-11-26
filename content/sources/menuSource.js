@@ -1,13 +1,6 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
-
-let auth;
-if (ARC_ACCESS_TOKEN) {
-    auth = {
-        bearer: ARC_ACCESS_TOKEN
-    };
-}
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 const sourceMenu = [
     {
@@ -23,31 +16,29 @@ const sourceMenu = [
 const getChildren = (
     { _id, name, display_name: displayName, url, children, site },
     isSubNav
-) => {
-    return {
-        _id,
-        el: 'li',
-        name: name || displayName || '',
-        extraClass: !isSubNav
-            ? `item--${(name && name.toLowerCase()) ||
-                  (displayName && displayName.toLowerCase()) ||
-                  ''}`
-            : undefined,
-        url: url || _id,
-        site,
-        childs: !isSubNav
-            ? !!children && [
-                  {
-                      el: 'ul',
-                      extraClass: 'sublist__nav',
-                      childs: [
-                          ...children.map(child => getChildren(child, true))
-                      ]
-                  }
-              ]
-            : undefined
-    };
-};
+) => ({
+    _id,
+    el: 'li',
+    name: name || displayName || '',
+    extraClass: !isSubNav
+        ? `item--${
+              (name && name.toLowerCase()) ||
+              (displayName && displayName.toLowerCase()) ||
+              ''
+          }`
+        : undefined,
+    url: url || _id,
+    site,
+    childs: !isSubNav
+        ? !!children && [
+              {
+                  el: 'ul',
+                  extraClass: 'sublist__nav',
+                  childs: [...children.map(child => getChildren(child, true))]
+              }
+          ]
+        : undefined
+});
 
 const transform = (data, initialClass) => {
     const { children } = data || {};
@@ -68,37 +59,43 @@ const resolveUri = key => {
 };
 
 const getItem = async query => {
-    const { url = '', initialClass } = query;
     const arcSite = query['arc-site'];
-    const opt = {
-        auth,
-        json: true
-    };
+    const { url = '', initialClass } = query;
+    const opt = {};
+    if (ARC_ACCESS_TOKEN) {
+        opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
+    }
 
-    opt.uri = resolveUri({
-        ...query
-    });
+    try {
+        const response = await global.fetch(
+            resolveUri({
+                ...query
+            }),
+            opt
+        );
 
-    return request(opt)
-        .then(response => {
-            return transform(response, initialClass);
-        })
-        .catch(error => {
-            logger.push(error, { source: 'content/source', url }, arcSite);
-        });
+        handleHttpError(response);
+
+        const data = await response.json();
+
+        return transform(data, initialClass);
+    } catch (error) {
+        logger.push(error, { source: 'content/source', url }, arcSite);
+        return {};
+    }
 };
 
 const fetch = async (query, { cachedCall }) => {
-    const resp = sourceMenu.map(({ hierarchy, initialClass }) => {
-        return cachedCall(`navigation-schema-${hierarchy}`, getItem, {
+    const resp = sourceMenu.map(({ hierarchy, initialClass }) =>
+        cachedCall(`navigation-schema-${hierarchy}`, getItem, {
             query: {
                 ...query,
                 hierarchy,
                 initialClass
             },
             ttl: 300
-        });
-    });
+        })
+    );
 
     return Promise.all(resp);
 };

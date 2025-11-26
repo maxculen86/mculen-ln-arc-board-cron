@@ -1,18 +1,17 @@
 @import 'tailwindcss' important source(none);
 @import '@ln/theme-base';
-@import './tokens.css';
+@import '@ln/theme-lanacion';
 
-/* agregar import del theme correspondiente cuando se defina */
-/* @import '@ln/theme-contenidos'; */
+@import './custom.css';
+@import './overrides.css';
 
 /* Source a incluir en el mapeo de clases utilizadas */
 
 @source '../../../../../node_modules/@ln/ds-*/**/*.{js,jsx,ts,tsx}';
 @source '../../../../../components/layouts/*.{js,jsx,ts,tsx}';
 @source '../../../../../components/layouts/LN*/**/*.{js,jsx,ts,tsx}';
-@source '../../../../../components/features/LN*/**/*.{js,jsx,ts,tsx}';
-@source '../../../../../components/chains/LN*/**/*.{js,jsx,ts,tsx}';
 
+@source '../../../../../components/features/LN*/**/*.{js,jsx,ts,tsx}';
 @source '../../../../../components/features/ui-ln/**/default.{js,jsx,ts,tsx}';
 
-@import './overrides.css';
+@source '../../../../../components/chains/LN*/**/*.{js,jsx,ts,tsx}';

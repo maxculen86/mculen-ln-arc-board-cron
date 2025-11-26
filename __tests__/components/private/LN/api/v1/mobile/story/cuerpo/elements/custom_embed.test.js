@@ -142,4 +142,90 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
             expect(resp[0]['value']).toBe(' - ');
         });
     });
+
+
+    describe('customEmbed - gallery-embed', () => {
+
+        const baseNode = {
+            subtype: 'gallery-embed',
+            embed: {
+                config: {
+                    caption: 'Epígrafe de prueba',
+                    count: 2,
+                    galleryImages: [
+                        { url: 'https://img.com/1.jpg' },
+                        { url: 'https://img.com/2.jpg' },
+                    ]
+                }
+            }
+        };
+
+        test('Debe mapear la cantidad de imágenes según el count de la diagramacion', () => {
+            const result = CustomEmbed(baseNode);
+            expect(result.length).toBe(2);
+            expect(result[0]).toEqual({ _t: 'image', url: 'https://img.com/1.jpg' },
+                { _t: 'image', url: 'https://img.com/2.jpg', epigraph: 'Epígrafe de prueba' });
+
+        });
+
+        test('Debe agregar epígrafe solo a la última imagen', () => {
+            const result = CustomEmbed(baseNode);
+
+            expect(result[0]._t).toBe('image');
+            expect(result[0]).not.toHaveProperty('epigraph');
+
+            expect(result[1].epigraph).toBe('Epígrafe de prueba');
+        });
+        test('Si solo hay una imagen, debe agregar epígrafe a esa única imagen', () => {
+            const nodo = {
+                subtype: 'gallery-embed',
+                embed: {
+                    config: {
+                        caption: 'Epígrafe único',
+                        count: 1,
+                        galleryImages: [
+                            { url: 'https://img.com/one.jpg' }
+                        ]
+                    }
+                }
+            };
+
+            const result = CustomEmbed(nodo);
+
+            expect(result.length).toBe(1);
+            expect(result[0]).toEqual({
+                _t: 'image',
+                url: 'https://img.com/one.jpg',
+                epigraph: 'Epígrafe único'
+            });
+        });
+
+
+        test('Si no hay caption no se agrega epigraph', () => {
+            const nodo = {
+                ...baseNode,
+                embed: {
+                    config: {
+                        ...baseNode.embed.config,
+                        caption: '' // sin epigrafe
+                    }
+                }
+            };
+
+            const result = CustomEmbed(nodo);
+
+            expect(result.some(img => img.epigraph)).toBe(false);
+        });
+
+        test('Debe funcionar con lista vacía de imágenes', () => {
+            const nodo = {
+                ...baseNode,
+                embed: { config: { galleryImages: [] } }
+            };
+
+            const result = CustomEmbed(nodo);
+            expect(result).toEqual([]);
+        });
+    });
+
 });

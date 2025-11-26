@@ -5,6 +5,7 @@ import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
 import ComParagraph from '../../../common/com-paragraph';
 import { compose } from '../../../common/utils/functional';
+import { appendPageReferrerParam } from '../../common/utils/pageReferrer';
 
 const isLetter = (text = '') => text.match(/^[A-Za-z]/);
 
@@ -42,11 +43,13 @@ const setExternalLinks = ({ content = '', withSponsoredLink } = {}) =>
                 string
             ];
 
+            const referredLink = appendPageReferrerParam(link);
+
             return ReactDOMServer.renderToString(
                 React.createElement(
                     ComLink,
                     {
-                        link,
+                        link: referredLink || link,
                         target: !href.includes(config.host)
                             ? '_blank'
                             : '_self',
