@@ -18,10 +18,16 @@ function TableV2({ data = {}, classnames = {} }) {
                 'w-800_l max-w-100_l',
                 'pb-12',
                 'mb-32',
+                'p-8 border border-all border-thin border-light-200',
                 classnames.container
             ])}
         >
-            <table className="table-v2 p-0" cellPadding={0} cellSpacing={0}>
+            <table
+                className="table-v2 p-0"
+                cellPadding={0}
+                cellSpacing={0}
+                style={{ tableLayout: 'auto', width: '100%' }}
+            >
                 <TableHeader header={header} />
                 <tbody>
                     {rows.map((row, rowIndex) => (
