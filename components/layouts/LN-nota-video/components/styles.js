@@ -15,7 +15,8 @@ export const openingVideoMediaStyles = cva(
                     'max-h-642 max-h-478_md max-h-652_lg',
                     'ai-center',
                     'h-100',
-                    'bg-black'
+                    'bg-black',
+                    'mt-16_m mt-0_l'
                 ],
                 horizontal: [
                     'col-span-12_m col-span-8_l',
