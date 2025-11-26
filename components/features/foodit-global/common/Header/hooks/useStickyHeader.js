@@ -1,27 +1,51 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useStickyHeader = ({
     observerSelector = '.header-sentinel'
 } = {}) => {
-    const [sticky, setSticky] = useState(true);
+    const [sticky, setSticky] = useState('default');
+    const hasLeftViewport = useRef(false);
+
+    const getNextState = isIntersecting => {
+        const hasLeft = hasLeftViewport.current;
+
+        if (!isIntersecting && !hasLeft) {
+            return 'hide-subheader';
+        }
+
+        if (hasLeft) {
+            return isIntersecting ? 'show-subheader' : 'hide-subheader';
+        }
+
+        return 'default';
+    };
+
+    const updateViewportState = isIntersecting => {
+        if (!isIntersecting && !hasLeftViewport.current) {
+            hasLeftViewport.current = true;
+        }
+    };
+
+    const handleIntersection = entries => {
+        entries.forEach(entry => {
+            const { isIntersecting } = entry;
+            updateViewportState(isIntersecting);
+            const nextState = getNextState(isIntersecting);
+            setSticky(nextState);
+        });
+    };
 
     useEffect(() => {
-        const callback = entries => {
-            entries.forEach(entry => {
-                setSticky(entry.isIntersecting);
-            });
-        };
-
         const sentinel = document.querySelector(observerSelector);
-        const intersectionObserver = new IntersectionObserver(callback);
+        if (!sentinel) return undefined;
 
-        if (sentinel) intersectionObserver.observe(sentinel);
-        return () => {
-            if (sentinel) intersectionObserver.unobserve(sentinel);
-        };
+        const intersectionObserver = new IntersectionObserver(
+            handleIntersection
+        );
+        intersectionObserver.observe(sentinel);
+
+        return () => intersectionObserver.unobserve(sentinel);
     }, [observerSelector]);
 
-    return {
-        sticky
-    };
+    return { sticky };
 };
