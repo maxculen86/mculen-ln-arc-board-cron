@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import { cx } from '@ln/ds-cva';
+import { Text } from '@ln/contenidos-ui-text';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
+    googleButtons,
     BtnContainer,
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
@@ -12,6 +15,7 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import useShare from '../hooks/useShare';
 import { buildSecondButtonsGroupVariants } from './styles';
+import './styles.css';
 
 function BuildSecondButtonsGroup({
     requestUri,
@@ -20,7 +24,8 @@ function BuildSecondButtonsGroup({
     mobileTitle,
     isNegative,
     articleId,
-    isHorizontal
+    isHorizontal,
+    isNotaNoticia
 } = {}) {
     const { copy, setCopy, shareButton } = useShare({
         mobileTitle,
@@ -32,6 +37,10 @@ function BuildSecondButtonsGroup({
     const _classes = buildSecondButtonsGroupVariants({
         orientation: isHorizontal ? 'horizontal' : 'vertical'
     });
+
+    const allButtons = isNotaNoticia
+        ? [...buttonsList, ...googleButtons]
+        : buttonsList;
 
     return (
         <div className={_classes}>
@@ -62,7 +71,10 @@ function BuildSecondButtonsGroup({
                 variant="secondary"
                 iconOnly
                 size={40}
-                className="sm-only"
+                className={cx({
+                    none: isNotaNoticia,
+                    'sm-only': !isNotaNoticia
+                })}
                 isNegative={isNegative}
                 target="_blank"
                 onClick={() => {
@@ -79,7 +91,7 @@ function BuildSecondButtonsGroup({
                     <IconSprite name="whatsapp" />
                 </Icon>
             </Button>
-            {buttonsList.map(
+            {allButtons.map(
                 ({
                     withContainer = false,
                     id,
@@ -89,7 +101,12 @@ function BuildSecondButtonsGroup({
                     title,
                     labelDataLayer,
                     handleClick,
-                    className
+                    className,
+                    label,
+                    iconOnly = true,
+                    iconSize = 24,
+                    customDataLayerEvent,
+                    ...r
                 } = {}) => (
                     <BtnContainer withContainer={withContainer} key={id}>
                         <Button
@@ -105,19 +122,32 @@ function BuildSecondButtonsGroup({
                                     setCopy,
                                     mobileTitle
                                 });
-                                addEventToDataLayerV2({
-                                    event: 'share_note',
-                                    title: basic,
-                                    articleId,
-                                    rest: { tags: labelDataLayer.split('_')[1] }
-                                });
+                                addEventToDataLayerV2(
+                                    customDataLayerEvent ?? {
+                                        event: 'share_note',
+                                        title: basic,
+                                        articleId,
+                                        rest: {
+                                            tags: labelDataLayer.split('_')[1]
+                                        }
+                                    }
+                                );
                             }}
                             className={className}
-                            iconOnly
+                            iconOnly={iconOnly}
                             isNegative={isNegative}
                             size="inherit"
+                            style={{
+                                gap: '4px'
+                            }}
+                            {...r}
                         >
-                            <Icon size={24} color="inherit">
+                            {label && (
+                                <Text className="tracking--032 deprecated-neutral-700 capitalize text-12-Arial uppercase_l text-8-Arial_l -mt-2_l">
+                                    {label}
+                                </Text>
+                            )}
+                            <Icon size={iconSize} color="inherit">
                                 {icon}
                             </Icon>
                         </Button>
@@ -142,7 +172,8 @@ BuildSecondButtonsGroup.propTypes = {
     mobileTitle: PropTypes.string.isRequired,
     isNegative: PropTypes.bool.isRequired,
     articleId: PropTypes.string.isRequired,
-    isHorizontal: PropTypes.bool.isRequired
+    isHorizontal: PropTypes.bool.isRequired,
+    isNotaNoticia: PropTypes.bool.isRequired
 };
 
 export default BuildSecondButtonsGroup;
