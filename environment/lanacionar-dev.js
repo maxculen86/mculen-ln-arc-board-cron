@@ -80,7 +80,6 @@ export default {
     FOODIT_LOGIN_URL:
         'https://qa-ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
-    DATADOME_CLIENT_KEY: '1C321329042F0C72E85C47B9785E6B',
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     API_QUERYLY: 'https://api.queryly.com',

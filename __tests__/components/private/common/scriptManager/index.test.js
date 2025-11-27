@@ -163,8 +163,7 @@ describe('getScriptsToLoad', () => {
             'FooditEventsHelper',
             'EventsHelper',
             'FundingChoices',
-            'TikTokPixel',
-            'Datadome'
+            'TikTokPixel'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
@@ -192,8 +191,7 @@ describe('getScriptsToLoad', () => {
             'FooditEventsHelper',
             'EventsHelper',
             'FundingChoices',
-            'TikTokPixel',
-            'Datadome'
+            'TikTokPixel'
         ]);
         expect(result.Datadog).toBeDefined();
     });
@@ -227,7 +225,6 @@ describe('getScriptsToLoad', () => {
             'EventsHelper',
             'FundingChoices',
             'TikTokPixel',
-            'Datadome',
             'MetaRobots'
         ]);
     });
