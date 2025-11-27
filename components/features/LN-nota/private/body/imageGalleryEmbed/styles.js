@@ -31,35 +31,8 @@ export const galleryGridVariant = cva('grid gap-[16px]', {
             `,
             'vertical-two': '[&>img]:aspect-[2/3] md:grid-cols-2',
             'vertical-three': '[&>img]:aspect-[2/3] md:grid-cols-3'
-        },
-        isFotoAl100Flag: {
-            true: '',
-            false: ''
         }
-    },
-    compoundVariants: [
-        {
-            diagram: [
-                'three-one-top-two-bottom',
-                'panoramic-top',
-                'large-left'
-            ],
-            isFotoAl100Flag: true,
-            className:
-                '[&>*:not(:first-child)]:px-16 md:[&>*:not(:first-child)]:px-0'
-        },
-        {
-            diagram: 'three-two-top-one-bottom',
-            isFotoAl100Flag: true,
-            className:
-                '[&>*:nth-child(2)]:px-16 [&>*:nth-child(3)]:px-16 md:[&>*:nth-child(2)]:px-0 md:[&>*:nth-child(3)]:px-0'
-        },
-        {
-            diagram: 'four-grid',
-            isFotoAl100Flag: true,
-            className: 'px-16 md:px-0'
-        }
-    ]
+    }
 });
 
 export const galleryContainerVariant = cva('', {

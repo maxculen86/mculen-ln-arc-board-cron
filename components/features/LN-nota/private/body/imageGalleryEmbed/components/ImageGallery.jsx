@@ -15,10 +15,10 @@ function ImageGallery({
     return (
         <div
             className={cx(
-                'gallery-embed grid grid-cols-8 grid-cols-12_m grid-cols-16_lg',
+                'gallery-embed grid grid-cols-8 mb-80 grid-cols-12_m grid-cols-16_lg',
                 containerClass
             )}
-            style={{ marginBottom: '148px', marginTop: '32px' }}
+            style={{ marginTop: '32px' }}
         >
             <div className={embedItemClass}>
                 <div data-tw>

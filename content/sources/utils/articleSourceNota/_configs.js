@@ -17,6 +17,24 @@ export const configPromoItems = {
         addGalleryData(cachedCall, element, arcSite)
 };
 
+const configCallbackCustomEmbed = {
+    'gallery-embed': async ({
+        cachedCall,
+        element,
+        arcSite,
+        isFotoAl100Note
+    } = {}) => {
+        if (!isFotoAl100Note) return {};
+
+        return await buildGalleryEmbedData({
+            element,
+            cachedCall,
+            gallerySource,
+            arcSite
+        });
+    }
+};
+
 export const configCallbackContentElements = {
     gallery: ({ cachedCall, element, arcSite } = {}) => {
         return addGalleryData(cachedCall, element, arcSite);
@@ -27,16 +45,17 @@ export const configCallbackContentElements = {
         arcSite,
         isFotoAl100Note
     } = {}) => {
-        if (!isFotoAl100Note) return;
-
-        if (get(element, 'subtype') !== 'gallery-embed') return;
-
-        return await buildGalleryEmbedData({
-            element,
-            cachedCall,
-            gallerySource,
-            arcSite
-        });
+        const selectedCallback =
+            configCallbackCustomEmbed[get(element, 'subtype', '')];
+        if (selectedCallback) {
+            return selectedCallback({
+                cachedCall,
+                element,
+                arcSite,
+                isFotoAl100Note
+            });
+        }
+        return element;
     },
     text: ({ element = {}, glossary = [] } = {}) => {
         const elements = formatElementText(element);

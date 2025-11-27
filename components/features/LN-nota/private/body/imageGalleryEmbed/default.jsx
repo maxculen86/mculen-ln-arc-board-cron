@@ -32,7 +32,7 @@ function ImageGalleryEmbed(props) {
     const viewProps = {
         galleryImages,
         caption,
-        gridClass: galleryGridVariant({ diagram, isFotoAl100Flag }),
+        gridClass: galleryGridVariant({ diagram }),
         containerClass: galleryContainerVariant({ isFotoAl100Flag }),
         embedItemClass: galleryEmbedItemVariant({ isFotoAl100Flag }),
         aspectRatio: getAspectRatioClass(diagram)

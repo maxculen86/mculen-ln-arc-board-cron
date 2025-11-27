@@ -3,8 +3,8 @@
 exports[`Components - features - LN-nota - private - body - default should render gallery data correctly and match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="gallery-embed grid grid-cols-8 grid-cols-12_m grid-cols-16_lg container lay px-0 px-16_l"
-    style="margin-bottom: 148px; margin-top: 32px;"
+    class="gallery-embed grid grid-cols-8 mb-80 grid-cols-12_m grid-cols-16_lg container lay px-0 px-16_l"
+    style="margin-top: 32px;"
   >
     <div
       class="gallery-embed__item grid-col-1 grid-col-2-12_md grid-col-1-1_lg px-58_lg grid-col-2-16_min1366 px-0_min1366"
