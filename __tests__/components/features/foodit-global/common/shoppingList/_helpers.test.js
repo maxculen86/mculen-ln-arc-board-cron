@@ -202,12 +202,23 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - _helpe
             global.navigator.clipboard = { writeText: jest.fn() };
         });
 
-        it('should call clipboard.writeText with correct text', async () => {
+        it('should call clipboard.writeText with correct text when no URL provided', async () => {
             const shoppingList = 'Lista de Compras\n\n';
             await copyListToClipboard(shoppingList);
 
             expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
                 shoppingList
+            );
+        });
+
+        it('should call clipboard.writeText with text and URL when canonicalUrl is provided', async () => {
+            const shoppingList = 'Lista de Compras\n\n';
+            const canonicalUrl = 'https://foodit.lanacion.com.ar/recetas/test';
+            await copyListToClipboard(shoppingList, canonicalUrl);
+
+            const expectedText = `${shoppingList}\nVer receta completa:\n${canonicalUrl}`;
+            expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
+                expectedText
             );
         });
 
@@ -242,16 +253,40 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - _helpe
             jest.clearAllMocks();
         });
 
-        it('should call navigator.share with correct text', async () => {
+        it('should call navigator.share with correct text when no URL provided', async () => {
             const shoppingList = 'Lista de Compras\n\n';
             await shareList(shoppingList);
 
             expect(navigator.share).toHaveBeenCalledWith({
-                text: shoppingList
+                text: shoppingList,
+                title: 'Receta de Foodit'
             });
         });
 
-        it('should call addErrorToast if navigator.share fails', async () => {
+        it('should call navigator.share with text when canonicalUrl is provided', async () => {
+            const shoppingList = 'Lista de Compras\n\n';
+            const canonicalUrl = 'https://foodit.lanacion.com.ar/recetas/test';
+            await shareList(shoppingList, canonicalUrl);
+
+            const expectedText = `${shoppingList}\nVer receta completa:\n${canonicalUrl}`;
+            expect(navigator.share).toHaveBeenCalledWith({
+                text: expectedText,
+                title: 'Receta de Foodit'
+            });
+        });
+
+        it('should not call addErrorToast when user cancels share (AbortError)', async () => {
+            const abortError = new Error('User cancelled');
+            abortError.name = 'AbortError';
+            navigator.share.mockRejectedValue(abortError);
+
+            const shoppingList = 'Lista de Compras\n\n';
+            await shareList(shoppingList);
+
+            expect(addErrorToast).not.toHaveBeenCalled();
+        });
+
+        it('should call addErrorToast if navigator.share fails with non-AbortError', async () => {
             navigator.share.mockRejectedValue(new Error('Sharing failed'));
             const shoppingList = 'Lista de Compras\n\n';
             await shareList(shoppingList);
@@ -260,7 +295,8 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - _helpe
         });
 
         it('should call addErrorToast if navigator.share is not supported', async () => {
-            delete global.navigator.share; // Eliminar el soporte de share
+            delete global.navigator.share;
+
             const shoppingList = 'Lista de Compras\n\n';
             await shareList(shoppingList);
 

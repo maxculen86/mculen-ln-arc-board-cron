@@ -11,7 +11,8 @@ function ShoppingListButton({
     ingredientsLists = [],
     articleId = '',
     title = '',
-    isSuscriptor
+    isSuscriptor,
+    canonicalUrl = ''
 }) {
     const { portionsValue } = usePortions('recipe-portions');
 
@@ -29,7 +30,8 @@ function ShoppingListButton({
                 bookmarkId,
                 setBookmarkId,
                 ingredientsLists,
-                portions: portionsValue
+                portions: portionsValue,
+                canonicalUrl
             });
         } catch (error) {
             console.error('Shopping list update failed:', error);
@@ -69,7 +71,8 @@ ShoppingListButton.propTypes = {
             titleList: PropTypes.string.isRequired,
             typeList: PropTypes.string.isRequired
         })
-    ).isRequired
+    ).isRequired,
+    canonicalUrl: PropTypes.string.isRequired
 };
 
 export default ShoppingListButton;
