@@ -1,5 +1,7 @@
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 
+const cardRegistry = new Map();
+
 export const validateCardCategory = ({
     title = '',
     image = '',
@@ -95,4 +97,12 @@ export const resolveUrl = ({
 
     const queryString = queryParams.join('&');
     return `${baseUrl}&${queryString}`;
+};
+
+export const registerCardIndex = featureId => {
+    if (!cardRegistry.has(featureId)) {
+        const currentIndex = cardRegistry.size;
+        cardRegistry.set(featureId, currentIndex);
+    }
+    return cardRegistry.get(featureId);
 };
