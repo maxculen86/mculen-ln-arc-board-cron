@@ -91,7 +91,6 @@ export default {
         location: [HEAD]
     },
     Marfeel: { props: {}, location: [HEAD] },
-    Datadome: { props: {}, location: [HEAD] },
     ScriptCloseBanners: { props: {}, location: [BODYBOTTOM] },
     EventsHelper: { props: {}, location: [HEAD] },
     FundingChoices: { props: {}, location: [BODYBOTTOM] },

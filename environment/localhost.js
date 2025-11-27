@@ -25,7 +25,6 @@ export default {
     LIFTIGNITER_X_API_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH4H8MiTVHZCbdSuL7xddF4AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHe+801QKRWObkNsMAIBEIA/+JYrRgViUeZiux4Xx9AYqmEhA6cKtfM+dnDk+EbdKHGGSKcmrcaSQFYRToSVNw0bTAHsmp6d3pfGxrYHrwZU}',
     JSK_ID: '8561ps8ov66e7mim',
-    DATADOME_CLIENT_KEY: '1C321329042F0C72E85C47B9785E6B',
     OPTA_WIDGET_URL: 'http://arc-widgets.lanacion.com.ar/opta-embed',
     ARC_STATIC: 'http://arc.lanacion.com.ar',
     WIDGETS: 'li-nacion-recommended-item-template-1',
