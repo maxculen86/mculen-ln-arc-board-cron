@@ -22,61 +22,60 @@ const mockChineseHoroscope = Promise.resolve(
 );
 const { request: horoscopeRequest, getUri } = horoscope;
 
-const mockRequest = jest.fn();
-jest.mock('request-promise-native', () => {
-    return {
-        __esModule: true,
-        default: () => mockRequest()
-    };
+const originalFetch = global.fetch;
+
+beforeEach(() => {
+    global.fetch = jest.fn();
+});
+
+afterEach(() => {
+    jest.clearAllMocks();
+    global.fetch = originalFetch;
 });
 
 describe('Fetch without horoscope parameter', () => {
-    it('Should return error', () => {
-        expect(() => {
-            horoscopeRequest({ queryData: {} });
-        }).toThrow('El tipo de horoscopo es necesario.');
+    it('Should return error', async () => {
+        await expect(horoscopeRequest({ queryData: {} })).rejects.toThrow(
+            'El tipo de horoscopo es necesario.'
+        );
     });
 });
 describe('Fetch with horoscope parameter, sign and year parameters', () => {
-    it('Should return correct data for zodiac horoscope', done => {
-        mockRequest.mockReturnValueOnce(mockHoroscopeResponse);
-        horoscopeRequest({
+    it('Should return correct data for zodiac horoscope', async () => {
+        global.fetch.mockResolvedValueOnce({
+            ok: true,
+            json: () => mockHoroscopeResponse
+        });
+        const response = await horoscopeRequest({
             queryData: { service: 'horoscopo' }
-        })
-            .then(response =>
-                expect(response).toStrictEqual(
-                    mockAPI_RESPONSE_ZODIAC.dataService
-                )
-            )
-            .then(done);
+        });
+        expect(response).toStrictEqual(mockAPI_RESPONSE_ZODIAC.dataService);
     });
-    it('Should return correct data for zodiac tauro sign', done => {
-        mockRequest.mockReturnValueOnce(mockHoroscopeDetail);
-        horoscopeRequest({
+    it('Should return correct data for zodiac tauro sign', async () => {
+        global.fetch.mockResolvedValueOnce({
+            ok: true,
+            json: () => mockHoroscopeDetail
+        });
+        const response = await horoscopeRequest({
             queryData: { service: 'horoscopo', serviceItem: 'tauro' }
-        })
-            .then(response =>
-                expect(response).toStrictEqual(
-                    mockAPI_RESPONSE_SIGN_ZODIAC.dataService
-                )
-            )
-            .then(done);
+        });
+        expect(response).toStrictEqual(
+            mockAPI_RESPONSE_SIGN_ZODIAC.dataService
+        );
     });
-    it('Should return correct data for chinese horoscope', done => {
-        mockRequest.mockReturnValueOnce(mockChineseHoroscope);
+    it('Should return correct data for chinese horoscope', async () => {
+        global.fetch.mockResolvedValueOnce({
+            ok: true,
+            json: () => mockChineseHoroscope
+        });
 
-        horoscopeRequest({
+        const response = await horoscopeRequest({
             queryData: {
                 service: 'horoscopo',
                 serviceItem: 'horoscopo-chino-2021'
             }
-        })
-            .then(response =>
-                expect(response).toStrictEqual(
-                    mockAPI_RESPONSE_CHINESE.dataService
-                )
-            )
-            .then(done);
+        });
+        expect(response).toStrictEqual(mockAPI_RESPONSE_CHINESE.dataService);
     });
 });
 
