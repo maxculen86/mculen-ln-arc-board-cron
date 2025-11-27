@@ -128,7 +128,7 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
                             id={id}
                             key={id}
                             color="text-secondary-positive"
-                            onClick={callback}
+                            onClickCapture={callback}
                         >
                             <Text
                                 as="h2"
