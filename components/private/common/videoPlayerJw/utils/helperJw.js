@@ -40,7 +40,7 @@ export const getConfigClassName = (
     }),
     facade: 'com-image',
     facadeContainer: cx([
-        variant === 'horizontal' ? 'ratio-16-9' : 'w-320 ratio-9-16'
+        variant === 'horizontal' ? 'ratio-16-9' : 'w-100 ratio-9-16'
     ]),
     captionClasses: cx([variant === 'horizontal' ? 'px-0_l mb-8' : 'w-100'])
 });
