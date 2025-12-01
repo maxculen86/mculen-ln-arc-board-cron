@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { cx } from '@ln/ds-cva';
 import { Text } from '@ln/contenidos-ui-text';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
@@ -15,7 +14,6 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import useShare from '../hooks/useShare';
 import { buildSecondButtonsGroupVariants } from './styles';
-import './styles.css';
 
 function BuildSecondButtonsGroup({
     requestUri,
@@ -65,32 +63,31 @@ function BuildSecondButtonsGroup({
                     <IconSprite name="reply" />
                 </Icon>
             </Button>
-            <Button
-                id="whatsAppShareMobile"
-                title="Compartir la nota en Whatsapp"
-                variant="secondary"
-                iconOnly
-                size={40}
-                className={cx({
-                    none: isNotaNoticia,
-                    'sm-only': !isNotaNoticia
-                })}
-                isNegative={isNegative}
-                target="_blank"
-                onClick={() => {
-                    shareWhatsAppDesktop(requestUri, host);
-                    addEventToDataLayerV2({
-                        event: 'share_note',
-                        articleId,
-                        title: basic,
-                        rest: { tags: 'whatsapp' }
-                    });
-                }}
-            >
-                <Icon size={24} color="inherit">
-                    <IconSprite name="whatsapp" />
-                </Icon>
-            </Button>
+            {!isNotaNoticia && (
+                <Button
+                    id="whatsAppShareMobile"
+                    title="Compartir la nota en Whatsapp"
+                    variant="secondary"
+                    iconOnly
+                    size={40}
+                    className="sm-only"
+                    isNegative={isNegative}
+                    target="_blank"
+                    onClick={() => {
+                        shareWhatsAppDesktop(requestUri, host);
+                        addEventToDataLayerV2({
+                            event: 'share_note',
+                            articleId,
+                            title: basic,
+                            rest: { tags: 'whatsapp' }
+                        });
+                    }}
+                >
+                    <Icon size={24} color="inherit">
+                        <IconSprite name="whatsapp" />
+                    </Icon>
+                </Button>
+            )}
             {allButtons.map(
                 ({
                     withContainer = false,
@@ -143,7 +140,13 @@ function BuildSecondButtonsGroup({
                             {...r}
                         >
                             {label && (
-                                <Text className="tracking--032 deprecated-neutral-700 capitalize text-12-Arial uppercase_l text-8-Arial_l -mt-2_l">
+                                <Text
+                                    style={{
+                                        color: 'var(--neutral-700)',
+                                        fontWeight: '400'
+                                    }}
+                                    className="tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+                                >
                                     {label}
                                 </Text>
                             )}

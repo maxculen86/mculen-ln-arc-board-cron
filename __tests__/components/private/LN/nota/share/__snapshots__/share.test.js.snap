@@ -333,21 +333,6 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
             </i>
           </button>
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 none --secondary"
-            data-variant="secondary"
-            id="whatsAppShareMobile"
-            title="Compartir la nota en Whatsapp"
-            type="button"
-          >
-            <i
-              class="icon --icon-24 --inherit"
-            >
-              <mock-icon
-                name="whatsapp"
-              />
-            </i>
-          </button>
-          <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
       text-light-700 p-0 sm-none --default"
             data-event="LinkClick"
@@ -457,7 +442,8 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
             type="button"
           >
             <span
-              class="text ln-text tracking--032 deprecated-neutral-700 capitalize text-12-Arial uppercase_l text-8-Arial_l -mt-2_l"
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
             >
               + Seguir
             </span>
@@ -481,7 +467,8 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
             type="button"
           >
             <span
-              class="text ln-text tracking--032 deprecated-neutral-700 capitalize text-12-Arial uppercase_l text-8-Arial_l -mt-2_l"
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
             >
               Seguir
             </span>
@@ -616,21 +603,6 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
             </i>
           </button>
           <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 none --secondary"
-            data-variant="secondary"
-            id="whatsAppShareMobile"
-            title="Compartir la nota en Whatsapp"
-            type="button"
-          >
-            <i
-              class="icon --icon-24 --inherit"
-            >
-              <mock-icon
-                name="whatsapp"
-              />
-            </i>
-          </button>
-          <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
       text-light-700 p-0 sm-none --default"
             data-event="LinkClick"
@@ -740,7 +712,8 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
             type="button"
           >
             <span
-              class="text ln-text tracking--032 deprecated-neutral-700 capitalize text-12-Arial uppercase_l text-8-Arial_l -mt-2_l"
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
             >
               + Seguir
             </span>
@@ -764,7 +737,8 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
             type="button"
           >
             <span
-              class="text ln-text tracking--032 deprecated-neutral-700 capitalize text-12-Arial uppercase_l text-8-Arial_l -mt-2_l"
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
             >
               Seguir
             </span>

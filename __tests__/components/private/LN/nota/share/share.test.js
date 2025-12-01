@@ -363,8 +363,7 @@ describe('Share buttons for NOTICIA subtype', () => {
         const { container } = render(<Share />);
         const whatsappButton = container.querySelector('#whatsAppShareMobile');
 
-        expect(whatsappButton).toBeTruthy();
-        expect(whatsappButton.className).toContain('none');
+        expect(whatsappButton).toBeNull();
     });
 
     it('should send correct DataLayer event when clicking Google follow button', () => {
@@ -386,7 +385,7 @@ describe('Share buttons for NOTICIA subtype', () => {
         const buttons = screen.getAllByRole('button');
         const googleButtons = container.querySelectorAll('#btnGoogle');
 
-        expect(buttons.length).toBe(12);
+        expect(buttons.length).toBe(11);
         expect(googleButtons.length).toBe(2);
         expect(container).toMatchSnapshot();
     });
