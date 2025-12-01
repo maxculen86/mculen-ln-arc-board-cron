@@ -8,6 +8,7 @@ import {
 import ModSponsor from '../../../common/mod-sponsor';
 import ComLogo from '../../../common/com-logo';
 import getTargetAndRelIfExternal from '../../../common/utils/getTargetAndRelIfExternal';
+import { appendPageReferrerParam } from '../utils/pageReferrer';
 
 function LogoBaseContainer({
     sections,
@@ -27,6 +28,8 @@ function LogoBaseContainer({
         isExternal: null
     };
 
+    const decoratedPath = path ? appendPageReferrerParam(path) : path;
+
     const altLogo = dictionaryAlt[logoName]
         ? dictionaryAlt[logoName]
         : logoName;
@@ -42,7 +45,7 @@ function LogoBaseContainer({
                 logoName={logoName}
                 sponsor={sponsor}
                 textName={advertiser}
-                link={path}
+                link={decoratedPath}
                 target={target}
                 rel={rel}
                 tooltip={tooltip}
@@ -52,7 +55,7 @@ function LogoBaseContainer({
 
     return (
         <ComLogo
-            href={path}
+            href={decoratedPath}
             title={altLogo}
             target={target}
             rel={rel}
