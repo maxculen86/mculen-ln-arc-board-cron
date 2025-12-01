@@ -3,7 +3,7 @@ import { Select } from '@ln/common-ui-select';
 import PropTypes from 'prop-types';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 
-function ItemCardForDay({ disabled, className, ...props }) {
+function ItemCardOption({ disabled, className, ...props }) {
     return (
         <Itemcard
             type="button"
@@ -14,31 +14,12 @@ function ItemCardForDay({ disabled, className, ...props }) {
     );
 }
 
-ItemCardForDay.propTypes = {
+ItemCardOption.propTypes = {
     disabled: PropTypes.bool,
     className: PropTypes.string
 };
 
-ItemCardForDay.defaultProps = {
-    disabled: false,
-    className: ''
-};
-function ItemCardForMeal({ disabled, className, ...props }) {
-    return (
-        <Itemcard
-            type="button"
-            disabled={disabled}
-            className={disabled ? 'card-item-disabled' : className}
-            {...props}
-        />
-    );
-}
-
-ItemCardForMeal.propTypes = {
-    disabled: PropTypes.bool,
-    className: PropTypes.string
-};
-ItemCardForMeal.defaultProps = {
+ItemCardOption.defaultProps = {
     disabled: false,
     className: ''
 };
@@ -164,7 +145,7 @@ export function SelectMenu({
                                 className="text-12"
                                 // eslint-disable-next-line react/no-unstable-nested-components
                                 as={props => (
-                                    <ItemCardForDay
+                                    <ItemCardOption
                                         title={false}
                                         disabled={isDisabled}
                                         {...(isDisabled && {
@@ -209,7 +190,7 @@ export function SelectMenu({
                             label={text}
                             // eslint-disable-next-line react/no-unstable-nested-components
                             as={props => (
-                                <ItemCardForMeal
+                                <ItemCardOption
                                     title={false}
                                     disabled={isDisabled}
                                     {...(isDisabled && {

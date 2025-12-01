@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { getTypeOfDevice } from '@ln/hooks';
+import { getTypeOfDevicev2 } from '@ln/utils';
 import getBookmarks from '../../bookmark/api/getBookmarks';
 import {
     isSubscribed,
@@ -14,8 +14,7 @@ export const useShoppingList = () => {
     const { token, accessToken } = useAuthManager();
 
     useEffect(() => {
-        // TODO: sustituir por import { getTypeOfDevicev2 } from "@ln/utils", por bug en ipad pro y air
-        if (getTypeOfDevice({ breakpoints: { sm: 768 } }) === 'mobile') {
+        if (getTypeOfDevicev2({ breakpoints: { sm: 768 } }) === 'mobile') {
             setIsMobile(true);
         }
     }, []);

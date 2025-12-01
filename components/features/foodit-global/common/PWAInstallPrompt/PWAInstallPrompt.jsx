@@ -9,18 +9,8 @@ function PwaInstallPrompt({ deployment, arcSite, variant }) {
     const [deferredPrompt, setDeferredPrompt] = useState(null);
     const [showInstallButton, setShowInstallButton] = useState(false);
     const { isSubscribed } = useGetUserConfig();
-    /*     const [showIosTip, setShowIosTip] = useState(false); */
 
     useEffect(() => {
-        /*    const { userAgent } = window.navigator;
-        const isIosDevice = /iPhone|iPad|iPod/i.test(userAgent);
-        const isInStandaloneMode =
-            'standalone' in window.navigator && window.navigator.standalone;
-
-        if (isIosDevice && !isInStandaloneMode) {
-            setShowIosTip(true);
-        }
- */
         const handler = e => {
             e.preventDefault();
             setDeferredPrompt(e);
@@ -52,19 +42,13 @@ function PwaInstallPrompt({ deployment, arcSite, variant }) {
     };
 
     return (
-        <>
-            {showInstallButton && isSubscribed && (
-                <PromoteInstallation
-                    onClick={handleInstallClick}
-                    variant={variant}
-                />
-            )}
-
-            {/*   {showIosTip && (
-                TODO: se deja  comentada toda la funcionalidad para implementacion futura de un componente
-                que indique instrucciones para iOS
-            )} */}
-        </>
+        showInstallButton &&
+        isSubscribed && (
+            <PromoteInstallation
+                onClick={handleInstallClick}
+                variant={variant}
+            />
+        )
     );
 }
 

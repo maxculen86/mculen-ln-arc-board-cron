@@ -1,7 +1,7 @@
-import acuArticlesSourceV2 from './acuArticlesSourceV2.js';
+import acuArticlesSourceV2 from './acuArticlesSourceV2';
 import get from '../../components/private/common/utils/get';
-import logger from '../../components/private/common/utils/logger.js';
-import { transformFooditAcu } from './utils/fooditSources/acuArticleSourceV2/helper.js';
+import logger from '../../components/private/common/utils/logger';
+import { transformFooditAcu } from './utils/fooditSources/acuArticleSourceV2/helper';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
