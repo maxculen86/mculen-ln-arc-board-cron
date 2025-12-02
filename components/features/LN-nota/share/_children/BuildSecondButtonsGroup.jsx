@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import { Text } from '@ln/contenidos-ui-text';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
+    googleButtons,
     BtnContainer,
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
@@ -20,7 +22,8 @@ function BuildSecondButtonsGroup({
     mobileTitle,
     isNegative,
     articleId,
-    isHorizontal
+    isHorizontal,
+    isNotaNoticia
 } = {}) {
     const { copy, setCopy, shareButton } = useShare({
         mobileTitle,
@@ -32,6 +35,10 @@ function BuildSecondButtonsGroup({
     const _classes = buildSecondButtonsGroupVariants({
         orientation: isHorizontal ? 'horizontal' : 'vertical'
     });
+
+    const allButtons = isNotaNoticia
+        ? [...buttonsList, ...googleButtons]
+        : buttonsList;
 
     return (
         <div className={_classes}>
@@ -56,30 +63,32 @@ function BuildSecondButtonsGroup({
                     <IconSprite name="reply" />
                 </Icon>
             </Button>
-            <Button
-                id="whatsAppShareMobile"
-                title="Compartir la nota en Whatsapp"
-                variant="secondary"
-                iconOnly
-                size={40}
-                className="sm-only"
-                isNegative={isNegative}
-                target="_blank"
-                onClick={() => {
-                    shareWhatsAppDesktop(requestUri, host);
-                    addEventToDataLayerV2({
-                        event: 'share_note',
-                        articleId,
-                        title: basic,
-                        rest: { tags: 'whatsapp' }
-                    });
-                }}
-            >
-                <Icon size={24} color="inherit">
-                    <IconSprite name="whatsapp" />
-                </Icon>
-            </Button>
-            {buttonsList.map(
+            {!isNotaNoticia && (
+                <Button
+                    id="whatsAppShareMobile"
+                    title="Compartir la nota en Whatsapp"
+                    variant="secondary"
+                    iconOnly
+                    size={40}
+                    className="sm-only"
+                    isNegative={isNegative}
+                    target="_blank"
+                    onClick={() => {
+                        shareWhatsAppDesktop(requestUri, host);
+                        addEventToDataLayerV2({
+                            event: 'share_note',
+                            articleId,
+                            title: basic,
+                            rest: { tags: 'whatsapp' }
+                        });
+                    }}
+                >
+                    <Icon size={24} color="inherit">
+                        <IconSprite name="whatsapp" />
+                    </Icon>
+                </Button>
+            )}
+            {allButtons.map(
                 ({
                     withContainer = false,
                     id,
@@ -89,7 +98,12 @@ function BuildSecondButtonsGroup({
                     title,
                     labelDataLayer,
                     handleClick,
-                    className
+                    className,
+                    label,
+                    iconOnly = true,
+                    iconSize = 24,
+                    customDataLayerEvent,
+                    ...r
                 } = {}) => (
                     <BtnContainer withContainer={withContainer} key={id}>
                         <Button
@@ -105,19 +119,38 @@ function BuildSecondButtonsGroup({
                                     setCopy,
                                     mobileTitle
                                 });
-                                addEventToDataLayerV2({
-                                    event: 'share_note',
-                                    title: basic,
-                                    articleId,
-                                    rest: { tags: labelDataLayer.split('_')[1] }
-                                });
+                                addEventToDataLayerV2(
+                                    customDataLayerEvent ?? {
+                                        event: 'share_note',
+                                        title: basic,
+                                        articleId,
+                                        rest: {
+                                            tags: labelDataLayer.split('_')[1]
+                                        }
+                                    }
+                                );
                             }}
                             className={className}
-                            iconOnly
+                            iconOnly={iconOnly}
                             isNegative={isNegative}
                             size="inherit"
+                            style={{
+                                gap: '4px'
+                            }}
+                            {...r}
                         >
-                            <Icon size={24} color="inherit">
+                            {label && (
+                                <Text
+                                    style={{
+                                        color: 'var(--neutral-700)',
+                                        fontWeight: '400'
+                                    }}
+                                    className="tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+                                >
+                                    {label}
+                                </Text>
+                            )}
+                            <Icon size={iconSize} color="inherit">
                                 {icon}
                             </Icon>
                         </Button>
@@ -142,7 +175,8 @@ BuildSecondButtonsGroup.propTypes = {
     mobileTitle: PropTypes.string.isRequired,
     isNegative: PropTypes.bool.isRequired,
     articleId: PropTypes.string.isRequired,
-    isHorizontal: PropTypes.bool.isRequired
+    isHorizontal: PropTypes.bool.isRequired,
+    isNotaNoticia: PropTypes.bool.isRequired
 };
 
 export default BuildSecondButtonsGroup;

@@ -402,6 +402,7 @@ a {
   --red-700: #b40d15;
   --yellow-subscribe: #ffff24;
   --yellow-secondary: #f2f20d;
+  --neutral-700: #4C4C4C;
   --la-nacion: #006998;
   --ln-campo: #008561;
   --comunidad-negocios: #e2342d;
@@ -1841,12 +1842,20 @@ strong:not(.--font-primary),
   letter-spacing: -0.145rem;
 }
 
+.tracking--032 {
+  letter-spacing: -0.32px;
+}
+
 .leading-125 {
   line-height: 125%;
 }
 
 .leading-130 {
   line-height: 130%;
+}
+
+.leading-150 {
+  line-height: 150%;
 }
 
 .tracking-none {
@@ -1857,6 +1866,18 @@ strong:not(.--font-primary),
   line-height: 116%;
 }
 
+.text-12px {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 64rem) {
+  .text-8px_lg {
+    font-size: 0.5rem;
+  }
+  .leading-130_l {
+    line-height: 130%;
+  }
+}
 @media (min-width: 48rem) {
   .leading-110_md {
     line-height: 110%;
@@ -2551,6 +2572,9 @@ strong:not(.--font-primary),
   .-mt-57_l {
     margin-top: -3.5625rem;
   }
+  .-mt-2_l {
+    margin-top: -0.125rem;
+  }
   .mt-0_l {
     margin-top: 0rem;
   }
@@ -2602,6 +2626,9 @@ strong:not(.--font-primary),
   .px-8_l {
     padding-inline: 0.5rem;
   }
+  .px-16_l {
+    padding-inline: 1rem;
+  }
   .pr-32_l {
     padding-right: 2rem;
   }
@@ -2646,6 +2673,9 @@ strong:not(.--font-primary),
   .px-16_lg {
     padding-inline: 1rem;
   }
+  .px-58_lg {
+    padding-inline: 3.625rem;
+  }
   .px-140_lg {
     padding-inline: 8.75rem;
   }
@@ -2675,6 +2705,11 @@ strong:not(.--font-primary),
   margin-bottom: 0rem;
 }
 
+@media (min-width: 85rem) {
+  .px-0_min1366 {
+    padding-inline: 0;
+  }
+}
 .none.none {
   display: none;
 }
@@ -3795,6 +3830,10 @@ strong:not(.--font-primary),
   text-transform: lowercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .ellipsis-text-3-80 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -3838,6 +3877,11 @@ strong:not(.--font-primary),
   text-decoration: underline;
 }
 
+@media (min-width: 1024px) {
+  .uppercase_l {
+    text-transform: uppercase;
+  }
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -4211,6 +4255,9 @@ strong:not(.--font-primary),
   .grid-col-11_md {
     grid-column: 11;
   }
+  .grid-col-2-12_md {
+    grid-column: 2/12;
+  }
 }
 @media (min-width: 63.938rem) {
   .grid-col-3-11_min1023 {
@@ -4262,6 +4309,14 @@ strong:not(.--font-primary),
   }
   .grid-col-3-7_lg {
     grid-column: 3/7;
+  }
+  .grid-col-1-1_lg {
+    grid-column: 1/-1;
+  }
+}
+@media (min-width: 85rem) {
+  .grid-col-2-16_min1366 {
+    grid-column: 2/16;
   }
 }
 .gap-0 {
@@ -4373,6 +4428,9 @@ strong:not(.--font-primary),
 @media (min-width: 64rem) {
   .gap-0_l {
     gap: 0rem;
+  }
+  .gap-24_l {
+    gap: 1.5rem;
   }
   .column-gap-12_l {
     -moz-column-gap: 0.75rem;
