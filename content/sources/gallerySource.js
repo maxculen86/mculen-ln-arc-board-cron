@@ -18,20 +18,34 @@ const resolve = key => {
 const transform = async (data, siteProps, cachedCall) => {
     const shouldResize = get(siteProps, 'resize', false);
     const isFotoAl100 = get(siteProps, 'isFotoAl100', false);
+    const count = get(siteProps, 'count', 0);
 
     if (!shouldResize) return data;
 
-    const newData = await getAllImagesAuth(data, cachedCall);
-    Object.assign(data, newData);
+    const clonedData = { ...data };
+
+    const elements = get(clonedData, 'content_elements', []);
+
+    const filteredContentElements = elements.slice(0, count);
+
+    clonedData.content_elements = filteredContentElements;
+
+    const authData = await getAllImagesAuth(clonedData, cachedCall);
+
+    const mergedData = {
+        ...clonedData,
+        ...authData
+    };
 
     const { presets } = getPresets(siteProps);
     const sizes = isFotoAl100
         ? get(presets, 'promo_items.fotoAl100.sizes', [])
         : get(presets, 'promo_items.sizes', []);
-    const resizedData = resizeArcGallery(newData, sizes, []);
+
+    const resizedData = resizeArcGallery(mergedData, sizes, []);
 
     return {
-        ...data,
+        ...mergedData,
         ...resizedData
     };
 };
@@ -76,7 +90,8 @@ export default {
         includedFields: 'text',
         resize: 'bool',
         isFotoAl100: 'bool',
-        imageConfig: 'text'
+        imageConfig: 'text',
+        count: 'number'
     },
     ttl: 600
 };

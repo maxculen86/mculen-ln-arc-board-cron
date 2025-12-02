@@ -1568,22 +1568,44 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 600,
-                        height: 400,
-                        minScreenWidth: 768,
-                        useFullSize: true
+                        width: 1133,
+                        height: 755,
+                        minScreenWidth: 1280,
+                        proportion: '3:2'
                     },
-                    { width: 320, height: 220, useFullSize: true }
+                    {
+                        width: 976,
+                        height: 651,
+                        minScreenWidth: 768,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 767,
+                        height: 512,
+                        maxScreenWidth: 767,
+                        proportion: '3:2'
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 1200,
-                            height: 700,
-                            minScreenWidth: 768,
-                            useFullSize: true
+                            width: 1280,
+                            height: 854,
+                            minScreenWidth: 1024,
+                            proportion: '3:2'
                         },
-                        { width: 600, height: 400, useFullSize: true }
+                        {
+                            width: 1023,
+                            height: 683,
+                            minScreenWidth: 768,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 513,
+                            height: 342,
+                            maxScreenWidth: 767,
+                            proportion: '3:2'
+                        }
                     ]
                 }
             }
@@ -1592,22 +1614,44 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 300,
-                        height: 200,
-                        minScreenWidth: 768,
-                        useFullSize: true
+                        width: 559,
+                        height: 372,
+                        minScreenWidth: 1280,
+                        proportion: '3:2'
                     },
-                    { width: 160, height: 120, useFullSize: true }
+                    {
+                        width: 501,
+                        height: 334,
+                        minScreenWidth: 768,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 767,
+                        height: 512,
+                        maxScreenWidth: 767,
+                        proportion: '3:2'
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 600,
-                            height: 400,
-                            minScreenWidth: 768,
-                            useFullSize: true
+                            width: 955,
+                            height: 636,
+                            minScreenWidth: 1280,
+                            proportion: '3:2'
                         },
-                        { width: 600, height: 400, useFullSize: true }
+                        {
+                            width: 632,
+                            height: 421,
+                            minScreenWidth: 768,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 513,
+                            height: 342,
+                            maxScreenWidth: 767,
+                            proportion: '3:2'
+                        }
                     ]
                 }
             }
@@ -1616,24 +1660,44 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 600,
-                        height: 300,
-                        minScreenWidth: 768,
-                        useFullSize: true
+                        width: 1133,
+                        height: 755,
+                        minScreenWidth: 1280,
+                        proportion: '3:2'
                     },
-                    { width: 300, height: 200, useFullSize: true },
-                    { width: 300, height: 200, useFullSize: true }
+                    {
+                        width: 1019,
+                        height: 679,
+                        minScreenWidth: 768,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 767,
+                        height: 512,
+                        maxScreenWidth: 767,
+                        proportion: '3:2'
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 1200,
-                            height: 500,
-                            minScreenWidth: 768,
-                            useFullSize: true
+                            width: 1280,
+                            height: 854,
+                            minScreenWidth: 1280,
+                            proportion: '3:2'
                         },
-                        { width: 600, height: 400, useFullSize: true },
-                        { width: 600, height: 400, useFullSize: true }
+                        {
+                            width: 1026,
+                            height: 684,
+                            minScreenWidth: 768,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 513,
+                            height: 342,
+                            maxScreenWidth: 767,
+                            proportion: '3:2'
+                        }
                     ]
                 }
             }
@@ -1642,24 +1706,44 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 300,
-                        height: 200,
-                        minScreenWidth: 768,
-                        useFullSize: true
+                        width: 1133,
+                        height: 755,
+                        minScreenWidth: 1280,
+                        proportion: '3:2'
                     },
-                    { width: 300, height: 200, useFullSize: true },
-                    { width: 600, height: 300, useFullSize: true }
+                    {
+                        width: 1019,
+                        height: 679,
+                        minScreenWidth: 768,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 767,
+                        height: 512,
+                        maxScreenWidth: 767,
+                        proportion: '3:2'
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 600,
-                            height: 400,
-                            minScreenWidth: 768,
-                            useFullSize: true
+                            width: 1280,
+                            height: 854,
+                            minScreenWidth: 1280,
+                            proportion: '3:2'
                         },
-                        { width: 600, height: 400, useFullSize: true },
-                        { width: 1200, height: 500, useFullSize: true }
+                        {
+                            width: 1026,
+                            height: 684,
+                            minScreenWidth: 768,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 513,
+                            height: 342,
+                            maxScreenWidth: 767,
+                            proportion: '3:2'
+                        }
                     ]
                 }
             }
@@ -1668,26 +1752,44 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 300,
-                        height: 300,
-                        minScreenWidth: 768,
-                        useFullSize: true
+                        width: 558,
+                        height: 372,
+                        minScreenWidth: 1280,
+                        proportion: '3:2'
                     },
-                    { width: 300, height: 300, useFullSize: true },
-                    { width: 300, height: 300, useFullSize: true },
-                    { width: 300, height: 300, useFullSize: true }
+                    {
+                        width: 502,
+                        height: 334,
+                        minScreenWidth: 768,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 767,
+                        height: 512,
+                        maxScreenWidth: 767,
+                        proportion: '3:2'
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 600,
-                            height: 400,
-                            minScreenWidth: 768,
-                            useFullSize: true
+                            width: 954,
+                            height: 636,
+                            minScreenWidth: 1280,
+                            proportion: '3:2'
                         },
-                        { width: 600, height: 400, useFullSize: true },
-                        { width: 600, height: 400, useFullSize: true },
-                        { width: 600, height: 400, useFullSize: true }
+                        {
+                            width: 632,
+                            height: 421,
+                            minScreenWidth: 768,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 513,
+                            height: 342,
+                            maxScreenWidth: 767,
+                            proportion: '3:2'
+                        }
                     ]
                 }
             }
@@ -1696,28 +1798,44 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 900,
-                        height: 400,
-                        minScreenWidth: 768,
-                        useFullSize: true
+                        width: 1133,
+                        height: 755,
+                        minScreenWidth: 1280,
+                        proportion: '3:2'
                     },
-                    { width: 200, height: 150, useFullSize: true },
-                    { width: 200, height: 150, useFullSize: true },
-                    { width: 200, height: 150, useFullSize: true },
-                    { width: 200, height: 150, useFullSize: true }
+                    {
+                        width: 1019,
+                        height: 680,
+                        minScreenWidth: 768,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 767,
+                        height: 512,
+                        maxScreenWidth: 767,
+                        proportion: '3:2'
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 1600,
-                            height: 600,
-                            minScreenWidth: 768,
-                            useFullSize: true
+                            width: 1372,
+                            height: 915,
+                            minScreenWidth: 1280,
+                            proportion: '3:2'
                         },
-                        { width: 400, height: 300, useFullSize: true },
-                        { width: 400, height: 300, useFullSize: true },
-                        { width: 400, height: 300, useFullSize: true },
-                        { width: 400, height: 300, useFullSize: true }
+                        {
+                            width: 1022,
+                            height: 681,
+                            minScreenWidth: 768,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 513,
+                            height: 342,
+                            maxScreenWidth: 767,
+                            proportion: '3:2'
+                        }
                     ]
                 }
             }
@@ -1726,24 +1844,44 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 600,
-                        height: 600,
-                        minScreenWidth: 768,
-                        useFullSize: true
+                        width: 766,
+                        height: 488,
+                        minScreenWidth: 1280,
+                        proportion: '3:2'
                     },
-                    { width: 300, height: 300, useFullSize: true },
-                    { width: 300, height: 300, useFullSize: true }
+                    {
+                        width: 674,
+                        height: 431,
+                        minScreenWidth: 768,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 767,
+                        height: 488,
+                        maxScreenWidth: 767,
+                        proportion: '3:2'
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 900,
-                            height: 900,
-                            minScreenWidth: 768,
-                            useFullSize: true
+                            width: 1303,
+                            height: 867,
+                            minScreenWidth: 1280,
+                            proportion: '3:2'
                         },
-                        { width: 450, height: 450, useFullSize: true },
-                        { width: 450, height: 450, useFullSize: true }
+                        {
+                            width: 865,
+                            height: 577,
+                            minScreenWidth: 768,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 513,
+                            height: 342,
+                            maxScreenWidth: 767,
+                            proportion: '3:2'
+                        }
                     ]
                 }
             }
@@ -1752,24 +1890,50 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 400,
-                        height: 600,
-                        minScreenWidth: 768,
+                        width: 366,
+                        height: 549,
+                        minScreenWidth: 1280,
+                        proportion: '2:3',
                         useFullSize: true
                     },
-                    { width: 400, height: 600, useFullSize: true },
-                    { width: 400, height: 600, useFullSize: true }
+                    {
+                        width: 329,
+                        height: 493,
+                        minScreenWidth: 768,
+                        proportion: '2:3',
+                        useFullSize: true
+                    },
+                    {
+                        width: 767,
+                        height: 1150,
+                        maxScreenWidth: 767,
+                        proportion: '2:3',
+                        useFullSize: true
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 600,
-                            height: 900,
-                            minScreenWidth: 768,
+                            width: 628,
+                            height: 924,
+                            minScreenWidth: 1280,
+                            proportion: '2:3',
                             useFullSize: true
                         },
-                        { width: 600, height: 900, useFullSize: true },
-                        { width: 600, height: 900, useFullSize: true }
+                        {
+                            width: 416,
+                            height: 624,
+                            minScreenWidth: 768,
+                            proportion: '2:3',
+                            useFullSize: true
+                        },
+                        {
+                            width: 766,
+                            height: 1149,
+                            maxScreenWidth: 767,
+                            proportion: '2:3',
+                            useFullSize: true
+                        }
                     ]
                 }
             }
@@ -1778,22 +1942,50 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 400,
-                        height: 600,
-                        minScreenWidth: 768,
+                        width: 562,
+                        height: 843,
+                        minScreenWidth: 1280,
+                        proportion: '2:3',
                         useFullSize: true
                     },
-                    { width: 400, height: 600, useFullSize: true }
+                    {
+                        width: 502,
+                        height: 752,
+                        minScreenWidth: 768,
+                        proportion: '2:3',
+                        useFullSize: true
+                    },
+                    {
+                        width: 767,
+                        height: 1150,
+                        maxScreenWidth: 767,
+                        proportion: '2:3',
+                        useFullSize: true
+                    }
                 ],
                 fotoAl100: {
                     sizes: [
                         {
-                            width: 600,
-                            height: 900,
-                            minScreenWidth: 768,
+                            width: 678,
+                            height: 1017,
+                            minScreenWidth: 1280,
+                            proportion: '2:3',
                             useFullSize: true
                         },
-                        { width: 600, height: 900, useFullSize: true }
+                        {
+                            width: 632,
+                            height: 948,
+                            minScreenWidth: 768,
+                            proportion: '2:3',
+                            useFullSize: true
+                        },
+                        {
+                            width: 767,
+                            height: 1151,
+                            maxScreenWidth: 767,
+                            proportion: '2:3',
+                            useFullSize: true
+                        }
                     ]
                 }
             }

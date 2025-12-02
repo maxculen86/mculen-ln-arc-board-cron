@@ -29,9 +29,9 @@
     /* Customizaciones de card */
     --mw-card-recommended-bg: #fefefe;
     --mw-card-recommended-color: #333;
-    --mw-card-recommended-border: 0.125rem solid #fdb727;
     --mw-card-free-bg: #fefefe;
     --mw-card-free-border: 0.125rem solid #e6e6e6;
+    --mw-card-recommended-halo-color: #fdb727;
 
     /* Customizaciones de chip */
 

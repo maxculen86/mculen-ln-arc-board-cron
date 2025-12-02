@@ -1,72 +1,70 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import { extractGalleryEmbedData, getAspectRatioClass } from './_helper';
 import { isFotoAl100 } from '../../../body/_utils/helpers';
-import { filterGalleryEmbeds, extractGalleryEmbedData } from './_helper';
+import {
+    galleryContainerVariant,
+    galleryEmbedItemVariant,
+    galleryGridVariant
+} from './styles';
+import ImageGallery from './components/ImageGallery';
 
-function ImageGalleryEmbed() {
+function ImageGalleryEmbed(props) {
     const { globalContent = {} } = useAppContext() || {};
-    const {
-        content_elements: contentElements = [],
-        subtype,
-        type
-    } = globalContent;
+    const { subtype, type } = globalContent;
 
     if (!isFotoAl100(subtype, type)) return null;
 
-    const galleryData = extractGalleryEmbedData(
-        filterGalleryEmbeds(contentElements)
-    );
+    const { data = {} } = props;
+    const galleryData = extractGalleryEmbedData(data);
+    const {
+        diagram,
+        galleryImages,
+        caption,
+        isFotoAl100: isFotoAl100Flag
+    } = galleryData;
 
-    if (!galleryData.length) return null;
+    if (!galleryData || !diagram) {
+        return null;
+    }
 
-    return (
-        <div className="gallery-embed">
-            {galleryData.map(({ galleryId, caption, diagram }) => (
-                <div className="gallery-embed__item">
-                    <p>
-                        <strong>Gallery ID:</strong> {galleryId}
-                    </p>
-                    <p>
-                        <strong>Caption:</strong> {caption}
-                    </p>
-                    <p>
-                        <strong>Diagram:</strong> {diagram}
-                    </p>
-                </div>
-            ))}
-        </div>
-    );
+    const viewProps = {
+        galleryImages,
+        caption,
+        gridClass: galleryGridVariant({ diagram }),
+        containerClass: galleryContainerVariant({ isFotoAl100Flag }),
+        embedItemClass: galleryEmbedItemVariant({ isFotoAl100Flag }),
+        aspectRatio: getAspectRatioClass(diagram)
+    };
+
+    return <ImageGallery {...viewProps} />;
 }
 
 ImageGalleryEmbed.arcType = 'gallery-embed';
 
 ImageGalleryEmbed.propTypes = {
-    globalContent: PropTypes.shape({
-        subtype: PropTypes.string,
-        type: PropTypes.string,
-        content_elements: PropTypes.arrayOf(
-            PropTypes.shape({
-                subtype: PropTypes.string,
-                type: PropTypes.string,
-                embed: PropTypes.shape({
-                    config: PropTypes.shape({
-                        galleryId: PropTypes.string,
-                        caption: PropTypes.string,
-                        diagram: PropTypes.string,
-                        galleryImages: PropTypes.arrayOf(
-                            PropTypes.shape({
-                                url: PropTypes.string,
-                                height: PropTypes.number,
-                                width: PropTypes.number,
-                                resized_url: PropTypes.string
-                            })
-                        )
+    data: PropTypes.shape({
+        embed: PropTypes.shape({
+            config: PropTypes.shape({
+                galleryId: PropTypes.string,
+                caption: PropTypes.string,
+                diagram: PropTypes.string,
+                galleryImages: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        url: PropTypes.string,
+                        height: PropTypes.number,
+                        width: PropTypes.number,
+                        resized_urls: PropTypes.array
                     })
-                })
+                )
             })
-        )
-    }).isRequired
+        })
+    })
+};
+
+ImageGalleryEmbed.defaultProps = {
+    data: {}
 };
 
 export default ImageGalleryEmbed;
