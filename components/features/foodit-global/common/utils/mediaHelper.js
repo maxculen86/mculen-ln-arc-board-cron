@@ -1,5 +1,5 @@
 import get from '../../../../private/common/utils/get';
-import getSourcesJw from '../../../../private/LN/common/utils/getSourcesJw';
+import { getItemNearest } from '../../../../private/LN/common/utils/getItemNearest';
 import {
     getImagesToLoadWithPicture,
     getShortestImage
@@ -10,7 +10,11 @@ export const MAX_VIDEO_SIZE = 3145728;
 
 export const transformFooditVideoContent = (video = {}) => {
     const { poster = '', sources = [], type = 'video' } = video;
-    const file = get(getSourcesJw(sources, '>'), 'file', '');
+    const file = get(
+        getItemNearest({ items: sources, target: 650 }),
+        'file',
+        ''
+    );
 
     return {
         mediaVariant: 'video',

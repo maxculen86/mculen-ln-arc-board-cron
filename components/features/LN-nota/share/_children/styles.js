@@ -1,7 +1,7 @@
 import { cva } from '@ln/cva';
 
 export const buildSecondButtonsGroupVariants = cva(
-    'second-buttons-group flex ai-center gap-16 gap-24_l',
+    'second-buttons-group flex ai-center gap-16 gap-24_m',
     {
         variants: {
             orientation: {
