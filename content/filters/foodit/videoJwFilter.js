@@ -3,6 +3,7 @@ export default `{
     sources {
         file
         height
+        width
         filesize
     }
     poster
