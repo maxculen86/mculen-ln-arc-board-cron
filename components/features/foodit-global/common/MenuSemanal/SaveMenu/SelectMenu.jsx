@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Select } from '@ln/common-ui-select';
 import PropTypes from 'prop-types';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
@@ -87,23 +87,71 @@ export function SelectMenu({
 
     const dayMealCombinations = getDayMealCombinations();
 
-    const isMealDisabled = mealId => {
-        if (!selectedDay) return false;
-        return Boolean(
-            dayMealCombinations.find(
-                item => item.mealType === mealId && item.day === selectedDay
-            )
-        );
-    };
+    const isMealDisabled = useCallback(
+        mealId => {
+            if (!selectedDay) return false;
+            return Boolean(
+                dayMealCombinations.find(
+                    item => item.mealType === mealId && item.day === selectedDay
+                )
+            );
+        },
+        [selectedDay, dayMealCombinations]
+    );
 
-    const isDayDisabled = dayId => {
-        if (!selectedFood) return false;
-        return Boolean(
-            dayMealCombinations.find(
-                item => item.day === dayId && item.mealType === selectedFood
-            )
-        );
-    };
+    const isDayDisabled = useCallback(
+        dayId => {
+            if (!selectedFood) return false;
+            return Boolean(
+                dayMealCombinations.find(
+                    item => item.day === dayId && item.mealType === selectedFood
+                )
+            );
+        },
+        [selectedFood, dayMealCombinations]
+    );
+
+    const renderDayOption = useCallback(
+        (id, text) => {
+            const isDisabled = isDayDisabled(id);
+
+            return function DayOptionRenderer(props) {
+                return (
+                    <ItemCardOption
+                        title={false}
+                        disabled={isDisabled}
+                        {...(isDisabled && {
+                            'aria-disabled': true,
+                            'aria-label': `Día ${text} no disponible`
+                        })}
+                        {...props}
+                    />
+                );
+            };
+        },
+        [isDayDisabled]
+    );
+
+    const renderMealOption = useCallback(
+        (id, text) => {
+            const isDisabled = isMealDisabled(id);
+
+            return function MealOptionRenderer(props) {
+                return (
+                    <ItemCardOption
+                        title={false}
+                        disabled={isDisabled}
+                        {...(isDisabled && {
+                            'aria-disabled': true,
+                            'aria-label': `Comida ${text} no disponible`
+                        })}
+                        {...props}
+                    />
+                );
+            };
+        },
+        [isMealDisabled]
+    );
 
     useEffect(() => {
         if (menuToEdit) {
@@ -134,32 +182,15 @@ export function SelectMenu({
                 onChange={handleDayChange}
             >
                 <div className="max-h-198 foodit-scrollbar overflow-y-auto">
-                    {days.map(({ text, id }) => {
-                        const isDisabled = isDayDisabled(id);
-
-                        return (
-                            <Select.Options
-                                key={id}
-                                value={id}
-                                label={text}
-                                className="text-12"
-                                // eslint-disable-next-line react/no-unstable-nested-components
-                                as={props => (
-                                    <ItemCardOption
-                                        title={false}
-                                        disabled={isDisabled}
-                                        {...(isDisabled && {
-                                            'aria-disabled': true
-                                        })}
-                                        {...(isDisabled && {
-                                            'aria-label': `Día ${text} no disponible`
-                                        })}
-                                        {...props}
-                                    />
-                                )}
-                            />
-                        );
-                    })}
+                    {days.map(({ text, id }) => (
+                        <Select.Options
+                            key={id}
+                            value={id}
+                            label={text}
+                            className="text-12"
+                            as={renderDayOption(id, text)}
+                        />
+                    ))}
                 </div>
             </Select>
 
@@ -179,32 +210,15 @@ export function SelectMenu({
                 }}
                 onChange={handleFoodChange}
             >
-                {meals.map(({ text, id }) => {
-                    const isDisabled = isMealDisabled(id);
-
-                    return (
-                        <Select.Options
-                            key={id}
-                            className="text-12"
-                            value={id}
-                            label={text}
-                            // eslint-disable-next-line react/no-unstable-nested-components
-                            as={props => (
-                                <ItemCardOption
-                                    title={false}
-                                    disabled={isDisabled}
-                                    {...(isDisabled && {
-                                        'aria-disabled': true
-                                    })}
-                                    {...(isDisabled && {
-                                        'aria-label': `Comida ${text} no disponible`
-                                    })}
-                                    {...props}
-                                />
-                            )}
-                        />
-                    );
-                })}
+                {meals.map(({ text, id }) => (
+                    <Select.Options
+                        key={id}
+                        className="text-12"
+                        value={id}
+                        label={text}
+                        as={renderMealOption(id, text)}
+                    />
+                ))}
             </Select>
         </div>
     );
