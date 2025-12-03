@@ -315,7 +315,16 @@ const galleryEmbed = `
     count
     galleryImages{
         url
-        resized_url
+        resized_urls{
+            resizedUrl
+            option{
+                width
+                height
+                media
+                minScreenWidth
+                useFullSize
+            }
+        }
         height
         width
     }

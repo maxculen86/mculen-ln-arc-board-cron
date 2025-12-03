@@ -7,6 +7,8 @@ import {
 import convertVideoArcToJw from './cachedCalls/convertVideoArcToJW';
 import addFollowAnotherNoteData from './cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../components/private/common/utils/get';
+import gallerySource from '../../gallerySource';
+import { buildGalleryEmbedData } from '../../../../components/features/LN-nota/private/body/imageGalleryEmbed/_helper';
 
 export const configPromoItems = {
     video: ({ cachedCall, element, arcSite }) =>
@@ -15,9 +17,45 @@ export const configPromoItems = {
         addGalleryData(cachedCall, element, arcSite)
 };
 
+const configCallbackCustomEmbed = {
+    'gallery-embed': async ({
+        cachedCall,
+        element,
+        arcSite,
+        isFotoAl100Note
+    } = {}) => {
+        if (!isFotoAl100Note) return {};
+
+        return await buildGalleryEmbedData({
+            element,
+            cachedCall,
+            gallerySource,
+            arcSite
+        });
+    }
+};
+
 export const configCallbackContentElements = {
     gallery: ({ cachedCall, element, arcSite } = {}) => {
         return addGalleryData(cachedCall, element, arcSite);
+    },
+    custom_embed: async ({
+        cachedCall,
+        element,
+        arcSite,
+        isFotoAl100Note
+    } = {}) => {
+        const selectedCallback =
+            configCallbackCustomEmbed[get(element, 'subtype', '')];
+        if (selectedCallback) {
+            return selectedCallback({
+                cachedCall,
+                element,
+                arcSite,
+                isFotoAl100Note
+            });
+        }
+        return element;
     },
     text: ({ element = {}, glossary = [] } = {}) => {
         const elements = formatElementText(element);

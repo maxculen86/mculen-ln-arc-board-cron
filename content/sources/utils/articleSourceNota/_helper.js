@@ -436,7 +436,8 @@ export const transform = async (response, query, cachedCall) => {
                       'promo_items.glossary.embed.config.arrayData',
                       []
                   )
-                : []
+                : [],
+        isFotoAl100Note: subtype === FOTOAL100
     };
 
     const [promoItems, contentElements, relatedContentBasic] =

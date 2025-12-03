@@ -1,6 +1,11 @@
-import { SITIO_SEGURO_REGISTRACION, CHECKOUT_URL, API_ENV } from 'fusion:environment';
+import {
+    SITIO_SEGURO_REGISTRACION,
+    CHECKOUT_URL,
+    API_ENV
+} from 'fusion:environment';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
+import handleCookie from '../../../../private/LN/common/utils/handleCookie';
 
 const currentUrl = isSSR() ? '' : window?.btoa(window.location?.href);
 
@@ -72,6 +77,22 @@ export const addToCartEvent = ({
         window?.location?.replace(redirect[API_ENV]);
     }
 };
+
+export function getControlGroupV3Value() {
+    const { getCookie } = handleCookie();
+
+    const controlGroupV3Cookie = getCookie('controlGroupV3');
+
+    if (!controlGroupV3Cookie) return '';
+
+    try {
+        const { GrupoControlMeteredV3 = '' } = JSON.parse(controlGroupV3Cookie);
+        return GrupoControlMeteredV3;
+    } catch (e) {
+        console.error('Error parsing controlGroupV3 cookie:', e);
+        return '';
+    }
+}
 
 export const errorProps = {
     title: 'Foodit',

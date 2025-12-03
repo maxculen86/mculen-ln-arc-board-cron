@@ -19,13 +19,26 @@ jest.mock(
     '../../../../../../../components/features/LN-nota/private/body/imageGalleryEmbed/_helper',
     () => ({
         filterGalleryEmbeds: jest.fn(elements => elements),
-        extractGalleryEmbedData: jest.fn(elements =>
-            elements.map(el => ({
-                galleryId: el.embed?.config?.galleryId || '',
-                caption: el.embed?.config?.caption || '',
-                diagram: el.embed?.config?.diagram || ''
-            }))
-        )
+        extractGalleryEmbedData: jest.fn(element => {
+            if (!element || !element.embed?.config) {
+                return {};
+            }
+
+            const config = element.embed.config;
+
+            return {
+                galleryId: config.galleryId || '',
+                caption: config.caption || '',
+                diagram: config.diagram || '',
+                galleryImages: config.galleryImages || [],
+                isFotoAl100: config.isFotoAl100 || false
+            };
+        }),
+        getAspectRatioClass: jest.fn(diagram => {
+            const isVertical =
+                diagram === 'vertical-two' || diagram === 'vertical-three';
+            return isVertical ? 'aspect-[2/3]' : 'aspect-[3/2]';
+        })
     })
 );
 
@@ -55,39 +68,37 @@ describe('Components - features - LN-nota - private - body - default', () => {
     it('should render gallery data correctly and match snapshot', () => {
         isFotoAl100.mockReturnValue(true);
 
-        const mockData = [
-            {
-                embed: {
-                    config: {
-                        galleryId: '26AGOYOFKVFD5EYHBN7XVL6T4M',
-                        caption: 'Galería de imagenes',
-                        diagram: 'grid-1-wide',
-                        galleryImages: [
-                            {
-                                height: 513,
-                                resized_url:
-                                    '/resizer/v2/ST3FTU5VG5BJNAZV2ERJHZDLA4.jpg?auth=b0d1224066a92ed9d1007a72d1d4c5874bdf93269a9e9fdbdce02dadaf010037',
-                                url: 'https://sandbox-resizer.glanacion.com/resizer/v2/ST3FTU5VG5BJNAZV2ERJHZDLA4.jpg?auth=b0d1224066a92ed9d1007a72d1d4c5874bdf93269a9e9fdbdce02dadaf010037&width=768&quality=70&smart=false',
-                                width: 768
-                            }
-                        ]
-                    }
+        const mockData = {
+            embed: {
+                config: {
+                    galleryId: '26AGOYOFKVFD5EYHBN7XVL6T4M',
+                    caption: 'Galería de imagenes',
+                    diagram: 'grid-1-wide',
+                    galleryImages: [
+                        {
+                            height: 513,
+                            resized_url:
+                                '/resizer/v2/ST3FTU5VG5BJNAZV2ERJHZDLA4.jpg?auth=b0d1224066a92ed9d1007a72d1d4c5874bdf93269a9e9fdbdce02dadaf010037',
+                            url: 'https://sandbox-resizer.glanacion.com/resizer/v2/ST3FTU5VG5BJNAZV2ERJHZDLA4.jpg?auth=b0d1224066a92ed9d1007a72d1d4c5874bdf93269a9e9fdbdce02dadaf010037&width=768&quality=70&smart=false',
+                            width: 768
+                        }
+                    ]
                 }
             }
-        ];
+        };
 
         useAppContext.mockReturnValue({
             globalContent: {
                 subtype: 'gallery-embed',
-                type: 'custom_embed',
-                content_elements: mockData
+                type: 'custom_embed'
             }
         });
 
-        const { asFragment, getByText } = render(<ImageGalleryEmbed />);
+        const { asFragment, getByText } = render(
+            <ImageGalleryEmbed data={mockData} />
+        );
 
         expect(getByText(/Galería de imagenes/)).toBeInTheDocument();
-
         expect(asFragment()).toMatchSnapshot();
     });
 });

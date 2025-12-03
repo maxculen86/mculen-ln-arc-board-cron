@@ -80,7 +80,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-16 gap-24_l flex-column_l ai-center_max1023 jc-center_l"
+          class="second-buttons-group flex ai-center gap-16 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -315,7 +315,7 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
           class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-16 gap-24_l flex-column_l ai-center_max1023 jc-center_l"
+          class="second-buttons-group flex ai-center gap-16 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -585,7 +585,7 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
           class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-16 gap-24_l flex-column_l ai-center_max1023 jc-center_l"
+          class="second-buttons-group flex ai-center gap-16 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -855,7 +855,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
           class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-16 gap-24_l flex-column_l ai-center_max1023 jc-center_l"
+          class="second-buttons-group flex ai-center gap-16 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
@@ -1072,7 +1072,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
           class="l-only my-16 border border-2"
         />
         <div
-          class="second-buttons-group flex ai-center gap-16 gap-24_l flex-column_l ai-center_max1023 jc-center_l"
+          class="second-buttons-group flex ai-center gap-16 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
         >
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
