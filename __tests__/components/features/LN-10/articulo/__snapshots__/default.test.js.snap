@@ -17,7 +17,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
       title="LeadNota Nota"
     >
       <section
-        class="media-container relative"
+        class="media-container relative contain-layout-paint"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
         title="Nota"
       >
