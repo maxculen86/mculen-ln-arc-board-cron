@@ -1,15 +1,11 @@
 /* eslint-disable prefer-destructuring */
-import {
-    LANACION_SERVICES_URL,
-    API_ENV,
-    API_KEY_ARC_SERVICES
-} from 'fusion:environment';
+import { STRAPI_API_URL, API_ENV } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import getRequestWithJSON from './utils/getRequestWithJson';
 
 const resolve = query => {
     const { slug = '' } = query;
-    return `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`;
+    return `${STRAPI_API_URL}/api/v1/tags/${slug}`;
 };
 
 const fetch = query => {
@@ -17,8 +13,7 @@ const fetch = query => {
     return getRequestWithJSON({
         uri: resolve(query),
         headers: {
-            Referer: API_ENV,
-            'api-key': API_KEY_ARC_SERVICES
+            Referer: API_ENV
         }
     })
         .then(response => response)

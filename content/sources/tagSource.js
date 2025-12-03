@@ -1,9 +1,8 @@
 import {
     API_ENV,
-    API_KEY_ARC_SERVICES,
     ARC_ACCESS_TOKEN,
     CONTENT_BASE,
-    LANACION_SERVICES_URL
+    STRAPI_API_URL
 } from 'fusion:environment';
 import { isValidString } from '../../components/private/common/utils/dataValidation';
 import get from '../../components/private/common/utils/get';
@@ -65,10 +64,9 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
     const wikiTagData = isWiki
         ? await cachedCall('wikiTagSource', getRequestWithJSON, {
               query: {
-                  uri: `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`,
+                  uri: `${STRAPI_API_URL}/api/v1/tags/${slug}`,
                   headers: {
-                      Referer: API_ENV,
-                      'api-key': API_KEY_ARC_SERVICES
+                      Referer: API_ENV
                   }
               }
           })
