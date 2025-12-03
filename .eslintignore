@@ -8,10 +8,5 @@ _ignore_
 _ignore_*.*  
 .vscode/
 package-lock.json
-
-# Webpack optimization files (special config files)
-webpack-optimization.config.js
-wrapper-optimization.js
-modules-optimized/
 package.json
 src/statics/**
