@@ -5,6 +5,9 @@ import { hasValidationFailed } from '../../LN10_Caja_Segmentada/_helpers';
 
 export const registeredIdsSetAndInteractions = new Set();
 
+const normalizeVideoId = videoId =>
+    typeof videoId === 'string' ? videoId.trim() : videoId;
+
 export const handleEventSwipeVideo = ({
     videoIdObserved = '',
     videoTitle = ''
@@ -53,9 +56,10 @@ export const transformNodes = ({
         const isBanner = type === 'LN-common/bannerRefactor';
         const child = children[index];
         counterVideos += isBanner ? 0 : 1;
+        const videoId = normalizeVideoId(video);
 
         const newChildren = {
-            id: isBanner ? null : video,
+            id: isBanner ? null : videoId,
             title: isBanner ? null : title,
             type,
             counterVideo: counterVideos,
