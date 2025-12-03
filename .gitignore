@@ -29,7 +29,4 @@ v8-compile-cache-0/6.2.414.50/zShomezSsromero@lanacion.com.arzSDocumentoszSArczS
 resources/packages/css/LN10-Home_Main.min.css
 resources/packages/css/LN10-Home_Main-critical.min.css
 
-# Webpack optimization output (generated files)
-/modules-optimized/
-
 localhost.json
