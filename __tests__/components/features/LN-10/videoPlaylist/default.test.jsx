@@ -4,9 +4,7 @@ import { render, screen } from '@testing-library/react';
 import VideoPlaylist from '../../../../../components/features/LN-10/videoPlaylist/default';
 
 jest.mock('fusion:consumer', () => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
+    return Component => Component;
 });
 
 const mockUseContent = jest.fn();
@@ -49,6 +47,7 @@ describe('VideoPlaylist Feature Component', () => {
     const defaultProps = {
         customFields: {
             playlistId: 'test-playlist-123',
+            hidePlaylist: false,
             shouldSchedule: false,
             enabledDays: []
         },
@@ -255,6 +254,133 @@ describe('VideoPlaylist Feature Component', () => {
         });
     });
 
+    describe('hidePlaylist functionality', () => {
+        it('should NOT render warning message when hidePlaylist is true even with errors and isAdmin true', () => {
+            const error = {
+                type: 'Advertencia',
+                message: 'El campo ID de playlist de JW es obligatorio'
+            };
+
+            validateVideoPlaylist.mockReturnValue(error);
+
+            const props = {
+                ...defaultProps,
+                customFields: {
+                    ...defaultProps.customFields,
+                    playlistId: '',
+                    hidePlaylist: true
+                }
+            };
+
+            const { container } = render(<VideoPlaylist {...props} />);
+
+            expect(container.firstChild).toBeNull();
+            expect(
+                screen.queryByTestId('warning-message')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should render warning message when hidePlaylist is false with errors and isAdmin true', () => {
+            const error = {
+                type: 'Advertencia',
+                message: 'El campo ID de playlist de JW es obligatorio'
+            };
+
+            validateVideoPlaylist.mockReturnValue(error);
+
+            const props = {
+                ...defaultProps,
+                customFields: {
+                    ...defaultProps.customFields,
+                    playlistId: '',
+                    hidePlaylist: false
+                }
+            };
+
+            render(<VideoPlaylist {...props} />);
+
+            expect(screen.getByTestId('warning-message')).toBeInTheDocument();
+            expect(screen.getByRole('heading')).toHaveTextContent(
+                'Advertencia'
+            );
+        });
+
+        it('should NOT render warning when hidePlaylist is true, invalid playlistId, and isAdmin true', () => {
+            const error = {
+                type: 'Advertencia',
+                message: 'El ID del playlist es incorrecto'
+            };
+
+            validateVideoPlaylist.mockReturnValue(error);
+            mockUseContent.mockReturnValue(null);
+
+            const props = {
+                ...defaultProps,
+                customFields: {
+                    ...defaultProps.customFields,
+                    hidePlaylist: true
+                }
+            };
+
+            const { container } = render(<VideoPlaylist {...props} />);
+
+            expect(container.firstChild).toBeNull();
+            expect(
+                screen.queryByTestId('warning-message')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should render null when hidePlaylist is true and no errors', () => {
+            const mockPlaylistData = {
+                playlist: [
+                    { id: 'video1', title: 'Video 1' },
+                    { id: 'video2', title: 'Video 2' }
+                ]
+            };
+
+            mockUseContent.mockReturnValue(mockPlaylistData);
+            validateVideoPlaylist.mockReturnValue(null);
+
+            const props = {
+                ...defaultProps,
+                customFields: {
+                    ...defaultProps.customFields,
+                    hidePlaylist: true
+                }
+            };
+
+            const { container } = render(<VideoPlaylist {...props} />);
+
+            expect(container.firstChild).toBeNull();
+        });
+
+        it('should NOT render warning when hidePlaylist is true, isAdmin is true, and error exists', () => {
+            const error = {
+                type: 'Advertencia',
+                message: 'Test warning'
+            };
+
+            validateVideoPlaylist.mockReturnValue(error);
+
+            const props = {
+                ...defaultProps,
+                customFields: {
+                    ...defaultProps.customFields,
+                    playlistId: '',
+                    hidePlaylist: true
+                },
+                isAdmin: true
+            };
+
+            const { container } = render(<VideoPlaylist {...props} />);
+
+            expect(container.firstChild).toBeNull();
+            expect(
+                screen.queryByTestId('warning-message')
+            ).not.toBeInTheDocument();
+        });
+    });
+
     describe('Validation function calls', () => {
         it('should call validateVideoPlaylist with playlistData and playlistId', () => {
             const mockPlaylistData = { playlist: [] };
@@ -276,10 +402,15 @@ describe('VideoPlaylist Feature Component', () => {
     });
 
     describe('PropTypes validation', () => {
+        it('should have correct label property', () => {
+            expect(VideoPlaylist.label).toBe('LN10 VideoPlaylist');
+        });
+
         it('should accept all required props without errors', () => {
             const props = {
                 customFields: {
                     playlistId: 'playlist-123',
+                    hidePlaylist: false,
                     shouldSchedule: true,
                     enabledDays: ['lunes', 'martes']
                 },
@@ -293,6 +424,26 @@ describe('VideoPlaylist Feature Component', () => {
             const { container } = render(<VideoPlaylist {...props} />);
 
             expect(container).toBeTruthy();
+        });
+
+        it('should accept hidePlaylist prop', () => {
+            const props = {
+                customFields: {
+                    playlistId: 'playlist-123',
+                    hidePlaylist: true,
+                    shouldSchedule: false,
+                    enabledDays: []
+                },
+                isAdmin: true,
+                id: 'feature-123'
+            };
+
+            mockUseContent.mockReturnValue({ playlist: [] });
+            validateVideoPlaylist.mockReturnValue(null);
+
+            const { container } = render(<VideoPlaylist {...props} />);
+
+            expect(container.firstChild).toBeNull();
         });
     });
 
@@ -348,6 +499,7 @@ describe('VideoPlaylist Feature Component', () => {
                 ...defaultProps,
                 customFields: {
                     playlistId: 'playlist-123',
+                    hidePlaylist: false,
                     shouldSchedule: true,
                     enabledDays: ['lunes', 'miercoles', 'viernes']
                 }
@@ -373,6 +525,48 @@ describe('VideoPlaylist Feature Component', () => {
             const { container } = render(<VideoPlaylist {...props} />);
 
             expect(container.firstChild).toBeNull();
+        });
+
+        it('should work correctly with all customFields including hidePlaylist', () => {
+            const props = {
+                ...defaultProps,
+                customFields: {
+                    playlistId: 'playlist-123',
+                    hidePlaylist: true,
+                    shouldSchedule: true,
+                    enabledDays: ['lunes', 'miercoles', 'viernes']
+                }
+            };
+
+            mockUseContent.mockReturnValue({ playlist: [] });
+            validateVideoPlaylist.mockReturnValue(null);
+
+            const { container } = render(<VideoPlaylist {...props} />);
+
+            expect(container.firstChild).toBeNull();
+        });
+
+        it('should handle error state with hidePlaylist false correctly', () => {
+            const error = {
+                type: 'Advertencia',
+                message: 'Error de validación'
+            };
+
+            validateVideoPlaylist.mockReturnValue(error);
+
+            const props = {
+                ...defaultProps,
+                customFields: {
+                    playlistId: 'invalid-id',
+                    hidePlaylist: false,
+                    shouldSchedule: false,
+                    enabledDays: []
+                }
+            };
+
+            render(<VideoPlaylist {...props} />);
+
+            expect(screen.getByTestId('warning-message')).toBeInTheDocument();
         });
     });
 });
