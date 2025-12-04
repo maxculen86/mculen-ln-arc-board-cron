@@ -7,7 +7,7 @@ import { validateVideoPlaylist } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 
 function VideoPlaylist({ customFields, isAdmin, id }) {
-    const { playlistId } = customFields;
+    const { playlistId, hidePlaylist } = customFields;
 
     const playlistData = useContent({
         source: checkForId(playlistId) && isAdmin ? 'jwPlaylistSource' : null,
@@ -18,7 +18,7 @@ function VideoPlaylist({ customFields, isAdmin, id }) {
 
     const error = validateVideoPlaylist({ playlistData, playlistId });
 
-    if (error && isAdmin) {
+    if (error && isAdmin && !hidePlaylist) {
         return (
             <article data-feature-id={id}>
                 <WarningMessage
@@ -37,6 +37,11 @@ VideoPlaylist.label = 'LN10 VideoPlaylist';
 
 VideoPlaylist.propTypes = {
     customFields: PropTypes.shape({
+        hidePlaylist: PropTypes.boolean.tag({
+            name: 'Ocultar Playlist',
+            description: 'Marque para ocultar el Playlist',
+            defaultValue: false
+        }).isRequired,
         playlistId: PropTypes.string.tag({
             name: 'ID de playlist de JW',
             description: 'Ingrese aquí el ID de playlist de JW',
